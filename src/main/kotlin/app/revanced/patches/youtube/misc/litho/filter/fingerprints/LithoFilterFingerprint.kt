@@ -7,6 +7,6 @@ internal val lithoFilterFingerprint = methodFingerprint {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     returns("V")
     custom { _, classDef ->
-        classDef.type.endsWith("LithoFilterPatch;")
+        classDef.endsWith("LithoFilterPatch;")
     }
 }

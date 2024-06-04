@@ -6,8 +6,8 @@ import com.android.tools.smali.dexlib2.AccessFlags
 internal val aclCommonShareFingerprint3 = methodFingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("I")
-    custom { methodDef, _ ->
-        methodDef.definingClass.endsWith("/ACLCommonShare;") &&
+    custom { methodDef, classDef ->
+        classDef.endsWith("/ACLCommonShare;") &&
             methodDef.name == "getTranscode"
     }
 }

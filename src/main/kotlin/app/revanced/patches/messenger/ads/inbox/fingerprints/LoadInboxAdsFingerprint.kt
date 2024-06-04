@@ -11,8 +11,8 @@ internal object LoadInboxAdsFingerprint : MethodFingerprint(
         "inbox_ads_fetch_start"
     ),
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
-    customFingerprint = { methodDef, _ ->
-        methodDef.definingClass == "Lcom/facebook/messaging/business/inboxads/plugins/inboxads/itemsupplier/InboxAdsItemSupplierImplementation;"
+    customFingerprint = { _, classDef ->
+        classDef == "Lcom/facebook/messaging/business/inboxads/plugins/inboxads/itemsupplier/InboxAdsItemSupplierImplementation;"
     }
 )
 

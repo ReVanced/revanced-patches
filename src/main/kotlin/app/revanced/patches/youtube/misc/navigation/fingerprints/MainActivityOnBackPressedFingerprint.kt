@@ -7,10 +7,10 @@ internal val mainActivityOnBackPressedFingerprint = methodFingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters()
-    custom { methodDef, _ ->
-        val matchesClass = methodDef.definingClass.endsWith("MainActivity;") ||
+    custom { methodDef, classDef ->
+        val matchesClass = classDef.endsWith("MainActivity;") ||
             // Old versions of YouTube called this class "WatchWhileActivity" instead.
-            methodDef.definingClass.endsWith("WatchWhileActivity;")
+            classDef.endsWith("WatchWhileActivity;")
 
         matchesClass && methodDef.name == "onBackPressed"
     }

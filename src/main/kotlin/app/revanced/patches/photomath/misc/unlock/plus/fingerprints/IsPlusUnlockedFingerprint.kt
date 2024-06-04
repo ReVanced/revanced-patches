@@ -7,7 +7,7 @@ internal val isPlusUnlockedFingerprint = methodFingerprint{
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     strings("genius")
-    custom { methodDef, _ ->
-        methodDef.definingClass.endsWith("/User;")
+    custom { _, classDef ->
+        classDef.endsWith("/User;")
     }
 }

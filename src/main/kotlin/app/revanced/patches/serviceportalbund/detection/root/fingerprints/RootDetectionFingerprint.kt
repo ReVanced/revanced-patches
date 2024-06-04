@@ -6,7 +6,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 internal val rootDetectionFingerprint = methodFingerprint {
     accessFlags(AccessFlags.PUBLIC)
     returns("V")
-    custom { methodDef, _ ->
-        methodDef.definingClass.endsWith("/DeviceIntegrityCheck;")
+    custom { _, classDef ->
+        classDef.endsWith("/DeviceIntegrityCheck;")
     }
 }

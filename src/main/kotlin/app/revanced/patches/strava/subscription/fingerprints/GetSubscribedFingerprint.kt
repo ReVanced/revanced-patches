@@ -6,6 +6,6 @@ import com.android.tools.smali.dexlib2.Opcode
 internal val getSubscribedFingerprint = methodFingerprint {
     opcodes(Opcode.IGET_BOOLEAN)
     custom { methodDef, classDef ->
-        classDef.type.endsWith("/SubscriptionDetailResponse;") && methodDef.name == "getSubscribed"
+        classDef.endsWith("/SubscriptionDetailResponse;") && methodDef.name == "getSubscribed"
     }
 }

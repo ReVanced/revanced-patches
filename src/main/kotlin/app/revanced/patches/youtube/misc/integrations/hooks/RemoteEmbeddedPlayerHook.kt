@@ -13,7 +13,7 @@ internal val remoteEmbeddedPlayerHook = integrationsHook(
     accessFlags(AccessFlags.PRIVATE, AccessFlags.CONSTRUCTOR)
     returns("V")
     parameters("Landroid/content/Context;", "L", "L", "Z")
-    custom { methodDef, _ ->
-        methodDef.definingClass == "Lcom/google/android/youtube/api/jar/client/RemoteEmbeddedPlayer;"
+    custom { _, classDef ->
+        classDef == "Lcom/google/android/youtube/api/jar/client/RemoteEmbeddedPlayer;"
     }
 }

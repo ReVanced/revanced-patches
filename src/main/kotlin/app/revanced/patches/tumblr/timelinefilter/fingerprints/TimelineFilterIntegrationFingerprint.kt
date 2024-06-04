@@ -12,7 +12,7 @@ internal val timelineFilterIntegrationFingerprint = methodFingerprint {
         Opcode.INVOKE_VIRTUAL, // HashSet.add(^)
     )
     strings("BLOCKED_OBJECT_DUMMY")
-    custom { methodDef, _ ->
-        methodDef.definingClass.endsWith("/TimelineFilterPatch;")
+    custom { _, classDef ->
+        classDef.endsWith("/TimelineFilterPatch;")
     }
 }

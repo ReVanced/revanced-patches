@@ -7,8 +7,8 @@ internal val menuGroupsOnClickFingerprint = methodFingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC, AccessFlags.FINAL)
     returns("V")
     parameters("L", "L", "L")
-    custom { methodDef, _ ->
-        methodDef.definingClass.endsWith("/SettingsMenuViewDelegate;") &&
+    custom { methodDef, classDef ->
+        classDef.endsWith("/SettingsMenuViewDelegate;") &&
             methodDef.name.contains("render")
     }
 }

@@ -7,6 +7,6 @@ val mainActivityNavigateToNativePremiumUpsellFingerprint = methodFingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returns("V")
     custom { methodDef, classDef ->
-        classDef.type.endsWith("MainActivity;") && methodDef.name == "navigateToNativePremiumUpsell"
+        classDef.endsWith("MainActivity;") && methodDef.name == "navigateToNativePremiumUpsell"
     }
 }

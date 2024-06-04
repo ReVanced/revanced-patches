@@ -6,8 +6,8 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 internal object InitFingerprint : IntegrationsFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    customFingerprint = { methodDef, _ ->
-        methodDef.definingClass.endsWith("/AwemeHostApplication;") &&
+    customFingerprint = { methodDef, classDef ->
+        classDef.endsWith("/AwemeHostApplication;") &&
                 methodDef.name == "<init>"
     },
     insertIndexResolver = { 1 } // Insert after call to super class.

@@ -13,7 +13,7 @@ internal val remoteEmbedFragmentHook = integrationsHook(
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     returns("V")
     parameters("Landroid/content/Context;", "L", "L")
-    custom { methodDef, _ ->
-        methodDef.definingClass == "Lcom/google/android/apps/youtube/embeddedplayer/service/jar/client/RemoteEmbedFragment;"
+    custom { _, classDef ->
+        classDef == "Lcom/google/android/apps/youtube/embeddedplayer/service/jar/client/RemoteEmbedFragment;"
     }
 }

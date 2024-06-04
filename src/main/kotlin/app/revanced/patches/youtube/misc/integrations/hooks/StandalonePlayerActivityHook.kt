@@ -17,8 +17,8 @@ internal val standalonePlayerActivityHook = integrationsHook(
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L")
-    custom { methodDef, _ ->
-        methodDef.definingClass == "Lcom/google/android/youtube/api/StandalonePlayerActivity;" &&
+    custom { methodDef, classDef ->
+        classDef == "Lcom/google/android/youtube/api/StandalonePlayerActivity;" &&
             methodDef.name == "onCreate"
     }
 }

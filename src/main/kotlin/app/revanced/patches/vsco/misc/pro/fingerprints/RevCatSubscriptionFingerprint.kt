@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint.methodFingerprint
 internal val revCatSubscriptionFingerprint = methodFingerprint {
     returns("V")
     strings("use_debug_subscription_settings")
-    custom { methodDef, _ ->
-        methodDef.definingClass.endsWith("/RevCatSubscriptionSettingsRepository;")
+    custom { _, classDef ->
+        classDef.endsWith("/RevCatSubscriptionSettingsRepository;")
     }
 }

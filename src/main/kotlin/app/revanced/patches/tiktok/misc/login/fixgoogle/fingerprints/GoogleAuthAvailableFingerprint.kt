@@ -7,7 +7,7 @@ internal val googleAuthAvailableFingerprint = methodFingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()
-    custom { methodDef, _ ->
-        methodDef.definingClass == "Lcom/bytedance/lobby/google/GoogleAuth;"
+    custom { _, classDef ->
+        classDef == "Lcom/bytedance/lobby/google/GoogleAuth;"
     }
 }

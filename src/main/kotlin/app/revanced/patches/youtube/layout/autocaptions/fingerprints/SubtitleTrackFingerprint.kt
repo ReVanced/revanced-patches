@@ -16,7 +16,7 @@ internal val subtitleTrackFingerprint = methodFingerprint {
         Opcode.RETURN,
     )
     strings("DISABLE_CAPTIONS_OPTION")
-    custom { methodDef, _ ->
-        methodDef.definingClass.endsWith("SubtitleTrack;")
+    custom { _, classDef ->
+        classDef.endsWith("SubtitleTrack;")
     }
 }

@@ -7,7 +7,7 @@ internal val googleOneTapAuthAvailableFingerprint = methodFingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()
-    custom { methodDef, _ ->
-        methodDef.definingClass == "Lcom/bytedance/lobby/google/GoogleOneTapAuth;"
+    custom { _, classDef ->
+        classDef == "Lcom/bytedance/lobby/google/GoogleOneTapAuth;"
     }
 }

@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 
 internal object HasPremiumIconAccessFingerprint : MethodFingerprint(
     "Z",
-    customFingerprint = { methodDef, _ ->
-        methodDef.definingClass.endsWith("MyAccount;") && methodDef.name == "isPremiumSubscriber"
+    customFingerprint = { methodDef, classDef ->
+        classDef.endsWith("MyAccount;") && methodDef.name == "isPremiumSubscriber"
     }
 )

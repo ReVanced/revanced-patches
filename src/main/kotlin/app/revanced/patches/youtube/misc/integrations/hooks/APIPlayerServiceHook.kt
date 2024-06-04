@@ -13,7 +13,7 @@ internal val apiPlayerServiceHook = integrationsHook(
     contextRegisterResolver = { it.implementation!!.registerCount - it.parameters.size },
 ) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    custom { methodDef, _ ->
-        methodDef.definingClass == "Lcom/google/android/apps/youtube/embeddedplayer/service/service/jar/ApiPlayerService;"
+    custom { _, classDef ->
+        classDef == "Lcom/google/android/apps/youtube/embeddedplayer/service/service/jar/ApiPlayerService;"
     }
 }

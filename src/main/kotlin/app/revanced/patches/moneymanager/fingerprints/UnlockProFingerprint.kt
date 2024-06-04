@@ -13,7 +13,7 @@ internal object UnlockProFingerprint : MethodFingerprint(
         Opcode.IGET_BOOLEAN,
         Opcode.RETURN
     ),
-    customFingerprint = { methodDef, _ ->
-        methodDef.definingClass.endsWith("MainActivity;")
+    customFingerprint = { _, classDef ->
+        classDef.endsWith("MainActivity;")
     }
 )

@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint.methodFingerprint
 
 internal val checkProFingerprint = methodFingerprint {
     returns("I")
-    custom { methodDef, _ ->
-        methodDef.definingClass.endsWith("RawUserData;") && methodDef.name == "isPro"
+    custom { methodDef, classDef ->
+        classDef.endsWith("RawUserData;") && methodDef.name == "isPro"
     }
 }

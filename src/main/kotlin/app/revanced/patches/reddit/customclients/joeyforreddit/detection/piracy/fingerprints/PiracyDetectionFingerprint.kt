@@ -17,6 +17,6 @@ internal object PiracyDetectionFingerprint : MethodFingerprint(
         Opcode.RETURN_VOID
     ),
     customFingerprint = custom@{ _, classDef ->
-        classDef.type.endsWith("ProcessLifeCyleListener;")
+        classDef.endsWith("ProcessLifeCyleListener;")
     }
 )

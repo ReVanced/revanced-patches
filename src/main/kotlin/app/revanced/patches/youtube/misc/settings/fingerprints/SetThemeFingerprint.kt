@@ -10,7 +10,7 @@ internal val setThemeFingerprint = literalValueFingerprint(
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters()
-    custom { methodDef, _ ->
-        methodDef.definingClass.endsWith("ThemeHelper;") && methodDef.name == "setTheme"
+    custom { methodDef, classDef ->
+        classDef.endsWith("ThemeHelper;") && methodDef.name == "setTheme"
     }
 }

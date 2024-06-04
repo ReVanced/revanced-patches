@@ -7,7 +7,7 @@ import app.revanced.patcher.fingerprint.methodFingerprint
 // that the List<TimelineObject> is exposed in non-library code.
 internal val timelineConstructorFingerprint = methodFingerprint {
     strings("timelineObjectsList")
-    custom { methodDef, _ ->
-        methodDef.definingClass.endsWith("/Timeline;") && methodDef.parameters[0].type == "Ljava/util/List;"
+    custom { methodDef, classDef ->
+        classDef.endsWith("/Timeline;") && methodDef.parameters[0].type == "Ljava/util/List;"
     }
 }

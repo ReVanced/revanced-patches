@@ -12,5 +12,5 @@ internal val playerTypeFingerprint = methodFingerprint {
         Opcode.IF_NE,
         Opcode.RETURN_VOID,
     )
-    custom { methodDef, _ -> methodDef.definingClass.endsWith("/YouTubePlayerOverlaysLayout;") }
+    custom { _, classDef -> classDef.endsWith("/YouTubePlayerOverlaysLayout;") }
 }

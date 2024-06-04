@@ -13,8 +13,8 @@ internal val navigationBarHookCallbackFingerprint = methodFingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returns("V")
     parameters(INTEGRATIONS_NAVIGATION_BUTTON_DESCRIPTOR, "Landroid/view/View;")
-    custom { methodDef, _ ->
+    custom { methodDef, classDef ->
         methodDef.name == "navigationTabCreatedCallback" &&
-            methodDef.definingClass == INTEGRATIONS_NAVIGATION_BUTTON_DESCRIPTOR
+            classDef == INTEGRATIONS_NAVIGATION_BUTTON_DESCRIPTOR
     }
 }

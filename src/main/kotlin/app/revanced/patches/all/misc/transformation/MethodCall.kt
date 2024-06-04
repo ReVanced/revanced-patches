@@ -76,7 +76,7 @@ inline fun <reified E> filterMapInstruction35c(
     instruction: Instruction,
     instructionIndex: Int
 ): Instruction35cInfo? where E : Enum<E>, E : IMethodCall {
-    if (classDef.type.startsWith(integrationsClassDescriptorPrefix)) {
+    if (classDef.startsWith(integrationsClassDescriptorPrefix)) {
         // avoid infinite recursion
         return null
     }

@@ -7,6 +7,6 @@ internal object OnApplicationCreateFingerprint : MethodFingerprint(
     customFingerprint = custom@{ methodDef, classDef ->
         if (methodDef.name != "onCreate") return@custom false
 
-        classDef.type.endsWith("RecorderApplication;")
+        classDef.endsWith("RecorderApplication;")
     }
 )

@@ -6,7 +6,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 internal val deletedMessageClickableSpanCtorFingerprint = methodFingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     returns("V")
-    custom { methodDef, _ ->
-        methodDef.definingClass.endsWith("DeletedMessageClickableSpan;")
+    custom { _, classDef ->
+        classDef.endsWith("DeletedMessageClickableSpan;")
     }
 }

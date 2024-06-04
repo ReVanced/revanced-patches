@@ -9,6 +9,6 @@ internal object LoginActivityOnCreateFingerprint : MethodFingerprint(
         Opcode.CONST_4
     ),
     customFingerprint = { method, classDef ->
-        method.name == "onCreate" && classDef.type.endsWith("LoginActivity;")
+        method.name == "onCreate" && classDef.endsWith("LoginActivity;")
     }
 )
