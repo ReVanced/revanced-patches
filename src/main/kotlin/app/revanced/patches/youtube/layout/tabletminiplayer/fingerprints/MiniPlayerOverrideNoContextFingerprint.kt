@@ -6,6 +6,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal object MiniPlayerOverrideNoContextFingerprint : MethodFingerprint(
-    "Z", AccessFlags.FINAL or AccessFlags.PRIVATE,
-    opcodes = listOf(Opcode.RETURN), // anchor to insert the instruction
+    returnType = "Z",
+    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
+    opcodes = listOf(Opcode.IGET_BOOLEAN), // anchor to insert the instruction
 )

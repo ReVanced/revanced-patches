@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.layout.tabletminiplayer
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
@@ -16,8 +16,9 @@ import app.revanced.patches.youtube.layout.tabletminiplayer.fingerprints.MiniPla
 import app.revanced.patches.youtube.layout.tabletminiplayer.fingerprints.MiniPlayerResponseModelSizeCheckFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.util.exception
+import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
@@ -63,6 +64,9 @@ object TabletMiniPlayerPatch : BytecodePatch(
         MiniPlayerOverrideFingerprint
     )
 ) {
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR =
+        "Lapp/revanced/integrations/youtube/patches/TabletMiniPlayerOverridePatch;"
+
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
@@ -70,83 +74,58 @@ object TabletMiniPlayerPatch : BytecodePatch(
             SwitchPreference("revanced_tablet_miniplayer")
         )
 
-        // First resolve the fingerprints via the parent fingerprint.
-        MiniPlayerDimensionsCalculatorParentFingerprint.result
-            ?: throw MiniPlayerDimensionsCalculatorParentFingerprint.exception
-        val miniPlayerClass = MiniPlayerDimensionsCalculatorParentFingerprint.result!!.classDef
-
-        /*
-         * No context parameter method.
-         */
-        MiniPlayerOverrideNoContextFingerprint.resolve(context, miniPlayerClass)
-        val (method, _, parameterRegister) = MiniPlayerOverrideNoContextFingerprint.addProxyCall()
-
-        // Insert right before the return instruction.
-        val secondInsertIndex = method.implementation!!.instructions.size - 1
-        method.insertOverride(
-            secondInsertIndex, parameterRegister
-            /** same register used to return **/
-        )
-
         /*
          * Override every return instruction with the proxy call.
          */
-        MiniPlayerOverrideFingerprint.result?.let { result ->
-            result.mutableMethod.let { method ->
-                val appNameStringIndex = result.scanResult.stringsScanResult!!.matches.first().index + 2
-                context.toMethodWalker(method).nextMethod(appNameStringIndex, true)
+        MiniPlayerOverrideNoContextFingerprint.resolve(
+            context,
+            MiniPlayerDimensionsCalculatorParentFingerprint.resultOrThrow().classDef
+        )
+        MiniPlayerOverrideNoContextFingerprint.resultOrThrow().mutableMethod.apply {
+            findReturnIndexes().forEach { index -> insertOverride(index) }
+        }
+
+        MiniPlayerOverrideFingerprint.resultOrThrow().let {
+            val appNameStringIndex = it.scanResult.stringsScanResult!!.matches.first().index + 2
+
+            it.mutableMethod.apply {
+                val walkerMethod = context.toMethodWalker(this)
+                    .nextMethod(appNameStringIndex, true)
                     .getMethod() as MutableMethod
-            }.apply {
-                implementation!!.let { implementation ->
-                    val returnIndices = implementation.instructions
-                        .withIndex()
-                        .filter { (_, instruction) -> instruction.opcode == Opcode.RETURN }
-                        .map { (index, _) -> index }
 
-                    if (returnIndices.isEmpty()) throw PatchException("No return instructions found.")
-
-                    // This method clobbers register p0 to return the value, calculate to override.
-                    val returnedRegister = implementation.registerCount - parameters.size
-
-                    // Hook the returned register on every return instruction.
-                    returnIndices.forEach { index -> insertOverride(index, returnedRegister) }
+                walkerMethod.apply {
+                    findReturnIndexes().forEach { index -> insertOverride(index) }
                 }
             }
-
-            return@let
-        } ?: throw MiniPlayerOverrideFingerprint.exception
+        }
 
         /*
          * Size check return value override.
          */
-        MiniPlayerResponseModelSizeCheckFingerprint.addProxyCall()
+        MiniPlayerResponseModelSizeCheckFingerprint.resultOrThrow().let {
+            it.mutableMethod.insertOverride(it.scanResult.patternScanResult!!.endIndex)
+        }
     }
 
-    // Helper methods.
-    private fun MethodFingerprint.addProxyCall(): Triple<MutableMethod, Int, Int> {
-        val (method, scanIndex, parameterRegister) = this.unwrap()
-        method.insertOverride(scanIndex, parameterRegister)
+    private fun Method.findReturnIndexes(): List<Int> {
+        val indexes = implementation!!.instructions
+            .withIndex()
+            .filter { (_, instruction) -> instruction.opcode == Opcode.RETURN }
+            .map { (index, _) -> index }
+            .reversed()
+        if (indexes.isEmpty()) throw PatchException("No return instructions found.")
 
-        return Triple(method, scanIndex, parameterRegister)
+        return indexes;
     }
 
-    private fun MutableMethod.insertOverride(index: Int, overrideRegister: Int) {
+    private fun MutableMethod.insertOverride(index: Int) {
+        val register = getInstruction<OneRegisterInstruction>(index).registerA
         this.addInstructions(
             index,
             """
-                    invoke-static {v$overrideRegister}, Lapp/revanced/integrations/youtube/patches/TabletMiniPlayerOverridePatch;->getTabletMiniPlayerOverride(Z)Z
-                    move-result v$overrideRegister
+                    invoke-static {v$register}, $INTEGRATIONS_CLASS_DESCRIPTOR->getTabletMiniPlayerOverride(Z)Z
+                    move-result v$register
                 """
         )
-    }
-
-    private fun MethodFingerprint.unwrap(): Triple<MutableMethod, Int, Int> {
-        val result = this.result!!
-        val scanIndex = result.scanResult.patternScanResult!!.endIndex
-        val method = result.mutableMethod
-        val instructions = method.implementation!!.instructions
-        val parameterRegister = (instructions[scanIndex] as OneRegisterInstruction).registerA
-
-        return Triple(method, scanIndex, parameterRegister)
     }
 }
