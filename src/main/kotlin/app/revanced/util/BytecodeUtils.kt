@@ -99,12 +99,25 @@ fun Method.indexOfIdResourceOrThrow(resourceName: String): Int {
  * Find the index of the first wide literal instruction with the given value.
  *
  * @return the first literal instruction with the value, or -1 if not found.
+ * @see indexOfFirstWideLiteralInstructionValueOrThrow
  */
 fun Method.indexOfFirstWideLiteralInstructionValue(literal: Long) = implementation?.let {
     it.instructions.indexOfFirst { instruction ->
         (instruction as? WideLiteralInstruction)?.wideLiteral == literal
     }
 } ?: -1
+
+/**
+ * Find the index of the first wide literal instruction with the given value,
+ * or throw an exception if not found.
+ *
+ * @return the first literal instruction with the value, or throws [PatchException] if not found.
+ */
+fun Method.indexOfFirstWideLiteralInstructionValueOrThrow(literal: Long) : Int {
+    val index = indexOfFirstWideLiteralInstructionValue(literal)
+    if (index < 0) throw PatchException("Could not find literal value: $literal")
+    return index
+}
 
 /**
  * Check if the method contains a literal with the given value.
@@ -144,7 +157,7 @@ inline fun <reified T : Reference> Instruction.getReference() = (this as? Refere
  * @return The index of the first [Instruction] that matches the predicate.
  */
 // TODO: delete this on next major release, the overloaded method with an optional start index serves the same purposes.
-@Deprecated("Use the overloaded method with an optional start index.", ReplaceWith("indexOfFirstInstruction(predicate)"))
+//@Deprecated("Use the overloaded method with an optional start index.", ReplaceWith("indexOfFirstInstruction(predicate)"))
 fun Method.indexOfFirstInstruction(predicate: Instruction.() -> Boolean) = indexOfFirstInstruction(0, predicate)
 
 /**

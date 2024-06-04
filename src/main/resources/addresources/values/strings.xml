@@ -952,6 +952,12 @@
             <string name="revanced_tablet_miniplayer_title">Enable tablet mini player</string>
             <string name="revanced_tablet_miniplayer_summary_on">Mini player is enabled</string>
             <string name="revanced_tablet_miniplayer_summary_off">Mini player is disabled</string>
+            <string name="revanced_tablet_miniplayer_modern_title">Enable modern tablet mini player</string>
+            <string name="revanced_tablet_miniplayer_modern_summary_on">Modern Mini player is enabled</string>
+            <string name="revanced_tablet_miniplayer_modern_summary_off">Modern mini player is disabled</string>
+            <string name="revanced_tablet_miniplayer_modern_hide_expand_close_title">Hide player expand and close buttons</string>
+            <string name="revanced_tablet_miniplayer_modern_hide_expand_close_summary_on">Expand and close buttons are hidden (swipe to expand or close)</string>
+            <string name="revanced_tablet_miniplayer_modern_hide_expand_close_summary_off">Expand and close buttons are shown</string>
         </patch>
         <patch id="layout.theme.ThemeBytecodePatch">
             <string name="revanced_gradient_loading_screen_title">Enable gradient loading screen</string>

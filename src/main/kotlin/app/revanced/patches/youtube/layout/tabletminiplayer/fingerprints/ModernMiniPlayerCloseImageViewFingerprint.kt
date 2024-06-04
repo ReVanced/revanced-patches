@@ -5,9 +5,9 @@ import app.revanced.patches.youtube.layout.tabletminiplayer.TabletMiniPlayerReso
 import app.revanced.util.patch.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal object MiniPlayerDimensionsCalculatorParentFingerprint : LiteralValueFingerprint(
+internal object ModernMiniPlayerCloseImageViewFingerprint : LiteralValueFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    returnType = "V",
-    parameters = listOf("L"),
-    literalSupplier = { TabletMiniPlayerResourcePatch.floatyBarButtonTopMargin }
+    returnType = "Landroid/widget/ImageView;",
+    parameters = listOf(),
+    literalSupplier = { TabletMiniPlayerResourcePatch.modernMiniplayerClose }
 )

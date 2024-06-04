@@ -1901,6 +1901,7 @@ public final class app/revanced/util/BytecodeUtilsKt {
 	public static final fun indexOfFirstInstructionOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;ILkotlin/jvm/functions/Function1;)I
 	public static synthetic fun indexOfFirstInstructionOrThrow$default (Lcom/android/tools/smali/dexlib2/iface/Method;ILkotlin/jvm/functions/Function1;ILjava/lang/Object;)I
 	public static final fun indexOfFirstWideLiteralInstructionValue (Lcom/android/tools/smali/dexlib2/iface/Method;J)I
+	public static final fun indexOfFirstWideLiteralInstructionValueOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;J)I
 	public static final fun indexOfIdResource (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/String;)I
 	public static final fun indexOfIdResourceOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/String;)I
 	public static final fun injectHideViewCall (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;IILjava/lang/String;Ljava/lang/String;)V
