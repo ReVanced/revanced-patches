@@ -42,7 +42,7 @@ object HideGetPremiumPatch : BytecodePatch(
                 addInstruction(
                     insertIndex + 1,
                     "invoke-virtual {v$getPremiumViewRegister, v$visibilityRegister}, " +
-                        "Landroid/view/View;->setVisibility(I)V",
+                            "Landroid/view/View;->setVisibility(I)V",
                 )
             }
         } ?: throw HideGetPremiumFingerprint.exception

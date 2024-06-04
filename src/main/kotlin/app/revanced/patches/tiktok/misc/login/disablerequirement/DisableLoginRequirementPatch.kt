@@ -18,7 +18,10 @@ val disableLoginRequirementPatch = bytecodePatch(
     val mandatoryLoginServiceResult2 by mandatoryLoginServiceFingerprint2
 
     execute {
-        listOf(mandatoryLoginServiceResult.mutableMethod, mandatoryLoginServiceResult2.mutableMethod).forEach { method ->
+        listOf(
+            mandatoryLoginServiceResult.mutableMethod,
+            mandatoryLoginServiceResult2.mutableMethod
+        ).forEach { method ->
             method.addInstructions(
                 0,
                 """

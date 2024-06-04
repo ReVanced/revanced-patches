@@ -15,10 +15,10 @@ import app.revanced.patches.nyx.misc.pro.fingerprints.CheckProFingerprint
 @Suppress("unused")
 object UnlockProPatch : BytecodePatch(setOf(CheckProFingerprint)) {
     override fun execute(context: BytecodeContext) = CheckProFingerprint.result?.mutableMethod?.addInstructions(
-            0,
-            """
-                const/4 v0, 0x1
-                return v0
-            """
+        0,
+        """
+            const/4 v0, 0x1
+            return v0
+        """
     ) ?: throw CheckProFingerprint.exception
 }

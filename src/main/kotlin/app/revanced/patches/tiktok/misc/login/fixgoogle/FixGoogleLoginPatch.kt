@@ -19,7 +19,10 @@ val fixGoogleLoginPatch = bytecodePatch(
     val googleAuthAvailableResult by googleAuthAvailableFingerprint
 
     execute {
-        listOf(googleOneTapAuthAvailableResult.mutableMethod, googleAuthAvailableResult.mutableMethod).forEach { method ->
+        listOf(
+            googleOneTapAuthAvailableResult.mutableMethod,
+            googleAuthAvailableResult.mutableMethod
+        ).forEach { method ->
             method.addInstructions(
                 0,
                 """

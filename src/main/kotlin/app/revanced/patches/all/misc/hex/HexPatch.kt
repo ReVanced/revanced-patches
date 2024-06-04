@@ -44,9 +44,9 @@ class HexPatch : BaseHexPatch() {
             } catch (e: Exception) {
                 throw PatchException(
                     "Invalid input: $from.\n" +
-                        "Every pattern must be followed by a pipe ('|'), " +
-                        "the replacement pattern, another pipe ('|'), " +
-                        "and the path to the file to make the changes in relative to the APK root. ",
+                            "Every pattern must be followed by a pipe ('|'), " +
+                            "the replacement pattern, another pipe ('|'), " +
+                            "and the path to the file to make the changes in relative to the APK root. ",
                 )
             }
 

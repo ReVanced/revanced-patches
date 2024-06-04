@@ -13,23 +13,25 @@ val spoofDeviceIdPatch = bytecodePatch(
     dependencies = [SignatureDetectionPatch::class],
     compatiblePackages = [CompatiblePackage("com.microblink.photomath", ["8.37.0"])]
 )
+
 @Suppress("unused")
 object SpoofDeviceIdPatch : BytecodePatch(
     setOf(GetDeviceIdFingerprint)
-){
+) {
     dependsOn(signatureDetectionPatch)
 
     compatibleWith("com.microblink.photomath"("8.32.0"))
 
     val getDeviceIdResult by getDeviceIdFingerprint
 
-    execute {
+    execute
+    {
         getDeviceIdResult.mutableMethod.replaceInstructions(
             0,
             """
-            const-string v0, "${Random.nextLong().toString(16)}"
-            return-object v0
-        """
+                const-string v0, "${Random.nextLong().toString(16)}"
+                return-object v0
+            """
         )
     }
 

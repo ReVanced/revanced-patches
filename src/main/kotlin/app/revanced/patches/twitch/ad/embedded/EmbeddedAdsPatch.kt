@@ -3,7 +3,6 @@ package app.revanced.patches.twitch.ad.embedded
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
-import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.twitch.ad.embedded.fingerprints.createsUsherClientFingerprint
 import app.revanced.patches.twitch.ad.video.VideoAdsPatch
@@ -19,9 +18,8 @@ val embeddedAdsPatch = bytecodePatch(
     dependsOn(
         VideoAdsPatch,
         integrationsPatch,
-        SettingsPatch, 
-        
-    )
+        SettingsPatch
+        )
 
     compatibleWith("tv.twitch.android.app"("15.4.1", "16.1.0", "16.9.1"))
 
