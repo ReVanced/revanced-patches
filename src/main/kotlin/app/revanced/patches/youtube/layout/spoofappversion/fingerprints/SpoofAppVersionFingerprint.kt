@@ -5,8 +5,8 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val spoofAppVersionFingerprint = methodFingerprint {
-    returns("L")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    returns("L")
     parameters("L")
     opcodes(
         Opcode.IGET_OBJECT,

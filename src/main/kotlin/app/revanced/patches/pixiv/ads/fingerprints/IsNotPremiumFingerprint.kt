@@ -8,7 +8,6 @@ internal val isNotPremiumFingerprint = methodFingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     returns("V")
     parameters("L")
-    strings("pixivAccountManager")
     custom { _, classDef ->
         // The "isNotPremium" method is the only method in the class.
         if (classDef.virtualMethods.count() != 1) return@custom false
@@ -17,4 +16,5 @@ internal val isNotPremiumFingerprint = methodFingerprint {
             isNotPremiumMethod.parameterTypes.size == 0 && isNotPremiumMethod.returnType == "Z"
         }
     }
+    strings("pixivAccountManager")
 }

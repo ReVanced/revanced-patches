@@ -5,8 +5,8 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val recyclerViewTopScrollingFingerprint = methodFingerprint {
-    returns("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("V")
     parameters()
     opcodes(
         Opcode.IGET_OBJECT,

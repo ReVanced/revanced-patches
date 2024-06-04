@@ -7,7 +7,6 @@ import com.android.tools.smali.dexlib2.Opcode
 internal val isFreeVersionFingerprint = methodFingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Ljava/lang/Boolean;")
-    strings("free")
     parameters("Landroid/content/Context;")
     opcodes(
         Opcode.SGET,
@@ -18,4 +17,5 @@ internal val isFreeVersionFingerprint = methodFingerprint {
         Opcode.MOVE_RESULT,
         Opcode.IF_EQZ
     )
+    strings("free")
 }
