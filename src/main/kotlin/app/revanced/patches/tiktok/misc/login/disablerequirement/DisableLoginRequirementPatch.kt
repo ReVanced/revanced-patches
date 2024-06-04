@@ -10,8 +10,8 @@ val disableLoginRequirementPatch = bytecodePatch(
     name = "Disable login requirement",
 ) {
     compatibleWith(
-        "com.ss.android.ugc.trill"(),
-        "com.zhiliaoapp.musically"()
+        "com.ss.android.ugc.trill",
+        "com.zhiliaoapp.musically"
     )
 
     val mandatoryLoginServiceResult by mandatoryLoginServiceFingerprint

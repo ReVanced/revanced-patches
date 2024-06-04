@@ -11,8 +11,8 @@ val fixGoogleLoginPatch = bytecodePatch(
     description = "Allows logging in with a Google account.",
 ) {
     compatibleWith(
-        "com.ss.android.ugc.trill"(),
-        "com.zhiliaoapp.musically"()
+        "com.ss.android.ugc.trill",
+        "com.zhiliaoapp.musically"
     )
 
     val googleOneTapAuthAvailableResult by googleOneTapAuthAvailableFingerprint
