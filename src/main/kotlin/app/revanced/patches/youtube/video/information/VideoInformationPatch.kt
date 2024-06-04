@@ -77,7 +77,7 @@ val videoInformationPatch = bytecodePatch(
             "seekTo",
             listOf(ImmutableMethodParameter("J", null, "time")),
             "Z",
-            AccessFlags.PUBLIC.value.or(AccessFlags.FINAL.value),
+            AccessFlags.PUBLIC.value.or(AccessFlags.FINAL),
             null,
             null,
             MutableMethodImplementation(4),

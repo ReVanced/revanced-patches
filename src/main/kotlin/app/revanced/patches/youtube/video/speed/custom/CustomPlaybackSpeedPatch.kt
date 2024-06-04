@@ -130,7 +130,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
             getOldPlaybackSpeedsResult.classDef.type,
             "INSTANCE",
             getOldPlaybackSpeedsResult.classDef.type,
-            AccessFlags.PUBLIC.value.or(AccessFlags.STATIC.value),
+            AccessFlags.PUBLIC.value.or(AccessFlags.STATIC),
             null,
             null,
             null,

@@ -178,7 +178,7 @@ val spoofClientPatch = bytecodePatch(
                     setClientInfoMethodName,
                     listOf(ImmutableMethodParameter(clientInfoContainerClassName, null, "clientInfoContainer")),
                     "V",
-                    AccessFlags.PRIVATE.value.or(AccessFlags.STATIC.value),
+                    AccessFlags.PRIVATE.value.or(AccessFlags.STATIC),
                     null,
                     null,
                     MutableMethodImplementation(3),

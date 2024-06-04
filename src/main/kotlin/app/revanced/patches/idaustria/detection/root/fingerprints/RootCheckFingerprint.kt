@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val rootCheckFingerprint = methodFingerprint {
-    accessFlags(AccessFlags.PUBLIC.value)
+    accessFlags(AccessFlags.PUBLIC)
     returns("V")
     custom{ methodDef, _ ->
         methodDef.name == "rootCheck" &&

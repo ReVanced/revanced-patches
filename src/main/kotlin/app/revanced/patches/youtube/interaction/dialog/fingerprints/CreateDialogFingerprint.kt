@@ -5,7 +5,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val createDialogFingerprint = methodFingerprint {
-    accessFlags(AccessFlags.PROTECTED.value)
+    accessFlags(AccessFlags.PROTECTED)
     returns("V")
     parameters("L", "L", "Ljava/lang/String;")
     opcodes(
