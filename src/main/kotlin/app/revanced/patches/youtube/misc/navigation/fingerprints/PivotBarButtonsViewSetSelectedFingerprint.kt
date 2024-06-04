@@ -17,7 +17,6 @@ internal val pivotBarButtonsViewSetSelectedFingerprint = methodFingerprint {
     returns("V")
     parameters("I", "Z")
     custom { methodDef, classDef ->
-
         classDef.type == "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;" &&
             indexOfSetViewSelectedInstruction(methodDef) >= 0
     }

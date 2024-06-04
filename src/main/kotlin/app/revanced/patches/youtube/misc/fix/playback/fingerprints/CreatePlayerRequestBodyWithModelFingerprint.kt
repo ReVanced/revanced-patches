@@ -21,7 +21,6 @@ internal val createPlayerRequestBodyWithModelFingerprint = methodFingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters()
     custom { methodDef, _ ->
-
         methodDef.containsWideLiteralInstructionValue(1073741824) && indexOfBuildModelInstruction(methodDef) >= 0
     }
 }
