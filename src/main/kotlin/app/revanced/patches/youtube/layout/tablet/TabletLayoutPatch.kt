@@ -23,17 +23,20 @@ import app.revanced.patches.youtube.layout.tablet.fingerprints.MiniPlayerDimensi
 import app.revanced.patches.youtube.layout.tablet.fingerprints.MiniPlayerOverrideFingerprint
 import app.revanced.patches.youtube.layout.tablet.fingerprints.MiniPlayerOverrideNoContextFingerprint
 import app.revanced.patches.youtube.layout.tablet.fingerprints.MiniPlayerResponseModelSizeCheckFingerprint
-import app.revanced.patches.youtube.layout.tablet.fingerprints.ModernMiniPlayerCloseImageViewFingerprint
+import app.revanced.patches.youtube.layout.tablet.fingerprints.ModernMiniPlayerCloseButtonFingerprint
 import app.revanced.patches.youtube.layout.tablet.fingerprints.ModernMiniPlayerConfigFingerprint
 import app.revanced.patches.youtube.layout.tablet.fingerprints.ModernMiniPlayerConstructorFingerprint
-import app.revanced.patches.youtube.layout.tablet.fingerprints.ModernMiniPlayerExpandImageViewFingerprint
+import app.revanced.patches.youtube.layout.tablet.fingerprints.ModernMiniPlayerExpandButtonFingerprint
+import app.revanced.patches.youtube.layout.tablet.fingerprints.ModernMiniPlayerForwardButtonFingerprint
 import app.revanced.patches.youtube.layout.tablet.fingerprints.ModernMiniPlayerOverlayViewFingerprint
+import app.revanced.patches.youtube.layout.tablet.fingerprints.ModernMiniPlayerRewindButtonFingerprint
 import app.revanced.patches.youtube.layout.tablet.fingerprints.ModernMiniPlayerViewParentFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
+import app.revanced.util.patch.LiteralValueFingerprint
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -89,7 +92,8 @@ object TabletLayoutPatch : BytecodePatch(
                     SwitchPreference("revanced_tablet_mini_player"),
                     SwitchPreference("revanced_tablet_mini_player_modern"),
                     SwitchPreference("revanced_tablet_mini_player_modern_hide_expand_close"),
-                    TextPreference("revanced_tablet_mini_player_opacity", inputType = InputType.NUMBER),
+                    SwitchPreference("revanced_tablet_mini_player_modern_hide_rewind_forward"),
+                    TextPreference("revanced_tablet_mini_player_opacity", inputType = InputType.NUMBER)
                 )
             )
         )
@@ -116,7 +120,7 @@ object TabletLayoutPatch : BytecodePatch(
             }
         }
 
-        // Enable tablet mini player
+        // Enable tablet mini player.
 
         MiniPlayerOverrideNoContextFingerprint.resolve(
             context,
@@ -145,7 +149,7 @@ object TabletLayoutPatch : BytecodePatch(
             it.mutableMethod.insertTabletOverride(it.scanResult.patternScanResult!!.endIndex)
         }
 
-        // Enable modern mini player
+        // Enable modern mini player.
 
         ModernMiniPlayerConfigFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
@@ -169,30 +173,30 @@ object TabletLayoutPatch : BytecodePatch(
 
         // Hide modern mini player buttons.
 
-        listOf(
-            Triple(ModernMiniPlayerOverlayViewFingerprint, TabletLayoutResourcePatch.scrimOverlay, "adjustModernTabletMiniPlayerOpacity"),
-            Triple(ModernMiniPlayerExpandImageViewFingerprint, TabletLayoutResourcePatch.modernMiniplayerExpand, "hideModernMiniPlayerButtonView"),
-            Triple(ModernMiniPlayerCloseImageViewFingerprint, TabletLayoutResourcePatch.modernMiniplayerClose, "hideModernMiniPlayerButtonView")
-        ).forEach { (fingerprint, resourceId, integrationsMethodName) ->
-            fingerprint.resolve(
-                context,
-                ModernMiniPlayerViewParentFingerprint.resultOrThrow().classDef
-            )
+        ModernMiniPlayerOverlayViewFingerprint.addModernTabletMiniPlayerImageViewHook(
+            context,
+            "adjustModernTabletMiniPlayerOpacity"
+        )
 
-            fingerprint.resultOrThrow().mutableMethod.apply {
-                val imageViewIndex = indexOfFirstInstructionOrThrow(
-                    indexOfFirstWideLiteralInstructionValueOrThrow(resourceId)
-                ) {
-                    opcode == Opcode.CHECK_CAST
-                }
+        ModernMiniPlayerExpandButtonFingerprint.addModernTabletMiniPlayerImageViewHook(
+            context,
+            "hideModernMiniPlayerExpandClose"
+        )
 
-                val register = getInstruction<OneRegisterInstruction>(imageViewIndex).registerA
-                addInstruction(
-                    imageViewIndex + 1,
-                    "invoke-static { v$register }, $INTEGRATIONS_CLASS_DESCRIPTOR->$integrationsMethodName(Landroid/widget/ImageView;)V"
-                )
-            }
-        }
+        ModernMiniPlayerCloseButtonFingerprint.addModernTabletMiniPlayerImageViewHook(
+            context,
+            "hideModernMiniPlayerExpandClose"
+        )
+
+        ModernMiniPlayerRewindButtonFingerprint.addModernTabletMiniPlayerImageViewHook(
+            context,
+            "hideModernMiniPlayerRewindForward"
+        )
+
+        ModernMiniPlayerForwardButtonFingerprint.addModernTabletMiniPlayerImageViewHook(
+            context,
+            "hideModernMiniPlayerRewindForward"
+        )
     }
 
     private fun Method.findReturnIndexes(): List<Int> {
@@ -203,7 +207,7 @@ object TabletLayoutPatch : BytecodePatch(
             .reversed()
         if (indexes.isEmpty()) throw PatchException("No return instructions found.")
 
-        return indexes;
+        return indexes
     }
 
     private fun MutableMethod.insertTabletOverride(index: Int) {
@@ -237,5 +241,29 @@ object TabletLayoutPatch : BytecodePatch(
             """
         )
         removeInstruction(iPutIndex)
+    }
+
+    private fun LiteralValueFingerprint.addModernTabletMiniPlayerImageViewHook(
+        context: BytecodeContext,
+        integrationsMethodName: String
+    ) {
+        resolve(
+            context,
+            ModernMiniPlayerViewParentFingerprint.resultOrThrow().classDef
+        )
+
+        resultOrThrow().mutableMethod.apply {
+            val imageViewIndex = indexOfFirstInstructionOrThrow(
+                indexOfFirstWideLiteralInstructionValueOrThrow(literalSupplier.invoke())
+            ) {
+                opcode == Opcode.CHECK_CAST
+            }
+
+            val register = getInstruction<OneRegisterInstruction>(imageViewIndex).registerA
+            addInstruction(
+                imageViewIndex + 1,
+                "invoke-static { v$register }, $INTEGRATIONS_CLASS_DESCRIPTOR->$integrationsMethodName(Landroid/widget/ImageView;)V"
+            )
+        }
     }
 }

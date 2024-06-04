@@ -959,6 +959,9 @@
             <string name="revanced_tablet_mini_player_modern_hide_expand_close_title">Hide expand and close buttons</string>
             <string name="revanced_tablet_mini_player_modern_hide_expand_close_summary_on">Buttons are hidden\n(swipe mini player to expand or close)</string>
             <string name="revanced_tablet_mini_player_modern_hide_expand_close_summary_off">Expand and close buttons are shown</string>
+            <string name="revanced_tablet_mini_player_modern_hide_rewind_forward_title">Hide skip forward and back buttons</string>
+            <string name="revanced_tablet_mini_player_modern_hide_rewind_forward_summary_on">Skip forward and back are hidden</string>
+            <string name="revanced_tablet_mini_player_modern_hide_rewind_forward_summary_off">Skip forward and back are shown</string>
             <string name="revanced_tablet_mini_player_opacity_title">Modern mini player overlay opacity</string>
             <string name="revanced_tablet_mini_player_opacity_summary">Opacity value between 0-100, where 0 is transparent</string>
             <string name="revanced_tablet_mini_player_opacity_invalid_toast">Mini player overlay opacity must be between 0-100</string>

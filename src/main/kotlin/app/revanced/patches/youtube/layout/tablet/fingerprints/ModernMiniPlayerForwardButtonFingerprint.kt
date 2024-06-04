@@ -8,9 +8,9 @@ import com.android.tools.smali.dexlib2.AccessFlags
 /**
  * Resolves using the class found in [ModernMiniPlayerViewParentFingerprint].
  */
-internal object ModernMiniPlayerExpandImageViewFingerprint : LiteralValueFingerprint(
+internal object ModernMiniPlayerForwardButtonFingerprint : LiteralValueFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "Landroid/widget/ImageView;",
     parameters = listOf(),
-    literalSupplier = { TabletLayoutResourcePatch.modernMiniplayerExpand }
+    literalSupplier = { TabletLayoutResourcePatch.modernMiniplayerForwardButton }
 )
