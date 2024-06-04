@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.tabletminiplayer
+package app.revanced.patches.youtube.layout.tablet
 
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
@@ -6,10 +6,10 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
 
 @Patch(dependencies = [ResourceMappingPatch::class])
-internal object TabletMiniPlayerResourcePatch : ResourcePatch() {
-    internal var floatyBarButtonTopMargin = -1L
-    internal var modernMiniplayerClose = -1L
-    internal var modernMiniplayerExpand = -1L
+internal object TabletLayoutResourcePatch : ResourcePatch() {
+    var floatyBarButtonTopMargin = -1L
+    var modernMiniplayerClose = -1L
+    var modernMiniplayerExpand = -1L
 
     override fun execute(context: ResourceContext) {
         floatyBarButtonTopMargin = ResourceMappingPatch[

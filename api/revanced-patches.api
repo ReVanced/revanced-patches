@@ -1602,6 +1602,12 @@ public final class app/revanced/patches/youtube/layout/tablet/EnableTabletLayout
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/youtube/layout/tablet/TabletLayoutPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/tablet/TabletLayoutPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/youtube/layout/tabletminiplayer/TabletMiniPlayerPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/tabletminiplayer/TabletMiniPlayerPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V

@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.tabletminiplayer.fingerprints
+package app.revanced.patches.youtube.layout.tablet.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.util.patch.LiteralValueFingerprint

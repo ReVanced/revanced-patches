@@ -1,7 +1,7 @@
-package app.revanced.patches.youtube.layout.tabletminiplayer.fingerprints
+package app.revanced.patches.youtube.layout.tablet.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patches.youtube.layout.tabletminiplayer.TabletMiniPlayerResourcePatch
+import app.revanced.patches.youtube.layout.tablet.TabletLayoutResourcePatch
 import app.revanced.util.patch.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
@@ -9,5 +9,5 @@ internal object MiniPlayerDimensionsCalculatorParentFingerprint : LiteralValueFi
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "V",
     parameters = listOf("L"),
-    literalSupplier = { TabletMiniPlayerResourcePatch.floatyBarButtonTopMargin }
+    literalSupplier = { TabletLayoutResourcePatch.floatyBarButtonTopMargin }
 )
