@@ -4,9 +4,11 @@ import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal object ModernMiniPlayerViewParentFingerprint : MethodFingerprint(
+/**
+ * Resolves using the class found in [MiniplayerModernViewParentFingerprint].
+ */
+internal object MiniplayerModernAddViewListenerFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    returnType = "Ljava/lang/String;",
-    parameters = listOf(),
-    strings = listOf("player_overlay_modern_mini_player_controls")
+    returnType = "V",
+    parameters = listOf("Landroid/view/View;")
 )

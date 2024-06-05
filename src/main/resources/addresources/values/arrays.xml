@@ -16,15 +16,15 @@
                 <item>17.33.42</item>
             </string-array>
         </patch>
-        <patch id="layout.miniplayer.MiniPlayerPatch">
-            <string-array name="revanced_mini_player_type_entries">
-                <item>@string/revanced_mini_player_type_entry_1</item>
-                <item>@string/revanced_mini_player_type_entry_2</item>
-                <item>@string/revanced_mini_player_type_entry_3</item>
-                <item>@string/revanced_mini_player_type_entry_4</item>
-                <item>@string/revanced_mini_player_type_entry_5</item>
+        <patch id="layout.miniplayer.MiniplayerPatch">
+            <string-array name="revanced_miniplayer_type_entries">
+                <item>@string/revanced_miniplayer_type_entry_1</item>
+                <item>@string/revanced_miniplayer_type_entry_2</item>
+                <item>@string/revanced_miniplayer_type_entry_3</item>
+                <item>@string/revanced_miniplayer_type_entry_4</item>
+                <item>@string/revanced_miniplayer_type_entry_5</item>
             </string-array>
-            <string-array name="revanced_mini_player_type_entry_values">
+            <string-array name="revanced_miniplayer_type_entry_values">
                 <!-- Enum names from Integrations. -->
                 <item>ORIGINAL</item>
                 <item>PHONE</item>

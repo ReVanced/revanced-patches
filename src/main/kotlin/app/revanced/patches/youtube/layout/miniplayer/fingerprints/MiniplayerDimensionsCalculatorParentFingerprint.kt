@@ -1,13 +1,13 @@
 package app.revanced.patches.youtube.layout.miniplayer.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patches.youtube.layout.miniplayer.MiniPlayerResourcePatch
+import app.revanced.patches.youtube.layout.miniplayer.MiniplayerResourcePatch
 import app.revanced.util.patch.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal object MiniPlayerDimensionsCalculatorParentFingerprint : LiteralValueFingerprint(
+internal object MiniplayerDimensionsCalculatorParentFingerprint : LiteralValueFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "V",
     parameters = listOf("L"),
-    literalSupplier = { MiniPlayerResourcePatch.floatyBarButtonTopMargin }
+    literalSupplier = { MiniplayerResourcePatch.floatyBarButtonTopMargin }
 )

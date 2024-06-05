@@ -6,7 +6,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
 
 @Patch(dependencies = [ResourceMappingPatch::class])
-internal object MiniPlayerResourcePatch : ResourcePatch() {
+internal object MiniplayerResourcePatch : ResourcePatch() {
     var floatyBarButtonTopMargin = -1L
     var scrimOverlay = -1L
     var modernMiniplayerClose = -1L

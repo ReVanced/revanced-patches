@@ -1528,8 +1528,8 @@ public final class app/revanced/patches/youtube/layout/hide/time/HideTimestampPa
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/youtube/layout/miniplayer/MiniPlayerPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/miniplayer/MiniPlayerPatch;
+public final class app/revanced/patches/youtube/layout/miniplayer/MiniplayerPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/miniplayer/MiniplayerPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }

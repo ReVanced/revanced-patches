@@ -5,11 +5,11 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object MiniPlayerResponseModelSizeCheckFingerprint : MethodFingerprint(
-    "L",
-    AccessFlags.PUBLIC or AccessFlags.FINAL,
-    listOf("Ljava/lang/Object;", "Ljava/lang/Object;"),
-    listOf(
+internal object MiniplayerResponseModelSizeCheckFingerprint : MethodFingerprint(
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "L",
+    parameters = listOf("Ljava/lang/Object;", "Ljava/lang/Object;"),
+    opcodes = listOf(
         Opcode.RETURN_OBJECT,
         Opcode.CHECK_CAST,
         Opcode.CHECK_CAST,
