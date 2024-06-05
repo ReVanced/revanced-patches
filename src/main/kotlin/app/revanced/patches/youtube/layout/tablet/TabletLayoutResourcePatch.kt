@@ -13,6 +13,8 @@ internal object TabletLayoutResourcePatch : ResourcePatch() {
     var modernMiniplayerExpand = -1L
     var modernMiniplayerRewindButton = -1L
     var modernMiniplayerForwardButton = -1L
+    var ytOutlineXWhite24 = -1L
+    var ytOutlinePictureInPictureWhite24 = -1L
 
     override fun execute(context: ResourceContext) {
         floatyBarButtonTopMargin = ResourceMappingPatch[
@@ -43,6 +45,16 @@ internal object TabletLayoutResourcePatch : ResourcePatch() {
         modernMiniplayerForwardButton = ResourceMappingPatch[
             "id",
             "modern_miniplayer_forward_button"
+        ]
+
+        ytOutlineXWhite24 = ResourceMappingPatch[
+            "drawable",
+            "yt_outline_x_white_24"
+        ]
+
+        ytOutlinePictureInPictureWhite24 = ResourceMappingPatch[
+            "drawable",
+            "yt_outline_picture_in_picture_white_24"
         ]
     }
 }

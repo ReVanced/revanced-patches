@@ -7,6 +7,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
@@ -18,6 +19,8 @@ import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
+import app.revanced.patches.youtube.layout.tablet.TabletLayoutResourcePatch.ytOutlinePictureInPictureWhite24
+import app.revanced.patches.youtube.layout.tablet.TabletLayoutResourcePatch.ytOutlineXWhite24
 import app.revanced.patches.youtube.layout.tablet.fingerprints.GetFormFactorFingerprint
 import app.revanced.patches.youtube.layout.tablet.fingerprints.MiniPlayerDimensionsCalculatorParentFingerprint
 import app.revanced.patches.youtube.layout.tablet.fingerprints.MiniPlayerOverrideFingerprint
@@ -27,6 +30,7 @@ import app.revanced.patches.youtube.layout.tablet.fingerprints.ModernMiniPlayerC
 import app.revanced.patches.youtube.layout.tablet.fingerprints.ModernMiniPlayerConfigFingerprint
 import app.revanced.patches.youtube.layout.tablet.fingerprints.ModernMiniPlayerConstructorFingerprint
 import app.revanced.patches.youtube.layout.tablet.fingerprints.ModernMiniPlayerExpandButtonFingerprint
+import app.revanced.patches.youtube.layout.tablet.fingerprints.ModernMiniPlayerExpandCloseDrawablesFingerprint
 import app.revanced.patches.youtube.layout.tablet.fingerprints.ModernMiniPlayerForwardButtonFingerprint
 import app.revanced.patches.youtube.layout.tablet.fingerprints.ModernMiniPlayerOverlayViewFingerprint
 import app.revanced.patches.youtube.layout.tablet.fingerprints.ModernMiniPlayerRewindButtonFingerprint
@@ -98,7 +102,7 @@ object TabletLayoutPatch : BytecodePatch(
             )
         )
 
-        // Enable tablet mode.
+        // region Enable tablet mode.
 
         GetFormFactorFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
@@ -120,7 +124,10 @@ object TabletLayoutPatch : BytecodePatch(
             }
         }
 
-        // Enable tablet mini player.
+        // endregion
+
+
+        // region Enable tablet mini player.
 
         MiniPlayerOverrideNoContextFingerprint.resolve(
             context,
@@ -129,6 +136,12 @@ object TabletLayoutPatch : BytecodePatch(
         MiniPlayerOverrideNoContextFingerprint.resultOrThrow().mutableMethod.apply {
             findReturnIndexes().forEach { index -> insertTabletOverride(index) }
         }
+
+        // endregion
+
+
+        // region Pre 19.15 patches.
+        // These are not required for 19.15+.
 
         MiniPlayerOverrideFingerprint.resultOrThrow().let {
             val appNameStringIndex = it.scanResult.stringsScanResult!!.matches.first().index + 2
@@ -144,18 +157,20 @@ object TabletLayoutPatch : BytecodePatch(
             }
         }
 
-        // Size check return value override.
         MiniPlayerResponseModelSizeCheckFingerprint.resultOrThrow().let {
             it.mutableMethod.insertTabletOverride(it.scanResult.patternScanResult!!.endIndex)
         }
-
-        // Enable modern mini player.
 
         ModernMiniPlayerConfigFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 insertModernTabletOverrideBoolean(it.scanResult.patternScanResult!!.endIndex)
             }
         }
+
+        // endregion
+
+
+        // region Enable modern mini player.
 
         ModernMiniPlayerConstructorFingerprint.resultOrThrow().mutableClass.methods.forEach {
             it.apply {
@@ -171,7 +186,32 @@ object TabletLayoutPatch : BytecodePatch(
             }
         }
 
-        // Hide modern mini player buttons.
+        // endregion
+
+
+        // region Fix YT 19.15 and 19.16 using mixed up drawables for tablet modern mini player.
+
+        ModernMiniPlayerExpandCloseDrawablesFingerprint.resolve(
+            context,
+            ModernMiniPlayerViewParentFingerprint.resultOrThrow().classDef
+        )
+
+        ModernMiniPlayerExpandCloseDrawablesFingerprint.resultOrThrow().mutableMethod.apply {
+            listOf(
+                ytOutlinePictureInPictureWhite24 to ytOutlineXWhite24,
+                ytOutlineXWhite24 to ytOutlinePictureInPictureWhite24,
+            ).forEach { (originalResource, replacementResource) ->
+                val imageResourceIndex = indexOfFirstWideLiteralInstructionValueOrThrow(originalResource)
+                val register = getInstruction<OneRegisterInstruction>(imageResourceIndex).registerA
+
+                replaceInstruction(imageResourceIndex, "const v$register, $replacementResource")
+            }
+        }
+
+        // endregion
+
+
+        // region Hide modern mini player buttons.
 
         ModernMiniPlayerOverlayViewFingerprint.addModernTabletMiniPlayerImageViewHook(
             context,
@@ -197,6 +237,8 @@ object TabletLayoutPatch : BytecodePatch(
             context,
             "hideModernMiniPlayerRewindForward"
         )
+
+        // endregion
     }
 
     private fun Method.findReturnIndexes(): List<Int> {
@@ -211,21 +253,21 @@ object TabletLayoutPatch : BytecodePatch(
     }
 
     private fun MutableMethod.insertTabletOverride(index: Int) {
-        insertOverride(index, "getTabletMiniPlayerOverride")
+        insertModernTabletOverride(index, "getTabletMiniPlayerOverride")
     }
 
     private fun MutableMethod.insertModernTabletOverrideBoolean(index: Int) {
-        insertOverride(index, "getModernTabletMiniPlayerOverrideBoolean")
+        insertModernTabletOverride(index, "getModernTabletMiniPlayerOverrideBoolean")
     }
 
-    private fun MutableMethod.insertOverride(index: Int, methodName: String) {
+    private fun MutableMethod.insertModernTabletOverride(index: Int, methodName: String) {
         val register = getInstruction<OneRegisterInstruction>(index).registerA
         this.addInstructions(
             index,
             """
-                        invoke-static {v$register}, $INTEGRATIONS_CLASS_DESCRIPTOR->$methodName(Z)Z
-                        move-result v$register
-                    """
+                invoke-static {v$register}, $INTEGRATIONS_CLASS_DESCRIPTOR->$methodName(Z)Z
+                move-result v$register
+            """
         )
     }
 
@@ -235,9 +277,10 @@ object TabletLayoutPatch : BytecodePatch(
 
         addInstructions(
             iPutIndex + 1, """
-                invoke-static {v${targetInstruction.registerA}}, $INTEGRATIONS_CLASS_DESCRIPTOR->getModernTabletMiniPlayerOverrideInt(I)I
+                invoke-static { v${targetInstruction.registerA} }, $INTEGRATIONS_CLASS_DESCRIPTOR->getModernTabletMiniPlayerOverrideInt(I)I
                 move-result v${targetInstruction.registerA}
-                iput v${targetInstruction.registerA}, v${targetInstruction.registerB}, $targetReference
+                # Original instruction
+                iput v${targetInstruction.registerA}, v${targetInstruction.registerB}, $targetReference 
             """
         )
         removeInstruction(iPutIndex)
