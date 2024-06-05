@@ -24,7 +24,6 @@ import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniPlayerOve
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniPlayerOverrideNoContextFingerprint
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniPlayerResponseModelSizeCheckFingerprint
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.ModernMiniPlayerCloseButtonFingerprint
-import app.revanced.patches.youtube.layout.miniplayer.fingerprints.ModernMiniPlayerConfigFingerprint
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.ModernMiniPlayerConstructorFingerprint
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.ModernMiniPlayerExpandButtonFingerprint
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.ModernMiniPlayerExpandCloseDrawablesFingerprint
@@ -75,7 +74,6 @@ object MiniPlayerPatch : BytecodePatch(
         MiniPlayerDimensionsCalculatorParentFingerprint,
         MiniPlayerResponseModelSizeCheckFingerprint,
         MiniPlayerOverrideFingerprint,
-        ModernMiniPlayerConfigFingerprint,
         ModernMiniPlayerConstructorFingerprint,
         ModernMiniPlayerViewParentFingerprint
     )
@@ -137,12 +135,6 @@ object MiniPlayerPatch : BytecodePatch(
 
         // region Enable modern mini player.
 
-        ModernMiniPlayerConfigFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
-                insertModernOverrideBoolean(it.scanResult.patternScanResult!!.endIndex)
-            }
-        }
-
         ModernMiniPlayerConstructorFingerprint.resultOrThrow().mutableClass.methods.forEach {
             it.apply {
                 if (AccessFlags.CONSTRUCTOR.isSet(accessFlags)) {
@@ -162,20 +154,22 @@ object MiniPlayerPatch : BytecodePatch(
 
         // region Fix YT 19.15 and 19.16 using mixed up drawables for tablet modern mini player.
 
-        ModernMiniPlayerExpandCloseDrawablesFingerprint.resolve(
-            context,
-            ModernMiniPlayerViewParentFingerprint.resultOrThrow().classDef
-        )
+        ModernMiniPlayerExpandCloseDrawablesFingerprint.let {
+            it.resolve(
+                context,
+                ModernMiniPlayerViewParentFingerprint.resultOrThrow().classDef
+            )
 
-        ModernMiniPlayerExpandCloseDrawablesFingerprint.resultOrThrow().mutableMethod.apply {
-            listOf(
-                ytOutlinePictureInPictureWhite24 to ytOutlineXWhite24,
-                ytOutlineXWhite24 to ytOutlinePictureInPictureWhite24,
-            ).forEach { (originalResource, replacementResource) ->
-                val imageResourceIndex = indexOfFirstWideLiteralInstructionValueOrThrow(originalResource)
-                val register = getInstruction<OneRegisterInstruction>(imageResourceIndex).registerA
+            it.resultOrThrow().mutableMethod.apply {
+                listOf(
+                    ytOutlinePictureInPictureWhite24 to ytOutlineXWhite24,
+                    ytOutlineXWhite24 to ytOutlinePictureInPictureWhite24,
+                ).forEach { (originalResource, replacementResource) ->
+                    val imageResourceIndex = indexOfFirstWideLiteralInstructionValueOrThrow(originalResource)
+                    val register = getInstruction<OneRegisterInstruction>(imageResourceIndex).registerA
 
-                replaceInstruction(imageResourceIndex, "const v$register, $replacementResource")
+                    replaceInstruction(imageResourceIndex, "const v$register, $replacementResource")
+                }
             }
         }
 
