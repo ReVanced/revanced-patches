@@ -23,6 +23,7 @@ import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniPlayerDim
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniPlayerOverrideFingerprint
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniPlayerOverrideNoContextFingerprint
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniPlayerResponseModelSizeCheckFingerprint
+import app.revanced.patches.youtube.layout.miniplayer.fingerprints.ModernMiniPlayerAddViewListenerFingerprint
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.ModernMiniPlayerCloseButtonFingerprint
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.ModernMiniPlayerConstructorFingerprint
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.ModernMiniPlayerExpandButtonFingerprint
@@ -89,9 +90,10 @@ object MiniPlayerPatch : BytecodePatch(
                 sorting = PreferenceScreen.Sorting.UNSORTED,
                 preferences = setOf(
                     ListPreference(key = "revanced_mini_player_type", summaryKey = null,),
-                    SwitchPreference("revanced_mini_player_tablet_modern_hide_expand_close"),
-                    SwitchPreference("revanced_mini_player_tablet_modern_hide_rewind_forward"),
-                    TextPreference("revanced_mini_player_tablet_modern_opacity", inputType = InputType.NUMBER)
+                    SwitchPreference("revanced_mini_player_modern_hide_expand_close"),
+                    SwitchPreference("revanced_mini_player_modern_hide_sub_text"),
+                    SwitchPreference("revanced_mini_player_modern_hide_rewind_forward"),
+                    TextPreference("revanced_mini_player_modern_opacity", inputType = InputType.NUMBER)
                 )
             )
         )
@@ -202,6 +204,21 @@ object MiniPlayerPatch : BytecodePatch(
             context,
             "hideModernMiniPlayerRewindForward"
         )
+
+        ModernMiniPlayerAddViewListenerFingerprint.let {
+            it.resolve(
+                context,
+                ModernMiniPlayerViewParentFingerprint.resultOrThrow().classDef
+            )
+
+            it.resultOrThrow().mutableMethod.apply {
+                addInstruction(
+                    0,
+                    "invoke-static { p1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->" +
+                            "hideModernMiniPlayerView(Landroid/view/View;)V"
+                )
+            }
+        }
 
         // endregion
     }
