@@ -944,27 +944,29 @@
             <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts player will resume on app startup</string>
         </patch>
         <patch id="layout.tablet.TabletLayoutPatch">
-            <string name="revanced_tablet_screen_title">Tablet layout</string>
-            <string name="revanced_tablet_screen_summary">Tablet related settings</string>
             <string name="revanced_tablet_layout_title">Enable tablet layout</string>
             <string name="revanced_tablet_layout_summary_on">Tablet layout is enabled</string>
             <string name="revanced_tablet_layout_summary_off">Tablet layout is disabled</string>
             <string name="revanced_tablet_layout_user_dialog_message">Community posts do not show up on tablet layouts</string>
-            <string name="revanced_tablet_mini_player_title">Enable tablet mini player</string>
-            <string name="revanced_tablet_mini_player_summary_on">Mini player is enabled</string>
-            <string name="revanced_tablet_mini_player_summary_off">Mini player is disabled</string>
-            <string name="revanced_tablet_mini_player_modern_title">Enable modern tablet mini player</string>
-            <string name="revanced_tablet_mini_player_modern_summary_on">Modern mini player is enabled</string>
-            <string name="revanced_tablet_mini_player_modern_summary_off">Modern mini player is disabled</string>
-            <string name="revanced_tablet_mini_player_modern_hide_expand_close_title">Hide expand and close buttons</string>
-            <string name="revanced_tablet_mini_player_modern_hide_expand_close_summary_on">Buttons are hidden\n(swipe mini player to expand or close)</string>
-            <string name="revanced_tablet_mini_player_modern_hide_expand_close_summary_off">Expand and close buttons are shown</string>
-            <string name="revanced_tablet_mini_player_modern_hide_rewind_forward_title">Hide skip forward and back buttons</string>
-            <string name="revanced_tablet_mini_player_modern_hide_rewind_forward_summary_on">Skip forward and back are hidden</string>
-            <string name="revanced_tablet_mini_player_modern_hide_rewind_forward_summary_off">Skip forward and back are shown</string>
-            <string name="revanced_tablet_mini_player_opacity_title">Modern mini player overlay opacity</string>
-            <string name="revanced_tablet_mini_player_opacity_summary">Opacity value between 0-100, where 0 is transparent</string>
-            <string name="revanced_tablet_mini_player_opacity_invalid_toast">Mini player overlay opacity must be between 0-100</string>
+        </patch>x
+        <patch id="layout.miniplayer.MiniPlayerPatch">
+            <string name="revanced_mini_player_screen_title">Mini player</string>
+            <string name="revanced_mini_player_screen_summary">Modify the in app minimized player</string>
+            <string name="revanced_mini_player_type_title">Mini player type</string>
+            <string name="revanced_mini_player_type_entry_1">Original</string>
+            <string name="revanced_mini_player_type_entry_2">Phone mini player</string>
+            <string name="revanced_mini_player_type_entry_3">Phone mini player modern</string>
+            <string name="revanced_mini_player_type_entry_4">Tablet mini player</string>
+            <string name="revanced_mini_player_type_entry_5">Tablet mini player modern</string>
+            <string name="revanced_mini_player_tablet_modern_hide_expand_close_title">Hide expand and close buttons</string>
+            <string name="revanced_mini_player_tablet_modern_hide_expand_close_summary_on">Buttons are hidden\n(swipe mini player to expand or close)</string>
+            <string name="revanced_mini_player_tablet_modern_hide_expand_close_summary_off">Expand and close buttons are shown</string>
+            <string name="revanced_mini_player_tablet_modern_hide_rewind_forward_title">Hide skip forward and back buttons</string>
+            <string name="revanced_mini_player_tablet_modern_hide_rewind_forward_summary_on">Skip forward and back are hidden</string>
+            <string name="revanced_mini_player_tablet_modern_hide_rewind_forward_summary_off">Skip forward and back are shown</string>
+            <string name="revanced_mini_player_tablet_modern_opacity_title">Modern mini player overlay opacity</string>
+            <string name="revanced_mini_player_tablet_modern_opacity_summary">Opacity value between 0-100, where 0 is transparent</string>
+            <string name="revanced_mini_player_tablet_modern_opacity_invalid_toast">Mini player overlay opacity must be between 0-100</string>
         </patch>
         <patch id="layout.theme.ThemeBytecodePatch">
             <string name="revanced_gradient_loading_screen_title">Enable gradient loading screen</string>

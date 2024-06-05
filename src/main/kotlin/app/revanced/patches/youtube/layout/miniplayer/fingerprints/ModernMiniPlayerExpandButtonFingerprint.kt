@@ -1,16 +1,16 @@
-package app.revanced.patches.youtube.layout.tablet.fingerprints
+package app.revanced.patches.youtube.layout.miniplayer.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patches.youtube.layout.tablet.TabletLayoutResourcePatch
+import app.revanced.patches.youtube.layout.miniplayer.MiniPlayerResourcePatch
 import app.revanced.util.patch.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
 /**
  * Resolves using the class found in [ModernMiniPlayerViewParentFingerprint].
  */
-internal object ModernMiniPlayerForwardButtonFingerprint : LiteralValueFingerprint(
+internal object ModernMiniPlayerExpandButtonFingerprint : LiteralValueFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "Landroid/widget/ImageView;",
     parameters = listOf(),
-    literalSupplier = { TabletLayoutResourcePatch.modernMiniplayerForwardButton }
+    literalSupplier = { MiniPlayerResourcePatch.modernMiniplayerExpand }
 )
