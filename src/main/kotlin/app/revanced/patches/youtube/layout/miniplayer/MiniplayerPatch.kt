@@ -84,10 +84,10 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
                 "19.11.43",
                 "19.12.41",
                 "19.13.37",
-                // 19.14 is left out, as it has some code but is missing UI resources.
+                // 19.14 is left out, as it has incomplete miniplayer code and missing some UI resources.
                 // It's simpler to not bother with supporting this single old version.
                 // 19.15 has a different code for handling sub title texts,
-                // and probably not worth making changes just to support this single old version.
+                // and also probably not worth making changes just to support this single old version.
                 "19.16.39" // Earliest supported version with modern miniplayers.
             ]
         )
@@ -227,30 +227,15 @@ object MiniplayerPatch : BytecodePatch(
 
         // region Add hooks to hide tablet modern miniplayer buttons.
 
-        MiniplayerModernExpandButtonFingerprint.addModernMiniplayerImageViewHook(
-            context,
-            "hideMiniplayerExpandClose"
-        )
-
-        MiniplayerModernCloseButtonFingerprint.addModernMiniplayerImageViewHook(
-            context,
-            "hideMiniplayerExpandClose"
-        )
-
-        MiniplayerModernRewindButtonFingerprint.addModernMiniplayerImageViewHook(
-            context,
-            "hideMiniplayerRewindForward"
-        )
-
-        MiniplayerModernForwardButtonFingerprint.addModernMiniplayerImageViewHook(
-            context,
-            "hideMiniplayerRewindForward"
-        )
-
-        MiniplayerModernOverlayViewFingerprint.addModernMiniplayerImageViewHook(
-            context,
-            "adjustMiniplayerOpacity"
-        )
+        listOf(
+            MiniplayerModernExpandButtonFingerprint to "hideMiniplayerExpandClose",
+            MiniplayerModernCloseButtonFingerprint to "hideMiniplayerExpandClose",
+            MiniplayerModernRewindButtonFingerprint to "hideMiniplayerRewindForward",
+            MiniplayerModernForwardButtonFingerprint to "hideMiniplayerRewindForward",
+            MiniplayerModernOverlayViewFingerprint to "adjustMiniplayerOpacity",
+        ).forEach { (fingerprint, methodName) ->
+            fingerprint.addModernMiniplayerImageViewHook(context, methodName)
+        }
 
         MiniplayerModernAddViewListenerFingerprint.apply {
             resolve(
