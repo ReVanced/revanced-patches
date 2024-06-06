@@ -48,12 +48,13 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 // YT uses "Miniplayer" without a space between 'mini' and 'player.
 @Patch(
     name = "Miniplayer",
     description = "Adds options to change the in app minimized player, " +
-            "and if patching 19.16+ also adds options to use modern miniplayers.",
+            "and if patching target 19.16+ adds options to use modern miniplayers.",
     dependencies = [
         IntegrationsPatch::class,
         SettingsPatch::class,
@@ -150,7 +151,7 @@ object MiniplayerPatch : BytecodePatch(
             MiniplayerDimensionsCalculatorParentFingerprint.resultOrThrow().classDef
         )
         MiniplayerOverrideNoContextFingerprint.resultOrThrow().mutableMethod.apply {
-            findReturnIndices().forEach { index -> insertTabletOverride(index) }
+            findReturnIndices().forEach { index -> insertLegacyTabletOverride(index) }
         }
 
         // endregion
@@ -168,13 +169,13 @@ object MiniplayerPatch : BytecodePatch(
                         .getMethod() as MutableMethod
 
                     walkerMethod.apply {
-                        findReturnIndices().forEach { index -> insertTabletOverride(index) }
+                        findReturnIndices().forEach { index -> insertLegacyTabletOverride(index) }
                     }
                 }
             }
 
             MiniplayerResponseModelSizeCheckFingerprint.resultOrThrow().let {
-                it.mutableMethod.insertTabletOverride(it.scanResult.patternScanResult!!.endIndex)
+                it.mutableMethod.insertLegacyTabletOverride(it.scanResult.patternScanResult!!.endIndex)
             }
 
             return
@@ -194,7 +195,7 @@ object MiniplayerPatch : BytecodePatch(
 
                     insertModernOverrideInt(iPutIndex)
                 } else {
-                    findReturnIndices().forEach { index -> insertModernOverride(index) }
+                    findReturnIndices().forEach { index -> insertModernOverrideBoolean(index) }
                 }
             }
         }
@@ -255,15 +256,7 @@ object MiniplayerPatch : BytecodePatch(
 
     private fun Method.findReturnIndices() = findOpcodeIndices(Opcode.RETURN)
 
-    private fun MutableMethod.insertTabletOverride(index: Int) {
-        insertModernTabletOverride(index, "getLegacyTabletOverride")
-    }
-
-    private fun MutableMethod.insertModernOverride(index: Int) {
-        insertModernTabletOverride(index, "getModernOverride")
-    }
-
-    private fun MutableMethod.insertModernTabletOverride(index: Int, methodName: String) {
+    private fun MutableMethod.insertBooleanOverride(index: Int, methodName: String) {
         val register = getInstruction<OneRegisterInstruction>(index).registerA
         this.addInstructions(
             index,
@@ -272,6 +265,14 @@ object MiniplayerPatch : BytecodePatch(
                 move-result v$register
             """
         )
+    }
+
+    private fun MutableMethod.insertLegacyTabletOverride(index: Int) {
+        insertBooleanOverride(index, "getLegacyTabletOverride")
+    }
+
+    private fun MutableMethod.insertModernOverrideBoolean(index: Int) {
+        insertBooleanOverride(index, "getModernOverride")
     }
 
     private fun MutableMethod.insertModernOverrideInt(iPutIndex: Int) {
@@ -302,7 +303,8 @@ object MiniplayerPatch : BytecodePatch(
             val imageViewIndex = indexOfFirstInstructionOrThrow(
                 indexOfFirstWideLiteralInstructionValueOrThrow(literalSupplier.invoke())
             ) {
-                opcode == Opcode.CHECK_CAST
+                opcode == Opcode.CHECK_CAST &&
+                        getReference<TypeReference>()?.type == "Landroid/widget/ImageView;"
             }
 
             val register = getInstruction<OneRegisterInstruction>(imageViewIndex).registerA
