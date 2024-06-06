@@ -20,6 +20,8 @@ internal object CreatePlaybackSpeedMenuItemFingerprint : MethodFingerprint(
     // 19.01 and earlier is missing the second parameter.
     // Since this fingerprint is somewhat weak, work around by checking for both method parameter signatures.
     customFingerprint = custom@{ methodDef, _ ->
+        // 19.01 and earlier parameters are: "[L"
+        // 19.02+ parameters are "[L", "F"
         val parameterTypes = methodDef.parameterTypes
         val firstParameter = parameterTypes.firstOrNull()
 

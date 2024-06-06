@@ -7,7 +7,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -204,6 +203,7 @@ object MiniplayerPatch : BytecodePatch(
 
         // region Fix 19.16 using mixed up drawables for tablet modern.
         // YT fixed this mistake in 19.17
+        // Fix this, by swapping the drawable resource values with each other.
 
         MiniplayerModernExpandCloseDrawablesFingerprint.let {
             it.resolve(
@@ -227,7 +227,7 @@ object MiniplayerPatch : BytecodePatch(
         // endregion
 
 
-        // region Hide tablet modern miniplayer buttons.
+        // region Add hooks to hide tablet modern miniplayer buttons.
 
         MiniplayerModernExpandButtonFingerprint.addModernMiniplayerImageViewHook(
             context,
