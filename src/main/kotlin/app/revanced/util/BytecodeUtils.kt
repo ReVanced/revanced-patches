@@ -8,6 +8,7 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -190,6 +191,21 @@ fun Method.indexOfFirstInstructionOrThrow(startIndex: Int = 0, predicate: Instru
         throw PatchException("Could not find instruction index")
     }
     return index
+}
+
+/**
+ * @return All indexes for a specific opcodes, with indexes in reverse order.
+ */
+fun Method.findOpcodeIndexes(opcode: Opcode): List<Int> {
+    val indexes = implementation!!.instructions
+        .withIndex()
+        .filter { (_, instruction) -> instruction.opcode == opcode }
+        .map { (index, _) -> index }
+        .reversed()
+
+    if (indexes.isEmpty()) throw PatchException("No ${opcode.name} instructions found in: $this")
+
+    return indexes
 }
 
 /**

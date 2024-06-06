@@ -36,6 +36,7 @@ import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniplayerRes
 import app.revanced.patches.youtube.layout.tablet.fingerprints.GetFormFactorFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.util.findOpcodeIndexes
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
@@ -271,16 +272,7 @@ object MiniplayerPatch : BytecodePatch(
         // endregion
     }
 
-    private fun Method.findReturnIndexes(): List<Int> {
-        val indexes = implementation!!.instructions
-            .withIndex()
-            .filter { (_, instruction) -> instruction.opcode == Opcode.RETURN }
-            .map { (index, _) -> index }
-            .reversed()
-        if (indexes.isEmpty()) throw PatchException("No return instructions found in: $this")
-
-        return indexes
-    }
+    private fun Method.findReturnIndexes() = findOpcodeIndexes(Opcode.RETURN)
 
     private fun MutableMethod.insertTabletOverride(index: Int) {
         insertModernTabletOverride(index, "getTabletOverride")
