@@ -52,7 +52,8 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 // YT uses "Miniplayer" without a space between 'mini' and 'player.
 @Patch(
     name = "Miniplayer",
-    description = "Adds options to change the in app minimized player",
+    description = "Adds options to change the in app minimized player, " +
+            "and if patching 19.16+ also adds options to use modern miniplayers.",
     dependencies = [
         IntegrationsPatch::class,
         SettingsPatch::class,
@@ -62,11 +63,32 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", [
-                // Hide modern miniplayer is only present in 19.15+
-                // If a robust way of detecting the target app version is added,
-                // then all changes except modern miniplayer could be applied to older versions.
-                "19.15.36",
-                "19.16.39"
+                "18.32.39",
+                "18.37.36",
+                "18.38.44",
+                "18.43.45",
+                "18.44.41",
+                "18.45.43",
+                "18.48.39",
+                "18.49.37",
+                "19.01.34",
+                "19.02.39",
+                "19.03.36",
+                "19.04.38",
+                "19.05.36",
+                "19.06.39",
+                "19.07.40",
+                "19.08.36",
+                "19.09.38",
+                "19.10.39",
+                "19.11.43",
+                "19.12.41",
+                "19.13.37",
+                // 19.14 is left out, as it has some code but is missing UI resources.
+                // It's simpler to not bother with supporting this single old version.
+                // 19.15 has a different code for handling sub title texts,
+                // and probably not worth making changes just to support this single old version.
+                "19.16.39" // Earliest supported version with modern miniplayers.
             ]
         )
     ]
@@ -86,17 +108,38 @@ object MiniplayerPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
+        // Modern mini player is only present and functional in 19.15+
+        // Of note, some modern miniplayer code is present in 19.14 but the feature is not complete.
+        val isPatchingLegacy = ytOutlinePictureInPictureWhite24 < 0
+
         SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
             PreferenceScreen(
                 key = "revanced_miniplayer_screen",
                 sorting = Sorting.UNSORTED,
-                preferences = setOf(
-                    ListPreference(key = "revanced_miniplayer_type", summaryKey = null,),
-                    SwitchPreference("revanced_miniplayer_hide_expand_close"),
-                    SwitchPreference("revanced_miniplayer_hide_sub_text"),
-                    SwitchPreference("revanced_miniplayer_hide_rewind_forward"),
-                    TextPreference("revanced_miniplayer_opacity", inputType = InputType.NUMBER)
-                )
+                preferences =
+                if (isPatchingLegacy) {
+                    setOf(
+                        ListPreference(
+                            "revanced_miniplayer_type",
+                            summaryKey = null,
+                            entriesKey = "revanced_miniplayer_type_legacy_entries",
+                            entryValuesKey = "revanced_miniplayer_type_legacy_entry_values"
+                        )
+                    )
+                } else {
+                    setOf(
+                        ListPreference(
+                            "revanced_miniplayer_type",
+                            summaryKey = null,
+                            entriesKey = "revanced_miniplayer_type_19_15_entries",
+                            entryValuesKey = "revanced_miniplayer_type_19_15_entry_values"
+                        ),
+                        SwitchPreference("revanced_miniplayer_hide_expand_close"),
+                        SwitchPreference("revanced_miniplayer_hide_sub_text"),
+                        SwitchPreference("revanced_miniplayer_hide_rewind_forward"),
+                        TextPreference("revanced_miniplayer_opacity", inputType = InputType.NUMBER)
+                    )
+                }
             )
         )
 
@@ -113,25 +156,28 @@ object MiniplayerPatch : BytecodePatch(
         // endregion
 
 
-        // region Pre 19.15 patches.
-        // These are not required for 19.15+.
+        // region Legacy pre 19.15 targets
 
-        MiniplayerOverrideFingerprint.resultOrThrow().let {
-            val appNameStringIndex = it.scanResult.stringsScanResult!!.matches.first().index + 2
+        if (isPatchingLegacy) {
+            MiniplayerOverrideFingerprint.resultOrThrow().let {
+                val appNameStringIndex = it.scanResult.stringsScanResult!!.matches.first().index + 2
 
-            it.mutableMethod.apply {
-                val walkerMethod = context.toMethodWalker(this)
-                    .nextMethod(appNameStringIndex, true)
-                    .getMethod() as MutableMethod
+                it.mutableMethod.apply {
+                    val walkerMethod = context.toMethodWalker(this)
+                        .nextMethod(appNameStringIndex, true)
+                        .getMethod() as MutableMethod
 
-                walkerMethod.apply {
-                    findReturnIndexes().forEach { index -> insertTabletOverride(index) }
+                    walkerMethod.apply {
+                        findReturnIndexes().forEach { index -> insertTabletOverride(index) }
+                    }
                 }
             }
-        }
 
-        MiniplayerResponseModelSizeCheckFingerprint.resultOrThrow().let {
-            it.mutableMethod.insertTabletOverride(it.scanResult.patternScanResult!!.endIndex)
+            MiniplayerResponseModelSizeCheckFingerprint.resultOrThrow().let {
+                it.mutableMethod.insertTabletOverride(it.scanResult.patternScanResult!!.endIndex)
+            }
+
+            return
         }
 
         // endregion
@@ -155,8 +201,8 @@ object MiniplayerPatch : BytecodePatch(
 
         // endregion
 
-
-        // region Fix YT 19.15 and 19.16 using mixed up drawables for tablet modern.
+        // region Fix 19.16 using mixed up drawables for tablet modern.
+        // YT fixed this mistake in 19.17
 
         MiniplayerModernExpandCloseDrawablesFingerprint.let {
             it.resolve(
