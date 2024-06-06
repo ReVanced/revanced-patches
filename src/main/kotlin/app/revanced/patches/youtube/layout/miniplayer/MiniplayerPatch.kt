@@ -35,7 +35,7 @@ import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniplayerRes
 import app.revanced.patches.youtube.layout.tablet.fingerprints.GetFormFactorFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.util.findOpcodeIndexes
+import app.revanced.util.findOpcodeIndices
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
@@ -150,7 +150,7 @@ object MiniplayerPatch : BytecodePatch(
             MiniplayerDimensionsCalculatorParentFingerprint.resultOrThrow().classDef
         )
         MiniplayerOverrideNoContextFingerprint.resultOrThrow().mutableMethod.apply {
-            findReturnIndexes().forEach { index -> insertTabletOverride(index) }
+            findReturnIndices().forEach { index -> insertTabletOverride(index) }
         }
 
         // endregion
@@ -168,7 +168,7 @@ object MiniplayerPatch : BytecodePatch(
                         .getMethod() as MutableMethod
 
                     walkerMethod.apply {
-                        findReturnIndexes().forEach { index -> insertTabletOverride(index) }
+                        findReturnIndices().forEach { index -> insertTabletOverride(index) }
                     }
                 }
             }
@@ -194,7 +194,7 @@ object MiniplayerPatch : BytecodePatch(
 
                     insertModernOverrideInt(iPutIndex)
                 } else {
-                    findReturnIndexes().forEach { index -> insertModernOverride(index) }
+                    findReturnIndices().forEach { index -> insertModernOverride(index) }
                 }
             }
         }
@@ -205,22 +205,20 @@ object MiniplayerPatch : BytecodePatch(
         // YT fixed this mistake in 19.17
         // Fix this, by swapping the drawable resource values with each other.
 
-        MiniplayerModernExpandCloseDrawablesFingerprint.let {
-            it.resolve(
+        MiniplayerModernExpandCloseDrawablesFingerprint.apply {
+            resolve(
                 context,
                 MiniplayerModernViewParentFingerprint.resultOrThrow().classDef
             )
+        }.resultOrThrow().mutableMethod.apply {
+            listOf(
+                ytOutlinePictureInPictureWhite24 to ytOutlineXWhite24,
+                ytOutlineXWhite24 to ytOutlinePictureInPictureWhite24,
+            ).forEach { (originalResource, replacementResource) ->
+                val imageResourceIndex = indexOfFirstWideLiteralInstructionValueOrThrow(originalResource)
+                val register = getInstruction<OneRegisterInstruction>(imageResourceIndex).registerA
 
-            it.resultOrThrow().mutableMethod.apply {
-                listOf(
-                    ytOutlinePictureInPictureWhite24 to ytOutlineXWhite24,
-                    ytOutlineXWhite24 to ytOutlinePictureInPictureWhite24,
-                ).forEach { (originalResource, replacementResource) ->
-                    val imageResourceIndex = indexOfFirstWideLiteralInstructionValueOrThrow(originalResource)
-                    val register = getInstruction<OneRegisterInstruction>(imageResourceIndex).registerA
-
-                    replaceInstruction(imageResourceIndex, "const v$register, $replacementResource")
-                }
+                replaceInstruction(imageResourceIndex, "const v$register, $replacementResource")
             }
         }
 
@@ -254,25 +252,23 @@ object MiniplayerPatch : BytecodePatch(
             "adjustMiniplayerOpacity"
         )
 
-        MiniplayerModernAddViewListenerFingerprint.let {
-            it.resolve(
+        MiniplayerModernAddViewListenerFingerprint.apply {
+            resolve(
                 context,
                 MiniplayerModernViewParentFingerprint.resultOrThrow().classDef
             )
-
-            it.resultOrThrow().mutableMethod.apply {
-                addInstruction(
-                    0,
-                    "invoke-static { p1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->" +
-                            "hideMiniplayerSubTexts(Landroid/view/View;)V"
-                )
-            }
+        }.resultOrThrow().mutableMethod.apply {
+            addInstruction(
+                0,
+                "invoke-static { p1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->" +
+                        "hideMiniplayerSubTexts(Landroid/view/View;)V"
+            )
         }
 
         // endregion
     }
 
-    private fun Method.findReturnIndexes() = findOpcodeIndexes(Opcode.RETURN)
+    private fun Method.findReturnIndices() = findOpcodeIndices(Opcode.RETURN)
 
     private fun MutableMethod.insertTabletOverride(index: Int) {
         insertModernTabletOverride(index, "getTabletOverride")
