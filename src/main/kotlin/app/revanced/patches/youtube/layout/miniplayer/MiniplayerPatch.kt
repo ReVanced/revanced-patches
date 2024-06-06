@@ -256,7 +256,7 @@ object MiniplayerPatch : BytecodePatch(
     private fun Method.findReturnIndices() = findOpcodeIndices(Opcode.RETURN)
 
     private fun MutableMethod.insertTabletOverride(index: Int) {
-        insertModernTabletOverride(index, "getTabletOverride")
+        insertModernTabletOverride(index, "getLegacyTabletOverride")
     }
 
     private fun MutableMethod.insertModernOverride(index: Int) {
