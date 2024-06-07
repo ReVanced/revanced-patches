@@ -22,7 +22,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Remove background playback restrictions",
-    description = "Removes restrictions for background playback, including playing kids videos in the background.",
+    description = "Removes restrictions on background playback, including playing kids videos in the background.",
     dependencies = [
         BackgroundPlaybackResourcePatch::class,
         IntegrationsPatch::class,
