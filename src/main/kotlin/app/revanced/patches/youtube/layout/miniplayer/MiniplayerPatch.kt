@@ -215,7 +215,7 @@ object MiniplayerPatch : BytecodePatch(
         // endregion
 
         // region Fix 19.16 using mixed up drawables for tablet modern.
-        // YT fixed this mistake in 19.17
+        // YT fixed this mistake in 19.17.
         // Fix this, by swapping the drawable resource values with each other.
 
         MiniplayerModernExpandCloseDrawablesFingerprint.apply {
