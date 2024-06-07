@@ -143,7 +143,7 @@ object MiniplayerPatch : BytecodePatch(
                             entryValuesKey = "revanced_miniplayer_type_19_15_entry_values"
                         ),
                         SwitchPreference("revanced_miniplayer_hide_expand_close"),
-                        SwitchPreference("revanced_miniplayer_hide_sub_text"),
+                        SwitchPreference("revanced_miniplayer_hide_subtext"),
                         SwitchPreference("revanced_miniplayer_hide_rewind_forward"),
                         TextPreference("revanced_miniplayer_opacity", inputType = InputType.NUMBER)
                     )
