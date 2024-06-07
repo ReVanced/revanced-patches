@@ -1,3 +1,10 @@
+# [4.10.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.9.0...v4.10.0-dev.1) (2024-06-07)
+
+
+### Features
+
+* **YouTube - Miniplayer:** Rename `Tablet mini player` and allow selecting the style of the in-app miniplayer ([#3302](https://github.com/ReVanced/revanced-patches/issues/3302)) ([5511736](https://github.com/ReVanced/revanced-patches/commit/5511736b0c5dd409db6a68db0f85e389bb95be47))
+
 # [4.9.0](https://github.com/ReVanced/revanced-patches/compare/v4.8.3...v4.9.0) (2024-06-02)
 
 
