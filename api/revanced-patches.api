@@ -403,6 +403,12 @@ public final class app/revanced/patches/music/misc/androidauto/BypassCertificate
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/music/misc/backgroundplayback/BackgroundPlaybackPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/music/misc/backgroundplayback/BackgroundPlaybackPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/music/misc/gms/Constants {
 	public static final field INSTANCE Lapp/revanced/patches/music/misc/gms/Constants;
 }
