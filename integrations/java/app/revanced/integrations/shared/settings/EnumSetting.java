@@ -2,12 +2,14 @@ package app.revanced.integrations.shared.settings;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import app.revanced.integrations.shared.Logger;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Locale;
 import java.util.Objects;
+
+import app.revanced.integrations.shared.Logger;
 
 /**
  * If an Enum value is removed or changed, any saved or imported data using the
@@ -97,5 +99,19 @@ public class EnumSetting<T extends Enum<?>> extends Setting<T> {
     @Override
     public T get() {
         return value;
+    }
+
+    /**
+     * Availability based on if this setting is currently set to any of the provided types.
+     */
+    @SafeVarargs
+    public final Setting.Availability availability(@NonNull T... types) {
+        return () -> {
+            T currentEnumType = get();
+            for (T enumType : types) {
+                if (currentEnumType == enumType) return true;
+            }
+            return false;
+        };
     }
 }
