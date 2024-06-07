@@ -6,7 +6,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.googlenews.customtabs.fingerprints.UseCustomTabsFingerprint
+import app.revanced.patches.googlenews.customtabs.fingerprints.LaunchCustomTabFingerprint
 import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -16,8 +16,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     compatiblePackages = [CompatiblePackage("com.google.android.apps.magazines")],
 )
 @Suppress("unused")
-object EnableCustomTabs : BytecodePatch(setOf(UseCustomTabsFingerprint)) {
-    override fun execute(context: BytecodeContext) = UseCustomTabsFingerprint.result?.let { result ->
+object EnableCustomTabs : BytecodePatch(setOf(LaunchCustomTabFingerprint)) {
+    override fun execute(context: BytecodeContext) = LaunchCustomTabFingerprint.result?.let { result ->
         val checkIndex = result.scanResult.patternScanResult!!.endIndex + 1
 
         result.mutableMethod.apply {
@@ -27,5 +27,5 @@ object EnableCustomTabs : BytecodePatch(setOf(UseCustomTabsFingerprint)) {
         }
 
         return@let
-    } ?: throw UseCustomTabsFingerprint.exception
+    } ?: throw LaunchCustomTabFingerprint.exception
 }
