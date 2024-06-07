@@ -18,6 +18,11 @@ import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
+import app.revanced.patches.youtube.layout.miniplayer.MiniplayerResourcePatch.modernMiniplayerClose
+import app.revanced.patches.youtube.layout.miniplayer.MiniplayerResourcePatch.modernMiniplayerExpand
+import app.revanced.patches.youtube.layout.miniplayer.MiniplayerResourcePatch.modernMiniplayerForwardButton
+import app.revanced.patches.youtube.layout.miniplayer.MiniplayerResourcePatch.modernMiniplayerRewindButton
+import app.revanced.patches.youtube.layout.miniplayer.MiniplayerResourcePatch.scrimOverlay
 import app.revanced.patches.youtube.layout.miniplayer.MiniplayerResourcePatch.ytOutlinePictureInPictureWhite24
 import app.revanced.patches.youtube.layout.miniplayer.MiniplayerResourcePatch.ytOutlineXWhite24
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniplayerDimensionsCalculatorParentFingerprint
@@ -236,18 +241,19 @@ object MiniplayerPatch : BytecodePatch(
         // region Add hooks to hide tablet modern miniplayer buttons.
 
         listOf(
-            MiniplayerModernExpandButtonFingerprint to "hideMiniplayerExpandClose",
-            MiniplayerModernCloseButtonFingerprint to "hideMiniplayerExpandClose",
-            MiniplayerModernRewindButtonFingerprint to "hideMiniplayerRewindForward",
-            MiniplayerModernForwardButtonFingerprint to "hideMiniplayerRewindForward",
-            MiniplayerModernOverlayViewFingerprint to "adjustMiniplayerOpacity",
-        ).forEach { (fingerprint, methodName) ->
+            Triple(MiniplayerModernExpandButtonFingerprint, modernMiniplayerExpand,"hideMiniplayerExpandClose"),
+            Triple(MiniplayerModernCloseButtonFingerprint, modernMiniplayerClose, "hideMiniplayerExpandClose"),
+            Triple(MiniplayerModernRewindButtonFingerprint, modernMiniplayerRewindButton, "hideMiniplayerRewindForward"),
+            Triple(MiniplayerModernForwardButtonFingerprint, modernMiniplayerForwardButton, "hideMiniplayerRewindForward"),
+            Triple(MiniplayerModernOverlayViewFingerprint, scrimOverlay, "adjustMiniplayerOpacity")
+        ).forEach { (fingerprint, literalValue, methodName) ->
             fingerprint.resolve(
                 context,
                 MiniplayerModernViewParentFingerprint.resultOrThrow().classDef
             )
 
             fingerprint.addInflatedViewHook(
+                literalValue,
                 "Landroid/widget/ImageView;",
                 "$INTEGRATIONS_CLASS_DESCRIPTOR->$methodName(Landroid/widget/ImageView;)V"
             )
@@ -343,12 +349,13 @@ object MiniplayerPatch : BytecodePatch(
     }
 
     private fun LiteralValueFingerprint.addInflatedViewHook(
+        literalValue: Long,
         hookedClassType: String,
         integrationsMethodName: String,
     ) {
         resultOrThrow().mutableMethod.apply {
             val imageViewIndex = indexOfFirstInstructionOrThrow(
-                indexOfFirstWideLiteralInstructionValueOrThrow(literalSupplier.invoke())
+                indexOfFirstWideLiteralInstructionValueOrThrow(literalValue)
             ) {
                 opcode == Opcode.CHECK_CAST && getReference<TypeReference>()?.type == hookedClassType
             }

@@ -21,7 +21,7 @@ abstract class LiteralValueFingerprint(
     opcodes: Iterable<Opcode>? = null,
     strings: Iterable<String>? = null,
     // Has to be a supplier because the fingerprint is created before patches can set literals.
-    val literalSupplier: () -> Long
+    literalSupplier: () -> Long
 ) : MethodFingerprint(
     returnType = returnType,
     accessFlags = accessFlags,
