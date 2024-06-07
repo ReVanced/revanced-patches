@@ -13,11 +13,12 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.shared.fingerprints.LayoutConstructorFingerprint
-import app.revanced.util.exception
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfIdResourceOrThrow
-import com.android.tools.smali.dexlib2.iface.instruction.Instruction
+import app.revanced.util.resultOrThrow
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
@@ -52,6 +53,11 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
                 "19.09.38",
                 "19.10.39",
                 "19.11.43",
+                "19.12.41",
+                "19.13.37",
+                "19.14.43",
+                "19.15.36",
+                "19.16.39",
             ],
         ),
     ],
@@ -60,6 +66,10 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 object HideAutoplayButtonPatch : BytecodePatch(
     setOf(LayoutConstructorFingerprint),
 ) {
+
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR =
+        "Lapp/revanced/integrations/youtube/patches/HideAutoplayButtonPatch;"
+
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
@@ -67,33 +77,27 @@ object HideAutoplayButtonPatch : BytecodePatch(
             SwitchPreference("revanced_hide_autoplay_button"),
         )
 
-        LayoutConstructorFingerprint.result?.mutableMethod?.apply {
-            val layoutGenMethodInstructions = implementation!!.instructions
+        LayoutConstructorFingerprint.resultOrThrow().mutableMethod.apply {
+            val constIndex = indexOfIdResourceOrThrow("autonav_toggle")
+            val constRegister = getInstruction<OneRegisterInstruction>(constIndex).registerA
 
-            // resolve the offsets of where to insert the branch instructions and ...
-            val insertIndex = indexOfIdResourceOrThrow("autonav_preview_stub")
-
-            // where to branch away
-            val branchIndex =
-                layoutGenMethodInstructions.subList(insertIndex + 1, layoutGenMethodInstructions.size - 1)
-                    .indexOfFirst {
-                        ((it as? ReferenceInstruction)?.reference as? MethodReference)?.name == "addOnLayoutChangeListener"
-                    } + 2
-
-            val jumpInstruction = layoutGenMethodInstructions[insertIndex + branchIndex] as Instruction
-
-            // can be clobbered because this register is overwritten after the injected code
-            val clobberRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+            // Add a conditional branch around the code that inflates and adds the auto repeat button.
+            val gotoIndex = indexOfFirstInstructionOrThrow(constIndex) {
+                val parameterTypes = getReference<MethodReference>()?.parameterTypes
+                opcode == Opcode.INVOKE_VIRTUAL &&
+                    parameterTypes?.size == 2 &&
+                    parameterTypes.first() == "Landroid/view/ViewStub;"
+            } + 1
 
             addInstructionsWithLabels(
-                insertIndex,
+                constIndex,
                 """
-                    invoke-static {}, Lapp/revanced/integrations/youtube/patches/HideAutoplayButtonPatch;->isButtonShown()Z
-                    move-result v$clobberRegister
-                    if-eqz v$clobberRegister, :hidden
+                    invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->hideAutoPlayButton()Z
+                    move-result v$constRegister
+                    if-nez v$constRegister, :hidden
                 """,
-                ExternalLabel("hidden", jumpInstruction),
+                ExternalLabel("hidden", getInstruction(gotoIndex)),
             )
-        } ?: throw LayoutConstructorFingerprint.exception
+        }
     }
 }

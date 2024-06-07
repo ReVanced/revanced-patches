@@ -12,7 +12,18 @@ import app.revanced.patches.music.misc.androidauto.fingerprints.CheckCertificate
 @Patch(
     name = "Bypass certificate checks",
     description = "Bypasses certificate checks which prevent YouTube Music from working on Android Auto.",
-    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")]
+    compatiblePackages = [
+        CompatiblePackage(
+            "com.google.android.apps.youtube.music",
+            [
+                "6.45.54",
+                "6.51.53",
+                "7.01.53",
+                "7.02.52",
+                "7.03.52",
+            ]
+        )
+    ]
 )
 @Suppress("unused")
 object BypassCertificateChecksPatch : BytecodePatch(setOf(CheckCertificateFingerprint)) {

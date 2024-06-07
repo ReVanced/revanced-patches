@@ -31,7 +31,7 @@ import app.revanced.patches.youtube.shared.fingerprints.RollingNumberTextViewAni
 import app.revanced.patches.youtube.video.videoid.VideoIdPatch
 import app.revanced.util.exception
 import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -66,7 +66,12 @@ import com.android.tools.smali.dexlib2.iface.reference.TypeReference
                 "19.08.36",
                 "19.09.38",
                 "19.10.39",
-                "19.11.43"
+                "19.11.43",
+                "19.12.41",
+                "19.13.37",
+                "19.14.43",
+                "19.15.36",
+                "19.16.39",
             ]
         )
     ]
@@ -142,11 +147,10 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
             TextComponentLookupFingerprint.resultOrThrow().mutableMethod.apply {
                 // Find the instruction for creating the text data object.
                 val textDataClassType = TextComponentDataFingerprint.resultOrThrow().classDef.type
-                val insertIndex = indexOfFirstInstruction {
+                val insertIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.NEW_INSTANCE &&
                             getReference<TypeReference>()?.type == textDataClassType
                 }
-                if (insertIndex < 0) throw PatchException("Could not find data creation instruction")
                 val tempRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                 // Find the instruction that sets the span to an instance field.
@@ -335,7 +339,7 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                 realTimeUpdateTextViewMethod
             ).forEach { insertMethod ->
                 insertMethod.apply {
-                    val setTextIndex = indexOfFirstInstruction {
+                    val setTextIndex = indexOfFirstInstructionOrThrow {
                         getReference<MethodReference>()?.name == "setText"
                     }
 

@@ -1,10 +1,11 @@
 [versions]
 revanced-patcher = "19.3.1"
-smali = "3.0.5"
-guava = "33.0.0-jre"
+#noinspection GradleDependency
+smali = "3.0.5" # 3.0.7 breaks binary compatibility. Tracking https://github.com/google/smali/issues/58.
+guava = "33.1.0-jre"
 gson = "2.10.1"
 binary-compatibility-validator = "0.14.0"
-kotlin = "1.9.22"
+kotlin = "2.0.0"
 
 [libraries]
 revanced-patcher = { module = "app.revanced:revanced-patcher", version.ref = "revanced-patcher" }
