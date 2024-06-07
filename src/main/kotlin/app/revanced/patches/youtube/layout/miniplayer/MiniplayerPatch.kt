@@ -321,7 +321,7 @@ object MiniplayerPatch : BytecodePatch(
 
     private fun MutableMethod.insertBooleanOverride(index: Int, methodName: String) {
         val register = getInstruction<OneRegisterInstruction>(index).registerA
-        this.addInstructions(
+        addInstructions(
             index,
             """
                 invoke-static {v$register}, $INTEGRATIONS_CLASS_DESCRIPTOR->$methodName(Z)Z
