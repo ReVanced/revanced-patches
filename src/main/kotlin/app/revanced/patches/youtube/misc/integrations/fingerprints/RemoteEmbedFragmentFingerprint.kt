@@ -14,6 +14,5 @@ internal object RemoteEmbedFragmentFingerprint : IntegrationsFingerprint(
     customFingerprint = { methodDef, _ ->
         methodDef.definingClass == "Lcom/google/android/apps/youtube/embeddedplayer/service/jar/client/RemoteEmbedFragment;"
     },
-    // Integrations context is the first method parameter.
-    contextRegisterResolver = { it.implementation!!.registerCount - it.parameters.size }
+    contextRegisterResolver = { "p1" }
 )

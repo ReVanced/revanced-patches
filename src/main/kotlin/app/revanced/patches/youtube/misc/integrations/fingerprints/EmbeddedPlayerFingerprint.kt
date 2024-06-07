@@ -15,6 +15,5 @@ internal object EmbeddedPlayerFingerprint : IntegrationsFingerprint(
     returnType = "L",
     parameters = listOf("L", "L", "Landroid/content/Context;"),
     strings = listOf("android.hardware.type.television"), // String is also found in other classes
-    // Integrations context is the third method parameter.
-    contextRegisterResolver = { it.implementation!!.registerCount - it.parameters.size + 2 }
+    contextRegisterResolver = { "p2" }
 )

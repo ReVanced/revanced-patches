@@ -12,6 +12,5 @@ import com.android.tools.smali.dexlib2.AccessFlags
 internal object APIPlayerServiceFingerprint : IntegrationsFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     customFingerprint = { methodDef, _ -> methodDef.definingClass == "Lcom/google/android/apps/youtube/embeddedplayer/service/service/jar/ApiPlayerService;" },
-    // Integrations context is the first method parameter.
-    contextRegisterResolver = { it.implementation!!.registerCount - it.parameters.size }
+    contextRegisterResolver = { "p1" }
 )

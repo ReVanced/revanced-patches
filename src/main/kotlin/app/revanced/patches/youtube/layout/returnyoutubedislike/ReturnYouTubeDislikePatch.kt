@@ -1,7 +1,6 @@
 package app.revanced.patches.youtube.layout.returnyoutubedislike
 
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -10,9 +9,10 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.IntentPreference
 import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.ConversionContextFingerprint
 import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.DislikeFingerprint
-import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.DislikesOldLayoutTextViewFingerprint
 import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.LikeFingerprint
 import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.RemoveLikeFingerprint
 import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.RollingNumberMeasureAnimatedTextFingerprint
@@ -24,9 +24,10 @@ import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.Sho
 import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.TextComponentConstructorFingerprint
 import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.TextComponentDataFingerprint
 import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.TextComponentLookupFingerprint
-import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
 import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
+import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.patches.youtube.misc.settings.SettingsResourcePatch
 import app.revanced.patches.youtube.shared.fingerprints.RollingNumberTextViewAnimationUpdateFingerprint
 import app.revanced.patches.youtube.video.videoid.VideoIdPatch
 import app.revanced.util.exception
@@ -46,10 +47,9 @@ import com.android.tools.smali.dexlib2.iface.reference.TypeReference
     name = "Return YouTube Dislike",
     description = "Adds an option to show the dislike count of videos using the Return YouTube Dislike API.",
     dependencies = [
-        IntegrationsPatch::class,
+        SettingsPatch::class,
         LithoFilterPatch::class,
         VideoIdPatch::class,
-        ReturnYouTubeDislikeResourcePatch::class,
         PlayerTypeHookPatch::class,
     ],
     compatiblePackages = [
@@ -83,7 +83,6 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
         TextComponentConstructorFingerprint,
         TextComponentDataFingerprint,
         ShortsTextViewFingerprint,
-        DislikesOldLayoutTextViewFingerprint,
         LikeFingerprint,
         DislikeFingerprint,
         RemoveLikeFingerprint,
@@ -101,6 +100,15 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
         "Lapp/revanced/integrations/youtube/patches/components/ReturnYouTubeDislikeFilterPatch;"
 
     override fun execute(context: BytecodeContext) {
+        AddResourcesPatch(this::class)
+
+        SettingsResourcePatch += IntentPreference(
+            key = "revanced_settings_screen_09",
+            titleKey = "revanced_ryd_settings_title",
+            summaryKey = null,
+            intent = SettingsPatch.newIntent("revanced_ryd_settings_intent"),
+        )
+
         // region Inject newVideoLoaded event handler to update dislikes when a new video is loaded.
 
         VideoIdPatch.hookVideoId("$INTEGRATIONS_CLASS_DESCRIPTOR->newVideoLoaded(Ljava/lang/String;)V")
@@ -229,25 +237,6 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
         VideoIdPatch.hookPlayerResponseVideoId("$FILTER_CLASS_DESCRIPTOR->newPlayerResponseVideoId(Ljava/lang/String;Z)V")
 
         // endregion
-
-        // region Hook old UI layout dislikes, for the older app spoofs used with spoof-app-version.
-
-        DislikesOldLayoutTextViewFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val startIndex = it.scanResult.patternScanResult!!.startIndex
-
-                val resourceIdentifierRegister = getInstruction<OneRegisterInstruction>(startIndex).registerA
-                val textViewRegister = getInstruction<OneRegisterInstruction>(startIndex + 4).registerA
-
-                addInstruction(
-                    startIndex + 4,
-                    "invoke-static {v$resourceIdentifierRegister, v$textViewRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->setOldUILayoutDislikes(ILandroid/widget/TextView;)V"
-                )
-            }
-        } ?: throw DislikesOldLayoutTextViewFingerprint.exception
-
-        // endregion
-
 
         // region Hook rolling numbers.
 

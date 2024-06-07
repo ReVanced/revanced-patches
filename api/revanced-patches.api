@@ -325,26 +325,8 @@ public final class app/revanced/patches/music/ad/video/HideMusicVideoAds : app/r
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/music/ad/video/MusicVideoAdsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/ad/video/MusicVideoAdsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/music/audio/codecs/CodecsUnlockPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/audio/codecs/CodecsUnlockPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
 public final class app/revanced/patches/music/audio/exclusiveaudio/EnableExclusiveAudioPlayback : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/music/audio/exclusiveaudio/EnableExclusiveAudioPlayback;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/music/audio/exclusiveaudio/ExclusiveAudioPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/audio/exclusiveaudio/ExclusiveAudioPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
@@ -357,18 +339,6 @@ public final class app/revanced/patches/music/interaction/permanentrepeat/Perman
 
 public final class app/revanced/patches/music/interaction/permanentshuffle/PermanentShufflePatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/music/interaction/permanentshuffle/PermanentShufflePatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/music/interaction/permanentshuffle/PermanentShuffleTogglePatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/interaction/permanentshuffle/PermanentShuffleTogglePatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/music/layout/compactheader/CompactHeaderPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/layout/compactheader/CompactHeaderPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
@@ -417,12 +387,6 @@ public final class app/revanced/patches/music/misc/gms/GmsCoreSupportResourcePat
 
 public final class app/revanced/patches/music/misc/integrations/IntegrationsPatch : app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch {
 	public static final field INSTANCE Lapp/revanced/patches/music/misc/integrations/IntegrationsPatch;
-}
-
-public final class app/revanced/patches/music/premium/backgroundplay/BackgroundPlayPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/premium/backgroundplay/BackgroundPlayPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
 public final class app/revanced/patches/myexpenses/misc/pro/UnlockProPatch : app/revanced/patcher/patch/BytecodePatch {
@@ -696,7 +660,6 @@ public abstract class app/revanced/patches/shared/misc/gms/BaseGmsCoreSupportRes
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
-	protected final fun getGmsCoreVendor ()Ljava/lang/String;
 	protected final fun getGmsCoreVendorGroupId ()Ljava/lang/String;
 }
 
@@ -717,7 +680,6 @@ public final class app/revanced/patches/shared/misc/hex/BaseHexPatch$Replacement
 }
 
 public abstract class app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public fun <init> (Ljava/lang/String;Ljava/util/Set;)V
 	public fun <init> (Ljava/util/Set;)V
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
@@ -725,8 +687,6 @@ public abstract class app/revanced/patches/shared/misc/integrations/BaseIntegrat
 
 public abstract class app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch$IntegrationsFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
 	public fun <init> ()V
-	public fun <init> (Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Iterable;Ljava/lang/Iterable;Ljava/lang/Iterable;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Iterable;Ljava/lang/Iterable;Ljava/lang/Iterable;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun <init> (Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Iterable;Ljava/lang/Iterable;Ljava/lang/Iterable;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)V
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Iterable;Ljava/lang/Iterable;Ljava/lang/Iterable;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun invoke (Ljava/lang/String;)V
@@ -741,11 +701,11 @@ public final class app/revanced/patches/shared/misc/integrations/BaseIntegration
 }
 
 public abstract interface class app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch$IntegrationsFingerprint$IRegisterResolver : kotlin/jvm/functions/Function1 {
-	public abstract fun invoke (Lcom/android/tools/smali/dexlib2/iface/Method;)Ljava/lang/Integer;
+	public abstract fun invoke (Lcom/android/tools/smali/dexlib2/iface/Method;)Ljava/lang/String;
 }
 
 public final class app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch$IntegrationsFingerprint$IRegisterResolver$DefaultImpls {
-	public static fun invoke (Lapp/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch$IntegrationsFingerprint$IRegisterResolver;Lcom/android/tools/smali/dexlib2/iface/Method;)Ljava/lang/Integer;
+	public static fun invoke (Lapp/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch$IntegrationsFingerprint$IRegisterResolver;Lcom/android/tools/smali/dexlib2/iface/Method;)Ljava/lang/String;
 }
 
 public final class app/revanced/patches/shared/misc/mapping/ResourceMappingPatch : app/revanced/patcher/patch/ResourcePatch {
@@ -894,8 +854,6 @@ public final class app/revanced/patches/shared/misc/settings/preference/ListPref
 public final class app/revanced/patches/shared/misc/settings/preference/NonInteractivePreference : app/revanced/patches/shared/misc/settings/preference/BasePreference {
 	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun getSelectable ()Z
 	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
 }
@@ -1120,12 +1078,6 @@ public final class app/revanced/patches/tumblr/featureflags/OverrideFeatureFlags
 
 public final class app/revanced/patches/tumblr/fixes/FixOldVersionsPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/tumblr/fixes/FixOldVersionsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/tumblr/live/DisableTumblrLivePatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/tumblr/live/DisableTumblrLivePatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
@@ -1372,12 +1324,6 @@ public final class app/revanced/patches/youtube/layout/branding/header/ChangeHea
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
-public final class app/revanced/patches/youtube/layout/branding/header/PremiumHeadingPatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/branding/header/PremiumHeadingPatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
-}
-
 public final class app/revanced/patches/youtube/layout/buttons/action/HideButtonsPatch : app/revanced/patcher/patch/ResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/buttons/action/HideButtonsPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
@@ -1416,12 +1362,6 @@ public final class app/revanced/patches/youtube/layout/buttons/player/hide/HideP
 
 public final class app/revanced/patches/youtube/layout/hide/albumcards/AlbumCardsPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/albumcards/AlbumCardsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/youtube/layout/hide/breakingnews/BreakingNewsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/breakingnews/BreakingNewsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
@@ -1478,12 +1418,6 @@ public final class app/revanced/patches/youtube/layout/hide/infocards/HideInfoca
 	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/infocards/HideInfocardsResourcePatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
-}
-
-public final class app/revanced/patches/youtube/layout/hide/loadmorebutton/HideLoadMoreButtonPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/loadmorebutton/HideLoadMoreButtonPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
 public final class app/revanced/patches/youtube/layout/hide/player/flyoutmenupanel/HidePlayerFlyoutMenuPatch : app/revanced/patcher/patch/ResourcePatch {
@@ -1656,18 +1590,6 @@ public final class app/revanced/patches/youtube/misc/fix/playback/SpoofClientPat
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/youtube/misc/fix/playback/SpoofSignaturePatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/fix/playback/SpoofSignaturePatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/youtube/misc/fix/playback/SpoofSignatureResourcePatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/fix/playback/SpoofSignatureResourcePatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
-}
-
 public final class app/revanced/patches/youtube/misc/fix/playback/UserAgentClientSpoofPatch : app/revanced/patches/all/misc/transformation/BaseTransformInstructionsPatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/fix/playback/UserAgentClientSpoofPatch;
 	public synthetic fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Ljava/lang/Object;
@@ -1798,12 +1720,6 @@ public final class app/revanced/patches/youtube/misc/zoomhaptics/ZoomHapticsPatc
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/youtube/video/hdrbrightness/HDRBrightnessPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/video/hdrbrightness/HDRBrightnessPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
 public final class app/revanced/patches/youtube/video/information/VideoInformationPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/video/information/VideoInformationPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -1883,12 +1799,6 @@ public final class app/revanced/patches/youtube/video/videoqualitymenu/RestoreOl
 	public static final field INSTANCE Lapp/revanced/patches/youtube/video/videoqualitymenu/RestoreOldVideoQualityMenuResourcePatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
-}
-
-public final class app/revanced/patches/youtubevanced/ad/general/HideAdsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtubevanced/ad/general/HideAdsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
 public final class app/revanced/patches/yuka/misc/unlockpremium/UnlockPremiumPatch : app/revanced/patcher/patch/BytecodePatch {
