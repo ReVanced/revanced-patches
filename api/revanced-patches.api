@@ -1638,6 +1638,12 @@ public final class app/revanced/patches/youtube/misc/autorepeat/AutoRepeatPatch 
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/youtube/misc/backgroundplayback/BackgroundPlaybackPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/backgroundplayback/BackgroundPlaybackPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/youtube/misc/debugging/DebuggingPatch : app/revanced/patcher/patch/ResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/debugging/DebuggingPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
