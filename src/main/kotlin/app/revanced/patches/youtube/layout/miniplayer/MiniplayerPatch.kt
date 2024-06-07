@@ -190,6 +190,7 @@ object MiniplayerPatch : BytecodePatch(
         }
 
         if (isPatchingLegacy) {
+            // Return here, as patch below is only intended for new versions of the app.
             return
         }
 
