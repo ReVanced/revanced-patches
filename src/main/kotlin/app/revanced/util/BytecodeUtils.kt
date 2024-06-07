@@ -158,6 +158,8 @@ inline fun <reified T : Reference> Instruction.getReference() = (this as? Refere
  * @return The index of the first [Instruction] that matches the predicate.
  */
 // TODO: delete this on next major release, the overloaded method with an optional start index serves the same purposes.
+// Method is deprecated, but annotation is commented out otherwise during compilation usage of the replacement is
+// incorrectly flagged as deprecated.
 //@Deprecated("Use the overloaded method with an optional start index.", ReplaceWith("indexOfFirstInstruction(predicate)"))
 fun Method.indexOfFirstInstruction(predicate: Instruction.() -> Boolean) = indexOfFirstInstruction(0, predicate)
 

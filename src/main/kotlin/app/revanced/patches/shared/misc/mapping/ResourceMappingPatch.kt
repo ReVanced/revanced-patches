@@ -52,11 +52,10 @@ object ResourceMappingPatch : ResourcePatch() {
         threadPoolExecutor.also { it.shutdown() }.awaitTermination(Long.MAX_VALUE, TimeUnit.SECONDS)
     }
 
-    operator fun get(type: String, name: String) : Long {
-        return resourceMappings.firstOrNull {
+    operator fun get(type: String, name: String) =
+        resourceMappings.firstOrNull {
             it.type == type && it.name == name
         }?.id ?: throw PatchException("Could not find resource type: $type name: $name")
-    }
 
     data class ResourceElement(val type: String, val name: String, val id: Long)
 }

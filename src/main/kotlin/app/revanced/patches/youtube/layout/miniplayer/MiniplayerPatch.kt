@@ -158,7 +158,7 @@ object MiniplayerPatch : BytecodePatch(
             MiniplayerDimensionsCalculatorParentFingerprint.resultOrThrow().classDef
         )
         MiniplayerOverrideNoContextFingerprint.resultOrThrow().mutableMethod.apply {
-            findReturnIndices().forEach { index -> insertLegacyTabletOverride(index) }
+            findReturnIndicesReversed().forEach { index -> insertLegacyTabletMiniplayerOverride(index) }
         }
 
         // endregion
@@ -175,13 +175,13 @@ object MiniplayerPatch : BytecodePatch(
                     .getMethod() as MutableMethod
 
                 walkerMethod.apply {
-                    findReturnIndices().forEach { index -> insertLegacyTabletOverride(index) }
+                    findReturnIndicesReversed().forEach { index -> insertLegacyTabletMiniplayerOverride(index) }
                 }
             }
         }
 
         MiniplayerResponseModelSizeCheckFingerprint.resultOrThrow().let {
-            it.mutableMethod.insertLegacyTabletOverride(it.scanResult.patternScanResult!!.endIndex)
+            it.mutableMethod.insertLegacyTabletMiniplayerOverride(it.scanResult.patternScanResult!!.endIndex)
         }
 
         if (isPatchingLegacy) {
@@ -200,9 +200,9 @@ object MiniplayerPatch : BytecodePatch(
                         this.opcode == Opcode.IPUT && this.getReference<FieldReference>()?.type == "I"
                     }
 
-                    insertModernOverrideInt(iPutIndex)
+                    insertModernMiniplayerTypeOverride(iPutIndex)
                 } else {
-                    findReturnIndices().forEach { index -> insertModernOverrideBoolean(index) }
+                    findReturnIndicesReversed().forEach { index -> insertModernMiniplayerOverride(index) }
                 }
             }
         }
@@ -258,13 +258,11 @@ object MiniplayerPatch : BytecodePatch(
                 context,
                 MiniplayerModernViewParentFingerprint.resultOrThrow().classDef
             )
-        }.resultOrThrow().mutableMethod.apply {
-            addInstruction(
-                0,
-                "invoke-static { p1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->" +
-                        "hideMiniplayerSubTexts(Landroid/view/View;)V"
-            )
-        }
+        }.resultOrThrow().mutableMethod.addInstruction(
+            0,
+            "invoke-static { p1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->" +
+                    "hideMiniplayerSubTexts(Landroid/view/View;)V"
+        )
 
 
         // Modern 2 has a broken overlay subtitle view that is always present.
@@ -299,7 +297,21 @@ object MiniplayerPatch : BytecodePatch(
         // endregion
     }
 
-    private fun Method.findReturnIndices() = findOpcodeIndicesReversed(Opcode.RETURN)
+    private fun Method.findReturnIndicesReversed() = findOpcodeIndicesReversed(Opcode.RETURN)
+
+    /**
+     * Adds an override to force legacy tablet miniplayer to be used or not used.
+     */
+    private fun MutableMethod.insertLegacyTabletMiniplayerOverride(index: Int) {
+        insertBooleanOverride(index, "getLegacyTabletMiniplayerOverride")
+    }
+
+    /**
+     * Adds an override to force modern miniplayer to be used or not used.
+     */
+    private fun MutableMethod.insertModernMiniplayerOverride(index: Int) {
+        insertBooleanOverride(index, "getModernMiniplayerOverride")
+    }
 
     private fun MutableMethod.insertBooleanOverride(index: Int, methodName: String) {
         val register = getInstruction<OneRegisterInstruction>(index).registerA
@@ -312,21 +324,16 @@ object MiniplayerPatch : BytecodePatch(
         )
     }
 
-    private fun MutableMethod.insertLegacyTabletOverride(index: Int) {
-        insertBooleanOverride(index, "getLegacyTabletOverride")
-    }
-
-    private fun MutableMethod.insertModernOverrideBoolean(index: Int) {
-        insertBooleanOverride(index, "getModernOverride")
-    }
-
-    private fun MutableMethod.insertModernOverrideInt(iPutIndex: Int) {
+    /**
+     * Adds an override to specify which modern miniplayer is used.
+     */
+    private fun MutableMethod.insertModernMiniplayerTypeOverride(iPutIndex: Int) {
         val targetInstruction = getInstruction<TwoRegisterInstruction>(iPutIndex)
         val targetReference = (targetInstruction as ReferenceInstruction).reference
 
         addInstructions(
             iPutIndex + 1, """
-                invoke-static { v${targetInstruction.registerA} }, $INTEGRATIONS_CLASS_DESCRIPTOR->getModernOverrideType(I)I
+                invoke-static { v${targetInstruction.registerA} }, $INTEGRATIONS_CLASS_DESCRIPTOR->getModernMiniplayerOverrideType(I)I
                 move-result v${targetInstruction.registerA}
                 # Original instruction
                 iput v${targetInstruction.registerA}, v${targetInstruction.registerB}, $targetReference 

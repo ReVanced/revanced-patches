@@ -70,5 +70,12 @@ internal object MiniplayerResourcePatch : ResourcePatch() {
             "layout",
             "player_overlays"
         ]
+
+        // Resource id is not used during patching, but is used by integrations.
+        // Verify the resource is present while patching.
+        ResourceMappingPatch[
+            "id",
+            "modern_miniplayer_subtitle_text"
+        ]
     }
 }
