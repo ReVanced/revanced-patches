@@ -164,27 +164,27 @@ object MiniplayerPatch : BytecodePatch(
         // endregion
 
 
-        // region Legacy pre 19.15 targets
+        // region Legacy tablet hooks.
 
-        if (isPatchingLegacy) {
-            MiniplayerOverrideFingerprint.resultOrThrow().let {
-                val appNameStringIndex = it.scanResult.stringsScanResult!!.matches.first().index + 2
+        MiniplayerOverrideFingerprint.resultOrThrow().let {
+            val appNameStringIndex = it.scanResult.stringsScanResult!!.matches.first().index + 2
 
-                it.mutableMethod.apply {
-                    val walkerMethod = context.toMethodWalker(this)
-                        .nextMethod(appNameStringIndex, true)
-                        .getMethod() as MutableMethod
+            it.mutableMethod.apply {
+                val walkerMethod = context.toMethodWalker(this)
+                    .nextMethod(appNameStringIndex, true)
+                    .getMethod() as MutableMethod
 
-                    walkerMethod.apply {
-                        findReturnIndices().forEach { index -> insertLegacyTabletOverride(index) }
-                    }
+                walkerMethod.apply {
+                    findReturnIndices().forEach { index -> insertLegacyTabletOverride(index) }
                 }
             }
+        }
 
-            MiniplayerResponseModelSizeCheckFingerprint.resultOrThrow().let {
-                it.mutableMethod.insertLegacyTabletOverride(it.scanResult.patternScanResult!!.endIndex)
-            }
+        MiniplayerResponseModelSizeCheckFingerprint.resultOrThrow().let {
+            it.mutableMethod.insertLegacyTabletOverride(it.scanResult.patternScanResult!!.endIndex)
+        }
 
+        if (isPatchingLegacy) {
             return
         }
 
