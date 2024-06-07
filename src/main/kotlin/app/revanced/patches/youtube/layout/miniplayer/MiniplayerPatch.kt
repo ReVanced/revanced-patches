@@ -252,7 +252,7 @@ object MiniplayerPatch : BytecodePatch(
                 MiniplayerModernViewParentFingerprint.resultOrThrow().classDef
             )
 
-            fingerprint.addInflatedViewHook(
+            fingerprint.hookInflatedView(
                 literalValue,
                 "Landroid/widget/ImageView;",
                 "$INTEGRATIONS_CLASS_DESCRIPTOR->$methodName(Landroid/widget/ImageView;)V"
