@@ -13,6 +13,7 @@ import app.revanced.patches.shared.misc.gms.BaseGmsCoreSupportPatch.Constants.AU
 import app.revanced.patches.shared.misc.gms.BaseGmsCoreSupportPatch.Constants.PERMISSIONS
 import app.revanced.patches.shared.misc.gms.fingerprints.GmsCoreSupportFingerprint
 import app.revanced.patches.shared.misc.gms.fingerprints.GmsCoreSupportFingerprint.GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME
+import app.revanced.patches.shared.misc.gms.fingerprints.GooglePlayUtilityFingerprint
 import app.revanced.util.exception
 import app.revanced.util.getReference
 import app.revanced.util.returnEarly
@@ -62,6 +63,7 @@ abstract class BaseGmsCoreSupportPatch(
     compatiblePackages = compatiblePackages,
     fingerprints = setOf(
         GmsCoreSupportFingerprint,
+        GooglePlayUtilityFingerprint,
         mainActivityOnCreateFingerprint,
     ) + fingerprints,
     requiresIntegrations = true,
@@ -94,7 +96,10 @@ abstract class BaseGmsCoreSupportPatch(
         primeMethodFingerprint?.let { transformPrimeMethod(packageName) }
 
         // Return these methods early to prevent the app from crashing.
-        earlyReturnFingerprints.toList().returnEarly()
+        earlyReturnFingerprints.returnEarly()
+        if (GooglePlayUtilityFingerprint.result != null) {
+            GooglePlayUtilityFingerprint.returnEarly()
+        }
 
         // Verify GmsCore is installed and whitelisted for power optimizations and background usage.
         mainActivityOnCreateFingerprint.result?.mutableMethod?.addInstructions(

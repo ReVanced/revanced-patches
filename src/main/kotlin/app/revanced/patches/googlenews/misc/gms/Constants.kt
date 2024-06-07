@@ -1,4 +1,4 @@
-package app.revanced.patches.magazines.misc.gms
+package app.revanced.patches.googlenews.misc.gms
 
 internal object Constants {
     const val MAGAZINES_PACKAGE_NAME = "com.google.android.apps.magazines"

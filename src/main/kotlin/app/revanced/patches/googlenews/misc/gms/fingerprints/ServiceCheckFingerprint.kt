@@ -1,4 +1,4 @@
-package app.revanced.patches.magazines.misc.gms.fingerprints
+package app.revanced.patches.googlenews.misc.gms.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
@@ -8,5 +8,5 @@ internal object ServiceCheckFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     parameters = listOf("L", "I"),
-    strings = listOf("Google Play Services not available", "GooglePlayServices not available due to error ")
+    strings = listOf("Google Play Services not available", "GooglePlayServices not available due to error "),
 )

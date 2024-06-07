@@ -1,8 +1,8 @@
-package app.revanced.patches.magazines.misc.gms
+package app.revanced.patches.googlenews.misc.gms
 
+import app.revanced.patches.googlenews.misc.gms.Constants.MAGAZINES_PACKAGE_NAME
+import app.revanced.patches.googlenews.misc.gms.Constants.REVANCED_MAGAZINES_PACKAGE_NAME
 import app.revanced.patches.shared.misc.gms.BaseGmsCoreSupportResourcePatch
-import app.revanced.patches.magazines.misc.gms.Constants.MAGAZINES_PACKAGE_NAME
-import app.revanced.patches.magazines.misc.gms.Constants.REVANCED_MAGAZINES_PACKAGE_NAME
 
 object GmsCoreSupportResourcePatch : BaseGmsCoreSupportResourcePatch(
     fromPackageName = MAGAZINES_PACKAGE_NAME,
