@@ -122,7 +122,7 @@ object MiniplayerPatch : BytecodePatch(
         AddResourcesPatch(this::class)
 
         // Modern mini player is only present and functional in 19.15+.
-        // Of note, some modern miniplayer code is present in 19.14 but the feature is not complete.
+        // Resource is not present in older versions. Using it to determine, if patching an old version.
         val isPatchingLegacy = ytOutlinePictureInPictureWhite24 < 0
 
         SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
