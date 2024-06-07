@@ -951,7 +951,7 @@
         </patch>x
         <patch id="layout.miniplayer.MiniplayerPatch">
             <string name="revanced_miniplayer_screen_title">Miniplayer</string>
-            <string name="revanced_miniplayer_screen_summary">Modify the in app minimized player</string>
+            <string name="revanced_miniplayer_screen_summary">Change the style of the in app minimized player</string>
             <string name="revanced_miniplayer_type_title">Miniplayer type</string>
             <string name="revanced_miniplayer_type_entry_1">Original</string>
             <string name="revanced_miniplayer_type_entry_2">Phone</string>
