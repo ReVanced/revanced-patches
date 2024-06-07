@@ -194,7 +194,7 @@ fun Method.indexOfFirstInstructionOrThrow(startIndex: Int = 0, predicate: Instru
 }
 
 /**
- * @return All indexes for a specific opcodes, with indexes in reverse order.
+ * @return The list of indices of the opcode in reverse order.
  */
 fun Method.findOpcodeIndices(opcode: Opcode): List<Int> {
     val indexes = implementation!!.instructions
