@@ -13,7 +13,7 @@ import app.revanced.patches.reddit.customclients.syncforreddit.misc.integrations
 
 @Suppress("unused")
 object FixSLinksPatch : BaseFixSLinksPatch(
-    navigationFingerprint = LinkHelperOpenLinkFingerprint,
+    handleNavigationFingerprint = LinkHelperOpenLinkFingerprint,
     setAccessTokenFingerprint = SetAuthorizationHeaderFingerprint,
     compatiblePackages = setOf(
         CompatiblePackage("com.laurencedawson.reddit_sync"),
@@ -24,7 +24,7 @@ object FixSLinksPatch : BaseFixSLinksPatch(
 ) {
     override val integrationsClassDescriptor = "Lapp/revanced/integrations/syncforreddit/FixSLinksPatch;"
 
-    override fun MethodFingerprintResult.patchNavigation(context: BytecodeContext) {
+    override fun MethodFingerprintResult.patchNavigationHandler(context: BytecodeContext) {
         mutableMethod.apply {
             val urlRegister = "p3"
             val tempRegister = "v2"
@@ -32,7 +32,7 @@ object FixSLinksPatch : BaseFixSLinksPatch(
             addInstructionsWithLabels(
                 0,
                 """
-                    invoke-static { $urlRegister }, $integrationsClassDescriptor->$resolveSLinkMethodDescriptor
+                    invoke-static { $urlRegister }, $integrationsClassDescriptor->$resolveSLinkMethod
                     move-result $tempRegister
                     if-eqz $tempRegister, :continue
                     return $tempRegister
@@ -44,6 +44,6 @@ object FixSLinksPatch : BaseFixSLinksPatch(
 
     override fun MethodFingerprintResult.patchSetAccessToken(context: BytecodeContext) = mutableMethod.addInstruction(
         0,
-        "invoke-static { p0 }, $integrationsClassDescriptor->$setAccessTokenMethodDescriptor",
+        "invoke-static { p0 }, $integrationsClassDescriptor->$setAccessTokenMethod",
     )
 }
