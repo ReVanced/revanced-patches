@@ -248,8 +248,8 @@ object MiniplayerPatch : BytecodePatch(
             )
 
             fingerprint.addInflatedViewHook(
-                "$INTEGRATIONS_CLASS_DESCRIPTOR->$methodName(Landroid/widget/ImageView;)V",
-                "Landroid/widget/ImageView;"
+                "Landroid/widget/ImageView;",
+                "$INTEGRATIONS_CLASS_DESCRIPTOR->$methodName(Landroid/widget/ImageView;)V"
             )
         }
 
@@ -336,8 +336,8 @@ object MiniplayerPatch : BytecodePatch(
     }
 
     private fun LiteralValueFingerprint.addInflatedViewHook(
-        integrationsMethodName: String,
         hookedClassType: String,
+        integrationsMethodName: String,
     ) {
         resultOrThrow().mutableMethod.apply {
             val imageViewIndex = indexOfFirstInstructionOrThrow(
