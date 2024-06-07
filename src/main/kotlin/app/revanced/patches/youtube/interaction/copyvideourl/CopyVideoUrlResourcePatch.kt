@@ -29,8 +29,8 @@ internal object CopyVideoUrlResourcePatch : ResourcePatch() {
         context.copyResources(
             "copyvideourl", ResourceGroup(
                 resourceDirectoryName = "drawable",
-                "revanced_yt_copy.xml",
-                "revanced_yt_copy_timestamp.xml"
+                "revanced_yt_copy_button.xml",
+                "revanced_yt_copy_timestamp_button.xml"
             )
         )
 
