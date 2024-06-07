@@ -123,14 +123,14 @@ object MiniplayerPatch : BytecodePatch(
 
         // Modern mini player is only present and functional in 19.15+.
         // Resource is not present in older versions. Using it to determine, if patching an old version.
-        val isPatchingLegacy = ytOutlinePictureInPictureWhite24 < 0
+        val isPatchingOldVersion = ytOutlinePictureInPictureWhite24 < 0
 
         SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
             PreferenceScreen(
                 key = "revanced_miniplayer_screen",
                 sorting = Sorting.UNSORTED,
                 preferences =
-                if (isPatchingLegacy) {
+                if (isPatchingOldVersion) {
                     setOf(
                         ListPreference(
                             "revanced_miniplayer_type",
@@ -188,7 +188,7 @@ object MiniplayerPatch : BytecodePatch(
             it.mutableMethod.insertLegacyTabletMiniplayerOverride(it.scanResult.patternScanResult!!.endIndex)
         }
 
-        if (isPatchingLegacy) {
+        if (isPatchingOldVersion) {
             // Return here, as patch below is only intended for new versions of the app.
             return
         }
