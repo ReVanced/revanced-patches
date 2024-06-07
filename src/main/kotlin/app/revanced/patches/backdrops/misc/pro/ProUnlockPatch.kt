@@ -15,15 +15,15 @@ val proUnlockPatch = bytecodePatch(
     val proUnlockResult by proUnlockFingerprint
 
     execute {
-        val registerIndex = proUnlockResult.scanResult.patternScanResult!!.endIndex - 1
-
         proUnlockResult.mutableMethod.apply {
+            val registerIndex = proUnlockResult.scanResult.patternScanResult!!.endIndex - 1
             val register = getInstruction<OneRegisterInstruction>(registerIndex).registerA
+
             addInstruction(
                 proUnlockResult.scanResult.patternScanResult!!.endIndex,
                 """
                         const/4 v$register, 0x1
-                    """
+                    """,
             )
         }
     }

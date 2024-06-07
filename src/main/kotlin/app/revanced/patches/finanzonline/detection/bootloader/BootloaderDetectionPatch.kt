@@ -5,7 +5,6 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.finanzonline.detection.bootloader.fingerprints.bootStateFingerprint
 import app.revanced.patches.finanzonline.detection.bootloader.fingerprints.createKeyFingerprint
 
-
 @Suppress("unused")
 val bootloaderDetectionPatch = bytecodePatch(
     name = "Bootloader detection",
@@ -21,9 +20,9 @@ val bootloaderDetectionPatch = bytecodePatch(
             fingerprint.mutableMethod.addInstructions(
                 0,
                 """
-                        const/4 v0, 0x1
-                        return v0
-                """
+                    const/4 v0, 0x1
+                    return v0
+                """,
             )
         }
     }

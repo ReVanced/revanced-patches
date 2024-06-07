@@ -1,6 +1,6 @@
 package app.revanced.patches.openinghours.misc.fix.crash
 
-import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.extensions.newLabel
 import app.revanced.patcher.patch.bytecodePatch
@@ -12,10 +12,9 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-
 @Suppress("unused")
 val fixCrashPatch = bytecodePatch(
-    name = "Fix crash"
+    name = "Fix crash",
 ) {
     compatibleWith("de.simon.openinghours"("1.0"))
 
@@ -23,7 +22,7 @@ val fixCrashPatch = bytecodePatch(
 
     execute {
         setPlaceResult.let {
-            val indexedInstructions = it.mutableMethod.getInstructions().withIndex().toList()
+            val indexedInstructions = it.mutableMethod.instructions.withIndex().toList()
 
             /**
              * This function replaces all `checkNotNull` instructions in the integer interval
@@ -80,7 +79,6 @@ val fixCrashPatch = bytecodePatch(
             avoidNullPointerException(getOpeningHoursIndex[0], setWeekDayTextIndex)
         }
     }
-
 }
 fun isInvokeInstruction(instruction: Instruction, className: String, methodName: String): Boolean {
     val methodRef = instruction.getReference<MethodReference>() ?: return false
