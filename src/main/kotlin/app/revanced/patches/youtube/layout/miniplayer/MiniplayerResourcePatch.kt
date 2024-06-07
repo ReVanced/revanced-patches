@@ -10,7 +10,7 @@ import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
 internal object MiniplayerResourcePatch : ResourcePatch() {
     var floatyBarButtonTopMargin = -1L
 
-    // 19.15+ resources
+    // Only available in 19.15 and upwards.
     var ytOutlineXWhite24 = -1L
     var ytOutlinePictureInPictureWhite24 = -1L
     var scrimOverlay = -1L
