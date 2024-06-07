@@ -169,7 +169,7 @@ object MiniplayerPatch : BytecodePatch(
         // endregion
 
 
-        // region Legacy tablet hooks.
+        // region Legacy tablet Miniplayer hooks.
 
         MiniplayerOverrideFingerprint.resultOrThrow().let {
             val appNameStringIndex = it.scanResult.stringsScanResult!!.matches.first().index + 2
