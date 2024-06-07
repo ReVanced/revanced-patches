@@ -168,7 +168,6 @@ object MiniplayerPatch : BytecodePatch(
 
         // endregion
 
-
         // region Legacy tablet Miniplayer hooks.
 
         MiniplayerOverrideFingerprint.resultOrThrow().let {
