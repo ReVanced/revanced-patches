@@ -38,7 +38,7 @@ import app.revanced.patches.youtube.layout.miniplayer.fingerprints.YouTubePlayer
 import app.revanced.patches.youtube.layout.tablet.fingerprints.GetFormFactorFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.util.findOpcodeIndices
+import app.revanced.util.findOpcodeIndicesReversed
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
@@ -299,7 +299,7 @@ object MiniplayerPatch : BytecodePatch(
         // endregion
     }
 
-    private fun Method.findReturnIndices() = findOpcodeIndices(Opcode.RETURN)
+    private fun Method.findReturnIndices() = findOpcodeIndicesReversed(Opcode.RETURN)
 
     private fun MutableMethod.insertBooleanOverride(index: Int, methodName: String) {
         val register = getInstruction<OneRegisterInstruction>(index).registerA
