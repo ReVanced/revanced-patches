@@ -10,6 +10,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
@@ -32,6 +33,8 @@ import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniplayerMod
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniplayerOverrideFingerprint
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniplayerOverrideNoContextFingerprint
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniplayerResponseModelSizeCheckFingerprint
+import app.revanced.patches.youtube.layout.miniplayer.fingerprints.YouTubePlayerOverlaysLayoutFingerprint
+import app.revanced.patches.youtube.layout.miniplayer.fingerprints.YouTubePlayerOverlaysLayoutFingerprint.YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME
 import app.revanced.patches.youtube.layout.tablet.fingerprints.GetFormFactorFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
@@ -43,12 +46,15 @@ import app.revanced.util.patch.LiteralValueFingerprint
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
 // YT uses "Miniplayer" without a space between 'mini' and 'player.
 @Patch(
@@ -101,7 +107,8 @@ object MiniplayerPatch : BytecodePatch(
         MiniplayerResponseModelSizeCheckFingerprint,
         MiniplayerOverrideFingerprint,
         MiniplayerModernConstructorFingerprint,
-        MiniplayerModernViewParentFingerprint
+        MiniplayerModernViewParentFingerprint,
+        YouTubePlayerOverlaysLayoutFingerprint
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/MiniplayerPatch;"
@@ -235,7 +242,15 @@ object MiniplayerPatch : BytecodePatch(
             MiniplayerModernForwardButtonFingerprint to "hideMiniplayerRewindForward",
             MiniplayerModernOverlayViewFingerprint to "adjustMiniplayerOpacity",
         ).forEach { (fingerprint, methodName) ->
-            fingerprint.addModernMiniplayerImageViewHook(context, methodName)
+            fingerprint.resolve(
+                context,
+                MiniplayerModernViewParentFingerprint.resultOrThrow().classDef
+            )
+
+            fingerprint.addInflatedViewHook(
+                "$INTEGRATIONS_CLASS_DESCRIPTOR->$methodName(Landroid/widget/ImageView;)V",
+                "Landroid/widget/ImageView;"
+            )
         }
 
         MiniplayerModernAddViewListenerFingerprint.apply {
@@ -250,6 +265,36 @@ object MiniplayerPatch : BytecodePatch(
                         "hideMiniplayerSubTexts(Landroid/view/View;)V"
             )
         }
+
+
+        // Modern 2 has a broken overlay subtitle view that is always present.
+        // Modern 2 uses the same overlay controls as the regular video player,
+        // and the overlay views are added at runtime.
+        // Add a hook to the overlay class, and pass the added views to integrations.
+        YouTubePlayerOverlaysLayoutFingerprint.resultOrThrow().mutableClass.methods.add(
+            ImmutableMethod(
+                YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME,
+                "addView",
+                listOf(
+                    ImmutableMethodParameter("Landroid/view/View;", null, null),
+                    ImmutableMethodParameter("I", null, null),
+                    ImmutableMethodParameter("Landroid/view/ViewGroup\$LayoutParams;", null, null),
+                ),
+                "V",
+                AccessFlags.PUBLIC.value,
+                null,
+                null,
+                MutableMethodImplementation(4),
+            ).toMutable().apply {
+                addInstructions(
+                    """
+                        invoke-super { p0, p1, p2, p3 }, Landroid/view/ViewGroup;->addView(Landroid/view/View;ILandroid/view/ViewGroup${'$'}LayoutParams;)V
+                        invoke-static { p1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->playerOverlayGroupCreated(Landroid/view/View;)V
+                        return-void
+                    """,
+                )
+            }
+        )
 
         // endregion
     }
@@ -290,27 +335,21 @@ object MiniplayerPatch : BytecodePatch(
         removeInstruction(iPutIndex)
     }
 
-    private fun LiteralValueFingerprint.addModernMiniplayerImageViewHook(
-        context: BytecodeContext,
-        integrationsMethodName: String
+    private fun LiteralValueFingerprint.addInflatedViewHook(
+        integrationsMethodName: String,
+        hookedClassType: String,
     ) {
-        resolve(
-            context,
-            MiniplayerModernViewParentFingerprint.resultOrThrow().classDef
-        )
-
         resultOrThrow().mutableMethod.apply {
             val imageViewIndex = indexOfFirstInstructionOrThrow(
                 indexOfFirstWideLiteralInstructionValueOrThrow(literalSupplier.invoke())
             ) {
-                opcode == Opcode.CHECK_CAST &&
-                        getReference<TypeReference>()?.type == "Landroid/widget/ImageView;"
+                opcode == Opcode.CHECK_CAST && getReference<TypeReference>()?.type == hookedClassType
             }
 
             val register = getInstruction<OneRegisterInstruction>(imageViewIndex).registerA
             addInstruction(
                 imageViewIndex + 1,
-                "invoke-static { v$register }, $INTEGRATIONS_CLASS_DESCRIPTOR->$integrationsMethodName(Landroid/widget/ImageView;)V"
+                "invoke-static { v$register }, $integrationsMethodName"
             )
         }
     }

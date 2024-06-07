@@ -18,6 +18,7 @@ internal object MiniplayerResourcePatch : ResourcePatch() {
     var modernMiniplayerExpand = -1L
     var modernMiniplayerRewindButton = -1L
     var modernMiniplayerForwardButton = -1L
+    var playerOverlays = -1L
 
     override fun execute(context: ResourceContext) {
         floatyBarButtonTopMargin = ResourceMappingPatch[
@@ -63,6 +64,11 @@ internal object MiniplayerResourcePatch : ResourcePatch() {
         modernMiniplayerForwardButton = ResourceMappingPatch[
             "id",
             "modern_miniplayer_forward_button"
+        ]
+
+        playerOverlays = ResourceMappingPatch[
+            "layout",
+            "player_overlays"
         ]
     }
 }
