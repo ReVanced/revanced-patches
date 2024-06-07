@@ -61,7 +61,7 @@ import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
-// YT uses "Miniplayer" without a space between 'mini' and 'player.
+// YT uses "Miniplayer" without a space between 'mini' and 'player: https://support.google.com/youtube/answer/9162927.
 @Patch(
     name = "Miniplayer",
     description = "Adds options to change the in app minimized player, " +
