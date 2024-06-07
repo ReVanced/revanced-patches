@@ -1,6 +1,7 @@
 package app.revanced.patches.shared.misc.mapping
 
 import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import org.w3c.dom.Element
 import java.util.*
@@ -51,9 +52,10 @@ object ResourceMappingPatch : ResourcePatch() {
         threadPoolExecutor.also { it.shutdown() }.awaitTermination(Long.MAX_VALUE, TimeUnit.SECONDS)
     }
 
-    operator fun get(type: String, name: String) = resourceMappings.first {
-        it.type == type && it.name == name
-    }.id
+    operator fun get(type: String, name: String) =
+        resourceMappings.firstOrNull {
+            it.type == type && it.name == name
+        }?.id ?: throw PatchException("Could not find resource type: $type name: $name")
 
     data class ResourceElement(val type: String, val name: String, val id: Long)
 }

@@ -8,6 +8,7 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -99,12 +100,25 @@ fun Method.indexOfIdResourceOrThrow(resourceName: String): Int {
  * Find the index of the first wide literal instruction with the given value.
  *
  * @return the first literal instruction with the value, or -1 if not found.
+ * @see indexOfFirstWideLiteralInstructionValueOrThrow
  */
 fun Method.indexOfFirstWideLiteralInstructionValue(literal: Long) = implementation?.let {
     it.instructions.indexOfFirst { instruction ->
         (instruction as? WideLiteralInstruction)?.wideLiteral == literal
     }
 } ?: -1
+
+/**
+ * Find the index of the first wide literal instruction with the given value,
+ * or throw an exception if not found.
+ *
+ * @return the first literal instruction with the value, or throws [PatchException] if not found.
+ */
+fun Method.indexOfFirstWideLiteralInstructionValueOrThrow(literal: Long) : Int {
+    val index = indexOfFirstWideLiteralInstructionValue(literal)
+    if (index < 0) throw PatchException("Could not find literal value: $literal")
+    return index
+}
 
 /**
  * Check if the method contains a literal with the given value.
@@ -144,7 +158,9 @@ inline fun <reified T : Reference> Instruction.getReference() = (this as? Refere
  * @return The index of the first [Instruction] that matches the predicate.
  */
 // TODO: delete this on next major release, the overloaded method with an optional start index serves the same purposes.
-@Deprecated("Use the overloaded method with an optional start index.", ReplaceWith("indexOfFirstInstruction(predicate)"))
+// Method is deprecated, but annotation is commented out otherwise during compilation usage of the replacement is
+// incorrectly flagged as deprecated.
+//@Deprecated("Use the overloaded method with an optional start index.", ReplaceWith("indexOfFirstInstruction(predicate)"))
 fun Method.indexOfFirstInstruction(predicate: Instruction.() -> Boolean) = indexOfFirstInstruction(0, predicate)
 
 /**
@@ -177,6 +193,21 @@ fun Method.indexOfFirstInstructionOrThrow(startIndex: Int = 0, predicate: Instru
         throw PatchException("Could not find instruction index")
     }
     return index
+}
+
+/**
+ * @return The list of indices of the opcode in reverse order.
+ */
+fun Method.findOpcodeIndicesReversed(opcode: Opcode): List<Int> {
+    val indexes = implementation!!.instructions
+        .withIndex()
+        .filter { (_, instruction) -> instruction.opcode == opcode }
+        .map { (index, _) -> index }
+        .reversed()
+
+    if (indexes.isEmpty()) throw PatchException("No ${opcode.name} instructions found in: $this")
+
+    return indexes
 }
 
 /**
