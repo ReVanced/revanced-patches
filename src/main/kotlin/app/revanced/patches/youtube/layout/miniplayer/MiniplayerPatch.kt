@@ -121,7 +121,7 @@ object MiniplayerPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        // Modern mini player is only present and functional in 19.15+
+        // Modern mini player is only present and functional in 19.15+.
         // Of note, some modern miniplayer code is present in 19.14 but the feature is not complete.
         val isPatchingLegacy = ytOutlinePictureInPictureWhite24 < 0
 
