@@ -12,7 +12,7 @@ import app.revanced.util.resultOrThrow
 
 @Patch(
     name = "Remove background playback restrictions",
-    description = "Removes restrictions for background playback.",
+    description = "Removes restrictions on background playback.",
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.apps.youtube.music",
