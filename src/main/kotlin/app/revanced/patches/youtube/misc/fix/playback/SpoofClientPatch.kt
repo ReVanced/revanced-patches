@@ -286,9 +286,12 @@ object SpoofClientPatch : BytecodePatch(
         // Fix playback speed menu item if spoofing to iOS.
 
         CreatePlaybackSpeedMenuItemFingerprint.resultOrThrow().let {
-            val shouldCreateMenuIndex = it.scanResult.patternScanResult!!.endIndex
+            val scanResult = it.scanResult.patternScanResult!!
+            if (scanResult.startIndex != 0) throw PatchException("Unexpected start index: ${scanResult.startIndex}")
 
             it.mutableMethod.apply {
+                // Find the conditional check if the playback speed menu item is not created.
+                val shouldCreateMenuIndex = indexOfFirstInstructionOrThrow(scanResult.endIndex) { opcode == Opcode.IF_EQZ }
                 val shouldCreateMenuRegister = getInstruction<OneRegisterInstruction>(shouldCreateMenuIndex).registerA
 
                 addInstructions(
