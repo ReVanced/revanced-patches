@@ -348,7 +348,7 @@ object MiniplayerPatch : BytecodePatch(
         removeInstruction(iPutIndex)
     }
 
-    private fun LiteralValueFingerprint.addInflatedViewHook(
+    private fun LiteralValueFingerprint.hookInflatedView(
         literalValue: Long,
         hookedClassType: String,
         integrationsMethodName: String,
