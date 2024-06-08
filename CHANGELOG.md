@@ -1,3 +1,10 @@
+# [4.10.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.10.0-dev.2...v4.10.0-dev.3) (2024-06-08)
+
+
+### Features
+
+* **Boost For Reddit:** Add `Fix /s/ links` patch ([#3154](https://github.com/ReVanced/revanced-patches/issues/3154)) ([5fa9fd2](https://github.com/ReVanced/revanced-patches/commit/5fa9fd2dfef43838d7311a967a3e805256a5d116))
+
 # [4.10.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.10.0-dev.1...v4.10.0-dev.2) (2024-06-08)
 
 
