@@ -1,3 +1,10 @@
+# [4.10.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.10.0-dev.3...v4.10.0-dev.4) (2024-06-08)
+
+
+### Features
+
+* **Boost for Reddit:** Add `Fix audio missing in video downloads` patch ([#3287](https://github.com/ReVanced/revanced-patches/issues/3287)) ([a9258d4](https://github.com/ReVanced/revanced-patches/commit/a9258d48d3ddf8552ab56219677a3b31ee553666))
+
 # [4.10.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.10.0-dev.2...v4.10.0-dev.3) (2024-06-08)
 
 
