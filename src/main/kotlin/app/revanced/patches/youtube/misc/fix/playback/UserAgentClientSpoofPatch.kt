@@ -8,6 +8,7 @@ import app.revanced.patches.all.misc.transformation.IMethodCall
 import app.revanced.patches.all.misc.transformation.Instruction35cInfo
 import app.revanced.patches.all.misc.transformation.filterMapInstruction35c
 import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
@@ -41,14 +42,12 @@ object UserAgentClientSpoofPatch : BaseTransformInstructionsPatch<Instruction35c
             // Do not change the package name in methods that use resources, or for methods that use GmsCore.
             // Changing these package names will result in playback limitations,
             // particularly Android VR background audio only playback.
-            val hasResourceOrGmsStringInstructions =
-                implementation!!.instructions.filter {
-                    val reference = it.getReference<StringReference>()
-                    it.opcode == Opcode.CONST_STRING &&
-                            (reference?.string == "android.resource://" || reference?.string == "gcore_")
-                }.isNotEmpty()
-
-            if (hasResourceOrGmsStringInstructions) {
+            val resourceOrGmsStringInstructionIndex = indexOfFirstInstruction {
+                val reference = getReference<StringReference>()
+                opcode == Opcode.CONST_STRING &&
+                        (reference?.string == "android.resource://" || reference?.string == "gcore_")
+            }
+            if (resourceOrGmsStringInstructionIndex >= 0) {
                 return
             }
 
