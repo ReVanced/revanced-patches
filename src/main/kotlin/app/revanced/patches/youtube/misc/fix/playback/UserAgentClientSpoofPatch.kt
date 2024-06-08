@@ -8,11 +8,13 @@ import app.revanced.patches.all.misc.transformation.IMethodCall
 import app.revanced.patches.all.misc.transformation.Instruction35cInfo
 import app.revanced.patches.all.misc.transformation.filterMapInstruction35c
 import app.revanced.util.getReference
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 object UserAgentClientSpoofPatch : BaseTransformInstructionsPatch<Instruction35cInfo>() {
     private const val ORIGINAL_PACKAGE_NAME = "com.google.android.youtube"
@@ -36,6 +38,20 @@ object UserAgentClientSpoofPatch : BaseTransformInstructionsPatch<Instruction35c
 
         // Replace the result of context.getPackageName(), if it is used in a user agent string.
         mutableMethod.apply {
+            // Do not change the package name in methods that use resources, or for methods that use GmsCore.
+            // Changing these package names will result in playback limitations,
+            // particularly Android VR background audio only playback.
+            val hasResourceOrGmsStringInstructions =
+                implementation!!.instructions.filter {
+                    val reference = it.getReference<StringReference>()
+                    it.opcode == Opcode.CONST_STRING &&
+                            (reference?.string == "android.resource://" || reference?.string == "gcore_")
+                }.isNotEmpty()
+
+            if (hasResourceOrGmsStringInstructions) {
+                return
+            }
+
             // After context.getPackageName() the result is moved to a register.
             val targetRegister = (
                 getInstruction(instructionIndex + 1)
@@ -55,7 +71,7 @@ object UserAgentClientSpoofPatch : BaseTransformInstructionsPatch<Instruction35c
             // Overwrite the result of context.getPackageName() with the original package name.
             replaceInstruction(
                 instructionIndex + 1,
-                "const-string v$targetRegister, \"${ORIGINAL_PACKAGE_NAME}\"",
+                "const-string v$targetRegister, \"$ORIGINAL_PACKAGE_NAME\"",
             )
         }
     }
