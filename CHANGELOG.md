@@ -1,3 +1,18 @@
+# [4.10.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.10.0-dev.2...v4.10.0-dev.3) (2024-06-08)
+
+
+### Features
+
+* **Boost For Reddit:** Add `Fix /s/ links` patch ([#3154](https://github.com/ReVanced/revanced-patches/issues/3154)) ([5fa9fd2](https://github.com/ReVanced/revanced-patches/commit/5fa9fd2dfef43838d7311a967a3e805256a5d116))
+
+# [4.10.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.10.0-dev.1...v4.10.0-dev.2) (2024-06-08)
+
+
+### Bug Fixes
+
+* **YouTube Music:** Rename `Minimized playback` to `Remove background playback restrictions` ([#3315](https://github.com/ReVanced/revanced-patches/issues/3315)) ([3c31e55](https://github.com/ReVanced/revanced-patches/commit/3c31e55b13d9495e857f068f8cd2b4320112d763))
+* **YouTube:** Rename `Minimized playback` to `Remove background playback restrictions` ([#3314](https://github.com/ReVanced/revanced-patches/issues/3314)) ([37d415b](https://github.com/ReVanced/revanced-patches/commit/37d415b53af4771d9c97a8b1c153be32bf3ac2e0))
+
 # [4.10.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.9.0...v4.10.0-dev.1) (2024-06-07)
 
 
