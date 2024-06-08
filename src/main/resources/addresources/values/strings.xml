@@ -502,6 +502,9 @@
         <patch id="layout.hide.comments.CommentsPatch">
             <string name="revanced_comments_screen_title">Comments</string>
             <string name="revanced_comments_screen_summary">Hide or show comments section components</string>
+            <string name="revanced_hide_comments_by_members_header_title">Hide \'Comments by members\' header</string>
+            <string name="revanced_hide_comments_by_members_header_summary_on">\'Comments by members\' header is hidden</string>
+            <string name="revanced_hide_comments_by_members_header_summary_off">\'Comments by members\' header is shown</string>
             <string name="revanced_hide_comments_section_title">Hide comments section</string>
             <string name="revanced_hide_comments_section_summary_on">Comments section is hidden</string>
             <string name="revanced_hide_comments_section_summary_off">Comments section is shown</string>
