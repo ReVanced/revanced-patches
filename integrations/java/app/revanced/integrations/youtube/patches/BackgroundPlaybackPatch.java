@@ -3,7 +3,7 @@ package app.revanced.integrations.youtube.patches;
 import app.revanced.integrations.youtube.shared.PlayerType;
 
 @SuppressWarnings("unused")
-public class MinimizedPlaybackPatch {
+public class BackgroundPlaybackPatch {
 
     /**
      * Injection point.
@@ -35,7 +35,7 @@ public class MinimizedPlaybackPatch {
     /**
      * Injection point.
      */
-    public static boolean overrideMinimizedPlaybackAvailable() {
+    public static boolean overrideBackgroundPlaybackAvailable() {
         // This could be done entirely in the patch,
         // but having a unique method to search for makes manually inspecting the patched apk much easier.
         return true;
