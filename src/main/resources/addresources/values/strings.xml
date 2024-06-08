@@ -508,7 +508,7 @@
             <string name="revanced_hide_comments_section_title">Hide comments section</string>
             <string name="revanced_hide_comments_section_summary_on">Comments section is hidden</string>
             <string name="revanced_hide_comments_section_summary_off">Comments section is shown</string>
-            <string name="revanced_hide_thanks_button_title">Hide Thanks button</string>
+            <string name="revanced_hide_thanks_button_title">Hide thanks button</string>
             <string name="revanced_hide_thanks_button_summary_on">Thanks button is hidden</string>
             <string name="revanced_hide_thanks_button_summary_off">Thanks button is shown</string>
             <string name="revanced_hide_timestamp_and_emoji_buttons_title">Hide timestamp and emoji buttons</string>
