@@ -39,6 +39,21 @@ object UserAgentClientSpoofPatch : BaseTransformInstructionsPatch<Instruction35c
 
         // Replace the result of context.getPackageName(), if it is used in a user agent string.
         mutableMethod.apply {
+            // After context.getPackageName() the result is moved to a register.
+            val targetRegister = (
+                getInstruction(instructionIndex + 1)
+                    as? OneRegisterInstruction ?: return
+                ).registerA
+
+            // IndexOutOfBoundsException is possible here,
+            // but no such occurrences are present in the app.
+            val referee = getInstruction(instructionIndex + 2).getReference<MethodReference>()?.toString()
+
+            // Only replace string builder usage.
+            if (referee != USER_AGENT_STRING_BUILDER_APPEND_METHOD_REFERENCE) {
+                return
+            }
+
             // Do not change the package name in methods that use resources, or for methods that use GmsCore.
             // Changing these package names will result in playback limitations,
             // particularly Android VR background audio only playback.
@@ -48,22 +63,6 @@ object UserAgentClientSpoofPatch : BaseTransformInstructionsPatch<Instruction35c
                         (reference?.string == "android.resource://" || reference?.string == "gcore_")
             }
             if (resourceOrGmsStringInstructionIndex >= 0) {
-                return
-            }
-
-            // After context.getPackageName() the result is moved to a register.
-            val targetRegister = (
-                getInstruction(instructionIndex + 1)
-                    as? OneRegisterInstruction ?: return
-                ).registerA
-
-            // IndexOutOfBoundsException is not possible here,
-            // but no such occurrences are present in the app.
-            val referee = getInstruction(instructionIndex + 2).getReference<MethodReference>()?.toString()
-
-            // This can technically also match non-user agent string builder append methods,
-            // but no such occurrences are present in the app.
-            if (referee != USER_AGENT_STRING_BUILDER_APPEND_METHOD_REFERENCE) {
                 return
             }
 
