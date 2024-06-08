@@ -529,9 +529,9 @@ public abstract class app/revanced/patches/reddit/customclients/BaseFixSLinksPat
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	protected abstract fun getIntegrationsClassDescriptor ()Ljava/lang/String;
-	protected final fun getResolveSLinkMethodDescriptor ()Ljava/lang/String;
-	protected final fun getSetAccessTokenMethodDescriptor ()Ljava/lang/String;
-	protected abstract fun patchNavigation (Lapp/revanced/patcher/fingerprint/MethodFingerprintResult;Lapp/revanced/patcher/data/BytecodeContext;)V
+	protected final fun getResolveSLinkMethod ()Ljava/lang/String;
+	protected final fun getSetAccessTokenMethod ()Ljava/lang/String;
+	protected abstract fun patchNavigationHandler (Lapp/revanced/patcher/fingerprint/MethodFingerprintResult;Lapp/revanced/patcher/data/BytecodeContext;)V
 	protected abstract fun patchSetAccessToken (Lapp/revanced/patcher/fingerprint/MethodFingerprintResult;Lapp/revanced/patcher/data/BytecodeContext;)V
 }
 
