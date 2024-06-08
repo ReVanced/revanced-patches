@@ -661,6 +661,7 @@
         <patch id="layout.player.overlay.CustomPlayerOverlayOpacityResourcePatch">
             <string name="revanced_player_overlay_opacity_title">Player overlay opacity</string>
             <string name="revanced_player_overlay_opacity_summary">Opacity value between 0-100, where 0 is transparent</string>
+            <string name="revanced_player_overlay_opacity_invalid_toast">Player overlay opacity must be between 0-100</string>
         </patch>
         <patch id="layout.returnyoutubedislike.ReturnYouTubeDislikeResourcePatch">
             <string name="revanced_ryd_settings_title">Return YouTube Dislike</string>
@@ -947,11 +948,29 @@
             <string name="revanced_tablet_layout_summary_on">Tablet layout is enabled</string>
             <string name="revanced_tablet_layout_summary_off">Tablet layout is disabled</string>
             <string name="revanced_tablet_layout_user_dialog_message">Community posts do not show up on tablet layouts</string>
-        </patch>
-        <patch id="layout.tabletminiplayer.TabletMiniPlayerPatch">
-            <string name="revanced_tablet_miniplayer_title">Enable tablet mini player</string>
-            <string name="revanced_tablet_miniplayer_summary_on">Mini player is enabled</string>
-            <string name="revanced_tablet_miniplayer_summary_off">Mini player is disabled</string>
+        </patch>x
+        <patch id="layout.miniplayer.MiniplayerPatch">
+            <string name="revanced_miniplayer_screen_title">Miniplayer</string>
+            <string name="revanced_miniplayer_screen_summary">Change the style of the in app minimized player</string>
+            <string name="revanced_miniplayer_type_title">Miniplayer type</string>
+            <string name="revanced_miniplayer_type_entry_1">Original</string>
+            <string name="revanced_miniplayer_type_entry_2">Phone</string>
+            <string name="revanced_miniplayer_type_entry_3">Tablet</string>
+            <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
+            <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
+            <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
+            <string name="revanced_miniplayer_hide_expand_close_title">Hide expand and close buttons</string>
+            <string name="revanced_miniplayer_hide_expand_close_summary_on">Buttons are hidden\n(swipe miniplayer to expand or close)</string>
+            <string name="revanced_miniplayer_hide_expand_close_summary_off">Expand and close buttons are shown</string>
+            <string name="revanced_miniplayer_hide_subtext_title">Hide subtexts</string>
+            <string name="revanced_miniplayer_hide_subtext_summary_on">Subtexts are hidden</string>
+            <string name="revanced_miniplayer_hide_subtext_summary_off">Subtexts are shown</string>
+            <string name="revanced_miniplayer_hide_rewind_forward_title">Hide skip forward and back buttons</string>
+            <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Skip forward and back are hidden</string>
+            <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Skip forward and back are shown</string>
+            <string name="revanced_miniplayer_opacity_title">Overlay opacity</string>
+            <string name="revanced_miniplayer_opacity_summary">Opacity value between 0-100, where 0 is transparent</string>
+            <string name="revanced_miniplayer_opacity_invalid_toast">Miniplayer overlay opacity must be between 0-100</string>
         </patch>
         <patch id="layout.theme.ThemeBytecodePatch">
             <string name="revanced_gradient_loading_screen_title">Enable gradient loading screen</string>
@@ -1065,6 +1084,11 @@
             <string name="revanced_remember_video_quality_wifi">wifi</string>
             <string name="revanced_remember_video_quality_toast">Changed default %1$s quality to: %2$s</string>
         </patch>
+        <patch id="video.speed.button.PlaybackSpeedButtonPatch">
+            <string name="revanced_playback_speed_dialog_button_title">Show speed dialog button</string>
+            <string name="revanced_playback_speed_dialog_button_summary_on">Button is shown</string>
+            <string name="revanced_playback_speed_dialog_button_summary_off">Button is not shown</string>
+        </patch>
         <patch id="video.speed.custom.CustomPlaybackSpeedPatch">
             <string name="revanced_custom_playback_speeds_title">Custom playback speeds</string>
             <string name="revanced_custom_playback_speeds_summary">Add or change the available playback speeds</string>
@@ -1096,7 +1120,7 @@
             <string name="revanced_spoof_client_summary_off">Client is not spoofed\n\nVideo playback may not work</string>
             <string name="revanced_spoof_client_user_dialog_message">Turning off this setting may cause video playback issues.</string>
             <string name="revanced_spoof_client_use_ios_title">Spoof client to iOS</string>
-            <string name="revanced_spoof_client_use_ios_summary_on">Client is currently spoofed to iOS\n\nSide effects include:\n• No HDR video\n• Speed menu is missing\n• Watch history may not work\n• Live streams cannot play as audio only\n• Live streams not available on older devices</string>
+            <string name="revanced_spoof_client_use_ios_summary_on">Client is currently spoofed to iOS\n\nSide effects include:\n• No HDR video\n• Watch history may not work\n• Higher video qualities may be missing\n• Live streams cannot play as audio only\n• Live streams not available on Android 8.0</string>
             <string name="revanced_spoof_client_use_ios_summary_off">Client is currently spoofed to Android VR\n\nSide effects include:\n• No HDR video\n• Kids videos do not playback\n• Paused videos can randomly resume</string>
             <string name="revanced_spoof_client_storyboard_timeout">Spoof client thumbnails not available (API timed out)</string>
             <string name="revanced_spoof_client_storyboard_io_exception">Spoof client thumbnails temporarily not available: %s</string>
