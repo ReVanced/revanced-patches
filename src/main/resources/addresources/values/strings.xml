@@ -1051,9 +1051,9 @@
             <string name="revanced_external_browser_summary_on">Opening links externally</string>
             <string name="revanced_external_browser_summary_off">Opening links in app</string>
         </patch>
-        <patch id="misc.minimizedplayback.MinimizedPlaybackPatch">
-            <string name="revanced_minimized_playback_title">Minimized playback</string>
-            <string name="revanced_minimized_playback_summary">This setting can be found in Settings -&gt; Background</string>
+        <patch id="misc.backgroundplayback.BackgroundPlaybackPatch">
+            <string name="revanced_background_playback_title">Background playback</string>
+            <string name="revanced_background_playback_summary">This setting can be found in Settings -&gt; Background</string>
         </patch>
         <patch id="misc.privacy.RemoveTrackingQueryParameterPatch">
             <string name="revanced_remove_tracking_query_parameter_title">Remove tracking query parameter</string>
