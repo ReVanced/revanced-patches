@@ -14,6 +14,12 @@ final class CommentsFilter extends Filter {
     private final ByteArrayFilterGroup emojiPickerBufferGroup;
     
     public CommentsFilter() {
+        var commentsByMembers = new StringFilterGroup(
+                Settings.HIDE_COMMENTS_BY_MEMBERS_HEADER,
+                "sponsorships_comments_header.eml",
+                "sponsorships_comments_footer.eml"
+        );
+
         var comments = new StringFilterGroup(
                 Settings.HIDE_COMMENTS_SECTION,
                 "video_metadata_carousel",
@@ -21,14 +27,19 @@ final class CommentsFilter extends Filter {
         );
 
         var previewComment = new StringFilterGroup(
-                Settings.HIDE_PREVIEW_COMMENT,
+                Settings.HIDE_COMMENTS_PREVIEW_COMMENT,
                 "|carousel_item",
                 "comments_entry_point_teaser",
                 "comments_entry_point_simplebox"
         );
 
+        var thanksButton = new StringFilterGroup(
+                Settings.HIDE_COMMENTS_THANKS_BUTTON,
+                "super_thanks_button.eml"
+        );
+
         commentComposer = new StringFilterGroup(
-                Settings.HIDE_COMMENT_TIMESTAMP_AND_EMOJI_BUTTONS,
+                Settings.HIDE_COMMENTS_TIMESTAMP_AND_EMOJI_BUTTONS,
                 "comment_composer.eml"
         );
 
@@ -38,8 +49,10 @@ final class CommentsFilter extends Filter {
         );
 
         addPathCallbacks(
+                commentsByMembers,
                 comments,
                 previewComment,
+                thanksButton,
                 commentComposer
         );
     }
