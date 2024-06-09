@@ -4,9 +4,11 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.youtube.interaction.downloads.fingerprints.offlineVideoEndpointFingerprint
-import app.revanced.patches.youtube.misc.playercontrols.PlayerControlsBytecodePatch
+import app.revanced.patches.youtube.misc.playercontrols.initializeControl
+import app.revanced.patches.youtube.misc.playercontrols.injectVisibilityCheckCall
+import app.revanced.patches.youtube.misc.playercontrols.playerControlsPatch
 import app.revanced.patches.youtube.shared.fingerprints.mainActivityFingerprint
-import app.revanced.patches.youtube.video.information.VideoInformationPatch
+import app.revanced.patches.youtube.video.information.videoInformationPatch
 
 @Suppress("unused")
 val downloadsPatch = bytecodePatch(
@@ -16,8 +18,8 @@ val downloadsPatch = bytecodePatch(
 ) {
     dependsOn(
         downloadsResourcePatch,
-        PlayerControlsBytecodePatch,
-        VideoInformationPatch,
+        playerControlsPatch,
+        videoInformationPatch,
     )
 
     compatibleWith(
@@ -45,8 +47,8 @@ val downloadsPatch = bytecodePatch(
     val buttonDescriptor = "Lapp/revanced/integrations/youtube/videoplayer/ExternalDownloadButton;"
 
     execute {
-        PlayerControlsBytecodePatch.initializeControl("$buttonDescriptor->initializeButton(Landroid/view/View;)V")
-        PlayerControlsBytecodePatch.injectVisibilityCheckCall("$buttonDescriptor->changeVisibility(Z)V")
+        initializeControl("$buttonDescriptor->initializeButton(Landroid/view/View;)V")
+        injectVisibilityCheckCall("$buttonDescriptor->changeVisibility(Z)V")
 
         // Main activity is used to launch downloader intent.
         mainActivityResult.mutableMethod.apply {

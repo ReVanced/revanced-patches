@@ -14,5 +14,5 @@ internal val canScrollVerticallyFingerprint = methodFingerprint {
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT
     )
-    custom { _, classDef -> .classDef.endsWith("SwipeRefreshLayout;") }
+    custom { _, classDef -> classDef.endsWith("SwipeRefreshLayout;") }
 }

@@ -1,12 +1,8 @@
 package app.revanced.patches.music.audio.codecs.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.annotation.FuzzyPatternScanMethod
-import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-
 
 // FIXME: Test this threshold and find the best value.
 internal val allCodecsReferenceFingerprint = methodFingerprint(fuzzyPatternScanThreshold = 2) {

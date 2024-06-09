@@ -4,7 +4,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.tiktok.misc.integrations.IntegrationsPatch
+import app.revanced.patches.tiktok.misc.integrations.integrationsPatch
 import app.revanced.patches.tiktok.misc.settings.fingerprints.settingsStatusLoadFingerprint
 import app.revanced.patches.twitch.misc.settings.SettingsPatch
 import app.revanced.util.findMutableMethodOf
@@ -20,7 +20,7 @@ val spoofSimPatch = bytecodePatch(
     use = false,
 ) {
     dependsOn(
-        IntegrationsPatch,
+        integrationsPatch,
         SettingsPatch
     )
 

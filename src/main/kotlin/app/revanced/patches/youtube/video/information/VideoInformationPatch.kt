@@ -77,7 +77,7 @@ val videoInformationPatch = bytecodePatch(
             "seekTo",
             listOf(ImmutableMethodParameter("J", null, "time")),
             "Z",
-            AccessFlags.PUBLIC.value.or(AccessFlags.FINAL),
+            AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
             null,
             null,
             MutableMethodImplementation(4),
@@ -111,7 +111,7 @@ val videoInformationPatch = bytecodePatch(
                 addInstruction(
                     videoLengthMethodResult.scanResult.patternScanResult!!.endIndex,
                     "invoke-static {v$videoLengthRegister, v$dummyRegisterForLong}, " +
-                        "$INTEGRATIONS_CLASS_DESCRIPTOR->setVideoLength(J)V",
+                            "$INTEGRATIONS_CLASS_DESCRIPTOR->setVideoLength(J)V",
                 )
             }
         }
@@ -130,14 +130,14 @@ val videoInformationPatch = bytecodePatch(
         addPlayerResponseMethodHook(
             Hook.ProtoBufferParameterBeforeVideoId(
                 "$INTEGRATIONS_CLASS_DESCRIPTOR->" +
-                    "newPlayerResponseSignature(Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;",
+                        "newPlayerResponseSignature(Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;",
             ),
         )
 
         /*
          * Set the video time method
          */
-        timeMethod = context.navigator(playerControllerSetTimeReferenceResult.method)
+        timeMethod = context.navigate(playerControllerSetTimeReferenceResult.method)
             .at(playerControllerSetTimeReferenceResult.scanResult.patternScanResult!!.startIndex)
             .mutable()
 

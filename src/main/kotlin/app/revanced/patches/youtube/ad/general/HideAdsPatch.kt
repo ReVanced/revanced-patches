@@ -3,7 +3,7 @@ package app.revanced.patches.youtube.ad.general
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.shared.misc.fix.verticalscroll.verticalScrollPatch
 import app.revanced.patches.youtube.ad.getpremium.hideGetPremiumPatch
-import app.revanced.patches.youtube.misc.fix.backtoexitgesture.FixBackToExitGesturePatch
+import app.revanced.patches.youtube.misc.fix.backtoexitgesture.fixBackToExitGesturePatch
 import app.revanced.util.findMutableMethodOf
 import app.revanced.util.injectHideViewCall
 import com.android.tools.smali.dexlib2.Opcode
@@ -19,7 +19,7 @@ val hideAdsPatch = bytecodePatch(
         hideGetPremiumPatch,
         hideAdsResourcePatch,
         verticalScrollPatch,
-        FixBackToExitGesturePatch
+        fixBackToExitGesturePatch
     )
 
     compatibleWith(

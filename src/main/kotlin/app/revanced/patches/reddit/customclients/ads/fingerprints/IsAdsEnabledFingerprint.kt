@@ -1,11 +1,10 @@
 package app.revanced.patches.reddit.customclients.ads.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal object IsAdsEnabledFingerprint : MethodFingerprint(
-    returnType = "Z",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
-    strings = listOf("SyncIapHelper"),
-)
+internal val isAdsEnabledFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    returns("Z")
+    strings("SyncIapHelper")
+}

@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.misc.autorepeat
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
@@ -60,7 +60,7 @@ val autoRepeatPatch = bytecodePatch(
             resolve(context, autoRepeatParentResult.classDef)
         }.resultOrThrow().mutableMethod.apply {
             val playMethod = autoRepeatParentResult.mutableMethod
-            val index = getInstructions().lastIndex
+            val index = instructions.lastIndex
 
             // Remove return-void.
             removeInstruction(index)

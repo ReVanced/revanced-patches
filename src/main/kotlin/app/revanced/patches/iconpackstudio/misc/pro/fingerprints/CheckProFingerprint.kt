@@ -1,8 +1,8 @@
 package app.revanced.patches.iconpackstudio.misc.pro.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 
-internal object CheckProFingerprint : MethodFingerprint(
-    "Z",
-    customFingerprint = { _, classDef -> classDef.endsWith("IPSPurchaseRepository;")}
-)
+internal val checkProFingerprint = methodFingerprint {
+    returns("Z")
+    custom { _, classDef -> classDef.endsWith("IPSPurchaseRepository;") }
+}

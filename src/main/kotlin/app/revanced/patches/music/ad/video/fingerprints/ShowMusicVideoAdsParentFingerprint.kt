@@ -1,13 +1,13 @@
 package app.revanced.patches.music.ad.video.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object ShowMusicVideoAdsParentFingerprint : MethodFingerprint(
-    opcodes = listOf(
+internal val showMusicVideoAdsParentFingerprint = methodFingerprint {
+    opcodes(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.INVOKE_VIRTUAL,
         Opcode.IGET_OBJECT,
-    ),
-    strings = listOf("maybeRegenerateCpnAndStatsClient called unexpectedly, but no error."),
-)
+    )
+    strings("maybeRegenerateCpnAndStatsClient called unexpectedly, but no error.")
+}

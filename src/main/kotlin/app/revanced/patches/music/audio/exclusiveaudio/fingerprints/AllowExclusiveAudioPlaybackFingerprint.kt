@@ -1,15 +1,14 @@
 package app.revanced.patches.music.audio.exclusiveaudio.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object AllowExclusiveAudioPlaybackFingerprint: MethodFingerprint(
-    "Z",
-    AccessFlags.PUBLIC or AccessFlags.FINAL,
-    listOf(),
-    listOf(
+internal val allowExclusiveAudioPlaybackFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Z")
+    parameters()
+    opcodes(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CHECK_CAST,
@@ -22,4 +21,4 @@ internal object AllowExclusiveAudioPlaybackFingerprint: MethodFingerprint(
         Opcode.MOVE_RESULT,
         Opcode.RETURN
     )
-)
+}

@@ -4,7 +4,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
@@ -12,8 +12,10 @@ import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.*
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
-import app.revanced.patches.youtube.layout.hide.general.fingerprints.*
+import app.revanced.patches.youtube.layout.hide.general.fingerprints.hideShowMoreButtonFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.parseElementFromBufferFingerprint
+import app.revanced.patches.youtube.layout.hide.general.fingerprints.playerOverlayFingerprint
+import app.revanced.patches.youtube.layout.hide.general.fingerprints.showWatermarkFingerprint
 import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
@@ -166,7 +168,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
             val conversionContextRegister =
                 getInstruction<TwoRegisterInstruction>(consumeByteBufferIndex - 2).registerA
             val byteBufferRegister = getInstruction<FiveRegisterInstruction>(consumeByteBufferIndex).registerD
-            val returnEmptyComponentInstruction = getInstructions().last { it.opcode == Opcode.INVOKE_STATIC }
+            val returnEmptyComponentInstruction = instructions.last { it.opcode == Opcode.INVOKE_STATIC }
 
             addInstructionsWithLabels(
                 consumeByteBufferIndex,
@@ -211,7 +213,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
             addInstruction(
                 insertIndex,
                 "invoke-static { v$viewRegister }, " +
-                    "$layoutComponentsFilterClassDescriptor->hideShowMoreButton(Landroid/view/View;)V",
+                        "$layoutComponentsFilterClassDescriptor->hideShowMoreButton(Landroid/view/View;)V",
             )
         }
 

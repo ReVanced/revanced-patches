@@ -1,25 +1,22 @@
 package app.revanced.patches.memegenerator.detection.license
 
-import app.revanced.util.exception
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.memegenerator.detection.license.fingerprints.LicenseValidationFingerprint
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.memegenerator.detection.license.fingerprints.licenseValidationFingerprint
 
-@Patch(description = "Disables Firebase license validation.")
-object LicenseValidationPatch : BytecodePatch(
-    setOf(LicenseValidationFingerprint)
+@Suppress("unused")
+val licenseValidationPatch = bytecodePatch(
+    description = "Disables Firebase license validation."
 ) {
-    override fun execute(context: BytecodeContext) {
-        LicenseValidationFingerprint.result?.apply {
-            mutableMethod.replaceInstructions(
-                0,
-                """
-                    const/4 p0, 0x1
-                    return  p0
-                """
-            )
-        } ?: throw LicenseValidationFingerprint.exception
+    val licenseValidationResult by licenseValidationFingerprint
+
+    execute {
+        licenseValidationResult.mutableMethod.replaceInstructions(
+            0,
+            """
+                const/4 p0, 0x1
+                return  p0
+            """
+        )
     }
 }

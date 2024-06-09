@@ -1,14 +1,14 @@
 package app.revanced.patches.tiktok.misc.integrations.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patches.shared.misc.integrations.BaseIntegrationsPatch.IntegrationsFingerprint
+import app.revanced.patches.shared.misc.integrations.integrationsHook
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal object InitFingerprint : IntegrationsFingerprint(
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    customFingerprint = { methodDef, classDef ->
+internal val initFingerprint = integrationsHook(
+    insertIndexResolver = { 1 } // Insert after call to super class.
+) {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    custom { methodDef, classDef ->
         classDef.endsWith("/AwemeHostApplication;") &&
                 methodDef.name == "<init>"
-    },
-    insertIndexResolver = { 1 } // Insert after call to super class.
-)
+    }
+}

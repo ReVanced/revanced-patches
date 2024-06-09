@@ -1,12 +1,12 @@
 package app.revanced.patches.tiktok.feedfilter
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tiktok.feedfilter.fingerprints.feedApiServiceLIZFingerprint
+import app.revanced.patches.tiktok.misc.integrations.integrationsPatch
 import app.revanced.patches.tiktok.misc.settings.fingerprints.settingsStatusLoadFingerprint
 import app.revanced.patches.tiktok.misc.settings.settingsPatch
-import app.revanced.patches.tiktok.misc.integrations.IntegrationsPatch
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -17,7 +17,7 @@ val feedFilterPatch = bytecodePatch(
         "and videos with a specific amount of views or likes from the feed.",
 ) {
     dependsOn(
-        IntegrationsPatch,
+        integrationsPatch,
         settingsPatch
     )
 
@@ -31,7 +31,7 @@ val feedFilterPatch = bytecodePatch(
 
     execute {
         feedApiServiceLIZResult.mutableMethod.apply {
-            val returnFeedItemInstruction = getInstructions().first { it.opcode == Opcode.RETURN_OBJECT }
+            val returnFeedItemInstruction = instructions.first { it.opcode == Opcode.RETURN_OBJECT }
             val feedItemsRegister = (returnFeedItemInstruction as OneRegisterInstruction).registerA
 
             addInstruction(

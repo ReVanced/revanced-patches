@@ -9,7 +9,7 @@ import app.revanced.patches.tiktok.interaction.downloads.fingerprints.aclCommonS
 import app.revanced.patches.tiktok.interaction.downloads.fingerprints.aclCommonShareFingerprint2
 import app.revanced.patches.tiktok.interaction.downloads.fingerprints.aclCommonShareFingerprint3
 import app.revanced.patches.tiktok.interaction.downloads.fingerprints.downloadPathParentFingerprint
-import app.revanced.patches.tiktok.misc.integrations.IntegrationsPatch
+import app.revanced.patches.tiktok.misc.integrations.integrationsPatch
 import app.revanced.patches.tiktok.misc.settings.fingerprints.settingsStatusLoadFingerprint
 import app.revanced.patches.tiktok.misc.settings.settingsPatch
 import app.revanced.util.indexOfFirstInstruction
@@ -23,7 +23,7 @@ val downloadsPatch = bytecodePatch(
     description = "Removes download restrictions and changes the default path to download to.",
 ) {
     dependsOn(
-        IntegrationsPatch,
+        integrationsPatch,
         settingsPatch
     )
 
@@ -72,7 +72,7 @@ val downloadsPatch = bytecodePatch(
         // Change the download path patch.
         downloadPathParentResult.mutableMethod.apply {
             val downloadUriMethod = context
-                .navigator(this)
+                .navigate(this)
                 .at(indexOfFirstInstruction { opcode == Opcode.INVOKE_STATIC })
                 .mutable()
 

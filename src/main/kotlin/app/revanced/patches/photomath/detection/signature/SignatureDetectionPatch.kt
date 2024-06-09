@@ -1,24 +1,23 @@
 package app.revanced.patches.photomath.detection.signature
 
-import app.revanced.util.exception
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.photomath.detection.signature.fingerprints.CheckSignatureFingerprint
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.photomath.detection.signature.fingerprints.checkSignatureFingerprint
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
-@Patch(description = "Disables detection of incorrect signature.")
-object SignatureDetectionPatch : BytecodePatch(
-    setOf(CheckSignatureFingerprint)
+@Suppress("unused")
+val signatureDetectionPatch = bytecodePatch(
+    description = "Disables detection of incorrect signature.",
 ) {
-    override fun execute(context: BytecodeContext) {
-        CheckSignatureFingerprint.result?.apply {
+    val checkSignatureResult by checkSignatureFingerprint
+
+    execute {
+        checkSignatureResult.apply {
             val signatureCheckInstruction = mutableMethod.getInstruction(scanResult.patternScanResult!!.endIndex)
             val checkRegister = (signatureCheckInstruction as OneRegisterInstruction).registerA
 
             mutableMethod.replaceInstruction(signatureCheckInstruction.location.index, "const/4 v$checkRegister, 0x1")
-        } ?: throw CheckSignatureFingerprint.exception
+        }
     }
 }

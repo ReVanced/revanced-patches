@@ -1,5 +1,5 @@
 package app.revanced.patches.reddit.customclients.redditisfun.api.fingerprints
 
-internal object BuildAuthorizationStringFingerprint : BaseClientIdFingerprint(
+internal val buildAuthorizationStringFingerprint = baseClientIdFingerprint(
     string = "client_id"
 )

@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.layout.thumbnails
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patcher.patch.bytecodePatch
@@ -155,7 +155,7 @@ val alternativeThumbnailsPatch = bytecodePatch(
         // The URL is required for the failure callback hook, but the URL field is obfuscated.
         // Add a helper get method that returns the URL field.
         // The url is the only string field that is set inside the constructor.
-        val urlFieldInstruction = requestResult.mutableMethod.getInstructions().first {
+        val urlFieldInstruction = requestResult.mutableMethod.instructions.first {
             if (it.opcode != Opcode.IPUT_OBJECT) return@first false
 
             val reference = (it as ReferenceInstruction).reference as FieldReference
@@ -211,7 +211,7 @@ private fun addImageUrlSuccessCallbackHook(targetMethodClass: String) {
     loadImageSuccessCallbackMethod.addInstruction(
         loadImageSuccessCallbackIndex++,
         "invoke-static { p1, p2 }, $targetMethodClass->handleCronetSuccess(" +
-            "Lorg/chromium/net/UrlRequest;Lorg/chromium/net/UrlResponseInfo;)V",
+                "Lorg/chromium/net/UrlRequest;Lorg/chromium/net/UrlResponseInfo;)V",
     )
 }
 
@@ -223,6 +223,6 @@ private fun addImageUrlErrorCallbackHook(targetMethodClass: String) {
     loadImageErrorCallbackMethod.addInstruction(
         loadImageErrorCallbackIndex++,
         "invoke-static { p1, p2, p3 }, $targetMethodClass->handleCronetFailure(" +
-            "Lorg/chromium/net/UrlRequest;Lorg/chromium/net/UrlResponseInfo;Ljava/io/IOException;)V",
+                "Lorg/chromium/net/UrlRequest;Lorg/chromium/net/UrlResponseInfo;Ljava/io/IOException;)V",
     )
 }

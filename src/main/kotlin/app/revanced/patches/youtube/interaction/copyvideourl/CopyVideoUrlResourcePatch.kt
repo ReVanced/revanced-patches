@@ -4,7 +4,8 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.youtube.misc.playercontrols.BottomControlsResourcePatch
+import app.revanced.patches.youtube.misc.playercontrols.addControls
+import app.revanced.patches.youtube.misc.playercontrols.bottomControlsPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.ResourceGroup
@@ -14,7 +15,7 @@ import app.revanced.util.copyResources
 val copyVideoUrlResourcePatch = resourcePatch {
     dependsOn(
         settingsPatch,
-        BottomControlsResourcePatch,
+        bottomControlsPatch,
         addResourcesPatch
     )
 
@@ -35,6 +36,6 @@ val copyVideoUrlResourcePatch = resourcePatch {
             ),
         )
 
-        BottomControlsResourcePatch.addControls("copyvideourl")
+        addControls("copyvideourl")
     }
 }

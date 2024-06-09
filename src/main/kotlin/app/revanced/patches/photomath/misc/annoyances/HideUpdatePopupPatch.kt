@@ -8,13 +8,7 @@ import app.revanced.patches.photomath.misc.annoyances.fingerprints.hideUpdatePop
 @Suppress("unused")
 val hideUpdatePopupPatch = bytecodePatch(
     name = "Hide update popup",
-    description = "Prevents the update popup from showing up.",
-    dependencies = [SignatureDetectionPatch::class],
-    compatiblePackages = [CompatiblePackage("com.microblink.photomath", ["8.37.0"])]
-)
-@Suppress("unused")
-object HideUpdatePopupPatch : BytecodePatch(
-    setOf(HideUpdatePopupFingerprint)
+    description = "Prevents the update popup from showing up."
 ) {
     dependsOn(signatureDetectionPatch)
 
@@ -22,8 +16,10 @@ object HideUpdatePopupPatch : BytecodePatch(
 
     val hideUpdatePopupResult by hideUpdatePopupFingerprint
 
-    hideUpdatePopupResult.mutableMethod.addInstructions(
-        2, // Insert after the null check.
-        "return-void"
-    )
+    execute {
+        hideUpdatePopupResult.mutableMethod.addInstructions(
+            2, // Insert after the null check.
+            "return-void"
+        )
+    }
 }

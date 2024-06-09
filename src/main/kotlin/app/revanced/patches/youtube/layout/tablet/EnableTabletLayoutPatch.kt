@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.layout.tablet
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.addResources
@@ -36,7 +36,7 @@ val enableTabletLayoutPatch = bytecodePatch(
         )
 
         getFormFactorResult.mutableMethod.apply {
-            val returnIsLargeFormFactorIndex = getInstructions().lastIndex - 4
+            val returnIsLargeFormFactorIndex = instructions.lastIndex - 4
             val returnIsLargeFormFactorLabel = getInstruction(returnIsLargeFormFactorIndex)
 
             addInstructionsWithLabels(

@@ -4,7 +4,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.youtube.interaction.swipecontrols.fingerprints.swipeControlsHostActivityFingerprint
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
-import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
+import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.shared.fingerprints.mainActivityFingerprint
 import app.revanced.util.transformMethods
 import app.revanced.util.traverseClassHierarchy
@@ -18,7 +18,7 @@ val swipeControlsBytecodePatch = bytecodePatch(
 ) {
     dependsOn(
         integrationsPatch,
-        PlayerTypeHookPatch,
+        playerTypeHookPatch,
         swipeControlsResourcePatch
     )
 

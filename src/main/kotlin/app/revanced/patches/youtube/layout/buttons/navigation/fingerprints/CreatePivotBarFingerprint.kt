@@ -1,20 +1,19 @@
 package app.revanced.patches.youtube.layout.buttons.navigation.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object CreatePivotBarFingerprint : MethodFingerprint(
-    returnType = "V",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    parameters = listOf(
+internal val createPivotBarFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    returns("V")
+    parameters(
         "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;",
         "Landroid/widget/TextView;",
         "Ljava/lang/CharSequence;",
-    ),
-    opcodes = listOf(
+    )
+    opcodes(
         Opcode.INVOKE_VIRTUAL,
         Opcode.RETURN_VOID,
-    ),
-)
+    )
+}

@@ -1,7 +1,7 @@
 package app.revanced.patches.twitter.misc.hook.json.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 
-internal object LoganSquareFingerprint : MethodFingerprint(
-    customFingerprint = { _, classDef -> classDef.endsWith("LoganSquare;") }
-)
+internal val loganSquareFingerprint = methodFingerprint {
+    custom { _, classDef -> classDef.endsWith("LoganSquare;") }
+}

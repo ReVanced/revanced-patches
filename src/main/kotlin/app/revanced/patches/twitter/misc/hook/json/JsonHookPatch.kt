@@ -7,9 +7,11 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.twitter.misc.hook.json.fingerprints.JsonHookPatchFingerprint
-import app.revanced.patches.twitter.misc.hook.json.fingerprints.JsonInputStreamFingerprint
-import app.revanced.patches.twitter.misc.hook.json.fingerprints.LoganSquareFingerprint
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.twitter.misc.hook.json.JsonHookPatch.JsonHookPatchHook
+import app.revanced.patches.twitter.misc.hook.json.fingerprints.*
+import app.revanced.patches.twitter.misc.hook.json.fingerprints.jsonHookPatchFingerprint
+import app.revanced.patches.twitter.misc.hook.json.fingerprints.loganSquareFingerprint
 import java.io.Closeable
 import java.io.InvalidClassException
 

@@ -71,7 +71,7 @@ val wideSearchbarPatch = bytecodePatch(
          * @return The [MutableMethod] which was navigated on.
          */
         fun BytecodePatchContext.walkMutable(index: Int, fromResult: MethodFingerprintResult) =
-            navigator(fromResult.method).at(index).mutable()
+            navigate(fromResult.method).at(index).mutable()
 
         /**
          * Injects instructions required for certain methods.

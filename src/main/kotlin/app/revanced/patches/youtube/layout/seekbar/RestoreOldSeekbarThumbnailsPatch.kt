@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.layout.seekbar
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -56,7 +56,7 @@ val restoreOldSeekbarThumbnailsPatch = bytecodePatch(
         )
 
         fullscreenSeekbarThumbnailsResult.mutableMethod.apply {
-            val moveResultIndex = getInstructions().lastIndex - 1
+            val moveResultIndex = instructions.lastIndex - 1
 
             addInstruction(
                 moveResultIndex,

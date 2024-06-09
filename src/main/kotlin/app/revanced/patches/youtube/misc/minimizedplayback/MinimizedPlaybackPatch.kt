@@ -84,7 +84,7 @@ val minimizedPlaybackPatch = bytecodePatch(
                 .filter { (_, instruction) -> instruction.getReference<MethodReference>()?.returnType == "Z" }
                 .elementAt(1).index
 
-            val settingsBooleanMethod = context.navigator(result.method).at(settingsBooleanIndex).mutable()
+            val settingsBooleanMethod = context.navigate(result.method).at(settingsBooleanIndex).mutable()
             settingsBooleanMethod.addInstructions(
                 0,
                 """

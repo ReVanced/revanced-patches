@@ -1,26 +1,22 @@
 package app.revanced.patches.lightroom.misc.login
 
-import app.revanced.util.exception
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.lightroom.misc.login.fingerprints.IsLoggedInFingerprint
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.lightroom.misc.login.fingerprints.isLoggedInFingerprint
 
-@Patch(
-    name = "Disable mandatory login",
-    compatiblePackages = [CompatiblePackage("com.adobe.lrmobile")]
-)
 @Suppress("unused")
-object DisableMandatoryLoginPatch : BytecodePatch(
-    setOf(IsLoggedInFingerprint)
+val disableMandatoryLoginPatch = bytecodePatch(
+    name = "Disable mandatory login"
 ) {
-    override fun execute(context: BytecodeContext) {
-        IsLoggedInFingerprint.result?.mutableMethod?.apply {
+    compatibleWith("com.adobe.lrmobile")
+
+    val isLoggedInResult by isLoggedInFingerprint
+
+    execute {
+        isLoggedInResult.mutableMethod.apply {
             val index = implementation!!.instructions.lastIndex - 1
             // Set isLoggedIn = true.
             replaceInstruction(index, "const/4 v0, 0x1")
-        } ?: throw IsLoggedInFingerprint.exception
+        }
     }
 }

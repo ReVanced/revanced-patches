@@ -1,10 +1,10 @@
 package app.revanced.patches.twitter.misc.hook.json.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 
-internal object JsonInputStreamFingerprint : MethodFingerprint(
-    customFingerprint = { methodDef, _ ->
+internal val jsonInputStreamFingerprint = methodFingerprint {
+    custom { methodDef, _ ->
         if (methodDef.parameterTypes.size == 0) false
         else methodDef.parameterTypes.first() == "Ljava/io/InputStream;"
     }
-)
+}

@@ -1,6 +1,7 @@
 package app.revanced.patches.music.interaction.permanentrepeat
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.music.interaction.permanentrepeat.fingerprints.repeatTrackFingerprint
@@ -20,11 +21,13 @@ val permanentRepeatPatch = bytecodePatch(
             val startIndex = it.scanResult.patternScanResult!!.endIndex
             val repeatIndex = startIndex + 3
 
-            it.mutableMethod.addInstructionsWithLabels(
-                startIndex,
-                "goto :repeat",
-                ExternalLabel("repeat", getInstructions(repeatIndex))
-            )
+            it.mutableMethod.apply {
+                addInstructionsWithLabels(
+                    startIndex,
+                    "goto :repeat",
+                    ExternalLabel("repeat", instructions[repeatIndex])
+                )
+            }
         }
     }
 }

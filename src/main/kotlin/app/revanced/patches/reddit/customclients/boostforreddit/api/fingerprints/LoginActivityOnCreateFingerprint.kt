@@ -1,14 +1,14 @@
 package app.revanced.patches.reddit.customclients.boostforreddit.api.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object LoginActivityOnCreateFingerprint : MethodFingerprint(
-    opcodes = listOf(
-        Opcode.MOVE_RESULT_OBJECT,
+internal val loginActivityOnCreateFingerprint = methodFingerprint {
+    opcodes(
+        Opcode.INVOKE_VIRTUAL,
         Opcode.CONST_4
-    ),
-    customFingerprint = { method, classDef ->
-        method.name == "onCreate" && classDef.endsWith("LoginActivity;")
+    )
+    custom { methodDef, classDef ->
+        methodDef.name == "onCreate" && classDef.endsWith("LoginActivity;")
     }
-)
+}

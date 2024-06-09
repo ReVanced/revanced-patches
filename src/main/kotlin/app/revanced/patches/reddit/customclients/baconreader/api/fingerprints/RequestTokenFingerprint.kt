@@ -1,7 +1,7 @@
 package app.revanced.patches.reddit.customclients.baconreader.api.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 
-internal object RequestTokenFingerprint : MethodFingerprint(
-    strings = listOf("zACVn0dSFGdWqQ", "kDm2tYpu9DqyWFFyPlNcXGEni4k"), // App ID and secret.
-)
+internal val requestTokenFingerprint = methodFingerprint {
+    strings("zACVn0dSFGdWqQ", "kDm2tYpu9DqyWFFyPlNcXGEni4k") // App ID and secret.
+}

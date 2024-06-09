@@ -1,7 +1,7 @@
 package app.revanced.patches.shared.misc.gms
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.*
@@ -167,7 +167,7 @@ fun gmsCoreSupportPatch(
             primeMethodFingerprint.result?.mutableMethod?.apply {
                 var register = 2
 
-                val index = getInstructions().indexOfFirst {
+                val index = instructions.indexOfFirst {
                     if (it.getReference<StringReference>()?.string != fromPackageName) return@indexOfFirst false
 
                     register = (it as OneRegisterInstruction).registerA

@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.misc.navigation.fingerprints
 
 import app.revanced.patcher.fingerprint.methodFingerprint
-import app.revanced.patches.youtube.layout.buttons.navigation.NavigationButtonsPatch
+import app.revanced.patches.youtube.layout.buttons.navigation.navigationButtonsPatch
 import app.revanced.patches.youtube.misc.navigation.INTEGRATIONS_NAVIGATION_BUTTON_DESCRIPTOR
 import com.android.tools.smali.dexlib2.AccessFlags
 
@@ -15,6 +15,6 @@ internal val navigationBarHookCallbackFingerprint = methodFingerprint {
     parameters(INTEGRATIONS_NAVIGATION_BUTTON_DESCRIPTOR, "Landroid/view/View;")
     custom { methodDef, classDef ->
         methodDef.name == "navigationTabCreatedCallback" &&
-            classDef.type == INTEGRATIONS_NAVIGATION_BUTTON_DESCRIPTOR
+                classDef.type == INTEGRATIONS_NAVIGATION_BUTTON_DESCRIPTOR
     }
 }

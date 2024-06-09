@@ -5,7 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.all.misc.packagename.ChangePackageNamePatch
+import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.*
@@ -107,7 +107,7 @@ fun newIntent(settingsName: String) = IntentPreference.Intent(
     targetClass = "com.google.android.libraries.social.licenses.LicenseActivity",
 ) {
     // The package name change has to be reflected in the intent.
-    ChangePackageNamePatch.setOrGetFallbackPackageName("com.google.android.youtube")
+    setOrGetFallbackPackageName("com.google.android.youtube")
 }
 
 object PreferenceScreen : BasePreferenceScreen() {

@@ -1,11 +1,11 @@
 package app.revanced.patches.amazon.deeplinking
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal object DeepLinkingFingerprint : MethodFingerprint(
-    "Z",
-    parameters = listOf("L"),
-    accessFlags = AccessFlags.PRIVATE.value,
-    strings = listOf("https://www.", "android.intent.action.VIEW")
-)
+internal val deepLinkingFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PRIVATE)
+    returns("Z")
+    parameters("L")
+    strings("https://www.", "android.intent.action.VIEW")
+}

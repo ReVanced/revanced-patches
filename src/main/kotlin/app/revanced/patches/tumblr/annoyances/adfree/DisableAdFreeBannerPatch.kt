@@ -1,21 +1,20 @@
 package app.revanced.patches.tumblr.annoyances.adfree
 
-import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.tumblr.featureflags.OverrideFeatureFlagsPatch
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.tumblr.featureflags.addOverride
+import app.revanced.patches.tumblr.featureflags.overrideFeatureFlagsPatch
 
-@Patch(
-    name = "Disable Ad-Free Banner",
-    description = "Disables the banner with a frog, prompting you to buy Tumblr Ad-Free.",
-    dependencies = [OverrideFeatureFlagsPatch::class],
-    compatiblePackages = [CompatiblePackage("com.tumblr")],
-)
 @Suppress("unused")
-object DisableAdFreeBannerPatch : BytecodePatch(emptySet()) {
-    override fun execute(context: BytecodeContext) {
+val disableAdFreeBannerPatch = bytecodePatch(
+    name = "Disable Ad-Free Banner",
+    description = "Disables the banner with a frog, prompting you to buy Tumblr Ad-Free."
+) {
+    dependsOn(overrideFeatureFlagsPatch)
+
+    compatibleWith("com.tumblr")
+
+    execute {
         // Disable the "AD_FREE_CTA_BANNER" ("Whether or not to show ad free prompt") feature flag.
-        OverrideFeatureFlagsPatch.addOverride("adFreeCtaBanner", "false")
+        addOverride("adFreeCtaBanner", "false")
     }
 }

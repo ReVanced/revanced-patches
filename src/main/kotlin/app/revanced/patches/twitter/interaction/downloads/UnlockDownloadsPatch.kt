@@ -3,7 +3,7 @@ package app.revanced.patches.twitter.interaction.downloads
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patcher.patch.bytecodePatch
@@ -42,7 +42,7 @@ val unlockDownloadsPatch = bytecodePatch(
 
         // Force show the download menu item.
         constructMediaOptionsSheetResult.patch {
-            val showDownloadButtonIndex = mutableMethod.getInstructions().lastIndex - 1
+            val showDownloadButtonIndex = mutableMethod.instructions.lastIndex - 1
             val register = mutableMethod.getInstruction<TwoRegisterInstruction>(showDownloadButtonIndex).registerA
 
             showDownloadButtonIndex to register
@@ -67,7 +67,7 @@ val unlockDownloadsPatch = bytecodePatch(
 
                 // Remove media.isDownloadable check.
                 removeInstruction(
-                    getInstructions().first { insn -> insn.opcode == Opcode.IGET_BOOLEAN }.location.index + 1,
+                    instructions.first { insn -> insn.opcode == Opcode.IGET_BOOLEAN }.location.index + 1,
                 )
             }
         }

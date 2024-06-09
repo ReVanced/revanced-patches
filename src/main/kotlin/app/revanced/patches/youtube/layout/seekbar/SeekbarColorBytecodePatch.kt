@@ -53,7 +53,7 @@ val seekbarColorBytecodePatch = bytecodePatch(
 
         setSeekbarClickedColorResult.mutableMethod.let {
             val setColorMethodIndex = setSeekbarClickedColorResult.scanResult.patternScanResult!!.startIndex + 1
-            val method = context.navigator(it).at(setColorMethodIndex).mutable()
+            val method = context.navigate(it).at(setColorMethodIndex).mutable()
 
             method.apply {
                 val colorRegister = getInstruction<TwoRegisterInstruction>(0).registerA

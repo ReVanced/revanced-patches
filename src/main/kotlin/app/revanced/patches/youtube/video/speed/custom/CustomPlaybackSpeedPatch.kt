@@ -4,7 +4,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
@@ -61,14 +61,14 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         )
 
         speedArrayGeneratorResult.mutableMethod.apply {
-            val sizeCallIndex = getInstructions()
+            val sizeCallIndex = instructions
                 .indexOfFirst { it.getReference<MethodReference>()?.name == "size" }
             if (sizeCallIndex == -1) throw PatchException("Couldn't find call to size()")
 
             val sizeCallResultRegister = getInstruction<OneRegisterInstruction>(sizeCallIndex + 1).registerA
             replaceInstruction(sizeCallIndex + 1, "const/4 v$sizeCallResultRegister, 0x0")
 
-            val arrayLengthConstInstruction = getInstructions()
+            val arrayLengthConstInstruction = instructions
                 .first { (it as? NarrowLiteralInstruction)?.narrowLiteral == 7 }
             val arrayLengthConstRegister = (arrayLengthConstInstruction as OneRegisterInstruction).registerA
             val playbackSpeedsArrayType = "$INTEGRATIONS_CLASS_DESCRIPTOR->customPlaybackSpeeds:[F"
@@ -81,7 +81,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
                 """,
             )
 
-            val getOriginalArrayInstruction = getInstructions().first {
+            val getOriginalArrayInstruction = instructions.first {
                 val reference = it.getReference<FieldReference>() ?: return@first false
 
                 reference.definingClass.contains("PlayerConfigModel") && reference.type == "[F"
@@ -98,9 +98,9 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         speedLimiterResult.mutableMethod.apply {
             val lowerLimitConst = 0.25f.toRawBits()
             val upperLimitConst = 2.0f.toRawBits()
-            val limiterMinConstInstruction = getInstructions()
+            val limiterMinConstInstruction = instructions
                 .first { (it as? NarrowLiteralInstruction)?.narrowLiteral == lowerLimitConst }
-            val limiterMaxConstInstruction = getInstructions()
+            val limiterMaxConstInstruction = instructions
                 .first { (it as? NarrowLiteralInstruction)?.narrowLiteral == upperLimitConst }
 
             val limiterMinConstDestination = (limiterMinConstInstruction as OneRegisterInstruction).registerA
@@ -130,7 +130,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
             getOldPlaybackSpeedsResult.classDef.type,
             "INSTANCE",
             getOldPlaybackSpeedsResult.classDef.type,
-            AccessFlags.PUBLIC.value.or(AccessFlags.STATIC),
+            AccessFlags.PUBLIC.value or AccessFlags.STATIC.value,
             null,
             null,
             null,
@@ -151,7 +151,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         // Insert the call to the "showOldPlaybackSpeedMenu" method on the field INSTANCE.
         showOldPlaybackSpeedMenuIntegrationsResult.mutableMethod.apply {
             addInstructionsWithLabels(
-                getInstructions().lastIndex,
+                instructions.lastIndex,
                 """
                     sget-object v0, $instanceField
                     if-nez v0, :not_null

@@ -1,7 +1,7 @@
 package app.revanced.patches.reddit.customclients.redditisfun.api.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 
-internal abstract class BaseClientIdFingerprint(string: String) : MethodFingerprint(
-    strings = listOfNotNull("yyOCBp.RHJhDKd", string),
-)
+fun baseClientIdFingerprint(string: String) = methodFingerprint {
+    strings("yyOCBp.RHJhDKd", string)
+}

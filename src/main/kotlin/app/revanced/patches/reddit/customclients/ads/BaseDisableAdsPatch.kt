@@ -1,19 +1,24 @@
 package app.revanced.patches.reddit.customclients.ads
 
-import app.revanced.patcher.PatchClass
-import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patches.reddit.customclients.ads.fingerprints.IsAdsEnabledFingerprint
+import app.revanced.patcher.patch.Package
+import app.revanced.patcher.patch.Patch
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.reddit.customclients.ads.fingerprints.isAdsEnabledFingerprint
 import app.revanced.util.returnEarly
 
-abstract class BaseDisableAdsPatch(
-    dependencies: Set<PatchClass> = emptySet(),
-    compatiblePackages: Set<CompatiblePackage>,
-) : BytecodePatch(
-    name = "Disable ads",
-    dependencies = dependencies,
-    compatiblePackages = compatiblePackages,
-    fingerprints = setOf(IsAdsEnabledFingerprint),
+fun baseDisableAdsPatch(
+    dependencies: Patch<*>,
+    compatiblePackages: Package
+) = bytecodePatch(
+    name = "Disable ads"
 ) {
-    override fun execute(context: BytecodeContext) = listOf(IsAdsEnabledFingerprint).returnEarly()
+    dependsOn(dependencies)
+
+    compatibleWith(compatiblePackages)
+
+    isAdsEnabledFingerprint()
+
+    execute {
+        listOf(isAdsEnabledFingerprint).returnEarly()
+    }
 }

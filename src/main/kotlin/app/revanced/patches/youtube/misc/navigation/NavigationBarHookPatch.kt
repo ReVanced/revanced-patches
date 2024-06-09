@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.misc.navigation
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -45,7 +45,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
 
     execute { context ->
         fun MutableMethod.addHook(hook: Hook, insertPredicate: Instruction.() -> Boolean) {
-            val filtered = getInstructions().filter(insertPredicate)
+            val filtered = instructions.filter(insertPredicate)
             if (filtered.isEmpty()) throw PatchException("Could not find insert indexes")
             filtered.forEach {
                 val insertIndex = it.location.index + 2

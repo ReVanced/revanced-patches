@@ -1,8 +1,10 @@
 package app.revanced.patches.youtube.interaction.copyvideourl
 
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.youtube.misc.playercontrols.PlayerControlsBytecodePatch
-import app.revanced.patches.youtube.video.information.VideoInformationPatch
+import app.revanced.patches.youtube.misc.playercontrols.initializeControl
+import app.revanced.patches.youtube.misc.playercontrols.injectVisibilityCheckCall
+import app.revanced.patches.youtube.misc.playercontrols.playerControlsPatch
+import app.revanced.patches.youtube.video.information.videoInformationPatch
 
 @Suppress("unused")
 val copyVideoUrlBytecodePatch = bytecodePatch(
@@ -11,8 +13,8 @@ val copyVideoUrlBytecodePatch = bytecodePatch(
 ) {
     dependsOn(
         copyVideoUrlResourcePatch,
-        PlayerControlsBytecodePatch,
-        VideoInformationPatch,
+        playerControlsPatch,
+        videoInformationPatch,
     )
 
     compatibleWith(
@@ -41,8 +43,8 @@ val copyVideoUrlBytecodePatch = bytecodePatch(
 
     execute {
         buttonsDescriptors.forEach { descriptor ->
-            PlayerControlsBytecodePatch.initializeControl("$descriptor->initializeButton(Landroid/view/View;)V")
-            PlayerControlsBytecodePatch.injectVisibilityCheckCall("$descriptor->changeVisibility(Z)V")
+            initializeControl("$descriptor->initializeButton(Landroid/view/View;)V")
+            injectVisibilityCheckCall("$descriptor->changeVisibility(Z)V")
         }
     }
 }

@@ -188,7 +188,7 @@ val sponsorBlockBytecodePatch = bytecodePatch(
 
                     zoomOverlayResourceId -> {
                         val invertVisibilityMethod =
-                            context.navigator(method).at(index - 6).mutable()
+                            context.navigate(method).at(index - 6).mutable()
                         // change visibility of the buttons
                         invertVisibilityMethod.addInstructions(
                             0,

@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.layout.tabletminiplayer
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -69,13 +69,13 @@ val tabletMiniPlayerPatch = bytecodePatch(
         val (method, _, parameterRegister) = miniPlayerOverrideNoContextFingerprint.apply {
             resolve(context, miniPlayerDimensionsCalculatorParentResult.classDef)
         }.addProxyCall()
-        method.insertOverride(method.getInstructions().size - 1, parameterRegister)
+        method.insertOverride(method.instructions.size - 1, parameterRegister)
 
         // Override every return instruction with the proxy call.
-        context.navigator(miniPlayerOverrideResult.mutableMethod).at(
+        context.navigate(miniPlayerOverrideResult.mutableMethod).at(
             miniPlayerOverrideResult.scanResult.stringsScanResult!!.matches.first().index + 2,
         ).mutable().apply {
-            val returnIndices = getInstructions().withIndex()
+            val returnIndices = instructions.withIndex()
                 .filter { (_, instruction) -> instruction.opcode == Opcode.RETURN }
                 .map { (index, _) -> index }
 

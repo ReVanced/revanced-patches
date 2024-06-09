@@ -3,7 +3,7 @@ package app.revanced.patches.youtube.misc.fix.playback
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
@@ -123,7 +123,7 @@ val spoofClientPatch = bytecodePatch(
 
         // Field in the player request object that holds the client info object.
         val clientInfoField = setPlayerRequestClientTypeResult.mutableMethod
-            .getInstructions().find { instruction ->
+            .instructions.find { instruction ->
                 // requestMessage.clientInfo = clientInfoBuilder.build();
                 instruction.opcode == Opcode.IPUT_OBJECT &&
                     instruction.getReference<FieldReference>()?.type == clientInfoClassDescriptor
@@ -140,7 +140,7 @@ val spoofClientPatch = bytecodePatch(
             .getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoClientVersionField")
 
         val getClientModelIndex = indexOfBuildModelInstruction(createPlayerRequestBodyWithModelResult.method)
-        val instructions = createPlayerRequestBodyWithModelResult.mutableMethod.getInstructions()
+        val instructions = createPlayerRequestBodyWithModelResult.mutableMethod.instructions
 
         // The next IPUT_OBJECT instruction after getting the client model is setting the client model field.
         val clientInfoClientModelField = instructions.subList(
@@ -178,7 +178,7 @@ val spoofClientPatch = bytecodePatch(
                     setClientInfoMethodName,
                     listOf(ImmutableMethodParameter(clientInfoContainerClassName, null, "clientInfoContainer")),
                     "V",
-                    AccessFlags.PRIVATE.value.or(AccessFlags.STATIC),
+                    AccessFlags.PRIVATE.value or AccessFlags.STATIC.value,
                     null,
                     null,
                     MutableMethodImplementation(3),

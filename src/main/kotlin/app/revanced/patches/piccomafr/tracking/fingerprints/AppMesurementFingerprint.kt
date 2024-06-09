@@ -1,15 +1,10 @@
 package app.revanced.patches.piccomafr.tracking.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-
-internal object AppMesurementFingerprint : MethodFingerprint(
-    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
-    strings = listOf(
-        "config/app/",
-        "Fetching remote configuration"
-    ),
-    returnType = "V"
-)
+internal val appMeasurementFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PRIVATE,  AccessFlags.FINAL)
+    returns("V")
+    strings("config/app/", "Fetching remote configuration")
+}
