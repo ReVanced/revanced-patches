@@ -9,6 +9,9 @@ import app.revanced.patches.youtube.misc.playertype.fingerprint.playerTypeFinger
 import app.revanced.patches.youtube.misc.playertype.fingerprint.videoStateFingerprint
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
+internal var INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/PlayerTypeHookPatch;"
+    private set
+
 @Suppress("unused")
 val playerTypeHookPatch = bytecodePatch(
     description = "Hook to get the current player type and video playback state.",
@@ -18,12 +21,10 @@ val playerTypeHookPatch = bytecodePatch(
     val playerTypeResult by playerTypeFingerprint
     val videoStateResult by videoStateFingerprint
 
-    val integrationsClassDescriptor = "Lapp/revanced/integrations/youtube/patches/PlayerTypeHookPatch;"
-
     execute {
         playerTypeResult.mutableMethod.addInstruction(
             0,
-            "invoke-static {p1}, $integrationsClassDescriptor->setPlayerType(Ljava/lang/Enum;)V",
+            "invoke-static {p1}, $INTEGRATIONS_CLASS_DESCRIPTOR->setPlayerType(Ljava/lang/Enum;)V",
         )
 
         videoStateResult.mutableMethod.apply {
@@ -34,7 +35,7 @@ val playerTypeHookPatch = bytecodePatch(
                 0,
                 """
                         iget-object v0, p1, $videoStateFieldName  # copy VideoState parameter field
-                        invoke-static {v0}, $integrationsClassDescriptor->setVideoState(Ljava/lang/Enum;)V
+                        invoke-static {v0}, $INTEGRATIONS_CLASS_DESCRIPTOR->setVideoState(Ljava/lang/Enum;)V
                     """,
             )
         }

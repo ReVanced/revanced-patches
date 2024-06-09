@@ -15,6 +15,10 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction22c
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
+internal var INTEGRATIONS_CLASS_DESCRIPTOR =
+    "Lapp/revanced/integrations/tiktok/settings/AdPersonalizationActivityHook;"
+    private set
+
 @Suppress("unused")
 val settingsPatch = bytecodePatch(
     name = "Settings",
@@ -32,16 +36,13 @@ val settingsPatch = bytecodePatch(
     val settingsEntryResult by settingsEntryFingerprint
     val settingsEntryInfoResult by settingsEntryInfoFingerprint
 
-    val integrationsClassDescriptor =
-        "Lapp/revanced/integrations/tiktok/settings/AdPersonalizationActivityHook;"
-
     val initializeSettingsMethodDescriptor =
-        "$integrationsClassDescriptor->initialize(" +
+        "$INTEGRATIONS_CLASS_DESCRIPTOR->initialize(" +
                 "Lcom/bytedance/ies/ugc/aweme/commercialize/compliance/personalization/AdPersonalizationActivity;" +
                 ")Z"
 
     val createSettingsEntryMethodDescriptor =
-        "$integrationsClassDescriptor->createSettingsEntry(" +
+        "$INTEGRATIONS_CLASS_DESCRIPTOR->createSettingsEntry(" +
                 "Ljava/lang/String;" +
                 "Ljava/lang/String;" +
                 ")Ljava/lang/Object;"

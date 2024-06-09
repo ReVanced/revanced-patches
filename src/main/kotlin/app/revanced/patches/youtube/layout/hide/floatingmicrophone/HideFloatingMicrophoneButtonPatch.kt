@@ -7,6 +7,10 @@ import app.revanced.patches.youtube.layout.hide.floatingmicrophone.fingerprints.
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
+internal var INTEGRATIONS_CLASS_DESCRIPTOR =
+    "Lapp/revanced/integrations/youtube/patches/HideFloatingMicrophoneButtonPatch;"
+    private set
+
 @Suppress("unused")
 val hideFloatingMicrophoneButtonPatch = bytecodePatch(
     name = "Hide floating microphone button",
@@ -43,9 +47,6 @@ val hideFloatingMicrophoneButtonPatch = bytecodePatch(
 
     val showFloatingMicrophoneButtonResult by showFloatingMicrophoneButtonFingerprint
 
-    val integrationsClassDescriptor =
-        "Lapp/revanced/integrations/youtube/patches/HideFloatingMicrophoneButtonPatch;"
-
     execute {
         showFloatingMicrophoneButtonResult.mutableMethod.apply {
             val insertIndex = showFloatingMicrophoneButtonResult.scanResult.patternScanResult!!.startIndex + 1
@@ -55,9 +56,9 @@ val hideFloatingMicrophoneButtonPatch = bytecodePatch(
             addInstructions(
                 insertIndex,
                 """
-                        invoke-static {v$showButtonRegister}, $integrationsClassDescriptor->hideFloatingMicrophoneButton(Z)Z
-                        move-result v$showButtonRegister
-                        """,
+                    invoke-static {v$showButtonRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->hideFloatingMicrophoneButton(Z)Z
+                    move-result v$showButtonRegister
+                """,
             )
         }
     }

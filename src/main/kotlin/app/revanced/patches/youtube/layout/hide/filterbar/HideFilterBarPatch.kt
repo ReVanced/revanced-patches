@@ -4,11 +4,15 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.youtube.layout.hide.filterbar.fingerprints.*
 import app.revanced.patches.youtube.layout.hide.filterbar.fingerprints.filterBarHeightFingerprint
+import app.revanced.patches.youtube.layout.hide.filterbar.fingerprints.relatedChipCloudFingerprint
+import app.revanced.patches.youtube.layout.hide.filterbar.fingerprints.searchResultsChipBarFingerprint
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+
+internal var INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/HideFilterBarPatch;"
+    private set
 
 @Suppress("unused")
 val hideFilterBarPatch = bytecodePatch(
@@ -48,8 +52,6 @@ val hideFilterBarPatch = bytecodePatch(
     val relatedChipCloudResult by relatedChipCloudFingerprint
     val searchResultsChipBarResult by searchResultsChipBarFingerprint
 
-    val integrationsClassDescriptor = "Lapp/revanced/integrations/youtube/patches/HideFilterBarPatch;"
-
     execute {
         fun <RegisterInstruction : OneRegisterInstruction> MethodFingerprintResult.patch(
             insertIndexOffset: Int = 0,
@@ -65,19 +67,19 @@ val hideFilterBarPatch = bytecodePatch(
 
         filterBarHeightResult.patch<TwoRegisterInstruction> { register ->
             """
-                invoke-static { v$register }, $integrationsClassDescriptor->hideInFeed(I)I
+                invoke-static { v$register }, $INTEGRATIONS_CLASS_DESCRIPTOR->hideInFeed(I)I
                 move-result v$register
             """
         }
 
         relatedChipCloudResult.patch<OneRegisterInstruction>(1) { register ->
             "invoke-static { v$register }, " +
-                "$integrationsClassDescriptor->hideInRelatedVideos(Landroid/view/View;)V"
+                    "$INTEGRATIONS_CLASS_DESCRIPTOR->hideInRelatedVideos(Landroid/view/View;)V"
         }
 
         searchResultsChipBarResult.patch<OneRegisterInstruction>(-1, -2) { register ->
             """
-                invoke-static { v$register }, $integrationsClassDescriptor->hideInSearch(I)I
+                invoke-static { v$register }, $INTEGRATIONS_CLASS_DESCRIPTOR->hideInSearch(I)I
                 move-result v$register
             """
         }

@@ -13,6 +13,9 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
+internal var INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/SlideToSeekPatch;"
+    private set
+
 @Suppress("unused")
 val enableSlideToSeekPatch = bytecodePatch(
     name = "Enable slide to seek",
@@ -48,8 +51,6 @@ val enableSlideToSeekPatch = bytecodePatch(
     val slideToSeekResult by slideToSeekFingerprint
     val doubleSpeedSeekNoticeResult by doubleSpeedSeekNoticeFingerprint
 
-    val integrationsClassDescriptor = "Lapp/revanced/integrations/youtube/patches/SlideToSeekPatch;"
-
     execute {
         addResources("youtube", "interaction.seekbar.EnableSlideToSeekPatch")
 
@@ -71,7 +72,7 @@ val enableSlideToSeekPatch = bytecodePatch(
                 addInstructions(
                     insertIndex,
                     """
-                        invoke-static { }, $integrationsClassDescriptor->isSlideToSeekDisabled()Z
+                        invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->isSlideToSeekDisabled()Z
                         move-result v$isEnabledRegister
                     """,
                 )

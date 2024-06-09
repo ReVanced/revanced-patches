@@ -4,14 +4,17 @@ import app.revanced.patches.all.misc.transformation.IMethodCall
 import app.revanced.patches.all.misc.transformation.filterMapInstruction35c
 import app.revanced.patches.all.misc.transformation.transformInstructionsPatch
 
-const val integrationsClassDescriptorPrefix = "Lapp/revanced/integrations/all/connectivity/wifi/spoof/SpoofWifiPatch"
-const val integrationsClassDescriptor = "$integrationsClassDescriptorPrefix;"
+internal var INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX = "Lapp/revanced/integrations/all/connectivity/wifi/spoof/SpoofWifiPatch"
+    private set
+
+internal var INTEGRATIONS_CLASS_DESCRIPTOR = "$INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX;"
+    private set
 
 @Suppress("unused")
 val spoofWifiPatch = transformInstructionsPatch(
     filterMap = { classDef, method, instruction, instructionIndex ->
         filterMapInstruction35c<MethodCall>(
-            integrationsClassDescriptorPrefix,
+            INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX,
             classDef,
             instruction,
             instructionIndex
@@ -20,7 +23,7 @@ val spoofWifiPatch = transformInstructionsPatch(
     transform = { mutableMethod, entry ->
         val (methodType, instruction, instructionIndex) = entry
         methodType.replaceInvokeVirtualWithIntegrations(
-            integrationsClassDescriptor,
+            INTEGRATIONS_CLASS_DESCRIPTOR,
             mutableMethod,
             instruction,
             instructionIndex

@@ -10,6 +10,12 @@ import app.revanced.patches.youtube.misc.playercontrols.playerControlsPatch
 import app.revanced.patches.youtube.shared.fingerprints.mainActivityFingerprint
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 
+internal var INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/DownloadsPatch;"
+    private set
+
+internal var BUTTON_DESCRIPTOR = "Lapp/revanced/integrations/youtube/videoplayer/ExternalDownloadButton;"
+    private set
+
 @Suppress("unused")
 val downloadsPatch = bytecodePatch(
     name = "Downloads",
@@ -43,18 +49,15 @@ val downloadsPatch = bytecodePatch(
     val offlineVideoEndpointResult by offlineVideoEndpointFingerprint
     val mainActivityResult by mainActivityFingerprint
 
-    val integrationsClassDescriptor = "Lapp/revanced/integrations/youtube/patches/DownloadsPatch;"
-    val buttonDescriptor = "Lapp/revanced/integrations/youtube/videoplayer/ExternalDownloadButton;"
-
     execute {
-        initializeControl("$buttonDescriptor->initializeButton(Landroid/view/View;)V")
-        injectVisibilityCheckCall("$buttonDescriptor->changeVisibility(Z)V")
+        initializeControl("$BUTTON_DESCRIPTOR->initializeButton(Landroid/view/View;)V")
+        injectVisibilityCheckCall("$BUTTON_DESCRIPTOR->changeVisibility(Z)V")
 
         // Main activity is used to launch downloader intent.
         mainActivityResult.mutableMethod.apply {
             addInstruction(
                 implementation!!.instructions.lastIndex,
-                "invoke-static { p0 }, $integrationsClassDescriptor->activityCreated(Landroid/app/Activity;)V",
+                "invoke-static { p0 }, $INTEGRATIONS_CLASS_DESCRIPTOR->activityCreated(Landroid/app/Activity;)V",
             )
         }
 
@@ -62,7 +65,7 @@ val downloadsPatch = bytecodePatch(
             addInstructionsWithLabels(
                 0,
                 """
-                    invoke-static/range {p3 .. p3}, $integrationsClassDescriptor->inAppDownloadButtonOnClick(Ljava/lang/String;)Z
+                    invoke-static/range {p3 .. p3}, $INTEGRATIONS_CLASS_DESCRIPTOR->inAppDownloadButtonOnClick(Ljava/lang/String;)Z
                     move-result v0
                     if-eqz v0, :show_native_downloader
                     return-void

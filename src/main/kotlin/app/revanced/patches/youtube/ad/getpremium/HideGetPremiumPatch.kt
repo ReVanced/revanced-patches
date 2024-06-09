@@ -12,6 +12,10 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
+internal var INTEGRATIONS_CLASS_DESCRIPTOR =
+    "Lapp/revanced/integrations/youtube/patches/HideGetPremiumPatch;"
+    private set
+
 @Suppress("unused")
 val hideGetPremiumPatch = bytecodePatch(
     description = "Hides YouTube Premium signup promotions under the video player.",
@@ -48,9 +52,6 @@ val hideGetPremiumPatch = bytecodePatch(
 
     val getPremiumViewResult by getPremiumViewFingerprint
 
-    val integrationsClassDescriptor =
-        "Lapp/revanced/integrations/youtube/patches/HideGetPremiumPatch;"
-
     execute {
         addResources("youtube", "ad.getpremium.HideGetPremiumPatch")
 
@@ -70,7 +71,7 @@ val hideGetPremiumPatch = bytecodePatch(
                 startIndex + 2,
                 """
                     # Override the internal measurement of the layout with zero values.
-                    invoke-static {}, $integrationsClassDescriptor->hideGetPremiumView()Z
+                    invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->hideGetPremiumView()Z
                     move-result v$tempRegister
                     if-eqz v$tempRegister, :allow
                     const/4 v$measuredWidthRegister, 0x0

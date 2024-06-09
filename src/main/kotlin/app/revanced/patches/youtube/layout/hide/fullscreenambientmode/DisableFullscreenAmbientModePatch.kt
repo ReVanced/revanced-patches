@@ -10,6 +10,9 @@ import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 
+internal var INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/DisableFullscreenAmbientModePatch;"
+    private set
+
 @Suppress("unused")
 val disableFullscreenAmbientModePatch = bytecodePatch(
     name = "Disable fullscreen ambient mode",
@@ -46,8 +49,6 @@ val disableFullscreenAmbientModePatch = bytecodePatch(
 
     val initializeAmbientModeResult by initializeAmbientModeFingerprint
 
-    val integrationsClassDescriptor = "Lapp/revanced/integrations/youtube/patches/DisableFullscreenAmbientModePatch;"
-
     execute {
         addResources("youtube", "layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch")
 
@@ -61,7 +62,7 @@ val disableFullscreenAmbientModePatch = bytecodePatch(
             addInstruction(
                 moveIsEnabledIndex,
                 "invoke-static { }, " +
-                    "$integrationsClassDescriptor->enableFullScreenAmbientMode()Z",
+                    "$INTEGRATIONS_CLASS_DESCRIPTOR->enableFullScreenAmbientMode()Z",
             )
         }
     }

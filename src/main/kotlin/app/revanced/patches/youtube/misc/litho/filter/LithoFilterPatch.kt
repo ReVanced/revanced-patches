@@ -36,6 +36,9 @@ private val Instruction.descriptor
 lateinit var addLithoFilter: (String) -> Unit
     private set
 
+internal var INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/components/LithoFilterPatch;"
+    private set
+
 val lithoFilterPatch = bytecodePatch(
     description = "Hooks the method which parses the bytes into a ComponentContext to filter components.",
 ) {
@@ -46,8 +49,6 @@ val lithoFilterPatch = bytecodePatch(
     val componentContextParserResult by componentContextParserFingerprint
     val lithoFilterResult by lithoFilterFingerprint
     val protobufBufferReferenceResult by protobufBufferReferenceFingerprint
-
-    val integrationsClassDescriptor = "Lapp/revanced/integrations/youtube/patches/components/LithoFilterPatch;"
 
     var filterCount = 0
 
@@ -98,7 +99,7 @@ val lithoFilterPatch = bytecodePatch(
 
             protobufBufferReferenceResult.mutableMethod.addInstruction(
                 0,
-                " invoke-static { p2 }, $integrationsClassDescriptor->setProtoBuffer(Ljava/nio/ByteBuffer;)V",
+                " invoke-static { p2 }, $INTEGRATIONS_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V",
             )
 
             // endregion
@@ -151,7 +152,7 @@ val lithoFilterPatch = bytecodePatch(
                     """
                         # Invoke the filter method.
                       
-                        invoke-static { v$identifierRegister, v$stringBuilderRegister }, $integrationsClassDescriptor->filter(Ljava/lang/String;Ljava/lang/StringBuilder;)Z
+                        invoke-static { v$identifierRegister, v$stringBuilderRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->filter(Ljava/lang/String;Ljava/lang/StringBuilder;)Z
                         move-result v$free1
                        
                         if-eqz v$free1, :unfiltered
