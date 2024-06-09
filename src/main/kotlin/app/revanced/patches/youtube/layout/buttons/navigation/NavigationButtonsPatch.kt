@@ -23,14 +23,13 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal var INTEGRATIONS_CLASS_DESCRIPTOR =
+internal const val INTEGRATIONS_CLASS_DESCRIPTOR =
     "Lapp/revanced/integrations/youtube/patches/NavigationButtonsPatch;"
-    private set
 
 @Suppress("unused")
 val navigationButtonsPatch = bytecodePatch(
     name = "Navigation buttons",
-    description = "Adds options to hide and change navigation buttons (such as the Shorts button)."
+    description = "Adds options to hide and change navigation buttons (such as the Shorts button).",
 ) {
     dependsOn(
         integrationsPatch,
@@ -97,9 +96,9 @@ val navigationButtonsPatch = bytecodePatch(
             addInstructions(
                 conditionalCheckIndex,
                 """
-                        invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->switchCreateWithNotificationButton()Z
-                        move-result v$conditionRegister
-                    """,
+                    invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->switchCreateWithNotificationButton()Z
+                    move-result v$conditionRegister
+                """,
             )
         }
 
@@ -114,7 +113,7 @@ val navigationButtonsPatch = bytecodePatch(
             addInstruction(
                 setTextIndex,
                 "invoke-static { v$targetRegister }, " +
-                        "$INTEGRATIONS_CLASS_DESCRIPTOR->hideNavigationButtonLabels(Landroid/widget/TextView;)V",
+                    "$INTEGRATIONS_CLASS_DESCRIPTOR->hideNavigationButtonLabels(Landroid/widget/TextView;)V",
             )
         }
 

@@ -15,11 +15,6 @@ val unlockProPatch = bytecodePatch(
 
     execute {
         // Set isSubscribed to true.
-        revCatSubscriptionResult.mutableMethod.addInstruction(
-            0,
-            """
-                const p1, 0x1
-            """,
-        )
+        revCatSubscriptionResult.mutableMethod.addInstruction(0, "const p1, 0x1")
     }
 }

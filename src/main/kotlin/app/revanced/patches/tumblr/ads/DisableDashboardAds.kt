@@ -1,7 +1,7 @@
 package app.revanced.patches.tumblr.ads
 
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.tumblr.timelinefilter.addObjectTypeFilter
+import app.revanced.patches.tumblr.timelinefilter.addTimelineObjectTypeFilter
 import app.revanced.patches.tumblr.timelinefilter.timelineFilterPatch
 
 @Suppress("unused")
@@ -30,7 +30,7 @@ val disableDashboardAdsPatch = bytecodePatch(
             "FACEBOOK_BIDDAABLE", // "facebook_biddable_sdk_ad"
             "GOOGLE_NATIVE", // "google_native_ad"
         ).forEach {
-            addObjectTypeFilter(it)
+            addTimelineObjectTypeFilter(it)
         }
     }
 }

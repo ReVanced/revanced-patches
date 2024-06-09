@@ -14,17 +14,17 @@ val removeCaptureRestrictionPatch = bytecodePatch(
     name = "Remove screen capture restriction",
     description = "Removes the restriction of capturing audio from apps that normally wouldn't allow it.",
     use = false,
-    requiresIntegrations = true
+    requiresIntegrations = true,
 ) {
     dependsOn(
         removeCaptureRestrictionResourcePatch,
         transformInstructionsPatch(
-            filterMap = { classDef, method, instruction, instructionIndex ->
+            filterMap = { classDef, _, instruction, instructionIndex ->
                 filterMapInstruction35c<MethodCall>(
                     INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX,
                     classDef,
                     instruction,
-                    instructionIndex
+                    instructionIndex,
                 )
             },
             transform = { mutableMethod, entry ->
@@ -33,19 +33,20 @@ val removeCaptureRestrictionPatch = bytecodePatch(
                     INTEGRATIONS_CLASS_DESCRIPTOR,
                     mutableMethod,
                     instruction,
-                    instructionIndex
+                    instructionIndex,
                 )
-            }
-        )
+            },
+        ),
     )
 }
 
 // Information about method calls we want to replace
-enum class MethodCall(
+@Suppress("unused")
+private enum class MethodCall(
     override val definedClassName: String,
     override val methodName: String,
     override val methodParams: Array<String>,
-    override val returnType: String
+    override val returnType: String,
 ) : IMethodCall {
     SetAllowedCapturePolicySingle(
         "Landroid/media/AudioAttributes\$Builder;",
@@ -58,5 +59,5 @@ enum class MethodCall(
         "setAllowedCapturePolicy",
         arrayOf("I"),
         "V",
-    );
+    ),
 }

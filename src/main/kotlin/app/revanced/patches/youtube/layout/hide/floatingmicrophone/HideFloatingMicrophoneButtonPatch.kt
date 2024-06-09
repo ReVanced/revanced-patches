@@ -7,9 +7,8 @@ import app.revanced.patches.youtube.layout.hide.floatingmicrophone.fingerprints.
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
-internal var INTEGRATIONS_CLASS_DESCRIPTOR =
+internal const val INTEGRATIONS_CLASS_DESCRIPTOR =
     "Lapp/revanced/integrations/youtube/patches/HideFloatingMicrophoneButtonPatch;"
-    private set
 
 @Suppress("unused")
 val hideFloatingMicrophoneButtonPatch = bytecodePatch(

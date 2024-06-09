@@ -4,15 +4,19 @@ import app.revanced.patcher.patch.resourcePatch
 import org.w3c.dom.Element
 
 @Suppress("unused")
-val removeCaptureRestrictionResourcePatch = resourcePatch {
+internal val removeCaptureRestrictionResourcePatch = resourcePatch(
+    description = "Sets allowAudioPlaybackCapture in manifest to true.",
+) {
     execute { context ->
         context.document["AndroidManifest.xml"].use { document ->
-            val applicationNode = document.getElementsByTagName("application").item(0) as Element
+            // Get the application node.
+            val applicationNode =
+                document
+                    .getElementsByTagName("application")
+                    .item(0) as Element
 
-            if (!applicationNode.hasAttribute("android:allowAudioPlaybackCapture")) {
-                document.createAttribute("android:allowAudioPlaybackCapture")
-                    .apply { value = "true" }.let(applicationNode.attributes::setNamedItem)
-            }
+            // Set allowAudioPlaybackCapture attribute to true.
+            applicationNode.setAttribute("android:allowAudioPlaybackCapture", "true")
         }
     }
 }

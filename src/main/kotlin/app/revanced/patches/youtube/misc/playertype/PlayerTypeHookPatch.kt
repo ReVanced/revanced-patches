@@ -9,8 +9,7 @@ import app.revanced.patches.youtube.misc.playertype.fingerprint.playerTypeFinger
 import app.revanced.patches.youtube.misc.playertype.fingerprint.videoStateFingerprint
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
-internal var INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/PlayerTypeHookPatch;"
-    private set
+internal const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/PlayerTypeHookPatch;"
 
 @Suppress("unused")
 val playerTypeHookPatch = bytecodePatch(

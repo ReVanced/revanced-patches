@@ -15,9 +15,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction22c
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
-internal var INTEGRATIONS_CLASS_DESCRIPTOR =
+internal const val INTEGRATIONS_CLASS_DESCRIPTOR =
     "Lapp/revanced/integrations/tiktok/settings/AdPersonalizationActivityHook;"
-    private set
 
 @Suppress("unused")
 val settingsPatch = bytecodePatch(
@@ -28,7 +27,7 @@ val settingsPatch = bytecodePatch(
 
     compatibleWith(
         "com.ss.android.ugc.trill"("32.5.3"),
-        "com.zhiliaoapp.musically"("32.5.3")
+        "com.zhiliaoapp.musically"("32.5.3"),
     )
 
     val adPersonalizationActivityOnCreateResult by adPersonalizationActivityOnCreateFingerprint
@@ -36,22 +35,22 @@ val settingsPatch = bytecodePatch(
     val settingsEntryResult by settingsEntryFingerprint
     val settingsEntryInfoResult by settingsEntryInfoFingerprint
 
-    val initializeSettingsMethodDescriptor =
-        "$INTEGRATIONS_CLASS_DESCRIPTOR->initialize(" +
+    execute {
+        val initializeSettingsMethodDescriptor =
+            "$INTEGRATIONS_CLASS_DESCRIPTOR->initialize(" +
                 "Lcom/bytedance/ies/ugc/aweme/commercialize/compliance/personalization/AdPersonalizationActivity;" +
                 ")Z"
 
-    val createSettingsEntryMethodDescriptor =
-        "$INTEGRATIONS_CLASS_DESCRIPTOR->createSettingsEntry(" +
+        val createSettingsEntryMethodDescriptor =
+            "$INTEGRATIONS_CLASS_DESCRIPTOR->createSettingsEntry(" +
                 "Ljava/lang/String;" +
                 "Ljava/lang/String;" +
                 ")Ljava/lang/Object;"
 
-    fun String.toClassName(): String {
-        return substring(1, this.length - 1).replace("/", ".")
-    }
+        fun String.toClassName(): String {
+            return substring(1, this.length - 1).replace("/", ".")
+        }
 
-    execute {
         // Find the class name of classes which construct a settings entry
         val settingsButtonClass = settingsEntryResult.classDef.type.toClassName()
         val settingsButtonInfoClass = settingsEntryInfoResult.classDef.type.toClassName()

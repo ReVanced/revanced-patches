@@ -11,8 +11,8 @@ val exportAllActivitiesPatch = resourcePatch(
     val exportedFlag = "android:exported"
 
     execute { context ->
-        context.document["AndroidManifest.xml"].use {
-            val activities = it.getElementsByTagName("activity")
+        context.document["AndroidManifest.xml"].use { document ->
+            val activities = document.getElementsByTagName("activity")
 
             for (i in 0..activities.length) {
                 activities.item(i)?.apply {
@@ -26,7 +26,7 @@ val exportAllActivitiesPatch = resourcePatch(
                     // Reason why the attribute is added in the case it does not exist:
                     // https://github.com/revanced/revanced-patches/pull/1751/files#r1141481604
                     else {
-                        it.createAttribute(exportedFlag)
+                        document.createAttribute(exportedFlag)
                             .apply { value = "true" }
                             .let(attributes::setNamedItem)
                     }

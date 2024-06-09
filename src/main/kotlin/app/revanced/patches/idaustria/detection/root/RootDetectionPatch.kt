@@ -18,6 +18,6 @@ val rootDetectionPatch = bytecodePatch(
     rootCheckFingerprint()
 
     execute {
-        listOf(attestationSupportedCheckFingerprint, bootloaderCheckFingerprint, rootCheckFingerprint).returnEarly()
+        listOf(attestationSupportedCheckFingerprint, bootloaderCheckFingerprint, rootCheckFingerprint).returnEarly(true)
     }
 }

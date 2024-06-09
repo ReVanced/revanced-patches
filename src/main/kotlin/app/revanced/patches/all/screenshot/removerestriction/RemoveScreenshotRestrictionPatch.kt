@@ -21,13 +21,14 @@ val removeScreenshotRestrictionPatch = bytecodePatch(
     requiresIntegrations = true,
 ) {
     dependsOn(
+        // Remove the restriction of taking screenshots.
         transformInstructionsPatch(
-            filterMap = { classDef, method, instruction, instructionIndex ->
+            filterMap = { classDef, _, instruction, instructionIndex ->
                 filterMapInstruction35c<MethodCall>(
                     INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX,
                     classDef,
                     instruction,
-                    instructionIndex
+                    instructionIndex,
                 )
             },
             transform = { mutableMethod, entry ->
@@ -36,12 +37,13 @@ val removeScreenshotRestrictionPatch = bytecodePatch(
                     INTEGRATIONS_CLASS_DESCRIPTOR,
                     mutableMethod,
                     instruction,
-                    instructionIndex
+                    instructionIndex,
                 )
-            }
+            },
         ),
+        // Modify layout params.
         transformInstructionsPatch(
-            filterMap = { classDef, method, instruction, instructionIndex ->
+            filterMap = { _, _, instruction, instructionIndex ->
                 if (instruction.opcode != Opcode.IPUT) {
                     return@transformInstructionsPatch null
                 }
@@ -49,9 +51,9 @@ val removeScreenshotRestrictionPatch = bytecodePatch(
                 val instruction22c = instruction as Instruction22c
                 val fieldReference = instruction22c.reference as FieldReference
 
-                if (fieldReference.definingClass != "Landroid/view/WindowManager\$LayoutParams;"
-                    || fieldReference.name != "flags"
-                    || fieldReference.type != "I"
+                if (fieldReference.definingClass != "Landroid/view/WindowManager\$LayoutParams;" ||
+                    fieldReference.name != "flags" ||
+                    fieldReference.type != "I"
                 ) {
                     return@transformInstructionsPatch null
                 }
@@ -64,19 +66,20 @@ val removeScreenshotRestrictionPatch = bytecodePatch(
 
                 mutableMethod.addInstructions(
                     index,
-                    "and-int/lit16 v$register, v$register, -0x2001"
+                    "and-int/lit16 v$register, v$register, -0x2001",
                 )
-            }
-        )
+            },
+        ),
     )
 }
 
 // Information about method calls we want to replace
-enum class MethodCall(
+@Suppress("unused")
+private enum class MethodCall(
     override val definedClassName: String,
     override val methodName: String,
     override val methodParams: Array<String>,
-    override val returnType: String
+    override val returnType: String,
 ) : IMethodCall {
     AddFlags(
         "Landroid/view/Window;",
@@ -89,5 +92,5 @@ enum class MethodCall(
         "setFlags",
         arrayOf("I", "I"),
         "V",
-    );
+    ),
 }

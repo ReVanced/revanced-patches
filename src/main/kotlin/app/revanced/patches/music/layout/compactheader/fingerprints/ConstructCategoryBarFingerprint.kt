@@ -7,6 +7,7 @@ import com.android.tools.smali.dexlib2.Opcode
 internal val constructCategoryBarFingerprint = methodFingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     returns("V")
+    parameters("Landroid/content/Context;", "L", "L", "L")
     opcodes(
         Opcode.IPUT_OBJECT,
         Opcode.CONST,

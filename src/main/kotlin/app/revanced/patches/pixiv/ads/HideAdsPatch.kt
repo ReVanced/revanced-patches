@@ -6,7 +6,7 @@ import app.revanced.patches.pixiv.ads.fingerprints.isNotPremiumFingerprint
 
 @Suppress("unused")
 val hideAdsPatch = bytecodePatch(
-    name = "Hide ads"
+    name = "Hide ads",
 ) {
     compatibleWith("jp.pxv.android")
 
@@ -19,9 +19,9 @@ val hideAdsPatch = bytecodePatch(
         isNotPremiumResult.mutableMethod.addInstructions(
             0,
             """
-            const/4 v0, 0x0
-            return v0
-            """
+                const/4 v0, 0x0
+                return v0
+            """,
         )
     }
 }

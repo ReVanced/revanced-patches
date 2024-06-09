@@ -7,12 +7,12 @@ import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.youtube.misc.litho.filter.addFilter
+import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 
-internal var adAttributionId: Long = -1
+internal var adAttributionId = -1L
     private set
 
 @Suppress("unused")
@@ -23,9 +23,6 @@ val hideAdsResourcePatch = resourcePatch {
         resourceMappingPatch,
         addResourcesPatch,
     )
-
-    val filterClassDescriptor =
-        "Lapp/revanced/integrations/youtube/patches/components/AdsFilter;"
 
     execute {
         addResources("youtube", "ad.general.HideAdsResourcePatch")
@@ -43,7 +40,7 @@ val hideAdsResourcePatch = resourcePatch {
             SwitchPreference("revanced_hide_merchandise_banners"),
         )
 
-        addFilter(filterClassDescriptor)
+        addLithoFilter("Lapp/revanced/integrations/youtube/patches/components/AdsFilter;")
 
         adAttributionId = resourceMappings["id", "ad_attribution"]
     }

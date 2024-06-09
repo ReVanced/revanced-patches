@@ -1,9 +1,9 @@
 package app.revanced.patches.tumblr.live
 
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.tumblr.featureflags.addOverride
+import app.revanced.patches.tumblr.featureflags.addFeatureFlagOverride
 import app.revanced.patches.tumblr.featureflags.overrideFeatureFlagsPatch
-import app.revanced.patches.tumblr.timelinefilter.addObjectTypeFilter
+import app.revanced.patches.tumblr.timelinefilter.addTimelineObjectTypeFilter
 import app.revanced.patches.tumblr.timelinefilter.timelineFilterPatch
 
 @Suppress("unused")
@@ -13,7 +13,7 @@ val disableTumblrLivePatch = bytecodePatch(
 ) {
     dependsOn(
         overrideFeatureFlagsPatch,
-        timelineFilterPatch
+        timelineFilterPatch,
     )
 
     compatibleWith("com.tumblr")
@@ -21,9 +21,9 @@ val disableTumblrLivePatch = bytecodePatch(
     execute {
         // Hide the LIVE_MARQUEE timeline element that appears in the feed
         // Called "live_marquee" in api response
-        addObjectTypeFilter("LIVE_MARQUEE")
+        addTimelineObjectTypeFilter("LIVE_MARQUEE")
 
         // Hide the Tab button for Tumblr Live by forcing the feature flag to false
-        addOverride("liveStreaming", "false")
+        addFeatureFlagOverride("liveStreaming", "false")
     }
 }

@@ -6,7 +6,7 @@ import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.youtube.misc.litho.filter.addFilter
+import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 
@@ -14,13 +14,13 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 val hideButtonsPatch = resourcePatch(
     name = "Hide video action buttons",
     description = "Adds options to hide action buttons (such as the Download button) under videos.",
-) {   
+) {
     dependsOn(
         resourceMappingPatch,
         lithoFilterPatch,
-        addResourcesPatch
+        addResourcesPatch,
     )
-    
+
     compatibleWith(
         "com.google.android.youtube"(
             "18.32.39",
@@ -45,9 +45,6 @@ val hideButtonsPatch = resourcePatch(
         ),
     )
 
-    val filterClassDescriptor =
-        "Lapp/revanced/integrations/youtube/patches/components/ButtonsFilter;"
-
     execute {
         addResources("youtube", "layout.buttons.action.HideButtonsPatch")
 
@@ -67,6 +64,6 @@ val hideButtonsPatch = resourcePatch(
             ),
         )
 
-        addFilter(filterClassDescriptor)
+        addLithoFilter("Lapp/revanced/integrations/youtube/patches/components/ButtonsFilter;")
     }
 }

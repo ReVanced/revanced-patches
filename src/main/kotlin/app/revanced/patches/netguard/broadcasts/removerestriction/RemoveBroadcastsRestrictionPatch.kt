@@ -6,14 +6,14 @@ import org.w3c.dom.Element
 @Suppress("unused")
 val removeBroadcastsRestrictionPatch = resourcePatch(
     name = "Remove broadcasts restriction",
-    description = "Enables starting/stopping NetGuard via broadcasts."
+    description = "Enables starting/stopping NetGuard via broadcasts.",
 ) {
     compatibleWith("eu.faircode.netguard")
 
     execute { context ->
-        context.document["AndroidManifest.xml"].use {
+        context.document["AndroidManifest.xml"].use { document ->
             val applicationNode =
-                it
+                document
                     .getElementsByTagName("application")
                     .item(0) as Element
 

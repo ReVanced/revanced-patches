@@ -13,8 +13,7 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
-internal var INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/SlideToSeekPatch;"
-    private set
+internal const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/SlideToSeekPatch;"
 
 @Suppress("unused")
 val enableSlideToSeekPatch = bytecodePatch(
@@ -24,7 +23,7 @@ val enableSlideToSeekPatch = bytecodePatch(
     dependsOn(
         integrationsPatch,
         settingsPatch,
-        addResourcesPatch
+        addResourcesPatch,
     )
 
     compatibleWith(

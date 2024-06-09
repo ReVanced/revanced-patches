@@ -12,7 +12,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Suppress("unused")
 val hideTimelineAdsPatch = bytecodePatch(
-    name = "Hide timeline ads"
+    name = "Hide timeline ads",
 ) {
     compatibleWith("com.instagram.android")
 
@@ -26,33 +26,31 @@ val hideTimelineAdsPatch = bytecodePatch(
         val isAdCheckOneMethod = isAdCheckOneResult.method
         val isAdCheckTwoMethod = isAdCheckTwoResult.method
 
-        showAdResult.let {
-            it.mutableMethod.apply {
-                // The register that holds the post object.
-                val postRegister = getInstruction<FiveRegisterInstruction>(1).registerC
+        showAdResult.mutableMethod.apply {
+            // The register that holds the post object.
+            val postRegister = getInstruction<FiveRegisterInstruction>(1).registerC
 
-                // At this index the check for an ad can be performed.
-                val checkIndex = it.scanResult.patternScanResult!!.endIndex
+            // At this index the check for an ad can be performed.
+            val checkIndex = showAdResult.scanResult.patternScanResult!!.endIndex
 
-                // If either check returns true, the post is an ad and is hidden by returning false.
-                addInstructionsWithLabels(
-                    checkIndex,
-                    """
-                        invoke-virtual { v$postRegister }, $isAdCheckOneMethod
-                        move-result v0
-                        if-nez v0, :hide_ad
-                        
-                        invoke-static { v$postRegister }, $isAdCheckTwoMethod
-                        move-result v0
-                        if-eqz v0, :not_an_ad
-                        
-                        :hide_ad
-                        const/4 v0, 0x0 # Returning false to hide the ad.
-                        return v0
-                    """,
-                    ExternalLabel("not_an_ad", instructions[checkIndex]),
-                )
-            }
+            // If either check returns true, the post is an ad and is hidden by returning false.
+            addInstructionsWithLabels(
+                checkIndex,
+                """
+                    invoke-virtual { v$postRegister }, $isAdCheckOneMethod
+                    move-result v0
+                    if-nez v0, :hide_ad
+                    
+                    invoke-static { v$postRegister }, $isAdCheckTwoMethod
+                    move-result v0
+                    if-eqz v0, :not_an_ad
+                    
+                    :hide_ad
+                    const/4 v0, 0x0 # Returning false to hide the ad.
+                    return v0
+                """,
+                ExternalLabel("not_an_ad", instructions[checkIndex]),
+            )
         }
     }
 }

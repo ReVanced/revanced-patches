@@ -9,11 +9,6 @@ val disablePiracyDetectionPatch = bytecodePatch {
     val piracyDetectionResult by piracyDetectionFingerprint
 
     execute {
-        piracyDetectionResult.mutableMethod.addInstruction(
-            0,
-            """
-                return-void
-            """
-        )
+        piracyDetectionResult.mutableMethod.addInstruction(0, "return-void")
     }
 }

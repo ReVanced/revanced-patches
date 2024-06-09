@@ -17,11 +17,11 @@ val disableSubscriptionSuggestionsPatch = bytecodePatch(
 
     val getModulesResult by getModulesFingerprint
 
-    val helperMethodName = "getModulesIfNotUpselling"
-    val pageSuffix = "_upsell"
-    val label = "original"
-
     execute {
+        val helperMethodName = "getModulesIfNotUpselling"
+        val pageSuffix = "_upsell"
+        val label = "original"
+
         val className = getModulesResult.classDef.type
         val originalMethod = getModulesResult.mutableMethod
         val returnType = originalMethod.returnType

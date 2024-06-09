@@ -11,8 +11,8 @@ val disableSyncForLemmyBottomSheetPatch = bytecodePatch(
 ) {
     compatibleWith(
         "com.laurencedawson.reddit_sync"("v23.06.30-13:39"),
-        "com.laurencedawson.reddit_sync.pro"(),
-        "com.laurencedawson.reddit_sync.dev"()
+        "com.laurencedawson.reddit_sync.pro"(), // Version unknown.
+        "com.laurencedawson.reddit_sync.dev"(), // Version unknown.
     )
 
     val mainActivityOnCreateResult by mainActivityOnCreateFingerprint

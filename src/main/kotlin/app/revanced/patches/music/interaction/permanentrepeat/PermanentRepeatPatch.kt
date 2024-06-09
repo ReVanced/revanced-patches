@@ -17,17 +17,15 @@ val permanentRepeatPatch = bytecodePatch(
     val repeatTrackResult by repeatTrackFingerprint
 
     execute {
-        repeatTrackResult.let {
-            val startIndex = it.scanResult.patternScanResult!!.endIndex
-            val repeatIndex = startIndex + 3
+        val startIndex = repeatTrackResult.scanResult.patternScanResult!!.endIndex
+        val repeatIndex = startIndex + 3
 
-            it.mutableMethod.apply {
-                addInstructionsWithLabels(
-                    startIndex,
-                    "goto :repeat",
-                    ExternalLabel("repeat", instructions[repeatIndex])
-                )
-            }
+        repeatTrackResult.mutableMethod.apply {
+            addInstructionsWithLabels(
+                startIndex,
+                "goto :repeat",
+                ExternalLabel("repeat", instructions[repeatIndex]),
+            )
         }
     }
 }

@@ -13,12 +13,10 @@ val hideMusicVideoAdsPatch = bytecodePatch(
     val showMusicVideoAdsParentResult by showMusicVideoAdsParentFingerprint
 
     execute { context ->
-        showMusicVideoAdsParentResult.let {
-            val showMusicVideoAdsMethod = context
-                .navigate(it.mutableMethod)
-                .at(it.scanResult.patternScanResult!!.startIndex + 1).mutable()
+        val showMusicVideoAdsMethod = context
+            .navigate(showMusicVideoAdsParentResult.mutableMethod)
+            .at(showMusicVideoAdsParentResult.scanResult.patternScanResult!!.startIndex + 1).mutable()
 
-            showMusicVideoAdsMethod.addInstruction(0, "const/4 p1, 0x0")
-        }
+        showMusicVideoAdsMethod.addInstruction(0, "const/4 p1, 0x0")
     }
 }

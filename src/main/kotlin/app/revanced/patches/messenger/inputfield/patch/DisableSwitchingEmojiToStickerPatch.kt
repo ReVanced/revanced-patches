@@ -9,24 +9,19 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Suppress("unused")
 val disableSwitchingEmojiToStickerPatch = bytecodePatch(
     name = "Disable switching emoji to sticker",
-    description = "Disables switching from emoji to sticker search mode in message input field."
+    description = "Disables switching from emoji to sticker search mode in message input field.",
 ) {
     compatibleWith("com.facebook.orca")
 
     val switchMessangeInputEmojiButtonResult by switchMessangeInputEmojiButtonFingerprint
 
     execute {
-        switchMessangeInputEmojiButtonResult.let {
-            val setStringIndex = switchMessangeInputEmojiButtonResult.scanResult.patternScanResult!!.startIndex + 2
+        val setStringIndex = switchMessangeInputEmojiButtonResult.scanResult.patternScanResult!!.startIndex + 2
 
-            it.mutableMethod.apply {
-                val targetRegister = getInstruction<OneRegisterInstruction>(setStringIndex).registerA
+        switchMessangeInputEmojiButtonResult.mutableMethod.apply {
+            val targetRegister = getInstruction<OneRegisterInstruction>(setStringIndex).registerA
 
-                replaceInstruction(
-                    setStringIndex,
-                    "const-string v$targetRegister, \"expression\""
-                )
-            }
+            replaceInstruction(setStringIndex, "const-string v$targetRegister, \"expression\"")
         }
     }
 }

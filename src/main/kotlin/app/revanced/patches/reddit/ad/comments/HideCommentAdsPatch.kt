@@ -10,14 +10,14 @@ val hideCommentAdsPatch = bytecodePatch(
 ) {
     val hideCommentAdsResult by hideCommentAdsFingerprint
 
-    // Returns a blank object instead of the comment ad.
     execute {
         hideCommentAdsResult.mutableMethod.addInstructions(
-            0, """
+            0,
+            """
                 new-instance v0, Ljava/lang/Object;
                 invoke-direct {v0}, Ljava/lang/Object;-><init>()V
                 return-object v0
-                """
+            """,
         )
     }
 }

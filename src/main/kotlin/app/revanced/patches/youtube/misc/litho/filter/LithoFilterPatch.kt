@@ -36,8 +36,7 @@ private val Instruction.descriptor
 lateinit var addLithoFilter: (String) -> Unit
     private set
 
-internal var INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/components/LithoFilterPatch;"
-    private set
+internal const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/components/LithoFilterPatch;"
 
 val lithoFilterPatch = bytecodePatch(
     description = "Hooks the method which parses the bytes into a ComponentContext to filter components.",

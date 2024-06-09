@@ -19,18 +19,16 @@ val forceEnglishLocalePatch = bytecodePatch(
     val syncBluetoothLanguageResult by syncBluetoothLanguageFingerprint
 
     execute {
-        syncBluetoothLanguageResult.let {
-            val resolvePhoneLocaleInstruction = it.scanResult.patternScanResult!!.startIndex
+        val resolvePhoneLocaleInstruction = syncBluetoothLanguageResult.scanResult.patternScanResult!!.startIndex
 
-            it.mutableMethod.apply {
-                val registerIndexToUpdate =
-                    getInstruction<OneRegisterInstruction>(resolvePhoneLocaleInstruction).registerA
+        syncBluetoothLanguageResult.mutableMethod.apply {
+            val registerIndexToUpdate =
+                getInstruction<OneRegisterInstruction>(resolvePhoneLocaleInstruction).registerA
 
-                replaceInstruction(
-                    resolvePhoneLocaleInstruction,
-                    "const-string v$registerIndexToUpdate, \"en_gb\"",
-                )
-            }
+            replaceInstruction(
+                resolvePhoneLocaleInstruction,
+                "const-string v$registerIndexToUpdate, \"en_gb\"",
+            )
         }
     }
 }

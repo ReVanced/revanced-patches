@@ -9,7 +9,6 @@ import com.android.tools.smali.dexlib2.Opcode
 @Suppress("unused")
 @Deprecated("This patch is no longer needed as the feature is now enabled by default.")
 val codecsUnlockPatch = bytecodePatch(
-    name = "Codecs unlock",
     description = "Adds more audio codec options. The new audio codecs usually result in better audio quality.",
 ) {
     compatibleWith("com.google.android.apps.youtube.music")
@@ -18,26 +17,24 @@ val codecsUnlockPatch = bytecodePatch(
     val allCodecsResult by allCodecsReferenceFingerprint
 
     execute { context ->
-        codecsLockResult.let {
-            val implementation = it.mutableMethod.implementation!!
+        val implementation = codecsLockResult.mutableMethod.implementation!!
 
-            val scanResultStartIndex = it.scanResult.patternScanResult!!.startIndex
-            val instructionIndex = scanResultStartIndex +
-                    if (implementation.instructions[scanResultStartIndex - 1].opcode == Opcode.CHECK_CAST) {
-                        // for 5.16.xx and lower
-                        -3
-                    } else {
-                        // since 5.17.xx
-                        -2
-                    }
+        val scanResultStartIndex = codecsLockResult.scanResult.patternScanResult!!.startIndex
+        val instructionIndex = scanResultStartIndex +
+            if (implementation.instructions[scanResultStartIndex - 1].opcode == Opcode.CHECK_CAST) {
+                // for 5.16.xx and lower
+                -3
+            } else {
+                // since 5.17.xx
+                -2
+            }
 
-            val allCodecsMethod = context.navigate(allCodecsResult.method)
-                .at(allCodecsResult.scanResult.patternScanResult!!.startIndex).immutable()
+        val allCodecsMethod = context.navigate(allCodecsResult.method)
+            .at(allCodecsResult.scanResult.patternScanResult!!.startIndex).immutable()
 
-            implementation.replaceInstruction(
-                instructionIndex,
-                "invoke-static {}, ${allCodecsMethod.definingClass}->${allCodecsMethod.name}()Ljava/util/Set;".toInstruction(),
-            )
-        }
+        implementation.replaceInstruction(
+            instructionIndex,
+            "invoke-static {}, ${allCodecsMethod.definingClass}->${allCodecsMethod.name}()Ljava/util/Set;".toInstruction(),
+        )
     }
 }

@@ -2,13 +2,14 @@ package app.revanced.patches.piccomafr.misc
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.piccomafr.misc.fingerprints.getAndroidIdFingerprint
 
 @Suppress("unused")
 val spoofAndroidDeviceIdPatch = bytecodePatch(
     name = "Spoof Android device ID",
     description = "Spoofs the Android device ID used by the app for account authentication." +
-            "This can be used to copy the account to another device.",
+        "This can be used to copy the account to another device.",
     use = false,
 ) {
     compatibleWith(
@@ -26,19 +27,27 @@ val spoofAndroidDeviceIdPatch = bytecodePatch(
             "6.5.4",
             "6.6.0",
             "6.6.1",
-            "6.6.2"
-        )
+            "6.6.2",
+        ),
     )
 
     val getAndroidIDResult by getAndroidIdFingerprint
+
+    val androidDeviceId by stringOption(
+        key = "android-device-id",
+        default = "0011223344556677",
+        title = "Android device ID",
+        description = "The Android device ID to spoof to.",
+        required = true,
+    ) { it!!.matches("[A-Fa-f0-9]{16}".toRegex()) }
 
     execute {
         getAndroidIDResult.mutableMethod.addInstructions(
             0,
             """
-            const-string v0, "0011223344556677"
-            return-object v0
-            """
+                const-string v0, "$androidDeviceId"
+                return-object v0
+            """,
         )
     }
 }

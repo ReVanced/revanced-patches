@@ -10,9 +10,9 @@ val enableAndroidDebuggingPatch = resourcePatch(
     use = false,
 ) {
     execute { context ->
-        context.document["AndroidManifest.xml"].use {
+        context.document["AndroidManifest.xml"].use { document ->
             val applicationNode =
-                it
+                document
                     .getElementsByTagName("application")
                     .item(0) as Element
 

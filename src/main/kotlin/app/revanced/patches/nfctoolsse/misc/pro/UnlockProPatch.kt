@@ -6,7 +6,7 @@ import app.revanced.patches.nfctoolsse.misc.pro.fingerprints.isLicenseRegistered
 
 @Suppress("unused")
 val unlockProPatch = bytecodePatch(
-    name = "Unlock pro"
+    name = "Unlock pro",
 ) {
     compatibleWith("com.wakdev.apps.nfctools.se")
 
@@ -14,10 +14,11 @@ val unlockProPatch = bytecodePatch(
 
     execute {
         isLicenseRegisteredResult.mutableMethod.addInstructions(
-            0, """
-                    const/4 v0, 0x1
-                    return v0
-                """
+            0,
+            """
+                const/4 v0, 0x1
+                return v0
+            """,
         )
     }
 }

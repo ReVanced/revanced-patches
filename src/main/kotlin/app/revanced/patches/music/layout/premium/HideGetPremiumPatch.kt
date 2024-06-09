@@ -9,7 +9,6 @@ import app.revanced.patches.music.layout.premium.fingerprints.hideGetPremiumFing
 import app.revanced.patches.music.layout.premium.fingerprints.membershipSettingsFingerprint
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
-
 @Suppress("unused")
 val hideGetPremiumPatch = bytecodePatch(
     name = "Hide 'Get Music Premium' label",
@@ -21,33 +20,31 @@ val hideGetPremiumPatch = bytecodePatch(
     val membershipSettingsResult by membershipSettingsFingerprint
 
     execute {
-        hideGetPremiumResult.let {
-            it.mutableMethod.apply {
-                val insertIndex = it.scanResult.patternScanResult!!.endIndex
+        hideGetPremiumResult.mutableMethod.apply {
+            val insertIndex = hideGetPremiumResult.scanResult.patternScanResult!!.endIndex
 
-                val setVisibilityInstruction = getInstruction<FiveRegisterInstruction>(insertIndex)
-                val getPremiumViewRegister = setVisibilityInstruction.registerC
-                val visibilityRegister = setVisibilityInstruction.registerD
+            val setVisibilityInstruction = getInstruction<FiveRegisterInstruction>(insertIndex)
+            val getPremiumViewRegister = setVisibilityInstruction.registerC
+            val visibilityRegister = setVisibilityInstruction.registerD
 
-                replaceInstruction(
-                    insertIndex,
-                    "const/16 v$visibilityRegister, 0x8",
-                )
+            replaceInstruction(
+                insertIndex,
+                "const/16 v$visibilityRegister, 0x8",
+            )
 
-                addInstruction(
-                    insertIndex + 1,
-                    "invoke-virtual {v$getPremiumViewRegister, v$visibilityRegister}, " +
-                            "Landroid/view/View;->setVisibility(I)V",
-                )
-            }
+            addInstruction(
+                insertIndex + 1,
+                "invoke-virtual {v$getPremiumViewRegister, v$visibilityRegister}, " +
+                    "Landroid/view/View;->setVisibility(I)V",
+            )
         }
-
-        membershipSettingsResult.mutableMethod.addInstructions(
-            0,
-            """
-                const/4 v0, 0x0
-                return-object v0
-            """,
-        )
     }
+
+    membershipSettingsResult.mutableMethod.addInstructions(
+        0,
+        """
+            const/4 v0, 0x0
+            return-object v0
+        """,
+    )
 }

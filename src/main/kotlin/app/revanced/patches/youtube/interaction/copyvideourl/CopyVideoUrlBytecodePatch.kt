@@ -35,13 +35,13 @@ val copyVideoUrlBytecodePatch = bytecodePatch(
         ),
     )
 
-    val integrationsPlayerPackage = "Lapp/revanced/integrations/youtube/videoplayer"
-    val buttonsDescriptors = listOf(
-        "$integrationsPlayerPackage/CopyVideoUrlButton;",
-        "$integrationsPlayerPackage/CopyVideoUrlTimestampButton;",
-    )
-
     execute {
+        val integrationsPlayerPackage = "Lapp/revanced/integrations/youtube/videoplayer"
+        val buttonsDescriptors = listOf(
+            "$integrationsPlayerPackage/CopyVideoUrlButton;",
+            "$integrationsPlayerPackage/CopyVideoUrlTimestampButton;",
+        )
+
         buttonsDescriptors.forEach { descriptor ->
             initializeControl("$descriptor->initializeButton(Landroid/view/View;)V")
             injectVisibilityCheckCall("$descriptor->changeVisibility(Z)V")

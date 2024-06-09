@@ -8,7 +8,7 @@ import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPref
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
-import app.revanced.patches.youtube.misc.playercontrols.addControls
+import app.revanced.patches.youtube.misc.playercontrols.addBottomControls
 import app.revanced.patches.youtube.misc.playercontrols.bottomControlsPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
@@ -43,6 +43,6 @@ val downloadsResourcePatch = resourcePatch {
             ResourceGroup("drawable", "revanced_yt_download_button.xml"),
         )
 
-        addControls("downloads")
+        addBottomControls("downloads")
     }
 }

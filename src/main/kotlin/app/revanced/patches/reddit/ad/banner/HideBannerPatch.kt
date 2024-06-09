@@ -9,8 +9,8 @@ val hideBannerPatch = resourcePatch(
     execute { context ->
         val resourceFilePath = "res/layout/merge_listheader_link_detail.xml"
 
-        context.document[resourceFilePath].use {
-            it.getElementsByTagName("merge").item(0).childNodes.apply {
+        context.document[resourceFilePath].use { document ->
+            document.getElementsByTagName("merge").item(0).childNodes.apply {
                 val attributes = arrayOf("height", "width")
 
                 for (i in 1 until length) {

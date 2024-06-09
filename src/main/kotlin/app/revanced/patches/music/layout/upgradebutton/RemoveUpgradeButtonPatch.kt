@@ -3,7 +3,6 @@ package app.revanced.patches.music.layout.upgradebutton
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.extensions.newLabel
 import app.revanced.patcher.patch.bytecodePatch
@@ -12,7 +11,7 @@ import app.revanced.patches.music.layout.upgradebutton.fingerprints.pivotBarCons
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction22t
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 @Suppress("unused")
@@ -30,7 +29,7 @@ val removeUpgradeButtonPatch = bytecodePatch(
                 getInstruction(pivotBarConstructorResult.scanResult.patternScanResult!!.endIndex - 1)
                     .getReference<FieldReference>()
 
-            val register = (instructions.first() as Instruction35c).registerC
+            val register = getInstruction<FiveRegisterInstruction>(0).registerC
 
             // First compile all the needed instructions.
             val instructionList = """

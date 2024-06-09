@@ -10,8 +10,8 @@ import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 
-internal var INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/DisableFullscreenAmbientModePatch;"
-    private set
+internal const val INTEGRATIONS_CLASS_DESCRIPTOR =
+    "Lapp/revanced/integrations/youtube/patches/DisableFullscreenAmbientModePatch;"
 
 @Suppress("unused")
 val disableFullscreenAmbientModePatch = bytecodePatch(

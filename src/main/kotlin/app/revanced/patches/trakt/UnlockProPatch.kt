@@ -15,14 +15,6 @@ val unlockProPatch = bytecodePatch(
 
     val remoteUserResult by remoteUserFingerprint
 
-    val returnTrueInstructions =
-        """
-            const/4 v0, 0x1
-            invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-            move-result-object v1
-            return-object v1
-        """
-
     execute { context ->
         remoteUserResult.classDef.let { remoteUserClass ->
             arrayOf(isVIPFingerprint, isVIPEPFingerprint).onEach { fingerprint ->
@@ -32,8 +24,15 @@ val unlockProPatch = bytecodePatch(
                 }
             }.forEach { fingerprint ->
                 // Return true for both VIP check methods.
-                fingerprint.result?.mutableMethod?.addInstructions(0, returnTrueInstructions)
-                    ?: throw fingerprint.exception
+                fingerprint.result?.mutableMethod?.addInstructions(
+                    0,
+                    """
+                        const/4 v0, 0x1
+                        invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+                        move-result-object v1
+                        return-object v1
+                    """,
+                ) ?: throw fingerprint.exception
             }
         }
     }

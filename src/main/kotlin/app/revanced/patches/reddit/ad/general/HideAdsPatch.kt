@@ -25,12 +25,12 @@ val hideAdsPatch = bytecodePatch(
     val adPostResult by adPostFingerprint
     val newAdPostResult by newAdPostFingerprint
 
-    execute { context ->
+    execute {
         // region Filter promoted ads (does not work in popular or latest feed)
 
         val filterMethodDescriptor =
             "Lapp/revanced/integrations/reddit/patches/FilterPromotedLinksPatch;" +
-                    "->filterChildren(Ljava/lang/Iterable;)Ljava/util/List;"
+                "->filterChildren(Ljava/lang/Iterable;)Ljava/util/List;"
 
         adPostResult.mutableMethod.apply {
             val setPostsListChildren = implementation!!.instructions.first { instruction ->
@@ -52,7 +52,7 @@ val hideAdsPatch = bytecodePatch(
                     invoke-static {v$itemsRegister}, $filterMethodDescriptor
                     move-result-object v0
                     iput-object v0, v$listInstanceRegister, ${castedInstruction.reference}
-                """
+                """,
             )
         }
 
@@ -60,21 +60,19 @@ val hideAdsPatch = bytecodePatch(
 
         // region Remove ads from popular and latest feed
 
-        newAdPostResult.let {
-            // The new feeds work by inserting posts into lists.
-            // AdElementConverter is conveniently responsible for inserting all feed ads.
-            // By removing the appending instruction no ad posts gets appended to the feed.
-            val index = it.method.implementation!!.instructions.indexOfFirst {
-                if (it.opcode != Opcode.INVOKE_VIRTUAL) return@indexOfFirst false
+        // The new feeds work by inserting posts into lists.
+        // AdElementConverter is conveniently responsible for inserting all feed ads.
+        // By removing the appending instruction no ad posts gets appended to the feed.
+        val index = newAdPostResult.method.implementation!!.instructions.indexOfFirst {
+            if (it.opcode != Opcode.INVOKE_VIRTUAL) return@indexOfFirst false
 
-                val reference = (it as ReferenceInstruction).reference as MethodReference
+            val reference = (it as ReferenceInstruction).reference as MethodReference
 
-                reference.name == "add" && reference.definingClass == "Ljava/util/ArrayList;"
-            }
-
-            it.mutableMethod.removeInstruction(index)
+            reference.name == "add" && reference.definingClass == "Ljava/util/ArrayList;"
         }
 
-        // endregion
+        newAdPostResult.mutableMethod.removeInstruction(index)
     }
+
+    // endregion
 }

@@ -4,11 +4,9 @@ import app.revanced.patches.all.misc.transformation.IMethodCall
 import app.revanced.patches.all.misc.transformation.filterMapInstruction35c
 import app.revanced.patches.all.misc.transformation.transformInstructionsPatch
 
-internal var INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX = "Lapp/revanced/integrations/all/connectivity/wifi/spoof/SpoofWifiPatch"
-    private set
+internal const val INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX = "Lapp/revanced/integrations/all/connectivity/wifi/spoof/SpoofWifiPatch"
 
-internal var INTEGRATIONS_CLASS_DESCRIPTOR = "$INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX;"
-    private set
+internal const val INTEGRATIONS_CLASS_DESCRIPTOR = "$INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX;"
 
 @Suppress("unused")
 val spoofWifiPatch = transformInstructionsPatch(
@@ -17,7 +15,7 @@ val spoofWifiPatch = transformInstructionsPatch(
             INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX,
             classDef,
             instruction,
-            instructionIndex
+            instructionIndex,
         )
     },
     transform = { mutableMethod, entry ->
@@ -26,12 +24,13 @@ val spoofWifiPatch = transformInstructionsPatch(
             INTEGRATIONS_CLASS_DESCRIPTOR,
             mutableMethod,
             instruction,
-            instructionIndex
+            instructionIndex,
         )
-    }
+    },
 )
 
 // Information about method calls we want to replace
+@Suppress("unused")
 private enum class MethodCall(
     override val definedClassName: String,
     override val methodName: String,
@@ -122,7 +121,7 @@ private enum class MethodCall(
         arrayOf(
             "Landroid/net/NetworkRequest;",
             "Landroid/net/ConnectivityManager\$NetworkCallback;",
-            "Landroid/os/Handler;"
+            "Landroid/os/Handler;",
         ),
         "V",
     ),
@@ -156,7 +155,7 @@ private enum class MethodCall(
         arrayOf(
             "Landroid/net/NetworkRequest;",
             "Landroid/net/ConnectivityManager\$NetworkCallback;",
-            "Landroid/os/Handler;"
+            "Landroid/os/Handler;",
         ),
         "V",
     ),
@@ -178,7 +177,7 @@ private enum class MethodCall(
         arrayOf(
             "Landroid/net/NetworkRequest;",
             "Landroid/net/ConnectivityManager\$NetworkCallback;",
-            "Landroid/os/Handler;"
+            "Landroid/os/Handler;",
         ),
         "V",
     ),
@@ -195,7 +194,7 @@ private enum class MethodCall(
             "Landroid/net/NetworkRequest;",
             "Landroid/net/ConnectivityManager\$NetworkCallback;",
             "Landroid/os/Handler;",
-            "I"
+            "I",
         ),
         "V",
     ),
@@ -210,5 +209,5 @@ private enum class MethodCall(
         "unregisterNetworkCallback",
         arrayOf("Landroid/app/PendingIntent;"),
         "V",
-    );
+    ),
 }

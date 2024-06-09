@@ -16,8 +16,8 @@ val hideAdsPatch = bytecodePatch(
         inshortsAdsResult.mutableMethod.addInstruction(
             0,
             """
-                    return-void
-                """
+                return-void
+            """,
         )
     }
 }

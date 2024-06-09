@@ -49,27 +49,25 @@ val unlockDownloadsPatch = bytecodePatch(
         }
 
         // Make GIFs downloadable.
-        buildMediaOptionsSheetResult.let {
-            val scanResult = it.scanResult.patternScanResult!!
-            it.mutableMethod.apply {
-                val checkMediaTypeIndex = scanResult.startIndex
-                val checkMediaTypeInstruction = getInstruction<TwoRegisterInstruction>(checkMediaTypeIndex)
+        val scanResult = buildMediaOptionsSheetResult.scanResult.patternScanResult!!
+        buildMediaOptionsSheetResult.mutableMethod.apply {
+            val checkMediaTypeIndex = scanResult.startIndex
+            val checkMediaTypeInstruction = getInstruction<TwoRegisterInstruction>(checkMediaTypeIndex)
 
-                // Treat GIFs as videos.
-                addInstructionsWithLabels(
-                    checkMediaTypeIndex + 1,
-                    """
+            // Treat GIFs as videos.
+            addInstructionsWithLabels(
+                checkMediaTypeIndex + 1,
+                """
                         const/4 v${checkMediaTypeInstruction.registerB}, 0x2 # GIF
                         if-eq v${checkMediaTypeInstruction.registerA}, v${checkMediaTypeInstruction.registerB}, :video
                     """,
-                    ExternalLabel("video", getInstruction(scanResult.endIndex)),
-                )
+                ExternalLabel("video", getInstruction(scanResult.endIndex)),
+            )
 
-                // Remove media.isDownloadable check.
-                removeInstruction(
-                    instructions.first { insn -> insn.opcode == Opcode.IGET_BOOLEAN }.location.index + 1,
-                )
-            }
+            // Remove media.isDownloadable check.
+            removeInstruction(
+                instructions.first { it.opcode == Opcode.IGET_BOOLEAN }.location.index + 1,
+            )
         }
     }
 }

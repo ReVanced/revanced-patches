@@ -13,7 +13,7 @@ val dynamicColorPatch = resourcePatch(
     compatibleWith("com.twitter.android")
 
     execute { context ->
-        val resDirectory = context.get("res")
+        val resDirectory = context["res"]
         if (!resDirectory.isDirectory) throw PatchException("The res folder can not be found.")
 
         val valuesV31Directory = resDirectory.resolve("values-v31")

@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint.methodFingerprint
 
 internal val getClientIdFingerprint = methodFingerprint {
     strings("client_id=zACVn0dSFGdWqQ")
-    custom custom@{ methodDef, classDef ->
+    custom { methodDef, classDef ->
         if (!classDef.endsWith("RedditOAuth;")) return@custom false
 
         methodDef.name == "getAuthorizeUrl"

@@ -10,25 +10,23 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Suppress("unused")
 val removeDeviceRestrictionsPatch = bytecodePatch(
     name = "Remove device restrictions",
-    description = "Removes restrictions from using the app on any device. Requires mounting patched app over original."
+    description = "Removes restrictions from using the app on any device. Requires mounting patched app over original.",
 ) {
     compatibleWith("com.google.android.apps.recorder")
 
     val onApplicationCreateResult by onApplicationCreateFingerprint
 
     execute {
-        onApplicationCreateResult.let {
-            val featureStringIndex = it.scanResult.stringsScanResult!!.matches.first().index
+        val featureStringIndex = onApplicationCreateResult.scanResult.stringsScanResult!!.matches.first().index
 
-            it.mutableMethod.apply {
-                // Remove check for device restrictions.
-                removeInstructions(featureStringIndex - 2, 5)
+        onApplicationCreateResult.mutableMethod.apply {
+            // Remove check for device restrictions.
+            removeInstructions(featureStringIndex - 2, 5)
 
-                val featureAvailableRegister = getInstruction<OneRegisterInstruction>(featureStringIndex).registerA
+            val featureAvailableRegister = getInstruction<OneRegisterInstruction>(featureStringIndex).registerA
 
-                // Override "isPixelDevice()" to return true.
-                addInstruction(featureStringIndex, "const/4 v$featureAvailableRegister, 0x1")
-            }
+            // Override "isPixelDevice()" to return true.
+            addInstruction(featureStringIndex, "const/4 v$featureAvailableRegister, 0x1")
         }
     }
 }

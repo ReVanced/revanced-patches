@@ -7,7 +7,7 @@ import app.revanced.patches.reddit.customclients.joeyforreddit.detection.piracy.
 
 @Suppress("unused")
 val disableAdsPatch = bytecodePatch(
-    name = "Disable ads"
+    name = "Disable ads",
 ) {
     dependsOn(disablePiracyDetectionPatch)
 
@@ -17,10 +17,11 @@ val disableAdsPatch = bytecodePatch(
 
     execute {
         isAdFreeUserResult.mutableMethod.addInstructions(
-            0, """
+            0,
+            """
                 const/4 v0, 0x1
                 return v0
-            """
+            """,
         )
     }
 }

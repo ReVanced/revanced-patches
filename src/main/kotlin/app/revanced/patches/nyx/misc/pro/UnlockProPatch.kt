@@ -6,18 +6,19 @@ import app.revanced.patches.nyx.misc.pro.fingerprints.checkProFingerprint
 
 @Suppress("unused")
 val unlockProPatch = bytecodePatch(
-    name = "Unlock pro"
+    name = "Unlock pro",
 ) {
     compatibleWith("com.awedea.nyx")
 
-    val checkProFingerprint by checkProFingerprint
+    val checkProResult by checkProFingerprint
 
     execute {
-        checkProFingerprint.mutableMethod.addInstructions(
-            0, """
-                    const/4 v0, 0x1
-                    return v0
-                """
+        checkProResult.mutableMethod.addInstructions(
+            0,
+            """
+                 const/4 v0, 0x1
+                 return v0
+            """,
         )
     }
 }

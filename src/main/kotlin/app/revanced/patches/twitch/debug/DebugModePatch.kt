@@ -21,7 +21,7 @@ val debugModePatch = bytecodePatch(
     dependsOn(
         integrationsPatch,
         SettingsPatch,
-        addResourcesPatch
+        addResourcesPatch,
     )
 
     compatibleWith("tv.twitch.android.app")
@@ -42,16 +42,14 @@ val debugModePatch = bytecodePatch(
             isOmVerificationEnabledResult,
             shouldShowDebugOptionsResult,
         ).forEach {
-            it.mutableMethod.apply {
-                addInstructions(
-                    0,
-                    """
-                         invoke-static {}, Lapp/revanced/integrations/twitch/patches/DebugModePatch;->isDebugModeEnabled()Z
-                         move-result v0
-                         return v0
-                      """,
-                )
-            }
+            it.mutableMethod.addInstructions(
+                0,
+                """
+                    invoke-static {}, Lapp/revanced/integrations/twitch/patches/DebugModePatch;->isDebugModeEnabled()Z
+                    move-result v0
+                    return v0
+                """,
+            )
         }
     }
 }

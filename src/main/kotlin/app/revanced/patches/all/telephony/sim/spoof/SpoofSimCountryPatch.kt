@@ -13,7 +13,6 @@ import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodRefere
 import com.android.tools.smali.dexlib2.util.MethodUtil
 import java.util.*
 
-
 @Suppress("unused")
 val spoofSimCountryPatch = bytecodePatch(
     name = "Spoof SIM country",
@@ -32,7 +31,7 @@ val spoofSimCountryPatch = bytecodePatch(
         title,
         "ISO-3166-1 alpha-2 country code equivalent for the SIM provider's country code.",
         false,
-        validator = { it: String? -> it == null || it.uppercase() in countries.values }
+        validator = { it: String? -> it == null || it.uppercase() in countries.values },
     )
 
     val networkCountryIso by isoCountryPatchOption(
@@ -47,7 +46,7 @@ val spoofSimCountryPatch = bytecodePatch(
 
     dependsOn(
         transformInstructionsPatch(
-            filterMap = { classDef, method, instruction, instructionIndex ->
+            filterMap = { _, _, instruction, instructionIndex ->
                 if (instruction !is ReferenceInstruction) return@transformInstructionsPatch null
 
                 val reference = instruction.reference as? MethodReference ?: return@transformInstructionsPatch null
@@ -65,14 +64,14 @@ val spoofSimCountryPatch = bytecodePatch(
             },
             transform = { mutableMethod, entry: Pair<Int, String> ->
                 transformMethodCall(entry, mutableMethod)
-            }
-        )
+            },
+        ),
     )
 }
 
 private fun transformMethodCall(
     entry: Pair<Int, String>,
-    mutableMethod: MutableMethod
+    mutableMethod: MutableMethod,
 ) {
     val (instructionIndex, methodCallValue) = entry
 
@@ -80,27 +79,27 @@ private fun transformMethodCall(
 
     mutableMethod.replaceInstruction(
         instructionIndex + 1,
-        "const-string v$register, \"$methodCallValue\""
+        "const-string v$register, \"$methodCallValue\"",
     )
 }
 
 private enum class MethodCall(
-    val reference: MethodReference
+    val reference: MethodReference,
 ) {
     NetworkCountryIso(
         ImmutableMethodReference(
             "Landroid/telephony/TelephonyManager;",
             "getNetworkCountryIso",
             emptyList(),
-            "Ljava/lang/String;"
-        )
+            "Ljava/lang/String;",
+        ),
     ),
     SimCountryIso(
         ImmutableMethodReference(
             "Landroid/telephony/TelephonyManager;",
             "getSimCountryIso",
             emptyList(),
-            "Ljava/lang/String;"
-        )
-    )
+            "Ljava/lang/String;",
+        ),
+    ),
 }

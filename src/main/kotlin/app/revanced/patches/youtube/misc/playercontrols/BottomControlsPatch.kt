@@ -11,7 +11,7 @@ import app.revanced.patches.shared.misc.mapping.resourceMappings
  *
  * @param resourceDirectoryName The name of the directory containing the hosting resource.
  */
-lateinit var addControls: (resourceDirectoryName: String) -> Unit
+lateinit var addBottomControls: (resourceDirectoryName: String) -> Unit
     private set
 
 private lateinit var targetDocument: Document
@@ -33,7 +33,7 @@ val bottomControlsPatch = resourcePatch {
         // The element to the left of the element being added.
         var lastLeftOf = "fullscreen_button"
 
-        addControls = { resourceDirectoryName ->
+        addBottomControls = { resourceDirectoryName ->
             val sourceDocument = context.document[
                 this::class.java.classLoader.getResourceAsStream(
                     "$resourceDirectoryName/host/layout/$targetResourceName",

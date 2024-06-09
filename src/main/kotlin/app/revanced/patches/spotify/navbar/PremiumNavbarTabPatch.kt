@@ -20,12 +20,12 @@ val premiumNavbarTabPatch = bytecodePatch(
         addNavbarItemResult.mutableMethod.addInstructions(
             0,
             """
-            const v1, $premiumTabId
-            if-ne p5, v1, :continue
-            return-void
-            :continue
-            nop
-        """,
+                const v1, $premiumTabId
+                if-ne p5, v1, :continue
+                return-void
+                :continue
+                nop
+            """,
         )
     }
 }

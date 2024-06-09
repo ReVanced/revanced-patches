@@ -11,9 +11,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal var INTEGRATIONS_CLASS_DESCRIPTOR =
+internal const val INTEGRATIONS_CLASS_DESCRIPTOR =
     "Lapp/revanced/integrations/tudortmund/lockscreen/ShowOnLockscreenPatch;"
-    private set
 
 @Suppress("unused")
 val showOnLockscreenPatch = bytecodePatch(
@@ -63,10 +62,10 @@ val showOnLockscreenPatch = bytecodePatch(
             replaceInstruction(
                 windowIndex,
                 "invoke-static { v$activityRegister, v$brightnessRegister }, " +
-                        "$INTEGRATIONS_CLASS_DESCRIPTOR->" +
-                        "getWindow" +
-                        "(Landroidx/appcompat/app/AppCompatActivity;F)" +
-                        "Landroid/view/Window;",
+                    "$INTEGRATIONS_CLASS_DESCRIPTOR->" +
+                    "getWindow" +
+                    "(Landroidx/appcompat/app/AppCompatActivity;F)" +
+                    "Landroid/view/Window;",
             )
 
             // Normally, the brightness is loaded into a register after the getWindow call.

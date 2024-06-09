@@ -69,33 +69,31 @@ val enableSeekbarTappingPatch = bytecodePatch(
             put("O", getReference(patternScanResult.endIndex))
         }
 
-        seekbarTappingResult.let {
-            val insertIndex = it.scanResult.patternScanResult!!.endIndex - 1
+        val insertIndex = seekbarTappingResult.scanResult.patternScanResult!!.endIndex - 1
 
-            it.mutableMethod.apply {
-                val thisInstanceRegister = getInstruction<Instruction35c>(insertIndex - 1).registerC
+        seekbarTappingResult.mutableMethod.apply {
+            val thisInstanceRegister = getInstruction<Instruction35c>(insertIndex - 1).registerC
 
-                val freeRegister = 0
-                val xAxisRegister = 2
+            val freeRegister = 0
+            val xAxisRegister = 2
 
-                val oMethod = seekbarTappingMethods["O"]!!
-                val nMethod = seekbarTappingMethods["N"]!!
+            val oMethod = seekbarTappingMethods["O"]!!
+            val nMethod = seekbarTappingMethods["N"]!!
 
-                fun MethodReference.toInvokeInstructionString() =
-                    "invoke-virtual { v$thisInstanceRegister, v$xAxisRegister }, $this"
+            fun MethodReference.toInvokeInstructionString() =
+                "invoke-virtual { v$thisInstanceRegister, v$xAxisRegister }, $this"
 
-                addInstructionsWithLabels(
-                    insertIndex,
-                    """
+            addInstructionsWithLabels(
+                insertIndex,
+                """
                         invoke-static { }, Lapp/revanced/integrations/youtube/patches/SeekbarTappingPatch;->seekbarTappingEnabled()Z
                         move-result v$freeRegister
                         if-eqz v$freeRegister, :disabled
                         ${oMethod.toInvokeInstructionString()}
                         ${nMethod.toInvokeInstructionString()}
                     """,
-                    ExternalLabel("disabled", getInstruction(insertIndex)),
-                )
-            }
+                ExternalLabel("disabled", getInstruction(insertIndex)),
+            )
         }
     }
 }

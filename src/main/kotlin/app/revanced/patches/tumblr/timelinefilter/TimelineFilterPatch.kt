@@ -16,7 +16,7 @@ import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
  * @param typeName The enum name of the timeline object type to hide.
  */
 @Suppress("KDocUnresolvedReference")
-lateinit var addObjectTypeFilter: (typeName: String) -> Unit
+lateinit var addTimelineObjectTypeFilter: (typeName: String) -> Unit
 
 @Suppress("unused")
 val timelineFilterPatch = bytecodePatch(
@@ -28,40 +28,38 @@ val timelineFilterPatch = bytecodePatch(
     val postsResponseConstructorResult by postsResponseConstructorFingerprint
 
     execute {
-        timelineFilterIntegrationResult.let { integration ->
-            val filterInsertIndex = integration.scanResult.patternScanResult!!.startIndex
+        val filterInsertIndex = timelineFilterIntegrationResult.scanResult.patternScanResult!!.startIndex
 
-            integration.mutableMethod.apply {
-                val addInstruction = getInstruction<BuilderInstruction35c>(filterInsertIndex + 1)
+        timelineFilterIntegrationResult.mutableMethod.apply {
+            val addInstruction = getInstruction<BuilderInstruction35c>(filterInsertIndex + 1)
 
-                val filterListRegister = addInstruction.registerC
-                val stringRegister = addInstruction.registerD
+            val filterListRegister = addInstruction.registerC
+            val stringRegister = addInstruction.registerD
 
-                // Remove "BLOCKED_OBJECT_DUMMY"
-                removeInstructions(filterInsertIndex, 2)
+            // Remove "BLOCKED_OBJECT_DUMMY"
+            removeInstructions(filterInsertIndex, 2)
 
-                addObjectTypeFilter = { typeName ->
-                    // blockedObjectTypes.add({typeName})
-                    addInstructionsWithLabels(
-                        filterInsertIndex,
-                        """
-                            const-string v$stringRegister, "$typeName"
-                            invoke-virtual { v$filterListRegister, v$stringRegister }, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-                        """,
-                    )
-                }
+            addTimelineObjectTypeFilter = { typeName ->
+                // blockedObjectTypes.add({typeName})
+                addInstructionsWithLabels(
+                    filterInsertIndex,
+                    """
+                        const-string v$stringRegister, "$typeName"
+                        invoke-virtual { v$filterListRegister, v$stringRegister }, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+                    """,
+                )
             }
         }
-        mapOf(
-            timelineConstructorResult to 1,
-            postsResponseConstructorResult to 2,
-        ).forEach { (result, timelineObjectsRegister) ->
-            result.mutableMethod.addInstructions(
-                0,
-                "invoke-static {p$timelineObjectsRegister}, " +
-                        "Lapp/revanced/integrations/tumblr/patches/TimelineFilterPatch;->" +
-                        "filterTimeline(Ljava/util/List;)V",
-            )
-        }
+    }
+    mapOf(
+        timelineConstructorResult to 1,
+        postsResponseConstructorResult to 2,
+    ).forEach { (result, timelineObjectsRegister) ->
+        result.mutableMethod.addInstructions(
+            0,
+            "invoke-static {p$timelineObjectsRegister}, " +
+                "Lapp/revanced/integrations/tumblr/patches/TimelineFilterPatch;->" +
+                "filterTimeline(Ljava/util/List;)V",
+        )
     }
 }
