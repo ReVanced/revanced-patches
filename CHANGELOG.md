@@ -1,3 +1,10 @@
+# [4.10.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v4.10.0-dev.4...v4.10.0-dev.5) (2024-06-09)
+
+
+### Bug Fixes
+
+* **YouTube - Client spoof:** Correctly play more livestreams using Android VR ([#3316](https://github.com/ReVanced/revanced-patches/issues/3316)) ([c05264a](https://github.com/ReVanced/revanced-patches/commit/c05264af3944cbfe8d9aa34fb0e0fddb05a1d42f))
+
 # [4.10.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.10.0-dev.3...v4.10.0-dev.4) (2024-06-08)
 
 
