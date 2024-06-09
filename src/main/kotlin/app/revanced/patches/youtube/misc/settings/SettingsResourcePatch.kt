@@ -15,6 +15,7 @@ import org.w3c.dom.Element
 
 // Used for a fingerprint from SettingsPatch.
 internal var appearanceStringId = -1L
+    private set
 
 val preferences = mutableSetOf<BasePreference>()
 

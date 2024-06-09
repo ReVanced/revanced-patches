@@ -11,8 +11,11 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 
 internal var layoutCircle = -1L
+    private set
 internal var layoutIcon = -1L
+    private set
 internal var layoutVideo = -1L
+    private set
 
 val hideEndscreenCardsResourcePatch = resourcePatch {
     dependsOn(

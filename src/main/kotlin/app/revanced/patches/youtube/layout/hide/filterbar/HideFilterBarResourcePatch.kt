@@ -12,8 +12,11 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 
 internal var filterBarHeightId = -1L
+    private set
 internal var relatedChipCloudMarginId = -1L
+    private set
 internal var barContainerHeightId = -1L
+    private set
 
 val hideFilterBarResourcePatch = resourcePatch {
     dependsOn(

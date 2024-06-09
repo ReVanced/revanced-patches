@@ -6,7 +6,9 @@ import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
 
 internal var showBottomNavigationItemsTextId = -1L
+    private set
 internal var premiumTabId = -1L
+    private set
 
 @Suppress("unused")
 val premiumNavbarTabResourcePatch = resourcePatch {

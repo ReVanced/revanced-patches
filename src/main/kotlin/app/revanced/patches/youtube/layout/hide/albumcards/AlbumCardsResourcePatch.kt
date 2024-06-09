@@ -11,6 +11,7 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 
 internal var albumCardId: Long = -1
+    private set
 
 @Suppress("unused")
 val albumCardsResourcePatch = resourcePatch {

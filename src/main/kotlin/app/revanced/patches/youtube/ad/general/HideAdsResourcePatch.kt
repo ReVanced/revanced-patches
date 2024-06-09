@@ -13,6 +13,7 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 
 internal var adAttributionId: Long = -1
+    private set
 
 @Suppress("unused")
 val hideAdsResourcePatch = resourcePatch {

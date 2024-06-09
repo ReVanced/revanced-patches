@@ -11,6 +11,7 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 
 internal var fabButtonId = -1L
+    private set
 
 internal val hideFloatingMicrophoneButtonResourcePatch = resourcePatch {
     dependsOn(
