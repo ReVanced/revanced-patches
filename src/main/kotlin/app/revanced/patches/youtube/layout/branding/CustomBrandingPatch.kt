@@ -1,45 +1,40 @@
 package app.revanced.patches.youtube.layout.branding
 
-import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
+import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patcher.patch.stringOption
 import app.revanced.util.ResourceGroup
 import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.copyResources
 import java.io.File
 import java.nio.file.Files
 
-@Patch(
+private const val REVANCED_ICON = "ReVanced*Logo" // Can never be a valid path.
+private const val APP_NAME = "YouTube ReVanced"
+
+private val iconResourceFileNames = arrayOf(
+    "adaptiveproduct_youtube_background_color_108",
+    "adaptiveproduct_youtube_foreground_color_108",
+    "ic_launcher",
+    "ic_launcher_round",
+).map { "$it.png" }.toTypedArray()
+
+private val mipmapDirectories = arrayOf(
+    "xxxhdpi",
+    "xxhdpi",
+    "xhdpi",
+    "hdpi",
+    "mdpi",
+).map { "mipmap-$it" }
+
+@Suppress("unused")
+val customBrandingPatch = resourcePatch(
     name = "Custom branding",
     description = "Applies a custom app name and icon. Defaults to \"YouTube ReVanced\" and the ReVanced logo.",
-    compatiblePackages = [
-        CompatiblePackage("com.google.android.youtube"),
-    ],
     use = false,
-)
-@Suppress("unused")
-object CustomBrandingPatch : ResourcePatch() {
-    private const val REVANCED_ICON = "ReVanced*Logo" // Can never be a valid path.
-    private const val APP_NAME = "YouTube ReVanced"
+) {
+    compatibleWith("com.google.android.youtube")
 
-    private val iconResourceFileNames = arrayOf(
-        "adaptiveproduct_youtube_background_color_108",
-        "adaptiveproduct_youtube_foreground_color_108",
-        "ic_launcher",
-        "ic_launcher_round",
-    ).map { "$it.png" }.toTypedArray()
-
-    private val mipmapDirectories = arrayOf(
-        "xxxhdpi",
-        "xxhdpi",
-        "xhdpi",
-        "hdpi",
-        "mdpi",
-    ).map { "mipmap-$it" }
-
-    private var appName by stringPatchOption(
+    val appName by stringOption(
         key = "appName",
         default = APP_NAME,
         values = mapOf(
@@ -52,7 +47,7 @@ object CustomBrandingPatch : ResourcePatch() {
         description = "The name of the app.",
     )
 
-    private var icon by stringPatchOption(
+    val icon by stringOption(
         key = "iconPath",
         default = REVANCED_ICON,
         values = mapOf("ReVanced Logo" to REVANCED_ICON),
@@ -70,7 +65,7 @@ object CustomBrandingPatch : ResourcePatch() {
         """.trimIndentMultiline(),
     )
 
-    override fun execute(context: ResourceContext) {
+    execute { context ->
         icon?.let { icon ->
             // Change the app icon.
             mipmapDirectories.map { directory ->
@@ -81,7 +76,7 @@ object CustomBrandingPatch : ResourcePatch() {
             }.let { resourceGroups ->
                 if (icon != REVANCED_ICON) {
                     val path = File(icon)
-                    val resourceDirectory = context.get("res")
+                    val resourceDirectory = context["res"]
 
                     resourceGroups.forEach { group ->
                         val fromDirectory = path.resolve(group.resourceDirectoryName)
@@ -102,7 +97,7 @@ object CustomBrandingPatch : ResourcePatch() {
 
         appName?.let { name ->
             // Change the app name.
-            val manifest = context.get("AndroidManifest.xml")
+            val manifest = context["AndroidManifest.xml"]
             manifest.writeText(
                 manifest.readText()
                     .replace(

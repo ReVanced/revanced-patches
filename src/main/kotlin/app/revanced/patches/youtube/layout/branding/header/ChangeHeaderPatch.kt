@@ -1,47 +1,42 @@
 package app.revanced.patches.youtube.layout.branding.header
 
-import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
+import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patcher.patch.stringOption
 import app.revanced.util.ResourceGroup
 import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.copyResources
 import java.io.File
 
-@Patch(
+private const val HEADER_FILE_NAME = "yt_wordmark_header"
+private const val PREMIUM_HEADER_FILE_NAME = "yt_premium_wordmark_header"
+
+private const val HEADER_OPTION = "header*"
+private const val PREMIUM_HEADER_OPTION = "premium*header"
+private const val REVANCED_HEADER_OPTION = "revanced*"
+private const val REVANCED_BORDERLESS_HEADER_OPTION = "revanced*borderless"
+
+private val targetResourceDirectoryNames = mapOf(
+    "xxxhdpi" to "512px x 192px",
+    "xxhdpi" to "387px x 144px",
+    "xhdpi" to "258px x 96px",
+    "hdpi" to "194px x 72px",
+    "mdpi" to "129px x 48px",
+).map { (dpi, dim) ->
+    "drawable-$dpi" to dim
+}.toMap()
+
+private val variants = arrayOf("light", "dark")
+
+@Suppress("unused")
+val changeHeaderPatch = resourcePatch(
     name = "Change header",
     description = "Applies a custom header in the top left corner within the app. Defaults to the ReVanced header.",
-    compatiblePackages = [
-        CompatiblePackage("com.google.android.youtube"),
-    ],
     use = false,
-)
-@Suppress("unused")
-object ChangeHeaderPatch : ResourcePatch() {
-    private const val HEADER_FILE_NAME = "yt_wordmark_header"
-    private const val PREMIUM_HEADER_FILE_NAME = "yt_premium_wordmark_header"
+) {
+    compatibleWith("com.google.android.youtube")
 
-    private const val HEADER_OPTION = "header*"
-    private const val PREMIUM_HEADER_OPTION = "premium*header"
-    private const val REVANCED_HEADER_OPTION = "revanced*"
-    private const val REVANCED_BORDERLESS_HEADER_OPTION = "revanced*borderless"
-
-    private val targetResourceDirectoryNames = mapOf(
-        "xxxhdpi" to "512px x 192px",
-        "xxhdpi" to "387px x 144px",
-        "xhdpi" to "258px x 96px",
-        "hdpi" to "194px x 72px",
-        "mdpi" to "129px x 48px",
-    ).map { (dpi, dim) ->
-        "drawable-$dpi" to dim
-    }.toMap()
-
-    private val variants = arrayOf("light", "dark")
-
-    private val header by stringPatchOption(
+    val header by stringOption(
         key = "header",
         default = REVANCED_BORDERLESS_HEADER_OPTION,
         values = mapOf(
@@ -68,10 +63,10 @@ object ChangeHeaderPatch : ResourcePatch() {
         required = true,
     )
 
-    override fun execute(context: ResourceContext) {
+    execute { context ->
         // The directories to copy the header to.
         val targetResourceDirectories = targetResourceDirectoryNames.keys.mapNotNull {
-            context.get("res").resolve(it).takeIf(File::exists)
+            context["res"].resolve(it).takeIf(File::exists)
         }
         // The files to replace in the target directories.
         val targetResourceFiles = targetResourceDirectoryNames.keys.map { directoryName ->
