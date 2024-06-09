@@ -1,32 +1,27 @@
 package app.revanced.patches.music.layout.premium
 
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.music.layout.premium.fingerprints.HideGetPremiumFingerprint
-import app.revanced.patches.music.layout.premium.fingerprints.MembershipSettingsFingerprint
-import app.revanced.util.exception
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.music.layout.premium.fingerprints.hideGetPremiumFingerprint
+import app.revanced.patches.music.layout.premium.fingerprints.membershipSettingsFingerprint
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
-@Patch(
+
+@Suppress("unused")
+val hideGetPremiumPatch = bytecodePatch(
     name = "Hide 'Get Music Premium' label",
     description = "Hides the \"Get Music Premium\" label from the account menu and settings.",
-    compatiblePackages = [CompatiblePackage("com.google.android.apps.youtube.music")],
-)
-@Suppress("unused")
-object HideGetPremiumPatch : BytecodePatch(
-    setOf(
-        HideGetPremiumFingerprint,
-        MembershipSettingsFingerprint,
-    ),
 ) {
-    override fun execute(context: BytecodeContext) {
-        HideGetPremiumFingerprint.result?.let {
+    compatibleWith("com.google.android.apps.youtube.music")
+
+    val hideGetPremiumResult by hideGetPremiumFingerprint
+    val membershipSettingsResult by membershipSettingsFingerprint
+
+    execute {
+        hideGetPremiumResult.let {
             it.mutableMethod.apply {
                 val insertIndex = it.scanResult.patternScanResult!!.endIndex
 
@@ -45,14 +40,14 @@ object HideGetPremiumPatch : BytecodePatch(
                             "Landroid/view/View;->setVisibility(I)V",
                 )
             }
-        } ?: throw HideGetPremiumFingerprint.exception
+        }
 
-        MembershipSettingsFingerprint.result?.mutableMethod?.addInstructions(
+        membershipSettingsResult.mutableMethod.addInstructions(
             0,
             """
                 const/4 v0, 0x0
                 return-object v0
             """,
-        ) ?: throw MembershipSettingsFingerprint.exception
+        )
     }
 }

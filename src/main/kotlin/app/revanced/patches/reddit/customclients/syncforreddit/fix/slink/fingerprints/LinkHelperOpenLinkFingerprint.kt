@@ -1,7 +1,7 @@
 package app.revanced.patches.reddit.customclients.syncforreddit.fix.slink.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 
-internal object LinkHelperOpenLinkFingerprint: MethodFingerprint(
-    strings = listOf("Link title: ")
-)
+internal val linkHelperOpenLinkFingerprint = methodFingerprint {
+    strings("Link title: ")
+}

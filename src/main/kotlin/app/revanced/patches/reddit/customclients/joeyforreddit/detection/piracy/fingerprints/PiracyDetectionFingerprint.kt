@@ -1,22 +1,21 @@
 package app.revanced.patches.reddit.customclients.joeyforreddit.detection.piracy.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object PiracyDetectionFingerprint : MethodFingerprint(
-    returnType = "V",
-    accessFlags = AccessFlags.PRIVATE or AccessFlags.STATIC,
-    opcodes = listOf(
-        Opcode.NEW_INSTANCE,    // new PiracyDetectionRunnable()
+internal val piracyDetectionFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
+    returns("V")
+    opcodes(
+        Opcode.NEW_INSTANCE,
         Opcode.CONST_16,
         Opcode.CONST_WIDE_16,
-        Opcode.INVOKE_DIRECT,   // <init>(..)
-        Opcode.INVOKE_VIRTUAL,  // run()
+        Opcode.INVOKE_DIRECT,
+        Opcode.INVOKE_VIRTUAL,
         Opcode.RETURN_VOID
-    ),
-    customFingerprint = custom@{ _, classDef ->
+    )
+    custom { _, classDef ->
         classDef.endsWith("ProcessLifeCyleListener;")
     }
-)
+}

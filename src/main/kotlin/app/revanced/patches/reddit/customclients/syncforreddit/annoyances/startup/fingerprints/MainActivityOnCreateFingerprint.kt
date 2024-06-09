@@ -1,9 +1,9 @@
 package app.revanced.patches.reddit.customclients.syncforreddit.annoyances.startup.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 
-internal object MainActivityOnCreateFingerprint : MethodFingerprint(
-    customFingerprint = custom@{ method, classDef ->
+internal val mainActivityOnCreateFingerprint = methodFingerprint {
+    custom { method, classDef ->
         classDef.endsWith("MainActivity;") && method.name == "onCreate"
     }
-)
+}

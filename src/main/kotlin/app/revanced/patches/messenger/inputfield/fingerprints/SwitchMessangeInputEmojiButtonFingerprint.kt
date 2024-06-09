@@ -1,13 +1,12 @@
 package app.revanced.patches.messenger.inputfield.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object SwitchMessangeInputEmojiButtonFingerprint : MethodFingerprint(
-    returnType = "V",
-    parameters = listOf("L", "Z"),
-    strings = listOf("afterTextChanged", "expression_search"),
-    opcodes = listOf(
+internal val switchMessangeInputEmojiButtonFingerprint = methodFingerprint {
+    returns("V")
+    parameters("L", "Z")
+    opcodes(
         Opcode.IGET_OBJECT,
         Opcode.IF_EQZ,
         Opcode.CONST_STRING,
@@ -15,4 +14,5 @@ internal object SwitchMessangeInputEmojiButtonFingerprint : MethodFingerprint(
         Opcode.CONST_STRING,
         Opcode.GOTO
     )
-)
+    strings("afterTextChanged", "expression_search")
+}

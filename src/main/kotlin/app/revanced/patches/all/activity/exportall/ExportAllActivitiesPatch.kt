@@ -1,27 +1,22 @@
 package app.revanced.patches.all.activity.exportall
 
-import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.patch.resourcePatch
 
-@Patch(
+@Suppress("unused")
+val exportAllActivitiesPatch = resourcePatch(
     name = "Export all activities",
     description = "Makes all app activities exportable.",
     use = false,
-)
-@Suppress("unused")
-object ExportAllActivitiesPatch : ResourcePatch() {
-    private const val EXPORTED_FLAG = "android:exported"
+) {
+    val exportedFlag = "android:exported"
 
-    override fun execute(context: ResourceContext) {
-        context.xmlEditor["AndroidManifest.xml"].use { editor ->
-            val document = editor.file
-
-            val activities = document.getElementsByTagName("activity")
+    execute { context ->
+        context.document["AndroidManifest.xml"].use {
+            val activities = it.getElementsByTagName("activity")
 
             for (i in 0..activities.length) {
                 activities.item(i)?.apply {
-                    val exportedAttribute = attributes.getNamedItem(EXPORTED_FLAG)
+                    val exportedAttribute = attributes.getNamedItem(exportedFlag)
 
                     if (exportedAttribute != null) {
                         if (exportedAttribute.nodeValue != "true") {
@@ -31,7 +26,7 @@ object ExportAllActivitiesPatch : ResourcePatch() {
                     // Reason why the attribute is added in the case it does not exist:
                     // https://github.com/revanced/revanced-patches/pull/1751/files#r1141481604
                     else {
-                        document.createAttribute(EXPORTED_FLAG)
+                        it.createAttribute(exportedFlag)
                             .apply { value = "true" }
                             .let(attributes::setNamedItem)
                     }

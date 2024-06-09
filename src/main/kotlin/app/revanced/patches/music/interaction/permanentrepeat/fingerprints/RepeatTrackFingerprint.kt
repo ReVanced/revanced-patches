@@ -1,15 +1,14 @@
 package app.revanced.patches.music.interaction.permanentrepeat.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object RepeatTrackFingerprint : MethodFingerprint(
-    "V",
-    AccessFlags.PUBLIC or AccessFlags.FINAL,
-    listOf("L", "L"),
-    listOf(
+internal val repeatTrackFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("V")
+    parameters("L", "L")
+    opcodes(
         Opcode.CHECK_CAST,
         Opcode.INVOKE_INTERFACE,
         Opcode.IGET_OBJECT,
@@ -19,4 +18,4 @@ internal object RepeatTrackFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT,
         Opcode.IF_NEZ
     )
-)
+}

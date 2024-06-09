@@ -1,27 +1,25 @@
 package app.revanced.patches.reddit.layout.premiumicon
 
-import app.revanced.util.exception
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.reddit.layout.premiumicon.fingerprints.HasPremiumIconAccessFingerprint
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.reddit.layout.premiumicon.fingerprints.hasPremiumIconAccessFingerprint
 
-
-@Patch(
-    name = "Unlock premium Reddit icons",
-    compatiblePackages = [CompatiblePackage("com.reddit.frontpage")]
-)
 @Suppress("unused")
-object UnlockPremiumIconPatch : BytecodePatch(setOf(HasPremiumIconAccessFingerprint)) {
-    override fun execute(context: BytecodeContext) {
-        HasPremiumIconAccessFingerprint.result?.mutableMethod?.addInstructions(
+val unlockPremiumIconPatch = bytecodePatch(
+    name = "Unlock premium Reddit icons",
+    description = "Unlocks the premium Reddit icons.",
+) {
+    compatibleWith("com.reddit.frontpage")
+
+    val hasPremiumIconAccessResult by hasPremiumIconAccessFingerprint
+
+    execute {
+        hasPremiumIconAccessResult.mutableMethod.addInstructions(
             0,
             """
                 const/4 v0, 0x1
                 return v0
             """
-        ) ?: throw HasPremiumIconAccessFingerprint.exception
+        )
     }
 }

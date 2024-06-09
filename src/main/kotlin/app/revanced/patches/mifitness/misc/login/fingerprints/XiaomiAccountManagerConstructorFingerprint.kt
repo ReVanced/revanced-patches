@@ -1,16 +1,12 @@
 package app.revanced.patches.mifitness.misc.login.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal object XiaomiAccountManagerConstructorFingerprint : MethodFingerprint(
-    accessFlags = AccessFlags.PRIVATE or AccessFlags.CONSTRUCTOR,
-    customFingerprint = { _, classDef ->
+internal val xiaomiAccountManagerConstructorFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PRIVATE, AccessFlags.CONSTRUCTOR)
+    parameters("Landroid/content/Context;", "Z")
+    custom { _, classDef ->
         classDef.type == "Lcom/xiaomi/passport/accountmanager/XiaomiAccountManager;"
-    },
-    parameters = listOf(
-        "Landroid/content/Context;",
-        "Z",
-    ),
-)
+    }
+}

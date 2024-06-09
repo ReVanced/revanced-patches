@@ -1,7 +1,7 @@
 package app.revanced.patches.reddit.customclients.infinityforreddit.subscription.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 
-internal object BillingClientOnServiceConnected : MethodFingerprint(
-    strings = listOf("Billing service connected"),
-)
+internal val billingClientOnServiceConnectedFingerprint = methodFingerprint {
+    strings("Billing service connected")
+}

@@ -1,12 +1,14 @@
 package app.revanced.patches.mifitness.misc.locale.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object SyncBluetoothLanguageFingerprint : MethodFingerprint(
-    customFingerprint = { methodDef, classDef ->
+internal val syncBluetoothLanguageFingerprint = methodFingerprint {
+    opcodes(
+        Opcode.MOVE_RESULT_OBJECT
+    )
+    custom { methodDef, classDef ->
         classDef.type == "Lcom/xiaomi/fitness/devicesettings/DeviceSettingsSyncer;" &&
-            methodDef.name == "syncBluetoothLanguage"
-    },
-    opcodes = listOf(Opcode.MOVE_RESULT_OBJECT),
-)
+                methodDef.name == "syncBluetoothLanguage"
+    }
+}

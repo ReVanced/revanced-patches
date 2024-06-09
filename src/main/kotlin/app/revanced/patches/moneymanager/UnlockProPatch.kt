@@ -1,26 +1,23 @@
 package app.revanced.patches.moneymanager
 
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.moneymanager.fingerprints.UnlockProFingerprint
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.moneymanager.fingerprints.unlockProFingerprint
 
-@Patch(
-    name = "Unlock pro",
-    compatiblePackages = [CompatiblePackage("com.ithebk.expensemanager")]
-)
 @Suppress("unused")
-object UnlockProPatch : BytecodePatch(
-    setOf(UnlockProFingerprint)
-){
-    override fun execute(context: BytecodeContext) {
-       UnlockProFingerprint.result!!.mutableMethod.addInstructions(
+val unlockProPatch = bytecodePatch(
+    name = "Unlock pro"
+) {
+    compatibleWith("com.ithebk.expensemanager")
+
+    val unlockProResult by unlockProFingerprint
+
+    execute {
+        unlockProResult.mutableMethod.addInstructions(
             0,
             """
-               const/4 v0, 0x1
-               return v0 
+                const/4 v0, 0x1
+                return v0
             """
         )
     }

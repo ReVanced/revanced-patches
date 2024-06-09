@@ -1,26 +1,22 @@
 package app.revanced.patches.reddit.misc.tracking.url
 
-import app.revanced.util.exception
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.reddit.misc.tracking.url.fingerprints.ShareLinkFormatterFingerprint
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.reddit.misc.tracking.url.fingerprints.shareLinkFormatterFingerprint
 
-
-@Patch(
+@Suppress("unused")
+val sanitizeUrlQueryPatch = bytecodePatch(
     name = "Sanitize sharing links",
     description = "Removes (tracking) query parameters from the URLs when sharing links.",
-    compatiblePackages = [CompatiblePackage("com.reddit.frontpage")]
-)
-@Suppress("unused")
-object SanitizeUrlQueryPatch : BytecodePatch(setOf(ShareLinkFormatterFingerprint)) {
-    override fun execute(context: BytecodeContext) {
+) {
+    compatibleWith("com.reddit.frontpage")
 
-        ShareLinkFormatterFingerprint.result?.mutableMethod?.addInstructions(
+    val shareLinkFormatterResult by shareLinkFormatterFingerprint
+
+    execute {
+        shareLinkFormatterResult.mutableMethod.addInstructions(
             0,
             "return-object p0"
-        ) ?: throw ShareLinkFormatterFingerprint.exception
+        )
     }
 }

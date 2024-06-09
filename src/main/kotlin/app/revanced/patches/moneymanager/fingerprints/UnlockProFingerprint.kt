@@ -1,19 +1,18 @@
 package app.revanced.patches.moneymanager.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object UnlockProFingerprint : MethodFingerprint(
-    "Z",
-    AccessFlags.STATIC or AccessFlags.SYNTHETIC,
-    parameters = listOf("L"),
-    opcodes = listOf(
+internal val unlockProFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.STATIC, AccessFlags.SYNTHETIC)
+    returns("Z")
+    parameters("L")
+    opcodes(
         Opcode.IGET_BOOLEAN,
         Opcode.RETURN
-    ),
-    customFingerprint = { _, classDef ->
+    )
+    custom { _, classDef ->
         classDef.endsWith("MainActivity;")
     }
-)
+}

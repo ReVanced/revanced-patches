@@ -1,10 +1,10 @@
 package app.revanced.patches.reddit.ad.general.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 
-internal object AdPostFingerprint : MethodFingerprint(
-    "V",
+internal val adPostFingerprint = methodFingerprint {
+    returns("V")
     // "children" are present throughout multiple versions
-    strings = listOf("children"),
-    customFingerprint = { _, classDef -> classDef.endsWith("Listing;") },
-)
+    strings("children")
+    custom { _, classDef -> classDef.endsWith("Listing;") }
+}

@@ -1,14 +1,13 @@
 package app.revanced.patches.music.layout.premium.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object MembershipSettingsFingerprint : MethodFingerprint(
-    returnType = "Ljava/lang/CharSequence;",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    opcodes = listOf(
+internal val membershipSettingsFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Ljava/lang/CharSequence;")
+    opcodes(
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT_OBJECT,
@@ -17,4 +16,4 @@ internal object MembershipSettingsFingerprint : MethodFingerprint(
         Opcode.IF_EQZ,
         Opcode.IGET_OBJECT
     )
-)
+}

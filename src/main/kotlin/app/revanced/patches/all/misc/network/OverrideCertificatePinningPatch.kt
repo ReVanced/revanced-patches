@@ -1,28 +1,24 @@
 package app.revanced.patches.all.misc.network
 
-import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.all.misc.debugging.EnableAndroidDebuggingPatch
+import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patches.all.misc.debugging.enableAndroidDebuggingPatch
 import app.revanced.util.Utils.trimIndentMultiline
 import org.w3c.dom.Element
 import java.io.File
 
-@Patch(
+@Suppress("unused")
+val overrideCertificatePinningPatch = resourcePatch(
     name = "Override certificate pinning",
     description = "Overrides certificate pinning, allowing to inspect traffic via a proxy.",
-    dependencies = [EnableAndroidDebuggingPatch::class],
     use = false,
-)
-@Suppress("unused")
-object OverrideCertificatePinningPatch : ResourcePatch() {
-    override fun execute(context: ResourceContext) {
+) {
+    dependsOn(enableAndroidDebuggingPatch)
+
+    execute { context ->
         val resXmlDirectory = context.get("res/xml")
 
         // Add android:networkSecurityConfig="@xml/network_security_config" and the "networkSecurityConfig" attribute if it does not exist.
-        context.xmlEditor["AndroidManifest.xml"].use { editor ->
-            val document = editor.file
-
+        context.document["AndroidManifest.xml"].use { document ->
             val applicationNode = document.getElementsByTagName("application").item(0) as Element
 
             if (!applicationNode.hasAttribute("networkSecurityConfig")) {

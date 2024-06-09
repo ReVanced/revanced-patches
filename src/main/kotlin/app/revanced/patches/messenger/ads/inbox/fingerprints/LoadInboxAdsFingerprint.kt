@@ -1,18 +1,17 @@
 package app.revanced.patches.messenger.ads.inbox.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal object LoadInboxAdsFingerprint : MethodFingerprint(
-    returnType = "V",
-    strings = listOf(
+internal val loadInboxAdsFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    returns("V")
+    strings(
         "ads_load_begin",
         "inbox_ads_fetch_start"
-    ),
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
-    customFingerprint = { _, classDef ->
+    )
+    custom { _, classDef ->
         classDef.type == "Lcom/facebook/messaging/business/inboxads/plugins/inboxads/itemsupplier/InboxAdsItemSupplierImplementation;"
     }
-)
+}
 

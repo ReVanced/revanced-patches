@@ -1,15 +1,15 @@
 package app.revanced.patches.messenger.inputfield.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.dexbacked.value.DexBackedStringEncodedValue
 
-internal object SendTypingIndicatorFingerprint : MethodFingerprint(
-    returnType = "V",
-    parameters = listOf(),
-    customFingerprint = { methodDef, classDef ->
+internal val sendTypingIndicatorFingerprint = methodFingerprint {
+    returns("V")
+    parameters()
+    custom { methodDef, classDef ->
         methodDef.name == "run" && classDef.fields.any {
             it.name == "__redex_internal_original_name"
                     && (it.initialValue as? DexBackedStringEncodedValue)?.value == "ConversationTypingContext\$sendActiveStateRunnable\$1"
         }
     }
-)
+}

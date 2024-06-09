@@ -1,15 +1,13 @@
 package app.revanced.patches.music.layout.compactheader.fingerprints
 
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object ConstructCategoryBarFingerprint : MethodFingerprint(
-    "V",
-    AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    listOf("Landroid/content/Context;", "L", "L", "L"),
-    listOf(
+internal val constructCategoryBarFingerprint = methodFingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    returns("V")
+    opcodes(
         Opcode.IPUT_OBJECT,
         Opcode.CONST,
         Opcode.INVOKE_VIRTUAL,
@@ -19,5 +17,5 @@ internal object ConstructCategoryBarFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.NEW_INSTANCE,
         Opcode.INVOKE_DIRECT,
-    ),
-)
+    )
+}

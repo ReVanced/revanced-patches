@@ -6,19 +6,20 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.messenger.inputfield.fingerprints.SendTypingIndicatorFingerprint
+import app.revanced.patches.messenger.inputfield.fingerprints.sendTypingIndicatorFingerprint
 
-@Patch(
-    name = "Disable typing indicator",
-    description = "Disables the indicator while typing a message.",
-    compatiblePackages = [CompatiblePackage("com.facebook.orca")]
-)
 @Suppress("unused")
-object DisableTypingIndicatorPatch : BytecodePatch(
-    setOf(SendTypingIndicatorFingerprint)
-){
-    override fun execute(context: BytecodeContext) {
-        SendTypingIndicatorFingerprint.result?.mutableMethod?.replaceInstruction(0, "return-void")
-            ?: throw SendTypingIndicatorFingerprint.exception
+val disableTypingIndicatorPatch = bytecodePatch(
+    name = "Disable typing indicator",
+    description = "Disables the indicator while typing a message."
+) {
+    compatibleWith("com.facebook.orca")
+
+    val sendTypingIndicatorResult by sendTypingIndicatorFingerprint
+
+    execute {
+        sendTypingIndicatorResult.mutableMethod.replaceInstruction(0, "return-void")
     }
 }
