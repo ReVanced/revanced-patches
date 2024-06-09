@@ -62,9 +62,11 @@ object CommentsPatch : ResourcePatch() {
             PreferenceScreen(
                 "revanced_comments_screen",
                 preferences = setOf(
-                    SwitchPreference("revanced_hide_preview_comment"),
+                    SwitchPreference("revanced_hide_comments_by_members_header"),
                     SwitchPreference("revanced_hide_comments_section"),
-                    SwitchPreference("revanced_hide_comment_timestamp_and_emoji_buttons")
+                    SwitchPreference("revanced_hide_comments_preview_comment"),
+                    SwitchPreference("revanced_hide_comments_thanks_button"),
+                    SwitchPreference("revanced_hide_comments_timestamp_and_emoji_buttons")
                 ),
                 sorting = PreferenceScreen.Sorting.UNSORTED
             )
