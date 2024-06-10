@@ -8,8 +8,8 @@ import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.twitch.chat.autoclaim.fingerprints.communityPointsButtonViewDelegateFingerprint
-import app.revanced.patches.twitch.misc.settings.SettingsPatch
-import app.revanced.patches.twitch.misc.settings.SettingsPatch.PreferenceScreen
+import app.revanced.patches.twitch.misc.settings.PreferenceScreen
+import app.revanced.patches.twitch.misc.settings.settingsPatch
 
 @Suppress("unused")
 val autoClaimChannelPointsPatch = bytecodePatch(
@@ -17,8 +17,8 @@ val autoClaimChannelPointsPatch = bytecodePatch(
     description = "Automatically claim Channel Points.",
 ) {
     dependsOn(
-        SettingsPatch,
-        addResourcesPatch
+        settingsPatch,
+        addResourcesPatch,
     )
 
     compatibleWith("tv.twitch.android.app"("15.4.1", "16.1.0", "16.9.1"))

@@ -1,25 +1,24 @@
 package app.revanced.patches.reddit.customclients.slide.api
 
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.fingerprint.MethodFingerprintResult
-import app.revanced.patches.reddit.customclients.BaseSpoofClientPatch
-import app.revanced.patches.reddit.customclients.boostforreddit.api.fingerprints.GetClientIdFingerprint
-
+import app.revanced.patches.reddit.customclients.slide.api.fingerprints.getClientIdFingerprint
+import app.revanced.patches.reddit.customclients.spoofClientPatch
 
 @Suppress("unused")
-object SpoofClientPatch : BaseSpoofClientPatch(
-    redirectUri = "http://www.ccrama.me",
-    clientIdFingerprints = setOf(GetClientIdFingerprint),
-    compatiblePackages = setOf(CompatiblePackage("me.ccrama.redditslide"))
-) {
-    override fun Set<MethodFingerprintResult>.patchClientId(context: BytecodeContext) {
-        first().mutableMethod.addInstructions(
+val spoofClientPatch = spoofClientPatch(redirectUri = "http://www.ccrama.me") { clientIdOption ->
+    compatibleWith("me.ccrama.redditslide")
+
+    val getClientIdResult by getClientIdFingerprint
+
+    val clientId by clientIdOption
+
+    execute {
+        getClientIdResult.mutableMethod.addInstructions(
             0,
-    """
-                     const-string v0, "$clientId"
-                     return-object v0
-                """
+            """
+                 const-string v0, "$clientId"
+                 return-object v0
+            """,
         )
     }
 }

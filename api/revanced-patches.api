@@ -2,95 +2,52 @@ public final class app/revanced/generator/MainKt {
 	public static synthetic fun main ([Ljava/lang/String;)V
 }
 
-public final class app/revanced/patches/all/activity/exportall/ExportAllActivitiesPatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/all/activity/exportall/ExportAllActivitiesPatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+public final class app/revanced/patches/all/activity/exportall/ExportAllActivitiesPatchKt {
+	public static final fun getExportAllActivitiesPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/all/connectivity/wifi/spoof/SpoofWifiPatch : app/revanced/patches/all/misc/transformation/BaseTransformInstructionsPatch {
-	public static final field INSTANCE Lapp/revanced/patches/all/connectivity/wifi/spoof/SpoofWifiPatch;
-	public synthetic fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Ljava/lang/Object;
-	public fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Lkotlin/Triple;
-	public synthetic fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Ljava/lang/Object;)V
-	public fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lkotlin/Triple;)V
+public final class app/revanced/patches/all/connectivity/wifi/spoof/SpoofWifiPatchKt {
+	public static final fun getSpoofWifiPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/all/interaction/gestures/PredictiveBackGesturePatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/all/interaction/gestures/PredictiveBackGesturePatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+public final class app/revanced/patches/all/interaction/gestures/PredictiveBackGesturePatchKt {
+	public static final fun getPredictiveBackGesturePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/all/misc/debugging/EnableAndroidDebuggingPatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/all/misc/debugging/EnableAndroidDebuggingPatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+public final class app/revanced/patches/all/misc/debugging/EnableAndroidDebuggingPatchKt {
+	public static final fun getEnableAndroidDebuggingPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/all/misc/hex/HexPatch : app/revanced/patches/shared/misc/hex/BaseHexPatch {
-	public fun <init> ()V
-	public fun getReplacements ()Ljava/util/List;
+public final class app/revanced/patches/all/misc/hex/HexPatchKt {
+	public static final fun getHexPatch ()Lapp/revanced/patcher/patch/RawResourcePatch;
 }
 
-public final class app/revanced/patches/all/misc/network/OverrideCertificatePinningPatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/all/misc/network/OverrideCertificatePinningPatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+public final class app/revanced/patches/all/misc/network/OverrideCertificatePinningPatchKt {
+	public static final fun getOverrideCertificatePinningPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/all/misc/packagename/ChangePackageNamePatch : app/revanced/patcher/patch/ResourcePatch, java/io/Closeable {
-	public static final field INSTANCE Lapp/revanced/patches/all/misc/packagename/ChangePackageNamePatch;
-	public fun close ()V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
-	public final fun setOrGetFallbackPackageName (Ljava/lang/String;)Ljava/lang/String;
+public final class app/revanced/patches/all/misc/packagename/ChangePackageNamePatchKt {
+	public static field packageNameOption Lapp/revanced/patcher/patch/Option;
+	public static final fun getChangePackageNamePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+	public static final fun getPackageNameOption ()Lapp/revanced/patcher/patch/Option;
+	public static final fun setOrGetFallbackPackageName (Ljava/lang/String;)Ljava/lang/String;
+	public static final fun setPackageNameOption (Lapp/revanced/patcher/patch/Option;)V
 }
 
-public final class app/revanced/patches/all/misc/resources/AddResourcesPatch : app/revanced/patcher/patch/ResourcePatch, java/io/Closeable, java/util/Map, kotlin/jvm/internal/markers/KMutableMap {
-	public static final field INSTANCE Lapp/revanced/patches/all/misc/resources/AddResourcesPatch;
-	public fun clear ()V
-	public fun close ()V
-	public final fun containsKey (Ljava/lang/Object;)Z
-	public fun containsKey (Ljava/lang/String;)Z
-	public final fun containsValue (Ljava/lang/Object;)Z
-	public fun containsValue (Ljava/util/Set;)Z
-	public final fun entrySet ()Ljava/util/Set;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
-	public final synthetic fun get (Ljava/lang/Object;)Ljava/lang/Object;
-	public final fun get (Ljava/lang/Object;)Ljava/util/Set;
-	public fun get (Ljava/lang/String;)Ljava/util/Set;
-	public fun getEntries ()Ljava/util/Set;
-	public fun getKeys ()Ljava/util/Set;
-	public fun getSize ()I
-	public fun getValues ()Ljava/util/Collection;
-	public final fun invoke (Ljava/lang/String;Lapp/revanced/util/resource/BaseResource;)Z
-	public final fun invoke (Ljava/lang/String;Ljava/lang/Iterable;)Z
-	public final fun invoke (Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;)Z
-	public final fun invoke (Ljava/lang/String;Ljava/util/List;)Z
-	public final fun invoke (Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function1;)Z
-	public static synthetic fun invoke$default (Lapp/revanced/patches/all/misc/resources/AddResourcesPatch;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;ILjava/lang/Object;)Z
-	public static synthetic fun invoke$default (Lapp/revanced/patches/all/misc/resources/AddResourcesPatch;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Z
-	public fun isEmpty ()Z
-	public final fun keySet ()Ljava/util/Set;
-	public synthetic fun put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-	public fun put (Ljava/lang/String;Ljava/util/Set;)Ljava/util/Set;
-	public fun putAll (Ljava/util/Map;)V
-	public final synthetic fun remove (Ljava/lang/Object;)Ljava/lang/Object;
-	public final fun remove (Ljava/lang/Object;)Ljava/util/Set;
-	public fun remove (Ljava/lang/String;)Ljava/util/Set;
-	public final fun size ()I
-	public final fun values ()Ljava/util/Collection;
+public final class app/revanced/patches/all/misc/resources/AddResourcesPatchKt {
+	public static final fun addResource (Ljava/lang/String;Lapp/revanced/util/resource/BaseResource;)Z
+	public static final fun addResources (Lapp/revanced/patcher/patch/Patch;Lkotlin/jvm/functions/Function1;)Z
+	public static final fun addResources (Ljava/lang/String;Ljava/lang/Iterable;)Z
+	public static final fun addResources (Ljava/lang/String;Ljava/lang/String;)V
+	public static final fun addResources (Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;)Z
+	public static final fun addResources (Ljava/lang/String;Ljava/util/List;)Z
+	public static synthetic fun addResources$default (Lapp/revanced/patcher/patch/Patch;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Z
+	public static synthetic fun addResources$default (Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;ILjava/lang/Object;)Z
+	public static final fun getAddResourcesPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public abstract class app/revanced/patches/all/misc/transformation/BaseTransformInstructionsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public fun <init> ()V
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public abstract fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Ljava/lang/Object;
-	public final fun findPatchIndices (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;)Lkotlin/sequences/Sequence;
-	public abstract fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Ljava/lang/Object;)V
+public final class app/revanced/patches/all/misc/transformation/BaseTransformInstructionsPatchKt {
+	public static final fun transformInstructionsPatch (Lkotlin/jvm/functions/Function4;Lkotlin/jvm/functions/Function2;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public abstract interface class app/revanced/patches/all/misc/transformation/IMethodCall {
@@ -105,650 +62,392 @@ public final class app/revanced/patches/all/misc/transformation/IMethodCall$Defa
 	public static fun replaceInvokeVirtualWithIntegrations (Lapp/revanced/patches/all/misc/transformation/IMethodCall;Ljava/lang/String;Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lcom/android/tools/smali/dexlib2/iface/instruction/formats/Instruction35c;I)V
 }
 
-public final class app/revanced/patches/all/screencapture/removerestriction/RemoveCaptureRestrictionPatch : app/revanced/patches/all/misc/transformation/BaseTransformInstructionsPatch {
-	public static final field INSTANCE Lapp/revanced/patches/all/screencapture/removerestriction/RemoveCaptureRestrictionPatch;
-	public synthetic fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Ljava/lang/Object;
-	public fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Lkotlin/Triple;
-	public synthetic fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Ljava/lang/Object;)V
-	public fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lkotlin/Triple;)V
+public final class app/revanced/patches/all/screencapture/removerestriction/RemoveCaptureRestrictionPatchKt {
+	public static final fun getRemoveCaptureRestrictionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/all/screencapture/removerestriction/RemoveCaptureRestrictionPatch$MethodCall : java/lang/Enum, app/revanced/patches/all/misc/transformation/IMethodCall {
-	public static final field SetAllowedCapturePolicyGlobal Lapp/revanced/patches/all/screencapture/removerestriction/RemoveCaptureRestrictionPatch$MethodCall;
-	public static final field SetAllowedCapturePolicySingle Lapp/revanced/patches/all/screencapture/removerestriction/RemoveCaptureRestrictionPatch$MethodCall;
-	public fun getDefinedClassName ()Ljava/lang/String;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
-	public fun getMethodName ()Ljava/lang/String;
-	public fun getMethodParams ()[Ljava/lang/String;
-	public fun getReturnType ()Ljava/lang/String;
-	public fun replaceInvokeVirtualWithIntegrations (Ljava/lang/String;Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lcom/android/tools/smali/dexlib2/iface/instruction/formats/Instruction35c;I)V
-	public static fun valueOf (Ljava/lang/String;)Lapp/revanced/patches/all/screencapture/removerestriction/RemoveCaptureRestrictionPatch$MethodCall;
-	public static fun values ()[Lapp/revanced/patches/all/screencapture/removerestriction/RemoveCaptureRestrictionPatch$MethodCall;
+public final class app/revanced/patches/all/screenshot/removerestriction/RemoveScreenshotRestrictionPatchKt {
+	public static final fun getRemoveScreenshotRestrictionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/all/screenshot/removerestriction/RemoveScreenshotRestrictionPatch : app/revanced/patches/all/misc/transformation/BaseTransformInstructionsPatch {
-	public static final field INSTANCE Lapp/revanced/patches/all/screenshot/removerestriction/RemoveScreenshotRestrictionPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public synthetic fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Ljava/lang/Object;
-	public fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Lkotlin/Triple;
-	public synthetic fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Ljava/lang/Object;)V
-	public fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lkotlin/Triple;)V
+public final class app/revanced/patches/all/telephony/sim/spoof/SpoofSimCountryPatchKt {
+	public static final fun getSpoofSimCountryPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/all/screenshot/removerestriction/RemoveScreenshotRestrictionPatch$MethodCall : java/lang/Enum, app/revanced/patches/all/misc/transformation/IMethodCall {
-	public static final field AddFlags Lapp/revanced/patches/all/screenshot/removerestriction/RemoveScreenshotRestrictionPatch$MethodCall;
-	public static final field SetFlags Lapp/revanced/patches/all/screenshot/removerestriction/RemoveScreenshotRestrictionPatch$MethodCall;
-	public fun getDefinedClassName ()Ljava/lang/String;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
-	public fun getMethodName ()Ljava/lang/String;
-	public fun getMethodParams ()[Ljava/lang/String;
-	public fun getReturnType ()Ljava/lang/String;
-	public fun replaceInvokeVirtualWithIntegrations (Ljava/lang/String;Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lcom/android/tools/smali/dexlib2/iface/instruction/formats/Instruction35c;I)V
-	public static fun valueOf (Ljava/lang/String;)Lapp/revanced/patches/all/screenshot/removerestriction/RemoveScreenshotRestrictionPatch$MethodCall;
-	public static fun values ()[Lapp/revanced/patches/all/screenshot/removerestriction/RemoveScreenshotRestrictionPatch$MethodCall;
+public final class app/revanced/patches/amazon/deeplinking/DeepLinkingPatchKt {
+	public static final fun getDeepLinkingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/all/telephony/sim/spoof/SpoofSimCountryPatch : app/revanced/patches/all/misc/transformation/BaseTransformInstructionsPatch {
-	public static final field INSTANCE Lapp/revanced/patches/all/telephony/sim/spoof/SpoofSimCountryPatch;
-	public synthetic fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Ljava/lang/Object;
-	public fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Lkotlin/Pair;
-	public synthetic fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Ljava/lang/Object;)V
-	public fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lkotlin/Pair;)V
+public final class app/revanced/patches/backdrops/misc/pro/ProUnlockPatchKt {
+	public static final fun getProUnlockPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/amazon/deeplinking/DeepLinkingPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/amazon/deeplinking/DeepLinkingPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/candylinkvpn/UnlockProPatchKt {
+	public static final fun getUnlockProPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/backdrops/misc/pro/ProUnlockPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/backdrops/misc/pro/ProUnlockPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/cieid/restrictions/root/BypassRootChecksPatchKt {
+	public static final fun getBypassRootChecksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/candylinkvpn/UnlockProPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/candylinkvpn/UnlockProPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/facebook/ads/story/HideStoryAdsPatchKt {
+	public static final fun getHideStoryAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/cieid/restrictions/root/BypassRootChecksPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/cieid/restrictions/root/BypassRootChecksPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/finanzonline/detection/bootloader/BootloaderDetectionPatchKt {
+	public static final fun getBootloaderDetectionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/facebook/ads/story/HideStoryAdsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/facebook/ads/story/HideStoryAdsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/finanzonline/detection/root/RootDetectionPatchKt {
+	public static final fun getRootDetectionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/finanzonline/detection/bootloader/BootloaderDetectionPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/finanzonline/detection/bootloader/BootloaderDetectionPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/googlerecorder/restrictions/RemoveDeviceRestrictionsKt {
+	public static final fun getRemoveDeviceRestrictionsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/finanzonline/detection/root/RootDetectionPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/finanzonline/detection/root/RootDetectionPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/hexeditor/ad/DisableAdsPatchKt {
+	public static final fun getDisableAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/googlerecorder/restrictions/RemoveDeviceRestrictions : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/googlerecorder/restrictions/RemoveDeviceRestrictions;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/iconpackstudio/misc/pro/UnlockProPatchKt {
+	public static final fun getUnlockProPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/hexeditor/ad/DisableAdsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/hexeditor/ad/DisableAdsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/idaustria/detection/root/RootDetectionPatchKt {
+	public static final fun getRootDetectionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/iconpackstudio/misc/pro/UnlockProPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/iconpackstudio/misc/pro/UnlockProPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/idaustria/detection/signature/SpoofSignaturePatchKt {
+	public static final fun getSpoofSignaturePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/idaustria/detection/root/RootDetectionPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/idaustria/detection/root/RootDetectionPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/inshorts/ad/InshortsAdsPatchKt {
+	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/idaustria/detection/signature/SpoofSignaturePatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/idaustria/detection/signature/SpoofSignaturePatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/instagram/patches/ads/timeline/HideTimelineAdsPatchKt {
+	public static final fun getHideTimelineAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/inshorts/ad/HideAdsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/inshorts/ad/HideAdsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/irplus/ad/RemoveAdsPatchKt {
+	public static final fun getRemoveAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/instagram/patches/ads/timeline/HideTimelineAdsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/instagram/patches/ads/timeline/HideTimelineAdsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/lightroom/misc/login/DisableMandatoryLoginPatchKt {
+	public static final fun getDisableMandatoryLoginPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/irplus/ad/RemoveAdsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/irplus/ad/RemoveAdsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/lightroom/misc/premium/UnlockPremiumPatchKt {
+	public static final fun getUnlockPremiumPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/lightroom/misc/login/DisableMandatoryLoginPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/lightroom/misc/login/DisableMandatoryLoginPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/memegenerator/detection/license/LicenseValidationPatchKt {
+	public static final fun getLicenseValidationPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/lightroom/misc/premium/UnlockPremiumPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/lightroom/misc/premium/UnlockPremiumPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/memegenerator/detection/signature/SignatureVerificationPatchKt {
+	public static final fun getSignatureVerificationPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/memegenerator/detection/license/LicenseValidationPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/memegenerator/detection/license/LicenseValidationPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/memegenerator/misc/pro/UnlockProVersionPatchKt {
+	public static final fun getUnlockProVersionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/memegenerator/detection/signature/SignatureVerificationPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/memegenerator/detection/signature/SignatureVerificationPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/messenger/ads/inbox/patch/HideInboxAdsPatchKt {
+	public static final fun getHideInboxAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/memegenerator/misc/pro/UnlockProVersionPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/memegenerator/misc/pro/UnlockProVersionPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/messenger/inputfield/patch/DisableSwitchingEmojiToStickerPatchKt {
+	public static final fun getDisableSwitchingEmojiToStickerPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/messenger/ads/inbox/patch/HideInboxAdsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/messenger/ads/inbox/patch/HideInboxAdsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/messenger/inputfield/patch/DisableTypingIndicatorPatchKt {
+	public static final fun getDisableTypingIndicatorPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/messenger/inputfield/patch/DisableSwitchingEmojiToStickerPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/messenger/inputfield/patch/DisableSwitchingEmojiToStickerPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/mifitness/misc/locale/ForceEnglishLocalePatchKt {
+	public static final fun getForceEnglishLocalePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/messenger/inputfield/patch/DisableTypingIndicatorPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/messenger/inputfield/patch/DisableTypingIndicatorPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/mifitness/misc/login/FixLoginPatchKt {
+	public static final fun getFixLoginPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/mifitness/misc/locale/ForceEnglishLocalePatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/mifitness/misc/locale/ForceEnglishLocalePatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/moneymanager/UnlockProPatchKt {
+	public static final fun getUnlockProPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/mifitness/misc/login/FixLoginPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/mifitness/misc/login/FixLoginPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/music/ad/video/HideMusicVideoAdsKt {
+	public static final fun getHideMusicVideoAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/moneymanager/UnlockProPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/moneymanager/UnlockProPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/music/audio/codecs/CodecsUnlockPatchKt {
+	public static final fun getCodecsUnlockPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/ad/video/HideMusicVideoAds : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/ad/video/HideMusicVideoAds;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/music/audio/exclusiveaudio/EnableExclusiveAudioPlaybackKt {
+	public static final fun getEnableExclusiveAudioPlaybackPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/ad/video/MusicVideoAdsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/ad/video/MusicVideoAdsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/music/interaction/permanentrepeat/PermanentRepeatPatchKt {
+	public static final fun getPermanentRepeatPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/audio/codecs/CodecsUnlockPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/audio/codecs/CodecsUnlockPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/music/interaction/permanentshuffle/PermanentShufflePatchKt {
+	public static final fun getPermanentShufflePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/audio/exclusiveaudio/EnableExclusiveAudioPlayback : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/audio/exclusiveaudio/EnableExclusiveAudioPlayback;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/music/layout/compactheader/HideCategoryBarKt {
+	public static final fun getHideCategoryBar ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/audio/exclusiveaudio/ExclusiveAudioPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/audio/exclusiveaudio/ExclusiveAudioPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/music/layout/minimizedplayback/MinimizedPlaybackPatchKt {
+	public static final fun getMinimizedPlaybackPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/interaction/permanentrepeat/PermanentRepeatPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/interaction/permanentrepeat/PermanentRepeatPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/music/layout/premium/HideGetPremiumPatchKt {
+	public static final fun getHideGetPremiumPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/interaction/permanentshuffle/PermanentShufflePatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/interaction/permanentshuffle/PermanentShufflePatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/music/layout/upgradebutton/RemoveUpgradeButtonPatchKt {
+	public static final fun getRemoveUpgradeButtonPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/interaction/permanentshuffle/PermanentShuffleTogglePatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/interaction/permanentshuffle/PermanentShuffleTogglePatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/music/layout/compactheader/CompactHeaderPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/layout/compactheader/CompactHeaderPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/music/layout/compactheader/HideCategoryBar : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/layout/compactheader/HideCategoryBar;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/music/layout/minimizedplayback/MinimizedPlaybackPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/layout/minimizedplayback/MinimizedPlaybackPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/music/layout/premium/HideGetPremiumPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/layout/premium/HideGetPremiumPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/music/layout/upgradebutton/RemoveUpgradeButtonPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/layout/upgradebutton/RemoveUpgradeButtonPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/music/misc/androidauto/BypassCertificateChecksPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/misc/androidauto/BypassCertificateChecksPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/music/misc/androidauto/BypassCertificateChecksPatchKt {
+	public static final fun getBypassCertificateChecksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/music/misc/gms/Constants {
 	public static final field INSTANCE Lapp/revanced/patches/music/misc/gms/Constants;
 }
 
-public final class app/revanced/patches/music/misc/gms/GmsCoreSupportPatch : app/revanced/patches/shared/misc/gms/BaseGmsCoreSupportPatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/misc/gms/GmsCoreSupportPatch;
+public final class app/revanced/patches/music/misc/gms/GmsCoreSupportPatchKt {
+	public static final fun getGmsCoreSupportPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/misc/gms/GmsCoreSupportResourcePatch : app/revanced/patches/shared/misc/gms/BaseGmsCoreSupportResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/misc/gms/GmsCoreSupportResourcePatch;
+public final class app/revanced/patches/music/misc/integrations/IntegrationsPatchKt {
+	public static final fun getIntegrationsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/misc/integrations/IntegrationsPatch : app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/misc/integrations/IntegrationsPatch;
+public final class app/revanced/patches/myexpenses/misc/pro/UnlockProPatchKt {
+	public static final fun getUnlockProPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/premium/backgroundplay/BackgroundPlayPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/premium/backgroundplay/BackgroundPlayPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/myfitnesspal/ads/HideAdsPatchKt {
+	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/myexpenses/misc/pro/UnlockProPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/myexpenses/misc/pro/UnlockProPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/myfitnesspal/ads/fingerprints/IsPremiumUseCaseImplFingerprintKt {
+	public static final fun isPremiumUseCaseImplFingerprint ()Lapp/revanced/patcher/fingerprint/MethodFingerprint;
 }
 
-public final class app/revanced/patches/myfitnesspal/ads/HideAdsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/myfitnesspal/ads/HideAdsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/netguard/broadcasts/removerestriction/RemoveBroadcastsRestrictionPatchKt {
+	public static final fun getRemoveBroadcastsRestrictionPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/myfitnesspal/ads/fingerprints/IsPremiumUseCaseImplFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/myfitnesspal/ads/fingerprints/IsPremiumUseCaseImplFingerprint;
+public final class app/revanced/patches/nfctoolsse/misc/pro/UnlockProPatchKt {
+	public static final fun getUnlockProPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/myfitnesspal/ads/fingerprints/MainActivityNavigateToNativePremiumUpsellFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/myfitnesspal/ads/fingerprints/MainActivityNavigateToNativePremiumUpsellFingerprint;
+public final class app/revanced/patches/nyx/misc/pro/UnlockProPatchKt {
+	public static final fun getUnlockProPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/netguard/broadcasts/removerestriction/RemoveBroadcastsRestrictionPatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/netguard/broadcasts/removerestriction/RemoveBroadcastsRestrictionPatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+public final class app/revanced/patches/openinghours/misc/fix/crash/FixCrashPatchKt {
+	public static final fun getFixCrashPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/nfctoolsse/misc/pro/UnlockProPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/nfctoolsse/misc/pro/UnlockProPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/photomath/detection/deviceid/SpoofDeviceIdPatchKt {
+	public static final fun getGetDeviceIdFingerprint ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/nyx/misc/pro/UnlockProPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/nyx/misc/pro/UnlockProPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/photomath/detection/signature/SignatureDetectionPatchKt {
+	public static final fun getSignatureDetectionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/openinghours/misc/fix/crash/FixCrashPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/openinghours/misc/fix/crash/FixCrashPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/photomath/misc/annoyances/HideUpdatePopupPatchKt {
+	public static final fun getHideUpdatePopupPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/photomath/detection/deviceid/SpoofDeviceIdPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/photomath/detection/deviceid/SpoofDeviceIdPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/photomath/misc/unlock/bookpoint/EnableBookpointPatchKt {
+	public static final fun getEnableBookpointPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/photomath/detection/signature/SignatureDetectionPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/photomath/detection/signature/SignatureDetectionPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/photomath/misc/unlock/plus/UnlockPlusPatchKt {
+	public static final fun getUnlockPlusPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/photomath/misc/annoyances/HideUpdatePopupPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/photomath/misc/annoyances/HideUpdatePopupPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/piccomafr/misc/SpoofAndroidDeviceIdPatchKt {
+	public static final fun getSpoofAndroidDeviceIdPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/photomath/misc/unlock/plus/UnlockPlusPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/photomath/misc/unlock/plus/UnlockPlusPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/piccomafr/tracking/DisableTrackingPatchKt {
+	public static final fun getDisableTrackingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/piccomafr/misc/SpoofAndroidDeviceIdPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/piccomafr/misc/SpoofAndroidDeviceIdPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/pixiv/ads/HideAdsPatchKt {
+	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/piccomafr/tracking/DisableTrackingPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/piccomafr/tracking/DisableTrackingPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/reddit/ad/banner/HideBannerPatchKt {
+	public static final fun getHideBannerPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/pixiv/ads/HideAdsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/pixiv/ads/HideAdsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/reddit/ad/comments/HideCommentAdsPatchKt {
+	public static final fun getHideCommentAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/reddit/ad/banner/HideBannerPatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/reddit/ad/banner/HideBannerPatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+public final class app/revanced/patches/reddit/ad/general/HideAdsPatchKt {
+	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/reddit/ad/comments/HideCommentAdsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/reddit/ad/comments/HideCommentAdsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/reddit/customclients/BaseSpoofClientPatchKt {
+	public static final fun spoofClientPatch (Ljava/lang/String;Lkotlin/jvm/functions/Function2;)Lapp/revanced/patcher/patch/BytecodePatch;
+	public static synthetic fun spoofClientPatch$default (Ljava/lang/String;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/reddit/ad/general/HideAdsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/reddit/ad/general/HideAdsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/reddit/customclients/baconreader/api/SpoofClientPatchKt {
+	public static final fun getSpoofClientPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public abstract class app/revanced/patches/reddit/customclients/BaseSpoofClientPatch : app/revanced/patcher/patch/BytecodePatch {
-	public fun <init> (Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public final fun getClientId ()Ljava/lang/String;
-	public fun patchClientId (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
-	public fun patchMiscellaneous (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
-	public fun patchUserAgent (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
-	public final fun setClientId (Ljava/lang/String;)V
+public final class app/revanced/patches/reddit/customclients/boostforreddit/api/SpoofClientPatchKt {
+	public static final fun getSpoofClientPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/reddit/customclients/Constants {
-	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/Constants;
-	public static final field OAUTH_USER_AGENT Ljava/lang/String;
+public final class app/revanced/patches/reddit/customclients/infinityforreddit/api/SpoofClientPatchKt {
+	public static final fun getSpoofClientPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public abstract class app/revanced/patches/reddit/customclients/ads/BaseDisableAdsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public fun <init> (Ljava/util/Set;Ljava/util/Set;)V
-	public synthetic fun <init> (Ljava/util/Set;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/reddit/customclients/infinityforreddit/subscription/UnlockSubscriptionPatchKt {
+	public static final fun getUnlockSubscriptionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/reddit/customclients/baconreader/api/SpoofClientPatch : app/revanced/patches/reddit/customclients/BaseSpoofClientPatch {
-	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/baconreader/api/SpoofClientPatch;
-	public fun patchClientId (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
+public final class app/revanced/patches/reddit/customclients/joeyforreddit/ads/DisableAdsPatchKt {
+	public static final fun getDisableAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/reddit/customclients/boostforreddit/api/SpoofClientPatch : app/revanced/patches/reddit/customclients/BaseSpoofClientPatch {
-	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/boostforreddit/api/SpoofClientPatch;
-	public fun patchClientId (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
+public final class app/revanced/patches/reddit/customclients/joeyforreddit/api/SpoofClientPatchKt {
+	public static final fun getSpoofClientPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/reddit/customclients/infinityforreddit/api/SpoofClientPatch : app/revanced/patches/reddit/customclients/BaseSpoofClientPatch {
-	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/infinityforreddit/api/SpoofClientPatch;
-	public fun patchClientId (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
+public final class app/revanced/patches/reddit/customclients/joeyforreddit/detection/piracy/DisablePiracyDetectionPatchKt {
+	public static final fun getDisablePiracyDetectionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/reddit/customclients/infinityforreddit/subscription/UnlockSubscriptionPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/infinityforreddit/subscription/UnlockSubscriptionPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/reddit/customclients/redditisfun/api/SpoofClientPatchKt {
+	public static final fun getSpoofClientPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/reddit/customclients/joeyforreddit/ads/DisableAdsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/joeyforreddit/ads/DisableAdsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/reddit/customclients/redditisfun/api/fingerprints/BaseClientIdFingerprintKt {
+	public static final fun baseClientIdFingerprint (Ljava/lang/String;)Lapp/revanced/patcher/fingerprint/MethodFingerprint;
 }
 
-public final class app/revanced/patches/reddit/customclients/joeyforreddit/api/SpoofClientPatch : app/revanced/patches/reddit/customclients/BaseSpoofClientPatch {
-	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/joeyforreddit/api/SpoofClientPatch;
-	public fun patchClientId (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
+public final class app/revanced/patches/reddit/customclients/relayforreddit/api/SpoofClientPatchKt {
+	public static final fun getSpoofClientPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/reddit/customclients/joeyforreddit/detection/piracy/DisablePiracyDetectionPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/joeyforreddit/detection/piracy/DisablePiracyDetectionPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/reddit/customclients/slide/api/SpoofClientPatchKt {
+	public static final fun getSpoofClientPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/reddit/customclients/redditisfun/api/SpoofClientPatch : app/revanced/patches/reddit/customclients/BaseSpoofClientPatch {
-	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/redditisfun/api/SpoofClientPatch;
-	public fun patchClientId (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
-	public fun patchMiscellaneous (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
-	public fun patchUserAgent (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
+public final class app/revanced/patches/reddit/customclients/sync/ads/BaseDisableAdsPatchKt {
+	public static final fun disableAdsPatch (Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/BytecodePatch;
+	public static synthetic fun disableAdsPatch$default (Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/reddit/customclients/relayforreddit/api/SpoofClientPatch : app/revanced/patches/reddit/customclients/BaseSpoofClientPatch {
-	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/relayforreddit/api/SpoofClientPatch;
-	public fun patchClientId (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
-	public fun patchMiscellaneous (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
+public final class app/revanced/patches/reddit/customclients/sync/detection/piracy/DisablePiracyDetectionPatchKt {
+	public static final fun getDisablePiracyDetectionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/reddit/customclients/slide/api/SpoofClientPatch : app/revanced/patches/reddit/customclients/BaseSpoofClientPatch {
-	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/slide/api/SpoofClientPatch;
-	public fun patchClientId (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
+public final class app/revanced/patches/reddit/customclients/sync/syncforlemmy/ads/DisableAdsPatchKt {
+	public static final fun getDisableAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/reddit/customclients/syncforlemmy/ads/DisableAdsPatch : app/revanced/patches/reddit/customclients/ads/BaseDisableAdsPatch {
-	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/syncforlemmy/ads/DisableAdsPatch;
+public final class app/revanced/patches/reddit/customclients/sync/syncforreddit/ads/DisableAdsPatchKt {
+	public static final fun getDisableAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/reddit/customclients/syncforreddit/ads/DisableAdsPatch : app/revanced/patches/reddit/customclients/ads/BaseDisableAdsPatch {
-	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/syncforreddit/ads/DisableAdsPatch;
+public final class app/revanced/patches/reddit/customclients/sync/syncforreddit/annoyances/startup/DisableSyncForLemmyBottomSheetPatchKt {
+	public static final fun getDisableSyncForLemmyBottomSheetPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/reddit/customclients/syncforreddit/annoyances/startup/DisableSyncForLemmyBottomSheetPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/syncforreddit/annoyances/startup/DisableSyncForLemmyBottomSheetPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/reddit/customclients/sync/syncforreddit/api/SpoofClientPatchKt {
+	public static final fun getSpoofClientPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/reddit/customclients/syncforreddit/api/SpoofClientPatch : app/revanced/patches/reddit/customclients/BaseSpoofClientPatch {
-	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/syncforreddit/api/SpoofClientPatch;
-	public fun patchClientId (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
-	public fun patchMiscellaneous (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
+public final class app/revanced/patches/reddit/customclients/sync/syncforreddit/fix/slink/FixSLinksPatchKt {
+	public static final fun getFixSLinksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/reddit/customclients/syncforreddit/detection/piracy/DisablePiracyDetectionPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/syncforreddit/detection/piracy/DisablePiracyDetectionPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/reddit/layout/disablescreenshotpopup/DisableScreenshotPopupPatchKt {
+	public static final fun getDisableScreenshotPopupPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/reddit/customclients/syncforreddit/fix/slink/FixSLinksPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/syncforreddit/fix/slink/FixSLinksPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/reddit/layout/premiumicon/UnlockPremiumIconPatchKt {
+	public static final fun getUnlockPremiumIconPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/reddit/layout/disablescreenshotpopup/DisableScreenshotPopupPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/reddit/layout/disablescreenshotpopup/DisableScreenshotPopupPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/reddit/misc/tracking/url/SanitizeUrlQueryPatchKt {
+	public static final fun getSanitizeUrlQueryPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/reddit/layout/premiumicon/UnlockPremiumIconPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/reddit/layout/premiumicon/UnlockPremiumIconPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/scbeasy/detection/debugging/RemoveDebuggingDetectionPatchKt {
+	public static final fun getDebuggingDetectionPatches ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/reddit/misc/tracking/url/SanitizeUrlQueryPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/reddit/misc/tracking/url/SanitizeUrlQueryPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/serviceportalbund/detection/root/RootDetectionPatchKt {
+	public static final fun getRootDetectionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/scbeasy/detection/debugging/RemoveDebuggingDetectionPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/scbeasy/detection/debugging/RemoveDebuggingDetectionPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/shared/misc/fix/verticalscroll/VerticalScrollPatchKt {
+	public static final fun getVerticalScrollPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/serviceportalbund/detection/root/RootDetectionPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/serviceportalbund/detection/root/RootDetectionPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/shared/misc/gms/GmsCoreSupportPatchKt {
+	public static final fun gmsCoreSupportPatch (Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Ljava/util/Set;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Lapp/revanced/patcher/patch/Patch;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/BytecodePatch;
+	public static synthetic fun gmsCoreSupportPatch$default (Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Ljava/util/Set;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Lapp/revanced/patcher/patch/Patch;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/shared/misc/fix/verticalscroll/VerticalScrollPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/shared/misc/fix/verticalscroll/VerticalScrollPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/shared/misc/gms/GmsCoreSupportResourcePatchKt {
+	public static final fun gmsCoreSupportResourcePatch (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/patch/Option;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/ResourcePatch;
+	public static synthetic fun gmsCoreSupportResourcePatch$default (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/patch/Option;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public abstract class app/revanced/patches/shared/misc/gms/BaseGmsCoreSupportPatch : app/revanced/patcher/patch/BytecodePatch {
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Ljava/util/Set;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Lkotlin/reflect/KClass;Lapp/revanced/patches/shared/misc/gms/BaseGmsCoreSupportResourcePatch;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Ljava/util/Set;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Lkotlin/reflect/KClass;Lapp/revanced/patches/shared/misc/gms/BaseGmsCoreSupportResourcePatch;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/shared/misc/gms/fingerprints/GmsCoreSupportFingerprintKt {
+	public static final field GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME Ljava/lang/String;
 }
 
-public abstract class app/revanced/patches/shared/misc/gms/BaseGmsCoreSupportResourcePatch : app/revanced/patcher/patch/ResourcePatch {
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
-	protected final fun getGmsCoreVendor ()Ljava/lang/String;
-	protected final fun getGmsCoreVendorGroupId ()Ljava/lang/String;
+public final class app/revanced/patches/shared/misc/hex/HexPatchKt {
+	public static final fun hexPatch (Ljava/util/Set;)Lapp/revanced/patcher/patch/RawResourcePatch;
 }
 
-public abstract class app/revanced/patches/shared/misc/hex/BaseHexPatch : app/revanced/patcher/patch/RawResourcePatch {
-	public fun <init> ()V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
-	public abstract fun getReplacements ()Ljava/util/List;
-}
-
-public final class app/revanced/patches/shared/misc/hex/BaseHexPatch$Replacement {
-	public static final field Companion Lapp/revanced/patches/shared/misc/hex/BaseHexPatch$Replacement$Companion;
+public final class app/revanced/patches/shared/misc/hex/Replacement {
+	public static final field Companion Lapp/revanced/patches/shared/misc/hex/Replacement$Companion;
 	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 	public final fun replacePattern ([B)V
 }
 
-public final class app/revanced/patches/shared/misc/hex/BaseHexPatch$Replacement$Companion {
+public final class app/revanced/patches/shared/misc/hex/Replacement$Companion {
 }
 
-public abstract class app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public fun <init> (Ljava/lang/String;Ljava/util/Set;)V
-	public fun <init> (Ljava/util/Set;)V
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatchKt {
+	public static final fun integrationsHook (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patches/shared/misc/integrations/IntegrationsHook;
+	public static synthetic fun integrationsHook$default (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patches/shared/misc/integrations/IntegrationsHook;
+	public static final fun integrationsPatch ([Lapp/revanced/patches/shared/misc/integrations/IntegrationsHook;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public abstract class app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch$IntegrationsFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public fun <init> ()V
-	public fun <init> (Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Iterable;Ljava/lang/Iterable;Ljava/lang/Iterable;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Iterable;Ljava/lang/Iterable;Ljava/lang/Iterable;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public fun <init> (Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Iterable;Ljava/lang/Iterable;Ljava/lang/Iterable;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Iterable;Ljava/lang/Iterable;Ljava/lang/Iterable;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+public final class app/revanced/patches/shared/misc/integrations/IntegrationsHook {
+	public final fun getFingerprint ()Lapp/revanced/patcher/fingerprint/MethodFingerprint;
 	public final fun invoke (Ljava/lang/String;)V
 }
 
-public abstract interface class app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch$IntegrationsFingerprint$IHookInsertIndexResolver : kotlin/jvm/functions/Function1 {
-	public abstract fun invoke (Lcom/android/tools/smali/dexlib2/iface/Method;)Ljava/lang/Integer;
-}
-
-public final class app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch$IntegrationsFingerprint$IHookInsertIndexResolver$DefaultImpls {
-	public static fun invoke (Lapp/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch$IntegrationsFingerprint$IHookInsertIndexResolver;Lcom/android/tools/smali/dexlib2/iface/Method;)Ljava/lang/Integer;
-}
-
-public abstract interface class app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch$IntegrationsFingerprint$IRegisterResolver : kotlin/jvm/functions/Function1 {
-	public abstract fun invoke (Lcom/android/tools/smali/dexlib2/iface/Method;)Ljava/lang/Integer;
-}
-
-public final class app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch$IntegrationsFingerprint$IRegisterResolver$DefaultImpls {
-	public static fun invoke (Lapp/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch$IntegrationsFingerprint$IRegisterResolver;Lcom/android/tools/smali/dexlib2/iface/Method;)Ljava/lang/Integer;
-}
-
-public final class app/revanced/patches/shared/misc/mapping/ResourceMappingPatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/shared/misc/mapping/ResourceMappingPatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
-	public final fun get (Ljava/lang/String;Ljava/lang/String;)J
-}
-
-public final class app/revanced/patches/shared/misc/mapping/ResourceMappingPatch$ResourceElement {
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;J)V
+public final class app/revanced/patches/shared/misc/mapping/ResourceElement {
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()J
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;J)Lapp/revanced/patches/shared/misc/mapping/ResourceMappingPatch$ResourceElement;
-	public static synthetic fun copy$default (Lapp/revanced/patches/shared/misc/mapping/ResourceMappingPatch$ResourceElement;Ljava/lang/String;Ljava/lang/String;JILjava/lang/Object;)Lapp/revanced/patches/shared/misc/mapping/ResourceMappingPatch$ResourceElement;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;J)Lapp/revanced/patches/shared/misc/mapping/ResourceElement;
+	public static synthetic fun copy$default (Lapp/revanced/patches/shared/misc/mapping/ResourceElement;Ljava/lang/String;Ljava/lang/String;JILjava/lang/Object;)Lapp/revanced/patches/shared/misc/mapping/ResourceElement;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getId ()J
 	public final fun getName ()Ljava/lang/String;
@@ -757,30 +456,15 @@ public final class app/revanced/patches/shared/misc/mapping/ResourceMappingPatch
 	public fun toString ()Ljava/lang/String;
 }
 
-public abstract class app/revanced/patches/shared/misc/settings/BaseSettingsResourcePatch : app/revanced/patcher/patch/ResourcePatch, java/io/Closeable, java/util/Set, kotlin/jvm/internal/markers/KMutableSet {
-	public fun <init> ()V
-	public fun <init> (Lkotlin/Pair;Ljava/util/Set;)V
-	public synthetic fun <init> (Lkotlin/Pair;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public fun add (Lapp/revanced/patches/shared/misc/settings/preference/BasePreference;)Z
-	public synthetic fun add (Ljava/lang/Object;)Z
-	public fun addAll (Ljava/util/Collection;)Z
-	public fun clear ()V
-	public fun close ()V
-	public fun contains (Lapp/revanced/patches/shared/misc/settings/preference/BasePreference;)Z
-	public final fun contains (Ljava/lang/Object;)Z
-	public fun containsAll (Ljava/util/Collection;)Z
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
-	public fun getSize ()I
-	public fun isEmpty ()Z
-	public fun iterator ()Ljava/util/Iterator;
-	public fun remove (Lapp/revanced/patches/shared/misc/settings/preference/BasePreference;)Z
-	public final fun remove (Ljava/lang/Object;)Z
-	public fun removeAll (Ljava/util/Collection;)Z
-	public fun retainAll (Ljava/util/Collection;)Z
-	public final fun size ()I
-	public fun toArray ()[Ljava/lang/Object;
-	public fun toArray ([Ljava/lang/Object;)[Ljava/lang/Object;
+public final class app/revanced/patches/shared/misc/mapping/ResourceMappingPatchKt {
+	public static final fun get (Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)J
+	public static final fun getResourceMappingPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+	public static final fun getResourceMappings ()Ljava/util/List;
+}
+
+public final class app/revanced/patches/shared/misc/settings/SettingsResourcePatchKt {
+	public static final fun settingsResourcePatch (Lkotlin/Pair;Ljava/util/Set;)Lapp/revanced/patcher/patch/ResourcePatch;
+	public static synthetic fun settingsResourcePatch$default (Lkotlin/Pair;Ljava/util/Set;ILjava/lang/Object;)Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
 public abstract class app/revanced/patches/shared/misc/settings/preference/BasePreference {
@@ -806,7 +490,7 @@ public abstract class app/revanced/patches/shared/misc/settings/preference/BaseP
 	public fun <init> (Ljava/util/Set;)V
 	public synthetic fun <init> (Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun close ()V
-	public abstract fun commit (Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen;)V
+	public abstract fun commit (Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreenPreference;)V
 }
 
 public abstract class app/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$BasePreferenceCollection {
@@ -820,12 +504,12 @@ public abstract class app/revanced/patches/shared/misc/settings/preference/BaseP
 }
 
 public class app/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen : app/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$BasePreferenceCollection {
-	public fun <init> (Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$Sorting;)V
-	public synthetic fun <init> (Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$Sorting;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreenPreference$Sorting;)V
+	public synthetic fun <init> (Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreenPreference$Sorting;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun addPreferences ([Lapp/revanced/patches/shared/misc/settings/preference/BasePreference;)V
 	public final fun getCategories ()Ljava/util/Set;
 	public synthetic fun transform ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreference;
-	public fun transform ()Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen;
+	public fun transform ()Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreenPreference;
 }
 
 public class app/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen$Category : app/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$BasePreferenceCollection {
@@ -881,8 +565,6 @@ public final class app/revanced/patches/shared/misc/settings/preference/ListPref
 public final class app/revanced/patches/shared/misc/settings/preference/NonInteractivePreference : app/revanced/patches/shared/misc/settings/preference/BasePreference {
 	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun getSelectable ()Z
 	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
 }
@@ -894,21 +576,21 @@ public class app/revanced/patches/shared/misc/settings/preference/PreferenceCate
 	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
 }
 
-public class app/revanced/patches/shared/misc/settings/preference/PreferenceScreen : app/revanced/patches/shared/misc/settings/preference/BasePreference {
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$Sorting;Ljava/lang/String;Ljava/util/Set;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$Sorting;Ljava/lang/String;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+public class app/revanced/patches/shared/misc/settings/preference/PreferenceScreenPreference : app/revanced/patches/shared/misc/settings/preference/BasePreference {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreenPreference$Sorting;Ljava/lang/String;Ljava/util/Set;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreenPreference$Sorting;Ljava/lang/String;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun getPreferences ()Ljava/util/Set;
 	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
 }
 
-public final class app/revanced/patches/shared/misc/settings/preference/PreferenceScreen$Sorting : java/lang/Enum {
-	public static final field BY_KEY Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$Sorting;
-	public static final field BY_TITLE Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$Sorting;
-	public static final field UNSORTED Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$Sorting;
+public final class app/revanced/patches/shared/misc/settings/preference/PreferenceScreenPreference$Sorting : java/lang/Enum {
+	public static final field BY_KEY Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreenPreference$Sorting;
+	public static final field BY_TITLE Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreenPreference$Sorting;
+	public static final field UNSORTED Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreenPreference$Sorting;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public final fun getKeySuffix ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$Sorting;
-	public static fun values ()[Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen$Sorting;
+	public static fun valueOf (Ljava/lang/String;)Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreenPreference$Sorting;
+	public static fun values ()[Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreenPreference$Sorting;
 }
 
 public final class app/revanced/patches/shared/misc/settings/preference/SummaryType : java/lang/Enum {
@@ -938,823 +620,576 @@ public final class app/revanced/patches/shared/misc/settings/preference/TextPref
 	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
 }
 
-public final class app/revanced/patches/solidexplorer2/functionality/filesize/RemoveFileSizeLimitPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/solidexplorer2/functionality/filesize/RemoveFileSizeLimitPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/solidexplorer2/functionality/filesize/RemoveFileSizeLimitPatchKt {
+	public static final fun getRemoveFileSizeLimitPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/songpal/badge/BadgeTabPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field ACTIVITY_TAB_DESCRIPTOR Ljava/lang/String;
-	public static final field INSTANCE Lapp/revanced/patches/songpal/badge/BadgeTabPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/songpal/badge/BadgeTabPatchKt {
+	public static final fun getBadgeTabPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/songpal/badge/RemoveNotificationBadgePatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/songpal/badge/RemoveNotificationBadgePatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/songpal/badge/RemoveNotificationBadgePatchKt {
+	public static final fun getRemoveNotificationBadgePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/spotify/layout/theme/CustomThemePatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/spotify/layout/theme/CustomThemePatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+public final class app/revanced/patches/spotify/layout/theme/CustomThemePatchKt {
+	public static final fun getCustomThemePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/spotify/lite/ondemand/OnDemandPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/spotify/lite/ondemand/OnDemandPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/spotify/lite/ondemand/OnDemandPatchKt {
+	public static final fun getOnDemandPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/spotify/navbar/PremiumNavbarTabPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/spotify/navbar/PremiumNavbarTabPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/spotify/navbar/PremiumNavbarTabPatchKt {
+	public static final fun getPremiumNavbarTabPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/spotify/navbar/PremiumNavbarTabResourcePatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/spotify/navbar/PremiumNavbarTabResourcePatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+public final class app/revanced/patches/spotify/navbar/PremiumNavbarTabResourcePatchKt {
+	public static final fun getPremiumNavbarTabResourcePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/strava/subscription/UnlockSubscriptionPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/strava/subscription/UnlockSubscriptionPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/strava/subscription/UnlockSubscriptionPatchKt {
+	public static final fun getUnlockSubscriptionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/strava/upselling/DisableSubscriptionSuggestionsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/strava/upselling/DisableSubscriptionSuggestionsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/strava/upselling/DisableSubscriptionSuggestionsPatchKt {
+	public static final fun getDisableSubscriptionSuggestionsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/ticktick/misc/themeunlock/UnlockProPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/ticktick/misc/themeunlock/UnlockProPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/ticktick/misc/themeunlock/UnlockThemePatchKt {
+	public static final fun getUnlockProPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/tiktok/feedfilter/FeedFilterPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/tiktok/feedfilter/FeedFilterPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/tiktok/feedfilter/FeedFilterPatchKt {
+	public static final fun getFeedFilterPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/tiktok/interaction/cleardisplay/RememberClearDisplayPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/tiktok/interaction/cleardisplay/RememberClearDisplayPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/tiktok/interaction/cleardisplay/RememberClearModePatchKt {
+	public static final fun getRememberClearDisplayPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/tiktok/interaction/downloads/DownloadsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/tiktok/interaction/downloads/DownloadsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/tiktok/interaction/downloads/DownloadsPatchKt {
+	public static final fun getDownloadsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/tiktok/interaction/seekbar/ShowSeekbarPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/tiktok/interaction/seekbar/ShowSeekbarPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/tiktok/interaction/seekbar/ShowSeekbarPatchKt {
+	public static final fun getShowSeekbarPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/tiktok/interaction/speed/PlaybackSpeedPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/tiktok/interaction/speed/PlaybackSpeedPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/tiktok/interaction/speed/PlaybackSpeedPatchKt {
+	public static final fun getPlaybackSpeedPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/tiktok/misc/integrations/IntegrationsPatch : app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch {
-	public static final field INSTANCE Lapp/revanced/patches/tiktok/misc/integrations/IntegrationsPatch;
+public final class app/revanced/patches/tiktok/misc/integrations/IntegrationsPatchKt {
+	public static final fun getIntegrationsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/tiktok/misc/login/disablerequirement/DisableLoginRequirementPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/tiktok/misc/login/disablerequirement/DisableLoginRequirementPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/tiktok/misc/login/disablerequirement/DisableLoginRequirementPatchKt {
+	public static final fun getDisableLoginRequirementPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/tiktok/misc/login/fixgoogle/FixGoogleLoginPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/tiktok/misc/login/fixgoogle/FixGoogleLoginPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/tiktok/misc/login/fixgoogle/FixGoogleLoginPatchKt {
+	public static final fun getFixGoogleLoginPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/tiktok/misc/settings/SettingsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/tiktok/misc/settings/SettingsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/tiktok/misc/settings/SettingsPatchKt {
+	public static final fun getSettingsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/tiktok/misc/spoof/sim/SpoofSimPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/tiktok/misc/spoof/sim/SpoofSimPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/tiktok/misc/spoof/sim/SpoofSimPatchKt {
+	public static final fun getSpoofSimPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/trakt/UnlockProPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/trakt/UnlockProPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/trakt/UnlockProPatchKt {
+	public static final fun getUnlockProPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/tudortmund/lockscreen/patch/ShowOnLockscreenPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/tudortmund/lockscreen/patch/ShowOnLockscreenPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/tudortmund/lockscreen/patch/ShowOnLockscreenPatchKt {
+	public static final fun getShowOnLockscreenPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/tumblr/ads/DisableDashboardAds : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/tumblr/ads/DisableDashboardAds;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/tumblr/ads/DisableDashboardAdsKt {
+	public static final fun getDisableDashboardAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/tumblr/annoyances/adfree/DisableAdFreeBannerPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/tumblr/annoyances/adfree/DisableAdFreeBannerPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/tumblr/annoyances/adfree/DisableAdFreeBannerPatchKt {
+	public static final fun getDisableAdFreeBannerPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/tumblr/annoyances/inappupdate/DisableInAppUpdatePatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/tumblr/annoyances/inappupdate/DisableInAppUpdatePatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/tumblr/annoyances/inappupdate/DisableInAppUpdatePatchKt {
+	public static final fun getDisableInAppUpdatePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/tumblr/annoyances/notifications/DisableBlogNotificationReminderPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/tumblr/annoyances/notifications/DisableBlogNotificationReminderPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/tumblr/annoyances/notifications/DisableBlogNotificationReminderPatchKt {
+	public static final fun getDisableBlogNotificationReminderPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/tumblr/annoyances/popups/DisableGiftMessagePopupPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/tumblr/annoyances/popups/DisableGiftMessagePopupPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/tumblr/annoyances/popups/DisableGiftMessagePopupPatchKt {
+	public static final fun getDisableGiftMessagePopupPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/tumblr/featureflags/OverrideFeatureFlagsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/tumblr/featureflags/OverrideFeatureFlagsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/tumblr/featureflags/OverrideFeatureFlagsPatchKt {
+	public static final fun getOverrideFeatureFlagsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/tumblr/fixes/FixOldVersionsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/tumblr/fixes/FixOldVersionsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/tumblr/fixes/FixOldVersionsPatchKt {
+	public static final fun getFixOldVersionsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/tumblr/live/DisableTumblrLivePatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/tumblr/live/DisableTumblrLivePatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/tumblr/live/DisableTumblrLivePatchKt {
+	public static final fun getDisableTumblrLivePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/tumblr/timelinefilter/TimelineFilterPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/tumblr/timelinefilter/TimelineFilterPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/tumblr/timelinefilter/TimelineFilterPatchKt {
+	public static field addTimelineObjectTypeFilter Lkotlin/jvm/functions/Function1;
+	public static final fun getAddTimelineObjectTypeFilter ()Lkotlin/jvm/functions/Function1;
+	public static final fun getTimelineFilterPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun setAddTimelineObjectTypeFilter (Lkotlin/jvm/functions/Function1;)V
 }
 
-public final class app/revanced/patches/twitch/ad/audio/AudioAdsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/twitch/ad/audio/AudioAdsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/twitch/ad/audio/AudioAdsPatchKt {
+	public static final fun getAudioAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/twitch/ad/embedded/EmbeddedAdsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/twitch/ad/embedded/EmbeddedAdsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/twitch/ad/embedded/EmbeddedAdsPatchKt {
+	public static final fun getEmbeddedAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public abstract class app/revanced/patches/twitch/ad/shared/util/BaseAdPatch : app/revanced/patcher/patch/BytecodePatch {
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	protected final fun blockMethods (Lapp/revanced/patcher/data/BytecodeContext;Ljava/lang/String;[Ljava/lang/String;Lapp/revanced/patches/twitch/ad/shared/util/BaseAdPatch$ReturnMethod;)Z
-	public static synthetic fun blockMethods$default (Lapp/revanced/patches/twitch/ad/shared/util/BaseAdPatch;Lapp/revanced/patcher/data/BytecodeContext;Ljava/lang/String;[Ljava/lang/String;Lapp/revanced/patches/twitch/ad/shared/util/BaseAdPatch$ReturnMethod;ILjava/lang/Object;)Z
-	protected final fun createConditionInstructions (Ljava/lang/String;)Ljava/lang/String;
-	public static synthetic fun createConditionInstructions$default (Lapp/revanced/patches/twitch/ad/shared/util/BaseAdPatch;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
-	public final fun getConditionCall ()Ljava/lang/String;
-	public final fun getSkipLabelName ()Ljava/lang/String;
+public final class app/revanced/patches/twitch/ad/shared/util/AdPatchKt {
+	public static final fun adPatch (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function3;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-protected final class app/revanced/patches/twitch/ad/shared/util/BaseAdPatch$ReturnMethod {
-	public fun <init> ()V
+public final class app/revanced/patches/twitch/ad/shared/util/ReturnMethod {
+	public static final field Companion Lapp/revanced/patches/twitch/ad/shared/util/ReturnMethod$Companion;
 	public fun <init> (CLjava/lang/String;)V
-	public synthetic fun <init> (CLjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1 ()C
-	public final fun component2 ()Ljava/lang/String;
-	public final fun copy (CLjava/lang/String;)Lapp/revanced/patches/twitch/ad/shared/util/BaseAdPatch$ReturnMethod;
-	public static synthetic fun copy$default (Lapp/revanced/patches/twitch/ad/shared/util/BaseAdPatch$ReturnMethod;CLjava/lang/String;ILjava/lang/Object;)Lapp/revanced/patches/twitch/ad/shared/util/BaseAdPatch$ReturnMethod;
-	public fun equals (Ljava/lang/Object;)Z
 	public final fun getReturnType ()C
 	public final fun getValue ()Ljava/lang/String;
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
 }
 
-public final class app/revanced/patches/twitch/ad/video/VideoAdsPatch : app/revanced/patches/twitch/ad/shared/util/BaseAdPatch {
-	public static final field INSTANCE Lapp/revanced/patches/twitch/ad/video/VideoAdsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/twitch/ad/shared/util/ReturnMethod$Companion {
+	public final fun getDefault ()Lapp/revanced/patches/twitch/ad/shared/util/ReturnMethod;
 }
 
-public final class app/revanced/patches/twitch/chat/antidelete/ShowDeletedMessagesPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/twitch/chat/antidelete/ShowDeletedMessagesPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/twitch/ad/video/VideoAdsPatchKt {
+	public static final fun getVideoAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/twitch/chat/autoclaim/AutoClaimChannelPointsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/twitch/chat/autoclaim/AutoClaimChannelPointsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/twitch/chat/antidelete/ShowDeletedMessagesPatchKt {
+	public static final fun getShowDeletedMessagesPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/twitch/debug/DebugModePatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/twitch/debug/DebugModePatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/twitch/chat/autoclaim/AutoClaimChannelPointsPatchKt {
+	public static final fun getAutoClaimChannelPointsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/twitch/misc/integrations/IntegrationsPatch : app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch {
-	public static final field INSTANCE Lapp/revanced/patches/twitch/misc/integrations/IntegrationsPatch;
+public final class app/revanced/patches/twitch/debug/DebugModePatchKt {
+	public static final fun getDebugModePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/twitch/misc/settings/SettingsPatch : app/revanced/patcher/patch/BytecodePatch, java/io/Closeable {
-	public static final field INSTANCE Lapp/revanced/patches/twitch/misc/settings/SettingsPatch;
+public final class app/revanced/patches/twitch/misc/integrations/IntegrationsPatchKt {
+	public static final fun getIntegrationsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/twitch/misc/settings/SettingsPatchKt {
+	public static final fun getPreferences ()Ljava/util/Set;
+	public static final fun getSettingsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/twitter/interaction/downloads/UnlockDownloadsPatchKt {
+	public static final fun getUnlockDownloadsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/twitter/layout/viewcount/HideViewCountPatchKt {
+	public static final fun getHideViewCountPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/twitter/misc/dynamiccolor/DynamicColorPatchKt {
+	public static final fun getDynamicColorPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+}
+
+public final class app/revanced/patches/twitter/misc/hook/json/JsonHook {
+	public fun <init> (Lapp/revanced/patcher/patch/BytecodePatchContext;Ljava/lang/String;)V
+}
+
+public final class app/revanced/patches/twitter/misc/hook/json/JsonHookPatchHook : java/io/Closeable {
+	public fun <init> (Lapp/revanced/patcher/fingerprint/MethodFingerprint;)V
+	public final fun addHook (Lapp/revanced/patches/twitter/misc/hook/json/JsonHook;)V
 	public fun close ()V
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/twitch/misc/settings/SettingsResourcePatch : app/revanced/patches/shared/misc/settings/BaseSettingsResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/twitch/misc/settings/SettingsResourcePatch;
+public final class app/revanced/patches/twitter/misc/hook/json/JsonHookPatchKt {
+	public static final fun getJsonHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/twitter/interaction/downloads/UnlockDownloadsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/twitter/interaction/downloads/UnlockDownloadsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/twitter/misc/hook/patch/BaseHookPatchKt {
+	public static final fun hookPatch (Ljava/lang/String;Ljava/lang/String;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/twitter/layout/viewcount/HideViewCountPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/twitter/layout/viewcount/HideViewCountPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/twitter/misc/hook/patch/HideAdsHookPatchKt {
+	public static final fun getHideAdsHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/twitter/misc/dynamiccolor/DynamicColorPatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/twitter/misc/dynamiccolor/DynamicColorPatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+public final class app/revanced/patches/twitter/misc/hook/patch/HideRecommendedUsersPatchKt {
+	public static final fun getHideRecommendedUsersPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/twitter/misc/hook/json/JsonHookPatch : app/revanced/patcher/patch/BytecodePatch, java/io/Closeable {
-	public static final field INSTANCE Lapp/revanced/patches/twitter/misc/hook/json/JsonHookPatch;
-	public fun close ()V
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/twitter/misc/links/OpenLinksWithAppChooserPatchKt {
+	public static final fun getOpenLinksWithAppChooserPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public abstract class app/revanced/patches/twitter/misc/hook/patch/BaseHookPatch : app/revanced/patcher/patch/BytecodePatch {
-	public fun <init> (Ljava/lang/String;)V
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/twitter/misc/links/SanitizeSharingLinksPatchKt {
+	public static final fun getSanitizeSharingLinksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/twitter/misc/hook/patch/ads/HideAdsHookPatch : app/revanced/patches/twitter/misc/hook/patch/BaseHookPatch {
-	public static final field INSTANCE Lapp/revanced/patches/twitter/misc/hook/patch/ads/HideAdsHookPatch;
+public final class app/revanced/patches/vsco/misc/pro/UnlockProPatchKt {
+	public static final fun getUnlockProPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/twitter/misc/hook/patch/recommendation/HideRecommendedUsersPatch : app/revanced/patches/twitter/misc/hook/patch/BaseHookPatch {
-	public static final field INSTANCE Lapp/revanced/patches/twitter/misc/hook/patch/recommendation/HideRecommendedUsersPatch;
+public final class app/revanced/patches/warnwetter/misc/firebasegetcert/FirebaseGetCertPatchKt {
+	public static final fun getFirebaseGetCertPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/twitter/misc/links/OpenLinksWithAppChooserPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/twitter/misc/links/OpenLinksWithAppChooserPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/warnwetter/misc/promocode/PromoCodeUnlockPatchKt {
+	public static final fun getPromoCodeUnlockPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/twitter/misc/links/SanitizeSharingLinksPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/twitter/misc/links/SanitizeSharingLinksPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/windyapp/misc/unlockpro/UnlockProPatchKt {
+	public static final fun getUnlockProPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/vsco/misc/pro/UnlockProPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/vsco/misc/pro/UnlockProPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/ad/general/HideAdsPatchKt {
+	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/warnwetter/misc/firebasegetcert/FirebaseGetCertPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/warnwetter/misc/firebasegetcert/FirebaseGetCertPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/ad/general/HideAdsResourcePatchKt {
+	public static final fun getHideAdsResourcePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/warnwetter/misc/promocode/PromoCodeUnlockPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/warnwetter/misc/promocode/PromoCodeUnlockPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/ad/getpremium/HideGetPremiumPatchKt {
+	public static final fun getHideGetPremiumPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/windyapp/misc/unlockpro/UnlockProPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/windyapp/misc/unlockpro/UnlockProPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/ad/video/VideoAdsPatchKt {
+	public static final fun getVideoAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/ad/general/HideAdsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/ad/general/HideAdsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/interaction/copyvideourl/CopyVideoUrlBytecodePatchKt {
+	public static final fun getCopyVideoUrlBytecodePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/ad/general/HideAdsResourcePatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/ad/general/HideAdsResourcePatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+public final class app/revanced/patches/youtube/interaction/copyvideourl/CopyVideoUrlResourcePatchKt {
+	public static final fun getCopyVideoUrlResourcePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/youtube/ad/getpremium/HideGetPremiumPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/ad/getpremium/HideGetPremiumPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/interaction/dialog/RemoveViewerDiscretionDialogPatchKt {
+	public static final fun getRemoveViewerDiscretionDialogPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/ad/video/VideoAdsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/ad/video/VideoAdsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/interaction/downloads/DownloadsPatchKt {
+	public static final fun getDownloadsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/interaction/copyvideourl/CopyVideoUrlBytecodePatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/interaction/copyvideourl/CopyVideoUrlBytecodePatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/interaction/downloads/DownloadsResourcePatchKt {
+	public static final fun getDownloadsResourcePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/youtube/interaction/dialog/RemoveViewerDiscretionDialogPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/interaction/dialog/RemoveViewerDiscretionDialogPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/interaction/seekbar/DisablePreciseSeekingGesturePatchKt {
+	public static final fun getDisablePreciseSeekingGesturePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/interaction/downloads/DownloadsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/interaction/downloads/DownloadsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/interaction/seekbar/EnableSeekbarTappingPatchKt {
+	public static final fun getEnableSeekbarTappingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/interaction/seekbar/DisablePreciseSeekingGesturePatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/interaction/seekbar/DisablePreciseSeekingGesturePatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/interaction/seekbar/EnableSlideToSeekPatchKt {
+	public static final fun getEnableSlideToSeekPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/interaction/seekbar/EnableSeekbarTappingPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/interaction/seekbar/EnableSeekbarTappingPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/interaction/swipecontrols/SwipeControlsBytecodePatchKt {
+	public static final fun getSwipeControlsBytecodePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/interaction/seekbar/EnableSlideToSeekPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/interaction/seekbar/EnableSlideToSeekPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/interaction/swipecontrols/SwipeControlsResourcePatchKt {
+	public static final fun getSwipeControlsResourcePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/youtube/interaction/swipecontrols/SwipeControlsBytecodePatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/interaction/swipecontrols/SwipeControlsBytecodePatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/autocaptions/AutoCaptionsPatchKt {
+	public static final fun getAutoCaptionsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/autocaptions/AutoCaptionsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/autocaptions/AutoCaptionsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/branding/CustomBrandingPatchKt {
+	public static final fun getCustomBrandingPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/branding/CustomBrandingPatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/branding/CustomBrandingPatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+public final class app/revanced/patches/youtube/layout/branding/header/ChangeHeaderPatchKt {
+	public static final fun getChangeHeaderPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/branding/header/ChangeHeaderPatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/branding/header/ChangeHeaderPatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+public final class app/revanced/patches/youtube/layout/buttons/action/HideButtonsPatchKt {
+	public static final fun getHideButtonsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/branding/header/PremiumHeadingPatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/branding/header/PremiumHeadingPatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+public final class app/revanced/patches/youtube/layout/buttons/autoplay/HideAutoplayButtonPatchKt {
+	public static final fun getHideAutoplayButtonPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/buttons/action/HideButtonsPatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/buttons/action/HideButtonsPatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+public final class app/revanced/patches/youtube/layout/buttons/captions/HideCaptionsButtonPatchKt {
+	public static final fun getHideCaptionsButtonPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/buttons/autoplay/HideAutoplayButtonPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/buttons/autoplay/HideAutoplayButtonPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/buttons/cast/HideCastButtonPatchKt {
+	public static final fun getHideCastButtonPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/buttons/captions/HideCaptionsButtonPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/buttons/captions/HideCaptionsButtonPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/buttons/navigation/NavigationButtonsPatchKt {
+	public static final fun getNavigationButtonsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/buttons/cast/HideCastButtonPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/buttons/cast/HideCastButtonPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/buttons/player/hide/HidePlayerButtonsPatchKt {
+	public static final fun getHidePlayerButtonsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/buttons/navigation/NavigationButtonsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/buttons/navigation/NavigationButtonsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/hide/albumcards/AlbumCardsPatchKt {
+	public static final fun getAlbumCardsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/buttons/player/hide/HidePlayerButtonsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/buttons/player/hide/HidePlayerButtonsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/hide/albumcards/AlbumCardsResourcePatchKt {
+	public static final fun getAlbumCardsResourcePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/hide/albumcards/AlbumCardsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/albumcards/AlbumCardsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/hide/breakingnews/BreakingNewsPatchKt {
+	public static final fun getBreakingNewsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/hide/breakingnews/BreakingNewsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/breakingnews/BreakingNewsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/hide/comments/CommentsPatchKt {
+	public static final fun getCommentsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/hide/comments/CommentsPatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/comments/CommentsPatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+public final class app/revanced/patches/youtube/layout/hide/crowdfundingbox/CrowdfundingBoxPatchKt {
+	public static final fun getCrowdfundingBoxPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/hide/crowdfundingbox/CrowdfundingBoxPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/crowdfundingbox/CrowdfundingBoxPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/hide/crowdfundingbox/CrowdfundingBoxResourcePatchKt {
+	public static final fun getCrowdfundingBoxId ()J
+	public static final fun getCrowdfundingBoxResourcePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+	public static final fun setCrowdfundingBoxId (J)V
 }
 
-public final class app/revanced/patches/youtube/layout/hide/endscreencards/HideEndscreenCardsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/endscreencards/HideEndscreenCardsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/hide/endscreencards/HideEndscreenCardsPatchKt {
+	public static final fun getHideEndscreenCardsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/hide/filterbar/HideFilterBarPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/filterbar/HideFilterBarPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/hide/endscreencards/HideEndscreenCardsResourcePatchKt {
+	public static final fun getHideEndscreenCardsResourcePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/hide/floatingmicrophone/HideFloatingMicrophoneButtonPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/floatingmicrophone/HideFloatingMicrophoneButtonPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/hide/filterbar/HideFilterBarPatchKt {
+	public static final fun getHideFilterBarPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/hide/fullscreenambientmode/DisableFullscreenAmbientModePatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/fullscreenambientmode/DisableFullscreenAmbientModePatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/hide/filterbar/HideFilterBarResourcePatchKt {
+	public static final fun getHideFilterBarResourcePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/hide/general/HideLayoutComponentsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/general/HideLayoutComponentsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/hide/floatingmicrophone/HideFloatingMicrophoneButtonPatchKt {
+	public static final fun getHideFloatingMicrophoneButtonPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/hide/infocards/HideInfoCardsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/infocards/HideInfoCardsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/hide/fullscreenambientmode/DisableFullscreenAmbientModePatchKt {
+	public static final fun getDisableFullscreenAmbientModePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/hide/infocards/HideInfocardsResourcePatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/infocards/HideInfocardsResourcePatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+public final class app/revanced/patches/youtube/layout/hide/general/HideLayoutComponentsPatchKt {
+	public static final fun getHideLayoutComponentsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/hide/loadmorebutton/HideLoadMoreButtonPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/loadmorebutton/HideLoadMoreButtonPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/hide/infocards/HideInfoCardsPatchKt {
+	public static final fun getHideInfoCardsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/hide/player/flyoutmenupanel/HidePlayerFlyoutMenuPatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/player/flyoutmenupanel/HidePlayerFlyoutMenuPatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+public final class app/revanced/patches/youtube/layout/hide/player/flyoutmenupanel/HidePlayerFlyoutMenuPatchKt {
+	public static final fun getHidePlayerFlyoutMenuPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/hide/rollingnumber/DisableRollingNumberAnimationPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/rollingnumber/DisableRollingNumberAnimationPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/hide/rollingnumber/DisableRollingNumberAnimationPatchKt {
+	public static final fun getDisableRollingNumberAnimationPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/hide/seekbar/HideSeekbarPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/seekbar/HideSeekbarPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/hide/seekbar/HideSeekbarPatchKt {
+	public static final fun getHideSeekbarPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/hide/shorts/HideShortsComponentsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/shorts/HideShortsComponentsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/hide/shorts/HideShortsComponentsPatchKt {
+	public static final fun getHideShortsComponentsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/hide/shorts/HideShortsComponentsResourcePatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/shorts/HideShortsComponentsResourcePatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+public final class app/revanced/patches/youtube/layout/hide/suggestedvideoendscreen/DisableSuggestedVideoEndScreenPatchKt {
+	public static final fun getDisableSuggestedVideoEndScreenPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/hide/suggestedvideoendscreen/DisableSuggestedVideoEndScreenPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/suggestedvideoendscreen/DisableSuggestedVideoEndScreenPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/hide/time/HideTimestampPatchKt {
+	public static final fun getHideTimestampPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/hide/time/HideTimestampPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/hide/time/HideTimestampPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/panels/popup/PlayerPopupPanelsPatchKt {
+	public static final fun getPlayerPopupPanelsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/panels/popup/PlayerPopupPanelsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/panels/popup/PlayerPopupPanelsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/player/background/PlayerControlsBackgroundPatchKt {
+	public static final fun getPlayerControlsBackgroundPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/player/background/PlayerControlsBackgroundPatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/player/background/PlayerControlsBackgroundPatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+public final class app/revanced/patches/youtube/layout/player/overlay/CustomPlayerOverlayOpacityPatchKt {
+	public static final fun getCustomPlayerOverlayOpacityPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/player/overlay/CustomPlayerOverlayOpacityPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/player/overlay/CustomPlayerOverlayOpacityPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/returnyoutubedislike/ReturnYouTubeDislikePatchKt {
+	public static final fun getReturnYouTubeDislikePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/returnyoutubedislike/ReturnYouTubeDislikePatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/returnyoutubedislike/ReturnYouTubeDislikePatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/returnyoutubedislike/Vote : java/lang/Enum {
+	public static final field DISLIKE Lapp/revanced/patches/youtube/layout/returnyoutubedislike/Vote;
+	public static final field LIKE Lapp/revanced/patches/youtube/layout/returnyoutubedislike/Vote;
+	public static final field REMOVE_LIKE Lapp/revanced/patches/youtube/layout/returnyoutubedislike/Vote;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lapp/revanced/patches/youtube/layout/returnyoutubedislike/Vote;
+	public static fun values ()[Lapp/revanced/patches/youtube/layout/returnyoutubedislike/Vote;
 }
 
-public final class app/revanced/patches/youtube/layout/searchbar/WideSearchbarPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/searchbar/WideSearchbarPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/searchbar/WideSearchbarPatchKt {
+	public static final fun getWideSearchbarPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/seekbar/RestoreOldSeekbarThumbnailsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/seekbar/RestoreOldSeekbarThumbnailsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/seekbar/RestoreOldSeekbarThumbnailsPatchKt {
+	public static final fun getRestoreOldSeekbarThumbnailsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/sponsorblock/SponsorBlockBytecodePatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/sponsorblock/SponsorBlockBytecodePatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/seekbar/SeekbarColorBytecodePatchKt {
+	public static final fun getSeekbarColorBytecodePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/spoofappversion/SpoofAppVersionPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/spoofappversion/SpoofAppVersionPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/sponsorblock/SponsorBlockBytecodePatchKt {
+	public static final fun getSponsorBlockBytecodePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/startpage/ChangeStartPagePatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/startpage/ChangeStartPagePatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/spoofappversion/SpoofAppVersionPatchKt {
+	public static final fun getSpoofAppVersionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/startpage/fingerprints/StartActivityFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/startpage/fingerprints/StartActivityFingerprint;
+public final class app/revanced/patches/youtube/layout/startpage/ChangeStartPagePatchKt {
+	public static final fun getChangeStartPagePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/startupshortsreset/DisableResumingShortsOnStartupPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/startupshortsreset/DisableResumingShortsOnStartupPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/startupshortsreset/DisableResumingShortsOnStartupPatchKt {
+	public static final fun getDisableResumingShortsOnStartupPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/startupshortsreset/fingerprints/UserWasInShortsFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/startupshortsreset/fingerprints/UserWasInShortsFingerprint;
+public final class app/revanced/patches/youtube/layout/tablet/EnableTabletLayoutPatchKt {
+	public static final fun getEnableTabletLayoutPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/tablet/EnableTabletLayoutPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/tablet/EnableTabletLayoutPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/tabletminiplayer/TabletMiniPlayerPatchKt {
+	public static final fun getTabletMiniPlayerPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/tabletminiplayer/TabletMiniPlayerPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/tabletminiplayer/TabletMiniPlayerPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/theme/LithoColorHookPatchKt {
+	public static final fun getLithoColorHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun getLithoColorOverrideHook ()Lkotlin/jvm/functions/Function2;
 }
 
-public final class app/revanced/patches/youtube/layout/theme/ThemeBytecodePatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/theme/ThemeBytecodePatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/theme/ThemeBytecodePatchKt {
+	public static final fun getThemePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/thumbnails/AlternativeThumbnailsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/thumbnails/AlternativeThumbnailsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/layout/thumbnails/AlternativeThumbnailsPatchKt {
+	public static final fun getAlternativeThumbnailsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/misc/announcements/AnnouncementsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/announcements/AnnouncementsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/misc/announcements/AnnouncementsPatchKt {
+	public static final fun getAnnouncementsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/misc/autorepeat/AutoRepeatPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/autorepeat/AutoRepeatPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/misc/autorepeat/AutoRepeatPatchKt {
+	public static final fun getAutoRepeatPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/misc/debugging/DebuggingPatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/debugging/DebuggingPatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+public final class app/revanced/patches/youtube/misc/debugging/EnableDebuggingPatchKt {
+	public static final fun getEnableDebuggingPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/youtube/misc/dimensions/spoof/SpoofDeviceDimensionsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/dimensions/spoof/SpoofDeviceDimensionsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/misc/dimensions/spoof/SpoofDeviceDimensionsPatchKt {
+	public static final fun getSpoofDeviceDimensionsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/misc/fix/playback/SpoofClientPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/fix/playback/SpoofClientPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/misc/fix/playback/SpoofClientPatchKt {
+	public static final fun getSpoofClientPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/misc/fix/playback/SpoofSignaturePatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/fix/playback/SpoofSignaturePatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/misc/fix/playback/UserAgentClientSpoofPatchKt {
+	public static final fun getUserAgentClientSpoofPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/misc/fix/playback/SpoofSignatureResourcePatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/fix/playback/SpoofSignatureResourcePatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+public final class app/revanced/patches/youtube/misc/gms/GmsCoreSupportPatchKt {
+	public static final fun getGmsCoreSupportPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/misc/fix/playback/UserAgentClientSpoofPatch : app/revanced/patches/all/misc/transformation/BaseTransformInstructionsPatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/fix/playback/UserAgentClientSpoofPatch;
-	public synthetic fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Ljava/lang/Object;
-	public fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Lkotlin/Triple;
-	public synthetic fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Ljava/lang/Object;)V
-	public fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lkotlin/Triple;)V
+public final class app/revanced/patches/youtube/misc/integrations/IntegrationsPatchKt {
+	public static final fun getIntegrationsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/misc/gms/GmsCoreSupportPatch : app/revanced/patches/shared/misc/gms/BaseGmsCoreSupportPatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/gms/GmsCoreSupportPatch;
+public final class app/revanced/patches/youtube/misc/links/BypassURLRedirectsPatchKt {
+	public static final fun getBypassURLRedirectsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/misc/gms/GmsCoreSupportResourcePatch : app/revanced/patches/shared/misc/gms/BaseGmsCoreSupportResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/gms/GmsCoreSupportResourcePatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+public final class app/revanced/patches/youtube/misc/links/OpenLinksExternallyPatchKt {
+	public static final fun getOpenLinksExternallyPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/misc/integrations/IntegrationsPatch : app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/integrations/IntegrationsPatch;
+public final class app/revanced/patches/youtube/misc/litho/filter/LithoFilterPatchKt {
+	public static final fun getAddLithoFilter ()Lkotlin/jvm/functions/Function1;
+	public static final fun getLithoFilterPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/misc/links/BypassURLRedirectsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/links/BypassURLRedirectsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/misc/minimizedplayback/MinimizedPlaybackPatchKt {
+	public static final fun getMinimizedPlaybackPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/misc/links/OpenLinksExternallyPatch : app/revanced/patches/all/misc/transformation/BaseTransformInstructionsPatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/links/OpenLinksExternallyPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public synthetic fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Ljava/lang/Object;
-	public fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Lkotlin/Pair;
-	public synthetic fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Ljava/lang/Object;)V
-	public fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lkotlin/Pair;)V
+public final class app/revanced/patches/youtube/misc/navigation/NavigationBarHookPatchKt {
+	public static field hookNavigationButtonCreated Lkotlin/jvm/functions/Function1;
+	public static final fun getHookNavigationButtonCreated ()Lkotlin/jvm/functions/Function1;
+	public static final fun getNavigationBarHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun setHookNavigationButtonCreated (Lkotlin/jvm/functions/Function1;)V
 }
 
-public final class app/revanced/patches/youtube/misc/litho/filter/LithoFilterPatch : app/revanced/patcher/patch/BytecodePatch, java/io/Closeable {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/litho/filter/LithoFilterPatch;
-	public fun close ()V
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/misc/playercontrols/BottomControlsPatchKt {
+	public static final fun getAddBottomControls ()Lkotlin/jvm/functions/Function1;
+	public static final fun getBottomControlsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/youtube/misc/minimizedplayback/MinimizedPlaybackPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/minimizedplayback/MinimizedPlaybackPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/misc/playercontrols/PlayerControlsPatchKt {
+	public static final fun getPlayerControlsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun getShowPlayerControlsFingerprintResult ()Lapp/revanced/patcher/fingerprint/MethodFingerprintResult;
+	public static final fun initializeControl (Ljava/lang/String;)V
+	public static final fun injectVisibilityCheckCall (Ljava/lang/String;)V
 }
 
-public final class app/revanced/patches/youtube/misc/navigation/NavigationBarHookPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/navigation/NavigationBarHookPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public final fun getHookNavigationButtonCreated ()Lkotlin/jvm/functions/Function1;
+public final class app/revanced/patches/youtube/misc/playertype/PlayerTypeHookPatchKt {
+	public static final fun getPlayerTypeHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/misc/playercontrols/BottomControlsResourcePatch : app/revanced/patcher/patch/ResourcePatch, java/io/Closeable {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/playercontrols/BottomControlsResourcePatch;
-	public final fun addControls (Ljava/lang/String;)V
-	public fun close ()V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+public final class app/revanced/patches/youtube/misc/privacy/RemoveTrackingQueryParameterPatchKt {
+	public static final fun getRemoveTrackingQueryParameterPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/misc/playercontrols/PlayerControlsBytecodePatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/playercontrols/PlayerControlsBytecodePatch;
-	public static field showPlayerControlsFingerprintResult Lapp/revanced/patcher/fingerprint/MethodFingerprintResult;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public final fun getShowPlayerControlsFingerprintResult ()Lapp/revanced/patcher/fingerprint/MethodFingerprintResult;
-	public final fun initializeControl (Ljava/lang/String;)V
-	public final fun injectVisibilityCheckCall (Ljava/lang/String;)V
-	public final fun setShowPlayerControlsFingerprintResult (Lapp/revanced/patcher/fingerprint/MethodFingerprintResult;)V
+public final class app/revanced/patches/youtube/misc/recyclerviewtree/hook/RecyclerViewTreeHookPatchKt {
+	public static final fun getAddRecyclerViewTreeHook ()Lkotlin/jvm/functions/Function1;
+	public static final fun getRecyclerViewTreeHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/misc/playeroverlay/PlayerOverlaysHookPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/playeroverlay/PlayerOverlaysHookPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/youtube/misc/playertype/PlayerTypeHookPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/playertype/PlayerTypeHookPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/youtube/misc/privacy/RemoveTrackingQueryParameterPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/privacy/RemoveTrackingQueryParameterPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/youtube/misc/settings/SettingsPatch : app/revanced/patcher/patch/BytecodePatch, java/io/Closeable {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/settings/SettingsPatch;
-	public fun close ()V
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public final fun newIntent (Ljava/lang/String;)Lapp/revanced/patches/shared/misc/settings/preference/IntentPreference$Intent;
-}
-
-public final class app/revanced/patches/youtube/misc/settings/SettingsPatch$PreferenceScreen : app/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/settings/SettingsPatch$PreferenceScreen;
-	public fun commit (Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreen;)V
+public final class app/revanced/patches/youtube/misc/settings/PreferenceScreen : app/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/settings/PreferenceScreen;
+	public fun commit (Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreenPreference;)V
 	public final fun getADS ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
 	public final fun getALTERNATIVE_THUMBNAILS ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
 	public final fun getFEED ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
@@ -1767,109 +1202,81 @@ public final class app/revanced/patches/youtube/misc/settings/SettingsPatch$Pref
 	public final fun getVIDEO ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
 }
 
-public final class app/revanced/patches/youtube/misc/settings/SettingsResourcePatch : app/revanced/patches/shared/misc/settings/BaseSettingsResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/settings/SettingsResourcePatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+public final class app/revanced/patches/youtube/misc/settings/SettingsPatchKt {
+	public static final fun getSettingsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun newIntent (Ljava/lang/String;)Lapp/revanced/patches/shared/misc/settings/preference/IntentPreference$Intent;
 }
 
-public final class app/revanced/patches/youtube/misc/zoomhaptics/ZoomHapticsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/zoomhaptics/ZoomHapticsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/misc/settings/SettingsResourcePatchKt {
+	public static final fun getPreferences ()Ljava/util/Set;
+	public static final fun getSettingsResourcePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/youtube/video/hdrbrightness/HDRBrightnessPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/video/hdrbrightness/HDRBrightnessPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/misc/zoomhaptics/ZoomHapticsPatchKt {
+	public static final fun getZoomHapticsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/video/information/VideoInformationPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/video/information/VideoInformationPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/shared/fingerprints/RollingNumberTextViewAnimationUpdateFingerprintKt {
+	public static final fun getRollingNumberTextViewAnimationUpdateFingerprint ()Lapp/revanced/patcher/fingerprint/MethodFingerprint;
 }
 
-public final class app/revanced/patches/youtube/video/playerresponse/PlayerResponseMethodHookPatch : app/revanced/patcher/patch/BytecodePatch, java/io/Closeable, java/util/Set, kotlin/jvm/internal/markers/KMutableSet {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/video/playerresponse/PlayerResponseMethodHookPatch;
-	public fun add (Lapp/revanced/patches/youtube/video/playerresponse/PlayerResponseMethodHookPatch$Hook;)Z
-	public synthetic fun add (Ljava/lang/Object;)Z
-	public fun addAll (Ljava/util/Collection;)Z
-	public fun clear ()V
-	public fun close ()V
-	public fun contains (Lapp/revanced/patches/youtube/video/playerresponse/PlayerResponseMethodHookPatch$Hook;)Z
-	public final fun contains (Ljava/lang/Object;)Z
-	public fun containsAll (Ljava/util/Collection;)Z
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun getSize ()I
-	public fun isEmpty ()Z
-	public fun iterator ()Ljava/util/Iterator;
-	public fun remove (Lapp/revanced/patches/youtube/video/playerresponse/PlayerResponseMethodHookPatch$Hook;)Z
-	public final fun remove (Ljava/lang/Object;)Z
-	public fun removeAll (Ljava/util/Collection;)Z
-	public fun retainAll (Ljava/util/Collection;)Z
-	public final fun size ()I
-	public fun toArray ()[Ljava/lang/Object;
-	public fun toArray ([Ljava/lang/Object;)[Ljava/lang/Object;
+public final class app/revanced/patches/youtube/video/information/VideoInformationPatchKt {
+	public static final fun getSetPlaybackSpeedClassFieldReference ()Ljava/lang/String;
+	public static final fun getSetPlaybackSpeedContainerClassFieldReference ()Ljava/lang/String;
+	public static final fun getSetPlaybackSpeedMethodReference ()Ljava/lang/String;
+	public static final fun getVideoInformationPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun playerControllerOnCreateHook (Ljava/lang/String;Ljava/lang/String;)V
+	public static final fun userSelectedPlaybackSpeedHook (Ljava/lang/String;Ljava/lang/String;)V
+	public static final fun videoTimeHook (Ljava/lang/String;Ljava/lang/String;)V
 }
 
-public final class app/revanced/patches/youtube/video/quality/RememberVideoQualityPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/video/quality/RememberVideoQualityPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public abstract class app/revanced/patches/youtube/video/playerresponse/Hook {
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun toString ()Ljava/lang/String;
 }
 
-public final class app/revanced/patches/youtube/video/speed/PlaybackSpeedPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/video/speed/PlaybackSpeedPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/video/playerresponse/Hook$ProtoBufferParameter : app/revanced/patches/youtube/video/playerresponse/Hook {
+	public fun <init> (Ljava/lang/String;)V
 }
 
-public final class app/revanced/patches/youtube/video/speed/custom/CustomPlaybackSpeedPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/video/speed/custom/CustomPlaybackSpeedPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/video/playerresponse/Hook$ProtoBufferParameterBeforeVideoId : app/revanced/patches/youtube/video/playerresponse/Hook {
+	public fun <init> (Ljava/lang/String;)V
 }
 
-public final class app/revanced/patches/youtube/video/speed/remember/RememberPlaybackSpeedPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/video/speed/remember/RememberPlaybackSpeedPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/video/playerresponse/Hook$VideoId : app/revanced/patches/youtube/video/playerresponse/Hook {
+	public fun <init> (Ljava/lang/String;)V
 }
 
-public final class app/revanced/patches/youtube/video/videoid/VideoIdPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/video/videoid/VideoIdPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public final fun hookBackgroundPlayVideoId (Ljava/lang/String;)V
-	public final fun hookPlayerResponseVideoId (Ljava/lang/String;)V
-	public final fun hookVideoId (Ljava/lang/String;)V
+public final class app/revanced/patches/youtube/video/playerresponse/PlayerResponseMethodHookPatchKt {
+	public static final fun addPlayerResponseMethodHook (Lapp/revanced/patches/youtube/video/playerresponse/Hook;)V
+	public static final fun getPlayerResponseMethodHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/video/videoqualitymenu/RestoreOldVideoQualityMenuPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/video/videoqualitymenu/RestoreOldVideoQualityMenuPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/video/quality/RememberVideoQualityPatchKt {
+	public static final fun getRememberVideoQualityPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/video/videoqualitymenu/RestoreOldVideoQualityMenuResourcePatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/video/videoqualitymenu/RestoreOldVideoQualityMenuResourcePatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+public final class app/revanced/patches/youtube/video/speed/PlaybackSpeedPatchKt {
+	public static final fun getPlaybackSpeedPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtubevanced/ad/general/HideAdsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtubevanced/ad/general/HideAdsPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/video/speed/custom/CustomPlaybackSpeedResourcePatchKt {
+	public static final fun getSpeedUnavailableId ()J
 }
 
-public final class app/revanced/patches/yuka/misc/unlockpremium/UnlockPremiumPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/yuka/misc/unlockpremium/UnlockPremiumPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+public final class app/revanced/patches/youtube/video/videoid/VideoIdPatchKt {
+	public static final fun getVideoIdPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun hookBackgroundPlayVideoId (Ljava/lang/String;)V
+	public static final fun hookPlayerResponseVideoId (Ljava/lang/String;)V
+	public static final fun hookVideoId (Ljava/lang/String;)V
+}
+
+public final class app/revanced/patches/youtube/video/videoqualitymenu/RestoreOldVideoQualityMenuPatchKt {
+	public static final fun getRestoreOldVideoQualityMenuPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/yuka/misc/unlockpremium/UnlockPremiumPatchKt {
+	public static final fun getUnlockPremiumPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/util/BytecodeUtilsKt {
@@ -1885,7 +1292,7 @@ public final class app/revanced/util/BytecodeUtilsKt {
 	public static final fun returnEarly (Ljava/util/List;Z)V
 	public static synthetic fun returnEarly$default (Ljava/util/List;ZILjava/lang/Object;)V
 	public static final fun transformMethods (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableClass;Lkotlin/jvm/functions/Function1;)V
-	public static final fun traverseClassHierarchy (Lapp/revanced/patcher/data/BytecodeContext;Lapp/revanced/patcher/util/proxy/mutableTypes/MutableClass;Lkotlin/jvm/functions/Function1;)V
+	public static final fun traverseClassHierarchy (Lapp/revanced/patcher/patch/BytecodePatchContext;Lapp/revanced/patcher/util/proxy/mutableTypes/MutableClass;Lkotlin/jvm/functions/Function1;)V
 }
 
 public final class app/revanced/util/ResourceGroup {
@@ -1897,16 +1304,16 @@ public final class app/revanced/util/ResourceGroup {
 public final class app/revanced/util/ResourceUtilsKt {
 	public static final fun asSequence (Lorg/w3c/dom/NodeList;)Lkotlin/sequences/Sequence;
 	public static final fun childElementsSequence (Lorg/w3c/dom/Node;)Lkotlin/sequences/Sequence;
-	public static final fun copyResources (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;[Lapp/revanced/util/ResourceGroup;)V
-	public static final fun copyXmlNode (Ljava/lang/String;Lapp/revanced/patcher/util/DomFileEditor;Lapp/revanced/patcher/util/DomFileEditor;)Ljava/lang/AutoCloseable;
+	public static final fun copyResources (Lapp/revanced/patcher/patch/ResourcePatchContext;Ljava/lang/String;[Lapp/revanced/util/ResourceGroup;)V
+	public static final fun copyXmlNode (Ljava/lang/String;Lapp/revanced/patcher/util/Document;Lapp/revanced/patcher/util/Document;)Ljava/lang/AutoCloseable;
 	public static final fun doRecursively (Lorg/w3c/dom/Node;Lkotlin/jvm/functions/Function1;)V
 	public static final fun forEachChildElement (Lorg/w3c/dom/Node;Lkotlin/jvm/functions/Function1;)V
-	public static final fun iterateXmlNodeChildren (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
+	public static final fun iterateXmlNodeChildren (Lapp/revanced/patcher/patch/ResourcePatchContext;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
 }
 
-public abstract class app/revanced/util/patch/LiteralValueFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public fun <init> (Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Iterable;Ljava/lang/Iterable;Ljava/lang/Iterable;Lkotlin/jvm/functions/Function0;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Iterable;Ljava/lang/Iterable;Ljava/lang/Iterable;Lkotlin/jvm/functions/Function0;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+public final class app/revanced/util/patch/LiteralValueFingerprintKt {
+	public static final fun literalValueFingerprint (Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/fingerprint/MethodFingerprint;
+	public static synthetic fun literalValueFingerprint$default (Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/fingerprint/MethodFingerprint;
 }
 
 public final class app/revanced/util/resource/ArrayResource : app/revanced/util/resource/BaseResource {

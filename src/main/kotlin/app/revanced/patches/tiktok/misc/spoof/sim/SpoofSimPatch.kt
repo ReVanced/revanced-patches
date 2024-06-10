@@ -6,7 +6,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tiktok.misc.integrations.integrationsPatch
 import app.revanced.patches.tiktok.misc.settings.fingerprints.settingsStatusLoadFingerprint
-import app.revanced.patches.twitch.misc.settings.SettingsPatch
+import app.revanced.patches.twitch.misc.settings.settingsPatch
 import app.revanced.util.findMutableMethodOf
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -21,12 +21,12 @@ val spoofSimPatch = bytecodePatch(
 ) {
     dependsOn(
         integrationsPatch,
-        SettingsPatch
+        settingsPatch,
     )
 
     compatibleWith(
         "com.ss.android.ugc.trill",
-        "com.zhiliaoapp.musically"
+        "com.zhiliaoapp.musically",
     )
 
     val settingsStatusLoadResult by settingsStatusLoadFingerprint

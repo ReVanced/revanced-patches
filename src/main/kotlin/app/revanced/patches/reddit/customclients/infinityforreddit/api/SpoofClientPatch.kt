@@ -1,24 +1,23 @@
 package app.revanced.patches.reddit.customclients.infinityforreddit.api
 
-import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.toInstructions
-import app.revanced.patches.reddit.customclients.BaseSpoofClientPatch
-import app.revanced.patches.reddit.customclients.infinityforreddit.api.fingerprints.APIUtilsFingerprint
+import app.revanced.patches.reddit.customclients.infinityforreddit.api.fingerprints.apiUtilsFingerprint
+import app.revanced.patches.reddit.customclients.spoofClientPatch
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodImplementation
 
 @Suppress("unused")
-object SpoofClientPatch : BaseSpoofClientPatch(
-    redirectUri = "infinity://localhost",
-    clientIdFingerprints = setOf(APIUtilsFingerprint),
-    compatiblePackages = setOf(CompatiblePackage("ml.docilealligator.infinityforreddit"))
-) {
-    override fun Set<MethodFingerprintResult>.patchClientId(context: BytecodeContext) {
-        first().mutableClass.methods.apply {
+val spoofClientPatch = spoofClientPatch(redirectUri = "infinity://localhost") { clientIdOption ->
+    compatibleWith("ml.docilealligator.infinityforreddit")
+
+    val apiUtilsResult by apiUtilsFingerprint
+
+    val clientId by clientIdOption
+
+    execute {
+        apiUtilsResult.mutableClass.methods.apply {
             val getClientIdMethod = single { it.name == "getId" }.also(::remove)
 
             val newGetClientIdMethod = ImmutableMethod(
@@ -26,7 +25,7 @@ object SpoofClientPatch : BaseSpoofClientPatch(
                 getClientIdMethod.name,
                 null,
                 getClientIdMethod.returnType,
-                AccessFlags.PUBLIC or AccessFlags.STATIC,
+                AccessFlags.PUBLIC.value or AccessFlags.STATIC.value,
                 null,
                 null,
                 ImmutableMethodImplementation(

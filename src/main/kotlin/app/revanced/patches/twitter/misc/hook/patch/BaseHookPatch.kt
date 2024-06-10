@@ -1,10 +1,19 @@
 package app.revanced.patches.twitter.misc.hook.patch
 
-import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patches.twitter.misc.hook.json.JsonHookPatch
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.twitter.misc.hook.json.JsonHook
+import app.revanced.patches.twitter.misc.hook.json.jsonHookPatch
+import app.revanced.patches.twitter.misc.hook.json.jsonHooks
 
-abstract class BaseHookPatch(private val hookClassDescriptor: String) : BytecodePatch(emptySet()) {
-    override fun execute(context: BytecodeContext) =
-        JsonHookPatch.hooks.addHook(JsonHookPatch.Hook(context, hookClassDescriptor))
+fun hookPatch(
+    name: String,
+    hookClassDescriptor: String,
+) = bytecodePatch(name) {
+    dependsOn(jsonHookPatch)
+
+    compatibleWith("com.twitter.android")
+
+    execute {
+        jsonHooks.addHook(JsonHook(it, hookClassDescriptor))
+    }
 }

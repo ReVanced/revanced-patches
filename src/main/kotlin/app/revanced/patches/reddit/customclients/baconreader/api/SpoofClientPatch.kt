@@ -1,25 +1,26 @@
 package app.revanced.patches.reddit.customclients.baconreader.api
 
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprintResult
-import app.revanced.patches.reddit.customclients.BaseSpoofClientPatch
-import app.revanced.patches.reddit.customclients.baconreader.api.fingerprints.GetAuthorizationUrlFingerprint
-import app.revanced.patches.reddit.customclients.baconreader.api.fingerprints.RequestTokenFingerprint
+import app.revanced.patches.reddit.customclients.baconreader.api.fingerprints.getAuthorizationUrlFingerprint
+import app.revanced.patches.reddit.customclients.baconreader.api.fingerprints.requestTokenFingerprint
+import app.revanced.patches.reddit.customclients.spoofClientPatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
-
 @Suppress("unused")
-object SpoofClientPatch : BaseSpoofClientPatch(
-    redirectUri = "http://baconreader.com/auth",
-    clientIdFingerprints = setOf(GetAuthorizationUrlFingerprint, RequestTokenFingerprint),
-    compatiblePackages = setOf(
-        CompatiblePackage("com.onelouder.baconreader"),
-        CompatiblePackage("com.onelouder.baconreader.premium")
+val spoofClientPatch = spoofClientPatch(redirectUri = "http://baconreader.com/auth") { clientIdOption ->
+    compatibleWith(
+        "com.onelouder.baconreader",
+        "com.onelouder.baconreader.premium",
     )
-) {
-    override fun Set<MethodFingerprintResult>.patchClientId(context: BytecodeContext) {
+
+    val getAuthorizationUrlResult by getAuthorizationUrlFingerprint
+    val requestTokenResult by requestTokenFingerprint
+
+    val clientId by clientIdOption
+
+    execute {
         fun MethodFingerprintResult.patch(replacementString: String) {
             val clientIdIndex = scanResult.stringsScanResult!!.matches.first().index
 
@@ -27,15 +28,15 @@ object SpoofClientPatch : BaseSpoofClientPatch(
                 val clientIdRegister = getInstruction<OneRegisterInstruction>(clientIdIndex).registerA
                 replaceInstruction(
                     clientIdIndex,
-                    "const-string v$clientIdRegister, \"$replacementString\""
+                    "const-string v$clientIdRegister, \"$replacementString\"",
                 )
             }
         }
 
         // Patch client id in authorization url.
-        first().patch("client_id=$clientId")
+        getAuthorizationUrlResult.patch("client_id=$clientId")
 
         // Patch client id for access token request.
-        last().patch(clientId!!)
+        requestTokenResult.patch(clientId!!)
     }
 }

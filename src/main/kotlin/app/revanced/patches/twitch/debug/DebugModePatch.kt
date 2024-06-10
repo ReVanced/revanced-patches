@@ -9,8 +9,8 @@ import app.revanced.patches.twitch.debug.fingerprints.isDebugConfigEnabledFinger
 import app.revanced.patches.twitch.debug.fingerprints.isOmVerificationEnabledFingerprint
 import app.revanced.patches.twitch.debug.fingerprints.shouldShowDebugOptionsFingerprint
 import app.revanced.patches.twitch.misc.integrations.integrationsPatch
-import app.revanced.patches.twitch.misc.settings.SettingsPatch
-import app.revanced.patches.twitch.misc.settings.SettingsPatch.PreferenceScreen
+import app.revanced.patches.twitch.misc.settings.PreferenceScreen
+import app.revanced.patches.twitch.misc.settings.settingsPatch
 
 @Suppress("unused")
 val debugModePatch = bytecodePatch(
@@ -20,7 +20,7 @@ val debugModePatch = bytecodePatch(
 ) {
     dependsOn(
         integrationsPatch,
-        SettingsPatch,
+        settingsPatch,
         addResourcesPatch,
     )
 

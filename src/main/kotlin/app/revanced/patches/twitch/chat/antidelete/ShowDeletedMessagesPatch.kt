@@ -11,8 +11,8 @@ import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.twitch.chat.antidelete.fingerprints.chatUtilCreateDeletedSpanFingerprint
 import app.revanced.patches.twitch.chat.antidelete.fingerprints.deletedMessageClickableSpanCtorFingerprint
 import app.revanced.patches.twitch.chat.antidelete.fingerprints.setHasModAccessFingerprint
-import app.revanced.patches.twitch.misc.settings.SettingsPatch
-import app.revanced.patches.twitch.misc.settings.SettingsPatch.PreferenceScreen
+import app.revanced.patches.twitch.misc.settings.PreferenceScreen
+import app.revanced.patches.twitch.misc.settings.settingsPatch
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 
 @Suppress("unused")
@@ -22,8 +22,8 @@ val showDeletedMessagesPatch = bytecodePatch(
 ) {
     dependsOn(
         integrationsPatch,
-        SettingsPatch,
-        addResourcesPatch
+        settingsPatch,
+        addResourcesPatch,
     )
 
     compatibleWith("tv.twitch.android.app"("15.4.1", "16.1.0", "16.9.1"))

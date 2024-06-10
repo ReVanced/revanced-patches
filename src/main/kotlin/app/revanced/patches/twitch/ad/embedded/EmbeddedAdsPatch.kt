@@ -5,9 +5,9 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.twitch.ad.embedded.fingerprints.createsUsherClientFingerprint
-import app.revanced.patches.twitch.ad.video.VideoAdsPatch
-import app.revanced.patches.twitch.misc.settings.SettingsPatch
-import app.revanced.patches.twitch.misc.settings.SettingsPatch.PreferenceScreen
+import app.revanced.patches.twitch.ad.video.videoAdsPatch
+import app.revanced.patches.twitch.misc.settings.PreferenceScreen
+import app.revanced.patches.twitch.misc.settings.settingsPatch
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 
 @Suppress("unused")
@@ -16,10 +16,10 @@ val embeddedAdsPatch = bytecodePatch(
     description = "Blocks embedded stream ads using services like Luminous or PurpleAdBlocker.",
 ) {
     dependsOn(
-        VideoAdsPatch,
+        videoAdsPatch,
         integrationsPatch,
-        SettingsPatch
-        )
+        settingsPatch,
+    )
 
     compatibleWith("tv.twitch.android.app"("15.4.1", "16.1.0", "16.9.1"))
 
