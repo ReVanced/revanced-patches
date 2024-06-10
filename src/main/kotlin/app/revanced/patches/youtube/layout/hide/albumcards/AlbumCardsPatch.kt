@@ -16,7 +16,7 @@ val albumCardsPatch = bytecodePatch(
         integrationsPatch,
         albumCardsResourcePatch
     )
-    
+
     compatibleWith(
         "com.google.android.youtube"(
             "18.32.39",
@@ -38,7 +38,12 @@ val albumCardsPatch = bytecodePatch(
             "19.09.38",
             "19.10.39",
             "19.11.43",
-        ),
+            "19.12.41",
+            "19.13.37",
+            "19.14.43",
+            "19.15.36",
+            "19.16.39",
+        )
     )
 
     val albumCardsResult by albumCardsFingerprint

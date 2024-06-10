@@ -9,6 +9,7 @@ import app.revanced.patches.tiktok.interaction.speed.fingerprints.onRenderFirstF
 import app.revanced.patches.tiktok.interaction.speed.fingerprints.setSpeedFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction11x
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
@@ -30,7 +31,7 @@ val playbackSpeedPatch = bytecodePatch(
     execute {
         setSpeedResult.let { onVideoSwiped ->
             getSpeedResult.mutableMethod.apply {
-                val injectIndex = indexOfFirstInstruction { getReference<MethodReference>()?.returnType == "F" } + 2
+                val injectIndex = indexOfFirstInstructionOrThrow { getReference<MethodReference>()?.returnType == "F" } + 2
                 val register = getInstruction<Instruction11x>(injectIndex - 1).registerA
 
                 addInstruction(

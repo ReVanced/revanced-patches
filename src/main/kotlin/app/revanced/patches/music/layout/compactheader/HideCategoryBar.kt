@@ -12,7 +12,15 @@ val hideCategoryBar = bytecodePatch(
     description = "Hides the category bar at the top of the homepage.",
     use = false,
 ) {
-    compatibleWith("com.google.android.apps.youtube.music")
+    compatibleWith(
+        "com.google.android.apps.youtube.music"(
+            "6.45.54",
+            "6.51.53",
+            "7.01.53",
+            "7.02.52",
+            "7.03.52",
+        ),
+    )
 
     val constructCategoryBarResult by constructCategoryBarFingerprint
 

@@ -1,12 +1,12 @@
 package app.revanced.patches.youtube.layout.hide.crowdfundingbox.fingerprints
 
+import app.revanced.patcher.fingerprint.methodFingerprint
 import app.revanced.patches.youtube.layout.hide.crowdfundingbox.crowdfundingBoxId
-import app.revanced.util.patch.literalValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val createCrowdfundingBoxFingerprint = literalValueFingerprint(
-    literalSupplier = { crowdfundingBoxId },
+internal val createCrowdfundingBoxFingerprint = methodFingerprint(
+    literal { crowdfundingBoxId },
 ) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     opcodes(

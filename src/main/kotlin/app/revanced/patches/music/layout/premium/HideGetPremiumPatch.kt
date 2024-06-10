@@ -14,7 +14,15 @@ val hideGetPremiumPatch = bytecodePatch(
     name = "Hide 'Get Music Premium' label",
     description = "Hides the \"Get Music Premium\" label from the account menu and settings.",
 ) {
-    compatibleWith("com.google.android.apps.youtube.music")
+    compatibleWith(
+        "com.google.android.apps.youtube.music"(
+            "6.45.54",
+            "6.51.53",
+            "7.01.53",
+            "7.02.52",
+            "7.03.52",
+        ),
+    )
 
     val hideGetPremiumResult by hideGetPremiumFingerprint
     val membershipSettingsResult by membershipSettingsFingerprint

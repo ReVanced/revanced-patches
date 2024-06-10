@@ -10,7 +10,7 @@ import app.revanced.patches.youtube.layout.seekbar.fingerprints.shortsSeekbarCol
 import app.revanced.patches.youtube.layout.theme.lithoColorHookPatch
 import app.revanced.patches.youtube.layout.theme.lithoColorOverrideHook
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
-import app.revanced.util.indexOfFirstWideLiteralInstructionValue
+import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
@@ -31,7 +31,7 @@ val seekbarColorBytecodePatch = bytecodePatch(
 
     execute { context ->
         fun MutableMethod.addColorChangeInstructions(resourceId: Long) {
-            val registerIndex = indexOfFirstWideLiteralInstructionValue(resourceId) + 2
+            val registerIndex = indexOfFirstWideLiteralInstructionValueOrThrow(resourceId) + 2
             val colorRegister = getInstruction<OneRegisterInstruction>(registerIndex).registerA
             addInstructions(
                 registerIndex + 1,

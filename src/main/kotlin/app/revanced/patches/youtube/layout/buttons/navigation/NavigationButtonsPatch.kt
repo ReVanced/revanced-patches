@@ -17,8 +17,8 @@ import app.revanced.patches.youtube.misc.navigation.hookNavigationButtonCreated
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -59,6 +59,11 @@ val navigationButtonsPatch = bytecodePatch(
             "19.09.38",
             "19.10.39",
             "19.11.43",
+            "19.12.41",
+            "19.13.37",
+            "19.14.43",
+            "19.15.36",
+            "19.16.39",
         ),
     )
 
@@ -103,8 +108,8 @@ val navigationButtonsPatch = bytecodePatch(
         }
 
         // Hide navigation button labels.
-        createPivotBarResult.mutableMethod?.apply {
-            val setTextIndex = indexOfFirstInstruction {
+        createPivotBarResult.mutableMethod.apply {
+            val setTextIndex = indexOfFirstInstructionOrThrow {
                 getReference<MethodReference>()?.name == "setText"
             }
 

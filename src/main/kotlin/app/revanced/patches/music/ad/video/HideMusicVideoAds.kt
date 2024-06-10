@@ -8,7 +8,15 @@ import app.revanced.patches.music.ad.video.fingerprints.showMusicVideoAdsParentF
 val hideMusicVideoAdsPatch = bytecodePatch(
     name = "Hide music video ads",
 ) {
-    compatibleWith("com.google.android.apps.youtube.music")
+    compatibleWith(
+        "com.google.android.apps.youtube.music"(
+            "6.45.54",
+            "6.51.53",
+            "7.01.53",
+            "7.02.52",
+            "7.03.52",
+        ),
+    )
 
     val showMusicVideoAdsParentResult by showMusicVideoAdsParentFingerprint
 

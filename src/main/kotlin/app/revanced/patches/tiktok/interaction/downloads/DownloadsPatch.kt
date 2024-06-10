@@ -12,7 +12,7 @@ import app.revanced.patches.tiktok.interaction.downloads.fingerprints.downloadPa
 import app.revanced.patches.tiktok.misc.integrations.integrationsPatch
 import app.revanced.patches.tiktok.misc.settings.fingerprints.settingsStatusLoadFingerprint
 import app.revanced.patches.tiktok.misc.settings.settingsPatch
-import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -73,13 +73,13 @@ val downloadsPatch = bytecodePatch(
         downloadPathParentResult.mutableMethod.apply {
             val downloadUriMethod = context
                 .navigate(this)
-                .at(indexOfFirstInstruction { opcode == Opcode.INVOKE_STATIC })
+                .at(indexOfFirstInstructionOrThrow { opcode == Opcode.INVOKE_STATIC })
                 .mutable()
 
-            val firstIndex = downloadUriMethod.indexOfFirstInstruction {
+                val firstIndex = downloadUriMethod.indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_DIRECT && ((this as Instruction35c).reference as MethodReference).name == "<init>"
             }
-            val secondIndex = downloadUriMethod.indexOfFirstInstruction {
+                val secondIndex = downloadUriMethod.indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_STATIC && ((this as Instruction35c).reference as MethodReference).returnType.contains(
                     "Uri",
                 )

@@ -1,12 +1,12 @@
 package app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints
 
+import app.revanced.patcher.fingerprint.methodFingerprint
 import app.revanced.patches.youtube.layout.returnyoutubedislike.oldUIDislikeId
-import app.revanced.util.patch.literalValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val dislikesOldLayoutTextViewFingerprint = literalValueFingerprint(
-    literalSupplier = { oldUIDislikeId },
+internal val dislikesOldLayoutTextViewFingerprint = methodFingerprint(
+    literal { oldUIDislikeId },
 ) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")

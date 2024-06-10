@@ -18,4 +18,5 @@ internal val repeatTrackFingerprint = methodFingerprint {
         Opcode.MOVE_RESULT,
         Opcode.IF_NEZ
     )
+    strings("w_st")
 }

@@ -1,10 +1,10 @@
 package app.revanced.patches.youtube.misc.fix.playback.fingerprints
 
-import app.revanced.util.patch.literalValueFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val setPlayerRequestClientTypeFingerprint = literalValueFingerprint(
-    literalSupplier = { 134217728 },
+internal val setPlayerRequestClientTypeFingerprint = methodFingerprint(
+    literal { 134217728 },
 ) {
     opcodes(
         Opcode.IGET,

@@ -1,11 +1,11 @@
 package app.revanced.patches.youtube.layout.hide.infocards.fingerprints
 
+import app.revanced.patcher.fingerprint.methodFingerprint
 import app.revanced.patches.youtube.layout.hide.infocards.drawerResourceId
-import app.revanced.util.patch.literalValueFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val infocardsMethodCallFingerprint = literalValueFingerprint(
-    literalSupplier = { drawerResourceId },
+internal val infocardsMethodCallFingerprint = methodFingerprint(
+    literal { drawerResourceId },
 ) {
     opcodes(
         Opcode.INVOKE_VIRTUAL,

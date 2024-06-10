@@ -18,7 +18,7 @@ import app.revanced.patches.youtube.video.videoid.hookVideoId
 import app.revanced.patches.youtube.video.videoid.videoIdPatch
 import app.revanced.util.exception
 import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -62,6 +62,11 @@ val returnYouTubeDislikePatch = bytecodePatch(
             "19.09.38",
             "19.10.39",
             "19.11.43",
+            "19.12.41",
+            "19.13.37",
+            "19.14.43",
+            "19.15.36",
+            "19.16.39",
         ),
     )
 
@@ -123,11 +128,10 @@ val returnYouTubeDislikePatch = bytecodePatch(
             resolve(context, textComponentConstructorResult.classDef)
         }.resultOrThrow().mutableMethod.apply {
             // Find the instruction for creating the text data object.
-            val insertIndex = indexOfFirstInstruction {
+            val insertIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.NEW_INSTANCE &&
                     getReference<TypeReference>()?.type == textComponentDataResult.classDef.type
             }
-            if (insertIndex < 0) throw PatchException("Could not find data creation instruction")
             val tempRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
             // Find the instruction that sets the span to an instance field.
@@ -306,7 +310,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
             rollingNumberTextViewAnimationUpdateResult.mutableMethod,
         ).forEach { insertMethod ->
             insertMethod.apply {
-                val setTextIndex = indexOfFirstInstruction {
+                    val setTextIndex = indexOfFirstInstructionOrThrow {
                     getReference<MethodReference>()?.name == "setText"
                 }
 

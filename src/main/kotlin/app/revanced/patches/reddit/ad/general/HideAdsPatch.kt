@@ -20,7 +20,12 @@ val hideAdsPatch = bytecodePatch(
 ) {
     dependsOn(hideBannerPatch, hideCommentAdsPatch)
 
-    compatibleWith("com.reddit.frontpage")
+    // Note that for now, this patch and anything using it will only work on
+    // Reddit 2024.17.0 or older. Newer versions will crash during patching.
+    // See https://github.com/ReVanced/revanced-patches/issues/3099
+    // and https://github.com/iBotPeaches/Apktool/issues/3534.
+    // This constraint is necessary due to dependency on hideBannerPatch.
+    compatibleWith("com.reddit.frontpage"("2024.17.0"))
 
     val adPostResult by adPostFingerprint
     val newAdPostResult by newAdPostFingerprint

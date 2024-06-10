@@ -1,11 +1,11 @@
 package app.revanced.patches.youtube.layout.hide.general.fingerprints
 
+import app.revanced.patcher.fingerprint.methodFingerprint
 import app.revanced.patches.youtube.layout.hide.general.expandButtonDownId
-import app.revanced.util.patch.literalValueFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val hideShowMoreButtonFingerprint = literalValueFingerprint(
-    literalSupplier = { expandButtonDownId },
+internal val hideShowMoreButtonFingerprint = methodFingerprint(
+    literal { expandButtonDownId },
 ) {
     opcodes(
         Opcode.CONST,

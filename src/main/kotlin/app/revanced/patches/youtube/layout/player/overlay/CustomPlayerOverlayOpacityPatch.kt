@@ -4,7 +4,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.youtube.layout.player.overlay.fingerprints.createPlayerOverviewFingerprint
-import app.revanced.util.indexOfFirstWideLiteralInstructionValue
+import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/CustomPlayerOverlayOpacityPatch;"
@@ -23,7 +23,7 @@ val customPlayerOverlayOpacityPatch = bytecodePatch(
     execute {
         createPlayerOverviewResult.mutableMethod.apply {
             val viewRegisterIndex =
-                indexOfFirstWideLiteralInstructionValue(scrimOverlayId) + 3
+                indexOfFirstWideLiteralInstructionValueOrThrow(scrimOverlayId) + 3
             val viewRegister =
                 getInstruction<OneRegisterInstruction>(viewRegisterIndex).registerA
 

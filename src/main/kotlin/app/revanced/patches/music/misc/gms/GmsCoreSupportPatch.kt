@@ -26,5 +26,13 @@ val gmsCoreSupportPatch = gmsCoreSupportPatch(
     integrationsPatch = integrationsPatch,
     gmsCoreSupportResourcePatchFactory = ::gmsCoreSupportResourcePatch,
 ) {
-    compatibleWith(MUSIC_PACKAGE_NAME)
+    compatibleWith(
+        MUSIC_PACKAGE_NAME(
+            "6.45.54",
+            "6.51.53",
+            "7.01.53",
+            "7.02.52",
+            "7.03.52",
+        ),
+    )
 }

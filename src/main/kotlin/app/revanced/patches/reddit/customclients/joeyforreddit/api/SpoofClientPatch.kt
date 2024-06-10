@@ -1,6 +1,8 @@
 package app.revanced.patches.reddit.customclients.joeyforreddit.api
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
+import app.revanced.patches.reddit.customclients.joeyforreddit.api.fingerprints.authUtilityUserAgentFingerprint
 import app.revanced.patches.reddit.customclients.joeyforreddit.api.fingerprints.getClientIdFingerprint
 import app.revanced.patches.reddit.customclients.joeyforreddit.detection.piracy.disablePiracyDetectionPatch
 import app.revanced.patches.reddit.customclients.spoofClientPatch
@@ -16,10 +18,13 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "https://127.0.0.1:65023/a
     )
 
     val getClientIdResult by getClientIdFingerprint
+    val authUtilityUserAgentResult by authUtilityUserAgentFingerprint
 
     val clientId by clientIdOption
 
     execute {
+        // region Patch client id.
+
         getClientIdResult.mutableMethod.addInstructions(
             0,
             """
@@ -27,5 +32,23 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "https://127.0.0.1:65023/a
                  return-object v0
             """,
         )
+
+        // endregion
+
+        // region Patch user agent.
+
+        // Use a random user agent.
+        val randomName = (0..100000).random()
+        val userAgent = "$randomName:app.revanced.$randomName:v1.0.0 (by /u/revanced)"
+
+        authUtilityUserAgentResult.mutableMethod.replaceInstructions(
+            0,
+            """
+                const-string v0, "$userAgent"
+                return-object v0
+            """,
+        )
+
+        // endregion
     }
 }

@@ -10,7 +10,7 @@ import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 import app.revanced.patches.youtube.misc.navigation.fingerprints.*
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -114,7 +114,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
         // Insert before the first ViewGroup method call after inflating,
         // so this works regardless which layout is used.
         actionBarSearchResultsResult.mutableMethod.apply {
-            val instructionIndex = indexOfFirstInstruction {
+            val instructionIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_VIRTUAL && getReference<MethodReference>()?.name == "setLayoutDirection"
             }
 

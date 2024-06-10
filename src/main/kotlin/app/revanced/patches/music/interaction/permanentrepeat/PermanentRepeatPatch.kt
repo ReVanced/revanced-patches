@@ -12,13 +12,21 @@ val permanentRepeatPatch = bytecodePatch(
     description = "Permanently remember your repeating preference even if the playlist ends or another track is played.",
     use = false,
 ) {
-    compatibleWith("com.google.android.apps.youtube.music")
+    compatibleWith(
+        "com.google.android.apps.youtube.music"(
+            "6.45.54",
+            "6.51.53",
+            "7.01.53",
+            "7.02.52",
+            "7.03.52",
+        ),
+    )
 
     val repeatTrackResult by repeatTrackFingerprint
 
     execute {
         val startIndex = repeatTrackResult.scanResult.patternScanResult!!.endIndex
-        val repeatIndex = startIndex + 3
+        val repeatIndex = startIndex + 1
 
         repeatTrackResult.mutableMethod.apply {
             addInstructionsWithLabels(

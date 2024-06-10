@@ -19,7 +19,15 @@ val removeUpgradeButtonPatch = bytecodePatch(
     name = "Remove upgrade button",
     description = "Removes the upgrade tab from the pivot bar.",
 ) {
-    compatibleWith("com.google.android.apps.youtube.music")
+    compatibleWith(
+        "com.google.android.apps.youtube.music"(
+            "6.45.54",
+            "6.51.53",
+            "7.01.53",
+            "7.02.52",
+            "7.03.52",
+        ),
+    )
 
     val pivotBarConstructorResult by pivotBarConstructorFingerprint
 

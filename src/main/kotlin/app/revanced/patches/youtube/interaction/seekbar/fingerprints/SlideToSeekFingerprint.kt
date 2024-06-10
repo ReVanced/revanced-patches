@@ -1,12 +1,12 @@
 package app.revanced.patches.youtube.interaction.seekbar.fingerprints
 
-import app.revanced.util.patch.literalValueFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val slideToSeekFingerprint = literalValueFingerprint(
-    literalSupplier = { 45411329 }
-) {
+internal val slideToSeekFingerprint = methodFingerprint {
     returns("Z")
     parameters()
     opcodes(Opcode.MOVE_RESULT)
+    literal { 45411329 }
 }

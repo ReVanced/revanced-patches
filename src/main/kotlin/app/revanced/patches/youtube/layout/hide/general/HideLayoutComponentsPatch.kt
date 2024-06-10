@@ -11,7 +11,6 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.*
-import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.hideShowMoreButtonFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.parseElementFromBufferFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.playerOverlayFingerprint
@@ -23,14 +22,23 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+
+private const val LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR =
+    "Lapp/revanced/integrations/youtube/patches/components/LayoutComponentsFilter;"
+private const val DESCRIPTION_COMPONENTS_FILTER_CLASS_NAME =
+    "Lapp/revanced/integrations/youtube/patches/components/DescriptionComponentsFilter;"
+private const val CUSTOM_FILTER_CLASS_NAME =
+    "Lapp/revanced/integrations/youtube/patches/components/CustomFilter;"
+private const val KEYWORD_FILTER_CLASS_NAME =
+    "Lapp/revanced/integrations/youtube/patches/components/KeywordContentFilter;"
 
 @Suppress("unused")
 val hideLayoutComponentsPatch = bytecodePatch(
     name = "Hide layout components",
     description = "Adds options to hide general layout components.",
+
 ) {
     dependsOn(
         lithoFilterPatch,
@@ -61,6 +69,11 @@ val hideLayoutComponentsPatch = bytecodePatch(
             "19.09.38",
             "19.10.39",
             "19.11.43",
+            "19.12.41",
+            "19.13.37",
+            "19.14.43",
+            "19.15.36",
+            "19.16.39",
         ),
     )
 
@@ -69,15 +82,6 @@ val hideLayoutComponentsPatch = bytecodePatch(
     val hideShowMoreButtonResult by hideShowMoreButtonFingerprint
 
     execute { context ->
-        val layoutComponentsFilterClassDescriptor =
-            "Lapp/revanced/integrations/youtube/patches/components/LayoutComponentsFilter;"
-        val descriptionComponentsFilterClassName =
-            "Lapp/revanced/integrations/youtube/patches/components/DescriptionComponentsFilter;"
-        val keywordFilterClassName =
-            "Lapp/revanced/integrations/youtube/patches/components/KeywordContentFilter;"
-        val customFilterClassName =
-            "Lapp/revanced/integrations/youtube/patches/components/CustomFilter;"
-
         addResources("youtube", "layout.hide.general.HideLayoutComponentsPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
@@ -102,6 +106,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
             SwitchPreference("revanced_hide_expandable_chip"),
             SwitchPreference("revanced_hide_info_panels"),
             SwitchPreference("revanced_hide_join_membership_button"),
+            SwitchPreference("revanced_disable_like_subscribe_glow"),
             SwitchPreference("revanced_hide_medical_panels"),
             SwitchPreference("revanced_hide_quick_actions"),
             SwitchPreference("revanced_hide_related_videos"),
@@ -127,7 +132,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
             SwitchPreference("revanced_hide_show_more_button"),
             PreferenceScreenPreference(
                 key = "revanced_hide_keyword_content_screen",
-                sorting = Sorting.UNSORTED,
+                sorting = PreferenceScreenPreference.Sorting.UNSORTED,
                 preferences = setOf(
                     SwitchPreference("revanced_hide_keyword_content_home"),
                     SwitchPreference("revanced_hide_keyword_content_subscriptions"),
@@ -142,7 +147,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
             SwitchPreference("revanced_hide_gray_separator"),
             PreferenceScreenPreference(
                 key = "revanced_custom_filter_screen",
-                sorting = Sorting.UNSORTED,
+                sorting = PreferenceScreenPreference.Sorting.UNSORTED,
                 preferences = setOf(
                     SwitchPreference("revanced_custom_filter"),
                     // TODO: This should be a dynamic ListPreference, which does not exist yet
@@ -155,27 +160,28 @@ val hideLayoutComponentsPatch = bytecodePatch(
             SwitchPreference("revanced_hide_video_quality_menu_footer"),
         )
 
-        addLithoFilter(layoutComponentsFilterClassDescriptor)
-        addLithoFilter(descriptionComponentsFilterClassName)
-        addLithoFilter(keywordFilterClassName)
-        addLithoFilter(customFilterClassName)
+        addLithoFilter(LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR)
+        addLithoFilter(DESCRIPTION_COMPONENTS_FILTER_CLASS_NAME)
+        addLithoFilter(KEYWORD_FILTER_CLASS_NAME)
+        addLithoFilter(CUSTOM_FILTER_CLASS_NAME)
 
         // region Mix playlists
 
-        val consumeByteBufferIndex = parseElementFromBufferResult.scanResult.patternScanResult!!.startIndex
+        val startIndex = parseElementFromBufferResult.scanResult.patternScanResult!!.startIndex
 
         parseElementFromBufferResult.mutableMethod.apply {
-            val conversionContextRegister =
-                getInstruction<TwoRegisterInstruction>(consumeByteBufferIndex - 2).registerA
-            val byteBufferRegister = getInstruction<FiveRegisterInstruction>(consumeByteBufferIndex).registerD
+            val freeRegister = "v0"
+            val byteArrayParameter = "p3"
+            val conversionContextRegister = getInstruction<TwoRegisterInstruction>(startIndex).registerA
             val returnEmptyComponentInstruction = instructions.last { it.opcode == Opcode.INVOKE_STATIC }
 
             addInstructionsWithLabels(
-                consumeByteBufferIndex,
+                startIndex + 1,
                 """
-                        invoke-static {v$conversionContextRegister, v$byteBufferRegister}, $layoutComponentsFilterClassDescriptor->filterMixPlaylists(Ljava/lang/Object;[B)Z
-                        move-result v0 # Conveniently same register happens to be free. 
-                        if-nez v0, :return_empty_component
+                        invoke-static { v$conversionContextRegister, $byteArrayParameter }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->filterMixPlaylists(Ljava/lang/Object;[B)Z
+                        move-result $freeRegister 
+                        if-nez $freeRegister, :return_empty_component
+                        const/4 $freeRegister, 0x0  # Restore register, required for 19.16
                     """,
                 ExternalLabel("return_empty_component", returnEmptyComponentInstruction),
             )
@@ -194,7 +200,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
             addInstructions(
                 index,
                 """
-                    invoke-static {}, $layoutComponentsFilterClassDescriptor->showWatermark()Z
+                    invoke-static {}, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->showWatermark()Z
                     move-result p2
                 """,
             )
@@ -206,14 +212,13 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         hideShowMoreButtonResult.mutableMethod.apply {
             val moveRegisterIndex = hideShowMoreButtonResult.scanResult.patternScanResult!!.endIndex
-            val viewRegister =
-                getInstruction<OneRegisterInstruction>(moveRegisterIndex).registerA
+            val viewRegister = getInstruction<OneRegisterInstruction>(moveRegisterIndex).registerA
 
             val insertIndex = moveRegisterIndex + 1
             addInstruction(
                 insertIndex,
                 "invoke-static { v$viewRegister }, " +
-                        "$layoutComponentsFilterClassDescriptor->hideShowMoreButton(Landroid/view/View;)V",
+                    "$LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideShowMoreButton(Landroid/view/View;)V",
             )
         }
 

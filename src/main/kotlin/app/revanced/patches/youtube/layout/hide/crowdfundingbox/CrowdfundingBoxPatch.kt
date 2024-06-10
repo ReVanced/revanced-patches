@@ -38,7 +38,12 @@ val crowdfundingBoxPatch = bytecodePatch(
             "19.09.38",
             "19.10.39",
             "19.11.43",
-        ),
+            "19.12.41",
+            "19.13.37",
+            "19.14.43",
+            "19.15.36",
+            "19.16.39",
+        )
     )
 
     val createCrowdfundingBoxResult by createCrowdfundingBoxFingerprint

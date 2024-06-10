@@ -1,12 +1,12 @@
 package app.revanced.patches.youtube.layout.hide.filterbar.fingerprints
 
+import app.revanced.patcher.fingerprint.methodFingerprint
 import app.revanced.patches.youtube.layout.hide.filterbar.barContainerHeightId
-import app.revanced.util.patch.literalValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val searchResultsChipBarFingerprint = literalValueFingerprint(
-    literalSupplier = { barContainerHeightId },
+internal val searchResultsChipBarFingerprint = methodFingerprint(
+    literal { barContainerHeightId },
 ) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     returns("V")

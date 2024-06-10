@@ -22,7 +22,11 @@ internal val abUriParserFingerprint = methodFingerprint {
         Opcode.CHECK_CAST,
     )
     custom { methodDef, classDef ->
-        // This method is always called "a" because this kind of class always has a single method.
-        methodDef.name == "a" && classDef.methods.count() == 3
+        // This method is always called "a" because this kind of class always has a single (non synthetic) method.
+
+        if (methodDef.name != "a") return@custom false
+
+        val count = classDef.methods.count()
+        count == 2 || count == 3
     }
 }

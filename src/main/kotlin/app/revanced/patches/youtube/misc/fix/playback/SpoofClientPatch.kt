@@ -15,6 +15,7 @@ import app.revanced.patches.youtube.misc.fix.playback.fingerprints.*
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -27,6 +28,8 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
 private const val INTEGRATIONS_CLASS_DESCRIPTOR =
     "Lapp/revanced/integrations/youtube/patches/spoof/SpoofClientPatch;"
+private const val CLIENT_INFO_CLASS_DESCRIPTOR =
+    "Lcom/google/protos/youtube/api/innertube/InnertubeContext\$ClientInfo;"
 
 val spoofClientPatch = bytecodePatch(
     name = "Spoof client",
@@ -58,16 +61,26 @@ val spoofClientPatch = bytecodePatch(
             "19.09.38",
             "19.10.39",
             "19.11.43",
+            "19.12.41",
+            "19.13.37",
+            "19.14.43",
+            "19.15.36",
+            "19.16.39",
         ),
     )
 
+    // Client type spoof.
     val buildInitPlaybackRequestResult by buildInitPlaybackRequestFingerprint
     val buildPlayerRequestURIResult by buildPlayerRequestURIFingerprint
     val setPlayerRequestClientTypeResult by setPlayerRequestClientTypeFingerprint
     val createPlayerRequestBodyResult by createPlayerRequestBodyFingerprint
     val createPlayerRequestBodyWithModelResult by createPlayerRequestBodyWithModelFingerprint
+    // Player gesture config.
+    val playerGestureConfigSyntheticResult by playerGestureConfigSyntheticFingerprint
+    // Player speed menu item.
+    val createPlaybackSpeedMenuItemResult by createPlaybackSpeedMenuItemFingerprint
 
-    execute {
+    execute { context ->
         addResources("youtube", "misc.fix.playback.SpoofClientPatch")
 
         PreferenceScreen.MISC.addPreferences(
@@ -119,14 +132,12 @@ val spoofClientPatch = bytecodePatch(
 
         // region Get field references to be used below.
 
-        val clientInfoClassDescriptor = "Lcom/google/protos/youtube/api/innertube/InnertubeContext\$ClientInfo;"
-
         // Field in the player request object that holds the client info object.
         val clientInfoField = setPlayerRequestClientTypeResult.mutableMethod
             .instructions.find { instruction ->
                 // requestMessage.clientInfo = clientInfoBuilder.build();
                 instruction.opcode == Opcode.IPUT_OBJECT &&
-                    instruction.getReference<FieldReference>()?.type == clientInfoClassDescriptor
+                    instruction.getReference<FieldReference>()?.type == CLIENT_INFO_CLASS_DESCRIPTOR
             }?.getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoField")
 
         // Client info object's client type field.
@@ -137,18 +148,20 @@ val spoofClientPatch = bytecodePatch(
         // Client info object's client version field.
         val clientInfoClientVersionField = setPlayerRequestClientTypeResult.mutableMethod
             .getInstruction(setPlayerRequestClientTypeResult.scanResult.stringsScanResult!!.matches.first().index + 1)
-            .getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoClientVersionField")
+            .getReference<FieldReference>()
+            ?: throw PatchException("Could not find clientInfoClientVersionField")
 
         val getClientModelIndex = indexOfBuildModelInstruction(createPlayerRequestBodyWithModelResult.method)
-        val instructions = createPlayerRequestBodyWithModelResult.mutableMethod.instructions
 
         // The next IPUT_OBJECT instruction after getting the client model is setting the client model field.
-        val clientInfoClientModelField = instructions.subList(
-            getClientModelIndex,
-            instructions.size,
-        ).find { instruction ->
-            instruction.opcode == Opcode.IPUT_OBJECT
-        }?.getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoClientModelField")
+        val index = createPlayerRequestBodyWithModelResult.mutableMethod
+            .indexOfFirstInstructionOrThrow(getClientModelIndex) {
+                opcode == Opcode.IPUT_OBJECT
+            }
+
+        val clientInfoClientModelField = createPlayerRequestBodyWithModelResult.mutableMethod
+            .getInstruction(index)
+            .getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoClientModelField")
 
         // endregion
 
@@ -169,51 +182,102 @@ val spoofClientPatch = bytecodePatch(
                     " ${createPlayerRequestBodyResult.classDef.type}->" +
                     "$setClientInfoMethodName($clientInfoContainerClassName)V",
             )
+        }
 
-            // Change client info to use the spoofed values.
-            // Do this in a helper method, to remove the need of picking out multiple free registers from the hooked code.
-            createPlayerRequestBodyResult.mutableClass.methods.add(
-                ImmutableMethod(
-                    createPlayerRequestBodyResult.mutableClass.type,
-                    setClientInfoMethodName,
-                    listOf(ImmutableMethodParameter(clientInfoContainerClassName, null, "clientInfoContainer")),
-                    "V",
-                    AccessFlags.PRIVATE.value or AccessFlags.STATIC.value,
-                    null,
-                    null,
-                    MutableMethodImplementation(3),
-                ).toMutable().apply {
-                    addInstructions(
-                        """
-                            invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->isClientSpoofingEnabled()Z
-                            move-result v0
-                            if-eqz v0, :disabled
-                            
-                            iget-object v0, p0, $clientInfoField
-                            
-                            # Set client type to the spoofed value.
-                            iget v1, v0, $clientInfoClientTypeField
-                            invoke-static { v1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->getClientTypeId(I)I
-                            move-result v1
-                            iput v1, v0, $clientInfoClientTypeField
-                            
-                            # Set client model to the spoofed value.
-                            iget-object v1, v0, $clientInfoClientModelField
-                            invoke-static { v1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->getClientModel(Ljava/lang/String;)Ljava/lang/String;
-                            move-result-object v1
-                            iput-object v1, v0, $clientInfoClientModelField
+        // Change client info to use the spoofed values.
+        // Do this in a helper method, to remove the need of picking out multiple free registers from the hooked code.
+        createPlayerRequestBodyResult.mutableClass.methods.add(
+            ImmutableMethod(
+                createPlayerRequestBodyResult.mutableClass.type,
+                setClientInfoMethodName,
+                listOf(ImmutableMethodParameter(clientInfoContainerClassName, null, "clientInfoContainer")),
+                "V",
+                AccessFlags.PRIVATE.value or AccessFlags.STATIC.value,
+                null,
+                null,
+                MutableMethodImplementation(3),
+            ).toMutable().apply {
+                addInstructions(
+                    """
+                        invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->isClientSpoofingEnabled()Z
+                        move-result v0
+                        if-eqz v0, :disabled
+                        
+                        iget-object v0, p0, $clientInfoField
+                        
+                        # Set client type to the spoofed value.
+                        iget v1, v0, $clientInfoClientTypeField
+                        invoke-static { v1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->getClientTypeId(I)I
+                        move-result v1
+                        iput v1, v0, $clientInfoClientTypeField
+                        
+                        # Set client model to the spoofed value.
+                        iget-object v1, v0, $clientInfoClientModelField
+                        invoke-static { v1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->getClientModel(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v1
+                        iput-object v1, v0, $clientInfoClientModelField
 
-                            # Set client version to the spoofed value.
-                            iget-object v1, v0, $clientInfoClientVersionField
-                            invoke-static { v1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->getClientVersion(Ljava/lang/String;)Ljava/lang/String;
-                            move-result-object v1
-                            iput-object v1, v0, $clientInfoClientVersionField
-                            
-                            :disabled
-                            return-void
-                        """,
-                    )
-                },
+                        # Set client version to the spoofed value.
+                        iget-object v1, v0, $clientInfoClientVersionField
+                        invoke-static { v1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->getClientVersion(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v1
+                        iput-object v1, v0, $clientInfoClientVersionField
+                        
+                        :disabled
+                        return-void
+                    """,
+                )
+            },
+        )
+
+        // endregion
+
+        // region Fix player gesture if spoofing to iOS.
+
+        val endIndex = playerGestureConfigSyntheticResult.scanResult.patternScanResult!!.endIndex
+        val downAndOutLandscapeAllowedIndex = endIndex - 3
+        val downAndOutPortraitAllowedIndex = endIndex - 9
+
+        arrayOf(
+            downAndOutLandscapeAllowedIndex,
+            downAndOutPortraitAllowedIndex,
+        ).forEach { index ->
+            val gestureAllowedMethod = context.navigate(playerGestureConfigSyntheticResult.mutableMethod)
+                .at(index)
+                .mutable()
+
+            gestureAllowedMethod.apply {
+                val isAllowedIndex = instructions.lastIndex
+                val isAllowed = getInstruction<OneRegisterInstruction>(isAllowedIndex).registerA
+
+                addInstructions(
+                    isAllowedIndex,
+                    """
+                        invoke-static { v$isAllowed }, $INTEGRATIONS_CLASS_DESCRIPTOR->enablePlayerGesture(Z)Z
+                        move-result v$isAllowed
+                    """,
+                )
+            }
+        }
+
+        // endregion
+
+        // Fix playback speed menu item if spoofing to iOS.
+
+        val scanResult = createPlaybackSpeedMenuItemResult.scanResult.patternScanResult!!
+        if (scanResult.startIndex != 0) throw PatchException("Unexpected start index: ${scanResult.startIndex}")
+
+        createPlaybackSpeedMenuItemResult.mutableMethod.apply {
+            // Find the conditional check if the playback speed menu item is not created.
+            val shouldCreateMenuIndex = indexOfFirstInstructionOrThrow(scanResult.endIndex) { opcode == Opcode.IF_EQZ }
+            val shouldCreateMenuRegister = getInstruction<OneRegisterInstruction>(shouldCreateMenuIndex).registerA
+
+            addInstructions(
+                shouldCreateMenuIndex,
+                """
+                    invoke-static { v$shouldCreateMenuRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->forceCreatePlaybackSpeedMenu(Z)Z
+                    move-result v$shouldCreateMenuRegister
+                """,
             )
         }
 

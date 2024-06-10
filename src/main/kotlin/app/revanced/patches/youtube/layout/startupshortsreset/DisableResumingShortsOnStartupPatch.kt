@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.layout.startupshortsreset
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -13,7 +12,7 @@ import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -54,6 +53,11 @@ val disableResumingShortsOnStartupPatch = bytecodePatch(
             "19.09.38",
             "19.10.39",
             "19.11.43",
+            "19.12.41",
+            "19.13.37",
+            "19.14.43",
+            "19.15.36",
+            "19.16.39",
         ),
     )
 
@@ -67,12 +71,11 @@ val disableResumingShortsOnStartupPatch = bytecodePatch(
         )
 
         userWasInShortsResult.mutableMethod.apply {
-            val listenableInstructionIndex = indexOfFirstInstruction {
+            val listenableInstructionIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_INTERFACE &&
                     getReference<MethodReference>()?.definingClass == "Lcom/google/common/util/concurrent/ListenableFuture;" &&
                     getReference<MethodReference>()?.name == "isDone"
             }
-            if (listenableInstructionIndex < 0) throw PatchException("Could not find instruction index")
             val originalInstructionRegister = getInstruction<FiveRegisterInstruction>(listenableInstructionIndex).registerC
             val freeRegister = getInstruction<OneRegisterInstruction>(listenableInstructionIndex + 1).registerA
 

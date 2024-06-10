@@ -7,6 +7,8 @@ import app.revanced.patches.reddit.customclients.spoofClientPatch
 import app.revanced.patches.reddit.customclients.sync.detection.piracy.disablePiracyDetectionPatch
 import app.revanced.patches.reddit.customclients.sync.syncforreddit.api.fingerprints.getAuthorizationStringFingerprint
 import app.revanced.patches.reddit.customclients.sync.syncforreddit.api.fingerprints.getBearerTokenFingerprint
+import app.revanced.patches.reddit.customclients.sync.syncforreddit.api.fingerprints.getUserAgentFingerprint
+import app.revanced.patches.reddit.customclients.sync.syncforreddit.api.fingerprints.imgurImageAPIFingerprint
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -25,8 +27,9 @@ val spoofClientPatch = spoofClientPatch(
         "com.laurencedawson.reddit_sync.dev",
     )
 
+    val imgurImageAPIResult by imgurImageAPIFingerprint
     val getAuthorizationStringResult by getAuthorizationStringFingerprint
-    val getBearerTokenResult by getBearerTokenFingerprint
+    val getUserAgentResult by getUserAgentFingerprint
 
     val clientId by clientIdOption
 
@@ -37,7 +40,6 @@ val spoofClientPatch = spoofClientPatch(
             resolve(context, getAuthorizationStringResult.classDef)
         }.resultOrThrow().mutableMethod.apply {
             val auth = Base64.getEncoder().encodeToString("$clientId:".toByteArray(Charsets.UTF_8))
-
             addInstructions(
                 0,
                 """
@@ -45,36 +47,51 @@ val spoofClientPatch = spoofClientPatch(
                      return-object v0
                 """,
             )
-        }
-
-        getAuthorizationStringResult.mutableMethod.apply {
             val occurrenceIndex = getAuthorizationStringResult.scanResult.stringsScanResult!!.matches.first().index
-            val authorizationStringInstruction = getInstruction<ReferenceInstruction>(occurrenceIndex)
-            val targetRegister = (authorizationStringInstruction as OneRegisterInstruction).registerA
-            val reference = authorizationStringInstruction.reference as StringReference
 
-            val newAuthorizationUrl = reference.string.replace(
-                "client_id=.*?&".toRegex(),
-                "client_id=$clientId&",
-            )
+            getAuthorizationStringResult.mutableMethod.apply {
+                val authorizationStringInstruction = getInstruction<ReferenceInstruction>(occurrenceIndex)
+                val targetRegister = (authorizationStringInstruction as OneRegisterInstruction).registerA
+                val reference = authorizationStringInstruction.reference as StringReference
 
-            replaceInstruction(
-                occurrenceIndex,
-                "const-string v$targetRegister, \"$newAuthorizationUrl\"",
-            )
+                val newAuthorizationUrl = reference.string.replace(
+                    "client_id=.*?&".toRegex(),
+                    "client_id=$clientId&",
+                )
+
+                replaceInstruction(
+                    occurrenceIndex,
+                    "const-string v$targetRegister, \"$newAuthorizationUrl\"",
+                )
+            }
         }
-
-        // endregion
-
-        // region Patch miscellaneous.
-
-        // Use the non-commercial Imgur API endpoint to fix Imgur uploads.
-        val apiUrlIndex = getBearerTokenResult.scanResult.stringsScanResult!!.matches.first().index
-        getBearerTokenResult.mutableMethod.replaceInstruction(
-            apiUrlIndex,
-            "const-string v1, \"https://api.imgur.com/3/image\"",
-        )
-
-        // endregion
     }
+
+    // endregion
+
+    // region Patch user agent.
+
+    // Use a random user agent.
+    val randomName = (0..100000).random()
+    val userAgent = "$randomName:app.revanced.$randomName:v1.0.0 (by /u/revanced)"
+
+    imgurImageAPIResult.mutableMethod.replaceInstruction(
+        0,
+        """
+            const-string v0, "$userAgent"
+            return-object v0
+        """,
+    )
+
+    // endregion
+
+    // region Patch Imgur API URL.
+
+    val apiUrlIndex = getUserAgentResult.scanResult.stringsScanResult!!.matches.first().index
+    getUserAgentResult.mutableMethod.replaceInstruction(
+        apiUrlIndex,
+        "const-string v1, \"https://api.imgur.com/3/image\"",
+    )
+
+    // endregion
 }

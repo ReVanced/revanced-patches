@@ -9,20 +9,20 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.fingerprints.*
 import app.revanced.util.exception
 import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import java.io.Closeable
 
 private val MethodFingerprint.patternScanResult
     get() = result!!.scanResult.patternScanResult!!
@@ -109,11 +109,10 @@ val lithoFilterPatch = bytecodePatch(
             val emptyComponentFieldIndex = builderMethodIndex + 2
 
             bytesToComponentContextMethod.mutableMethod.apply {
-                val insertHookIndex = indexOfFirstInstruction {
+                val insertHookIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.IPUT_OBJECT &&
                         getReference<FieldReference>()?.type == "Ljava/lang/StringBuilder;"
                 } + 1
-                if (insertHookIndex <= 0) throw PatchException("Could not find insert index")
 
                 // region Get free registers that this patch uses.
                 // Registers are overwritten right after they are used in this patch, therefore free to clobber.

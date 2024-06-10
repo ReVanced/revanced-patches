@@ -10,7 +10,7 @@ internal val reelConstructorFingerprint = methodFingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     opcodes(Opcode.INVOKE_VIRTUAL)
     custom { methodDef, _ ->
-        // Cannot use LiteralValueFingerprint, because the resource id may not be present.
+        // Cannot use methodFingerprint, because the resource id may not be present.
         val reelMultipleItemShelfId = reelMultipleItemShelfId
         reelMultipleItemShelfId != -1L &&
             methodDef.containsWideLiteralInstructionValue(reelMultipleItemShelfId)

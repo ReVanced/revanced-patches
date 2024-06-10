@@ -1,10 +1,10 @@
 package app.revanced.patches.youtube.layout.seekbar.fingerprints
 
-import app.revanced.util.patch.literalValueFingerprint
+import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val fullscreenSeekbarThumbnailsFingerprint = literalValueFingerprint(
-    literalSupplier = { 45398577 },
+internal val fullscreenSeekbarThumbnailsFingerprint = methodFingerprint(
+    literal { 45398577 },
 ) {
     returns("Z")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)

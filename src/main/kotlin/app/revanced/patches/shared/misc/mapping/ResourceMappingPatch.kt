@@ -1,5 +1,6 @@
 package app.revanced.patches.shared.misc.mapping
 
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.resourcePatch
 import org.w3c.dom.Element
 import java.util.*
@@ -56,8 +57,8 @@ val resourceMappingPatch = resourcePatch {
     }
 }
 
-operator fun List<ResourceElement>.get(type: String, name: String) = resourceMappings.first {
+operator fun List<ResourceElement>.get(type: String, name: String) = resourceMappings.firstOrNull {
     it.type == type && it.name == name
-}.id
+}?.id ?: throw PatchException("Could not find resource type: $type name: $name")
 
 data class ResourceElement internal constructor(val type: String, val name: String, val id: Long)

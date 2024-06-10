@@ -21,4 +21,5 @@ internal val getFormFactorFingerprint = methodFingerprint {
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.RETURN_OBJECT,
     )
+    strings("")
 }
