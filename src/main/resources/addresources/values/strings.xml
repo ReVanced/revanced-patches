@@ -508,6 +508,9 @@
             <string name="revanced_hide_comments_section_title">Hide comments section</string>
             <string name="revanced_hide_comments_section_summary_on">Comments section is hidden</string>
             <string name="revanced_hide_comments_section_summary_off">Comments section is shown</string>
+            <string name="revanced_hide_comments_create_a_short_button_title">Hide \'Create a short\' button</string>
+            <string name="revanced_hide_comments_create_a_short_button_summary_on">\'Create a short\' button is hidden</string>
+            <string name="revanced_hide_comments_create_a_short_button_summary_off">\'Create a short\' button is shown</string>
             <string name="revanced_hide_comments_preview_comment_title">Hide preview comment</string>
             <string name="revanced_hide_comments_preview_comment_summary_on">Preview comment is hidden</string>
             <string name="revanced_hide_comments_preview_comment_summary_off">Preview comment is shown</string>
