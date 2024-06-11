@@ -189,7 +189,7 @@ internal val hideShortsComponentsResourcePatch = resourcePatch {
     )
 
     execute {
-        addResources("youtube", "layout.hide.shorts.HideShortsComponentsResourcePatch")
+        addResources("youtube", "layout.hide.shorts.hideShortsComponentsResourcePatch")
 
         PreferenceScreen.SHORTS.addPreferences(
             SwitchPreference("revanced_hide_shorts_home"),

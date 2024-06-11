@@ -70,7 +70,7 @@ val openLinksExternallyPatch = bytecodePatch(
     )
 
     execute {
-        addResources("youtube", "misc.links.OpenLinksExternallyPatch")
+        addResources("youtube", "misc.links.openLinksExternallyPatch")
 
         PreferenceScreen.MISC.addPreferences(
             SwitchPreference("revanced_external_browser"),

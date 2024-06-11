@@ -57,7 +57,7 @@ val settingsPatch = bytecodePatch(
     val menuGroupsOnClickResult by menuGroupsOnClickFingerprint
 
     execute {
-        addResources("twitch", "misc.settings.SettingsPatch")
+        addResources("twitch", "misc.settings.settingsPatch")
 
         PreferenceScreen.MISC.OTHER.addPreferences(
             // The debug setting is shared across multiple apps and the key must be the same.

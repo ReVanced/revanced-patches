@@ -357,7 +357,7 @@ internal val returnYouTubeDislikeResourcePatch = resourcePatch {
     )
 
     execute {
-        addResources("youtube", "layout.returnyoutubedislike.ReturnYouTubeDislikeResourcePatch")
+        addResources("youtube", "layout.returnyoutubedislike.returnYouTubeDislikeResourcePatch")
 
         preferences += IntentPreference(
             key = "revanced_settings_screen_09",

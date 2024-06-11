@@ -81,7 +81,7 @@ val crowdfundingBoxResourcePatch = resourcePatch {
     )
 
     execute {
-        addResources("youtube", "layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch")
+        addResources("youtube", "layout.hide.crowdfundingbox.crowdfundingBoxResourcePatch")
 
         PreferenceScreen.FEED.addPreferences(
             SwitchPreference("revanced_hide_crowdfunding_box"),

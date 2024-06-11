@@ -65,7 +65,7 @@ val backgroundPlaybackPatch = bytecodePatch(
     val kidsBackgroundPlaybackPolicyControllerResult by kidsBackgroundPlaybackPolicyControllerFingerprint
 
     execute { context ->
-        addResources("youtube", "misc.backgroundplayback.BackgroundPlaybackPatch")
+        addResources("youtube", "misc.backgroundplayback.backgroundPlaybackPatch")
 
         PreferenceScreen.MISC.addPreferences(
             NonInteractivePreference("revanced_background_playback"),

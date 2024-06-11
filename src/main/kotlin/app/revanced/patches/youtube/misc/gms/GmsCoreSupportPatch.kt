@@ -76,7 +76,7 @@ internal fun gmsCoreSupportResourcePatch(
     gmsCoreVendorGroupIdOption = gmsCoreVendorGroupIdOption,
     spoofedPackageSignature = "24bb24c05e47e0aefa68a58a766179d9b613a600",
     executeBlock = {
-        addResources("youtube", "misc.gms.GmsCoreSupportResourcePatch")
+        addResources("youtube", "misc.gms.gmsCoreSupportResourcePatch")
 
         val gmsCoreVendorGroupId by gmsCoreVendorGroupIdOption
 

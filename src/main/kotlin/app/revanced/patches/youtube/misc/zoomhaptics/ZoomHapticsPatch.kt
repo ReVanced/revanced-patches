@@ -25,7 +25,7 @@ val zoomHapticsPatch = bytecodePatch(
     val zoomHapticsResult by zoomHapticsFingerprint
 
     execute {
-        addResources("youtube", "misc.zoomhaptics.ZoomHapticsPatch")
+        addResources("youtube", "misc.zoomhaptics.zoomHapticsPatch")
 
         PreferenceScreen.MISC.addPreferences(
             SwitchPreference("revanced_disable_zoom_haptics"),

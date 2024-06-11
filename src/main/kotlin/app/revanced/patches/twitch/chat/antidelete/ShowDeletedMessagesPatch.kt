@@ -36,7 +36,7 @@ val showDeletedMessagesPatch = bytecodePatch(
     val chatUtilCreateDeletedSpanResult by chatUtilCreateDeletedSpanFingerprint
 
     execute {
-        addResources("twitch", "chat.antidelete.ShowDeletedMessagesPatch")
+        addResources("twitch", "chat.antidelete.showDeletedMessagesPatch")
 
         PreferenceScreen.CHAT.GENERAL.addPreferences(
             ListPreference(

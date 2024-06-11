@@ -47,11 +47,11 @@ val hideButtonsPatch = resourcePatch(
             "19.14.43",
             "19.15.36",
             "19.16.39",
-        )
+        ),
     )
 
     execute {
-        addResources("youtube", "layout.buttons.action.HideButtonsPatch")
+        addResources("youtube", "layout.buttons.action.hideButtonsPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
             PreferenceScreenPreference(

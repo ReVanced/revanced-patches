@@ -66,7 +66,7 @@ val hideAutoplayButtonPatch = bytecodePatch(
     val layoutConstructorResult by layoutConstructorFingerprint
 
     execute {
-        addResources("youtube", "layout.buttons.autoplay.HideAutoplayButtonPatch")
+        addResources("youtube", "layout.buttons.autoplay.hideAutoplayButtonPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
             SwitchPreference("revanced_hide_autoplay_button"),

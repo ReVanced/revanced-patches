@@ -54,7 +54,7 @@ val autoCaptionsPatch = bytecodePatch(
     val subtitleTrackResult by subtitleTrackFingerprint
 
     execute {
-        addResources("youtube", "layout.autocaptions.AutoCaptionsPatch")
+        addResources("youtube", "layout.autocaptions.autoCaptionsPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
             SwitchPreference("revanced_auto_captions"),

@@ -53,7 +53,7 @@ val restoreOldSeekbarThumbnailsPatch = bytecodePatch(
     val fullscreenSeekbarThumbnailsResult by fullscreenSeekbarThumbnailsFingerprint
 
     execute {
-        addResources("youtube", "layout.seekbar.RestoreOldSeekbarThumbnailsPatch")
+        addResources("youtube", "layout.seekbar.restoreOldSeekbarThumbnailsPatch")
 
         PreferenceScreen.SEEKBAR.addPreferences(
             SwitchPreference("revanced_restore_old_seekbar_thumbnails"),

@@ -10,7 +10,7 @@ internal const val INTEGRATIONS_CLASS_DESCRIPTOR = "$INTEGRATIONS_CLASS_DESCRIPT
 
 @Suppress("unused")
 val spoofWifiPatch = transformInstructionsPatch(
-    filterMap = { classDef, method, instruction, instructionIndex ->
+    filterMap = { classDef, _, instruction, instructionIndex ->
         filterMapInstruction35c<MethodCall>(
             INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX,
             classDef,
@@ -18,11 +18,11 @@ val spoofWifiPatch = transformInstructionsPatch(
             instructionIndex,
         )
     },
-    transform = { mutableMethod, entry ->
+    transform = { method, entry ->
         val (methodType, instruction, instructionIndex) = entry
         methodType.replaceInvokeVirtualWithIntegrations(
             INTEGRATIONS_CLASS_DESCRIPTOR,
-            mutableMethod,
+            method,
             instruction,
             instructionIndex,
         )

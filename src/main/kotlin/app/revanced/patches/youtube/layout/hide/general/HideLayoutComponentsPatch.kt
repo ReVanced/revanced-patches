@@ -82,7 +82,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
     val hideShowMoreButtonResult by hideShowMoreButtonFingerprint
 
     execute { context ->
-        addResources("youtube", "layout.hide.general.HideLayoutComponentsPatch")
+        addResources("youtube", "layout.hide.general.hideLayoutComponentsPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
             SwitchPreference("revanced_hide_channel_bar"),

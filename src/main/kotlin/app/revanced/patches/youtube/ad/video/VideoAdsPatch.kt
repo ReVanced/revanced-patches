@@ -54,7 +54,7 @@ val videoAdsPatch = bytecodePatch(
     val loadVideoAdsResult by loadVideoAdsFingerprint
 
     execute {
-        addResources("youtube", "ad.video.VideoAdsPatch")
+        addResources("youtube", "ad.video.videoAdsPatch")
 
         PreferenceScreen.ADS.addPreferences(
             SwitchPreference("revanced_hide_video_ads"),

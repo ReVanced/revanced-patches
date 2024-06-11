@@ -88,7 +88,7 @@ val miniplayerPatch = bytecodePatch(
     val youTubePlayerOverlaysLayoutResult by youTubePlayerOverlaysLayoutFingerprint
 
     execute { context ->
-        addResources("youtube", "layout.miniplayer.MiniplayerPatch")
+        addResources("youtube", "layout.miniplayer.miniplayerPatch")
 
         // Modern mini player is only present and functional in 19.15+.
         // Resource is not present in older versions. Using it to determine, if patching an old version.

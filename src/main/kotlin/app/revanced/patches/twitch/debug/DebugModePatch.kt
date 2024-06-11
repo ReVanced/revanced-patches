@@ -28,7 +28,7 @@ val debugModePatch = bytecodePatch(
     val shouldShowDebugOptionsResult by shouldShowDebugOptionsFingerprint
 
     execute {
-        addResources("twitch", "debug.DebugModePatch")
+        addResources("twitch", "debug.debugModePatch")
 
         PreferenceScreen.MISC.OTHER.addPreferences(
             SwitchPreference("revanced_twitch_debug_mode"),

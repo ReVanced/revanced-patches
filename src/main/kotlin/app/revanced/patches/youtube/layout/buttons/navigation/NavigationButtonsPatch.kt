@@ -68,7 +68,7 @@ val navigationButtonsPatch = bytecodePatch(
     val createPivotBarResult by createPivotBarFingerprint
 
     execute {
-        addResources("youtube", "layout.buttons.navigation.NavigationButtonsPatch")
+        addResources("youtube", "layout.buttons.navigation.navigationButtonsPatch")
 
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(
             PreferenceScreenPreference(

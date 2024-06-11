@@ -55,7 +55,7 @@ val autoRepeatPatch = bytecodePatch(
     val autoRepeatParentResult by autoRepeatParentFingerprint
 
     execute { context ->
-        addResources("youtube", "misc.autorepeat.AutoRepeatPatch")
+        addResources("youtube", "misc.autorepeat.autoRepeatPatch")
 
         PreferenceScreen.MISC.addPreferences(
             SwitchPreference("revanced_auto_repeat"),

@@ -31,7 +31,7 @@ val changeStartPagePatch = bytecodePatch(
     val homeActivityResult by homeActivityFingerprint
 
     execute { context ->
-        addResources("youtube", "layout.startpage.ChangeStartPagePatch")
+        addResources("youtube", "layout.startpage.changeStartPagePatch")
 
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(
             ListPreference(

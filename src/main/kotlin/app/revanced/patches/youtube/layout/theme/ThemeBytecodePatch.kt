@@ -82,7 +82,7 @@ val themePatch = bytecodePatch(
             )
 
             execute { context ->
-                addResources("youtube", "layout.theme.ThemeResourcePatch")
+                addResources("youtube", "layout.theme.themeResourcePatch")
 
                 PreferenceScreen.SEEKBAR.addPreferences(
                     SwitchPreference("revanced_seekbar_custom_color"),
@@ -200,7 +200,7 @@ val themePatch = bytecodePatch(
     val themeHelperDarkColorResult by themeHelperDarkColorFingerprint
 
     execute {
-        addResources("youtube", "layout.theme.ThemeResourcePatch")
+        addResources("youtube", "layout.theme.themeResourcePatch")
 
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(
             SwitchPreference("revanced_gradient_loading_screen"),

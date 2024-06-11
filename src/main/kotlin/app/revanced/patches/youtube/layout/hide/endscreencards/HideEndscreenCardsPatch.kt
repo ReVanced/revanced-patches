@@ -94,7 +94,7 @@ val hideEndscreenCardsResourcePatch = resourcePatch {
     )
 
     execute {
-        addResources("youtube", "layout.hide.endscreencards.HideEndscreenCardsResourcePatch")
+        addResources("youtube", "layout.hide.endscreencards.hideEndscreenCardsResourcePatch")
 
         PreferenceScreen.PLAYER.addPreferences(
             SwitchPreference("revanced_hide_endscreen_cards"),

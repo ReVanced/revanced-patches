@@ -114,7 +114,7 @@ internal val hideInfocardsResourcePatch = resourcePatch {
         addResourcesPatch,
     )
     execute {
-        addResources("youtube", "layout.hide.infocards.HideInfocardsResourcePatch")
+        addResources("youtube", "layout.hide.infocards.hideInfocardsResourcePatch")
 
         PreferenceScreen.PLAYER.addPreferences(
             SwitchPreference("revanced_hide_info_cards"),

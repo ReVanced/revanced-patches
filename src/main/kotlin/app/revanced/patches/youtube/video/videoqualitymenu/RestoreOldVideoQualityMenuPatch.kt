@@ -135,7 +135,7 @@ internal val restoreOldVideoQualityMenuResourcePatch = resourcePatch {
     )
 
     execute {
-        addResources("youtube", "video.videoqualitymenu.RestoreOldVideoQualityMenuResourcePatch")
+        addResources("youtube", "video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch")
 
         PreferenceScreen.VIDEO.addPreferences(
             SwitchPreference("revanced_restore_old_video_quality_menu"),

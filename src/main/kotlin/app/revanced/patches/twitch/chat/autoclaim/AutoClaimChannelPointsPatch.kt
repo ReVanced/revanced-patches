@@ -25,7 +25,7 @@ val autoClaimChannelPointsPatch = bytecodePatch(
     val communityPointsButtonViewDelegateResult by communityPointsButtonViewDelegateFingerprint
 
     execute {
-        addResources("twitch", "chat.autoclaim.AutoClaimChannelPointsPatch")
+        addResources("twitch", "chat.autoclaim.autoClaimChannelPointsPatch")
 
         PreferenceScreen.CHAT.GENERAL.addPreferences(
             SwitchPreference("revanced_auto_claim_channel_points"),

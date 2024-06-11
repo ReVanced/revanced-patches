@@ -60,7 +60,7 @@ val removeTrackingQueryParameterPatch = bytecodePatch(
     val copyTextResult by copyTextFingerprint
 
     execute {
-        addResources("youtube", "misc.privacy.RemoveTrackingQueryParameterPatch")
+        addResources("youtube", "misc.privacy.removeTrackingQueryParameterPatch")
 
         PreferenceScreen.MISC.addPreferences(
             SwitchPreference("revanced_remove_tracking_query_parameter"),

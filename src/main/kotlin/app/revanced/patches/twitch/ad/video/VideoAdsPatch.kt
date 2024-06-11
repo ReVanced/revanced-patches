@@ -31,7 +31,7 @@ val videoAdsPatch = bytecodePatch(
             val contentConfigShowAdsResult by contentConfigShowAdsFingerprint
 
             execute { context ->
-                addResources("twitch", "ad.video.VideoAdsPatch")
+                addResources("twitch", "ad.video.videoAdsPatch")
 
                 PreferenceScreen.ADS.CLIENT_SIDE.addPreferences(
                     SwitchPreference("revanced_block_video_ads"),

@@ -57,7 +57,7 @@ val hideSeekbarPatch = bytecodePatch(
     val seekbarResult by seekbarFingerprint
 
     execute { context ->
-        addResources("youtube", "layout.hide.seekbar.HideSeekbarPatch")
+        addResources("youtube", "layout.hide.seekbar.hideSeekbarPatch")
 
         PreferenceScreen.SEEKBAR.addPreferences(
             SwitchPreference("revanced_hide_seekbar"),

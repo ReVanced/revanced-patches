@@ -87,7 +87,7 @@ internal val hideFloatingMicrophoneButtonResourcePatch = resourcePatch {
     )
 
     execute {
-        addResources("youtube", "layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch")
+        addResources("youtube", "layout.hide.floatingmicrophone.hideFloatingMicrophoneButtonResourcePatch")
 
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(
             SwitchPreference("revanced_hide_floating_microphone_button"),

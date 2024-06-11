@@ -379,7 +379,7 @@ fun gmsCoreSupportResourcePatch(
     val gmsCoreVendorGroupId by gmsCoreVendorGroupIdOption
 
     execute { context ->
-        addResources("shared", "misc.gms.BaseGmsCoreSupportResourcePatch")
+        addResources("shared", "misc.gms.gmsCoreSupportResourcePatch")
 
         /**
          * Add metadata to manifest to support spoofing the package name and signature of GmsCore.

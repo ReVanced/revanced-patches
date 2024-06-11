@@ -28,7 +28,7 @@ val playbackSpeedButtonPatch = bytecodePatch(
     )
 
     execute {
-        addResources("youtube", "video.speed.button.PlaybackSpeedButtonPatch")
+        addResources("youtube", "video.speed.button.playbackSpeedButtonPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
             SwitchPreference("revanced_playback_speed_dialog_button"),

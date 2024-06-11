@@ -52,7 +52,7 @@ val playerPopupPanelsPatch = bytecodePatch(
     val engagementPanelControllerResult by engagementPanelControllerFingerprint
 
     execute {
-        addResources("youtube", "layout.panels.popup.PlayerPopupPanelsPatch")
+        addResources("youtube", "layout.panels.popup.playerPopupPanelsPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
             SwitchPreference("revanced_hide_player_popup_panels"),

@@ -112,7 +112,7 @@ val hideFilterBarResourcePatch = resourcePatch {
     )
 
     execute {
-        addResources("youtube", "layout.hide.filterbar.HideFilterBarResourcePatch")
+        addResources("youtube", "layout.hide.filterbar.hideFilterBarResourcePatch")
 
         PreferenceScreen.FEED.addPreferences(
             PreferenceScreenPreference(

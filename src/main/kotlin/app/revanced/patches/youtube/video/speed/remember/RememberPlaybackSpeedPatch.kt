@@ -30,7 +30,7 @@ internal val rememberPlaybackSpeedPatch = bytecodePatch {
     val initializePlaybackSpeedValuesResult by initializePlaybackSpeedValuesFingerprint
 
     execute {
-        addResources("youtube", "video.speed.remember.RememberPlaybackSpeedPatch")
+        addResources("youtube", "video.speed.remember.rememberPlaybackSpeedPatch")
 
         PreferenceScreen.VIDEO.addPreferences(
             SwitchPreference("revanced_remember_playback_speed_last_selected"),

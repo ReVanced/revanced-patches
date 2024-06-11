@@ -14,7 +14,6 @@ import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
-import app.revanced.patches.youtube.layout.thumbnails.fingerprints.*
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
@@ -85,7 +84,7 @@ val alternativeThumbnailsPatch = bytecodePatch(
     val requestResult by requestFingerprint
 
     execute { context ->
-        addResources("youtube", "layout.thumbnails.AlternativeThumbnailsPatch")
+        addResources("youtube", "layout.thumbnails.alternativeThumbnailsPatch")
 
         val entries = "revanced_alt_thumbnail_options_entries"
         val values = "revanced_alt_thumbnail_options_entry_values"
@@ -216,7 +215,7 @@ private fun addImageUrlSuccessCallbackHook(targetMethodClass: String) {
     loadImageSuccessCallbackMethod.addInstruction(
         loadImageSuccessCallbackIndex++,
         "invoke-static { p1, p2 }, $targetMethodClass->handleCronetSuccess(" +
-                "Lorg/chromium/net/UrlRequest;Lorg/chromium/net/UrlResponseInfo;)V",
+            "Lorg/chromium/net/UrlRequest;Lorg/chromium/net/UrlResponseInfo;)V",
     )
 }
 
@@ -228,6 +227,6 @@ private fun addImageUrlErrorCallbackHook(targetMethodClass: String) {
     loadImageErrorCallbackMethod.addInstruction(
         loadImageErrorCallbackIndex++,
         "invoke-static { p1, p2, p3 }, $targetMethodClass->handleCronetFailure(" +
-                "Lorg/chromium/net/UrlRequest;Lorg/chromium/net/UrlResponseInfo;Ljava/io/IOException;)V",
+            "Lorg/chromium/net/UrlRequest;Lorg/chromium/net/UrlResponseInfo;Ljava/io/IOException;)V",
     )
 }

@@ -52,7 +52,7 @@ val bypassURLRedirectsPatch = bytecodePatch(
     val httpUriParserResult by httpUriParserFingerprint
 
     execute {
-        addResources("youtube", "misc.links.BypassURLRedirectsPatch")
+        addResources("youtube", "misc.links.bypassURLRedirectsPatch")
 
         PreferenceScreen.MISC.addPreferences(
             SwitchPreference("revanced_bypass_url_redirects"),

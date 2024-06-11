@@ -62,7 +62,7 @@ val rememberVideoQualityPatch = bytecodePatch(
     val newVideoQualityChangedResult by newVideoQualityChangedFingerprint
 
     execute { context ->
-        addResources("youtube", "video.quality.RememberVideoQualityPatch")
+        addResources("youtube", "video.quality.rememberVideoQualityPatch")
 
         PreferenceScreen.VIDEO.addPreferences(
             SwitchPreference("revanced_remember_video_quality_last_selected"),

@@ -98,7 +98,7 @@ val swipeControlsResourcePatch = resourcePatch {
     )
 
     execute { context ->
-        addResources("youtube", "interaction.swipecontrols.SwipeControlsResourcePatch")
+        addResources("youtube", "interaction.swipecontrols.swipeControlsResourcePatch")
 
         PreferenceScreen.SWIPE_CONTROLS.addPreferences(
             SwitchPreference("revanced_swipe_brightness"),

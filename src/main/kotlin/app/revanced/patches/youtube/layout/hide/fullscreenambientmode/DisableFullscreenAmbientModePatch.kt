@@ -54,7 +54,7 @@ val disableFullscreenAmbientModePatch = bytecodePatch(
     val initializeAmbientModeResult by initializeAmbientModeFingerprint
 
     execute {
-        addResources("youtube", "layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch")
+        addResources("youtube", "layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch")
 
         PreferenceScreen.PLAYER.addPreferences(
             SwitchPreference("revanced_disable_fullscreen_ambient_mode"),

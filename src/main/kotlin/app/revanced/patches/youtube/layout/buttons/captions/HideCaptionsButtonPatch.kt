@@ -54,7 +54,7 @@ val hideCaptionsButtonPatch = bytecodePatch(
     val subtitleButtonControllerResult by subtitleButtonControllerFingerprint
 
     execute {
-        addResources("youtube", "layout.buttons.captions.HideCaptionsButtonPatch")
+        addResources("youtube", "layout.buttons.captions.hideCaptionsButtonPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
             SwitchPreference("revanced_hide_captions_button"),

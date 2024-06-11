@@ -86,7 +86,7 @@ val albumCardsResourcePatch = resourcePatch {
     )
 
     execute {
-        addResources("youtube", "layout.hide.albumcards.AlbumCardsResourcePatch")
+        addResources("youtube", "layout.hide.albumcards.albumCardsResourcePatch")
 
         PreferenceScreen.FEED.addPreferences(
             SwitchPreference("revanced_hide_album_cards"),

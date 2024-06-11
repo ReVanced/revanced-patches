@@ -54,7 +54,7 @@ val enableSlideToSeekPatch = bytecodePatch(
     val doubleSpeedSeekNoticeResult by doubleSpeedSeekNoticeFingerprint
 
     execute {
-        addResources("youtube", "interaction.seekbar.EnableSlideToSeekPatch")
+        addResources("youtube", "interaction.seekbar.enableSlideToSeekPatch")
 
         PreferenceScreen.SEEKBAR.addPreferences(
             SwitchPreference("revanced_slide_to_seek"),

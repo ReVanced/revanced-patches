@@ -30,7 +30,7 @@ fun settingsPatch(
             ResourceGroup("xml", "revanced_prefs.xml"),
         )
 
-        addResources("shared", "misc.settings.BaseSettingsResourcePatch")
+        addResources("shared", "misc.settings.settingsResourcePatch")
     }
 
     finalize { context ->

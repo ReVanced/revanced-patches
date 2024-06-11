@@ -51,7 +51,7 @@ val hideTimestampPatch = bytecodePatch(
     val timeCounterResult by timeCounterFingerprint
 
     execute {
-        addResources("youtube", "layout.hide.time.HideTimestampPatch")
+        addResources("youtube", "layout.hide.time.hideTimestampPatch")
 
         PreferenceScreen.SEEKBAR.addPreferences(
             SwitchPreference("revanced_hide_timestamp"),

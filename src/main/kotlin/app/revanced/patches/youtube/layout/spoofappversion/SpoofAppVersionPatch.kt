@@ -59,7 +59,7 @@ val spoofAppVersionPatch = bytecodePatch(
     val spoofAppVersionResult by spoofAppVersionFingerprint
 
     execute {
-        addResources("youtube", "layout.spoofappversion.SpoofAppVersionPatch")
+        addResources("youtube", "layout.spoofappversion.spoofAppVersionPatch")
 
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(
             SwitchPreference("revanced_spoof_app_version"),

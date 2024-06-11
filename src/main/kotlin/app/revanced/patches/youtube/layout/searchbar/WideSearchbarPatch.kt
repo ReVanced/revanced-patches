@@ -60,7 +60,7 @@ val wideSearchbarPatch = bytecodePatch(
     val createSearchSuggestionsResult by createSearchSuggestionsFingerprint
 
     execute { context ->
-        addResources("youtube", "layout.searchbar.WideSearchbarPatch")
+        addResources("youtube", "layout.searchbar.wideSearchbarPatch")
 
         PreferenceScreen.FEED.addPreferences(
             SwitchPreference("revanced_wide_searchbar"),

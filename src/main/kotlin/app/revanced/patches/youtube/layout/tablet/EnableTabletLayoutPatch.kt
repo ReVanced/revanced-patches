@@ -57,7 +57,7 @@ val enableTabletLayoutPatch = bytecodePatch(
     val getFormFactorResult by getFormFactorFingerprint
 
     execute {
-        addResources("youtube", "layout.tablet.EnableTabletLayoutPatch")
+        addResources("youtube", "layout.tablet.enableTabletLayoutPatch")
 
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(
             SwitchPreference("revanced_tablet_layout"),

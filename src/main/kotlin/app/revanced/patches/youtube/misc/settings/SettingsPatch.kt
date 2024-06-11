@@ -45,7 +45,7 @@ val settingsPatch = bytecodePatch(
     val setThemeMethodName = "setTheme"
 
     execute {
-        addResources("youtube", "misc.settings.SettingsPatch")
+        addResources("youtube", "misc.settings.settingsPatch")
 
         // Add an "about" preference to the top.
         preferences += NonInteractivePreference(

@@ -83,7 +83,7 @@ internal val disableSuggestedVideoEndScreenResourcePatch = resourcePatch {
     )
 
     execute {
-        addResources("youtube", "layout.hide.suggestedvideoendscreen.DisableSuggestedVideoEndScreenResourcePatch")
+        addResources("youtube", "layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch")
 
         PreferenceScreen.PLAYER.addPreferences(
             SwitchPreference("revanced_disable_suggested_video_end_screen"),

@@ -23,7 +23,7 @@ val enableDebuggingPatch = resourcePatch(
     compatibleWith("com.google.android.youtube")
 
     execute {
-        addResources("youtube", "misc.debugging.DebuggingPatch")
+        addResources("youtube", "misc.debugging.enableDebuggingPatch")
 
         PreferenceScreen.MISC.addPreferences(
             PreferenceScreenPreference(

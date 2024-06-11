@@ -57,7 +57,7 @@ internal val customPlayerOverlayOpacityResourcePatch = resourcePatch {
     )
 
     execute {
-        addResources("youtube", "layout.player.overlay.CustomPlayerOverlayOpacityResourcePatch")
+        addResources("youtube", "layout.player.overlay.customPlayerOverlayOpacityResourcePatch")
 
         PreferenceScreen.PLAYER.addPreferences(
             TextPreference("revanced_player_overlay_opacity", inputType = InputType.NUMBER),

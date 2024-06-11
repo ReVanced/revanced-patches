@@ -302,7 +302,7 @@ internal val sponsorBlockResourcePatch = resourcePatch {
     )
 
     execute { context ->
-        addResources("youtube", "layout.sponsorblock.SponsorBlockResourcePatch")
+        addResources("youtube", "layout.sponsorblock.sponsorBlockResourcePatch")
 
         preferences += IntentPreference(
             key = "revanced_settings_screen_10",
