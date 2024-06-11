@@ -7,7 +7,7 @@ import app.revanced.patches.photomath.detection.signature.signatureDetectionPatc
 import kotlin.random.Random
 
 @Suppress("unused")
-val getDeviceIdFingerprint = bytecodePatch(
+val getDeviceIdPatch = bytecodePatch(
     name = "Spoof device ID",
     description = "Spoofs device ID to mitigate manual bans by developers.",
 ) {
@@ -23,7 +23,7 @@ val getDeviceIdFingerprint = bytecodePatch(
             """
                 const-string v0, "${Random.nextLong().toString(16)}"
                 return-object v0
-            """
+            """,
         )
     }
 }
