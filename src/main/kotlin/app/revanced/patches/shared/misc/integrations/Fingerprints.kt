@@ -7,7 +7,7 @@ internal val revancedUtilsPatchesVersionFingerprint = methodFingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Ljava/lang/String;")
     parameters()
-    custom { methodDef, classDef ->
-        methodDef.name == "getPatchesReleaseVersion" && classDef.type == INTEGRATIONS_CLASS_DESCRIPTOR
+    custom { method, _ ->
+        method.name == "getPatchesReleaseVersion" && method.definingClass == INTEGRATIONS_CLASS_DESCRIPTOR
     }
 }

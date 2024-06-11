@@ -41,15 +41,15 @@ internal val mainActivityOnBackPressedFingerprint = methodFingerprint {
 
 /**
  * Integrations method, used for callback into to other patches.
- * Specifically, [NavigationButtonsPatch].
+ * Specifically, [navigationButtonsPatch].
  */
 internal val navigationBarHookCallbackFingerprint = methodFingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returns("V")
     parameters(INTEGRATIONS_NAVIGATION_BUTTON_DESCRIPTOR, "Landroid/view/View;")
-    custom { methodDef, classDef ->
-        methodDef.name == "navigationTabCreatedCallback" &&
-            classDef.type == INTEGRATIONS_NAVIGATION_BUTTON_DESCRIPTOR
+    custom { method, _ ->
+        method.name == "navigationTabCreatedCallback" &&
+            method.definingClass == INTEGRATIONS_NAVIGATION_BUTTON_DESCRIPTOR
     }
 }
 
@@ -72,10 +72,10 @@ internal val navigationEnumFingerprint = methodFingerprint {
 internal val pivotBarButtonsCreateDrawableViewFingerprint = methodFingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/view/View;")
-    custom { methodDef, classDef ->
-        classDef.type == "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;" &&
+    custom { method, _ ->
+        method.definingClass == "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;" &&
             // Only one method has a Drawable parameter.
-            methodDef.parameterTypes.firstOrNull() == "Landroid/graphics/drawable/Drawable;"
+            method.parameterTypes.firstOrNull() == "Landroid/graphics/drawable/Drawable;"
     }
 }
 
@@ -83,8 +83,8 @@ internal val pivotBarButtonsCreateResourceViewFingerprint = methodFingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/view/View;")
     parameters("L", "Z", "I", "L")
-    custom { _, classDef ->
-        classDef.type == "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;"
+    custom { method, _ ->
+        method.definingClass == "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;"
     }
 }
 
@@ -96,9 +96,9 @@ internal val pivotBarButtonsViewSetSelectedFingerprint = methodFingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("I", "Z")
-    custom { methodDef, classDef ->
-        classDef.type == "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;" &&
-            indexOfSetViewSelectedInstruction(methodDef) >= 0
+    custom { method, _ ->
+        indexOfSetViewSelectedInstruction(method) >= 0 &&
+            method.definingClass == "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;"
     }
 }
 

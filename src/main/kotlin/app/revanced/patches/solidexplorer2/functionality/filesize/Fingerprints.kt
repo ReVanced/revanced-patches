@@ -1,7 +1,7 @@
 package app.revanced.patches.solidexplorer2.functionality.filesize
 
-import com.android.tools.smali.dexlib2.Opcode
 import app.revanced.patcher.fingerprint.methodFingerprint
+import com.android.tools.smali.dexlib2.Opcode
 
 internal val onReadyFingerprint = methodFingerprint {
     opcodes(
@@ -9,7 +9,7 @@ internal val onReadyFingerprint = methodFingerprint {
         Opcode.CMP_LONG,
         Opcode.IF_LEZ,
     )
-    custom { methodDef, classDef ->
-        classDef.type == "Lpl/solidexplorer/plugins/texteditor/TextEditor;" && methodDef.name == "onReady"
+    custom { method, _ ->
+        method.name == "onReady" && method.definingClass == "Lpl/solidexplorer/plugins/texteditor/TextEditor;"
     }
 }

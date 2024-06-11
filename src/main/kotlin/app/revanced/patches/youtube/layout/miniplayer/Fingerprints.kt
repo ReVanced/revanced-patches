@@ -126,7 +126,7 @@ internal const val YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME =
     "Lcom/google/android/apps/youtube/app/common/player/overlay/YouTubePlayerOverlaysLayout;"
 
 internal val youTubePlayerOverlaysLayoutFingerprint = methodFingerprint {
-    custom { _, classDef ->
-        classDef.type == YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME
+    custom { method, _ ->
+        method.definingClass == YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME
     }
 }
