@@ -2,12 +2,11 @@ package app.revanced.patches.youtube.video.videoqualitymenu.fingerprints
 
 import app.revanced.patcher.fingerprint.methodFingerprint
 import app.revanced.patches.youtube.video.videoqualitymenu.videoQualityQuickMenuAdvancedMenuDescription
+import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val videoQualityMenuOptionsFingerprint = methodFingerprint(
-    literal { videoQualityQuickMenuAdvancedMenuDescription },
-) {
+internal val videoQualityMenuOptionsFingerprint = methodFingerprint {
     accessFlags(AccessFlags.STATIC)
     returns("[L")
     parameters("Landroid/content/Context", "L", "L")
@@ -18,4 +17,5 @@ internal val videoQualityMenuOptionsFingerprint = methodFingerprint(
         Opcode.IGET_BOOLEAN, // Use the quality menu, that contains the advanced menu.
         Opcode.IF_NEZ,
     )
+    literal { videoQualityQuickMenuAdvancedMenuDescription }
 }

@@ -2,12 +2,11 @@ package app.revanced.patches.youtube.video.videoqualitymenu.fingerprints
 
 import app.revanced.patcher.fingerprint.methodFingerprint
 import app.revanced.patches.youtube.video.videoqualitymenu.videoQualityBottomSheetListFragmentTitle
+import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val videoQualityMenuViewInflateFingerprint = methodFingerprint(
-    literal { videoQualityBottomSheetListFragmentTitle },
-) {
+internal val videoQualityMenuViewInflateFingerprint = methodFingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters("L", "L", "L")
@@ -27,4 +26,5 @@ internal val videoQualityMenuViewInflateFingerprint = methodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CHECK_CAST,
     )
+    literal { videoQualityBottomSheetListFragmentTitle }
 }

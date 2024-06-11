@@ -1,12 +1,11 @@
 package app.revanced.patches.youtube.misc.backgroundplayback.fingerprints
 
 import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val kidsBackgroundPlaybackPolicyControllerFingerprint = methodFingerprint(
-    literal { 5 },
-) {
+internal val kidsBackgroundPlaybackPolicyControllerFingerprint = methodFingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("I", "L", "L")
@@ -26,4 +25,5 @@ internal val kidsBackgroundPlaybackPolicyControllerFingerprint = methodFingerpri
         Opcode.INVOKE_VIRTUAL,
         Opcode.RETURN_VOID,
     )
+    literal { 5 }
 }
