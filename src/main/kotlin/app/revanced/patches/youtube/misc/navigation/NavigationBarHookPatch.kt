@@ -5,9 +5,12 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
-import app.revanced.patches.youtube.misc.navigation.fingerprints.*
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -143,4 +146,18 @@ private enum class Hook(val methodName: String, val parameters: String) {
     NAVIGATION_TAB_LOADED("navigationTabLoaded", "Landroid/view/View;"),
     NAVIGATION_IMAGE_RESOURCE_TAB_LOADED("navigationImageResourceTabLoaded", "Landroid/view/View;"),
     SEARCH_BAR_RESULTS_VIEW_LOADED("searchBarResultsViewLoaded", "Landroid/view/View;"),
+}
+
+internal var imageOnlyTabResourceId = -1L
+    private set
+internal var actionBarSearchResultsViewMicId = -1L
+    private set
+
+internal val navigationBarHookResourcePatch = resourcePatch {
+    dependsOn(resourceMappingPatch)
+
+    execute {
+        imageOnlyTabResourceId = resourceMappings["layout", "image_only_tab"]
+        actionBarSearchResultsViewMicId = resourceMappings["layout", "action_bar_search_results_view_mic"]
+    }
 }
