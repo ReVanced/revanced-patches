@@ -2,8 +2,6 @@ package app.revanced.patches.myfitnesspal.ads
 
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.myfitnesspal.ads.fingerprints.isPremiumUseCaseImplFingerprint
-import app.revanced.patches.myfitnesspal.ads.fingerprints.mainActivityNavigateToNativePremiumUpsellFingerprint
 
 @Suppress("unused")
 val hideAdsPatch = bytecodePatch(
@@ -22,14 +20,14 @@ val hideAdsPatch = bytecodePatch(
             """
                 sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
                 return-object v0
-            """
+            """,
         )
 
         // Prevent the premium upsell dialog from showing when the main activity is launched.
         // In other places that are premium-only the dialog will still show.
         mainActivityNavigateToNativePremiumUpsellResult.mutableMethod.replaceInstructions(
             0,
-            "return-void"
+            "return-void",
         )
     }
 }

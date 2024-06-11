@@ -7,7 +7,7 @@ import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.fingerprints.mainActivityOnCreateFingerprint
+import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 
 private const val INTEGRATIONS_CLASS_DESCRIPTOR =
     "Lapp/revanced/integrations/youtube/patches/announcements/AnnouncementsPatch;"

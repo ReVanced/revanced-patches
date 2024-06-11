@@ -2,7 +2,6 @@ package app.revanced.patches.photomath.detection.deviceid
 
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.photomath.detection.deviceid.fingerprints.getDeviceIdFingerprint
 import app.revanced.patches.photomath.detection.signature.signatureDetectionPatch
 import kotlin.random.Random
 

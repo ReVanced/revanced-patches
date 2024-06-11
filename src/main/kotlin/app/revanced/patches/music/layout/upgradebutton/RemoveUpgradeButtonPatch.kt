@@ -7,7 +7,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.extensions.newLabel
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.toInstructions
-import app.revanced.patches.music.layout.upgradebutton.fingerprints.pivotBarConstructorFingerprint
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction22t

@@ -2,7 +2,6 @@ package app.revanced.patches.reddit.customclients.sync.detection.piracy
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.reddit.customclients.sync.detection.piracy.fingerprints.piracyDetectionFingerprint
 
 @Suppress("unused")
 val disablePiracyDetectionPatch = bytecodePatch(

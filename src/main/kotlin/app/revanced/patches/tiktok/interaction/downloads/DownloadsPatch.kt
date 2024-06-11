@@ -5,13 +5,9 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.tiktok.interaction.downloads.fingerprints.aclCommonShareFingerprint
-import app.revanced.patches.tiktok.interaction.downloads.fingerprints.aclCommonShareFingerprint2
-import app.revanced.patches.tiktok.interaction.downloads.fingerprints.aclCommonShareFingerprint3
-import app.revanced.patches.tiktok.interaction.downloads.fingerprints.downloadPathParentFingerprint
 import app.revanced.patches.tiktok.misc.integrations.integrationsPatch
-import app.revanced.patches.tiktok.misc.settings.fingerprints.settingsStatusLoadFingerprint
 import app.revanced.patches.tiktok.misc.settings.settingsPatch
+import app.revanced.patches.tiktok.misc.settings.settingsStatusLoadFingerprint
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
@@ -24,12 +20,12 @@ val downloadsPatch = bytecodePatch(
 ) {
     dependsOn(
         integrationsPatch,
-        settingsPatch
+        settingsPatch,
     )
 
     compatibleWith(
         "com.ss.android.ugc.trill"("32.5.3"),
-        "com.zhiliaoapp.musically"("32.5.3")
+        "com.zhiliaoapp.musically"("32.5.3"),
     )
 
     val aclCommonShareResult by aclCommonShareFingerprint
@@ -76,10 +72,10 @@ val downloadsPatch = bytecodePatch(
                 .at(indexOfFirstInstructionOrThrow { opcode == Opcode.INVOKE_STATIC })
                 .mutable()
 
-                val firstIndex = downloadUriMethod.indexOfFirstInstructionOrThrow {
+            val firstIndex = downloadUriMethod.indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_DIRECT && ((this as Instruction35c).reference as MethodReference).name == "<init>"
             }
-                val secondIndex = downloadUriMethod.indexOfFirstInstructionOrThrow {
+            val secondIndex = downloadUriMethod.indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_STATIC && ((this as Instruction35c).reference as MethodReference).returnType.contains(
                     "Uri",
                 )

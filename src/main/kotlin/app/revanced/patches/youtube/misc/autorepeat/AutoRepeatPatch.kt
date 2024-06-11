@@ -9,8 +9,8 @@ import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
-import app.revanced.patches.youtube.shared.fingerprints.autoRepeatFingerprint
-import app.revanced.patches.youtube.shared.fingerprints.autoRepeatParentFingerprint
+import app.revanced.patches.youtube.shared.autoRepeatFingerprint
+import app.revanced.patches.youtube.shared.autoRepeatParentFingerprint
 import app.revanced.util.resultOrThrow
 
 @Suppress("unused")

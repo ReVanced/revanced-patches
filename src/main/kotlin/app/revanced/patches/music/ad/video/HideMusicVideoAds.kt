@@ -2,7 +2,6 @@ package app.revanced.patches.music.ad.video
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.music.ad.video.fingerprints.showMusicVideoAdsParentFingerprint
 
 @Suppress("unused")
 val hideMusicVideoAdsPatch = bytecodePatch(

@@ -9,8 +9,6 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.youtube.layout.searchbar.fingerprints.createSearchSuggestionsFingerprint
-import app.revanced.patches.youtube.layout.searchbar.fingerprints.setWordmarkHeaderFingerprint
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch

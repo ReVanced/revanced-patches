@@ -2,7 +2,6 @@ package app.revanced.patches.lightroom.misc.premium
 
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.lightroom.misc.premium.fingerprints.hasPurchaseFingerprint
 
 @Suppress("unused")
 val unlockPremiumPatch = bytecodePatch(

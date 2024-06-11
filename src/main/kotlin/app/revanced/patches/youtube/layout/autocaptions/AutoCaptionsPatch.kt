@@ -5,9 +5,6 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.youtube.layout.autocaptions.fingerprints.startVideoInformerFingerprint
-import app.revanced.patches.youtube.layout.autocaptions.fingerprints.subtitleButtonControllerFingerprint
-import app.revanced.patches.youtube.layout.autocaptions.fingerprints.subtitleTrackFingerprint
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
@@ -20,9 +17,9 @@ val autoCaptionsPatch = bytecodePatch(
     dependsOn(
         integrationsPatch,
         settingsPatch,
-        addResourcesPatch
+        addResourcesPatch,
     )
-    
+
     compatibleWith(
         "com.google.android.youtube"(
             "18.32.39",

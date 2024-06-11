@@ -1,9 +1,11 @@
 package app.revanced.patches.all.screencapture.removerestriction
 
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.transformation.IMethodCall
 import app.revanced.patches.all.misc.transformation.filterMapInstruction35c
 import app.revanced.patches.all.misc.transformation.transformInstructionsPatch
+import org.w3c.dom.Element
 
 private const val INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX =
     "Lapp/revanced/integrations/all/screencapture/removerestriction/RemoveScreencaptureRestrictionPatch"
@@ -60,4 +62,22 @@ private enum class MethodCall(
         arrayOf("I"),
         "V",
     ),
+}
+
+@Suppress("unused")
+internal val removeCaptureRestrictionResourcePatch = resourcePatch(
+    description = "Sets allowAudioPlaybackCapture in manifest to true.",
+) {
+    execute { context ->
+        context.document["AndroidManifest.xml"].use { document ->
+            // Get the application node.
+            val applicationNode =
+                document
+                    .getElementsByTagName("application")
+                    .item(0) as Element
+
+            // Set allowAudioPlaybackCapture attribute to true.
+            applicationNode.setAttribute("android:allowAudioPlaybackCapture", "true")
+        }
+    }
 }

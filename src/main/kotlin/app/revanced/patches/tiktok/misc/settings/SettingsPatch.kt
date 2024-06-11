@@ -5,10 +5,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.tiktok.misc.settings.fingerprints.adPersonalizationActivityOnCreateFingerprint
-import app.revanced.patches.tiktok.misc.settings.fingerprints.addSettingsEntryFingerprint
-import app.revanced.patches.tiktok.misc.settings.fingerprints.settingsEntryFingerprint
-import app.revanced.patches.tiktok.misc.settings.fingerprints.settingsEntryInfoFingerprint
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction22c

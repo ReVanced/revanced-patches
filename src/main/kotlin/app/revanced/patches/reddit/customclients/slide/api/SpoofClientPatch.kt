@@ -1,7 +1,6 @@
 package app.revanced.patches.reddit.customclients.slide.api
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patches.reddit.customclients.slide.api.fingerprints.getClientIdFingerprint
 import app.revanced.patches.reddit.customclients.spoofClientPatch
 
 @Suppress("unused")

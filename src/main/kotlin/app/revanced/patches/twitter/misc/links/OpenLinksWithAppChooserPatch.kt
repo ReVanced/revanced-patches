@@ -2,7 +2,6 @@ package app.revanced.patches.twitter.misc.links
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.twitter.misc.links.fingerprints.openLinkFingerprint
 
 @Suppress("unused")
 val openLinksWithAppChooserPatch = bytecodePatch(

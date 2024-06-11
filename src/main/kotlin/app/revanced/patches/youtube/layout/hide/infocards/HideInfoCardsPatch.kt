@@ -4,12 +4,19 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.youtube.layout.hide.infocards.fingerprints.*
-import app.revanced.patches.youtube.layout.hide.infocards.fingerprints.infocardsIncognitoParentFingerprint
+import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappings
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
+import app.revanced.patches.youtube.misc.settings.PreferenceScreen
+import app.revanced.patches.youtube.misc.settings.settingsPatch
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -94,5 +101,28 @@ val hideInfoCardsPatch = bytecodePatch(
         // Info cards can also appear as Litho components.
         val filterClassDescriptor = "Lapp/revanced/integrations/youtube/patches/components/HideInfoCardsFilterPatch;"
         addLithoFilter(filterClassDescriptor)
+    }
+}
+
+internal var drawerResourceId = -1L
+    private set
+
+internal val hideInfocardsResourcePatch = resourcePatch {
+    dependsOn(
+        settingsPatch,
+        resourceMappingPatch,
+        addResourcesPatch,
+    )
+    execute {
+        addResources("youtube", "layout.hide.infocards.HideInfocardsResourcePatch")
+
+        PreferenceScreen.PLAYER.addPreferences(
+            SwitchPreference("revanced_hide_info_cards"),
+        )
+
+        drawerResourceId = resourceMappings[
+            "id",
+            "info_cards_drawer_header",
+        ]
     }
 }

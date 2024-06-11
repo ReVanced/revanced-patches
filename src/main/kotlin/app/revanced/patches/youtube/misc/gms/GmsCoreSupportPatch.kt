@@ -1,17 +1,22 @@
 package app.revanced.patches.youtube.misc.gms
 
-import app.revanced.patches.shared.fingerprints.*
-import app.revanced.patches.shared.fingerprints.castDynamiteModuleFingerprint
-import app.revanced.patches.shared.fingerprints.castDynamiteModuleV2Fingerprint
-import app.revanced.patches.shared.fingerprints.primeMethodFingerprint
+import app.revanced.patcher.patch.Option
+import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.castContextFetchFingerprint
+import app.revanced.patches.shared.castDynamiteModuleFingerprint
+import app.revanced.patches.shared.castDynamiteModuleV2Fingerprint
 import app.revanced.patches.shared.misc.gms.gmsCoreSupportPatch
+import app.revanced.patches.shared.misc.settings.preference.IntentPreference
+import app.revanced.patches.shared.primeMethodFingerprint
 import app.revanced.patches.youtube.layout.buttons.cast.hideCastButtonPatch
 import app.revanced.patches.youtube.misc.fix.playback.spoofClientPatch
 import app.revanced.patches.youtube.misc.gms.Constants.REVANCED_YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.gms.Constants.YOUTUBE_PACKAGE_NAME
-import app.revanced.patches.youtube.misc.gms.fingerprints.*
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
-import app.revanced.patches.youtube.shared.fingerprints.mainActivityOnCreateFingerprint
+import app.revanced.patches.youtube.misc.settings.PreferenceScreen
+import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 
 @Suppress("unused")
 val gmsCoreSupportPatch = gmsCoreSupportPatch(
@@ -61,4 +66,29 @@ val gmsCoreSupportPatch = gmsCoreSupportPatch(
             "19.16.39",
         ),
     )
+}
+
+internal fun gmsCoreSupportResourcePatch(
+    gmsCoreVendorGroupIdOption: Option<String>,
+) = app.revanced.patches.shared.misc.gms.gmsCoreSupportResourcePatch(
+    fromPackageName = YOUTUBE_PACKAGE_NAME,
+    toPackageName = REVANCED_YOUTUBE_PACKAGE_NAME,
+    gmsCoreVendorGroupIdOption = gmsCoreVendorGroupIdOption,
+    spoofedPackageSignature = "24bb24c05e47e0aefa68a58a766179d9b613a600",
+    executeBlock = {
+        addResources("youtube", "misc.gms.GmsCoreSupportResourcePatch")
+
+        val gmsCoreVendorGroupId by gmsCoreVendorGroupIdOption
+
+        PreferenceScreen.MISC.addPreferences(
+            IntentPreference(
+                "microg_settings",
+                intent = IntentPreference.Intent("", "org.microg.gms.ui.SettingsActivity") {
+                    "$gmsCoreVendorGroupId.android.gms"
+                },
+            ),
+        )
+    },
+) {
+    dependsOn(settingsPatch, addResourcesPatch)
 }

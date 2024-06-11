@@ -2,11 +2,10 @@ package app.revanced.patches.lightroom.misc.login
 
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.lightroom.misc.login.fingerprints.isLoggedInFingerprint
 
 @Suppress("unused")
 val disableMandatoryLoginPatch = bytecodePatch(
-    name = "Disable mandatory login"
+    name = "Disable mandatory login",
 ) {
     compatibleWith("com.adobe.lrmobile")
 

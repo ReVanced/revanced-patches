@@ -13,7 +13,6 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.video.information.*
 import app.revanced.patches.youtube.video.speed.custom.customPlaybackSpeedPatch
-import app.revanced.patches.youtube.video.speed.remember.fingerprint.initializePlaybackSpeedValuesFingerprint
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 private const val INTEGRATIONS_CLASS_DESCRIPTOR =

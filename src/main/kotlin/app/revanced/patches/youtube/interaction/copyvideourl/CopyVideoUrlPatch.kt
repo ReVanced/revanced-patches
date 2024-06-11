@@ -1,13 +1,19 @@
 package app.revanced.patches.youtube.interaction.copyvideourl
 
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.youtube.misc.playercontrols.initializeControl
-import app.revanced.patches.youtube.misc.playercontrols.injectVisibilityCheckCall
-import app.revanced.patches.youtube.misc.playercontrols.playerControlsPatch
+import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.patches.youtube.misc.playercontrols.*
+import app.revanced.patches.youtube.misc.settings.PreferenceScreen
+import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.video.information.videoInformationPatch
+import app.revanced.util.ResourceGroup
+import app.revanced.util.copyResources
 
 @Suppress("unused")
-val copyVideoUrlBytecodePatch = bytecodePatch(
+val copyVideoUrlPatch = bytecodePatch(
     name = "Copy video URL",
     description = "Adds options to display buttons in the video player to copy video URLs.",
 ) {
@@ -51,5 +57,34 @@ val copyVideoUrlBytecodePatch = bytecodePatch(
             initializeControl("$descriptor->initializeButton(Landroid/view/View;)V")
             injectVisibilityCheckCall("$descriptor->changeVisibility(Z)V")
         }
+    }
+}
+
+@Suppress("unused")
+val copyVideoUrlResourcePatch = resourcePatch {
+    dependsOn(
+        settingsPatch,
+        bottomControlsPatch,
+        addResourcesPatch,
+    )
+
+    execute { context ->
+        addResources("youtube", "interaction.copyvideourl.CopyVideoUrlResourcePatch")
+
+        PreferenceScreen.PLAYER.addPreferences(
+            SwitchPreference("revanced_copy_video_url"),
+            SwitchPreference("revanced_copy_video_url_timestamp"),
+        )
+
+        context.copyResources(
+            "copyvideourl",
+            ResourceGroup(
+                resourceDirectoryName = "drawable",
+                "revanced_yt_copy.xml",
+                "revanced_yt_copy_timestamp.xml",
+            ),
+        )
+
+        addBottomControls("copyvideourl")
     }
 }

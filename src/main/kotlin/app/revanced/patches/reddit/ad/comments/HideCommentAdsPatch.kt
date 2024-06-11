@@ -2,7 +2,6 @@ package app.revanced.patches.reddit.ad.comments
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.reddit.ad.comments.fingerprints.hideCommentAdsFingerprint
 
 @Suppress("unused")
 val hideCommentAdsPatch = bytecodePatch(

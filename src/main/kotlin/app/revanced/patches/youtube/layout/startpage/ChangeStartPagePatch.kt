@@ -5,11 +5,10 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
-import app.revanced.patches.youtube.layout.startpage.fingerprints.startActivityFingerprint
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.fingerprints.homeActivityFingerprint
+import app.revanced.patches.youtube.shared.homeActivityFingerprint
 import app.revanced.util.resultOrThrow
 
 private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/ChangeStartPagePatch;"

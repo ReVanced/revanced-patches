@@ -6,24 +6,29 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
-import app.revanced.patches.youtube.layout.sponsorblock.fingerprints.appendTimeFingerprint
-import app.revanced.patches.youtube.layout.sponsorblock.fingerprints.controlsOverlayFingerprint
-import app.revanced.patches.youtube.layout.sponsorblock.fingerprints.rectangleFieldInvalidatorFingerprint
+import app.revanced.patches.shared.misc.settings.preference.IntentPreference
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 import app.revanced.patches.youtube.misc.playercontrols.injectVisibilityCheckCall
 import app.revanced.patches.youtube.misc.playercontrols.playerControlsPatch
 import app.revanced.patches.youtube.misc.playercontrols.showPlayerControlsFingerprintResult
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
-import app.revanced.patches.youtube.shared.fingerprints.*
+import app.revanced.patches.youtube.misc.settings.newIntent
+import app.revanced.patches.youtube.misc.settings.preferences
+import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.patches.youtube.shared.*
 import app.revanced.patches.youtube.video.information.playerControllerOnCreateHook
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.patches.youtube.video.information.videoTimeHook
 import app.revanced.patches.youtube.video.videoid.hookBackgroundPlayVideoId
 import app.revanced.patches.youtube.video.videoid.videoIdPatch
-import app.revanced.util.resultOrThrow
+import app.revanced.util.*
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.*
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
@@ -41,7 +46,7 @@ private const val INTEGRATIONS_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR =
     "Lapp/revanced/integrations/youtube/sponsorblock/ui/SponsorBlockViewController;"
 
 @Suppress("unused")
-val sponsorBlockBytecodePatch = bytecodePatch(
+val sponsorBlockPatch = bytecodePatch(
     name = "SponsorBlock",
     description = "Adds options to enable and configure SponsorBlock, which can skip undesired video segments such as sponsored content.",
 ) {
@@ -286,5 +291,95 @@ val sponsorBlockBytecodePatch = bytecodePatch(
         )
 
         // TODO: isSBChannelWhitelisting implementation
+    }
+}
+
+internal val sponsorBlockResourcePatch = resourcePatch {
+    dependsOn(
+        settingsPatch,
+        resourceMappingPatch,
+        addResourcesPatch,
+    )
+
+    execute { context ->
+        addResources("youtube", "layout.sponsorblock.SponsorBlockResourcePatch")
+
+        preferences += IntentPreference(
+            key = "revanced_settings_screen_10",
+            titleKey = "revanced_sb_settings_title",
+            summaryKey = null,
+            intent = newIntent("revanced_sb_settings_intent"),
+        )
+
+        arrayOf(
+            ResourceGroup(
+                "layout",
+                "revanced_sb_inline_sponsor_overlay.xml",
+                "revanced_sb_new_segment.xml",
+                "revanced_sb_skip_sponsor_button.xml",
+            ),
+            ResourceGroup(
+                // required resource for back button, because when the base APK is used, this resource will not exist
+                "drawable",
+                "revanced_sb_adjust.xml",
+                "revanced_sb_backward.xml",
+                "revanced_sb_compare.xml",
+                "revanced_sb_edit.xml",
+                "revanced_sb_forward.xml",
+                "revanced_sb_logo.xml",
+                "revanced_sb_publish.xml",
+                "revanced_sb_voting.xml",
+            ),
+            ResourceGroup(
+                // required resource for back button, because when the base APK is used, this resource will not exist
+                "drawable-xxxhdpi",
+                "quantum_ic_skip_next_white_24.png",
+            ),
+        ).forEach { resourceGroup ->
+            context.copyResources("sponsorblock", resourceGroup)
+        }
+
+        // copy nodes from host resources to their real xml files
+
+        val hostingResourceStream =
+            inputStreamFromBundledResource(
+                "sponsorblock",
+                "host/layout/youtube_controls_layout.xml",
+            )!!
+
+        var modifiedControlsLayout = false
+        val document = context.document["res/layout/youtube_controls_layout.xml"]
+        "RelativeLayout".copyXmlNode(
+            context.document[hostingResourceStream],
+            document,
+        ).also {
+            val children = document.getElementsByTagName("RelativeLayout").item(0).childNodes
+
+            // Replace the startOf with the voting button view so that the button does not overlap
+            for (i in 1 until children.length) {
+                val view = children.item(i)
+
+                // Replace the attribute for a specific node only
+                if (!(
+                        view.hasAttributes() &&
+                            view.attributes.getNamedItem(
+                                "android:id",
+                            ).nodeValue.endsWith("live_chat_overlay_button")
+                        )
+                ) {
+                    continue
+                }
+
+                // voting button id from the voting button view from the youtube_controls_layout.xml host file
+                val votingButtonId = "@+id/revanced_sb_voting_button"
+
+                view.attributes.getNamedItem("android:layout_toStartOf").nodeValue = votingButtonId
+
+                modifiedControlsLayout = true
+                break
+            }
+        }.close()
+
+        if (!modifiedControlsLayout) throw PatchException("Could not modify controls layout")
     }
 }

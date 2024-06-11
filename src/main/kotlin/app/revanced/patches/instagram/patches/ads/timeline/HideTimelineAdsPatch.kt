@@ -5,9 +5,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.instagram.patches.ads.timeline.fingerprints.isAdCheckOneFingerprint
-import app.revanced.patches.instagram.patches.ads.timeline.fingerprints.isAdCheckTwoFingerprint
-import app.revanced.patches.instagram.patches.ads.timeline.fingerprints.showAdFingerprint
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Suppress("unused")

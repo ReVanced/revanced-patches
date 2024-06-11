@@ -3,8 +3,16 @@ package app.revanced.patches.youtube.layout.hide.albumcards
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.youtube.layout.hide.albumcards.fingerprints.albumCardsFingerprint
+import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappings
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
+import app.revanced.patches.youtube.misc.settings.PreferenceScreen
+import app.revanced.patches.youtube.misc.settings.settingsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Suppress("unused")
@@ -14,7 +22,7 @@ val albumCardsPatch = bytecodePatch(
 ) {
     dependsOn(
         integrationsPatch,
-        albumCardsResourcePatch
+        albumCardsResourcePatch,
     )
 
     compatibleWith(
@@ -43,7 +51,7 @@ val albumCardsPatch = bytecodePatch(
             "19.14.43",
             "19.15.36",
             "19.16.39",
-        )
+        ),
     )
 
     val albumCardsResult by albumCardsFingerprint
@@ -63,5 +71,27 @@ val albumCardsPatch = bytecodePatch(
                     "hideAlbumCard(Landroid/view/View;)V",
             )
         }
+    }
+}
+
+internal var albumCardId = -1L
+    private set
+
+@Suppress("unused")
+val albumCardsResourcePatch = resourcePatch {
+    dependsOn(
+        settingsPatch,
+        resourceMappingPatch,
+        addResourcesPatch,
+    )
+
+    execute {
+        addResources("youtube", "layout.hide.albumcards.AlbumCardsResourcePatch")
+
+        PreferenceScreen.FEED.addPreferences(
+            SwitchPreference("revanced_hide_album_cards"),
+        )
+
+        albumCardId = resourceMappings["layout", "album_card"]
     }
 }

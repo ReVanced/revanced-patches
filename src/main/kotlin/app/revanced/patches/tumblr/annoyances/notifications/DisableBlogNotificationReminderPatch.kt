@@ -2,7 +2,6 @@ package app.revanced.patches.tumblr.annoyances.notifications
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.tumblr.annoyances.notifications.fingerprints.isBlogNotifyEnabledFingerprint
 
 @Suppress("unused")
 val disableBlogNotificationReminderPatch = bytecodePatch(

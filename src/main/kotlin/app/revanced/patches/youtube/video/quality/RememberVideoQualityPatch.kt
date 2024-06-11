@@ -14,10 +14,6 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.video.information.playerControllerOnCreateHook
 import app.revanced.patches.youtube.video.information.videoInformationPatch
-import app.revanced.patches.youtube.video.quality.fingerprints.newVideoQualityChangedFingerprint
-import app.revanced.patches.youtube.video.quality.fingerprints.setQualityByIndexMethodClassFieldReferenceFingerprint
-import app.revanced.patches.youtube.video.quality.fingerprints.videoQualityItemOnClickParentFingerprint
-import app.revanced.patches.youtube.video.quality.fingerprints.videoQualitySetterFingerprint
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction

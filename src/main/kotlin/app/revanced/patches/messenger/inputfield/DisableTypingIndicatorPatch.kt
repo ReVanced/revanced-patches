@@ -2,7 +2,6 @@ package app.revanced.patches.messenger.inputfield
 
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.messenger.inputfield.fingerprints.sendTypingIndicatorFingerprint
 
 @Suppress("unused")
 val disableTypingIndicatorPatch = bytecodePatch(

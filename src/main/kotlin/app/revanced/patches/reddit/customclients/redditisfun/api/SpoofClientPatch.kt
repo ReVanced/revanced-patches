@@ -5,9 +5,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patcher.fingerprint.MethodFingerprintResult.MethodFingerprintScanResult.StringsScanResult.StringMatch
-import app.revanced.patches.reddit.customclients.redditisfun.api.fingerprints.basicAuthorizationFingerprint
-import app.revanced.patches.reddit.customclients.redditisfun.api.fingerprints.buildAuthorizationStringFingerprint
-import app.revanced.patches.reddit.customclients.redditisfun.api.fingerprints.getUserAgentFingerprint
 import app.revanced.patches.reddit.customclients.spoofClientPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow

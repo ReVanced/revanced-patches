@@ -2,12 +2,11 @@ package app.revanced.patches.finanzonline.detection.root
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.finanzonline.detection.root.fingerprints.rootDetectionFingerprint
 
 @Suppress("unused")
 val rootDetectionPatch = bytecodePatch(
     name = "Remove root detection",
-    description = "Removes the check for root permissions."
+    description = "Removes the check for root permissions.",
 ) {
     compatibleWith("at.gv.bmf.bmf2go")
 
@@ -19,7 +18,7 @@ val rootDetectionPatch = bytecodePatch(
             """
                 sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
                 return-object v0
-            """
+            """,
         )
     }
 }

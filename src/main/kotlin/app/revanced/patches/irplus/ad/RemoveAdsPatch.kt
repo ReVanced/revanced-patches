@@ -2,11 +2,10 @@ package app.revanced.patches.irplus.ad
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.irplus.ad.fingerprints.irplusAdsFingerprint
 
 @Suppress("unused")
 val removeAdsPatch = bytecodePatch(
-    name = "Remove ads"
+    name = "Remove ads",
 ) {
     compatibleWith("net.binarymode.android.irplus")
 

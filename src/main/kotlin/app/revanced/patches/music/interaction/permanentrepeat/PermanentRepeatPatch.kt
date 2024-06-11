@@ -4,7 +4,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.music.interaction.permanentrepeat.fingerprints.repeatTrackFingerprint
 
 @Suppress("unused")
 val permanentRepeatPatch = bytecodePatch(

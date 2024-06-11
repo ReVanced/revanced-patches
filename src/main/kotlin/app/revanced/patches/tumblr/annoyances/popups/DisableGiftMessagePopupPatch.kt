@@ -2,7 +2,6 @@ package app.revanced.patches.tumblr.annoyances.popups
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.tumblr.annoyances.popups.fingerprints.showGiftMessagePopupFingerprint
 
 @Suppress("unused")
 val disableGiftMessagePopupPatch = bytecodePatch(

@@ -2,7 +2,6 @@ package app.revanced.patches.messenger.inbox
 
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.messenger.inbox.fingerprints.createInboxSubTabsFingerprint
 
 @Suppress("unused")
 val hideInboxSubtabsPatch = bytecodePatch(

@@ -2,7 +2,6 @@ package app.revanced.patches.twitter.layout.viewcount
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.twitter.layout.viewcount.fingerprints.viewCountsEnabledFingerprint
 
 @Suppress("unused")
 val hideViewCountPatch = bytecodePatch(

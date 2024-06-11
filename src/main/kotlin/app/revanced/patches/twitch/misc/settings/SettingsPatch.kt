@@ -13,12 +13,8 @@ import app.revanced.patches.shared.misc.settings.preference.BasePreference
 import app.revanced.patches.shared.misc.settings.preference.BasePreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.shared.misc.settings.settingsResourcePatch
+import app.revanced.patches.shared.misc.settings.settingsPatch
 import app.revanced.patches.twitch.misc.integrations.integrationsPatch
-import app.revanced.patches.twitch.misc.settings.fingerprints.menuGroupsOnClickFingerprint
-import app.revanced.patches.twitch.misc.settings.fingerprints.menuGroupsUpdatedFingerprint
-import app.revanced.patches.twitch.misc.settings.fingerprints.settingsActivityOnCreateFingerprint
-import app.revanced.patches.twitch.misc.settings.fingerprints.settingsMenuItemEnumFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 
@@ -44,7 +40,7 @@ val settingsPatch = bytecodePatch(
     dependsOn(
         integrationsPatch,
         addResourcesPatch,
-        settingsResourcePatch(preferences = preferences),
+        settingsPatch(preferences = preferences),
     )
 
     compatibleWith(

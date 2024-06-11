@@ -2,8 +2,6 @@ package app.revanced.patches.reddit.customclients.joeyforreddit.api
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
-import app.revanced.patches.reddit.customclients.joeyforreddit.api.fingerprints.authUtilityUserAgentFingerprint
-import app.revanced.patches.reddit.customclients.joeyforreddit.api.fingerprints.getClientIdFingerprint
 import app.revanced.patches.reddit.customclients.joeyforreddit.detection.piracy.disablePiracyDetectionPatch
 import app.revanced.patches.reddit.customclients.spoofClientPatch
 

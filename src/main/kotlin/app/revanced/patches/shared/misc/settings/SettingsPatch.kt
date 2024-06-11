@@ -18,7 +18,7 @@ import org.w3c.dom.Node
  * If null, no preference will be added.
  * @param preferences A set of preferences to add to the ReVanced fragment.
  */
-fun settingsResourcePatch(
+fun settingsPatch(
     rootPreference: Pair<IntentPreference, String>? = null,
     preferences: Set<BasePreference>,
 ) = resourcePatch {

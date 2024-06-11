@@ -3,8 +3,16 @@ package app.revanced.patches.youtube.layout.hide.floatingmicrophone
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.youtube.layout.hide.floatingmicrophone.fingerprints.showFloatingMicrophoneButtonFingerprint
+import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappings
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
+import app.revanced.patches.youtube.misc.settings.PreferenceScreen
+import app.revanced.patches.youtube.misc.settings.settingsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 internal const val INTEGRATIONS_CLASS_DESCRIPTOR =
@@ -46,7 +54,7 @@ val hideFloatingMicrophoneButtonPatch = bytecodePatch(
             "19.14.43",
             "19.15.36",
             "19.16.39",
-        )
+        ),
     )
 
     val showFloatingMicrophoneButtonResult by showFloatingMicrophoneButtonFingerprint
@@ -65,5 +73,26 @@ val hideFloatingMicrophoneButtonPatch = bytecodePatch(
                 """,
             )
         }
+    }
+}
+
+internal var fabButtonId = -1L
+    private set
+
+internal val hideFloatingMicrophoneButtonResourcePatch = resourcePatch {
+    dependsOn(
+        settingsPatch,
+        resourceMappingPatch,
+        addResourcesPatch,
+    )
+
+    execute {
+        addResources("youtube", "layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch")
+
+        PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+            SwitchPreference("revanced_hide_floating_microphone_button"),
+        )
+
+        fabButtonId = resourceMappings["id", "fab"]
     }
 }

@@ -2,7 +2,6 @@ package app.revanced.patches.nfctoolsse.misc.pro
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.nfctoolsse.misc.pro.fingerprints.isLicenseRegisteredFingerprint
 
 @Suppress("unused")
 val unlockProPatch = bytecodePatch(

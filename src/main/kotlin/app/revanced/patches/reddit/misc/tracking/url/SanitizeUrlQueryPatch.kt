@@ -2,7 +2,6 @@ package app.revanced.patches.reddit.misc.tracking.url
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.reddit.misc.tracking.url.fingerprints.shareLinkFormatterFingerprint
 
 @Suppress("unused")
 val sanitizeUrlQueryPatch = bytecodePatch(
@@ -16,7 +15,7 @@ val sanitizeUrlQueryPatch = bytecodePatch(
     execute {
         shareLinkFormatterResult.mutableMethod.addInstructions(
             0,
-            "return-object p0"
+            "return-object p0",
         )
     }
 }

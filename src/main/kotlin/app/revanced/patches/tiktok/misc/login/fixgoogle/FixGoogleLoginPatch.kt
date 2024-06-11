@@ -2,8 +2,6 @@ package app.revanced.patches.tiktok.misc.login.fixgoogle
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.tiktok.misc.login.fixgoogle.fingerprints.googleAuthAvailableFingerprint
-import app.revanced.patches.tiktok.misc.login.fixgoogle.fingerprints.googleOneTapAuthAvailableFingerprint
 
 @Suppress("unused")
 val fixGoogleLoginPatch = bytecodePatch(
@@ -12,7 +10,7 @@ val fixGoogleLoginPatch = bytecodePatch(
 ) {
     compatibleWith(
         "com.ss.android.ugc.trill",
-        "com.zhiliaoapp.musically"
+        "com.zhiliaoapp.musically",
     )
 
     val googleOneTapAuthAvailableResult by googleOneTapAuthAvailableFingerprint
@@ -21,7 +19,7 @@ val fixGoogleLoginPatch = bytecodePatch(
     execute {
         listOf(
             googleOneTapAuthAvailableResult.mutableMethod,
-            googleAuthAvailableResult.mutableMethod
+            googleAuthAvailableResult.mutableMethod,
         ).forEach { method ->
             method.addInstructions(
                 0,

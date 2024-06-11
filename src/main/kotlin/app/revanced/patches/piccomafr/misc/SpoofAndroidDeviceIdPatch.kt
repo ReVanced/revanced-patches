@@ -3,7 +3,6 @@ package app.revanced.patches.piccomafr.misc
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.stringOption
-import app.revanced.patches.piccomafr.misc.fingerprints.getAndroidIdFingerprint
 
 @Suppress("unused")
 val spoofAndroidDeviceIdPatch = bytecodePatch(

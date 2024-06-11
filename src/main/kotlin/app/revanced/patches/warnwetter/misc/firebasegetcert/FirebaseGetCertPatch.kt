@@ -2,8 +2,6 @@ package app.revanced.patches.warnwetter.misc.firebasegetcert
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.warnwetter.misc.firebasegetcert.fingerprints.getMessagingCertFingerprint
-import app.revanced.patches.warnwetter.misc.firebasegetcert.fingerprints.getReqistrationCertFingerprint
 
 @Suppress("unused")
 val firebaseGetCertPatch = bytecodePatch(

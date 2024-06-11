@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.misc.recyclerviewtree.hook
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
-import app.revanced.patches.youtube.misc.recyclerviewtree.hook.fingerprints.recyclerViewTreeObserverFingerprint
 
 lateinit var addRecyclerViewTreeHook: (String) -> Unit
     private set

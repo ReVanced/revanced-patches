@@ -12,10 +12,7 @@ import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
-import app.revanced.patches.youtube.layout.seekbar.seekbarColorBytecodePatch
-import app.revanced.patches.youtube.layout.theme.fingerprints.themeHelperDarkColorFingerprint
-import app.revanced.patches.youtube.layout.theme.fingerprints.themeHelperLightColorFingerprint
-import app.revanced.patches.youtube.layout.theme.fingerprints.useGradientLoadingScreenFingerprint
+import app.revanced.patches.youtube.layout.seekbar.seekbarColorPatch
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
@@ -76,7 +73,7 @@ val themePatch = bytecodePatch(
 
     dependsOn(
         lithoColorHookPatch,
-        seekbarColorBytecodePatch,
+        seekbarColorPatch,
         resourcePatch {
             dependsOn(
                 settingsPatch,
