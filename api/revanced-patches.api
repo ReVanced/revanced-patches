@@ -1336,6 +1336,7 @@ public final class app/revanced/util/BytecodeUtilsKt {
 	public static final fun indexOfIdResource (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/String;)I
 	public static final fun indexOfIdResourceOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/String;)I
 	public static final fun injectHideViewCall (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;IILjava/lang/String;Ljava/lang/String;)V
+	public static final fun literal (Lapp/revanced/patcher/fingerprint/MethodFingerprintBuilder;Lkotlin/jvm/functions/Function0;)V
 	public static final fun resultOrThrow (Lapp/revanced/patcher/fingerprint/MethodFingerprint;)Lapp/revanced/patcher/fingerprint/MethodFingerprintResult;
 	public static final fun returnEarly (Ljava/util/List;Z)V
 	public static synthetic fun returnEarly$default (Ljava/util/List;ZILjava/lang/Object;)V
@@ -1357,11 +1358,6 @@ public final class app/revanced/util/ResourceUtilsKt {
 	public static final fun doRecursively (Lorg/w3c/dom/Node;Lkotlin/jvm/functions/Function1;)V
 	public static final fun forEachChildElement (Lorg/w3c/dom/Node;Lkotlin/jvm/functions/Function1;)V
 	public static final fun iterateXmlNodeChildren (Lapp/revanced/patcher/patch/ResourcePatchContext;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
-}
-
-public final class app/revanced/util/patch/methodFingerprintKt {
-	public static final fun methodFingerprint (Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/fingerprint/MethodFingerprint;
-	public static synthetic fun methodFingerprint$default (Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/fingerprint/MethodFingerprint;
 }
 
 public final class app/revanced/util/resource/ArrayResource : app/revanced/util/resource/BaseResource {
