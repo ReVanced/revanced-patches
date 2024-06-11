@@ -1,4 +1,4 @@
-package app.revanced.patches.twitter.misc.hook.patch
+package app.revanced.patches.twitter.misc.hook
 
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.twitter.misc.hook.json.JsonHook

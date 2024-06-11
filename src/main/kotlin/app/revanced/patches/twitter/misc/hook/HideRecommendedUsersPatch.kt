@@ -1,4 +1,4 @@
-package app.revanced.patches.twitter.misc.hook.patch
+package app.revanced.patches.twitter.misc.hook
 
 @Suppress("unused")
 val hideRecommendedUsersPatch = hookPatch(

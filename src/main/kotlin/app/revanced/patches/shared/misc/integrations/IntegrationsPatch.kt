@@ -7,7 +7,6 @@ import app.revanced.patcher.fingerprint.MethodFingerprintBuilder
 import app.revanced.patcher.fingerprint.methodFingerprint
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.shared.misc.integrations.fingerprints.*
 import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.Method
 import java.net.URLDecoder
