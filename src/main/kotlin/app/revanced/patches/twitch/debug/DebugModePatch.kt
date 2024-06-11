@@ -5,9 +5,6 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.twitch.debug.fingerprints.isDebugConfigEnabledFingerprint
-import app.revanced.patches.twitch.debug.fingerprints.isOmVerificationEnabledFingerprint
-import app.revanced.patches.twitch.debug.fingerprints.shouldShowDebugOptionsFingerprint
 import app.revanced.patches.twitch.misc.integrations.integrationsPatch
 import app.revanced.patches.twitch.misc.settings.PreferenceScreen
 import app.revanced.patches.twitch.misc.settings.settingsPatch
@@ -31,7 +28,7 @@ val debugModePatch = bytecodePatch(
     val shouldShowDebugOptionsResult by shouldShowDebugOptionsFingerprint
 
     execute {
-        addResources("twitch", "debug.DebugModePatch")
+        addResources("twitch", "debug.debugModePatch")
 
         PreferenceScreen.MISC.OTHER.addPreferences(
             SwitchPreference("revanced_twitch_debug_mode"),

@@ -11,7 +11,6 @@ import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.youtube.misc.fix.playback.fingerprints.*
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.getReference
@@ -81,7 +80,7 @@ val spoofClientPatch = bytecodePatch(
     val createPlaybackSpeedMenuItemResult by createPlaybackSpeedMenuItemFingerprint
 
     execute { context ->
-        addResources("youtube", "misc.fix.playback.SpoofClientPatch")
+        addResources("youtube", "misc.fix.playback.spoofClientPatch")
 
         PreferenceScreen.MISC.addPreferences(
             PreferenceScreenPreference(

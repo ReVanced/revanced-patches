@@ -4,12 +4,13 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
-import app.revanced.patches.youtube.misc.backgroundplayback.fingerprints.backgroundPlaybackManagerFingerprint
-import app.revanced.patches.youtube.misc.backgroundplayback.fingerprints.backgroundPlaybackSettingsFingerprint
-import app.revanced.patches.youtube.misc.backgroundplayback.fingerprints.kidsBackgroundPlaybackPolicyControllerFingerprint
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
@@ -64,7 +65,7 @@ val backgroundPlaybackPatch = bytecodePatch(
     val kidsBackgroundPlaybackPolicyControllerResult by kidsBackgroundPlaybackPolicyControllerFingerprint
 
     execute { context ->
-        addResources("youtube", "misc.backgroundplayback.BackgroundPlaybackPatch")
+        addResources("youtube", "misc.backgroundplayback.backgroundPlaybackPatch")
 
         PreferenceScreen.MISC.addPreferences(
             NonInteractivePreference("revanced_background_playback"),
@@ -102,5 +103,16 @@ val backgroundPlaybackPatch = bytecodePatch(
             0,
             "return-void",
         )
+    }
+}
+
+internal var prefBackgroundAndOfflineCategoryId = -1L
+    private set
+
+internal val backgroundPlaybackResourcePatch = resourcePatch {
+    dependsOn(resourceMappingPatch)
+
+    execute {
+        prefBackgroundAndOfflineCategoryId = resourceMappings["string", "pref_background_and_offline_category"]
     }
 }

@@ -3,8 +3,16 @@ package app.revanced.patches.youtube.layout.hide.suggestedvideoendscreen
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.youtube.layout.hide.suggestedvideoendscreen.fingerprints.createEndScreenViewFingerprint
+import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappings
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
+import app.revanced.patches.youtube.misc.settings.PreferenceScreen
+import app.revanced.patches.youtube.misc.settings.settingsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 private const val INTEGRATIONS_CLASS_DESCRIPTOR =
@@ -61,5 +69,29 @@ val disableSuggestedVideoEndScreenPatch = bytecodePatch(
                     "$INTEGRATIONS_CLASS_DESCRIPTOR->closeEndScreen(Landroid/widget/ImageView;)V",
             )
         }
+    }
+}
+
+internal var sizeAdjustableLiteAutoNavOverlay = -1L
+    private set
+
+internal val disableSuggestedVideoEndScreenResourcePatch = resourcePatch {
+    dependsOn(
+        settingsPatch,
+        resourceMappingPatch,
+        addResourcesPatch,
+    )
+
+    execute {
+        addResources("youtube", "layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch")
+
+        PreferenceScreen.PLAYER.addPreferences(
+            SwitchPreference("revanced_disable_suggested_video_end_screen"),
+        )
+
+        sizeAdjustableLiteAutoNavOverlay = resourceMappings[
+            "layout",
+            "size_adjustable_lite_autonav_overlay",
+        ]
     }
 }

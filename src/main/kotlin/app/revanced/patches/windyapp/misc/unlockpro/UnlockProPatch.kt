@@ -2,7 +2,6 @@ package app.revanced.patches.windyapp.misc.unlockpro
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.windyapp.misc.unlockpro.fingerprints.checkProFingerprint
 
 @Suppress("unused")
 val unlockProPatch = bytecodePatch(

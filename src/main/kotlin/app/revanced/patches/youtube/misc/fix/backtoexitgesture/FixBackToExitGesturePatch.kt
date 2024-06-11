@@ -3,10 +3,6 @@ package app.revanced.patches.youtube.misc.fix.backtoexitgesture
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.youtube.misc.fix.backtoexitgesture.fingerprints.onBackPressedFingerprint
-import app.revanced.patches.youtube.misc.fix.backtoexitgesture.fingerprints.recyclerViewScrollingFingerprint
-import app.revanced.patches.youtube.misc.fix.backtoexitgesture.fingerprints.recyclerViewTopScrollingFingerprint
-import app.revanced.patches.youtube.misc.fix.backtoexitgesture.fingerprints.recyclerViewTopScrollingParentFingerprint
 import app.revanced.util.resultOrThrow
 
 @Suppress("unused")

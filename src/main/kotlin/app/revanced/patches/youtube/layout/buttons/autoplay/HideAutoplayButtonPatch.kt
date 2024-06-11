@@ -11,7 +11,7 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.fingerprints.layoutConstructorFingerprint
+import app.revanced.patches.youtube.shared.layoutConstructorFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfIdResourceOrThrow
@@ -66,7 +66,7 @@ val hideAutoplayButtonPatch = bytecodePatch(
     val layoutConstructorResult by layoutConstructorFingerprint
 
     execute {
-        addResources("youtube", "layout.buttons.autoplay.HideAutoplayButtonPatch")
+        addResources("youtube", "layout.buttons.autoplay.hideAutoplayButtonPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
             SwitchPreference("revanced_hide_autoplay_button"),

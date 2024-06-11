@@ -2,8 +2,6 @@ package app.revanced.patches.yuka.misc.unlockpremium
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.yuka.misc.unlockpremium.fingerprints.isPremiumFingerprint
-import app.revanced.patches.yuka.misc.unlockpremium.fingerprints.yukaUserConstructorFingerprint
 import app.revanced.util.resultOrThrow
 
 @Suppress("unused")

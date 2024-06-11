@@ -2,7 +2,6 @@ package app.revanced.patches.myexpenses.misc.pro
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.myexpenses.misc.pro.fingerprints.isEnabledFingerprint
 
 @Suppress("unused")
 val unlockProPatch = bytecodePatch(

@@ -2,7 +2,6 @@ package app.revanced.patches.pixiv.ads
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.pixiv.ads.fingerprints.isNotPremiumFingerprint
 
 @Suppress("unused")
 val hideAdsPatch = bytecodePatch(

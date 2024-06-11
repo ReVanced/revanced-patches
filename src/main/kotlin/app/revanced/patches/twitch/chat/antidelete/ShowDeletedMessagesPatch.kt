@@ -8,9 +8,6 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
-import app.revanced.patches.twitch.chat.antidelete.fingerprints.chatUtilCreateDeletedSpanFingerprint
-import app.revanced.patches.twitch.chat.antidelete.fingerprints.deletedMessageClickableSpanCtorFingerprint
-import app.revanced.patches.twitch.chat.antidelete.fingerprints.setHasModAccessFingerprint
 import app.revanced.patches.twitch.misc.settings.PreferenceScreen
 import app.revanced.patches.twitch.misc.settings.settingsPatch
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
@@ -39,7 +36,7 @@ val showDeletedMessagesPatch = bytecodePatch(
     val chatUtilCreateDeletedSpanResult by chatUtilCreateDeletedSpanFingerprint
 
     execute {
-        addResources("twitch", "chat.antidelete.ShowDeletedMessagesPatch")
+        addResources("twitch", "chat.antidelete.showDeletedMessagesPatch")
 
         PreferenceScreen.CHAT.GENERAL.addPreferences(
             ListPreference(

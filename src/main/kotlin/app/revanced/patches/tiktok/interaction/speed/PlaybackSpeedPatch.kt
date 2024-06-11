@@ -4,11 +4,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.tiktok.interaction.speed.fingerprints.getSpeedFingerprint
-import app.revanced.patches.tiktok.interaction.speed.fingerprints.onRenderFirstFrameFingerprint
-import app.revanced.patches.tiktok.interaction.speed.fingerprints.setSpeedFingerprint
 import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction11x
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -17,11 +13,11 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 val playbackSpeedPatch = bytecodePatch(
     name = "Playback speed",
     description = "Enables the playback speed option for all videos and " +
-            "retains the speed configurations in between videos.",
+        "retains the speed configurations in between videos.",
 ) {
     compatibleWith(
         "com.ss.android.ugc.trill"("32.5.3"),
-        "com.zhiliaoapp.musically"("32.5.3")
+        "com.zhiliaoapp.musically"("32.5.3"),
     )
 
     val getSpeedResult by getSpeedFingerprint
@@ -37,7 +33,7 @@ val playbackSpeedPatch = bytecodePatch(
                 addInstruction(
                     injectIndex,
                     "invoke-static { v$register }," +
-                            " Lapp/revanced/integrations/tiktok/speed/PlaybackSpeedPatch;->rememberPlaybackSpeed(F)V",
+                        " Lapp/revanced/integrations/tiktok/speed/PlaybackSpeedPatch;->rememberPlaybackSpeed(F)V",
                 )
             }
 

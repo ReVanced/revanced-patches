@@ -3,8 +3,6 @@ package app.revanced.patches.ticktick.misc.themeunlock
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.ticktick.misc.themeunlock.fingerprints.checkLockedThemesFingerprint
-import app.revanced.patches.ticktick.misc.themeunlock.fingerprints.setThemeFingerprint
 
 @Suppress("unused")
 val unlockProPatch = bytecodePatch(

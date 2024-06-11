@@ -1,7 +1,6 @@
 package app.revanced.patches.strava.subscription
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.strava.subscription.fingerprints.getSubscribedFingerprint
 
 @Suppress("unused")
 val unlockSubscriptionPatch = bytecodePatch(

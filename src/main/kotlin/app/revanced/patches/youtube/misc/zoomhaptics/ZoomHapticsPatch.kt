@@ -9,7 +9,6 @@ import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.misc.zoomhaptics.fingerprints.zoomHapticsFingerprint
 
 @Suppress("unused")
 val zoomHapticsPatch = bytecodePatch(
@@ -26,7 +25,7 @@ val zoomHapticsPatch = bytecodePatch(
     val zoomHapticsResult by zoomHapticsFingerprint
 
     execute {
-        addResources("youtube", "misc.zoomhaptics.ZoomHapticsPatch")
+        addResources("youtube", "misc.zoomhaptics.zoomHapticsPatch")
 
         PreferenceScreen.MISC.addPreferences(
             SwitchPreference("revanced_disable_zoom_haptics"),

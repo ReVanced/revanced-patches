@@ -4,9 +4,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.piccomafr.tracking.fingerprints.appMeasurementFingerprint
-import app.revanced.patches.piccomafr.tracking.fingerprints.facebookSDKFingerprint
-import app.revanced.patches.piccomafr.tracking.fingerprints.firebaseInstallFingerprint
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -32,8 +29,8 @@ val disableTrackingPatch = bytecodePatch(
             "6.5.4",
             "6.6.0",
             "6.6.1",
-            "6.6.2"
-        )
+            "6.6.2",
+        ),
     )
 
     val facebookSDKResult by facebookSDKFingerprint

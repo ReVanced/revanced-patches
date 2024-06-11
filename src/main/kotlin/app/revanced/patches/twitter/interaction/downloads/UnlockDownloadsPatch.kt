@@ -8,9 +8,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.twitter.interaction.downloads.fingerprints.buildMediaOptionsSheetFingerprint
-import app.revanced.patches.twitter.interaction.downloads.fingerprints.constructMediaOptionsSheetFingerprint
-import app.revanced.patches.twitter.interaction.downloads.fingerprints.showDownloadVideoUpsellBottomSheetFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction

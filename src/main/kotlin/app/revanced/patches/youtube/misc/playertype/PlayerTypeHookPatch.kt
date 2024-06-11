@@ -5,8 +5,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
-import app.revanced.patches.youtube.misc.playertype.fingerprint.playerTypeFingerprint
-import app.revanced.patches.youtube.misc.playertype.fingerprint.videoStateFingerprint
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 internal const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/PlayerTypeHookPatch;"

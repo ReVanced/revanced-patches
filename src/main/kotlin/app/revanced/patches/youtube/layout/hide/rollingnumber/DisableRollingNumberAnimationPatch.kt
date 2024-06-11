@@ -11,7 +11,7 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.fingerprints.rollingNumberTextViewAnimationUpdateFingerprint
+import app.revanced.patches.youtube.shared.rollingNumberTextViewAnimationUpdateFingerprint
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 private const val INTEGRATIONS_CLASS_DESCRIPTOR =
@@ -57,7 +57,7 @@ val disableRollingNumberAnimationPatch = bytecodePatch(
     val rollingNumberTextViewAnimationUpdateResult by rollingNumberTextViewAnimationUpdateFingerprint
 
     execute {
-        addResources("youtube", "layout.hide.rollingnumber.DisableRollingNumberAnimationPatch")
+        addResources("youtube", "layout.hide.rollingnumber.disableRollingNumberAnimationPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
             SwitchPreference("revanced_disable_rolling_number_animations"),

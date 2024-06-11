@@ -1,8 +1,6 @@
 package app.revanced.patches.reddit.customclients.boostforreddit.api
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patches.reddit.customclients.boostforreddit.api.fingerprints.buildUserAgentFingerprint
-import app.revanced.patches.reddit.customclients.boostforreddit.api.fingerprints.getClientIdFingerprint
 import app.revanced.patches.reddit.customclients.spoofClientPatch
 
 @Suppress("unused")

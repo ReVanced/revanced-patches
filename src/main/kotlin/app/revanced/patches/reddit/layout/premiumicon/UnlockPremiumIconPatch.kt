@@ -2,7 +2,6 @@ package app.revanced.patches.reddit.layout.premiumicon
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.reddit.layout.premiumicon.fingerprints.hasPremiumIconAccessFingerprint
 
 @Suppress("unused")
 val unlockPremiumIconPatch = bytecodePatch(
@@ -19,7 +18,7 @@ val unlockPremiumIconPatch = bytecodePatch(
             """
                 const/4 v0, 0x1
                 return v0
-            """
+            """,
         )
     }
 }

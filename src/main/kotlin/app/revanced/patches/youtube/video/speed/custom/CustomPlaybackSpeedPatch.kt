@@ -8,9 +8,13 @@ import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
@@ -20,7 +24,6 @@ import app.revanced.patches.youtube.misc.recyclerviewtree.hook.addRecyclerViewTr
 import app.revanced.patches.youtube.misc.recyclerviewtree.hook.recyclerViewTreeHookPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.video.speed.custom.fingerprints.*
 import app.revanced.util.getReference
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -54,7 +57,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
     val showOldPlaybackSpeedMenuIntegrationsResult by showOldPlaybackSpeedMenuIntegrationsFingerprint
 
     execute { context ->
-        addResources("youtube", "video.speed.custom.CustomPlaybackSpeedResourcePatch")
+        addResources("youtube", "video.speed.custom.customPlaybackSpeedResourcePatch")
 
         PreferenceScreen.VIDEO.addPreferences(
             TextPreference("revanced_custom_playback_speeds", inputType = InputType.TEXT_MULTI_LINE),
@@ -163,5 +166,19 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         }
 
         // endregion
+    }
+}
+
+var speedUnavailableId = -1L
+    internal set
+
+internal val customPlaybackSpeedResourcePatch = resourcePatch {
+    dependsOn(resourceMappingPatch)
+
+    execute {
+        speedUnavailableId = resourceMappings[
+            "string",
+            "varispeed_unavailable_message",
+        ]
     }
 }

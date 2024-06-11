@@ -1,9 +1,20 @@
 package app.revanced.patches.youtube.ad.general
 
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.fix.verticalscroll.verticalScrollPatch
+import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappings
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.ad.getpremium.hideGetPremiumPatch
 import app.revanced.patches.youtube.misc.fix.backtoexitgesture.fixBackToExitGesturePatch
+import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
+import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
+import app.revanced.patches.youtube.misc.settings.PreferenceScreen
+import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.findMutableMethodOf
 import app.revanced.util.injectHideViewCall
 import com.android.tools.smali.dexlib2.Opcode
@@ -19,7 +30,7 @@ val hideAdsPatch = bytecodePatch(
         hideGetPremiumPatch,
         hideAdsResourcePatch,
         verticalScrollPatch,
-        fixBackToExitGesturePatch
+        fixBackToExitGesturePatch,
     )
 
     compatibleWith(
@@ -88,5 +99,39 @@ val hideAdsPatch = bytecodePatch(
                 }
             }
         }
+    }
+}
+
+internal var adAttributionId = -1L
+    private set
+
+@Suppress("unused")
+val hideAdsResourcePatch = resourcePatch {
+    dependsOn(
+        lithoFilterPatch,
+        settingsPatch,
+        resourceMappingPatch,
+        addResourcesPatch,
+    )
+
+    execute {
+        addResources("youtube", "ad.general.hideAdsResourcePatch")
+
+        PreferenceScreen.ADS.addPreferences(
+            SwitchPreference("revanced_hide_general_ads"),
+            SwitchPreference("revanced_hide_fullscreen_ads"),
+            SwitchPreference("revanced_hide_buttoned_ads"),
+            SwitchPreference("revanced_hide_paid_promotion_label"),
+            SwitchPreference("revanced_hide_self_sponsor_ads"),
+            SwitchPreference("revanced_hide_products_banner"),
+            SwitchPreference("revanced_hide_shopping_links"),
+            SwitchPreference("revanced_hide_visit_store_button"),
+            SwitchPreference("revanced_hide_web_search_results"),
+            SwitchPreference("revanced_hide_merchandise_banners"),
+        )
+
+        addLithoFilter("Lapp/revanced/integrations/youtube/patches/components/AdsFilter;")
+
+        adAttributionId = resourceMappings["id", "ad_attribution"]
     }
 }

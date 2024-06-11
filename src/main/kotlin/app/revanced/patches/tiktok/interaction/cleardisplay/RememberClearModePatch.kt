@@ -5,8 +5,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.tiktok.interaction.cleardisplay.fingerprints.onClearDisplayEventFingerprint
-import app.revanced.patches.tiktok.interaction.cleardisplay.fingerprints.onRenderFirstFrameFingerprint
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction22c
@@ -18,7 +16,7 @@ val rememberClearDisplayPatch = bytecodePatch(
 ) {
     compatibleWith(
         "com.ss.android.ugc.trill"("32.5.3"),
-        "com.zhiliaoapp.musically"("32.5.3")
+        "com.zhiliaoapp.musically"("32.5.3"),
     )
 
     val onClearDisplayEventResult by onClearDisplayEventFingerprint

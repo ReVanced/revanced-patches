@@ -7,7 +7,6 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
-import app.revanced.patches.youtube.video.information.fingerprints.*
 import app.revanced.patches.youtube.video.playerresponse.Hook
 import app.revanced.patches.youtube.video.playerresponse.addPlayerResponseMethodHook
 import app.revanced.patches.youtube.video.playerresponse.playerResponseMethodHookPatch
@@ -111,7 +110,7 @@ val videoInformationPatch = bytecodePatch(
                 addInstruction(
                     videoLengthMethodResult.scanResult.patternScanResult!!.endIndex,
                     "invoke-static {v$videoLengthRegister, v$dummyRegisterForLong}, " +
-                            "$INTEGRATIONS_CLASS_DESCRIPTOR->setVideoLength(J)V",
+                        "$INTEGRATIONS_CLASS_DESCRIPTOR->setVideoLength(J)V",
                 )
             }
         }
@@ -130,7 +129,7 @@ val videoInformationPatch = bytecodePatch(
         addPlayerResponseMethodHook(
             Hook.ProtoBufferParameterBeforeVideoId(
                 "$INTEGRATIONS_CLASS_DESCRIPTOR->" +
-                        "newPlayerResponseSignature(Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;",
+                    "newPlayerResponseSignature(Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;",
             ),
         )
 

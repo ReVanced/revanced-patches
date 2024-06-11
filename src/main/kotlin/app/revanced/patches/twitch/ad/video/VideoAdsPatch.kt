@@ -10,9 +10,6 @@ import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.twitch.ad.shared.util.ReturnMethod
 import app.revanced.patches.twitch.ad.shared.util.adPatch
-import app.revanced.patches.twitch.ad.video.fingerprints.checkAdEligibilityLambdaFingerprint
-import app.revanced.patches.twitch.ad.video.fingerprints.contentConfigShowAdsFingerprint
-import app.revanced.patches.twitch.ad.video.fingerprints.getReadyToShowAdFingerprint
 import app.revanced.patches.twitch.misc.integrations.integrationsPatch
 import app.revanced.patches.twitch.misc.settings.PreferenceScreen
 import app.revanced.patches.twitch.misc.settings.settingsPatch
@@ -34,7 +31,7 @@ val videoAdsPatch = bytecodePatch(
             val contentConfigShowAdsResult by contentConfigShowAdsFingerprint
 
             execute { context ->
-                addResources("twitch", "ad.video.VideoAdsPatch")
+                addResources("twitch", "ad.video.videoAdsPatch")
 
                 PreferenceScreen.ADS.CLIENT_SIDE.addPreferences(
                     SwitchPreference("revanced_block_video_ads"),

@@ -7,8 +7,6 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.reddit.customclients.RESOLVE_S_LINK_METHOD
 import app.revanced.patches.reddit.customclients.SET_ACCESS_TOKEN_METHOD
 import app.revanced.patches.reddit.customclients.fixSLinksPatch
-import app.revanced.patches.reddit.customclients.sync.syncforreddit.fix.slink.fingerprints.linkHelperOpenLinkFingerprint
-import app.revanced.patches.reddit.customclients.sync.syncforreddit.fix.slink.fingerprints.setAuthorizationHeaderFingerprint
 import app.revanced.patches.reddit.customclients.sync.syncforreddit.misc.integrations.integrationsPatch
 
 const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/syncforreddit/FixSLinksPatch;"

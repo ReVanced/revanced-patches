@@ -10,8 +10,6 @@ import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.video.playerresponse.Hook
 import app.revanced.patches.youtube.video.playerresponse.addPlayerResponseMethodHook
 import app.revanced.patches.youtube.video.playerresponse.playerResponseMethodHookPatch
-import app.revanced.patches.youtube.video.videoid.fingerprint.videoIdFingerprint
-import app.revanced.patches.youtube.video.videoid.fingerprint.videoIdFingerprintBackgroundPlay
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 /**

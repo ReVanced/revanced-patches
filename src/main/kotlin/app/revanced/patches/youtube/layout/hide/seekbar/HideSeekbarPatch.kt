@@ -9,8 +9,8 @@ import app.revanced.patches.youtube.layout.seekbar.seekbarColorResourcePatch
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.fingerprints.seekbarFingerprint
-import app.revanced.patches.youtube.shared.fingerprints.seekbarOnDrawFingerprint
+import app.revanced.patches.youtube.shared.seekbarFingerprint
+import app.revanced.patches.youtube.shared.seekbarOnDrawFingerprint
 import app.revanced.util.resultOrThrow
 
 @Suppress("unused")
@@ -57,7 +57,7 @@ val hideSeekbarPatch = bytecodePatch(
     val seekbarResult by seekbarFingerprint
 
     execute { context ->
-        addResources("youtube", "layout.hide.seekbar.HideSeekbarPatch")
+        addResources("youtube", "layout.hide.seekbar.hideSeekbarPatch")
 
         PreferenceScreen.SEEKBAR.addPreferences(
             SwitchPreference("revanced_hide_seekbar"),

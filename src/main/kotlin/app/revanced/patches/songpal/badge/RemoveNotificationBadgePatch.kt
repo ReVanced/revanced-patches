@@ -2,7 +2,6 @@ package app.revanced.patches.songpal.badge
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.songpal.badge.fingerprints.showNotificationFingerprint
 
 @Suppress("unused")
 val removeNotificationBadgePatch = bytecodePatch(

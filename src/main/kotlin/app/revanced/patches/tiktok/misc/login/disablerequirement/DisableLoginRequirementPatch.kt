@@ -2,8 +2,6 @@ package app.revanced.patches.tiktok.misc.login.disablerequirement
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.tiktok.misc.login.disablerequirement.fingerprints.mandatoryLoginServiceFingerprint
-import app.revanced.patches.tiktok.misc.login.disablerequirement.fingerprints.mandatoryLoginServiceFingerprint2
 
 @Suppress("unused")
 val disableLoginRequirementPatch = bytecodePatch(

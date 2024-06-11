@@ -2,7 +2,6 @@ package app.revanced.patches.spotify.lite.ondemand
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.spotify.lite.ondemand.fingerprints.onDemandFingerprint
 
 @Suppress("unused")
 val onDemandPatch = bytecodePatch(
@@ -17,7 +16,7 @@ val onDemandPatch = bytecodePatch(
         // Spoof a premium account
         onDemandResult.mutableMethod.addInstruction(
             onDemandResult.scanResult.patternScanResult!!.endIndex - 1,
-            "const/4 v0, 0x2"
+            "const/4 v0, 0x2",
         )
     }
 }

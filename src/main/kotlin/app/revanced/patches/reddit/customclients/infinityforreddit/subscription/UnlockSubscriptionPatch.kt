@@ -2,8 +2,6 @@ package app.revanced.patches.reddit.customclients.infinityforreddit.subscription
 
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.reddit.customclients.infinityforreddit.api.spoofClientPatch
-import app.revanced.patches.reddit.customclients.infinityforreddit.subscription.fingerprints.billingClientOnServiceConnectedFingerprint
-import app.revanced.patches.reddit.customclients.infinityforreddit.subscription.fingerprints.startSubscriptionActivityFingerprint
 import app.revanced.util.returnEarly
 
 @Suppress("unused")

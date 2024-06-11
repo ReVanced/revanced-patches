@@ -7,7 +7,6 @@ import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.youtube.layout.spoofappversion.fingerprints.spoofAppVersionFingerprint
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
@@ -60,7 +59,7 @@ val spoofAppVersionPatch = bytecodePatch(
     val spoofAppVersionResult by spoofAppVersionFingerprint
 
     execute {
-        addResources("youtube", "layout.spoofappversion.SpoofAppVersionPatch")
+        addResources("youtube", "layout.spoofappversion.spoofAppVersionPatch")
 
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(
             SwitchPreference("revanced_spoof_app_version"),

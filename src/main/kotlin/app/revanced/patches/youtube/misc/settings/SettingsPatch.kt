@@ -4,18 +4,27 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.*
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
+import app.revanced.patches.shared.misc.settings.settingsPatch
+import app.revanced.patches.twitch.misc.settings.preferences
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
-import app.revanced.patches.youtube.misc.settings.fingerprints.licenseActivityOnCreateFingerprint
-import app.revanced.patches.youtube.misc.settings.fingerprints.setThemeFingerprint
+import app.revanced.util.ResourceGroup
+import app.revanced.util.asSequence
+import app.revanced.util.copyResources
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.util.MethodUtil
+import org.w3c.dom.Element
 
 val settingsPatch = bytecodePatch(
     description = "Adds settings for ReVanced to YouTube.",
@@ -36,7 +45,7 @@ val settingsPatch = bytecodePatch(
     val setThemeMethodName = "setTheme"
 
     execute {
-        addResources("youtube", "misc.settings.SettingsPatch")
+        addResources("youtube", "misc.settings.settingsPatch")
 
         // Add an "about" preference to the top.
         preferences += NonInteractivePreference(
@@ -170,5 +179,86 @@ object PreferenceScreen : BasePreferenceScreen() {
 
     override fun commit(screen: PreferenceScreenPreference) {
         preferences += screen
+    }
+}
+
+// Used for a fingerprint from SettingsPatch.
+internal var appearanceStringId = -1L
+    private set
+
+val preferences = mutableSetOf<BasePreference>()
+
+val settingsResourcePatch = resourcePatch {
+    dependsOn(
+        resourceMappingPatch,
+        settingsPatch(
+            rootPreference = IntentPreference(
+                titleKey = "revanced_settings_title",
+                summaryKey = null,
+                intent = newIntent("revanced_settings_intent"),
+            ) to "settings_fragment",
+            preferences,
+        ),
+    )
+
+    execute { context ->
+        // Used for a fingerprint from SettingsPatch.
+        appearanceStringId = resourceMappings["string", "app_theme_appearance_dark"]
+
+        arrayOf(
+            ResourceGroup("layout", "revanced_settings_with_toolbar.xml"),
+        ).forEach { resourceGroup ->
+            context.copyResources("settings", resourceGroup)
+        }
+
+        // Remove horizontal divider from the settings Preferences
+        // To better match the appearance of the stock YouTube settings.
+        context.document["res/values/styles.xml"].use { document ->
+            val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
+
+            resourcesNode.childNodes.asSequence().forEach {
+                val node = it as? Element ?: return@forEach
+
+                val name = node.getAttribute("name")
+                if (name == "Theme.YouTube.Settings" || name == "Theme.YouTube.Settings.Dark") {
+                    val listDividerNode = document.createElement("item")
+                    listDividerNode.setAttribute("name", "android:listDivider")
+                    listDividerNode.appendChild(document.createTextNode("@null"))
+                    node.appendChild(listDividerNode)
+                }
+            }
+        }
+
+        // Modify the manifest and add a data intent filter to the LicenseActivity.
+        // Some devices freak out if undeclared data is passed to an intent,
+        // and this change appears to fix the issue.
+        var modifiedIntent = false
+        context.document["AndroidManifest.xml"].use { document ->
+            // A xml regular-expression would probably work better than this manual searching.
+            val manifestNodes = document.getElementsByTagName("manifest").item(0).childNodes
+            for (i in 0..manifestNodes.length) {
+                val node = manifestNodes.item(i)
+                if (node != null && node.nodeName == "application") {
+                    val applicationNodes = node.childNodes
+                    for (j in 0..applicationNodes.length) {
+                        val applicationChild = applicationNodes.item(j)
+                        if (applicationChild is Element && applicationChild.nodeName == "activity" &&
+                            applicationChild.getAttribute("android:name") ==
+                            "com.google.android.libraries.social.licenses.LicenseActivity"
+                        ) {
+                            val intentFilter = document.createElement("intent-filter")
+                            val mimeType = document.createElement("data")
+                            mimeType.setAttribute("android:mimeType", "text/plain")
+                            intentFilter.appendChild(mimeType)
+                            applicationChild.appendChild(intentFilter)
+                            modifiedIntent = true
+                            break
+                        }
+                    }
+                }
+            }
+        }
+
+        if (!modifiedIntent) throw PatchException("Could not modify activity intent")
     }
 }

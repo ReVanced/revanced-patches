@@ -5,10 +5,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patches.reddit.customclients.spoofClientPatch
 import app.revanced.patches.reddit.customclients.sync.detection.piracy.disablePiracyDetectionPatch
-import app.revanced.patches.reddit.customclients.sync.syncforreddit.api.fingerprints.getAuthorizationStringFingerprint
-import app.revanced.patches.reddit.customclients.sync.syncforreddit.api.fingerprints.getBearerTokenFingerprint
-import app.revanced.patches.reddit.customclients.sync.syncforreddit.api.fingerprints.getUserAgentFingerprint
-import app.revanced.patches.reddit.customclients.sync.syncforreddit.api.fingerprints.imgurImageAPIFingerprint
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction

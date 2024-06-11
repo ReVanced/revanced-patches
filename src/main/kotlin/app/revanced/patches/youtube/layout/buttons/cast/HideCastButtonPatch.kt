@@ -23,7 +23,7 @@ val hideCastButtonPatch = bytecodePatch(
     compatibleWith("com.google.android.youtube")
 
     execute { context ->
-        addResources("youtube", "layout.buttons.cast.HideCastButtonPatch")
+        addResources("youtube", "layout.buttons.cast.hideCastButtonPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
             SwitchPreference("revanced_hide_cast_button"),

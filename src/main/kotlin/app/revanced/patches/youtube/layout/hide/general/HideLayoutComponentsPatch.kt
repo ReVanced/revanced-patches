@@ -7,14 +7,14 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.*
-import app.revanced.patches.youtube.layout.hide.general.fingerprints.hideShowMoreButtonFingerprint
-import app.revanced.patches.youtube.layout.hide.general.fingerprints.parseElementFromBufferFingerprint
-import app.revanced.patches.youtube.layout.hide.general.fingerprints.playerOverlayFingerprint
-import app.revanced.patches.youtube.layout.hide.general.fingerprints.showWatermarkFingerprint
 import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
@@ -82,7 +82,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
     val hideShowMoreButtonResult by hideShowMoreButtonFingerprint
 
     execute { context ->
-        addResources("youtube", "layout.hide.general.HideLayoutComponentsPatch")
+        addResources("youtube", "layout.hide.general.hideLayoutComponentsPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
             SwitchPreference("revanced_hide_channel_bar"),
@@ -223,5 +223,18 @@ val hideLayoutComponentsPatch = bytecodePatch(
         }
 
         // endregion
+    }
+}
+
+internal var expandButtonDownId = -1L
+
+internal val hideLayoutComponentsResourcePatch = resourcePatch {
+    dependsOn(resourceMappingPatch)
+
+    execute {
+        expandButtonDownId = resourceMappings[
+            "layout",
+            "expand_button_down",
+        ]
     }
 }

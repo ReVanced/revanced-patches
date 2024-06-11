@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.layout.theme
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.youtube.layout.theme.fingerprints.lithoThemeFingerprint
 
 lateinit var lithoColorOverrideHook: (targetMethodClass: String, targetMethodName: String) -> Unit
     private set

@@ -2,7 +2,6 @@ package app.revanced.patches.hexeditor.ad
 
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.hexeditor.ad.fingerprints.primaryAdsFingerprint
 
 @Suppress("unused")
 val disableAdsPatch = bytecodePatch(
@@ -18,7 +17,7 @@ val disableAdsPatch = bytecodePatch(
             """
                 const/4 v0, 0x1
                 return v0
-            """
+            """,
         )
     }
 }

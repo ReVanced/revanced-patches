@@ -4,7 +4,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
-import app.revanced.patches.twitch.ad.embedded.fingerprints.createsUsherClientFingerprint
 import app.revanced.patches.twitch.ad.video.videoAdsPatch
 import app.revanced.patches.twitch.misc.settings.PreferenceScreen
 import app.revanced.patches.twitch.misc.settings.settingsPatch
@@ -26,7 +25,7 @@ val embeddedAdsPatch = bytecodePatch(
     val createUsherClientResult by createsUsherClientFingerprint
 
     execute {
-        addResources("twitch", "ad.embedded.EmbeddedAdsPatch")
+        addResources("twitch", "ad.embedded.embeddedAdsPatch")
 
         PreferenceScreen.ADS.SURESTREAM.addPreferences(
             ListPreference("revanced_block_embedded_ads", summaryKey = null),

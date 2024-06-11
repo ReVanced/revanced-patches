@@ -13,7 +13,6 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.video.information.*
 import app.revanced.patches.youtube.video.speed.custom.customPlaybackSpeedPatch
-import app.revanced.patches.youtube.video.speed.remember.fingerprint.initializePlaybackSpeedValuesFingerprint
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 private const val INTEGRATIONS_CLASS_DESCRIPTOR =
@@ -31,7 +30,7 @@ internal val rememberPlaybackSpeedPatch = bytecodePatch {
     val initializePlaybackSpeedValuesResult by initializePlaybackSpeedValuesFingerprint
 
     execute {
-        addResources("youtube", "video.speed.remember.RememberPlaybackSpeedPatch")
+        addResources("youtube", "video.speed.remember.rememberPlaybackSpeedPatch")
 
         PreferenceScreen.VIDEO.addPreferences(
             SwitchPreference("revanced_remember_playback_speed_last_selected"),

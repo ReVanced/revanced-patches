@@ -3,10 +3,9 @@ package app.revanced.patches.tiktok.feedfilter
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.tiktok.feedfilter.fingerprints.feedApiServiceLIZFingerprint
 import app.revanced.patches.tiktok.misc.integrations.integrationsPatch
-import app.revanced.patches.tiktok.misc.settings.fingerprints.settingsStatusLoadFingerprint
 import app.revanced.patches.tiktok.misc.settings.settingsPatch
+import app.revanced.patches.tiktok.misc.settings.settingsStatusLoadFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -18,12 +17,12 @@ val feedFilterPatch = bytecodePatch(
 ) {
     dependsOn(
         integrationsPatch,
-        settingsPatch
+        settingsPatch,
     )
 
     compatibleWith(
         "com.ss.android.ugc.trill"("32.5.3"),
-        "com.zhiliaoapp.musically"("32.5.3")
+        "com.zhiliaoapp.musically"("32.5.3"),
     )
 
     val feedApiServiceLIZResult by feedApiServiceLIZFingerprint

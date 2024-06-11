@@ -2,11 +2,10 @@ package app.revanced.patches.moneymanager
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.moneymanager.fingerprints.unlockProFingerprint
 
 @Suppress("unused")
 val unlockProPatch = bytecodePatch(
-    name = "Unlock pro"
+    name = "Unlock pro",
 ) {
     compatibleWith("com.ithebk.expensemanager")
 
@@ -18,7 +17,7 @@ val unlockProPatch = bytecodePatch(
             """
                 const/4 v0, 0x1
                 return v0
-            """
+            """,
         )
     }
 }

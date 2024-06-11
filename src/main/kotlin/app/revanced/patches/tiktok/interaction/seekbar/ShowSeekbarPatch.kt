@@ -2,8 +2,6 @@ package app.revanced.patches.tiktok.interaction.seekbar
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.tiktok.interaction.seekbar.fingerprints.setSeekBarShowTypeFingerprint
-import app.revanced.patches.tiktok.interaction.seekbar.fingerprints.shouldShowSeekBarFingerprint
 
 @Suppress("unused")
 val showSeekbarPatch = bytecodePatch(
@@ -11,8 +9,8 @@ val showSeekbarPatch = bytecodePatch(
     description = "Shows progress bar for all video.",
 ) {
     compatibleWith(
-        "com.ss.android.ugc.trill", 
-        "com.zhiliaoapp.musically"
+        "com.ss.android.ugc.trill",
+        "com.zhiliaoapp.musically",
     )
 
     val shouldShowSeekBarResult by shouldShowSeekBarFingerprint

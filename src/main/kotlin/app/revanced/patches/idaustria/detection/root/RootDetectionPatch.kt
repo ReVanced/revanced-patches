@@ -1,9 +1,6 @@
 package app.revanced.patches.idaustria.detection.root
 
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.idaustria.detection.root.fingerprints.attestationSupportedCheckFingerprint
-import app.revanced.patches.idaustria.detection.root.fingerprints.bootloaderCheckFingerprint
-import app.revanced.patches.idaustria.detection.root.fingerprints.rootCheckFingerprint
 import app.revanced.util.returnEarly
 
 @Suppress("unused")

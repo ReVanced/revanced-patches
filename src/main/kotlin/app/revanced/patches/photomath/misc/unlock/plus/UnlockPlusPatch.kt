@@ -4,7 +4,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.photomath.detection.signature.signatureDetectionPatch
 import app.revanced.patches.photomath.misc.unlock.bookpoint.enableBookpointPatch
-import app.revanced.patches.photomath.misc.unlock.plus.fingerprints.isPlusUnlockedFingerprint
 
 @Suppress("unused")
 val unlockPlusPatch = bytecodePatch(

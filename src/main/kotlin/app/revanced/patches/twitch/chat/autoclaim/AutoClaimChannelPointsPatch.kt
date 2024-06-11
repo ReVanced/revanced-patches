@@ -7,7 +7,6 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.twitch.chat.autoclaim.fingerprints.communityPointsButtonViewDelegateFingerprint
 import app.revanced.patches.twitch.misc.settings.PreferenceScreen
 import app.revanced.patches.twitch.misc.settings.settingsPatch
 
@@ -26,7 +25,7 @@ val autoClaimChannelPointsPatch = bytecodePatch(
     val communityPointsButtonViewDelegateResult by communityPointsButtonViewDelegateFingerprint
 
     execute {
-        addResources("twitch", "chat.autoclaim.AutoClaimChannelPointsPatch")
+        addResources("twitch", "chat.autoclaim.autoClaimChannelPointsPatch")
 
         PreferenceScreen.CHAT.GENERAL.addPreferences(
             SwitchPreference("revanced_auto_claim_channel_points"),

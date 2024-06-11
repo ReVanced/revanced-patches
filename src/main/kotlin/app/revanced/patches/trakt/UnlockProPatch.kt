@@ -2,9 +2,6 @@ package app.revanced.patches.trakt
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.trakt.fingerprints.isVIPEPFingerprint
-import app.revanced.patches.trakt.fingerprints.isVIPFingerprint
-import app.revanced.patches.trakt.fingerprints.remoteUserFingerprint
 import app.revanced.util.exception
 
 @Suppress("unused")

@@ -3,7 +3,6 @@ package app.revanced.patches.mifitness.misc.locale
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.mifitness.misc.locale.fingerprints.syncBluetoothLanguageFingerprint
 import app.revanced.patches.mifitness.misc.login.fixLoginPatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 

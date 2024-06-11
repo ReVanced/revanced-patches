@@ -4,9 +4,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.youtube.misc.playercontrols.fingerprints.bottomControlsInflateFingerprint
-import app.revanced.patches.youtube.misc.playercontrols.fingerprints.playerControlsVisibilityFingerprint
-import app.revanced.patches.youtube.shared.fingerprints.layoutConstructorFingerprint
+import app.revanced.patches.youtube.shared.layoutConstructorFingerprint
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 

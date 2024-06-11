@@ -46,14 +46,14 @@ val commentsPatch = resourcePatch(
             "19.14.43",
             "19.15.36",
             "19.16.39",
-        )
+        ),
     )
 
     val filterClassDescriptor =
         "Lapp/revanced/integrations/youtube/patches/components/CommentsFilter;"
 
     execute {
-        addResources("youtube", "layout.hide.comments.CommentsPatch")
+        addResources("youtube", "layout.hide.comments.commentsPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
             PreferenceScreenPreference(

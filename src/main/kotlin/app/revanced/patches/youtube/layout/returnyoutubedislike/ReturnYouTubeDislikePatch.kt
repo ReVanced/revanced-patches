@@ -7,12 +7,20 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.*
+import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.resourceMappings
+import app.revanced.patches.shared.misc.settings.preference.IntentPreference
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
-import app.revanced.patches.youtube.shared.fingerprints.rollingNumberTextViewAnimationUpdateFingerprint
+import app.revanced.patches.youtube.misc.settings.newIntent
+import app.revanced.patches.youtube.misc.settings.preferences
+import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.patches.youtube.shared.rollingNumberTextViewAnimationUpdateFingerprint
 import app.revanced.patches.youtube.video.videoid.hookPlayerResponseVideoId
 import app.revanced.patches.youtube.video.videoid.hookVideoId
 import app.revanced.patches.youtube.video.videoid.videoIdPatch
@@ -310,7 +318,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
             rollingNumberTextViewAnimationUpdateResult.mutableMethod,
         ).forEach { insertMethod ->
             insertMethod.apply {
-                    val setTextIndex = indexOfFirstInstructionOrThrow {
+                val setTextIndex = indexOfFirstInstructionOrThrow {
                     getReference<MethodReference>()?.name == "setText"
                 }
 
@@ -337,4 +345,30 @@ enum class Vote(val value: Int) {
     LIKE(1),
     DISLIKE(-1),
     REMOVE_LIKE(0),
+}
+
+internal var oldUIDislikeId = -1L
+    private set
+
+internal val returnYouTubeDislikeResourcePatch = resourcePatch {
+    dependsOn(
+        settingsPatch,
+        addResourcesPatch,
+    )
+
+    execute {
+        addResources("youtube", "layout.returnyoutubedislike.returnYouTubeDislikeResourcePatch")
+
+        preferences += IntentPreference(
+            key = "revanced_settings_screen_09",
+            titleKey = "revanced_ryd_settings_title",
+            summaryKey = null,
+            intent = newIntent("revanced_ryd_settings_intent"),
+        )
+
+        oldUIDislikeId = resourceMappings[
+            "id",
+            "dislike_button",
+        ]
+    }
 }

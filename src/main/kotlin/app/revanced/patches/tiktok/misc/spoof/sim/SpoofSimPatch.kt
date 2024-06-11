@@ -5,7 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tiktok.misc.integrations.integrationsPatch
-import app.revanced.patches.tiktok.misc.settings.fingerprints.settingsStatusLoadFingerprint
+import app.revanced.patches.tiktok.misc.settings.settingsStatusLoadFingerprint
 import app.revanced.patches.twitch.misc.settings.settingsPatch
 import app.revanced.util.findMutableMethodOf
 import com.android.tools.smali.dexlib2.Opcode

@@ -2,7 +2,6 @@ package app.revanced.patches.reddit.layout.disablescreenshotpopup
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.reddit.layout.disablescreenshotpopup.fingerprints.disableScreenshotPopupFingerprint
 
 @Suppress("unused")
 val disableScreenshotPopupPatch = bytecodePatch(

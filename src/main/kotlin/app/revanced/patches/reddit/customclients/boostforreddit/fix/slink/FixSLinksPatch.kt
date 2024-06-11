@@ -6,8 +6,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.reddit.customclients.RESOLVE_S_LINK_METHOD
 import app.revanced.patches.reddit.customclients.SET_ACCESS_TOKEN_METHOD
-import app.revanced.patches.reddit.customclients.boostforreddit.fix.slink.fingerprints.getOAuthAccessTokenFingerprint
-import app.revanced.patches.reddit.customclients.boostforreddit.fix.slink.fingerprints.handleNavigationFingerprint
 import app.revanced.patches.reddit.customclients.boostforreddit.misc.integrations.integrationsPatch
 import app.revanced.patches.reddit.customclients.fixSLinksPatch
 

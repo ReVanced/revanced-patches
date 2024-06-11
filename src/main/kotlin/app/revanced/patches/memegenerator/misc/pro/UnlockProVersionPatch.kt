@@ -4,7 +4,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.memegenerator.detection.license.licenseValidationPatch
 import app.revanced.patches.memegenerator.detection.signature.signatureVerificationPatch
-import app.revanced.patches.memegenerator.misc.pro.fingerprints.isFreeVersionFingerprint
 
 @Suppress("unused")
 val unlockProVersionPatch = bytecodePatch(
@@ -22,7 +21,7 @@ val unlockProVersionPatch = bytecodePatch(
             """
                 sget-object p0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
                 return-object p0
-            """
+            """,
         )
     }
 }
