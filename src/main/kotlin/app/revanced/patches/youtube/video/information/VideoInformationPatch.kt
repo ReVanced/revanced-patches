@@ -14,6 +14,8 @@ import app.revanced.patches.youtube.video.information.fingerprints.*
 import app.revanced.patches.youtube.video.playerresponse.PlayerResponseMethodHookPatch
 import app.revanced.patches.youtube.video.videoid.VideoIdPatch
 import app.revanced.util.exception
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.BuilderInstruction
@@ -47,8 +49,8 @@ object VideoInformationPatch : BytecodePatch(
     private var playerInitInsertIndex = 4
 
     private lateinit var mdxInitMethod: MutableMethod
-    private var mdxInitInsertIndex = 5
-    private var mdxInitInsertRegister = 8
+    private var mdxInitInsertIndex = -1
+    private var mdxInitInsertRegister = -1
 
     private lateinit var timeMethod: MutableMethod
     private var timeInitInsertIndex = 2
@@ -84,8 +86,8 @@ object VideoInformationPatch : BytecodePatch(
             mdxInitMethod = mutableClass.methods.first { MethodUtil.isConstructor(it) }
 
             // find the location of the first invoke-direct call and extract the register storing the 'this' object reference
-            mdxInitInsertIndex = mdxInitMethod.implementation!!.instructions.indexOfFirst {
-                it.opcode == Opcode.INVOKE_DIRECT && ((it as Instruction35c).reference as MethodReference).name == "<init>"
+            mdxInitInsertIndex = mdxInitMethod.indexOfFirstInstructionOrThrow {
+                opcode == Opcode.INVOKE_DIRECT && getReference<MethodReference>()?.name == "<init>"
             } + 1
             mdxInitInsertRegister = mdxInitMethod.getInstruction<Instruction35c>(mdxInitInsertIndex - 1).registerC
 
