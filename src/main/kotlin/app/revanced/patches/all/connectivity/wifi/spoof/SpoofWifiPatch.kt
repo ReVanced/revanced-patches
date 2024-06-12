@@ -1,33 +1,44 @@
 package app.revanced.patches.all.connectivity.wifi.spoof
 
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.transformation.IMethodCall
 import app.revanced.patches.all.misc.transformation.filterMapInstruction35c
 import app.revanced.patches.all.misc.transformation.transformInstructionsPatch
+import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 
 internal const val INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX = "Lapp/revanced/integrations/all/connectivity/wifi/spoof/SpoofWifiPatch"
 
 internal const val INTEGRATIONS_CLASS_DESCRIPTOR = "$INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX;"
 
 @Suppress("unused")
-val spoofWifiPatch = transformInstructionsPatch(
-    filterMap = { classDef, _, instruction, instructionIndex ->
-        filterMapInstruction35c<MethodCall>(
-            INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX,
-            classDef,
-            instruction,
-            instructionIndex,
+val spoofWifiPatch = bytecodePatch(
+    name = "Spoof Wi-Fi connection",
+    description = "Spoofs an existing Wi-Fi connection.",
+    use = false,
+) {
+    dependsOn(
+        integrationsPatch,
+        transformInstructionsPatch(
+            filterMap = { classDef, _, instruction, instructionIndex ->
+                filterMapInstruction35c<MethodCall>(
+                    INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX,
+                    classDef,
+                    instruction,
+                    instructionIndex,
+                )
+            },
+            transform = { method, entry ->
+                val (methodType, instruction, instructionIndex) = entry
+                methodType.replaceInvokeVirtualWithIntegrations(
+                    INTEGRATIONS_CLASS_DESCRIPTOR,
+                    method,
+                    instruction,
+                    instructionIndex,
+                )
+            },
         )
-    },
-    transform = { method, entry ->
-        val (methodType, instruction, instructionIndex) = entry
-        methodType.replaceInvokeVirtualWithIntegrations(
-            INTEGRATIONS_CLASS_DESCRIPTOR,
-            method,
-            instruction,
-            instructionIndex,
-        )
-    },
-)
+    )
+}
 
 // Information about method calls we want to replace
 @Suppress("unused")
