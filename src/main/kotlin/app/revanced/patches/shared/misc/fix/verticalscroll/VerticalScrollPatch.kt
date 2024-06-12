@@ -9,11 +9,11 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 val verticalScrollPatch = bytecodePatch(
     description = "Fixes issues with refreshing the feed when the first component is of type EmptyComponent.",
 ) {
-    val canScrollVerticallyResult by canScrollVerticallyFingerprint
+    val canScrollVerticallyFingerprintResult by canScrollVerticallyFingerprint
 
     execute {
-        canScrollVerticallyResult.mutableMethod.apply {
-            val moveResultIndex = canScrollVerticallyResult.scanResult.patternScanResult!!.endIndex
+        canScrollVerticallyFingerprintResult.mutableMethod.apply {
+            val moveResultIndex = canScrollVerticallyFingerprintResult.scanResult.patternScanResult!!.endIndex
             val moveResultRegister = getInstruction<OneRegisterInstruction>(moveResultIndex).registerA
 
             val insertIndex = moveResultIndex + 1

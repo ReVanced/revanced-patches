@@ -54,11 +54,11 @@ val albumCardsPatch = bytecodePatch(
         ),
     )
 
-    val albumCardsResult by albumCardsFingerprint
+    val albumCardsFingerprintResult by albumCardsFingerprint
 
     execute {
-        albumCardsResult.mutableMethod.apply {
-            val checkCastAnchorIndex = albumCardsResult.scanResult.patternScanResult!!.endIndex
+        albumCardsFingerprintResult.mutableMethod.apply {
+            val checkCastAnchorIndex = albumCardsFingerprintResult.scanResult.patternScanResult!!.endIndex
             val insertIndex = checkCastAnchorIndex + 1
 
             val albumCardViewRegister = getInstruction<OneRegisterInstruction>(checkCastAnchorIndex).registerA

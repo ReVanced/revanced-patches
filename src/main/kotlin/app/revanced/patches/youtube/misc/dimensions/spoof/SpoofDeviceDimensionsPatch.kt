@@ -50,7 +50,7 @@ val spoofDeviceDimensionsPatch = bytecodePatch(
         ),
     )
 
-    val deviceDimensionsModelToStringResult by deviceDimensionsModelToStringFingerprint
+    val deviceDimensionsModelToStringFingerprintResult by deviceDimensionsModelToStringFingerprint
 
     execute {
         addResources("youtube", "misc.dimensions.spoof.spoofDeviceDimensionsPatch")
@@ -59,7 +59,7 @@ val spoofDeviceDimensionsPatch = bytecodePatch(
             SwitchPreference("revanced_spoof_device_dimensions"),
         )
 
-        deviceDimensionsModelToStringResult
+        deviceDimensionsModelToStringFingerprintResult
             .mutableClass.methods.first { method -> method.name == "<init>" }
             // Override the parameters containing the dimensions.
             .addInstructions(

@@ -15,7 +15,7 @@ import java.util.jar.JarFile
 internal const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/shared/Utils;"
 
 fun integrationsPatch(vararg hooks: IntegrationsHook) = bytecodePatch(requiresIntegrations = true) {
-    val revancedUtilsPatchesVersionResult by revancedUtilsPatchesVersionFingerprint
+    val revancedUtilsPatchesVersionFingerprintResult by revancedUtilsPatchesVersionFingerprint
     hooks.forEach { it.fingerprint() }
 
     execute { context ->
@@ -28,7 +28,7 @@ fun integrationsPatch(vararg hooks: IntegrationsHook) = bytecodePatch(requiresIn
         hooks.forEach { hook -> hook(INTEGRATIONS_CLASS_DESCRIPTOR) }
 
         // Modify Utils method to include the patches release version.
-        revancedUtilsPatchesVersionResult.mutableMethod.apply {
+        revancedUtilsPatchesVersionFingerprintResult.mutableMethod.apply {
             /**
              * @return The file path for the jar this classfile is contained inside.
              */

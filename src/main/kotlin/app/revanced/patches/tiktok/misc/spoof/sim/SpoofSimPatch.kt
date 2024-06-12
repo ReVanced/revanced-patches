@@ -29,7 +29,7 @@ val spoofSimPatch = bytecodePatch(
         "com.zhiliaoapp.musically",
     )
 
-    val settingsStatusLoadResult by settingsStatusLoadFingerprint
+    val settingsStatusLoadFingerprintResult by settingsStatusLoadFingerprint
 
     execute { context ->
         val replacements = hashMapOf(
@@ -94,7 +94,7 @@ val spoofSimPatch = bytecodePatch(
         }
 
         // Enable patch in settings.
-        settingsStatusLoadResult.mutableMethod.addInstruction(
+        settingsStatusLoadFingerprintResult.mutableMethod.addInstruction(
             0,
             "invoke-static {}, Lapp/revanced/integrations/tiktok/settings/SettingsStatus;->enableSimSpoof()V",
         )

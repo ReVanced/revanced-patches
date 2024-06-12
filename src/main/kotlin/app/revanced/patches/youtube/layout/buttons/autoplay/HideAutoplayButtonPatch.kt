@@ -63,7 +63,7 @@ val hideAutoplayButtonPatch = bytecodePatch(
         ),
     )
 
-    val layoutConstructorResult by layoutConstructorFingerprint
+    val layoutConstructorFingerprintResult by layoutConstructorFingerprint
 
     execute {
         addResources("youtube", "layout.buttons.autoplay.hideAutoplayButtonPatch")
@@ -72,7 +72,7 @@ val hideAutoplayButtonPatch = bytecodePatch(
             SwitchPreference("revanced_hide_autoplay_button"),
         )
 
-        layoutConstructorResult.mutableMethod.apply {
+        layoutConstructorFingerprintResult.mutableMethod.apply {
             val constIndex = indexOfIdResourceOrThrow("autonav_toggle")
             val constRegister = getInstruction<OneRegisterInstruction>(constIndex).registerA
 

@@ -30,7 +30,7 @@ val spoofAndroidDeviceIdPatch = bytecodePatch(
         ),
     )
 
-    val getAndroidIDResult by getAndroidIdFingerprint
+    val getAndroidIDFingerprintResult by getAndroidIdFingerprint
 
     val androidDeviceId by stringOption(
         key = "android-device-id",
@@ -41,7 +41,7 @@ val spoofAndroidDeviceIdPatch = bytecodePatch(
     ) { it!!.matches("[A-Fa-f0-9]{16}".toRegex()) }
 
     execute {
-        getAndroidIDResult.mutableMethod.addInstructions(
+        getAndroidIDFingerprintResult.mutableMethod.addInstructions(
             0,
             """
                 const-string v0, "$androidDeviceId"

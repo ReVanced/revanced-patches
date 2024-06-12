@@ -9,11 +9,11 @@ val removeAdsPatch = bytecodePatch(
 ) {
     compatibleWith("net.binarymode.android.irplus")
 
-    val irplusAdsResult by irplusAdsFingerprint
+    val irplusAdsFingerprintResult by irplusAdsFingerprint
 
     execute {
         // By overwriting the second parameter of the method,
         // the view which holds the advertisement is removed.
-        irplusAdsResult.mutableMethod.addInstruction(0, "const/4 p2, 0x0")
+        irplusAdsFingerprintResult.mutableMethod.addInstruction(0, "const/4 p2, 0x0")
     }
 }

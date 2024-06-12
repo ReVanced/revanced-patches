@@ -22,14 +22,14 @@ val timelineFilterPatch = bytecodePatch(
     description = "Filter timeline objects.",
     requiresIntegrations = true,
 ) {
-    val timelineConstructorResult by timelineConstructorFingerprint
-    val timelineFilterIntegrationResult by timelineConstructorFingerprint
-    val postsResponseConstructorResult by postsResponseConstructorFingerprint
+    val timelineConstructorFingerprintResult by timelineConstructorFingerprint
+    val timelineFilterIntegrationFingerprintResult by timelineConstructorFingerprint
+    val postsResponseConstructorFingerprintResult by postsResponseConstructorFingerprint
 
     execute {
-        val filterInsertIndex = timelineFilterIntegrationResult.scanResult.patternScanResult!!.startIndex
+        val filterInsertIndex = timelineFilterIntegrationFingerprintResult.scanResult.patternScanResult!!.startIndex
 
-        timelineFilterIntegrationResult.mutableMethod.apply {
+        timelineFilterIntegrationFingerprintResult.mutableMethod.apply {
             val addInstruction = getInstruction<BuilderInstruction35c>(filterInsertIndex + 1)
 
             val filterListRegister = addInstruction.registerC
@@ -51,8 +51,8 @@ val timelineFilterPatch = bytecodePatch(
         }
     }
     mapOf(
-        timelineConstructorResult to 1,
-        postsResponseConstructorResult to 2,
+        timelineConstructorFingerprintResult to 1,
+        postsResponseConstructorFingerprintResult to 2,
     ).forEach { (result, timelineObjectsRegister) ->
         result.mutableMethod.addInstructions(
             0,

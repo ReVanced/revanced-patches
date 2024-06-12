@@ -12,14 +12,14 @@ val openLinksWithAppChooserPatch = bytecodePatch(
 ) {
     compatibleWith("com.twitter.android")
 
-    val openLinkResult by openLinkFingerprint
+    val openLinkFingerprintResult by openLinkFingerprint
 
     execute {
         val methodReference =
             "Lapp/revanced/integrations/twitter/patches/links/OpenLinksWithAppChooserPatch;->" +
                 "openWithChooser(Landroid/content/Context;Landroid/content/Intent;)V"
 
-        openLinkResult.mutableMethod.addInstructions(
+        openLinkFingerprintResult.mutableMethod.addInstructions(
             0,
             """
                 invoke-static { p0, p1 }, $methodReference

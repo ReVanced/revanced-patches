@@ -69,15 +69,15 @@ val spoofClientPatch = bytecodePatch(
     )
 
     // Client type spoof.
-    val buildInitPlaybackRequestResult by buildInitPlaybackRequestFingerprint
-    val buildPlayerRequestURIResult by buildPlayerRequestURIFingerprint
-    val setPlayerRequestClientTypeResult by setPlayerRequestClientTypeFingerprint
-    val createPlayerRequestBodyResult by createPlayerRequestBodyFingerprint
-    val createPlayerRequestBodyWithModelResult by createPlayerRequestBodyWithModelFingerprint
+    val buildInitPlaybackRequestFingerprintResult by buildInitPlaybackRequestFingerprint
+    val buildPlayerRequestURIFingerprintResult by buildPlayerRequestURIFingerprint
+    val setPlayerRequestClientTypeFingerprintResult by setPlayerRequestClientTypeFingerprint
+    val createPlayerRequestBodyFingerprintResult by createPlayerRequestBodyFingerprint
+    val createPlayerRequestBodyWithModelFingerprintResult by createPlayerRequestBodyWithModelFingerprint
     // Player gesture config.
-    val playerGestureConfigSyntheticResult by playerGestureConfigSyntheticFingerprint
+    val playerGestureConfigSyntheticFingerprintResult by playerGestureConfigSyntheticFingerprint
     // Player speed menu item.
-    val createPlaybackSpeedMenuItemResult by createPlaybackSpeedMenuItemFingerprint
+    val createPlaybackSpeedMenuItemFingerprintResult by createPlaybackSpeedMenuItemFingerprint
 
     execute { context ->
         addResources("youtube", "misc.fix.playback.spoofClientPatch")
@@ -95,9 +95,9 @@ val spoofClientPatch = bytecodePatch(
 
         // region Block /initplayback requests to fall back to /get_watch requests.
 
-        val moveUriStringIndex = buildInitPlaybackRequestResult.scanResult.patternScanResult!!.startIndex
+        val moveUriStringIndex = buildInitPlaybackRequestFingerprintResult.scanResult.patternScanResult!!.startIndex
 
-        buildInitPlaybackRequestResult.mutableMethod.apply {
+        buildInitPlaybackRequestFingerprintResult.mutableMethod.apply {
             val targetRegister = getInstruction<OneRegisterInstruction>(moveUriStringIndex).registerA
 
             addInstructions(
@@ -113,9 +113,9 @@ val spoofClientPatch = bytecodePatch(
 
         // region Block /get_watch requests to fall back to /player requests.
 
-        val invokeToStringIndex = buildPlayerRequestURIResult.scanResult.patternScanResult!!.startIndex
+        val invokeToStringIndex = buildPlayerRequestURIFingerprintResult.scanResult.patternScanResult!!.startIndex
 
-        buildPlayerRequestURIResult.mutableMethod.apply {
+        buildPlayerRequestURIFingerprintResult.mutableMethod.apply {
             val uriRegister = getInstruction<FiveRegisterInstruction>(invokeToStringIndex).registerC
 
             addInstructions(
@@ -132,7 +132,7 @@ val spoofClientPatch = bytecodePatch(
         // region Get field references to be used below.
 
         // Field in the player request object that holds the client info object.
-        val clientInfoField = setPlayerRequestClientTypeResult.mutableMethod
+        val clientInfoField = setPlayerRequestClientTypeFingerprintResult.mutableMethod
             .instructions.find { instruction ->
                 // requestMessage.clientInfo = clientInfoBuilder.build();
                 instruction.opcode == Opcode.IPUT_OBJECT &&
@@ -140,25 +140,25 @@ val spoofClientPatch = bytecodePatch(
             }?.getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoField")
 
         // Client info object's client type field.
-        val clientInfoClientTypeField = setPlayerRequestClientTypeResult.mutableMethod
-            .getInstruction(setPlayerRequestClientTypeResult.scanResult.patternScanResult!!.endIndex)
+        val clientInfoClientTypeField = setPlayerRequestClientTypeFingerprintResult.mutableMethod
+            .getInstruction(setPlayerRequestClientTypeFingerprintResult.scanResult.patternScanResult!!.endIndex)
             .getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoClientTypeField")
 
         // Client info object's client version field.
-        val clientInfoClientVersionField = setPlayerRequestClientTypeResult.mutableMethod
-            .getInstruction(setPlayerRequestClientTypeResult.scanResult.stringsScanResult!!.matches.first().index + 1)
+        val clientInfoClientVersionField = setPlayerRequestClientTypeFingerprintResult.mutableMethod
+            .getInstruction(setPlayerRequestClientTypeFingerprintResult.scanResult.stringsScanResult!!.matches.first().index + 1)
             .getReference<FieldReference>()
             ?: throw PatchException("Could not find clientInfoClientVersionField")
 
-        val getClientModelIndex = indexOfBuildModelInstruction(createPlayerRequestBodyWithModelResult.method)
+        val getClientModelIndex = indexOfBuildModelInstruction(createPlayerRequestBodyWithModelFingerprintResult.method)
 
         // The next IPUT_OBJECT instruction after getting the client model is setting the client model field.
-        val index = createPlayerRequestBodyWithModelResult.mutableMethod
+        val index = createPlayerRequestBodyWithModelFingerprintResult.mutableMethod
             .indexOfFirstInstructionOrThrow(getClientModelIndex) {
                 opcode == Opcode.IPUT_OBJECT
             }
 
-        val clientInfoClientModelField = createPlayerRequestBodyWithModelResult.mutableMethod
+        val clientInfoClientModelField = createPlayerRequestBodyWithModelFingerprintResult.mutableMethod
             .getInstruction(index)
             .getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoClientModelField")
 
@@ -167,10 +167,10 @@ val spoofClientPatch = bytecodePatch(
         // region Spoof client type for /player requests.
 
         val setClientInfoMethodName = "patch_setClientInfo"
-        val checkCastIndex = createPlayerRequestBodyResult.scanResult.patternScanResult!!.startIndex
+        val checkCastIndex = createPlayerRequestBodyFingerprintResult.scanResult.patternScanResult!!.startIndex
         var clientInfoContainerClassName: String
 
-        createPlayerRequestBodyResult.mutableMethod.apply {
+        createPlayerRequestBodyFingerprintResult.mutableMethod.apply {
             val checkCastInstruction = getInstruction<OneRegisterInstruction>(checkCastIndex)
             val requestMessageInstanceRegister = checkCastInstruction.registerA
             clientInfoContainerClassName = checkCastInstruction.getReference<TypeReference>()!!.type
@@ -178,16 +178,16 @@ val spoofClientPatch = bytecodePatch(
             addInstruction(
                 checkCastIndex + 1,
                 "invoke-static { v$requestMessageInstanceRegister }," +
-                    " ${createPlayerRequestBodyResult.classDef.type}->" +
+                    " ${createPlayerRequestBodyFingerprintResult.classDef.type}->" +
                     "$setClientInfoMethodName($clientInfoContainerClassName)V",
             )
         }
 
         // Change client info to use the spoofed values.
         // Do this in a helper method, to remove the need of picking out multiple free registers from the hooked code.
-        createPlayerRequestBodyResult.mutableClass.methods.add(
+        createPlayerRequestBodyFingerprintResult.mutableClass.methods.add(
             ImmutableMethod(
-                createPlayerRequestBodyResult.mutableClass.type,
+                createPlayerRequestBodyFingerprintResult.mutableClass.type,
                 setClientInfoMethodName,
                 listOf(ImmutableMethodParameter(clientInfoContainerClassName, null, "clientInfoContainer")),
                 "V",
@@ -233,7 +233,7 @@ val spoofClientPatch = bytecodePatch(
 
         // region Fix player gesture if spoofing to iOS.
 
-        val endIndex = playerGestureConfigSyntheticResult.scanResult.patternScanResult!!.endIndex
+        val endIndex = playerGestureConfigSyntheticFingerprintResult.scanResult.patternScanResult!!.endIndex
         val downAndOutLandscapeAllowedIndex = endIndex - 3
         val downAndOutPortraitAllowedIndex = endIndex - 9
 
@@ -241,7 +241,7 @@ val spoofClientPatch = bytecodePatch(
             downAndOutLandscapeAllowedIndex,
             downAndOutPortraitAllowedIndex,
         ).forEach { index ->
-            val gestureAllowedMethod = context.navigate(playerGestureConfigSyntheticResult.mutableMethod)
+            val gestureAllowedMethod = context.navigate(playerGestureConfigSyntheticFingerprintResult.mutableMethod)
                 .at(index)
                 .mutable()
 
@@ -263,10 +263,10 @@ val spoofClientPatch = bytecodePatch(
 
         // Fix playback speed menu item if spoofing to iOS.
 
-        val scanResult = createPlaybackSpeedMenuItemResult.scanResult.patternScanResult!!
+        val scanResult = createPlaybackSpeedMenuItemFingerprintResult.scanResult.patternScanResult!!
         if (scanResult.startIndex != 0) throw PatchException("Unexpected start index: ${scanResult.startIndex}")
 
-        createPlaybackSpeedMenuItemResult.mutableMethod.apply {
+        createPlaybackSpeedMenuItemFingerprintResult.mutableMethod.apply {
             // Find the conditional check if the playback speed menu item is not created.
             val shouldCreateMenuIndex = indexOfFirstInstructionOrThrow(scanResult.endIndex) { opcode == Opcode.IF_EQZ }
             val shouldCreateMenuRegister = getInstruction<OneRegisterInstruction>(shouldCreateMenuIndex).registerA

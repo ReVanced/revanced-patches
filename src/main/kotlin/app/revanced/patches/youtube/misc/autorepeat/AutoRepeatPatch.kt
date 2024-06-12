@@ -52,7 +52,7 @@ val autoRepeatPatch = bytecodePatch(
         ),
     )
 
-    val autoRepeatParentResult by autoRepeatParentFingerprint
+    val autoRepeatParentFingerprintResult by autoRepeatParentFingerprint
 
     execute { context ->
         addResources("youtube", "misc.autorepeat.autoRepeatPatch")
@@ -62,9 +62,9 @@ val autoRepeatPatch = bytecodePatch(
         )
 
         autoRepeatFingerprint.apply {
-            resolve(context, autoRepeatParentResult.classDef)
+            resolve(context, autoRepeatParentFingerprintResult.classDef)
         }.resultOrThrow().mutableMethod.apply {
-            val playMethod = autoRepeatParentResult.mutableMethod
+            val playMethod = autoRepeatParentFingerprintResult.mutableMethod
             val index = instructions.lastIndex
 
             // Remove return-void.

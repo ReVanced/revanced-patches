@@ -69,16 +69,16 @@ val restoreOldVideoQualityMenuPatch = bytecodePatch(
         ),
     )
 
-    val videoQualityMenuViewInflateResult by videoQualityMenuViewInflateFingerprint
-    val videoQualityMenuOptionsResult by videoQualityMenuOptionsFingerprint
+    val videoQualityMenuViewInflateFingerprintResult by videoQualityMenuViewInflateFingerprint
+    val videoQualityMenuOptionsFingerprintResult by videoQualityMenuOptionsFingerprint
 
     execute {
         // region Patch for the old type of the video quality menu.
         // Used for regular videos when spoofing to old app version,
         // and for the Shorts quality flyout on newer app versions.
 
-        videoQualityMenuViewInflateResult.mutableMethod.apply {
-            val checkCastIndex = videoQualityMenuViewInflateResult.scanResult.patternScanResult!!.endIndex
+        videoQualityMenuViewInflateFingerprintResult.mutableMethod.apply {
+            val checkCastIndex = videoQualityMenuViewInflateFingerprintResult.scanResult.patternScanResult!!.endIndex
             val listViewRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
 
             addInstruction(
@@ -90,12 +90,12 @@ val restoreOldVideoQualityMenuPatch = bytecodePatch(
         }
 
         // Force YT to add the 'advanced' quality menu for Shorts.
-        val scanResult = videoQualityMenuOptionsResult.scanResult.patternScanResult!!
+        val scanResult = videoQualityMenuOptionsFingerprintResult.scanResult.patternScanResult!!
         val startIndex = scanResult.startIndex
         if (startIndex != 0) throw PatchException("Unexpected opcode start index: $startIndex")
         val insertIndex = scanResult.endIndex
 
-        videoQualityMenuOptionsResult.mutableMethod.apply {
+        videoQualityMenuOptionsFingerprintResult.mutableMethod.apply {
             val register = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
             // A condition controls whether to show the three or four items quality menu.

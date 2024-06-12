@@ -10,11 +10,11 @@ val unlockPremiumPatch = bytecodePatch(
 ) {
     compatibleWith("io.yuka.android"("4.29"))
 
-    val yukaUserConstructorResult by yukaUserConstructorFingerprint
+    val yukaUserConstructorFingerprintResult by yukaUserConstructorFingerprint
 
     execute { context ->
         isPremiumFingerprint.apply {
-            resolve(context, yukaUserConstructorResult.classDef)
+            resolve(context, yukaUserConstructorFingerprintResult.classDef)
         }.resultOrThrow().mutableMethod.addInstructions(
             0,
             """

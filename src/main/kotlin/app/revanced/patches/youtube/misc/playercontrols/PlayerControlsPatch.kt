@@ -44,15 +44,15 @@ val playerControlsPatch = bytecodePatch(
 ) {
     dependsOn(bottomControlsPatch)
 
-    val layoutConstructorResult by layoutConstructorFingerprint
-    val bottomControlsInflateResult by bottomControlsInflateFingerprint
+    val layoutConstructorFingerprintResult by layoutConstructorFingerprint
+    val bottomControlsInflateFingerprintResult by bottomControlsInflateFingerprint
 
     execute { context ->
         showPlayerControlsFingerprintResult = playerControlsVisibilityFingerprint.apply {
-            resolve(context, layoutConstructorResult.classDef)
+            resolve(context, layoutConstructorFingerprintResult.classDef)
         }.resultOrThrow()
 
-        inflateFingerprintResult = bottomControlsInflateResult.also {
+        inflateFingerprintResult = bottomControlsInflateFingerprintResult.also {
             moveToRegisterInstructionIndex = it.scanResult.patternScanResult!!.endIndex
             viewRegister = it.mutableMethod.getInstruction<OneRegisterInstruction>(moveToRegisterInstructionIndex).registerA
         }

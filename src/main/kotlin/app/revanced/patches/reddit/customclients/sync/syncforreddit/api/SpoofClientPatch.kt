@@ -23,9 +23,9 @@ val spoofClientPatch = spoofClientPatch(
         "com.laurencedawson.reddit_sync.dev",
     )
 
-    val imgurImageAPIResult by imgurImageAPIFingerprint
-    val getAuthorizationStringResult by getAuthorizationStringFingerprint
-    val getUserAgentResult by getUserAgentFingerprint
+    val imgurImageAPIFingerprintResult by imgurImageAPIFingerprint
+    val getAuthorizationStringFingerprintResult by getAuthorizationStringFingerprint
+    val getUserAgentFingerprintResult by getUserAgentFingerprint
 
     val clientId by clientIdOption
 
@@ -33,7 +33,7 @@ val spoofClientPatch = spoofClientPatch(
         // region Patch client id.
 
         getBearerTokenFingerprint.apply {
-            resolve(context, getAuthorizationStringResult.classDef)
+            resolve(context, getAuthorizationStringFingerprintResult.classDef)
         }.resultOrThrow().mutableMethod.apply {
             val auth = Base64.getEncoder().encodeToString("$clientId:".toByteArray(Charsets.UTF_8))
             addInstructions(
@@ -43,9 +43,9 @@ val spoofClientPatch = spoofClientPatch(
                      return-object v0
                 """,
             )
-            val occurrenceIndex = getAuthorizationStringResult.scanResult.stringsScanResult!!.matches.first().index
+            val occurrenceIndex = getAuthorizationStringFingerprintResult.scanResult.stringsScanResult!!.matches.first().index
 
-            getAuthorizationStringResult.mutableMethod.apply {
+            getAuthorizationStringFingerprintResult.mutableMethod.apply {
                 val authorizationStringInstruction = getInstruction<ReferenceInstruction>(occurrenceIndex)
                 val targetRegister = (authorizationStringInstruction as OneRegisterInstruction).registerA
                 val reference = authorizationStringInstruction.reference as StringReference
@@ -71,7 +71,7 @@ val spoofClientPatch = spoofClientPatch(
     val randomName = (0..100000).random()
     val userAgent = "$randomName:app.revanced.$randomName:v1.0.0 (by /u/revanced)"
 
-    imgurImageAPIResult.mutableMethod.replaceInstruction(
+    imgurImageAPIFingerprintResult.mutableMethod.replaceInstruction(
         0,
         """
             const-string v0, "$userAgent"
@@ -83,8 +83,8 @@ val spoofClientPatch = spoofClientPatch(
 
     // region Patch Imgur API URL.
 
-    val apiUrlIndex = getUserAgentResult.scanResult.stringsScanResult!!.matches.first().index
-    getUserAgentResult.mutableMethod.replaceInstruction(
+    val apiUrlIndex = getUserAgentFingerprintResult.scanResult.stringsScanResult!!.matches.first().index
+    getUserAgentFingerprintResult.mutableMethod.replaceInstruction(
         apiUrlIndex,
         "const-string v1, \"https://api.imgur.com/3/image\"",
     )

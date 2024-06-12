@@ -43,9 +43,9 @@ val lithoFilterPatch = bytecodePatch(
         integrationsPatch,
     )
 
-    val componentContextParserResult by componentContextParserFingerprint
-    val lithoFilterResult by lithoFilterFingerprint
-    val protobufBufferReferenceResult by protobufBufferReferenceFingerprint
+    val componentContextParserFingerprintResult by componentContextParserFingerprint
+    val lithoFilterFingerprintResult by lithoFilterFingerprint
+    val protobufBufferReferenceFingerprintResult by protobufBufferReferenceFingerprint
 
     var filterCount = 0
 
@@ -82,7 +82,7 @@ val lithoFilterPatch = bytecodePatch(
      * }
      */
     execute { context ->
-        componentContextParserResult.also {
+        componentContextParserFingerprintResult.also {
             arrayOf(
                 emptyComponentBuilderFingerprint,
                 readComponentIdentifierFingerprint,
@@ -94,7 +94,7 @@ val lithoFilterPatch = bytecodePatch(
 
             // region Pass the buffer into Integrations.
 
-            protobufBufferReferenceResult.mutableMethod.addInstruction(
+            protobufBufferReferenceFingerprintResult.mutableMethod.addInstruction(
                 0,
                 " invoke-static { p2 }, $INTEGRATIONS_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V",
             )
@@ -168,7 +168,7 @@ val lithoFilterPatch = bytecodePatch(
             // endregion
         }
 
-        lithoFilterResult.mutableMethod.apply {
+        lithoFilterFingerprintResult.mutableMethod.apply {
             removeInstructions(2, 4) // Remove dummy filter.
 
             addLithoFilter = { classDescriptor ->
@@ -186,6 +186,6 @@ val lithoFilterPatch = bytecodePatch(
     }
 
     finalize {
-        lithoFilterResult.mutableMethod.replaceInstruction(0, "const/16 v0, $filterCount")
+        lithoFilterFingerprintResult.mutableMethod.replaceInstruction(0, "const/16 v0, $filterCount")
     }
 }

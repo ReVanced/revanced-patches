@@ -9,13 +9,13 @@ val hideAdsPatch = bytecodePatch(
 ) {
     compatibleWith("jp.pxv.android")
 
-    val isNotPremiumResult by isNotPremiumFingerprint
+    val isNotPremiumFingerprintResult by isNotPremiumFingerprint
 
     // Always return false in the "isNotPremium" method which normally returns !this.accountManager.isPremium.
     // However, this is not the method that controls the user's premium status.
     // Instead, this method is used to determine whether ads should be shown.
     execute {
-        isNotPremiumResult.mutableMethod.addInstructions(
+        isNotPremiumFingerprintResult.mutableMethod.addInstructions(
             0,
             """
                 const/4 v0, 0x0

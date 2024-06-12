@@ -84,10 +84,10 @@ val sponsorBlockPatch = bytecodePatch(
         ),
     )
 
-    val seekbarResult by seekbarFingerprint
-    val appendTimeResult by appendTimeFingerprint
-    val layoutConstructorResult by layoutConstructorFingerprint
-    val autoRepeatParentResult by autoRepeatParentFingerprint
+    val seekbarFingerprintResult by seekbarFingerprint
+    val appendTimeFingerprintResult by appendTimeFingerprint
+    val layoutConstructorFingerprintResult by layoutConstructorFingerprint
+    val autoRepeatParentFingerprintResult by autoRepeatParentFingerprint
 
     execute { context ->
         /*
@@ -109,9 +109,9 @@ val sponsorBlockPatch = bytecodePatch(
         /*
          * Seekbar drawing
          */
-        val seekbarSignatureResult =
-            seekbarOnDrawFingerprint.apply { resolve(context, seekbarResult.mutableClass) }.resultOrThrow()
-        val seekbarMethod = seekbarSignatureResult.mutableMethod
+        val seekbarSignatureFingerprintResult =
+            seekbarOnDrawFingerprint.apply { resolve(context, seekbarFingerprintResult.mutableClass) }.resultOrThrow()
+        val seekbarMethod = seekbarSignatureFingerprintResult.mutableMethod
         val seekbarMethodInstructions = seekbarMethod.implementation!!.instructions
 
         /*
@@ -169,12 +169,12 @@ val sponsorBlockPatch = bytecodePatch(
         /*
          * Voting & Shield button
          */
-        val controlsMethodResult = showPlayerControlsFingerprintResult
+        val controlsMethodFingerprintResult = showPlayerControlsFingerprintResult
 
         val controlsLayoutStubResourceId = resourceMappings["id", "controls_layout_stub"]
         val zoomOverlayResourceId = resourceMappings["id", "video_zoom_overlay_stub"]
 
-        methods@ for (method in controlsMethodResult.mutableClass.methods) {
+        methods@ for (method in controlsMethodFingerprintResult.mutableClass.methods) {
             val instructions = method.implementation?.instructions!!
             instructions@ for ((index, instruction) in instructions.withIndex()) {
                 // search for method which inflates the controls layout view
@@ -217,11 +217,11 @@ val sponsorBlockPatch = bytecodePatch(
         injectVisibilityCheckCall("$INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->changeVisibility(Z)V")
 
         // append the new time to the player layout
-        val appendTimePatternScanStartIndex = appendTimeResult.scanResult.patternScanResult!!.startIndex
+        val appendTimePatternScanStartIndex = appendTimeFingerprintResult.scanResult.patternScanResult!!.startIndex
         val targetRegister =
-            (appendTimeResult.method.implementation!!.instructions.elementAt(appendTimePatternScanStartIndex + 1) as OneRegisterInstruction).registerA
+            (appendTimeFingerprintResult.method.implementation!!.instructions.elementAt(appendTimePatternScanStartIndex + 1) as OneRegisterInstruction).registerA
 
-        appendTimeResult.mutableMethod.addInstructions(
+        appendTimeFingerprintResult.mutableMethod.addInstructions(
             appendTimePatternScanStartIndex + 2,
             """
                 invoke-static {v$targetRegister}, $INTEGRATIONS_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->appendTimeWithoutSegments(Ljava/lang/String;)Ljava/lang/String;
@@ -234,7 +234,7 @@ val sponsorBlockPatch = bytecodePatch(
 
         // initialize the sponsorblock view
         controlsOverlayFingerprint.apply {
-            resolve(context, layoutConstructorResult.classDef)
+            resolve(context, layoutConstructorFingerprintResult.classDef)
         }.resultOrThrow().let {
             val startIndex = it.scanResult.patternScanResult!!.startIndex
             it.mutableMethod.apply {
@@ -247,7 +247,7 @@ val sponsorBlockPatch = bytecodePatch(
         }
 
         // get rectangle field name
-        rectangleFieldInvalidatorFingerprint.resolve(context, seekbarSignatureResult.classDef)
+        rectangleFieldInvalidatorFingerprint.resolve(context, seekbarSignatureFingerprintResult.classDef)
         val rectangleFieldInvalidatorInstructions =
             rectangleFieldInvalidatorFingerprint.result!!.method.implementation!!.instructions
         val rectangleFieldName =
@@ -284,7 +284,7 @@ val sponsorBlockPatch = bytecodePatch(
         // but if buttons are showing when the end of the video is reached then they will not automatically hide.
         // Add a hook to forcefully hide when the end of the video is reached.
         autoRepeatFingerprint.also {
-            it.resolve(context, autoRepeatParentResult.classDef)
+            it.resolve(context, autoRepeatParentFingerprintResult.classDef)
         }.resultOrThrow().mutableMethod.addInstruction(
             0,
             "invoke-static {}, $INTEGRATIONS_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR->endOfVideoReached()V",

@@ -7,10 +7,10 @@ import app.revanced.patcher.patch.bytecodePatch
 val hideCommentAdsPatch = bytecodePatch(
     description = "Removes ads in the comments.",
 ) {
-    val hideCommentAdsResult by hideCommentAdsFingerprint
+    val hideCommentAdsFingerprintResult by hideCommentAdsFingerprint
 
     execute {
-        hideCommentAdsResult.mutableMethod.addInstructions(
+        hideCommentAdsFingerprintResult.mutableMethod.addInstructions(
             0,
             """
                 new-instance v0, Ljava/lang/Object;

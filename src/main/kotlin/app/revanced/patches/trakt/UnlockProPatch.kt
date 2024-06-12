@@ -10,10 +10,10 @@ val unlockProPatch = bytecodePatch(
 ) {
     compatibleWith("tv.trakt.trakt"("1.1.1"))
 
-    val remoteUserResult by remoteUserFingerprint
+    val remoteUserFingerprintResult by remoteUserFingerprint
 
     execute { context ->
-        remoteUserResult.classDef.let { remoteUserClass ->
+        remoteUserFingerprintResult.classDef.let { remoteUserClass ->
             arrayOf(isVIPFingerprint, isVIPEPFingerprint).onEach { fingerprint ->
                 // Resolve both fingerprints on the same class.
                 if (!fingerprint.resolve(context, remoteUserClass)) {

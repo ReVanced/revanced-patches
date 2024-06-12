@@ -28,7 +28,7 @@ val changeStartPagePatch = bytecodePatch(
         "com.google.android.youtube",
     )
 
-    val homeActivityResult by homeActivityFingerprint
+    val homeActivityFingerprintResult by homeActivityFingerprint
 
     execute { context ->
         addResources("youtube", "layout.startpage.changeStartPagePatch")
@@ -41,7 +41,7 @@ val changeStartPagePatch = bytecodePatch(
         )
 
         startActivityFingerprint.apply {
-            resolve(context, homeActivityResult.classDef)
+            resolve(context, homeActivityFingerprintResult.classDef)
         }.resultOrThrow().mutableMethod.addInstruction(
             0,
             "invoke-static { p1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->changeIntent(Landroid/content/Intent;)V",

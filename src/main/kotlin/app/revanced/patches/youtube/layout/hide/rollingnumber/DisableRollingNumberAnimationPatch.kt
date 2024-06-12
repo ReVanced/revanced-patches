@@ -54,7 +54,7 @@ val disableRollingNumberAnimationPatch = bytecodePatch(
         ),
     )
 
-    val rollingNumberTextViewAnimationUpdateResult by rollingNumberTextViewAnimationUpdateFingerprint
+    val rollingNumberTextViewAnimationUpdateFingerprintResult by rollingNumberTextViewAnimationUpdateFingerprint
 
     execute {
         addResources("youtube", "layout.hide.rollingnumber.disableRollingNumberAnimationPatch")
@@ -65,10 +65,10 @@ val disableRollingNumberAnimationPatch = bytecodePatch(
 
         // Animations are disabled by preventing an Image from being applied to the text span,
         // which prevents the animations from appearing.
-        val patternScanResult = rollingNumberTextViewAnimationUpdateResult.scanResult.patternScanResult!!
+        val patternScanResult = rollingNumberTextViewAnimationUpdateFingerprintResult.scanResult.patternScanResult!!
         val blockStartIndex = patternScanResult.startIndex
         val blockEndIndex = patternScanResult.endIndex + 1
-        rollingNumberTextViewAnimationUpdateResult.mutableMethod.apply {
+        rollingNumberTextViewAnimationUpdateFingerprintResult.mutableMethod.apply {
             val freeRegister = getInstruction<OneRegisterInstruction>(blockStartIndex).registerA
 
             // ReturnYouTubeDislike also makes changes to this same method,

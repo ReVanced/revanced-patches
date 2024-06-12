@@ -78,19 +78,19 @@ val returnYouTubeDislikePatch = bytecodePatch(
         ),
     )
 
-    val conversionContextResult by conversionContextFingerprint
-    val textComponentConstructorResult by textComponentConstructorFingerprint
-    val textComponentDataResult by textComponentDataFingerprint
-    val shortsTextViewResult by shortsTextViewFingerprint
-    val dislikesOldLayoutTextViewResult by dislikesOldLayoutTextViewFingerprint
-    val likeResult by likeFingerprint
-    val dislikeResult by dislikeFingerprint
-    val removeLikeResult by removeLikeFingerprint
-    val rollingNumberSetterResult by rollingNumberSetterFingerprint
-    val rollingNumberMeasureStaticLabelParentResult by rollingNumberMeasureStaticLabelParentFingerprint
-    val rollingNumberMeasureAnimatedTextResult by rollingNumberMeasureAnimatedTextFingerprint
-    val rollingNumberTextViewResult by rollingNumberTextViewFingerprint
-    val rollingNumberTextViewAnimationUpdateResult by rollingNumberTextViewAnimationUpdateFingerprint
+    val conversionContextFingerprintResult by conversionContextFingerprint
+    val textComponentConstructorFingerprintResult by textComponentConstructorFingerprint
+    val textComponentDataFingerprintResult by textComponentDataFingerprint
+    val shortsTextViewFingerprintResult by shortsTextViewFingerprint
+    val dislikesOldLayoutTextViewFingerprintResult by dislikesOldLayoutTextViewFingerprint
+    val likeFingerprintResult by likeFingerprint
+    val dislikeFingerprintResult by dislikeFingerprint
+    val removeLikeFingerprintResult by removeLikeFingerprint
+    val rollingNumberSetterFingerprintResult by rollingNumberSetterFingerprint
+    val rollingNumberMeasureStaticLabelParentFingerprintResult by rollingNumberMeasureStaticLabelParentFingerprint
+    val rollingNumberMeasureAnimatedTextFingerprintResult by rollingNumberMeasureAnimatedTextFingerprint
+    val rollingNumberTextViewFingerprintResult by rollingNumberTextViewFingerprint
+    val rollingNumberTextViewAnimationUpdateFingerprintResult by rollingNumberTextViewAnimationUpdateFingerprint
 
     execute { context -> // region Inject newVideoLoaded event handler to update dislikes when a new video is loaded.
 
@@ -106,9 +106,9 @@ val returnYouTubeDislikePatch = bytecodePatch(
         data class VotePatch(val fingerprint: MethodFingerprintResult, val voteKind: Vote)
 
         listOf(
-            VotePatch(likeResult, Vote.LIKE),
-            VotePatch(dislikeResult, Vote.DISLIKE),
-            VotePatch(removeLikeResult, Vote.REMOVE_LIKE),
+            VotePatch(likeFingerprintResult, Vote.LIKE),
+            VotePatch(dislikeFingerprintResult, Vote.DISLIKE),
+            VotePatch(removeLikeFingerprintResult, Vote.REMOVE_LIKE),
         ).forEach { (result, vote) ->
             result.mutableMethod.addInstructions(
                 0,
@@ -128,17 +128,17 @@ val returnYouTubeDislikePatch = bytecodePatch(
         // since the underlying (likes only) text did not change.
         // This hook handles all situations, as it's where the created Spans are stored and later reused.
         // Find the field name of the conversion context.
-        val conversionContextField = textComponentConstructorResult.classDef.fields.find {
-            it.type == conversionContextResult.classDef.type
+        val conversionContextField = textComponentConstructorFingerprintResult.classDef.fields.find {
+            it.type == conversionContextFingerprintResult.classDef.type
         } ?: throw PatchException("Could not find conversion context field")
 
         textComponentLookupFingerprint.apply {
-            resolve(context, textComponentConstructorResult.classDef)
+            resolve(context, textComponentConstructorFingerprintResult.classDef)
         }.resultOrThrow().mutableMethod.apply {
             // Find the instruction for creating the text data object.
             val insertIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.NEW_INSTANCE &&
-                    getReference<TypeReference>()?.type == textComponentDataResult.classDef.type
+                    getReference<TypeReference>()?.type == textComponentDataFingerprintResult.classDef.type
             }
             val tempRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
@@ -170,19 +170,19 @@ val returnYouTubeDislikePatch = bytecodePatch(
 
         // region Hook for non-litho Short videos.
 
-        shortsTextViewResult.mutableMethod.apply {
-            val patternResult = shortsTextViewResult.scanResult.patternScanResult!!
+        shortsTextViewFingerprintResult.mutableMethod.apply {
+            val patternFingerprintResult = shortsTextViewFingerprintResult.scanResult.patternScanResult!!
 
             // If the field is true, the TextView is for a dislike button.
-            val isDisLikesBooleanReference = getInstruction<ReferenceInstruction>(patternResult.endIndex).reference
+            val isDisLikesBooleanReference = getInstruction<ReferenceInstruction>(patternFingerprintResult.endIndex).reference
 
             val textViewFieldReference = // Like/Dislike button TextView field
-                getInstruction<ReferenceInstruction>(patternResult.endIndex - 1).reference
+                getInstruction<ReferenceInstruction>(patternFingerprintResult.endIndex - 1).reference
 
             // Check if the hooked TextView object is that of the dislike button.
             // If RYD is disabled, or the TextView object is not that of the dislike button, the execution flow is not interrupted.
             // Otherwise, the TextView object is modified, and the execution flow is interrupted to prevent it from being changed afterward.
-            val insertIndex = patternResult.startIndex + 6
+            val insertIndex = patternFingerprintResult.startIndex + 6
             addInstructionsWithLabels(
                 insertIndex,
                 """
@@ -218,8 +218,8 @@ val returnYouTubeDislikePatch = bytecodePatch(
 
         // region Hook old UI layout dislikes, for the older app spoofs used with spoof-app-version.
 
-        dislikesOldLayoutTextViewResult.mutableMethod.apply {
-            val startIndex = dislikesOldLayoutTextViewResult.scanResult.patternScanResult!!.startIndex
+        dislikesOldLayoutTextViewFingerprintResult.mutableMethod.apply {
+            val startIndex = dislikesOldLayoutTextViewFingerprintResult.scanResult.patternScanResult!!.startIndex
 
             val resourceIdentifierRegister = getInstruction<OneRegisterInstruction>(startIndex).registerA
             val textViewRegister = getInstruction<OneRegisterInstruction>(startIndex + 4).registerA
@@ -239,9 +239,9 @@ val returnYouTubeDislikePatch = bytecodePatch(
         // On older unsupported version this will fail to resolve and throw an exception,
         // but everything will still work correctly anyways.
 
-        val dislikesIndex = rollingNumberSetterResult.scanResult.patternScanResult!!.endIndex
+        val dislikesIndex = rollingNumberSetterFingerprintResult.scanResult.patternScanResult!!.endIndex
 
-        rollingNumberSetterResult.mutableMethod.apply {
+        rollingNumberSetterFingerprintResult.mutableMethod.apply {
             val insertIndex = 1
 
             val charSequenceInstanceRegister =
@@ -268,11 +268,11 @@ val returnYouTubeDislikePatch = bytecodePatch(
 
         // Rolling Number text views use the measured width of the raw string for layout.
         // Modify the measure text calculation to include the left drawable separator if needed.
-        val scanResult = rollingNumberMeasureAnimatedTextResult.scanResult.patternScanResult!!
+        val scanResult = rollingNumberMeasureAnimatedTextFingerprintResult.scanResult.patternScanResult!!
         // Additional check to verify the opcodes are at the start of the method
         if (scanResult.startIndex != 0) throw PatchException("Unexpected opcode location")
         val endIndex = scanResult.endIndex
-        rollingNumberMeasureAnimatedTextResult.mutableMethod.apply {
+        rollingNumberMeasureAnimatedTextFingerprintResult.mutableMethod.apply {
             val measuredTextWidthRegister = getInstruction<OneRegisterInstruction>(endIndex).registerA
 
             addInstructions(
@@ -289,7 +289,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
         rollingNumberMeasureStaticLabelFingerprint.apply {
             resolve(
                 context,
-                rollingNumberMeasureStaticLabelParentResult.classDef,
+                rollingNumberMeasureStaticLabelParentFingerprintResult.classDef,
             )
         }.result?.let {
             val measureTextIndex = it.scanResult.patternScanResult!!.startIndex + 1
@@ -309,13 +309,13 @@ val returnYouTubeDislikePatch = bytecodePatch(
         // The rolling number Span is missing styling since it's initially set as a String.
         // Modify the UI text view and use the styled like/dislike Span.
         // Initial TextView is set in this method.
-        val initiallyCreatedTextViewMethod = rollingNumberTextViewResult.mutableMethod
+        val initiallyCreatedTextViewMethod = rollingNumberTextViewFingerprintResult.mutableMethod
 
         // Videos less than 24 hours after uploaded, like counts will be updated in real time.
         // Whenever like counts are updated, TextView is set in this method.
         arrayOf(
             initiallyCreatedTextViewMethod,
-            rollingNumberTextViewAnimationUpdateResult.mutableMethod,
+            rollingNumberTextViewAnimationUpdateFingerprintResult.mutableMethod,
         ).forEach { insertMethod ->
             insertMethod.apply {
                 val setTextIndex = indexOfFirstInstructionOrThrow {

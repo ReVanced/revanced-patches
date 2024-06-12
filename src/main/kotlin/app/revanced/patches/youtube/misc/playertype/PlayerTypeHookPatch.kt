@@ -15,17 +15,17 @@ val playerTypeHookPatch = bytecodePatch(
 ) {
     dependsOn(integrationsPatch)
 
-    val playerTypeResult by playerTypeFingerprint
-    val videoStateResult by videoStateFingerprint
+    val playerTypeFingerprintResult by playerTypeFingerprint
+    val videoStateFingerprintResult by videoStateFingerprint
 
     execute {
-        playerTypeResult.mutableMethod.addInstruction(
+        playerTypeFingerprintResult.mutableMethod.addInstruction(
             0,
             "invoke-static {p1}, $INTEGRATIONS_CLASS_DESCRIPTOR->setPlayerType(Ljava/lang/Enum;)V",
         )
 
-        videoStateResult.mutableMethod.apply {
-            val endIndex = videoStateResult.scanResult.patternScanResult!!.endIndex
+        videoStateFingerprintResult.mutableMethod.apply {
+            val endIndex = videoStateFingerprintResult.scanResult.patternScanResult!!.endIndex
             val videoStateFieldName = getInstruction<ReferenceInstruction>(endIndex).reference
 
             addInstructions(

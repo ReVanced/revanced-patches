@@ -51,7 +51,7 @@ val videoAdsPatch = bytecodePatch(
         ),
     )
 
-    val loadVideoAdsResult by loadVideoAdsFingerprint
+    val loadVideoAdsFingerprintResult by loadVideoAdsFingerprint
 
     execute {
         addResources("youtube", "ad.video.videoAdsPatch")
@@ -60,7 +60,7 @@ val videoAdsPatch = bytecodePatch(
             SwitchPreference("revanced_hide_video_ads"),
         )
 
-        loadVideoAdsResult.mutableMethod.addInstructionsWithLabels(
+        loadVideoAdsFingerprintResult.mutableMethod.addInstructionsWithLabels(
             0,
             """
                 invoke-static { }, Lapp/revanced/integrations/youtube/patches/VideoAdsPatch;->shouldShowAds()Z
@@ -68,7 +68,7 @@ val videoAdsPatch = bytecodePatch(
                 if-nez v0, :show_video_ads
                 return-void
             """,
-            ExternalLabel("show_video_ads", loadVideoAdsResult.mutableMethod.getInstruction(0)),
+            ExternalLabel("show_video_ads", loadVideoAdsFingerprintResult.mutableMethod.getInstruction(0)),
         )
     }
 }

@@ -9,10 +9,10 @@ val unlockProPatch = bytecodePatch(
 ) {
     compatibleWith("org.totschnig.myexpenses")
 
-    val isEnabledResult by isEnabledFingerprint
+    val isEnabledFingerprintResult by isEnabledFingerprint
 
     execute {
-        isEnabledResult.mutableMethod.addInstructions(
+        isEnabledFingerprintResult.mutableMethod.addInstructions(
             0,
             """
                 const/4 v0, 0x1

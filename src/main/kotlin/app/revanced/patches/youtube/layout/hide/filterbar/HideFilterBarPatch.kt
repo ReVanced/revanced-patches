@@ -59,9 +59,9 @@ val hideFilterBarPatch = bytecodePatch(
         ),
     )
 
-    val filterBarHeightResult by filterBarHeightFingerprint
-    val relatedChipCloudResult by relatedChipCloudFingerprint
-    val searchResultsChipBarResult by searchResultsChipBarFingerprint
+    val filterBarHeightFingerprintResult by filterBarHeightFingerprint
+    val relatedChipCloudFingerprintResult by relatedChipCloudFingerprint
+    val searchFingerprintResultsChipBarFingerprintResult by searchResultsChipBarFingerprint
 
     execute {
         fun <RegisterInstruction : OneRegisterInstruction> MethodFingerprintResult.patch(
@@ -76,19 +76,19 @@ val hideFilterBarPatch = bytecodePatch(
             addInstructions(insertIndex, instructions(register))
         }
 
-        filterBarHeightResult.patch<TwoRegisterInstruction> { register ->
+        filterBarHeightFingerprintResult.patch<TwoRegisterInstruction> { register ->
             """
                 invoke-static { v$register }, $INTEGRATIONS_CLASS_DESCRIPTOR->hideInFeed(I)I
                 move-result v$register
             """
         }
 
-        relatedChipCloudResult.patch<OneRegisterInstruction>(1) { register ->
+        relatedChipCloudFingerprintResult.patch<OneRegisterInstruction>(1) { register ->
             "invoke-static { v$register }, " +
                 "$INTEGRATIONS_CLASS_DESCRIPTOR->hideInRelatedVideos(Landroid/view/View;)V"
         }
 
-        searchResultsChipBarResult.patch<OneRegisterInstruction>(-1, -2) { register ->
+        searchFingerprintResultsChipBarFingerprintResult.patch<OneRegisterInstruction>(-1, -2) { register ->
             """
                 invoke-static { v$register }, $INTEGRATIONS_CLASS_DESCRIPTOR->hideInSearch(I)I
                 move-result v$register

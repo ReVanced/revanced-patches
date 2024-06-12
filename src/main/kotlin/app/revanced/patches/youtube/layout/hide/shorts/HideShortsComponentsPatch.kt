@@ -68,10 +68,10 @@ val hideShortsComponentsPatch = bytecodePatch(
         ),
     )
 
-    val createShortsButtonsResult by createShortsButtonsFingerprint
-    val bottomNavigationBarResult by bottomNavigationBarFingerprint
-    val renderBottomNavigationBarParentResult by renderBottomNavigationBarParentFingerprint
-    val setPivotBarVisibilityParentResult by setPivotBarVisibilityParentFingerprint
+    val createShortsButtonsFingerprintResult by createShortsButtonsFingerprint
+    val bottomNavigationBarFingerprintResult by bottomNavigationBarFingerprint
+    val renderBottomNavigationBarParentFingerprintResult by renderBottomNavigationBarParentFingerprint
+    val setPivotBarVisibilityParentFingerprintResult by setPivotBarVisibilityParentFingerprint
     reelConstructorFingerprint()
 
     execute { context ->
@@ -98,7 +98,7 @@ val hideShortsComponentsPatch = bytecodePatch(
         // region Hide the Shorts buttons in older versions of YouTube.
 
         // Some Shorts buttons are views, hide them by setting their visibility to GONE.
-        ShortsButtons.entries.forEach { button -> button.injectHideCall(createShortsButtonsResult.mutableMethod) }
+        ShortsButtons.entries.forEach { button -> button.injectHideCall(createShortsButtonsFingerprintResult.mutableMethod) }
 
         // endregion
 
@@ -111,7 +111,7 @@ val hideShortsComponentsPatch = bytecodePatch(
         // region Hide the navigation bar.
 
         // Hook to get the pivotBar view.
-        if (!setPivotBarVisibilityFingerprint.resolve(context, setPivotBarVisibilityParentResult.classDef)) {
+        if (!setPivotBarVisibilityFingerprint.resolve(context, setPivotBarVisibilityParentFingerprintResult.classDef)) {
             throw setPivotBarVisibilityFingerprint.exception
         }
 
@@ -128,7 +128,7 @@ val hideShortsComponentsPatch = bytecodePatch(
         }
 
         // Hook to hide the navigation bar when Shorts are being played.
-        if (!renderBottomNavigationBarFingerprint.resolve(context, renderBottomNavigationBarParentResult.classDef)) {
+        if (!renderBottomNavigationBarFingerprint.resolve(context, renderBottomNavigationBarParentFingerprintResult.classDef)) {
             throw renderBottomNavigationBarFingerprint.exception
         }
 
@@ -137,8 +137,8 @@ val hideShortsComponentsPatch = bytecodePatch(
         }
 
         // Required to prevent a black bar from appearing at the bottom of the screen.
-        bottomNavigationBarResult.mutableMethod.apply {
-            val moveResultIndex = bottomNavigationBarResult.scanResult.patternScanResult!!.startIndex + 2
+        bottomNavigationBarFingerprintResult.mutableMethod.apply {
+            val moveResultIndex = bottomNavigationBarFingerprintResult.scanResult.patternScanResult!!.startIndex + 2
             val viewRegister = getInstruction<OneRegisterInstruction>(moveResultIndex).registerA
             val insertIndex = moveResultIndex + 1
 

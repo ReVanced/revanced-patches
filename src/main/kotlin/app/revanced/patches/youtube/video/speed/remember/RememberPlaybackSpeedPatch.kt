@@ -27,7 +27,7 @@ internal val rememberPlaybackSpeedPatch = bytecodePatch {
         addResourcesPatch,
     )
 
-    val initializePlaybackSpeedValuesResult by initializePlaybackSpeedValuesFingerprint
+    val initializePlaybackSpeedValuesFingerprintResult by initializePlaybackSpeedValuesFingerprint
 
     execute {
         addResources("youtube", "video.speed.remember.rememberPlaybackSpeedPatch")
@@ -52,7 +52,7 @@ internal val rememberPlaybackSpeedPatch = bytecodePatch {
         /*
          * Hook the code that is called when the playback speeds are initialized, and sets the playback speed
          */
-        initializePlaybackSpeedValuesResult.mutableMethod.apply {
+        initializePlaybackSpeedValuesFingerprintResult.mutableMethod.apply {
             // Infer everything necessary for calling the method setPlaybackSpeed().
             val onItemClickListenerClassFieldReference = getInstruction<ReferenceInstruction>(0).reference
 

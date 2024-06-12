@@ -9,13 +9,13 @@ import app.revanced.util.resultOrThrow
 internal val fixBackToExitGesturePatch = bytecodePatch(
     description = "Fixes the swipe back to exit gesture.",
 ) {
-    val recyclerViewTopScrollingParentResult by recyclerViewTopScrollingParentFingerprint
-    val recyclerViewScrollingResult by recyclerViewScrollingFingerprint
-    val onBackPressedResult by onBackPressedFingerprint
+    val recyclerViewTopScrollingParentFingerprintResult by recyclerViewTopScrollingParentFingerprint
+    val recyclerViewScrollingFingerprintResult by recyclerViewScrollingFingerprint
+    val onBackPressedFingerprintResult by onBackPressedFingerprint
 
     execute { context ->
         recyclerViewTopScrollingFingerprint.apply {
-            resolve(context, recyclerViewTopScrollingParentResult.classDef)
+            resolve(context, recyclerViewTopScrollingParentFingerprintResult.classDef)
         }
 
         /**
@@ -32,10 +32,10 @@ internal val fixBackToExitGesturePatch = bytecodePatch(
             recyclerViewTopScrollingFingerprint.resultOrThrow() to IntegrationsMethod(
                 methodName = "onTopView",
             ),
-            recyclerViewScrollingResult to IntegrationsMethod(
+            recyclerViewScrollingFingerprintResult to IntegrationsMethod(
                 methodName = "onScrollingViews",
             ),
-            onBackPressedResult to IntegrationsMethod(
+            onBackPressedFingerprintResult to IntegrationsMethod(
                 "p0",
                 "onBackPressed",
                 "Landroid/app/Activity;",

@@ -78,8 +78,8 @@ fun gmsCoreSupportPatch(
 
     val gmsCoreVendorGroupId by gmsCoreVendorGroupIdOption
 
-    val gmsCoreSupportResult by gmsCoreSupportFingerprint
-    val mainActivityOnCreateResult by mainActivityOnCreateFingerprint
+    val gmsCoreSupportFingerprintResult by gmsCoreSupportFingerprint
+    val mainActivityOnCreateFingerprintResult by mainActivityOnCreateFingerprint
     primeMethodFingerprint()
     earlyReturnFingerprints.forEach { it() }
 
@@ -205,14 +205,14 @@ fun gmsCoreSupportPatch(
         earlyReturnFingerprints.toList().returnEarly()
 
         // Verify GmsCore is installed and whitelisted for power optimizations and background usage.
-        mainActivityOnCreateResult.mutableMethod.addInstructions(
+        mainActivityOnCreateFingerprintResult.mutableMethod.addInstructions(
             0,
             "invoke-static/range { p0 .. p0 }, Lapp/revanced/integrations/shared/GmsCoreSupport;->" +
                 "checkGmsCore(Landroid/app/Activity;)V",
         )
 
         // Change the vendor of GmsCore in ReVanced Integrations.
-        gmsCoreSupportResult.mutableClass.methods
+        gmsCoreSupportFingerprintResult.mutableClass.methods
             .single { it.name == GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME }
             .replaceInstruction(0, "const-string v0, \"$gmsCoreVendorGroupId\"")
 

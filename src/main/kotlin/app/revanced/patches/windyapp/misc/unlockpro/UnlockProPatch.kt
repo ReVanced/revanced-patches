@@ -10,10 +10,10 @@ val unlockProPatch = bytecodePatch(
 ) {
     compatibleWith("co.windyapp.android")
 
-    val checkProResult by checkProFingerprint
+    val checkProFingerprintResult by checkProFingerprint
 
     execute {
-        checkProResult.mutableMethod.addInstructions(
+        checkProFingerprintResult.mutableMethod.addInstructions(
             0,
             """
                 const/16 v0, 0x1

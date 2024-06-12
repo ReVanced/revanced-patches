@@ -79,9 +79,9 @@ val alternativeThumbnailsPatch = bytecodePatch(
         ),
     )
 
-    val messageDigestImageUrlParentResult by messageDigestImageUrlParentFingerprint
-    val onResponseStartedResult by onResponseStartedFingerprint
-    val requestResult by requestFingerprint
+    val messageDigestImageUrlParentFingerprintResult by messageDigestImageUrlParentFingerprint
+    val onResponseStartedFingerprintResult by onResponseStartedFingerprint
+    val requestFingerprintResult by requestFingerprint
 
     execute { context ->
         addResources("youtube", "layout.thumbnails.alternativeThumbnailsPatch")
@@ -141,17 +141,17 @@ val alternativeThumbnailsPatch = bytecodePatch(
             block: (MutableMethod) -> Unit,
         ) = alsoResolve(result).also { block(it.mutableMethod) }
 
-        messageDigestImageUrlFingerprint.resolveAndLetMutableMethod(messageDigestImageUrlParentResult) {
+        messageDigestImageUrlFingerprint.resolveAndLetMutableMethod(messageDigestImageUrlParentFingerprintResult) {
             loadImageUrlMethod = it
             addImageUrlHook(INTEGRATIONS_CLASS_DESCRIPTOR, true)
         }
 
-        onSucceededFingerprint.resolveAndLetMutableMethod(onResponseStartedResult) {
+        onSucceededFingerprint.resolveAndLetMutableMethod(onResponseStartedFingerprintResult) {
             loadImageSuccessCallbackMethod = it
             addImageUrlSuccessCallbackHook(INTEGRATIONS_CLASS_DESCRIPTOR)
         }
 
-        onFailureFingerprint.resolveAndLetMutableMethod(onResponseStartedResult) {
+        onFailureFingerprint.resolveAndLetMutableMethod(onResponseStartedFingerprintResult) {
             loadImageErrorCallbackMethod = it
             addImageUrlErrorCallbackHook(INTEGRATIONS_CLASS_DESCRIPTOR)
         }
@@ -159,7 +159,7 @@ val alternativeThumbnailsPatch = bytecodePatch(
         // The URL is required for the failure callback hook, but the URL field is obfuscated.
         // Add a helper get method that returns the URL field.
         // The url is the only string field that is set inside the constructor.
-        val urlFieldInstruction = requestResult.mutableMethod.instructions.first {
+        val urlFieldInstruction = requestFingerprintResult.mutableMethod.instructions.first {
             if (it.opcode != Opcode.IPUT_OBJECT) return@first false
 
             val reference = (it as ReferenceInstruction).reference as FieldReference
@@ -169,7 +169,7 @@ val alternativeThumbnailsPatch = bytecodePatch(
         val urlFieldName = (urlFieldInstruction.reference as FieldReference).name
         val definingClass = CRONET_URL_REQUEST_CLASS_DESCRIPTOR
         val addedMethodName = "getHookedUrl"
-        requestResult.mutableClass.methods.add(
+        requestFingerprintResult.mutableClass.methods.add(
             ImmutableMethod(
                 definingClass,
                 addedMethodName,

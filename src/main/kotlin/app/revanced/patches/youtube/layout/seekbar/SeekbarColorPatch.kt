@@ -29,9 +29,9 @@ val seekbarColorPatch = bytecodePatch(
         seekbarColorResourcePatch,
     )
 
-    val playerSeekbarColorResult by playerSeekbarColorFingerprint
-    val shortsSeekbarColorResult by shortsSeekbarColorFingerprint
-    val setSeekbarClickedColorResult by setSeekbarClickedColorFingerprint
+    val playerSeekbarColorFingerprintResult by playerSeekbarColorFingerprint
+    val shortsSeekbarColorFingerprintResult by shortsSeekbarColorFingerprint
+    val setSeekbarClickedColorFingerprintResult by setSeekbarClickedColorFingerprint
 
     execute { context ->
         fun MutableMethod.addColorChangeInstructions(resourceId: Long) {
@@ -46,17 +46,17 @@ val seekbarColorPatch = bytecodePatch(
             )
         }
 
-        playerSeekbarColorResult.mutableMethod.apply {
+        playerSeekbarColorFingerprintResult.mutableMethod.apply {
             addColorChangeInstructions(inlineTimeBarColorizedBarPlayedColorDarkId)
             addColorChangeInstructions(inlineTimeBarPlayedNotHighlightedColorId)
         }
 
-        shortsSeekbarColorResult.mutableMethod.apply {
+        shortsSeekbarColorFingerprintResult.mutableMethod.apply {
             addColorChangeInstructions(reelTimeBarPlayedColorId)
         }
 
-        setSeekbarClickedColorResult.mutableMethod.let {
-            val setColorMethodIndex = setSeekbarClickedColorResult.scanResult.patternScanResult!!.startIndex + 1
+        setSeekbarClickedColorFingerprintResult.mutableMethod.let {
+            val setColorMethodIndex = setSeekbarClickedColorFingerprintResult.scanResult.patternScanResult!!.startIndex + 1
             val method = context.navigate(it).at(setColorMethodIndex).mutable()
 
             method.apply {

@@ -61,12 +61,12 @@ val hideInfoCardsPatch = bytecodePatch(
         ),
     )
 
-    val infocardsIncognitoParentResult by infocardsIncognitoParentFingerprint
-    val infocardsMethodCallResult by infocardsMethodCallFingerprint
+    val infocardsIncognitoParentFingerprintResult by infocardsIncognitoParentFingerprint
+    val infocardsMethodCallFingerprintResult by infocardsMethodCallFingerprint
 
     execute { context ->
         infocardsIncognitoFingerprint.apply {
-            resolve(context, infocardsIncognitoParentResult.classDef)
+            resolve(context, infocardsIncognitoParentFingerprintResult.classDef)
         }.result!!.mutableMethod.apply {
             val invokeInstructionIndex = implementation!!.instructions.indexOfFirst {
                 it.opcode.ordinal == Opcode.INVOKE_VIRTUAL.ordinal &&
@@ -80,10 +80,10 @@ val hideInfoCardsPatch = bytecodePatch(
             )
         }
 
-        val hideInfoCardsCallMethod = infocardsMethodCallResult.mutableMethod
+        val hideInfoCardsCallMethod = infocardsMethodCallFingerprintResult.mutableMethod
 
-        val invokeInterfaceIndex = infocardsMethodCallResult.scanResult.patternScanResult!!.endIndex
-        val toggleRegister = infocardsMethodCallResult.mutableMethod.implementation!!.registerCount - 1
+        val invokeInterfaceIndex = infocardsMethodCallFingerprintResult.scanResult.patternScanResult!!.endIndex
+        val toggleRegister = infocardsMethodCallFingerprintResult.mutableMethod.implementation!!.registerCount - 1
 
         hideInfoCardsCallMethod.addInstructionsWithLabels(
             invokeInterfaceIndex,

@@ -54,20 +54,20 @@ val videoInformationPatch = bytecodePatch(
         playerResponseMethodHookPatch,
     )
 
-    val playerInitResult by playerInitFingerprint
-    val createVideoPlayerSeekbarResult by createVideoPlayerSeekbarFingerprint
-    val playerControllerSetTimeReferenceResult by playerControllerSetTimeReferenceFingerprint
-    val onPlaybackSpeedItemClickResult by onPlaybackSpeedItemClickFingerprint
+    val playerInitFingerprintResult by playerInitFingerprint
+    val createVideoPlayerSeekbarFingerprintResult by createVideoPlayerSeekbarFingerprint
+    val playerControllerSetTimeReferenceFingerprintResult by playerControllerSetTimeReferenceFingerprint
+    val onPlaybackSpeedItemClickFingerprintResult by onPlaybackSpeedItemClickFingerprint
 
     execute { context ->
-        playerInitMethod = playerInitResult.mutableClass.methods.first { MethodUtil.isConstructor(it) }
+        playerInitMethod = playerInitFingerprintResult.mutableClass.methods.first { MethodUtil.isConstructor(it) }
 
         // hook the player controller for use through integrations
         playerControllerOnCreateHook(INTEGRATIONS_CLASS_DESCRIPTOR, "initialize")
 
         // seek method
         val seekFingerprintResultMethod = seekFingerprint.apply {
-            resolve(context, playerInitResult.classDef)
+            resolve(context, playerInitFingerprintResult.classDef)
         }.result!!.method
 
         // create helper method
@@ -97,18 +97,18 @@ val videoInformationPatch = bytecodePatch(
         )
 
         // add the seekTo method to the class for the integrations to call
-        playerInitResult.mutableClass.methods.add(seekHelperMethod)
+        playerInitFingerprintResult.mutableClass.methods.add(seekHelperMethod)
 
-        with(createVideoPlayerSeekbarResult) {
-            val videoLengthMethodResult = videoLengthFingerprint.apply { resolve(context, classDef) }.result!!
+        with(createVideoPlayerSeekbarFingerprintResult) {
+            val videoLengthMethodFingerprintResult = videoLengthFingerprint.apply { resolve(context, classDef) }.result!!
 
-            with(videoLengthMethodResult.mutableMethod) {
-                val videoLengthRegisterIndex = videoLengthMethodResult.scanResult.patternScanResult!!.endIndex - 2
+            with(videoLengthMethodFingerprintResult.mutableMethod) {
+                val videoLengthRegisterIndex = videoLengthMethodFingerprintResult.scanResult.patternScanResult!!.endIndex - 2
                 val videoLengthRegister = getInstruction<OneRegisterInstruction>(videoLengthRegisterIndex).registerA
                 val dummyRegisterForLong = videoLengthRegister + 1 // required for long values since they are wide
 
                 addInstruction(
-                    videoLengthMethodResult.scanResult.patternScanResult!!.endIndex,
+                    videoLengthMethodFingerprintResult.scanResult.patternScanResult!!.endIndex,
                     "invoke-static {v$videoLengthRegister, v$dummyRegisterForLong}, " +
                         "$INTEGRATIONS_CLASS_DESCRIPTOR->setVideoLength(J)V",
                 )
@@ -136,8 +136,8 @@ val videoInformationPatch = bytecodePatch(
         /*
          * Set the video time method
          */
-        timeMethod = context.navigate(playerControllerSetTimeReferenceResult.method)
-            .at(playerControllerSetTimeReferenceResult.scanResult.patternScanResult!!.startIndex)
+        timeMethod = context.navigate(playerControllerSetTimeReferenceFingerprintResult.method)
+            .at(playerControllerSetTimeReferenceFingerprintResult.scanResult.patternScanResult!!.startIndex)
             .mutable()
 
         /*
@@ -148,7 +148,7 @@ val videoInformationPatch = bytecodePatch(
         /*
          * Hook the user playback speed selection
          */
-        onPlaybackSpeedItemClickResult.mutableMethod.apply {
+        onPlaybackSpeedItemClickFingerprintResult.mutableMethod.apply {
             speedSelectionInsertMethod = this
             val speedSelectionMethodInstructions = this.implementation!!.instructions
             val speedSelectionValueInstructionIndex = speedSelectionMethodInstructions.indexOfFirst {

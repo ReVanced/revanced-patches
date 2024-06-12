@@ -13,8 +13,8 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "http://baconreader.com/au
         "com.onelouder.baconreader.premium",
     )
 
-    val getAuthorizationUrlResult by getAuthorizationUrlFingerprint
-    val requestTokenResult by requestTokenFingerprint
+    val getAuthorizationUrlFingerprintResult by getAuthorizationUrlFingerprint
+    val requestTokenFingerprintResult by requestTokenFingerprint
 
     val clientId by clientIdOption
 
@@ -32,9 +32,9 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "http://baconreader.com/au
         }
 
         // Patch client id in authorization url.
-        getAuthorizationUrlResult.patch("client_id=$clientId")
+        getAuthorizationUrlFingerprintResult.patch("client_id=$clientId")
 
         // Patch client id for access token request.
-        requestTokenResult.patch(clientId!!)
+        requestTokenFingerprintResult.patch(clientId!!)
     }
 }

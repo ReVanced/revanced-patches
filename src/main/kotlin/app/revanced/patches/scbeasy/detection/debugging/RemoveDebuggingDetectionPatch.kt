@@ -11,10 +11,10 @@ val debuggingDetectionPatches = bytecodePatch(
 ) {
     compatibleWith("com.scb.phone")
 
-    val debuggingDetectionResult by debuggingDetectionFingerprint
+    val debuggingDetectionFingerprintResult by debuggingDetectionFingerprint
 
     execute {
-        debuggingDetectionResult.mutableMethod.addInstructions(
+        debuggingDetectionFingerprintResult.mutableMethod.addInstructions(
             0,
             """
                 const/4 v0, 0x0

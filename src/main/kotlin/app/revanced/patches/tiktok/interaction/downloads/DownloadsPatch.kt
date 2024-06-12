@@ -28,14 +28,14 @@ val downloadsPatch = bytecodePatch(
         "com.zhiliaoapp.musically"("32.5.3"),
     )
 
-    val aclCommonShareResult by aclCommonShareFingerprint
-    val aclCommonShareResult2 by aclCommonShareFingerprint2
-    val aclCommonShareResult3 by aclCommonShareFingerprint3
-    val downloadPathParentResult by downloadPathParentFingerprint
-    val settingsStatusLoadResult by settingsStatusLoadFingerprint
+    val aclCommonShareFingerprintResult by aclCommonShareFingerprint
+    val aclCommonShareFingerprintResult2 by aclCommonShareFingerprint2
+    val aclCommonShareFingerprintResult3 by aclCommonShareFingerprint3
+    val downloadPathParentFingerprintResult by downloadPathParentFingerprint
+    val settingsStatusLoadFingerprintResult by settingsStatusLoadFingerprint
 
     execute { context ->
-        aclCommonShareResult.mutableMethod.replaceInstructions(
+        aclCommonShareFingerprintResult.mutableMethod.replaceInstructions(
             0,
             """
                 const/4 v0, 0x0
@@ -43,7 +43,7 @@ val downloadsPatch = bytecodePatch(
             """,
         )
 
-        aclCommonShareResult2.mutableMethod.replaceInstructions(
+        aclCommonShareFingerprintResult2.mutableMethod.replaceInstructions(
             0,
             """
                 const/4 v0, 0x2
@@ -52,7 +52,7 @@ val downloadsPatch = bytecodePatch(
         )
 
         // Download videos without watermark.
-        aclCommonShareResult3.mutableMethod.addInstructionsWithLabels(
+        aclCommonShareFingerprintResult3.mutableMethod.addInstructionsWithLabels(
             0,
             """
                     invoke-static {}, Lapp/revanced/integrations/tiktok/download/DownloadsPatch;->shouldRemoveWatermark()Z
@@ -66,7 +66,7 @@ val downloadsPatch = bytecodePatch(
         )
 
         // Change the download path patch.
-        downloadPathParentResult.mutableMethod.apply {
+        downloadPathParentFingerprintResult.mutableMethod.apply {
             val downloadUriMethod = context
                 .navigate(this)
                 .at(indexOfFirstInstructionOrThrow { opcode == Opcode.INVOKE_STATIC })
@@ -98,7 +98,7 @@ val downloadsPatch = bytecodePatch(
             )
         }
 
-        settingsStatusLoadResult.mutableMethod.addInstruction(
+        settingsStatusLoadFingerprintResult.mutableMethod.addInstruction(
             0,
             "invoke-static {}, Lapp/revanced/integrations/tiktok/settings/SettingsStatus;->enableDownload()V",
         )

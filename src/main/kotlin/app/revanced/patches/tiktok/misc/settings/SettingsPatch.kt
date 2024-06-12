@@ -26,10 +26,10 @@ val settingsPatch = bytecodePatch(
         "com.zhiliaoapp.musically"("32.5.3"),
     )
 
-    val adPersonalizationActivityOnCreateResult by adPersonalizationActivityOnCreateFingerprint
-    val addSettingsEntryResult by addSettingsEntryFingerprint
-    val settingsEntryResult by settingsEntryFingerprint
-    val settingsEntryInfoResult by settingsEntryInfoFingerprint
+    val adPersonalizationActivityOnCreateFingerprintResult by adPersonalizationActivityOnCreateFingerprint
+    val addSettingsEntryFingerprintResult by addSettingsEntryFingerprint
+    val settingsEntryFingerprintResult by settingsEntryFingerprint
+    val settingsEntryInfoFingerprintResult by settingsEntryInfoFingerprint
 
     execute {
         val initializeSettingsMethodDescriptor =
@@ -48,11 +48,11 @@ val settingsPatch = bytecodePatch(
         }
 
         // Find the class name of classes which construct a settings entry
-        val settingsButtonClass = settingsEntryResult.classDef.type.toClassName()
-        val settingsButtonInfoClass = settingsEntryInfoResult.classDef.type.toClassName()
+        val settingsButtonClass = settingsEntryFingerprintResult.classDef.type.toClassName()
+        val settingsButtonInfoClass = settingsEntryInfoFingerprintResult.classDef.type.toClassName()
 
         // Create a settings entry for 'revanced settings' and add it to settings fragment
-        addSettingsEntryResult.mutableMethod.apply {
+        addSettingsEntryFingerprintResult.mutableMethod.apply {
             val markIndex = implementation!!.instructions.indexOfFirst {
                 it.opcode == Opcode.IGET_OBJECT && ((it as Instruction22c).reference as FieldReference).name == "headerUnit"
             }
@@ -80,7 +80,7 @@ val settingsPatch = bytecodePatch(
         }
 
         // Initialize the settings menu once the replaced setting entry is clicked.
-        adPersonalizationActivityOnCreateResult.mutableMethod.apply {
+        adPersonalizationActivityOnCreateFingerprintResult.mutableMethod.apply {
             val initializeSettingsIndex = implementation!!.instructions.indexOfFirst {
                 it.opcode == Opcode.INVOKE_SUPER
             } + 1

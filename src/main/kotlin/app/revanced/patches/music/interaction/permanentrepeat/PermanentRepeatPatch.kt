@@ -21,13 +21,13 @@ val permanentRepeatPatch = bytecodePatch(
         ),
     )
 
-    val repeatTrackResult by repeatTrackFingerprint
+    val repeatTrackFingerprintResult by repeatTrackFingerprint
 
     execute {
-        val startIndex = repeatTrackResult.scanResult.patternScanResult!!.endIndex
+        val startIndex = repeatTrackFingerprintResult.scanResult.patternScanResult!!.endIndex
         val repeatIndex = startIndex + 1
 
-        repeatTrackResult.mutableMethod.apply {
+        repeatTrackFingerprintResult.mutableMethod.apply {
             addInstructionsWithLabels(
                 startIndex,
                 "goto :repeat",

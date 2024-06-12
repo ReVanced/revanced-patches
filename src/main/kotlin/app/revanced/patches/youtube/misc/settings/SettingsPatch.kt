@@ -35,8 +35,8 @@ val settingsPatch = bytecodePatch(
         addResourcesPatch,
     )
 
-    val setThemeResult by setThemeFingerprint
-    val licenseActivityOnCreateResult by licenseActivityOnCreateFingerprint
+    val setThemeFingerprintResult by setThemeFingerprint
+    val licenseActivityOnCreateFingerprintResult by licenseActivityOnCreateFingerprint
 
     val integrationsPackage = "app/revanced/integrations/youtube"
     val activityHookClassDescriptor = "L$integrationsPackage/settings/LicenseActivityHook;"
@@ -65,7 +65,7 @@ val settingsPatch = bytecodePatch(
             ),
         )
 
-        setThemeResult.mutableMethod.let { setThemeMethod ->
+        setThemeFingerprintResult.mutableMethod.let { setThemeMethod ->
             setThemeMethod.implementation!!.instructions.mapIndexedNotNull { i, instruction ->
                 if (instruction.opcode == Opcode.RETURN_OBJECT) i else null
             }.asReversed().forEach { returnIndex ->
@@ -89,7 +89,7 @@ val settingsPatch = bytecodePatch(
         // Modify the license activity and remove all existing layout code.
         // Must modify an existing activity and cannot add a new activity to the manifest,
         // as that fails for root installations.
-        licenseActivityOnCreateResult.mutableMethod.addInstructions(
+        licenseActivityOnCreateFingerprintResult.mutableMethod.addInstructions(
             1,
             """
                 invoke-static { p0 }, $activityHookClassDescriptor->initialize(Landroid/app/Activity;)V
@@ -98,7 +98,7 @@ val settingsPatch = bytecodePatch(
         )
 
         // Remove other methods as they will break as the onCreate method is modified above.
-        licenseActivityOnCreateResult.mutableClass.apply {
+        licenseActivityOnCreateFingerprintResult.mutableClass.apply {
             methods.removeIf { it.name != "onCreate" && !MethodUtil.isConstructor(it) }
         }
     }

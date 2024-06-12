@@ -51,7 +51,7 @@ val hidePlayerButtonsPatch = bytecodePatch(
         ),
     )
 
-    val playerControlsVisibilityModelResult by playerControlsVisibilityModelFingerprint
+    val playerControlsVisibilityModelFingerprintResult by playerControlsVisibilityModelFingerprint
 
     val ParameterOffsets = object {
         val HAS_NEXT = 5
@@ -65,7 +65,7 @@ val hidePlayerButtonsPatch = bytecodePatch(
             SwitchPreference("revanced_hide_player_buttons"),
         )
 
-        playerControlsVisibilityModelResult.apply {
+        playerControlsVisibilityModelFingerprintResult.apply {
             val callIndex = scanResult.patternScanResult!!.endIndex
             val callInstruction = mutableMethod.getInstruction<Instruction3rc>(callIndex)
 

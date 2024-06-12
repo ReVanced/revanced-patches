@@ -19,9 +19,9 @@ val unlockDownloadsPatch = bytecodePatch(
 ) {
     compatibleWith("com.twitter.android")
 
-    val constructMediaOptionsSheetResult by constructMediaOptionsSheetFingerprint
-    val showDownloadVideoUpsellBottomSheetResult by showDownloadVideoUpsellBottomSheetFingerprint
-    val buildMediaOptionsSheetResult by buildMediaOptionsSheetFingerprint
+    val constructMediaOptionsSheetFingerprintResult by constructMediaOptionsSheetFingerprint
+    val showDownloadVideoUpsellBottomSheetFingerprintResult by showDownloadVideoUpsellBottomSheetFingerprint
+    val buildMediaOptionsSheetFingerprintResult by buildMediaOptionsSheetFingerprint
 
     fun MethodFingerprintResult.patch(getRegisterAndIndex: MethodFingerprintResult.() -> Pair<Int, Int>) {
         val (index, register) = getRegisterAndIndex()
@@ -30,7 +30,7 @@ val unlockDownloadsPatch = bytecodePatch(
 
     execute {
         // Allow downloads for non-premium users.
-        showDownloadVideoUpsellBottomSheetResult.patch {
+        showDownloadVideoUpsellBottomSheetFingerprintResult.patch {
             val checkIndex = scanResult.patternScanResult!!.startIndex
             val register = mutableMethod.getInstruction<OneRegisterInstruction>(checkIndex).registerA
 
@@ -38,7 +38,7 @@ val unlockDownloadsPatch = bytecodePatch(
         }
 
         // Force show the download menu item.
-        constructMediaOptionsSheetResult.patch {
+        constructMediaOptionsSheetFingerprintResult.patch {
             val showDownloadButtonIndex = mutableMethod.instructions.lastIndex - 1
             val register = mutableMethod.getInstruction<TwoRegisterInstruction>(showDownloadButtonIndex).registerA
 
@@ -46,8 +46,8 @@ val unlockDownloadsPatch = bytecodePatch(
         }
 
         // Make GIFs downloadable.
-        val scanResult = buildMediaOptionsSheetResult.scanResult.patternScanResult!!
-        buildMediaOptionsSheetResult.mutableMethod.apply {
+        val scanResult = buildMediaOptionsSheetFingerprintResult.scanResult.patternScanResult!!
+        buildMediaOptionsSheetFingerprintResult.mutableMethod.apply {
             val checkMediaTypeIndex = scanResult.startIndex
             val checkMediaTypeInstruction = getInstruction<TwoRegisterInstruction>(checkMediaTypeIndex)
 

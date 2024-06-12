@@ -7,11 +7,11 @@ import app.revanced.patcher.patch.bytecodePatch
 val disablePiracyDetectionPatch = bytecodePatch(
     description = "Disables detection of modified versions.",
 ) {
-    val piracyDetectionResult by piracyDetectionFingerprint
+    val piracyDetectionFingerprintResult by piracyDetectionFingerprint
 
     execute {
         // Do not throw an error if the fingerprint is not resolved.
         // This is fine because new versions of the target app do not need this patch.
-        piracyDetectionResult.mutableMethod.addInstruction(0, "return-void")
+        piracyDetectionFingerprintResult.mutableMethod.addInstruction(0, "return-void")
     }
 }

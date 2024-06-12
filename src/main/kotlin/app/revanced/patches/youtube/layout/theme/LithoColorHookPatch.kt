@@ -9,13 +9,13 @@ lateinit var lithoColorOverrideHook: (targetMethodClass: String, targetMethodNam
 val lithoColorHookPatch = bytecodePatch(
     description = "Adds a hook to set color of Litho components.",
 ) {
-    val lithoThemeResult by lithoThemeFingerprint
+    val lithoThemeFingerprintResult by lithoThemeFingerprint
 
     execute {
-        var insertionIndex = lithoThemeResult.scanResult.patternScanResult!!.endIndex - 1
+        var insertionIndex = lithoThemeFingerprintResult.scanResult.patternScanResult!!.endIndex - 1
 
         lithoColorOverrideHook = { targetMethodClass, targetMethodName ->
-            lithoThemeResult.mutableMethod.addInstructions(
+            lithoThemeFingerprintResult.mutableMethod.addInstructions(
                 insertionIndex,
                 """
                     invoke-static { p1 }, $targetMethodClass->$targetMethodName(I)I

@@ -12,7 +12,7 @@ val fixAudioMissingInDownloadsPatch = bytecodePatch(
 ) {
     compatibleWith("com.rubenmayayo.reddit")
 
-    val downloadAudioResult by downloadAudioFingerprint
+    val downloadAudioFingerprintResult by downloadAudioFingerprint
 
     execute {
         val endpointReplacements = mapOf(
@@ -20,8 +20,8 @@ val fixAudioMissingInDownloadsPatch = bytecodePatch(
             "/audio" to "/DASH_AUDIO_64.mp4",
         )
 
-        downloadAudioResult.scanResult.stringsScanResult!!.matches.take(2).forEach { match ->
-            downloadAudioResult.mutableMethod.apply {
+        downloadAudioFingerprintResult.scanResult.stringsScanResult!!.matches.take(2).forEach { match ->
+            downloadAudioFingerprintResult.mutableMethod.apply {
                 val replacement = endpointReplacements[match.string]
                 val register = getInstruction<OneRegisterInstruction>(match.index).registerA
 

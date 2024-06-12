@@ -51,10 +51,10 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         addResourcesPatch,
     )
 
-    val speedArrayGeneratorResult by speedArrayGeneratorFingerprint
-    val speedLimiterResult by speedLimiterFingerprint
-    val getOldPlaybackSpeedsResult by getOldPlaybackSpeedsFingerprint
-    val showOldPlaybackSpeedMenuIntegrationsResult by showOldPlaybackSpeedMenuIntegrationsFingerprint
+    val speedArrayGeneratorFingerprintResult by speedArrayGeneratorFingerprint
+    val speedLimiterFingerprintResult by speedLimiterFingerprint
+    val getOldPlaybackSpeedsFingerprintResult by getOldPlaybackSpeedsFingerprint
+    val showOldPlaybackSpeedMenuIntegrationsFingerprintResult by showOldPlaybackSpeedMenuIntegrationsFingerprint
 
     execute { context ->
         addResources("youtube", "video.speed.custom.customPlaybackSpeedResourcePatch")
@@ -63,7 +63,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
             TextPreference("revanced_custom_playback_speeds", inputType = InputType.TEXT_MULTI_LINE),
         )
 
-        speedArrayGeneratorResult.mutableMethod.apply {
+        speedArrayGeneratorFingerprintResult.mutableMethod.apply {
             val sizeCallIndex = instructions
                 .indexOfFirst { it.getReference<MethodReference>()?.name == "size" }
             if (sizeCallIndex == -1) throw PatchException("Couldn't find call to size()")
@@ -98,7 +98,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
             )
         }
 
-        speedLimiterResult.mutableMethod.apply {
+        speedLimiterFingerprintResult.mutableMethod.apply {
             val lowerLimitConst = 0.25f.toRawBits()
             val upperLimitConst = 2.0f.toRawBits()
             val limiterMinConstInstruction = instructions
@@ -130,29 +130,29 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         // Add a static INSTANCE field to the class.
         // This is later used to call "showOldPlaybackSpeedMenu" on the instance.
         val instanceField = ImmutableField(
-            getOldPlaybackSpeedsResult.classDef.type,
+            getOldPlaybackSpeedsFingerprintResult.classDef.type,
             "INSTANCE",
-            getOldPlaybackSpeedsResult.classDef.type,
+            getOldPlaybackSpeedsFingerprintResult.classDef.type,
             AccessFlags.PUBLIC.value or AccessFlags.STATIC.value,
             null,
             null,
             null,
         ).toMutable().also {
-            getOldPlaybackSpeedsResult.mutableClass.staticFields.add(it)
+            getOldPlaybackSpeedsFingerprintResult.mutableClass.staticFields.add(it)
         }
 
         // Set the INSTANCE field to the instance of the class.
         // In order to prevent a conflict with another patch, add the instruction at index 1.
-        getOldPlaybackSpeedsResult.mutableMethod.addInstruction(1, "sput-object p0, $instanceField")
+        getOldPlaybackSpeedsFingerprintResult.mutableMethod.addInstruction(1, "sput-object p0, $instanceField")
 
         // Get the "showOldPlaybackSpeedMenu" method.
         // This is later called on the field INSTANCE.
         val showOldPlaybackSpeedMenuMethod = showOldPlaybackSpeedMenuFingerprint.apply {
-            resolve(context, getOldPlaybackSpeedsResult.classDef)
+            resolve(context, getOldPlaybackSpeedsFingerprintResult.classDef)
         }.resultOrThrow().method
 
         // Insert the call to the "showOldPlaybackSpeedMenu" method on the field INSTANCE.
-        showOldPlaybackSpeedMenuIntegrationsResult.mutableMethod.apply {
+        showOldPlaybackSpeedMenuIntegrationsFingerprintResult.mutableMethod.apply {
             addInstructionsWithLabels(
                 instructions.lastIndex,
                 """

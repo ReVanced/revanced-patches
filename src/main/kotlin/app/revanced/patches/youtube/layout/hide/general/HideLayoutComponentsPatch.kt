@@ -77,9 +77,9 @@ val hideLayoutComponentsPatch = bytecodePatch(
         ),
     )
 
-    val parseElementFromBufferResult by parseElementFromBufferFingerprint
-    val playerOverlayResult by playerOverlayFingerprint
-    val hideShowMoreButtonResult by hideShowMoreButtonFingerprint
+    val parseElementFromBufferFingerprintResult by parseElementFromBufferFingerprint
+    val playerOverlayFingerprintResult by playerOverlayFingerprint
+    val hideShowMoreButtonFingerprintResult by hideShowMoreButtonFingerprint
 
     execute { context ->
         addResources("youtube", "layout.hide.general.hideLayoutComponentsPatch")
@@ -167,9 +167,9 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         // region Mix playlists
 
-        val startIndex = parseElementFromBufferResult.scanResult.patternScanResult!!.startIndex
+        val startIndex = parseElementFromBufferFingerprintResult.scanResult.patternScanResult!!.startIndex
 
-        parseElementFromBufferResult.mutableMethod.apply {
+        parseElementFromBufferFingerprintResult.mutableMethod.apply {
             val freeRegister = "v0"
             val byteArrayParameter = "p3"
             val conversionContextRegister = getInstruction<TwoRegisterInstruction>(startIndex).registerA
@@ -192,7 +192,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
         // region Watermark (legacy code for old versions of YouTube)
 
         showWatermarkFingerprint.apply {
-            resolve(context, playerOverlayResult.classDef)
+            resolve(context, playerOverlayFingerprintResult.classDef)
         }.resultOrThrow().mutableMethod.apply {
             val index = implementation!!.instructions.size - 5
 
@@ -210,8 +210,8 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         // region Show more button
 
-        hideShowMoreButtonResult.mutableMethod.apply {
-            val moveRegisterIndex = hideShowMoreButtonResult.scanResult.patternScanResult!!.endIndex
+        hideShowMoreButtonFingerprintResult.mutableMethod.apply {
+            val moveRegisterIndex = hideShowMoreButtonFingerprintResult.scanResult.patternScanResult!!.endIndex
             val viewRegister = getInstruction<OneRegisterInstruction>(moveRegisterIndex).registerA
 
             val insertIndex = moveRegisterIndex + 1

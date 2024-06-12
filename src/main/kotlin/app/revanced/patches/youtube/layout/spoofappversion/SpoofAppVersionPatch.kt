@@ -56,7 +56,7 @@ val spoofAppVersionPatch = bytecodePatch(
         ),
     )
 
-    val spoofAppVersionResult by spoofAppVersionFingerprint
+    val spoofAppVersionFingerprintResult by spoofAppVersionFingerprint
 
     execute {
         addResources("youtube", "layout.spoofappversion.spoofAppVersionPatch")
@@ -69,11 +69,11 @@ val spoofAppVersionPatch = bytecodePatch(
             ),
         )
 
-        val insertIndex = spoofAppVersionResult.scanResult.patternScanResult!!.startIndex + 1
+        val insertIndex = spoofAppVersionFingerprintResult.scanResult.patternScanResult!!.startIndex + 1
         val buildOverrideNameRegister =
-            spoofAppVersionResult.mutableMethod.getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
+            spoofAppVersionFingerprintResult.mutableMethod.getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
 
-        spoofAppVersionResult.mutableMethod.addInstructions(
+        spoofAppVersionFingerprintResult.mutableMethod.addInstructions(
             insertIndex,
             """
                 invoke-static {v$buildOverrideNameRegister}, $INTEGRATIONS_CLASS_DESCRIPTOR->getYouTubeVersionOverride(Ljava/lang/String;)Ljava/lang/String;

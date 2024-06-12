@@ -10,9 +10,9 @@ val removeNotificationBadgePatch = bytecodePatch(
 ) {
     compatibleWith("com.sony.songpal.mdr"("10.1.0"))
 
-    val showNotificationResult by showNotificationFingerprint
+    val showNotificationFingerprintResult by showNotificationFingerprint
 
     execute {
-        showNotificationResult.mutableMethod.addInstructions(0, "return-void")
+        showNotificationFingerprintResult.mutableMethod.addInstructions(0, "return-void")
     }
 }

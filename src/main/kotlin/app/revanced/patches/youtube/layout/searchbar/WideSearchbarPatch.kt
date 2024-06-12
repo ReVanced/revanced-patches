@@ -56,8 +56,8 @@ val wideSearchbarPatch = bytecodePatch(
         ),
     )
 
-    val setWordmarkHeaderResult by setWordmarkHeaderFingerprint
-    val createSearchSuggestionsResult by createSearchSuggestionsFingerprint
+    val setWordmarkHeaderFingerprintResult by setWordmarkHeaderFingerprint
+    val createSearchSuggestionsFingerprintResult by createSearchSuggestionsFingerprint
 
     execute { context ->
         addResources("youtube", "layout.searchbar.wideSearchbarPatch")
@@ -70,11 +70,11 @@ val wideSearchbarPatch = bytecodePatch(
          * Navigate a fingerprints method at a given index mutably.
          *
          * @param index The index to navigate to.
-         * @param fromResult The fingerprint result to navigate the method on.
+         * @param fromFingerprintResult The fingerprint result to navigate the method on.
          * @return The [MutableMethod] which was navigated on.
          */
-        fun BytecodePatchContext.walkMutable(index: Int, fromResult: MethodFingerprintResult) =
-            navigate(fromResult.method).at(index).mutable()
+        fun BytecodePatchContext.walkMutable(index: Int, fromFingerprintResult: MethodFingerprintResult) =
+            navigate(fromFingerprintResult.method).at(index).mutable()
 
         /**
          * Injects instructions required for certain methods.
@@ -93,8 +93,8 @@ val wideSearchbarPatch = bytecodePatch(
         }
 
         mapOf(
-            setWordmarkHeaderResult to 1,
-            createSearchSuggestionsResult to createSearchSuggestionsResult.scanResult.patternScanResult!!.startIndex,
+            setWordmarkHeaderFingerprintResult to 1,
+            createSearchSuggestionsFingerprintResult to createSearchSuggestionsFingerprintResult.scanResult.patternScanResult!!.startIndex,
         ).forEach { (fingerprint, callIndex) ->
             context.walkMutable(callIndex, fingerprint).injectSearchBarHook()
         }

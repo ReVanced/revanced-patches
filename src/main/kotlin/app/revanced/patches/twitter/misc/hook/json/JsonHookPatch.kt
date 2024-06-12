@@ -26,7 +26,7 @@ val jsonHookPatch = bytecodePatch(
     description = "Hooks the stream which reads JSON responses.",
     requiresIntegrations = true,
 ) {
-    val loganSquareResult by loganSquareFingerprint
+    val loganSquareFingerprintResult by loganSquareFingerprint
 
     execute { context ->
         jsonHookPatchFingerprint.apply {
@@ -40,7 +40,7 @@ val jsonHookPatch = bytecodePatch(
         }.let { jsonHooks = JsonHookPatchHook(it) }
 
         // Conveniently find the type to hook a method in, via a named field.
-        val jsonFactory = loganSquareResult
+        val jsonFactory = loganSquareFingerprintResult
             .classDef
             .fields
             .firstOrNull { it.name == "JSON_FACTORY" }

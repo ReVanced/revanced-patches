@@ -20,16 +20,16 @@ val backgroundPlaybackPatch = bytecodePatch(
         ),
     )
 
-    val kidsBackgroundPlaybackPolicyControllerResult by kidsBackgroundPlaybackPolicyControllerFingerprint
-    val backgroundPlaybackDisableResult by backgroundPlaybackDisableFingerprint
+    val kidsBackgroundPlaybackPolicyControllerFingerprintResult by kidsBackgroundPlaybackPolicyControllerFingerprint
+    val backgroundPlaybackDisableFingerprintResult by backgroundPlaybackDisableFingerprint
 
     execute {
-        kidsBackgroundPlaybackPolicyControllerResult.mutableMethod.addInstruction(
+        kidsBackgroundPlaybackPolicyControllerFingerprintResult.mutableMethod.addInstruction(
             0,
             "return-void",
         )
 
-        backgroundPlaybackDisableResult.mutableMethod.addInstructions(
+        backgroundPlaybackDisableFingerprintResult.mutableMethod.addInstructions(
             0,
             """
                 const/4 v0, 0x1

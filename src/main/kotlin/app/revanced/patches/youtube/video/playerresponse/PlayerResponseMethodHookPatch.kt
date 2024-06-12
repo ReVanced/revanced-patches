@@ -29,10 +29,10 @@ private var numberOfInstructionsAdded = 0
 val playerResponseMethodHookPatch = bytecodePatch {
     dependsOn(integrationsPatch)
 
-    val playerParameterBuilderResult by playerParameterBuilderFingerprint
+    val playerParameterBuilderFingerprintResult by playerParameterBuilderFingerprint
 
     execute {
-        playerResponseMethod = playerParameterBuilderResult.mutableMethod
+        playerResponseMethod = playerParameterBuilderFingerprintResult.mutableMethod
 
         // On some app targets the method has too many registers pushing the parameters past v15.
         // If needed, move the parameters to 4-bit registers, so they can be passed to integrations.
