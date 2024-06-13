@@ -10,7 +10,7 @@ import org.w3c.dom.Element
 
 @Patch(
     name = "Change version code",
-    description = "Sets the version code to the max value (allowed by Google Play) by default, which enables app downgrading and hides available updates from app stores like Google Play",
+    description = "Sets the version code to the max value by default, which enables app downgrading and hides available updates from app stores like Google Play",
     use = false
 )
 @Suppress("unused")
@@ -18,15 +18,15 @@ object ChangeVersionCode : ResourcePatch() {
     private val versionCodeOption by intPatchOption(
         key = "versionCode",
         // max allowed by Google Play
-        default = 2_100_000_000,
+        default = Int.MAX_VALUE,
         values = mapOf(
-            "Minimum" to 1, "Maximum" to 2_100_000_000
+            "Minimum" to 1, "Maximum" to Int.MAX_VALUE
         ),
         title = "Version code",
         description = "The version code to use",
         required = true,
     ) {
-        it != null && it >= 1 && it <= 2_100_000_000
+        it != null && it >= 1
     }
 
     override fun execute(context: ResourceContext) {
