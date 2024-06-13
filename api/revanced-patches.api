@@ -28,12 +28,6 @@ public final class app/revanced/patches/all/misc/debugging/EnableAndroidDebuggin
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
-public final class app/revanced/patches/all/misc/downgrading/AllowAppDowngradingPatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/all/misc/downgrading/AllowAppDowngradingPatch;
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
-}
-
 public final class app/revanced/patches/all/misc/hex/HexPatch : app/revanced/patches/shared/misc/hex/BaseHexPatch {
 	public fun <init> ()V
 	public fun getReplacements ()Ljava/util/List;
@@ -109,6 +103,12 @@ public abstract interface class app/revanced/patches/all/misc/transformation/IMe
 
 public final class app/revanced/patches/all/misc/transformation/IMethodCall$DefaultImpls {
 	public static fun replaceInvokeVirtualWithIntegrations (Lapp/revanced/patches/all/misc/transformation/IMethodCall;Ljava/lang/String;Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lcom/android/tools/smali/dexlib2/iface/instruction/formats/Instruction35c;I)V
+}
+
+public final class app/revanced/patches/all/misc/versioncode/ChangeVersionCode : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/all/misc/versioncode/ChangeVersionCode;
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
 public final class app/revanced/patches/all/screencapture/removerestriction/RemoveCaptureRestrictionPatch : app/revanced/patches/all/misc/transformation/BaseTransformInstructionsPatch {
