@@ -28,6 +28,12 @@ public final class app/revanced/patches/all/misc/debugging/EnableAndroidDebuggin
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
+public final class app/revanced/patches/all/misc/downgrading/AllowAppDowngradingPatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/all/misc/downgrading/AllowAppDowngradingPatch;
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
 public final class app/revanced/patches/all/misc/hex/HexPatch : app/revanced/patches/shared/misc/hex/BaseHexPatch {
 	public fun <init> ()V
 	public fun getReplacements ()Ljava/util/List;
