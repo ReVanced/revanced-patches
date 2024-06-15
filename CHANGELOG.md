@@ -1,3 +1,10 @@
+# [4.10.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v4.10.0-dev.6...v4.10.0-dev.7) (2024-06-15)
+
+
+### Features
+
+* Add `Change version code` patch ([#3338](https://github.com/ReVanced/revanced-patches/issues/3338)) ([685ef39](https://github.com/ReVanced/revanced-patches/commit/685ef39119daf1033a83262982519531c481c40f))
+
 # [4.10.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.10.0-dev.5...v4.10.0-dev.6) (2024-06-09)
 
 
