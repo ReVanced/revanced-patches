@@ -123,34 +123,37 @@ val videoAdsPatch = bytecodePatch(
                         move-result-object p0
                         return-object p0
                     """,
-                    ExternalLabel(skipLabelName, checkAdEligibilityLambdaFingerprintResult.mutableMethod.getInstruction(0)),
+                    ExternalLabel(
+                        skipLabelName,
+                        checkAdEligibilityLambdaFingerprintResult.mutableMethod.getInstruction(0),
+                    ),
                 )
-            }
 
-            val adFormatDeclined =
-                "Ltv/twitch/android/shared/display/ads/theatre/StreamDisplayAdsPresenter\$Action\$AdFormatDeclined;"
-            getReadyToShowAdFingerprintResult.mutableMethod.addInstructionsWithLabels(
-                0,
-                """
+                val adFormatDeclined =
+                    "Ltv/twitch/android/shared/display/ads/theatre/StreamDisplayAdsPresenter\$Action\$AdFormatDeclined;"
+                getReadyToShowAdFingerprintResult.mutableMethod.addInstructionsWithLabels(
+                    0,
+                    """
                     ${createConditionInstructions("v0")}
                     sget-object p2, $adFormatDeclined->INSTANCE:$adFormatDeclined
                     invoke-static {p1, p2}, Ltv/twitch/android/core/mvp/presenter/StateMachineKt;->plus(Ltv/twitch/android/core/mvp/presenter/PresenterState;Ltv/twitch/android/core/mvp/presenter/PresenterAction;)Ltv/twitch/android/core/mvp/presenter/StateAndAction;
                     move-result-object p1
                     return-object p1
                 """,
-                ExternalLabel(skipLabelName, getReadyToShowAdFingerprintResult.mutableMethod.getInstruction(0)),
-            )
+                    ExternalLabel(skipLabelName, getReadyToShowAdFingerprintResult.mutableMethod.getInstruction(0)),
+                )
 
-            // Spoof showAds JSON field.
-            contentConfigShowAdsFingerprintResult.mutableMethod.addInstructions(
-                0,
-                """
+                // Spoof showAds JSON field.
+                contentConfigShowAdsFingerprintResult.mutableMethod.addInstructions(
+                    0,
+                    """
                     ${createConditionInstructions("v0")}
                     const/4 v0, 0
                     :$skipLabelName
                     return v0
                 """,
-            )
+                )
+            }
         },
     )
 

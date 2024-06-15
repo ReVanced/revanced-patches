@@ -15,6 +15,27 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
+internal var fabButtonId = -1L
+    private set
+
+private val hideFloatingMicrophoneButtonResourcePatch = resourcePatch {
+    dependsOn(
+        settingsPatch,
+        resourceMappingPatch,
+        addResourcesPatch,
+    )
+
+    execute {
+        addResources("youtube", "layout.hide.floatingmicrophone.hideFloatingMicrophoneButtonResourcePatch")
+
+        PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+            SwitchPreference("revanced_hide_floating_microphone_button"),
+        )
+
+        fabButtonId = resourceMappings["id", "fab"]
+    }
+}
+
 internal const val INTEGRATIONS_CLASS_DESCRIPTOR =
     "Lapp/revanced/integrations/youtube/patches/HideFloatingMicrophoneButtonPatch;"
 
@@ -73,26 +94,5 @@ val hideFloatingMicrophoneButtonPatch = bytecodePatch(
                 """,
             )
         }
-    }
-}
-
-internal var fabButtonId = -1L
-    private set
-
-internal val hideFloatingMicrophoneButtonResourcePatch = resourcePatch {
-    dependsOn(
-        settingsPatch,
-        resourceMappingPatch,
-        addResourcesPatch,
-    )
-
-    execute {
-        addResources("youtube", "layout.hide.floatingmicrophone.hideFloatingMicrophoneButtonResourcePatch")
-
-        PreferenceScreen.GENERAL_LAYOUT.addPreferences(
-            SwitchPreference("revanced_hide_floating_microphone_button"),
-        )
-
-        fabButtonId = resourceMappings["id", "fab"]
     }
 }

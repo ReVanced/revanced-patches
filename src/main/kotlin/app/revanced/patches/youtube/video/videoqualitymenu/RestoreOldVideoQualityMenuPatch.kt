@@ -21,6 +21,38 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
+internal var videoQualityBottomSheetListFragmentTitle = -1L
+    private set
+internal var videoQualityQuickMenuAdvancedMenuDescription = -1L
+    private set
+
+private val restoreOldVideoQualityMenuResourcePatch = resourcePatch {
+    dependsOn(
+        settingsPatch,
+        resourceMappingPatch,
+        addResourcesPatch,
+    )
+
+    execute {
+        addResources("youtube", "video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch")
+
+        PreferenceScreen.VIDEO.addPreferences(
+            SwitchPreference("revanced_restore_old_video_quality_menu"),
+        )
+
+        // Used for the old type of the video quality menu.
+        videoQualityBottomSheetListFragmentTitle = resourceMappings[
+            "layout",
+            "video_quality_bottom_sheet_list_fragment_title",
+        ]
+
+        videoQualityQuickMenuAdvancedMenuDescription = resourceMappings[
+            "string",
+            "video_quality_quick_menu_advanced_menu_description",
+        ]
+    }
+}
+
 private const val FILTER_CLASS_DESCRIPTOR =
     "Lapp/revanced/integrations/youtube/patches/components/VideoQualityMenuFilterPatch;"
 
@@ -119,37 +151,5 @@ val restoreOldVideoQualityMenuPatch = bytecodePatch(
         addLithoFilter(FILTER_CLASS_DESCRIPTOR)
 
         // endregion
-    }
-}
-
-internal var videoQualityBottomSheetListFragmentTitle = -1L
-    private set
-internal var videoQualityQuickMenuAdvancedMenuDescription = -1L
-    private set
-
-internal val restoreOldVideoQualityMenuResourcePatch = resourcePatch {
-    dependsOn(
-        settingsPatch,
-        resourceMappingPatch,
-        addResourcesPatch,
-    )
-
-    execute {
-        addResources("youtube", "video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch")
-
-        PreferenceScreen.VIDEO.addPreferences(
-            SwitchPreference("revanced_restore_old_video_quality_menu"),
-        )
-
-        // Used for the old type of the video quality menu.
-        videoQualityBottomSheetListFragmentTitle = resourceMappings[
-            "layout",
-            "video_quality_bottom_sheet_list_fragment_title",
-        ]
-
-        videoQualityQuickMenuAdvancedMenuDescription = resourceMappings[
-            "string",
-            "video_quality_quick_menu_advanced_menu_description",
-        ]
     }
 }

@@ -19,6 +19,37 @@ import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 
+private val downloadsResourcePatch = resourcePatch {
+    dependsOn(
+        bottomControlsPatch,
+        settingsPatch,
+        addResourcesPatch,
+    )
+
+    execute { context ->
+        addResources("youtube", "interaction.downloads.downloadsResourcePatch")
+
+        PreferenceScreen.PLAYER.addPreferences(
+            PreferenceScreenPreference(
+                key = "revanced_external_downloader_screen",
+                sorting = Sorting.UNSORTED,
+                preferences = setOf(
+                    SwitchPreference("revanced_external_downloader"),
+                    SwitchPreference("revanced_external_downloader_action_button"),
+                    TextPreference("revanced_external_downloader_name", inputType = InputType.TEXT),
+                ),
+            ),
+        )
+
+        context.copyResources(
+            "downloads",
+            ResourceGroup("drawable", "revanced_yt_download_button.xml"),
+        )
+
+        addBottomControls("downloads")
+    }
+}
+
 internal const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/DownloadsPatch;"
 
 internal const val BUTTON_DESCRIPTOR = "Lapp/revanced/integrations/youtube/videoplayer/ExternalDownloadButton;"
@@ -86,37 +117,5 @@ val downloadsPatch = bytecodePatch(
                 """,
             )
         }
-    }
-}
-
-@Suppress("unused")
-val downloadsResourcePatch = resourcePatch {
-    dependsOn(
-        bottomControlsPatch,
-        settingsPatch,
-        addResourcesPatch,
-    )
-
-    execute { context ->
-        addResources("youtube", "interaction.downloads.downloadsResourcePatch")
-
-        PreferenceScreen.PLAYER.addPreferences(
-            PreferenceScreenPreference(
-                key = "revanced_external_downloader_screen",
-                sorting = Sorting.UNSORTED,
-                preferences = setOf(
-                    SwitchPreference("revanced_external_downloader"),
-                    SwitchPreference("revanced_external_downloader_action_button"),
-                    TextPreference("revanced_external_downloader_name", inputType = InputType.TEXT),
-                ),
-            ),
-        )
-
-        context.copyResources(
-            "downloads",
-            ResourceGroup("drawable", "revanced_yt_download_button.xml"),
-        )
-
-        addBottomControls("downloads")
     }
 }

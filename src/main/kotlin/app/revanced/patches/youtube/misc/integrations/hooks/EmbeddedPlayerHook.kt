@@ -11,14 +11,10 @@ import com.android.tools.smali.dexlib2.AccessFlags
  */
 internal val embeddedPlayerHook = integrationsHook(
     // Integrations context is the third method parameter.
-    contextRegisterResolver = { it.implementation!!.registerCount - it.parameters.size },
+    contextRegisterResolver = { it.implementation!!.registerCount - it.parameters.size + 2 },
 ) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("V")
-    parameters("Landroid/content/Context;", "L", "L")
-    strings("android.hardware.type.television") // String is also found in other classes
-    custom { methodDef, classDef ->
-        classDef.type == "Lcom/google/android/apps/youtube/embeddedplayer/EmbeddedPlayer;" &&
-            methodDef.name == "initialize"
-    }
+    returns("L")
+    parameters("L", "L", "Landroid/content/Context;")
+    strings("android.hardware.type.television") // String is also found in other classes.
 }

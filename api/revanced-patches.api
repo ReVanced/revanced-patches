@@ -441,7 +441,7 @@ public final class app/revanced/patches/shared/misc/gms/GmsCoreSupportPatchKt {
 }
 
 public final class app/revanced/patches/shared/misc/hex/HexPatchKt {
-	public static final fun hexPatch (Ljava/util/Set;)Lapp/revanced/patcher/patch/RawResourcePatch;
+	public static final fun hexPatch (Lkotlin/jvm/functions/Function0;)Lapp/revanced/patcher/patch/RawResourcePatch;
 }
 
 public final class app/revanced/patches/shared/misc/hex/Replacement {
@@ -664,7 +664,6 @@ public final class app/revanced/patches/spotify/lite/ondemand/OnDemandPatchKt {
 
 public final class app/revanced/patches/spotify/navbar/PremiumNavbarTabPatchKt {
 	public static final fun getPremiumNavbarTabPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-	public static final fun getPremiumNavbarTabResourcePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
 public final class app/revanced/patches/strava/subscription/UnlockSubscriptionPatchKt {
@@ -878,7 +877,6 @@ public final class app/revanced/patches/windyapp/misc/unlockpro/UnlockProPatchKt
 
 public final class app/revanced/patches/youtube/ad/general/HideAdsPatchKt {
 	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-	public static final fun getHideAdsResourcePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
 public final class app/revanced/patches/youtube/ad/getpremium/HideGetPremiumPatchKt {
@@ -891,7 +889,6 @@ public final class app/revanced/patches/youtube/ad/video/VideoAdsPatchKt {
 
 public final class app/revanced/patches/youtube/interaction/copyvideourl/CopyVideoUrlPatchKt {
 	public static final fun getCopyVideoUrlPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-	public static final fun getCopyVideoUrlResourcePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
 public final class app/revanced/patches/youtube/interaction/dialog/RemoveViewerDiscretionDialogPatchKt {
@@ -900,7 +897,6 @@ public final class app/revanced/patches/youtube/interaction/dialog/RemoveViewerD
 
 public final class app/revanced/patches/youtube/interaction/downloads/DownloadsPatchKt {
 	public static final fun getDownloadsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-	public static final fun getDownloadsResourcePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
 public final class app/revanced/patches/youtube/interaction/seekbar/DisablePreciseSeekingGesturePatchKt {
@@ -917,7 +913,6 @@ public final class app/revanced/patches/youtube/interaction/seekbar/EnableSlideT
 
 public final class app/revanced/patches/youtube/interaction/swipecontrols/SwipeControlsPatchKt {
 	public static final fun getSwipeControlsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-	public static final fun getSwipeControlsResourcePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
 public final class app/revanced/patches/youtube/layout/autocaptions/AutoCaptionsPatchKt {
@@ -958,7 +953,6 @@ public final class app/revanced/patches/youtube/layout/buttons/player/hide/HideP
 
 public final class app/revanced/patches/youtube/layout/hide/albumcards/AlbumCardsPatchKt {
 	public static final fun getAlbumCardsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-	public static final fun getAlbumCardsResourcePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
 public final class app/revanced/patches/youtube/layout/hide/breakingnews/BreakingNewsPatchKt {
@@ -966,24 +960,21 @@ public final class app/revanced/patches/youtube/layout/hide/breakingnews/Breakin
 }
 
 public final class app/revanced/patches/youtube/layout/hide/comments/CommentsPatchKt {
-	public static final fun getCommentsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+	public static final fun getCommentsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/layout/hide/crowdfundingbox/CrowdfundingBoxPatchKt {
 	public static final fun getCrowdfundingBoxId ()J
 	public static final fun getCrowdfundingBoxPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-	public static final fun getCrowdfundingBoxResourcePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 	public static final fun setCrowdfundingBoxId (J)V
 }
 
 public final class app/revanced/patches/youtube/layout/hide/endscreencards/HideEndscreenCardsPatchKt {
 	public static final fun getHideEndscreenCardsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-	public static final fun getHideEndscreenCardsResourcePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
 public final class app/revanced/patches/youtube/layout/hide/filterbar/HideFilterBarPatchKt {
 	public static final fun getHideFilterBarPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-	public static final fun getHideFilterBarResourcePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
 public final class app/revanced/patches/youtube/layout/hide/floatingmicrophone/HideFloatingMicrophoneButtonPatchKt {
@@ -1210,7 +1201,6 @@ public final class app/revanced/patches/youtube/misc/settings/PreferenceScreen :
 public final class app/revanced/patches/youtube/misc/settings/SettingsPatchKt {
 	public static final fun getPreferences ()Ljava/util/Set;
 	public static final fun getSettingsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-	public static final fun getSettingsResourcePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 	public static final fun newIntent (Ljava/lang/String;)Lapp/revanced/patches/shared/misc/settings/preference/IntentPreference$Intent;
 }
 

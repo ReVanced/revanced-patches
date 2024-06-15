@@ -19,6 +19,17 @@ import app.revanced.patches.youtube.video.information.videoInformationPatch
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
+internal var prefBackgroundAndOfflineCategoryId = -1L
+    private set
+
+private val backgroundPlaybackResourcePatch = resourcePatch {
+    dependsOn(resourceMappingPatch)
+
+    execute {
+        prefBackgroundAndOfflineCategoryId = resourceMappings["string", "pref_background_and_offline_category"]
+    }
+}
+
 private const val INTEGRATIONS_CLASS_DESCRIPTOR =
     "Lapp/revanced/integrations/youtube/patches/BackgroundPlaybackPatch;"
 
@@ -103,16 +114,5 @@ val backgroundPlaybackPatch = bytecodePatch(
             0,
             "return-void",
         )
-    }
-}
-
-internal var prefBackgroundAndOfflineCategoryId = -1L
-    private set
-
-internal val backgroundPlaybackResourcePatch = resourcePatch {
-    dependsOn(resourceMappingPatch)
-
-    execute {
-        prefBackgroundAndOfflineCategoryId = resourceMappings["string", "pref_background_and_offline_category"]
     }
 }

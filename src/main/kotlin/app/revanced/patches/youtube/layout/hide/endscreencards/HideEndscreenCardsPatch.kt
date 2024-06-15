@@ -15,6 +15,35 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
 
+internal var layoutCircle = -1L
+    private set
+internal var layoutIcon = -1L
+    private set
+internal var layoutVideo = -1L
+    private set
+
+private val hideEndscreenCardsResourcePatch = resourcePatch {
+    dependsOn(
+        settingsPatch,
+        resourceMappingPatch,
+        addResourcesPatch,
+    )
+
+    execute {
+        addResources("youtube", "layout.hide.endscreencards.hideEndscreenCardsResourcePatch")
+
+        PreferenceScreen.PLAYER.addPreferences(
+            SwitchPreference("revanced_hide_endscreen_cards"),
+        )
+
+        fun idOf(name: String) = resourceMappings["layout", "endscreen_element_layout_$name"]
+
+        layoutCircle = idOf("circle")
+        layoutIcon = idOf("icon")
+        layoutVideo = idOf("video")
+    }
+}
+
 @Suppress("unused")
 val hideEndscreenCardsPatch = bytecodePatch(
     name = "Hide endscreen cards",
@@ -76,34 +105,5 @@ val hideEndscreenCardsPatch = bytecodePatch(
                 )
             }
         }
-    }
-}
-
-internal var layoutCircle = -1L
-    private set
-internal var layoutIcon = -1L
-    private set
-internal var layoutVideo = -1L
-    private set
-
-val hideEndscreenCardsResourcePatch = resourcePatch {
-    dependsOn(
-        settingsPatch,
-        resourceMappingPatch,
-        addResourcesPatch,
-    )
-
-    execute {
-        addResources("youtube", "layout.hide.endscreencards.hideEndscreenCardsResourcePatch")
-
-        PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_hide_endscreen_cards"),
-        )
-
-        fun idOf(name: String) = resourceMappings["layout", "endscreen_element_layout_$name"]
-
-        layoutCircle = idOf("circle")
-        layoutIcon = idOf("icon")
-        layoutVideo = idOf("video")
     }
 }

@@ -16,7 +16,7 @@ val hexPatch = rawResourcePatch(
     // TODO: Instead of stringArrayOption, use a custom option type to work around
     //  https://github.com/ReVanced/revanced-library/issues/48.
     //  Replace the custom option type with a stringArrayOption once the issue is resolved.
-    val replacementsOption by stringsOption(
+    val replacements by stringsOption(
         key = "replacements",
         title = "Replacements",
         description = """
@@ -36,8 +36,8 @@ val hexPatch = rawResourcePatch(
     )
 
     dependsOn(
-        hexPatch(
-            replacements = replacementsOption!!.map { from ->
+        hexPatch {
+            replacements!!.map { from ->
                 val (pattern, replacementPattern, targetFilePath) = try {
                     from.split("|", limit = 3)
                 } catch (e: Exception) {
@@ -50,7 +50,7 @@ val hexPatch = rawResourcePatch(
                 }
 
                 Replacement(pattern, replacementPattern, targetFilePath)
-            }.toSet(),
-        ),
+            }.toSet()
+        },
     )
 }

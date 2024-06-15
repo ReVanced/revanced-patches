@@ -37,6 +37,32 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
+internal var oldUIDislikeId = -1L
+    private set
+
+private val returnYouTubeDislikeResourcePatch = resourcePatch {
+    dependsOn(
+        settingsPatch,
+        addResourcesPatch,
+    )
+
+    execute {
+        addResources("youtube", "layout.returnyoutubedislike.returnYouTubeDislikeResourcePatch")
+
+        preferences += IntentPreference(
+            key = "revanced_settings_screen_09",
+            titleKey = "revanced_ryd_settings_title",
+            summaryKey = null,
+            intent = newIntent("revanced_ryd_settings_intent"),
+        )
+
+        oldUIDislikeId = resourceMappings[
+            "id",
+            "dislike_button",
+        ]
+    }
+}
+
 private const val INTEGRATIONS_CLASS_DESCRIPTOR =
     "Lapp/revanced/integrations/youtube/patches/ReturnYouTubeDislikePatch;"
 
@@ -92,7 +118,8 @@ val returnYouTubeDislikePatch = bytecodePatch(
     val rollingNumberTextViewFingerprintResult by rollingNumberTextViewFingerprint
     val rollingNumberTextViewAnimationUpdateFingerprintResult by rollingNumberTextViewAnimationUpdateFingerprint
 
-    execute { context -> // region Inject newVideoLoaded event handler to update dislikes when a new video is loaded.
+    execute { context ->
+        // region Inject newVideoLoaded event handler to update dislikes when a new video is loaded.
 
         hookVideoId("$INTEGRATIONS_CLASS_DESCRIPTOR->newVideoLoaded(Ljava/lang/String;)V")
 
@@ -345,30 +372,4 @@ enum class Vote(val value: Int) {
     LIKE(1),
     DISLIKE(-1),
     REMOVE_LIKE(0),
-}
-
-internal var oldUIDislikeId = -1L
-    private set
-
-internal val returnYouTubeDislikeResourcePatch = resourcePatch {
-    dependsOn(
-        settingsPatch,
-        addResourcesPatch,
-    )
-
-    execute {
-        addResources("youtube", "layout.returnyoutubedislike.returnYouTubeDislikeResourcePatch")
-
-        preferences += IntentPreference(
-            key = "revanced_settings_screen_09",
-            titleKey = "revanced_ryd_settings_title",
-            summaryKey = null,
-            intent = newIntent("revanced_ryd_settings_intent"),
-        )
-
-        oldUIDislikeId = resourceMappings[
-            "id",
-            "dislike_button",
-        ]
-    }
 }

@@ -49,16 +49,17 @@ val timelineFilterPatch = bytecodePatch(
                 )
             }
         }
-    }
-    mapOf(
-        timelineConstructorFingerprintResult to 1,
-        postsResponseConstructorFingerprintResult to 2,
-    ).forEach { (result, timelineObjectsRegister) ->
-        result.mutableMethod.addInstructions(
-            0,
-            "invoke-static {p$timelineObjectsRegister}, " +
-                "Lapp/revanced/integrations/tumblr/patches/TimelineFilterPatch;->" +
-                "filterTimeline(Ljava/util/List;)V",
-        )
+
+        mapOf(
+            timelineConstructorFingerprintResult to 1,
+            postsResponseConstructorFingerprintResult to 2,
+        ).forEach { (result, timelineObjectsRegister) ->
+            result.mutableMethod.addInstructions(
+                0,
+                "invoke-static {p$timelineObjectsRegister}, " +
+                    "Lapp/revanced/integrations/tumblr/patches/TimelineFilterPatch;->" +
+                    "filterTimeline(Ljava/util/List;)V",
+            )
+        }
     }
 }

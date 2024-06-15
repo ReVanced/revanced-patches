@@ -43,7 +43,8 @@ val spoofClientPatch = spoofClientPatch(
                      return-object v0
                 """,
             )
-            val occurrenceIndex = getAuthorizationStringFingerprintResult.scanResult.stringsScanResult!!.matches.first().index
+            val occurrenceIndex =
+                getAuthorizationStringFingerprintResult.scanResult.stringsScanResult!!.matches.first().index
 
             getAuthorizationStringFingerprintResult.mutableMethod.apply {
                 val authorizationStringInstruction = getInstruction<ReferenceInstruction>(occurrenceIndex)
@@ -61,33 +62,33 @@ val spoofClientPatch = spoofClientPatch(
                 )
             }
         }
-    }
 
-    // endregion
+        // endregion
 
-    // region Patch user agent.
+        // region Patch user agent.
 
-    // Use a random user agent.
-    val randomName = (0..100000).random()
-    val userAgent = "$randomName:app.revanced.$randomName:v1.0.0 (by /u/revanced)"
+        // Use a random user agent.
+        val randomName = (0..100000).random()
+        val userAgent = "$randomName:app.revanced.$randomName:v1.0.0 (by /u/revanced)"
 
-    imgurImageAPIFingerprintResult.mutableMethod.replaceInstruction(
-        0,
-        """
+        imgurImageAPIFingerprintResult.mutableMethod.replaceInstruction(
+            0,
+            """
             const-string v0, "$userAgent"
             return-object v0
         """,
-    )
+        )
 
-    // endregion
+        // endregion
 
-    // region Patch Imgur API URL.
+        // region Patch Imgur API URL.
 
-    val apiUrlIndex = getUserAgentFingerprintResult.scanResult.stringsScanResult!!.matches.first().index
-    getUserAgentFingerprintResult.mutableMethod.replaceInstruction(
-        apiUrlIndex,
-        "const-string v1, \"https://api.imgur.com/3/image\"",
-    )
+        val apiUrlIndex = getUserAgentFingerprintResult.scanResult.stringsScanResult!!.matches.first().index
+        getUserAgentFingerprintResult.mutableMethod.replaceInstruction(
+            apiUrlIndex,
+            "const-string v1, \"https://api.imgur.com/3/image\"",
+        )
 
-    // endregion
+        // endregion
+    }
 }

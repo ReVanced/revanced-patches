@@ -12,6 +12,34 @@ import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 
+private val copyVideoUrlResourcePatch = resourcePatch {
+    dependsOn(
+        settingsPatch,
+        bottomControlsPatch,
+        addResourcesPatch,
+    )
+
+    execute { context ->
+        addResources("youtube", "interaction.copyvideourl.copyVideoUrlResourcePatch")
+
+        PreferenceScreen.PLAYER.addPreferences(
+            SwitchPreference("revanced_copy_video_url"),
+            SwitchPreference("revanced_copy_video_url_timestamp"),
+        )
+
+        context.copyResources(
+            "copyvideourl",
+            ResourceGroup(
+                resourceDirectoryName = "drawable",
+                "revanced_yt_copy.xml",
+                "revanced_yt_copy_timestamp.xml",
+            ),
+        )
+
+        addBottomControls("copyvideourl")
+    }
+}
+
 @Suppress("unused")
 val copyVideoUrlPatch = bytecodePatch(
     name = "Copy video URL",
@@ -57,34 +85,5 @@ val copyVideoUrlPatch = bytecodePatch(
             initializeControl("$descriptor->initializeButton(Landroid/view/View;)V")
             injectVisibilityCheckCall("$descriptor->changeVisibility(Z)V")
         }
-    }
-}
-
-@Suppress("unused")
-val copyVideoUrlResourcePatch = resourcePatch {
-    dependsOn(
-        settingsPatch,
-        bottomControlsPatch,
-        addResourcesPatch,
-    )
-
-    execute { context ->
-        addResources("youtube", "interaction.copyvideourl.copyVideoUrlResourcePatch")
-
-        PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_copy_video_url"),
-            SwitchPreference("revanced_copy_video_url_timestamp"),
-        )
-
-        context.copyResources(
-            "copyvideourl",
-            ResourceGroup(
-                resourceDirectoryName = "drawable",
-                "revanced_yt_copy.xml",
-                "revanced_yt_copy_timestamp.xml",
-            ),
-        )
-
-        addBottomControls("copyvideourl")
     }
 }

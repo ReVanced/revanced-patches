@@ -15,6 +15,30 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
+internal var sizeAdjustableLiteAutoNavOverlay = -1L
+    private set
+
+internal val disableSuggestedVideoEndScreenResourcePatch = resourcePatch {
+    dependsOn(
+        settingsPatch,
+        resourceMappingPatch,
+        addResourcesPatch,
+    )
+
+    execute {
+        addResources("youtube", "layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch")
+
+        PreferenceScreen.PLAYER.addPreferences(
+            SwitchPreference("revanced_disable_suggested_video_end_screen"),
+        )
+
+        sizeAdjustableLiteAutoNavOverlay = resourceMappings[
+            "layout",
+            "size_adjustable_lite_autonav_overlay",
+        ]
+    }
+}
+
 private const val INTEGRATIONS_CLASS_DESCRIPTOR =
     "Lapp/revanced/integrations/youtube/patches/DisableSuggestedVideoEndScreenPatch;"
 
@@ -69,29 +93,5 @@ val disableSuggestedVideoEndScreenPatch = bytecodePatch(
                     "$INTEGRATIONS_CLASS_DESCRIPTOR->closeEndScreen(Landroid/widget/ImageView;)V",
             )
         }
-    }
-}
-
-internal var sizeAdjustableLiteAutoNavOverlay = -1L
-    private set
-
-internal val disableSuggestedVideoEndScreenResourcePatch = resourcePatch {
-    dependsOn(
-        settingsPatch,
-        resourceMappingPatch,
-        addResourcesPatch,
-    )
-
-    execute {
-        addResources("youtube", "layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch")
-
-        PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_disable_suggested_video_end_screen"),
-        )
-
-        sizeAdjustableLiteAutoNavOverlay = resourceMappings[
-            "layout",
-            "size_adjustable_lite_autonav_overlay",
-        ]
     }
 }

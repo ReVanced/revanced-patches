@@ -7,6 +7,23 @@ import app.revanced.patches.all.misc.transformation.filterMapInstruction35c
 import app.revanced.patches.all.misc.transformation.transformInstructionsPatch
 import org.w3c.dom.Element
 
+private val removeCaptureRestrictionResourcePatch = resourcePatch(
+    description = "Sets allowAudioPlaybackCapture in manifest to true.",
+) {
+    execute { context ->
+        context.document["AndroidManifest.xml"].use { document ->
+            // Get the application node.
+            val applicationNode =
+                document
+                    .getElementsByTagName("application")
+                    .item(0) as Element
+
+            // Set allowAudioPlaybackCapture attribute to true.
+            applicationNode.setAttribute("android:allowAudioPlaybackCapture", "true")
+        }
+    }
+}
+
 private const val INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX =
     "Lapp/revanced/integrations/all/screencapture/removerestriction/RemoveScreencaptureRestrictionPatch"
 private const val INTEGRATIONS_CLASS_DESCRIPTOR = "$INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX;"
@@ -62,22 +79,4 @@ private enum class MethodCall(
         arrayOf("I"),
         "V",
     ),
-}
-
-@Suppress("unused")
-internal val removeCaptureRestrictionResourcePatch = resourcePatch(
-    description = "Sets allowAudioPlaybackCapture in manifest to true.",
-) {
-    execute { context ->
-        context.document["AndroidManifest.xml"].use { document ->
-            // Get the application node.
-            val applicationNode =
-                document
-                    .getElementsByTagName("application")
-                    .item(0) as Element
-
-            // Set allowAudioPlaybackCapture attribute to true.
-            applicationNode.setAttribute("android:allowAudioPlaybackCapture", "true")
-        }
-    }
 }

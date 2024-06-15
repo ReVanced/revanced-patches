@@ -21,6 +21,39 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction31i
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 
+internal var adAttributionId = -1L
+    private set
+
+private val hideAdsResourcePatch = resourcePatch {
+    dependsOn(
+        lithoFilterPatch,
+        settingsPatch,
+        resourceMappingPatch,
+        addResourcesPatch,
+    )
+
+    execute {
+        addResources("youtube", "ad.general.hideAdsResourcePatch")
+
+        PreferenceScreen.ADS.addPreferences(
+            SwitchPreference("revanced_hide_general_ads"),
+            SwitchPreference("revanced_hide_fullscreen_ads"),
+            SwitchPreference("revanced_hide_buttoned_ads"),
+            SwitchPreference("revanced_hide_paid_promotion_label"),
+            SwitchPreference("revanced_hide_self_sponsor_ads"),
+            SwitchPreference("revanced_hide_products_banner"),
+            SwitchPreference("revanced_hide_shopping_links"),
+            SwitchPreference("revanced_hide_visit_store_button"),
+            SwitchPreference("revanced_hide_web_search_results"),
+            SwitchPreference("revanced_hide_merchandise_banners"),
+        )
+
+        addLithoFilter("Lapp/revanced/integrations/youtube/patches/components/AdsFilter;")
+
+        adAttributionId = resourceMappings["id", "ad_attribution"]
+    }
+}
+
 @Suppress("unused")
 val hideAdsPatch = bytecodePatch(
     name = "Hide ads",
@@ -99,39 +132,5 @@ val hideAdsPatch = bytecodePatch(
                 }
             }
         }
-    }
-}
-
-internal var adAttributionId = -1L
-    private set
-
-@Suppress("unused")
-val hideAdsResourcePatch = resourcePatch {
-    dependsOn(
-        lithoFilterPatch,
-        settingsPatch,
-        resourceMappingPatch,
-        addResourcesPatch,
-    )
-
-    execute {
-        addResources("youtube", "ad.general.hideAdsResourcePatch")
-
-        PreferenceScreen.ADS.addPreferences(
-            SwitchPreference("revanced_hide_general_ads"),
-            SwitchPreference("revanced_hide_fullscreen_ads"),
-            SwitchPreference("revanced_hide_buttoned_ads"),
-            SwitchPreference("revanced_hide_paid_promotion_label"),
-            SwitchPreference("revanced_hide_self_sponsor_ads"),
-            SwitchPreference("revanced_hide_products_banner"),
-            SwitchPreference("revanced_hide_shopping_links"),
-            SwitchPreference("revanced_hide_visit_store_button"),
-            SwitchPreference("revanced_hide_web_search_results"),
-            SwitchPreference("revanced_hide_merchandise_banners"),
-        )
-
-        addLithoFilter("Lapp/revanced/integrations/youtube/patches/components/AdsFilter;")
-
-        adAttributionId = resourceMappings["id", "ad_attribution"]
     }
 }

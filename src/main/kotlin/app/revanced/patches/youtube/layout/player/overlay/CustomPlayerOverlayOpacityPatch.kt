@@ -16,6 +16,30 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
+internal var scrimOverlayId = -1L
+    private set
+
+private val customPlayerOverlayOpacityResourcePatch = resourcePatch {
+    dependsOn(
+        settingsPatch,
+        resourceMappingPatch,
+        addResourcesPatch,
+    )
+
+    execute {
+        addResources("youtube", "layout.player.overlay.customPlayerOverlayOpacityResourcePatch")
+
+        PreferenceScreen.PLAYER.addPreferences(
+            TextPreference("revanced_player_overlay_opacity", inputType = InputType.NUMBER),
+        )
+
+        scrimOverlayId = resourceMappings[
+            "id",
+            "scrim_overlay",
+        ]
+    }
+}
+
 private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/CustomPlayerOverlayOpacityPatch;"
 
 @Suppress("unused")
@@ -43,29 +67,5 @@ val customPlayerOverlayOpacityPatch = bytecodePatch(
                     "$INTEGRATIONS_CLASS_DESCRIPTOR->changeOpacity(Landroid/widget/ImageView;)V",
             )
         }
-    }
-}
-
-internal var scrimOverlayId = -1L
-    private set
-
-internal val customPlayerOverlayOpacityResourcePatch = resourcePatch {
-    dependsOn(
-        settingsPatch,
-        resourceMappingPatch,
-        addResourcesPatch,
-    )
-
-    execute {
-        addResources("youtube", "layout.player.overlay.customPlayerOverlayOpacityResourcePatch")
-
-        PreferenceScreen.PLAYER.addPreferences(
-            TextPreference("revanced_player_overlay_opacity", inputType = InputType.NUMBER),
-        )
-
-        scrimOverlayId = resourceMappings[
-            "id",
-            "scrim_overlay",
-        ]
     }
 }

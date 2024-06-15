@@ -7,6 +7,24 @@ import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
 
+internal var showBottomNavigationItemsTextId = -1L
+    private set
+internal var premiumTabId = -1L
+    private set
+
+private val premiumNavbarTabResourcePatch = resourcePatch {
+    dependsOn(resourceMappingPatch)
+
+    execute {
+        premiumTabId = resourceMappings["id", "premium_tab"]
+
+        showBottomNavigationItemsTextId = resourceMappings[
+            "bool",
+            "show_bottom_navigation_items_text",
+        ]
+    }
+}
+
 @Suppress("unused")
 val premiumNavbarTabPatch = bytecodePatch(
     name = "Premium navbar tab",
@@ -30,24 +48,5 @@ val premiumNavbarTabPatch = bytecodePatch(
                 nop
             """,
         )
-    }
-}
-
-internal var showBottomNavigationItemsTextId = -1L
-    private set
-internal var premiumTabId = -1L
-    private set
-
-@Suppress("unused")
-val premiumNavbarTabResourcePatch = resourcePatch {
-    dependsOn(resourceMappingPatch)
-
-    execute { context ->
-        premiumTabId = resourceMappings["id", "premium_tab"]
-
-        showBottomNavigationItemsTextId = resourceMappings[
-            "bool",
-            "show_bottom_navigation_items_text",
-        ]
     }
 }

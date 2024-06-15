@@ -20,6 +20,41 @@ import app.revanced.util.traverseClassHierarchy
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 
+private val swipeControlsResourcePatch = resourcePatch {
+    dependsOn(
+        settingsPatch,
+        addResourcesPatch,
+    )
+
+    execute { context ->
+        addResources("youtube", "interaction.swipecontrols.swipeControlsResourcePatch")
+
+        PreferenceScreen.SWIPE_CONTROLS.addPreferences(
+            SwitchPreference("revanced_swipe_brightness"),
+            SwitchPreference("revanced_swipe_volume"),
+            SwitchPreference("revanced_swipe_press_to_engage"),
+            SwitchPreference("revanced_swipe_haptic_feedback"),
+            SwitchPreference("revanced_swipe_save_and_restore_brightness"),
+            SwitchPreference("revanced_swipe_lowest_value_enable_auto_brightness"),
+            TextPreference("revanced_swipe_overlay_timeout", inputType = InputType.NUMBER),
+            TextPreference("revanced_swipe_text_overlay_size", inputType = InputType.NUMBER),
+            TextPreference("revanced_swipe_overlay_background_alpha", inputType = InputType.NUMBER),
+            TextPreference("revanced_swipe_threshold", inputType = InputType.NUMBER),
+        )
+
+        context.copyResources(
+            "swipecontrols",
+            ResourceGroup(
+                "drawable",
+                "revanced_ic_sc_brightness_auto.xml",
+                "revanced_ic_sc_brightness_manual.xml",
+                "revanced_ic_sc_volume_mute.xml",
+                "revanced_ic_sc_volume_normal.xml",
+            ),
+        )
+    }
+}
+
 @Suppress("unused")
 val swipeControlsPatch = bytecodePatch(
     name = "Swipe controls",
@@ -87,41 +122,5 @@ val swipeControlsPatch = bytecodePatch(
                 ).toMutable()
             }
         }
-    }
-}
-
-@Suppress("unused")
-val swipeControlsResourcePatch = resourcePatch {
-    dependsOn(
-        settingsPatch,
-        addResourcesPatch,
-    )
-
-    execute { context ->
-        addResources("youtube", "interaction.swipecontrols.swipeControlsResourcePatch")
-
-        PreferenceScreen.SWIPE_CONTROLS.addPreferences(
-            SwitchPreference("revanced_swipe_brightness"),
-            SwitchPreference("revanced_swipe_volume"),
-            SwitchPreference("revanced_swipe_press_to_engage"),
-            SwitchPreference("revanced_swipe_haptic_feedback"),
-            SwitchPreference("revanced_swipe_save_and_restore_brightness"),
-            SwitchPreference("revanced_swipe_lowest_value_enable_auto_brightness"),
-            TextPreference("revanced_swipe_overlay_timeout", inputType = InputType.NUMBER),
-            TextPreference("revanced_swipe_text_overlay_size", inputType = InputType.NUMBER),
-            TextPreference("revanced_swipe_overlay_background_alpha", inputType = InputType.NUMBER),
-            TextPreference("revanced_swipe_threshold", inputType = InputType.NUMBER),
-        )
-
-        context.copyResources(
-            "swipecontrols",
-            ResourceGroup(
-                "drawable",
-                "revanced_ic_sc_brightness_auto.xml",
-                "revanced_ic_sc_brightness_manual.xml",
-                "revanced_ic_sc_volume_mute.xml",
-                "revanced_ic_sc_volume_normal.xml",
-            ),
-        )
     }
 }

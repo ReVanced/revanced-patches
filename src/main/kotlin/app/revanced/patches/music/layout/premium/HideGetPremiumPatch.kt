@@ -44,13 +44,13 @@ val hideGetPremiumPatch = bytecodePatch(
                     "Landroid/view/View;->setVisibility(I)V",
             )
         }
-    }
 
-    membershipSettingsFingerprintResult.mutableMethod.addInstructions(
-        0,
-        """
+        membershipSettingsFingerprintResult.mutableMethod.addInstructions(
+            0,
+            """
             const/4 v0, 0x0
             return-object v0
         """,
-    )
+        )
+    }
 }

@@ -21,6 +21,29 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
+internal var drawerResourceId = -1L
+    private set
+
+private val hideInfocardsResourcePatch = resourcePatch {
+    dependsOn(
+        settingsPatch,
+        resourceMappingPatch,
+        addResourcesPatch,
+    )
+    execute {
+        addResources("youtube", "layout.hide.infocards.hideInfocardsResourcePatch")
+
+        PreferenceScreen.PLAYER.addPreferences(
+            SwitchPreference("revanced_hide_info_cards"),
+        )
+
+        drawerResourceId = resourceMappings[
+            "id",
+            "info_cards_drawer_header",
+        ]
+    }
+}
+
 @Suppress("unused")
 val hideInfoCardsPatch = bytecodePatch(
     name = "Hide info cards",
@@ -101,28 +124,5 @@ val hideInfoCardsPatch = bytecodePatch(
         // Info cards can also appear as Litho components.
         val filterClassDescriptor = "Lapp/revanced/integrations/youtube/patches/components/HideInfoCardsFilterPatch;"
         addLithoFilter(filterClassDescriptor)
-    }
-}
-
-internal var drawerResourceId = -1L
-    private set
-
-internal val hideInfocardsResourcePatch = resourcePatch {
-    dependsOn(
-        settingsPatch,
-        resourceMappingPatch,
-        addResourcesPatch,
-    )
-    execute {
-        addResources("youtube", "layout.hide.infocards.hideInfocardsResourcePatch")
-
-        PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_hide_info_cards"),
-        )
-
-        drawerResourceId = resourceMappings[
-            "id",
-            "info_cards_drawer_header",
-        ]
     }
 }

@@ -15,6 +15,27 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
+internal var albumCardId = -1L
+    private set
+
+private val albumCardsResourcePatch = resourcePatch {
+    dependsOn(
+        settingsPatch,
+        resourceMappingPatch,
+        addResourcesPatch,
+    )
+
+    execute {
+        addResources("youtube", "layout.hide.albumcards.albumCardsResourcePatch")
+
+        PreferenceScreen.FEED.addPreferences(
+            SwitchPreference("revanced_hide_album_cards"),
+        )
+
+        albumCardId = resourceMappings["layout", "album_card"]
+    }
+}
+
 @Suppress("unused")
 val albumCardsPatch = bytecodePatch(
     name = "Hide album cards",
@@ -71,27 +92,5 @@ val albumCardsPatch = bytecodePatch(
                     "hideAlbumCard(Landroid/view/View;)V",
             )
         }
-    }
-}
-
-internal var albumCardId = -1L
-    private set
-
-@Suppress("unused")
-val albumCardsResourcePatch = resourcePatch {
-    dependsOn(
-        settingsPatch,
-        resourceMappingPatch,
-        addResourcesPatch,
-    )
-
-    execute {
-        addResources("youtube", "layout.hide.albumcards.albumCardsResourcePatch")
-
-        PreferenceScreen.FEED.addPreferences(
-            SwitchPreference("revanced_hide_album_cards"),
-        )
-
-        albumCardId = resourceMappings["layout", "album_card"]
     }
 }

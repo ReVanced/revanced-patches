@@ -25,6 +25,18 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
+internal var expandButtonDownId = -1L
+
+private val hideLayoutComponentsResourcePatch = resourcePatch {
+    dependsOn(resourceMappingPatch)
+
+    execute {
+        expandButtonDownId = resourceMappings[
+            "layout",
+            "expand_button_down",
+        ]
+    }
+}
 private const val LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR =
     "Lapp/revanced/integrations/youtube/patches/components/LayoutComponentsFilter;"
 private const val DESCRIPTION_COMPONENTS_FILTER_CLASS_NAME =
@@ -223,18 +235,5 @@ val hideLayoutComponentsPatch = bytecodePatch(
         }
 
         // endregion
-    }
-}
-
-internal var expandButtonDownId = -1L
-
-internal val hideLayoutComponentsResourcePatch = resourcePatch {
-    dependsOn(resourceMappingPatch)
-
-    execute {
-        expandButtonDownId = resourceMappings[
-            "layout",
-            "expand_button_down",
-        ]
     }
 }

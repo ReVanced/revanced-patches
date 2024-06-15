@@ -4,9 +4,14 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.rawResourcePatch
 import kotlin.math.max
 
-fun hexPatch(replacements: Set<Replacement>) = rawResourcePatch {
+// The replacements being passed using a function is intended.
+// Previously the replacements were a property of the patch. Getter were being delegated to that property.
+// This late evaluation was being leveraged in app.revanced.patches.all.misc.hex.HexPatch.
+// Without the function, the replacements would be evaluated at the time of patch creation.
+// This isn't possible because the delegated property is not accessible at that time.
+fun hexPatch(replacementsSupplier: () -> Set<Replacement>) = rawResourcePatch {
     execute { context ->
-        replacements.groupBy { it.targetFilePath }.forEach { (targetFilePath, replacements) ->
+        replacementsSupplier().groupBy { it.targetFilePath }.forEach { (targetFilePath, replacements) ->
             val targetFile = try {
                 context[targetFilePath, true]
             } catch (e: Exception) {
@@ -85,12 +90,13 @@ class Replacement(
         for (i in 0..haystackLength - needleLength) {
             skip = 0
 
-            for (j in needleLength - 1 downTo 0)
+            for (j in needleLength - 1 downTo 0) {
                 if (needle[j] != haystack[i + j]) {
                     skip = max(1, j - right[haystack[i + j].toInt().and(0xFF)])
 
                     break
                 }
+            }
 
             if (skip == 0) return i
         }

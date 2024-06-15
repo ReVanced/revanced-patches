@@ -12,6 +12,22 @@ import app.revanced.patches.youtube.video.speed.custom.customPlaybackSpeedPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 
+private val playbackSpeedButtonResourcePatch = resourcePatch {
+    dependsOn(bottomControlsPatch)
+
+    execute { context ->
+        context.copyResources(
+            "speedbutton",
+            ResourceGroup(
+                "drawable",
+                "revanced_playback_speed_dialog_button.xml",
+            ),
+        )
+
+        addBottomControls("speedbutton")
+    }
+}
+
 private const val SPEED_BUTTON_CLASS_DESCRIPTOR =
     "Lapp/revanced/integrations/youtube/videoplayer/PlaybackSpeedDialogButton;"
 
@@ -36,21 +52,5 @@ val playbackSpeedButtonPatch = bytecodePatch(
 
         initializeControl("$SPEED_BUTTON_CLASS_DESCRIPTOR->initializeButton(Landroid/view/View;)V")
         injectVisibilityCheckCall("$SPEED_BUTTON_CLASS_DESCRIPTOR->changeVisibility(Z)V")
-    }
-}
-
-internal val playbackSpeedButtonResourcePatch = resourcePatch {
-    dependsOn(bottomControlsPatch)
-
-    execute { context ->
-        context.copyResources(
-            "speedbutton",
-            ResourceGroup(
-                "drawable",
-                "revanced_playback_speed_dialog_button.xml",
-            ),
-        )
-
-        addBottomControls("speedbutton")
     }
 }

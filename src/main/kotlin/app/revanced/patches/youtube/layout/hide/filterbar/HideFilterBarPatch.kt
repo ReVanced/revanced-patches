@@ -18,6 +18,40 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
+internal var filterBarHeightId = -1L
+    private set
+internal var relatedChipCloudMarginId = -1L
+    private set
+internal var barContainerHeightId = -1L
+    private set
+
+private val hideFilterBarResourcePatch = resourcePatch {
+    dependsOn(
+        settingsPatch,
+        resourceMappingPatch,
+        addResourcesPatch,
+    )
+
+    execute {
+        addResources("youtube", "layout.hide.filterbar.hideFilterBarResourcePatch")
+
+        PreferenceScreen.FEED.addPreferences(
+            PreferenceScreenPreference(
+                key = "revanced_hide_filter_bar_screen",
+                preferences = setOf(
+                    SwitchPreference("revanced_hide_filter_bar_feed_in_feed"),
+                    SwitchPreference("revanced_hide_filter_bar_feed_in_search"),
+                    SwitchPreference("revanced_hide_filter_bar_feed_in_related_videos"),
+                ),
+            ),
+        )
+
+        relatedChipCloudMarginId = resourceMappings["layout", "related_chip_cloud_reduced_margins"]
+        filterBarHeightId = resourceMappings["dimen", "filter_bar_height"]
+        barContainerHeightId = resourceMappings["dimen", "bar_container_height"]
+    }
+}
+
 internal const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/HideFilterBarPatch;"
 
 @Suppress("unused")
@@ -94,39 +128,5 @@ val hideFilterBarPatch = bytecodePatch(
                 move-result v$register
             """
         }
-    }
-}
-
-internal var filterBarHeightId = -1L
-    private set
-internal var relatedChipCloudMarginId = -1L
-    private set
-internal var barContainerHeightId = -1L
-    private set
-
-val hideFilterBarResourcePatch = resourcePatch {
-    dependsOn(
-        settingsPatch,
-        resourceMappingPatch,
-        addResourcesPatch,
-    )
-
-    execute {
-        addResources("youtube", "layout.hide.filterbar.hideFilterBarResourcePatch")
-
-        PreferenceScreen.FEED.addPreferences(
-            PreferenceScreenPreference(
-                key = "revanced_hide_filter_bar_screen",
-                preferences = setOf(
-                    SwitchPreference("revanced_hide_filter_bar_feed_in_feed"),
-                    SwitchPreference("revanced_hide_filter_bar_feed_in_search"),
-                    SwitchPreference("revanced_hide_filter_bar_feed_in_related_videos"),
-                ),
-            ),
-        )
-
-        relatedChipCloudMarginId = resourceMappings["layout", "related_chip_cloud_reduced_margins"]
-        filterBarHeightId = resourceMappings["dimen", "filter_bar_height"]
-        barContainerHeightId = resourceMappings["dimen", "bar_container_height"]
     }
 }

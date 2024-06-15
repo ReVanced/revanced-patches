@@ -22,6 +22,20 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
+internal var imageOnlyTabResourceId = -1L
+    private set
+internal var actionBarSearchResultsViewMicId = -1L
+    private set
+
+private val navigationBarHookResourcePatch = resourcePatch {
+    dependsOn(resourceMappingPatch)
+
+    execute {
+        imageOnlyTabResourceId = resourceMappings["layout", "image_only_tab"]
+        actionBarSearchResultsViewMicId = resourceMappings["layout", "action_bar_search_results_view_mic"]
+    }
+}
+
 internal const val INTEGRATIONS_CLASS_DESCRIPTOR =
     "Lapp/revanced/integrations/youtube/shared/NavigationBar;"
 internal const val INTEGRATIONS_NAVIGATION_BUTTON_DESCRIPTOR =
@@ -146,18 +160,4 @@ private enum class Hook(val methodName: String, val parameters: String) {
     NAVIGATION_TAB_LOADED("navigationTabLoaded", "Landroid/view/View;"),
     NAVIGATION_IMAGE_RESOURCE_TAB_LOADED("navigationImageResourceTabLoaded", "Landroid/view/View;"),
     SEARCH_BAR_RESULTS_VIEW_LOADED("searchBarResultsViewLoaded", "Landroid/view/View;"),
-}
-
-internal var imageOnlyTabResourceId = -1L
-    private set
-internal var actionBarSearchResultsViewMicId = -1L
-    private set
-
-internal val navigationBarHookResourcePatch = resourcePatch {
-    dependsOn(resourceMappingPatch)
-
-    execute {
-        imageOnlyTabResourceId = resourceMappings["layout", "image_only_tab"]
-        actionBarSearchResultsViewMicId = resourceMappings["layout", "action_bar_search_results_view_mic"]
-    }
 }

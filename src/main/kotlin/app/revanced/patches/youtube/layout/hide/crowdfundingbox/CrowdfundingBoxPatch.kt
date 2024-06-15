@@ -15,6 +15,29 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
+var crowdfundingBoxId = -1L
+
+private val crowdfundingBoxResourcePatch = resourcePatch {
+    dependsOn(
+        settingsPatch,
+        resourceMappingPatch,
+        addResourcesPatch,
+    )
+
+    execute {
+        addResources("youtube", "layout.hide.crowdfundingbox.crowdfundingBoxResourcePatch")
+
+        PreferenceScreen.FEED.addPreferences(
+            SwitchPreference("revanced_hide_crowdfunding_box"),
+        )
+
+        crowdfundingBoxId = resourceMappings[
+            "layout",
+            "donation_companion",
+        ]
+    }
+}
+
 @Suppress("unused")
 val crowdfundingBoxPatch = bytecodePatch(
     name = "Hide crowdfunding box",
@@ -68,28 +91,5 @@ val crowdfundingBoxPatch = bytecodePatch(
                     "hideCrowdfundingBox(Landroid/view/View;)V",
             )
         }
-    }
-}
-
-var crowdfundingBoxId = -1L
-
-val crowdfundingBoxResourcePatch = resourcePatch {
-    dependsOn(
-        settingsPatch,
-        resourceMappingPatch,
-        addResourcesPatch,
-    )
-
-    execute {
-        addResources("youtube", "layout.hide.crowdfundingbox.crowdfundingBoxResourcePatch")
-
-        PreferenceScreen.FEED.addPreferences(
-            SwitchPreference("revanced_hide_crowdfunding_box"),
-        )
-
-        crowdfundingBoxId = resourceMappings[
-            "layout",
-            "donation_companion",
-        ]
     }
 }

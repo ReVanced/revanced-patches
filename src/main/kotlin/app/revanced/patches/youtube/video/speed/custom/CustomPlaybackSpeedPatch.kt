@@ -33,6 +33,20 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 
+var speedUnavailableId = -1L
+    internal set
+
+private val customPlaybackSpeedResourcePatch = resourcePatch {
+    dependsOn(resourceMappingPatch)
+
+    execute {
+        speedUnavailableId = resourceMappings[
+            "string",
+            "varispeed_unavailable_message",
+        ]
+    }
+}
+
 private const val FILTER_CLASS_DESCRIPTOR =
     "Lapp/revanced/integrations/youtube/patches/components/PlaybackSpeedMenuFilterPatch;"
 
@@ -166,19 +180,5 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         }
 
         // endregion
-    }
-}
-
-var speedUnavailableId = -1L
-    internal set
-
-internal val customPlaybackSpeedResourcePatch = resourcePatch {
-    dependsOn(resourceMappingPatch)
-
-    execute {
-        speedUnavailableId = resourceMappings[
-            "string",
-            "varispeed_unavailable_message",
-        ]
     }
 }
