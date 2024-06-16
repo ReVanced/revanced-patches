@@ -71,7 +71,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
     val showOldPlaybackSpeedMenuIntegrationsFingerprintResult by showOldPlaybackSpeedMenuIntegrationsFingerprint()
 
     execute { context ->
-        addResources("youtube", "video.speed.custom.customPlaybackSpeedResourcePatch")
+        addResources("youtube", "video.speed.custom.customPlaybackSpeedPatch")
 
         PreferenceScreen.VIDEO.addPreferences(
             TextPreference("revanced_custom_playback_speeds", inputType = InputType.TEXT_MULTI_LINE),

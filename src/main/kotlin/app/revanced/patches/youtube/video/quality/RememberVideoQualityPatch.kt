@@ -112,7 +112,7 @@ val rememberVideoQualityPatch = bytecodePatch(
                 .find { method -> method.parameterTypes.first() == "I" }
                 ?: throw PatchException("Could not find setQualityByIndex method")
 
-            result.mutableMethod.addInstructions(
+            videoQualitySetterFingerprintResult.mutableMethod.addInstructions(
                 0,
                 """
                     # Get the object instance to invoke the setQualityByIndex method on.

@@ -46,6 +46,8 @@ private val settingsResourcePatch = resourcePatch {
     )
 
     execute { context ->
+        addResources("youtube", "misc.settings.settingsResourcePatch")
+
         // Used for a fingerprint from SettingsPatch.
         appearanceStringId = resourceMappings["string", "app_theme_appearance_dark"]
 

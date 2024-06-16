@@ -978,7 +978,7 @@
             <string name="revanced_miniplayer_opacity_summary">Opacity value between 0-100, where 0 is transparent</string>
             <string name="revanced_miniplayer_opacity_invalid_toast">Miniplayer overlay opacity must be between 0-100</string>
         </patch>
-        <patch id="layout.theme.themeBytecodePatch">
+        <patch id="layout.theme.themePatch">
             <string name="revanced_gradient_loading_screen_title">Enable gradient loading screen</string>
             <string name="revanced_gradient_loading_screen_summary_on">Loading screen will have a gradient background</string>
             <string name="revanced_gradient_loading_screen_summary_off">Loading screen will have a solid background</string>

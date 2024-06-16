@@ -1094,7 +1094,7 @@ public final class app/revanced/patches/youtube/layout/theme/LithoColorHookPatch
 	public static final fun getLithoColorOverrideHook ()Lkotlin/jvm/functions/Function2;
 }
 
-public final class app/revanced/patches/youtube/layout/theme/ThemeBytecodePatchKt {
+public final class app/revanced/patches/youtube/layout/theme/ThemePatchKt {
 	public static final fun getThemePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 

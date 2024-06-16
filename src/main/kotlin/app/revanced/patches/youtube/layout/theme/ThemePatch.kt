@@ -200,7 +200,7 @@ val themePatch = bytecodePatch(
     val themeHelperDarkColorFingerprintResult by themeHelperDarkColorFingerprint()
 
     execute {
-        addResources("youtube", "layout.theme.themeResourcePatch")
+        addResources("youtube", "layout.theme.themePatch")
 
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(
             SwitchPreference("revanced_gradient_loading_screen"),
