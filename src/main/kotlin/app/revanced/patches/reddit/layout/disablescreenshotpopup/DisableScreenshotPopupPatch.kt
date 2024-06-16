@@ -10,7 +10,7 @@ val disableScreenshotPopupPatch = bytecodePatch(
 ) {
     compatibleWith("com.reddit.frontpage")
 
-    val disableScreenshotPopupFingerprintResult by disableScreenshotPopupFingerprint
+    val disableScreenshotPopupFingerprintResult by disableScreenshotPopupFingerprint()
 
     execute {
         disableScreenshotPopupFingerprintResult.mutableMethod.addInstruction(0, "return-void")

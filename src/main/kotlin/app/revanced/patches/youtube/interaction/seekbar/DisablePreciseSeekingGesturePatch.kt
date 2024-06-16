@@ -51,7 +51,7 @@ val disablePreciseSeekingGesturePatch = bytecodePatch(
         ),
     )
 
-    val isSwipingUpFingerprintResult by isSwipingUpFingerprint
+    val isSwipingUpFingerprintResult by isSwipingUpFingerprint()
 
     execute {
         addResources("youtube", "interaction.seekbar.disablePreciseSeekingGesturePatch")

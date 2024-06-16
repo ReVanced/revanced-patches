@@ -7,7 +7,7 @@ import app.revanced.patcher.patch.bytecodePatch
 val signatureVerificationPatch = bytecodePatch(
     description = "Disables detection of incorrect signature.",
 ) {
-    val verifySignatureFingerprintResult by verifySignatureFingerprint
+    val verifySignatureFingerprintResult by verifySignatureFingerprint()
 
     execute {
         verifySignatureFingerprintResult.mutableMethod.replaceInstructions(

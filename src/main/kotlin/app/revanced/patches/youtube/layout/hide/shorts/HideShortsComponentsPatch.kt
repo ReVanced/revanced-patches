@@ -135,10 +135,10 @@ val hideShortsComponentsPatch = bytecodePatch(
         ),
     )
 
-    val createShortsButtonsFingerprintResult by createShortsButtonsFingerprint
-    val bottomNavigationBarFingerprintResult by bottomNavigationBarFingerprint
-    val renderBottomNavigationBarParentFingerprintResult by renderBottomNavigationBarParentFingerprint
-    val setPivotBarVisibilityParentFingerprintResult by setPivotBarVisibilityParentFingerprint
+    val createShortsButtonsFingerprintResult by createShortsButtonsFingerprint()
+    val bottomNavigationBarFingerprintResult by bottomNavigationBarFingerprint()
+    val renderBottomNavigationBarParentFingerprintResult by renderBottomNavigationBarParentFingerprint()
+    val setPivotBarVisibilityParentFingerprintResult by setPivotBarVisibilityParentFingerprint()
     reelConstructorFingerprint()
 
     execute { context ->

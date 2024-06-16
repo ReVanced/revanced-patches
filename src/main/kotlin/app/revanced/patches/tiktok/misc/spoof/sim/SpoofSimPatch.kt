@@ -29,7 +29,7 @@ val spoofSimPatch = bytecodePatch(
         "com.zhiliaoapp.musically",
     )
 
-    val settingsStatusLoadFingerprintResult by settingsStatusLoadFingerprint
+    val settingsStatusLoadFingerprintResult by settingsStatusLoadFingerprint()
 
     execute { context ->
         val replacements = hashMapOf(

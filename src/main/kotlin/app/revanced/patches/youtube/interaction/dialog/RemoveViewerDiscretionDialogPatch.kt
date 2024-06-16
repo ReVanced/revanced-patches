@@ -52,7 +52,7 @@ val removeViewerDiscretionDialogPatch = bytecodePatch(
         ),
     )
 
-    val createDialogFingerprintResult by createDialogFingerprint
+    val createDialogFingerprintResult by createDialogFingerprint()
 
     val integrationsMethodDescriptor =
         "Lapp/revanced/integrations/youtube/patches/RemoveViewerDiscretionDialogPatch;->" +

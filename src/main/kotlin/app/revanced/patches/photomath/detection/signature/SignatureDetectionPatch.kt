@@ -9,7 +9,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 val signatureDetectionPatch = bytecodePatch(
     description = "Disables detection of incorrect signature.",
 ) {
-    val checkSignatureFingerprintResult by checkSignatureFingerprint
+    val checkSignatureFingerprintResult by checkSignatureFingerprint()
 
     execute {
         val signatureCheckInstruction = checkSignatureFingerprintResult.mutableMethod.getInstruction(

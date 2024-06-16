@@ -80,7 +80,7 @@ val disableSuggestedVideoEndScreenPatch = bytecodePatch(
         ),
     )
 
-    val createEndScreenViewFingerprintResult by createEndScreenViewFingerprint
+    val createEndScreenViewFingerprintResult by createEndScreenViewFingerprint()
 
     execute {
         createEndScreenViewFingerprintResult.mutableMethod.apply {

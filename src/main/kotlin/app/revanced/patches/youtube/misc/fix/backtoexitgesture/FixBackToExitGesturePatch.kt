@@ -9,9 +9,9 @@ import app.revanced.util.resultOrThrow
 internal val fixBackToExitGesturePatch = bytecodePatch(
     description = "Fixes the swipe back to exit gesture.",
 ) {
-    val recyclerViewTopScrollingParentFingerprintResult by recyclerViewTopScrollingParentFingerprint
-    val recyclerViewScrollingFingerprintResult by recyclerViewScrollingFingerprint
-    val onBackPressedFingerprintResult by onBackPressedFingerprint
+    val recyclerViewTopScrollingParentFingerprintResult by recyclerViewTopScrollingParentFingerprint()
+    val recyclerViewScrollingFingerprintResult by recyclerViewScrollingFingerprint()
+    val onBackPressedFingerprintResult by onBackPressedFingerprint()
 
     execute { context ->
         recyclerViewTopScrollingFingerprint.apply {

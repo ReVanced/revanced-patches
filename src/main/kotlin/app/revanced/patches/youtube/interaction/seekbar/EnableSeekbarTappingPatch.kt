@@ -51,8 +51,8 @@ val enableSeekbarTappingPatch = bytecodePatch(
         ),
     )
 
-    val onTouchEventHandlerFingerprintResult by onTouchEventHandlerFingerprint
-    val seekbarTappingFingerprintResult by seekbarTappingFingerprint
+    val onTouchEventHandlerFingerprintResult by onTouchEventHandlerFingerprint()
+    val seekbarTappingFingerprintResult by seekbarTappingFingerprint()
 
     execute {
         addResources("youtube", "interaction.seekbar.enableSeekbarTappingPatch")

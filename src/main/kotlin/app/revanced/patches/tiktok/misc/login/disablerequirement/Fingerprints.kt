@@ -9,7 +9,7 @@ internal val mandatoryLoginServiceFingerprint = methodFingerprint {
     }
 }
 
-internal val mandatoryLoginServiceFingerprint2 = methodFingerprint {
+internal val mandatoryLoginService2Fingerprint = methodFingerprint {
     custom { methodDef, classDef ->
         classDef.endsWith("/MandatoryLoginService;") &&
             methodDef.name == "shouldShowForcedLogin"

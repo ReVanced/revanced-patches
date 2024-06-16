@@ -78,8 +78,8 @@ fun gmsCoreSupportPatch(
 
     val gmsCoreVendorGroupId by gmsCoreVendorGroupIdOption
 
-    val gmsCoreSupportFingerprintResult by gmsCoreSupportFingerprint
-    val mainActivityOnCreateFingerprintResult by mainActivityOnCreateFingerprint
+    val gmsCoreSupportFingerprintResult by gmsCoreSupportFingerprint()
+    val mainActivityOnCreateFingerprintResult by mainActivityOnCreateFingerprint()
     primeMethodFingerprint()
     earlyReturnFingerprints.forEach { it() }
 

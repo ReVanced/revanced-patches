@@ -77,7 +77,7 @@ val crowdfundingBoxPatch = bytecodePatch(
         ),
     )
 
-    val createCrowdfundingBoxFingerprintResult by createCrowdfundingBoxFingerprint
+    val createCrowdfundingBoxFingerprintResult by createCrowdfundingBoxFingerprint()
 
     execute {
         createCrowdfundingBoxFingerprintResult.mutableMethod.apply {

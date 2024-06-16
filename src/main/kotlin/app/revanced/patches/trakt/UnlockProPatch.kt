@@ -10,7 +10,7 @@ val unlockProPatch = bytecodePatch(
 ) {
     compatibleWith("tv.trakt.trakt"("1.1.1"))
 
-    val remoteUserFingerprintResult by remoteUserFingerprint
+    val remoteUserFingerprintResult by remoteUserFingerprint()
 
     execute { context ->
         remoteUserFingerprintResult.classDef.let { remoteUserClass ->

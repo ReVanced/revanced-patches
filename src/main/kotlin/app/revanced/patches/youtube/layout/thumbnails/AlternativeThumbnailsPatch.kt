@@ -79,9 +79,9 @@ val alternativeThumbnailsPatch = bytecodePatch(
         ),
     )
 
-    val messageDigestImageUrlParentFingerprintResult by messageDigestImageUrlParentFingerprint
-    val onResponseStartedFingerprintResult by onResponseStartedFingerprint
-    val requestFingerprintResult by requestFingerprint
+    val messageDigestImageUrlParentFingerprintResult by messageDigestImageUrlParentFingerprint()
+    val onResponseStartedFingerprintResult by onResponseStartedFingerprint()
+    val requestFingerprintResult by requestFingerprint()
 
     execute { context ->
         addResources("youtube", "layout.thumbnails.alternativeThumbnailsPatch")

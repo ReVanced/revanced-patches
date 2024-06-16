@@ -10,7 +10,7 @@ val spoofSignaturePatch = bytecodePatch(
 ) {
     compatibleWith("at.gv.oe.app")
 
-    val spoofSignatureFingerprintResult by spoofSignatureFingerprint
+    val spoofSignatureFingerprintResult by spoofSignatureFingerprint()
 
     execute {
         val expectedSignature =

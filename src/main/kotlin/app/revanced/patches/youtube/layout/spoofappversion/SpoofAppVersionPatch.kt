@@ -56,7 +56,7 @@ val spoofAppVersionPatch = bytecodePatch(
         ),
     )
 
-    val spoofAppVersionFingerprintResult by spoofAppVersionFingerprint
+    val spoofAppVersionFingerprintResult by spoofAppVersionFingerprint()
 
     execute {
         addResources("youtube", "layout.spoofappversion.spoofAppVersionPatch")

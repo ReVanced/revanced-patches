@@ -26,10 +26,10 @@ val settingsPatch = bytecodePatch(
         "com.zhiliaoapp.musically"("32.5.3"),
     )
 
-    val adPersonalizationActivityOnCreateFingerprintResult by adPersonalizationActivityOnCreateFingerprint
-    val addSettingsEntryFingerprintResult by addSettingsEntryFingerprint
-    val settingsEntryFingerprintResult by settingsEntryFingerprint
-    val settingsEntryInfoFingerprintResult by settingsEntryInfoFingerprint
+    val adPersonalizationActivityOnCreateFingerprintResult by adPersonalizationActivityOnCreateFingerprint()
+    val addSettingsEntryFingerprintResult by addSettingsEntryFingerprint()
+    val settingsEntryFingerprintResult by settingsEntryFingerprint()
+    val settingsEntryInfoFingerprintResult by settingsEntryInfoFingerprint()
 
     execute {
         val initializeSettingsMethodDescriptor =
@@ -43,9 +43,7 @@ val settingsPatch = bytecodePatch(
                 "Ljava/lang/String;" +
                 ")Ljava/lang/Object;"
 
-        fun String.toClassName(): String {
-            return substring(1, this.length - 1).replace("/", ".")
-        }
+        fun String.toClassName(): String = substring(1, this.length - 1).replace("/", ".")
 
         // Find the class name of classes which construct a settings entry
         val settingsButtonClass = settingsEntryFingerprintResult.classDef.type.toClassName()

@@ -51,7 +51,7 @@ val hidePlayerButtonsPatch = bytecodePatch(
         ),
     )
 
-    val playerControlsVisibilityModelFingerprintResult by playerControlsVisibilityModelFingerprint
+    val playerControlsVisibilityModelFingerprintResult by playerControlsVisibilityModelFingerprint()
 
     val ParameterOffsets = object {
         val HAS_NEXT = 5

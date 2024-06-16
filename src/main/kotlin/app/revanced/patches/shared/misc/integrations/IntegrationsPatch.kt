@@ -15,7 +15,7 @@ import java.util.jar.JarFile
 internal const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/shared/Utils;"
 
 fun integrationsPatch(vararg hooks: IntegrationsHook) = bytecodePatch(requiresIntegrations = true) {
-    val revancedUtilsPatchesVersionFingerprintResult by revancedUtilsPatchesVersionFingerprint
+    val revancedUtilsPatchesVersionFingerprintResult by revancedUtilsPatchesVersionFingerprint()()
     hooks.forEach { it.fingerprint() }
 
     execute { context ->

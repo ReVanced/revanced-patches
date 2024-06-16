@@ -10,7 +10,7 @@ val onDemandPatch = bytecodePatch(
 ) {
     compatibleWith("com.spotify.lite")
 
-    val onDemandFingerprintResult by onDemandFingerprint
+    val onDemandFingerprintResult by onDemandFingerprint()
 
     execute {
         // Spoof a premium account

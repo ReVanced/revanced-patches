@@ -13,8 +13,8 @@ val showSeekbarPatch = bytecodePatch(
         "com.zhiliaoapp.musically",
     )
 
-    val shouldShowSeekBarFingerprintResult by shouldShowSeekBarFingerprint
-    val setSeekBarShowTypeFingerprintResult by setSeekBarShowTypeFingerprint
+    val shouldShowSeekBarFingerprintResult by shouldShowSeekBarFingerprint()
+    val setSeekBarShowTypeFingerprintResult by setSeekBarShowTypeFingerprint()
 
     execute {
         shouldShowSeekBarFingerprintResult.mutableMethod.addInstructions(

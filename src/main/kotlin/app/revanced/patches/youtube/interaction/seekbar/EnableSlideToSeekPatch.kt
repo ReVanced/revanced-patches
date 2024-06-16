@@ -50,8 +50,8 @@ val enableSlideToSeekPatch = bytecodePatch(
         ),
     )
 
-    val slideToSeekFingerprintResult by slideToSeekFingerprint
-    val doubleSpeedSeekNoticeFingerprintResult by doubleSpeedSeekNoticeFingerprint
+    val slideToSeekFingerprintResult by slideToSeekFingerprint()
+    val doubleSpeedSeekNoticeFingerprintResult by doubleSpeedSeekNoticeFingerprint()
 
     execute {
         addResources("youtube", "interaction.seekbar.enableSlideToSeekPatch")

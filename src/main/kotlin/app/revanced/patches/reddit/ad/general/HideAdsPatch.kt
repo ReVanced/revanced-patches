@@ -25,8 +25,8 @@ val hideAdsPatch = bytecodePatch(
     // This constraint is necessary due to dependency on hideBannerPatch.
     compatibleWith("com.reddit.frontpage"("2024.17.0"))
 
-    val adPostFingerprintResult by adPostFingerprint
-    val newAdPostFingerprintResult by newAdPostFingerprint
+    val adPostFingerprintResult by adPostFingerprint()
+    val newAdPostFingerprintResult by newAdPostFingerprint()
 
     execute {
         // region Filter promoted ads (does not work in popular or latest feed)

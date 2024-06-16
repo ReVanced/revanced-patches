@@ -22,9 +22,9 @@ val timelineFilterPatch = bytecodePatch(
     description = "Filter timeline objects.",
     requiresIntegrations = true,
 ) {
-    val timelineConstructorFingerprintResult by timelineConstructorFingerprint
-    val timelineFilterIntegrationFingerprintResult by timelineConstructorFingerprint
-    val postsResponseConstructorFingerprintResult by postsResponseConstructorFingerprint
+    val timelineConstructorFingerprintResult by timelineConstructorFingerprint()
+    val timelineFilterIntegrationFingerprintResult by timelineConstructorFingerprint()
+    val postsResponseConstructorFingerprintResult by postsResponseConstructorFingerprint()
 
     execute {
         val filterInsertIndex = timelineFilterIntegrationFingerprintResult.scanResult.patternScanResult!!.startIndex

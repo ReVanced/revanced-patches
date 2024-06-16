@@ -19,8 +19,8 @@ val rememberClearDisplayPatch = bytecodePatch(
         "com.zhiliaoapp.musically"("32.5.3"),
     )
 
-    val onClearDisplayEventFingerprintResult by onClearDisplayEventFingerprint
-    val onRenderFirstFrameFingerprintResult by onRenderFirstFrameFingerprint
+    val onClearDisplayEventFingerprintResult by onClearDisplayEventFingerprint()
+    val onRenderFirstFrameFingerprintResult by onRenderFirstFrameFingerprint()
 
     execute {
         onClearDisplayEventFingerprintResult.mutableMethod.let {

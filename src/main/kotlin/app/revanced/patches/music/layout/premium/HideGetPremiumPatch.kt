@@ -22,8 +22,8 @@ val hideGetPremiumPatch = bytecodePatch(
         ),
     )
 
-    val hideGetPremiumFingerprintResult by hideGetPremiumFingerprint
-    val membershipSettingsFingerprintResult by membershipSettingsFingerprint
+    val hideGetPremiumFingerprintResult by hideGetPremiumFingerprint()
+    val membershipSettingsFingerprintResult by membershipSettingsFingerprint()
 
     execute {
         hideGetPremiumFingerprintResult.mutableMethod.apply {

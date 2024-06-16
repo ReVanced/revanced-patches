@@ -29,7 +29,7 @@ private var numberOfInstructionsAdded = 0
 val playerResponseMethodHookPatch = bytecodePatch {
     dependsOn(integrationsPatch)
 
-    val playerParameterBuilderFingerprintResult by playerParameterBuilderFingerprint
+    val playerParameterBuilderFingerprintResult by playerParameterBuilderFingerprint()
 
     execute {
         playerResponseMethod = playerParameterBuilderFingerprintResult.mutableMethod

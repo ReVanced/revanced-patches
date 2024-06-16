@@ -92,8 +92,8 @@ val videoIdPatch = bytecodePatch(
         playerResponseMethodHookPatch,
     )
 
-    val videoIdFingerprintResult by videoIdFingerprint
-    val videoIdBackgroundPlayFingerprintResult by videoIdFingerprintBackgroundPlay
+    val videoIdFingerprintResult by videoIdFingerprint()
+    val videoIdBackgroundPlayFingerprintResult by videoIdBackgroundPlayFingerprint()
 
     execute {
         /**

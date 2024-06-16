@@ -15,8 +15,8 @@ val playerTypeHookPatch = bytecodePatch(
 ) {
     dependsOn(integrationsPatch)
 
-    val playerTypeFingerprintResult by playerTypeFingerprint
-    val videoStateFingerprintResult by videoStateFingerprint
+    val playerTypeFingerprintResult by playerTypeFingerprint()
+    val videoStateFingerprintResult by videoStateFingerprint()
 
     execute {
         playerTypeFingerprintResult.mutableMethod.addInstruction(

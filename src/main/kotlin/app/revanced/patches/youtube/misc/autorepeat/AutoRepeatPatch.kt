@@ -52,7 +52,7 @@ val autoRepeatPatch = bytecodePatch(
         ),
     )
 
-    val autoRepeatParentFingerprintResult by autoRepeatParentFingerprint
+    val autoRepeatParentFingerprintResult by autoRepeatParentFingerprint()
 
     execute { context ->
         addResources("youtube", "misc.autorepeat.autoRepeatPatch")

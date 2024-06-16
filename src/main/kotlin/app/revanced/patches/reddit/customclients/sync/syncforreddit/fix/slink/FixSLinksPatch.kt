@@ -21,8 +21,8 @@ val fixSLinksPatch = fixSLinksPatch(
         "com.laurencedawson.reddit_sync.dev",
     )
 
-    val handleNavigationFingerprintResult by linkHelperOpenLinkFingerprint
-    val setAccessTokenFingerprintResult by setAuthorizationHeaderFingerprint
+    val handleNavigationFingerprintResult by linkHelperOpenLinkFingerprint()
+    val setAccessTokenFingerprintResult by setAuthorizationHeaderFingerprint()
 
     execute {
         // region Patch navigation handler.

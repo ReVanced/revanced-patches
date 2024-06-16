@@ -10,7 +10,7 @@ val fixLoginPatch = bytecodePatch(
 ) {
     compatibleWith("com.xiaomi.wearable")
 
-    val xiaomiAccountManagerConstructorFingerprintResult by xiaomiAccountManagerConstructorFingerprint
+    val xiaomiAccountManagerConstructorFingerprintResult by xiaomiAccountManagerConstructorFingerprint()
 
     execute {
         xiaomiAccountManagerConstructorFingerprintResult.mutableMethod.addInstruction(0, "const/16 p2, 0x0")

@@ -101,8 +101,8 @@ val restoreOldVideoQualityMenuPatch = bytecodePatch(
         ),
     )
 
-    val videoQualityMenuViewInflateFingerprintResult by videoQualityMenuViewInflateFingerprint
-    val videoQualityMenuOptionsFingerprintResult by videoQualityMenuOptionsFingerprint
+    val videoQualityMenuViewInflateFingerprintResult by videoQualityMenuViewInflateFingerprint()
+    val videoQualityMenuOptionsFingerprintResult by videoQualityMenuOptionsFingerprint()
 
     execute {
         // region Patch for the old type of the video quality menu.

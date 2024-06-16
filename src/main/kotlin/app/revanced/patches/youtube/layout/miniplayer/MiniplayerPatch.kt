@@ -164,12 +164,12 @@ val miniplayerPatch = bytecodePatch(
         ),
     )
 
-    val miniplayerDimensionsCalculatorParentFingerprintResult by miniplayerDimensionsCalculatorParentFingerprint
-    val miniplayerResponseModelSizeCheckFingerprintResult by miniplayerResponseModelSizeCheckFingerprint
-    val miniplayerOverrideFingerprintResult by miniplayerOverrideFingerprint
-    val miniplayerModernConstructorFingerprintResult by miniplayerModernConstructorFingerprint
-    val miniplayerModernViewParentFingerprintResult by miniplayerModernViewParentFingerprint
-    val youTubePlayerOverlaysLayoutFingerprintResult by youTubePlayerOverlaysLayoutFingerprint
+    val miniplayerDimensionsCalculatorParentFingerprintResult by miniplayerDimensionsCalculatorParentFingerprint()
+    val miniplayerResponseModelSizeCheckFingerprintResult by miniplayerResponseModelSizeCheckFingerprint()
+    val miniplayerOverrideFingerprintResult by miniplayerOverrideFingerprint()
+    val miniplayerModernConstructorFingerprintResult by miniplayerModernConstructorFingerprint()
+    val miniplayerModernViewParentFingerprintResult by miniplayerModernViewParentFingerprint()
+    val youTubePlayerOverlaysLayoutFingerprintResult by youTubePlayerOverlaysLayoutFingerprint()
 
     execute { context ->
         addResources("youtube", "layout.miniplayer.miniplayerPatch")

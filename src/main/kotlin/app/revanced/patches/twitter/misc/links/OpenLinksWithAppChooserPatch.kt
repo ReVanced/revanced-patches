@@ -12,7 +12,7 @@ val openLinksWithAppChooserPatch = bytecodePatch(
 ) {
     compatibleWith("com.twitter.android")
 
-    val openLinkFingerprintResult by openLinkFingerprint
+    val openLinkFingerprintResult by openLinkFingerprint()
 
     execute {
         val methodReference =

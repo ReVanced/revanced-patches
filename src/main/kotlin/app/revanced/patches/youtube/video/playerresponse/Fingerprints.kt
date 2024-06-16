@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.video.playerresponse
 
-import com.android.tools.smali.dexlib2.AccessFlags
 import app.revanced.patcher.fingerprint.methodFingerprint
+import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val playerParameterBuilderFingerprint = methodFingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
@@ -21,5 +21,4 @@ internal val playerParameterBuilderFingerprint = methodFingerprint {
         "Z",
         "Z",
     )
-    strings("player_response")
 }

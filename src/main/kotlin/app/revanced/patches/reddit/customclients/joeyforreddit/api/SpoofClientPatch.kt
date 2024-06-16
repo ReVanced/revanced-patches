@@ -15,8 +15,8 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "https://127.0.0.1:65023/a
         "o.o.joey.dev",
     )
 
-    val getClientIdFingerprintResult by getClientIdFingerprint
-    val authUtilityUserAgentFingerprintResult by authUtilityUserAgentFingerprint
+    val getClientIdFingerprintResult by getClientIdFingerprint()
+    val authUtilityUserAgentFingerprintResult by authUtilityUserAgentFingerprint()
 
     val clientId by clientIdOption
 

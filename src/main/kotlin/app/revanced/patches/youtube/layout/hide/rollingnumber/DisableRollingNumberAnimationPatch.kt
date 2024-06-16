@@ -54,7 +54,7 @@ val disableRollingNumberAnimationPatch = bytecodePatch(
         ),
     )
 
-    val rollingNumberTextViewAnimationUpdateFingerprintResult by rollingNumberTextViewAnimationUpdateFingerprint
+    val rollingNumberTextViewAnimationUpdateFingerprintResult by rollingNumberTextViewAnimationUpdateFingerprint()
 
     execute {
         addResources("youtube", "layout.hide.rollingnumber.disableRollingNumberAnimationPatch")

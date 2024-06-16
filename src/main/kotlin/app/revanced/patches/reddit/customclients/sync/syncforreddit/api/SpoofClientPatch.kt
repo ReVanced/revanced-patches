@@ -23,9 +23,9 @@ val spoofClientPatch = spoofClientPatch(
         "com.laurencedawson.reddit_sync.dev",
     )
 
-    val imgurImageAPIFingerprintResult by imgurImageAPIFingerprint
-    val getAuthorizationStringFingerprintResult by getAuthorizationStringFingerprint
-    val getUserAgentFingerprintResult by getUserAgentFingerprint
+    val imgurImageAPIFingerprintResult by imgurImageAPIFingerprint()
+    val getAuthorizationStringFingerprintResult by getAuthorizationStringFingerprint()
+    val getUserAgentFingerprintResult by getUserAgentFingerprint()
 
     val clientId by clientIdOption
 

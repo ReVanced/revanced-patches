@@ -48,7 +48,7 @@ val hideTimestampPatch = bytecodePatch(
         ),
     )
 
-    val timeCounterFingerprintResult by timeCounterFingerprint
+    val timeCounterFingerprintResult by timeCounterFingerprint()
 
     execute {
         addResources("youtube", "layout.hide.time.hideTimestampPatch")

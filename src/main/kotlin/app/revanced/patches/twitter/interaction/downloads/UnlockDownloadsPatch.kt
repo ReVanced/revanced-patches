@@ -19,9 +19,9 @@ val unlockDownloadsPatch = bytecodePatch(
 ) {
     compatibleWith("com.twitter.android")
 
-    val constructMediaOptionsSheetFingerprintResult by constructMediaOptionsSheetFingerprint
-    val showDownloadVideoUpsellBottomSheetFingerprintResult by showDownloadVideoUpsellBottomSheetFingerprint
-    val buildMediaOptionsSheetFingerprintResult by buildMediaOptionsSheetFingerprint
+    val constructMediaOptionsSheetFingerprintResult by constructMediaOptionsSheetFingerprint()
+    val showDownloadVideoUpsellBottomSheetFingerprintResult by showDownloadVideoUpsellBottomSheetFingerprint()
+    val buildMediaOptionsSheetFingerprintResult by buildMediaOptionsSheetFingerprint()
 
     fun MethodFingerprintResult.patch(getRegisterAndIndex: MethodFingerprintResult.() -> Pair<Int, Int>) {
         val (index, register) = getRegisterAndIndex()

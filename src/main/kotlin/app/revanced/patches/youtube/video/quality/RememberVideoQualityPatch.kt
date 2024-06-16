@@ -57,9 +57,9 @@ val rememberVideoQualityPatch = bytecodePatch(
         ),
     )
 
-    val videoQualitySetterFingerprintResult by videoQualitySetterFingerprint
-    val videoQualityItemOnClickParentFingerprintResult by videoQualityItemOnClickParentFingerprint
-    val newVideoQualityChangedFingerprintResult by newVideoQualityChangedFingerprint
+    val videoQualitySetterFingerprintResult by videoQualitySetterFingerprint()
+    val videoQualityItemOnClickParentFingerprintResult by videoQualityItemOnClickParentFingerprint()
+    val newVideoQualityChangedFingerprintResult by newVideoQualityChangedFingerprint()
 
     execute { context ->
         addResources("youtube", "video.quality.rememberVideoQualityPatch")

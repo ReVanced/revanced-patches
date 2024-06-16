@@ -93,9 +93,9 @@ val hideFilterBarPatch = bytecodePatch(
         ),
     )
 
-    val filterBarHeightFingerprintResult by filterBarHeightFingerprint
-    val relatedChipCloudFingerprintResult by relatedChipCloudFingerprint
-    val searchFingerprintResultsChipBarFingerprintResult by searchResultsChipBarFingerprint
+    val filterBarHeightFingerprintResult by filterBarHeightFingerprint()
+    val relatedChipCloudFingerprintResult by relatedChipCloudFingerprint()
+    val searchFingerprintResultsChipBarFingerprintResult by searchResultsChipBarFingerprint()
 
     execute {
         fun <RegisterInstruction : OneRegisterInstruction> MethodFingerprintResult.patch(

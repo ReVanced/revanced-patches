@@ -25,8 +25,8 @@ val feedFilterPatch = bytecodePatch(
         "com.zhiliaoapp.musically"("32.5.3"),
     )
 
-    val feedApiServiceLIZFingerprintResult by feedApiServiceLIZFingerprint
-    val settingsStatusLoadFingerprintResult by settingsStatusLoadFingerprint
+    val feedApiServiceLIZFingerprintResult by feedApiServiceLIZFingerprint()
+    val settingsStatusLoadFingerprintResult by settingsStatusLoadFingerprint()
 
     execute {
         feedApiServiceLIZFingerprintResult.mutableMethod.apply {

@@ -13,7 +13,7 @@ val promoCodeUnlockPatch = bytecodePatch(
 
     compatibleWith("de.dwd.warnapp"("4.2.2"))
 
-    val promoCodeUnlockFingerprintResult by promoCodeUnlockFingerprint
+    val promoCodeUnlockFingerprintResult by promoCodeUnlockFingerprint()
 
     execute {
         promoCodeUnlockFingerprintResult.mutableMethod.addInstructions(

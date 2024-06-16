@@ -174,10 +174,10 @@ val sponsorBlockPatch = bytecodePatch(
         ),
     )
 
-    val seekbarFingerprintResult by seekbarFingerprint
-    val appendTimeFingerprintResult by appendTimeFingerprint
-    val layoutConstructorFingerprintResult by layoutConstructorFingerprint
-    val autoRepeatParentFingerprintResult by autoRepeatParentFingerprint
+    val seekbarFingerprintResult by seekbarFingerprint()
+    val appendTimeFingerprintResult by appendTimeFingerprint()
+    val layoutConstructorFingerprintResult by layoutConstructorFingerprint()
+    val autoRepeatParentFingerprintResult by autoRepeatParentFingerprint()
 
     execute { context ->
         /*

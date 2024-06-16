@@ -54,10 +54,10 @@ val videoInformationPatch = bytecodePatch(
         playerResponseMethodHookPatch,
     )
 
-    val playerInitFingerprintResult by playerInitFingerprint
-    val createVideoPlayerSeekbarFingerprintResult by createVideoPlayerSeekbarFingerprint
-    val playerControllerSetTimeReferenceFingerprintResult by playerControllerSetTimeReferenceFingerprint
-    val onPlaybackSpeedItemClickFingerprintResult by onPlaybackSpeedItemClickFingerprint
+    val playerInitFingerprintResult by playerInitFingerprint()
+    val createVideoPlayerSeekbarFingerprintResult by createVideoPlayerSeekbarFingerprint()
+    val playerControllerSetTimeReferenceFingerprintResult by playerControllerSetTimeReferenceFingerprint()
+    val onPlaybackSpeedItemClickFingerprintResult by onPlaybackSpeedItemClickFingerprint()
 
     execute { context ->
         playerInitMethod = playerInitFingerprintResult.mutableClass.methods.first { MethodUtil.isConstructor(it) }

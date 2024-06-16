@@ -89,9 +89,9 @@ val hideLayoutComponentsPatch = bytecodePatch(
         ),
     )
 
-    val parseElementFromBufferFingerprintResult by parseElementFromBufferFingerprint
-    val playerOverlayFingerprintResult by playerOverlayFingerprint
-    val hideShowMoreButtonFingerprintResult by hideShowMoreButtonFingerprint
+    val parseElementFromBufferFingerprintResult by parseElementFromBufferFingerprint()
+    val playerOverlayFingerprintResult by playerOverlayFingerprint()
+    val hideShowMoreButtonFingerprintResult by hideShowMoreButtonFingerprint()
 
     execute { context ->
         addResources("youtube", "layout.hide.general.hideLayoutComponentsPatch")

@@ -83,9 +83,9 @@ val hideEndscreenCardsPatch = bytecodePatch(
         ),
     )
 
-    val layoutCircleFingerprintResult by layoutCircleFingerprint
-    val layoutIconFingerprintResult by layoutIconFingerprint
-    val layoutVideoFingerprintResult by layoutVideoFingerprint
+    val layoutCircleFingerprintResult by layoutCircleFingerprint()
+    val layoutIconFingerprintResult by layoutIconFingerprint()
+    val layoutVideoFingerprintResult by layoutVideoFingerprint()
 
     execute {
         listOf(

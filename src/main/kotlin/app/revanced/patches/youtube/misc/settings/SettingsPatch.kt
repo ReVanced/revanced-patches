@@ -26,7 +26,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.util.MethodUtil
 import org.w3c.dom.Element
 
-// Used by a fingerprint from SettingsPatch.
+// Used by a fingerprint() from SettingsPatch.
 internal var appearanceStringId = -1L
     private set
 
@@ -117,8 +117,8 @@ val settingsPatch = bytecodePatch(
         addResourcesPatch,
     )
 
-    val setThemeFingerprintResult by setThemeFingerprint
-    val licenseActivityOnCreateFingerprintResult by licenseActivityOnCreateFingerprint
+    val setThemeFingerprintResult by setThemeFingerprint()
+    val licenseActivityOnCreateFingerprintResult by licenseActivityOnCreateFingerprint()
 
     val integrationsPackage = "app/revanced/integrations/youtube"
     val activityHookClassDescriptor = "L$integrationsPackage/settings/LicenseActivityHook;"

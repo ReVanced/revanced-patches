@@ -65,10 +65,10 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         addResourcesPatch,
     )
 
-    val speedArrayGeneratorFingerprintResult by speedArrayGeneratorFingerprint
-    val speedLimiterFingerprintResult by speedLimiterFingerprint
-    val getOldPlaybackSpeedsFingerprintResult by getOldPlaybackSpeedsFingerprint
-    val showOldPlaybackSpeedMenuIntegrationsFingerprintResult by showOldPlaybackSpeedMenuIntegrationsFingerprint
+    val speedArrayGeneratorFingerprintResult by speedArrayGeneratorFingerprint()
+    val speedLimiterFingerprintResult by speedLimiterFingerprint()
+    val getOldPlaybackSpeedsFingerprintResult by getOldPlaybackSpeedsFingerprint()
+    val showOldPlaybackSpeedMenuIntegrationsFingerprintResult by showOldPlaybackSpeedMenuIntegrationsFingerprint()
 
     execute { context ->
         addResources("youtube", "video.speed.custom.customPlaybackSpeedResourcePatch")

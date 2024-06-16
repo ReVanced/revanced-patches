@@ -23,7 +23,7 @@ internal lateinit var addFeatureFlagOverride: (name: String, value: String) -> U
 val overrideFeatureFlagsPatch = bytecodePatch(
     description = "Forcibly set the value of A/B testing features of your choice.",
 ) {
-    val getFeatureValueFingerprintResult by getFeatureValueFingerprint
+    val getFeatureValueFingerprintResult by getFeatureValueFingerprint()
 
     execute {
         val configurationClass = getFeatureValueFingerprintResult.method.definingClass

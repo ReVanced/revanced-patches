@@ -17,8 +17,8 @@ val fixSlinksPatch = fixSLinksPatch(
 ) {
     compatibleWith("com.rubenmayayo.reddit")
 
-    val handleNavigationFingerprintResult by handleNavigationFingerprint
-    val setAccessTokenFingerprintResult by getOAuthAccessTokenFingerprint
+    val handleNavigationFingerprintResult by handleNavigationFingerprint()
+    val setAccessTokenFingerprintResult by getOAuthAccessTokenFingerprint()
 
     execute {
         // region Patch navigation handler.

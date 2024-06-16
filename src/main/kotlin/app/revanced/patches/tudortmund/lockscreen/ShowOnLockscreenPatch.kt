@@ -22,7 +22,7 @@ val showOnLockscreenPatch = bytecodePatch(
 ) {
     compatibleWith("de.tudortmund.app")
 
-    val brightnessFingerprintResult by brightnessFingerprint
+    val brightnessFingerprintResult by brightnessFingerprint()
 
     execute {
         brightnessFingerprintResult.mutableMethod.apply {

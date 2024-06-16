@@ -1,8 +1,8 @@
 package app.revanced.patches.youtube.video.videoid
 
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.AccessFlags
 import app.revanced.patcher.fingerprint.methodFingerprint
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
 internal val videoIdFingerprint = methodFingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
@@ -20,7 +20,7 @@ internal val videoIdFingerprint = methodFingerprint {
     )
 }
 
-internal val videoIdFingerprintBackgroundPlay = methodFingerprint {
+internal val videoIdBackgroundPlayFingerprint = methodFingerprint {
     accessFlags(AccessFlags.DECLARED_SYNCHRONIZED, AccessFlags.FINAL, AccessFlags.PUBLIC)
     returns("V")
     parameters("L")

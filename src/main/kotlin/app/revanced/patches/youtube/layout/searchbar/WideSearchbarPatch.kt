@@ -56,8 +56,8 @@ val wideSearchbarPatch = bytecodePatch(
         ),
     )
 
-    val setWordmarkHeaderFingerprintResult by setWordmarkHeaderFingerprint
-    val createSearchSuggestionsFingerprintResult by createSearchSuggestionsFingerprint
+    val setWordmarkHeaderFingerprintResult by setWordmarkHeaderFingerprint()
+    val createSearchSuggestionsFingerprintResult by createSearchSuggestionsFingerprint()
 
     execute { context ->
         addResources("youtube", "layout.searchbar.wideSearchbarPatch")

@@ -12,7 +12,7 @@ val fixAudioMissingInDownloadsPatch = bytecodePatch(
 ) {
     compatibleWith("com.rubenmayayo.reddit")
 
-    val downloadAudioFingerprintResult by downloadAudioFingerprint
+    val downloadAudioFingerprintResult by downloadAudioFingerprint()
 
     execute {
         val endpointReplacements = mapOf(

@@ -71,9 +71,9 @@ val backgroundPlaybackPatch = bytecodePatch(
         ),
     )
 
-    val backgroundPlaybackManagerFingerprintResult by backgroundPlaybackManagerFingerprint
-    val backgroundPlaybackSettingsFingerprintResult by backgroundPlaybackSettingsFingerprint
-    val kidsBackgroundPlaybackPolicyControllerFingerprintResult by kidsBackgroundPlaybackPolicyControllerFingerprint
+    val backgroundPlaybackManagerFingerprintResult by backgroundPlaybackManagerFingerprint()
+    val backgroundPlaybackSettingsFingerprintResult by backgroundPlaybackSettingsFingerprint()
+    val kidsBackgroundPlaybackPolicyControllerFingerprintResult by kidsBackgroundPlaybackPolicyControllerFingerprint()
 
     execute { context ->
         addResources("youtube", "misc.backgroundplayback.backgroundPlaybackPatch")

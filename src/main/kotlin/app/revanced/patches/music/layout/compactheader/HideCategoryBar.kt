@@ -21,7 +21,7 @@ val hideCategoryBar = bytecodePatch(
         ),
     )
 
-    val constructCategoryBarFingerprintResult by constructCategoryBarFingerprint
+    val constructCategoryBarFingerprintResult by constructCategoryBarFingerprint()
 
     execute {
         constructCategoryBarFingerprintResult.mutableMethod.apply {

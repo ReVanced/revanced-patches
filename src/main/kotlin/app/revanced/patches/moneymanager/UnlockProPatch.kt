@@ -9,7 +9,7 @@ val unlockProPatch = bytecodePatch(
 ) {
     compatibleWith("com.ithebk.expensemanager")
 
-    val unlockProFingerprintResult by unlockProFingerprint
+    val unlockProFingerprintResult by unlockProFingerprint()
 
     execute {
         unlockProFingerprintResult.mutableMethod.addInstructions(

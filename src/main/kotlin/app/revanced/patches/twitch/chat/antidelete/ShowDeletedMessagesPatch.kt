@@ -31,9 +31,9 @@ val showDeletedMessagesPatch = bytecodePatch(
         if-eqz $register, :no_spoiler
     """
 
-    val setHasModAccessFingerprintResult by setHasModAccessFingerprint
-    val deletedMessageClickableSpanCtorFingerprintResult by deletedMessageClickableSpanCtorFingerprint
-    val chatUtilCreateDeletedSpanFingerprintResult by chatUtilCreateDeletedSpanFingerprint
+    val setHasModAccessFingerprintResult by setHasModAccessFingerprint()
+    val deletedMessageClickableSpanCtorFingerprintResult by deletedMessageClickableSpanCtorFingerprint()
+    val chatUtilCreateDeletedSpanFingerprintResult by chatUtilCreateDeletedSpanFingerprint()
 
     execute {
         addResources("twitch", "chat.antidelete.showDeletedMessagesPatch")

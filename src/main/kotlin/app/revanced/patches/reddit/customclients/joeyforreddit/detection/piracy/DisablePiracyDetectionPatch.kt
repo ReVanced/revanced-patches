@@ -5,7 +5,7 @@ import app.revanced.patcher.patch.bytecodePatch
 
 @Suppress("unused")
 val disablePiracyDetectionPatch = bytecodePatch {
-    val piracyDetectionFingerprintResult by piracyDetectionFingerprint
+    val piracyDetectionFingerprintResult by piracyDetectionFingerprint()
 
     execute {
         piracyDetectionFingerprintResult.mutableMethod.addInstruction(0, "return-void")

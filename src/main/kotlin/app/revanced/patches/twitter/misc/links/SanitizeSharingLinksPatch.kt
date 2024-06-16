@@ -10,7 +10,7 @@ val sanitizeSharingLinksPatch = bytecodePatch(
 ) {
     compatibleWith("com.twitter.android")
 
-    val sanitizeSharingLinksFingerprintResult by sanitizeSharingLinksFingerprint
+    val sanitizeSharingLinksFingerprintResult by sanitizeSharingLinksFingerprint()
 
     execute {
         sanitizeSharingLinksFingerprintResult.mutableMethod.addInstructions(

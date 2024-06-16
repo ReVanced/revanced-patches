@@ -13,8 +13,8 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "http://baconreader.com/au
         "com.onelouder.baconreader.premium",
     )
 
-    val getAuthorizationUrlFingerprintResult by getAuthorizationUrlFingerprint
-    val requestTokenFingerprintResult by requestTokenFingerprint
+    val getAuthorizationUrlFingerprintResult by getAuthorizationUrlFingerprint()
+    val requestTokenFingerprintResult by requestTokenFingerprint()
 
     val clientId by clientIdOption
 

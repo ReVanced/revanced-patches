@@ -69,15 +69,15 @@ val spoofClientPatch = bytecodePatch(
     )
 
     // Client type spoof.
-    val buildInitPlaybackRequestFingerprintResult by buildInitPlaybackRequestFingerprint
-    val buildPlayerRequestURIFingerprintResult by buildPlayerRequestURIFingerprint
-    val setPlayerRequestClientTypeFingerprintResult by setPlayerRequestClientTypeFingerprint
-    val createPlayerRequestBodyFingerprintResult by createPlayerRequestBodyFingerprint
-    val createPlayerRequestBodyWithModelFingerprintResult by createPlayerRequestBodyWithModelFingerprint
+    val buildInitPlaybackRequestFingerprintResult by buildInitPlaybackRequestFingerprint()
+    val buildPlayerRequestURIFingerprintResult by buildPlayerRequestURIFingerprint()
+    val setPlayerRequestClientTypeFingerprintResult by setPlayerRequestClientTypeFingerprint()
+    val createPlayerRequestBodyFingerprintResult by createPlayerRequestBodyFingerprint()
+    val createPlayerRequestBodyWithModelFingerprintResult by createPlayerRequestBodyWithModelFingerprint()
     // Player gesture config.
-    val playerGestureConfigSyntheticFingerprintResult by playerGestureConfigSyntheticFingerprint
+    val playerGestureConfigSyntheticFingerprintResult by playerGestureConfigSyntheticFingerprint()
     // Player speed menu item.
-    val createPlaybackSpeedMenuItemFingerprintResult by createPlaybackSpeedMenuItemFingerprint
+    val createPlaybackSpeedMenuItemFingerprintResult by createPlaybackSpeedMenuItemFingerprint()
 
     execute { context ->
         addResources("youtube", "misc.fix.playback.spoofClientPatch")

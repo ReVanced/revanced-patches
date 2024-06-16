@@ -17,7 +17,7 @@ val hideMusicVideoAdsPatch = bytecodePatch(
         ),
     )
 
-    val showMusicVideoAdsParentFingerprintResult by showMusicVideoAdsParentFingerprint
+    val showMusicVideoAdsParentFingerprintResult by showMusicVideoAdsParentFingerprint()
 
     execute { context ->
         val showMusicVideoAdsMethod = context

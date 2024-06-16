@@ -1,8 +1,8 @@
 package app.revanced.patches.tiktok.interaction.downloads
 
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.AccessFlags
 import app.revanced.patcher.fingerprint.methodFingerprint
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
 internal val aclCommonShareFingerprint = methodFingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
@@ -13,7 +13,7 @@ internal val aclCommonShareFingerprint = methodFingerprint {
     }
 }
 
-internal val aclCommonShareFingerprint2 = methodFingerprint {
+internal val aclCommonShare2Fingerprint = methodFingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("I")
     custom { methodDef, classDef ->
@@ -22,7 +22,7 @@ internal val aclCommonShareFingerprint2 = methodFingerprint {
     }
 }
 
-internal val aclCommonShareFingerprint3 = methodFingerprint {
+internal val aclCommonShare3Fingerprint = methodFingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("I")
     custom { methodDef, classDef ->

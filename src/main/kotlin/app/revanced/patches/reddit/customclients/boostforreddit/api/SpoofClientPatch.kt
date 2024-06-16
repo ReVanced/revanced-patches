@@ -7,8 +7,8 @@ import app.revanced.patches.reddit.customclients.spoofClientPatch
 val spoofClientPatch = spoofClientPatch(redirectUri = "http://rubenmayayo.com") { clientIdOption ->
     compatibleWith("com.rubenmayayo.reddit")
 
-    val getClientIdFingerprintResult by getClientIdFingerprint
-    val buildUserAgentFingerprintResult by buildUserAgentFingerprint
+    val getClientIdFingerprintResult by getClientIdFingerprint()
+    val buildUserAgentFingerprintResult by buildUserAgentFingerprint()
 
     val clientId by clientIdOption
 

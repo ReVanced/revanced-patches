@@ -54,7 +54,7 @@ val hideSeekbarPatch = bytecodePatch(
         ),
     )
 
-    val seekbarFingerprintResult by seekbarFingerprint
+    val seekbarFingerprintResult by seekbarFingerprint()
 
     execute { context ->
         addResources("youtube", "layout.hide.seekbar.hideSeekbarPatch")

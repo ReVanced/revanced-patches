@@ -14,7 +14,7 @@ val disableSyncForLemmyBottomSheetPatch = bytecodePatch(
         "com.laurencedawson.reddit_sync.dev"(), // Version unknown.
     )
 
-    val mainActivityOnCreateFingerprintResult by mainActivityOnCreateFingerprint
+    val mainActivityOnCreateFingerprintResult by mainActivityOnCreateFingerprint()
 
     execute {
         mainActivityOnCreateFingerprintResult.mutableMethod.apply {

@@ -24,7 +24,7 @@ val audioAdsPatch = bytecodePatch(
 
     compatibleWith("tv.twitch.android.app"("15.4.1", "16.1.0", "16.9.1"))
 
-    val audioAdsPresenterPlayFingerprintResult by audioAdsPresenterPlayFingerprint
+    val audioAdsPresenterPlayFingerprintResult by audioAdsPresenterPlayFingerprint()
 
     execute {
         addResources("twitch", "ad.audio.audioAdsPatch")

@@ -26,7 +26,7 @@ val jsonHookPatch = bytecodePatch(
     description = "Hooks the stream which reads JSON responses.",
     requiresIntegrations = true,
 ) {
-    val loganSquareFingerprintResult by loganSquareFingerprint
+    val loganSquareFingerprintResult by loganSquareFingerprint()
 
     execute { context ->
         jsonHookPatchFingerprint.apply {

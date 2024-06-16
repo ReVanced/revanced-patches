@@ -24,7 +24,7 @@ val announcementsPatch = bytecodePatch(
 
     compatibleWith("com.google.android.youtube")
 
-    val mainActivityOnCreateFingerprintResult by mainActivityOnCreateFingerprint
+    val mainActivityOnCreateFingerprintResult by mainActivityOnCreateFingerprint()
 
     execute {
         addResources("youtube", "misc.announcements.announcementsPatch")

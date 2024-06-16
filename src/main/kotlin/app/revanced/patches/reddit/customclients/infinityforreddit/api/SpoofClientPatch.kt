@@ -11,7 +11,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodImplementation
 val spoofClientPatch = spoofClientPatch(redirectUri = "infinity://localhost") { clientIdOption ->
     compatibleWith("ml.docilealligator.infinityforreddit")
 
-    val apiUtilsFingerprintResult by apiUtilsFingerprint
+    val apiUtilsFingerprintResult by apiUtilsFingerprint()
 
     val clientId by clientIdOption
 

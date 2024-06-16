@@ -28,7 +28,7 @@ val changeStartPagePatch = bytecodePatch(
         "com.google.android.youtube",
     )
 
-    val homeActivityFingerprintResult by homeActivityFingerprint
+    val homeActivityFingerprintResult by homeActivityFingerprint()
 
     execute { context ->
         addResources("youtube", "layout.startpage.changeStartPagePatch")

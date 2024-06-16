@@ -49,9 +49,9 @@ val autoCaptionsPatch = bytecodePatch(
         ),
     )
 
-    val startVideoInformerFingerprintResult by startVideoInformerFingerprint
-    val subtitleButtonControllerFingerprintResult by subtitleButtonControllerFingerprint
-    val subtitleTrackFingerprintResult by subtitleTrackFingerprint
+    val startVideoInformerFingerprintResult by startVideoInformerFingerprint()
+    val subtitleButtonControllerFingerprintResult by subtitleButtonControllerFingerprint()
+    val subtitleTrackFingerprintResult by subtitleTrackFingerprint()
 
     execute {
         addResources("youtube", "layout.autocaptions.autoCaptionsPatch")

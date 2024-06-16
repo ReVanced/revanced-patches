@@ -44,8 +44,8 @@ val playerControlsPatch = bytecodePatch(
 ) {
     dependsOn(bottomControlsPatch)
 
-    val layoutConstructorFingerprintResult by layoutConstructorFingerprint
-    val bottomControlsInflateFingerprintResult by bottomControlsInflateFingerprint
+    val layoutConstructorFingerprintResult by layoutConstructorFingerprint()
+    val bottomControlsInflateFingerprintResult by bottomControlsInflateFingerprint()
 
     execute { context ->
         showPlayerControlsFingerprintResult = playerControlsVisibilityFingerprint.apply {

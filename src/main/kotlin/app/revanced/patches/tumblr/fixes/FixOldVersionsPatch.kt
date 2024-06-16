@@ -12,8 +12,8 @@ val fixOldVersionsPatch = bytecodePatch(
 ) {
     compatibleWith("com.tumblr")
 
-    val httpPathParserFingerprintResult by httpPathParserFingerprint
-    val addQueryParamFingerprintResult by addQueryParamFingerprint
+    val httpPathParserFingerprintResult by httpPathParserFingerprint()
+    val addQueryParamFingerprintResult by addQueryParamFingerprint()
 
     execute {
         val liveQueryParameters = listOf(

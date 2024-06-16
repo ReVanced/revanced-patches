@@ -95,8 +95,8 @@ val swipeControlsPatch = bytecodePatch(
         ),
     )
 
-    val mainActivityFingerprintResult by mainActivityFingerprint
-    val swipeControlsHostActivityFingerprintResult by swipeControlsHostActivityFingerprint
+    val mainActivityFingerprintResult by mainActivityFingerprint()
+    val swipeControlsHostActivityFingerprintResult by swipeControlsHostActivityFingerprint()
 
     execute { context ->
         val wrapperClass = swipeControlsHostActivityFingerprintResult.mutableClass

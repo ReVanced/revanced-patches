@@ -43,9 +43,9 @@ val lithoFilterPatch = bytecodePatch(
         integrationsPatch,
     )
 
-    val componentContextParserFingerprintResult by componentContextParserFingerprint
-    val lithoFilterFingerprintResult by lithoFilterFingerprint
-    val protobufBufferReferenceFingerprintResult by protobufBufferReferenceFingerprint
+    val componentContextParserFingerprintResult by componentContextParserFingerprint()
+    val lithoFilterFingerprintResult by lithoFilterFingerprint()
+    val protobufBufferReferenceFingerprintResult by protobufBufferReferenceFingerprint()
 
     var filterCount = 0
 

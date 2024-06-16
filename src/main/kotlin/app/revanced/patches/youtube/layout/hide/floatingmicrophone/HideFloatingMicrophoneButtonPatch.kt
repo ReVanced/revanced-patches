@@ -78,7 +78,7 @@ val hideFloatingMicrophoneButtonPatch = bytecodePatch(
         ),
     )
 
-    val showFloatingMicrophoneButtonFingerprintResult by showFloatingMicrophoneButtonFingerprint
+    val showFloatingMicrophoneButtonFingerprintResult by showFloatingMicrophoneButtonFingerprint()
 
     execute {
         showFloatingMicrophoneButtonFingerprintResult.mutableMethod.apply {

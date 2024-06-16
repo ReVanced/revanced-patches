@@ -60,7 +60,7 @@ val disableResumingShortsOnStartupPatch = bytecodePatch(
         ),
     )
 
-    val userWasInShortsFingerprintResult by userWasInShortsFingerprint
+    val userWasInShortsFingerprintResult by userWasInShortsFingerprint()
 
     execute {
         addResources("youtube", "layout.startupshortsreset.disableResumingShortsOnStartupPatch")

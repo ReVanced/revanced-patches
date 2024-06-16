@@ -51,7 +51,7 @@ val customPlayerOverlayOpacityPatch = bytecodePatch(
 
     compatibleWith("com.google.android.youtube")
 
-    val createPlayerOverviewFingerprintResult by createPlayerOverviewFingerprint
+    val createPlayerOverviewFingerprintResult by createPlayerOverviewFingerprint()
 
     execute {
         createPlayerOverviewFingerprintResult.mutableMethod.apply {

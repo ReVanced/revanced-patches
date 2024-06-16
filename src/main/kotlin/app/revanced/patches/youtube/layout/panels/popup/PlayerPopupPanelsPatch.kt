@@ -49,7 +49,7 @@ val playerPopupPanelsPatch = bytecodePatch(
         ),
     )
 
-    val engagementPanelControllerFingerprintResult by engagementPanelControllerFingerprint
+    val engagementPanelControllerFingerprintResult by engagementPanelControllerFingerprint()
 
     execute {
         addResources("youtube", "layout.panels.popup.playerPopupPanelsPatch")

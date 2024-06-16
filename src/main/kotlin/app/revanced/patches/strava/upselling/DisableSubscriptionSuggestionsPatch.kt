@@ -14,7 +14,7 @@ val disableSubscriptionSuggestionsPatch = bytecodePatch(
 ) {
     compatibleWith("com.strava"("320.12"))
 
-    val getModulesFingerprintResult by getModulesFingerprint
+    val getModulesFingerprintResult by getModulesFingerprint()
 
     execute {
         val helperMethodName = "getModulesIfNotUpselling"

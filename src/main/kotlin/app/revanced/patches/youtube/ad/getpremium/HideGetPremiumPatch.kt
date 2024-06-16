@@ -53,7 +53,7 @@ val hideGetPremiumPatch = bytecodePatch(
         ),
     )
 
-    val getPremiumViewFingerprintResult by getPremiumViewFingerprint
+    val getPremiumViewFingerprintResult by getPremiumViewFingerprint()
 
     execute {
         addResources("youtube", "ad.getpremium.hideGetPremiumPatch")

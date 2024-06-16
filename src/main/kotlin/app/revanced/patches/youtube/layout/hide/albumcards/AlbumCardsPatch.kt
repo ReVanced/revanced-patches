@@ -75,7 +75,7 @@ val albumCardsPatch = bytecodePatch(
         ),
     )
 
-    val albumCardsFingerprintResult by albumCardsFingerprint
+    val albumCardsFingerprintResult by albumCardsFingerprint()
 
     execute {
         albumCardsFingerprintResult.mutableMethod.apply {

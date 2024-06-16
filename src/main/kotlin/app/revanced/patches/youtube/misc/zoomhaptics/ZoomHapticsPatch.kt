@@ -22,7 +22,7 @@ val zoomHapticsPatch = bytecodePatch(
 
     compatibleWith("com.google.android.youtube")
 
-    val zoomHapticsFingerprintResult by zoomHapticsFingerprint
+    val zoomHapticsFingerprintResult by zoomHapticsFingerprint()
 
     execute {
         addResources("youtube", "misc.zoomhaptics.zoomHapticsPatch")

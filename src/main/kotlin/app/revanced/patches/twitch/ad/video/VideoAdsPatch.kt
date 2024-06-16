@@ -26,9 +26,9 @@ val videoAdsPatch = bytecodePatch(
         settingsPatch,
         addResourcesPatch,
         adPatch(conditionCall, skipLabelName) { createConditionInstructions, blockMethods ->
-            val checkAdEligibilityLambdaFingerprintResult by checkAdEligibilityLambdaFingerprint
-            val getReadyToShowAdFingerprintResult by getReadyToShowAdFingerprint
-            val contentConfigShowAdsFingerprintResult by contentConfigShowAdsFingerprint
+            val checkAdEligibilityLambdaFingerprintResult by checkAdEligibilityLambdaFingerprint()
+            val getReadyToShowAdFingerprintResult by getReadyToShowAdFingerprint()
+            val contentConfigShowAdsFingerprintResult by contentConfigShowAdsFingerprint()
 
             execute { context ->
                 addResources("twitch", "ad.video.videoAdsPatch")

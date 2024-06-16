@@ -13,9 +13,9 @@ val hideTimelineAdsPatch = bytecodePatch(
 ) {
     compatibleWith("com.instagram.android")
 
-    val showAdFingerprintResult by showAdFingerprint
-    val isAdCheckOneFingerprintResult by isAdCheckOneFingerprint
-    val isAdCheckTwoFingerprintResult by isAdCheckTwoFingerprint
+    val showAdFingerprintResult by showAdFingerprint()
+    val isAdCheckOneFingerprintResult by isAdCheckOneFingerprint()
+    val isAdCheckTwoFingerprintResult by isAdCheckTwoFingerprint()
 
     execute {
         // The exact function of the following methods is unknown.

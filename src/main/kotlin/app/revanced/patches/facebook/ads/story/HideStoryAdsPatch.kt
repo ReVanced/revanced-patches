@@ -10,8 +10,8 @@ val hideStoryAdsPatch = bytecodePatch(
 ) {
     compatibleWith("com.facebook.katana")
 
-    val fetchMoreAdsFingerprintResult by fetchMoreAdsFingerprint
-    val adsInsertionFingerprintResult by adsInsertionFingerprint
+    val fetchMoreAdsFingerprintResult by fetchMoreAdsFingerprint()
+    val adsInsertionFingerprintResult by adsInsertionFingerprint()
 
     execute {
         setOf(fetchMoreAdsFingerprintResult, adsInsertionFingerprintResult).forEach { result ->

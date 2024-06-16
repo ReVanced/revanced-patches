@@ -35,7 +35,7 @@ val bottomControlsPatch = resourcePatch {
 
         addBottomControls = { resourceDirectoryName ->
             val sourceDocument = context.document[
-                this::class.java.classLoader.getResourceAsStream(
+                object {}::class.java.classLoader.getResourceAsStream(
                     "$resourceDirectoryName/host/layout/$targetResourceName",
                 )!!,
             ]

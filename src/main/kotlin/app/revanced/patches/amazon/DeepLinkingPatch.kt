@@ -9,7 +9,7 @@ val deepLinkingPatch = bytecodePatch(
 ) {
     compatibleWith("com.amazon.mShop.android.shopping")
 
-    val deepLinkingFingerprintResult by deepLinkingFingerprint
+    val deepLinkingFingerprintResult by deepLinkingFingerprint()
 
     execute {
         deepLinkingFingerprintResult.mutableMethod.addInstructions(

@@ -195,9 +195,9 @@ val themePatch = bytecodePatch(
         ),
     )
 
-    val useGradientLoadingScreenFingerprintResult by useGradientLoadingScreenFingerprint
-    val themeHelperLightColorFingerprintResult by themeHelperLightColorFingerprint
-    val themeHelperDarkColorFingerprintResult by themeHelperDarkColorFingerprint
+    val useGradientLoadingScreenFingerprintResult by useGradientLoadingScreenFingerprint()
+    val themeHelperLightColorFingerprintResult by themeHelperLightColorFingerprint()
+    val themeHelperDarkColorFingerprintResult by themeHelperDarkColorFingerprint()
 
     execute {
         addResources("youtube", "layout.theme.themeResourcePatch")

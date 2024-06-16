@@ -63,7 +63,7 @@ val hideAutoplayButtonPatch = bytecodePatch(
         ),
     )
 
-    val layoutConstructorFingerprintResult by layoutConstructorFingerprint
+    val layoutConstructorFingerprintResult by layoutConstructorFingerprint()
 
     execute {
         addResources("youtube", "layout.buttons.autoplay.hideAutoplayButtonPatch")

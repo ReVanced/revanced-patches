@@ -104,19 +104,19 @@ val returnYouTubeDislikePatch = bytecodePatch(
         ),
     )
 
-    val conversionContextFingerprintResult by conversionContextFingerprint
-    val textComponentConstructorFingerprintResult by textComponentConstructorFingerprint
-    val textComponentDataFingerprintResult by textComponentDataFingerprint
-    val shortsTextViewFingerprintResult by shortsTextViewFingerprint
-    val dislikesOldLayoutTextViewFingerprintResult by dislikesOldLayoutTextViewFingerprint
-    val likeFingerprintResult by likeFingerprint
-    val dislikeFingerprintResult by dislikeFingerprint
-    val removeLikeFingerprintResult by removeLikeFingerprint
-    val rollingNumberSetterFingerprintResult by rollingNumberSetterFingerprint
-    val rollingNumberMeasureStaticLabelParentFingerprintResult by rollingNumberMeasureStaticLabelParentFingerprint
-    val rollingNumberMeasureAnimatedTextFingerprintResult by rollingNumberMeasureAnimatedTextFingerprint
-    val rollingNumberTextViewFingerprintResult by rollingNumberTextViewFingerprint
-    val rollingNumberTextViewAnimationUpdateFingerprintResult by rollingNumberTextViewAnimationUpdateFingerprint
+    val conversionContextFingerprintResult by conversionContextFingerprint()
+    val textComponentConstructorFingerprintResult by textComponentConstructorFingerprint()
+    val textComponentDataFingerprintResult by textComponentDataFingerprint()
+    val shortsTextViewFingerprintResult by shortsTextViewFingerprint()
+    val dislikesOldLayoutTextViewFingerprintResult by dislikesOldLayoutTextViewFingerprint()
+    val likeFingerprintResult by likeFingerprint()
+    val dislikeFingerprintResult by dislikeFingerprint()
+    val removeLikeFingerprintResult by removeLikeFingerprint()
+    val rollingNumberSetterFingerprintResult by rollingNumberSetterFingerprint()
+    val rollingNumberMeasureStaticLabelParentFingerprintResult by rollingNumberMeasureStaticLabelParentFingerprint()
+    val rollingNumberMeasureAnimatedTextFingerprintResult by rollingNumberMeasureAnimatedTextFingerprint()
+    val rollingNumberTextViewFingerprintResult by rollingNumberTextViewFingerprint()
+    val rollingNumberTextViewAnimationUpdateFingerprintResult by rollingNumberTextViewAnimationUpdateFingerprint()
 
     execute { context ->
         // region Inject newVideoLoaded event handler to update dislikes when a new video is loaded.

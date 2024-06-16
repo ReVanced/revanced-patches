@@ -74,9 +74,9 @@ val seekbarColorPatch = bytecodePatch(
         seekbarColorResourcePatch,
     )
 
-    val playerSeekbarColorFingerprintResult by playerSeekbarColorFingerprint
-    val shortsSeekbarColorFingerprintResult by shortsSeekbarColorFingerprint
-    val setSeekbarClickedColorFingerprintResult by setSeekbarClickedColorFingerprint
+    val playerSeekbarColorFingerprintResult by playerSeekbarColorFingerprint()
+    val shortsSeekbarColorFingerprintResult by shortsSeekbarColorFingerprint()
+    val setSeekbarClickedColorFingerprintResult by setSeekbarClickedColorFingerprint()
 
     execute { context ->
         fun MutableMethod.addColorChangeInstructions(resourceId: Long) {

@@ -18,7 +18,7 @@ val enableExclusiveAudioPlaybackPatch = bytecodePatch(
         ),
     )
 
-    val allowExclusiveAudioPlaybackFingerprintResult by allowExclusiveAudioPlaybackFingerprint
+    val allowExclusiveAudioPlaybackFingerprintResult by allowExclusiveAudioPlaybackFingerprint()
 
     execute {
         allowExclusiveAudioPlaybackFingerprintResult.mutableMethod.apply {

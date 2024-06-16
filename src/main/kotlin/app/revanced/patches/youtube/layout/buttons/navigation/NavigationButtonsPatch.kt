@@ -64,8 +64,8 @@ val navigationButtonsPatch = bytecodePatch(
         ),
     )
 
-    val addCreateButtonViewFingerprintResult by addCreateButtonViewFingerprint
-    val createPivotBarFingerprintResult by createPivotBarFingerprint
+    val addCreateButtonViewFingerprintResult by addCreateButtonViewFingerprint()
+    val createPivotBarFingerprintResult by createPivotBarFingerprint()
 
     execute {
         addResources("youtube", "layout.buttons.navigation.navigationButtonsPatch")

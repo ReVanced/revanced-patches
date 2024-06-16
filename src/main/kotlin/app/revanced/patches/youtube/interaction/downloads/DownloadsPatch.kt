@@ -89,8 +89,8 @@ val downloadsPatch = bytecodePatch(
         ),
     )
 
-    val offlineVideoEndpointFingerprintResult by offlineVideoEndpointFingerprint
-    val mainActivityFingerprintResult by mainActivityFingerprint
+    val offlineVideoEndpointFingerprintResult by offlineVideoEndpointFingerprint()
+    val mainActivityFingerprintResult by mainActivityFingerprint()
 
     execute {
         initializeControl("$BUTTON_DESCRIPTOR->initializeButton(Landroid/view/View;)V")

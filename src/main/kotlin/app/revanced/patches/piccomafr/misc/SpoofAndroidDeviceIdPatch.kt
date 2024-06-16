@@ -30,7 +30,7 @@ val spoofAndroidDeviceIdPatch = bytecodePatch(
         ),
     )
 
-    val getAndroidIDFingerprintResult by getAndroidIdFingerprint
+    val getAndroidIDFingerprintResult by getAndroidIdFingerprint()
 
     val androidDeviceId by stringOption(
         key = "android-device-id",

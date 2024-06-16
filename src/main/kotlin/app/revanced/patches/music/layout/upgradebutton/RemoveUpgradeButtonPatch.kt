@@ -28,7 +28,7 @@ val removeUpgradeButtonPatch = bytecodePatch(
         ),
     )
 
-    val pivotBarConstructorFingerprintResult by pivotBarConstructorFingerprint
+    val pivotBarConstructorFingerprintResult by pivotBarConstructorFingerprint()
 
     execute {
         pivotBarConstructorFingerprintResult.mutableMethod.apply {

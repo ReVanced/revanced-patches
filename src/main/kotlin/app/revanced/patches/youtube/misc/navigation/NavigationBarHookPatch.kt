@@ -51,14 +51,14 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
         playerTypeHookPatch, // Required to detect the search bar in all situations.
     )
 
-    val pivotBarConstructorFingerprintResult by pivotBarConstructorFingerprint
-    val navigationEnumFingerprintResult by navigationEnumFingerprint
-    val pivotBarButtonsCreateDrawableViewFingerprintResult by pivotBarButtonsCreateDrawableViewFingerprint
-    val pivotBarButtonsCreateResourceViewFingerprintResult by pivotBarButtonsCreateResourceViewFingerprint
-    val pivotBarButtonsViewSetSelectedFingerprintResult by pivotBarButtonsViewSetSelectedFingerprint
-    val navigationBarHookCallbackFingerprintResult by navigationBarHookCallbackFingerprint
-    val mainActivityOnBackPressedFingerprintResult by mainActivityOnBackPressedFingerprint
-    val actionBarSearchFingerprintResultsFingerprintResult by actionBarSearchResultsFingerprint
+    val pivotBarConstructorFingerprintResult by pivotBarConstructorFingerprint()
+    val navigationEnumFingerprintResult by navigationEnumFingerprint()
+    val pivotBarButtonsCreateDrawableViewFingerprintResult by pivotBarButtonsCreateDrawableViewFingerprint()
+    val pivotBarButtonsCreateResourceViewFingerprintResult by pivotBarButtonsCreateResourceViewFingerprint()
+    val pivotBarButtonsViewSetSelectedFingerprintResult by pivotBarButtonsViewSetSelectedFingerprint()
+    val navigationBarHookCallbackFingerprintResult by navigationBarHookCallbackFingerprint()
+    val mainActivityOnBackPressedFingerprintResult by mainActivityOnBackPressedFingerprint()
+    val actionBarSearchFingerprintResultsFingerprintResult by actionBarSearchResultsFingerprint()
 
     execute { context ->
         fun MutableMethod.addHook(hook: Hook, insertPredicate: Instruction.() -> Boolean) {

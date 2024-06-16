@@ -84,8 +84,8 @@ val hideInfoCardsPatch = bytecodePatch(
         ),
     )
 
-    val infocardsIncognitoParentFingerprintResult by infocardsIncognitoParentFingerprint
-    val infocardsMethodCallFingerprintResult by infocardsMethodCallFingerprint
+    val infocardsIncognitoParentFingerprintResult by infocardsIncognitoParentFingerprint()
+    val infocardsMethodCallFingerprintResult by infocardsMethodCallFingerprint()
 
     execute { context ->
         infocardsIncognitoFingerprint.apply {

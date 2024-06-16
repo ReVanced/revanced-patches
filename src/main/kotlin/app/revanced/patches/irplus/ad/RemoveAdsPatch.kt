@@ -9,7 +9,7 @@ val removeAdsPatch = bytecodePatch(
 ) {
     compatibleWith("net.binarymode.android.irplus")
 
-    val irplusAdsFingerprintResult by irplusAdsFingerprint
+    val irplusAdsFingerprintResult by irplusAdsFingerprint()
 
     execute {
         // By overwriting the second parameter of the method,

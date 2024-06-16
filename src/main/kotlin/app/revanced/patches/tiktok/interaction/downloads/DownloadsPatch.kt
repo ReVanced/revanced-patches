@@ -28,11 +28,11 @@ val downloadsPatch = bytecodePatch(
         "com.zhiliaoapp.musically"("32.5.3"),
     )
 
-    val aclCommonShareFingerprintResult by aclCommonShareFingerprint
-    val aclCommonShareFingerprintResult2 by aclCommonShareFingerprint2
-    val aclCommonShareFingerprintResult3 by aclCommonShareFingerprint3
-    val downloadPathParentFingerprintResult by downloadPathParentFingerprint
-    val settingsStatusLoadFingerprintResult by settingsStatusLoadFingerprint
+    val aclCommonShareFingerprintResult by aclCommonShareFingerprint()
+    val aclCommonShareFingerprintResult2 by aclCommonShare2Fingerprint()
+    val aclCommonShareFingerprintResult3 by aclCommonShare3Fingerprint()
+    val downloadPathParentFingerprintResult by downloadPathParentFingerprint()
+    val settingsStatusLoadFingerprintResult by settingsStatusLoadFingerprint()
 
     execute { context ->
         aclCommonShareFingerprintResult.mutableMethod.replaceInstructions(
@@ -76,9 +76,10 @@ val downloadsPatch = bytecodePatch(
                 opcode == Opcode.INVOKE_DIRECT && ((this as Instruction35c).reference as MethodReference).name == "<init>"
             }
             val secondIndex = downloadUriMethod.indexOfFirstInstructionOrThrow {
-                opcode == Opcode.INVOKE_STATIC && ((this as Instruction35c).reference as MethodReference).returnType.contains(
-                    "Uri",
-                )
+                opcode == Opcode.INVOKE_STATIC &&
+                    ((this as Instruction35c).reference as MethodReference).returnType.contains(
+                        "Uri",
+                    )
             }
 
             downloadUriMethod.addInstructions(

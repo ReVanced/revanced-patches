@@ -22,7 +22,7 @@ val autoClaimChannelPointsPatch = bytecodePatch(
 
     compatibleWith("tv.twitch.android.app"("15.4.1", "16.1.0", "16.9.1"))
 
-    val communityPointsButtonViewDelegateFingerprintResult by communityPointsButtonViewDelegateFingerprint
+    val communityPointsButtonViewDelegateFingerprintResult by communityPointsButtonViewDelegateFingerprint()
 
     execute {
         addResources("twitch", "chat.autoclaim.autoClaimChannelPointsPatch")

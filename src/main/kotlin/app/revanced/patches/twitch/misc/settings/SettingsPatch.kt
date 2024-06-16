@@ -51,10 +51,10 @@ val settingsPatch = bytecodePatch(
         ),
     )
 
-    val settingsActivityOnCreateFingerprintResult by settingsActivityOnCreateFingerprint
-    val settingsMenuItemEnumFingerprintResult by settingsMenuItemEnumFingerprint
-    val menuGroupsUpdatedFingerprintResult by menuGroupsUpdatedFingerprint
-    val menuGroupsOnClickFingerprintResult by menuGroupsOnClickFingerprint
+    val settingsActivityOnCreateFingerprintResult by settingsActivityOnCreateFingerprint()
+    val settingsMenuItemEnumFingerprintResult by settingsMenuItemEnumFingerprint()
+    val menuGroupsUpdatedFingerprintResult by menuGroupsUpdatedFingerprint()
+    val menuGroupsOnClickFingerprintResult by menuGroupsOnClickFingerprint()
 
     execute {
         addResources("twitch", "misc.settings.settingsPatch")
@@ -190,13 +190,11 @@ internal object PreferenceScreen : BasePreferenceScreen() {
 
         internal inner class CustomCategory(key: String) : Screen.Category(key) {
             /* For Twitch, we need to load our CustomPreferenceCategory class instead of the default one. */
-            override fun transform(): PreferenceCategory {
-                return PreferenceCategory(
-                    key,
-                    preferences = preferences,
-                    tag = "app.revanced.integrations.twitch.settings.preference.CustomPreferenceCategory",
-                )
-            }
+            override fun transform(): PreferenceCategory = PreferenceCategory(
+                key,
+                preferences = preferences,
+                tag = "app.revanced.integrations.twitch.settings.preference.CustomPreferenceCategory",
+            )
         }
     }
 

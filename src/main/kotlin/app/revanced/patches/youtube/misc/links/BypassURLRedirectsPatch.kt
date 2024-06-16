@@ -48,8 +48,8 @@ val bypassURLRedirectsPatch = bytecodePatch(
         ),
     )
 
-    val abUriParserFingerprintResult by abUriParserFingerprint
-    val httpUriParserFingerprintResult by httpUriParserFingerprint
+    val abUriParserFingerprintResult by abUriParserFingerprint()
+    val httpUriParserFingerprintResult by httpUriParserFingerprint()
 
     execute {
         addResources("youtube", "misc.links.bypassURLRedirectsPatch")

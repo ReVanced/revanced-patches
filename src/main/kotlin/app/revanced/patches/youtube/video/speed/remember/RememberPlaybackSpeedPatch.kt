@@ -27,7 +27,7 @@ internal val rememberPlaybackSpeedPatch = bytecodePatch {
         addResourcesPatch,
     )
 
-    val initializePlaybackSpeedValuesFingerprintResult by initializePlaybackSpeedValuesFingerprint
+    val initializePlaybackSpeedValuesFingerprintResult by initializePlaybackSpeedValuesFingerprint()
 
     execute {
         addResources("youtube", "video.speed.remember.rememberPlaybackSpeedPatch")
