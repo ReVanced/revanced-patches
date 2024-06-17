@@ -11,10 +11,9 @@ import app.revanced.patches.shared.misc.mapping.resourceMappings
  *
  * @param resourceDirectoryName The name of the directory containing the hosting resource.
  */
+@Suppress("KDocUnresolvedReference")
 lateinit var addBottomControls: (resourceDirectoryName: String) -> Unit
     private set
-
-private lateinit var targetDocument: Document
 
 internal var bottomUiContainerResourceId = -1L
     private set
@@ -22,16 +21,16 @@ internal var bottomUiContainerResourceId = -1L
 val bottomControlsPatch = resourcePatch {
     dependsOn(resourceMappingPatch)
 
+    lateinit var targetDocument: Document
+
+    // The element to the left of the element being added.
+    var lastLeftOf = "fullscreen_button"
+
     execute { context ->
         bottomUiContainerResourceId = resourceMappings["id", "bottom_ui_container_stub"]
 
         val targetResourceName = "youtube_controls_bottom_ui_container.xml"
-        val targetResourcePath = "res/layout/$targetResourceName"
-
-        targetDocument = context.document[targetResourcePath]
-
-        // The element to the left of the element being added.
-        var lastLeftOf = "fullscreen_button"
+        targetDocument = context.document["res/layout/$targetResourceName"]
 
         addBottomControls = { resourceDirectoryName ->
             val sourceDocument = context.document[
@@ -67,9 +66,9 @@ val bottomControlsPatch = resourcePatch {
 
             sourceDocument.close()
         }
+    }
 
-        finalize {
-            targetDocument.close()
-        }
+    finalize {
+        targetDocument.close()
     }
 }

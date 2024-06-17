@@ -12,25 +12,19 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
  * Injects the code to change the visibility of controls.
  * @param descriptor The descriptor of the method which should be called.
  */
-fun injectVisibilityCheckCall(descriptor: String) {
-    showPlayerControlsMatch.mutableMethod.addInstruction(
-        0,
-        """
-            invoke-static {p1}, $descriptor
-        """,
-    )
-}
+fun injectVisibilityCheckCall(descriptor: String) = showPlayerControlsMatch.mutableMethod.addInstruction(
+    0,
+    "invoke-static { p1 }, $descriptor",
+)
 
 /**
  * Injects the code to initialize the controls.
- * @param descriptor The descriptor of the method which should be calleed.
+ * @param descriptor The descriptor of the method which should be called.
  */
-fun initializeControl(descriptor: String) {
-    inflateMatch.mutableMethod.addInstruction(
-        moveToRegisterInstructionIndex + 1,
-        "invoke-static {v$viewRegister}, $descriptor",
-    )
-}
+fun initializeControl(descriptor: String) = inflateMatch.mutableMethod.addInstruction(
+    moveToRegisterInstructionIndex + 1,
+    "invoke-static {v$viewRegister}, $descriptor",
+)
 
 lateinit var showPlayerControlsMatch: Match
     private set
@@ -54,7 +48,7 @@ val playerControlsPatch = bytecodePatch(
 
         inflateMatch = bottomControlsInflateMatch.also {
             moveToRegisterInstructionIndex = it.patternMatch!!.endIndex
-            viewRegister = it.mutableMethod.getInstruction<OneRegisterInstruction>(moveToRegisterInstructionIndex).registerA
+            viewRegister = it.method.getInstruction<OneRegisterInstruction>(moveToRegisterInstructionIndex).registerA
         }
     }
 }
