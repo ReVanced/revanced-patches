@@ -66,6 +66,10 @@ public final class app/revanced/patches/all/misc/transformation/TransformInstruc
 	public static final fun transformInstructionsPatch (Lkotlin/jvm/functions/Function4;Lkotlin/jvm/functions/Function2;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/all/misc/versioncode/ChangeVersionCodePatchKt {
+	public static final fun getChangeVersionCodePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+}
+
 public final class app/revanced/patches/all/screencapture/removerestriction/RemoveCaptureRestrictionPatchKt {
 	public static final fun getRemoveCaptureRestrictionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
