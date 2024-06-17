@@ -18,25 +18,21 @@ final class DescriptionComponentsFilter extends Filter {
                 "metadata"
         );
 
-        final StringFilterGroup chapterSection = new StringFilterGroup(
-                Settings.HIDE_CHAPTERS,
+        final StringFilterGroup attributesSection = new StringFilterGroup(
+                Settings.HIDE_ATTRIBUTES_SECTION,
+                "gaming_section",
+                "music_section",
+                "video_attributes_section"
+        );
+
+        final StringFilterGroup chaptersSection = new StringFilterGroup(
+                Settings.HIDE_CHAPTERS_SECTION,
                 "macro_markers_carousel"
         );
 
         final StringFilterGroup infoCardsSection = new StringFilterGroup(
                 Settings.HIDE_INFO_CARDS_SECTION,
                 "infocards_section"
-        );
-
-        final StringFilterGroup gameSection = new StringFilterGroup(
-                Settings.HIDE_GAME_SECTION,
-                "gaming_section"
-        );
-
-        final StringFilterGroup musicSection = new StringFilterGroup(
-                Settings.HIDE_MUSIC_SECTION,
-                "music_section",
-                "video_attributes_section"
         );
 
         final StringFilterGroup podcastSection = new StringFilterGroup(
@@ -50,10 +46,9 @@ final class DescriptionComponentsFilter extends Filter {
         );
 
         addPathCallbacks(
-                chapterSection,
+                attributesSection,
+                chaptersSection,
                 infoCardsSection,
-                gameSection,
-                musicSection,
                 podcastSection,
                 transcriptSection
         );
