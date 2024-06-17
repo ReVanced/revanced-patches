@@ -1,3 +1,10 @@
+# [4.10.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v4.10.0-dev.8...v4.10.0-dev.9) (2024-06-17)
+
+
+### Bug Fixes
+
+* **YouTube - Hide description components:** Replace `Hide game section` and `Hide music section` with `Hide attributes section` ([#3327](https://github.com/ReVanced/revanced-patches/issues/3327)) ([0198a43](https://github.com/ReVanced/revanced-patches/commit/0198a436f97b127a2a5dd283644254f9a0ae3e43))
+
 # [4.10.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v4.10.0-dev.7...v4.10.0-dev.8) (2024-06-17)
 
 
