@@ -94,10 +94,9 @@ object HideLayoutComponentsPatch : BytecodePatch(
             PreferenceScreen(
                 key = "revanced_hide_description_components_screen",
                 preferences = setOf(
-                    SwitchPreference("revanced_hide_chapters"),
+                    SwitchPreference("revanced_hide_attributes_section"),
+                    SwitchPreference("revanced_hide_chapters_section"),
                     SwitchPreference("revanced_hide_info_cards_section"),
-                    SwitchPreference("revanced_hide_game_section"),
-                    SwitchPreference("revanced_hide_music_section"),
                     SwitchPreference("revanced_hide_podcast_section"),
                     SwitchPreference("revanced_hide_transcript_section"),
                 ),
