@@ -4,14 +4,14 @@ import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val createVideoPlayerSeekbarFingerprint = methodFingerprint {
+internal val createVideoPlayerSeekbarFingerprint = fingerprint {
     returns("V")
     strings("timed_markers_width")
 }
 
-internal val onPlaybackSpeedItemClickFingerprint = methodFingerprint {
+internal val onPlaybackSpeedItemClickFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L", "L", "I", "J")
@@ -23,20 +23,20 @@ internal val onPlaybackSpeedItemClickFingerprint = methodFingerprint {
     }
 }
 
-internal val playerControllerSetTimeReferenceFingerprint = methodFingerprint {
+internal val playerControllerSetTimeReferenceFingerprint = fingerprint {
     opcodes(Opcode.INVOKE_DIRECT_RANGE, Opcode.IGET_OBJECT)
     strings("Media progress reported outside media playback: ")
 }
 
-internal val playerInitFingerprint = methodFingerprint {
+internal val playerInitFingerprint = fingerprint {
     strings("playVideo called on player response with no videoStreamingData.")
 }
 
-internal val seekFingerprint = methodFingerprint {
+internal val seekFingerprint = fingerprint {
     strings("Attempting to seek during an ad")
 }
 
-internal val videoLengthFingerprint = methodFingerprint {
+internal val videoLengthFingerprint = fingerprint {
     opcodes(
         Opcode.MOVE_RESULT_WIDE,
         Opcode.CMP_LONG,

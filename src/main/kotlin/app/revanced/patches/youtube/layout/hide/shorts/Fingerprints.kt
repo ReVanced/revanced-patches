@@ -1,12 +1,12 @@
 package app.revanced.patches.youtube.layout.hide.shorts
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 import app.revanced.util.containsWideLiteralInstructionValue
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val bottomNavigationBarFingerprint = methodFingerprint {
+internal val bottomNavigationBarFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Landroid/view/View;", "Landroid/os/Bundle;")
@@ -22,23 +22,23 @@ internal val bottomNavigationBarFingerprint = methodFingerprint {
     strings("ReelWatchPaneFragmentViewModelKey")
 }
 
-internal val createShortsButtonsFingerprint = methodFingerprint {
+internal val createShortsButtonsFingerprint = fingerprint {
     returns("V")
     literal { reelPlayerRightCellButtonHeight }
 }
 
-internal val reelConstructorFingerprint = methodFingerprint {
+internal val reelConstructorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     opcodes(Opcode.INVOKE_VIRTUAL)
-    custom { methodDef, _ ->
-        // Cannot use methodFingerprint, because the resource id may not be present.
+    custom { method, _ ->
+        // Cannot use fingerprint, because the resource id may not be present.
         val reelMultipleItemShelfId = reelMultipleItemShelfId
         reelMultipleItemShelfId != -1L &&
-            methodDef.containsWideLiteralInstructionValue(reelMultipleItemShelfId)
+            method.containsWideLiteralInstructionValue(reelMultipleItemShelfId)
     }
 }
 
-internal val renderBottomNavigationBarFingerprint = methodFingerprint {
+internal val renderBottomNavigationBarFingerprint = fingerprint {
     opcodes(
         Opcode.IGET_OBJECT,
         Opcode.MONITOR_ENTER,
@@ -53,12 +53,12 @@ internal val renderBottomNavigationBarFingerprint = methodFingerprint {
     )
 }
 
-internal val renderBottomNavigationBarParentFingerprint = methodFingerprint {
+internal val renderBottomNavigationBarParentFingerprint = fingerprint {
     parameters("I", "I", "L", "L", "J", "L")
     strings("aa")
 }
 
-internal val setPivotBarVisibilityFingerprint = methodFingerprint {
+internal val setPivotBarVisibilityFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returns("V")
     parameters("Z")
@@ -68,7 +68,7 @@ internal val setPivotBarVisibilityFingerprint = methodFingerprint {
     )
 }
 
-internal val setPivotBarVisibilityParentFingerprint = methodFingerprint {
+internal val setPivotBarVisibilityParentFingerprint = fingerprint {
     parameters("Z")
     strings("FEnotifications_inbox")
 }

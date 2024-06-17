@@ -1,10 +1,10 @@
 package app.revanced.util
 
+import app.revanced.patcher.Fingerprint
+import app.revanced.patcher.FingerprintBuilder
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
-import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.patcher.fingerprint.MethodFingerprintBuilder
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
@@ -20,14 +20,14 @@ import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.reference.Reference
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
-fun MethodFingerprint.resultOrThrow() = result ?: throw exception
+fun Fingerprint.matchOrThrow() = match ?: throw exception
 
 /**
- * The [PatchException] of failing to resolve a [MethodFingerprint].
+ * The [PatchException] of failing to resolve a [Fingerprint].
  *
  * @return The [PatchException].
  */
-val MethodFingerprint.exception
+val Fingerprint.exception
     get() = PatchException("Failed to resolve ${this.javaClass.simpleName}")
 
 /**
@@ -215,13 +215,13 @@ fun Method.findOpcodeIndicesReversed(opcode: Opcode): List<Int> {
 }
 
 /**
- * Return the resolved methods of [MethodFingerprint]s early.
+ * Return the resolved methods of [Fingerprint]s early.
  */
-fun List<MethodFingerprint>.returnEarly(bool: Boolean = false) {
+fun List<Fingerprint>.returnEarly(bool: Boolean = false) {
     val const = if (bool) "0x1" else "0x0"
     this.forEach { fingerprint ->
-        fingerprint.result?.let { result ->
-            val stringInstructions = when (result.method.returnType.first()) {
+        fingerprint.match?.let { match ->
+            val stringInstructions = when (match.method.returnType.first()) {
                 'L' ->
                     """
                         const/4 v0, $const
@@ -236,7 +236,7 @@ fun List<MethodFingerprint>.returnEarly(bool: Boolean = false) {
                 else -> throw Exception("This case should never happen.")
             }
 
-            result.mutableMethod.addInstructions(0, stringInstructions)
+            match.mutableMethod.addInstructions(0, stringInstructions)
         } ?: throw fingerprint.exception
     }
 }
@@ -246,8 +246,8 @@ fun List<MethodFingerprint>.returnEarly(bool: Boolean = false) {
  *
  * @param literalSupplier The supplier for the literal value to check for.
  */
-fun MethodFingerprintBuilder.literal(literalSupplier: () -> Long) {
-    custom { methodDef, _ ->
-        methodDef.containsWideLiteralInstructionValue(literalSupplier())
+fun FingerprintBuilder.literal(literalSupplier: () -> Long) {
+    custom { method, _ ->
+        method.containsWideLiteralInstructionValue(literalSupplier())
     }
 }

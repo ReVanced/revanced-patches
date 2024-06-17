@@ -1,11 +1,11 @@
 package app.revanced.patches.music.audio.codecs
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 // FIXME: Test this threshold and find the best value.
-internal val allCodecsReferenceFingerprint = methodFingerprint(fuzzyPatternScanThreshold = 2) {
+internal val allCodecsReferenceFingerprint = fingerprint(fuzzyPatternScanThreshold = 2) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("J")
     parameters("L")
@@ -53,7 +53,7 @@ internal val allCodecsReferenceFingerprint = methodFingerprint(fuzzyPatternScanT
 }
 
 // FIXME: Test this threshold and find the best value.
-internal val codecsLockFingerprint = methodFingerprint(fuzzyPatternScanThreshold = 2) {
+internal val codecsLockFingerprint = fingerprint(fuzzyPatternScanThreshold = 2) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("L")
     opcodes(

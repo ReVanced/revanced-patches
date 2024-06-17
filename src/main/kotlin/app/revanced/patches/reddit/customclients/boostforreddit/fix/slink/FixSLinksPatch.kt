@@ -17,13 +17,13 @@ val fixSlinksPatch = fixSLinksPatch(
 ) {
     compatibleWith("com.rubenmayayo.reddit")
 
-    val handleNavigationFingerprintResult by handleNavigationFingerprint()
-    val setAccessTokenFingerprintResult by getOAuthAccessTokenFingerprint()
+    val handleNavigationMatch by handleNavigationFingerprint()
+    val setAccessTokenMatch by getOAuthAccessTokenFingerprint()
 
     execute {
         // region Patch navigation handler.
 
-        handleNavigationFingerprintResult.mutableMethod.apply {
+        handleNavigationMatch.mutableMethod.apply {
             val urlRegister = "p1"
             val tempRegister = "v1"
 
@@ -43,7 +43,7 @@ val fixSlinksPatch = fixSLinksPatch(
 
         // region Patch set access token.
 
-        setAccessTokenFingerprintResult.mutableMethod.addInstruction(
+        setAccessTokenMatch.mutableMethod.addInstruction(
             3,
             "invoke-static { v0 }, $INTEGRATIONS_CLASS_DESCRIPTOR->$SET_ACCESS_TOKEN_METHOD",
         )

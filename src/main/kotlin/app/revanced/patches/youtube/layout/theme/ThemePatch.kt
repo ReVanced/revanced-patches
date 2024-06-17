@@ -195,9 +195,9 @@ val themePatch = bytecodePatch(
         ),
     )
 
-    val useGradientLoadingScreenFingerprintResult by useGradientLoadingScreenFingerprint()
-    val themeHelperLightColorFingerprintResult by themeHelperLightColorFingerprint()
-    val themeHelperDarkColorFingerprintResult by themeHelperDarkColorFingerprint()
+    val useGradientLoadingScreenMatch by useGradientLoadingScreenFingerprint()
+    val themeHelperLightColorMatch by themeHelperLightColorFingerprint()
+    val themeHelperDarkColorMatch by themeHelperDarkColorFingerprint()
 
     execute {
         addResources("youtube", "layout.theme.themePatch")
@@ -206,7 +206,7 @@ val themePatch = bytecodePatch(
             SwitchPreference("revanced_gradient_loading_screen"),
         )
 
-        useGradientLoadingScreenFingerprintResult.mutableMethod.apply {
+        useGradientLoadingScreenMatch.mutableMethod.apply {
 
             val isEnabledIndex = indexOfFirstWideLiteralInstructionValueOrThrow(GRADIENT_LOADING_SCREEN_AB_CONSTANT) + 3
             val isEnabledRegister = getInstruction<OneRegisterInstruction>(isEnabledIndex - 1).registerA
@@ -220,10 +220,10 @@ val themePatch = bytecodePatch(
             )
         }
         mapOf(
-            themeHelperLightColorFingerprintResult to lightThemeBackgroundColor,
-            themeHelperDarkColorFingerprintResult to darkThemeBackgroundColor,
-        ).forEach { (result, color) ->
-            result.mutableMethod.apply {
+            themeHelperLightColorMatch to lightThemeBackgroundColor,
+            themeHelperDarkColorMatch to darkThemeBackgroundColor,
+        ).forEach { (match, color) ->
+            match.mutableMethod.apply {
                 addInstructions(
                     0,
                     """

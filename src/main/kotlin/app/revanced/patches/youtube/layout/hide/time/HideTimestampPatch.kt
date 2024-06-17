@@ -48,7 +48,7 @@ val hideTimestampPatch = bytecodePatch(
         ),
     )
 
-    val timeCounterFingerprintResult by timeCounterFingerprint()
+    val timeCounterMatch by timeCounterFingerprint()
 
     execute {
         addResources("youtube", "layout.hide.time.hideTimestampPatch")
@@ -57,7 +57,7 @@ val hideTimestampPatch = bytecodePatch(
             SwitchPreference("revanced_hide_timestamp"),
         )
 
-        timeCounterFingerprintResult.mutableMethod.addInstructionsWithLabels(
+        timeCounterMatch.mutableMethod.addInstructionsWithLabels(
             0,
             """
                 invoke-static { }, Lapp/revanced/integrations/youtube/patches/HideTimestampPatch;->hideTimestamp()Z

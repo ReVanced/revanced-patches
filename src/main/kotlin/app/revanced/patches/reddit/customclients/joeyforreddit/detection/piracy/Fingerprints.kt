@@ -2,9 +2,9 @@ package app.revanced.patches.reddit.customclients.joeyforreddit.detection.piracy
 
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val piracyDetectionFingerprint = methodFingerprint {
+internal val piracyDetectionFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returns("V")
     opcodes(

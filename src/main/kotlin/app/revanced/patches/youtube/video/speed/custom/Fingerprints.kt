@@ -1,24 +1,24 @@
 package app.revanced.patches.youtube.video.speed.custom
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val getOldPlaybackSpeedsFingerprint = methodFingerprint {
+internal val getOldPlaybackSpeedsFingerprint = fingerprint {
     parameters("[L", "I")
     strings("menu_item_playback_speed")
 }
 
-internal val showOldPlaybackSpeedMenuFingerprint = methodFingerprint {
+internal val showOldPlaybackSpeedMenuFingerprint = fingerprint {
     literal { speedUnavailableId }
 }
 
-internal val showOldPlaybackSpeedMenuIntegrationsFingerprint = methodFingerprint {
+internal val showOldPlaybackSpeedMenuIntegrationsFingerprint = fingerprint {
     custom { method, _ -> method.name == "showOldPlaybackSpeedMenu" }
 }
 
-internal val speedArrayGeneratorFingerprint = methodFingerprint {
+internal val speedArrayGeneratorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("[L")
     parameters("Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;")
@@ -33,7 +33,7 @@ internal val speedArrayGeneratorFingerprint = methodFingerprint {
     strings("0.0#")
 }
 
-internal val speedLimiterFingerprint = methodFingerprint {
+internal val speedLimiterFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("F")

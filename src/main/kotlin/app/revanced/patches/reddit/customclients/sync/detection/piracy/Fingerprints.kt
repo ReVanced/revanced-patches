@@ -3,9 +3,9 @@ package app.revanced.patches.reddit.customclients.sync.detection.piracy
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val piracyDetectionFingerprint = methodFingerprint {
+internal val piracyDetectionFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returns("V")
     opcodes(

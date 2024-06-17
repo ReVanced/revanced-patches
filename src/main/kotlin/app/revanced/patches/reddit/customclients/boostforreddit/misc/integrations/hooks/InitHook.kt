@@ -5,7 +5,7 @@ import app.revanced.patches.shared.misc.integrations.integrationsHook
 internal val initHook = integrationsHook(
     insertIndexResolver = { 1 },
 ) {
-    custom { methodDef, _ ->
-        methodDef.definingClass == "Lcom/rubenmayayo/reddit/MyApplication;" && methodDef.name == "onCreate"
+    custom { method, _ ->
+        method.definingClass == "Lcom/rubenmayayo/reddit/MyApplication;" && method.name == "onCreate"
     }
 }

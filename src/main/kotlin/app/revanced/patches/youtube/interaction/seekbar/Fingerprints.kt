@@ -1,19 +1,19 @@
 package app.revanced.patches.youtube.interaction.seekbar
 
-import com.android.tools.smali.dexlib2.Opcode
+import app.revanced.patcher.fingerprint
 import app.revanced.util.literal
-import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint.methodFingerprint
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 
-internal val doubleSpeedSeekNoticeFingerprint = methodFingerprint {
+internal val doubleSpeedSeekNoticeFingerprint = fingerprint {
     returns("Z")
     parameters()
     opcodes(Opcode.MOVE_RESULT)
     literal { 45411330 }
 }
 
-internal val isSwipingUpFingerprint = methodFingerprint {
+internal val isSwipingUpFingerprint = fingerprint {
     returns("Z")
     parameters("Landroid/view/MotionEvent;", "J")
     opcodes(
@@ -22,7 +22,7 @@ internal val isSwipingUpFingerprint = methodFingerprint {
     )
 }
 
-internal val onTouchEventHandlerFingerprint = methodFingerprint(fuzzyPatternScanThreshold = 3) {
+internal val onTouchEventHandlerFingerprint = fingerprint(fuzzyPatternScanThreshold = 3) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.PUBLIC)
     returns("Z")
     parameters("L")
@@ -42,10 +42,10 @@ internal val onTouchEventHandlerFingerprint = methodFingerprint(fuzzyPatternScan
         Opcode.INVOKE_VIRTUAL,
         Opcode.INVOKE_VIRTUAL, // oMethodReference
     )
-    custom { methodDef, _ -> methodDef.name == "onTouchEvent" }
+    custom { method, _ -> method.name == "onTouchEvent" }
 }
 
-internal val seekbarTappingFingerprint = methodFingerprint {
+internal val seekbarTappingFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters("L")
@@ -56,10 +56,10 @@ internal val seekbarTappingFingerprint = methodFingerprint {
         Opcode.RETURN,
         Opcode.INVOKE_VIRTUAL,
     )
-    custom { methodDef, _ ->
-        if (methodDef.name != "onTouchEvent") return@custom false
+    custom { method, _ ->
+        if (method.name != "onTouchEvent") return@custom false
 
-        methodDef.implementation!!.instructions.any { instruction ->
+        method.implementation!!.instructions.any { instruction ->
             if (instruction.opcode != Opcode.CONST) return@any false
 
             val literal = (instruction as NarrowLiteralInstruction).narrowLiteral
@@ -71,7 +71,7 @@ internal val seekbarTappingFingerprint = methodFingerprint {
     }
 }
 
-internal val slideToSeekFingerprint = methodFingerprint {
+internal val slideToSeekFingerprint = fingerprint {
     returns("Z")
     parameters()
     opcodes(Opcode.MOVE_RESULT)

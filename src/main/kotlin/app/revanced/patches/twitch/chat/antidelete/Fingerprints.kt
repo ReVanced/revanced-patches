@@ -1,15 +1,15 @@
 package app.revanced.patches.twitch.chat.antidelete
 
+import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint.methodFingerprint
 
-internal val chatUtilCreateDeletedSpanFingerprint = methodFingerprint {
-    custom { methodDef, classDef ->
-        classDef.endsWith("ChatUtil\$Companion;") && methodDef.name == "createDeletedSpanFromChatMessageSpan"
+internal val chatUtilCreateDeletedSpanFingerprint = fingerprint {
+    custom { method, classDef ->
+        classDef.endsWith("ChatUtil\$Companion;") && method.name == "createDeletedSpanFromChatMessageSpan"
     }
 }
 
-internal val deletedMessageClickableSpanCtorFingerprint = methodFingerprint {
+internal val deletedMessageClickableSpanCtorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     returns("V")
     custom { _, classDef ->
@@ -17,8 +17,8 @@ internal val deletedMessageClickableSpanCtorFingerprint = methodFingerprint {
     }
 }
 
-internal val setHasModAccessFingerprint = methodFingerprint {
-    custom { methodDef, classDef ->
-        classDef.endsWith("DeletedMessageClickableSpan;") && methodDef.name == "setHasModAccess"
+internal val setHasModAccessFingerprint = fingerprint {
+    custom { method, classDef ->
+        classDef.endsWith("DeletedMessageClickableSpan;") && method.name == "setHasModAccess"
     }
 }

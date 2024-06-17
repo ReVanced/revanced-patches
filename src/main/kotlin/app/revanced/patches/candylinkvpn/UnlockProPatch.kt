@@ -9,10 +9,10 @@ val unlockProPatch = bytecodePatch(
 ) {
     compatibleWith("com.candylink.openvpn")
 
-    val isPremiumPurchasedFingerprintResult by isPremiumPurchasedFingerprint()
+    val isPremiumPurchasedMatch by isPremiumPurchasedFingerprint()
 
     execute {
-        isPremiumPurchasedFingerprintResult.mutableMethod.addInstructions(
+        isPremiumPurchasedMatch.mutableMethod.addInstructions(
             0,
             """
                 const/4 v0, 0x1

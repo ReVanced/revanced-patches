@@ -24,7 +24,7 @@ val announcementsPatch = bytecodePatch(
 
     compatibleWith("com.google.android.youtube")
 
-    val mainActivityOnCreateFingerprintResult by mainActivityOnCreateFingerprint()
+    val mainActivityOnCreateMatch by mainActivityOnCreateFingerprint()
 
     execute {
         addResources("youtube", "misc.announcements.announcementsPatch")
@@ -33,7 +33,7 @@ val announcementsPatch = bytecodePatch(
             SwitchPreference("revanced_announcements"),
         )
 
-        mainActivityOnCreateFingerprintResult.mutableMethod.addInstructions(
+        mainActivityOnCreateMatch.mutableMethod.addInstructions(
             // Insert index must be greater than the insert index used by GmsCoreSupport,
             // as both patch the same method and GmsCore check should be first.
             1,

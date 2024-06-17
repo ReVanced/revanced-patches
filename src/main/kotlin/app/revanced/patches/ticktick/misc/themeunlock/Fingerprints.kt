@@ -1,15 +1,15 @@
 package app.revanced.patches.ticktick.misc.themeunlock
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val checkLockedThemesFingerprint = methodFingerprint {
-    custom { methodDef, classDef ->
-        classDef.endsWith("Theme;") && methodDef.name == "isLockedTheme"
+internal val checkLockedThemesFingerprint = fingerprint {
+    custom { method, classDef ->
+        classDef.endsWith("Theme;") && method.name == "isLockedTheme"
     }
 }
 
-internal val setThemeFingerprint = methodFingerprint {
-    custom { methodDef, classDef ->
-        classDef.endsWith("ThemePreviewActivity;") && methodDef.name == "lambda\$updateUserBtn\$1"
+internal val setThemeFingerprint = fingerprint {
+    custom { method, classDef ->
+        classDef.endsWith("ThemePreviewActivity;") && method.name == "lambda\$updateUserBtn\$1"
     }
 }

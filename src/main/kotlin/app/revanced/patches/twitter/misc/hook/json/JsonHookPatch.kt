@@ -1,8 +1,8 @@
 package app.revanced.patches.twitter.misc.hook.json
 
+import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
-import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
@@ -26,7 +26,7 @@ val jsonHookPatch = bytecodePatch(
     description = "Hooks the stream which reads JSON responses.",
     requiresIntegrations = true,
 ) {
-    val loganSquareFingerprintResult by loganSquareFingerprint()
+    val loganSquareMatch by loganSquareFingerprint()
 
     execute { context ->
         jsonHookPatchFingerprint.apply {
@@ -34,13 +34,13 @@ val jsonHookPatch = bytecodePatch(
             val jsonHookPatch = context.classBy { classDef -> classDef.type == JSON_HOOK_PATCH_CLASS_DESCRIPTOR }
                 ?: throw PatchException("Could not find integrations.")
 
-            if (!resolve(context, jsonHookPatch.immutableClass)) {
+            if (!match(context, jsonHookPatch.immutableClass)) {
                 throw PatchException("Unexpected integrations.")
             }
         }.let { jsonHooks = JsonHookPatchHook(it) }
 
         // Conveniently find the type to hook a method in, via a named field.
-        val jsonFactory = loganSquareFingerprintResult
+        val jsonFactory = loganSquareMatch
             .classDef
             .fields
             .firstOrNull { it.name == "JSON_FACTORY" }
@@ -51,8 +51,8 @@ val jsonHookPatch = bytecodePatch(
 
         // Hook the methods first parameter.
         jsonInputStreamFingerprint
-            .apply { resolve(context, jsonFactory) }
-            .result
+            .apply { match(context, jsonFactory) }
+            .match
             ?.mutableMethod
             ?.addInstructions(
                 0,
@@ -99,9 +99,9 @@ class JsonHook(context: BytecodePatchContext, internal val descriptor: String) {
  *
  * @param jsonHookPatchFingerprint The [jsonHookPatchFingerprint] to hook.
  */
-class JsonHookPatchHook(jsonHookPatchFingerprint: MethodFingerprint) : Closeable {
-    private val jsonHookPatchFingerprintResult = jsonHookPatchFingerprint.result!!
-    private val jsonHookPatchIndex = jsonHookPatchFingerprintResult.scanResult.patternScanResult!!.endIndex
+class JsonHookPatchHook(jsonHookPatchFingerprint: Fingerprint) : Closeable {
+    private val jsonHookPatchMatch = jsonHookPatchFingerprint.match!!
+    private val jsonHookPatchIndex = jsonHookPatchMatch.patternMatch!!.endIndex
 
     /**
      * Add a hook to the [jsonHookPatch].
@@ -112,7 +112,7 @@ class JsonHookPatchHook(jsonHookPatchFingerprint: MethodFingerprint) : Closeable
     fun addHook(jsonHook: JsonHook) {
         if (jsonHook.added) return
 
-        jsonHookPatchFingerprintResult.mutableMethod.apply {
+        jsonHookPatchMatch.mutableMethod.apply {
             // Insert hooks right before calling buildList.
             val insertIndex = jsonHookPatchIndex
 
@@ -130,7 +130,7 @@ class JsonHookPatchHook(jsonHookPatchFingerprint: MethodFingerprint) : Closeable
 
     override fun close() {
         // Remove hooks.add(dummyHook).
-        jsonHookPatchFingerprintResult.mutableMethod.apply {
+        jsonHookPatchMatch.mutableMethod.apply {
             val addDummyHookIndex = jsonHookPatchIndex - 2
 
             removeInstructions(addDummyHookIndex, 2)

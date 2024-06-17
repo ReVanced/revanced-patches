@@ -60,7 +60,7 @@ val disableResumingShortsOnStartupPatch = bytecodePatch(
         ),
     )
 
-    val userWasInShortsFingerprintResult by userWasInShortsFingerprint()
+    val userWasInShortsMatch by userWasInShortsFingerprint()
 
     execute {
         addResources("youtube", "layout.startupshortsreset.disableResumingShortsOnStartupPatch")
@@ -69,7 +69,7 @@ val disableResumingShortsOnStartupPatch = bytecodePatch(
             SwitchPreference("revanced_disable_resuming_shorts_player"),
         )
 
-        userWasInShortsFingerprintResult.mutableMethod.apply {
+        userWasInShortsMatch.mutableMethod.apply {
             val listenableInstructionIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_INTERFACE &&
                     getReference<MethodReference>()?.definingClass == "Lcom/google/common/util/concurrent/ListenableFuture;" &&

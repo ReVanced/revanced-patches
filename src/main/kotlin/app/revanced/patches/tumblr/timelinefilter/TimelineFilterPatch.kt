@@ -22,14 +22,14 @@ val timelineFilterPatch = bytecodePatch(
     description = "Filter timeline objects.",
     requiresIntegrations = true,
 ) {
-    val timelineConstructorFingerprintResult by timelineConstructorFingerprint()
-    val timelineFilterIntegrationFingerprintResult by timelineConstructorFingerprint()
-    val postsResponseConstructorFingerprintResult by postsResponseConstructorFingerprint()
+    val timelineConstructorMatch by timelineConstructorFingerprint()
+    val timelineFilterIntegrationMatch by timelineConstructorFingerprint()
+    val postsResponseConstructorMatch by postsResponseConstructorFingerprint()
 
     execute {
-        val filterInsertIndex = timelineFilterIntegrationFingerprintResult.scanResult.patternScanResult!!.startIndex
+        val filterInsertIndex = timelineFilterIntegrationMatch.patternMatch!!.startIndex
 
-        timelineFilterIntegrationFingerprintResult.mutableMethod.apply {
+        timelineFilterIntegrationMatch.mutableMethod.apply {
             val addInstruction = getInstruction<BuilderInstruction35c>(filterInsertIndex + 1)
 
             val filterListRegister = addInstruction.registerC
@@ -51,10 +51,10 @@ val timelineFilterPatch = bytecodePatch(
         }
 
         mapOf(
-            timelineConstructorFingerprintResult to 1,
-            postsResponseConstructorFingerprintResult to 2,
-        ).forEach { (result, timelineObjectsRegister) ->
-            result.mutableMethod.addInstructions(
+            timelineConstructorMatch to 1,
+            postsResponseConstructorMatch to 2,
+        ).forEach { (match, timelineObjectsRegister) ->
+            match.mutableMethod.addInstructions(
                 0,
                 "invoke-static {p$timelineObjectsRegister}, " +
                     "Lapp/revanced/integrations/tumblr/patches/TimelineFilterPatch;->" +

@@ -1,11 +1,11 @@
 package app.revanced.patches.youtube.layout.player.overlay
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 import app.revanced.util.containsWideLiteralInstructionValue
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val createPlayerOverviewFingerprint = methodFingerprint {
+internal val createPlayerOverviewFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returns("V")
     opcodes(
@@ -14,7 +14,7 @@ internal val createPlayerOverviewFingerprint = methodFingerprint {
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CHECK_CAST,
     )
-    custom { methodDef, _ ->
-        methodDef.containsWideLiteralInstructionValue(scrimOverlayId)
+    custom { method, _ ->
+        method.containsWideLiteralInstructionValue(scrimOverlayId)
     }
 }

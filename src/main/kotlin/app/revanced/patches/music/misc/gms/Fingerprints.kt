@@ -1,9 +1,9 @@
 package app.revanced.patches.music.misc.gms
 
+import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint.methodFingerprint
 
-internal val googlePlayUtilityFingerprint = methodFingerprint {
+internal val googlePlayUtilityFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("I")
     strings(
@@ -15,15 +15,15 @@ internal val googlePlayUtilityFingerprint = methodFingerprint {
     )
 }
 
-internal val musicActivityOnCreateFingerprint = methodFingerprint {
+internal val musicActivityOnCreateFingerprint = fingerprint {
     returns("V")
     parameters("Landroid/os/Bundle;")
-    custom { methodDef, classDef ->
-        methodDef.name == "onCreate" && classDef.endsWith("/MusicActivity;")
+    custom { method, classDef ->
+        method.name == "onCreate" && classDef.endsWith("/MusicActivity;")
     }
 }
 
-internal val serviceCheckFingerprint = methodFingerprint {
+internal val serviceCheckFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("V")
     strings("Google Play Services not available")

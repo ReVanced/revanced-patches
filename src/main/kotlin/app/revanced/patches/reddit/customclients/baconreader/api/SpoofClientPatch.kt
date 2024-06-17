@@ -1,8 +1,8 @@
 package app.revanced.patches.reddit.customclients.baconreader.api
 
+import app.revanced.patcher.Match
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patches.reddit.customclients.spoofClientPatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -13,14 +13,14 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "http://baconreader.com/au
         "com.onelouder.baconreader.premium",
     )
 
-    val getAuthorizationUrlFingerprintResult by getAuthorizationUrlFingerprint()
-    val requestTokenFingerprintResult by requestTokenFingerprint()
+    val getAuthorizationUrlMatch by getAuthorizationUrlFingerprint()
+    val requestTokenMatch by requestTokenFingerprint()
 
     val clientId by clientIdOption
 
     execute {
-        fun MethodFingerprintResult.patch(replacementString: String) {
-            val clientIdIndex = scanResult.stringsScanResult!!.matches.first().index
+        fun Match.patch(replacementString: String) {
+            val clientIdIndex = stringMatches!!.first().index
 
             mutableMethod.apply {
                 val clientIdRegister = getInstruction<OneRegisterInstruction>(clientIdIndex).registerA
@@ -32,9 +32,9 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "http://baconreader.com/au
         }
 
         // Patch client id in authorization url.
-        getAuthorizationUrlFingerprintResult.patch("client_id=$clientId")
+        getAuthorizationUrlMatch.patch("client_id=$clientId")
 
         // Patch client id for access token request.
-        requestTokenFingerprintResult.patch(clientId!!)
+        requestTokenMatch.patch(clientId!!)
     }
 }

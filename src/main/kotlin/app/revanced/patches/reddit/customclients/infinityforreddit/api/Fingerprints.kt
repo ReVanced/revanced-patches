@@ -1,7 +1,7 @@
 package app.revanced.patches.reddit.customclients.infinityforreddit.api
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val apiUtilsFingerprint = methodFingerprint {
+internal val apiUtilsFingerprint = fingerprint {
     strings("native-lib")
 }

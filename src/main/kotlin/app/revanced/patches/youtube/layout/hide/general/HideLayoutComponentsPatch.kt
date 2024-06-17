@@ -20,7 +20,7 @@ import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.util.resultOrThrow
+import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -89,9 +89,9 @@ val hideLayoutComponentsPatch = bytecodePatch(
         ),
     )
 
-    val parseElementFromBufferFingerprintResult by parseElementFromBufferFingerprint()
-    val playerOverlayFingerprintResult by playerOverlayFingerprint()
-    val hideShowMoreButtonFingerprintResult by hideShowMoreButtonFingerprint()
+    val parseElementFromBufferMatch by parseElementFromBufferFingerprint()
+    val playerOverlayMatch by playerOverlayFingerprint()
+    val hideShowMoreButtonMatch by hideShowMoreButtonFingerprint()
 
     execute { context ->
         addResources("youtube", "layout.hide.general.hideLayoutComponentsPatch")
@@ -179,9 +179,9 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         // region Mix playlists
 
-        val startIndex = parseElementFromBufferFingerprintResult.scanResult.patternScanResult!!.startIndex
+        val startIndex = parseElementFromBufferMatch.patternMatch!!.startIndex
 
-        parseElementFromBufferFingerprintResult.mutableMethod.apply {
+        parseElementFromBufferMatch.mutableMethod.apply {
             val freeRegister = "v0"
             val byteArrayParameter = "p3"
             val conversionContextRegister = getInstruction<TwoRegisterInstruction>(startIndex).registerA
@@ -204,8 +204,8 @@ val hideLayoutComponentsPatch = bytecodePatch(
         // region Watermark (legacy code for old versions of YouTube)
 
         showWatermarkFingerprint.apply {
-            resolve(context, playerOverlayFingerprintResult.classDef)
-        }.resultOrThrow().mutableMethod.apply {
+            match(context, playerOverlayMatch.classDef)
+        }.matchOrThrow().mutableMethod.apply {
             val index = implementation!!.instructions.size - 5
 
             removeInstruction(index)
@@ -222,8 +222,8 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         // region Show more button
 
-        hideShowMoreButtonFingerprintResult.mutableMethod.apply {
-            val moveRegisterIndex = hideShowMoreButtonFingerprintResult.scanResult.patternScanResult!!.endIndex
+        hideShowMoreButtonMatch.mutableMethod.apply {
+            val moveRegisterIndex = hideShowMoreButtonMatch.patternMatch!!.endIndex
             val viewRegister = getInstruction<OneRegisterInstruction>(moveRegisterIndex).registerA
 
             val insertIndex = moveRegisterIndex + 1

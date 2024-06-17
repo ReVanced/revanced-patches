@@ -54,7 +54,7 @@ val enableTabletLayoutPatch = bytecodePatch(
         ),
     )
 
-    val getFormFactorFingerprintResult by getFormFactorFingerprint()
+    val getFormFactorMatch by getFormFactorFingerprint()
 
     execute {
         addResources("youtube", "layout.tablet.enableTabletLayoutPatch")
@@ -63,7 +63,7 @@ val enableTabletLayoutPatch = bytecodePatch(
             SwitchPreference("revanced_tablet_layout"),
         )
 
-        getFormFactorFingerprintResult.mutableMethod.apply {
+        getFormFactorMatch.mutableMethod.apply {
             val returnIsLargeFormFactorIndex = instructions.lastIndex - 4
             val returnIsLargeFormFactorLabel = getInstruction(returnIsLargeFormFactorIndex)
 

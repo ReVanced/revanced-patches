@@ -19,11 +19,11 @@ val rememberClearDisplayPatch = bytecodePatch(
         "com.zhiliaoapp.musically"("32.5.3"),
     )
 
-    val onClearDisplayEventFingerprintResult by onClearDisplayEventFingerprint()
-    val onRenderFirstFrameFingerprintResult by onRenderFirstFrameFingerprint()
+    val onClearDisplayEventMatch by onClearDisplayEventFingerprint()
+    val onRenderFirstFrameMatch by onRenderFirstFrameFingerprint()
 
     execute {
-        onClearDisplayEventFingerprintResult.mutableMethod.let {
+        onClearDisplayEventMatch.mutableMethod.let {
             // region Hook the "Clear display" configuration save event to remember the state of clear display.
 
             val isEnabledIndex = it.indexOfFirstInstructionOrThrow { opcode == Opcode.IGET_BOOLEAN } + 1
@@ -40,7 +40,7 @@ val rememberClearDisplayPatch = bytecodePatch(
             // region Override the "Clear display" configuration load event to load the state of clear display.
 
             val clearDisplayEventClass = it.parameters[0].type
-            onRenderFirstFrameFingerprintResult.mutableMethod.addInstructionsWithLabels(
+            onRenderFirstFrameMatch.mutableMethod.addInstructionsWithLabels(
                 0,
                 """
                         # Create a new clearDisplayEvent and post it to the EventBus (https://github.com/greenrobot/EventBus)
@@ -60,7 +60,7 @@ val rememberClearDisplayPatch = bytecodePatch(
                         invoke-direct { v0, v1, v2, v3 }, $clearDisplayEventClass-><init>(ILjava/lang/String;Z)V
                         invoke-virtual { v0 }, $clearDisplayEventClass->post()Lcom/ss/android/ugc/governance/eventbus/IEvent;
                     """,
-                ExternalLabel("clear_display_disabled", onRenderFirstFrameFingerprintResult.mutableMethod.getInstruction(0)),
+                ExternalLabel("clear_display_disabled", onRenderFirstFrameMatch.mutableMethod.getInstruction(0)),
             )
             // endregion
         }

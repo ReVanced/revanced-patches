@@ -1,8 +1,8 @@
 package app.revanced.patches.youtube.misc.privacy
 
+import app.revanced.patcher.Match
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.all.misc.resources.addResources
@@ -54,9 +54,9 @@ val removeTrackingQueryParameterPatch = bytecodePatch(
         ),
     )
 
-    val youTubeShareSheetFingerprintResult by youtubeShareSheetFingerprint()
-    val systemShareSheetFingerprintResult by systemShareSheetFingerprint()
-    val copyTextFingerprintResult by copyTextFingerprint()
+    val youTubeShareSheetMatch by youtubeShareSheetFingerprint()
+    val systemShareSheetMatch by systemShareSheetFingerprint()
+    val copyTextMatch by copyTextFingerprint()
 
     execute {
         addResources("youtube", "misc.privacy.removeTrackingQueryParameterPatch")
@@ -65,11 +65,11 @@ val removeTrackingQueryParameterPatch = bytecodePatch(
             SwitchPreference("revanced_remove_tracking_query_parameter"),
         )
 
-        fun MethodFingerprintResult.hook(
-            getInsertIndex: MethodFingerprintResult.MethodFingerprintScanResult.PatternScanResult.() -> Int,
+        fun Match.hook(
+            getInsertIndex: Match.PatternMatch.() -> Int,
             getUrlRegister: MutableMethod.(insertIndex: Int) -> Int,
         ) {
-            val insertIndex = scanResult.patternScanResult!!.getInsertIndex()
+            val insertIndex = patternMatch!!.getInsertIndex()
             val urlRegister = mutableMethod.getUrlRegister(insertIndex)
 
             mutableMethod.addInstructions(
@@ -82,16 +82,16 @@ val removeTrackingQueryParameterPatch = bytecodePatch(
         }
 
         // YouTube share sheet.
-        youTubeShareSheetFingerprintResult.hook(getInsertIndex = { startIndex + 1 }) { insertIndex ->
+        youTubeShareSheetMatch.hook(getInsertIndex = { startIndex + 1 }) { insertIndex ->
             getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
         }
 
         // Native system share sheet.
-        systemShareSheetFingerprintResult.hook(getInsertIndex = { endIndex }) { insertIndex ->
+        systemShareSheetMatch.hook(getInsertIndex = { endIndex }) { insertIndex ->
             getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
         }
 
-        copyTextFingerprintResult.hook(getInsertIndex = { startIndex + 2 }) { insertIndex ->
+        copyTextMatch.hook(getInsertIndex = { startIndex + 2 }) { insertIndex ->
             getInstruction<TwoRegisterInstruction>(insertIndex - 2).registerA
         }
     }

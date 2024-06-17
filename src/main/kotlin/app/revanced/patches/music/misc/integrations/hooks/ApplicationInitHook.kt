@@ -6,5 +6,5 @@ internal val applicationInitHook = integrationsHook {
     returns("V")
     parameters()
     strings("activity")
-    custom { methodDef, _ -> methodDef.name == "onCreate" }
+    custom { method, _ -> method.name == "onCreate" }
 }

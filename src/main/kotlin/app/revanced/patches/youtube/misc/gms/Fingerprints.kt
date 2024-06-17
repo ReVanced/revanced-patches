@@ -1,9 +1,9 @@
 package app.revanced.patches.youtube.misc.gms
 
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val googlePlayUtilityFingerprint = methodFingerprint {
+internal val googlePlayUtilityFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("I")
     parameters("L", "I")
@@ -14,7 +14,7 @@ internal val googlePlayUtilityFingerprint = methodFingerprint {
     )
 }
 
-internal val serviceCheckFingerprint = methodFingerprint {
+internal val serviceCheckFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("V")
     parameters("L", "I")

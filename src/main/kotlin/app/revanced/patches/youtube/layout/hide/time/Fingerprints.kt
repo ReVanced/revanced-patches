@@ -1,10 +1,10 @@
 package app.revanced.patches.youtube.layout.hide.time
 
-import app.revanced.patcher.fingerprint.methodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import app.revanced.patcher.fingerprint
 
-internal val timeCounterFingerprint = methodFingerprint(
+internal val timeCounterFingerprint = fingerprint(
     fuzzyPatternScanThreshold = 1,
 ) {
     returns("V")

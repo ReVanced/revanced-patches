@@ -9,7 +9,7 @@ import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.homeActivityFingerprint
-import app.revanced.util.resultOrThrow
+import app.revanced.util.matchOrThrow
 
 private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/ChangeStartPagePatch;"
 
@@ -28,7 +28,7 @@ val changeStartPagePatch = bytecodePatch(
         "com.google.android.youtube",
     )
 
-    val homeActivityFingerprintResult by homeActivityFingerprint()
+    val homeActivityMatch by homeActivityFingerprint()
 
     execute { context ->
         addResources("youtube", "layout.startpage.changeStartPagePatch")
@@ -41,8 +41,8 @@ val changeStartPagePatch = bytecodePatch(
         )
 
         startActivityFingerprint.apply {
-            resolve(context, homeActivityFingerprintResult.classDef)
-        }.resultOrThrow().mutableMethod.addInstruction(
+            match(context, homeActivityMatch.classDef)
+        }.matchOrThrow().mutableMethod.addInstruction(
             0,
             "invoke-static { p1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->changeIntent(Landroid/content/Intent;)V",
         )

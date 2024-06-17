@@ -1,9 +1,9 @@
 package app.revanced.patches.tiktok.misc.login.fixgoogle
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val googleAuthAvailableFingerprint = methodFingerprint {
+internal val googleAuthAvailableFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()
@@ -12,7 +12,7 @@ internal val googleAuthAvailableFingerprint = methodFingerprint {
     }
 }
 
-internal val googleOneTapAuthAvailableFingerprint = methodFingerprint {
+internal val googleOneTapAuthAvailableFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()

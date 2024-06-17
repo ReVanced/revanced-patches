@@ -51,7 +51,7 @@ val hideCaptionsButtonPatch = bytecodePatch(
         ),
     )
 
-    val subtitleButtonControllerFingerprintResult by subtitleButtonControllerFingerprint()
+    val subtitleButtonControllerMatch by subtitleButtonControllerFingerprint()
 
     execute {
         addResources("youtube", "layout.buttons.captions.hideCaptionsButtonPatch")
@@ -60,7 +60,7 @@ val hideCaptionsButtonPatch = bytecodePatch(
             SwitchPreference("revanced_hide_captions_button"),
         )
 
-        val subtitleButtonControllerMethod = subtitleButtonControllerFingerprintResult.mutableMethod
+        val subtitleButtonControllerMethod = subtitleButtonControllerMatch.mutableMethod
 
         // Due to previously applied patches, scanResult index cannot be used in this context
         val insertIndex = subtitleButtonControllerMethod.implementation!!.instructions.indexOfFirst {

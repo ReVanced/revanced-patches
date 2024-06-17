@@ -1,10 +1,10 @@
 package app.revanced.patches.music.interaction.permanentshuffle
 
-import app.revanced.patcher.fingerprint.methodFingerprint
-import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.AccessFlags
+import app.revanced.patcher.fingerprint
 
-internal val disableShuffleFingerprint = methodFingerprint {
+internal val disableShuffleFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters()

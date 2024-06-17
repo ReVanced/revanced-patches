@@ -21,11 +21,11 @@ val hideCategoryBar = bytecodePatch(
         ),
     )
 
-    val constructCategoryBarFingerprintResult by constructCategoryBarFingerprint()
+    val constructCategoryBarMatch by constructCategoryBarFingerprint()
 
     execute {
-        constructCategoryBarFingerprintResult.mutableMethod.apply {
-            val insertIndex = constructCategoryBarFingerprintResult.scanResult.patternScanResult!!.startIndex
+        constructCategoryBarMatch.mutableMethod.apply {
+            val insertIndex = constructCategoryBarMatch.patternMatch!!.startIndex
             val register = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
 
             addInstructions(

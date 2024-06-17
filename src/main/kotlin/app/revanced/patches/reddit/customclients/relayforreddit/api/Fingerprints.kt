@@ -1,9 +1,9 @@
 package app.revanced.patches.reddit.customclients.relayforreddit.api
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-internal fun baseClientIdFingerprint(string: String) = methodFingerprint {
+internal fun baseClientIdFingerprint(string: String) = fingerprint {
     strings("dj-xCIZQYiLbEg", string)
 }
 
@@ -15,12 +15,12 @@ internal val getRefreshTokenFingerprint = baseClientIdFingerprint("refresh_token
 
 internal val loginActivityClientIdFingerprint = baseClientIdFingerprint("&duration=permanent")
 
-internal val redditCheckDisableAPIFingerprint = methodFingerprint {
+internal val redditCheckDisableAPIFingerprint = fingerprint {
     opcodes(Opcode.IF_EQZ)
     strings("Reddit Disabled")
 }
 
-internal val setRemoteConfigFingerprint = methodFingerprint {
+internal val setRemoteConfigFingerprint = fingerprint {
     parameters("Lcom/google/firebase/remoteconfig/FirebaseRemoteConfig;")
     strings("reddit_oauth_url")
 }

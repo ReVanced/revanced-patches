@@ -1,35 +1,35 @@
 package app.revanced.patches.tiktok.misc.settings
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val addSettingsEntryFingerprint = methodFingerprint {
-    custom { methodDef, classDef ->
+internal val addSettingsEntryFingerprint = fingerprint {
+    custom { method, classDef ->
         classDef.endsWith("/SettingNewVersionFragment;") &&
-            methodDef.name == "initUnitManger"
+            method.name == "initUnitManger"
     }
 }
 
-internal val adPersonalizationActivityOnCreateFingerprint = methodFingerprint {
-    custom { methodDef, classDef ->
+internal val adPersonalizationActivityOnCreateFingerprint = fingerprint {
+    custom { method, classDef ->
         classDef.endsWith("/AdPersonalizationActivity;") &&
-            methodDef.name == "onCreate"
+            method.name == "onCreate"
     }
 }
 
-internal val settingsEntryFingerprint = methodFingerprint {
+internal val settingsEntryFingerprint = fingerprint {
     strings("pls pass item or extends the EventUnit")
 }
 
-internal val settingsEntryInfoFingerprint = methodFingerprint {
+internal val settingsEntryInfoFingerprint = fingerprint {
     strings(
         "ExposeItem(title=",
         ", icon=",
     )
 }
 
-internal val settingsStatusLoadFingerprint = methodFingerprint {
-    custom { methodDef, classDef ->
+internal val settingsStatusLoadFingerprint = fingerprint {
+    custom { method, classDef ->
         classDef.endsWith("Lapp/revanced/integrations/tiktok/settings/SettingsStatus;") &&
-            methodDef.name == "load"
+            method.name == "load"
     }
 }

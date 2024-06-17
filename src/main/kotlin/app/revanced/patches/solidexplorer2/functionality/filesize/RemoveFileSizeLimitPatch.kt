@@ -12,11 +12,11 @@ val removeFileSizeLimitPatch = bytecodePatch(
 ) {
     compatibleWith("pl.solidexplorer2")
 
-    val onReadyFingerprintResult by onReadyFingerprint()
+    val onReadyMatch by onReadyFingerprint()
 
     execute {
-        onReadyFingerprintResult.mutableMethod.apply {
-            val cmpIndex = onReadyFingerprintResult.scanResult.patternScanResult!!.startIndex + 1
+        onReadyMatch.mutableMethod.apply {
+            val cmpIndex = onReadyMatch.patternMatch!!.startIndex + 1
             val cmpResultRegister = getInstruction<ThreeRegisterInstruction>(cmpIndex).registerA
 
             replaceInstruction(cmpIndex, "const/4 v$cmpResultRegister, 0x0")

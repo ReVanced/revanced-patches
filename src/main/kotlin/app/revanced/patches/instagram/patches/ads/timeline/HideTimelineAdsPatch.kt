@@ -13,22 +13,22 @@ val hideTimelineAdsPatch = bytecodePatch(
 ) {
     compatibleWith("com.instagram.android")
 
-    val showAdFingerprintResult by showAdFingerprint()
-    val isAdCheckOneFingerprintResult by isAdCheckOneFingerprint()
-    val isAdCheckTwoFingerprintResult by isAdCheckTwoFingerprint()
+    val showAdMatch by showAdFingerprint()
+    val isAdCheckOneMatch by isAdCheckOneFingerprint()
+    val isAdCheckTwoMatch by isAdCheckTwoFingerprint()
 
     execute {
         // The exact function of the following methods is unknown.
         // They are used to check if a post is an ad.
-        val isAdCheckOneMethod = isAdCheckOneFingerprintResult.method
-        val isAdCheckTwoMethod = isAdCheckTwoFingerprintResult.method
+        val isAdCheckOneMethod = isAdCheckOneMatch.method
+        val isAdCheckTwoMethod = isAdCheckTwoMatch.method
 
-        showAdFingerprintResult.mutableMethod.apply {
+        showAdMatch.mutableMethod.apply {
             // The register that holds the post object.
             val postRegister = getInstruction<FiveRegisterInstruction>(1).registerC
 
             // At this index the check for an ad can be performed.
-            val checkIndex = showAdFingerprintResult.scanResult.patternScanResult!!.endIndex
+            val checkIndex = showAdMatch.patternMatch!!.endIndex
 
             // If either check returns true, the post is an ad and is hidden by returning false.
             addInstructionsWithLabels(

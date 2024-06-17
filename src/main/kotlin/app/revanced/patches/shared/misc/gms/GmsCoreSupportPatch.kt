@@ -1,9 +1,9 @@
 package app.revanced.patches.shared.misc.gms
 
+import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.*
 import app.revanced.patches.all.misc.packagename.changePackageNamePatch
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
@@ -45,9 +45,9 @@ private const val PACKAGE_NAME_REGEX_PATTERN = "^[a-z]\\w*(\\.[a-z]\\w*)+\$"
 fun gmsCoreSupportPatch(
     fromPackageName: String,
     toPackageName: String,
-    primeMethodFingerprint: MethodFingerprint,
-    earlyReturnFingerprints: Set<MethodFingerprint>,
-    mainActivityOnCreateFingerprint: MethodFingerprint,
+    primeMethodFingerprint: Fingerprint,
+    earlyReturnFingerprints: Set<Fingerprint>,
+    mainActivityOnCreateFingerprint: Fingerprint,
     integrationsPatch: Patch<*>,
     gmsCoreSupportResourcePatchFactory: (gmsCoreVendorGroupIdOption: Option<String>) -> Patch<*>,
     executeBlock: Patch<BytecodePatchContext>.(BytecodePatchContext) -> Unit = {},
@@ -78,8 +78,8 @@ fun gmsCoreSupportPatch(
 
     val gmsCoreVendorGroupId by gmsCoreVendorGroupIdOption
 
-    val gmsCoreSupportFingerprintResult by gmsCoreSupportFingerprint()
-    val mainActivityOnCreateFingerprintResult by mainActivityOnCreateFingerprint()
+    val gmsCoreSupportMatch by gmsCoreSupportFingerprint()
+    val mainActivityOnCreateMatch by mainActivityOnCreateFingerprint()
     primeMethodFingerprint()
     earlyReturnFingerprints.forEach { it() }
 
@@ -89,11 +89,11 @@ fun gmsCoreSupportPatch(
                 context.proxy(it).mutableClass
             }
 
-            it.methods.forEach classLoop@{ methodDef ->
-                val implementation = methodDef.implementation ?: return@classLoop
+            it.methods.forEach classLoop@{ method ->
+                val implementation = method.implementation ?: return@classLoop
 
                 val mutableMethod by lazy {
-                    mutableClass.methods.first { MethodUtil.methodSignaturesMatch(it, methodDef) }
+                    mutableClass.methods.first { MethodUtil.methodSignaturesMatch(it, method) }
                 }
 
                 implementation.instructions.forEachIndexed insnLoop@{ index, instruction ->
@@ -166,7 +166,7 @@ fun gmsCoreSupportPatch(
         }
 
         fun transformPrimeMethod(packageName: String) {
-            primeMethodFingerprint.result?.mutableMethod?.apply {
+            primeMethodFingerprint.match?.mutableMethod?.apply {
                 var register = 2
 
                 val index = instructions.indexOfFirst {
@@ -205,14 +205,14 @@ fun gmsCoreSupportPatch(
         earlyReturnFingerprints.toList().returnEarly()
 
         // Verify GmsCore is installed and whitelisted for power optimizations and background usage.
-        mainActivityOnCreateFingerprintResult.mutableMethod.addInstructions(
+        mainActivityOnCreateMatch.mutableMethod.addInstructions(
             0,
             "invoke-static/range { p0 .. p0 }, Lapp/revanced/integrations/shared/GmsCoreSupport;->" +
                 "checkGmsCore(Landroid/app/Activity;)V",
         )
 
         // Change the vendor of GmsCore in ReVanced Integrations.
-        gmsCoreSupportFingerprintResult.mutableClass.methods
+        gmsCoreSupportMatch.mutableClass.methods
             .single { it.name == GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME }
             .replaceInstruction(0, "const-string v0, \"$gmsCoreVendorGroupId\"")
 

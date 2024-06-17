@@ -49,7 +49,7 @@ val playerPopupPanelsPatch = bytecodePatch(
         ),
     )
 
-    val engagementPanelControllerFingerprintResult by engagementPanelControllerFingerprint()
+    val engagementPanelControllerMatch by engagementPanelControllerFingerprint()
 
     execute {
         addResources("youtube", "layout.panels.popup.playerPopupPanelsPatch")
@@ -58,7 +58,7 @@ val playerPopupPanelsPatch = bytecodePatch(
             SwitchPreference("revanced_hide_player_popup_panels"),
         )
 
-        engagementPanelControllerFingerprintResult.mutableMethod.addInstructionsWithLabels(
+        engagementPanelControllerMatch.mutableMethod.addInstructionsWithLabels(
             0,
             """
                 invoke-static { }, Lapp/revanced/integrations/youtube/patches/DisablePlayerPopupPanelsPatch;->disablePlayerPopupPanels()Z

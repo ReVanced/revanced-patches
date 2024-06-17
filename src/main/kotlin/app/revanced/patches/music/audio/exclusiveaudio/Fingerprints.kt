@@ -2,9 +2,9 @@ package app.revanced.patches.music.audio.exclusiveaudio
 
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val allowExclusiveAudioPlaybackFingerprint = methodFingerprint {
+internal val allowExclusiveAudioPlaybackFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()

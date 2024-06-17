@@ -1,20 +1,20 @@
 package app.revanced.patches.youtube.misc.settings
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val licenseActivityOnCreateFingerprint = methodFingerprint {
+internal val licenseActivityOnCreateFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L")
-    custom { methodDef, classDef ->
-        classDef.endsWith("LicenseActivity;") && methodDef.name == "onCreate"
+    custom { method, classDef ->
+        classDef.endsWith("LicenseActivity;") && method.name == "onCreate"
     }
 }
 
-internal val setThemeFingerprint = methodFingerprint {
+internal val setThemeFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters()

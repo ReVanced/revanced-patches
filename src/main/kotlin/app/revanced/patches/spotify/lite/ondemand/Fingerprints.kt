@@ -1,9 +1,9 @@
 package app.revanced.patches.spotify.lite.ondemand
 
 import com.android.tools.smali.dexlib2.Opcode
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val onDemandFingerprint = methodFingerprint(fuzzyPatternScanThreshold = 2) {
+internal val onDemandFingerprint = fingerprint(fuzzyPatternScanThreshold = 2) {
     returns("L")
     parameters()
     opcodes(

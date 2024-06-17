@@ -2,9 +2,9 @@ package app.revanced.patches.reddit.customclients.joeyforreddit.api
 
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val authUtilityUserAgentFingerprint = methodFingerprint {
+internal val authUtilityUserAgentFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Ljava/lang/String;")
     opcodes(Opcode.APUT_OBJECT)
@@ -13,7 +13,7 @@ internal val authUtilityUserAgentFingerprint = methodFingerprint {
     }
 }
 
-internal val getClientIdFingerprint = methodFingerprint {
+internal val getClientIdFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("L")
     opcodes(

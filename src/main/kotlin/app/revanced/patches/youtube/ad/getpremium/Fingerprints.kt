@@ -1,10 +1,10 @@
 package app.revanced.patches.youtube.ad.getpremium
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val getPremiumViewFingerprint = methodFingerprint {
+internal val getPremiumViewFingerprint = fingerprint {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
     returns("V")
     parameters("I", "I")

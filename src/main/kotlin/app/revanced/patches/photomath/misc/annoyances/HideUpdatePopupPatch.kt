@@ -13,10 +13,10 @@ val hideUpdatePopupPatch = bytecodePatch(
 
     compatibleWith("com.microblink.photomath"("8.32.0"))
 
-    val hideUpdatePopupFingerprintResult by hideUpdatePopupFingerprint()
+    val hideUpdatePopupMatch by hideUpdatePopupFingerprint()
 
     execute {
-        hideUpdatePopupFingerprintResult.mutableMethod.addInstructions(
+        hideUpdatePopupMatch.mutableMethod.addInstructions(
             2, // Insert after the null check.
             "return-void",
         )

@@ -64,8 +64,8 @@ val navigationButtonsPatch = bytecodePatch(
         ),
     )
 
-    val addCreateButtonViewFingerprintResult by addCreateButtonViewFingerprint()
-    val createPivotBarFingerprintResult by createPivotBarFingerprint()
+    val addCreateButtonViewMatch by addCreateButtonViewFingerprint()
+    val createPivotBarMatch by createPivotBarFingerprint()
 
     execute {
         addResources("youtube", "layout.buttons.navigation.navigationButtonsPatch")
@@ -86,8 +86,8 @@ val navigationButtonsPatch = bytecodePatch(
         )
 
         // Switch create with notifications button.
-        addCreateButtonViewFingerprintResult.mutableMethod.apply {
-            val stringIndex = addCreateButtonViewFingerprintResult.scanResult.stringsScanResult!!.matches.find { match ->
+        addCreateButtonViewMatch.mutableMethod.apply {
+            val stringIndex = addCreateButtonViewMatch.stringMatches!!.find { match ->
                 match.string == ANDROID_AUTOMOTIVE_STRING
             }!!.index
 
@@ -105,7 +105,7 @@ val navigationButtonsPatch = bytecodePatch(
         }
 
         // Hide navigation button labels.
-        createPivotBarFingerprintResult.mutableMethod.apply {
+        createPivotBarMatch.mutableMethod.apply {
             val setTextIndex = indexOfFirstInstructionOrThrow {
                 getReference<MethodReference>()?.name == "setText"
             }

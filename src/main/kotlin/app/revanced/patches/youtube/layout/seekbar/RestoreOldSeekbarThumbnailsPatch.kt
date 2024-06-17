@@ -50,7 +50,7 @@ val restoreOldSeekbarThumbnailsPatch = bytecodePatch(
         ),
     )
 
-    val fullscreenSeekbarThumbnailsFingerprintResult by fullscreenSeekbarThumbnailsFingerprint()
+    val fullscreenSeekbarThumbnailsMatch by fullscreenSeekbarThumbnailsFingerprint()
 
     execute {
         addResources("youtube", "layout.seekbar.restoreOldSeekbarThumbnailsPatch")
@@ -59,7 +59,7 @@ val restoreOldSeekbarThumbnailsPatch = bytecodePatch(
             SwitchPreference("revanced_restore_old_seekbar_thumbnails"),
         )
 
-        fullscreenSeekbarThumbnailsFingerprintResult.mutableMethod.apply {
+        fullscreenSeekbarThumbnailsMatch.mutableMethod.apply {
             val moveResultIndex = instructions.lastIndex - 1
 
             addInstruction(

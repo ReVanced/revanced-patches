@@ -9,10 +9,10 @@ val unlockProPatch = bytecodePatch(
 ) {
     compatibleWith("ginlemon.iconpackstudio"("2.2 build 016"))
 
-    val checkProFingerprintResult by checkProFingerprint()
+    val checkProMatch by checkProFingerprint()
 
     execute {
-        checkProFingerprintResult.mutableMethod.addInstructions(
+        checkProMatch.mutableMethod.addInstructions(
             0,
             """
                 const/4 v0, 0x1

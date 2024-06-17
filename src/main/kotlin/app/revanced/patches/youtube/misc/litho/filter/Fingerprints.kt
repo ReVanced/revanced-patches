@@ -2,20 +2,20 @@ package app.revanced.patches.youtube.misc.litho.filter
 
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val componentContextParserFingerprint = methodFingerprint {
+internal val componentContextParserFingerprint = fingerprint {
     strings("Component was not found %s because it was removed due to duplicate converter bindings.")
 }
 
-internal val emptyComponentBuilderFingerprint = methodFingerprint {
+internal val emptyComponentBuilderFingerprint = fingerprint {
     opcodes(
         Opcode.INVOKE_INTERFACE,
         Opcode.INVOKE_STATIC_RANGE,
     )
 }
 
-internal val lithoFilterFingerprint = methodFingerprint {
+internal val lithoFilterFingerprint = fingerprint {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     returns("V")
     custom { _, classDef ->
@@ -23,7 +23,7 @@ internal val lithoFilterFingerprint = methodFingerprint {
     }
 }
 
-internal val protobufBufferReferenceFingerprint = methodFingerprint {
+internal val protobufBufferReferenceFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("I", "Ljava/nio/ByteBuffer;")
@@ -35,7 +35,7 @@ internal val protobufBufferReferenceFingerprint = methodFingerprint {
     )
 }
 
-internal val readComponentIdentifierFingerprint = methodFingerprint {
+internal val readComponentIdentifierFingerprint = fingerprint {
     opcodes(
         Opcode.IF_NEZ,
         null,

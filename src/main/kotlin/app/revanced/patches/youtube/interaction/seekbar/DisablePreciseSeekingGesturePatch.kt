@@ -51,7 +51,7 @@ val disablePreciseSeekingGesturePatch = bytecodePatch(
         ),
     )
 
-    val isSwipingUpFingerprintResult by isSwipingUpFingerprint()
+    val isSwipingUpMatch by isSwipingUpFingerprint()
 
     execute {
         addResources("youtube", "interaction.seekbar.disablePreciseSeekingGesturePatch")
@@ -63,9 +63,9 @@ val disablePreciseSeekingGesturePatch = bytecodePatch(
             "Lapp/revanced/integrations/youtube/patches/DisablePreciseSeekingGesturePatch;->" +
                 "disableGesture(Landroid/view/VelocityTracker;Landroid/view/MotionEvent;)V"
 
-        val addMovementIndex = isSwipingUpFingerprintResult.scanResult.patternScanResult!!.startIndex - 1
+        val addMovementIndex = isSwipingUpMatch.patternMatch!!.startIndex - 1
 
-        isSwipingUpFingerprintResult.mutableMethod.apply {
+        isSwipingUpMatch.mutableMethod.apply {
             val addMovementInstruction = getInstruction<FiveRegisterInstruction>(addMovementIndex)
             val trackerRegister = addMovementInstruction.registerC
             val eventRegister = addMovementInstruction.registerD

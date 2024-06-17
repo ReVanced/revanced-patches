@@ -11,7 +11,7 @@ import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.shared.autoRepeatFingerprint
 import app.revanced.patches.youtube.shared.autoRepeatParentFingerprint
-import app.revanced.util.resultOrThrow
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val autoRepeatPatch = bytecodePatch(
@@ -52,7 +52,7 @@ val autoRepeatPatch = bytecodePatch(
         ),
     )
 
-    val autoRepeatParentFingerprintResult by autoRepeatParentFingerprint()
+    val autoRepeatParentMatch by autoRepeatParentFingerprint()
 
     execute { context ->
         addResources("youtube", "misc.autorepeat.autoRepeatPatch")
@@ -62,9 +62,9 @@ val autoRepeatPatch = bytecodePatch(
         )
 
         autoRepeatFingerprint.apply {
-            resolve(context, autoRepeatParentFingerprintResult.classDef)
-        }.resultOrThrow().mutableMethod.apply {
-            val playMethod = autoRepeatParentFingerprintResult.mutableMethod
+            match(context, autoRepeatParentMatch.classDef)
+        }.matchOrThrow().mutableMethod.apply {
+            val playMethod = autoRepeatParentMatch.mutableMethod
             val index = instructions.lastIndex
 
             // Remove return-void.

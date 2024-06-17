@@ -9,10 +9,10 @@ val unlockPremiumPatch = bytecodePatch(
 ) {
     compatibleWith("com.adobe.lrmobile")
 
-    val hasPurchasedFingerprintResult by hasPurchasedFingerprint()
+    val hasPurchasedMatch by hasPurchasedFingerprint()
 
     execute {
         // Set hasPremium = true.
-        hasPurchasedFingerprintResult.mutableMethod.replaceInstruction(2, "const/4 v2, 0x1")
+        hasPurchasedMatch.mutableMethod.replaceInstruction(2, "const/4 v2, 0x1")
     }
 }

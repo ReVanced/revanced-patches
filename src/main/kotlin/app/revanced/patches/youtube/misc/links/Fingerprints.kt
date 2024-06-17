@@ -1,10 +1,10 @@
 package app.revanced.patches.youtube.misc.links
 
-import com.android.tools.smali.dexlib2.Opcode
+import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint.methodFingerprint
+import com.android.tools.smali.dexlib2.Opcode
 
-internal val abUriParserFingerprint = methodFingerprint {
+internal val abUriParserFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Ljava/lang/Object")
     parameters("Ljava/lang/Object")
@@ -21,17 +21,17 @@ internal val abUriParserFingerprint = methodFingerprint {
         Opcode.RETURN_OBJECT,
         Opcode.CHECK_CAST,
     )
-    custom { methodDef, classDef ->
+    custom { method, classDef ->
         // This method is always called "a" because this kind of class always has a single (non synthetic) method.
 
-        if (methodDef.name != "a") return@custom false
+        if (method.name != "a") return@custom false
 
         val count = classDef.methods.count()
         count == 2 || count == 3
     }
 }
 
-internal val httpUriParserFingerprint = methodFingerprint {
+internal val httpUriParserFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Landroid/net/Uri")
     parameters("Ljava/lang/String")

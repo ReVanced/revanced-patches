@@ -2,9 +2,9 @@ package app.revanced.patches.youtube.layout.spoofappversion
 
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val spoofAppVersionFingerprint = methodFingerprint {
+internal val spoofAppVersionFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("L")
     parameters("L")

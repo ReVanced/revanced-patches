@@ -2,9 +2,9 @@ package app.revanced.patches.youtube.layout.searchbar
 
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val createSearchSuggestionsFingerprint = methodFingerprint {
+internal val createSearchSuggestionsFingerprint = fingerprint {
     opcodes(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT,
@@ -13,7 +13,7 @@ internal val createSearchSuggestionsFingerprint = methodFingerprint {
     strings("ss_rds")
 }
 
-internal val setWordmarkHeaderFingerprint = methodFingerprint {
+internal val setWordmarkHeaderFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Landroid/widget/ImageView;")

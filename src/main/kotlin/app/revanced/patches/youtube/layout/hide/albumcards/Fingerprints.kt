@@ -1,11 +1,11 @@
 package app.revanced.patches.youtube.layout.hide.albumcards
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val albumCardsFingerprint = methodFingerprint {
+internal val albumCardsFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     opcodes(
         Opcode.MOVE_RESULT_OBJECT,

@@ -1,9 +1,9 @@
 package app.revanced.patches.twitch.misc.settings
 
+import app.revanced.patcher.Match
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patcher.util.smali.ExternalLabel
@@ -51,10 +51,10 @@ val settingsPatch = bytecodePatch(
         ),
     )
 
-    val settingsActivityOnCreateFingerprintResult by settingsActivityOnCreateFingerprint()
-    val settingsMenuItemEnumFingerprintResult by settingsMenuItemEnumFingerprint()
-    val menuGroupsUpdatedFingerprintResult by menuGroupsUpdatedFingerprint()
-    val menuGroupsOnClickFingerprintResult by menuGroupsOnClickFingerprint()
+    val settingsActivityOnCreateMatch by settingsActivityOnCreateFingerprint()
+    val settingsMenuItemEnumMatch by settingsMenuItemEnumFingerprint()
+    val menuGroupsUpdatedMatch by menuGroupsUpdatedFingerprint()
+    val menuGroupsOnClickMatch by menuGroupsOnClickFingerprint()
 
     execute {
         addResources("twitch", "misc.settings.settingsPatch")
@@ -74,8 +74,8 @@ val settingsPatch = bytecodePatch(
         )
 
         // Hook onCreate to handle fragment creation.
-        val insertIndex = settingsActivityOnCreateFingerprintResult.mutableMethod.implementation!!.instructions.size - 2
-        settingsActivityOnCreateFingerprintResult.mutableMethod.addInstructionsWithLabels(
+        val insertIndex = settingsActivityOnCreateMatch.mutableMethod.implementation!!.instructions.size - 2
+        settingsActivityOnCreateMatch.mutableMethod.addInstructionsWithLabels(
             insertIndex,
             """
                 invoke-static { p0 }, $ACTIVITY_HOOKS_CLASS_DESCRIPTOR->handleSettingsCreation(Landroidx/appcompat/app/AppCompatActivity;)Z
@@ -85,12 +85,12 @@ val settingsPatch = bytecodePatch(
             """,
             ExternalLabel(
                 "no_rv_settings_init",
-                settingsActivityOnCreateFingerprintResult.mutableMethod.getInstruction(insertIndex),
+                settingsActivityOnCreateMatch.mutableMethod.getInstruction(insertIndex),
             ),
         )
 
         // Create new menu item for settings menu.
-        fun MethodFingerprintResult.injectMenuItem(
+        fun Match.injectMenuItem(
             name: String,
             value: Int,
             titleResourceName: String,
@@ -131,7 +131,7 @@ val settingsPatch = bytecodePatch(
             )
         }
 
-        settingsMenuItemEnumFingerprintResult.injectMenuItem(
+        settingsMenuItemEnumMatch.injectMenuItem(
             REVANCED_SETTINGS_MENU_ITEM_NAME,
             REVANCED_SETTINGS_MENU_ITEM_ID,
             REVANCED_SETTINGS_MENU_ITEM_TITLE_RES,
@@ -139,7 +139,7 @@ val settingsPatch = bytecodePatch(
         )
 
         // Intercept settings menu creation and add new menu item.
-        menuGroupsUpdatedFingerprintResult.mutableMethod.addInstructions(
+        menuGroupsUpdatedMatch.mutableMethod.addInstructions(
             0,
             """
                 sget-object v0, $MENU_ITEM_ENUM_CLASS_DESCRIPTOR->$REVANCED_SETTINGS_MENU_ITEM_NAME:$MENU_ITEM_ENUM_CLASS_DESCRIPTOR 
@@ -150,7 +150,7 @@ val settingsPatch = bytecodePatch(
 
         // Intercept onclick events for the settings menu
 
-        menuGroupsOnClickFingerprintResult.mutableMethod.addInstructionsWithLabels(
+        menuGroupsOnClickMatch.mutableMethod.addInstructionsWithLabels(
             0,
             """
                 invoke-static {p1}, $ACTIVITY_HOOKS_CLASS_DESCRIPTOR->handleSettingMenuOnClick(Ljava/lang/Enum;)Z
@@ -162,7 +162,7 @@ val settingsPatch = bytecodePatch(
             """,
             ExternalLabel(
                 "no_rv_settings_onclick",
-                menuGroupsOnClickFingerprintResult.mutableMethod.getInstruction(0),
+                menuGroupsOnClickMatch.mutableMethod.getInstruction(0),
             ),
         )
     }

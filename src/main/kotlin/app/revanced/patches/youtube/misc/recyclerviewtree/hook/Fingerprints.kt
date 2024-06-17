@@ -2,9 +2,9 @@ package app.revanced.patches.youtube.misc.recyclerviewtree.hook
 
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val recyclerViewTreeObserverFingerprint = methodFingerprint {
+internal val recyclerViewTreeObserverFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     returns("V")
     opcodes(

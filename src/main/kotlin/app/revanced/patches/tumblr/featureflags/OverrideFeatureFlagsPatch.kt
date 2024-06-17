@@ -23,18 +23,18 @@ internal lateinit var addFeatureFlagOverride: (name: String, value: String) -> U
 val overrideFeatureFlagsPatch = bytecodePatch(
     description = "Forcibly set the value of A/B testing features of your choice.",
 ) {
-    val getFeatureValueFingerprintResult by getFeatureValueFingerprint()
+    val getFeatureValueMatch by getFeatureValueFingerprint()
 
     execute {
-        val configurationClass = getFeatureValueFingerprintResult.method.definingClass
-        val featureClass = getFeatureValueFingerprintResult.method.parameterTypes[0].toString()
+        val configurationClass = getFeatureValueMatch.method.definingClass
+        val featureClass = getFeatureValueMatch.method.parameterTypes[0].toString()
 
         // The method we want to inject into does not have enough registers, so we inject a helper method
         // and inject more instructions into it later, see addOverride.
         // This is not in an integration since the unused variable would get compiled away and the method would
         // get compiled to only have one register, which is not enough for our later injected instructions.
         val helperMethod = ImmutableMethod(
-            getFeatureValueFingerprintResult.method.definingClass,
+            getFeatureValueMatch.method.definingClass,
             "getValueOverride",
             listOf(ImmutableMethodParameter(featureClass, null, "feature")),
             "Ljava/lang/String;",
@@ -64,15 +64,15 @@ val overrideFeatureFlagsPatch = bytecodePatch(
                 """,
             )
         }.also { helperMethod ->
-            getFeatureValueFingerprintResult.mutableClass.methods.add(helperMethod)
+            getFeatureValueMatch.mutableClass.methods.add(helperMethod)
         }
 
         // Here we actually insert the hook to call our helper method and return its value if it returns not null
         // This is equivalent to
         //   String forcedValue = getValueOverride(feature)
         //   if (forcedValue != null) return forcedValue
-        val getFeatureIndex = getFeatureValueFingerprintResult.scanResult.patternScanResult!!.startIndex
-        getFeatureValueFingerprintResult.mutableMethod.addInstructionsWithLabels(
+        val getFeatureIndex = getFeatureValueMatch.patternMatch!!.startIndex
+        getFeatureValueMatch.mutableMethod.addInstructionsWithLabels(
             getFeatureIndex,
             """
                 # Call the Helper Method with the Feature

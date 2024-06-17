@@ -22,7 +22,7 @@ val embeddedAdsPatch = bytecodePatch(
 
     compatibleWith("tv.twitch.android.app"("15.4.1", "16.1.0", "16.9.1"))
 
-    val createUsherClientFingerprintResult by createsUsherClientFingerprint()
+    val createUsherClientMatch by createsUsherClientFingerprint()
 
     execute {
         addResources("twitch", "ad.embedded.embeddedAdsPatch")
@@ -32,7 +32,7 @@ val embeddedAdsPatch = bytecodePatch(
         )
 
         // Inject OkHttp3 application interceptor
-        createUsherClientFingerprintResult.mutableMethod.addInstructions(
+        createUsherClientMatch.mutableMethod.addInstructions(
             3,
             """
                 invoke-static  {}, Lapp/revanced/integrations/twitch/patches/EmbeddedAdsPatch;->createRequestInterceptor()Lapp/revanced/integrations/twitch/api/RequestInterceptor;

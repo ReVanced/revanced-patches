@@ -1,8 +1,8 @@
 package app.revanced.patches.warnwetter.misc.firebasegetcert
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val getMessagingCertFingerprint = methodFingerprint {
+internal val getMessagingCertFingerprint = fingerprint {
     returns("Ljava/lang/String;")
     strings(
         "ContentValues",
@@ -11,7 +11,7 @@ internal val getMessagingCertFingerprint = methodFingerprint {
     )
 }
 
-internal val getReqistrationCertFingerprint = methodFingerprint {
+internal val getReqistrationCertFingerprint = fingerprint {
     returns("Ljava/lang/String;")
     strings(
         "FirebaseRemoteConfig",

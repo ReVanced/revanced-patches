@@ -1,11 +1,11 @@
 package app.revanced.patches.youtube.misc.backgroundplayback
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val backgroundPlaybackManagerFingerprint = methodFingerprint {
+internal val backgroundPlaybackManagerFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Z")
     parameters("L")
@@ -38,7 +38,7 @@ internal val backgroundPlaybackManagerFingerprint = methodFingerprint {
     )
 }
 
-internal val backgroundPlaybackSettingsFingerprint = methodFingerprint {
+internal val backgroundPlaybackSettingsFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Ljava/lang/String;")
     parameters()
@@ -54,7 +54,7 @@ internal val backgroundPlaybackSettingsFingerprint = methodFingerprint {
     literal { prefBackgroundAndOfflineCategoryId }
 }
 
-internal val kidsBackgroundPlaybackPolicyControllerFingerprint = methodFingerprint {
+internal val kidsBackgroundPlaybackPolicyControllerFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("I", "L", "L")

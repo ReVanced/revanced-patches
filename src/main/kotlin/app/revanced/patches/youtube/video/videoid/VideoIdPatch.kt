@@ -1,8 +1,8 @@
 package app.revanced.patches.youtube.video.videoid
 
+import app.revanced.patcher.Match
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
@@ -92,8 +92,8 @@ val videoIdPatch = bytecodePatch(
         playerResponseMethodHookPatch,
     )
 
-    val videoIdFingerprintResult by videoIdFingerprint()
-    val videoIdBackgroundPlayFingerprintResult by videoIdBackgroundPlayFingerprint()
+    val videoIdMatch by videoIdFingerprint()
+    val videoIdBackgroundPlayMatch by videoIdBackgroundPlayFingerprint()
 
     execute {
         /**
@@ -101,8 +101,8 @@ val videoIdPatch = bytecodePatch(
          *
          * @param consumer Consumer that receives the method, insert index and video id register index.
          */
-        fun MethodFingerprintResult.setFields(consumer: (MutableMethod, Int, Int) -> Unit) {
-            val videoIdRegisterIndex = scanResult.patternScanResult!!.endIndex
+        fun Match.setFields(consumer: (MutableMethod, Int, Int) -> Unit) {
+            val videoIdRegisterIndex = patternMatch!!.endIndex
 
             mutableMethod.let {
                 val videoIdRegister = it.getInstruction<OneRegisterInstruction>(videoIdRegisterIndex).registerA
@@ -111,13 +111,13 @@ val videoIdPatch = bytecodePatch(
             }
         }
 
-        videoIdFingerprintResult.setFields { method, index, register ->
+        videoIdMatch.setFields { method, index, register ->
             videoIdMethod = method
             videoIdInsertIndex = index
             videoIdRegister = register
         }
 
-        videoIdBackgroundPlayFingerprintResult.setFields { method, insertIndex, videoIdRegister ->
+        videoIdBackgroundPlayMatch.setFields { method, insertIndex, videoIdRegister ->
             backgroundPlaybackMethod = method
             backgroundPlaybackInsertIndex = insertIndex
             backgroundPlaybackVideoIdRegister = videoIdRegister

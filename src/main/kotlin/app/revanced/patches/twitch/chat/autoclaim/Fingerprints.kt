@@ -1,10 +1,10 @@
 package app.revanced.patches.twitch.chat.autoclaim
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val communityPointsButtonViewDelegateFingerprint = methodFingerprint {
-    custom { methodDef, classDef ->
+internal val communityPointsButtonViewDelegateFingerprint = fingerprint {
+    custom { method, classDef ->
         classDef.endsWith("CommunityPointsButtonViewDelegate;") &&
-            methodDef.name == "showClaimAvailable"
+            method.name == "showClaimAvailable"
     }
 }

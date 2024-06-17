@@ -1,11 +1,11 @@
 package app.revanced.patches.youtube.layout.hide.filterbar
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val filterBarHeightFingerprint = methodFingerprint {
+internal val filterBarHeightFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     returns("V")
     opcodes(
@@ -17,7 +17,7 @@ internal val filterBarHeightFingerprint = methodFingerprint {
     literal { filterBarHeightId }
 }
 
-internal val relatedChipCloudFingerprint = methodFingerprint {
+internal val relatedChipCloudFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     returns("V")
     opcodes(
@@ -28,7 +28,7 @@ internal val relatedChipCloudFingerprint = methodFingerprint {
     literal { relatedChipCloudMarginId }
 }
 
-internal val searchResultsChipBarFingerprint = methodFingerprint {
+internal val searchResultsChipBarFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     returns("V")
     opcodes(

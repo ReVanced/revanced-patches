@@ -1,10 +1,10 @@
 package app.revanced.patches.youtube.layout.autocaptions
 
-import app.revanced.patcher.fingerprint.methodFingerprint
-import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.AccessFlags
+import app.revanced.patcher.fingerprint
 
-internal val startVideoInformerFingerprint = methodFingerprint {
+internal val startVideoInformerFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     opcodes(
@@ -14,7 +14,7 @@ internal val startVideoInformerFingerprint = methodFingerprint {
     strings("pc")
 }
 
-internal val subtitleButtonControllerFingerprint = methodFingerprint {
+internal val subtitleButtonControllerFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Lcom/google/android/libraries/youtube/player/subtitles/model/SubtitleTrack;")
@@ -31,7 +31,7 @@ internal val subtitleButtonControllerFingerprint = methodFingerprint {
     )
 }
 
-internal val subtitleTrackFingerprint = methodFingerprint {
+internal val subtitleTrackFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()

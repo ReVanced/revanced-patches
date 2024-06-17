@@ -1,9 +1,9 @@
 package app.revanced.patches.youtube.video.playerresponse
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val playerParameterBuilderFingerprint = methodFingerprint {
+internal val playerParameterBuilderFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters(

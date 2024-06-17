@@ -2,9 +2,9 @@ package app.revanced.patches.music.layout.compactheader
 
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val constructCategoryBarFingerprint = methodFingerprint {
+internal val constructCategoryBarFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     returns("V")
     parameters("Landroid/content/Context;", "L", "L", "L")

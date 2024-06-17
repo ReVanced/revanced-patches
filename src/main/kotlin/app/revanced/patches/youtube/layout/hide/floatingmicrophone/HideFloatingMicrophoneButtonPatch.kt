@@ -78,11 +78,11 @@ val hideFloatingMicrophoneButtonPatch = bytecodePatch(
         ),
     )
 
-    val showFloatingMicrophoneButtonFingerprintResult by showFloatingMicrophoneButtonFingerprint()
+    val showFloatingMicrophoneButtonMatch by showFloatingMicrophoneButtonFingerprint()
 
     execute {
-        showFloatingMicrophoneButtonFingerprintResult.mutableMethod.apply {
-            val insertIndex = showFloatingMicrophoneButtonFingerprintResult.scanResult.patternScanResult!!.startIndex + 1
+        showFloatingMicrophoneButtonMatch.mutableMethod.apply {
+            val insertIndex = showFloatingMicrophoneButtonMatch.patternMatch!!.startIndex + 1
             val showButtonRegister =
                 getInstruction<TwoRegisterInstruction>(insertIndex - 1).registerA
 

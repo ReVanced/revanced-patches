@@ -1,8 +1,8 @@
 package app.revanced.patches.youtube.layout.hide.filterbar
 
+import app.revanced.patcher.Match
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
@@ -93,36 +93,36 @@ val hideFilterBarPatch = bytecodePatch(
         ),
     )
 
-    val filterBarHeightFingerprintResult by filterBarHeightFingerprint()
-    val relatedChipCloudFingerprintResult by relatedChipCloudFingerprint()
-    val searchFingerprintResultsChipBarFingerprintResult by searchResultsChipBarFingerprint()
+    val filterBarHeightMatch by filterBarHeightFingerprint()
+    val relatedChipCloudMatch by relatedChipCloudFingerprint()
+    val searchFingerprintResultsChipBarMatch by searchResultsChipBarFingerprint()
 
     execute {
-        fun <RegisterInstruction : OneRegisterInstruction> MethodFingerprintResult.patch(
+        fun <RegisterInstruction : OneRegisterInstruction> Match.patch(
             insertIndexOffset: Int = 0,
             hookRegisterOffset: Int = 0,
             instructions: (Int) -> String,
         ) = mutableMethod.apply {
-            val endIndex = scanResult.patternScanResult!!.endIndex
+            val endIndex = patternMatch!!.endIndex
             val insertIndex = endIndex + insertIndexOffset
             val register = getInstruction<RegisterInstruction>(endIndex + hookRegisterOffset).registerA
 
             addInstructions(insertIndex, instructions(register))
         }
 
-        filterBarHeightFingerprintResult.patch<TwoRegisterInstruction> { register ->
+        filterBarHeightMatch.patch<TwoRegisterInstruction> { register ->
             """
                 invoke-static { v$register }, $INTEGRATIONS_CLASS_DESCRIPTOR->hideInFeed(I)I
                 move-result v$register
             """
         }
 
-        relatedChipCloudFingerprintResult.patch<OneRegisterInstruction>(1) { register ->
+        relatedChipCloudMatch.patch<OneRegisterInstruction>(1) { register ->
             "invoke-static { v$register }, " +
                 "$INTEGRATIONS_CLASS_DESCRIPTOR->hideInRelatedVideos(Landroid/view/View;)V"
         }
 
-        searchFingerprintResultsChipBarFingerprintResult.patch<OneRegisterInstruction>(-1, -2) { register ->
+        searchFingerprintResultsChipBarMatch.patch<OneRegisterInstruction>(-1, -2) { register ->
             """
                 invoke-static { v$register }, $INTEGRATIONS_CLASS_DESCRIPTOR->hideInSearch(I)I
                 move-result v$register

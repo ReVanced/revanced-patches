@@ -1,13 +1,13 @@
 package app.revanced.patches.reddit.customclients.sync.syncforreddit.fix.slink
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val linkHelperOpenLinkFingerprint = methodFingerprint {
+internal val linkHelperOpenLinkFingerprint = fingerprint {
     strings("Link title: ")
 }
 
-internal val setAuthorizationHeaderFingerprint = methodFingerprint {
+internal val setAuthorizationHeaderFingerprint = fingerprint {
     returns("Ljava/util/HashMap;")
     strings("Authorization", "bearer ")
-    custom { methodDef, _ -> methodDef.definingClass == "Lcom/laurencedawson/reddit_sync/singleton/a;" }
+    custom { method, _ -> method.definingClass == "Lcom/laurencedawson/reddit_sync/singleton/a;" }
 }

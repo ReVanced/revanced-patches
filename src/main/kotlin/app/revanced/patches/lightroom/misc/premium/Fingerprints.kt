@@ -2,9 +2,9 @@ package app.revanced.patches.lightroom.misc.premium
 
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val hasPurchasedFingerprint = methodFingerprint {
+internal val hasPurchasedFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returns("Z")
     opcodes(

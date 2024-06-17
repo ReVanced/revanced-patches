@@ -1,21 +1,21 @@
 package app.revanced.patches.youtube.layout.thumbnails
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val messageDigestImageUrlFingerprint = methodFingerprint {
+internal val messageDigestImageUrlFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters("Ljava/lang/String;", "L")
 }
 
-internal val messageDigestImageUrlParentFingerprint = methodFingerprint {
+internal val messageDigestImageUrlParentFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Ljava/lang/String;")
     parameters()
     strings("@#&=*+-_.,:!?()/~'%;\$")
 }
 
-internal val onFailureFingerprint = methodFingerprint {
+internal val onFailureFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Lorg/chromium/net/UrlRequest;", "Lorg/chromium/net/UrlResponseInfo;", "Lorg/chromium/net/CronetException;")
@@ -25,7 +25,7 @@ internal val onFailureFingerprint = methodFingerprint {
 }
 
 // Acts as a parent fingerprint.
-internal val onResponseStartedFingerprint = methodFingerprint {
+internal val onResponseStartedFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Lorg/chromium/net/UrlRequest;", "Lorg/chromium/net/UrlResponseInfo;")
@@ -40,7 +40,7 @@ internal val onResponseStartedFingerprint = methodFingerprint {
     }
 }
 
-internal val onSucceededFingerprint = methodFingerprint {
+internal val onSucceededFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Lorg/chromium/net/UrlRequest;", "Lorg/chromium/net/UrlResponseInfo;")
@@ -51,7 +51,7 @@ internal val onSucceededFingerprint = methodFingerprint {
 
 internal const val CRONET_URL_REQUEST_CLASS_DESCRIPTOR = "Lorg/chromium/net/impl/CronetUrlRequest;"
 
-internal val requestFingerprint = methodFingerprint {
+internal val requestFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     returns("V")
     custom { method, _ ->

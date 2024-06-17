@@ -1,10 +1,10 @@
 package app.revanced.patches.photomath.misc.annoyances
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val hideUpdatePopupFingerprint = methodFingerprint {
+internal val hideUpdatePopupFingerprint = fingerprint {
     accessFlags(AccessFlags.FINAL, AccessFlags.PUBLIC)
     returns("V")
     opcodes(

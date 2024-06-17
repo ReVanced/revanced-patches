@@ -1,11 +1,11 @@
 package app.revanced.patches.youtube.misc.playercontrols
 
+import app.revanced.patcher.Match
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.youtube.shared.layoutConstructorFingerprint
-import app.revanced.util.resultOrThrow
+import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 /**
@@ -13,7 +13,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
  * @param descriptor The descriptor of the method which should be called.
  */
 fun injectVisibilityCheckCall(descriptor: String) {
-    showPlayerControlsFingerprintResult.mutableMethod.addInstruction(
+    showPlayerControlsMatch.mutableMethod.addInstruction(
         0,
         """
             invoke-static {p1}, $descriptor
@@ -26,34 +26,34 @@ fun injectVisibilityCheckCall(descriptor: String) {
  * @param descriptor The descriptor of the method which should be calleed.
  */
 fun initializeControl(descriptor: String) {
-    inflateFingerprintResult.mutableMethod.addInstruction(
+    inflateMatch.mutableMethod.addInstruction(
         moveToRegisterInstructionIndex + 1,
         "invoke-static {v$viewRegister}, $descriptor",
     )
 }
 
-lateinit var showPlayerControlsFingerprintResult: MethodFingerprintResult
+lateinit var showPlayerControlsMatch: Match
     private set
 
 private var moveToRegisterInstructionIndex = 0
 private var viewRegister = 0
-private lateinit var inflateFingerprintResult: MethodFingerprintResult
+private lateinit var inflateMatch: Match
 
 val playerControlsPatch = bytecodePatch(
     description = "Manages the code for the player controls of the YouTube player.",
 ) {
     dependsOn(bottomControlsPatch)
 
-    val layoutConstructorFingerprintResult by layoutConstructorFingerprint()
-    val bottomControlsInflateFingerprintResult by bottomControlsInflateFingerprint()
+    val layoutConstructorMatch by layoutConstructorFingerprint()
+    val bottomControlsInflateMatch by bottomControlsInflateFingerprint()
 
     execute { context ->
-        showPlayerControlsFingerprintResult = playerControlsVisibilityFingerprint.apply {
-            resolve(context, layoutConstructorFingerprintResult.classDef)
-        }.resultOrThrow()
+        showPlayerControlsMatch = playerControlsVisibilityFingerprint.apply {
+            match(context, layoutConstructorMatch.classDef)
+        }.matchOrThrow()
 
-        inflateFingerprintResult = bottomControlsInflateFingerprintResult.also {
-            moveToRegisterInstructionIndex = it.scanResult.patternScanResult!!.endIndex
+        inflateMatch = bottomControlsInflateMatch.also {
+            moveToRegisterInstructionIndex = it.patternMatch!!.endIndex
             viewRegister = it.mutableMethod.getInstruction<OneRegisterInstruction>(moveToRegisterInstructionIndex).registerA
         }
     }

@@ -2,7 +2,7 @@ package app.revanced.patches.tumblr.featureflags
 
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
 // This fingerprint targets the method to get the value of a Feature in the class "com.tumblr.configuration.Feature".
 // Features seem to be Tumblr's A/B testing program.
@@ -13,7 +13,7 @@ import app.revanced.patcher.fingerprint.methodFingerprint
 // Some features seem to be very old and never removed, though, such as Google Login.
 // The startIndex of the opcode pattern is at the start of the function after the arg null check.
 // we want to insert our instructions there.
-internal val getFeatureValueFingerprint = methodFingerprint {
+internal val getFeatureValueFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Ljava/lang/String;")
     parameters("L", "Z")

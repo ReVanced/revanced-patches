@@ -1,11 +1,11 @@
 package app.revanced.patches.youtube.layout.miniplayer
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val miniplayerDimensionsCalculatorParentFingerprint = methodFingerprint {
+internal val miniplayerDimensionsCalculatorParentFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L")
@@ -15,7 +15,7 @@ internal val miniplayerDimensionsCalculatorParentFingerprint = methodFingerprint
 /**
  * Resolves using the class found in [miniplayerModernViewParentFingerprint].
  */
-internal val miniplayerModernAddViewListenerFingerprint = methodFingerprint {
+internal val miniplayerModernAddViewListenerFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Landroid/view/View;")
@@ -25,14 +25,14 @@ internal val miniplayerModernAddViewListenerFingerprint = methodFingerprint {
  * Resolves using the class found in [miniplayerModernViewParentFingerprint].
  */
 
-internal val miniplayerModernCloseButtonFingerprint = methodFingerprint {
+internal val miniplayerModernCloseButtonFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/widget/ImageView;")
     parameters()
     literal { modernMiniplayerClose }
 }
 
-internal val miniplayerModernConstructorFingerprint = methodFingerprint {
+internal val miniplayerModernConstructorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters("L")
     literal { 45623000L }
@@ -41,7 +41,7 @@ internal val miniplayerModernConstructorFingerprint = methodFingerprint {
 /**
  * Resolves using the class found in [miniplayerModernViewParentFingerprint].
  */
-internal val miniplayerModernExpandButtonFingerprint = methodFingerprint {
+internal val miniplayerModernExpandButtonFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/widget/ImageView;")
     parameters()
@@ -51,7 +51,7 @@ internal val miniplayerModernExpandButtonFingerprint = methodFingerprint {
 /**
  * Resolves using the class found in [miniplayerModernViewParentFingerprint].
  */
-internal val miniplayerModernExpandCloseDrawablesFingerprint = methodFingerprint {
+internal val miniplayerModernExpandCloseDrawablesFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L")
@@ -61,7 +61,7 @@ internal val miniplayerModernExpandCloseDrawablesFingerprint = methodFingerprint
 /**
  * Resolves using the class found in [miniplayerModernViewParentFingerprint].
  */
-internal val miniplayerModernForwardButtonFingerprint = methodFingerprint {
+internal val miniplayerModernForwardButtonFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/widget/ImageView;")
     parameters()
@@ -71,7 +71,7 @@ internal val miniplayerModernForwardButtonFingerprint = methodFingerprint {
 /**
  * Resolves using the class found in [miniplayerModernViewParentFingerprint].
  */
-internal val miniplayerModernOverlayViewFingerprint = methodFingerprint {
+internal val miniplayerModernOverlayViewFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters()
@@ -81,34 +81,34 @@ internal val miniplayerModernOverlayViewFingerprint = methodFingerprint {
 /**
  * Resolves using the class found in [miniplayerModernViewParentFingerprint].
  */
-internal val miniplayerModernRewindButtonFingerprint = methodFingerprint {
+internal val miniplayerModernRewindButtonFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/widget/ImageView;")
     parameters()
     literal { modernMiniplayerRewindButton }
 }
 
-internal val miniplayerModernViewParentFingerprint = methodFingerprint {
+internal val miniplayerModernViewParentFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Ljava/lang/String;")
     parameters()
     strings("player_overlay_modern_mini_player_controls")
 }
 
-internal val miniplayerOverrideFingerprint = methodFingerprint {
+internal val miniplayerOverrideFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters("L")
     strings("appName")
 }
 
-internal val miniplayerOverrideNoContextFingerprint = methodFingerprint {
+internal val miniplayerOverrideNoContextFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returns("Z")
     opcodes(Opcode.IGET_BOOLEAN) // Anchor to insert the instruction.
 }
 
-internal val miniplayerResponseModelSizeCheckFingerprint = methodFingerprint {
+internal val miniplayerResponseModelSizeCheckFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters("Ljava/lang/Object;", "Ljava/lang/Object;")
@@ -125,7 +125,7 @@ internal val miniplayerResponseModelSizeCheckFingerprint = methodFingerprint {
 internal const val YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME =
     "Lcom/google/android/apps/youtube/app/common/player/overlay/YouTubePlayerOverlaysLayout;"
 
-internal val youTubePlayerOverlaysLayoutFingerprint = methodFingerprint {
+internal val youTubePlayerOverlaysLayoutFingerprint = fingerprint {
     custom { method, _ ->
         method.definingClass == YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME
     }

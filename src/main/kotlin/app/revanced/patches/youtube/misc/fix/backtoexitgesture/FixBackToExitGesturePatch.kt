@@ -1,21 +1,21 @@
 package app.revanced.patches.youtube.misc.fix.backtoexitgesture
 
+import app.revanced.patcher.Match
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.util.resultOrThrow
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 internal val fixBackToExitGesturePatch = bytecodePatch(
     description = "Fixes the swipe back to exit gesture.",
 ) {
-    val recyclerViewTopScrollingParentFingerprintResult by recyclerViewTopScrollingParentFingerprint()
-    val recyclerViewScrollingFingerprintResult by recyclerViewScrollingFingerprint()
-    val onBackPressedFingerprintResult by onBackPressedFingerprint()
+    val recyclerViewTopScrollingParentMatch by recyclerViewTopScrollingParentFingerprint()
+    val recyclerViewScrollingMatch by recyclerViewScrollingFingerprint()
+    val onBackPressedMatch by onBackPressedFingerprint()
 
     execute { context ->
         recyclerViewTopScrollingFingerprint.apply {
-            resolve(context, recyclerViewTopScrollingParentFingerprintResult.classDef)
+            match(context, recyclerViewTopScrollingParentMatch.classDef)
         }
 
         /**
@@ -23,24 +23,24 @@ internal val fixBackToExitGesturePatch = bytecodePatch(
          *
          * @param targetMethod The target method to call.
          */
-        fun MethodFingerprintResult.injectCall(targetMethod: IntegrationsMethod) = mutableMethod.addInstruction(
-            scanResult.patternScanResult!!.endIndex,
+        fun Match.injectCall(targetMethod: IntegrationsMethod) = mutableMethod.addInstruction(
+            patternMatch!!.endIndex,
             targetMethod.toString(),
         )
 
         mapOf(
-            recyclerViewTopScrollingFingerprint.resultOrThrow() to IntegrationsMethod(
+            recyclerViewTopScrollingFingerprint.matchOrThrow() to IntegrationsMethod(
                 methodName = "onTopView",
             ),
-            recyclerViewScrollingFingerprintResult to IntegrationsMethod(
+            recyclerViewScrollingMatch to IntegrationsMethod(
                 methodName = "onScrollingViews",
             ),
-            onBackPressedFingerprintResult to IntegrationsMethod(
+            onBackPressedMatch to IntegrationsMethod(
                 "p0",
                 "onBackPressed",
                 "Landroid/app/Activity;",
             ),
-        ).forEach { (result, target) -> result.injectCall(target) }
+        ).forEach { (match, target) -> match.injectCall(target) }
     }
 }
 

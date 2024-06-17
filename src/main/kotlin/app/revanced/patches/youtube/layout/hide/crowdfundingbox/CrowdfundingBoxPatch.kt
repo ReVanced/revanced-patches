@@ -77,11 +77,11 @@ val crowdfundingBoxPatch = bytecodePatch(
         ),
     )
 
-    val createCrowdfundingBoxFingerprintResult by createCrowdfundingBoxFingerprint()
+    val createCrowdfundingBoxMatch by createCrowdfundingBoxFingerprint()
 
     execute {
-        createCrowdfundingBoxFingerprintResult.mutableMethod.apply {
-            val insertIndex = createCrowdfundingBoxFingerprintResult.scanResult.patternScanResult!!.endIndex
+        createCrowdfundingBoxMatch.mutableMethod.apply {
+            val insertIndex = createCrowdfundingBoxMatch.patternMatch!!.endIndex
             val objectRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
             addInstruction(
