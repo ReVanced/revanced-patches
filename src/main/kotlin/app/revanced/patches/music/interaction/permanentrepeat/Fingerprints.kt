@@ -9,8 +9,6 @@ internal val repeatTrackFingerprint = fingerprint {
     returns("V")
     parameters("L", "L")
     opcodes(
-        Opcode.CHECK_CAST,
-        Opcode.INVOKE_INTERFACE,
         Opcode.IGET_OBJECT,
         Opcode.IGET_OBJECT,
         Opcode.SGET_OBJECT,

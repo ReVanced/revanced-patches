@@ -1286,7 +1286,7 @@ public final class app/revanced/util/BytecodeUtilsKt {
 	public static final fun indexOfIdResource (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/String;)I
 	public static final fun indexOfIdResourceOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/String;)I
 	public static final fun injectHideViewCall (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;IILjava/lang/String;Ljava/lang/String;)V
-	public static final fun literal (Lapp/revanced/patcher/MethodFingerprintBuilder;Lkotlin/jvm/functions/Function0;)V
+	public static final fun literal (Lapp/revanced/patcher/FingerprintBuilder;Lkotlin/jvm/functions/Function0;)V
 	public static final fun matchOrThrow (Lapp/revanced/patcher/Fingerprint;)Lapp/revanced/patcher/Match;
 	public static final fun returnEarly (Ljava/util/List;Z)V
 	public static synthetic fun returnEarly$default (Ljava/util/List;ZILjava/lang/Object;)V

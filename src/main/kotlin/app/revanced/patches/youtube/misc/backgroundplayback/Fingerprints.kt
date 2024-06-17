@@ -49,9 +49,7 @@ internal val backgroundPlaybackSettingsFingerprint = fingerprint {
         Opcode.MOVE_RESULT,
         Opcode.IF_EQZ,
         Opcode.IF_NEZ,
-        Opcode.GOTO,
-        Opcode.IGET_OBJECT,
-        Opcode.CHECK_CAST,
+        Opcode.GOTO
     )
     literal { prefBackgroundAndOfflineCategoryId }
 }

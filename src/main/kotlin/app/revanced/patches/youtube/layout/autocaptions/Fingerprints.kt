@@ -34,6 +34,7 @@ internal val subtitleButtonControllerFingerprint = fingerprint {
 internal val subtitleTrackFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
+    parameters()
     opcodes(
         Opcode.CONST_STRING,
         Opcode.INVOKE_VIRTUAL,

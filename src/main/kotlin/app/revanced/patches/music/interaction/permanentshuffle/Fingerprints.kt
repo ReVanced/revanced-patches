@@ -7,6 +7,7 @@ import app.revanced.patcher.fingerprint
 internal val disableShuffleFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
+    parameters()
     opcodes(
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,
