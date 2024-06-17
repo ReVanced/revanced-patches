@@ -25,11 +25,11 @@ val feedFilterPatch = bytecodePatch(
         "com.zhiliaoapp.musically"("32.5.3"),
     )
 
-    val feedApiServiceLIZFingerprintResult by feedApiServiceLIZFingerprint()
-    val settingsStatusLoadFingerprintResult by settingsStatusLoadFingerprint()
+    val feedApiServiceLIZMatch by feedApiServiceLIZFingerprint()
+    val settingsStatusLoadMatch by settingsStatusLoadFingerprint()
 
     execute {
-        feedApiServiceLIZFingerprintResult.mutableMethod.apply {
+        feedApiServiceLIZMatch.mutableMethod.apply {
             val returnFeedItemInstruction = instructions.first { it.opcode == Opcode.RETURN_OBJECT }
             val feedItemsRegister = (returnFeedItemInstruction as OneRegisterInstruction).registerA
 
@@ -40,7 +40,7 @@ val feedFilterPatch = bytecodePatch(
             )
         }
 
-        settingsStatusLoadFingerprintResult.mutableMethod.addInstruction(
+        settingsStatusLoadMatch.mutableMethod.addInstruction(
             0,
             "invoke-static {}, Lapp/revanced/integrations/tiktok/settings/SettingsStatus;->enableFeedFilter()V",
         )

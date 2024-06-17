@@ -2,9 +2,9 @@ package app.revanced.patches.youtube.misc.playertype
 
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val playerTypeFingerprint = methodFingerprint {
+internal val playerTypeFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L")
@@ -15,7 +15,7 @@ internal val playerTypeFingerprint = methodFingerprint {
     custom { _, classDef -> classDef.endsWith("/YouTubePlayerOverlaysLayout;") }
 }
 
-internal val videoStateFingerprint = methodFingerprint {
+internal val videoStateFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L")

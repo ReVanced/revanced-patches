@@ -1,9 +1,9 @@
 package app.revanced.patches.hexeditor.ad
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val primaryAdsFingerprint = methodFingerprint {
-    custom { methodDef, classDef ->
-        classDef.endsWith("PreferencesHelper;") && methodDef.name == "isAdsDisabled"
+internal val primaryAdsFingerprint = fingerprint {
+    custom { method, classDef ->
+        classDef.endsWith("PreferencesHelper;") && method.name == "isAdsDisabled"
     }
 }

@@ -18,10 +18,10 @@ val bypassCertificateChecksPatch = bytecodePatch(
         ),
     )
 
-    val checkCertificateFingerprintResult by checkCertificateFingerprint()
+    val checkCertificateMatch by checkCertificateFingerprint()
 
     execute {
-        checkCertificateFingerprintResult.mutableMethod.addInstructions(
+        checkCertificateMatch.mutableMethod.addInstructions(
             0,
             """
                     const/4 v0, 0x1

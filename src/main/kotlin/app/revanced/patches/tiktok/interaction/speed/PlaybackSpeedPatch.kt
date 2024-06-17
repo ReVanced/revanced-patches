@@ -20,13 +20,13 @@ val playbackSpeedPatch = bytecodePatch(
         "com.zhiliaoapp.musically"("32.5.3"),
     )
 
-    val getSpeedFingerprintResult by getSpeedFingerprint()
-    val onRenderFirstFrameFingerprintResult by onRenderFirstFrameFingerprint()
-    val setSpeedFingerprintResult by setSpeedFingerprint()
+    val getSpeedMatch by getSpeedFingerprint()
+    val onRenderFirstFrameMatch by onRenderFirstFrameFingerprint()
+    val setSpeedMatch by setSpeedFingerprint()
 
     execute {
-        setSpeedFingerprintResult.let { onVideoSwiped ->
-            getSpeedFingerprintResult.mutableMethod.apply {
+        setSpeedMatch.let { onVideoSwiped ->
+            getSpeedMatch.mutableMethod.apply {
                 val injectIndex = indexOfFirstInstructionOrThrow { getReference<MethodReference>()?.returnType == "F" } + 2
                 val register = getInstruction<Instruction11x>(injectIndex - 1).registerA
 
@@ -39,7 +39,7 @@ val playbackSpeedPatch = bytecodePatch(
 
             // By default, the playback speed will reset to 1.0 at the start of each video.
             // Instead, override it with the desired playback speed.
-            onRenderFirstFrameFingerprintResult.mutableMethod.addInstructions(
+            onRenderFirstFrameMatch.mutableMethod.addInstructions(
                 0,
                 """
                 # Video playback location (e.g. home page, following page or search result page) retrieved using getEnterFrom method.

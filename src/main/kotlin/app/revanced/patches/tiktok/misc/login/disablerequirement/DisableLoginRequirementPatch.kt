@@ -12,13 +12,13 @@ val disableLoginRequirementPatch = bytecodePatch(
         "com.zhiliaoapp.musically",
     )
 
-    val mandatoryLoginServiceFingerprintResult by mandatoryLoginServiceFingerprint()
-    val mandatoryLoginServiceFingerprintResult2 by mandatoryLoginService2Fingerprint()
+    val mandatoryLoginServiceMatch by mandatoryLoginServiceFingerprint()
+    val mandatoryLoginService2Match by mandatoryLoginService2Fingerprint()
 
     execute {
         listOf(
-            mandatoryLoginServiceFingerprintResult.mutableMethod,
-            mandatoryLoginServiceFingerprintResult2.mutableMethod,
+            mandatoryLoginServiceMatch.mutableMethod,
+            mandatoryLoginService2Match.mutableMethod,
         ).forEach { method ->
             method.addInstructions(
                 0,

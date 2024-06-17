@@ -51,7 +51,7 @@ val disableFullscreenAmbientModePatch = bytecodePatch(
         ),
     )
 
-    val initializeAmbientModeFingerprintResult by initializeAmbientModeFingerprint()
+    val initializeAmbientModeMatch by initializeAmbientModeFingerprint()
 
     execute {
         addResources("youtube", "layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch")
@@ -60,8 +60,8 @@ val disableFullscreenAmbientModePatch = bytecodePatch(
             SwitchPreference("revanced_disable_fullscreen_ambient_mode"),
         )
 
-        initializeAmbientModeFingerprintResult.mutableMethod.apply {
-            val moveIsEnabledIndex = initializeAmbientModeFingerprintResult.scanResult.patternScanResult!!.endIndex
+        initializeAmbientModeMatch.mutableMethod.apply {
+            val moveIsEnabledIndex = initializeAmbientModeMatch.patternMatch!!.endIndex
 
             addInstruction(
                 moveIsEnabledIndex,

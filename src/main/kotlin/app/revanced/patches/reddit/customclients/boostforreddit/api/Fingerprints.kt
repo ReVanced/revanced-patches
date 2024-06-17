@@ -1,15 +1,15 @@
 package app.revanced.patches.reddit.customclients.boostforreddit.api
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val buildUserAgentFingerprint = methodFingerprint {
+internal val buildUserAgentFingerprint = fingerprint {
     strings("%s:%s:%s (by /u/%s)")
 }
 
-internal val getClientIdFingerprint = methodFingerprint {
-    custom { methodDef, classDef ->
+internal val getClientIdFingerprint = fingerprint {
+    custom { method, classDef ->
         if (!classDef.endsWith("Credentials;")) return@custom false
 
-        methodDef.name == "getClientId"
+        method.name == "getClientId"
     }
 }

@@ -1,8 +1,8 @@
 package app.revanced.patches.twitch.ad.audio
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val audioAdsPresenterPlayFingerprint = methodFingerprint {
+internal val audioAdsPresenterPlayFingerprint = fingerprint {
     custom { method, classDef ->
         classDef.endsWith("AudioAdsPlayerPresenter;") && method.name == "playAd"
     }

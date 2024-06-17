@@ -10,10 +10,10 @@ val rootDetectionPatch = bytecodePatch(
 ) {
     compatibleWith("at.gv.bmf.bmf2go")
 
-    val rootDetectionFingerprintResult by rootDetectionFingerprint()
+    val rootDetectionMatch by rootDetectionFingerprint()
 
     execute {
-        rootDetectionFingerprintResult.mutableMethod.addInstructions(
+        rootDetectionMatch.mutableMethod.addInstructions(
             0,
             """
                 sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;

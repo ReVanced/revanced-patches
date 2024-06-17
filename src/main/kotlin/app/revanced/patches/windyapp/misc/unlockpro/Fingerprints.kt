@@ -1,10 +1,10 @@
 package app.revanced.patches.windyapp.misc.unlockpro
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val checkProFingerprint = methodFingerprint {
+internal val checkProFingerprint = fingerprint {
     returns("I")
-    custom { methodDef, classDef ->
-        classDef.endsWith("RawUserData;") && methodDef.name == "isPro"
+    custom { method, classDef ->
+        classDef.endsWith("RawUserData;") && method.name == "isPro"
     }
 }

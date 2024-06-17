@@ -25,7 +25,7 @@ import app.revanced.patches.youtube.misc.recyclerviewtree.hook.recyclerViewTreeH
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.getReference
-import app.revanced.util.resultOrThrow
+import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -65,10 +65,10 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         addResourcesPatch,
     )
 
-    val speedArrayGeneratorFingerprintResult by speedArrayGeneratorFingerprint()
-    val speedLimiterFingerprintResult by speedLimiterFingerprint()
-    val getOldPlaybackSpeedsFingerprintResult by getOldPlaybackSpeedsFingerprint()
-    val showOldPlaybackSpeedMenuIntegrationsFingerprintResult by showOldPlaybackSpeedMenuIntegrationsFingerprint()
+    val speedArrayGeneratorMatch by speedArrayGeneratorFingerprint()
+    val speedLimiterMatch by speedLimiterFingerprint()
+    val getOldPlaybackSpeedsMatch by getOldPlaybackSpeedsFingerprint()
+    val showOldPlaybackSpeedMenuIntegrationsMatch by showOldPlaybackSpeedMenuIntegrationsFingerprint()
 
     execute { context ->
         addResources("youtube", "video.speed.custom.customPlaybackSpeedPatch")
@@ -77,7 +77,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
             TextPreference("revanced_custom_playback_speeds", inputType = InputType.TEXT_MULTI_LINE),
         )
 
-        speedArrayGeneratorFingerprintResult.mutableMethod.apply {
+        speedArrayGeneratorMatch.mutableMethod.apply {
             val sizeCallIndex = instructions
                 .indexOfFirst { it.getReference<MethodReference>()?.name == "size" }
             if (sizeCallIndex == -1) throw PatchException("Couldn't find call to size()")
@@ -112,7 +112,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
             )
         }
 
-        speedLimiterFingerprintResult.mutableMethod.apply {
+        speedLimiterMatch.mutableMethod.apply {
             val lowerLimitConst = 0.25f.toRawBits()
             val upperLimitConst = 2.0f.toRawBits()
             val limiterMinConstInstruction = instructions
@@ -144,29 +144,29 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         // Add a static INSTANCE field to the class.
         // This is later used to call "showOldPlaybackSpeedMenu" on the instance.
         val instanceField = ImmutableField(
-            getOldPlaybackSpeedsFingerprintResult.classDef.type,
+            getOldPlaybackSpeedsMatch.classDef.type,
             "INSTANCE",
-            getOldPlaybackSpeedsFingerprintResult.classDef.type,
+            getOldPlaybackSpeedsMatch.classDef.type,
             AccessFlags.PUBLIC.value or AccessFlags.STATIC.value,
             null,
             null,
             null,
         ).toMutable().also {
-            getOldPlaybackSpeedsFingerprintResult.mutableClass.staticFields.add(it)
+            getOldPlaybackSpeedsMatch.mutableClass.staticFields.add(it)
         }
 
         // Set the INSTANCE field to the instance of the class.
         // In order to prevent a conflict with another patch, add the instruction at index 1.
-        getOldPlaybackSpeedsFingerprintResult.mutableMethod.addInstruction(1, "sput-object p0, $instanceField")
+        getOldPlaybackSpeedsMatch.mutableMethod.addInstruction(1, "sput-object p0, $instanceField")
 
         // Get the "showOldPlaybackSpeedMenu" method.
         // This is later called on the field INSTANCE.
         val showOldPlaybackSpeedMenuMethod = showOldPlaybackSpeedMenuFingerprint.apply {
-            resolve(context, getOldPlaybackSpeedsFingerprintResult.classDef)
-        }.resultOrThrow().method
+            match(context, getOldPlaybackSpeedsMatch.classDef)
+        }.matchOrThrow().method
 
         // Insert the call to the "showOldPlaybackSpeedMenu" method on the field INSTANCE.
-        showOldPlaybackSpeedMenuIntegrationsFingerprintResult.mutableMethod.apply {
+        showOldPlaybackSpeedMenuIntegrationsMatch.mutableMethod.apply {
             addInstructionsWithLabels(
                 instructions.lastIndex,
                 """

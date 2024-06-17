@@ -2,13 +2,13 @@
 
 package app.revanced.patches.youtube.misc.litho.filter
 
+import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.misc.integrations.integrationsPatch
@@ -22,11 +22,11 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
-private val MethodFingerprint.patternScanResult
-    get() = result!!.scanResult.patternScanResult!!
+private val Fingerprint.patternMatch
+    get() = match!!.patternMatch!!
 
-private val MethodFingerprint.patternScanEndIndex
-    get() = patternScanResult.endIndex
+private val Fingerprint.patternMatchEndIndex
+    get() = patternMatch.endIndex
 
 private val Instruction.descriptor
     get() = (this as ReferenceInstruction).reference.toString()
@@ -43,9 +43,9 @@ val lithoFilterPatch = bytecodePatch(
         integrationsPatch,
     )
 
-    val componentContextParserFingerprintResult by componentContextParserFingerprint()
-    val lithoFilterFingerprintResult by lithoFilterFingerprint()
-    val protobufBufferReferenceFingerprintResult by protobufBufferReferenceFingerprint()
+    val componentContextParserMatch by componentContextParserFingerprint()
+    val lithoFilterMatch by lithoFilterFingerprint()
+    val protobufBufferReferenceMatch by protobufBufferReferenceFingerprint()
 
     var filterCount = 0
 
@@ -82,19 +82,19 @@ val lithoFilterPatch = bytecodePatch(
      * }
      */
     execute { context ->
-        componentContextParserFingerprintResult.also {
+        componentContextParserMatch.also {
             arrayOf(
                 emptyComponentBuilderFingerprint,
                 readComponentIdentifierFingerprint,
             ).forEach { fingerprint ->
-                if (fingerprint.resolve(context, it.mutableMethod, it.mutableClass)) return@forEach
+                if (fingerprint.match(context, it.mutableMethod)) return@forEach
                 throw fingerprint.exception
             }
         }.let { bytesToComponentContextMethod ->
 
             // region Pass the buffer into Integrations.
 
-            protobufBufferReferenceFingerprintResult.mutableMethod.addInstruction(
+            protobufBufferReferenceMatch.mutableMethod.addInstruction(
                 0,
                 " invoke-static { p2 }, $INTEGRATIONS_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V",
             )
@@ -103,7 +103,7 @@ val lithoFilterPatch = bytecodePatch(
 
             // region Hook the method that parses bytes into a ComponentContext.
 
-            val builderMethodIndex = emptyComponentBuilderFingerprint.patternScanEndIndex
+            val builderMethodIndex = emptyComponentBuilderFingerprint.patternMatchEndIndex
             val emptyComponentFieldIndex = builderMethodIndex + 2
 
             bytesToComponentContextMethod.mutableMethod.apply {
@@ -135,7 +135,7 @@ val lithoFilterPatch = bytecodePatch(
                 val emptyComponentFieldDescriptor = getInstruction(emptyComponentFieldIndex).descriptor
 
                 val identifierRegister =
-                    getInstruction<OneRegisterInstruction>(readComponentIdentifierFingerprint.patternScanEndIndex).registerA
+                    getInstruction<OneRegisterInstruction>(readComponentIdentifierFingerprint.patternMatchEndIndex).registerA
 
                 // endregion
 
@@ -168,7 +168,7 @@ val lithoFilterPatch = bytecodePatch(
             // endregion
         }
 
-        lithoFilterFingerprintResult.mutableMethod.apply {
+        lithoFilterMatch.mutableMethod.apply {
             removeInstructions(2, 4) // Remove dummy filter.
 
             addLithoFilter = { classDescriptor ->
@@ -186,6 +186,6 @@ val lithoFilterPatch = bytecodePatch(
     }
 
     finalize {
-        lithoFilterFingerprintResult.mutableMethod.replaceInstruction(0, "const/16 v0, $filterCount")
+        lithoFilterMatch.mutableMethod.replaceInstruction(0, "const/16 v0, $filterCount")
     }
 }

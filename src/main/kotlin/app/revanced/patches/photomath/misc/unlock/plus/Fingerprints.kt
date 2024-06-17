@@ -1,9 +1,9 @@
 package app.revanced.patches.photomath.misc.unlock.plus
 
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val isPlusUnlockedFingerprint = methodFingerprint{
+internal val isPlusUnlockedFingerprint = fingerprint{
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     strings("genius")

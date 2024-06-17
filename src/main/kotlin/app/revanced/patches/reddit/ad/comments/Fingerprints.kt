@@ -1,8 +1,8 @@
 package app.revanced.patches.reddit.ad.comments
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val hideCommentAdsFingerprint = methodFingerprint {
+internal val hideCommentAdsFingerprint = fingerprint {
     strings(
         "link",
         // CommentPageRepository is not returning a link object

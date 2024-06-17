@@ -12,10 +12,10 @@ val disableAdsPatch = bytecodePatch(
 
     compatibleWith("o.o.joey")
 
-    val isAdFreeUserFingerprintResult by isAdFreeUserFingerprint()
+    val isAdFreeUserMatch by isAdFreeUserFingerprint()
 
     execute {
-        isAdFreeUserFingerprintResult.mutableMethod.addInstructions(
+        isAdFreeUserMatch.mutableMethod.addInstructions(
             0,
             """
                 const/4 v0, 0x1

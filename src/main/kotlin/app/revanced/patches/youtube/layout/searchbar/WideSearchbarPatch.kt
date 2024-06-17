@@ -1,8 +1,8 @@
 package app.revanced.patches.youtube.layout.searchbar
 
+import app.revanced.patcher.Match
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
@@ -56,8 +56,8 @@ val wideSearchbarPatch = bytecodePatch(
         ),
     )
 
-    val setWordmarkHeaderFingerprintResult by setWordmarkHeaderFingerprint()
-    val createSearchSuggestionsFingerprintResult by createSearchSuggestionsFingerprint()
+    val setWordmarkHeaderMatch by setWordmarkHeaderFingerprint()
+    val createSearchSuggestionsMatch by createSearchSuggestionsFingerprint()
 
     execute { context ->
         addResources("youtube", "layout.searchbar.wideSearchbarPatch")
@@ -70,11 +70,11 @@ val wideSearchbarPatch = bytecodePatch(
          * Navigate a fingerprints method at a given index mutably.
          *
          * @param index The index to navigate to.
-         * @param fromFingerprintResult The fingerprint result to navigate the method on.
+         * @param fromMatch The fingerprint match to navigate the method on.
          * @return The [MutableMethod] which was navigated on.
          */
-        fun BytecodePatchContext.walkMutable(index: Int, fromFingerprintResult: MethodFingerprintResult) =
-            navigate(fromFingerprintResult.method).at(index).mutable()
+        fun BytecodePatchContext.walkMutable(index: Int, fromMatch: Match) =
+            navigate(fromMatch.method).at(index).mutable()
 
         /**
          * Injects instructions required for certain methods.
@@ -93,8 +93,8 @@ val wideSearchbarPatch = bytecodePatch(
         }
 
         mapOf(
-            setWordmarkHeaderFingerprintResult to 1,
-            createSearchSuggestionsFingerprintResult to createSearchSuggestionsFingerprintResult.scanResult.patternScanResult!!.startIndex,
+            setWordmarkHeaderMatch to 1,
+            createSearchSuggestionsMatch to createSearchSuggestionsMatch.patternMatch!!.startIndex,
         ).forEach { (fingerprint, callIndex) ->
             context.walkMutable(callIndex, fingerprint).injectSearchBarHook()
         }

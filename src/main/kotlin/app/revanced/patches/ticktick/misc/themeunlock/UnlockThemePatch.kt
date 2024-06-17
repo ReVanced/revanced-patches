@@ -11,11 +11,11 @@ val unlockProPatch = bytecodePatch(
 ) {
     compatibleWith("com.ticktick.task")
 
-    val checkLockedThemesFingerprintResult by checkLockedThemesFingerprint()
-    val setThemeFingerprintResult by setThemeFingerprint()
+    val checkLockedThemesMatch by checkLockedThemesFingerprint()
+    val setThemeMatch by setThemeFingerprint()
 
     execute {
-        checkLockedThemesFingerprintResult.mutableMethod.addInstructions(
+        checkLockedThemesMatch.mutableMethod.addInstructions(
             0,
             """
             const/4 v0, 0x0
@@ -23,6 +23,6 @@ val unlockProPatch = bytecodePatch(
             """,
         )
 
-        setThemeFingerprintResult.mutableMethod.removeInstructions(0, 10)
+        setThemeMatch.mutableMethod.removeInstructions(0, 10)
     }
 }

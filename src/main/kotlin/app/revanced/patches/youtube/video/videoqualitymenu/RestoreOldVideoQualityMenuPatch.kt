@@ -101,16 +101,16 @@ val restoreOldVideoQualityMenuPatch = bytecodePatch(
         ),
     )
 
-    val videoQualityMenuViewInflateFingerprintResult by videoQualityMenuViewInflateFingerprint()
-    val videoQualityMenuOptionsFingerprintResult by videoQualityMenuOptionsFingerprint()
+    val videoQualityMenuViewInflateMatch by videoQualityMenuViewInflateFingerprint()
+    val videoQualityMenuOptionsMatch by videoQualityMenuOptionsFingerprint()
 
     execute {
         // region Patch for the old type of the video quality menu.
         // Used for regular videos when spoofing to old app version,
         // and for the Shorts quality flyout on newer app versions.
 
-        videoQualityMenuViewInflateFingerprintResult.mutableMethod.apply {
-            val checkCastIndex = videoQualityMenuViewInflateFingerprintResult.scanResult.patternScanResult!!.endIndex
+        videoQualityMenuViewInflateMatch.mutableMethod.apply {
+            val checkCastIndex = videoQualityMenuViewInflateMatch.patternMatch!!.endIndex
             val listViewRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
 
             addInstruction(
@@ -122,12 +122,12 @@ val restoreOldVideoQualityMenuPatch = bytecodePatch(
         }
 
         // Force YT to add the 'advanced' quality menu for Shorts.
-        val scanResult = videoQualityMenuOptionsFingerprintResult.scanResult.patternScanResult!!
-        val startIndex = scanResult.startIndex
+        val patternMatch = videoQualityMenuOptionsMatch.patternMatch!!
+        val startIndex = patternMatch.startIndex
         if (startIndex != 0) throw PatchException("Unexpected opcode start index: $startIndex")
-        val insertIndex = scanResult.endIndex
+        val insertIndex = patternMatch.endIndex
 
-        videoQualityMenuOptionsFingerprintResult.mutableMethod.apply {
+        videoQualityMenuOptionsMatch.mutableMethod.apply {
             val register = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
             // A condition controls whether to show the three or four items quality menu.

@@ -1,11 +1,11 @@
 package app.revanced.patches.twitter.interaction.downloads
 
+import app.revanced.patcher.Match
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
-import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
 import com.android.tools.smali.dexlib2.Opcode
@@ -19,26 +19,26 @@ val unlockDownloadsPatch = bytecodePatch(
 ) {
     compatibleWith("com.twitter.android")
 
-    val constructMediaOptionsSheetFingerprintResult by constructMediaOptionsSheetFingerprint()
-    val showDownloadVideoUpsellBottomSheetFingerprintResult by showDownloadVideoUpsellBottomSheetFingerprint()
-    val buildMediaOptionsSheetFingerprintResult by buildMediaOptionsSheetFingerprint()
+    val constructMediaOptionsSheetMatch by constructMediaOptionsSheetFingerprint()
+    val showDownloadVideoUpsellBottomSheetMatch by showDownloadVideoUpsellBottomSheetFingerprint()
+    val buildMediaOptionsSheetMatch by buildMediaOptionsSheetFingerprint()
 
-    fun MethodFingerprintResult.patch(getRegisterAndIndex: MethodFingerprintResult.() -> Pair<Int, Int>) {
+    fun Match.patch(getRegisterAndIndex: Match.() -> Pair<Int, Int>) {
         val (index, register) = getRegisterAndIndex()
         mutableMethod.addInstruction(index, "const/4 v$register, 0x1")
     }
 
     execute {
         // Allow downloads for non-premium users.
-        showDownloadVideoUpsellBottomSheetFingerprintResult.patch {
-            val checkIndex = scanResult.patternScanResult!!.startIndex
+        showDownloadVideoUpsellBottomSheetMatch.patch {
+            val checkIndex = patternMatch!!.startIndex
             val register = mutableMethod.getInstruction<OneRegisterInstruction>(checkIndex).registerA
 
             checkIndex to register
         }
 
         // Force show the download menu item.
-        constructMediaOptionsSheetFingerprintResult.patch {
+        constructMediaOptionsSheetMatch.patch {
             val showDownloadButtonIndex = mutableMethod.instructions.lastIndex - 1
             val register = mutableMethod.getInstruction<TwoRegisterInstruction>(showDownloadButtonIndex).registerA
 
@@ -46,9 +46,9 @@ val unlockDownloadsPatch = bytecodePatch(
         }
 
         // Make GIFs downloadable.
-        val scanResult = buildMediaOptionsSheetFingerprintResult.scanResult.patternScanResult!!
-        buildMediaOptionsSheetFingerprintResult.mutableMethod.apply {
-            val checkMediaTypeIndex = scanResult.startIndex
+        val patternMatch = buildMediaOptionsSheetMatch.patternMatch!!
+        buildMediaOptionsSheetMatch.mutableMethod.apply {
+            val checkMediaTypeIndex = patternMatch.startIndex
             val checkMediaTypeInstruction = getInstruction<TwoRegisterInstruction>(checkMediaTypeIndex)
 
             // Treat GIFs as videos.
@@ -58,7 +58,7 @@ val unlockDownloadsPatch = bytecodePatch(
                         const/4 v${checkMediaTypeInstruction.registerB}, 0x2 # GIF
                         if-eq v${checkMediaTypeInstruction.registerA}, v${checkMediaTypeInstruction.registerB}, :video
                     """,
-                ExternalLabel("video", getInstruction(scanResult.endIndex)),
+                ExternalLabel("video", getInstruction(patternMatch.endIndex)),
             )
 
             // Remove media.isDownloadable check.

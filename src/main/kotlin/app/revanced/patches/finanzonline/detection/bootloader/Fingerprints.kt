@@ -2,10 +2,10 @@ package app.revanced.patches.finanzonline.detection.bootloader
 
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
 // Located @ at.gv.bmf.bmf2go.taxequalization.tools.utils.AttestationHelper#isBootStateOk (3.0.1)
-internal val bootStateFingerprint = methodFingerprint {
+internal val bootStateFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC)
     returns("Z")
     opcodes(
@@ -30,7 +30,7 @@ internal val bootStateFingerprint = methodFingerprint {
 }
 
 // Located @ at.gv.bmf.bmf2go.taxequalization.tools.utils.AttestationHelper#createKey (3.0.1)
-internal val createKeyFingerprint = methodFingerprint {
+internal val createKeyFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC)
     returns("Z")
     strings("attestation", "SHA-256", "random", "EC", "AndroidKeyStore")

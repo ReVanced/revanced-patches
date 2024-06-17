@@ -1,8 +1,8 @@
 package app.revanced.patches.twitch.ad.video
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val checkAdEligibilityLambdaFingerprint = methodFingerprint {
+internal val checkAdEligibilityLambdaFingerprint = fingerprint {
     returns("Lio/reactivex/Single;")
     parameters("L")
     custom { method, _ ->
@@ -11,7 +11,7 @@ internal val checkAdEligibilityLambdaFingerprint = methodFingerprint {
     }
 }
 
-internal val contentConfigShowAdsFingerprint = methodFingerprint {
+internal val contentConfigShowAdsFingerprint = fingerprint {
     returns("Z")
     parameters()
     custom { method, _ ->
@@ -19,7 +19,7 @@ internal val contentConfigShowAdsFingerprint = methodFingerprint {
     }
 }
 
-internal val getReadyToShowAdFingerprint = methodFingerprint {
+internal val getReadyToShowAdFingerprint = fingerprint {
     returns("Ltv/twitch/android/core/mvp/presenter/StateAndAction;")
     parameters("L", "L")
     custom { method, _ ->

@@ -23,9 +23,9 @@ val debugModePatch = bytecodePatch(
 
     compatibleWith("tv.twitch.android.app")
 
-    val isDebugConfigEnabledFingerprintResult by isDebugConfigEnabledFingerprint()
-    val isOmVerificationEnabledFingerprintResult by isOmVerificationEnabledFingerprint()
-    val shouldShowDebugOptionsFingerprintResult by shouldShowDebugOptionsFingerprint()
+    val isDebugConfigEnabledMatch by isDebugConfigEnabledFingerprint()
+    val isOmVerificationEnabledMatch by isOmVerificationEnabledFingerprint()
+    val shouldShowDebugOptionsMatch by shouldShowDebugOptionsFingerprint()
 
     execute {
         addResources("twitch", "debug.debugModePatch")
@@ -35,9 +35,9 @@ val debugModePatch = bytecodePatch(
         )
 
         listOf(
-            isDebugConfigEnabledFingerprintResult,
-            isOmVerificationEnabledFingerprintResult,
-            shouldShowDebugOptionsFingerprintResult,
+            isDebugConfigEnabledMatch,
+            isOmVerificationEnabledMatch,
+            shouldShowDebugOptionsMatch,
         ).forEach {
             it.mutableMethod.addInstructions(
                 0,

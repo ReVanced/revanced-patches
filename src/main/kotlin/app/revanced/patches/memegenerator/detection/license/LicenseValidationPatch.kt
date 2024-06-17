@@ -7,10 +7,10 @@ import app.revanced.patcher.patch.bytecodePatch
 val licenseValidationPatch = bytecodePatch(
     description = "Disables Firebase license validation.",
 ) {
-    val licenseValidationFingerprintResult by licenseValidationFingerprint()
+    val licenseValidationMatch by licenseValidationFingerprint()
 
     execute {
-        licenseValidationFingerprintResult.mutableMethod.replaceInstructions(
+        licenseValidationMatch.mutableMethod.replaceInstructions(
             0,
             """
                 const/4 p0, 0x1

@@ -1,21 +1,21 @@
 package app.revanced.patches.piccomafr.tracking
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val appMeasurementFingerprint = methodFingerprint {
+internal val appMeasurementFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returns("V")
     strings("config/app/", "Fetching remote configuration")
 }
 
-internal val facebookSDKFingerprint = methodFingerprint {
+internal val facebookSDKFingerprint = fingerprint {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     returns("V")
     strings("instagram.com", "facebook.com")
 }
 
-internal val firebaseInstallFingerprint = methodFingerprint {
+internal val firebaseInstallFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE)
     strings(
         "https://%s/%s/%s",

@@ -1,9 +1,9 @@
 package app.revanced.patches.youtube.layout.startupshortsreset
 
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val userWasInShortsFingerprint = methodFingerprint {
+internal val userWasInShortsFingerprint = fingerprint {
     returns("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters("Ljava/lang/Object;")

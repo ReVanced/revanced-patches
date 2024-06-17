@@ -1,9 +1,9 @@
 package app.revanced.patches.nfctoolsse.misc.pro
 
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val isLicenseRegisteredFingerprint = methodFingerprint {
+internal val isLicenseRegisteredFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC)
     returns("Z")
     strings("kLicenseCheck")

@@ -53,7 +53,7 @@ val hideGetPremiumPatch = bytecodePatch(
         ),
     )
 
-    val getPremiumViewFingerprintResult by getPremiumViewFingerprint()
+    val getPremiumViewMatch by getPremiumViewFingerprint()
 
     execute {
         addResources("youtube", "ad.getpremium.hideGetPremiumPatch")
@@ -62,8 +62,8 @@ val hideGetPremiumPatch = bytecodePatch(
             SwitchPreference("revanced_hide_get_premium"),
         )
 
-        getPremiumViewFingerprintResult.mutableMethod.apply {
-            val startIndex = getPremiumViewFingerprintResult.scanResult.patternScanResult!!.startIndex
+        getPremiumViewMatch.mutableMethod.apply {
+            val startIndex = getPremiumViewMatch.patternMatch!!.startIndex
             val measuredWidthRegister = getInstruction<TwoRegisterInstruction>(startIndex).registerA
             val measuredHeightInstruction = getInstruction<TwoRegisterInstruction>(startIndex + 1)
 

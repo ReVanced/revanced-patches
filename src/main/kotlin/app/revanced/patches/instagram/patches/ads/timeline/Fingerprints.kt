@@ -2,9 +2,9 @@ package app.revanced.patches.instagram.patches.ads.timeline
 
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val isAdCheckOneFingerprint = methodFingerprint {
+internal val isAdCheckOneFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()
@@ -16,7 +16,7 @@ internal val isAdCheckOneFingerprint = methodFingerprint {
     )
 }
 
-internal val isAdCheckTwoFingerprint = methodFingerprint {
+internal val isAdCheckTwoFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Z")
     parameters("L")
@@ -32,7 +32,7 @@ internal val isAdCheckTwoFingerprint = methodFingerprint {
     )
 }
 
-internal val showAdFingerprint = methodFingerprint {
+internal val showAdFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC, AccessFlags.FINAL)
     returns("Z")
     parameters("L", "L", "Z", "Z")

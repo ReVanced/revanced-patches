@@ -50,8 +50,8 @@ val enableSlideToSeekPatch = bytecodePatch(
         ),
     )
 
-    val slideToSeekFingerprintResult by slideToSeekFingerprint()
-    val doubleSpeedSeekNoticeFingerprintResult by doubleSpeedSeekNoticeFingerprint()
+    val slideToSeekMatch by slideToSeekFingerprint()
+    val doubleSpeedSeekNoticeMatch by doubleSpeedSeekNoticeFingerprint()
 
     execute {
         addResources("youtube", "interaction.seekbar.enableSlideToSeekPatch")
@@ -62,11 +62,11 @@ val enableSlideToSeekPatch = bytecodePatch(
 
         arrayOf(
             // Restore the behaviour to slide to seek.
-            slideToSeekFingerprintResult,
+            slideToSeekMatch,
             // Disable the double speed seek notice.
-            doubleSpeedSeekNoticeFingerprintResult,
+            doubleSpeedSeekNoticeMatch,
         ).forEach {
-            val insertIndex = it.scanResult.patternScanResult!!.endIndex + 1
+            val insertIndex = it.patternMatch!!.endIndex + 1
 
             it.mutableMethod.apply {
                 val isEnabledRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA

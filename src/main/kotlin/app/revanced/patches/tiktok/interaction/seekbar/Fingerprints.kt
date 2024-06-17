@@ -1,11 +1,11 @@
 package app.revanced.patches.tiktok.interaction.seekbar
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val setSeekBarShowTypeFingerprint = methodFingerprint {
+internal val setSeekBarShowTypeFingerprint = fingerprint {
     strings("seekbar show type change, change to:")
 }
 
-internal val shouldShowSeekBarFingerprint = methodFingerprint {
+internal val shouldShowSeekBarFingerprint = fingerprint {
     strings("can not show seekbar, state: 1, not in resume")
 }

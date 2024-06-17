@@ -1,9 +1,9 @@
 package app.revanced.patches.tudortmund.lockscreen
 
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val brightnessFingerprint = methodFingerprint {
+internal val brightnessFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC)
     returns("V")
     parameters()

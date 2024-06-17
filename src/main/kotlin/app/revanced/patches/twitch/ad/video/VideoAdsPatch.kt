@@ -26,9 +26,9 @@ val videoAdsPatch = bytecodePatch(
         settingsPatch,
         addResourcesPatch,
         adPatch(conditionCall, skipLabelName) { createConditionInstructions, blockMethods ->
-            val checkAdEligibilityLambdaFingerprintResult by checkAdEligibilityLambdaFingerprint()
-            val getReadyToShowAdFingerprintResult by getReadyToShowAdFingerprint()
-            val contentConfigShowAdsFingerprintResult by contentConfigShowAdsFingerprint()
+            val checkAdEligibilityLambdaMatch by checkAdEligibilityLambdaFingerprint()
+            val getReadyToShowAdMatch by getReadyToShowAdFingerprint()
+            val contentConfigShowAdsMatch by contentConfigShowAdsFingerprint()
 
             execute { context ->
                 addResources("twitch", "ad.video.videoAdsPatch")
@@ -114,7 +114,7 @@ val videoAdsPatch = bytecodePatch(
                 )
 
                 // Pretend our player is ineligible for all ads.
-                checkAdEligibilityLambdaFingerprintResult.mutableMethod.addInstructionsWithLabels(
+                checkAdEligibilityLambdaMatch.mutableMethod.addInstructionsWithLabels(
                     0,
                     """
                         ${createConditionInstructions("v0")}
@@ -125,13 +125,13 @@ val videoAdsPatch = bytecodePatch(
                     """,
                     ExternalLabel(
                         skipLabelName,
-                        checkAdEligibilityLambdaFingerprintResult.mutableMethod.getInstruction(0),
+                        checkAdEligibilityLambdaMatch.mutableMethod.getInstruction(0),
                     ),
                 )
 
                 val adFormatDeclined =
                     "Ltv/twitch/android/shared/display/ads/theatre/StreamDisplayAdsPresenter\$Action\$AdFormatDeclined;"
-                getReadyToShowAdFingerprintResult.mutableMethod.addInstructionsWithLabels(
+                getReadyToShowAdMatch.mutableMethod.addInstructionsWithLabels(
                     0,
                     """
                     ${createConditionInstructions("v0")}
@@ -140,11 +140,11 @@ val videoAdsPatch = bytecodePatch(
                     move-result-object p1
                     return-object p1
                 """,
-                    ExternalLabel(skipLabelName, getReadyToShowAdFingerprintResult.mutableMethod.getInstruction(0)),
+                    ExternalLabel(skipLabelName, getReadyToShowAdMatch.mutableMethod.getInstruction(0)),
                 )
 
                 // Spoof showAds JSON field.
-                contentConfigShowAdsFingerprintResult.mutableMethod.addInstructions(
+                contentConfigShowAdsMatch.mutableMethod.addInstructions(
                     0,
                     """
                     ${createConditionInstructions("v0")}

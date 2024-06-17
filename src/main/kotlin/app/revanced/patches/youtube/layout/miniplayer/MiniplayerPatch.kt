@@ -1,11 +1,11 @@
 package app.revanced.patches.youtube.layout.miniplayer
 
+import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
@@ -164,12 +164,12 @@ val miniplayerPatch = bytecodePatch(
         ),
     )
 
-    val miniplayerDimensionsCalculatorParentFingerprintResult by miniplayerDimensionsCalculatorParentFingerprint()
-    val miniplayerResponseModelSizeCheckFingerprintResult by miniplayerResponseModelSizeCheckFingerprint()
-    val miniplayerOverrideFingerprintResult by miniplayerOverrideFingerprint()
-    val miniplayerModernConstructorFingerprintResult by miniplayerModernConstructorFingerprint()
-    val miniplayerModernViewParentFingerprintResult by miniplayerModernViewParentFingerprint()
-    val youTubePlayerOverlaysLayoutFingerprintResult by youTubePlayerOverlaysLayoutFingerprint()
+    val miniplayerDimensionsCalculatorParentMatch by miniplayerDimensionsCalculatorParentFingerprint()
+    val miniplayerResponseModelSizeCheckMatch by miniplayerResponseModelSizeCheckFingerprint()
+    val miniplayerOverrideMatch by miniplayerOverrideFingerprint()
+    val miniplayerModernConstructorMatch by miniplayerModernConstructorFingerprint()
+    val miniplayerModernViewParentMatch by miniplayerModernViewParentFingerprint()
+    val youTubePlayerOverlaysLayoutMatch by youTubePlayerOverlaysLayoutFingerprint()
 
     execute { context ->
         addResources("youtube", "layout.miniplayer.miniplayerPatch")
@@ -255,12 +255,12 @@ val miniplayerPatch = bytecodePatch(
             removeInstruction(iPutIndex)
         }
 
-        fun MethodFingerprint.hookInflatedView(
+        fun Fingerprint.hookInflatedView(
             literalValue: Long,
             hookedClassType: String,
             integrationsMethodName: String,
         ) {
-            resultOrThrow().mutableMethod.apply {
+            matchOrThrow().mutableMethod.apply {
                 val imageViewIndex = indexOfFirstInstructionOrThrow(
                     indexOfFirstWideLiteralInstructionValueOrThrow(literalValue),
                 ) {
@@ -278,11 +278,11 @@ val miniplayerPatch = bytecodePatch(
         // region Enable tablet miniplayer.
 
         miniplayerOverrideNoContextFingerprint.apply {
-            resolve(
+            match(
                 context,
-                miniplayerDimensionsCalculatorParentFingerprintResult.classDef,
+                miniplayerDimensionsCalculatorParentMatch.classDef,
             )
-        }.resultOrThrow().mutableMethod.apply {
+        }.matchOrThrow().mutableMethod.apply {
             findReturnIndicesReversed().forEach { index -> insertLegacyTabletMiniplayerOverride(index) }
         }
 
@@ -290,8 +290,8 @@ val miniplayerPatch = bytecodePatch(
 
         // region Legacy tablet Miniplayer hooks.
 
-        val appNameStringIndex = miniplayerOverrideFingerprintResult.scanResult.stringsScanResult!!.matches.first().index + 2
-        miniplayerOverrideFingerprintResult.mutableMethod.apply {
+        val appNameStringIndex = miniplayerOverrideMatch.stringMatches!!.first().index + 2
+        miniplayerOverrideMatch.mutableMethod.apply {
             val method = context.navigate(this)
                 .at(appNameStringIndex)
                 .mutable()
@@ -301,8 +301,8 @@ val miniplayerPatch = bytecodePatch(
             }
         }
 
-        miniplayerResponseModelSizeCheckFingerprintResult.mutableMethod.insertLegacyTabletMiniplayerOverride(
-            miniplayerResponseModelSizeCheckFingerprintResult.scanResult.patternScanResult!!.endIndex,
+        miniplayerResponseModelSizeCheckMatch.mutableMethod.insertLegacyTabletMiniplayerOverride(
+            miniplayerResponseModelSizeCheckMatch.patternMatch!!.endIndex,
         )
 
         if (isPatchingOldVersion) {
@@ -314,7 +314,7 @@ val miniplayerPatch = bytecodePatch(
 
         // region Enable modern miniplayer.
 
-        miniplayerModernConstructorFingerprintResult.mutableClass.methods.forEach {
+        miniplayerModernConstructorMatch.mutableClass.methods.forEach {
             it.apply {
                 if (AccessFlags.CONSTRUCTOR.isSet(accessFlags)) {
                     val iPutIndex = indexOfFirstInstructionOrThrow {
@@ -335,11 +335,11 @@ val miniplayerPatch = bytecodePatch(
         // Fix this, by swapping the drawable resource values with each other.
 
         miniplayerModernExpandCloseDrawablesFingerprint.apply {
-            resolve(
+            match(
                 context,
-                miniplayerModernViewParentFingerprintResult.classDef,
+                miniplayerModernViewParentMatch.classDef,
             )
-        }.resultOrThrow().mutableMethod.apply {
+        }.matchOrThrow().mutableMethod.apply {
             listOf(
                 ytOutlinePictureInPictureWhite24 to ytOutlineXWhite24,
                 ytOutlineXWhite24 to ytOutlinePictureInPictureWhite24,
@@ -371,9 +371,9 @@ val miniplayerPatch = bytecodePatch(
             Triple(miniplayerModernOverlayViewFingerprint, scrimOverlay, "adjustMiniplayerOpacity"),
         ).forEach { (fingerprint, literalValue, methodName) ->
             fingerprint.apply {
-                resolve(
+                match(
                     context,
-                    miniplayerModernViewParentFingerprintResult.classDef,
+                    miniplayerModernViewParentMatch.classDef,
                 )
             }.hookInflatedView(
                 literalValue,
@@ -383,11 +383,11 @@ val miniplayerPatch = bytecodePatch(
         }
 
         miniplayerModernAddViewListenerFingerprint.apply {
-            resolve(
+            match(
                 context,
-                miniplayerModernViewParentFingerprintResult.classDef,
+                miniplayerModernViewParentMatch.classDef,
             )
-        }.resultOrThrow().mutableMethod.addInstruction(
+        }.matchOrThrow().mutableMethod.addInstruction(
             0,
             "invoke-static { p1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->" +
                 "hideMiniplayerSubTexts(Landroid/view/View;)V",
@@ -397,7 +397,7 @@ val miniplayerPatch = bytecodePatch(
         // Modern 2 uses the same overlay controls as the regular video player,
         // and the overlay views are added at runtime.
         // Add a hook to the overlay class, and pass the added views to integrations.
-        youTubePlayerOverlaysLayoutFingerprintResult.mutableClass.methods.add(
+        youTubePlayerOverlaysLayoutMatch.mutableClass.methods.add(
             ImmutableMethod(
                 YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME,
                 "addView",

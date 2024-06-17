@@ -15,15 +15,15 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "https://127.0.0.1:65023/a
         "o.o.joey.dev",
     )
 
-    val getClientIdFingerprintResult by getClientIdFingerprint()
-    val authUtilityUserAgentFingerprintResult by authUtilityUserAgentFingerprint()
+    val getClientIdMatch by getClientIdFingerprint()
+    val authUtilityUserAgentMatch by authUtilityUserAgentFingerprint()
 
     val clientId by clientIdOption
 
     execute {
         // region Patch client id.
 
-        getClientIdFingerprintResult.mutableMethod.addInstructions(
+        getClientIdMatch.mutableMethod.addInstructions(
             0,
             """
                  const-string v0, "$clientId"
@@ -39,7 +39,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "https://127.0.0.1:65023/a
         val randomName = (0..100000).random()
         val userAgent = "$randomName:app.revanced.$randomName:v1.0.0 (by /u/revanced)"
 
-        authUtilityUserAgentFingerprintResult.mutableMethod.replaceInstructions(
+        authUtilityUserAgentMatch.mutableMethod.replaceInstructions(
             0,
             """
                 const-string v0, "$userAgent"

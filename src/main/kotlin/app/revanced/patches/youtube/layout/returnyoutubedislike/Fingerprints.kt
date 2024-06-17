@@ -1,11 +1,11 @@
 package app.revanced.patches.youtube.layout.returnyoutubedislike
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val conversionContextFingerprint = methodFingerprint {
+internal val conversionContextFingerprint = fingerprint {
     returns("Ljava/lang/String;")
     parameters()
     strings(
@@ -20,12 +20,12 @@ internal val conversionContextFingerprint = methodFingerprint {
     )
 }
 
-internal val dislikeFingerprint = methodFingerprint {
+internal val dislikeFingerprint = fingerprint {
     returns("V")
     strings("like/dislike")
 }
 
-internal val dislikesOldLayoutTextViewFingerprint = methodFingerprint {
+internal val dislikesOldLayoutTextViewFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L")
@@ -40,17 +40,17 @@ internal val dislikesOldLayoutTextViewFingerprint = methodFingerprint {
     literal { oldUIDislikeId }
 }
 
-internal val likeFingerprint = methodFingerprint {
+internal val likeFingerprint = fingerprint {
     returns("V")
     strings("like/like")
 }
 
-internal val removeLikeFingerprint = methodFingerprint {
+internal val removeLikeFingerprint = fingerprint {
     returns("V")
     strings("like/removelike")
 }
 
-internal val rollingNumberMeasureAnimatedTextFingerprint = methodFingerprint {
+internal val rollingNumberMeasureAnimatedTextFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Lj\$/util/Optional;")
     parameters("L", "Ljava/lang/String;", "L")
@@ -71,7 +71,7 @@ internal val rollingNumberMeasureAnimatedTextFingerprint = methodFingerprint {
 /**
  * Resolves to class found in [rollingNumberMeasureStaticLabelParentFingerprint].
  */
-internal val rollingNumberMeasureStaticLabelFingerprint = methodFingerprint {
+internal val rollingNumberMeasureStaticLabelFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("F")
     parameters("Ljava/lang/String;")
@@ -83,14 +83,14 @@ internal val rollingNumberMeasureStaticLabelFingerprint = methodFingerprint {
     )
 }
 
-internal val rollingNumberMeasureStaticLabelParentFingerprint = methodFingerprint {
+internal val rollingNumberMeasureStaticLabelParentFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Ljava/lang/String;")
     parameters()
     strings("RollingNumberFontProperties{paint=")
 }
 
-internal val rollingNumberSetterFingerprint = methodFingerprint {
+internal val rollingNumberSetterFingerprint = fingerprint {
     opcodes(
         Opcode.INVOKE_DIRECT,
         Opcode.IGET_OBJECT,
@@ -98,7 +98,7 @@ internal val rollingNumberSetterFingerprint = methodFingerprint {
     strings("RollingNumberType required properties missing! Need updateCount, fontName, color and fontSize.")
 }
 
-internal val rollingNumberTextViewFingerprint = methodFingerprint {
+internal val rollingNumberTextViewFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L", "F", "F")
@@ -115,7 +115,7 @@ internal val rollingNumberTextViewFingerprint = methodFingerprint {
     }
 }
 
-internal val shortsTextViewFingerprint = methodFingerprint {
+internal val shortsTextViewFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L", "L")
@@ -141,12 +141,12 @@ internal val shortsTextViewFingerprint = methodFingerprint {
     )
 }
 
-internal val textComponentConstructorFingerprint = methodFingerprint {
+internal val textComponentConstructorFingerprint = fingerprint {
     accessFlags(AccessFlags.CONSTRUCTOR, AccessFlags.PRIVATE)
     strings("TextComponent")
 }
 
-internal val textComponentDataFingerprint = methodFingerprint {
+internal val textComponentDataFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters("L", "L")
     strings("text")
@@ -160,7 +160,7 @@ internal val textComponentDataFingerprint = methodFingerprint {
 /**
  * Resolves against the same class that [textComponentConstructorFingerprint] resolves to.
  */
-internal val textComponentLookupFingerprint = methodFingerprint {
+internal val textComponentLookupFingerprint = fingerprint {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
     returns("L")
     parameters("L")

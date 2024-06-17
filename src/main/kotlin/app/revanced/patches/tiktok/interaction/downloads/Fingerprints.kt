@@ -1,37 +1,37 @@
 package app.revanced.patches.tiktok.interaction.downloads
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val aclCommonShareFingerprint = methodFingerprint {
+internal val aclCommonShareFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("I")
-    custom { methodDef, classDef ->
+    custom { method, classDef ->
         classDef.endsWith("/ACLCommonShare;") &&
-            methodDef.name == "getCode"
+            method.name == "getCode"
     }
 }
 
-internal val aclCommonShare2Fingerprint = methodFingerprint {
+internal val aclCommonShare2Fingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("I")
-    custom { methodDef, classDef ->
+    custom { method, classDef ->
         classDef.endsWith("/ACLCommonShare;") &&
-            methodDef.name == "getShowType"
+            method.name == "getShowType"
     }
 }
 
-internal val aclCommonShare3Fingerprint = methodFingerprint {
+internal val aclCommonShare3Fingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("I")
-    custom { methodDef, classDef ->
+    custom { method, classDef ->
         classDef.endsWith("/ACLCommonShare;") &&
-            methodDef.name == "getTranscode"
+            method.name == "getTranscode"
     }
 }
 
-internal val downloadPathParentFingerprint = methodFingerprint {
+internal val downloadPathParentFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("L")
     strings("video/mp4")

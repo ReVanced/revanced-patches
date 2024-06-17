@@ -2,9 +2,9 @@ package app.revanced.patches.youtube.misc.fix.backtoexitgesture
 
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val onBackPressedFingerprint = methodFingerprint {
+internal val onBackPressedFingerprint = fingerprint {
     returns("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     opcodes(Opcode.RETURN_VOID)
@@ -15,7 +15,7 @@ internal val onBackPressedFingerprint = methodFingerprint {
     }
 }
 
-internal val recyclerViewScrollingFingerprint = methodFingerprint {
+internal val recyclerViewScrollingFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returns("V")
     parameters()
@@ -33,7 +33,7 @@ internal val recyclerViewScrollingFingerprint = methodFingerprint {
     )
 }
 
-internal val recyclerViewTopScrollingFingerprint = methodFingerprint {
+internal val recyclerViewTopScrollingFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters()
@@ -57,7 +57,7 @@ internal val recyclerViewTopScrollingFingerprint = methodFingerprint {
     )
 }
 
-internal val recyclerViewTopScrollingParentFingerprint = methodFingerprint {
+internal val recyclerViewTopScrollingParentFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters("L", "L", "Landroid/view/ViewGroup;", "Landroid/view/ViewGroup;")
     opcodes(

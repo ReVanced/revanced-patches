@@ -2,9 +2,9 @@ package app.revanced.patches.memegenerator.detection.signature
 
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val verifySignatureFingerprint = methodFingerprint(fuzzyPatternScanThreshold = 2) {
+internal val verifySignatureFingerprint = fingerprint(fuzzyPatternScanThreshold = 2) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Z")
     parameters("Landroid/app/Activity;")

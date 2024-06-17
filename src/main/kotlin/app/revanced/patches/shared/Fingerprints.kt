@@ -1,19 +1,19 @@
 package app.revanced.patches.shared
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val castContextFetchFingerprint = methodFingerprint {
+internal val castContextFetchFingerprint = fingerprint {
     strings("Error fetching CastContext.")
 }
 
-internal val castDynamiteModuleFingerprint = methodFingerprint {
+internal val castDynamiteModuleFingerprint = fingerprint {
     strings("com.google.android.gms.cast.framework.internal.CastDynamiteModuleImpl")
 }
 
-internal val castDynamiteModuleV2Fingerprint = methodFingerprint {
+internal val castDynamiteModuleV2Fingerprint = fingerprint {
     strings("Failed to load module via V2: ")
 }
 
-internal val primeMethodFingerprint = methodFingerprint {
+internal val primeMethodFingerprint = fingerprint {
     strings("com.google.android.GoogleCamera", "com.android.vending")
 }

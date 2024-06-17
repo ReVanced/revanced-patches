@@ -1,9 +1,9 @@
 package app.revanced.patches.tiktok.feedfilter
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val feedApiServiceLIZFingerprint = methodFingerprint {
-    custom { methodDef, classDef ->
-        classDef.endsWith("/FeedApiService;") && methodDef.name == "fetchFeedList"
+internal val feedApiServiceLIZFingerprint = fingerprint {
+    custom { method, classDef ->
+        classDef.endsWith("/FeedApiService;") && method.name == "fetchFeedList"
     }
 }

@@ -1,10 +1,10 @@
 package app.revanced.patches.shared.misc.integrations
 
+import app.revanced.patcher.Fingerprint
+import app.revanced.patcher.FingerprintBuilder
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.patcher.fingerprint.MethodFingerprintBuilder
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.exception
@@ -15,7 +15,7 @@ import java.util.jar.JarFile
 internal const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/shared/Utils;"
 
 fun integrationsPatch(vararg hooks: IntegrationsHook) = bytecodePatch(requiresIntegrations = true) {
-    val revancedUtilsPatchesVersionFingerprintResult by revancedUtilsPatchesVersionFingerprint()()
+    val revancedUtilsPatchesVersionMatch by revancedUtilsPatchesVersionFingerprint()()
     hooks.forEach { it.fingerprint() }
 
     execute { context ->
@@ -28,7 +28,7 @@ fun integrationsPatch(vararg hooks: IntegrationsHook) = bytecodePatch(requiresIn
         hooks.forEach { hook -> hook(INTEGRATIONS_CLASS_DESCRIPTOR) }
 
         // Modify Utils method to include the patches release version.
-        revancedUtilsPatchesVersionFingerprintResult.mutableMethod.apply {
+        revancedUtilsPatchesVersionMatch.mutableMethod.apply {
             /**
              * @return The file path for the jar this classfile is contained inside.
              */
@@ -71,12 +71,12 @@ fun integrationsPatch(vararg hooks: IntegrationsHook) = bytecodePatch(requiresIn
 }
 
 class IntegrationsHook internal constructor(
-    val fingerprint: MethodFingerprint,
+    val fingerprint: Fingerprint,
     private val insertIndexResolver: ((Method) -> Int),
     private val contextRegisterResolver: (Method) -> Int,
 ) {
     operator fun invoke(integrationsClassDescriptor: String) {
-        fingerprint.result?.mutableMethod?.let { method ->
+        fingerprint.match?.mutableMethod?.let { method ->
             val insertIndex = insertIndexResolver(method)
             val contextRegister = contextRegisterResolver(method)
 
@@ -92,5 +92,5 @@ class IntegrationsHook internal constructor(
 fun integrationsHook(
     insertIndexResolver: ((Method) -> Int) = { 0 },
     contextRegisterResolver: (Method) -> Int = { it.implementation!!.registerCount - 1 },
-    methodFingerprintBuilderBlock: MethodFingerprintBuilder.() -> Unit,
-) = IntegrationsHook(methodFingerprint(block = methodFingerprintBuilderBlock), insertIndexResolver, contextRegisterResolver)
+    fingerprintBuilderBlock: FingerprintBuilder.() -> Unit,
+) = IntegrationsHook(fingerprint(block = fingerprintBuilderBlock), insertIndexResolver, contextRegisterResolver)

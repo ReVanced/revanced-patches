@@ -14,7 +14,7 @@ import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.resultOrThrow
+import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
@@ -51,14 +51,14 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
         playerTypeHookPatch, // Required to detect the search bar in all situations.
     )
 
-    val pivotBarConstructorFingerprintResult by pivotBarConstructorFingerprint()
-    val navigationEnumFingerprintResult by navigationEnumFingerprint()
-    val pivotBarButtonsCreateDrawableViewFingerprintResult by pivotBarButtonsCreateDrawableViewFingerprint()
-    val pivotBarButtonsCreateResourceViewFingerprintResult by pivotBarButtonsCreateResourceViewFingerprint()
-    val pivotBarButtonsViewSetSelectedFingerprintResult by pivotBarButtonsViewSetSelectedFingerprint()
-    val navigationBarHookCallbackFingerprintResult by navigationBarHookCallbackFingerprint()
-    val mainActivityOnBackPressedFingerprintResult by mainActivityOnBackPressedFingerprint()
-    val actionBarSearchFingerprintResultsFingerprintResult by actionBarSearchResultsFingerprint()
+    val pivotBarConstructorMatch by pivotBarConstructorFingerprint()
+    val navigationEnumMatch by navigationEnumFingerprint()
+    val pivotBarButtonsCreateDrawableViewMatch by pivotBarButtonsCreateDrawableViewFingerprint()
+    val pivotBarButtonsCreateResourceViewMatch by pivotBarButtonsCreateResourceViewFingerprint()
+    val pivotBarButtonsViewSetSelectedMatch by pivotBarButtonsViewSetSelectedFingerprint()
+    val navigationBarHookCallbackMatch by navigationBarHookCallbackFingerprint()
+    val mainActivityOnBackPressedMatch by mainActivityOnBackPressedFingerprint()
+    val actionBarSearchResultsMatch by actionBarSearchResultsFingerprint()
 
     execute { context ->
         fun MutableMethod.addHook(hook: Hook, insertPredicate: Instruction.() -> Boolean) {
@@ -77,17 +77,17 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
         }
 
         initializeButtonsFingerprint.apply {
-            resolve(context, pivotBarConstructorFingerprintResult.classDef)
-        }.resultOrThrow().mutableMethod.apply {
+            match(context, pivotBarConstructorMatch.classDef)
+        }.matchOrThrow().mutableMethod.apply {
             // Hook the current navigation bar enum value. Note, the 'You' tab does not have an enum value.
-            val navigationEnumClassName = navigationEnumFingerprintResult.mutableClass.type
+            val navigationEnumClassName = navigationEnumMatch.mutableClass.type
             addHook(Hook.SET_LAST_APP_NAVIGATION_ENUM) {
                 opcode == Opcode.INVOKE_STATIC &&
                     getReference<MethodReference>()?.definingClass == navigationEnumClassName
             }
 
             // Hook the creation of navigation tab views.
-            val drawableTabMethod = pivotBarButtonsCreateDrawableViewFingerprintResult.mutableMethod
+            val drawableTabMethod = pivotBarButtonsCreateDrawableViewMatch.mutableMethod
             addHook(Hook.NAVIGATION_TAB_LOADED) predicate@{
                 MethodUtil.methodSignaturesMatch(
                     getReference<MethodReference>() ?: return@predicate false,
@@ -95,7 +95,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
                 )
             }
 
-            val imageResourceTabMethod = pivotBarButtonsCreateResourceViewFingerprintResult.method
+            val imageResourceTabMethod = pivotBarButtonsCreateResourceViewMatch.method
             addHook(Hook.NAVIGATION_IMAGE_RESOURCE_TAB_LOADED) predicate@{
                 MethodUtil.methodSignaturesMatch(
                     getReference<MethodReference>() ?: return@predicate false,
@@ -104,7 +104,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
             }
         }
 
-        pivotBarButtonsViewSetSelectedFingerprintResult.mutableMethod.apply {
+        pivotBarButtonsViewSetSelectedMatch.mutableMethod.apply {
             val index = indexOfSetViewSelectedInstruction(this)
             val instruction = getInstruction<FiveRegisterInstruction>(index)
             val viewRegister = instruction.registerC
@@ -119,7 +119,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
 
         // Hook onto back button pressed.  Needed to fix race problem with
         // Litho filtering based on navigation tab before the tab is updated.
-        mainActivityOnBackPressedFingerprintResult.mutableMethod.addInstruction(
+        mainActivityOnBackPressedMatch.mutableMethod.addInstruction(
             0,
             "invoke-static { p0 }, " +
                 "$INTEGRATIONS_CLASS_DESCRIPTOR->onBackPressed(Landroid/app/Activity;)V",
@@ -130,7 +130,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
         // Two different layouts are used at the hooked code.
         // Insert before the first ViewGroup method call after inflating,
         // so this works regardless which layout is used.
-        actionBarSearchFingerprintResultsFingerprintResult.mutableMethod.apply {
+        actionBarSearchResultsMatch.mutableMethod.apply {
             val instructionIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_VIRTUAL && getReference<MethodReference>()?.name == "setLayoutDirection"
             }
@@ -145,7 +145,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
         }
 
         hookNavigationButtonCreated = { integrationsClassDescriptor ->
-            navigationBarHookCallbackFingerprintResult.mutableMethod.addInstruction(
+            navigationBarHookCallbackMatch.mutableMethod.addInstruction(
                 0,
                 "invoke-static { p0, p1 }, " +
                     "$integrationsClassDescriptor->navigationTabCreated" +

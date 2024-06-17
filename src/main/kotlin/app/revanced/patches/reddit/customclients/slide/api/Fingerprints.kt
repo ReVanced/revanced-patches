@@ -1,11 +1,11 @@
 package app.revanced.patches.reddit.customclients.slide.api
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val getClientIdFingerprint = methodFingerprint {
-    custom { methodDef, classDef ->
+internal val getClientIdFingerprint = fingerprint {
+    custom { method, classDef ->
         if (!classDef.endsWith("Credentials;")) return@custom false
 
-        methodDef.name == "getClientId"
+        method.name == "getClientId"
     }
 }

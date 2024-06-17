@@ -20,9 +20,9 @@ val permanentShufflePatch = bytecodePatch(
         ),
     )
 
-    val disableShuffleFingerprintResult by disableShuffleFingerprint()
+    val disableShuffleMatch by disableShuffleFingerprint()
 
     execute {
-        disableShuffleFingerprintResult.mutableMethod.addInstruction(0, "return-void")
+        disableShuffleMatch.mutableMethod.addInstruction(0, "return-void")
     }
 }

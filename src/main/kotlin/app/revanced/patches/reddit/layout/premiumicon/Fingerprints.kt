@@ -1,10 +1,10 @@
 package app.revanced.patches.reddit.layout.premiumicon
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val hasPremiumIconAccessFingerprint = methodFingerprint {
+internal val hasPremiumIconAccessFingerprint = fingerprint {
     returns("Z")
-    custom { methodDef, classDef ->
-        classDef.endsWith("MyAccount;") && methodDef.name == "isPremiumSubscriber"
+    custom { method, classDef ->
+        classDef.endsWith("MyAccount;") && method.name == "isPremiumSubscriber"
     }
 }

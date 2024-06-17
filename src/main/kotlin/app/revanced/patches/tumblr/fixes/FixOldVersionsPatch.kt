@@ -12,8 +12,8 @@ val fixOldVersionsPatch = bytecodePatch(
 ) {
     compatibleWith("com.tumblr")
 
-    val httpPathParserFingerprintResult by httpPathParserFingerprint()
-    val addQueryParamFingerprintResult by addQueryParamFingerprint()
+    val httpPathParserMatch by httpPathParserFingerprint()
+    val addQueryParamMatch by addQueryParamFingerprint()
 
     execute {
         val liveQueryParameters = listOf(
@@ -23,8 +23,8 @@ val fixOldVersionsPatch = bytecodePatch(
 
         // Remove the live query parameters from the path when it's specified via a @METHOD annotation.
         for (liveQueryParameter in liveQueryParameters) {
-            httpPathParserFingerprintResult.mutableMethod.addInstructions(
-                httpPathParserFingerprintResult.scanResult.patternScanResult!!.endIndex + 1,
+            httpPathParserMatch.mutableMethod.addInstructions(
+                httpPathParserMatch.patternMatch!!.endIndex + 1,
                 """
                     # urlPath = urlPath.replace(liveQueryParameter, "")
                     const-string p1, "$liveQueryParameter"
@@ -42,7 +42,7 @@ val fixOldVersionsPatch = bytecodePatch(
         // which would result in the path "api/me/inf0?fields[blog]=${value}"
         // Here we make sure that this value doesn't contain the broken query parameters.
         for (liveQueryParameter in liveQueryParameters) {
-            addQueryParamFingerprintResult.mutableMethod.addInstructions(
+            addQueryParamMatch.mutableMethod.addInstructions(
                 0,
                 """
                     # queryParameterValue = queryParameterValue.replace(liveQueryParameter, "")

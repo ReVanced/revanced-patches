@@ -26,10 +26,10 @@ val settingsPatch = bytecodePatch(
         "com.zhiliaoapp.musically"("32.5.3"),
     )
 
-    val adPersonalizationActivityOnCreateFingerprintResult by adPersonalizationActivityOnCreateFingerprint()
-    val addSettingsEntryFingerprintResult by addSettingsEntryFingerprint()
-    val settingsEntryFingerprintResult by settingsEntryFingerprint()
-    val settingsEntryInfoFingerprintResult by settingsEntryInfoFingerprint()
+    val adPersonalizationActivityOnCreateMatch by adPersonalizationActivityOnCreateFingerprint()
+    val addSettingsEntryMatch by addSettingsEntryFingerprint()
+    val settingsEntryMatch by settingsEntryFingerprint()
+    val settingsEntryInfoMatch by settingsEntryInfoFingerprint()
 
     execute {
         val initializeSettingsMethodDescriptor =
@@ -46,11 +46,11 @@ val settingsPatch = bytecodePatch(
         fun String.toClassName(): String = substring(1, this.length - 1).replace("/", ".")
 
         // Find the class name of classes which construct a settings entry
-        val settingsButtonClass = settingsEntryFingerprintResult.classDef.type.toClassName()
-        val settingsButtonInfoClass = settingsEntryInfoFingerprintResult.classDef.type.toClassName()
+        val settingsButtonClass = settingsEntryMatch.classDef.type.toClassName()
+        val settingsButtonInfoClass = settingsEntryInfoMatch.classDef.type.toClassName()
 
         // Create a settings entry for 'revanced settings' and add it to settings fragment
-        addSettingsEntryFingerprintResult.mutableMethod.apply {
+        addSettingsEntryMatch.mutableMethod.apply {
             val markIndex = implementation!!.instructions.indexOfFirst {
                 it.opcode == Opcode.IGET_OBJECT && ((it as Instruction22c).reference as FieldReference).name == "headerUnit"
             }
@@ -78,7 +78,7 @@ val settingsPatch = bytecodePatch(
         }
 
         // Initialize the settings menu once the replaced setting entry is clicked.
-        adPersonalizationActivityOnCreateFingerprintResult.mutableMethod.apply {
+        adPersonalizationActivityOnCreateMatch.mutableMethod.apply {
             val initializeSettingsIndex = implementation!!.instructions.indexOfFirst {
                 it.opcode == Opcode.INVOKE_SUPER
             } + 1

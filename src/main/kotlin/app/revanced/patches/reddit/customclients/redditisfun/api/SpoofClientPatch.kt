@@ -1,9 +1,9 @@
 package app.revanced.patches.reddit.customclients.redditisfun.api
 
+import app.revanced.patcher.Match
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patches.reddit.customclients.spoofClientPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -17,9 +17,9 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "redditisfun://auth") { cl
         "com.andrewshu.android.redditdonation",
     )
 
-    val buildAuthorizationStringFingerprintResult by buildAuthorizationStringFingerprint()
-    val basicAuthorizationFingerprintResult by basicAuthorizationFingerprint()
-    val getUserAgentFingerprintResult by getUserAgentFingerprint()
+    val buildAuthorizationStringMatch by buildAuthorizationStringFingerprint()
+    val basicAuthorizationMatch by basicAuthorizationFingerprint()
+    val getUserAgentMatch by getUserAgentFingerprint()
 
     val clientId by clientIdOption
 
@@ -32,23 +32,23 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "redditisfun://auth") { cl
          *
          * @param string The string to replace the instruction with.
          * @param getReplacementIndex A function that returns the index of the instruction to replace
-         * using the [StringMatch] list from the [MethodFingerprintResult].
+         * using the [Match.StringMatch] list from the [Match].
          */
-        fun MethodFingerprintResult.replaceWith(
+        fun Match.replaceWith(
             string: String,
-            getReplacementIndex: List<MethodFingerprintResult.MethodFingerprintScanResult.StringsScanResult.StringMatch>.() -> Int,
+            getReplacementIndex: List<Match.StringMatch>.() -> Int,
         ) = mutableMethod.apply {
-            val replacementIndex = scanResult.stringsScanResult!!.matches.getReplacementIndex()
+            val replacementIndex = stringMatches!!.getReplacementIndex()
             val clientIdRegister = getInstruction<OneRegisterInstruction>(replacementIndex).registerA
 
             replaceInstruction(replacementIndex, "const-string v$clientIdRegister, \"$string\"")
         }
 
         // Patch OAuth authorization.
-        buildAuthorizationStringFingerprintResult.replaceWith(clientId!!) { first().index + 4 }
+        buildAuthorizationStringMatch.replaceWith(clientId!!) { first().index + 4 }
 
         // Path basic authorization.
-        basicAuthorizationFingerprintResult.replaceWith("$clientId:") { last().index + 7 }
+        basicAuthorizationMatch.replaceWith("$clientId:") { last().index + 7 }
 
         // endregion
 
@@ -58,7 +58,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "redditisfun://auth") { cl
         val randomName = (0..100000).random()
         val userAgent = "$randomName:app.revanced.$randomName:v1.0.0 (by /u/revanced)"
 
-        getUserAgentFingerprintResult.mutableMethod.addInstructions(
+        getUserAgentMatch.mutableMethod.addInstructions(
             0,
             """
                 const-string v0, "$userAgent"
@@ -72,7 +72,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "redditisfun://auth") { cl
 
         // Reddit messed up and does not append a redirect uri to the authorization url to old.reddit.com/login.
         // Replace old.reddit.com with ssl.reddit.com to fix this.
-        buildAuthorizationStringFingerprintResult.mutableMethod.apply {
+        buildAuthorizationStringMatch.mutableMethod.apply {
             val index = indexOfFirstInstructionOrThrow {
                 getReference<StringReference>()?.contains("old.reddit.com") == true
             }

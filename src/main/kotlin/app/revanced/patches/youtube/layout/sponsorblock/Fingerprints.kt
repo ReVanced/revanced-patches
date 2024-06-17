@@ -1,12 +1,12 @@
 package app.revanced.patches.youtube.layout.sponsorblock
 
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import app.revanced.patcher.fingerprint
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint.methodFingerprint
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val appendTimeFingerprint = methodFingerprint {
+internal val appendTimeFingerprint = fingerprint {
     returns("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters("Ljava/lang/CharSequence;", "Ljava/lang/CharSequence;", "Ljava/lang/CharSequence;")
@@ -29,7 +29,7 @@ internal val appendTimeFingerprint = methodFingerprint {
     )
 }
 
-internal val controlsOverlayFingerprint = methodFingerprint {
+internal val controlsOverlayFingerprint = fingerprint {
     returns("V")
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     parameters()
@@ -47,10 +47,10 @@ internal val controlsOverlayFingerprint = methodFingerprint {
     )
 }
 
-internal val rectangleFieldInvalidatorFingerprint = methodFingerprint {
+internal val rectangleFieldInvalidatorFingerprint = fingerprint {
     returns("V")
-    custom { methodDef, _ ->
-        val instructions = methodDef.implementation?.instructions!!
+    custom { method, _ ->
+        val instructions = method.implementation?.instructions!!
         val instructionCount = instructions.count()
 
         // the method has definitely more than 5 instructions

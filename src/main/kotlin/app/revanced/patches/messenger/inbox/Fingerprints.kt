@@ -1,11 +1,11 @@
 package app.revanced.patches.messenger.inbox
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.value.StringEncodedValue
 
-internal val createInboxSubTabsFingerprint = methodFingerprint {
+internal val createInboxSubTabsFingerprint = fingerprint {
     returns("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     opcodes(
@@ -22,7 +22,7 @@ internal val createInboxSubTabsFingerprint = methodFingerprint {
     }
 }
 
-internal val loadInboxAdsFingerprint = methodFingerprint {
+internal val loadInboxAdsFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("V")
     strings(

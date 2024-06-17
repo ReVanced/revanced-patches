@@ -1,17 +1,17 @@
 package app.revanced.patches.youtube.misc.fix.playback
 
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import app.revanced.util.getReference
+import app.revanced.patcher.fingerprint
 import app.revanced.util.containsWideLiteralInstructionValue
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
-import app.revanced.util.literal
+import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
-import com.android.tools.smali.dexlib2.iface.Method
+import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint.methodFingerprint
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val buildInitPlaybackRequestFingerprint = methodFingerprint {
+internal val buildInitPlaybackRequestFingerprint = fingerprint {
     returns("Lorg/chromium/net/UrlRequest\$Builder;")
     opcodes(
         Opcode.MOVE_RESULT_OBJECT,
@@ -23,7 +23,7 @@ internal val buildInitPlaybackRequestFingerprint = methodFingerprint {
     )
 }
 
-internal val buildPlayerRequestURIFingerprint = methodFingerprint {
+internal val buildPlayerRequestURIFingerprint = fingerprint {
     returns("Ljava/lang/String;")
     opcodes(
         Opcode.INVOKE_VIRTUAL, // Register holds player request URI.
@@ -40,7 +40,7 @@ internal val buildPlayerRequestURIFingerprint = methodFingerprint {
     )
 }
 
-internal val createPlaybackSpeedMenuItemFingerprint = methodFingerprint {
+internal val createPlaybackSpeedMenuItemFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     opcodes(
@@ -54,10 +54,10 @@ internal val createPlaybackSpeedMenuItemFingerprint = methodFingerprint {
     )
     // 19.01 and earlier is missing the second parameter.
     // Since this fingerprint is somewhat weak, work around by checking for both method parameter signatures.
-    custom { methodDef, _ ->
+    custom { method, _ ->
         // 19.01 and earlier parameters are: "[L"
         // 19.02+ parameters are "[L", "F"
-        val parameterTypes = methodDef.parameterTypes
+        val parameterTypes = method.parameterTypes
         val firstParameter = parameterTypes.firstOrNull()
 
         if (firstParameter == null || !firstParameter.startsWith("[L")) {
@@ -68,7 +68,7 @@ internal val createPlaybackSpeedMenuItemFingerprint = methodFingerprint {
     }
 }
 
-internal val createPlayerRequestBodyFingerprint = methodFingerprint {
+internal val createPlayerRequestBodyFingerprint = fingerprint {
     returns("V")
     parameters("L")
     opcodes(
@@ -79,24 +79,24 @@ internal val createPlayerRequestBodyFingerprint = methodFingerprint {
     strings("ms")
 }
 
-internal fun indexOfBuildModelInstruction(methodDef: Method) =
-    methodDef.indexOfFirstInstruction {
+internal fun indexOfBuildModelInstruction(method: Method) =
+    method.indexOfFirstInstruction {
         val reference = getReference<FieldReference>()
         reference?.definingClass == "Landroid/os/Build;" &&
             reference.name == "MODEL" &&
             reference.type == "Ljava/lang/String;"
     }
 
-internal val createPlayerRequestBodyWithModelFingerprint = methodFingerprint {
+internal val createPlayerRequestBodyWithModelFingerprint = fingerprint {
     returns("L")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters()
-    custom { methodDef, _ ->
-        methodDef.containsWideLiteralInstructionValue(1073741824) && indexOfBuildModelInstruction(methodDef) >= 0
+    custom { method, _ ->
+        method.containsWideLiteralInstructionValue(1073741824) && indexOfBuildModelInstruction(method) >= 0
     }
 }
 
-internal val playerGestureConfigSyntheticFingerprint = methodFingerprint {
+internal val playerGestureConfigSyntheticFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Ljava/lang/Object;")
@@ -120,9 +120,9 @@ internal val playerGestureConfigSyntheticFingerprint = methodFingerprint {
         Opcode.IPUT_BOOLEAN,
         Opcode.RETURN_VOID,
     )
-    custom { methodDef, classDef ->
-        fun indexOfDownAndOutAllowedInstruction(methodDef: Method) =
-            methodDef.indexOfFirstInstruction {
+    custom { method, classDef ->
+        fun indexOfDownAndOutAllowedInstruction() =
+            method.indexOfFirstInstruction {
                 val reference = getReference<MethodReference>()
                 reference?.definingClass == "Lcom/google/android/libraries/youtube/innertube/model/media/PlayerConfigModel;" &&
                     reference.parameterTypes.isEmpty() &&
@@ -130,12 +130,13 @@ internal val playerGestureConfigSyntheticFingerprint = methodFingerprint {
             }
 
         // This method is always called "a" because this kind of class always has a single method.
-        methodDef.name == "a" && classDef.methods.count() == 2 &&
-            indexOfDownAndOutAllowedInstruction(methodDef) >= 0
+        method.name == "a" &&
+            classDef.methods.count() == 2 &&
+            indexOfDownAndOutAllowedInstruction() >= 0
     }
 }
 
-internal val setPlayerRequestClientTypeFingerprint = methodFingerprint {
+internal val setPlayerRequestClientTypeFingerprint = fingerprint {
     opcodes(
         Opcode.IGET,
         Opcode.IPUT, // Sets ClientInfo.clientId.

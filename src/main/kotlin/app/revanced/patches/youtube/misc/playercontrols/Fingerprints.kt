@@ -1,11 +1,11 @@
 package app.revanced.patches.youtube.misc.playercontrols
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val bottomControlsInflateFingerprint = methodFingerprint {
+internal val bottomControlsInflateFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL, AccessFlags.SYNTHETIC)
     returns("L")
     parameters()
@@ -17,7 +17,7 @@ internal val bottomControlsInflateFingerprint = methodFingerprint {
     literal { bottomUiContainerResourceId }
 }
 
-internal val playerControlsVisibilityFingerprint = methodFingerprint {
+internal val playerControlsVisibilityFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returns("V")
     parameters("Z", "Z")

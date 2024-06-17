@@ -71,9 +71,9 @@ val backgroundPlaybackPatch = bytecodePatch(
         ),
     )
 
-    val backgroundPlaybackManagerFingerprintResult by backgroundPlaybackManagerFingerprint()
-    val backgroundPlaybackSettingsFingerprintResult by backgroundPlaybackSettingsFingerprint()
-    val kidsBackgroundPlaybackPolicyControllerFingerprintResult by kidsBackgroundPlaybackPolicyControllerFingerprint()
+    val backgroundPlaybackManagerMatch by backgroundPlaybackManagerFingerprint()
+    val backgroundPlaybackSettingsMatch by backgroundPlaybackSettingsFingerprint()
+    val kidsBackgroundPlaybackPolicyControllerMatch by kidsBackgroundPlaybackPolicyControllerFingerprint()
 
     execute { context ->
         addResources("youtube", "misc.backgroundplayback.backgroundPlaybackPatch")
@@ -82,7 +82,7 @@ val backgroundPlaybackPatch = bytecodePatch(
             NonInteractivePreference("revanced_background_playback"),
         )
 
-        backgroundPlaybackManagerFingerprintResult.mutableMethod.addInstructions(
+        backgroundPlaybackManagerMatch.mutableMethod.addInstructions(
             0,
             """
                 invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->playbackIsNotShort()Z
@@ -92,7 +92,7 @@ val backgroundPlaybackPatch = bytecodePatch(
         )
 
         // Enable background playback option in YouTube settings
-        backgroundPlaybackSettingsFingerprintResult.mutableMethod.apply {
+        backgroundPlaybackSettingsMatch.mutableMethod.apply {
             val booleanCalls = instructions.withIndex()
                 .filter { ((it.value as? ReferenceInstruction)?.reference as? MethodReference)?.returnType == "Z" }
 
@@ -110,7 +110,7 @@ val backgroundPlaybackPatch = bytecodePatch(
         }
 
         // Force allowing background play for videos labeled for kids.
-        kidsBackgroundPlaybackPolicyControllerFingerprintResult.mutableMethod.addInstruction(
+        kidsBackgroundPlaybackPolicyControllerMatch.mutableMethod.addInstruction(
             0,
             "return-void",
         )

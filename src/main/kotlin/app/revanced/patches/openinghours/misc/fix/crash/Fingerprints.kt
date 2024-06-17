@@ -1,8 +1,8 @@
 package app.revanced.patches.openinghours.misc.fix.crash
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val setPlaceFingerprint = methodFingerprint {
+internal val setPlaceFingerprint = fingerprint {
     returns("V")
     parameters("Lde/simon/openinghours/models/Place;")
     custom { method, _ ->

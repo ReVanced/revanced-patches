@@ -1,10 +1,10 @@
 package app.revanced.patches.music.layout.premium
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val hideGetPremiumFingerprint = methodFingerprint {
+internal val hideGetPremiumFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters()
@@ -16,7 +16,7 @@ internal val hideGetPremiumFingerprint = methodFingerprint {
     strings("FEmusic_history", "FEmusic_offline")
 }
 
-internal val membershipSettingsFingerprint = methodFingerprint {
+internal val membershipSettingsFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Ljava/lang/CharSequence;")
     opcodes(

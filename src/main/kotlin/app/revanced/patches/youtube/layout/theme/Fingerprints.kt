@@ -1,11 +1,11 @@
 package app.revanced.patches.youtube.layout.theme
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val lithoThemeFingerprint = methodFingerprint {
+internal val lithoThemeFingerprint = fingerprint {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
     returns("V")
     parameters("Landroid/graphics/Rect;")
@@ -26,12 +26,12 @@ internal val lithoThemeFingerprint = methodFingerprint {
         Opcode.INVOKE_VIRTUAL,
         Opcode.RETURN_VOID,
     )
-    custom { methodDef, _ ->
-        methodDef.name == "onBoundsChange"
+    custom { method, _ ->
+        method.name == "onBoundsChange"
     }
 }
 
-internal val themeHelperDarkColorFingerprint = methodFingerprint {
+internal val themeHelperDarkColorFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returns("Ljava/lang/String;")
     parameters()
@@ -41,7 +41,7 @@ internal val themeHelperDarkColorFingerprint = methodFingerprint {
     }
 }
 
-internal val themeHelperLightColorFingerprint = methodFingerprint {
+internal val themeHelperLightColorFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returns("Ljava/lang/String;")
     parameters()
@@ -51,6 +51,6 @@ internal val themeHelperLightColorFingerprint = methodFingerprint {
     }
 }
 
-internal val useGradientLoadingScreenFingerprint = methodFingerprint {
+internal val useGradientLoadingScreenFingerprint = fingerprint {
     literal { GRADIENT_LOADING_SCREEN_AB_CONSTANT }
 }

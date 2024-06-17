@@ -1,10 +1,10 @@
 package app.revanced.patches.reddit.customclients.redditisfun.api
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-fun baseClientIdFingerprint(string: String) = methodFingerprint {
+fun baseClientIdFingerprint(string: String) = fingerprint {
     strings("yyOCBp.RHJhDKd", string)
 }
 
@@ -16,7 +16,7 @@ internal val buildAuthorizationStringFingerprint = baseClientIdFingerprint(
     string = "client_id",
 )
 
-internal val getUserAgentFingerprint = methodFingerprint {
+internal val getUserAgentFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Ljava/lang/String;")
     parameters()

@@ -1,9 +1,9 @@
 package app.revanced.patches.youtube.layout.panels.popup
 
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val engagementPanelControllerFingerprint = methodFingerprint {
+internal val engagementPanelControllerFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returns("L")
     strings(

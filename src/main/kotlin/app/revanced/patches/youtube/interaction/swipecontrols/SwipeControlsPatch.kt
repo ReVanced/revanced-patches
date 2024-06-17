@@ -95,12 +95,12 @@ val swipeControlsPatch = bytecodePatch(
         ),
     )
 
-    val mainActivityFingerprintResult by mainActivityFingerprint()
-    val swipeControlsHostActivityFingerprintResult by swipeControlsHostActivityFingerprint()
+    val mainActivityMatch by mainActivityFingerprint()
+    val swipeControlsHostActivityMatch by swipeControlsHostActivityFingerprint()
 
     execute { context ->
-        val wrapperClass = swipeControlsHostActivityFingerprintResult.mutableClass
-        val targetClass = mainActivityFingerprintResult.mutableClass
+        val wrapperClass = swipeControlsHostActivityMatch.mutableClass
+        val targetClass = mainActivityMatch.mutableClass
 
         // Inject the wrapper class from integrations into the class hierarchy of MainActivity.
         wrapperClass.setSuperClass(targetClass.superclass)

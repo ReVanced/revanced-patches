@@ -54,25 +54,25 @@ val videoInformationPatch = bytecodePatch(
         playerResponseMethodHookPatch,
     )
 
-    val playerInitFingerprintResult by playerInitFingerprint()
-    val createVideoPlayerSeekbarFingerprintResult by createVideoPlayerSeekbarFingerprint()
-    val playerControllerSetTimeReferenceFingerprintResult by playerControllerSetTimeReferenceFingerprint()
-    val onPlaybackSpeedItemClickFingerprintResult by onPlaybackSpeedItemClickFingerprint()
+    val playerInitMatch by playerInitFingerprint()
+    val createVideoPlayerSeekbarMatch by createVideoPlayerSeekbarFingerprint()
+    val playerControllerSetTimeReferenceMatch by playerControllerSetTimeReferenceFingerprint()
+    val onPlaybackSpeedItemClickMatch by onPlaybackSpeedItemClickFingerprint()
 
     execute { context ->
-        playerInitMethod = playerInitFingerprintResult.mutableClass.methods.first { MethodUtil.isConstructor(it) }
+        playerInitMethod = playerInitMatch.mutableClass.methods.first { MethodUtil.isConstructor(it) }
 
         // hook the player controller for use through integrations
         playerControllerOnCreateHook(INTEGRATIONS_CLASS_DESCRIPTOR, "initialize")
 
         // seek method
-        val seekFingerprintResultMethod = seekFingerprint.apply {
-            resolve(context, playerInitFingerprintResult.classDef)
-        }.result!!.method
+        val seekMatchMethod = seekFingerprint.apply {
+            match(context, playerInitMatch.classDef)
+        }.match!!.method
 
         // create helper method
         val seekHelperMethod = ImmutableMethod(
-            seekFingerprintResultMethod.definingClass,
+            seekMatchMethod.definingClass,
             "seekTo",
             listOf(ImmutableMethodParameter("J", null, "time")),
             "Z",
@@ -83,32 +83,32 @@ val videoInformationPatch = bytecodePatch(
         ).toMutable()
 
         // get enum type for the seek helper method
-        val seekSourceEnumType = seekFingerprintResultMethod.parameterTypes[1].toString()
+        val seekSourceEnumType = seekMatchMethod.parameterTypes[1].toString()
 
         // insert helper method instructions
         seekHelperMethod.addInstructions(
             0,
             """
                     sget-object v0, $seekSourceEnumType->a:$seekSourceEnumType
-                    invoke-virtual {p0, p1, p2, v0}, ${seekFingerprintResultMethod.definingClass}->${seekFingerprintResultMethod.name}(J$seekSourceEnumType)Z
+                    invoke-virtual {p0, p1, p2, v0}, ${seekMatchMethod.definingClass}->${seekMatchMethod.name}(J$seekSourceEnumType)Z
                     move-result p1
                     return p1
                 """,
         )
 
         // add the seekTo method to the class for the integrations to call
-        playerInitFingerprintResult.mutableClass.methods.add(seekHelperMethod)
+        playerInitMatch.mutableClass.methods.add(seekHelperMethod)
 
-        with(createVideoPlayerSeekbarFingerprintResult) {
-            val videoLengthMethodFingerprintResult = videoLengthFingerprint.apply { resolve(context, classDef) }.result!!
+        with(createVideoPlayerSeekbarMatch) {
+            val videoLengthMethodMatch = videoLengthFingerprint.apply { match(context, classDef) }.match!!
 
-            with(videoLengthMethodFingerprintResult.mutableMethod) {
-                val videoLengthRegisterIndex = videoLengthMethodFingerprintResult.scanResult.patternScanResult!!.endIndex - 2
+            with(videoLengthMethodMatch.mutableMethod) {
+                val videoLengthRegisterIndex = videoLengthMethodMatch.patternMatch!!.endIndex - 2
                 val videoLengthRegister = getInstruction<OneRegisterInstruction>(videoLengthRegisterIndex).registerA
                 val dummyRegisterForLong = videoLengthRegister + 1 // required for long values since they are wide
 
                 addInstruction(
-                    videoLengthMethodFingerprintResult.scanResult.patternScanResult!!.endIndex,
+                    videoLengthMethodMatch.patternMatch!!.endIndex,
                     "invoke-static {v$videoLengthRegister, v$dummyRegisterForLong}, " +
                         "$INTEGRATIONS_CLASS_DESCRIPTOR->setVideoLength(J)V",
                 )
@@ -136,8 +136,8 @@ val videoInformationPatch = bytecodePatch(
         /*
          * Set the video time method
          */
-        timeMethod = context.navigate(playerControllerSetTimeReferenceFingerprintResult.method)
-            .at(playerControllerSetTimeReferenceFingerprintResult.scanResult.patternScanResult!!.startIndex)
+        timeMethod = context.navigate(playerControllerSetTimeReferenceMatch.method)
+            .at(playerControllerSetTimeReferenceMatch.patternMatch!!.startIndex)
             .mutable()
 
         /*
@@ -148,7 +148,7 @@ val videoInformationPatch = bytecodePatch(
         /*
          * Hook the user playback speed selection
          */
-        onPlaybackSpeedItemClickFingerprintResult.mutableMethod.apply {
+        onPlaybackSpeedItemClickMatch.mutableMethod.apply {
             speedSelectionInsertMethod = this
             val speedSelectionMethodInstructions = this.implementation!!.instructions
             val speedSelectionValueInstructionIndex = speedSelectionMethodInstructions.indexOfFirst {

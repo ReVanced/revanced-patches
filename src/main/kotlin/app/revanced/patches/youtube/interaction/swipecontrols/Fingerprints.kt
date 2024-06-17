@@ -1,9 +1,9 @@
 package app.revanced.patches.youtube.interaction.swipecontrols
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val swipeControlsHostActivityFingerprint = methodFingerprint {
+internal val swipeControlsHostActivityFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters()
     custom { method, _ ->

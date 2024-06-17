@@ -89,22 +89,22 @@ val downloadsPatch = bytecodePatch(
         ),
     )
 
-    val offlineVideoEndpointFingerprintResult by offlineVideoEndpointFingerprint()
-    val mainActivityFingerprintResult by mainActivityFingerprint()
+    val offlineVideoEndpointMatch by offlineVideoEndpointFingerprint()
+    val mainActivityMatch by mainActivityFingerprint()
 
     execute {
         initializeControl("$BUTTON_DESCRIPTOR->initializeButton(Landroid/view/View;)V")
         injectVisibilityCheckCall("$BUTTON_DESCRIPTOR->changeVisibility(Z)V")
 
         // Main activity is used to launch downloader intent.
-        mainActivityFingerprintResult.mutableMethod.apply {
+        mainActivityMatch.mutableMethod.apply {
             addInstruction(
                 implementation!!.instructions.lastIndex,
                 "invoke-static { p0 }, $INTEGRATIONS_CLASS_DESCRIPTOR->activityCreated(Landroid/app/Activity;)V",
             )
         }
 
-        offlineVideoEndpointFingerprintResult.mutableMethod.apply {
+        offlineVideoEndpointMatch.mutableMethod.apply {
             addInstructionsWithLabels(
                 0,
                 """

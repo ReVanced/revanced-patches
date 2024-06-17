@@ -2,9 +2,9 @@ package app.revanced.patches.youtube.video.quality
 
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val newVideoQualityChangedFingerprint = methodFingerprint {
+internal val newVideoQualityChangedFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters("L")
@@ -33,7 +33,7 @@ internal val newVideoQualityChangedFingerprint = methodFingerprint {
 /**
  * Resolves with the class found in [videoQualitySetterFingerprint].
  */
-internal val setQualityByIndexMethodClassFieldReferenceFingerprint = methodFingerprint {
+internal val setQualityByIndexMethodClassFieldReferenceFingerprint = fingerprint {
     returns("V")
     parameters("L")
     opcodes(
@@ -43,12 +43,12 @@ internal val setQualityByIndexMethodClassFieldReferenceFingerprint = methodFinge
     )
 }
 
-internal val videoQualityItemOnClickParentFingerprint = methodFingerprint {
+internal val videoQualityItemOnClickParentFingerprint = fingerprint {
     returns("V")
     strings("VIDEO_QUALITIES_MENU_BOTTOM_SHEET_FRAGMENT")
 }
 
-internal val videoQualitySetterFingerprint = methodFingerprint {
+internal val videoQualitySetterFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("[L", "I", "Z")

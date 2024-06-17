@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.misc.navigation
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 import app.revanced.patches.youtube.layout.buttons.navigation.navigationButtonsPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -10,7 +10,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val actionBarSearchResultsFingerprint = methodFingerprint {
+internal val actionBarSearchResultsFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/view/View;")
     parameters("Landroid/view/LayoutInflater;")
@@ -20,23 +20,23 @@ internal val actionBarSearchResultsFingerprint = methodFingerprint {
 /**
  * Resolves to the class found in [pivotBarConstructorFingerprint].
  */
-internal val initializeButtonsFingerprint = methodFingerprint {
+internal val initializeButtonsFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters()
     literal { imageOnlyTabResourceId }
 }
 
-internal val mainActivityOnBackPressedFingerprint = methodFingerprint {
+internal val mainActivityOnBackPressedFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters()
-    custom { methodDef, classDef ->
+    custom { method, classDef ->
         val matchesClass = classDef.endsWith("MainActivity;") ||
             // Old versions of YouTube called this class "WatchWhileActivity" instead.
             classDef.endsWith("WatchWhileActivity;")
 
-        matchesClass && methodDef.name == "onBackPressed"
+        matchesClass && method.name == "onBackPressed"
     }
 }
 
@@ -44,7 +44,7 @@ internal val mainActivityOnBackPressedFingerprint = methodFingerprint {
  * Integrations method, used for callback into to other patches.
  * Specifically, [navigationButtonsPatch].
  */
-internal val navigationBarHookCallbackFingerprint = methodFingerprint {
+internal val navigationBarHookCallbackFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returns("V")
     parameters(INTEGRATIONS_NAVIGATION_BUTTON_DESCRIPTOR, "Landroid/view/View;")
@@ -57,7 +57,7 @@ internal val navigationBarHookCallbackFingerprint = methodFingerprint {
 /**
  * Resolves to the Enum class that looks up ordinal -> instance.
  */
-internal val navigationEnumFingerprint = methodFingerprint {
+internal val navigationEnumFingerprint = fingerprint {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     strings(
         "PIVOT_HOME",
@@ -70,7 +70,7 @@ internal val navigationEnumFingerprint = methodFingerprint {
     )
 }
 
-internal val pivotBarButtonsCreateDrawableViewFingerprint = methodFingerprint {
+internal val pivotBarButtonsCreateDrawableViewFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/view/View;")
     custom { method, _ ->
@@ -80,7 +80,7 @@ internal val pivotBarButtonsCreateDrawableViewFingerprint = methodFingerprint {
     }
 }
 
-internal val pivotBarButtonsCreateResourceViewFingerprint = methodFingerprint {
+internal val pivotBarButtonsCreateResourceViewFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/view/View;")
     parameters("L", "Z", "I", "L")
@@ -89,11 +89,11 @@ internal val pivotBarButtonsCreateResourceViewFingerprint = methodFingerprint {
     }
 }
 
-internal fun indexOfSetViewSelectedInstruction(methodDef: Method) = methodDef.indexOfFirstInstruction {
+internal fun indexOfSetViewSelectedInstruction(method: Method) = method.indexOfFirstInstruction {
     opcode == Opcode.INVOKE_VIRTUAL && getReference<MethodReference>()?.name == "setSelected"
 }
 
-internal val pivotBarButtonsViewSetSelectedFingerprint = methodFingerprint {
+internal val pivotBarButtonsViewSetSelectedFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("I", "Z")
@@ -103,7 +103,7 @@ internal val pivotBarButtonsViewSetSelectedFingerprint = methodFingerprint {
     }
 }
 
-internal val pivotBarConstructorFingerprint = methodFingerprint {
+internal val pivotBarConstructorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     strings("com.google.android.apps.youtube.app.endpoint.flags")
 }

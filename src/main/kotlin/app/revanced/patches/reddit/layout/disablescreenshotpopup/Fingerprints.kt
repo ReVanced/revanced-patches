@@ -1,15 +1,15 @@
 package app.revanced.patches.reddit.layout.disablescreenshotpopup
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val disableScreenshotPopupFingerprint = methodFingerprint {
+internal val disableScreenshotPopupFingerprint = fingerprint {
     returns("V")
     parameters("Landroidx/compose/runtime/", "I")
-    custom { methodDef, classDef ->
+    custom { method, classDef ->
         if (!classDef.endsWith("\$ScreenshotTakenBannerKt\$lambda-1\$1;")) {
             return@custom false
         }
 
-        methodDef.name == "invoke"
+        method.name == "invoke"
     }
 }

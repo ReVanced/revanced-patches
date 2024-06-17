@@ -10,9 +10,9 @@ val bypassRootChecksPatch = bytecodePatch(
 ) {
     compatibleWith("it.ipzs.cieid")
 
-    val checkRootFingerprintResult by checkRootFingerprint()
+    val checkRootMatch by checkRootFingerprint()
 
     execute {
-        checkRootFingerprintResult.mutableMethod.addInstruction(1, "return-void")
+        checkRootMatch.mutableMethod.addInstruction(1, "return-void")
     }
 }

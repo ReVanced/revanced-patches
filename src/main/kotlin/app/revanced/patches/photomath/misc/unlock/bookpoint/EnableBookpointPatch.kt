@@ -7,10 +7,10 @@ import app.revanced.patcher.patch.bytecodePatch
 val enableBookpointPatch = bytecodePatch(
     description = "Enables textbook access",
 ) {
-    val isBookpointEnabledFingerprintResult by isBookpointEnabledFingerprint()
+    val isBookpointEnabledMatch by isBookpointEnabledFingerprint()
 
     execute {
-        isBookpointEnabledFingerprintResult.mutableMethod.replaceInstructions(
+        isBookpointEnabledMatch.mutableMethod.replaceInstructions(
             0,
             """
                 const/4 v0, 0x1

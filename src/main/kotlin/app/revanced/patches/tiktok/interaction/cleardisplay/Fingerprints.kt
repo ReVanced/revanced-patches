@@ -1,16 +1,16 @@
 package app.revanced.patches.tiktok.interaction.cleardisplay
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val onClearDisplayEventFingerprint = methodFingerprint {
-    custom { methodDef, classDef ->
+internal val onClearDisplayEventFingerprint = fingerprint {
+    custom { method, classDef ->
         // Internally the feature is called "Clear mode".
-        classDef.endsWith("/ClearModePanelComponent;") && methodDef.name == "onClearModeEvent"
+        classDef.endsWith("/ClearModePanelComponent;") && method.name == "onClearModeEvent"
     }
 }
 
-internal val onRenderFirstFrameFingerprint = methodFingerprint {
-    custom { methodDef, classDef ->
-        classDef.endsWith("/BaseListFragmentPanel;") && methodDef.name == "onRenderFirstFrame"
+internal val onRenderFirstFrameFingerprint = fingerprint {
+    custom { method, classDef ->
+        classDef.endsWith("/BaseListFragmentPanel;") && method.name == "onRenderFirstFrame"
     }
 }

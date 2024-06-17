@@ -14,10 +14,10 @@ val disableSyncForLemmyBottomSheetPatch = bytecodePatch(
         "com.laurencedawson.reddit_sync.dev"(), // Version unknown.
     )
 
-    val mainActivityOnCreateFingerprintResult by mainActivityOnCreateFingerprint()
+    val mainActivityOnCreateMatch by mainActivityOnCreateFingerprint()
 
     execute {
-        mainActivityOnCreateFingerprintResult.mutableMethod.apply {
+        mainActivityOnCreateMatch.mutableMethod.apply {
             val showBottomSheetIndex = implementation!!.instructions.lastIndex - 1
 
             removeInstruction(showBottomSheetIndex)

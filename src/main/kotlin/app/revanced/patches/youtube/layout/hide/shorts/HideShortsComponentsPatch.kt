@@ -135,10 +135,10 @@ val hideShortsComponentsPatch = bytecodePatch(
         ),
     )
 
-    val createShortsButtonsFingerprintResult by createShortsButtonsFingerprint()
-    val bottomNavigationBarFingerprintResult by bottomNavigationBarFingerprint()
-    val renderBottomNavigationBarParentFingerprintResult by renderBottomNavigationBarParentFingerprint()
-    val setPivotBarVisibilityParentFingerprintResult by setPivotBarVisibilityParentFingerprint()
+    val createShortsButtonsMatch by createShortsButtonsFingerprint()
+    val bottomNavigationBarMatch by bottomNavigationBarFingerprint()
+    val renderBottomNavigationBarParentMatch by renderBottomNavigationBarParentFingerprint()
+    val setPivotBarVisibilityParentMatch by setPivotBarVisibilityParentFingerprint()
     reelConstructorFingerprint()
 
     execute { context ->
@@ -146,9 +146,9 @@ val hideShortsComponentsPatch = bytecodePatch(
 
         // This patch point is not present in 19.03.x and greater.
         // If 19.02.x and lower is dropped, then this section of code and the fingerprint should be removed.
-        reelConstructorFingerprint.result?.let {
+        reelConstructorFingerprint.match?.let {
             it.mutableMethod.apply {
-                val insertIndex = it.scanResult.patternScanResult!!.startIndex + 2
+                val insertIndex = it.patternMatch!!.startIndex + 2
                 val viewRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
                 injectHideViewCall(
@@ -165,7 +165,7 @@ val hideShortsComponentsPatch = bytecodePatch(
         // region Hide the Shorts buttons in older versions of YouTube.
 
         // Some Shorts buttons are views, hide them by setting their visibility to GONE.
-        ShortsButtons.entries.forEach { button -> button.injectHideCall(createShortsButtonsFingerprintResult.mutableMethod) }
+        ShortsButtons.entries.forEach { button -> button.injectHideCall(createShortsButtonsMatch.mutableMethod) }
 
         // endregion
 
@@ -178,13 +178,13 @@ val hideShortsComponentsPatch = bytecodePatch(
         // region Hide the navigation bar.
 
         // Hook to get the pivotBar view.
-        if (!setPivotBarVisibilityFingerprint.resolve(context, setPivotBarVisibilityParentFingerprintResult.classDef)) {
+        if (!setPivotBarVisibilityFingerprint.match(context, setPivotBarVisibilityParentMatch.classDef)) {
             throw setPivotBarVisibilityFingerprint.exception
         }
 
-        setPivotBarVisibilityFingerprint.resultOrThrow().let { result ->
-            result.mutableMethod.apply {
-                val insertIndex = result.scanResult.patternScanResult!!.endIndex
+        setPivotBarVisibilityFingerprint.matchOrThrow().let { match ->
+            match.mutableMethod.apply {
+                val insertIndex = match.patternMatch!!.endIndex
                 val viewRegister = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
                 addInstruction(
                     insertIndex,
@@ -195,17 +195,17 @@ val hideShortsComponentsPatch = bytecodePatch(
         }
 
         // Hook to hide the navigation bar when Shorts are being played.
-        if (!renderBottomNavigationBarFingerprint.resolve(context, renderBottomNavigationBarParentFingerprintResult.classDef)) {
+        if (!renderBottomNavigationBarFingerprint.match(context, renderBottomNavigationBarParentMatch.classDef)) {
             throw renderBottomNavigationBarFingerprint.exception
         }
 
-        renderBottomNavigationBarFingerprint.resultOrThrow().mutableMethod.apply {
+        renderBottomNavigationBarFingerprint.matchOrThrow().mutableMethod.apply {
             addInstruction(0, "invoke-static { }, $FILTER_CLASS_DESCRIPTOR->hideNavigationBar()V")
         }
 
         // Required to prevent a black bar from appearing at the bottom of the screen.
-        bottomNavigationBarFingerprintResult.mutableMethod.apply {
-            val moveResultIndex = bottomNavigationBarFingerprintResult.scanResult.patternScanResult!!.startIndex + 2
+        bottomNavigationBarMatch.mutableMethod.apply {
+            val moveResultIndex = bottomNavigationBarMatch.patternMatch!!.startIndex + 2
             val viewRegister = getInstruction<OneRegisterInstruction>(moveResultIndex).registerA
             val insertIndex = moveResultIndex + 1
 

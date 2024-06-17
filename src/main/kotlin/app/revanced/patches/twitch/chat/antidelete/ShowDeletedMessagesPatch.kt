@@ -31,9 +31,9 @@ val showDeletedMessagesPatch = bytecodePatch(
         if-eqz $register, :no_spoiler
     """
 
-    val setHasModAccessFingerprintResult by setHasModAccessFingerprint()
-    val deletedMessageClickableSpanCtorFingerprintResult by deletedMessageClickableSpanCtorFingerprint()
-    val chatUtilCreateDeletedSpanFingerprintResult by chatUtilCreateDeletedSpanFingerprint()
+    val setHasModAccessMatch by setHasModAccessFingerprint()
+    val deletedMessageClickableSpanCtorMatch by deletedMessageClickableSpanCtorFingerprint()
+    val chatUtilCreateDeletedSpanMatch by chatUtilCreateDeletedSpanFingerprint()
 
     execute {
         addResources("twitch", "chat.antidelete.showDeletedMessagesPatch")
@@ -46,7 +46,7 @@ val showDeletedMessagesPatch = bytecodePatch(
         )
 
         // Spoiler mode: Force set hasModAccess member to true in constructor
-        deletedMessageClickableSpanCtorFingerprintResult.mutableMethod.apply {
+        deletedMessageClickableSpanCtorMatch.mutableMethod.apply {
             addInstructionsWithLabels(
                 implementation!!.instructions.lastIndex, /* place in front of return-void */
                 """
@@ -59,10 +59,10 @@ val showDeletedMessagesPatch = bytecodePatch(
         }
 
         // Spoiler mode: Disable setHasModAccess setter
-        setHasModAccessFingerprintResult.mutableMethod.addInstruction(0, "return-void")
+        setHasModAccessMatch.mutableMethod.addInstruction(0, "return-void")
 
         // Cross-out mode: Reformat span of deleted message
-        chatUtilCreateDeletedSpanFingerprintResult.mutableMethod.apply {
+        chatUtilCreateDeletedSpanMatch.mutableMethod.apply {
             addInstructionsWithLabels(
                 0,
                 """

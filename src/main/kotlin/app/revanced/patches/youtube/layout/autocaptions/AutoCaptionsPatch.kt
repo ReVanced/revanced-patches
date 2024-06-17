@@ -49,9 +49,9 @@ val autoCaptionsPatch = bytecodePatch(
         ),
     )
 
-    val startVideoInformerFingerprintResult by startVideoInformerFingerprint()
-    val subtitleButtonControllerFingerprintResult by subtitleButtonControllerFingerprint()
-    val subtitleTrackFingerprintResult by subtitleTrackFingerprint()
+    val startVideoInformerMatch by startVideoInformerFingerprint()
+    val subtitleButtonControllerMatch by subtitleButtonControllerFingerprint()
+    val subtitleTrackMatch by subtitleTrackFingerprint()
 
     execute {
         addResources("youtube", "layout.autocaptions.autoCaptionsPatch")
@@ -61,10 +61,10 @@ val autoCaptionsPatch = bytecodePatch(
         )
 
         mapOf(
-            startVideoInformerFingerprintResult to 0,
-            subtitleButtonControllerFingerprintResult to 1,
-        ).forEach { (result, enabled) ->
-            result.mutableMethod.addInstructions(
+            startVideoInformerMatch to 0,
+            subtitleButtonControllerMatch to 1,
+        ).forEach { (match, enabled) ->
+            match.mutableMethod.addInstructions(
                 0,
                 """
                     const/4 v0, 0x$enabled
@@ -73,7 +73,7 @@ val autoCaptionsPatch = bytecodePatch(
             )
         }
 
-        subtitleTrackFingerprintResult.mutableMethod.addInstructions(
+        subtitleTrackMatch.mutableMethod.addInstructions(
             0,
             """
                 invoke-static {}, Lapp/revanced/integrations/youtube/patches/DisableAutoCaptionsPatch;->autoCaptionsEnabled()Z

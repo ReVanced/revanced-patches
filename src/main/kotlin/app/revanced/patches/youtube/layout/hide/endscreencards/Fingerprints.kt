@@ -1,10 +1,10 @@
 package app.revanced.patches.youtube.layout.hide.endscreencards
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val layoutCircleFingerprint = methodFingerprint {
+internal val layoutCircleFingerprint = fingerprint {
     returns("Landroid/view/View;")
     opcodes(
         Opcode.CONST,
@@ -16,7 +16,7 @@ internal val layoutCircleFingerprint = methodFingerprint {
     literal { layoutCircle }
 }
 
-internal val layoutIconFingerprint = methodFingerprint {
+internal val layoutIconFingerprint = fingerprint {
     returns("Landroid/view/View;")
     opcodes(
         Opcode.INVOKE_VIRTUAL,
@@ -27,7 +27,7 @@ internal val layoutIconFingerprint = methodFingerprint {
     literal { layoutIcon }
 }
 
-internal val layoutVideoFingerprint = methodFingerprint {
+internal val layoutVideoFingerprint = fingerprint {
     returns("Landroid/view/View;")
     opcodes(
         Opcode.CONST,

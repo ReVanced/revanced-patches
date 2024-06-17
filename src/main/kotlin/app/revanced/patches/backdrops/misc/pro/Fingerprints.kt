@@ -1,9 +1,9 @@
 package app.revanced.patches.backdrops.misc.pro
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val proUnlockFingerprint = methodFingerprint {
+internal val proUnlockFingerprint = fingerprint {
     opcodes(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,

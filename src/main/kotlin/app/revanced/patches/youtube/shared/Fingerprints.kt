@@ -1,19 +1,19 @@
 package app.revanced.patches.youtube.shared
 
-import com.android.tools.smali.dexlib2.Opcode
+import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint.methodFingerprint
+import com.android.tools.smali.dexlib2.Opcode
 
-internal val autoRepeatFingerprint = methodFingerprint {
+internal val autoRepeatFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters()
-    custom { methodDef, _ ->
-        methodDef.implementation!!.instructions.count() == 3 && methodDef.annotations.isEmpty()
+    custom { method, _ ->
+        method.implementation!!.instructions.count() == 3 && method.annotations.isEmpty()
     }
 }
 
-internal val autoRepeatParentFingerprint = methodFingerprint {
+internal val autoRepeatParentFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     strings(
@@ -22,20 +22,20 @@ internal val autoRepeatParentFingerprint = methodFingerprint {
     )
 }
 
-internal val homeActivityFingerprint = methodFingerprint {
-    custom { methodDef, classDef ->
-        methodDef.name == "onCreate" && classDef.endsWith("Shell_HomeActivity;")
+internal val homeActivityFingerprint = fingerprint {
+    custom { method, classDef ->
+        method.name == "onCreate" && classDef.endsWith("Shell_HomeActivity;")
     }
 }
 
-internal val layoutConstructorFingerprint = methodFingerprint {
+internal val layoutConstructorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters()
     strings("1.0x")
 }
 
-internal val mainActivityFingerprint = methodFingerprint {
+internal val mainActivityFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters()
     custom { _, classDef ->
@@ -44,11 +44,11 @@ internal val mainActivityFingerprint = methodFingerprint {
     }
 }
 
-internal val mainActivityOnCreateFingerprint = methodFingerprint {
+internal val mainActivityOnCreateFingerprint = fingerprint {
     returns("V")
     parameters("Landroid/os/Bundle;")
-    custom { methodDef, classDef ->
-        methodDef.name == "onCreate" &&
+    custom { method, classDef ->
+        method.name == "onCreate" &&
             (
                 classDef.endsWith("MainActivity;") ||
                     // Old versions of YouTube called this class "WatchWhileActivity" instead.
@@ -57,7 +57,7 @@ internal val mainActivityOnCreateFingerprint = methodFingerprint {
     }
 }
 
-val rollingNumberTextViewAnimationUpdateFingerprint = methodFingerprint {
+val rollingNumberTextViewAnimationUpdateFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Landroid/graphics/Bitmap;")
@@ -81,11 +81,11 @@ val rollingNumberTextViewAnimationUpdateFingerprint = methodFingerprint {
     }
 }
 
-internal val seekbarFingerprint = methodFingerprint {
+internal val seekbarFingerprint = fingerprint {
     returns("V")
     strings("timed_markers_width")
 }
 
-internal val seekbarOnDrawFingerprint = methodFingerprint {
-    custom { methodDef, _ -> methodDef.name == "onDraw" }
+internal val seekbarOnDrawFingerprint = fingerprint {
+    custom { method, _ -> method.name == "onDraw" }
 }

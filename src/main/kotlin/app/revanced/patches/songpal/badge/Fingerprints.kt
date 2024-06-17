@@ -1,6 +1,6 @@
 package app.revanced.patches.songpal.badge
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -8,11 +8,11 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
 
 // Located @ ub.i0.h#p (9.5.0)
-internal val createTabsFingerprint = methodFingerprint {
+internal val createTabsFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE)
     returns("Ljava/util/List;")
-    custom { methodDef, _ ->
-        methodDef.implementation?.instructions?.any { instruction ->
+    custom { method, _ ->
+        method.implementation?.instructions?.any { instruction ->
             if (instruction.opcode != Opcode.INVOKE_STATIC) return@any false
 
             val reference = (instruction as ReferenceInstruction).reference as MethodReference
@@ -26,11 +26,11 @@ internal val createTabsFingerprint = methodFingerprint {
 }
 
 // Located @ com.sony.songpal.mdr.vim.activity.MdrRemoteBaseActivity.e#run (9.5.0)
-internal val showNotificationFingerprint = methodFingerprint {
+internal val showNotificationFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC)
     returns("V")
-    custom { methodDef, _ ->
-        methodDef.implementation?.instructions?.any { instruction ->
+    custom { method, _ ->
+        method.implementation?.instructions?.any { instruction ->
             if (instruction.opcode != Opcode.INVOKE_VIRTUAL) return@any false
 
             with(expectedReference) {

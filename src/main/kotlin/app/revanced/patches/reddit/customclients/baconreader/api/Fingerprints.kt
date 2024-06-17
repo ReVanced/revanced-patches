@@ -1,19 +1,19 @@
 package app.revanced.patches.reddit.customclients.baconreader.api
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val getAuthorizationUrlFingerprint = methodFingerprint {
+internal val getAuthorizationUrlFingerprint = fingerprint {
     strings("client_id=zACVn0dSFGdWqQ")
 }
-internal val getClientIdFingerprint = methodFingerprint {
+internal val getClientIdFingerprint = fingerprint {
     strings("client_id=zACVn0dSFGdWqQ")
-    custom { methodDef, classDef ->
+    custom { method, classDef ->
         if (!classDef.endsWith("RedditOAuth;")) return@custom false
 
-        methodDef.name == "getAuthorizeUrl"
+        method.name == "getAuthorizeUrl"
     }
 }
 
-internal val requestTokenFingerprint = methodFingerprint {
+internal val requestTokenFingerprint = fingerprint {
     strings("zACVn0dSFGdWqQ", "kDm2tYpu9DqyWFFyPlNcXGEni4k") // App ID and secret.
 }

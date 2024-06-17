@@ -1,10 +1,10 @@
 package app.revanced.patches.youtube.layout.thumbnails
 
+import app.revanced.patcher.Fingerprint
+import app.revanced.patcher.Match
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
-import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
@@ -18,7 +18,7 @@ import app.revanced.patches.youtube.misc.integrations.integrationsPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.util.resultOrThrow
+import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -79,9 +79,9 @@ val alternativeThumbnailsPatch = bytecodePatch(
         ),
     )
 
-    val messageDigestImageUrlParentFingerprintResult by messageDigestImageUrlParentFingerprint()
-    val onResponseStartedFingerprintResult by onResponseStartedFingerprint()
-    val requestFingerprintResult by requestFingerprint()
+    val messageDigestImageUrlParentMatch by messageDigestImageUrlParentFingerprint()
+    val onResponseStartedMatch by onResponseStartedFingerprint()
+    val requestMatch by requestFingerprint()
 
     execute { context ->
         addResources("youtube", "layout.thumbnails.alternativeThumbnailsPatch")
@@ -132,26 +132,26 @@ val alternativeThumbnailsPatch = bytecodePatch(
             ListPreference("revanced_alt_thumbnail_stills_time", summaryKey = null),
         )
 
-        fun MethodFingerprint.alsoResolve(result: MethodFingerprintResult) = also {
-            resolve(context, result.classDef)
-        }.resultOrThrow()
+        fun Fingerprint.alsoResolve(fingerprintMatch: Match) = also {
+            match(context, fingerprintMatch.classDef)
+        }.matchOrThrow()
 
-        fun MethodFingerprint.resolveAndLetMutableMethod(
-            result: MethodFingerprintResult,
+        fun Fingerprint.resolveAndLetMutableMethod(
+            fingerprintMatch: Match,
             block: (MutableMethod) -> Unit,
-        ) = alsoResolve(result).also { block(it.mutableMethod) }
+        ) = alsoResolve(fingerprintMatch).also { block(it.mutableMethod) }
 
-        messageDigestImageUrlFingerprint.resolveAndLetMutableMethod(messageDigestImageUrlParentFingerprintResult) {
+        messageDigestImageUrlFingerprint.resolveAndLetMutableMethod(messageDigestImageUrlParentMatch) {
             loadImageUrlMethod = it
             addImageUrlHook(INTEGRATIONS_CLASS_DESCRIPTOR, true)
         }
 
-        onSucceededFingerprint.resolveAndLetMutableMethod(onResponseStartedFingerprintResult) {
+        onSucceededFingerprint.resolveAndLetMutableMethod(onResponseStartedMatch) {
             loadImageSuccessCallbackMethod = it
             addImageUrlSuccessCallbackHook(INTEGRATIONS_CLASS_DESCRIPTOR)
         }
 
-        onFailureFingerprint.resolveAndLetMutableMethod(onResponseStartedFingerprintResult) {
+        onFailureFingerprint.resolveAndLetMutableMethod(onResponseStartedMatch) {
             loadImageErrorCallbackMethod = it
             addImageUrlErrorCallbackHook(INTEGRATIONS_CLASS_DESCRIPTOR)
         }
@@ -159,7 +159,7 @@ val alternativeThumbnailsPatch = bytecodePatch(
         // The URL is required for the failure callback hook, but the URL field is obfuscated.
         // Add a helper get method that returns the URL field.
         // The url is the only string field that is set inside the constructor.
-        val urlFieldInstruction = requestFingerprintResult.mutableMethod.instructions.first {
+        val urlFieldInstruction = requestMatch.mutableMethod.instructions.first {
             if (it.opcode != Opcode.IPUT_OBJECT) return@first false
 
             val reference = (it as ReferenceInstruction).reference as FieldReference
@@ -169,7 +169,7 @@ val alternativeThumbnailsPatch = bytecodePatch(
         val urlFieldName = (urlFieldInstruction.reference as FieldReference).name
         val definingClass = CRONET_URL_REQUEST_CLASS_DESCRIPTOR
         val addedMethodName = "getHookedUrl"
-        requestFingerprintResult.mutableClass.methods.add(
+        requestMatch.mutableClass.methods.add(
             ImmutableMethod(
                 definingClass,
                 addedMethodName,

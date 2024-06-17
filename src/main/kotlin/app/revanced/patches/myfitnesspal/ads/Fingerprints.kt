@@ -1,19 +1,19 @@
 package app.revanced.patches.myfitnesspal.ads
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-val isPremiumUseCaseImplFingerprint = methodFingerprint {
+internal val isPremiumUseCaseImplFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC)
-    custom { methodDef, classDef ->
-        classDef.endsWith("IsPremiumUseCaseImpl;") && methodDef.name == "doWork"
+    custom { method, classDef ->
+        classDef.endsWith("IsPremiumUseCaseImpl;") && method.name == "doWork"
     }
 }
 
-internal val mainActivityNavigateToNativePremiumUpsellFingerprint = methodFingerprint {
+internal val mainActivityNavigateToNativePremiumUpsellFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returns("V")
-    custom { methodDef, classDef ->
-        classDef.endsWith("MainActivity;") && methodDef.name == "navigateToNativePremiumUpsell"
+    custom { method, classDef ->
+        classDef.endsWith("MainActivity;") && method.name == "navigateToNativePremiumUpsell"
     }
 }

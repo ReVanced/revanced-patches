@@ -2,9 +2,9 @@ package app.revanced.patches.memegenerator.misc.pro
 
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 
-internal val isFreeVersionFingerprint = methodFingerprint {
+internal val isFreeVersionFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Ljava/lang/Boolean;")
     parameters("Landroid/content/Context;")

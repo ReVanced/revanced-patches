@@ -1,34 +1,34 @@
 package app.revanced.patches.twitch.misc.settings
 
+import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint.methodFingerprint
 
-internal val menuGroupsOnClickFingerprint = methodFingerprint {
+internal val menuGroupsOnClickFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC, AccessFlags.FINAL)
     returns("V")
     parameters("L", "L", "L")
-    custom { methodDef, classDef ->
+    custom { method, classDef ->
         classDef.endsWith("/SettingsMenuViewDelegate;") &&
-            methodDef.name.contains("render")
+            method.name.contains("render")
     }
 }
 
-internal val menuGroupsUpdatedFingerprint = methodFingerprint {
-    custom { methodDef, classDef ->
+internal val menuGroupsUpdatedFingerprint = fingerprint {
+    custom { method, classDef ->
         classDef.endsWith("/SettingsMenuPresenter\$Event\$MenuGroupsUpdated;") &&
-            methodDef.name == "<init>"
+            method.name == "<init>"
     }
 }
 
-internal val settingsActivityOnCreateFingerprint = methodFingerprint {
-    custom { methodDef, classDef ->
+internal val settingsActivityOnCreateFingerprint = fingerprint {
+    custom { method, classDef ->
         classDef.endsWith("/SettingsActivity;") &&
-            methodDef.name == "onCreate"
+            method.name == "onCreate"
     }
 }
 
-internal val settingsMenuItemEnumFingerprint = methodFingerprint {
-    custom { methodDef, classDef ->
-        classDef.endsWith("/SettingsMenuItem;") && methodDef.name == "<clinit>"
+internal val settingsMenuItemEnumFingerprint = fingerprint {
+    custom { method, classDef ->
+        classDef.endsWith("/SettingsMenuItem;") && method.name == "<clinit>"
     }
 }

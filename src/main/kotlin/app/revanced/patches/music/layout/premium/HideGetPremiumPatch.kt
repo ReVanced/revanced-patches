@@ -22,12 +22,12 @@ val hideGetPremiumPatch = bytecodePatch(
         ),
     )
 
-    val hideGetPremiumFingerprintResult by hideGetPremiumFingerprint()
-    val membershipSettingsFingerprintResult by membershipSettingsFingerprint()
+    val hideGetPremiumMatch by hideGetPremiumFingerprint()
+    val membershipSettingsMatch by membershipSettingsFingerprint()
 
     execute {
-        hideGetPremiumFingerprintResult.mutableMethod.apply {
-            val insertIndex = hideGetPremiumFingerprintResult.scanResult.patternScanResult!!.endIndex
+        hideGetPremiumMatch.mutableMethod.apply {
+            val insertIndex = hideGetPremiumMatch.patternMatch!!.endIndex
 
             val setVisibilityInstruction = getInstruction<FiveRegisterInstruction>(insertIndex)
             val getPremiumViewRegister = setVisibilityInstruction.registerC
@@ -45,7 +45,7 @@ val hideGetPremiumPatch = bytecodePatch(
             )
         }
 
-        membershipSettingsFingerprintResult.mutableMethod.addInstructions(
+        membershipSettingsMatch.mutableMethod.addInstructions(
             0,
             """
             const/4 v0, 0x0

@@ -1,21 +1,22 @@
 package app.revanced.patches.messenger.inputfield
 
-import app.revanced.patcher.fingerprint.methodFingerprint
+import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.dexbacked.value.DexBackedStringEncodedValue
 
-internal val sendTypingIndicatorFingerprint = methodFingerprint {
+internal val sendTypingIndicatorFingerprint = fingerprint {
     returns("V")
     parameters()
-    custom { methodDef, classDef ->
-        methodDef.name == "run" && classDef.fields.any {
-            it.name == "__redex_internal_original_name" &&
-                (it.initialValue as? DexBackedStringEncodedValue)?.value == "ConversationTypingContext\$sendActiveStateRunnable\$1"
-        }
+    custom { method, classDef ->
+        method.name == "run" &&
+            classDef.fields.any {
+                it.name == "__redex_internal_original_name" &&
+                    (it.initialValue as? DexBackedStringEncodedValue)?.value == "ConversationTypingContext\$sendActiveStateRunnable\$1"
+            }
     }
 }
 
-internal val switchMessangeInputEmojiButtonFingerprint = methodFingerprint {
+internal val switchMessangeInputEmojiButtonFingerprint = fingerprint {
     returns("V")
     parameters("L", "Z")
     opcodes(
