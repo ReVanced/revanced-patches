@@ -26,6 +26,11 @@ final class CommentsFilter extends Filter {
                 "_comments"
         );
 
+        var createAShort = new StringFilterGroup(
+                Settings.HIDE_COMMENTS_CREATE_A_SHORT_BUTTON,
+                "composer_short_creation_button.eml"
+        );
+
         var previewComment = new StringFilterGroup(
                 Settings.HIDE_COMMENTS_PREVIEW_COMMENT,
                 "|carousel_item",
@@ -51,6 +56,7 @@ final class CommentsFilter extends Filter {
         addPathCallbacks(
                 commentsByMembers,
                 comments,
+                createAShort,
                 previewComment,
                 thanksButton,
                 commentComposer
