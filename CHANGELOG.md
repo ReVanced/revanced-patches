@@ -1,3 +1,10 @@
+# [4.10.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v4.10.0-dev.9...v4.10.0-dev.10) (2024-06-18)
+
+
+### Bug Fixes
+
+* Correct invalid string name ([b84494f](https://github.com/ReVanced/revanced-patches/commit/b84494f4e26e040ada69ed7a516f331f2d47da87))
+
 # [4.10.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v4.10.0-dev.8...v4.10.0-dev.9) (2024-06-17)
 
 
