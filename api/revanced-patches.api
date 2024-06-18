@@ -1,7 +1,3 @@
-public final class DeepLinkingPatchKt {
-	public static final fun getDeepLinkingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
 public final class app/revanced/generator/MainKt {
 	public static synthetic fun main ([Ljava/lang/String;)V
 }
@@ -80,6 +76,10 @@ public final class app/revanced/patches/all/screenshot/removerestriction/RemoveS
 
 public final class app/revanced/patches/all/telephony/sim/spoof/SpoofSimCountryPatchKt {
 	public static final fun getSpoofSimCountryPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/amazon/DeepLinkingPatchKt {
+	public static final fun getDeepLinkingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/backdrops/misc/pro/ProUnlockPatchKt {

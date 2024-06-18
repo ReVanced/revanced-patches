@@ -1,6 +1,7 @@
+package app.revanced.patches.amazon
+
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.amazon.deepLinkingFingerprint
 
 @Suppress("unused")
 val deepLinkingPatch = bytecodePatch(
