@@ -1,11 +1,11 @@
-package app.revanced.patches.stocard
+package app.revanced.patches.stocard.layout
 
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 
-@Patch(name = "Hide story bubbles", compatiblePackages = [CompatiblePackage("de.stocard.stocard", ["10.50.0"])])
+@Patch(name = "Hide story bubbles", compatiblePackages = [CompatiblePackage("de.stocard.stocard")])
 object HideStoriesPatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         context.document["res/layout/rv_story_bubbles_list.xml"].use { document ->
@@ -14,5 +14,4 @@ object HideStoriesPatch : ResourcePatch() {
             view.attributes.getNamedItem("android:layout_height").nodeValue = "0dp"
         }
     }
-
 }
