@@ -8,11 +8,14 @@ import app.revanced.patches.all.misc.transformation.IMethodCall
 import app.revanced.patches.all.misc.transformation.Instruction35cInfo
 import app.revanced.patches.all.misc.transformation.filterMapInstruction35c
 import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 object UserAgentClientSpoofPatch : BaseTransformInstructionsPatch<Instruction35cInfo>() {
     private const val ORIGINAL_PACKAGE_NAME = "com.google.android.youtube"
@@ -42,20 +45,31 @@ object UserAgentClientSpoofPatch : BaseTransformInstructionsPatch<Instruction35c
                     as? OneRegisterInstruction ?: return
                 ).registerA
 
-            // IndexOutOfBoundsException is not possible here,
+            // IndexOutOfBoundsException is possible here,
             // but no such occurrences are present in the app.
             val referee = getInstruction(instructionIndex + 2).getReference<MethodReference>()?.toString()
 
-            // This can technically also match non-user agent string builder append methods,
-            // but no such occurrences are present in the app.
+            // Only replace string builder usage.
             if (referee != USER_AGENT_STRING_BUILDER_APPEND_METHOD_REFERENCE) {
+                return
+            }
+
+            // Do not change the package name in methods that use resources, or for methods that use GmsCore.
+            // Changing these package names will result in playback limitations,
+            // particularly Android VR background audio only playback.
+            val resourceOrGmsStringInstructionIndex = indexOfFirstInstruction {
+                val reference = getReference<StringReference>()
+                opcode == Opcode.CONST_STRING &&
+                        (reference?.string == "android.resource://" || reference?.string == "gcore_")
+            }
+            if (resourceOrGmsStringInstructionIndex >= 0) {
                 return
             }
 
             // Overwrite the result of context.getPackageName() with the original package name.
             replaceInstruction(
                 instructionIndex + 1,
-                "const-string v$targetRegister, \"${ORIGINAL_PACKAGE_NAME}\"",
+                "const-string v$targetRegister, \"$ORIGINAL_PACKAGE_NAME\"",
             )
         }
     }

@@ -198,22 +198,19 @@
             <string name="revanced_hide_chips_shelf_title">Hide chips shelf</string>
             <string name="revanced_hide_chips_shelf_summary_on">Chips shelf is hidden</string>
             <string name="revanced_hide_chips_shelf_summary_off">Chips shelf is shown</string>
+            <string name="revanced_hide_attributes_section_title">Hide attributes section</string>
+            <string name="revanced_hide_attributes_section_summary_on">\'Featured places\', Games and Music sections are hidden</string>
+            <string name="revanced_hide_attributes_section_summary_off">\'Featured places\', Games and Music sections are shown</string>
+            <string name="revanced_hide_chapters_section_title">Hide Chapters section</string>
+            <string name="revanced_hide_chapters_section_summary_on">Chapters section is hidden</string>
+            <string name="revanced_hide_chapters_section_summary_off">Chapters section is shown</string>
+            <string name="revanced_hide_podcast_section_title">Hide \'Explore the podcast\' section</string>
+            <string name="revanced_hide_podcast_section_summary_on">\'Explore the podcast\' section is hidden</string>
+            <string name="revanced_hide_podcast_section_summary_off">\'Explore the podcast\' section is shown</string>
             <string name="revanced_hide_info_cards_section_title">Hide info cards section</string>
             <string name="revanced_hide_info_cards_section_summary_on">Info cards section is hidden</string>
             <string name="revanced_hide_info_cards_section_summary_off">Info cards section is shown</string>
-            <string name="revanced_hide_chapters_title">Hide chapters</string>
-            <string name="revanced_hide_chapters_summary_on">Chapters are hidden</string>
-            <string name="revanced_hide_chapters_summary_off">Chapters are shown</string>
-            <string name="revanced_hide_game_section_title">Hide game section</string>
-            <string name="revanced_hide_game_section_summary_on">Game section is hidden</string>
-            <string name="revanced_hide_game_section_summary_off">Game section is shown</string>
-            <string name="revanced_hide_music_section_title">Hide music section</string>
-            <string name="revanced_hide_music_section_summary_on">Music section is hidden</string>
-            <string name="revanced_hide_music_section_summary_off">Music section is shown</string>
-            <string name="revanced_hide_podcast_section_title">Hide podcast section</string>
-            <string name="revanced_hide_podcast_section_summary_on">Podcast section is hidden</string>
-            <string name="revanced_hide_podcast_section_summary_off">Podcast section is shown</string>
-            <string name="revanced_hide_transcript_section_title">Hide transcript section</string>
+            <string name="revanced_hide_transcript_section_title">Hide Transcript section</string>
             <string name="revanced_hide_transcript_section_summary_on">Transcript section is hidden</string>
             <string name="revanced_hide_transcript_section_summary_off">Transcript section is shown</string>
             <string name="revanced_hide_description_components_screen_title">Video description</string>
@@ -502,15 +499,24 @@
         <patch id="layout.hide.comments.CommentsPatch">
             <string name="revanced_comments_screen_title">Comments</string>
             <string name="revanced_comments_screen_summary">Hide or show comments section components</string>
-            <string name="revanced_hide_preview_comment_title">Hide preview comment</string>
-            <string name="revanced_hide_preview_comment_summary_on">Preview comment is hidden</string>
-            <string name="revanced_hide_preview_comment_summary_off">Preview comment is shown</string>
+            <string name="revanced_hide_comments_by_members_header_title">Hide \'Comments by members\' header</string>
+            <string name="revanced_hide_comments_by_members_header_summary_on">\'Comments by members\' header is hidden</string>
+            <string name="revanced_hide_comments_by_members_header_summary_off">\'Comments by members\' header is shown</string>
             <string name="revanced_hide_comments_section_title">Hide comments section</string>
-            <string name="revanced_hide_comments_section_summary_on">Comment section is hidden</string>
-            <string name="revanced_hide_comments_section_summary_off">Comment section is shown</string>
-            <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Hide timestamp and emoji buttons</string>
-            <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_on">Comment timestamp and emoji buttons are hidden</string>
-            <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_off">Comment timestamp and emoji buttons are shown</string>
+            <string name="revanced_hide_comments_section_summary_on">Comments section is hidden</string>
+            <string name="revanced_hide_comments_section_summary_off">Comments section is shown</string>
+            <string name="revanced_hide_comments_create_a_short_button_title">Hide \'Create a Short\' button</string>
+            <string name="revanced_hide_comments_create_a_short_button_summary_on">\'Create a Short\' button is hidden</string>
+            <string name="revanced_hide_comments_create_a_short_button_summary_off">\'Create a Short\' button is shown</string>
+            <string name="revanced_hide_comments_preview_comment_title">Hide preview comment</string>
+            <string name="revanced_hide_comments_preview_comment_summary_on">Preview comment is hidden</string>
+            <string name="revanced_hide_comments_preview_comment_summary_off">Preview comment is shown</string>
+            <string name="revanced_hide_comments_thanks_button_title">Hide thanks button</string>
+            <string name="revanced_hide_comments_thanks_button_summary_on">Thanks button is hidden</string>
+            <string name="revanced_hide_comments_thanks_button_summary_off">Thanks button is shown</string>
+            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Hide timestamp and emoji buttons</string>
+            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Timestamp and emoji buttons are hidden</string>
+            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Timestamp and emoji buttons are shown</string>
         </patch>
         <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
             <string name="revanced_hide_crowdfunding_box_title">Hide crowdfunding box</string>
@@ -661,6 +667,7 @@
         <patch id="layout.player.overlay.CustomPlayerOverlayOpacityResourcePatch">
             <string name="revanced_player_overlay_opacity_title">Player overlay opacity</string>
             <string name="revanced_player_overlay_opacity_summary">Opacity value between 0-100, where 0 is transparent</string>
+            <string name="revanced_player_overlay_opacity_invalid_toast">Player overlay opacity must be between 0-100</string>
         </patch>
         <patch id="layout.returnyoutubedislike.ReturnYouTubeDislikeResourcePatch">
             <string name="revanced_ryd_settings_title">Return YouTube Dislike</string>
@@ -947,11 +954,29 @@
             <string name="revanced_tablet_layout_summary_on">Tablet layout is enabled</string>
             <string name="revanced_tablet_layout_summary_off">Tablet layout is disabled</string>
             <string name="revanced_tablet_layout_user_dialog_message">Community posts do not show up on tablet layouts</string>
-        </patch>
-        <patch id="layout.tabletminiplayer.TabletMiniPlayerPatch">
-            <string name="revanced_tablet_miniplayer_title">Enable tablet mini player</string>
-            <string name="revanced_tablet_miniplayer_summary_on">Mini player is enabled</string>
-            <string name="revanced_tablet_miniplayer_summary_off">Mini player is disabled</string>
+        </patch>x
+        <patch id="layout.miniplayer.MiniplayerPatch">
+            <string name="revanced_miniplayer_screen_title">Miniplayer</string>
+            <string name="revanced_miniplayer_screen_summary">Change the style of the in app minimized player</string>
+            <string name="revanced_miniplayer_type_title">Miniplayer type</string>
+            <string name="revanced_miniplayer_type_entry_1">Original</string>
+            <string name="revanced_miniplayer_type_entry_2">Phone</string>
+            <string name="revanced_miniplayer_type_entry_3">Tablet</string>
+            <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
+            <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
+            <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
+            <string name="revanced_miniplayer_hide_expand_close_title">Hide expand and close buttons</string>
+            <string name="revanced_miniplayer_hide_expand_close_summary_on">Buttons are hidden\n(swipe miniplayer to expand or close)</string>
+            <string name="revanced_miniplayer_hide_expand_close_summary_off">Expand and close buttons are shown</string>
+            <string name="revanced_miniplayer_hide_subtext_title">Hide subtexts</string>
+            <string name="revanced_miniplayer_hide_subtext_summary_on">Subtexts are hidden</string>
+            <string name="revanced_miniplayer_hide_subtext_summary_off">Subtexts are shown</string>
+            <string name="revanced_miniplayer_hide_rewind_forward_title">Hide skip forward and back buttons</string>
+            <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Skip forward and back are hidden</string>
+            <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Skip forward and back are shown</string>
+            <string name="revanced_miniplayer_opacity_title">Overlay opacity</string>
+            <string name="revanced_miniplayer_opacity_summary">Opacity value between 0-100, where 0 is transparent</string>
+            <string name="revanced_miniplayer_opacity_invalid_toast">Miniplayer overlay opacity must be between 0-100</string>
         </patch>
         <patch id="layout.theme.ThemeBytecodePatch">
             <string name="revanced_gradient_loading_screen_title">Enable gradient loading screen</string>
@@ -1032,9 +1057,9 @@
             <string name="revanced_external_browser_summary_on">Opening links externally</string>
             <string name="revanced_external_browser_summary_off">Opening links in app</string>
         </patch>
-        <patch id="misc.minimizedplayback.MinimizedPlaybackPatch">
-            <string name="revanced_minimized_playback_title">Minimized playback</string>
-            <string name="revanced_minimized_playback_summary">This setting can be found in Settings -&gt; Background</string>
+        <patch id="misc.backgroundplayback.BackgroundPlaybackPatch">
+            <string name="revanced_background_playback_title">Background playback</string>
+            <string name="revanced_background_playback_summary">This setting can be found in Settings -&gt; Background</string>
         </patch>
         <patch id="misc.privacy.RemoveTrackingQueryParameterPatch">
             <string name="revanced_remove_tracking_query_parameter_title">Remove tracking query parameter</string>
@@ -1101,7 +1126,7 @@
             <string name="revanced_spoof_client_summary_off">Client is not spoofed\n\nVideo playback may not work</string>
             <string name="revanced_spoof_client_user_dialog_message">Turning off this setting may cause video playback issues.</string>
             <string name="revanced_spoof_client_use_ios_title">Spoof client to iOS</string>
-            <string name="revanced_spoof_client_use_ios_summary_on">Client is currently spoofed to iOS\n\nSide effects include:\n• No HDR video\n• Watch history may not work\n• Live streams cannot play as audio only\n• Live streams not available on older devices</string>
+            <string name="revanced_spoof_client_use_ios_summary_on">Client is currently spoofed to iOS\n\nSide effects include:\n• No HDR video\n• Watch history may not work\n• Higher video qualities may be missing\n• Live streams cannot play as audio only\n• Live streams not available on Android 8.0</string>
             <string name="revanced_spoof_client_use_ios_summary_off">Client is currently spoofed to Android VR\n\nSide effects include:\n• No HDR video\n• Kids videos do not playback\n• Paused videos can randomly resume</string>
             <string name="revanced_spoof_client_storyboard_timeout">Spoof client thumbnails not available (API timed out)</string>
             <string name="revanced_spoof_client_storyboard_io_exception">Spoof client thumbnails temporarily not available: %s</string>

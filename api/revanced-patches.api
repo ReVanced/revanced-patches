@@ -105,6 +105,12 @@ public final class app/revanced/patches/all/misc/transformation/IMethodCall$Defa
 	public static fun replaceInvokeVirtualWithIntegrations (Lapp/revanced/patches/all/misc/transformation/IMethodCall;Ljava/lang/String;Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lcom/android/tools/smali/dexlib2/iface/instruction/formats/Instruction35c;I)V
 }
 
+public final class app/revanced/patches/all/misc/versioncode/ChangeVersionCodePatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/all/misc/versioncode/ChangeVersionCodePatch;
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
 public final class app/revanced/patches/all/screencapture/removerestriction/RemoveCaptureRestrictionPatch : app/revanced/patches/all/misc/transformation/BaseTransformInstructionsPatch {
 	public static final field INSTANCE Lapp/revanced/patches/all/screencapture/removerestriction/RemoveCaptureRestrictionPatch;
 	public synthetic fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Ljava/lang/Object;
@@ -403,6 +409,12 @@ public final class app/revanced/patches/music/misc/androidauto/BypassCertificate
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/music/misc/backgroundplayback/BackgroundPlaybackPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/music/misc/backgroundplayback/BackgroundPlaybackPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/music/misc/gms/Constants {
 	public static final field INSTANCE Lapp/revanced/patches/music/misc/gms/Constants;
 }
@@ -529,6 +541,18 @@ public final class app/revanced/patches/reddit/ad/general/HideAdsPatch : app/rev
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public abstract class app/revanced/patches/reddit/customclients/BaseFixSLinksPatch : app/revanced/patcher/patch/BytecodePatch {
+	public fun <init> (Lapp/revanced/patcher/fingerprint/MethodFingerprint;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Ljava/util/Set;Ljava/util/Set;)V
+	public synthetic fun <init> (Lapp/revanced/patcher/fingerprint/MethodFingerprint;Lapp/revanced/patcher/fingerprint/MethodFingerprint;Ljava/util/Set;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	protected abstract fun getIntegrationsClassDescriptor ()Ljava/lang/String;
+	protected final fun getResolveSLinkMethod ()Ljava/lang/String;
+	protected final fun getSetAccessTokenMethod ()Ljava/lang/String;
+	protected abstract fun patchNavigationHandler (Lapp/revanced/patcher/fingerprint/MethodFingerprintResult;Lapp/revanced/patcher/data/BytecodeContext;)V
+	protected abstract fun patchSetAccessToken (Lapp/revanced/patcher/fingerprint/MethodFingerprintResult;Lapp/revanced/patcher/data/BytecodeContext;)V
+}
+
 public abstract class app/revanced/patches/reddit/customclients/BaseSpoofClientPatch : app/revanced/patcher/patch/BytecodePatch {
 	public fun <init> (Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;)V
 	public synthetic fun <init> (Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -562,6 +586,20 @@ public final class app/revanced/patches/reddit/customclients/boostforreddit/api/
 	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/boostforreddit/api/SpoofClientPatch;
 	public fun patchClientId (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
 	public fun patchUserAgent (Ljava/util/Set;Lapp/revanced/patcher/data/BytecodeContext;)V
+}
+
+public final class app/revanced/patches/reddit/customclients/boostforreddit/fix/downloads/FixAudioMissingInDownloadsPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/boostforreddit/fix/downloads/FixAudioMissingInDownloadsPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/reddit/customclients/boostforreddit/fix/slink/FixSLinksPatch : app/revanced/patches/reddit/customclients/BaseFixSLinksPatch {
+	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/boostforreddit/fix/slink/FixSLinksPatch;
+}
+
+public final class app/revanced/patches/reddit/customclients/boostforreddit/misc/integrations/IntegrationsPatch : app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch {
+	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/boostforreddit/misc/integrations/IntegrationsPatch;
 }
 
 public final class app/revanced/patches/reddit/customclients/infinityforreddit/api/SpoofClientPatch : app/revanced/patches/reddit/customclients/BaseSpoofClientPatch {
@@ -642,10 +680,12 @@ public final class app/revanced/patches/reddit/customclients/syncforreddit/detec
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/reddit/customclients/syncforreddit/fix/slink/FixSLinksPatch : app/revanced/patcher/patch/BytecodePatch {
+public final class app/revanced/patches/reddit/customclients/syncforreddit/fix/slink/FixSLinksPatch : app/revanced/patches/reddit/customclients/BaseFixSLinksPatch {
 	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/syncforreddit/fix/slink/FixSLinksPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/reddit/customclients/syncforreddit/misc/integrations/IntegrationsPatch : app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch {
+	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/syncforreddit/misc/integrations/IntegrationsPatch;
 }
 
 public final class app/revanced/patches/reddit/layout/disablescreenshotpopup/DisableScreenshotPopupPatch : app/revanced/patcher/patch/BytecodePatch {
@@ -1528,6 +1568,12 @@ public final class app/revanced/patches/youtube/layout/hide/time/HideTimestampPa
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/youtube/layout/miniplayer/MiniplayerPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/miniplayer/MiniplayerPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/youtube/layout/panels/popup/PlayerPopupPanelsPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/panels/popup/PlayerPopupPanelsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -1628,6 +1674,12 @@ public final class app/revanced/patches/youtube/misc/announcements/Announcements
 
 public final class app/revanced/patches/youtube/misc/autorepeat/AutoRepeatPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/autorepeat/AutoRepeatPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/youtube/misc/backgroundplayback/BackgroundPlaybackPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/backgroundplayback/BackgroundPlaybackPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
@@ -1894,6 +1946,7 @@ public final class app/revanced/patches/yuka/misc/unlockpremium/UnlockPremiumPat
 public final class app/revanced/util/BytecodeUtilsKt {
 	public static final fun containsWideLiteralInstructionValue (Lcom/android/tools/smali/dexlib2/iface/Method;J)Z
 	public static final fun findMutableMethodOf (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableClass;Lcom/android/tools/smali/dexlib2/iface/Method;)Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
+	public static final fun findOpcodeIndicesReversed (Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/Opcode;)Ljava/util/List;
 	public static final fun getException (Lapp/revanced/patcher/fingerprint/MethodFingerprint;)Lapp/revanced/patcher/patch/PatchException;
 	public static final fun indexOfFirstInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;ILkotlin/jvm/functions/Function1;)I
 	public static final fun indexOfFirstInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;Lkotlin/jvm/functions/Function1;)I
@@ -1901,6 +1954,7 @@ public final class app/revanced/util/BytecodeUtilsKt {
 	public static final fun indexOfFirstInstructionOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;ILkotlin/jvm/functions/Function1;)I
 	public static synthetic fun indexOfFirstInstructionOrThrow$default (Lcom/android/tools/smali/dexlib2/iface/Method;ILkotlin/jvm/functions/Function1;ILjava/lang/Object;)I
 	public static final fun indexOfFirstWideLiteralInstructionValue (Lcom/android/tools/smali/dexlib2/iface/Method;J)I
+	public static final fun indexOfFirstWideLiteralInstructionValueOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;J)I
 	public static final fun indexOfIdResource (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/String;)I
 	public static final fun indexOfIdResourceOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/String;)I
 	public static final fun injectHideViewCall (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;IILjava/lang/String;Ljava/lang/String;)V
