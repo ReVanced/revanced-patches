@@ -1,3 +1,10 @@
+## [4.10.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.10.0...v4.10.1-dev.1) (2024-06-23)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Detect if a keyword filter hides all videos ([#3365](https://github.com/ReVanced/revanced-patches/issues/3365)) ([6aa47ec](https://github.com/ReVanced/revanced-patches/commit/6aa47ec1050cf32158ab608441c0649501184971))
+
 # [4.10.0](https://github.com/ReVanced/revanced-patches/compare/v4.9.0...v4.10.0) (2024-06-23)
 
 
