@@ -23,7 +23,7 @@ public final class NavigationButtonsPatch {
         }
     };
 
-    private static final Boolean SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON
+    private static final boolean SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON
             = Settings.SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON.get();
 
     /**

@@ -89,6 +89,7 @@ public class Utils {
         return versionName;
     }
 
+
     /**
      * Hide a view by setting its layout height and width to 1dp.
      *
@@ -96,11 +97,24 @@ public class Utils {
      * @param view      The view to hide.
      */
     public static void hideViewBy0dpUnderCondition(BooleanSetting condition, View view) {
-        if (!condition.get()) return;
+        if (hideViewBy0dpUnderCondition(condition.get(), view)) {
+            Logger.printDebug(() -> "View hidden by setting: " + condition);
+        }
+    }
 
-        Logger.printDebug(() -> "Hiding view with setting: " + condition);
+    /**
+     * Hide a view by setting its layout height and width to 1dp.
+     *
+     * @param condition The setting to check for hiding the view.
+     * @param view      The view to hide.
+     */
+    public static boolean hideViewBy0dpUnderCondition(boolean condition, View view) {
+        if (condition) {
+            hideViewByLayoutParams(view);
+            return true;
+        }
 
-        hideViewByLayoutParams(view);
+        return false;
     }
 
     /**
@@ -110,20 +124,42 @@ public class Utils {
      * @param view      The view to hide.
      */
     public static void hideViewUnderCondition(BooleanSetting condition, View view) {
-        if (!condition.get()) return;
-
-        Logger.printDebug(() -> "Hiding view with setting: " + condition);
-
-        view.setVisibility(View.GONE);
+        if (hideViewUnderCondition(condition.get(), view)) {
+            Logger.printDebug(() -> "View hidden by setting: " + condition);
+        }
     }
 
-    public static void removeViewFromParentUnderConditions(BooleanSetting setting, View view) {
-        if (setting.get()) {
+    /**
+     * Hide a view by setting its visibility to GONE.
+     *
+     * @param condition The setting to check for hiding the view.
+     * @param view      The view to hide.
+     */
+    public static boolean hideViewUnderCondition(boolean condition, View view) {
+        if (condition) {
+            view.setVisibility(View.GONE);
+            return true;
+        }
+
+        return false;
+    }
+
+    public static void hideViewByRemovingFromParentUnderCondition(BooleanSetting condition, View view) {
+        if (hideViewByRemovingFromParentUnderCondition(condition.get(), view)) {
+            Logger.printDebug(() -> "View hidden by setting: " + condition);
+        }
+    }
+
+    public static boolean hideViewByRemovingFromParentUnderCondition(boolean setting, View view) {
+        if (setting) {
             ViewParent parent = view.getParent();
             if (parent instanceof ViewGroup) {
                 ((ViewGroup) parent).removeView(view);
+                return true;
             }
         }
+
+        return false;
     }
 
     /**
@@ -236,6 +272,8 @@ public class Utils {
                                                   @NonNull MatchFilter<View> filter) {
         for (int i = 0, childCount = viewGroup.getChildCount(); i < childCount; i++) {
             View childAt = viewGroup.getChildAt(i);
+            Logger.printDebug(() -> "View id: " + childAt.getId() + " tag: " + childAt.getTag());
+
             if (filter.matches(childAt)) {
                 //noinspection unchecked
                 return (T) childAt;

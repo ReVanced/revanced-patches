@@ -6,7 +6,7 @@ import app.revanced.integrations.tiktok.settings.Settings;
 @SuppressWarnings("unused")
 public class SpoofSimPatch {
 
-    private static final Boolean ENABLED = Settings.SIM_SPOOF.get();
+    private static final boolean ENABLED = Settings.SIM_SPOOF.get();
 
     public static String getCountryIso(String value) {
         if (ENABLED) {

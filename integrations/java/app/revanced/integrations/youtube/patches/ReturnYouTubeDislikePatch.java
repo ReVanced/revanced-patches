@@ -221,6 +221,10 @@ public class ReturnYouTubeDislikePatch {
 
             String conversionContextString = conversionContext.toString();
 
+            if (isRollingNumber && !conversionContextString.contains("video_action_bar.eml|")) {
+                return original;
+            }
+
             final CharSequence replacement;
             if (conversionContextString.contains("|segmented_like_dislike_button.eml|")) {
                 // Regular video.
@@ -289,6 +293,7 @@ public class ReturnYouTubeDislikePatch {
                                                @NonNull String original) {
         try {
             CharSequence replacement = onLithoTextLoaded(conversionContext, original, true);
+
             String replacementString = replacement.toString();
             if (!replacementString.equals(original)) {
                 rollingNumberSpan = replacement;

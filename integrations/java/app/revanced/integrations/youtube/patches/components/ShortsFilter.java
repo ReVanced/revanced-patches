@@ -1,7 +1,6 @@
 package app.revanced.integrations.youtube.patches.components;
 
 import static app.revanced.integrations.shared.Utils.hideViewUnderCondition;
-import static app.revanced.integrations.shared.Utils.removeViewFromParentUnderConditions;
 import static app.revanced.integrations.youtube.shared.NavigationBar.NavigationButton;
 
 import android.view.View;
@@ -326,11 +325,11 @@ public final class ShortsFilter extends Filter {
         // the button was (only relevant for dislikes button).
         //
         // Instead remove the view from the parent.
-        removeViewFromParentUnderConditions(Settings.HIDE_SHORTS_LIKE_BUTTON, likeButtonView);
+        Utils.hideViewByRemovingFromParentUnderCondition(Settings.HIDE_SHORTS_LIKE_BUTTON, likeButtonView);
     }
 
     public static void hideDislikeButton(final View dislikeButtonView) {
-        removeViewFromParentUnderConditions(Settings.HIDE_SHORTS_DISLIKE_BUTTON, dislikeButtonView);
+        Utils.hideViewByRemovingFromParentUnderCondition(Settings.HIDE_SHORTS_DISLIKE_BUTTON, dislikeButtonView);
     }
 
     public static void hideShortsCommentsButton(final View commentsButtonView) {

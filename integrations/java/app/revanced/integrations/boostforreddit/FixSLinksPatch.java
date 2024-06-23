@@ -1,6 +1,6 @@
-package app.revanced.integrations.syncforreddit;
+package app.revanced.integrations.boostforreddit;
 
-import com.laurencedawson.reddit_sync.ui.activities.WebViewActivity;
+import com.rubenmayayo.reddit.ui.activities.WebViewActivity;
 
 import app.revanced.integrations.shared.fixes.slink.BaseFixSLinksPatch;
 
