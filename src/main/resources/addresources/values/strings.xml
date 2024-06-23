@@ -243,6 +243,7 @@
             <string name="revanced_hide_keyword_content_about_summary">Home/Subscription/Search results are filtered to hide content that matches keyword phrases\n\nLimitations\n• Some Shorts may not be hidden\n• Some UI components may not be hidden\n• Searching for a keyword may show no results</string>
             <string name="revanced_hide_keyword_toast_invalid_common">Invalid keyword. Cannot use: \'%s\' as a filter</string>
             <string name="revanced_hide_keyword_toast_invalid_length">Invalid keyword. \'%1$s\' is less than %2$d characters</string>
+            <string name="revanced_hide_keyword_toast_invalid_broad">Keyword \'%1$s\' is too broad and will hide all videos</string>
         </patch>
         <patch id="ad.general.HideAdsResourcePatch">
             <string name="revanced_hide_general_ads_title">Hide general ads</string>
