@@ -115,7 +115,7 @@ with the maintainers of ReVanced Patches. This will help you determine whether y
 and whether it is worth your time to implement it
 2. Development happens on the `dev` branch. Fork the repository and create your branch from `dev`
 3. Commit your changes. In case you are contributing a new patch, make sure to follow the conventions for patches
-described in the [documentation](https://github.com/ReVanced/revanced-patches/tree/docs/docs)
+described in the [ReVanced Patcher documentation](https://github.com/ReVanced/revanced-patcher/tree/main/docs)
 4. Submit a pull request to the `dev` branch of the repository and reference issues
 that your pull request closes in the description of your pull request
 5. Our team will review your pull request and provide feedback. Once your pull request is approved,

@@ -1,12 +1,11 @@
-package app.revanced.patches.youtube.misc.minimizedplayback.fingerprints
+package app.revanced.patches.youtube.misc.backgroundplayback.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patcher.fingerprint.MethodFingerprint
+import app.revanced.util.patch.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 
-internal object KidsMinimizedPlaybackPolicyControllerFingerprint : MethodFingerprint(
+internal object KidsBackgroundPlaybackPolicyControllerFingerprint : LiteralValueFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("I", "L", "L"),
@@ -26,9 +25,5 @@ internal object KidsMinimizedPlaybackPolicyControllerFingerprint : MethodFingerp
         Opcode.INVOKE_VIRTUAL,
         Opcode.RETURN_VOID
     ),
-    customFingerprint = { methodDef, _ ->
-        methodDef.implementation!!.instructions.any {
-            ((it as? NarrowLiteralInstruction)?.narrowLiteral == 5)
-        }
-    }
+    literalSupplier = { 5 },
 )

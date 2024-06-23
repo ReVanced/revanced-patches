@@ -21,5 +21,6 @@ internal object GetFormFactorFingerprint : MethodFingerprint(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.RETURN_OBJECT
-    )
+    ),
+    strings = listOf("")
 )

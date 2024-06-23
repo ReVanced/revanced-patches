@@ -16,6 +16,35 @@
                 <item>17.33.42</item>
             </string-array>
         </patch>
+        <patch id="layout.miniplayer.MiniplayerPatch">
+            <string-array name="revanced_miniplayer_type_19_15_entries">
+                <item>@string/revanced_miniplayer_type_entry_1</item>
+                <item>@string/revanced_miniplayer_type_entry_2</item>
+                <item>@string/revanced_miniplayer_type_entry_3</item>
+                <item>@string/revanced_miniplayer_type_entry_4</item>
+                <item>@string/revanced_miniplayer_type_entry_5</item>
+                <item>@string/revanced_miniplayer_type_entry_6</item>
+            </string-array>
+            <string-array name="revanced_miniplayer_type_19_15_entry_values">
+                <!-- Enum names from Integrations. -->
+                <item>ORIGINAL</item>
+                <item>PHONE</item>
+                <item>TABLET</item>
+                <item>MODERN_1</item>
+                <item>MODERN_2</item>
+                <item>MODERN_3</item>
+            </string-array>
+            <string-array name="revanced_miniplayer_type_legacy_entries">
+                <item>@string/revanced_miniplayer_type_entry_1</item>
+                <item>@string/revanced_miniplayer_type_entry_2</item>
+                <item>@string/revanced_miniplayer_type_entry_3</item>
+            </string-array>
+            <string-array name="revanced_miniplayer_type_legacy_entry_values">
+                <item>ORIGINAL</item>
+                <item>PHONE</item>
+                <item>TABLET</item>
+            </string-array>
+        </patch>
         <patch id="layout.startpage.ChangeStartPagePatch">
             <string-array name="revanced_start_page_entries">
                 <item>@string/revanced_start_page_entry_0</item>
