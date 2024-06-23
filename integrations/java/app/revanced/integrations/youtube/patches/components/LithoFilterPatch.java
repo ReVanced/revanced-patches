@@ -96,6 +96,7 @@ abstract class FilterGroup<T> {
      * @return If {@link FilterGroupList} should include this group when searching.
      * By default, all filters are included except non enabled settings that require reboot.
      */
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     public boolean includeInSearch() {
         return isEnabled() || !setting.rebootApp;
     }

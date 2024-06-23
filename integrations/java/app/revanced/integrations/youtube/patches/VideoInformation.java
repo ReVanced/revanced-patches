@@ -278,6 +278,7 @@ public final class VideoInformation {
      *
      * @see VideoState
      */
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     public static boolean isAtEndOfVideo() {
         return videoTime >= videoLength && videoLength > 0;
     }

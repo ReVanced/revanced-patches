@@ -380,7 +380,7 @@ public abstract class TrieSearch<T> {
             throw new IllegalArgumentException("endIndex: " + endIndex
                     + " is greater than texToSearchLength: " + textToSearchLength);
         }
-        if (patterns.size() == 0) {
+        if (patterns.isEmpty()) {
             return false; // No patterns were added.
         }
         for (int i = startIndex; i < endIndex; i++) {
@@ -393,7 +393,7 @@ public abstract class TrieSearch<T> {
      * @return Estimated memory size (in kilobytes) of this instance.
      */
     public int getEstimatedMemorySize() {
-        if (patterns.size() == 0) {
+        if (patterns.isEmpty()) {
             return 0;
         }
         // Assume the device has less than 32GB of ram (and can use pointer compression),
