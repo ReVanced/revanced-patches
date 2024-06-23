@@ -1,56 +1,52 @@
 package app.revanced.patches.twitch.debug
 
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.twitch.debug.fingerprints.IsDebugConfigEnabledFingerprint
-import app.revanced.patches.twitch.debug.fingerprints.IsOmVerificationEnabledFingerprint
-import app.revanced.patches.twitch.debug.fingerprints.ShouldShowDebugOptionsFingerprint
-import app.revanced.patches.twitch.misc.integrations.IntegrationsPatch
-import app.revanced.patches.twitch.misc.settings.SettingsPatch
-import app.revanced.util.exception
+import app.revanced.patches.twitch.misc.integrations.integrationsPatch
+import app.revanced.patches.twitch.misc.settings.PreferenceScreen
+import app.revanced.patches.twitch.misc.settings.settingsPatch
 
-@Patch(
+@Suppress("unused")
+val debugModePatch = bytecodePatch(
     name = "Debug mode",
     description = "Enables Twitch's internal debugging mode.",
-    dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
-    compatiblePackages = [CompatiblePackage("tv.twitch.android.app")],
-    use = false
-)
-@Suppress("unused")
-object DebugModePatch : BytecodePatch(
-    setOf(
-        IsDebugConfigEnabledFingerprint,
-        IsOmVerificationEnabledFingerprint,
-        ShouldShowDebugOptionsFingerprint
-    )
+    use = false,
 ) {
-    override fun execute(context: BytecodeContext) {
-        AddResourcesPatch(this::class)
+    dependsOn(
+        integrationsPatch,
+        settingsPatch,
+        addResourcesPatch,
+    )
 
-        SettingsPatch.PreferenceScreen.MISC.OTHER.addPreferences(
-            SwitchPreference("revanced_twitch_debug_mode")
+    compatibleWith("tv.twitch.android.app")
+
+    val isDebugConfigEnabledMatch by isDebugConfigEnabledFingerprint()
+    val isOmVerificationEnabledMatch by isOmVerificationEnabledFingerprint()
+    val shouldShowDebugOptionsMatch by shouldShowDebugOptionsFingerprint()
+
+    execute {
+        addResources("twitch", "debug.debugModePatch")
+
+        PreferenceScreen.MISC.OTHER.addPreferences(
+            SwitchPreference("revanced_twitch_debug_mode"),
         )
 
         listOf(
-            IsDebugConfigEnabledFingerprint,
-            IsOmVerificationEnabledFingerprint,
-            ShouldShowDebugOptionsFingerprint
+            isDebugConfigEnabledMatch,
+            isOmVerificationEnabledMatch,
+            shouldShowDebugOptionsMatch,
         ).forEach {
-            it.result?.mutableMethod?.apply {
-                addInstructions(
-                    0,
-                    """
-                         invoke-static {}, Lapp/revanced/integrations/twitch/patches/DebugModePatch;->isDebugModeEnabled()Z
-                         move-result v0
-                         return v0
-                      """
-                )
-            } ?: throw it.exception
+            it.mutableMethod.addInstructions(
+                0,
+                """
+                    invoke-static {}, Lapp/revanced/integrations/twitch/patches/DebugModePatch;->isDebugModeEnabled()Z
+                    move-result v0
+                    return v0
+                """,
+            )
         }
     }
 }

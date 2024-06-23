@@ -1,36 +1,26 @@
 package app.revanced.patches.messenger.inputfield
 
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.messenger.inputfield.fingerprints.SwitchMessangeInputEmojiButtonFingerprint
-import app.revanced.util.exception
+import app.revanced.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
-@Patch(
+@Suppress("unused")
+val disableSwitchingEmojiToStickerPatch = bytecodePatch(
     name = "Disable switching emoji to sticker",
     description = "Disables switching from emoji to sticker search mode in message input field.",
-    compatiblePackages = [CompatiblePackage("com.facebook.orca")],
-)
-@Suppress("unused")
-object DisableSwitchingEmojiToStickerPatch : BytecodePatch(
-    setOf(SwitchMessangeInputEmojiButtonFingerprint),
 ) {
-    override fun execute(context: BytecodeContext) {
-        SwitchMessangeInputEmojiButtonFingerprint.result?.let {
-            val setStringIndex = it.scanResult.patternScanResult!!.startIndex + 2
+    compatibleWith("com.facebook.orca")
 
-            it.mutableMethod.apply {
-                val targetRegister = getInstruction<OneRegisterInstruction>(setStringIndex).registerA
+    val switchMessangeInputEmojiButtonMatch by switchMessangeInputEmojiButtonFingerprint()
 
-                replaceInstruction(
-                    setStringIndex,
-                    "const-string v$targetRegister, \"expression\"",
-                )
-            }
-        } ?: throw SwitchMessangeInputEmojiButtonFingerprint.exception
+    execute {
+        val setStringIndex = switchMessangeInputEmojiButtonMatch.patternMatch!!.startIndex + 2
+
+        switchMessangeInputEmojiButtonMatch.mutableMethod.apply {
+            val targetRegister = getInstruction<OneRegisterInstruction>(setStringIndex).registerA
+
+            replaceInstruction(setStringIndex, "const-string v$targetRegister, \"expression\"")
+        }
     }
 }

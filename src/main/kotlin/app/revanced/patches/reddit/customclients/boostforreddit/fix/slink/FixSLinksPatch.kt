@@ -1,33 +1,36 @@
 package app.revanced.patches.reddit.customclients.boostforreddit.fix.slink
 
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.fingerprint.MethodFingerprintResult
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.reddit.customclients.BaseFixSLinksPatch
-import app.revanced.patches.reddit.customclients.boostforreddit.fix.slink.fingerprints.GetOAuthAccessTokenFingerprint
-import app.revanced.patches.reddit.customclients.boostforreddit.fix.slink.fingerprints.HandleNavigationFingerprint
-import app.revanced.patches.reddit.customclients.boostforreddit.misc.integrations.IntegrationsPatch
+import app.revanced.patches.reddit.customclients.RESOLVE_S_LINK_METHOD
+import app.revanced.patches.reddit.customclients.SET_ACCESS_TOKEN_METHOD
+import app.revanced.patches.reddit.customclients.boostforreddit.misc.integrations.integrationsPatch
+import app.revanced.patches.reddit.customclients.fixSLinksPatch
+
+const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/boostforreddit/FixSLinksPatch;"
 
 @Suppress("unused")
-object FixSLinksPatch : BaseFixSLinksPatch(
-    handleNavigationFingerprint = HandleNavigationFingerprint,
-    setAccessTokenFingerprint = GetOAuthAccessTokenFingerprint,
-    compatiblePackages = setOf(CompatiblePackage("com.rubenmayayo.reddit")),
-    dependencies = setOf(IntegrationsPatch::class),
+val fixSlinksPatch = fixSLinksPatch(
+    integrationsPatch = integrationsPatch,
 ) {
-    override val integrationsClassDescriptor = "Lapp/revanced/integrations/boostforreddit/FixSLinksPatch;"
+    compatibleWith("com.rubenmayayo.reddit")
 
-    override fun MethodFingerprintResult.patchNavigationHandler(context: BytecodeContext) {
-        mutableMethod.apply {
+    val handleNavigationMatch by handleNavigationFingerprint()
+    val setAccessTokenMatch by getOAuthAccessTokenFingerprint()
+
+    execute {
+        // region Patch navigation handler.
+
+        handleNavigationMatch.mutableMethod.apply {
             val urlRegister = "p1"
             val tempRegister = "v1"
+
             addInstructionsWithLabels(
                 0,
                 """
-                    invoke-static { $urlRegister }, $integrationsClassDescriptor->$resolveSLinkMethod
+                    invoke-static { $urlRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->$RESOLVE_S_LINK_METHOD
                     move-result $tempRegister
                     if-eqz $tempRegister, :continue
                     return $tempRegister
@@ -35,10 +38,16 @@ object FixSLinksPatch : BaseFixSLinksPatch(
                 ExternalLabel("continue", getInstruction(0)),
             )
         }
-    }
 
-    override fun MethodFingerprintResult.patchSetAccessToken(context: BytecodeContext) = mutableMethod.addInstruction(
-        3,
-        "invoke-static { v0 }, $integrationsClassDescriptor->$setAccessTokenMethod",
-    )
+        // endregion
+
+        // region Patch set access token.
+
+        setAccessTokenMatch.mutableMethod.addInstruction(
+            3,
+            "invoke-static { v0 }, $INTEGRATIONS_CLASS_DESCRIPTOR->$SET_ACCESS_TOKEN_METHOD",
+        )
+
+        // endregion
+    }
 }

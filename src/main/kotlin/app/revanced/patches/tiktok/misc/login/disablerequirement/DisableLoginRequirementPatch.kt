@@ -1,36 +1,31 @@
 package app.revanced.patches.tiktok.misc.login.disablerequirement
 
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.tiktok.misc.login.disablerequirement.fingerprints.MandatoryLoginServiceFingerprint
-import app.revanced.patches.tiktok.misc.login.disablerequirement.fingerprints.MandatoryLoginServiceFingerprint2
+import app.revanced.patcher.patch.bytecodePatch
 
-@Patch(
-    name = "Disable login requirement",
-    compatiblePackages = [
-        CompatiblePackage("com.ss.android.ugc.trill"),
-        CompatiblePackage("com.zhiliaoapp.musically")
-    ]
-)
 @Suppress("unused")
-object DisableLoginRequirementPatch : BytecodePatch(
-    setOf(MandatoryLoginServiceFingerprint, MandatoryLoginServiceFingerprint2)
+val disableLoginRequirementPatch = bytecodePatch(
+    name = "Disable login requirement",
 ) {
-    override fun execute(context: BytecodeContext) {
+    compatibleWith(
+        "com.ss.android.ugc.trill",
+        "com.zhiliaoapp.musically",
+    )
+
+    val mandatoryLoginServiceMatch by mandatoryLoginServiceFingerprint()
+    val mandatoryLoginService2Match by mandatoryLoginService2Fingerprint()
+
+    execute {
         listOf(
-            MandatoryLoginServiceFingerprint,
-            MandatoryLoginServiceFingerprint2
-        ).forEach { fingerprint ->
-            val method = fingerprint.result!!.mutableMethod
+            mandatoryLoginServiceMatch.mutableMethod,
+            mandatoryLoginService2Match.mutableMethod,
+        ).forEach { method ->
             method.addInstructions(
                 0,
                 """
-                const/4 v0, 0x0
-                return v0
-            """
+                    const/4 v0, 0x0
+                    return v0
+                """,
             )
         }
     }

@@ -1,82 +1,79 @@
 package app.revanced.patches.youtube.layout.autocaptions
 
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.youtube.layout.autocaptions.fingerprints.StartVideoInformerFingerprint
-import app.revanced.patches.youtube.layout.autocaptions.fingerprints.SubtitleButtonControllerFingerprint
-import app.revanced.patches.youtube.layout.autocaptions.fingerprints.SubtitleTrackFingerprint
-import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
-import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.util.exception
+import app.revanced.patches.youtube.misc.integrations.integrationsPatch
+import app.revanced.patches.youtube.misc.settings.PreferenceScreen
+import app.revanced.patches.youtube.misc.settings.settingsPatch
 
-
-@Patch(
+@Suppress("unused")
+val autoCaptionsPatch = bytecodePatch(
     name = "Disable auto captions",
     description = "Adds an option to disable captions from being automatically enabled.",
-    dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.youtube",
-            [
-                "18.32.39",
-                "18.37.36",
-                "18.38.44",
-                "18.43.45",
-                "18.44.41",
-                "18.45.43",
-                "18.48.39",
-                "18.49.37",
-                "19.01.34",
-                "19.02.39",
-                "19.03.36",
-                "19.04.38",
-                "19.05.36",
-                "19.06.39",
-                "19.07.40",
-                "19.08.36",
-                "19.09.38",
-                "19.10.39",
-                "19.11.43",
-                "19.12.41",
-                "19.13.37",
-                "19.14.43",
-                "19.15.36",
-                "19.16.39",
-            ]
-        )
-    ],
-)
-@Suppress("unused")
-object AutoCaptionsPatch : BytecodePatch(
-    setOf(StartVideoInformerFingerprint, SubtitleButtonControllerFingerprint, SubtitleTrackFingerprint)
 ) {
-    override fun execute(context: BytecodeContext) {
-        AddResourcesPatch(this::class)
+    dependsOn(
+        integrationsPatch,
+        settingsPatch,
+        addResourcesPatch,
+    )
 
-        SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_auto_captions")
+    compatibleWith(
+        "com.google.android.youtube"(
+            "18.32.39",
+            "18.37.36",
+            "18.38.44",
+            "18.43.45",
+            "18.44.41",
+            "18.45.43",
+            "18.48.39",
+            "18.49.37",
+            "19.01.34",
+            "19.02.39",
+            "19.03.36",
+            "19.04.38",
+            "19.05.36",
+            "19.06.39",
+            "19.07.40",
+            "19.08.36",
+            "19.09.38",
+            "19.10.39",
+            "19.11.43",
+            "19.12.41",
+            "19.13.37",
+            "19.14.43",
+            "19.15.36",
+            "19.16.39",
+        ),
+    )
+
+    val startVideoInformerMatch by startVideoInformerFingerprint()
+    val subtitleButtonControllerMatch by subtitleButtonControllerFingerprint()
+    val subtitleTrackMatch by subtitleTrackFingerprint()
+
+    execute {
+        addResources("youtube", "layout.autocaptions.autoCaptionsPatch")
+
+        PreferenceScreen.PLAYER.addPreferences(
+            SwitchPreference("revanced_auto_captions"),
         )
 
         mapOf(
-            StartVideoInformerFingerprint to 0,
-            SubtitleButtonControllerFingerprint to 1
-        ).forEach { (fingerprint, enabled) ->
-            fingerprint.result?.mutableMethod?.addInstructions(
+            startVideoInformerMatch to 0,
+            subtitleButtonControllerMatch to 1,
+        ).forEach { (match, enabled) ->
+            match.mutableMethod.addInstructions(
                 0,
                 """
                     const/4 v0, 0x$enabled
                     sput-boolean v0, Lapp/revanced/integrations/youtube/patches/DisableAutoCaptionsPatch;->captionsButtonDisabled:Z
-                """
-            ) ?: throw fingerprint.exception
+                """,
+            )
         }
 
-        SubtitleTrackFingerprint.result?.mutableMethod?.addInstructionsWithLabels(
+        subtitleTrackMatch.mutableMethod.addInstructions(
             0,
             """
                 invoke-static {}, Lapp/revanced/integrations/youtube/patches/DisableAutoCaptionsPatch;->autoCaptionsEnabled()Z
@@ -88,7 +85,7 @@ object AutoCaptionsPatch : BytecodePatch(
                 return v0
                 :auto_captions_enabled
                 nop
-            """
+            """,
         )
     }
 }

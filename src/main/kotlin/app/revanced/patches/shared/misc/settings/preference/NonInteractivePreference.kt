@@ -19,17 +19,8 @@ class NonInteractivePreference(
     titleKey: String = "${key}_title",
     summaryKey: String? = "${key}_summary",
     tag: String = "Preference",
-    val selectable: Boolean = false
+    val selectable: Boolean = false,
 ) : BasePreference(key, titleKey, summaryKey, tag) {
-
-    @Deprecated("Here only for binary compatibility, and should be removed after the next major version update.")
-    constructor(
-        key: String,
-        summaryKey: String? = "${key}_summary",
-        tag: String = "Preference",
-        selectable: Boolean = false
-    ) : this(key, "${key}_title", summaryKey, tag, selectable)
-
     override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =
         super.serialize(ownerDocument, resourceCallback).apply {
             setAttribute("android:selectable", selectable.toString())

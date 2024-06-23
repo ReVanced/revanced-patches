@@ -1,12 +1,12 @@
 package app.revanced.generator
 
-import app.revanced.patcher.PatchSet
+import app.revanced.patcher.patch.Package
 import app.revanced.patcher.patch.Patch
 import com.google.gson.GsonBuilder
 import java.io.File
 
 internal class JsonPatchesFileGenerator : PatchesFileGenerator {
-    override fun generate(patches: PatchSet) = patches.map {
+    override fun generate(patches: Set<Patch<*>>) = patches.map {
         JsonPatch(
             it.name!!,
             it.description,
@@ -32,7 +32,7 @@ internal class JsonPatchesFileGenerator : PatchesFileGenerator {
     private class JsonPatch(
         val name: String? = null,
         val description: String? = null,
-        val compatiblePackages: Set<Patch.CompatiblePackage>? = null,
+        val compatiblePackages: Set<Package>? = null,
         val use: Boolean = true,
         val requiresIntegrations: Boolean = false,
         val options: List<Option>,

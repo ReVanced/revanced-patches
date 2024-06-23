@@ -1,37 +1,41 @@
 package app.revanced.patches.reddit.customclients.boostforreddit.api
 
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.fingerprint.MethodFingerprintResult
-import app.revanced.patches.reddit.customclients.BaseSpoofClientPatch
-import app.revanced.patches.reddit.customclients.boostforreddit.api.fingerprints.BuildUserAgentFingerprint
-import app.revanced.patches.reddit.customclients.boostforreddit.api.fingerprints.GetClientIdFingerprint
+import app.revanced.patches.reddit.customclients.spoofClientPatch
 
 @Suppress("unused")
-object SpoofClientPatch : BaseSpoofClientPatch(
-    redirectUri = "http://rubenmayayo.com",
-    clientIdFingerprints = setOf(GetClientIdFingerprint),
-    userAgentFingerprints = setOf(BuildUserAgentFingerprint),
-    compatiblePackages = setOf(CompatiblePackage("com.rubenmayayo.reddit")),
-) {
-    override fun Set<MethodFingerprintResult>.patchClientId(context: BytecodeContext) {
-        first().mutableMethod.addInstructions(
+val spoofClientPatch = spoofClientPatch(redirectUri = "http://rubenmayayo.com") { clientIdOption ->
+    compatibleWith("com.rubenmayayo.reddit")
+
+    val getClientIdMatch by getClientIdFingerprint()
+    val buildUserAgentMatch by buildUserAgentFingerprint()
+
+    val clientId by clientIdOption
+
+    execute {
+        // region Patch client id.
+
+        getClientIdMatch.mutableMethod.addInstructions(
             0,
             """
                  const-string v0, "$clientId"
                  return-object v0
             """,
         )
-    }
 
-    override fun Set<MethodFingerprintResult>.patchUserAgent(context: BytecodeContext) {
+        // endregion
+
+        // region Patch user agent.
+
         // Use a random number as the platform in the user agent string.
         val platformName = (0..100000).random()
         val platformParameter = 0
 
-        first().mutableMethod.addInstructions(
+        buildUserAgentMatch.mutableMethod.addInstructions(
             0,
             "const-string p$platformParameter, \"$platformName\"",
         )
+
+        // endregion
     }
 }

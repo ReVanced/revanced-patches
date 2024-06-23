@@ -1,32 +1,52 @@
 package app.revanced.patches.spotify.navbar
 
-import app.revanced.util.exception
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.spotify.navbar.fingerprints.AddNavBarItemFingerprint
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappings
 
-@Patch(
-    name = "Hide premium navbar",
-    description = "Removes the premium tab from the navbar.",
-    dependencies = [PremiumNavbarTabResourcePatch::class],
-    compatiblePackages = [CompatiblePackage("com.spotify.music")]
-)
+internal var showBottomNavigationItemsTextId = -1L
+    private set
+internal var premiumTabId = -1L
+    private set
+
+private val premiumNavbarTabResourcePatch = resourcePatch {
+    dependsOn(resourceMappingPatch)
+
+    execute {
+        premiumTabId = resourceMappings["id", "premium_tab"]
+
+        showBottomNavigationItemsTextId = resourceMappings[
+            "bool",
+            "show_bottom_navigation_items_text",
+        ]
+    }
+}
+
 @Suppress("unused")
-object PremiumNavbarTabPatch : BytecodePatch(
-    setOf(AddNavBarItemFingerprint)
+val premiumNavbarTabPatch = bytecodePatch(
+    name = "Premium navbar tab",
+    description = "Hides the premium tab from the navigation bar.",
 ) {
+    dependsOn(premiumNavbarTabResourcePatch)
+
+    compatibleWith("com.spotify.music")
+
+    val addNavbarItemMatch by addNavBarItemFingerprint()
+
     // If the navigation bar item is the premium tab, do not add it.
-    override fun execute(context: BytecodeContext) = AddNavBarItemFingerprint.result?.mutableMethod?.addInstructions(
-        0,
-        """
-            const v1, ${PremiumNavbarTabResourcePatch.premiumTabId}
-            if-ne p5, v1, :continue
-            return-void
-            :continue
-            nop
-        """
-    ) ?: throw AddNavBarItemFingerprint.exception
+    execute {
+        addNavbarItemMatch.mutableMethod.addInstructions(
+            0,
+            """
+                const v1, $premiumTabId
+                if-ne p5, v1, :continue
+                return-void
+                :continue
+                nop
+            """,
+        )
+    }
 }

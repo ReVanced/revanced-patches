@@ -1,21 +1,18 @@
 package app.revanced.patches.serviceportalbund.detection.root
 
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.serviceportalbund.detection.root.fingerprints.RootDetectionFingerprint
+import app.revanced.patcher.patch.bytecodePatch
 
-@Patch(
+@Suppress("unused")
+val rootDetectionPatch = bytecodePatch(
     name = "Remove root detection",
     description = "Removes the check for root permissions and unlocked bootloader.",
-    compatiblePackages = [CompatiblePackage("at.gv.bka.serviceportal")]
-)
-@Suppress("unused")
-object RootDetectionPatch : BytecodePatch(
-    setOf(RootDetectionFingerprint)
 ) {
-    override fun execute(context: BytecodeContext) =
-        RootDetectionFingerprint.result!!.mutableMethod.addInstruction(0, "return-void")
+    compatibleWith("at.gv.bka.serviceportal")
+
+    val rootDetectionMatch by rootDetectionFingerprint()
+
+    execute {
+        rootDetectionMatch.mutableMethod.addInstruction(0, "return-void")
+    }
 }

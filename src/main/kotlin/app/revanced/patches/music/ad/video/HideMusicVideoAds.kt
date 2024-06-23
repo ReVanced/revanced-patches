@@ -1,48 +1,29 @@
 package app.revanced.patches.music.ad.video
 
-import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.music.ad.video.fingerprints.ShowMusicVideoAdsParentFingerprint
-import app.revanced.util.exception
+import app.revanced.patcher.patch.bytecodePatch
 
-@Patch(
-    name = "Hide music video ads",
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.apps.youtube.music",
-            [
-                "6.45.54",
-                "6.51.53",
-                "7.01.53",
-                "7.02.52",
-                "7.03.52",
-            ]
-        )
-    ],
-)
 @Suppress("unused")
-object HideMusicVideoAds : BytecodePatch(
-    setOf(ShowMusicVideoAdsParentFingerprint),
+val hideMusicVideoAdsPatch = bytecodePatch(
+    name = "Hide music video ads",
 ) {
-    override fun execute(context: BytecodeContext) {
-        ShowMusicVideoAdsParentFingerprint.result?.let {
-            val showMusicVideoAdsMethod = context
-                .toMethodWalker(it.mutableMethod)
-                .nextMethod(it.scanResult.patternScanResult!!.startIndex + 1, true).getMethod() as MutableMethod
+    compatibleWith(
+        "com.google.android.apps.youtube.music"(
+            "6.45.54",
+            "6.51.53",
+            "7.01.53",
+            "7.02.52",
+            "7.03.52",
+        ),
+    )
 
-            showMusicVideoAdsMethod.addInstruction(0, "const/4 p1, 0x0")
-        } ?: throw ShowMusicVideoAdsParentFingerprint.exception
-    }
-}
+    val showMusicVideoAdsParentMatch by showMusicVideoAdsParentFingerprint()
 
-@Deprecated("This patch class has been renamed to HideMusicVideoAds.")
-object MusicVideoAdsPatch : BytecodePatch(
-    dependencies = setOf(HideMusicVideoAds::class),
-) {
-    override fun execute(context: BytecodeContext) {
+    execute { context ->
+        val showMusicVideoAdsMethod = context
+            .navigate(showMusicVideoAdsParentMatch.mutableMethod)
+            .at(showMusicVideoAdsParentMatch.patternMatch!!.startIndex + 1).mutable()
+
+        showMusicVideoAdsMethod.addInstruction(0, "const/4 p1, 0x0")
     }
 }
