@@ -6,7 +6,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.instagram.patches.ads.profile.fingerprints.HideProfileAdsFingerprint
+import app.revanced.patches.instagram.patches.ads.profile.fingerprints.ProfileAdInjectorFingerprint
 import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction10t
@@ -19,11 +19,11 @@ import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21t
 @Suppress("unused")
 object HideProfileAdsPatch : BytecodePatch(
     setOf(
-        HideProfileAdsFingerprint,
+        ProfileAdInjectorFingerprint,
     ),
 ) {
     override fun execute(context: BytecodeContext) {
-        HideProfileAdsFingerprint.result?.let {
+        ProfileAdInjectorFingerprint.result?.let {
             it.mutableMethod.apply {
                 val firstInstructionIndex = it.scanResult.patternScanResult!!.startIndex
                 val conditionInstructionIndex = it.scanResult.patternScanResult!!.endIndex
@@ -39,6 +39,6 @@ object HideProfileAdsPatch : BytecodePatch(
                     ),
                 )
             }
-        } ?: throw HideProfileAdsFingerprint.exception
+        } ?: throw ProfileAdInjectorFingerprint.exception
     }
 }

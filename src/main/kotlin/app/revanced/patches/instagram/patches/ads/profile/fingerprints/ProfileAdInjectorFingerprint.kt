@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object HideProfileAdsFingerprint : MethodFingerprint(
+internal object ProfileAdInjectorFingerprint : MethodFingerprint(
     "L",
     AccessFlags.PUBLIC or AccessFlags.FINAL,
     listOf("L", "L", "I"),
