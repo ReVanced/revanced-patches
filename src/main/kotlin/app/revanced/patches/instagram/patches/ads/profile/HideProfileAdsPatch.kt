@@ -25,17 +25,16 @@ object HideProfileAdsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         ProfileAdInjectorFingerprint.result?.let {
             it.mutableMethod.apply {
-                val firstInstructionIndex = it.scanResult.patternScanResult!!.startIndex
-                val conditionInstructionIndex = it.scanResult.patternScanResult!!.endIndex
+                val conditionalJumpIndex = it.scanResult.patternScanResult!!.endIndex
 
-                val conditionInstructionLabel = getInstruction<BuilderInstruction21t>(conditionInstructionIndex).target
+                val conditionalJumpLabel = getInstruction<BuilderInstruction21t>(conditionalJumpIndex).target
 
-                // Replace the first instruction of the method with a goto to the label from the condition instruction
+                // Replace this conditional jump by a goto
                 replaceInstruction(
-                    firstInstructionIndex,
+                    conditionalJumpIndex,
                     BuilderInstruction10t(
                         Opcode.GOTO,
-                        conditionInstructionLabel,
+                        conditionalJumpLabel,
                     ),
                 )
             }
