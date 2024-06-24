@@ -3,5 +3,5 @@ package app.revanced.patches.reddit.customclients.boostforreddit.fix.downloads.f
 import app.revanced.patcher.fingerprint.MethodFingerprint
 
 internal object DownloadAudioFingerprint : MethodFingerprint(
-    strings = setOf("/DASH_audio.mp4", "/audio", "v.redd.it", "/"),
+    strings = setOf("/DASH_audio.mp4", "/audio"),
 )
