@@ -10,6 +10,7 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Hide ads",
+    description = "An ad can still appear when you refresh your home feed",
     compatiblePackages = [CompatiblePackage("com.instagram.android")],
 )
 @Suppress("unused")
