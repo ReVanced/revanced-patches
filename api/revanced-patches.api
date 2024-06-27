@@ -1016,18 +1016,10 @@ public final class app/revanced/patches/soundcloud/ad/HideAdsPatch : app/revance
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/soundcloud/ad/fingerprints/ConfigureUserPlanFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/soundcloud/ad/fingerprints/ConfigureUserPlanFingerprint;
-}
-
 public final class app/revanced/patches/soundcloud/analytics/DisableTelemetryPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/soundcloud/analytics/DisableTelemetryPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/soundcloud/analytics/fingerprints/CreateTrackingApiFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/soundcloud/analytics/fingerprints/CreateTrackingApiFingerprint;
 }
 
 public final class app/revanced/patches/spotify/layout/theme/CustomThemePatch : app/revanced/patcher/patch/ResourcePatch {

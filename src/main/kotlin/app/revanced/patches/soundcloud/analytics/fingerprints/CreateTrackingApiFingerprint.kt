@@ -3,7 +3,7 @@ package app.revanced.patches.soundcloud.analytics.fingerprints
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-object CreateTrackingApiFingerprint : MethodFingerprint(
+internal object CreateTrackingApiFingerprint : MethodFingerprint(
     returnType = "L",
     accessFlags = AccessFlags.PUBLIC.value,
     customFingerprint = { methodDef, classDef ->

@@ -4,11 +4,11 @@ import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal object PlanFingerprint : MethodFingerprint(
+internal object FeatureConstructorFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
-    parameters = listOf("Ljava/lang/String;", "Z", "Ljava/lang/String;", "Ljava/util/List;", "Ljava/lang/String;", "Ljava/lang/String;"),
+    parameters = listOf("Ljava/lang/String;", "Z", "Ljava/util/List;"),
     customFingerprint = { _, classDef ->
-        classDef.sourceFile == "UserConsumerPlan.kt"
+        classDef.sourceFile == "Feature.kt"
     },
 )
