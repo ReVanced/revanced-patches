@@ -517,14 +517,14 @@ public final class app/revanced/patches/pixiv/ads/HideAdsPatch : app/revanced/pa
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/rar/misc/hidepurchasereminder/HidePurchaseReminderPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/rar/misc/hidepurchasereminder/HidePurchaseReminderPatch;
+public final class app/revanced/patches/rar/misc/annoyances/purchasereminder/HidePurchaseReminderPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/rar/misc/annoyances/purchasereminder/HidePurchaseReminderPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/rar/misc/hidepurchasereminder/fingerprints/HidePurchaseReminderFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/rar/misc/hidepurchasereminder/fingerprints/HidePurchaseReminderFingerprint;
+public final class app/revanced/patches/rar/misc/annoyances/purchasereminder/fingerprints/ShowReminderFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/rar/misc/annoyances/purchasereminder/fingerprints/ShowReminderFingerprint;
 }
 
 public final class app/revanced/patches/reddit/ad/banner/HideBannerPatch : app/revanced/patcher/patch/ResourcePatch {
