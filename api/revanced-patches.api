@@ -149,8 +149,8 @@ public final class app/revanced/patches/all/screenshot/removerestriction/RemoveS
 	public static fun values ()[Lapp/revanced/patches/all/screenshot/removerestriction/RemoveScreenshotRestrictionPatch$MethodCall;
 }
 
-public final class app/revanced/patches/all/shortcut/removetarget/RemoveShareTargetsPatch : app/revanced/patcher/patch/ResourcePatch {
-	public static final field INSTANCE Lapp/revanced/patches/all/shortcut/removetarget/RemoveShareTargetsPatch;
+public final class app/revanced/patches/all/shortcut/sharetargets/RemoveShareTargetsPatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/all/shortcut/sharetargets/RemoveShareTargetsPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
