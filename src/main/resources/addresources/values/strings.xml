@@ -241,7 +241,9 @@
             <string name="revanced_hide_keyword_content_phrases_summary">Keywords and phrases to hide, separated by new lines\n\nWords with uppercase letters in the middle must be entered with the casing (ie: iPhone, TikTok, LeBlanc)</string>
             <string name="revanced_hide_keyword_content_about_title">About keyword filtering</string>
             <string name="revanced_hide_keyword_content_about_summary">Home/Subscription/Search results are filtered to hide content that matches keyword phrases\n\nLimitations\n• Some Shorts may not be hidden\n• Some UI components may not be hidden\n• Searching for a keyword may show no results</string>
+            <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
             <string name="revanced_hide_keyword_toast_invalid_common">Invalid keyword. Cannot use: \'%s\' as a filter</string>
+            <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
             <string name="revanced_hide_keyword_toast_invalid_length">Invalid keyword. \'%1$s\' is less than %2$d characters</string>
             <string name="revanced_hide_keyword_toast_invalid_broad">Keyword \'$s\' will hide all videos</string>
         </patch>
@@ -277,6 +279,7 @@
             <string name="revanced_hide_merchandise_banners_title">Hide merchandise banners</string>
             <string name="revanced_hide_merchandise_banners_summary_on">Merchandise banners are hidden</string>
             <string name="revanced_hide_merchandise_banners_summary_off">Merchandise banners are shown</string>
+            <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
             <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Hide fullscreen ads only works with older devices</string>
         </patch>
         <patch id="ad.getpremium.HideGetPremiumPatch">
