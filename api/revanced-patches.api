@@ -1040,6 +1040,18 @@ public final class app/revanced/patches/spotify/navbar/PremiumNavbarTabResourceP
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
+public final class app/revanced/patches/stocard/layout/HideOffersTabPatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/stocard/layout/HideOffersTabPatch;
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
+public final class app/revanced/patches/stocard/layout/HideStoryBubblesPatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/stocard/layout/HideStoryBubblesPatch;
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
 public final class app/revanced/patches/strava/subscription/UnlockSubscriptionPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/strava/subscription/UnlockSubscriptionPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
