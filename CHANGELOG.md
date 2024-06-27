@@ -1,3 +1,13 @@
+# [4.11.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.10.1-dev.2...v4.11.0-dev.1) (2024-06-27)
+
+
+### Features
+
+* Add `Remove share targets` patch ([#3334](https://github.com/ReVanced/revanced-patches/issues/3334)) ([9414122](https://github.com/ReVanced/revanced-patches/commit/94141228163aee8d051491db51fc1e4c8b86f0e6))
+* **Instagram:** Add `Hide ads` patch ([#3380](https://github.com/ReVanced/revanced-patches/issues/3380)) ([c6b2f8c](https://github.com/ReVanced/revanced-patches/commit/c6b2f8c0172b4fd142927d9448ed855831c86ae4))
+* **RAR:** Add `Hide purchase reminder` patch ([#3321](https://github.com/ReVanced/revanced-patches/issues/3321)) ([8fbe7e3](https://github.com/ReVanced/revanced-patches/commit/8fbe7e3d38c43adfa0755bcbe87f8c6b7696da3a))
+* **Stocard:** Add `Hide offers tab` and `Hide story bubbles` patch ([#3359](https://github.com/ReVanced/revanced-patches/issues/3359)) ([fbd0507](https://github.com/ReVanced/revanced-patches/commit/fbd0507ce5cdeb93a1f661aa8097139c61e643a0))
+
 ## [4.10.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.10.1-dev.1...v4.10.1-dev.2) (2024-06-24)
 
 
