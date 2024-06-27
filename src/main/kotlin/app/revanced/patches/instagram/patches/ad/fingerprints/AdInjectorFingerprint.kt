@@ -5,15 +5,13 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal object AdInjectorFingerprint : MethodFingerprint(
-    "Z",
-    AccessFlags.PRIVATE.value,
-    listOf("L", "L"),
+    returnType = "Z",
+    accessFlags = AccessFlags.PRIVATE.value,
+    parameters = listOf("L", "L"),
     opcodes = listOf(
         Opcode.IGET,
         Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT_OBJECT,
     ),
-    strings = listOf(
-        "SponsoredContentController::Delivery"
-    )
+    strings = listOf("SponsoredContentController::Delivery"),
 )

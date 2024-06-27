@@ -10,22 +10,20 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Hide ads",
-    description = "An ad can still appear when you refresh your home feed",
+    description = "Hides ads in stories, discover, profile, etc." +
+        "An ad can still appear once when refreshing the home feed.",
     compatiblePackages = [CompatiblePackage("com.instagram.android")],
 )
 @Suppress("unused")
 object HideAdsPatch : BytecodePatch(
-    setOf(
-        AdInjectorFingerprint,
-    ),
+    setOf(AdInjectorFingerprint),
 ) {
-    override fun execute(context: BytecodeContext) {
+    override fun execute(context: BytecodeContext) =
         AdInjectorFingerprint.result?.mutableMethod?.addInstructions(
             0,
             """
-                const/4 v5, 0x0
-                return v5
-            """
+                const/4 v0, 0x0
+                return v0
+            """,
         ) ?: throw AdInjectorFingerprint.exception
-    }
 }
