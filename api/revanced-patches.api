@@ -155,6 +155,12 @@ public final class app/revanced/patches/all/screenshot/removerestriction/RemoveS
 	public static fun values ()[Lapp/revanced/patches/all/screenshot/removerestriction/RemoveScreenshotRestrictionPatch$MethodCall;
 }
 
+public final class app/revanced/patches/all/shortcut/sharetargets/RemoveShareTargetsPatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/all/shortcut/sharetargets/RemoveShareTargetsPatch;
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
 public final class app/revanced/patches/all/telephony/sim/spoof/SpoofSimCountryPatch : app/revanced/patches/all/misc/transformation/BaseTransformInstructionsPatch {
 	public static final field INSTANCE Lapp/revanced/patches/all/telephony/sim/spoof/SpoofSimCountryPatch;
 	public synthetic fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Ljava/lang/Object;
