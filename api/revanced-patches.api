@@ -241,6 +241,12 @@ public final class app/revanced/patches/inshorts/ad/HideAdsPatch : app/revanced/
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/instagram/patches/ad/HideAdsPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/instagram/patches/ad/HideAdsPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/instagram/patches/ads/timeline/HideTimelineAdsPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/instagram/patches/ads/timeline/HideTimelineAdsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
