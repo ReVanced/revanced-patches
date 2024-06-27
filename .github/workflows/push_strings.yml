@@ -6,25 +6,24 @@ on:
     branches:
       - dev
     paths:
-      - /src/main/resources/addresources/values/strings.xml
+      - src/main/resources/addresources/values/strings.xml
 
 jobs:
-    push:
-        name: Push strings
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v4
-              with:
-                  fetch-depth: 0
-                  ref: dev
+  push:
+    name: Push strings
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-            - name: Push strings
-              uses: crowdin/github-action@v1
-              with:
-                  config: crowdin.yml
-                  upload_sources: true
-              env:
-                  GITHUB_TOKEN: ${{ secrets.REPOSITORY_PUSH_ACCESS }}
-                  CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
-                  CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
+      - name: Push strings
+        uses: crowdin/github-action@v1
+        with:
+          config: crowdin.yml
+          upload_sources: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.REPOSITORY_PUSH_ACCESS }}
+          CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
+          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
