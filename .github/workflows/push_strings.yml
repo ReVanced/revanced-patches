@@ -1,10 +1,12 @@
 name: Push strings
 
 on:
-    workflow_dispatch:
-    push:
-        paths:
-            - /src/main/resources/addresources/values/strings.xml
+  workflow_dispatch:
+  push:
+    branches:
+      - dev
+    paths:
+      - /src/main/resources/addresources/values/strings.xml
 
 jobs:
     push:
@@ -15,6 +17,7 @@ jobs:
               uses: actions/checkout@v4
               with:
                   fetch-depth: 0
+                  ref: dev
 
             - name: Push strings
               uses: crowdin/github-action@v1
