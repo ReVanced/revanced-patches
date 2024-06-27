@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object InterceptorFingerprint : MethodFingerprint(
+object ConfigureUserPlanFingerprint : MethodFingerprint(
     returnType = "L",
     accessFlags = AccessFlags.PUBLIC.value,
     parameters = listOf("L"),
@@ -13,10 +13,10 @@ object InterceptorFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
-        Opcode.IF_EQZ
+        Opcode.IF_EQZ,
     ),
     strings = listOf("SC-Mob-UserPlan", "Configuration"),
     customFingerprint = { _, classDef ->
         classDef.sourceFile == "ApiUserPlanInterceptor.java"
-    }
+    },
 )

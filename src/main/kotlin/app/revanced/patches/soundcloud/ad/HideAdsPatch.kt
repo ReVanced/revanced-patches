@@ -8,22 +8,22 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.soundcloud.ad.fingerprints.ConfigureUserPlanFingerprint
 import app.revanced.patches.soundcloud.ad.fingerprints.FeaturesFingerprint
-import app.revanced.patches.soundcloud.ad.fingerprints.InterceptorFingerprint
 import app.revanced.patches.soundcloud.ad.fingerprints.PlanFingerprint
 import app.revanced.util.resultOrThrow
 
 @Patch(
-    name = "Remove ads",
-    compatiblePackages = [CompatiblePackage("com.soundcloud.android")]
+    name = "Hide ads",
+    compatiblePackages = [CompatiblePackage("com.soundcloud.android")],
 )
 @Suppress("unused")
-object AdsPatch : BytecodePatch(
-    setOf(FeaturesFingerprint, PlanFingerprint, InterceptorFingerprint)
+object HideAdsPatch : BytecodePatch(
+    setOf(FeaturesFingerprint, PlanFingerprint, ConfigureUserPlanFingerprint),
 ) {
     override fun execute(context: BytecodeContext) {
         // Enables a preset feature to disable audio ads by modifying the JSON server response
-        FeaturesFingerprint.resultOrThrow().mutableMethod.apply{
+        FeaturesFingerprint.resultOrThrow().mutableMethod.apply {
             addInstructionsWithLabels(
                 2,
                 """
@@ -33,7 +33,7 @@ object AdsPatch : BytecodePatch(
                     if-eqz v0, :skip
                     const/4 p2, 0x1
                 """,
-                ExternalLabel("skip", getInstruction(2))
+                ExternalLabel("skip", getInstruction(2)),
             )
         }
 
@@ -47,17 +47,17 @@ object AdsPatch : BytecodePatch(
                 invoke-direct {p4}, Ljava/util/ArrayList;-><init>()V
                 const-string p5, "go-plus"
                 const-string p6, "SoundCloud Go+"
-            """
+            """,
         )
 
         // Prevents the verification of an HTTP header containing the user's current plan which would contradict the previous patch
-        InterceptorFingerprint.resultOrThrow().let { result ->
+        ConfigureUserPlanFingerprint.resultOrThrow().let { result ->
             result.mutableMethod.addInstructions(
-                    result.scanResult.patternScanResult!!.endIndex,
-                    """
+                result.scanResult.patternScanResult!!.endIndex,
+                """
                        return-object p1
-                    """
-                )
+                    """,
+            )
         }
     }
 }
