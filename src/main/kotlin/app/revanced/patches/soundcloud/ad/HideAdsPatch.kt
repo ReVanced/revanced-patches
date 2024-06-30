@@ -24,10 +24,13 @@ object HideAdsPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext) {
         // Enable a preset feature to disable audio ads by modifying the JSON server response.
+        // This method is the constructor of a class representing a "Feature" object parsed from JSON data.
+        // p1 is the name of the feature.
+        // p2 is true if the feature is enabled, false otherwise.
         FeatureConstructorFingerprint.resultOrThrow().mutableMethod.apply {
-            val afterCheckNotNull = 2
+            val afterCheckNotNullIndex = 2
             addInstructionsWithLabels(
-                afterCheckNotNull,
+                afterCheckNotNullIndex,
                 """
                     const-string v0, "no_audio_ads"
                     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -35,12 +38,17 @@ object HideAdsPatch : BytecodePatch(
                     if-eqz v0, :skip
                     const/4 p2, 0x1
                 """,
-                ExternalLabel("skip", getInstruction(afterCheckNotNull)),
+                ExternalLabel("skip", getInstruction(afterCheckNotNullIndex)),
             )
         }
 
         // Overwrite the JSON response from the server to a paid plan, which hides all ads in the app.
         // This does not enable paid features, as they are all checked for on the backend.
+        // This method is the constructor of a class representing a "UserConsumerPlan" object parsed from JSON data.
+        // p1 is the "currentTier" value, dictating which features to enable in the app.
+        // p4 is the "consumerPlanUpsells" value, a list of plans to try to sell to the user.
+        // p5 is the "currentConsumerPlan" value, the type of plan currently subscribed to.
+        // p6 is the "currentConsumerPlanTitle" value, the name of the plan currently subscribed to, shown to the user.
         UserConsumerPlanConstructorFingerprint.resultOrThrow().mutableMethod.addInstructions(
             0,
             """
