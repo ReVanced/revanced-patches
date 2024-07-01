@@ -13,7 +13,6 @@ import app.revanced.util.resource.BaseResource
 import app.revanced.util.resource.StringResource
 import org.w3c.dom.Node
 import java.io.Closeable
-import java.util.*
 
 /**
  * An identifier of an app. For example, `youtube`.
@@ -55,6 +54,95 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
      */
     private lateinit var resources: Map<Value, Resources>
 
+    /**
+     * Map of Crowdin locales to Android resource locale names.
+     *
+     * Fixme: Instead this patch should detect what locale regions are present in both patches and the target app,
+     * and automatically merge into the appropriate existing target file.
+     * So if a target app has only 'es', then the Crowdin file of 'es-rES' should merge into that.
+     * But if a target app has specific regions (such as 'pt-rBR'),
+     * then the Crowdin region specific file should merged into that.
+     */
+    private val locales = mapOf(
+        "af-rZA" to "af",
+        "am-rET" to "am",
+        "ar-rSA" to "ar",
+        "as-rIN" to "as",
+        "az-rAZ" to "az",
+        "be-rBY" to "be",
+        "bg-rBG" to "bg",
+        "bn-rBD" to "bn",
+        "bs-rBA" to "bs",
+        "ca-rES" to "ca",
+        "cs-rCZ" to "cs",
+        "da-rDK" to "da",
+        "de-rDE" to "de",
+        "el-rGR" to "el",
+        "es-rES" to "es",
+        "et-rEE" to "et",
+        "eu-rES" to "eu",
+        "fa-rIR" to "fa",
+        "fi-rFI" to "fi",
+        "tl-rPH" to "tl",
+        "fr-rFR" to "fr",
+        "gl-rES" to "gl",
+        "gu-rIN" to "gu",
+        "hi-rIN" to "hi",
+        "hr-rHR" to "hr",
+        "hu-rHU" to "hu",
+        "hy-rAM" to "hy",
+        "in-rID" to "in",
+        "is-rIS" to "is",
+        "it-rIT" to "it",
+        "iw-rIL" to "iw",
+        "ja-rJP" to "ja",
+        "ka-rGE" to "ka",
+        "kk-rKZ" to "kk",
+        "km-rKH" to "km",
+        "kn-rIN" to "kn",
+        "ko-rKR" to "ko",
+        "ky-rKG" to "ky",
+        "lo-rLA" to "lo",
+        "lt-rLT" to "lt",
+        "lv-rLV" to "lv",
+        "mk-rMK" to "mk",
+        "ml-rIN" to "ml",
+        "mn-rMN" to "mn",
+        "mr-rIN" to "mr",
+        "ms-rMY" to "ms",
+        "my-rMM" to "my",
+        "nb-rNO" to "nb",
+        "ne-rIN" to "ne",
+        "nl-rNL" to "nl",
+        "or-rIN" to "or",
+        "pa-rIN" to "pa",
+        "pl-rPL" to "pl",
+        "pt-rBR" to "pt-rBR",
+        "pt-rPT" to "pt-rPT",
+        "ro-rRO" to "ro",
+        "ru-rRU" to "ru",
+        "si-rLK" to "si",
+        "sk-rSK" to "sk",
+        "sl-rSI" to "sl",
+        "sq-rAL" to "sq",
+        "sr-rSP" to "sr",
+        "sv-rSE" to "sv",
+        "sw-rKE" to "sw",
+        "ta-rIN" to "ta",
+        "te-rIN" to "te",
+        "th-rTH" to "th",
+        "tl-rPH" to "tl",
+        "tr-rTR" to "tr",
+        "uk-rUA" to "uk",
+        "ur-rIN" to "ur",
+        "uz-rUZ" to "uz",
+        "vi-rVN" to "vi",
+        "zh-rCN" to "zh-rCN",
+        "zh-rHK" to "zh-rHK",
+        "zh-rTW" to "zh-rTW",
+        "zu-rZA" to "zu",
+    )
+
     /*
     The strategy of this patch is to stage resources present in `/resources/addresources`.
     These resources are organized by their respective value and patch.
@@ -75,23 +163,25 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
                 /**
                  * Puts resources under `/resources/addresources/<value>/<resourceKind>.xml` into the map.
                  *
-                 * @param value The value of the resource. For example, `values` or `values-de`.
+                 * @param sourceValue The source value of the resource. For example, `values` or `values-de-rDE`.
+                 * @param destValue The destination value of the resource. For example, 'values' or 'values-de'.
                  * @param resourceKind The kind of the resource. For example, `strings` or `arrays`.
                  * @param transform A function that transforms the [Node]s from the XML files to a [BaseResource].
                  */
                 fun addResources(
-                    value: Value,
+                    sourceValue: Value,
+                    destValue: Value = sourceValue,
                     resourceKind: String,
                     transform: (Node) -> BaseResource,
                 ) {
                     inputStreamFromBundledResource(
                         "addresources",
-                        "$value/$resourceKind.xml",
+                        "$sourceValue/$resourceKind.xml",
                     )?.let { stream ->
                         // Add the resources associated with the given value to the map,
                         // instead of overwriting it.
                         // This covers the example case such as adding strings and arrays of the same value.
-                        getOrPut(value, ::mutableMapOf).apply {
+                        getOrPut(destValue, ::mutableMapOf).apply {
                             context.xmlEditor[stream].use { editor ->
                                 val document = editor.file
 
@@ -121,13 +211,13 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
                 // Staged resources consumed by AddResourcesPatch#invoke(PatchClass)
                 // are later used in AddResourcesPatch#close.
                 try {
-                    val addStringResources = { value: Value ->
-                        addResources(value, "strings", StringResource::fromNode)
+                    val addStringResources = { source: Value, dest: Value ->
+                        addResources(source, dest, "strings", StringResource::fromNode)
                     }
-                    Locale.getISOLanguages().asSequence().map { "values-$it" }.forEach { addStringResources(it) }
-                    addStringResources("values")
+                    locales.forEach { (source, dest) -> addStringResources("values-$source", "values-$dest") }
+                    addStringResources("values", "values")
 
-                    addResources("values", "arrays", ArrayResource::fromNode)
+                    addResources("values", "values", "arrays", ArrayResource::fromNode)
                 } catch (e: Exception) {
                     throw PatchException("Failed to read resources", e)
                 }

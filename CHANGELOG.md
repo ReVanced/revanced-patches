@@ -1,3 +1,48 @@
+# [4.11.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.11.0-dev.3...v4.11.0-dev.4) (2024-07-01)
+
+
+### Bug Fixes
+
+* **Windy - Unlock pro:** Revert changing package name ([#3402](https://github.com/ReVanced/revanced-patches/issues/3402)) ([541f1e7](https://github.com/ReVanced/revanced-patches/commit/541f1e702665630a3737f67a4cc0c4f7b4899f8f))
+
+# [4.11.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.11.0-dev.2...v4.11.0-dev.3) (2024-06-30)
+
+
+### Bug Fixes
+
+* **Windy - Unlock pro:** Use correct package name ([#3397](https://github.com/ReVanced/revanced-patches/issues/3397)) ([1d8459a](https://github.com/ReVanced/revanced-patches/commit/1d8459ac992b12371c41df3c25b6386119770d15))
+
+# [4.11.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.11.0-dev.1...v4.11.0-dev.2) (2024-06-27)
+
+
+### Features
+
+* Add translations ([#2963](https://github.com/ReVanced/revanced-patches/issues/2963)) ([69ea6f3](https://github.com/ReVanced/revanced-patches/commit/69ea6f3bc2b5f419320f17c150489dcb9eed76ce))
+
+# [4.11.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.10.1-dev.2...v4.11.0-dev.1) (2024-06-27)
+
+
+### Features
+
+* Add `Remove share targets` patch ([#3334](https://github.com/ReVanced/revanced-patches/issues/3334)) ([9414122](https://github.com/ReVanced/revanced-patches/commit/94141228163aee8d051491db51fc1e4c8b86f0e6))
+* **Instagram:** Add `Hide ads` patch ([#3380](https://github.com/ReVanced/revanced-patches/issues/3380)) ([c6b2f8c](https://github.com/ReVanced/revanced-patches/commit/c6b2f8c0172b4fd142927d9448ed855831c86ae4))
+* **RAR:** Add `Hide purchase reminder` patch ([#3321](https://github.com/ReVanced/revanced-patches/issues/3321)) ([8fbe7e3](https://github.com/ReVanced/revanced-patches/commit/8fbe7e3d38c43adfa0755bcbe87f8c6b7696da3a))
+* **Stocard:** Add `Hide offers tab` and `Hide story bubbles` patch ([#3359](https://github.com/ReVanced/revanced-patches/issues/3359)) ([fbd0507](https://github.com/ReVanced/revanced-patches/commit/fbd0507ce5cdeb93a1f661aa8097139c61e643a0))
+
+## [4.10.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.10.1-dev.1...v4.10.1-dev.2) (2024-06-24)
+
+
+### Bug Fixes
+
+* **Boost for reddit - Fix missing audio in video downloads:** Replace correct strings ([#3379](https://github.com/ReVanced/revanced-patches/issues/3379)) ([b43db98](https://github.com/ReVanced/revanced-patches/commit/b43db98e8483e2939d8fb9cd02443f24aeaae3c3))
+
+## [4.10.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.10.0...v4.10.1-dev.1) (2024-06-23)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Detect if a keyword filter hides all videos ([#3365](https://github.com/ReVanced/revanced-patches/issues/3365)) ([6aa47ec](https://github.com/ReVanced/revanced-patches/commit/6aa47ec1050cf32158ab608441c0649501184971))
+
 # [4.10.0](https://github.com/ReVanced/revanced-patches/compare/v4.9.0...v4.10.0) (2024-06-23)
 
 

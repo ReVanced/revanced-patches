@@ -25,7 +25,7 @@ object FixAudioMissingInDownloadsPatch : BytecodePatch(
     )
     override fun execute(context: BytecodeContext) {
         DownloadAudioFingerprint.resultOrThrow().let { result ->
-            result.scanResult.stringsScanResult!!.matches.take(2).forEach { match ->
+            result.scanResult.stringsScanResult!!.matches.forEach { match ->
                 result.mutableMethod.apply {
                     val replacement = endpointReplacements[match.string]
                     val register = getInstruction<OneRegisterInstruction>(match.index).registerA
