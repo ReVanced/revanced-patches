@@ -19,7 +19,7 @@ jobs:
           fetch-depth: 0
 
       - name: Push strings
-        uses: crowdin/github-action@v1
+        uses: crowdin/github-action@v2
         with:
           config: crowdin.yml
           upload_sources: true
