@@ -1,3 +1,10 @@
+# [4.11.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.11.0-dev.3...v4.11.0-dev.4) (2024-07-01)
+
+
+### Bug Fixes
+
+* **Windy - Unlock pro:** Revert changing package name ([#3402](https://github.com/ReVanced/revanced-patches/issues/3402)) ([541f1e7](https://github.com/ReVanced/revanced-patches/commit/541f1e702665630a3737f67a4cc0c4f7b4899f8f))
+
 # [4.11.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.11.0-dev.2...v4.11.0-dev.3) (2024-06-30)
 
 
