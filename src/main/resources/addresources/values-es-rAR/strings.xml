@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
+Note: All strings must have a unique path, even if the same string is declared in two different apps.
+This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+
 # General guidelines and information for translating
 
 ## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
@@ -242,7 +245,9 @@
   <string name="revanced_hide_keyword_content_phrases_summary">Palabras clave y frases para ocultar, separadas por nuevas líneas\n\nLas palabras con letras mayúsculas en el centro deben ser ingresadas con la caja (por ejemplo: iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">Acerca del filtrado de palabras clave</string>
   <string name="revanced_hide_keyword_content_about_summary">Los resultados de inicio/suscripción/búsqueda se filtran para ocultar contenido que coincide con las frases de palabras clave\n\nLimitaciones\n• Algunos cortos pueden no estar ocultos\n• Algunos componentes de la interfaz pueden no estar ocultos\n• Buscar una palabra clave no puede mostrar resultados</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Palabra clave inválida. No se puede usar: \'%s\' como filtro</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Palabra clave no válida. \'%1$s\' es menor de %2$d caracteres</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">La palabra clave \'$s\' oculta todos los vídeos</string>
   </patch>
@@ -278,6 +283,7 @@
   <string name="revanced_hide_merchandise_banners_title">Ocultar banners de mercandise</string>
   <string name="revanced_hide_merchandise_banners_summary_on">Los banners de mercadería están ocultos</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Se muestran los banners de Mercandise</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Ocultar anuncios a pantalla completa sólo funciona con dispositivos antiguos</string>
   </patch>
   <patch id="ad.getpremium.HideGetPremiumPatch">
@@ -392,7 +398,7 @@
   <string name="revanced_hide_thanks_button_summary_on">El botón de gracias está oculto</string>
   <string name="revanced_hide_thanks_button_summary_off">Se muestra el botón de gracias</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_clip_button_title">Hide Clip</string>
+  <string name="revanced_hide_clip_button_title">Ocultar Recortar</string>
   <string name="revanced_hide_clip_button_summary_on">El botón del clip está oculto</string>
   <string name="revanced_hide_clip_button_summary_off">Se muestra el botón de clip</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->

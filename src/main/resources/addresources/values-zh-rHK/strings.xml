@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
+Note: All strings must have a unique path, even if the same string is declared in two different apps.
+This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+
 # General guidelines and information for translating
 
 ## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
@@ -84,9 +87,12 @@
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   </patch>
   <patch id="ad.getpremium.HideGetPremiumPatch">
   </patch>

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
+Note: All strings must have a unique path, even if the same string is declared in two different apps.
+This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+
 # General guidelines and information for translating
 
 ## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
@@ -237,7 +240,9 @@
   <string name="revanced_hide_keyword_content_phrases_summary">Elrejtendő kulcsszavak és kifejezések, új sorokkal elválasztva.\n\nA szóközépen nagy betűt tartalmazó szavaknál a kis- és nagybetűknek a megfelelő helyen kell lennie (pl: iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">A kulcsszó alapú szűrésről</string>
   <string name="revanced_hide_keyword_content_about_summary">A Kezdőlap/Feliratkozások/Keresés eredményei a kulcsszóval megegyező tartalom elrejtésére vannak szűrve\n\nKorlátozások\n• Néhány Shorts lehet, hogy nem lesz elrejtve\n• Néhány UI elem lehet, hogy nem lesz elrejtve\n• Előfordulhat, hogy a kulcsszó keresése nem hoz eredményt</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Érvénytelen kulcsszó.\'%s\'nem használható szűrőként</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Helytelen kulcsszó. \'%1$s\' kevesebb, mint %2$d karakter</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">\'$s\' kulcsszó elrejti az összes videót</string>
   </patch>
@@ -273,6 +278,7 @@
   <string name="revanced_hide_merchandise_banners_title">Áruszalaghirdetések elrejtése</string>
   <string name="revanced_hide_merchandise_banners_summary_on">Az áruszalaghirdetések el vannak rejtve</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Az áruszalaghirdetések megjelennek</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">A teljes képernyős hirdetések elrejtése csak régebbi eszközökön működik</string>
   </patch>
   <patch id="ad.getpremium.HideGetPremiumPatch">

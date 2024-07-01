@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
+Note: All strings must have a unique path, even if the same string is declared in two different apps.
+This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+
 # General guidelines and information for translating
 
 ## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
@@ -239,7 +242,9 @@
   <string name="revanced_hide_keyword_content_phrases_summary">Từ khóa và cụm từ để ẩn, ngăn cách bằng dòng mới\n\nTừ với các ký tự in hoa ở giữa phải được viết hoa đúng (vd: iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">Giới thiệu về bộ lọc từ khóa</string>
   <string name="revanced_hide_keyword_content_about_summary">Trang chính/Đăng ký/Kết quả tìm kiếm được lọc để ẩn nội dung khớp với cụm từ khóa\n\nGiới hạn\n• Một số Shorts có thể không được ẩn\n• Một số thành phần giao diện có thể không được ẩn\n• Tìm kiếm chứa từ khóa có thể không có kết quả</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Từ khóa không hợp lệ. Không thể dùng \'%s\'</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Từ khóa không hợp lệ. \'%1$s\' nhỏ hơn %2$d ký tự</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Từ khóa \'$s\' sẽ ẩn toàn bộ video</string>
   </patch>
@@ -275,6 +280,7 @@
   <string name="revanced_hide_merchandise_banners_title">Ẩn biểu ngữ hàng hoá</string>
   <string name="revanced_hide_merchandise_banners_summary_on">Biểu ngữ hàng hóa được ẩn</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Biểu ngữ hàng hóa được hiện</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Ẩn QC toàn màn hình chỉ hoạt động với các thiết bị cũ</string>
   </patch>
   <patch id="ad.getpremium.HideGetPremiumPatch">

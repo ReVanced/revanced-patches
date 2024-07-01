@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
+Note: All strings must have a unique path, even if the same string is declared in two different apps.
+This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+
 # General guidelines and information for translating
 
 ## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
@@ -239,7 +242,9 @@
   <string name="revanced_hide_keyword_content_phrases_summary">要隐藏的关键词和短语，以换行符分隔\n\n字母区分大小写（例如：iPhone、抖音、英雄联盟）</string>
   <string name="revanced_hide_keyword_content_about_title">关于关键字过滤</string>
   <string name="revanced_hide_keyword_content_about_summary">主页/订阅/搜索结果被过滤以隐藏匹配关键字短语的内容\n\n限制\n• 一些短语可能不被隐藏\n• 某些界面组件可能不被隐藏\n• 搜索关键字可能不显示结果</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">无效关键字。不能使用: \'%s\' 作为过滤器</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">无效的关键字。\'%1$s\' 小于 %2$d 个字符</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
@@ -274,6 +279,7 @@
   <string name="revanced_hide_merchandise_banners_title">隐藏商品广告</string>
   <string name="revanced_hide_merchandise_banners_summary_on">商品横幅已隐藏</string>
   <string name="revanced_hide_merchandise_banners_summary_off">商品横幅显示</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">隐藏全屏广告只适用于旧设备</string>
   </patch>
   <patch id="ad.getpremium.HideGetPremiumPatch">
@@ -388,7 +394,6 @@
   <string name="revanced_hide_thanks_button_summary_on">感谢按钮已隐藏</string>
   <string name="revanced_hide_thanks_button_summary_off">已显示感谢按钮</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_clip_button_title">Hide Clip</string>
   <string name="revanced_hide_clip_button_summary_on">片段按钮隐藏</string>
   <string name="revanced_hide_clip_button_summary_off">片段按钮显示</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->

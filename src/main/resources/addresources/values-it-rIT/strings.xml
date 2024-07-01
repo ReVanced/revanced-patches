@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
+Note: All strings must have a unique path, even if the same string is declared in two different apps.
+This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+
 # General guidelines and information for translating
 
 ## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
@@ -239,7 +242,9 @@
   <string name="revanced_hide_keyword_content_phrases_summary">Parole chiave e frasi da nascondere, separate da nuove linee\n\nLe parole con lettere maiuscole nel centro devono essere inserite con il budello (ie: iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">Informazioni sul filtro delle parole chiave</string>
   <string name="revanced_hide_keyword_content_about_summary">Home/Abbonamento/I risultati della ricerca sono filtrati per nascondere il contenuto che corrisponde alle frasi di parole chiave\n\nLimitazioni\n• Alcuni Shorts potrebbero non essere nascosti\n• Alcuni componenti dell\'interfaccia utente potrebbero non essere nascosti\n• La ricerca di una parola chiave potrebbe non mostrare alcun risultato</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Parola chiave non valida. Impossibile utilizzare: \'%s\' come filtro</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Parola chiave non valida. \'%1$s\' è minore di %2$d caratteri</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Parola chiave \'$s\' nasconderà tutti i video</string>
   </patch>
@@ -275,6 +280,7 @@
   <string name="revanced_hide_merchandise_banners_title">Nascondi banner merchandise</string>
   <string name="revanced_hide_merchandise_banners_summary_on">I banner merceologici sono nascosti</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Vengono mostrati i banner di merce</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Nascondi gli annunci a schermo intero funziona solo con dispositivi più vecchi</string>
   </patch>
   <patch id="ad.getpremium.HideGetPremiumPatch">
@@ -389,7 +395,6 @@
   <string name="revanced_hide_thanks_button_summary_on">Grazie pulsante è nascosto</string>
   <string name="revanced_hide_thanks_button_summary_off">Il pulsante di ringraziamento è mostrato</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_clip_button_title">Hide Clip</string>
   <string name="revanced_hide_clip_button_summary_on">Il pulsante clip è nascosto</string>
   <string name="revanced_hide_clip_button_summary_off">Il pulsante clip è mostrato</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
@@ -579,7 +584,7 @@
   <string name="revanced_hide_shorts_subscriptions_summary_off">Vengono mostrati i resort in abbonamento</string>
   <string name="revanced_hide_shorts_search_title">Nascondi ricordi nei risultati di ricerca</string>
   <string name="revanced_hide_shorts_search_summary_on">Shorts nei risultati di ricerca sono nascosti</string>
-  <string name="revanced_hide_shorts_search_summary_off">I resort nei risultati della ricerca sono mostrati</string>
+  <string name="revanced_hide_shorts_search_summary_off">Vengono visualizzati gli Shorts nei risultati di ricerca</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Nascondi pulsante join</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Il pulsante Entra è nascosto</string>

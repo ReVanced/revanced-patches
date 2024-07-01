@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
+Note: All strings must have a unique path, even if the same string is declared in two different apps.
+This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+
 # General guidelines and information for translating
 
 ## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
@@ -241,7 +244,9 @@
   <string name="revanced_hide_keyword_content_phrases_summary">Nøgleord og sætninger at skjule, adskilt af nye linjer\n\nOrd med store bogstaver i midten skal indtastes med casing (dvs. iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">Om søgeord filtrering</string>
   <string name="revanced_hide_keyword_content_about_summary">Hjem/Abonnement/Søgeresultater filtreres for at skjule indhold, der matcher søgeordssætninger\n\nBegrænsninger\n• Nogle Shorts er muligvis ikke skjult\n• Nogle UI-komponenter er muligvis ikke skjult\n• Søger efter et søgeord, kan ikke vise nogen resultater</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Ugyldigt søgeord. Kan ikke bruge: \'%s\' som et filter</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Ugyldigt søgeord. \'%1$s\' er mindre end %2$d tegn</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Nøgleord \'$s\' vil skjule alle videoer</string>
   </patch>
@@ -277,6 +282,7 @@
   <string name="revanced_hide_merchandise_banners_title">Skjul merchandise bannere</string>
   <string name="revanced_hide_merchandise_banners_summary_on">Varer bannere er skjult</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Varer bannere er vist</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Skjul reklamer på fuld skærm virker kun med ældre enheder</string>
   </patch>
   <patch id="ad.getpremium.HideGetPremiumPatch">
@@ -391,7 +397,6 @@
   <string name="revanced_hide_thanks_button_summary_on">Tak knappen er skjult</string>
   <string name="revanced_hide_thanks_button_summary_off">Tak knappen er vist</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_clip_button_title">Hide Clip</string>
   <string name="revanced_hide_clip_button_summary_on">Klip knappen er skjult</string>
   <string name="revanced_hide_clip_button_summary_off">Klip knappen er vist</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->

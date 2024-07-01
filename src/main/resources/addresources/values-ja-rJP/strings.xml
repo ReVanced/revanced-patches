@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
+Note: All strings must have a unique path, even if the same string is declared in two different apps.
+This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+
 # General guidelines and information for translating
 
 ## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
@@ -240,7 +243,9 @@
   <string name="revanced_hide_keyword_content_phrases_summary">非表示にするキーワードとフレーズ 新しい行で区切られた\n\n中央に大文字を含む単語はケーシングで入力する必要があります (iPhone、TikTok、LeBlancなど)</string>
   <string name="revanced_hide_keyword_content_about_title">キーワードフィルタリングについて</string>
   <string name="revanced_hide_keyword_content_about_summary">ホーム/登録/検索結果は、キーワードフレーズに一致するコンテンツを非表示にするためにフィルタリングされます\n\n制限事項：\n• 一部のショートは非表示にされない場合があります\n• 一部のUIコンポーネントが非表示にされない場合があります\n• キーワードを検索しても結果が表示されない場合があります</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">無効なキーワードです。フィルタとして使用できません: \'%s\'</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">無効なキーワードです。\'%1$s\' は %2$d 文字未満です</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">キーワード \'$s\' はすべてのビデオを非表示にします</string>
   </patch>
@@ -276,6 +281,7 @@
   <string name="revanced_hide_merchandise_banners_title">商品バナーを非表示</string>
   <string name="revanced_hide_merchandise_banners_summary_on">商品バナーは非表示です</string>
   <string name="revanced_hide_merchandise_banners_summary_off">商品バナーが表示されます</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">全画面広告を非表示にするには、古い端末でのみ動作します</string>
   </patch>
   <patch id="ad.getpremium.HideGetPremiumPatch">
@@ -390,7 +396,6 @@
   <string name="revanced_hide_thanks_button_summary_on">「Thanks」ボタンは非表示です</string>
   <string name="revanced_hide_thanks_button_summary_off">「Thanks」ボタンは表示されます</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_clip_button_title">Hide Clip</string>
   <string name="revanced_hide_clip_button_summary_on">クリップボタンは非表示です</string>
   <string name="revanced_hide_clip_button_summary_off">クリップボタンを表示する</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->

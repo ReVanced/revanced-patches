@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
+Note: All strings must have a unique path, even if the same string is declared in two different apps.
+This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+
 # General guidelines and information for translating
 
 ## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
@@ -230,7 +233,9 @@
   <string name="revanced_hide_keyword_content_phrases_summary">লুকানোর জন্য কীওয়ার্ড এবং বাক্যাংশ, নতুন লাইনে পৃথক করা\n\nশব্দের মাঝে বড় হাতের অক্ষর থাকলে তা অবশ্যই সঠিক আবরণে লিখতে হবে (উদাহরণ: iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">কীওয়ার্ড ফিল্টারিং সম্পর্কে</string>
   <string name="revanced_hide_keyword_content_about_summary">প্রধান পাতা/সাবস্ক্রিপশন/অনুসন্ধান ফলাফল গুলো কীওয়ার্ড বাক্যাংশের সাথে মিলিয়ে লুকানোর জন্য ফিল্টার করা হয়েছে\n\nসীমাবদ্ধতা\n• কিছু Shorts নাও লুকানো হতে পারে\n• কিছু ইউআই উপাদান নাও লুকানো হতে পারে\n• কোন কীওয়ার্ড সার্চ করলে কোন ফলাফল নাও দেখাতে পারে</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">অবৈধ কীওয়ার্ড ফিল্টার \'%s\' ব্যবহার করা যাবে না</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">ত্রুটিপূর্ণ কীওয়ার্ড। \'%1$s\' টি %2$d অক্ষর থেকে কম</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
@@ -265,6 +270,7 @@
   <string name="revanced_hide_merchandise_banners_title">পণ্যদ্রব্য ব্যানার লুকান</string>
   <string name="revanced_hide_merchandise_banners_summary_on">পণ্যদ্রব্যের ব্যানার লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_merchandise_banners_summary_off">পণ্যদ্রব্যের ব্যানার প্রদর্শিত হয়েছে</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">পূর্ণস্ক্রীন বিজ্ঞাপন লুকানো পুরোনো ডিভাইসে কাজ করে</string>
   </patch>
   <patch id="ad.getpremium.HideGetPremiumPatch">
@@ -379,9 +385,8 @@
   <string name="revanced_hide_thanks_button_summary_on">ধন্যবাদ বোতাম লুকানো আছে</string>
   <string name="revanced_hide_thanks_button_summary_off">ধন্যবাদ বোতাম দেখানো হয়</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_clip_button_title">Hide Clip</string>
-  <string name="revanced_hide_clip_button_summary_on">Clip button is hidden</string>
-  <string name="revanced_hide_clip_button_summary_off">Clip button is shown</string>
+  <string name="revanced_hide_clip_button_summary_on">ক্লিপ বাটন লুকিয়ে রয়েছে</string>
+  <string name="revanced_hide_clip_button_summary_off">ক্লিপ বাটন প্রদর্শিত হয়েছে</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_playlist_button_title">Hide Save to playlist</string>
   <string name="revanced_hide_playlist_button_summary_on">Save to playlist button is hidden</string>

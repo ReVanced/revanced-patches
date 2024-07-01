@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
+Note: All strings must have a unique path, even if the same string is declared in two different apps.
+This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+
 # General guidelines and information for translating
 
 ## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
@@ -240,7 +243,9 @@
   <string name="revanced_hide_keyword_content_phrases_summary">Λέξεις-κλειδιά και φράσεις προς απόκρυψη, διαχωρισμένες η μία κάτω από την άλλη\n\nΔώστε προσοχή στα πεζά και κεφάλαια γράμματα διότι ισχύει ευαισθησία πεζότητας (π.χ.: iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">Σχετικά με το φιλτράρισμα λέξεων-κλειδιών</string>
   <string name="revanced_hide_keyword_content_about_summary">Οι καρτέλες «Αρχική», «Εγγραφές» και τα αποτελέσματα αναζήτησης φιλτράρονται για απόκρυψη περιεχομένου που ταιριάζει με τις λέξεις-κλειδιά\n\nΠεριορισμοί\n• Κάποια Shorts ενδέχεται να μην κρύβονται\n• Κάποια στοιχεία UI ενδέχεται να μην κρύβονται\n• Η αναζήτηση για μια λέξη-κλειδί ενδέχεται να μην εμφανίζει κανένα αποτέλεσμα</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Μη έγκυρη λέξη-κλειδί. Αδυναμία χρήσης: \'%s\' ως φίλτρο</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Μη έγκυρη λέξη-κλειδί. Το \'%1$s\' είναι μικρότερο από %2$d χαρακτήρες</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Η λέξη «$s» είναι τόσο ευρεία που θα κρύψει όλα τα βίντεο</string>
   </patch>
@@ -276,6 +281,7 @@
   <string name="revanced_hide_merchandise_banners_title">Εμβλήματα εμπορευμάτων</string>
   <string name="revanced_hide_merchandise_banners_summary_on">Κρυμμένα</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Εμφανίζονται</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Η απόκρυψη διαφημίσεων πλήρους οθόνης λειτουργεί μόνο με παλαιότερες συσκευές</string>
   </patch>
   <patch id="ad.getpremium.HideGetPremiumPatch">

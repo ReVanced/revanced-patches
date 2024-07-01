@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
+Note: All strings must have a unique path, even if the same string is declared in two different apps.
+This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+
 # General guidelines and information for translating
 
 ## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
@@ -93,8 +96,8 @@
   </patch>
   <patch id="layout.hide.general.HideLayoutComponentsPatch">
   <string name="revanced_disable_like_subscribe_glow_title">빛나는 \'좋아요\' / \'구독\' 버튼 비활성화하기</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">동영상에서 \'Like (좋아요)\' 또는 \'Subscribe (구독)\' 버튼이 언급되었을 때, 버튼에 빛나는 애니메이션을 적용하지 않습니다\n• 일부 언어는 아직 지원되지 않습니다</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">동영상에서 \'Like (좋아요)\' 또는 \'Subscribe (구독)\' 버튼이 언급되었을 때, 버튼에 빛나는 애니메이션을 적용합니다.\n• 일부 언어는 아직 지원되지 않습니다</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">동영상에서 \'Like (좋아요)\' 또는 \'Subscribe (구독)\' 버튼이 언급되었을 때, 해당되는 버튼에 빛나는 애니메이션을 적용하지 않습니다\n• 일부 언어는 아직 지원되지 않습니다</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">동영상에서 \'Like (좋아요)\' 또는 \'Subscribe (구독)\' 버튼이 언급되었을 때, 해당되는 버튼에 빛나는 애니메이션을 적용합니다\n• 일부 언어는 아직 지원되지 않습니다</string>
   <string name="revanced_hide_gray_separator_title">회색 구분선 숨기기</string>
   <string name="revanced_hide_gray_separator_summary_on">동영상들 사이에서 회색 구분선이 숨겨집니다</string>
   <string name="revanced_hide_gray_separator_summary_off">동영상들 사이에서 회색 구분선이 노출됩니다</string>
@@ -223,7 +226,7 @@
   <string name="revanced_custom_filter_summary_off">사용자 정의 필터를 비활성화합니다</string>
   <string name="revanced_custom_filter_strings_title">사용자 정의 필터</string>
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="revanced_custom_filter_strings_summary">필터링할 구성요소를 줄바꿈으로 구분하여 설정합니다</string>
+  <string name="revanced_custom_filter_strings_summary">필터링할 컴포넌트 패스 빌더 문자열을 줄바꿈으로 구분하여 설정합니다\n• 컴포넌트 패스 빌더 문자열은 숨겨질 레이아웃 구성요소를 식별하는 기술적인 이름입니다</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">잘못된 사용자 정의 필터 값입니다: %s</string>
   <string name="revanced_hide_keyword_content_screen_title">키워드 필터링</string>
   <string name="revanced_hide_keyword_content_screen_summary">키워드 필터를 사용하여 검색 결과와 피드에서 동영상을 숨길 수 있습니다</string>
@@ -242,7 +245,9 @@
   <string name="revanced_hide_keyword_content_phrases_summary">필터링할 키워드 및 구문을 줄바꿈으로 구분하여 설정합니다\n\n영어 키워드는 대소문자를 구분하여 입력해야 합니다 (예: iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">키워드 필터링 정보</string>
   <string name="revanced_hide_keyword_content_about_summary">홈 피드 / 구독 피드 / 검색 결과에서 키워드와 일치하는 콘텐츠가 숨겨집니다\n\n알려진 문제점:\n• 일부 Shorts는 숨겨지지 않을 수 있습니다\n• 일부 화면 구성요소가 숨겨지지 않을 수 있습니다\n• 키워드를 검색하면 결과가 표시되지 않을 수 있습니다</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">잘못된 키워드입니다. \'%s\'를 필터로 사용할 수 없습니다</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">\'%1$s\'는 잘못된 키워드입니다. 필터링 키워드는 %2$d 글자 이상이어야 합니다.</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">키워드 \'$s\'를 사용하면 모든 동영상이 숨겨집니다</string>
   </patch>
@@ -278,6 +283,7 @@
   <string name="revanced_hide_merchandise_banners_title">상품 배너 숨기기</string>
   <string name="revanced_hide_merchandise_banners_summary_on">상품 배너가 숨겨집니다</string>
   <string name="revanced_hide_merchandise_banners_summary_off">상품 배너가 노출됩니다</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">\'전체 화면 광고 숨기기\'는 구형 기기에서만 사용할 수 있습니다</string>
   </patch>
   <patch id="ad.getpremium.HideGetPremiumPatch">
@@ -323,9 +329,9 @@
   <string name="revanced_external_downloader_not_installed_warning">%s은(는) 설치되어 있지 않습니다. 설치하세요</string>
   </patch>
   <patch id="interaction.seekbar.DisablePreciseSeekingGesturePatch">
-  <string name="revanced_disable_precise_seeking_gesture_title">정확한 탐색 제스처 비활성화하기</string>
-  <string name="revanced_disable_precise_seeking_gesture_summary_on">정확한 탐색 제스처를 비활성화합니다\n• 필름 스트립 오버레이</string>
-  <string name="revanced_disable_precise_seeking_gesture_summary_off">정확한 탐색 제스처를 활성화합니다\n• 필름 스트립 오버레이</string>
+  <string name="revanced_disable_precise_seeking_gesture_title">세밀하게 탐색 제스처 비활성화하기</string>
+  <string name="revanced_disable_precise_seeking_gesture_summary_on">세밀하게 탐색 제스처를 비활성화합니다\n• 필름 스트립 오버레이</string>
+  <string name="revanced_disable_precise_seeking_gesture_summary_off">세밀하게 탐색 제스처를 활성화합니다\n• 필름 스트립 오버레이</string>
   </patch>
   <patch id="interaction.seekbar.EnableSeekbarTappingPatch">
   <string name="revanced_seekbar_tapping_title">재생바 터치 조작 활성화하기</string>
@@ -665,10 +671,8 @@
   </patch>
   <patch id="layout.panels.popup.PlayerPopupPanelsPatch">
   <string name="revanced_hide_player_popup_panels_title">플레이어 팝업 패널 숨기기</string>
-  <string name="revanced_hide_player_popup_panels_summary_on">플레이어 팝업 패널이 숨겨집니다
-• 재생목록, 실시간 채팅, etc.</string>
-  <string name="revanced_hide_player_popup_panels_summary_off">플레이어 팝업 패널이 노출됩니다
-• 재생목록, 실시간 채팅, etc.</string>
+  <string name="revanced_hide_player_popup_panels_summary_on">플레이어 팝업 패널이 숨겨집니다\n• 재생목록, 실시간 채팅, etc.</string>
+  <string name="revanced_hide_player_popup_panels_summary_off">플레이어 팝업 패널이 노출됩니다\n• 재생목록, 실시간 채팅, etc.</string>
   </patch>
   <patch id="layout.player.overlay.CustomPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">플레이어 오버레이 불투명도</string>
@@ -1115,7 +1119,7 @@
   <string name="revanced_spoof_client_screen_summary">클라이언트를 변경하여 재생 문제를 방지할 수 있습니다</string>
   <string name="revanced_spoof_client_title">클라이언트 변경하기</string>
   <string name="revanced_spoof_client_summary_on">클라이언트를 변경합니다</string>
-  <string name="revanced_spoof_client_summary_off">클라이언트를 변경하지 않습니다. 동영상이 재생되지 않을 수 있습니다</string>
+  <string name="revanced_spoof_client_summary_off">클라이언트를 변경하지 않습니다\n동영상 재생 문제가 발생할 수 있습니다</string>
   <string name="revanced_spoof_client_user_dialog_message">이 설정을 비활성화하면 동영상 재생 문제가 발생할 수 있습니다</string>
   <string name="revanced_spoof_client_use_ios_title">iOS 클라이언트로 변경하기</string>
   <string name="revanced_spoof_client_use_ios_summary_on">클라이언트를 iOS 클라이언트로 변경합니다\n\n알려진 문제점:\n• HDR 동영상을 재생할 수 없습니다\n• 브랜드 계정 사용자는 시청 기록을 사용할 수 없습니다\n• 동영상이 초고화질 동영상 값으로 재생되지 않을 수 있습니다 (1440p, 2160p)\n• 실시간 스트림에서 \'백그라운드 재생\'을 사용할 수 없습니다\n• Android 8.0 사용자는 실시간 스트림을 재생할 수 없습니다</string>

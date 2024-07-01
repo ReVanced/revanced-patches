@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
+Note: All strings must have a unique path, even if the same string is declared in two different apps.
+This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+
 # General guidelines and information for translating
 
 ## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
@@ -239,7 +242,9 @@
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">Nøkkelord og fraser å gjemme seg; atskilt av nye linjer\n\nord med store bokstaver i midten må angis med bokstaven i forhenget (ie: iPhone, TikTok, blanc)</string>
   <string name="revanced_hide_keyword_content_about_title">Om nøkkelordfiltrering</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Ugyldig søkeord. Kan ikke bruke: \'%s\' som et filter</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Ugyldig nøkkelord. \'%1$s\' er mindre enn %2$d tegn</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Nøkkelord \'$s\' vil skjule alle videoer</string>
   </patch>
@@ -275,6 +280,7 @@
   <string name="revanced_hide_merchandise_banners_title">Skjul vare-bannere</string>
   <string name="revanced_hide_merchandise_banners_summary_on">Handelsvare bannere er skjult</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Varsel-bannere vises</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Skjul fullskjermsannonser bare som fungerer med eldre enheter</string>
   </patch>
   <patch id="ad.getpremium.HideGetPremiumPatch">
@@ -389,7 +395,6 @@
   <string name="revanced_hide_thanks_button_summary_on">Tusen takk er skjult</string>
   <string name="revanced_hide_thanks_button_summary_off">Tusen takk vises</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_clip_button_title">Hide Clip</string>
   <string name="revanced_hide_clip_button_summary_on">Klipp knappen er skjult</string>
   <string name="revanced_hide_clip_button_summary_off">Klipp knappen vises</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->

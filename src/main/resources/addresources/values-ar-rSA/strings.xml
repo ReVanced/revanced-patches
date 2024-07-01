@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
+Note: All strings must have a unique path, even if the same string is declared in two different apps.
+This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+
 # General guidelines and information for translating
 
 ## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
@@ -239,7 +242,9 @@
   <string name="revanced_hide_keyword_content_phrases_summary">الكلمات المفتاحية والعبارات المراد إخفاؤها، مفصولة بأسطر جديد\n\nالكلمات التي تحتوي على أحرف كبيرة في الوسط يجب إدخالها مع التغليف (مثل: iPhone, TikTok, Leblanc)</string>
   <string name="revanced_hide_keyword_content_about_title">حول تصفية الكلمات المفتاحية</string>
   <string name="revanced_hide_keyword_content_about_summary">الصفحة الرئيسية/الاشتراك/نتائج البحث يتم تصفيتها لإخفاء المحتوى الذي يطابق عبارات الكلمات المفتاحية\n\nالتقييد\n• بعض المقاطع القصيرة قد لا تكون مخفية\n• بعض مكونات واجهة المستخدم قد لا تكون مخفية\n• البحث عن كلمة رئيسية قد لا يظهر أي نتائج</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">الكلمة المفتاحية غير صالحة. لا يمكن استخدام: \'%s\' كعامل تصفية</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">الكلمة المفتاحية غير صالحة. \'%1$s\' أقل من %2$d حرفًا</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">الكلمة المفتاحية \'$s\' سوف تخفي جميع الفيديوهات</string>
   </patch>
@@ -275,6 +280,7 @@
   <string name="revanced_hide_merchandise_banners_title">إخفاء لافتات البضائع</string>
   <string name="revanced_hide_merchandise_banners_summary_on">تم إخفاء لافتات البضائع</string>
   <string name="revanced_hide_merchandise_banners_summary_off">يتم عرض لافتات البضائع</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">إخفاء إعلانات ملء الشاشة يعمل فقط مع الأجهزة القديمة</string>
   </patch>
   <patch id="ad.getpremium.HideGetPremiumPatch">
