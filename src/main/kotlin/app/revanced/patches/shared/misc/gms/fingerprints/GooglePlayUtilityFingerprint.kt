@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.misc.gms.fingerprints
+package app.revanced.patches.shared.misc.gms.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
@@ -8,5 +8,5 @@ internal object GooglePlayUtilityFingerprint : MethodFingerprint(
     returnType = "I",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     parameters = listOf("L", "I"),
-    strings = listOf("This should never happen.", "MetadataValueReader", "com.google.android.gms")
+    strings = listOf("This should never happen.", "MetadataValueReader", "com.google.android.gms"),
 )

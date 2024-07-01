@@ -22,5 +22,5 @@ object UnlockSubscriptionPatch : BytecodePatch(
     setOf(StartSubscriptionActivityFingerprint, BillingClientOnServiceConnected),
 ) {
     override fun execute(context: BytecodeContext) =
-        listOf(StartSubscriptionActivityFingerprint, BillingClientOnServiceConnected).returnEarly()
+        setOf(StartSubscriptionActivityFingerprint, BillingClientOnServiceConnected).returnEarly()
 }

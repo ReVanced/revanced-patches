@@ -12,15 +12,15 @@ import app.revanced.util.returnEarly
 @Patch(
     name = "Remove root detection",
     description = "Removes the check for root permissions and unlocked bootloader.",
-    compatiblePackages = [CompatiblePackage("at.gv.oe.app")]
+    compatiblePackages = [CompatiblePackage("at.gv.oe.app")],
 )
 @Suppress("unused")
 object RootDetectionPatch : BytecodePatch(
-    setOf(AttestationSupportedCheckFingerprint, BootloaderCheckFingerprint, RootCheckFingerprint)
+    setOf(AttestationSupportedCheckFingerprint, BootloaderCheckFingerprint, RootCheckFingerprint),
 ) {
-    override fun execute(context: BytecodeContext) = listOf(
+    override fun execute(context: BytecodeContext) = setOf(
         AttestationSupportedCheckFingerprint,
         BootloaderCheckFingerprint,
-        RootCheckFingerprint
+        RootCheckFingerprint,
     ).returnEarly(true)
 }

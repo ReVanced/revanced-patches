@@ -114,7 +114,7 @@ fun Method.indexOfFirstWideLiteralInstructionValue(literal: Long) = implementati
  *
  * @return the first literal instruction with the value, or throws [PatchException] if not found.
  */
-fun Method.indexOfFirstWideLiteralInstructionValueOrThrow(literal: Long) : Int {
+fun Method.indexOfFirstWideLiteralInstructionValueOrThrow(literal: Long): Int {
     val index = indexOfFirstWideLiteralInstructionValue(literal)
     if (index < 0) throw PatchException("Could not find literal value: $literal")
     return index
@@ -160,7 +160,7 @@ inline fun <reified T : Reference> Instruction.getReference() = (this as? Refere
 // TODO: delete this on next major release, the overloaded method with an optional start index serves the same purposes.
 // Method is deprecated, but annotation is commented out otherwise during compilation usage of the replacement is
 // incorrectly flagged as deprecated.
-//@Deprecated("Use the overloaded method with an optional start index.", ReplaceWith("indexOfFirstInstruction(predicate)"))
+// @Deprecated("Use the overloaded method with an optional start index.", ReplaceWith("indexOfFirstInstruction(predicate)"))
 fun Method.indexOfFirstInstruction(predicate: Instruction.() -> Boolean) = indexOfFirstInstruction(0, predicate)
 
 /**
@@ -211,28 +211,41 @@ fun Method.findOpcodeIndicesReversed(opcode: Opcode): List<Int> {
 }
 
 /**
- * Return the resolved methods of [MethodFingerprint]s early.
+ * Return the resolved method early.
  */
-fun List<MethodFingerprint>.returnEarly(bool: Boolean = false) {
+fun MethodFingerprint.returnEarly(bool: Boolean = false) {
     val const = if (bool) "0x1" else "0x0"
-    this.forEach { fingerprint ->
-        fingerprint.result?.let { result ->
-            val stringInstructions = when (result.method.returnType.first()) {
-                'L' ->
-                    """
+    result?.let { result ->
+        val stringInstructions = when (result.method.returnType.first()) {
+            'L' ->
+                """
                         const/4 v0, $const
                         return-object v0
                         """
-                'V' -> "return-void"
-                'I', 'Z' ->
-                    """
+            'V' -> "return-void"
+            'I', 'Z' ->
+                """
                         const/4 v0, $const
                         return v0
                         """
-                else -> throw Exception("This case should never happen.")
-            }
+            else -> throw Exception("This case should never happen.")
+        }
 
-            result.mutableMethod.addInstructions(0, stringInstructions)
-        } ?: throw fingerprint.exception
-    }
+        result.mutableMethod.addInstructions(0, stringInstructions)
+    } ?: throw exception
+}
+
+/**
+ * Return the resolved methods early.
+ */
+fun Iterable<MethodFingerprint>.returnEarly(bool: Boolean = false) = forEach { fingerprint ->
+    fingerprint.returnEarly(bool)
+}
+
+/**
+ * Return the resolved methods early.
+ */
+@Deprecated("Use the Iterable version")
+fun List<MethodFingerprint>.returnEarly(bool: Boolean = false) = forEach { fingerprint ->
+    fingerprint.returnEarly(bool)
 }
