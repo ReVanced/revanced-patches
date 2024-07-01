@@ -10,7 +10,7 @@ import app.revanced.patches.windyapp.misc.unlockpro.fingerprints.CheckProFingerp
 @Patch(
     name = "Unlock pro",
     description = "Unlocks all pro features.",
-    compatiblePackages = [CompatiblePackage("com.windyty.android")]
+    compatiblePackages = [CompatiblePackage("co.windyapp.android")]
 )
 @Suppress("unused")
 object UnlockProPatch : BytecodePatch(
