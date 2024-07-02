@@ -13,6 +13,7 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.soundcloud.ad.fingerprints.InterceptFingerprint
 import app.revanced.patches.soundcloud.ad.fingerprints.FeatureConstructorFingerprint
 import app.revanced.patches.soundcloud.ad.fingerprints.UserConsumerPlanConstructorFingerprint
+import app.revanced.patches.soundcloud.offline.fingerprints.OfflineSyncHeaderVerificationFingerprint
 import app.revanced.patches.soundcloud.offline.fingerprints.OfflineSyncURLBuilderFingerprint
 import app.revanced.util.resultOrThrow
 
@@ -22,7 +23,7 @@ import app.revanced.util.resultOrThrow
 )
 @Suppress("unused")
 object AllowOfflineSyncPatch : BytecodePatch(
-    setOf(FeatureConstructorFingerprint, OfflineSyncURLBuilderFingerprint),
+    setOf(FeatureConstructorFingerprint, OfflineSyncURLBuilderFingerprint, OfflineSyncHeaderVerificationFingerprint),
 ) {
     override fun execute(context: BytecodeContext) {
         // Enable a preset feature to allow offline track syncing by modifying the JSON server response.
@@ -48,11 +49,52 @@ object AllowOfflineSyncPatch : BytecodePatch(
              * iget-object v0, p0, Lcom/soundcloud/android/offline/i;->d:Lij/d;
              * sget-object v1, Lij/a;->OFFLINE_SYNC:Lij/a;
              *
-             * ^ We want the sget to instead grab HLS_STREAM!
+             * ^ We want the sget to instead grab HTTPS_STREAM!
              * the Offline Sync endpoint is not very friendly, it hates anyone who does not pay money >:(
              */
             val offlineSyncGetInstruction = 1
-            replaceInstruction(offlineSyncGetInstruction, "sget-object v1, Lij/a;->HLS_STREAM:Lij/a;")
+            replaceInstruction(offlineSyncGetInstruction, "sget-object v1, Lij/a;->HTTPS_STREAM:Lij/a;")
         }
+
+        OfflineSyncHeaderVerificationFingerprint.resultOrThrow().mutableMethod.apply {
+            /**
+             * HTTPS Stream has one major flaw. It does not return 3 specific headers, which crashes Soundcloud.
+             *
+             * Since those are only cosmetic though, we'll simply move "" into the local Variables when appropiate.
+             */
+            // These indices Represent the opcodes on which "if-eqz" is performed. Before they run,
+            // If we *do* detect the null and instead move "" into there.
+            val opcodeSize = 2
+            val firstZeroCheck = 4
+            // Adding instructions shifts our indices around, adjust appropiately
+            val secondZeroCheck = 8 + opcodeSize
+            val thirdZeroCheck = 12 + 2 * opcodeSize
+            addInstructionsWithLabels(
+                firstZeroCheck,
+                """
+                    if-nez v0, :skip1
+                    const-string v0, ""
+            """,
+                ExternalLabel("skip1", getInstruction(firstZeroCheck)),
+            )
+            addInstructionsWithLabels(
+                secondZeroCheck,
+                """
+                    if-nez v2, :skip2
+                    const-string v2, ""
+            """,
+                ExternalLabel("skip2", getInstruction(secondZeroCheck)),
+            )
+            addInstructionsWithLabels(
+                thirdZeroCheck,
+                """
+                    if-nez v6, :skip3
+                    const-string v6, ""
+            """,
+                ExternalLabel("skip3", getInstruction(thirdZeroCheck)),
+            )
+        }
+
+
     }
 }
