@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
+Note: All strings must have a unique path, even if the same string is declared in two different apps.
+This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+
 # General guidelines and information for translating
 
 ## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
@@ -241,7 +244,9 @@
   <string name="revanced_hide_keyword_content_phrases_summary">Ключевые слова и фразы, которые нужно скрыть, разделены новыми строками\n\nСлова чувствительны к регистру (например: iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">О фильтре ключевых слов</string>
   <string name="revanced_hide_keyword_content_about_summary">Вкладки \"Главная\", \"Подписки\" и результаты поиска фильтруются для скрытия контента, соответствующего ключевым фразам\n\nОграничения\n• Некоторые Shorts могут быть не скрыты\n• Некоторые компоненты пользовательского интерфейса могут быть не скрыты\n• Поиск по ключевому слову может не дать результатов</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Недопустимое ключевое слово. Невозможно использовать: \'%s\' в качестве фильтра</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Недопустимое ключевое слово. \'%1$s\' содержит менее %2$d символов</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Ключевое слово \'$s\' скроет все видео</string>
   </patch>
@@ -277,6 +282,7 @@
   <string name="revanced_hide_merchandise_banners_title">Баннеры торговли</string>
   <string name="revanced_hide_merchandise_banners_summary_on">Баннеры торговли в ленте скрыты</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Баннеры торговли в ленте отображены</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Скрытие полноэкранной рекламы работает только для старых устройств</string>
   </patch>
   <patch id="ad.getpremium.HideGetPremiumPatch">

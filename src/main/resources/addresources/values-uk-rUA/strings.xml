@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
+Note: All strings must have a unique path, even if the same string is declared in two different apps.
+This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+
 # General guidelines and information for translating
 
 ## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
@@ -236,10 +239,12 @@
   <string name="revanced_hide_keyword_content_phrases_title">Ключові слова, які потрібно приховати</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
-  <string name="revanced_hide_keyword_content_phrases_summary">Ключові слова та фрази, які потрібно приховати, розділені новими рядками.\n\n• Довжина ключового слова повинна бути не менше 3-х символів\n• Слова з великими літерами посередині мають містити регістр (наприклад: iPhone, TikTok, LeBlanc)</string>
+  <string name="revanced_hide_keyword_content_phrases_summary">Ключові слова та фрази, які потрібно приховати, розділені новими рядками.\n\n• Довжина ключового слова повинна бути не менше 3-х символів\n• Слова з великими літерами посередині мають містити регістр (наприклад: iPhone, TikTok, Івано-Франківськ)</string>
   <string name="revanced_hide_keyword_content_about_title">Про фільтр ключових слів</string>
   <string name="revanced_hide_keyword_content_about_summary">Головна/Підписки/Результати пошуку фільтруються, щоб приховати відео за ключовими словами.\n\nОбмеження:\n• Деякі Shorts можуть не приховуватися\n• Деякі елементи інтерфейсу можуть не приховуватися\n• Пошук за ключовим словом може не показувати результатів</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Ключове слово \'%s\' не можна використовувати</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Ключове слово \'%1$s\' менше %2$d-х символів</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Ключове слово \'$s\' приховає всі відео</string>
   </patch>
@@ -275,6 +280,7 @@
   <string name="revanced_hide_merchandise_banners_title">Приховати товарні банери</string>
   <string name="revanced_hide_merchandise_banners_summary_on">Товарні банери приховано</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Товарні банери показуються</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Приховувати повноекранну рекламу працює тільки зі старими пристроями</string>
   </patch>
   <patch id="ad.getpremium.HideGetPremiumPatch">
@@ -791,11 +797,11 @@
   <string name="revanced_sb_segments_interaction_sum">Коротке нагадування про вподобання, підписку або підписку посеред контенту. Якщо воно довге або про щось конкретне, його слід розмістити в розділі самореклами</string>
   <string name="revanced_sb_segments_highlight">Основний момент</string>
   <string name="revanced_sb_segments_highlight_sum">Частина відео, яку шукає більшість людей</string>
-  <string name="revanced_sb_segments_intro">Перерва/Вступна Анімація</string>
+  <string name="revanced_sb_segments_intro">Пауза/Заставка</string>
   <string name="revanced_sb_segments_intro_sum">Інтервал без фактичного контенту. Може бути паузою, статичним кадром або повторюваною анімацією. Не включає переходи, що містять інформацію</string>
   <string name="revanced_sb_segments_outro">Кінцеві картки/Титри</string>
   <string name="revanced_sb_segments_outro_sum">Титри або коли з\'являються кінцеві картки YouTube. Не для підсумків з інформацією</string>
-  <string name="revanced_sb_segments_preview">Попередній перегляд/Підсумок/Зачіпка</string>
+  <string name="revanced_sb_segments_preview">Прев\'ю/Підсумок/Зачіпка</string>
   <string name="revanced_sb_segments_preview_sum">Колекція кліпів, які показують, що відбувається або що сталося у відео чи в інших відео серій, де вся інформація повторюється в іншому місці</string>
   <string name="revanced_sb_segments_filler">Дотичне наповнення/Жарти</string>
   <string name="revanced_sb_segments_filler_sum">Дотичні сцени, додані лише для наповнення або гумору, які не є необхідними для розуміння основного змісту відео. Не включає сегменти, що надають контекст або фонові деталі</string>
@@ -803,16 +809,16 @@
   <string name="revanced_sb_segments_nomusic_sum">Тільки для використання в музичних відео. Секції музичних відео без музики, які не підпадають під іншу категорію</string>
   <string name="revanced_sb_skip_button_compact">Пропустити</string>
   <string name="revanced_sb_skip_button_compact_highlight">Основний момент</string>
-  <string name="revanced_sb_skip_button_sponsor">Пропустити спонсорську вставку</string>
-  <string name="revanced_sb_skip_button_selfpromo">Пропустити промо-ролик</string>
+  <string name="revanced_sb_skip_button_sponsor">Пропустити спонсор</string>
+  <string name="revanced_sb_skip_button_selfpromo">Пропустити саморекламу</string>
   <string name="revanced_sb_skip_button_interaction">Пропустити взаємодію</string>
   <string name="revanced_sb_skip_button_highlight">Перейти до основного</string>
   <string name="revanced_sb_skip_button_intro_beginning">Пропустити вступ</string>
   <string name="revanced_sb_skip_button_intro_middle">Пропустити паузу</string>
   <string name="revanced_sb_skip_button_intro_end">Пропустити паузу</string>
   <string name="revanced_sb_skip_button_outro">Пропустити закінчення</string>
-  <string name="revanced_sb_skip_button_preview_beginning">Пропустити попередній перегляд</string>
-  <string name="revanced_sb_skip_button_preview_middle">Пропустити попередній перегляд</string>
+  <string name="revanced_sb_skip_button_preview_beginning">Пропустити прев\'ю</string>
+  <string name="revanced_sb_skip_button_preview_middle">Пропустити прев\'ю</string>
   <string name="revanced_sb_skip_button_preview_end">Пропустити підсумок</string>
   <string name="revanced_sb_skip_button_filler">Пропустити вставку</string>
   <string name="revanced_sb_skip_button_nomusic">Пропустити без музики</string>

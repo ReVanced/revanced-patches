@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
+Note: All strings must have a unique path, even if the same string is declared in two different apps.
+This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+
 # General guidelines and information for translating
 
 ## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
@@ -242,7 +245,9 @@
   <string name="revanced_hide_keyword_content_phrases_summary">Stichwörter und zu versteckende Phrasen durch neue Zeilen\n\ngetrennte Wörter mit Großbuchstaben in der Mitte müssen mit dem Gehäuse eingegeben werden (z.B. iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">Über Keyword-Filterung</string>
   <string name="revanced_hide_keyword_content_about_summary">Home/Abonnement/Suchergebnisse werden gefiltert, um Inhalte auszublenden, die den Schlüsselwörtern\n\nBeschränkungen\nentsprechen • Einige Shorts können nicht versteckt werden\n• Einige UI-Komponenten können nicht versteckt werden\n• Suche nach einem Schlüsselwort kann keine Ergebnisse zeigen</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Ungültiges Schlüsselwort. Kann nicht verwenden: \'%s\' als Filter</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Ungültiges Schlüsselwort. \'%1$s\' ist weniger als %2$d Zeichen</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Stichwort \'$s\' wird alle Videos ausblenden</string>
   </patch>
@@ -278,6 +283,7 @@
   <string name="revanced_hide_merchandise_banners_title">Merchandise-Banner ausblenden</string>
   <string name="revanced_hide_merchandise_banners_summary_on">Warenbanner sind versteckt</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Warenbanner werden angezeigt</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Vollbild-Werbung ausblenden funktioniert nur mit älteren Geräten</string>
   </patch>
   <patch id="ad.getpremium.HideGetPremiumPatch">

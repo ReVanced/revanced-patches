@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
+Note: All strings must have a unique path, even if the same string is declared in two different apps.
+This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+
 # General guidelines and information for translating
 
 ## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
@@ -241,7 +244,9 @@
   <string name="revanced_hide_keyword_content_phrases_summary">Trefwoorden en zinnen te verbergen, gescheiden door nieuwe regels\n\nWoorden met hoofdletters in het midden moeten worden ingevoerd met de behuizing (bv: iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">Over trefwoord filteren</string>
   <string name="revanced_hide_keyword_content_about_summary">Thuis/Abonnement/Zoekresultaten worden gefilterd om de inhoud te verbergen die overeenkomt met trefwoordzinnen\n\nBeperkingen\n• Sommige Kortingen kunnen niet verborgen zijn\n• Sommige UI-componenten kunnen niet verborgen zijn\n• Zoeken naar een trefwoord kan geen resultaten laten zien</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Ongeldig sleutelwoord. Kan niet gebruiken: \'%s\' als filter</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Ongeldig sleutelwoord. \'%1$s\' is minder dan %2$d tekens</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">$szal alle video\'s verbergen</string>
   </patch>
@@ -277,6 +282,7 @@
   <string name="revanced_hide_merchandise_banners_title">Verberg banners van artikelen</string>
   <string name="revanced_hide_merchandise_banners_summary_on">Merchandise banners zijn verborgen</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Producten worden getoond</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Verberg advertenties op volledig scherm werkt alleen met oudere apparaten</string>
   </patch>
   <patch id="ad.getpremium.HideGetPremiumPatch">
@@ -391,7 +397,6 @@
   <string name="revanced_hide_thanks_button_summary_on">Bedankt knop is verborgen</string>
   <string name="revanced_hide_thanks_button_summary_off">Bedankt knop wordt weergegeven</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_clip_button_title">Hide Clip</string>
   <string name="revanced_hide_clip_button_summary_on">Clip knop is verborgen</string>
   <string name="revanced_hide_clip_button_summary_off">Clip knop wordt weergegeven</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->

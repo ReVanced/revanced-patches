@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
+Note: All strings must have a unique path, even if the same string is declared in two different apps.
+This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+
 # General guidelines and information for translating
 
 ## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
@@ -199,9 +202,19 @@
   <string name="revanced_hide_chips_shelf_title">Сакриј полицу ознака сличних видеа</string>
   <string name="revanced_hide_chips_shelf_summary_on">Полица ознака сличних видеа је скривена</string>
   <string name="revanced_hide_chips_shelf_summary_off">Полица ознака сличних видеа је приказана</string>
+  <string name="revanced_hide_attributes_section_title">Сакриј одељак са атрибутима</string>
+  <string name="revanced_hide_attributes_section_summary_on">Одељци „Истакнута места”, „Игре” и „Музика” су скривени</string>
+  <string name="revanced_hide_attributes_section_summary_off">Одељци „Истакнута места”, „Игре” и „Музика” су приказани</string>
+  <string name="revanced_hide_chapters_section_title">Сакриј одељак за поглавља</string>
+  <string name="revanced_hide_chapters_section_summary_on">Одељак за поглавља је скривен</string>
+  <string name="revanced_hide_chapters_section_summary_off">Одељак за поглавља је приказан</string>
+  <string name="revanced_hide_podcast_section_title">Сакриј одељак „Истражите подкаст”</string>
+  <string name="revanced_hide_podcast_section_summary_on">Одељак „Истражите подкаст” је скривен</string>
+  <string name="revanced_hide_podcast_section_summary_off">Одељак „Истражите подкаст” је приказан</string>
   <string name="revanced_hide_info_cards_section_title">Сакриј одељак с инфо картицама</string>
   <string name="revanced_hide_info_cards_section_summary_on">Одељак с инфо картицама је скривен</string>
   <string name="revanced_hide_info_cards_section_summary_off">Одељак с инфо картицама је приказан</string>
+  <string name="revanced_hide_transcript_section_title">Сакриј одељак за транскрипцију</string>
   <string name="revanced_hide_transcript_section_summary_on">Одељак за транскрипцију је скривен</string>
   <string name="revanced_hide_transcript_section_summary_off">Одељак за транскрипцију је скривен</string>
   <string name="revanced_hide_description_components_screen_title">Опис видеа</string>
@@ -232,8 +245,11 @@
   <string name="revanced_hide_keyword_content_phrases_summary">Кључне речи и фразе које треба сакрити, одвојене новим редовима\n\nРечи са великим словима у средини морају се унети са великим словима (нпр.: iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">О филтрирању према кључним речима</string>
   <string name="revanced_hide_keyword_content_about_summary">Почетна/Праћења/Резултати претраге се филтрирају да би се сакрио садржај који се подудара са кључним фразама\n\nОграничења\n• Неки Shorts видеи можда неће бити сакривени\n• Неке компоненте корисничког интерфејса можда неће бити сакривене\n• Претраживање кључне речи можда неће показати резултате</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Неважећа кључна реч. Није могуће користити „%s”</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Неважећа кључна реч. „%1$s” је краће од %2$d знакова</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">Кључна реч „$s” ће сакрити све видее</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Сакриј опште огласе</string>
@@ -267,6 +283,7 @@
   <string name="revanced_hide_merchandise_banners_title">Сакриј банере с робом</string>
   <string name="revanced_hide_merchandise_banners_summary_on">Банери с робом су скривени</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Банери с робом су приказани</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Сакривање огласа преко целог екрана ради само са старијим уређајима</string>
   </patch>
   <patch id="ad.getpremium.HideGetPremiumPatch">
@@ -496,6 +513,9 @@
   <string name="revanced_hide_comments_section_title">Сакриј одељак за коментаре</string>
   <string name="revanced_hide_comments_section_summary_on">Одељак за коментаре је скривен</string>
   <string name="revanced_hide_comments_section_summary_off">Одељак за коментаре је приказан</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">Сакриј дугме „Направи Short”</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">Дугме „Направи Short” је скривено</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">Дугме „Направи Short” је приказано</string>
   <string name="revanced_hide_comments_preview_comment_title">Сакриј коментар за преглед</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Коментар за преглед је скривен</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Коментар за преглед је приказан</string>
@@ -1101,6 +1121,7 @@
   <string name="revanced_spoof_client_user_dialog_message">Искључивање овог подешавања можда ће изазвати проблеме са репродукцијом видеа.</string>
   <string name="revanced_spoof_client_use_ios_title">Лажиран клијент на iOS</string>
   <string name="revanced_spoof_client_use_ios_summary_on">Клијент је тренутно лажиран на iOS\n\nНежељени ефекти обухватају:\n• Нема HDR видеа\n• Историја гледања можда неће радити\n• Виши квалитети видеа можда ће недостајати\n• Стримови уживо не могу да се пуштају само као аудио\n• Стримови уживо нису доступни на Android верзији 8.0</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">Клијент је тренутно лажиран на Android VR\n\nНежељени ефекти обухватају:\н• Нема HDR видеа\n• Дечји видео снимци се не репродукују\n• Паузирани видео снимци могу насумично да се настављају\n• Сличице на траци за премотавање Shorts видеа лошег квалитета\n• Дугме за радњу „Преузми“ је увек скривено\n• Картице завршног екрана су увек скривене</string>
   <string name="revanced_spoof_client_storyboard_timeout">Сличице у лажираном клијенту нису доступне (API истекао)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Сличице у лажираном клијенту привремено нису доступне: %s</string>
   </patch>
