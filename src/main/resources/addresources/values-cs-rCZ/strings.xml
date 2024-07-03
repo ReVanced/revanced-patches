@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
+Note: All strings must have a unique path, even if the same string is declared in two different apps.
+This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+
 # General guidelines and information for translating
 
 ## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
@@ -242,7 +245,9 @@
   <string name="revanced_hide_keyword_content_phrases_summary">klíčová slova a fráze ke skrytí, odděleno novými řádky\n\nSlova s velkými písmeny uprostřed musí být zadána s pláštěm (ie: iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">O filtrování klíčových slov</string>
   <string name="revanced_hide_keyword_content_about_summary">Výsledky domovského/předplatného/vyhledávání jsou filtrovány pro skrytí obsahu, který odpovídá výrazům klíčových slov\n\nOmezení\n• Některé krátkosti nemusí být skryty\n• Některé komponenty uživatelského rozhraní nemusí být skryté\n• Hledání klíčových slov nemusí zobrazovat žádné výsledky</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Neplatné klíčové slovo. Nelze použít: \'%s\' jako filtr</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Neplatné klíčové slovo. \'%1$s\' je menší než %2$d znaků</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Klíčové slovo \'$s\' skryje všechna videa</string>
   </patch>
@@ -278,6 +283,7 @@
   <string name="revanced_hide_merchandise_banners_title">Skrýt bannery zboží</string>
   <string name="revanced_hide_merchandise_banners_summary_on">Bannery zboží jsou skryty</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Bannery zboží jsou zobrazeny</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Skrýt reklamy na celou obrazovku fungují pouze se staršími zařízeními</string>
   </patch>
   <patch id="ad.getpremium.HideGetPremiumPatch">

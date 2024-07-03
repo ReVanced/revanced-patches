@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
+Note: All strings must have a unique path, even if the same string is declared in two different apps.
+This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+
 # General guidelines and information for translating
 
 ## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
@@ -52,7 +55,7 @@
   </app>
   <app id="youtube">
   <patch id="misc.settings.SettingsResourcePatch">
-  <string name="revanced_settings_about_links_body">আপনি ReVanced প্যাচ সংস্করণ &lt;i&gt;&lt;i&gt;%s&lt;/i&gt;&lt;/i&gt; ব্যবহার করছেন</string>
+  <string name="revanced_settings_about_links_body">আপনি ReVanced প্যাচ সংস্করণ &lt;i&gt;%s&lt;/i&gt; ব্যবহার করছেন</string>
   <string name="revanced_settings_about_links_dev_header">দ্রষ্টব্য</string>
   <string name="revanced_settings_about_links_dev_body">এই সংস্করণ একটি প্রাক-প্রকাশনা এবং এতে আপনি অনাকাঙ্খিত সমস্যার সম্মুখিন হতে পারেন</string>
   <string name="revanced_settings_about_links_header">অফিশ্যাল লিংকসমূহ</string>
@@ -197,6 +200,8 @@
   <string name="revanced_hide_chips_shelf_title">চিপ শেলপ লুকান</string>
   <string name="revanced_hide_chips_shelf_summary_on">চিপ শেলপ লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_chips_shelf_summary_off">চিপ শেলপ প্রদর্শিত হয়েছে</string>
+  <string name="revanced_hide_attributes_section_title">বৈশিষ্ট্য বিভাগ লুকান</string>
+  <string name="revanced_hide_attributes_section_summary_on">\'বৈশিষ্ট্যযুক্ত স্থান\', গেম এবং সঙ্গীত বিভাগগুলি লুকানো আছে</string>
   <string name="revanced_hide_info_cards_section_title">তথ্য কার্ড সেকশন লুকান</string>
   <string name="revanced_hide_info_cards_section_summary_on">তথ্য কার্ড সেকশন লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_info_cards_section_summary_off">তথ্য কার্ড সেকশন প্রদর্শিত হয়েছে</string>
@@ -230,7 +235,9 @@
   <string name="revanced_hide_keyword_content_phrases_summary">লুকানোর জন্য কীওয়ার্ড এবং বাক্যাংশ, নতুন লাইনে পৃথক করা\n\nশব্দের মাঝে বড় হাতের অক্ষর থাকলে তা অবশ্যই সঠিক আবরণে লিখতে হবে (উদাহরণ: iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">কীওয়ার্ড ফিল্টারিং সম্পর্কে</string>
   <string name="revanced_hide_keyword_content_about_summary">প্রধান পাতা/সাবস্ক্রিপশন/অনুসন্ধান ফলাফল গুলো কীওয়ার্ড বাক্যাংশের সাথে মিলিয়ে লুকানোর জন্য ফিল্টার করা হয়েছে\n\nসীমাবদ্ধতা\n• কিছু Shorts নাও লুকানো হতে পারে\n• কিছু ইউআই উপাদান নাও লুকানো হতে পারে\n• কোন কীওয়ার্ড সার্চ করলে কোন ফলাফল নাও দেখাতে পারে</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">অবৈধ কীওয়ার্ড ফিল্টার \'%s\' ব্যবহার করা যাবে না</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">ত্রুটিপূর্ণ কীওয়ার্ড। \'%1$s\' টি %2$d অক্ষর থেকে কম</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
@@ -265,6 +272,7 @@
   <string name="revanced_hide_merchandise_banners_title">পণ্যদ্রব্য ব্যানার লুকান</string>
   <string name="revanced_hide_merchandise_banners_summary_on">পণ্যদ্রব্যের ব্যানার লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_merchandise_banners_summary_off">পণ্যদ্রব্যের ব্যানার প্রদর্শিত হয়েছে</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">পূর্ণস্ক্রীন বিজ্ঞাপন লুকানো পুরোনো ডিভাইসে কাজ করে</string>
   </patch>
   <patch id="ad.getpremium.HideGetPremiumPatch">
@@ -334,44 +342,24 @@
   <string name="revanced_swipe_save_and_restore_brightness_summary_on">পূর্ণস্ক্রিনে প্রবেশ বা পূর্ণস্ক্রিন থেকে বাহির হওয়ার সময়, উজ্জ্বলতা সংরক্ষণ এবং পুনরুদ্ধার করবে</string>
   <string name="revanced_swipe_save_and_restore_brightness_summary_off">পূর্ণস্ক্রিনে প্রবেশ বা পূর্ণস্ক্রিন থেকে বাহির হওয়ার সময়, উজ্জ্বলতা সংরক্ষণ এবং পুনরুদ্ধার করবে না</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">স্বয়ংক্রিয়-উজ্জ্বলতার অঙ্গভঙ্গি সক্রিয় করুন</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on"></string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off"></string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Hell</string>
-  <string name="revanced_swipe_overlay_timeout_title"></string>
-  <string name="revanced_swipe_overlay_timeout_summary">The amount of milliseconds the overlay is visible</string>
-  <string name="revanced_swipe_text_overlay_size_title">Swipe overlay text size</string>
-  <string name="revanced_swipe_text_overlay_size_summary">The text size for swipe overlay</string>
-  <string name="revanced_swipe_overlay_background_alpha_title">Swipe background visibility</string>
-  <string name="revanced_swipe_overlay_background_alpha_summary">The visibility of swipe overlay background</string>
-  <string name="revanced_swipe_threshold_title">Swipe magnitude threshold</string>
-  <string name="revanced_swipe_threshold_summary">The amount of threshold for swipe to occur</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">স্বতস্ফূর্তভাবে</string>
+  <string name="revanced_swipe_overlay_timeout_title">ওভার-লে টাইম আউট</string>
+  <string name="revanced_swipe_overlay_timeout_summary">কত মিলিসেকেন্ডের জন্য ওভারলে দৃশ্যমান হবে</string>
+  <string name="revanced_swipe_text_overlay_size_title">সোয়াইপ ওভারলে টেক্সট সাইজ</string>
+  <string name="revanced_swipe_text_overlay_size_summary">সোয়াইপ ওভারলে এর টেক্সট সাইজ</string>
+  <string name="revanced_swipe_overlay_background_alpha_title">সোয়াইপ ব্যাকগ্রাউন্ডের দৃশ্যমানতা</string>
+  <string name="revanced_swipe_overlay_background_alpha_summary">সোয়াইপ ওভারলে ব্যাকগ্রাউন্ডের দৃশ্যমানতা</string>
+  <string name="revanced_swipe_threshold_title">সোয়াইপ থ্রেশহোল্ড এর মাত্রা</string>
   </patch>
   <patch id="layout.autocaptions.AutoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Disable auto captions</string>
-  <string name="revanced_auto_captions_summary_on">Auto captions are disabled</string>
-  <string name="revanced_auto_captions_summary_off">Auto captions are enabled</string>
+  <string name="revanced_auto_captions_title">স্বয়ংক্রিয় ক্যাপশন বন্ধ করুন</string>
   </patch>
   <patch id="layout.buttons.action.HideButtonsPatch">
-  <string name="revanced_hide_buttons_screen_title">Action buttons</string>
-  <string name="revanced_hide_buttons_screen_summary">Hide or show buttons under videos</string>
-  <string name="revanced_hide_like_dislike_button_title">Hide Like and Dislike</string>
-  <string name="revanced_hide_like_dislike_button_summary_on">Like and Dislike buttons are hidden</string>
-  <string name="revanced_hide_like_dislike_button_summary_off">Like and Dislike buttons are shown</string>
   <!-- 'Share' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_share_button_title">Hide Share</string>
-  <string name="revanced_hide_share_button_summary_on">Share button is hidden</string>
-  <string name="revanced_hide_share_button_summary_off">Share button is hidden</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
-  <string name="revanced_hide_report_button_title">Hide Report</string>
-  <string name="revanced_hide_report_button_summary_on">Report button is hidden</string>
-  <string name="revanced_hide_report_button_summary_off">Report button is shown</string>
   <!-- 'Remix' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_remix_button_title">Hide Remix</string>
-  <string name="revanced_hide_remix_button_summary_on">Remix button is hidden</string>
-  <string name="revanced_hide_remix_button_summary_off">Remix button is shown</string>
   <!-- 'Download' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_download_button_title">Hide Download </string>
   <string name="revanced_hide_download_button_summary_on">ডাউনলোড বোতাম লুকানো আছে</string>
   <string name="revanced_hide_download_button_summary_off">ডাউনলোড বোতাম দেখানো হয়েছে</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
@@ -379,29 +367,17 @@
   <string name="revanced_hide_thanks_button_summary_on">ধন্যবাদ বোতাম লুকানো আছে</string>
   <string name="revanced_hide_thanks_button_summary_off">ধন্যবাদ বোতাম দেখানো হয়</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_clip_button_title">Hide Clip</string>
-  <string name="revanced_hide_clip_button_summary_on">Clip button is hidden</string>
-  <string name="revanced_hide_clip_button_summary_off">Clip button is shown</string>
+  <string name="revanced_hide_clip_button_title">ক্লিপ লুকান</string>
+  <string name="revanced_hide_clip_button_summary_on">ক্লিপ বোতাম লুকিয়ে রয়েছে</string>
+  <string name="revanced_hide_clip_button_summary_off">ক্লিপ বোতাম প্রদর্শিত হয়েছে</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Hide Save to playlist</string>
-  <string name="revanced_hide_playlist_button_summary_on">Save to playlist button is hidden</string>
-  <string name="revanced_hide_playlist_button_summary_off">Save to playlist button is shown</string>
   </patch>
   <patch id="layout.buttons.autoplay.HideAutoplayButtonPatch">
-  <string name="revanced_hide_autoplay_button_title">Hide autoplay button</string>
-  <string name="revanced_hide_autoplay_button_summary_on">Autoplay button is hidden</string>
-  <string name="revanced_hide_autoplay_button_summary_off">Autoplay button is shown</string>
   </patch>
   <patch id="layout.buttons.captions.HideCaptionsButtonPatch">
   <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">Hide captions button</string>
-  <string name="revanced_hide_captions_button_summary_on">Captions button is hidden</string>
-  <string name="revanced_hide_captions_button_summary_off">Captions button is shown</string>
   </patch>
   <patch id="layout.buttons.cast.HideCastButtonPatch">
-  <string name="revanced_hide_cast_button_title">Hide cast button</string>
-  <string name="revanced_hide_cast_button_summary_on">Cast button is hidden</string>
-  <string name="revanced_hide_cast_button_summary_off">Cast button is shown</string>
   </patch>
   <patch id="layout.buttons.navigation.NavigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">নেভিগেশন বোতাম</string>
@@ -417,46 +393,20 @@
   <!-- The Create button has no display name. Translate normally. -->
   <string name="revanced_hide_create_button_title">লুকান তৈরি করুন</string>
   <string name="revanced_hide_create_button_summary_on">তৈরি বোতাম লুকানো আছে</string>
-  <string name="revanced_hide_create_button_summary_off">Create button is shown</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays the tab. -->
-  <string name="revanced_hide_subscriptions_button_title">Hide Subscriptions</string>
-  <string name="revanced_hide_subscriptions_button_summary_on">Subscriptions button is hidden</string>
-  <string name="revanced_hide_subscriptions_button_summary_off">Subscriptions button is shown</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
-  <string name="revanced_switch_create_with_notifications_button_title">Switch Create with Notifications</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">তৈরি করুন বোতাম বিজ্ঞপ্তিগুলো বোতাম দ্বারা স্থান পরিবর্তিত হয়েছে\n\nবিঃদ্রঃ এটি সক্রিয় করার ফলে ভিডিও বিজ্ঞাপন জোরপূর্বক বন্ধ থাকবে</string>
-  <string name="revanced_switch_create_with_notifications_button_summary_off">Create button is not switched with Notifications button</string>
   <string name="revanced_hide_navigation_button_labels_title">নেভিগেশন বোতাম লেবেল লুকান</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">লেবেল লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">লেবেল প্রদর্শিত হয়েছে</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.HidePlayerFlyoutMenuPatch">
-  <string name="revanced_hide_player_flyout_title">Flyout menu</string>
-  <string name="revanced_hide_player_flyout_summary">Hide or show player flyout menu items</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_captions_title">Hide Captions</string>
-  <string name="revanced_hide_player_flyout_captions_summary_on">Captions menu is hidden</string>
-  <string name="revanced_hide_player_flyout_captions_summary_off">Captions menu is shown</string>
   <!-- 'Additional settings' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_additional_settings_title">Hide Additional settings</string>
-  <string name="revanced_hide_player_flyout_additional_settings_summary_on">Additional settings menu is hidden</string>
-  <string name="revanced_hide_player_flyout_additional_settings_summary_off">Additional settings menu is shown</string>
   <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_loop_video_title">Hide Loop video</string>
-  <string name="revanced_hide_player_flyout_loop_video_summary_on">Loop video menu is hidden</string>
-  <string name="revanced_hide_player_flyout_loop_video_summary_off">Loop video menu is shown</string>
   <!-- 'Ambient mode' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_ambient_mode_title">Hide Ambient mode</string>
-  <string name="revanced_hide_player_flyout_ambient_mode_summary_on">Ambient mode menu is hidden</string>
-  <string name="revanced_hide_player_flyout_ambient_mode_summary_off">Ambient mode menu is shown</string>
   <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_help_title">Hide Help &amp; feedback</string>
-  <string name="revanced_hide_player_flyout_help_summary_on">Help &amp; feedback menu is hidden</string>
-  <string name="revanced_hide_player_flyout_help_summary_off">Help &amp; feedback menu is shown</string>
   <!-- 'Playback speed' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_speed_title">Hide Playback speed</string>
-  <string name="revanced_hide_player_flyout_speed_summary_on">Playback speed menu is hidden</string>
-  <string name="revanced_hide_player_flyout_speed_summary_off">Playback speed menu is shown</string>
   <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
   <string name="revanced_hide_player_flyout_more_info_title">আরো তথ্য লুকান</string>
@@ -481,9 +431,7 @@
   <string name="revanced_hide_player_buttons_summary_off">বোতাম দেখানো হয়</string>
   </patch>
   <patch id="layout.hide.albumcards.AlbumCardsResourcePatch">
-  <string name="revanced_hide_album_cards_title">Hide album cards</string>
-  <string name="revanced_hide_album_cards_summary_on">Album cards are hidden</string>
-  <string name="revanced_hide_album_cards_summary_off">Album cards are shown</string>
+  <string name="revanced_hide_album_cards_summary_off">অ্যালবাম কার্ড প্রদর্শিত হয়েছে</string>
   </patch>
   <patch id="layout.hide.comments.CommentsPatch">
   <string name="revanced_comments_screen_title">মন্তব্য</string>
@@ -902,7 +850,7 @@
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">স্পুফ অ্যাপ সংস্করণ লক্ষ্য</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_entry_1">১৮.৩৩.৪০ - ছদ্মবেশি মোডে RYD পুনরুদ্ধার করে</string>
+  <string name="revanced_spoof_app_version_target_entry_1">18.33.40 - ছদ্মবেশি মোডে RYD পুনরুদ্ধার করে</string>
   <string name="revanced_spoof_app_version_target_entry_2">১৮.২০.৩৯ - প্রশ্বস্ত ভিডিও স্পিড এবং গুণমান মেনু পুনরুদ্ধার করে</string>
   <string name="revanced_spoof_app_version_target_entry_3">১৮.০৯.৩৯ - লাইব্রেরি ট্যাপ পুনরুদ্ধার করে</string>
   <string name="revanced_spoof_app_version_target_entry_4">১৭.৪১.৩৯ - পুরোনো প্লেলিস্ট শেলফ পুনরুদ্ধার করে</string>
@@ -1099,6 +1047,7 @@
   <string name="revanced_spoof_client_user_dialog_message">এই সেটিংটি বন্ধ করার ফলে ভিডিও প্লেব্যাক ত্রুটি হতে পারে।</string>
   <string name="revanced_spoof_client_use_ios_title">ক্লায়েন্ট iOS এ স্পুফ করুন</string>
   <string name="revanced_spoof_client_use_ios_summary_on">ক্লায়েন্ট এখন iOS এ স্পুফ করা হয়েছে\n\nপার্শ্বপ্রতিক্রিয়া রয়েছে:\n• কোন এইচিডিআর ভিডিও নেই\n• ভিডিও ইতিহাস কাজ নাও করতে পারে\n• উচ্চ ভিডিও গুণমান অনুপস্থিত থাকতে পারে\n•শুধুমাত্র অডিওতে লাইভ স্ট্রিম চলবে না\n• অ্যান্ড্রয়েট ৮ সংস্করণে লাইভ স্ট্রিম উপলভ্য নয়</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">ক্লায়েন্টকে বর্তমানে Android VR-এর সাথে প্রতারণা করা হয়েছে\n\nসাইড এফেক্টগুলির মধ্যে রয়েছে:\n• কোনও HDR ভিডিও নেই\n• বাচ্চাদের ভিডিও প্লেব্যাক হয় না\n• বিরতি দেওয়া ভিডিওগুলি এলোমেলোভাবে আবার শুরু হতে পারে\n• নিম্নমানের শর্টস সিকবার থাম্বনেল\n• ডাউনলোড অ্যাকশন বোতাম সবসময় লুকানো থাকে\n• শেষ স্ক্রিন কার্ড সবসময় লুকানো থাকে</string>
   <string name="revanced_spoof_client_storyboard_timeout">ক্লায়েন্ট স্পুফ থাম্বনেইল সাময়িকভাবে উপলভ্য নয় (API সময় শেষ হয়েছে)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">স্পুফ ক্লায়েন্ট থাম্বনেইল সাময়িকভাবে উপলভ্য নয়: %s</string>
   </patch>

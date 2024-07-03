@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
+Note: All strings must have a unique path, even if the same string is declared in two different apps.
+This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+
 # General guidelines and information for translating
 
 ## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
@@ -242,7 +245,9 @@
   <string name="revanced_hide_keyword_content_phrases_summary">Piilotettavia avainsanoja ja lauseita, erotettuna uusilla riveillä\n\nKeskellä olevat isot kirjaimet on syötettävä kotelon kanssa (esim. iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">Tietoja avainsanan suodatuksesta</string>
   <string name="revanced_hide_keyword_content_about_summary">Etusivu/Tilaus / Hakutulokset suodatetaan piilottaaksesi sisällön, joka vastaa avainsanalausekkeita\n\nRajoitukset\n• Joitakin Shortteja ei välttämättä ole piilotettu\n• Joitakin käyttöliittymän komponentteja ei välttämättä ole piilotettu\n• Hakusanan haku ei välttämättä näytä tuloksia</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Virheellinen avainsana. Ei voida käyttää: \'%s\' suodattimena</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Virheellinen avainsana. \'%1$s\' on pienempi kuin %2$d merkkiä</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Avainsana \'$s\' piilottaa kaikki videot</string>
   </patch>
@@ -278,6 +283,7 @@
   <string name="revanced_hide_merchandise_banners_title">Piilota mainospalkit</string>
   <string name="revanced_hide_merchandise_banners_summary_on">Merkkimainospalkit on piilotettu</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Myymälämainospalkit näytetään</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Piilota koko näytön mainokset toimivat vain vanhempien laitteiden kanssa</string>
   </patch>
   <patch id="ad.getpremium.HideGetPremiumPatch">

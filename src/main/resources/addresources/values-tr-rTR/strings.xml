@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
+Note: All strings must have a unique path, even if the same string is declared in two different apps.
+This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+
 # General guidelines and information for translating
 
 ## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
@@ -239,7 +242,9 @@
   <string name="revanced_hide_keyword_content_phrases_summary">Yeni satırla ayrılmış, gizlenecek anahtar kelimeler ve söz öbekleri\n\nOrtasında büyük harf bulunan kelimeler büyük harfle birlikte girilmelidir (örn: iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">Anahtar kelimeyle filtreleme hakkında</string>
   <string name="revanced_hide_keyword_content_about_summary">Ana Sayfa/Abonelikler/Arama sonuçları anahtar kelimelerle eşleşen videoları gizlemek için filtrelenir\n\nKısıtlamalar\n• Bazı Short videolar gizlenemeyebilir\n• Bazı arayüz bileşenleri gizlenemeyebilir\n• Anahtar kelime aratmak hiçbir sonuç göstermeyebilir</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Geçersiz anahtar kelime. \'%s\' kullanılamaz</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Geçersiz anahtar kelime. \'%1$s\' %2$d karakterden az</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">\'$s\' anahtar kelimesi bütün videoları gizleyecektir</string>
   </patch>
@@ -275,6 +280,7 @@
   <string name="revanced_hide_merchandise_banners_title">Ürün afişlerini gizle</string>
   <string name="revanced_hide_merchandise_banners_summary_on">Ürün afişleri gizleniyor</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Ürün afişleri gösteriliyor </string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Tam ekran reklamlarını gizleme yalnızca eski cihazlarda çalışır</string>
   </patch>
   <patch id="ad.getpremium.HideGetPremiumPatch">
