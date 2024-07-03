@@ -16,6 +16,7 @@ import app.revanced.patches.youtube.video.videoid.VideoIdPatch
 import app.revanced.util.exception
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.BuilderInstruction
@@ -27,6 +28,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import com.android.tools.smali.dexlib2.util.MethodUtil
 import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
@@ -66,14 +68,15 @@ object VideoInformationPatch : BytecodePatch(
 
     override fun execute(context: BytecodeContext) {
 
-        with(PlayerInitFingerprint.result!!) {
+        with(PlayerInitFingerprint.resultOrThrow()) {
             playerInitMethod = mutableClass.methods.first { MethodUtil.isConstructor(it) }
 
             // hook the player controller for use through integrations
             onCreateHook(INTEGRATIONS_CLASS_DESCRIPTOR, "initialize")
 
             // seek method
-            val seekFingerprintResultMethod = SeekFingerprint.also { it.resolve(context, classDef) }.result!!.method
+            val seekFingerprintResultMethod =
+                SeekFingerprint.also { it.resolve(context, classDef) }.resultOrThrow().method
 
             // create helper method
             val seekHelperMethod = generateSeekMethodHelper(seekFingerprintResultMethod)
@@ -82,20 +85,21 @@ object VideoInformationPatch : BytecodePatch(
             mutableClass.methods.add(seekHelperMethod)
         }
 
-        with(MdxPlayerDirectorFingerprint.result!!) {
+        with(MdxPlayerDirectorFingerprint.resultOrThrow()) {
             mdxInitMethod = mutableClass.methods.first { MethodUtil.isConstructor(it) }
 
             // find the location of the first invoke-direct call and extract the register storing the 'this' object reference
             mdxInitInsertIndex = mdxInitMethod.indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_DIRECT && getReference<MethodReference>()?.name == "<init>"
             } + 1
-            mdxInitInsertRegister = mdxInitMethod.getInstruction<Instruction35c>(mdxInitInsertIndex - 1).registerC
+            mdxInitInsertRegister = mdxInitMethod.getInstruction<FiveRegisterInstruction>(mdxInitInsertIndex - 1).registerC
 
             // hook the MDX director for use through integrations
             onCreateHookMdx(INTEGRATIONS_CLASS_DESCRIPTOR, "initializeMdx")
 
             // MDX seek method
-            val mdxSeekFingerprintResultMethod = MdxSeekFingerprint.apply { resolve(context, classDef) }.resultOrThrow().method
+            val mdxSeekFingerprintResultMethod =
+                MdxSeekFingerprint.apply { resolve(context, classDef) }.resultOrThrow().method
 
             // create helper method
             val mdxSeekHelperMethod = generateSeekMethodHelper(mdxSeekFingerprintResultMethod)
