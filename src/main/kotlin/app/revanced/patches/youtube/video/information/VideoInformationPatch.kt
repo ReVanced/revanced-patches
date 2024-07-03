@@ -57,8 +57,8 @@ object VideoInformationPatch : BytecodePatch(
     private var timeInitInsertIndex = 2
 
     private lateinit var speedSelectionInsertMethod: MutableMethod
-    private var speedSelectionInsertIndex = 0
-    private var speedSelectionValueRegister = 0
+    private var speedSelectionInsertIndex = -1
+    private var speedSelectionValueRegister = -1
 
     // Used by other patches.
     internal lateinit var setPlaybackSpeedContainerClassFieldReference: String
@@ -87,11 +87,12 @@ object VideoInformationPatch : BytecodePatch(
         with(MdxPlayerDirectorSetVideoStageFingerprint.resultOrThrow()) {
             mdxInitMethod = mutableClass.methods.first { MethodUtil.isConstructor(it) }
 
-            // find the location of the first invoke-direct call and extract the register storing the 'this' object reference
-            mdxInitInsertIndex = mdxInitMethod.indexOfFirstInstructionOrThrow {
+            // find the location of the first invoke-direct call and extract the register storing the 'this' object reference.
+            val initThisIndex = mdxInitMethod.indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_DIRECT && getReference<MethodReference>()?.name == "<init>"
-            } + 1
-            mdxInitInsertRegister = mdxInitMethod.getInstruction<FiveRegisterInstruction>(mdxInitInsertIndex - 1).registerC
+            }
+            mdxInitInsertRegister = mdxInitMethod.getInstruction<FiveRegisterInstruction>(initThisIndex).registerC
+            mdxInitInsertIndex = initThisIndex + 1
 
             // hook the MDX director for use through integrations
             onCreateHookMdx(INTEGRATIONS_CLASS_DESCRIPTOR, "initializeMdx")
