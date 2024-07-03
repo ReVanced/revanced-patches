@@ -29,7 +29,6 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import com.android.tools.smali.dexlib2.util.MethodUtil
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
@@ -39,7 +38,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 object VideoInformationPatch : BytecodePatch(
     setOf(
         PlayerInitFingerprint,
-        MdxPlayerDirectorFingerprint,
+        MdxPlayerDirectorSetVideoStageFingerprint,
         CreateVideoPlayerSeekbarFingerprint,
         PlayerControllerSetTimeReferenceFingerprint,
         OnPlaybackSpeedItemClickFingerprint
@@ -85,7 +84,7 @@ object VideoInformationPatch : BytecodePatch(
             mutableClass.methods.add(seekHelperMethod)
         }
 
-        with(MdxPlayerDirectorFingerprint.resultOrThrow()) {
+        with(MdxPlayerDirectorSetVideoStageFingerprint.resultOrThrow()) {
             mdxInitMethod = mutableClass.methods.first { MethodUtil.isConstructor(it) }
 
             // find the location of the first invoke-direct call and extract the register storing the 'this' object reference
@@ -118,7 +117,7 @@ object VideoInformationPatch : BytecodePatch(
 
                 addInstruction(
                     videoLengthMethodResult.scanResult.patternScanResult!!.endIndex,
-                    "invoke-static {v$videoLengthRegister, v$dummyRegisterForLong}, $INTEGRATIONS_CLASS_DESCRIPTOR->setVideoLength(J)V"
+                    "invoke-static { v$videoLengthRegister, v$dummyRegisterForLong }, $INTEGRATIONS_CLASS_DESCRIPTOR->setVideoLength(J)V"
                 )
             }
         }
@@ -194,7 +193,7 @@ object VideoInformationPatch : BytecodePatch(
             0,
             """
                 sget-object v0, $seekSourceEnumType->a:$seekSourceEnumType
-                invoke-virtual {p0, p1, p2, v0}, $seekMethod
+                invoke-virtual { p0, p1, p2, v0 }, $seekMethod
                 move-result p1
                 return p1
             """
