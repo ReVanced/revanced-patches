@@ -190,7 +190,7 @@ object VideoInformationPatch : BytecodePatch(
             0,
             """
                 sget-object v0, $seekSourceEnumType->a:$seekSourceEnumType
-                invoke-virtual {p0, p1, p2, v0}, ${seekMethod.definingClass}->${seekMethod.name}(J$seekSourceEnumType)Z
+                invoke-virtual {p0, p1, p2, v0}, $seekMethod
                 move-result p1
                 return p1
             """
