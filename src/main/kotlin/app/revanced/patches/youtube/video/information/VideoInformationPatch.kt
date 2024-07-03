@@ -95,7 +95,7 @@ object VideoInformationPatch : BytecodePatch(
             onCreateHookMdx(INTEGRATIONS_CLASS_DESCRIPTOR, "initializeMdx")
 
             // MDX seek method
-            val mdxSeekFingerprintResultMethod = MdxSeekFingerprint.also { it.resolve(context, classDef) }.result!!.method
+            val mdxSeekFingerprintResultMethod = MdxSeekFingerprint.apply { resolve(context, classDef) }.resultOrThrow().method
 
             // create helper method
             val mdxSeekHelperMethod = generateSeekMethodHelper(mdxSeekFingerprintResultMethod)
