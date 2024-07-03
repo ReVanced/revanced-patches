@@ -2,7 +2,6 @@ package app.revanced.patches.soundcloud.offline
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
@@ -10,9 +9,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.soundcloud.ad.fingerprints.InterceptFingerprint
 import app.revanced.patches.soundcloud.ad.fingerprints.FeatureConstructorFingerprint
-import app.revanced.patches.soundcloud.ad.fingerprints.UserConsumerPlanConstructorFingerprint
 import app.revanced.patches.soundcloud.offline.fingerprints.OfflineSyncHeaderVerificationFingerprint
 import app.revanced.patches.soundcloud.offline.fingerprints.OfflineSyncURLBuilderFingerprint
 import app.revanced.util.resultOrThrow
@@ -58,43 +55,19 @@ object AllowOfflineSyncPatch : BytecodePatch(
 
         OfflineSyncHeaderVerificationFingerprint.resultOrThrow().mutableMethod.apply {
             /**
-             * HTTPS Stream has one major flaw. It does not return 3 specific headers, which crashes Soundcloud.
+             * HTTPS Stream has one major flaw. It does not return 3 specific headers (all cosmetic), which crashes Soundcloud.
              *
-             * Since those are only cosmetic though, we'll simply move "" into the local Variables when appropiate.
+             * Since those are only cosmetic though, we'll simply move "" into the Variables.
              */
-            // These indices Represent the opcodes on which "if-eqz" is performed. Before they run,
-            // If we *do* detect the null and instead move "" into there.
-            val opcodeSize = 2
+            // These indices are the where the null checks for the individual headers happen.
+            // Before it does just move "" into there
             val firstZeroCheck = 4
-            // Adding instructions shifts our indices around, adjust appropiately
-            val secondZeroCheck = 8 + opcodeSize
-            val thirdZeroCheck = 12 + 2 * opcodeSize
-            addInstructionsWithLabels(
-                firstZeroCheck,
-                """
-                    if-nez v0, :skip1
-                    const-string v0, ""
-            """,
-                ExternalLabel("skip1", getInstruction(firstZeroCheck)),
-            )
-            addInstructionsWithLabels(
-                secondZeroCheck,
-                """
-                    if-nez v2, :skip2
-                    const-string v2, ""
-            """,
-                ExternalLabel("skip2", getInstruction(secondZeroCheck)),
-            )
-            addInstructionsWithLabels(
-                thirdZeroCheck,
-                """
-                    if-nez v6, :skip3
-                    const-string v6, ""
-            """,
-                ExternalLabel("skip3", getInstruction(thirdZeroCheck)),
-            )
+            val secondZeroCheck = 8
+            val thirdZeroCheck = 12
+            // Patch in Reverse order to make sure no indices get shifted around
+            addInstruction(thirdZeroCheck, "const-string v6, \"\"")
+            addInstruction(secondZeroCheck, "const-string v2, \"\"")
+            addInstruction(firstZeroCheck, "const-string v0, \"\"")
         }
-
-
     }
 }
