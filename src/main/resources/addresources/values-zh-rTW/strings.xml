@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
+Note: All strings must have a unique path, even if the same string is declared in two different apps.
+This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+
 # General guidelines and information for translating
 
 ## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
@@ -239,7 +242,9 @@
   <string name="revanced_hide_keyword_content_phrases_summary">填要隱藏的關鍵字或一句話，以換行符號分隔\n\n中間有大小寫字母的單字必須使用大小寫輸入（舉例：iPhone、TikTok、LeBlanc）</string>
   <string name="revanced_hide_keyword_content_about_title">關於關鍵字過濾</string>
   <string name="revanced_hide_keyword_content_about_summary">首頁 / 訂閱 / 搜尋結果經過過濾以隱藏和關鍵字詞組相符的內容\n\n限制性\n• 一些 Shorts 可能不會被隱藏\n• 搜尋關鍵字可能不會顯示任何結果</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">無效的關鍵字。無法使用：「%s」來過濾</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">無效的關鍵字。「%1$s」小於 %2$d 字元</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">關鍵字「$s」將隱藏所有影片</string>
   </patch>
@@ -275,6 +280,7 @@
   <string name="revanced_hide_merchandise_banners_title">隱藏商品橫幅</string>
   <string name="revanced_hide_merchandise_banners_summary_on">已隱藏商品橫幅</string>
   <string name="revanced_hide_merchandise_banners_summary_off">已顯示商品橫幅</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">只能在舊裝置上使用隱藏全螢幕廣告</string>
   </patch>
   <patch id="ad.getpremium.HideGetPremiumPatch">

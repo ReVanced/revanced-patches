@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
+Note: All strings must have a unique path, even if the same string is declared in two different apps.
+This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+
 # General guidelines and information for translating
 
 ## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
@@ -242,7 +245,9 @@
   <string name="revanced_hide_keyword_content_phrases_summary">Słowa kluczowe i frazy do ukrycia, oddzielone nowymi wierszami\n\nSłowa z wielkimi literami w środku muszą być wpisane z obudową (np. iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">O filtrowaniu słów kluczowych</string>
   <string name="revanced_hide_keyword_content_about_summary">Wyniki strony głównej/Subskrypcji/Wyszukiwarki są filtrowane w celu ukrycia treści pasującej do słów kluczowych\n\nOgraniczenia\n• Niektóre skróty mogą nie być ukryte\n• Niektóre komponenty interfejsu użytkownika nie mogą być ukryte\n• Wyszukiwanie słowa kluczowego może nie pokazywać wyników</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Nieprawidłowe słowo kluczowe. Nie można użyć: \'%s\' jako filtr</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Nieprawidłowe słowo kluczowe. \'%1$s\' jest mniejsze niż %2$d znaków</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Słowo kluczowe$s\' ukryje wszystkie filmy</string>
   </patch>
@@ -278,6 +283,7 @@
   <string name="revanced_hide_merchandise_banners_title">Ukryj banery towaru</string>
   <string name="revanced_hide_merchandise_banners_summary_on">Banery towaru są ukryte</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Banery handlowe są wyświetlane</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Ukryj reklamy w trybie pełnoekranowym tylko ze starszymi urządzeniami</string>
   </patch>
   <patch id="ad.getpremium.HideGetPremiumPatch">

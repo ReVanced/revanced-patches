@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
+Note: All strings must have a unique path, even if the same string is declared in two different apps.
+This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+
 # General guidelines and information for translating
 
 ## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
@@ -242,7 +245,9 @@
   <string name="revanced_hide_keyword_content_phrases_summary">Cuvinte cheie și fraze de ascuns, separate prin linii noi\n\nCuvintele cu litere mari din mijloc trebuie introduse cu caseta (ex: iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">Despre filtrarea cuvintelor cheie</string>
   <string name="revanced_hide_keyword_content_about_summary">Rezultatele Acasă/Abonament/Căutare sunt filtrate pentru a ascunde conținutul care corespunde cuvintelor-cheie\n\nLimitările\n• Unele Scurte nu pot fi ascunse\n• Unele componente UI nu pot fi ascunse\n• Căutarea unui cuvânt cheie poate să nu prezinte rezultate</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Cuvânt cheie nevalid. Nu se poate folosi: \'%s\' ca filtru</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Cuvânt cheie nevalid. \'%1$s\' este mai puțin de %2$d caractere</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Cuvântul cheie \'$s\' va ascunde toate videoclipurile</string>
   </patch>
@@ -278,6 +283,7 @@
   <string name="revanced_hide_merchandise_banners_title">Ascunde bannere de produse</string>
   <string name="revanced_hide_merchandise_banners_summary_on">Bannerele de marfă sunt ascunse</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Bannerele de marfă sunt afișate</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Ascunde reclamele pe tot ecranul funcționează doar cu dispozitive mai vechi</string>
   </patch>
   <patch id="ad.getpremium.HideGetPremiumPatch">
