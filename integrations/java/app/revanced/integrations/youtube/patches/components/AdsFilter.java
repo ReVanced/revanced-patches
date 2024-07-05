@@ -56,10 +56,11 @@ public final class AdsFilter extends Filter {
 
         final var buttonedAd = new StringFilterGroup(
                 Settings.HIDE_BUTTONED_ADS,
-                "_buttoned_layout",
-                "full_width_square_image_layout",
                 "_ad_with",
-                "text_image_button_group_layout",
+                "_buttoned_layout",
+                // text_image_button_group_layout, landscape_image_button_group_layout, full_width_square_image_button_group_layout
+                "image_button_group_layout",
+                "full_width_square_image_layout",
                 "video_display_button_group_layout",
                 "landscape_image_wide_button_layout",
                 "video_display_carousel_button_group_layout"
