@@ -1,3 +1,10 @@
+# [4.11.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v4.11.0-dev.4...v4.11.0-dev.5) (2024-07-05)
+
+
+### Bug Fixes
+
+* **YouTube - Settings:** Move some settings to different menus, adjust default setting values ([#3415](https://github.com/ReVanced/revanced-patches/issues/3415)) ([7201ac4](https://github.com/ReVanced/revanced-patches/commit/7201ac45c158682413c8584aac7bb37b770fc924))
+
 # [4.11.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.11.0-dev.3...v4.11.0-dev.4) (2024-07-01)
 
 
