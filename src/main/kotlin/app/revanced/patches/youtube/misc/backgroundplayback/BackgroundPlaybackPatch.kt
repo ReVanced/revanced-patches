@@ -7,12 +7,10 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.all.misc.resources.AddResourcesPatch
-import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
-import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
-import app.revanced.patches.youtube.misc.backgroundplayback.fingerprints.KidsBackgroundPlaybackPolicyControllerFingerprint
 import app.revanced.patches.youtube.misc.backgroundplayback.fingerprints.BackgroundPlaybackManagerFingerprint
 import app.revanced.patches.youtube.misc.backgroundplayback.fingerprints.BackgroundPlaybackSettingsFingerprint
+import app.revanced.patches.youtube.misc.backgroundplayback.fingerprints.KidsBackgroundPlaybackPolicyControllerFingerprint
+import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
@@ -29,7 +27,6 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
         PlayerTypeHookPatch::class,
         VideoInformationPatch::class,
         SettingsPatch::class,
-        AddResourcesPatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -69,12 +66,6 @@ object BackgroundPlaybackPatch : BytecodePatch(
         "Lapp/revanced/integrations/youtube/patches/BackgroundPlaybackPatch;"
 
     override fun execute(context: BytecodeContext) {
-        AddResourcesPatch(this::class)
-
-        SettingsPatch.PreferenceScreen.MISC.addPreferences(
-            NonInteractivePreference("revanced_background_playback")
-        )
-
         BackgroundPlaybackManagerFingerprint.resultOrThrow().mutableMethod.addInstructions(
             0,
             """
