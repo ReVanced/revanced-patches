@@ -14,6 +14,7 @@ public class PlayerFlyoutMenuItemsFilter extends Filter {
     private final ByteArrayFilterGroupList flyoutFilterGroupList = new ByteArrayFilterGroupList();
 
     private final ByteArrayFilterGroup exception;
+    private final StringFilterGroup videoQualityMenuFooter;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     public PlayerFlyoutMenuItemsFilter() {
@@ -23,8 +24,13 @@ public class PlayerFlyoutMenuItemsFilter extends Filter {
                 "quality_sheet"
         );
 
-        // Using pathFilterGroupList due to new flyout panel(A/B)
+        videoQualityMenuFooter = new StringFilterGroup(
+                Settings.HIDE_VIDEO_QUALITY_MENU_FOOTER,
+                "quality_sheet_footer"
+        );
+
         addPathCallbacks(
+                videoQualityMenuFooter,
                 new StringFilterGroup(null, "overflow_menu_item.eml|")
         );
 
@@ -75,7 +81,10 @@ public class PlayerFlyoutMenuItemsFilter extends Filter {
     @Override
     boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
-        // Only 1 path callback was added, so the matched group must be the overflow menu.
+        if (matchedGroup == videoQualityMenuFooter) {
+            return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
+        }
+
         if (contentIndex != 0) {
             return false; // Overflow menu is always the start of the path.
         }

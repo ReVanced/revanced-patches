@@ -164,11 +164,6 @@ public final class LayoutComponentsFilter extends Filter {
                 "inline_expander"
         );
 
-        final var videoQualityMenuFooter = new StringFilterGroup(
-                Settings.HIDE_VIDEO_QUALITY_MENU_FOOTER,
-                "quality_sheet_footer"
-        );
-
         final var channelBar = new StringFilterGroup(
                 Settings.HIDE_CHANNEL_BAR,
                 "channel_bar"
@@ -276,7 +271,6 @@ public final class LayoutComponentsFilter extends Filter {
                 compactBanner,
                 compactChannelBarInner,
                 medicalPanel,
-                videoQualityMenuFooter,
                 infoPanel,
                 emergencyBox,
                 subscribersCommunityGuidelines,
