@@ -176,7 +176,7 @@ object VideoInformationPatch : BytecodePatch(
     private fun generateSeekMethodHelper(seekMethod: Method): MutableMethod {
 
         // create helper method
-        val mdxSeekHelperMethod = ImmutableMethod(
+        val generatedMethod = ImmutableMethod(
             seekMethod.definingClass,
             "seekTo",
             listOf(ImmutableMethodParameter("J", null, "time")),
@@ -190,7 +190,7 @@ object VideoInformationPatch : BytecodePatch(
         val seekSourceEnumType = seekMethod.parameterTypes[1].toString()
 
         // insert helper method instructions
-        mdxSeekHelperMethod.addInstructions(
+        generatedMethod.addInstructions(
             0,
             """
                 sget-object v0, $seekSourceEnumType->a:$seekSourceEnumType
@@ -199,7 +199,7 @@ object VideoInformationPatch : BytecodePatch(
                 return p1
             """
         )
-        return mdxSeekHelperMethod
+        return generatedMethod
     }
 
     private fun MutableMethod.insert(insertIndex: Int, register: String, descriptor: String) =
