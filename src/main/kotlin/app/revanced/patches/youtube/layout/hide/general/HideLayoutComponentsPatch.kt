@@ -102,7 +102,6 @@ object HideLayoutComponentsPatch : BytecodePatch(
                 ),
             ),
             SwitchPreference("revanced_hide_emergency_box"),
-            SwitchPreference("revanced_hide_expandable_chip"),
             SwitchPreference("revanced_hide_info_panels"),
             SwitchPreference("revanced_hide_join_membership_button"),
             SwitchPreference("revanced_disable_like_subscribe_glow"),
@@ -143,6 +142,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
         )
 
         SettingsPatch.PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+            SwitchPreference("revanced_hide_expandable_chip"),
             SwitchPreference("revanced_hide_gray_separator"),
             PreferenceScreen(
                 key = "revanced_custom_filter_screen",
@@ -153,10 +153,6 @@ object HideLayoutComponentsPatch : BytecodePatch(
                     TextPreference("revanced_custom_filter_strings", inputType = InputType.TEXT_MULTI_LINE),
                 ),
             ),
-        )
-
-        SettingsPatch.PreferenceScreen.VIDEO.addPreferences(
-            SwitchPreference("revanced_hide_video_quality_menu_footer"),
         )
 
         LithoFilterPatch.addFilter(LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR)
