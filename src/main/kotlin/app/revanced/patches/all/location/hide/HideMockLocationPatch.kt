@@ -13,10 +13,10 @@ import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 
 @Patch(
-    name = "Hide Mock Location",
-    description = "Prevent app from knowing whether the location is mocked",
+    name = "Hide mock location",
+    description = "Prevent app from knowing whether the location is mocked.",
     requiresIntegrations = true,
-    use = true
+    use = false
 )
 object HideMockLocationPatch : BaseTransformInstructionsPatch<Instruction35cInfo>() {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR_PREFIX =
