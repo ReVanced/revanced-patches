@@ -20,7 +20,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 @Patch(
     name = "Hide mock location",
     description = "Prevents the app from knowing the device location is being mocked by a third party app.",
-    use = true
+    use = false
 )
 object HideMockLocationPatch : BaseTransformInstructionsPatch<Instruction35cInfo>() {
 
