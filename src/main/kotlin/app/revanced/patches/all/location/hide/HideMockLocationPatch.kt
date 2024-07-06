@@ -2,21 +2,25 @@
 
 package app.revanced.patches.all.location.hide
 
+import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.all.misc.transformation.BaseTransformInstructionsPatch
 import app.revanced.patches.all.misc.transformation.IMethodCall
 import app.revanced.patches.all.misc.transformation.Instruction35cInfo
-import app.revanced.patches.all.misc.transformation.filterMapInstruction35c
+import app.revanced.patches.all.misc.transformation.fromMethodReference
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Hide mock location",
-    description = "Spoof the app when mocking the location.",
-    use = false
+    description = "Prevents the app from knowing the device location is being mocked by a third party app.",
+    use = true
 )
 object HideMockLocationPatch : BaseTransformInstructionsPatch<Instruction35cInfo>() {
 
@@ -25,16 +29,25 @@ object HideMockLocationPatch : BaseTransformInstructionsPatch<Instruction35cInfo
         method: Method,
         instruction: Instruction,
         instructionIndex: Int
-    ) = filterMapInstruction35c<MethodCall>(
-        "",
-        classDef,
-        instruction,
-        instructionIndex
-    )
+    ): Instruction35cInfo? {
+        if (instruction.opcode != Opcode.INVOKE_VIRTUAL) {
+            return null
+        }
+
+        val invokeInstruction = instruction as Instruction35c
+        val methodRef = invokeInstruction.reference as MethodReference
+        val methodCall = fromMethodReference<MethodCall>(methodRef) ?: return null
+
+        return Instruction35cInfo(methodCall, invokeInstruction, instructionIndex)
+    }
 
     override fun transform(mutableMethod: MutableMethod, entry: Instruction35cInfo) {
         val (_, instruction, instructionIndex) = entry
-        mutableMethod.replaceInstruction(instructionIndex, "const/4 ${instruction.registerC}, 0x0")
+
+        //Replace invocation with a constant `false` boolean
+        mutableMethod.replaceInstruction(instructionIndex, "const/4 v${instruction.registerC}, 0x0")
+        //Remove "move-result" instruction
+        mutableMethod.removeInstruction(instructionIndex + 1)
     }
 }
 
