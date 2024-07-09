@@ -9,7 +9,7 @@ import app.revanced.patches.gpsstatus2.ads.fingerprints.PlaceAdFingerprint
 import app.revanced.util.exception
 
 @Patch(
-    name = "Disable Ads",
+    name = "Disable ads",
     compatiblePackages = [CompatiblePackage("com.eclipsim.gpsstatus2")]
 )
 @Suppress("unused")
