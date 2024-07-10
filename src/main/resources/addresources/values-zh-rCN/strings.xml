@@ -1052,10 +1052,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_external_browser_summary_on">对外打开链接</string>
   <string name="revanced_external_browser_summary_off">在应用中打开链接</string>
   </patch>
-  <patch id="misc.backgroundplayback.BackgroundPlaybackPatch">
-  <string name="revanced_background_playback_title">后台播放</string>
-  <string name="revanced_background_playback_summary">此设置可以在设置中找到 -&gt; 背景</string>
-  </patch>
   <patch id="misc.privacy.RemoveTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">删除跟踪查询参数</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">跟踪查询参数已从链接中删除</string>

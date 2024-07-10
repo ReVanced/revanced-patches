@@ -1057,10 +1057,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_external_browser_summary_on">Ссылки открываются в браузере</string>
   <string name="revanced_external_browser_summary_off">Ссылки открываются в самом приложении</string>
   </patch>
-  <patch id="misc.backgroundplayback.BackgroundPlaybackPatch">
-  <string name="revanced_background_playback_title">Фоновое воспроизведение</string>
-  <string name="revanced_background_playback_summary">Этот параметр можно найти в настройках фонового и оффлайн режима</string>
-  </patch>
   <patch id="misc.privacy.RemoveTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Параметр отслеживания запросов</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Параметр отслеживания запросов из ссылок удален</string>

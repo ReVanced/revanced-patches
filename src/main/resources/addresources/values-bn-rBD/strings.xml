@@ -69,7 +69,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_03_feed_title">ফিড</string>
   <string name="revanced_settings_screen_04_player_title">প্লেয়ার</string>
   <string name="revanced_settings_screen_05_general_title">সাধারণ লে-আউট</string>
-  <string name="revanced_settings_screen_06_shorts_title">শর্টস</string>
   <string name="revanced_settings_screen_07_seekbar_title">সিকবার</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">সোয়াইপ কন্ট্রোল</string>
   <string name="revanced_settings_screen_11_misc_title">বিবিধ</string>
@@ -984,10 +983,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_external_browser_title">লিংক ব্রাউজারে খুলুন</string>
   <string name="revanced_external_browser_summary_on">লিংক বাহিরে খুলুন</string>
   <string name="revanced_external_browser_summary_off">অ্যাপের মধ্যে লিংক খুলছে</string>
-  </patch>
-  <patch id="misc.backgroundplayback.BackgroundPlaybackPatch">
-  <string name="revanced_background_playback_title">ব্যাকগ্রাউন্ড প্লেব্যাক</string>
-  <string name="revanced_background_playback_summary">এই সেটিংটি পাওয়া যাবে সেটিং -> ব্যাকগ্রাউন্ড -এ</string>
   </patch>
   <patch id="misc.privacy.RemoveTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">ট্র্যাকিং করার প্যারামিটার মুছুন</string>

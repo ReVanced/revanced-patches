@@ -71,7 +71,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_03_feed_title">Syöte</string>
   <string name="revanced_settings_screen_04_player_title">Pelaaja</string>
   <string name="revanced_settings_screen_05_general_title">Yleinen asettelu</string>
-  <string name="revanced_settings_screen_06_shorts_title">Shortsit</string>
   <string name="revanced_settings_screen_07_seekbar_title">Seekbar</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Pyyhkäisyohjaimet</string>
   <string name="revanced_settings_screen_11_misc_title">Sekalaiset</string>
@@ -1058,10 +1057,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_external_browser_title">Avaa linkit selaimessa</string>
   <string name="revanced_external_browser_summary_on">Avataan linkkejä ulkoisesti</string>
   <string name="revanced_external_browser_summary_off">Avataan linkkejä sovelluksessa</string>
-  </patch>
-  <patch id="misc.backgroundplayback.BackgroundPlaybackPatch">
-  <string name="revanced_background_playback_title">Taustan toisto</string>
-  <string name="revanced_background_playback_summary">Tämä asetus löytyy asetuksista -&gt; Tausta</string>
   </patch>
   <patch id="misc.privacy.RemoveTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Poista seurantakyselyn parametri</string>
