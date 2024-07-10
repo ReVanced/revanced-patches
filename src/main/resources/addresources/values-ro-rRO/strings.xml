@@ -71,7 +71,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_03_feed_title">Flux</string>
   <string name="revanced_settings_screen_04_player_title">Jucător</string>
   <string name="revanced_settings_screen_05_general_title">Structura generală</string>
-  <string name="revanced_settings_screen_06_shorts_title">Scurtături</string>
   <string name="revanced_settings_screen_07_seekbar_title">Bară de căutare</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Controale glisare</string>
   <string name="revanced_settings_screen_11_misc_title">Diverse</string>
@@ -1058,10 +1057,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_external_browser_title">Deschide link-uri în browser</string>
   <string name="revanced_external_browser_summary_on">Se deschid link-uri extern</string>
   <string name="revanced_external_browser_summary_off">Se deschid link-uri în aplicație</string>
-  </patch>
-  <patch id="misc.backgroundplayback.BackgroundPlaybackPatch">
-  <string name="revanced_background_playback_title">Redare fundal</string>
-  <string name="revanced_background_playback_summary">Această setare poate fi găsită în Setări -&gt; Fundal</string>
   </patch>
   <patch id="misc.privacy.RemoveTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Elimină parametrul de urmărire interogare</string>

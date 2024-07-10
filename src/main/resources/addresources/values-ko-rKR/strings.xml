@@ -70,7 +70,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_02_alt_thumbnails_title">대체 썸네일</string>
   <string name="revanced_settings_screen_03_feed_title">피드</string>
   <string name="revanced_settings_screen_04_player_title">플레이어</string>
-  <string name="revanced_settings_screen_05_general_title">일반 레이아웃</string>
+  <string name="revanced_settings_screen_05_general_title">일반</string>
   <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">재생바</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">스와이프 제스처</string>
@@ -211,9 +211,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_podcast_section_title">\'팟캐스트 살펴보기\' 섹션 숨기기</string>
   <string name="revanced_hide_podcast_section_summary_on">\'팟캐스트 살펴보기\' 섹션이 숨겨집니다</string>
   <string name="revanced_hide_podcast_section_summary_off">\'팟캐스트 살펴보기\' 섹션이 노출됩니다</string>
-  <string name="revanced_hide_info_cards_section_title">정보 카드 섹션 숨기기</string>
-  <string name="revanced_hide_info_cards_section_summary_on">정보 카드 섹션이 숨겨집니다</string>
-  <string name="revanced_hide_info_cards_section_summary_off">정보 카드 섹션이 노출됩니다</string>
+  <string name="revanced_hide_info_cards_section_title">크리에이터 정보 카드 섹션 숨기기</string>
+  <string name="revanced_hide_info_cards_section_summary_on">크리에이터 정보 카드 섹션이 숨겨집니다</string>
+  <string name="revanced_hide_info_cards_section_summary_off">크리에이터 정보 카드 섹션이 노출됩니다</string>
   <string name="revanced_hide_transcript_section_title">스크립트 섹션 숨기기</string>
   <string name="revanced_hide_transcript_section_summary_on">스크립트 섹션이 숨겨집니다</string>
   <string name="revanced_hide_transcript_section_summary_off">스크립트 섹션이 노출됩니다</string>
@@ -280,9 +280,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_web_search_results_title">웹 검색 결과 숨기기</string>
   <string name="revanced_hide_web_search_results_summary_on">웹 검색 결과가 숨겨집니다</string>
   <string name="revanced_hide_web_search_results_summary_off">웹 검색 결과가 노출됩니다</string>
-  <string name="revanced_hide_merchandise_banners_title">상품 배너 숨기기</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">상품 배너가 숨겨집니다</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">상품 배너가 노출됩니다</string>
+  <string name="revanced_hide_merchandise_banners_title">제품 배너 숨기기</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">제품 배너가 숨겨집니다</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">제품 배너가 노출됩니다</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">\'전체 화면 광고 숨기기\'는 구형 기기에서만 사용할 수 있습니다</string>
   </patch>
@@ -316,7 +316,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="interaction.downloads.DownloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">외부 다운로드</string>
-  <string name="revanced_external_downloader_screen_summary">외부 다운로더 설정을 할 수 있습니다</string>
+  <string name="revanced_external_downloader_screen_summary">외부 다운로더를 설정할 수 있습니다</string>
   <string name="revanced_external_downloader_title">외부 다운로드 버튼 표시하기</string>
   <string name="revanced_external_downloader_summary_on">플레이어에서 외부 다운로드 버튼을 표시합니다</string>
   <string name="revanced_external_downloader_summary_off">플레이어에서 외부 다운로드 버튼을 표시하지 않습니다</string>
@@ -497,9 +497,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">VR로 보기 메뉴가 노출됩니다</string>
   </patch>
   <patch id="layout.buttons.player.hide.HidePlayerButtonsPatch">
-  <string name="revanced_hide_player_buttons_title">이전 동영상 &amp; 다음 동영상 버튼 숨기기</string>
-  <string name="revanced_hide_player_buttons_summary_on">이전 동영상 &amp; 다음 동영상 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_player_buttons_summary_off">이전 동영상 &amp; 다음 동영상 버튼이 노출됩니다</string>
+  <string name="revanced_hide_player_buttons_title">이전 &amp; 다음 동영상 버튼 숨기기</string>
+  <string name="revanced_hide_player_buttons_summary_on">이전 &amp; 다음 동영상 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_player_buttons_summary_off">이전 &amp; 다음 동영상 버튼이 노출됩니다</string>
   </patch>
   <patch id="layout.hide.albumcards.AlbumCardsResourcePatch">
   <string name="revanced_hide_album_cards_title">음악 앨범 카드 숨기기</string>
@@ -530,8 +530,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
   <string name="revanced_hide_crowdfunding_box_title">크라우드 펀딩 박스 숨기기</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">플레이어 하단에서 크라우드펀딩 박스가 숨겨집니다</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">플레이어 하단에서 크라우드펀딩 박스가 노출됩니다</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">플레이어 하단에서 크라우드 펀딩 박스가 숨겨집니다</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">플레이어 하단에서 크라우드 펀딩 박스가 노출됩니다</string>
   </patch>
   <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">최종 화면 카드 숨기기</string>
@@ -567,9 +567,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_summary_off">정보 카드가 노출됩니다</string>
   </patch>
   <patch id="layout.hide.rollingnumber.DisableRollingNumberAnimationPatch">
-  <string name="revanced_disable_rolling_number_animations_title">실시간 조회수 카운팅 애니메이션 비활성화하기</string>
-  <string name="revanced_disable_rolling_number_animations_summary_on">실시간 조회수 카운팅 애니메이션을 비활성화합니다</string>
-  <string name="revanced_disable_rolling_number_animations_summary_off">실시간 조회수 카운팅 애니메이션을 활성화합니다</string>
+  <string name="revanced_disable_rolling_number_animations_title">롤링 넘버 애니메이션 비활성화하기</string>
+  <string name="revanced_disable_rolling_number_animations_summary_on">다음 롤링 넘버 애니메이션을 비활성화합니다\n• 실시간 조회수, 시청자 수 롤링 애니메이션 (플레이어 하단)\n• 좋아요 개수, 조회수 롤링 애니메이션 (동영상 설명)</string>
+  <string name="revanced_disable_rolling_number_animations_summary_off">다음 롤링 넘버 애니메이션을 활성화합니다\n• 실시간 조회수, 시청자 수 롤링 애니메이션 (플레이어 하단)\n• 좋아요 개수, 조회수 롤링 애니메이션 (동영상 설명)</string>
   </patch>
   <patch id="layout.hide.seekbar.HideSeekbarPatch">
   <string name="revanced_hide_seekbar_title">동영상 플레이어 재생바 숨기기</string>
@@ -1060,10 +1060,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_external_browser_title">외부 브라우저 사용하기</string>
   <string name="revanced_external_browser_summary_on">앱 내에서 외부 링크를 열 때, 외부 브라우저를 사용합니다</string>
   <string name="revanced_external_browser_summary_off">앱 내에서 외부 링크를 열 때, 내부 브라우저를 사용합니다</string>
-  </patch>
-  <patch id="misc.backgroundplayback.BackgroundPlaybackPatch">
-  <string name="revanced_background_playback_title">백그라운드 재생</string>
-  <string name="revanced_background_playback_summary">이 설정은 YouTube 설정에서 변경할 수 있습니다 → 백그라운드</string>
   </patch>
   <patch id="misc.privacy.RemoveTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">추적 쿼리를 제거한 링크 공유하기</string>

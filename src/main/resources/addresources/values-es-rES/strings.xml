@@ -71,7 +71,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_03_feed_title">Fuente</string>
   <string name="revanced_settings_screen_04_player_title">Reproductor</string>
   <string name="revanced_settings_screen_05_general_title">Diseño general</string>
-  <string name="revanced_settings_screen_06_shorts_title">Acortes</string>
   <string name="revanced_settings_screen_07_seekbar_title">Barra</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Controles de deslizamiento</string>
   <string name="revanced_settings_screen_11_misc_title">Miscelánea</string>
@@ -178,9 +177,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_bar_title">Ocultar barra de canal</string>
   <string name="revanced_hide_channel_bar_summary_on">Barra de canales oculta</string>
   <string name="revanced_hide_channel_bar_summary_off">Barra de canales mostrada</string>
-  <string name="revanced_hide_playables_title">Ocultar reproducibles</string>
-  <string name="revanced_hide_playables_summary_on">Los reproductores están ocultos</string>
-  <string name="revanced_hide_playables_summary_off">Se muestran los reproductores</string>
+  <string name="revanced_hide_playables_title">Ocultar los Juegos</string>
+  <string name="revanced_hide_playables_summary_on">Los Juegos están ocultos</string>
+  <string name="revanced_hide_playables_summary_off">Se muestran los Juegos</string>
   <string name="revanced_hide_quick_actions_title">Ocultar acciones rápidas en pantalla completa</string>
   <string name="revanced_hide_quick_actions_summary_on">Las acciones rápidas están ocultas</string>
   <string name="revanced_hide_quick_actions_summary_off">Se muestran acciones rápidas</string>
@@ -1058,10 +1057,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_external_browser_title">Abrir enlaces en el navegador</string>
   <string name="revanced_external_browser_summary_on">Abriendo enlaces externamente</string>
   <string name="revanced_external_browser_summary_off">Abrir enlaces en la aplicación</string>
-  </patch>
-  <patch id="misc.backgroundplayback.BackgroundPlaybackPatch">
-  <string name="revanced_background_playback_title">Reproducción en segundo plano</string>
-  <string name="revanced_background_playback_summary">Esta configuración se puede encontrar en Ajustes -&gt; Fondo</string>
   </patch>
   <patch id="misc.privacy.RemoveTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Quitar parámetro de consulta de rastreo</string>

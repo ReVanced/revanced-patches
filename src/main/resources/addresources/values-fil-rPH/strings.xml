@@ -1038,10 +1038,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_external_browser_summary_on">Pagbubukas ng mga link sa labas</string>
   <string name="revanced_external_browser_summary_off">Pagbubukas ng mga link sa app</string>
   </patch>
-  <patch id="misc.backgroundplayback.BackgroundPlaybackPatch">
-  <string name="revanced_background_playback_title">Pag-playback sa background</string>
-  <string name="revanced_background_playback_summary">Ang setting na ito ay matatagpuan sa Mga Setting -&gt; Background</string>
-  </patch>
   <patch id="misc.privacy.RemoveTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Alisin ang parameter ng query sa pagsubaybay</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Ang parameter ng query sa pagsubaybay ay tinanggal mula sa mga link</string>

@@ -33,7 +33,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
 <resources>
   <app id="shared">
   <patch id="misc.settings.BaseSettingsResourcePatch">
-  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Desejas continuar?</string>
   <string name="revanced_settings_reset">Redefinir</string>
   <string name="revanced_settings_restart_title">Atualizar e reiniciar</string>
@@ -56,7 +55,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </app>
   <app id="youtube">
   <patch id="misc.settings.SettingsResourcePatch">
-  <string name="revanced_settings">ReVanced</string>
   <string name="revanced_settings_about_links_body">Você está usando a versão ReVanced Patches &lt;i&gt;%s&lt;/i&gt;</string>
   <string name="revanced_settings_about_links_dev_header">Observação</string>
   <string name="revanced_settings_about_links_dev_body">Esta versão é um pré-lançamento e você pode ter problemas inesperados</string>
@@ -1055,10 +1053,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_external_browser_title">Abrir links no navegador</string>
   <string name="revanced_external_browser_summary_on">Abrir links externamente</string>
   <string name="revanced_external_browser_summary_off">Abrir links no aplicativo</string>
-  </patch>
-  <patch id="misc.backgroundplayback.BackgroundPlaybackPatch">
-  <string name="revanced_background_playback_title">Reprodução de fundo</string>
-  <string name="revanced_background_playback_summary">Esta configuração pode ser encontrada em Configurações -&gt; Fundo</string>
   </patch>
   <patch id="misc.privacy.RemoveTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Remover parâmetro de consulta de rastreamento</string>
