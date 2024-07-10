@@ -1032,6 +1032,18 @@ public final class app/revanced/patches/songpal/badge/RemoveNotificationBadgePat
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/soundcloud/ad/HideAdsPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/soundcloud/ad/HideAdsPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/soundcloud/analytics/DisableTelemetryPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/soundcloud/analytics/DisableTelemetryPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/spotify/layout/theme/CustomThemePatch : app/revanced/patcher/patch/ResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/spotify/layout/theme/CustomThemePatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
