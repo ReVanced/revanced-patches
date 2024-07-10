@@ -17,7 +17,7 @@ internal object MdxSeekFingerprint : MethodFingerprint(
     customFingerprint = { methodDef, _ ->
         // The instruction count is necessary here to avoid matching the relative version
         // of the seek method we're after, which has the same function signature as the
-        // regular one, is in the same class, and even has the exact same 3 opcodes pattern
+        // regular one, is in the same class, and even has the exact same 3 opcodes pattern.
         methodDef.implementation!!.instructions.count() == 3
     }
 )
