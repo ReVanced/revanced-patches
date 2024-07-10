@@ -1,3 +1,10 @@
+# [4.11.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v4.11.0-dev.6...v4.11.0-dev.7) (2024-07-10)
+
+
+### Features
+
+* **Bandcamp:** Add `Remove play limits` patch ([#3366](https://github.com/ReVanced/revanced-patches/issues/3366)) ([ad8d3bb](https://github.com/ReVanced/revanced-patches/commit/ad8d3bb1c86f1324234e890f1171ec4a18e56dd9))
+
 # [4.11.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.11.0-dev.5...v4.11.0-dev.6) (2024-07-10)
 
 
