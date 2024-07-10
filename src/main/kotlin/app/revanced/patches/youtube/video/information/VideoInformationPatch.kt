@@ -87,7 +87,7 @@ object VideoInformationPatch : BytecodePatch(
         with(MdxPlayerDirectorSetVideoStageFingerprint.resultOrThrow()) {
             mdxInitMethod = mutableClass.methods.first { MethodUtil.isConstructor(it) }
 
-            // find the location of the first invoke-direct call and extract the register storing the 'this' object reference.
+            // find the location of the first invoke-direct call and extract the register storing the 'this' object reference
             val initThisIndex = mdxInitMethod.indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_DIRECT && getReference<MethodReference>()?.name == "<init>"
             }
