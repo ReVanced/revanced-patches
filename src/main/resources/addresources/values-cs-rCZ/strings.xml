@@ -1059,10 +1059,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_external_browser_summary_on">Otevírací odkazy vně</string>
   <string name="revanced_external_browser_summary_off">Otevírání odkazů v aplikaci</string>
   </patch>
-  <patch id="misc.backgroundplayback.BackgroundPlaybackPatch">
-  <string name="revanced_background_playback_title">Přehrávání na pozadí</string>
-  <string name="revanced_background_playback_summary">Toto nastavení lze nalézt v Nastavení -&gt; Pozadí</string>
-  </patch>
   <patch id="misc.privacy.RemoveTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Odstranit parametr dotaz pro sledování</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Parametr dotaz na sledování je odstraněn z odkazů</string>

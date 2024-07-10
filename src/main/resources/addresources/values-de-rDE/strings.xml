@@ -684,7 +684,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_failure_client_rate_limit_requested">Nicht verfügbar (Client-API-Limit erreicht)</string>
   <string name="revanced_ryd_failure_generic">Dislikes nicht verfügbar (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
-  <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Video neu laden, um mit Return YouTube Abgleich zu stimmen</string>
+  <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Video neu laden, um mit Return YouTube Dislike abzustimmen</string>
   <string name="revanced_ryd_enable_summary_on">Dislikes werden angezeigt</string>
   <string name="revanced_ryd_enable_summary_off">Dislikes werden nicht angezeigt</string>
   <string name="revanced_ryd_shorts_title">Dislikes auf Shorts anzeigen</string>
@@ -1055,10 +1055,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_external_browser_title">Links im Browser öffnen</string>
   <string name="revanced_external_browser_summary_on">Links extern öffnen</string>
   <string name="revanced_external_browser_summary_off">Öffne Links in der App</string>
-  </patch>
-  <patch id="misc.backgroundplayback.BackgroundPlaybackPatch">
-  <string name="revanced_background_playback_title">Hintergrundwiedergabe</string>
-  <string name="revanced_background_playback_summary">Diese Einstellung kann in den Einstellungen gefunden werden -&gt; Hintergrund</string>
   </patch>
   <patch id="misc.privacy.RemoveTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Tracking-Abfrageparameter entfernen</string>

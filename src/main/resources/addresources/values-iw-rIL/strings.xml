@@ -279,8 +279,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.links.OpenLinksExternallyPatch">
   </patch>
-  <patch id="misc.backgroundplayback.BackgroundPlaybackPatch">
-  </patch>
   <patch id="misc.privacy.RemoveTrackingQueryParameterPatch">
   </patch>
   <patch id="misc.zoomhaptics.ZoomHapticsPatch">

@@ -1055,10 +1055,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_external_browser_summary_on">Keçidlər xarici brauzerdə açılır</string>
   <string name="revanced_external_browser_summary_off">Keçidlər tətbiqdə açılır</string>
   </patch>
-  <patch id="misc.backgroundplayback.BackgroundPlaybackPatch">
-  <string name="revanced_background_playback_title">Arxaplanda oxutma</string>
-  <string name="revanced_background_playback_summary">Bu ayar, Ayarlar -&gt; Arxaplan bölməsinə tapıla bilər</string>
-  </patch>
   <patch id="misc.privacy.RemoveTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">İzləmə sorğusu parametrini sil</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">İzləmə sorğusu parametri keçidlərdən silinir</string>
