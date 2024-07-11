@@ -74,6 +74,7 @@ object HidePlayerFlyoutMenuPatch : ResourcePatch() {
                                 SwitchPreference("revanced_hide_player_flyout_more_info"),
                                 SwitchPreference("revanced_hide_player_flyout_audio_track"),
                                 SwitchPreference("revanced_hide_player_flyout_watch_in_vr"),
+                                SwitchPreference("revanced_hide_video_quality_menu_footer"),
                         )
                 )
         )

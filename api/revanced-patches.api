@@ -155,6 +155,12 @@ public final class app/revanced/patches/all/screenshot/removerestriction/RemoveS
 	public static fun values ()[Lapp/revanced/patches/all/screenshot/removerestriction/RemoveScreenshotRestrictionPatch$MethodCall;
 }
 
+public final class app/revanced/patches/all/shortcut/sharetargets/RemoveShareTargetsPatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/all/shortcut/sharetargets/RemoveShareTargetsPatch;
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
 public final class app/revanced/patches/all/telephony/sim/spoof/SpoofSimCountryPatch : app/revanced/patches/all/misc/transformation/BaseTransformInstructionsPatch {
 	public static final field INSTANCE Lapp/revanced/patches/all/telephony/sim/spoof/SpoofSimCountryPatch;
 	public synthetic fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Ljava/lang/Object;
@@ -171,6 +177,12 @@ public final class app/revanced/patches/amazon/deeplinking/DeepLinkingPatch : ap
 
 public final class app/revanced/patches/backdrops/misc/pro/ProUnlockPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/backdrops/misc/pro/ProUnlockPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/bandcamp/limitations/RemovePlayLimitsPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/bandcamp/limitations/RemovePlayLimitsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
@@ -237,6 +249,12 @@ public final class app/revanced/patches/idaustria/detection/signature/SpoofSigna
 
 public final class app/revanced/patches/inshorts/ad/HideAdsPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/inshorts/ad/HideAdsPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/instagram/patches/ad/HideAdsPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/instagram/patches/ad/HideAdsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
@@ -521,6 +539,16 @@ public final class app/revanced/patches/pixiv/ads/HideAdsPatch : app/revanced/pa
 	public static final field INSTANCE Lapp/revanced/patches/pixiv/ads/HideAdsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/rar/misc/annoyances/purchasereminder/HidePurchaseReminderPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/rar/misc/annoyances/purchasereminder/HidePurchaseReminderPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/rar/misc/annoyances/purchasereminder/fingerprints/ShowReminderFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/rar/misc/annoyances/purchasereminder/fingerprints/ShowReminderFingerprint;
 }
 
 public final class app/revanced/patches/reddit/ad/banner/HideBannerPatch : app/revanced/patcher/patch/ResourcePatch {
@@ -1010,6 +1038,18 @@ public final class app/revanced/patches/songpal/badge/RemoveNotificationBadgePat
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/soundcloud/ad/HideAdsPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/soundcloud/ad/HideAdsPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/soundcloud/analytics/DisableTelemetryPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/soundcloud/analytics/DisableTelemetryPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/spotify/layout/theme/CustomThemePatch : app/revanced/patcher/patch/ResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/spotify/layout/theme/CustomThemePatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
@@ -1030,6 +1070,18 @@ public final class app/revanced/patches/spotify/navbar/PremiumNavbarTabPatch : a
 
 public final class app/revanced/patches/spotify/navbar/PremiumNavbarTabResourcePatch : app/revanced/patcher/patch/ResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/spotify/navbar/PremiumNavbarTabResourcePatch;
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
+public final class app/revanced/patches/stocard/layout/HideOffersTabPatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/stocard/layout/HideOffersTabPatch;
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
+public final class app/revanced/patches/stocard/layout/HideStoryBubblesPatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/stocard/layout/HideStoryBubblesPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
