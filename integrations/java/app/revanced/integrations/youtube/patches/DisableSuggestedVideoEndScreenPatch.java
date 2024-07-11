@@ -1,13 +1,8 @@
 package app.revanced.integrations.youtube.patches;
 
 import android.annotation.SuppressLint;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 
-import androidx.annotation.NonNull;
-import app.revanced.integrations.shared.Logger;
 import app.revanced.integrations.youtube.settings.Settings;
 
 /** @noinspection unused*/

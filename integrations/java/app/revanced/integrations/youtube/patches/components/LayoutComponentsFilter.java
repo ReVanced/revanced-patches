@@ -80,7 +80,8 @@ public final class LayoutComponentsFilter extends Filter {
         final var communityPosts = new StringFilterGroup(
                 Settings.HIDE_COMMUNITY_POSTS,
                 "post_base_wrapper",
-                "image_post_root.eml"
+                "image_post_root.eml",
+                "text_post_root.eml"
         );
 
         final var communityGuidelines = new StringFilterGroup(
@@ -161,11 +162,6 @@ public final class LayoutComponentsFilter extends Filter {
         expandableMetadata = new StringFilterGroup(
                 Settings.HIDE_EXPANDABLE_CHIP,
                 "inline_expander"
-        );
-
-        final var videoQualityMenuFooter = new StringFilterGroup(
-                Settings.HIDE_VIDEO_QUALITY_MENU_FOOTER,
-                "quality_sheet_footer"
         );
 
         final var channelBar = new StringFilterGroup(
@@ -275,7 +271,6 @@ public final class LayoutComponentsFilter extends Filter {
                 compactBanner,
                 compactChannelBarInner,
                 medicalPanel,
-                videoQualityMenuFooter,
                 infoPanel,
                 emergencyBox,
                 subscribersCommunityGuidelines,

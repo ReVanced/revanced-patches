@@ -39,6 +39,7 @@ public class ThemeHelper {
     /**
      * Injection point.
      */
+    @SuppressWarnings("SameReturnValue")
     private static String darkThemeResourceName() {
         // Value is changed by Theme patch, if included.
         return "@color/yt_black3";
@@ -58,6 +59,7 @@ public class ThemeHelper {
     /**
      * Injection point.
      */
+    @SuppressWarnings("SameReturnValue")
     private static String lightThemeResourceName() {
         // Value is changed by Theme patch, if included.
         return "@color/yt_white1";

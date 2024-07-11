@@ -54,6 +54,7 @@ public class Utils {
      *
      * @return The manifest 'Version' entry of the patches.jar used during patching.
      */
+    @SuppressWarnings("SameReturnValue")
     public static String getPatchesReleaseVersion() {
         return ""; // Value is replaced during patching.
     }
