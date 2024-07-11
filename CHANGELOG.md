@@ -1,3 +1,60 @@
+# [4.11.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v4.11.0-dev.6...v4.11.0-dev.7) (2024-07-10)
+
+
+### Features
+
+* **Bandcamp:** Add `Remove play limits` patch ([#3366](https://github.com/ReVanced/revanced-patches/issues/3366)) ([ad8d3bb](https://github.com/ReVanced/revanced-patches/commit/ad8d3bb1c86f1324234e890f1171ec4a18e56dd9))
+
+# [4.11.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.11.0-dev.5...v4.11.0-dev.6) (2024-07-10)
+
+
+### Bug Fixes
+
+* **YouTube - SponsorBlock:** Skip segments when casting ([#3331](https://github.com/ReVanced/revanced-patches/issues/3331)) ([d9395fd](https://github.com/ReVanced/revanced-patches/commit/d9395fdbca45cf68fbc63469e228eefbd6c2bf2e))
+
+
+### Features
+
+* **Soundcloud:** Add `Hide ads` and `Disable telemetry` patch ([#3386](https://github.com/ReVanced/revanced-patches/issues/3386)) ([3c79f3d](https://github.com/ReVanced/revanced-patches/commit/3c79f3d34d978aead60de19e64d05fbebc1bc73a))
+
+# [4.11.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v4.11.0-dev.4...v4.11.0-dev.5) (2024-07-05)
+
+
+### Bug Fixes
+
+* **YouTube - Settings:** Move some settings to different menus, adjust default setting values ([#3415](https://github.com/ReVanced/revanced-patches/issues/3415)) ([7201ac4](https://github.com/ReVanced/revanced-patches/commit/7201ac45c158682413c8584aac7bb37b770fc924))
+
+# [4.11.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.11.0-dev.3...v4.11.0-dev.4) (2024-07-01)
+
+
+### Bug Fixes
+
+* **Windy - Unlock pro:** Revert changing package name ([#3402](https://github.com/ReVanced/revanced-patches/issues/3402)) ([541f1e7](https://github.com/ReVanced/revanced-patches/commit/541f1e702665630a3737f67a4cc0c4f7b4899f8f))
+
+# [4.11.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.11.0-dev.2...v4.11.0-dev.3) (2024-06-30)
+
+
+### Bug Fixes
+
+* **Windy - Unlock pro:** Use correct package name ([#3397](https://github.com/ReVanced/revanced-patches/issues/3397)) ([1d8459a](https://github.com/ReVanced/revanced-patches/commit/1d8459ac992b12371c41df3c25b6386119770d15))
+
+# [4.11.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.11.0-dev.1...v4.11.0-dev.2) (2024-06-27)
+
+
+### Features
+
+* Add translations ([#2963](https://github.com/ReVanced/revanced-patches/issues/2963)) ([69ea6f3](https://github.com/ReVanced/revanced-patches/commit/69ea6f3bc2b5f419320f17c150489dcb9eed76ce))
+
+# [4.11.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.10.1-dev.2...v4.11.0-dev.1) (2024-06-27)
+
+
+### Features
+
+* Add `Remove share targets` patch ([#3334](https://github.com/ReVanced/revanced-patches/issues/3334)) ([9414122](https://github.com/ReVanced/revanced-patches/commit/94141228163aee8d051491db51fc1e4c8b86f0e6))
+* **Instagram:** Add `Hide ads` patch ([#3380](https://github.com/ReVanced/revanced-patches/issues/3380)) ([c6b2f8c](https://github.com/ReVanced/revanced-patches/commit/c6b2f8c0172b4fd142927d9448ed855831c86ae4))
+* **RAR:** Add `Hide purchase reminder` patch ([#3321](https://github.com/ReVanced/revanced-patches/issues/3321)) ([8fbe7e3](https://github.com/ReVanced/revanced-patches/commit/8fbe7e3d38c43adfa0755bcbe87f8c6b7696da3a))
+* **Stocard:** Add `Hide offers tab` and `Hide story bubbles` patch ([#3359](https://github.com/ReVanced/revanced-patches/issues/3359)) ([fbd0507](https://github.com/ReVanced/revanced-patches/commit/fbd0507ce5cdeb93a1f661aa8097139c61e643a0))
+
 ## [4.10.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.10.1-dev.1...v4.10.1-dev.2) (2024-06-24)
 
 

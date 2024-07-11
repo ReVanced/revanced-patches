@@ -83,6 +83,10 @@ Features can be requested by opening an issue using the
 If you encounter a bug while using ReVanced Patches, open an issue using the
 [Bug report issue template](https://github.com/ReVanced/revanced-patches/issues/new?assignees=&labels=Bug+report&projects=&template=bug_report.yml&title=bug%3A+).
 
+## 🌐 Submitting translations
+
+ You can contribute translations at [translate.revanced.app](https://translate.revanced.app).
+
 ## 🧑‍⚖️ Guidelines for requesting or contributing patches
 
 To maintain a high-quality and ethical collection of patches, the following guidelines for requesting
@@ -107,7 +111,6 @@ are unaffected by this change.
 * Payment circumvention: We do not accept patches that exist solely to bypass payment for the app or any of its features
 * Malicious patches: Patches that are malicious in nature are not allowed
 
-
 ## 📝 How to contribute
 
 1. Before contributing, it is recommended to open an issue to discuss your change
@@ -120,6 +123,6 @@ described in the [ReVanced Patcher documentation](https://github.com/ReVanced/re
 that your pull request closes in the description of your pull request
 5. Our team will review your pull request and provide feedback. Once your pull request is approved,
 it will be merged into the `dev` branch and will be included in the next release of ReVanced Patches
-
+ 
 ❤️ Thank you for considering contributing to ReVanced Patches,
 ReVanced
