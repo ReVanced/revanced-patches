@@ -12,7 +12,9 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.soundcloud.ad.fingerprints.FeatureConstructorFingerprint
 import app.revanced.patches.soundcloud.offline.fingerprints.OfflineSyncHeaderVerificationFingerprint
 import app.revanced.patches.soundcloud.offline.fingerprints.OfflineSyncURLBuilderFingerprint
+import app.revanced.util.getReference
 import app.revanced.util.resultOrThrow
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 @Patch(
     name = "Allow Offline Tracks",
@@ -50,7 +52,8 @@ object AllowOfflineSyncPatch : BytecodePatch(
              * the Offline Sync endpoint is not very friendly, it hates anyone who does not pay money >:(
              */
             val offlineSyncGetInstruction = 1
-            replaceInstruction(offlineSyncGetInstruction, "sget-object v1, Lij/a;->HTTPS_STREAM:Lij/a;")
+            val type = getInstruction(offlineSyncGetInstruction).getReference<FieldReference>()!!.type
+            replaceInstruction(offlineSyncGetInstruction, "sget-object v1, $type->HTTPS_STREAM:$type")
         }
 
         OfflineSyncHeaderVerificationFingerprint.resultOrThrow().mutableMethod.apply {
