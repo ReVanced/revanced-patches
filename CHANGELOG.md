@@ -1,3 +1,10 @@
+## [4.11.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.11.0...v4.11.1-dev.1) (2024-07-12)
+
+
+### Bug Fixes
+
+* **YouTube - Hide keyword content:** Do not hide flyout menu ([687c9f7](https://github.com/ReVanced/revanced-patches/commit/687c9f7eb03cca5f7b3486f07f2e3453ebc77faf))
+
 # [4.11.0](https://github.com/ReVanced/revanced-patches/compare/v4.10.0...v4.11.0) (2024-07-11)
 
 
