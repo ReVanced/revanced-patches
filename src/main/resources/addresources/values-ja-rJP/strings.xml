@@ -1054,10 +1054,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_external_browser_summary_on">外部リンクを開く</string>
   <string name="revanced_external_browser_summary_off">アプリ内でリンクを開く</string>
   </patch>
-  <patch id="misc.backgroundplayback.BackgroundPlaybackPatch">
-  <string name="revanced_background_playback_title">バックグラウンド再生</string>
-  <string name="revanced_background_playback_summary">この設定は設定 -&gt; 背景 で見つけることができます</string>
-  </patch>
   <patch id="misc.privacy.RemoveTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">トラッキングクエリパラメータを削除</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">トラッキングクエリパラメータがリンクから削除されました</string>

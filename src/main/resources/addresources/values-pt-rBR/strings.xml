@@ -71,7 +71,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_03_feed_title">Tela Inicial</string>
   <string name="revanced_settings_screen_04_player_title">Reprodutor</string>
   <string name="revanced_settings_screen_05_general_title">Layout geral</string>
-  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Barra de busca</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Controles deslizantes</string>
   <string name="revanced_settings_screen_11_misc_title">Outras configurações</string>
@@ -1058,10 +1057,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_external_browser_title">Abrir links no navegador</string>
   <string name="revanced_external_browser_summary_on">Abrir links externamente</string>
   <string name="revanced_external_browser_summary_off">Abrir links no aplicativo</string>
-  </patch>
-  <patch id="misc.backgroundplayback.BackgroundPlaybackPatch">
-  <string name="revanced_background_playback_title">Reprodução de fundo</string>
-  <string name="revanced_background_playback_summary">Esta configuração pode ser encontrada em Configurações -&gt; Fundo</string>
   </patch>
   <patch id="misc.privacy.RemoveTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Remover parâmetro de consulta de rastreamento</string>
