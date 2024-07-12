@@ -146,7 +146,7 @@ final class KeywordContentFilter extends Filter {
 
     private static final float ALL_VIDEOS_FILTERED_SAMPLE_SIZE = 50;
 
-    private static final long ALL_VIDEOS_FILTERED_TIMEOUT_MILLISECONDS = 60 * 1000; // 60 seconds
+    private static final long ALL_VIDEOS_FILTERED_BACKOFF_MILLISECONDS = 60 * 1000; // 60 seconds
 
     /**
      * Rolling average of how many videos were filtered by a keyword.
@@ -364,7 +364,7 @@ final class KeywordContentFilter extends Filter {
 
         // A keyword is hiding everything.
         // Inform the user, and temporarily turn off filtering.
-        timeToResumeFiltering = System.currentTimeMillis() + ALL_VIDEOS_FILTERED_TIMEOUT_MILLISECONDS;
+        timeToResumeFiltering = System.currentTimeMillis() + ALL_VIDEOS_FILTERED_BACKOFF_MILLISECONDS;
 
         Logger.printDebug(() -> "Temporarily turning off filtering due to excessively broad filter: " + keyword);
         Utils.showToastLong(str("revanced_hide_keyword_toast_invalid_broad", keyword));
