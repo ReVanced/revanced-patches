@@ -1047,10 +1047,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_external_browser_summary_on">Åpne koblinger eksternt</string>
   <string name="revanced_external_browser_summary_off">Åpner lenker i appen</string>
   </patch>
-  <patch id="misc.backgroundplayback.BackgroundPlaybackPatch">
-  <string name="revanced_background_playback_title">Bakgrunnsavspilling</string>
-  <string name="revanced_background_playback_summary">Denne innstillingen kan finnes i Innstillinger -&gt; Bakgrunn</string>
-  </patch>
   <patch id="misc.privacy.RemoveTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Fjern sporingsspørringens parameter</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Spores parameteren for spørring fjernes fra linker</string>

@@ -1,3 +1,22 @@
+# [4.11.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v4.11.0-dev.6...v4.11.0-dev.7) (2024-07-10)
+
+
+### Features
+
+* **Bandcamp:** Add `Remove play limits` patch ([#3366](https://github.com/ReVanced/revanced-patches/issues/3366)) ([ad8d3bb](https://github.com/ReVanced/revanced-patches/commit/ad8d3bb1c86f1324234e890f1171ec4a18e56dd9))
+
+# [4.11.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.11.0-dev.5...v4.11.0-dev.6) (2024-07-10)
+
+
+### Bug Fixes
+
+* **YouTube - SponsorBlock:** Skip segments when casting ([#3331](https://github.com/ReVanced/revanced-patches/issues/3331)) ([d9395fd](https://github.com/ReVanced/revanced-patches/commit/d9395fdbca45cf68fbc63469e228eefbd6c2bf2e))
+
+
+### Features
+
+* **Soundcloud:** Add `Hide ads` and `Disable telemetry` patch ([#3386](https://github.com/ReVanced/revanced-patches/issues/3386)) ([3c79f3d](https://github.com/ReVanced/revanced-patches/commit/3c79f3d34d978aead60de19e64d05fbebc1bc73a))
+
 # [4.11.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v4.11.0-dev.4...v4.11.0-dev.5) (2024-07-05)
 
 

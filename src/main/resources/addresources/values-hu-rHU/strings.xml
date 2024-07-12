@@ -1054,10 +1054,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_external_browser_summary_on">Hivatkozások külső megnyitása</string>
   <string name="revanced_external_browser_summary_off">Hivatkozások megnyitása az alkalmazásban</string>
   </patch>
-  <patch id="misc.backgroundplayback.BackgroundPlaybackPatch">
-  <string name="revanced_background_playback_title">Lejátszás a háttérben</string>
-  <string name="revanced_background_playback_summary">Ez a beállítás a Beállítások -&gt; Háttér menüpontban található</string>
-  </patch>
   <patch id="misc.privacy.RemoveTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Nyomkövetési lekérdezési paraméter eltávolítása</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">A nyomkövetési lekérdezési paraméter eltávolítva a linkekből</string>
