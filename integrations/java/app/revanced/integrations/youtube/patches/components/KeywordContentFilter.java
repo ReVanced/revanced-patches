@@ -88,11 +88,12 @@ final class KeywordContentFilter extends Filter {
             "search_vwc_description_transition_key",
             "g-high-recZ",
             // Text and litho components found in the buffer that belong to path filters.
+            "metadata.eml",
             "thumbnail.eml",
             "avatar.eml",
             "overflow_button.eml",
             "shorts-lockup-image",
-            "eml.shorts-lockup.overlay-metadata.secondary-text",
+            "shorts-lockup.overlay-metadata.secondary-text",
             "YouTubeSans-SemiBold",
             "sans-serif"
     };
