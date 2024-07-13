@@ -64,6 +64,8 @@ object BypassImageRegionRestrictions : BytecodePatch(emptySet()) {
             SwitchPreference("revanced_bypass_image_region_restrictions")
         )
 
-        CronetImageUrlHook.addImageUrlHook(INTEGRATIONS_CLASS_DESCRIPTOR, true)
+        // A priority hook is not needed, as the image urls of interest are not modified
+        // by AlternativeThumbnails or any other patch in this repo.
+        CronetImageUrlHook.addImageUrlHook(INTEGRATIONS_CLASS_DESCRIPTOR)
     }
 }
