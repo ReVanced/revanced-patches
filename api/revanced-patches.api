@@ -1718,6 +1718,12 @@ public final class app/revanced/patches/youtube/layout/thumbnails/AlternativeThu
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/youtube/layout/thumbnails/BypassImageRegionRestrictions : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/thumbnails/BypassImageRegionRestrictions;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/youtube/misc/announcements/AnnouncementsPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/announcements/AnnouncementsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
