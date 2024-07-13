@@ -1,3 +1,10 @@
+# [4.12.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.11.1-dev.1...v4.12.0-dev.1) (2024-07-13)
+
+
+### Features
+
+* **SoundCloud:** Add `Enable offline sync` patch ([#3407](https://github.com/ReVanced/revanced-patches/issues/3407)) ([4de86c6](https://github.com/ReVanced/revanced-patches/commit/4de86c6407376bcd3cc0513a2f0707410b8d7ccd))
+
 ## [4.11.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.11.0...v4.11.1-dev.1) (2024-07-12)
 
 
