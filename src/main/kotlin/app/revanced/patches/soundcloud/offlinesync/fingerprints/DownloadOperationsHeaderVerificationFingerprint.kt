@@ -1,18 +1,19 @@
-package app.revanced.patches.soundcloud.offline.fingerprints
+package app.revanced.patches.soundcloud.offlinesync.fingerprints
 
+import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.extensions.or
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object OfflineSyncURLBuilderFingerprint : MethodFingerprint(
-    returnType = "Ljava/lang/String",
+internal object DownloadOperationsHeaderVerificationFingerprint : MethodFingerprint(
+    returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L","L"),
     opcodes = listOf(
-        Opcode.IGET_OBJECT,
-        Opcode.SGET_OBJECT,
-        Opcode.FILLED_NEW_ARRAY
+        Opcode.CONST_STRING,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.CONST_STRING
     ),
     customFingerprint = { _, classDef ->
         classDef.sourceFile == "DownloadOperations.kt"
