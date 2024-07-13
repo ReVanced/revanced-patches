@@ -1790,11 +1790,11 @@ public final class app/revanced/patches/youtube/misc/gms/GmsCoreSupportResourceP
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
-public final class app/revanced/patches/youtube/misc/imageurlhook/ImageThumbnailHook : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/imageurlhook/ImageThumbnailHook;
+public final class app/revanced/patches/youtube/misc/imageurlhook/CronetImageUrlHook : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/imageurlhook/CronetImageUrlHook;
 	public final fun addImageUrlErrorCallbackHook (Ljava/lang/String;)V
 	public final fun addImageUrlHook (Ljava/lang/String;Z)V
-	public static synthetic fun addImageUrlHook$default (Lapp/revanced/patches/youtube/misc/imageurlhook/ImageThumbnailHook;Ljava/lang/String;ZILjava/lang/Object;)V
+	public static synthetic fun addImageUrlHook$default (Lapp/revanced/patches/youtube/misc/imageurlhook/CronetImageUrlHook;Ljava/lang/String;ZILjava/lang/Object;)V
 	public final fun addImageUrlSuccessCallbackHook (Ljava/lang/String;)V
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V

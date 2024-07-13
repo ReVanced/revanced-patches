@@ -9,7 +9,7 @@ import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
-import app.revanced.patches.youtube.misc.imageurlhook.ImageThumbnailHook
+import app.revanced.patches.youtube.misc.imageurlhook.CronetImageUrlHook
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
@@ -22,7 +22,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
         SettingsPatch::class,
         AddResourcesPatch::class,
         NavigationBarHookPatch::class,
-        ImageThumbnailHook::class
+        CronetImageUrlHook::class
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -105,8 +105,8 @@ object AlternativeThumbnailsPatch : BytecodePatch(emptySet()) {
             ListPreference("revanced_alt_thumbnail_stills_time", summaryKey = null)
         )
 
-        ImageThumbnailHook.addImageUrlHook(INTEGRATIONS_CLASS_DESCRIPTOR)
-        ImageThumbnailHook.addImageUrlSuccessCallbackHook(INTEGRATIONS_CLASS_DESCRIPTOR)
-        ImageThumbnailHook.addImageUrlErrorCallbackHook(INTEGRATIONS_CLASS_DESCRIPTOR)
+        CronetImageUrlHook.addImageUrlHook(INTEGRATIONS_CLASS_DESCRIPTOR)
+        CronetImageUrlHook.addImageUrlSuccessCallbackHook(INTEGRATIONS_CLASS_DESCRIPTOR)
+        CronetImageUrlHook.addImageUrlErrorCallbackHook(INTEGRATIONS_CLASS_DESCRIPTOR)
     }
 }

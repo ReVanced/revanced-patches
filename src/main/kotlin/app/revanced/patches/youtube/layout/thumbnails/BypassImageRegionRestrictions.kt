@@ -6,7 +6,7 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.youtube.misc.imageurlhook.ImageThumbnailHook
+import app.revanced.patches.youtube.misc.imageurlhook.CronetImageUrlHook
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
@@ -18,7 +18,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
         IntegrationsPatch::class,
         SettingsPatch::class,
         AddResourcesPatch::class,
-        ImageThumbnailHook::class
+        CronetImageUrlHook::class
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -64,7 +64,6 @@ object BypassImageRegionRestrictions : BytecodePatch(emptySet()) {
             SwitchPreference("revanced_bypass_image_region_restrictions")
         )
 
-        // Use high priority, so
-        ImageThumbnailHook.addImageUrlHook(INTEGRATIONS_CLASS_DESCRIPTOR, true)
+        CronetImageUrlHook.addImageUrlHook(INTEGRATIONS_CLASS_DESCRIPTOR, true)
     }
 }

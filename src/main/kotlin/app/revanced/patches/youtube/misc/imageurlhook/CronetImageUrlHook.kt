@@ -9,7 +9,6 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
-import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.youtube.misc.imageurlhook.fingerprints.MessageDigestImageUrlFingerprint
 import app.revanced.patches.youtube.misc.imageurlhook.fingerprints.MessageDigestImageUrlParentFingerprint
 import app.revanced.patches.youtube.misc.imageurlhook.fingerprints.cronet.RequestFingerprint
@@ -31,7 +30,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
         IntegrationsPatch::class
     ]
 )
-object ImageThumbnailHook : BytecodePatch(
+object CronetImageUrlHook : BytecodePatch(
     setOf(
         MessageDigestImageUrlParentFingerprint,
         OnResponseStartedFingerprint,
@@ -88,22 +87,14 @@ object ImageThumbnailHook : BytecodePatch(
         fun MethodFingerprint.alsoResolve(fingerprint: MethodFingerprint) =
             also { resolve(context, fingerprint.resultOrThrow().classDef) }.resultOrThrow()
 
-        fun MethodFingerprint.resolveAndLetMutableMethod(
-            fingerprint: MethodFingerprint,
-            block: (MutableMethod) -> Unit,
-        ) = alsoResolve(fingerprint).also { block(it.mutableMethod) }
+        loadImageUrlMethod = MessageDigestImageUrlFingerprint
+            .alsoResolve(MessageDigestImageUrlParentFingerprint).mutableMethod
 
-        MessageDigestImageUrlFingerprint.resolveAndLetMutableMethod(MessageDigestImageUrlParentFingerprint) {
-            loadImageUrlMethod = it
-        }
+        loadImageSuccessCallbackMethod = OnSucceededFingerprint
+            .alsoResolve(OnResponseStartedFingerprint).mutableMethod
 
-        OnSucceededFingerprint.resolveAndLetMutableMethod(OnResponseStartedFingerprint) {
-            loadImageSuccessCallbackMethod = it
-        }
-
-        OnFailureFingerprint.resolveAndLetMutableMethod(OnResponseStartedFingerprint) {
-            loadImageErrorCallbackMethod = it
-        }
+        loadImageErrorCallbackMethod = OnFailureFingerprint
+            .alsoResolve(OnResponseStartedFingerprint).mutableMethod
 
         // The URL is required for the failure callback hook, but the URL field is obfuscated.
         // Add a helper get method that returns the URL field.
