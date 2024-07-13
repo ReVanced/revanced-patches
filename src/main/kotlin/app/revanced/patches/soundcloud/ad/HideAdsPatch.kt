@@ -10,7 +10,7 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.soundcloud.ad.fingerprints.InterceptFingerprint
-import app.revanced.patches.soundcloud.ad.fingerprints.FeatureConstructorFingerprint
+import app.revanced.patches.soundcloud.shared.fingerprints.FeatureConstructorFingerprint
 import app.revanced.patches.soundcloud.ad.fingerprints.UserConsumerPlanConstructorFingerprint
 import app.revanced.util.resultOrThrow
 
