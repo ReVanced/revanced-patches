@@ -13,7 +13,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 @Patch(
     name = "Bypass image region restrictions",
     description = "Adds an option to use a different host for channel and user avatar images," +
-            "which can restore these images for users in some countries",
+            "which can restore these images for users in some countries.",
     dependencies = [
         IntegrationsPatch::class,
         SettingsPatch::class,
