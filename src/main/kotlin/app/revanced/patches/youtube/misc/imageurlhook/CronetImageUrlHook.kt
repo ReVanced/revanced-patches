@@ -25,7 +25,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 
 @Patch(
-    description = "Hooks Cronet image urls loaded by Litho",
+    description = "Hooks Cronet image urls",
     dependencies = [
         IntegrationsPatch::class
     ]
