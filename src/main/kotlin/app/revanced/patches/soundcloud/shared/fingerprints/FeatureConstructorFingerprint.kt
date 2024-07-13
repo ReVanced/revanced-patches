@@ -1,4 +1,4 @@
-package app.revanced.patches.soundcloud.ad.fingerprints
+package app.revanced.patches.soundcloud.shared.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint

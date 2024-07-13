@@ -1050,6 +1050,12 @@ public final class app/revanced/patches/soundcloud/analytics/DisableTelemetryPat
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/soundcloud/offlinesync/EnableOfflineSyncPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/soundcloud/offlinesync/EnableOfflineSyncPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/spotify/layout/theme/CustomThemePatch : app/revanced/patcher/patch/ResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/spotify/layout/theme/CustomThemePatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
