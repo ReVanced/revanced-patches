@@ -243,14 +243,14 @@ public final class app/revanced/patches/cieid/restrictions/root/BypassRootChecks
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/duolingo/ad/RemoveDuolingoAdsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/duolingo/ad/RemoveDuolingoAdsPatch;
+public final class app/revanced/patches/duolingo/ad/DisableAdsPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/duolingo/ad/DisableAdsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/duolingo/debug/MakeDebugMenuAvailable : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/duolingo/debug/MakeDebugMenuAvailable;
+public final class app/revanced/patches/duolingo/debug/EnableDebugMenuPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/duolingo/debug/EnableDebugMenuPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
