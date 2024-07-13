@@ -190,16 +190,17 @@ public final class AlternativeThumbnailsPatch {
      * Build the alternative thumbnail url using YouTube provided still video captures.
      *
      * @param decodedUrl Decoded original thumbnail request url.
-     * @return The alternative thumbnail url, or the original url. Both without tracking parameters.
+     * @return The alternative thumbnail url, or if not available NULL.
      */
-    @NonNull
-    private static String buildYoutubeVideoStillURL(@NonNull DecodedThumbnailUrl decodedUrl,
+    @Nullable
+    private static String buildYouTubeVideoStillURL(@NonNull DecodedThumbnailUrl decodedUrl,
                                                     @NonNull ThumbnailQuality qualityToUse) {
         String sanitizedReplacement = decodedUrl.createStillsUrl(qualityToUse, false);
         if (VerifiedQualities.verifyAltThumbnailExist(decodedUrl.videoId, qualityToUse, sanitizedReplacement)) {
             return sanitizedReplacement;
         }
-        return decodedUrl.sanitizedUrl;
+
+        return null;
     }
 
     /**
@@ -284,14 +285,21 @@ public final class AlternativeThumbnailsPatch {
             final boolean includeTracking;
             if (option.useDeArrow && canUseDeArrowAPI()) {
                 includeTracking = false; // Do not include view tracking parameters with API call.
-                final String fallbackUrl = option.useStillImages
-                        ? buildYoutubeVideoStillURL(decodedUrl, qualityToUse)
-                        : decodedUrl.sanitizedUrl;
+                String fallbackUrl = null;
+                if (option.useStillImages) {
+                    fallbackUrl = buildYouTubeVideoStillURL(decodedUrl, qualityToUse);
+                }
+                if (fallbackUrl == null) {
+                    fallbackUrl = decodedUrl.sanitizedUrl;
+                }
 
                 sanitizedReplacementUrl = buildDeArrowThumbnailURL(decodedUrl.videoId, fallbackUrl);
             } else if (option.useStillImages) {
                 includeTracking = true; // Include view tracking parameters if present.
-                sanitizedReplacementUrl = buildYoutubeVideoStillURL(decodedUrl, qualityToUse);
+                sanitizedReplacementUrl = buildYouTubeVideoStillURL(decodedUrl, qualityToUse);
+                if (sanitizedReplacementUrl == null) {
+                    return originalUrl; // Still capture is not available.  Return the untouched original url.
+                }
             } else {
                 return originalUrl; // Recently experienced DeArrow failure and video stills are not enabled.
             }
@@ -345,7 +353,7 @@ public final class AlternativeThumbnailsPatch {
                     return; // Not a thumbnail.
                 }
 
-                Logger.printDebug(() -> "handleCronetSuccess, image not available: " + url);
+                Logger.printDebug(() -> "handleCronetSuccess, image not available: " + decodedUrl.sanitizedUrl);
 
                 ThumbnailQuality quality = ThumbnailQuality.altImageNameToQuality(decodedUrl.imageQuality);
                 if (quality == null) {
@@ -627,14 +635,17 @@ public final class AlternativeThumbnailsPatch {
      * YouTube video thumbnail url, decoded into it's relevant parts.
      */
     private static class DecodedThumbnailUrl {
-        /**
-         * YouTube thumbnail URL prefix. Can be '/vi/' or '/vi_webp/'
-         */
-        private static final String YOUTUBE_THUMBNAIL_PREFIX = "https://i.ytimg.com/vi";
+        private static final String YOUTUBE_THUMBNAIL_DOMAIN = "https://i.ytimg.com/";
 
         @Nullable
         static DecodedThumbnailUrl decodeImageUrl(String url) {
-            final int videoIdStartIndex = url.indexOf('/', YOUTUBE_THUMBNAIL_PREFIX.length()) + 1;
+            final int urlPathStartIndex = url.indexOf('/', "https://".length()) + 1;
+            if (urlPathStartIndex <= 0) return null;
+
+            final int urlPathEndIndex = url.indexOf('/', urlPathStartIndex);
+            if (urlPathEndIndex < 0) return null;
+
+            final int videoIdStartIndex = url.indexOf('/', urlPathEndIndex) + 1;
             if (videoIdStartIndex <= 0) return null;
 
             final int videoIdEndIndex = url.indexOf('/', videoIdStartIndex);
@@ -647,15 +658,15 @@ public final class AlternativeThumbnailsPatch {
             int imageExtensionEndIndex = url.indexOf('?', imageSizeEndIndex);
             if (imageExtensionEndIndex < 0) imageExtensionEndIndex = url.length();
 
-            return new DecodedThumbnailUrl(url, videoIdStartIndex, videoIdEndIndex,
+            return new DecodedThumbnailUrl(url, urlPathStartIndex, urlPathEndIndex, videoIdStartIndex, videoIdEndIndex,
                     imageSizeStartIndex, imageSizeEndIndex, imageExtensionEndIndex);
         }
 
         final String originalFullUrl;
         /** Full usable url, but stripped of any tracking information. */
         final String sanitizedUrl;
-        /** Url up to the video ID. */
-        final String urlPrefix;
+        /** Url path, such as 'vi' or 'vi_webp' */
+        final String urlPath;
         final String videoId;
         /** Quality, such as hq720 or sddefault. */
         final String imageQuality;
@@ -664,11 +675,11 @@ public final class AlternativeThumbnailsPatch {
         /** User view tracking parameters, only present on some images. */
         final String viewTrackingParameters;
 
-        DecodedThumbnailUrl(String fullUrl, int videoIdStartIndex, int videoIdEndIndex,
+        DecodedThumbnailUrl(String fullUrl, int urlPathStartIndex, int urlPathEndIndex, int videoIdStartIndex, int videoIdEndIndex,
                             int imageSizeStartIndex, int imageSizeEndIndex, int imageExtensionEndIndex) {
             originalFullUrl = fullUrl;
             sanitizedUrl = fullUrl.substring(0, imageExtensionEndIndex);
-            urlPrefix = fullUrl.substring(0, videoIdStartIndex);
+            urlPath = fullUrl.substring(urlPathStartIndex, urlPathEndIndex);
             videoId = fullUrl.substring(videoIdStartIndex, videoIdEndIndex);
             imageQuality = fullUrl.substring(imageSizeStartIndex, imageSizeEndIndex);
             imageExtension = fullUrl.substring(imageSizeEndIndex + 1, imageExtensionEndIndex);
@@ -681,9 +692,12 @@ public final class AlternativeThumbnailsPatch {
             // Images could be upgraded to webp if they are not already, but this fails quite often,
             // especially for new videos uploaded in the last hour.
             // And even if alt webp images do exist, sometimes they can load much slower than the original jpg alt images.
-            // (as much as 4x slower has been observed, despite the alt webp image being a smaller file).
+            // (as much as 4x slower network response has been observed, despite the alt webp image being a smaller file).
             StringBuilder builder = new StringBuilder(originalFullUrl.length() + 2);
-            builder.append(urlPrefix);
+            // Many different "i.ytimage.com" domains exist such as "i9.ytimg.com",
+            // but still captures are frequently not available on the other domains (especially newly uploaded videos).
+            // So always use the primary domain for a higher success rate.
+            builder.append(YOUTUBE_THUMBNAIL_DOMAIN).append(urlPath).append('/');
             builder.append(videoId).append('/');
             builder.append(qualityToUse.getAltImageNameToUse());
             builder.append('.').append(imageExtension);
