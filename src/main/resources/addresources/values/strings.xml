@@ -1000,8 +1000,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
         </patch>
         <patch id="layout.thumbnails.BypassImageRegionRestrictions">
             <string name="revanced_bypass_image_region_restrictions_title">Bypass image region restrictions</string>
-            <string name="revanced_bypass_image_region_restrictions_summary_on">Image host changed to yt4.ggpht.com</string>
-            <string name="revanced_bypass_image_region_restrictions_summary_off">Original image host used\n\nEnabling this can fix missing images that are blocked in some regions</string>
+            <string name="revanced_bypass_image_region_restrictions_summary_on">Using image host yt4.ggpht.com</string>
+            <string name="revanced_bypass_image_region_restrictions_summary_off">Using original image host\n\nEnabling this can fix missing images that are blocked in some regions</string>
         </patch>
         <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
