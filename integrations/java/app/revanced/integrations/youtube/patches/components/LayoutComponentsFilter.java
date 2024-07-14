@@ -250,6 +250,7 @@ public final class LayoutComponentsFilter extends Filter {
                 Settings.HIDE_HORIZONTAL_SHELVES,
                 "horizontal_video_shelf.eml",
                 "horizontal_shelf.eml",
+                "horizontal_shelf_inline.eml",
                 "horizontal_tile_shelf.eml"
         );
 
