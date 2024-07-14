@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.thumbnails.fingerprints.cronet.request.callback
+package app.revanced.patches.youtube.misc.imageurlhook.fingerprints.cronet.request.callback
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint

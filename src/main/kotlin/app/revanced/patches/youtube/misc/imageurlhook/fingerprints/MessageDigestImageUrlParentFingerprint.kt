@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.thumbnails.fingerprints
+package app.revanced.patches.youtube.misc.imageurlhook.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
