@@ -998,6 +998,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_seekbar_custom_color_value_summary">The color of the seekbar</string>
             <string name="revanced_seekbar_custom_color_invalid">Invalid seekbar color value. Using default value.</string>
         </patch>
+        <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+            <string name="revanced_bypass_image_region_restrictions_title">Bypass image region restrictions</string>
+            <string name="revanced_bypass_image_region_restrictions_summary_on">Using image host yt4.ggpht.com</string>
+            <string name="revanced_bypass_image_region_restrictions_summary_off">Using original image host\n\nEnabling this can fix missing images that are blocked in some regions</string>
+        </patch>
         <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
             <string name="revanced_alt_thumbnail_home_title">Home tab</string>

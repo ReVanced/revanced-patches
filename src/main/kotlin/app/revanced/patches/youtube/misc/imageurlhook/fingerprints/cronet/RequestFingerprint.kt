@@ -1,8 +1,8 @@
-package app.revanced.patches.youtube.layout.thumbnails.fingerprints.cronet
+package app.revanced.patches.youtube.misc.imageurlhook.fingerprints.cronet
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.patches.youtube.layout.thumbnails.fingerprints.cronet.RequestFingerprint.IMPLEMENTATION_CLASS_NAME
+import app.revanced.patches.youtube.misc.imageurlhook.fingerprints.cronet.RequestFingerprint.IMPLEMENTATION_CLASS_NAME
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal object RequestFingerprint : MethodFingerprint(
