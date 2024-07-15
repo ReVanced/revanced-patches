@@ -1,3 +1,10 @@
+# [4.12.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.12.0-dev.1...v4.12.0-dev.2) (2024-07-15)
+
+
+### Features
+
+* **YouTube:** Add `Bypass image region restrictions` patch ([#3442](https://github.com/ReVanced/revanced-patches/issues/3442)) ([765fab2](https://github.com/ReVanced/revanced-patches/commit/765fab2af2769349446cc0f2109343ef3bd8c621))
+
 # [4.12.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.11.1-dev.1...v4.12.0-dev.1) (2024-07-13)
 
 
