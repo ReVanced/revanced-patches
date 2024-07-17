@@ -7,7 +7,8 @@ import app.revanced.patches.shared.resource.AndroidManifest
 
 @Patch(
     name = "Disable Facebook Analytics",
-    description = "Disables parts of the Facebook SDK responsible for data gathering."
+    description = "Disables parts of the Facebook SDK responsible for data gathering.",
+    use = false,
 )
 @Suppress("unused")
 object DisableFacebookAnalytics : ResourcePatch() {

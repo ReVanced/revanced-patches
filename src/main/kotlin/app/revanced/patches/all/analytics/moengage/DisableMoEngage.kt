@@ -8,7 +8,8 @@ import app.revanced.patches.all.analytics.moengage.fingerprints.MoEngageInitFing
 import app.revanced.util.resultOrThrow
 
 @Patch(
-    name = "Disable MoEngage analytics SDK"
+    name = "Disable MoEngage analytics SDK",
+    use = false,
 )
 @Suppress("unused")
 object DisableMoEngage : BytecodePatch(

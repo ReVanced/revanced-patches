@@ -7,7 +7,8 @@ import app.revanced.patches.shared.resource.AndroidManifest
 
 @Patch(
     name = "Disable Firebase collections",
-    description = "Disables multiple Firebase data collection mechanisms."
+    description = "Disables multiple Firebase data collection mechanisms.",
+    use = false,
 )
 @Suppress("unused")
 object DisableFirebaseCollections : ResourcePatch() {

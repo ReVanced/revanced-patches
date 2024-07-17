@@ -9,7 +9,8 @@ import app.revanced.util.resultOrThrow
 
 @Patch(
     name = "Disable Firebase transport",
-    description = "Prevents the sending of Firebase Logging and Firebase Crashlytics logs to Google's servers."
+    description = "Prevents the sending of Firebase Logging and Firebase Crashlytics logs to Google's servers.",
+    use = false,
 )
 @Suppress("unused")
 object DisableFirebaseTransport : BytecodePatch(

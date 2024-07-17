@@ -8,7 +8,8 @@ import app.revanced.patches.all.analytics.comscore.fingerprints.ComScoreSetupFin
 import app.revanced.util.resultOrThrow
 
 @Patch(
-    name = "Disable ComScore analytics SDK"
+    name = "Disable ComScore analytics SDK",
+    use = false,
 )
 @Suppress("unused")
 object DisableComScore : BytecodePatch(

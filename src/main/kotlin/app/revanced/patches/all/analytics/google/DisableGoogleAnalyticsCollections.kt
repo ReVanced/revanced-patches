@@ -7,7 +7,8 @@ import app.revanced.patches.shared.resource.AndroidManifest
 
 @Patch(
     name = "Disable Google Analytics collections",
-    description = "Disables multiple Google Analytics data collection mechanisms."
+    description = "Disables multiple Google Analytics data collection mechanisms.",
+    use = false,
 )
 @Suppress("unused")
 object DisableGoogleAnalyticsCollections : ResourcePatch() {

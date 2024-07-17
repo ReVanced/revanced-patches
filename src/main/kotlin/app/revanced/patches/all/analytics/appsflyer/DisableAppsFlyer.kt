@@ -8,7 +8,8 @@ import app.revanced.patches.all.analytics.appsflyer.fingerprints.AppsFlyerInitFi
 import app.revanced.util.resultOrThrow
 
 @Patch(
-    name = "Disable AppsFlyer analytics SDK"
+    name = "Disable AppsFlyer analytics SDK",
+    use = false,
 )
 @Suppress("unused")
 object DisableAppsFlyer : BytecodePatch(

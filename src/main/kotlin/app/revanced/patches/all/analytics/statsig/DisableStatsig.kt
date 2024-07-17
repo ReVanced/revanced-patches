@@ -8,7 +8,8 @@ import app.revanced.patches.all.analytics.statsig.fingerprints.StatsigClientFing
 import app.revanced.util.resultOrThrow
 
 @Patch(
-    name = "Disable Statsig analytics SDK"
+    name = "Disable Statsig analytics SDK",
+    use = false,
 )
 @Suppress("unused")
 object DisableStatsig : BytecodePatch(

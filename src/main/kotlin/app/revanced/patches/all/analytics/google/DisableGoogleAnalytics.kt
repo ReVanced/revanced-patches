@@ -8,7 +8,8 @@ import app.revanced.patches.all.analytics.google.fingerprints.AnalyticsInitFinge
 import app.revanced.util.resultOrThrow
 
 @Patch(
-    name = "Disable Google Analytics"
+    name = "Disable Google Analytics",
+    use = false,
 )
 @Suppress("unused")
 object DisableGoogleAnalytics : BytecodePatch(

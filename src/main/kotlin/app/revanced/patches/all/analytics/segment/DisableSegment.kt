@@ -8,7 +8,8 @@ import app.revanced.patches.all.analytics.segment.fingerprints.SegmentBuilderFin
 import app.revanced.util.resultOrThrow
 
 @Patch(
-    name = "Disable Segment analytics SDK"
+    name = "Disable Segment analytics SDK",
+    use = false,
 )
 @Suppress("unused")
 object DisableSegment : BytecodePatch(

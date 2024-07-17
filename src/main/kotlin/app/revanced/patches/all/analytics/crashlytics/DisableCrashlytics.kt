@@ -9,7 +9,8 @@ import app.revanced.patches.all.analytics.crashlytics.fingerprints.SettingsSpiCa
 import app.revanced.util.resultOrThrow
 
 @Patch(
-    name = "Disable Crashlytics"
+    name = "Disable Crashlytics",
+    use = false,
 )
 @Suppress("unused")
 object DisableCrashlytics : BytecodePatch(
