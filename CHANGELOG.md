@@ -1,3 +1,10 @@
+# [4.12.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.12.0-dev.2...v4.12.0-dev.3) (2024-07-18)
+
+
+### Bug Fixes
+
+* **Instagram - Hide ads:**  Restore compatibility with latest version by fixing fingerprint ([#3455](https://github.com/ReVanced/revanced-patches/issues/3455)) ([4505fa4](https://github.com/ReVanced/revanced-patches/commit/4505fa4138bb55c8957790239c01b8dda63d6cdd))
+
 # [4.12.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.12.0-dev.1...v4.12.0-dev.2) (2024-07-15)
 
 
