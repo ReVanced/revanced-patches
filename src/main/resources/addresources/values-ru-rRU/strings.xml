@@ -142,14 +142,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_expandable_chip_summary_on">Расширяемые фрагменты под видео скрыты</string>
   <string name="revanced_hide_expandable_chip_summary_off">Расширяемые фрагменты под видео отображены</string>
   <string name="revanced_hide_video_quality_menu_footer_title">Меню качества видео</string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_on">Меню качества видео скрыто</string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_off">Меню качества видео отображено</string>
+  <string name="revanced_hide_video_quality_menu_footer_summary_on">Меню качества видео в выдвижном меню плеера скрыто</string>
+  <string name="revanced_hide_video_quality_menu_footer_summary_off">Меню качества видео в выдвижном меню плеера отображено</string>
   <string name="revanced_hide_community_posts_title">Публикации сообщества</string>
   <string name="revanced_hide_community_posts_summary_on">Публикации сообщества в ленте скрыты</string>
   <string name="revanced_hide_community_posts_summary_off">Публикации сообщества в ленте отображены</string>
   <string name="revanced_hide_compact_banner_title">Компактные баннеры</string>
-  <string name="revanced_hide_compact_banner_summary_on">Компактные баннеры скрыты</string>
-  <string name="revanced_hide_compact_banner_summary_off">Компактные баннеры отображены</string>
+  <string name="revanced_hide_compact_banner_summary_on">Компактные баннеры в ленте скрыты</string>
+  <string name="revanced_hide_compact_banner_summary_off">Компактные баннеры в ленте отображены</string>
   <string name="revanced_hide_movies_section_title">Раздел фильмов</string>
   <string name="revanced_hide_movies_section_summary_on">Раздел фильмов в описании видео  скрыт</string>
   <string name="revanced_hide_movies_section_summary_off">Раздел фильмов в описании видео отображен</string>
@@ -248,7 +248,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_toast_invalid_common">Недопустимое ключевое слово. Невозможно использовать: \'%s\' в качестве фильтра</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Недопустимое ключевое слово. \'%1$s\' содержит менее %2$d символов</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">Ключевое слово \'$s\' скроет все видео</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">Ключевое слово \'%s\' скроет все видео</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Реклама общего формата</string>
@@ -572,7 +572,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_seekbar_title">Прогресс воспроизведения</string>
   <string name="revanced_hide_seekbar_summary_on">Прогресс воспроизведения в плеере скрыт</string>
   <string name="revanced_hide_seekbar_summary_off">Прогресс воспроизведения в плеере отображен</string>
-  <string name="revanced_hide_seekbar_thumbnail_title">Миниатюры прогресса воспроизведения</string>
+  <string name="revanced_hide_seekbar_thumbnail_title">Миниатюры</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_on">Миниатюры прогресса воспроизведения скрыты</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Миниатюры прогресса воспроизведения отображены</string>
   </patch>
@@ -679,21 +679,21 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.returnyoutubedislike.ReturnYouTubeDislikeResourcePatch">
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скрыты</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
-  <string name="revanced_ryd_failure_connection_timeout">\"Дизлайки\" временно недоступны (таймаут API)</string>
-  <string name="revanced_ryd_failure_connection_status_code">\"Дизлайки\" недоступны (статус %d)</string>
-  <string name="revanced_ryd_failure_client_rate_limit_requested">\"Дизлайки\" недоступны (лимит клиентов API)</string>
-  <string name="revanced_ryd_failure_generic">\"Дизлайки\" недоступны (%s)</string>
+  <string name="revanced_ryd_failure_connection_timeout">Дизлайки временно недоступны (таймаут API)</string>
+  <string name="revanced_ryd_failure_connection_status_code">Дизлайки недоступны (статус %d)</string>
+  <string name="revanced_ryd_failure_client_rate_limit_requested">Дизлайки недоступны (лимит клиентов API)</string>
+  <string name="revanced_ryd_failure_generic">Дизлайки недоступны (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Обновите видео для голосования с Return YouTube Dislike</string>
-  <string name="revanced_ryd_enable_summary_on">\"Дизлайки\" отображены</string>
-  <string name="revanced_ryd_enable_summary_off">\"Дизлайки\" скрыты</string>
-  <string name="revanced_ryd_shorts_title">\"Дизлайки\" в Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on">\"Дизлайки\" в Shorts отображены</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">\"Дизлайки\" в Shorts отображены\n\nОграничение: \"Дизлайки\" могут не отображаться в режиме инкогнито</string>
-  <string name="revanced_ryd_shorts_summary_off">\"Дизлайки\" в Shorts скрыты</string>
-  <string name="revanced_ryd_dislike_percentage_title">Варианты отображения \"Дизлайков\"</string>
-  <string name="revanced_ryd_dislike_percentage_summary_on">\"Дизлайки\" отображаются как проценты</string>
-  <string name="revanced_ryd_dislike_percentage_summary_off">\"Дизлайки\" отображаются как число</string>
+  <string name="revanced_ryd_enable_summary_on">Дизлайки отображены</string>
+  <string name="revanced_ryd_enable_summary_off">Дизлайки скрыты</string>
+  <string name="revanced_ryd_shorts_title">Дизлайки в Shorts</string>
+  <string name="revanced_ryd_shorts_summary_on">Дизлайки в Shorts отображены</string>
+  <string name="revanced_ryd_shorts_summary_on_disclaimer">Дизлайки в Shorts отображены\n\nОграничение: Дизлайки могут не отображаться в режиме инкогнито</string>
+  <string name="revanced_ryd_shorts_summary_off">Дизлайки в Shorts скрыты</string>
+  <string name="revanced_ryd_dislike_percentage_title">Варианты отображения дизлайков</string>
+  <string name="revanced_ryd_dislike_percentage_summary_on">Дизлайки отображаются как проценты</string>
+  <string name="revanced_ryd_dislike_percentage_summary_off">Дизлайки отображаются как число</string>
   <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
   <string name="revanced_ryd_compact_layout_title">Стиль кнопки \"Лайк\"</string>
   <string name="revanced_ryd_compact_layout_summary_on">Кнопка \"Лайк\" стилизована для минимальной ширины</string>
@@ -709,7 +709,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_statistics_getFetchCallResponseTimeMin_title">Время ответа API, минимальное</string>
   <string name="revanced_ryd_statistics_getFetchCallResponseTimeMax_title">Время ответа API, максимальное</string>
   <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_title">Время ответа API, последнее видео</string>
-  <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_rate_limit_summary">\"Дизлайки\" временно недоступны – действует ограничение скорости клиентского API</string>
+  <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_rate_limit_summary">Дизлайки временно недоступны – действует ограничение скорости клиентского API</string>
   <string name="revanced_ryd_statistics_getFetchCallCount_title">API получает голоса, количество запросов</string>
   <string name="revanced_ryd_statistics_getFetchCallCount_zero_summary">Сетевые запросы не выполнены</string>
   <string name="revanced_ryd_statistics_getFetchCallCount_non_zero_summary">Выполнено %d сетевых запросов</string>
@@ -975,7 +975,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_hide_rewind_forward_title">Кнопки перемотки</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Кнопки перемотки вперед и назад скрыты</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Кнопки перемотки вперед и назад отображены</string>
-  <string name="revanced_miniplayer_opacity_title">Непразрачность оверлея мини-плеера</string>
+  <string name="revanced_miniplayer_opacity_title">Непрозрачность оверлея мини-плеера</string>
   <string name="revanced_miniplayer_opacity_summary">Значение непрозрачности в пределах 0-100, где 0 - это прозрачно</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Непрозрачность оверлея мини-плеера должна быть от 0 до 100</string>
   </patch>
@@ -992,6 +992,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_value_summary">Редактировать цвет прогресса воспроизведения</string>
   <string name="revanced_seekbar_custom_color_invalid">Недопустимое значение цвета</string>
   </patch>
+  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  <string name="revanced_bypass_image_region_restrictions_title">Обход ограничений региона</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_on">Использование хоста изображений yt4.ggpht.com</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">Использование оригинального хоста изображений\n\nВключение этой опции может исправить недостающие изображения, которые заблокированы в некоторых регионах </string>
+  </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Вкладка \"Главная\"</string>
@@ -999,13 +1004,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_alt_thumbnail_subscription_title">Вкладка \"Подписки\"</string>
   <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
   <string name="revanced_alt_thumbnail_library_title">Вкладка \"Вы\"</string>
-  <string name="revanced_alt_thumbnail_player_title">Плейлисты плеера, рекомендации</string>
+  <string name="revanced_alt_thumbnail_player_title">Плейлисты плеера и рекомендации</string>
   <string name="revanced_alt_thumbnail_search_title">Результаты поиска</string>
   <string name="revanced_alt_thumbnail_options_entry_1">Оригинальные миниатюры</string>
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow и оригинальные миниатюры</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow и захват кадра</string>
   <string name="revanced_alt_thumbnail_options_entry_4">Захват кадра</string>
-  <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow предоставляет краудсорсинговые миниатюры для видео YouTube. Эти миниатюры часто более актуальны относительно предоставляемых YouTube\n\nПри активации URL-адреса видео будут отправлены на сервер API, при этом никакие другие данные отправлены не будут. Если видео не содержит миниатюр DeArrow, то будут отображены оригинальные миниатюры или миниатюры захвата кадра\n\nНажмите для получения дополнительной информации о DeArrow</string>
+  <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow предоставляет краудсорсинговые миниатюры (часто более релевантные) для видео YouTube\n\nПри активации URL-адреса видео (и никакие другие данные) будут отправлены на сервер API. При отсутствии миниатюр DeArrow в видео отображаются оригинальные или миниатюры захвата кадра\n\nНажмите для получения дополнительной информации о DeArrow</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Уведомление при недоступности API</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Всплывающее уведомление при недоступности DeArrow отображено</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Всплывающее уведомление при недоступности DeArrow скрыто</string>

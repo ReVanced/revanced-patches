@@ -246,7 +246,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_toast_invalid_common">Ugyldig søkeord. Kan ikke bruke: \'%s\' som et filter</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Ugyldig nøkkelord. \'%1$s\' er mindre enn %2$d tegn</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">Nøkkelord \'$s\' vil skjule alle videoer</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">Nøkkelord \'%s\' vil skjule alle videoer</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Skjul generelle annonser</string>
@@ -426,9 +426,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_home_button_summary_on">Hjem-knappen er skjult</string>
   <string name="revanced_hide_home_button_summary_off">Hjem knappen vises</string>
   <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
-  <string name="revanced_hide_shorts_button_title">Skjul kort</string>
-  <string name="revanced_hide_shorts_button_summary_on">Kortstokk-knappen er skjult</string>
-  <string name="revanced_hide_shorts_button_summary_off">Kortstokk-knappen vises</string>
+  <string name="revanced_hide_shorts_button_title">Skjul Shorts</string>
+  <string name="revanced_hide_shorts_button_summary_on">Shorts-knappen er skjult</string>
+  <string name="revanced_hide_shorts_button_summary_off">Shorts-knappen vises</string>
   <!-- The Create button has no display name. Translate normally. -->
   <string name="revanced_hide_create_button_title">Skjul Lag</string>
   <string name="revanced_hide_create_button_summary_on">Lage knappen er skjult</string>
@@ -575,16 +575,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_hide_shorts_home_title">Skjul kort i hjemmeskjermen</string>
-  <string name="revanced_hide_shorts_home_summary_on">Korter i hjemmelagningen er skjult</string>
-  <string name="revanced_hide_shorts_home_summary_off">Korter i hjemmeskjermen vises</string>
+  <string name="revanced_hide_shorts_home_title">Skjul Shorts i hjemmefeeden</string>
+  <string name="revanced_hide_shorts_home_summary_on">Shorts i hjemmefeed er skjult</string>
+  <string name="revanced_hide_shorts_home_summary_off">Shorts i hjemmefeed vises</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
-  <string name="revanced_hide_shorts_subscriptions_title">Skjul kort i abonnementsfeed</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Korter i abonnements-feed er skjult</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Koraller i abonnementsfeed vises</string>
-  <string name="revanced_hide_shorts_search_title">Skjul kort i søkeresultater</string>
-  <string name="revanced_hide_shorts_search_summary_on">Kortere i søkeresultatene er skjult</string>
-  <string name="revanced_hide_shorts_search_summary_off">Kortere i søkeresultatene vises</string>
+  <string name="revanced_hide_shorts_subscriptions_title">Skjul Shoets i abonnementsfeed</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts i abonnementsfeed er skjult</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts i abonnementsfeed vises</string>
+  <string name="revanced_hide_shorts_search_title">Skjul Shorts i søkeresultatene</string>
+  <string name="revanced_hide_shorts_search_summary_on">Shorts i søkeresultatene er skjult</string>
+  <string name="revanced_hide_shorts_search_summary_off">Shorts i søkeresultatene vises</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Skjul join knapp</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Bli-med knappen er skjult</string>
@@ -684,7 +684,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_shorts_title">Vis mislykte på Shorts</string>
   <string name="revanced_ryd_shorts_summary_on">Misliker vist på shorts</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">Misliker som vises på Shorts\n\nLimitasjon: Misdannelser kan hende i inkognito-modus ikke vises i inkognito-modus</string>
-  <string name="revanced_ryd_shorts_summary_off">Misliker skjult på shorts</string>
+  <string name="revanced_ryd_shorts_summary_off">Misliker skjult på Shorts</string>
   <string name="revanced_ryd_dislike_percentage_title">Misliker som prosent</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">Misliker vises som prosent</string>
   <string name="revanced_ryd_dislike_percentage_summary_off">Misliker som vist som tall</string>
@@ -937,8 +937,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Deaktiver gjenopptakelse av Shorts spiller</string>
-  <string name="revanced_disable_resuming_shorts_player_summary_on">Kort spiller vil ikke gjenoppta ved oppstart av app</string>
-  <string name="revanced_disable_resuming_shorts_player_summary_off">Kortere spiller vil gjenoppta ved oppstart av app</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts spiller vil ikke gjenoppta ved oppstart av app</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts spiller vil gjenoppta ved oppstart av app</string>
   </patch>
   <patch id="layout.tablet.EnableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Aktiver oppsett for nettbrett</string>
@@ -981,6 +981,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_value_title">Egendefinert søkelinjefarge</string>
   <string name="revanced_seekbar_custom_color_value_summary">Farge på søkefeltet</string>
   <string name="revanced_seekbar_custom_color_invalid">Ugyldig farge på søkelinjen. Bruker standardverdien.</string>
+  </patch>
+  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  <string name="revanced_bypass_image_region_restrictions_title">Forbigå bilde-restriksjoner</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_on">Bruk bildesvertyt4.ggpht.com</string>
   </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->

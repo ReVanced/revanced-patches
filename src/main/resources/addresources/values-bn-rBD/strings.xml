@@ -850,10 +850,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_title">স্পুফ অ্যাপ সংস্করণ লক্ষ্য</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_entry_1">18.33.40 - ছদ্মবেশি মোডে RYD পুনরুদ্ধার করে</string>
-  <string name="revanced_spoof_app_version_target_entry_2">১৮.২০.৩৯ - প্রশ্বস্ত ভিডিও স্পিড এবং গুণমান মেনু পুনরুদ্ধার করে</string>
-  <string name="revanced_spoof_app_version_target_entry_3">১৮.০৯.৩৯ - লাইব্রেরি ট্যাপ পুনরুদ্ধার করে</string>
-  <string name="revanced_spoof_app_version_target_entry_4">১৭.৪১.৩৯ - পুরোনো প্লেলিস্ট শেলফ পুনরুদ্ধার করে</string>
-  <string name="revanced_spoof_app_version_target_entry_5">১৭.৩৩.৪২ - পুরোনো UI লেআউট পুনরুদ্ধার করে</string>
+  <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - প্রশ্বস্ত ভিডিও স্পিড এবং গুণমান মেনু পুনরুদ্ধার করে</string>
+  <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - লাইব্রেরি ট্যাপ পুনরুদ্ধার করে</string>
+  <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - পুরোনো প্লেলিস্ট শেলফ পুনরুদ্ধার করে</string>
+  <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - পুরোনো UI লেআউট পুনরুদ্ধার করে</string>
   </patch>
   <patch id="layout.startpage.ChangeStartPagePatch">
   <string name="revanced_start_page_title">শুরুর পৃষ্ঠা সেট করুন</string>
@@ -918,6 +918,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_value_title">নিজস্ব সিকবার রং</string>
   <string name="revanced_seekbar_custom_color_value_summary">সিকবারের রং</string>
   <string name="revanced_seekbar_custom_color_invalid">সিকবারে ভুল রং দেয়া হয়েছে। মূল রং ব্যবহার করছে।</string>
+  </patch>
+  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
   </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->

@@ -246,7 +246,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_toast_invalid_common">Parola chiave non valida. Impossibile utilizzare: \'%s\' come filtro</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Parola chiave non valida. \'%1$s\' è minore di %2$d caratteri</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">Parola chiave \'$s\' nasconderà tutti i video</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">La parola chiave \'%s\' nasconderà tutti i video</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Nascondi gli annunci generali</string>
@@ -576,7 +576,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_hide_shorts_home_title">Nascondi Pantaloncini nel feed home</string>
+  <string name="revanced_hide_shorts_home_title">Nascondi Shorts nella scheda Home</string>
   <string name="revanced_hide_shorts_home_summary_on">Pantaloncini nel feed domestico sono nascosti</string>
   <string name="revanced_hide_shorts_home_summary_off">Vengono mostrati i pantaloncini in home feed</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
@@ -990,6 +990,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_value_summary">Il colore della barra di ricerca</string>
   <string name="revanced_seekbar_custom_color_invalid">Valore colore seekbar non valido. Usare il valore predefinito.</string>
   </patch>
+  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  <string name="revanced_bypass_image_region_restrictions_title">Bypass restrizioni regione immagine</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_on">Uso host immagine yt4.ggpht.com</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">Usando l\'host immagine originale\n\nAbilitando questo si possono correggere le immagini mancanti bloccate in alcune regioni</string>
+  </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Scheda home</string>
@@ -1113,7 +1118,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_user_dialog_message">Disattivare questa impostazione potrebbe causare problemi di riproduzione video.</string>
   <string name="revanced_spoof_client_use_ios_title">Spoof client per iOS</string>
   <string name="revanced_spoof_client_use_ios_summary_on">Il client è attualmente spoofed per iOS\n\nGli effetti collaterali includono:\n• Nessun video HDR\n• La cronologia dell\'orologio potrebbe non funzionare\n• Potrebbero mancare qualità video più elevate\n• I flussi dal vivo non possono riprodurre solo l\'audio\n• I flussi dal vivo non sono disponibili su Android 8.0</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Il client è attualmente spoofed per Android VR\n\nGli effetti collaterali includono:\n• Nessun video HDR\n• I video per bambini non riproducono\n• I video in pausa possono riprendere casualmente\n• Bassa qualità Pantaloncini seekbar miniature\n• Il pulsante di azione del download è sempre nascosto\n• Le schede dello schermo finale sono sempre nascoste</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">Il client è attualmente spoofed per Android VR\n\nGli effetti collaterali includono:\n• Nessun video HDR\n• I video per bambini non riproducono\n• I video in pausa possono riprendere casualmente\n• Bassa qualità Shorts seekbar miniature\n• Il pulsante di azione del download è sempre nascosto\n• Le schede dello schermo finale sono sempre nascoste</string>
   <string name="revanced_spoof_client_storyboard_timeout">Le miniature del client non sono disponibili (timeout API)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Miniature del client Spoof temporaneamente non disponibili: %s</string>
   </patch>
