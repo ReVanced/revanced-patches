@@ -8,11 +8,13 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.all.misc.transformation.BaseTransformInstructionsPatch
 import app.revanced.patches.all.misc.transformation.IMethodCall
+import app.revanced.patches.all.misc.transformation.fromMethodReference
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Hide mock location",
@@ -31,7 +33,12 @@ object HideMockLocationPatch : BaseTransformInstructionsPatch<Pair<Instruction35
             return null
         }
 
-        return instruction as Instruction35c to instructionIndex
+        if (fromMethodReference<MethodCall>(
+                (instruction as Instruction35c).reference as MethodReference) == null) {
+            return null
+        }
+
+        return instruction to instructionIndex
     }
 
     override fun transform(mutableMethod: MutableMethod, entry: Pair<Instruction35c, Int>) {
