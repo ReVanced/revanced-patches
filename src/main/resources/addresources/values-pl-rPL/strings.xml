@@ -72,7 +72,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_04_player_title">Odtwarzacz</string>
   <string name="revanced_settings_screen_05_general_title">Ogólny układ</string>
   <string name="revanced_settings_screen_07_seekbar_title">Pasek wyszukiwania</string>
-  <string name="revanced_settings_screen_08_swipe_controls_title">Sterowanie przesuwaniem</string>
+  <string name="revanced_settings_screen_08_swipe_controls_title">Sterowanie gestami</string>
   <string name="revanced_settings_screen_11_misc_title">Pozostałe</string>
   <string name="revanced_settings_screen_12_video_title">Wideo</string>
   </patch>
@@ -243,12 +243,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">Słowa kluczowe i frazy do ukrycia, oddzielone nowymi wierszami\n\nSłowa z wielkimi literami w środku muszą być wpisane z obudową (np. iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">O filtrowaniu słów kluczowych</string>
-  <string name="revanced_hide_keyword_content_about_summary">Wyniki strony głównej/Subskrypcji/Wyszukiwarki są filtrowane w celu ukrycia treści pasującej do słów kluczowych\n\nOgraniczenia\n• Niektóre skróty mogą nie być ukryte\n• Niektóre komponenty interfejsu użytkownika nie mogą być ukryte\n• Wyszukiwanie słowa kluczowego może nie pokazywać wyników</string>
+  <string name="revanced_hide_keyword_content_about_summary">Wyniki strony głównej/Subskrypcji/Wyszukiwarki są filtrowane w celu ukrycia treści pasującej do słów kluczowych\n\nOgraniczenia\n• Niektóre Shorts mogą nie być ukryte\n• Niektóre komponenty interfejsu użytkownika nie mogą być ukryte\n• Wyszukiwanie słowa kluczowego może nie pokazywać wyników</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Nieprawidłowe słowo kluczowe. Nie można użyć: \'%s\' jako filtr</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Nieprawidłowe słowo kluczowe. \'%1$s\' jest mniejsze niż %2$d znaków</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">Słowo kluczowe$s\' ukryje wszystkie filmy</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">Słowo kluczowe \'%s\' ukryje wszystkie filmy</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Ukryj reklamy ogólne</string>
@@ -429,9 +429,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_home_button_summary_on">Przycisk Home jest ukryty</string>
   <string name="revanced_hide_home_button_summary_off">Przycisk Home jest pokazany</string>
   <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
-  <string name="revanced_hide_shorts_button_title">Ukryj Spodnie</string>
-  <string name="revanced_hide_shorts_button_summary_on">Przycisk shorts jest ukryty</string>
-  <string name="revanced_hide_shorts_button_summary_off">Przycisk shorts jest widoczny</string>
+  <string name="revanced_hide_shorts_button_title">Ukryj Shorts</string>
+  <string name="revanced_hide_shorts_button_summary_on">Przycisk Shorts jest ukryty</string>
+  <string name="revanced_hide_shorts_button_summary_off">Przycisk Shorts jest widoczny</string>
   <!-- The Create button has no display name. Translate normally. -->
   <string name="revanced_hide_create_button_title">Ukryj Utwórz</string>
   <string name="revanced_hide_create_button_summary_on">Przycisk Utwórz jest ukryty</string>
@@ -578,16 +578,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_hide_shorts_home_title">Ukryj Skróty w kanale głównym</string>
-  <string name="revanced_hide_shorts_home_summary_on">Skróty w kanale głównym są ukryte</string>
-  <string name="revanced_hide_shorts_home_summary_off">Skróty w kanale głównym są wyświetlane</string>
+  <string name="revanced_hide_shorts_home_title">Ukryj Shorts w kanale głównym</string>
+  <string name="revanced_hide_shorts_home_summary_on">Shorts w kanale głównym są ukryte</string>
+  <string name="revanced_hide_shorts_home_summary_off">Shorts w kanale głównym są wyświetlane</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
-  <string name="revanced_hide_shorts_subscriptions_title">Ukryj Skróty w kanale subskrypcji</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Skróty w kanale subskrypcji są ukryte</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Skróty w kanale subskrypcji są wyświetlane</string>
-  <string name="revanced_hide_shorts_search_title">Ukryj Skróty w wynikach wyszukiwania</string>
-  <string name="revanced_hide_shorts_search_summary_on">Skróty w wynikach wyszukiwania są ukryte</string>
-  <string name="revanced_hide_shorts_search_summary_off">Skróty w wynikach wyszukiwania są wyświetlane</string>
+  <string name="revanced_hide_shorts_subscriptions_title">Ukryj Shorts w kanale subskrypcji</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts w kanale subskrypcji są ukryte</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts w kanale subskrypcji są wyświetlane</string>
+  <string name="revanced_hide_shorts_search_title">Ukryj Shorts w wynikach wyszukiwania</string>
+  <string name="revanced_hide_shorts_search_summary_on">Shorts w wynikach wyszukiwania są ukryte</string>
+  <string name="revanced_hide_shorts_search_summary_off">Shorts w wynikach wyszukiwania są wyświetlane</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Ukryj przycisk dołączenia</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Przycisk dołączenia jest ukryty</string>
@@ -687,10 +687,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Odśwież wideo, aby głosować używając zwróć YouTube Dislike</string>
   <string name="revanced_ryd_enable_summary_on">Nie polubiono</string>
   <string name="revanced_ryd_enable_summary_off">Nie pokazano polubień</string>
-  <string name="revanced_ryd_shorts_title">Pokaż nielubienie na Skrótach</string>
-  <string name="revanced_ryd_shorts_summary_on">Nie lubi wyświetlane na Skrótach</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">Brak polubień wyświetlanych na skrótach\n\nOgraniczenie: brak polubień w trybie incognito</string>
-  <string name="revanced_ryd_shorts_summary_off">Nie lubię ukryć na Skrótach</string>
+  <string name="revanced_ryd_shorts_title">Pokaż nielubienie na Shorts</string>
+  <string name="revanced_ryd_shorts_summary_on">Nie lubi wyświetlane na Shorts</string>
+  <string name="revanced_ryd_shorts_summary_on_disclaimer">Brak polubień wyświetlanych na Shorts\n\nOgraniczenie: brak polubień w trybie incognito</string>
+  <string name="revanced_ryd_shorts_summary_off">Nie lubię ukryć na Shorts</string>
   <string name="revanced_ryd_dislike_percentage_title">Nie lubi jako procent</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">Nie lubi wyświetlane jako procent</string>
   <string name="revanced_ryd_dislike_percentage_summary_off">Nie lubi wyświetlane jako liczba</string>
@@ -948,8 +948,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Wyłącz wznawianie odtwarzacza Shorts</string>
-  <string name="revanced_disable_resuming_shorts_player_summary_on">Odtwarzacz skrótów nie będzie wznawiany przy starcie aplikacji</string>
-  <string name="revanced_disable_resuming_shorts_player_summary_off">Odtwarzacz skrótów zostanie wznowiony przy starcie aplikacji</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_on">Odtwarzacz Shorts nie będzie wznawiany przy starcie aplikacji</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_off">Odtwarzacz Shorts zostanie wznowiony przy starcie aplikacji</string>
   </patch>
   <patch id="layout.tablet.EnableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Włącz układ tabletu</string>
@@ -992,6 +992,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_value_title">Niestandardowy kolor paska podglądu</string>
   <string name="revanced_seekbar_custom_color_value_summary">Kolor paska wyszukiwania</string>
   <string name="revanced_seekbar_custom_color_invalid">Nieprawidłowa wartość koloru paska szukania. Używana wartość domyślna.</string>
+  </patch>
+  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  <string name="revanced_bypass_image_region_restrictions_title">Pomiń ograniczenia regionu obrazu</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_on">Używanie hosta obrazu yt4.ggpht.com</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">Używanie oryginalnego hosta obrazu\n\nWłączenie tego może naprawić brakujące obrazy, które są zablokowane w niektórych regionach</string>
   </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -1116,7 +1121,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_user_dialog_message">Wyłączenie tego ustawienia może spowodować problemy z odtwarzaniem wideo.</string>
   <string name="revanced_spoof_client_use_ios_title">Spośród klientów na iOS</string>
   <string name="revanced_spoof_client_use_ios_summary_on">Klient jest obecnie spoofed to iOS\n\nEfekty niepożądane obejmują:\n• Żaden film HDR\n• Historia zegarków może nie działać\n• Wyższe jakość wideo może brakować\n• Strumienie na żywo nie mogą odtwarzać jako tylko audio\n• Strumienie na żywo niedostępne na Androidzie 8.0</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Klient jest obecnie spoofowany na Androida VR\n\nEfekty uboczne obejmują:\n• Bez filmu HDR\n• Filmy dziecięce nie odtwarza\n• Wstrzymaj filmy można losowo wznowić\n• Niska jakość miniatur paska wyszukiwania skrótów\n• Przycisk pobierania jest zawsze ukryty\n• Karty ekranu końcowego są zawsze ukryte</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">Klient jest obecnie spoofowany na Androida VR\n\nEfekty uboczne obejmują:\n• Bez filmu HDR\n• Filmy dziecięce nie odtwarza\n• Wstrzymaj filmy można losowo wznowić\n• Niska jakość miniatur paska wyszukiwania Shorts\n• Przycisk pobierania jest zawsze ukryty\n• Karty ekranu końcowego są zawsze ukryte</string>
   <string name="revanced_spoof_client_storyboard_timeout">Miniatury klienta nie są dostępne (limit czasu API)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Miniaturki klienta tymczasowo nie są dostępne: %s</string>
   </patch>

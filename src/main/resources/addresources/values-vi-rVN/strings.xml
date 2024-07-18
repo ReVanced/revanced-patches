@@ -246,7 +246,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_toast_invalid_common">Từ khóa không hợp lệ. Không thể dùng \'%s\'</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Từ khóa không hợp lệ. \'%1$s\' nhỏ hơn %2$d ký tự</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">Từ khóa \'$s\' sẽ ẩn toàn bộ video</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">Từ khóa \'%s\' sẽ ẩn toàn bộ video</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Ẩn quảng cáo chung</string>
@@ -989,6 +989,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_value_title">Màu tùy chỉnh thanh tiến trình</string>
   <string name="revanced_seekbar_custom_color_value_summary">Màu của thanh tiến trình</string>
   <string name="revanced_seekbar_custom_color_invalid">Màu thanh tiến trình không hợp lệ.</string>
+  </patch>
+  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
   </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->

@@ -246,7 +246,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_toast_invalid_common">無效的關鍵字。無法使用：「%s」來過濾</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">無效的關鍵字。「%1$s」小於 %2$d 字元</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">關鍵字「$s」將隱藏所有影片</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">關鍵字「%s」將隱藏所有影片</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">隱藏一般廣告</string>
@@ -989,6 +989,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_value_title">自訂進度條顏色</string>
   <string name="revanced_seekbar_custom_color_value_summary">進度條顏色</string>
   <string name="revanced_seekbar_custom_color_invalid">無效的進度條顏色。已重設為預設值。</string>
+  </patch>
+  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  <string name="revanced_bypass_image_region_restrictions_title">繞過圖片區域限制</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_on">使用圖片主機 yt4.ggpht.com</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">使用原始圖片主機\n\n啟用此功能可以修復在某些區域被封鎖的缺失圖片</string>
   </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->

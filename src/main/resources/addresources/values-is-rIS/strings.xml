@@ -207,6 +207,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.theme.ThemeResourcePatch">
   </patch>
+  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->

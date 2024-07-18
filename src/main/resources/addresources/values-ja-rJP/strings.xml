@@ -247,7 +247,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_toast_invalid_common">無効なキーワードです。フィルタとして使用できません: \'%s\'</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">無効なキーワードです。\'%1$s\' は %2$d 文字未満です</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">キーワード \'$s\' はすべてのビデオを非表示にします</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">キーワード \'%s\' はすべての動画を非表示にします</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">一般的な広告を非表示</string>
@@ -988,6 +988,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_value_title">カスタムシークバーの色</string>
   <string name="revanced_seekbar_custom_color_value_summary">シークバーの色</string>
   <string name="revanced_seekbar_custom_color_invalid">シークバーの色の値が無効です。デフォルト値を使用してください。</string>
+  </patch>
+  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  <string name="revanced_bypass_image_region_restrictions_title">画像領域の制限をバイパスする</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_on">イメージホストの使用 yt4.ggpht.com</string>
   </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->

@@ -243,7 +243,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_toast_invalid_common">Di-wastong keyword. Hindi magagamit ang: \"%s\" bilang filter</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Di-wastong keyword. Ang \"%1$s\" ay mas mababa sa %2$d character</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">Itatago ng keyword na \"$s\" ang lahat ng video</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">Itatago ng keyword na \"%s\" ang lahat ng video</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Itago ang mga pangkalahatang ad</string>
@@ -973,6 +973,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_value_title">Pasadyang kulay ng seekbar</string>
   <string name="revanced_seekbar_custom_color_value_summary">Ang kulay ng seekbar</string>
   <string name="revanced_seekbar_custom_color_invalid">Di-wastong halaga ng kulay ng seekbar. Gamit ang default na halaga.</string>
+  </patch>
+  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
   </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
