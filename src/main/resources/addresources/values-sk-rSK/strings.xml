@@ -242,7 +242,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_toast_invalid_common">Neplatné kľúčové slovo. Nemožno použiť: \"%s\" ako filter</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Neplatné kľúčové slovo. \"%1$s\" má menej ako %2$d znakov</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">Kľúčové slovo \"$s\" skryje všetky videá</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">Kľúčové slovo \"%s\" skryje všetky videá</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Skryť všeobecné reklamy</string>
@@ -422,9 +422,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_home_button_summary_on">Tlačidlo Domov je skryté</string>
   <string name="revanced_hide_home_button_summary_off">Zobrazí sa tlačidlo Domov</string>
   <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
-  <string name="revanced_hide_shorts_button_title">Skryť šortky</string>
-  <string name="revanced_hide_shorts_button_summary_on">Tlačidlo shorts je skryté</string>
-  <string name="revanced_hide_shorts_button_summary_off">Tlačidlo shorts je zobrazené</string>
+  <string name="revanced_hide_shorts_button_title">Skryť Shorts</string>
+  <string name="revanced_hide_shorts_button_summary_on">Tlačidlo Shorts je skryté</string>
+  <string name="revanced_hide_shorts_button_summary_off">Tlačidlo Shorts je zobrazené</string>
   <!-- The Create button has no display name. Translate normally. -->
   <string name="revanced_hide_create_button_title">Skryť Vytvoriť</string>
   <string name="revanced_hide_create_button_summary_on">Tlačidlo Vytvoriť je skryté</string>
@@ -571,16 +571,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_hide_shorts_home_title">Skryť šortky v domácom informačnom kanáli</string>
-  <string name="revanced_hide_shorts_home_summary_on">Šortky v domácom feede sú skryté</string>
-  <string name="revanced_hide_shorts_home_summary_off">Zobrazujú sa krátke videá v domácom informačnom kanáli</string>
+  <string name="revanced_hide_shorts_home_title">Skryť Shorts v domácom informačnom kanáli</string>
+  <string name="revanced_hide_shorts_home_summary_on">Shorts v domácom feede sú skryté</string>
+  <string name="revanced_hide_shorts_home_summary_off">Zobrazujú sa Shorts videá v domácom informačnom kanáli</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
-  <string name="revanced_hide_shorts_subscriptions_title">Skryť krátke videá vo feede odberov</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Krátke videá v informačnom kanáli odberov sú skryté</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Vo feede odberov sa zobrazujú krátke videá</string>
-  <string name="revanced_hide_shorts_search_title">Skryť krátke videá vo výsledkoch vyhľadávania</string>
+  <string name="revanced_hide_shorts_subscriptions_title">Skryť Shorts videá vo feede odberov</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts videá v informačnom kanáli odberov sú skryté</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Vo feede odberov sa zobrazujú Shorts videá</string>
+  <string name="revanced_hide_shorts_search_title">Skryť Shorts videá vo výsledkoch vyhľadávania</string>
   <string name="revanced_hide_shorts_search_summary_on">Shorts vo výsledkoch vyhľadávania sú skryté</string>
-  <string name="revanced_hide_shorts_search_summary_off">Vo výsledkoch vyhľadávania sa zobrazujú krátke videá</string>
+  <string name="revanced_hide_shorts_search_summary_off">Vo výsledkoch vyhľadávania sa zobrazujú Shorts videá</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Skryť tlačidlo pripojenia</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Tlačidlo Pripojiť sa je skryté</string>
@@ -680,10 +680,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Znova načítajte video a hlasujte pomocou funkcie Vrátiť Nepáči sa mi na YouTube</string>
   <string name="revanced_ryd_enable_summary_on">Nepáči sa mi</string>
   <string name="revanced_ryd_enable_summary_off">Nepáči sa mi nie sú zobrazené</string>
-  <string name="revanced_ryd_shorts_title">Zobrazovať, že sa mi nepáči v krátkych videách</string>
-  <string name="revanced_ryd_shorts_summary_on">Nepáči sa mi zobrazené v krátkych videách</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">Nepáči sa mi v krátkych videách\n\nObmedzenie: Nepáči sa mi v režime inkognito</string>
-  <string name="revanced_ryd_shorts_summary_off">Nepáči sa skryté v krátkych videách</string>
+  <string name="revanced_ryd_shorts_title">Zobrazovať, že sa mi nepáči v Shorts videách</string>
+  <string name="revanced_ryd_shorts_summary_on">Nepáči sa mi zobrazené v Shorts videách</string>
+  <string name="revanced_ryd_shorts_summary_on_disclaimer">Nepáči sa mi v Shorts videách\n\nObmedzenie: Nepáči sa mi v režime inkognito</string>
+  <string name="revanced_ryd_shorts_summary_off">Nepáči sa skryté v Shorts videách</string>
   <string name="revanced_ryd_dislike_percentage_title">Nepáči sa v percentách</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">Nepáči sa zobrazujú v percentách</string>
   <string name="revanced_ryd_dislike_percentage_summary_off">Nepáči sa zobrazené ako číslo</string>
@@ -940,8 +940,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Zakázať obnovenie prehrávača Shorts</string>
-  <string name="revanced_disable_resuming_shorts_player_summary_on">Prehrávač krátkych videí sa pri spustení aplikácie neobnoví</string>
-  <string name="revanced_disable_resuming_shorts_player_summary_off">Prehrávač krátkych videí sa obnoví pri spustení aplikácie</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_on">Prehrávač Shorts videí sa pri spustení aplikácie neobnoví</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_off">Prehrávač Shorts videí sa obnoví pri spustení aplikácie</string>
   </patch>
   <patch id="layout.tablet.EnableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Povoliť rozloženie tabletu</string>
@@ -983,6 +983,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_value_title">Vlastná farba vyhľadávacieho panela</string>
   <string name="revanced_seekbar_custom_color_value_summary">Farba vyhľadávacieho panela</string>
   <string name="revanced_seekbar_custom_color_invalid">Neplatná hodnota farby panela vyhľadávania. Použitie predvolenej hodnoty.</string>
+  </patch>
+  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
   </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->

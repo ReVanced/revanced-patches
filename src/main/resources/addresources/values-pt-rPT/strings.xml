@@ -246,7 +246,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_toast_invalid_common">Chave inválida. Não pode usar: \'%s\' como filtro</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Chave inválida. \'%1$s\' é menor que %2$d caracteres</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">Palavra-chave \'$s\' irá ocultar todos os vídeos</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">Palavra-chave \'%s\' irá ocultar todos os vídeos</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Esconder anúncios gerais</string>
@@ -988,6 +988,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_value_title">Cor personalizada da barra de busca</string>
   <string name="revanced_seekbar_custom_color_value_summary">A cor da barra de busca</string>
   <string name="revanced_seekbar_custom_color_invalid">Valor de cor inválido da barra. Usando o valor padrão.</string>
+  </patch>
+  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  <string name="revanced_bypass_image_region_restrictions_title">Ignorar restrições de região de imagem</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_on">Usando imagem host yt4.ggpht.com</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">Usando a imagem original host\n\nHabilitando isso pode corrigir imagens ausentes que estão bloqueadas em algumas regiões</string>
   </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->

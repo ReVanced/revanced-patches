@@ -246,6 +246,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_toast_invalid_common">无效关键字。不能使用: \'%s\' 作为过滤器</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">无效的关键字。\'%1$s\' 小于 %2$d 个字符</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">关键词 \'%s\' 将隐藏所有视频</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">隐藏一般广告</string>
@@ -394,6 +395,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_thanks_button_summary_on">感谢按钮已隐藏</string>
   <string name="revanced_hide_thanks_button_summary_off">已显示感谢按钮</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_clip_button_title">隐藏剪辑</string>
   <string name="revanced_hide_clip_button_summary_on">片段按钮隐藏</string>
   <string name="revanced_hide_clip_button_summary_off">片段按钮显示</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
@@ -986,6 +988,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_value_title">自定义搜索栏颜色</string>
   <string name="revanced_seekbar_custom_color_value_summary">搜索栏的颜色</string>
   <string name="revanced_seekbar_custom_color_invalid">无效的搜索栏颜色值。使用默认值。</string>
+  </patch>
+  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  <string name="revanced_bypass_image_region_restrictions_title">旁路图像区域限制</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_on">使用图像主机 yt4.ggpht.com</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">使用原始图像主机\n\n启用此功能可以修复在某些区域被阻止的缺失图像</string>
   </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->

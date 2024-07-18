@@ -248,7 +248,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_toast_invalid_common">Ugyldigt søgeord. Kan ikke bruge: \'%s\' som et filter</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Ugyldigt søgeord. \'%1$s\' er mindre end %2$d tegn</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">Nøgleord \'$s\' vil skjule alle videoer</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">Nøgleord \'%s\' vil skjule alle videoer</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Skjul generelle annoncer</string>
@@ -579,11 +579,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Skjul Shorts i hjemmefeed</string>
   <string name="revanced_hide_shorts_home_summary_on">Shorts i hjemmet feed er skjult</string>
-  <string name="revanced_hide_shorts_home_summary_off">Korte i hjemmet feed er vist</string>
+  <string name="revanced_hide_shorts_home_summary_off">Shorts i hjemmet feed er vist</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Skjul Shorts i abonnementsfeed</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Korte i abonnementsfeed er skjult</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Korte i abonnementsfeed vises</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts i abonnementsfeed er skjult</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts i abonnementsfeed vises</string>
   <string name="revanced_hide_shorts_search_title">Skjul Shorts i søgeresultater</string>
   <string name="revanced_hide_shorts_search_summary_on">Shorts i søgeresultater er skjult</string>
   <string name="revanced_hide_shorts_search_summary_off">Korte i søgeresultater vises</string>
@@ -990,6 +990,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_value_title">Brugerdefineret søgelinje farve</string>
   <string name="revanced_seekbar_custom_color_value_summary">Farven på den søgende bar</string>
   <string name="revanced_seekbar_custom_color_invalid">Ugyldig søgelinje farveværdi. Brug standardværdi.</string>
+  </patch>
+  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  <string name="revanced_bypass_image_region_restrictions_title">Bypass billede region restriktioner</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_on">Bruger billedvært yt4.ggpht.com</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">Brug af original billedvært\n\nAktivering af dette kan rette manglende billeder, der er blokeret i nogle regioner</string>
   </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->

@@ -246,7 +246,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_toast_invalid_common">Няправільнае ключавое слова. Немагчыма выкарыстоўваць: \"%s\" у якасці фільтра</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Няправільнае ключавое слова. \"%1$s\" змяшчае менш за %2$d сімвалаў</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">Ключавое слова \"$s\" схавае ўсе відэа</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">Ключавое слова \"%s\" схавае ўсе відэа</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Схаваць агульную рэкламу</string>
@@ -990,6 +990,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_value_summary">Колер панэлі пошуку</string>
   <string name="revanced_seekbar_custom_color_invalid">Няправільнае значэнне колеру панэлі пошуку. Выкарыстоўваецца значэнне па змаўчанні.</string>
   </patch>
+  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Галоўная ўкладка</string>
@@ -1162,6 +1164,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_twitch_debug_mode_summary_off">Рэжым адладкі Twitch адключаны</string>
   </patch>
   <patch id="misc.settings.SettingsPatch">
+  <string name="revanced_settings">Налады ReVanced</string>
   <string name="revanced_ads_screen_title">Аб\"явы</string>
   <string name="revanced_ads_screen_summary">Налады блакіроўкі рэкламы</string>
   <string name="revanced_chat_screen_title">Чат</string>

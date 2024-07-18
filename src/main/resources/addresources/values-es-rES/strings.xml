@@ -33,7 +33,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
 <resources>
   <app id="shared">
   <patch id="misc.settings.BaseSettingsResourcePatch">
-  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">¿Desea continuar?</string>
   <string name="revanced_settings_reset">Restablecer</string>
   <string name="revanced_settings_restart_title">Actualizar y reiniciar</string>
@@ -248,7 +247,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_toast_invalid_common">Palabra clave inválida. No se puede usar: \'%s\' como filtro</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Palabra clave no válida. \'%1$s\' es menor de %2$d caracteres</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">La palabra clave \'$s\' oculta todos los vídeos</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">La palabra clave \'%s\' oculta todos los vídeos</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Ocultar anuncios generales</string>
@@ -992,6 +991,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_value_title">Color personalizado de la barra de búsqueda</string>
   <string name="revanced_seekbar_custom_color_value_summary">El color de la barra de ajustes</string>
   <string name="revanced_seekbar_custom_color_invalid">Valor de color de la barra de búsqueda inválido. Usando el valor por defecto.</string>
+  </patch>
+  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  <string name="revanced_bypass_image_region_restrictions_title">Restricciones de región de imagen bypass</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_on">Usando host de imagen yt4.ggpht.com</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">Utilizando el host de imágenes original\n\nHabilitar esto puede arreglar las imágenes faltantes que están bloqueadas en algunas regiones</string>
   </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->

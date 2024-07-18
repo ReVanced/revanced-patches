@@ -93,6 +93,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_debug_toast_on_error_user_dialog_message">A hibaüzenetek kikapcsolása elrejti az összes ReVanced hibaértesítést.\n\nNem kap értesítést semmilyen váratlan eseményről.</string>
   </patch>
   <patch id="layout.hide.general.HideLayoutComponentsPatch">
+  <string name="revanced_disable_like_subscribe_glow_title">Like / feliratkozás gomb ragyogásának kikapcsolása</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">Like / feliratkozás gomb nem fog ragyogni mikor megemlítik</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">Like / feliratkozás gomb ragyogni fog mikor megemlítik</string>
   <string name="revanced_hide_gray_separator_title">Szürke elválasztó elrejtése</string>
   <string name="revanced_hide_gray_separator_summary_on">A szürke elválasztók el vannak rejtve</string>
   <string name="revanced_hide_gray_separator_summary_off">A szürke elválasztók láthatóak</string>
@@ -244,7 +247,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_toast_invalid_common">Érvénytelen kulcsszó.\'%s\'nem használható szűrőként</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Helytelen kulcsszó. \'%1$s\' kevesebb, mint %2$d karakter</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">\'$s\' kulcsszó elrejti az összes videót</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">\'%s\' kulcsszó elrejti az összes videót</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Általános hirdetések elrejtése</string>
@@ -989,6 +992,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_value_summary">A keresősáv színe</string>
   <string name="revanced_seekbar_custom_color_invalid">Érvénytelen színérték. Az alap érték használata.</string>
   </patch>
+  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Kezdőlap</string>
@@ -1112,6 +1117,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_user_dialog_message">A beállítás kikapcsolása videolejátszási problémákat okozhat.</string>
   <string name="revanced_spoof_client_use_ios_title">Hamis kliens iOS-re</string>
   <string name="revanced_spoof_client_use_ios_summary_on">A kliens jelenleg iOS-re van hamisítva\n\nA mellékhatások a következők:\n• Nincs HDR-videó\n• Előfordulhat, hogy a megtekintési előzmények nem működnek\n• Hiányozhatnak a jobb videóminőségek\n• Az élő közvetítések nem játszhatók le csak hangként\n• Élő a streamek nem érhetők el Android 8.0 rendszeren</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">A kliens jelenleg az Android VR-t utánozza\n\nMellékhatásokkal együtt:\n• Nincs HDR video\n• Nincs \'Kids\' videólejátszás\n• A pillanatmegállított videók véletlenszerűen elindulhatnak\n• Alacsony minőségű Shorts csűszka bélyegképek\n• A letöltés gomb mindig rejtett\n• Videó végi kártyák mindig rejtett</string>
   <string name="revanced_spoof_client_storyboard_timeout">Hamis kliens miniatűrök nem érhetők el (API időtúllépés)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">A hamis kliens miniatűrök átmenetileg nem érhetők el: %s</string>
   </patch>

@@ -246,7 +246,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_toast_invalid_common">Ключове слово \'%s\' не можна використовувати</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Ключове слово \'%1$s\' менше %2$d-х символів</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">Ключове слово \'$s\' приховає всі відео</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">Ключове слово \'%s\' приховає всі відео</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Приховати загальну рекламу</string>
@@ -666,8 +666,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.panels.popup.PlayerPopupPanelsPatch">
   <string name="revanced_hide_player_popup_panels_title">Приховати спливаючі панелі плеєра</string>
-  <string name="revanced_hide_player_popup_panels_summary_on">Спливаючі панелі плеєра приховано</string>
-  <string name="revanced_hide_player_popup_panels_summary_off">Спливаючі панелі плеєра показуються</string>
+  <string name="revanced_hide_player_popup_panels_summary_on">Автоматичні спливаючі панелі плеєра приховано, такі як список відтворення чи чат</string>
+  <string name="revanced_hide_player_popup_panels_summary_off">Автоматичні спливаючі панелі плеєра показуються</string>
   </patch>
   <patch id="layout.player.overlay.CustomPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Затемнення плеєра при натисканні</string>
@@ -989,6 +989,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_value_title">Користувацький колір панелі прогресу</string>
   <string name="revanced_seekbar_custom_color_value_summary">Редагувати колір панелі прогресу відтворення</string>
   <string name="revanced_seekbar_custom_color_invalid">Недійсне значення кольору панелі прогресу відтворення. Скинуто до значення за умовчанням.</string>
+  </patch>
+  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  <string name="revanced_bypass_image_region_restrictions_title">Змінити хост зображень</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_on">Використовується хост зображень yt4.ggpht.com</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">Використовується оригінальний хост зображень\n\nУвімкнення цього параметра може виправити відсутні зображення, які заблоковано в деяких регіонах</string>
   </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
