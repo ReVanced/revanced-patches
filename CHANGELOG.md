@@ -1,3 +1,11 @@
+# [4.12.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v4.12.0-dev.4...v4.12.0-dev.5) (2024-07-20)
+
+
+### Features
+
+* Add `Hide mock location` patch ([#3417](https://github.com/ReVanced/revanced-patches/issues/3417)) ([5f81b40](https://github.com/ReVanced/revanced-patches/commit/5f81b40e7d5567fb5689d08ccc9caeaa267c3143))
+* **Google Photos:** Add `GmsCore support` patch ([#3414](https://github.com/ReVanced/revanced-patches/issues/3414)) ([24528e0](https://github.com/ReVanced/revanced-patches/commit/24528e0a6eec17ce0a3c52f8862585933615ad28))
+
 # [4.12.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.12.0-dev.3...v4.12.0-dev.4) (2024-07-20)
 
 
