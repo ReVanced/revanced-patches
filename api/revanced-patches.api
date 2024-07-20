@@ -30,6 +30,42 @@ public final class app/revanced/patches/all/location/hide/HideMockLocationPatch 
 	public fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lkotlin/Pair;)V
 }
 
+public abstract class app/revanced/patches/all/misc/build/BaseSpoofBuildInfoPatch : app/revanced/patches/all/misc/transformation/BaseTransformInstructionsPatch {
+	public fun <init> ()V
+	public synthetic fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Ljava/lang/Object;
+	public fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Lkotlin/Pair;
+	protected fun getBoard ()Ljava/lang/String;
+	protected fun getBootloader ()Ljava/lang/String;
+	protected fun getBrand ()Ljava/lang/String;
+	protected fun getCpuAbi ()Ljava/lang/String;
+	protected fun getCpuAbi2 ()Ljava/lang/String;
+	protected fun getDevice ()Ljava/lang/String;
+	protected fun getDisplay ()Ljava/lang/String;
+	protected fun getFingerprint ()Ljava/lang/String;
+	protected fun getHardware ()Ljava/lang/String;
+	protected fun getHost ()Ljava/lang/String;
+	protected fun getId ()Ljava/lang/String;
+	protected fun getManufacturer ()Ljava/lang/String;
+	protected fun getModel ()Ljava/lang/String;
+	protected fun getOdmSku ()Ljava/lang/String;
+	protected fun getProduct ()Ljava/lang/String;
+	protected fun getRadio ()Ljava/lang/String;
+	protected fun getSerial ()Ljava/lang/String;
+	protected fun getSku ()Ljava/lang/String;
+	protected fun getSocManufacturer ()Ljava/lang/String;
+	protected fun getSocModel ()Ljava/lang/String;
+	protected fun getTags ()Ljava/lang/String;
+	protected fun getTime ()Ljava/lang/Long;
+	protected fun getType ()Ljava/lang/String;
+	protected fun getUser ()Ljava/lang/String;
+	public synthetic fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Ljava/lang/Object;)V
+	public fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lkotlin/Pair;)V
+}
+
+public final class app/revanced/patches/all/misc/build/SpoofBuildInfoPatch : app/revanced/patches/all/misc/build/BaseSpoofBuildInfoPatch {
+	public fun <init> ()V
+}
+
 public final class app/revanced/patches/all/misc/debugging/EnableAndroidDebuggingPatch : app/revanced/patcher/patch/ResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/all/misc/debugging/EnableAndroidDebuggingPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
