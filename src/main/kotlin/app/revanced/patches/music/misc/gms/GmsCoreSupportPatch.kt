@@ -15,7 +15,6 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
     primeMethodFingerprint = PrimeMethodFingerprint,
     earlyReturnFingerprints = setOf(
         ServiceCheckFingerprint,
-        GooglePlayUtilityFingerprint,
         CastDynamiteModuleFingerprint,
         CastDynamiteModuleV2Fingerprint,
         CastContextFetchFingerprint,
@@ -32,12 +31,11 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
                 "7.01.53",
                 "7.02.52",
                 "7.03.52",
-            )
-        )
+            ),
+        ),
     ),
     fingerprints = setOf(
         ServiceCheckFingerprint,
-        GooglePlayUtilityFingerprint,
         CastDynamiteModuleFingerprint,
         CastDynamiteModuleV2Fingerprint,
         CastContextFetchFingerprint,
