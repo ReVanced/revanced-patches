@@ -1,3 +1,10 @@
+# [4.12.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.12.0-dev.3...v4.12.0-dev.4) (2024-07-20)
+
+
+### Features
+
+* **Google News:** Add `Enable CustomTabs` and `GmsCore support` patch ([#3111](https://github.com/ReVanced/revanced-patches/issues/3111)) ([ad59096](https://github.com/ReVanced/revanced-patches/commit/ad590962275f888b335252ad5bed0f34e959d3c7))
+
 # [4.12.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.12.0-dev.2...v4.12.0-dev.3) (2024-07-18)
 
 
