@@ -18,11 +18,13 @@ import app.revanced.patches.shared.misc.gms.fingerprints.GooglePlayUtilityFinger
 import app.revanced.patches.shared.misc.gms.fingerprints.ServiceCheckFingerprint
 import app.revanced.util.exception
 import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableStringReference
 import com.android.tools.smali.dexlib2.util.MethodUtil
@@ -112,11 +114,20 @@ abstract class BaseGmsCoreSupportPatch(
         }
 
         // Verify GmsCore is installed and whitelisted for power optimizations and background usage.
-        mainActivityOnCreateFingerprint.result?.mutableMethod?.addInstructions(
-            0,
-            "invoke-static/range { p0 .. p0 }, Lapp/revanced/integrations/shared/GmsCoreSupport;->" +
-                "checkGmsCore(Landroid/app/Activity;)V",
-        ) ?: throw mainActivityOnCreateFingerprint.exception
+        mainActivityOnCreateFingerprint.result?.mutableMethod?.apply {
+            val setContextIndex = indexOfFirstInstructionOrThrow {
+                val reference = getReference<MethodReference>() ?: return@indexOfFirstInstructionOrThrow false
+
+                reference.toString() == "Lapp/revanced/integrations/shared/Utils;->setContext(Landroid/content/Context;)V"
+            }
+
+            // Add after setContext call, because this patch needs the context.
+            addInstructions(
+                setContextIndex + 1,
+                "invoke-static/range { p0 .. p0 }, Lapp/revanced/integrations/shared/GmsCoreSupport;->" +
+                    "checkGmsCore(Landroid/app/Activity;)V",
+            )
+        } ?: throw mainActivityOnCreateFingerprint.exception
 
         // Change the vendor of GmsCore in ReVanced Integrations.
         GmsCoreSupportFingerprint.result?.mutableClass?.methods
