@@ -1,5 +1,8 @@
 <!--
 
+Note: All strings must have a unique path, even if the same string is declared in two different apps.
+This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+
 # General guidelines and information for translating
 
 ## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
@@ -198,22 +201,19 @@
             <string name="revanced_hide_chips_shelf_title">Hide chips shelf</string>
             <string name="revanced_hide_chips_shelf_summary_on">Chips shelf is hidden</string>
             <string name="revanced_hide_chips_shelf_summary_off">Chips shelf is shown</string>
+            <string name="revanced_hide_attributes_section_title">Hide attributes section</string>
+            <string name="revanced_hide_attributes_section_summary_on">\'Featured places\', Games and Music sections are hidden</string>
+            <string name="revanced_hide_attributes_section_summary_off">\'Featured places\', Games and Music sections are shown</string>
+            <string name="revanced_hide_chapters_section_title">Hide Chapters section</string>
+            <string name="revanced_hide_chapters_section_summary_on">Chapters section is hidden</string>
+            <string name="revanced_hide_chapters_section_summary_off">Chapters section is shown</string>
+            <string name="revanced_hide_podcast_section_title">Hide \'Explore the podcast\' section</string>
+            <string name="revanced_hide_podcast_section_summary_on">\'Explore the podcast\' section is hidden</string>
+            <string name="revanced_hide_podcast_section_summary_off">\'Explore the podcast\' section is shown</string>
             <string name="revanced_hide_info_cards_section_title">Hide info cards section</string>
             <string name="revanced_hide_info_cards_section_summary_on">Info cards section is hidden</string>
             <string name="revanced_hide_info_cards_section_summary_off">Info cards section is shown</string>
-            <string name="revanced_hide_chapters_title">Hide chapters</string>
-            <string name="revanced_hide_chapters_summary_on">Chapters are hidden</string>
-            <string name="revanced_hide_chapters_summary_off">Chapters are shown</string>
-            <string name="revanced_hide_game_section_title">Hide game section</string>
-            <string name="revanced_hide_game_section_summary_on">Game section is hidden</string>
-            <string name="revanced_hide_game_section_summary_off">Game section is shown</string>
-            <string name="revanced_hide_music_section_title">Hide music section</string>
-            <string name="revanced_hide_music_section_summary_on">Music section is hidden</string>
-            <string name="revanced_hide_music_section_summary_off">Music section is shown</string>
-            <string name="revanced_hide_podcast_section_title">Hide podcast section</string>
-            <string name="revanced_hide_podcast_section_summary_on">Podcast section is hidden</string>
-            <string name="revanced_hide_podcast_section_summary_off">Podcast section is shown</string>
-            <string name="revanced_hide_transcript_section_title">Hide transcript section</string>
+            <string name="revanced_hide_transcript_section_title">Hide Transcript section</string>
             <string name="revanced_hide_transcript_section_summary_on">Transcript section is hidden</string>
             <string name="revanced_hide_transcript_section_summary_off">Transcript section is shown</string>
             <string name="revanced_hide_description_components_screen_title">Video description</string>
@@ -244,8 +244,11 @@
             <string name="revanced_hide_keyword_content_phrases_summary">Keywords and phrases to hide, separated by new lines\n\nWords with uppercase letters in the middle must be entered with the casing (ie: iPhone, TikTok, LeBlanc)</string>
             <string name="revanced_hide_keyword_content_about_title">About keyword filtering</string>
             <string name="revanced_hide_keyword_content_about_summary">Home/Subscription/Search results are filtered to hide content that matches keyword phrases\n\nLimitations\n• Some Shorts may not be hidden\n• Some UI components may not be hidden\n• Searching for a keyword may show no results</string>
+            <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
             <string name="revanced_hide_keyword_toast_invalid_common">Invalid keyword. Cannot use: \'%s\' as a filter</string>
+            <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
             <string name="revanced_hide_keyword_toast_invalid_length">Invalid keyword. \'%1$s\' is less than %2$d characters</string>
+            <string name="revanced_hide_keyword_toast_invalid_broad">Keyword \'%s\' will hide all videos</string>
         </patch>
         <patch id="ad.general.HideAdsResourcePatch">
             <string name="revanced_hide_general_ads_title">Hide general ads</string>
@@ -279,6 +282,7 @@
             <string name="revanced_hide_merchandise_banners_title">Hide merchandise banners</string>
             <string name="revanced_hide_merchandise_banners_summary_on">Merchandise banners are hidden</string>
             <string name="revanced_hide_merchandise_banners_summary_off">Merchandise banners are shown</string>
+            <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
             <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Hide fullscreen ads only works with older devices</string>
         </patch>
         <patch id="ad.getpremium.HideGetPremiumPatch">
@@ -502,15 +506,24 @@
         <patch id="layout.hide.comments.CommentsPatch">
             <string name="revanced_comments_screen_title">Comments</string>
             <string name="revanced_comments_screen_summary">Hide or show comments section components</string>
-            <string name="revanced_hide_preview_comment_title">Hide preview comment</string>
-            <string name="revanced_hide_preview_comment_summary_on">Preview comment is hidden</string>
-            <string name="revanced_hide_preview_comment_summary_off">Preview comment is shown</string>
+            <string name="revanced_hide_comments_by_members_header_title">Hide \'Comments by members\' header</string>
+            <string name="revanced_hide_comments_by_members_header_summary_on">\'Comments by members\' header is hidden</string>
+            <string name="revanced_hide_comments_by_members_header_summary_off">\'Comments by members\' header is shown</string>
             <string name="revanced_hide_comments_section_title">Hide comments section</string>
-            <string name="revanced_hide_comments_section_summary_on">Comment section is hidden</string>
-            <string name="revanced_hide_comments_section_summary_off">Comment section is shown</string>
-            <string name="revanced_hide_comment_timestamp_and_emoji_buttons_title">Hide timestamp and emoji buttons</string>
-            <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_on">Comment timestamp and emoji buttons are hidden</string>
-            <string name="revanced_hide_comment_timestamp_and_emoji_buttons_summary_off">Comment timestamp and emoji buttons are shown</string>
+            <string name="revanced_hide_comments_section_summary_on">Comments section is hidden</string>
+            <string name="revanced_hide_comments_section_summary_off">Comments section is shown</string>
+            <string name="revanced_hide_comments_create_a_short_button_title">Hide \'Create a Short\' button</string>
+            <string name="revanced_hide_comments_create_a_short_button_summary_on">\'Create a Short\' button is hidden</string>
+            <string name="revanced_hide_comments_create_a_short_button_summary_off">\'Create a Short\' button is shown</string>
+            <string name="revanced_hide_comments_preview_comment_title">Hide preview comment</string>
+            <string name="revanced_hide_comments_preview_comment_summary_on">Preview comment is hidden</string>
+            <string name="revanced_hide_comments_preview_comment_summary_off">Preview comment is shown</string>
+            <string name="revanced_hide_comments_thanks_button_title">Hide thanks button</string>
+            <string name="revanced_hide_comments_thanks_button_summary_on">Thanks button is hidden</string>
+            <string name="revanced_hide_comments_thanks_button_summary_off">Thanks button is shown</string>
+            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Hide timestamp and emoji buttons</string>
+            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Timestamp and emoji buttons are hidden</string>
+            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Timestamp and emoji buttons are shown</string>
         </patch>
         <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
             <string name="revanced_hide_crowdfunding_box_title">Hide crowdfunding box</string>
@@ -985,6 +998,11 @@
             <string name="revanced_seekbar_custom_color_value_summary">The color of the seekbar</string>
             <string name="revanced_seekbar_custom_color_invalid">Invalid seekbar color value. Using default value.</string>
         </patch>
+        <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+            <string name="revanced_bypass_image_region_restrictions_title">Bypass image region restrictions</string>
+            <string name="revanced_bypass_image_region_restrictions_summary_on">Using image host yt4.ggpht.com</string>
+            <string name="revanced_bypass_image_region_restrictions_summary_off">Using original image host\n\nEnabling this can fix missing images that are blocked in some regions</string>
+        </patch>
         <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
             <string name="revanced_alt_thumbnail_home_title">Home tab</string>
@@ -1050,10 +1068,6 @@
             <string name="revanced_external_browser_title">Open links in browser</string>
             <string name="revanced_external_browser_summary_on">Opening links externally</string>
             <string name="revanced_external_browser_summary_off">Opening links in app</string>
-        </patch>
-        <patch id="misc.minimizedplayback.MinimizedPlaybackPatch">
-            <string name="revanced_minimized_playback_title">Minimized playback</string>
-            <string name="revanced_minimized_playback_summary">This setting can be found in Settings -&gt; Background</string>
         </patch>
         <patch id="misc.privacy.RemoveTrackingQueryParameterPatch">
             <string name="revanced_remove_tracking_query_parameter_title">Remove tracking query parameter</string>
@@ -1121,7 +1135,7 @@
             <string name="revanced_spoof_client_user_dialog_message">Turning off this setting may cause video playback issues.</string>
             <string name="revanced_spoof_client_use_ios_title">Spoof client to iOS</string>
             <string name="revanced_spoof_client_use_ios_summary_on">Client is currently spoofed to iOS\n\nSide effects include:\n• No HDR video\n• Watch history may not work\n• Higher video qualities may be missing\n• Live streams cannot play as audio only\n• Live streams not available on Android 8.0</string>
-            <string name="revanced_spoof_client_use_ios_summary_off">Client is currently spoofed to Android VR\n\nSide effects include:\n• No HDR video\n• Kids videos do not playback\n• Paused videos can randomly resume</string>
+            <string name="revanced_spoof_client_use_ios_summary_off">Client is currently spoofed to Android VR\n\nSide effects include:\n• No HDR video\n• Kids videos do not playback\n• Paused videos can randomly resume\n• Low quality Shorts seekbar thumbnails\n• Download action button is always hidden\n• End screen cards are always hidden</string>
             <string name="revanced_spoof_client_storyboard_timeout">Spoof client thumbnails not available (API timed out)</string>
             <string name="revanced_spoof_client_storyboard_io_exception">Spoof client thumbnails temporarily not available: %s</string>
         </patch>
