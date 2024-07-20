@@ -1,3 +1,10 @@
+# [4.12.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.12.0-dev.5...v4.12.0-dev.6) (2024-07-20)
+
+
+### Features
+
+* Add `Spoof build info` patch ([e7829b4](https://github.com/ReVanced/revanced-patches/commit/e7829b41e782c9feda23b9d6acf48bae277d24d9))
+
 # [4.12.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v4.12.0-dev.4...v4.12.0-dev.5) (2024-07-20)
 
 
