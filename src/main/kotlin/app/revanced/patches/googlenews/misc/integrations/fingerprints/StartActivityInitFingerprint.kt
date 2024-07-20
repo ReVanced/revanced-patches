@@ -29,7 +29,7 @@ internal object StartActivityInitFingerprint : IntegrationsFingerprint(
         getApplicationContextIndex + 2 // Below the move-result-object instruction
     },
     contextRegisterResolver = { method ->
-        val moveResultInstruction = method.implementation!!.instructions.elementAt(getApplicationContextIndex + 2)
+        val moveResultInstruction = method.implementation!!.instructions.elementAt(getApplicationContextIndex + 1)
             as OneRegisterInstruction
         moveResultInstruction.registerA
     },

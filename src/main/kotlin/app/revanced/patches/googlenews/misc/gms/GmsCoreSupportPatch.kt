@@ -17,7 +17,7 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
     mainActivityOnCreateFingerprint = MagazinesActivityOnCreateFingerprint,
     integrationsPatchDependency = IntegrationsPatch::class,
     gmsCoreSupportResourcePatch = GmsCoreSupportResourcePatch,
-    compatiblePackages = setOf(CompatiblePackage(MAGAZINES_PACKAGE_NAME)),
+    compatiblePackages = setOf(CompatiblePackage(MAGAZINES_PACKAGE_NAME, setOf("5.108.0.644447823"))),
     fingerprints = setOf(ServiceCheckFingerprint),
 ) {
     override val gmsCoreVendorGroupId by gmsCoreVendorGroupIdOption
