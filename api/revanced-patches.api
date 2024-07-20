@@ -235,6 +235,18 @@ public final class app/revanced/patches/googlenews/misc/integrations/Integration
 	public static final field INSTANCE Lapp/revanced/patches/googlenews/misc/integrations/IntegrationsPatch;
 }
 
+public final class app/revanced/patches/googlephotos/misc/gms/GmsCoreSupportPatch : app/revanced/patches/shared/misc/gms/BaseGmsCoreSupportPatch {
+	public static final field INSTANCE Lapp/revanced/patches/googlephotos/misc/gms/GmsCoreSupportPatch;
+}
+
+public final class app/revanced/patches/googlephotos/misc/gms/GmsCoreSupportResourcePatch : app/revanced/patches/shared/misc/gms/BaseGmsCoreSupportResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/googlephotos/misc/gms/GmsCoreSupportResourcePatch;
+}
+
+public final class app/revanced/patches/googlephotos/misc/integrations/IntegrationsPatch : app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch {
+	public static final field INSTANCE Lapp/revanced/patches/googlephotos/misc/integrations/IntegrationsPatch;
+}
+
 public final class app/revanced/patches/googlerecorder/restrictions/RemoveDeviceRestrictions : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/googlerecorder/restrictions/RemoveDeviceRestrictions;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
