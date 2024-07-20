@@ -1,6 +1,6 @@
-package app.revanced.patches.googlenews.misc.integrations.fingerprints
+package app.revanced.patches.googlephotos.misc.integrations.fingerprints
 
-import app.revanced.patches.googlenews.misc.integrations.fingerprints.StartActivityInitFingerprint.getApplicationContextIndex
+import app.revanced.patches.googlephotos.misc.integrations.fingerprints.HomeActivityInitFingerprint.getApplicationContextIndex
 import app.revanced.patches.shared.misc.integrations.BaseIntegrationsPatch.IntegrationsFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -8,17 +8,13 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal object StartActivityInitFingerprint : IntegrationsFingerprint(
+internal object HomeActivityInitFingerprint : IntegrationsFingerprint(
     opcodes = listOf(
+        Opcode.CONST_STRING,
         Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT,
-        Opcode.CONST_4,
-        Opcode.IF_EQZ,
-        Opcode.CONST,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.IPUT_OBJECT,
-        Opcode.IPUT_BOOLEAN,
-        Opcode.INVOKE_VIRTUAL, // Calls startActivity.getApplicationContext().
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.IF_NEZ,
+        Opcode.INVOKE_VIRTUAL, // Calls getApplicationContext().
         Opcode.MOVE_RESULT_OBJECT,
     ),
     insertIndexResolver = { method ->
@@ -34,7 +30,7 @@ internal object StartActivityInitFingerprint : IntegrationsFingerprint(
         moveResultInstruction.registerA
     },
     customFingerprint = { methodDef, classDef ->
-        methodDef.name == "onCreate" && classDef.endsWith("/StartActivity;")
+        methodDef.name == "onCreate" && classDef.endsWith("/HomeActivity;")
     },
 ) {
     private var getApplicationContextIndex = -1
