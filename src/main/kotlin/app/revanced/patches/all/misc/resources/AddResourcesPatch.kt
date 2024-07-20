@@ -347,7 +347,10 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
                 val targetFile =
                     context.get("res/$value/$resourceFileName.xml").also {
                         it.parentFile?.mkdirs()
-                        it.createNewFile()
+
+                        if(it.createNewFile()) {
+                            it.writeText("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<resources>\n</resources>")
+                        }
                     }
 
                 context.xmlEditor[targetFile.path].let { editor ->

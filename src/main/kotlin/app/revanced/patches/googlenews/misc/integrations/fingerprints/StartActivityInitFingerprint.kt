@@ -26,7 +26,7 @@ internal object StartActivityInitFingerprint : IntegrationsFingerprint(
             getReference<MethodReference>()?.name == "getApplicationContext"
         }
 
-        getApplicationContextIndex + 2 // Below the move-result-object instruction
+        getApplicationContextIndex + 2 // Below the move-result-object instruction.
     },
     contextRegisterResolver = { method ->
         val moveResultInstruction = method.implementation!!.instructions.elementAt(getApplicationContextIndex + 1)

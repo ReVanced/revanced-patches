@@ -6,7 +6,5 @@ import app.revanced.patches.shared.misc.integrations.BaseIntegrationsPatch
 
 @Patch(requiresIntegrations = true)
 object IntegrationsPatch : BaseIntegrationsPatch(
-    setOf(
-        HomeActivityInitFingerprint,
-    ),
+    setOf(HomeActivityInitFingerprint),
 )

@@ -1,4 +1,4 @@
-package app.revanced.patches.googlephotos.misc.gms.fingerprints
+package app.revanced.patches.shared.misc.gms.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint

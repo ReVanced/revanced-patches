@@ -7,10 +7,8 @@ import app.revanced.patches.youtube.misc.fix.playback.SpoofClientPatch
 import app.revanced.patches.youtube.misc.gms.Constants.REVANCED_YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.gms.Constants.YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.gms.GmsCoreSupportResourcePatch.gmsCoreVendorGroupIdOption
-import app.revanced.patches.youtube.misc.gms.fingerprints.CastDynamiteModuleFingerprint
 import app.revanced.patches.youtube.misc.gms.fingerprints.CastDynamiteModuleV2Fingerprint
 import app.revanced.patches.youtube.misc.gms.fingerprints.PrimeMethodFingerprint
-import app.revanced.patches.youtube.misc.gms.fingerprints.ServiceCheckFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.shared.fingerprints.MainActivityOnCreateFingerprint
 
@@ -20,8 +18,6 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
     toPackageName = REVANCED_YOUTUBE_PACKAGE_NAME,
     primeMethodFingerprint = PrimeMethodFingerprint,
     earlyReturnFingerprints = setOf(
-        ServiceCheckFingerprint,
-        CastDynamiteModuleFingerprint,
         CastDynamiteModuleV2Fingerprint,
         CastContextFetchFingerprint,
     ),
@@ -63,8 +59,6 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
         ),
     ),
     fingerprints = setOf(
-        ServiceCheckFingerprint,
-        CastDynamiteModuleFingerprint,
         CastDynamiteModuleV2Fingerprint,
         CastContextFetchFingerprint,
         PrimeMethodFingerprint,
