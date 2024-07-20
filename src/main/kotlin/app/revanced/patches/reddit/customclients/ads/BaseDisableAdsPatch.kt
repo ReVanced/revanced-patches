@@ -15,5 +15,5 @@ abstract class BaseDisableAdsPatch(
     compatiblePackages = compatiblePackages,
     fingerprints = setOf(IsAdsEnabledFingerprint),
 ) {
-    override fun execute(context: BytecodeContext) = listOf(IsAdsEnabledFingerprint).returnEarly()
+    override fun execute(context: BytecodeContext) = IsAdsEnabledFingerprint.returnEarly()
 }
