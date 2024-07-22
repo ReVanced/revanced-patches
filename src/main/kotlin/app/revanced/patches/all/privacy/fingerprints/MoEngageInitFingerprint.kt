@@ -3,7 +3,7 @@ package app.revanced.patches.all.privacy.fingerprints
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-object MoEngageInitFingerprint : MethodFingerprint(
+internal object MoEngageInitFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC.value,
     customFingerprint = { methodDef, classDef ->
