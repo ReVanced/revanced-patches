@@ -24,7 +24,7 @@ object UniversalPrivacyPatch : BytecodePatch(
         SettingsSpiCallFingerprint,
         DoConfigFetchFingerprint,
         SendFingerprint,
-        MoEngageInitFingerprint,
+        InitialiseSdkFingerprint,
         SegmentBuilderFingerprint,
         InitSDKFingerprint
     )
@@ -161,7 +161,7 @@ object UniversalPrivacyPatch : BytecodePatch(
     }
 
     private fun disableMoEngage(context: BytecodeContext) {
-        MoEngageInitFingerprint.resultOrThrow().mutableMethod.addInstructions(0, "return-void")
+        InitialiseSdkFingerprint.resultOrThrow().mutableMethod.addInstructions(0, "return-void")
     }
 
     private fun disableSegment(context: BytecodeContext) {
