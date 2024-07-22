@@ -25,7 +25,8 @@ object UniversalPrivacyPatch : BytecodePatch(
         DoConfigFetchFingerprint,
         SendFingerprint,
         MoEngageInitFingerprint,
-        SegmentBuilderFingerprint
+        SegmentBuilderFingerprint,
+        InitSDKFingerprint
     )
 ) {
 
@@ -51,6 +52,14 @@ object UniversalPrivacyPatch : BytecodePatch(
             default = true,
             values = mapOf(),
             title = "Apps Flyer",
+            description = "",
+            required = true
+        ),
+        ::disableAppsFlyerPlugin to booleanPatchOption(
+            key = "disableAppsFlyerPlugin",
+            default = true,
+            values = mapOf(),
+            title = "Apps Flyer plugin",
             description = "",
             required = true
         ),
@@ -113,6 +122,11 @@ object UniversalPrivacyPatch : BytecodePatch(
                     return-object p0
                     """
         )
+    }
+
+    // This plugin is used to interact with a non-Java app technology, like Flutter or React Native
+    private fun disableAppsFlyerPlugin(context: BytecodeContext) {
+        InitSDKFingerprint.resultOrThrow().mutableMethod.addInstructions(0,"return-void")
     }
 
     private fun disableComScore(context: BytecodeContext) {
