@@ -1,12 +1,12 @@
-package app.revanced.patches.all.analytics.moengage.fingerprints
+package app.revanced.patches.all.privacy.fingerprints
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-object MoEngageInitFingerprint : MethodFingerprint(
+object SendFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC.value,
     customFingerprint = { methodDef, classDef ->
-        classDef.sourceFile == "DefaultMoEngageSdk.kt" && methodDef.name == "init"
+        classDef.sourceFile == "TransportRuntime.java" && methodDef.name == "send"
     }
 )

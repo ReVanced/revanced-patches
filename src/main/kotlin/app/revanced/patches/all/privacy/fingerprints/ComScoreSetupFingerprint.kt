@@ -1,4 +1,4 @@
-package app.revanced.patches.all.analytics.comscore.fingerprints
+package app.revanced.patches.all.privacy.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
