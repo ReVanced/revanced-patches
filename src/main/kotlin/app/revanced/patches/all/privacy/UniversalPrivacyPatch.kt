@@ -177,7 +177,7 @@ object UniversalPrivacyPatch : BytecodePatch(
                     it.key(context)
                     Logger.getLogger(this::class.java.name).info("Applied privacy patch to disable ${it.value.title}")
                 }catch (exception: PatchException){
-                    Logger.getLogger(this::class.java.name).info("${it.value.title} not found, skipping...")
+                    Logger.getLogger(this::class.java.name).info("${it.value.title} not found, skipping")
                 }
             }
         }
