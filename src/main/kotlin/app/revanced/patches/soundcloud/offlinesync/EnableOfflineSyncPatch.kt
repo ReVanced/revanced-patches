@@ -73,7 +73,7 @@ object EnableOfflineSyncPatch : BytecodePatch(
             // The first three null checks need to be patched.
             getInstructions().asSequence().filter {
                 it.opcode == Opcode.IF_EQZ
-            }.take(3).map { it.location.index }.forEach { nullCheckIndex ->
+            }.take(3).toList().map { it.location.index }.asReversed().forEach { nullCheckIndex ->
                 val headerStringRegister = getInstruction<OneRegisterInstruction>(nullCheckIndex).registerA
 
                 addInstruction(nullCheckIndex, "const-string v$headerStringRegister, \"\"")
