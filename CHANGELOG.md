@@ -1,3 +1,10 @@
+# [4.12.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v4.12.0-dev.6...v4.12.0-dev.7) (2024-07-24)
+
+
+### Bug Fixes
+
+* **SoundCloud - Enable offline sync:** Stop crashing by reversing order of patching instructions from last to first to retain indices ([63b6ced](https://github.com/ReVanced/revanced-patches/commit/63b6cede5fa5bcf377ced422da4e861996a41f0d))
+
 # [4.12.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.12.0-dev.5...v4.12.0-dev.6) (2024-07-20)
 
 
