@@ -3,6 +3,7 @@ package app.revanced.patches.youtube.misc.fix.playback
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.extensions.or
@@ -12,6 +13,7 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -25,7 +27,9 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
@@ -74,9 +78,11 @@ object SpoofClientPatch : BytecodePatch(
         // Client type spoof.
         BuildInitPlaybackRequestFingerprint,
         BuildPlayerRequestURIFingerprint,
+        SetPlayerRequestBuilderFingerprint,
         SetPlayerRequestClientTypeFingerprint,
         CreatePlayerRequestBodyFingerprint,
         CreatePlayerRequestBodyWithModelFingerprint,
+        CreatePlayerRequestBodyWithVersionReleaseFingerprint,
 
         // Player gesture config.
         PlayerGestureConfigSyntheticFingerprint,
@@ -89,7 +95,9 @@ object SpoofClientPatch : BytecodePatch(
         "Lapp/revanced/integrations/youtube/patches/spoof/SpoofClientPatch;"
     private const val CLIENT_INFO_CLASS_DESCRIPTOR =
         "Lcom/google/protos/youtube/api/innertube/InnertubeContext\$ClientInfo;"
-
+    private const val REQUEST_BUILDER_CLASS_DESCRIPTOR =
+        "Lorg/chromium/net/ExperimentalUrlRequest\$Builder;"
+        
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
@@ -181,6 +189,18 @@ object SpoofClientPatch : BytecodePatch(
                 ?: throw PatchException("Could not find clientInfoClientModelField")
         }
 
+        val clientInfoOsVersionField = CreatePlayerRequestBodyWithVersionReleaseFingerprint.resultOrThrow().let {
+            val getOsVersionIndex = CreatePlayerRequestBodyWithVersionReleaseFingerprint.indexOfBuildVersionReleaseInstruction(it.method)
+
+            // The next IPUT_OBJECT instruction after getting the client os version is setting the client os version field.
+            val index = it.mutableMethod.indexOfFirstInstructionOrThrow(getOsVersionIndex) {
+                opcode == Opcode.IPUT_OBJECT
+            }
+
+            it.mutableMethod.getInstruction(index).getReference<FieldReference>()
+                ?: throw PatchException("Could not find clientInfoOsVersionField")
+        }
+
         // endregion
 
         // region Spoof client type for /player requests.
@@ -240,6 +260,12 @@ object SpoofClientPatch : BytecodePatch(
                             invoke-static { v1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->getClientVersion(Ljava/lang/String;)Ljava/lang/String;
                             move-result-object v1
                             iput-object v1, v0, $clientInfoClientVersionField
+
+                            # Set client os version to the spoofed value.
+                            iget-object v1, v0, $clientInfoOsVersionField
+                            invoke-static { v1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->getOsVersion(Ljava/lang/String;)Ljava/lang/String;
+                            move-result-object v1
+                            iput-object v1, v0, $clientInfoOsVersionField
                             
                             :disabled
                             return-void
@@ -301,6 +327,40 @@ object SpoofClientPatch : BytecodePatch(
                         move-result v$shouldCreateMenuRegister
                     """,
                 )
+            }
+        }
+
+        // endregion
+
+        // region Change player request user-agent if spoofing to iOS.
+
+        SetPlayerRequestBuilderFingerprint.resultOrThrow().let { result ->
+            val newRequestBuilderIndex = result.scanResult.patternScanResult!!.endIndex
+
+            with(result.method.implementation) {
+                this?.instructions?.forEachIndexed { index, instruction ->
+                    if (instruction.opcode != Opcode.INVOKE_VIRTUAL) return@forEachIndexed
+
+                    val methodRef = (instruction as Instruction35c).reference as MethodReference
+                    
+                    if (methodRef.returnType != "V") return@forEachIndexed
+
+                    result.mutableMethod.apply {
+                        val targetRegister = getInstruction<FiveRegisterInstruction>(newRequestBuilderIndex).registerD
+
+                        addInstructionsWithLabels(
+                            index + 1,
+                            """
+                                invoke-static { v$targetRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getPlayerRequestUserAgent(Ljava/lang/String;)Ljava/lang/String;
+                                move-result-object v$targetRegister
+                                if-eqz v$targetRegister, :skip
+                                const-string v${targetRegister + 1}, "User-Agent"
+                                invoke-virtual { p6, v${targetRegister + 1},  v$targetRegister }, $REQUEST_BUILDER_CLASS_DESCRIPTOR->addHeader(Ljava/lang/String;Ljava/lang/String;)$REQUEST_BUILDER_CLASS_DESCRIPTOR
+                            """,
+                            ExternalLabel("skip", getInstruction(index + 1))
+                        )
+                    }
+                }
             }
         }
 
