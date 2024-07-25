@@ -26,7 +26,8 @@ object UniversalPrivacyPatch : BytecodePatch(
         SendFingerprint,
         InitialiseSdkFingerprint,
         SegmentBuilderFingerprint,
-        InitSDKFingerprint
+        InitSDKFingerprint,
+        AmplitudeInitFingerprint
     )
 ) {
 
@@ -36,6 +37,14 @@ object UniversalPrivacyPatch : BytecodePatch(
             default = true,
             values = mapOf(),
             title = "Google Analytics",
+            description = "",
+            required = true
+        ),
+        ::disableAmplitude to booleanPatchOption(
+            key = "disableAmplitude",
+            default = true,
+            values = mapOf(),
+            title = "Amplitude",
             description = "",
             required = true
         ),
@@ -105,13 +114,17 @@ object UniversalPrivacyPatch : BytecodePatch(
         ),
     )
 
-    private fun disableStatsig(context: BytecodeContext) {
-        StatsigClientFingerprint.resultOrThrow().mutableMethod.addInstructions(0,"return-void")
-    }
-
     private fun disableGoogleAnalytics(context: BytecodeContext) {
         // Empties the "context" argument to force an exception
         AnalyticsInitFingerprint.resultOrThrow().mutableMethod.addInstructions(0,"const/4 p0, 0x0")
+    }
+
+    private fun disableAmplitude(context: BytecodeContext) {
+        AmplitudeInitFingerprint.resultOrThrow().mutableMethod.addInstructions(0,"return-object p0")
+    }
+
+    private fun disableStatsig(context: BytecodeContext) {
+        StatsigClientFingerprint.resultOrThrow().mutableMethod.addInstructions(0,"return-void")
     }
 
     private fun disableAppsFlyer(context: BytecodeContext) {
