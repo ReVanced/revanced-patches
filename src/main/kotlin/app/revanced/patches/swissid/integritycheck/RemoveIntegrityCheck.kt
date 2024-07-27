@@ -5,7 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.swissid.integritycheck.fingerprints.IntegrityCheckFingerprint
+import app.revanced.patches.swissid.integritycheck.fingerprints.CheckIntegrityFingerprint
 import app.revanced.util.exception
 
 @Patch(
@@ -17,10 +17,10 @@ import app.revanced.util.exception
 )
 @Suppress("unused")
 object RemoveIntegrityCheck : BytecodePatch(
-    setOf(IntegrityCheckFingerprint),
+    setOf(CheckIntegrityFingerprint),
 ) {
     override fun execute(context: BytecodeContext) =
-        IntegrityCheckFingerprint.result?.mutableMethod?.addInstructions(
+        CheckIntegrityFingerprint.result?.mutableMethod?.addInstructions(
             0,
             "iget-object p1, p0, Lcom/swisssign/deviceintegrity/DeviceintegrityPlugin\$onMethodCall\$1;->\$result:Lio/flutter/plugin/common/MethodChannel\$Result;"
             +"\n"
@@ -29,5 +29,5 @@ object RemoveIntegrityCheck : BytecodePatch(
             +"invoke-interface {p1, v0}, Lio/flutter/plugin/common/MethodChannel\$Result;->success(Ljava/lang/Object;)V"
             +"\n"
             +"return-void",
-        ) ?: throw IntegrityCheckFingerprint.exception
+        ) ?: throw CheckIntegrityFingerprint.exception
 }
