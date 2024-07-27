@@ -13,7 +13,7 @@ import app.revanced.util.exception
     description = "Removes the Google Play Device Integrity Check." +
         "With this it's possible to use SwissId on custom ROMS." +
         "Rooted devices should hide the root from SwissId by putting SwissId on the DenyList",
-    compatiblePackages = [CompatiblePackage("com.swisssign.swissid.mobile")],
+    compatiblePackages = [CompatiblePackage("com.swisssign.swissid.mobile", ["5.2.5"])],
 )
 @Suppress("unused")
 object RemoveIntegrityCheck : BytecodePatch(
