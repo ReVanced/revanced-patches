@@ -22,12 +22,14 @@ object RemoveIntegrityCheck : BytecodePatch(
     override fun execute(context: BytecodeContext) =
         CheckIntegrityFingerprint.result?.mutableMethod?.addInstructions(
             0,
-            "iget-object p1, p0, Lcom/swisssign/deviceintegrity/DeviceintegrityPlugin\$onMethodCall\$1;->\$result:Lio/flutter/plugin/common/MethodChannel\$Result;"
-            +"\n"
-            +"const-string v0, \"VALID\""
-            +"\n"
-            +"invoke-interface {p1, v0}, Lio/flutter/plugin/common/MethodChannel\$Result;->success(Ljava/lang/Object;)V"
-            +"\n"
-            +"return-void",
+            """
+            iget-object p1, p0, Lcom/swisssign/deviceintegrity/DeviceintegrityPlugin${"$"}onMethodCall${"$"}1;->${"$"}result:Lio/flutter/plugin/common/MethodChannel${"$"}Result;
+
+            const-string v0, "VALID"
+
+            invoke-interface {p1, v0}, Lio/flutter/plugin/common/MethodChannel${"$"}Result;->success(Ljava/lang/Object;)V
+
+            return-void
+            """,
         ) ?: throw CheckIntegrityFingerprint.exception
 }
