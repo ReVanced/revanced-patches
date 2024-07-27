@@ -5,6 +5,7 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patches.reddit.customclients.boostforreddit.ads.fingerprints.*
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.util.resultOrThrow
 
 @Suppress("unused")
 object DisableAdsPatch : BytecodePatch(
@@ -13,9 +14,7 @@ object DisableAdsPatch : BytecodePatch(
     fingerprints = setOf(MaxMediationFingerprint, AdmobMediationFingerprint),
 ) {
     override fun execute(context: BytecodeContext) {
-        MaxMediationFingerprint.result?.mutableMethod?.addInstructions(0, "return-void")
-            ?: throw PatchException("MaxMediationFingerprint not found")
-        AdmobMediationFingerprint.result?.mutableMethod?.addInstructions(0, "return-void")
-            ?: throw PatchException("AdmobMediationFingerprint not found")
+        MaxMediationFingerprint.resultOrThrow().mutableMethod.addInstructions(0, "return-void")
+        AdmobMediationFingerprint.resultOrThrow().mutableMethod.addInstructions(0, "return-void")
     }
 }
