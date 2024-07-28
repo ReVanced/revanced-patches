@@ -60,7 +60,7 @@ object BypassImageRegionRestrictions : BytecodePatch(emptySet()) {
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+        SettingsPatch.PreferenceScreen.MISC.addPreferences(
             SwitchPreference("revanced_bypass_image_region_restrictions")
         )
 
