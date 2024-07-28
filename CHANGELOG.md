@@ -1,3 +1,10 @@
+# [4.12.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v4.12.0-dev.11...v4.12.0-dev.12) (2024-07-28)
+
+
+### Features
+
+* **SwissID:** Add `Remove Google Play Integrity Integrity check` patch ([#3478](https://github.com/ReVanced/revanced-patches/issues/3478)) ([60492ae](https://github.com/ReVanced/revanced-patches/commit/60492aea7863e07d8bf1af9380ae9295ca161f3c))
+
 # [4.12.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v4.12.0-dev.10...v4.12.0-dev.11) (2024-07-28)
 
 
