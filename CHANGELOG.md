@@ -1,3 +1,10 @@
+# [4.12.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v4.12.0-dev.8...v4.12.0-dev.9) (2024-07-28)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof client:** Fix tracking history on brand accounts ([#3480](https://github.com/ReVanced/revanced-patches/issues/3480)) ([69c1f16](https://github.com/ReVanced/revanced-patches/commit/69c1f16f7eb0d5759a44f7f7a09b1757ce8f61dd))
+
 # [4.12.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v4.12.0-dev.7...v4.12.0-dev.8) (2024-07-26)
 
 
