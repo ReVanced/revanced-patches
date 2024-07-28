@@ -1178,8 +1178,8 @@ public final class app/revanced/patches/strava/upselling/DisableSubscriptionSugg
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/swissid/integritycheck/RemoveIntegrityCheck : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/swissid/integritycheck/RemoveIntegrityCheck;
+public final class app/revanced/patches/swissid/integritycheck/RemoveGooglePlayIntegrityCheck : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/swissid/integritycheck/RemoveGooglePlayIntegrityCheck;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
