@@ -83,6 +83,9 @@ object SpoofClientPatch : BytecodePatch(
 
         // Player speed menu item.
         CreatePlaybackSpeedMenuItemFingerprint,
+
+        // Watch history.
+        GetTrackingUriFingerprint,
     ),
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
@@ -153,7 +156,7 @@ object SpoofClientPatch : BytecodePatch(
                     .getInstructions().find { instruction ->
                         // requestMessage.clientInfo = clientInfoBuilder.build();
                         instruction.opcode == Opcode.IPUT_OBJECT &&
-                            instruction.getReference<FieldReference>()?.type == CLIENT_INFO_CLASS_DESCRIPTOR
+                                instruction.getReference<FieldReference>()?.type == CLIENT_INFO_CLASS_DESCRIPTOR
                     }?.getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoField")
 
                 // Client info object's client type field.
@@ -164,13 +167,15 @@ object SpoofClientPatch : BytecodePatch(
                 // Client info object's client version field.
                 val clientInfoClientVersionField = result.mutableMethod
                     .getInstruction(result.scanResult.stringsScanResult!!.matches.first().index + 1)
-                    .getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoClientVersionField")
+                    .getReference<FieldReference>()
+                    ?: throw PatchException("Could not find clientInfoClientVersionField")
 
                 Triple(clientInfoField, clientInfoClientTypeField, clientInfoClientVersionField)
             }
 
         val clientInfoClientModelField = CreatePlayerRequestBodyWithModelFingerprint.resultOrThrow().let {
-            val getClientModelIndex = CreatePlayerRequestBodyWithModelFingerprint.indexOfBuildModelInstruction(it.method)
+            val getClientModelIndex =
+                CreatePlayerRequestBodyWithModelFingerprint.indexOfBuildModelInstruction(it.method)
 
             // The next IPUT_OBJECT instruction after getting the client model is setting the client model field.
             val index = it.mutableMethod.indexOfFirstInstructionOrThrow(getClientModelIndex) {
@@ -198,7 +203,7 @@ object SpoofClientPatch : BytecodePatch(
                 addInstruction(
                     checkCastIndex + 1,
                     "invoke-static { v$requestMessageInstanceRegister }," +
-                        " ${result.classDef.type}->$setClientInfoMethodName($clientInfoContainerClassName)V",
+                            " ${result.classDef.type}->$setClientInfoMethodName($clientInfoContainerClassName)V",
                 )
             }
 
@@ -291,7 +296,8 @@ object SpoofClientPatch : BytecodePatch(
 
             it.mutableMethod.apply {
                 // Find the conditional check if the playback speed menu item is not created.
-                val shouldCreateMenuIndex = indexOfFirstInstructionOrThrow(scanResult.endIndex) { opcode == Opcode.IF_EQZ }
+                val shouldCreateMenuIndex =
+                    indexOfFirstInstructionOrThrow(scanResult.endIndex) { opcode == Opcode.IF_EQZ }
                 val shouldCreateMenuRegister = getInstruction<OneRegisterInstruction>(shouldCreateMenuIndex).registerA
 
                 addInstructions(
@@ -300,6 +306,25 @@ object SpoofClientPatch : BytecodePatch(
                         invoke-static { v$shouldCreateMenuRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->forceCreatePlaybackSpeedMenu(Z)Z
                         move-result v$shouldCreateMenuRegister
                     """,
+                )
+            }
+        }
+
+        // endregion
+
+        // Fix watch history if spoofing to iOS.
+
+        GetTrackingUriFingerprint.resultOrThrow().let {
+            it.mutableMethod.apply {
+                val returnUrlIndex = it.scanResult.patternScanResult!!.endIndex
+                val urlRegister = getInstruction<OneRegisterInstruction>(returnUrlIndex).registerA
+
+                addInstructions(
+                    returnUrlIndex,
+                    """
+                        invoke-static { v$urlRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->overrideTrackingUrl(Landroid/net/Uri;)Landroid/net/Uri;
+                        move-result-object v$urlRegister
+                    """
                 )
             }
         }
