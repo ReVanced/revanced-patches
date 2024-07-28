@@ -19,6 +19,13 @@ public class SpoofClientPatch {
     private static final Uri UNREACHABLE_HOST_URI = Uri.parse(UNREACHABLE_HOST_URI_STRING);
 
     /**
+     * Tracking URL authority to use when spoofing the client to iOS,
+     * because watch history is not working on brand accounts.
+     * See <a href="https://github.com/LuanRT/YouTube.js/blob/3153375bcaa6c03afba9da8474e6a9d37471ed29/src/core/mixins/MediaInfo.ts#L152">LuanRT/YouTube.js</a>.
+     */
+    private static final String WWW_TRACKING_URL_AUTHORITY = "www.youtube.com";
+
+    /**
      * Injection point.
      * Blocks /get_watch requests by returning an unreachable URI.
      *
@@ -125,6 +132,19 @@ public class SpoofClientPatch {
         }
 
         return original;
+    }
+
+    /**
+     * Injection point.
+     * When spoofing the client to iOS, history is not working on brand accounts.
+     * Replace the tracking URL authority to {@link SpoofClientPatch#WWW_TRACKING_URL_AUTHORITY} to fix this.
+     */
+    public static Uri overrideTrackingUrl(Uri trackingUrl) {
+        if (SPOOF_CLIENT_ENABLED && SPOOF_CLIENT_TYPE == ClientType.IOS) {
+            return trackingUrl.buildUpon().authority(WWW_TRACKING_URL_AUTHORITY).build();
+        }
+
+        return trackingUrl;
     }
 
     private enum ClientType {
