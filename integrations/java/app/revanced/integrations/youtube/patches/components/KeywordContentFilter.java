@@ -107,6 +107,7 @@ final class KeywordContentFilter extends Filter {
             "search_video_with_context.eml",
             "video_with_context.eml", // Subscription tab videos.
             "related_video_with_context.eml",
+            "video_lockup_with_attachment.eml", // A/B test for subscribed video.
             "compact_video.eml",
             "inline_shorts",
             "shorts_video_cell",
@@ -120,7 +121,7 @@ final class KeywordContentFilter extends Filter {
     private final StringFilterGroup containsFilter = new StringFilterGroup(
             null,
             "modern_type_shelf_header_content.eml",
-             "shorts_lockup_cell.eml", // Part of 'shorts_shelf_carousel.eml'
+            "shorts_lockup_cell.eml", // Part of 'shorts_shelf_carousel.eml'
             "video_card.eml" // Shorts that appear in a horizontal shelf.
     );
 
@@ -166,7 +167,7 @@ final class KeywordContentFilter extends Filter {
 
     /**
      * If filtering is temporarily turned off, the time to resume filtering.
-     * Field is zero if no timeout is in effect.
+     * Field is zero if no backoff is in effect.
      */
     private volatile long timeToResumeFiltering;
 
