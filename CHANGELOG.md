@@ -1,3 +1,10 @@
+# [4.12.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v4.12.0-dev.10...v4.12.0-dev.11) (2024-07-28)
+
+
+### Bug Fixes
+
+* **YouTube - Bypass image region restrictions:** Move setting to `Misc` menu ([094ae59](https://github.com/ReVanced/revanced-patches/commit/094ae59fc92663fff6c5d6f5cbece41822a326f9))
+
 # [4.12.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v4.12.0-dev.9...v4.12.0-dev.10) (2024-07-28)
 
 
