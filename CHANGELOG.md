@@ -1,3 +1,10 @@
+# [4.12.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v4.12.0-dev.9...v4.12.0-dev.10) (2024-07-28)
+
+
+### Bug Fixes
+
+* **YouTube - Client Spoof:** Restore missing high qualities by spoofing the iOS client user agent ([#3468](https://github.com/ReVanced/revanced-patches/issues/3468)) ([0e6ae5f](https://github.com/ReVanced/revanced-patches/commit/0e6ae5fee752a76604cf9b95f9a76c0cbe5f7dae))
+
 # [4.12.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v4.12.0-dev.8...v4.12.0-dev.9) (2024-07-28)
 
 
