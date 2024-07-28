@@ -13,7 +13,6 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
-import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -27,9 +26,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
@@ -91,6 +88,9 @@ object SpoofClientPatch : BytecodePatch(
 
         // Video qualities missing.
         BuildRequestFingerprint,
+
+        // Watch history.
+        GetTrackingUriFingerprint,
     ),
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
@@ -334,6 +334,25 @@ object SpoofClientPatch : BytecodePatch(
                         invoke-static { v$shouldCreateMenuRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->forceCreatePlaybackSpeedMenu(Z)Z
                         move-result v$shouldCreateMenuRegister
                     """,
+                )
+            }
+        }
+
+        // endregion
+
+        // Fix watch history if spoofing to iOS.
+
+        GetTrackingUriFingerprint.resultOrThrow().let {
+            it.mutableMethod.apply {
+                val returnUrlIndex = it.scanResult.patternScanResult!!.endIndex
+                val urlRegister = getInstruction<OneRegisterInstruction>(returnUrlIndex).registerA
+
+                addInstructions(
+                    returnUrlIndex,
+                    """
+                        invoke-static { v$urlRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->overrideTrackingUrl(Landroid/net/Uri;)Landroid/net/Uri;
+                        move-result-object v$urlRegister
+                    """
                 )
             }
         }
