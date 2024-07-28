@@ -3,9 +3,9 @@ package app.revanced.patches.youtube.misc.fix.playback
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
@@ -78,7 +78,6 @@ object SpoofClientPatch : BytecodePatch(
         // Client type spoof.
         BuildInitPlaybackRequestFingerprint,
         BuildPlayerRequestURIFingerprint,
-        SetPlayerRequestBuilderFingerprint,
         SetPlayerRequestClientTypeFingerprint,
         CreatePlayerRequestBodyFingerprint,
         CreatePlayerRequestBodyWithModelFingerprint,
@@ -89,15 +88,20 @@ object SpoofClientPatch : BytecodePatch(
 
         // Player speed menu item.
         CreatePlaybackSpeedMenuItemFingerprint,
+
+        // Video qualities missing.
+        BuildRequestFingerprint,
     ),
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/spoof/SpoofClientPatch;"
     private const val CLIENT_INFO_CLASS_DESCRIPTOR =
         "Lcom/google/protos/youtube/api/innertube/InnertubeContext\$ClientInfo;"
+    private const val REQUEST_CLASS_DESCRIPTOR =
+        "Lorg/chromium/net/ExperimentalUrlRequest;"
     private const val REQUEST_BUILDER_CLASS_DESCRIPTOR =
         "Lorg/chromium/net/ExperimentalUrlRequest\$Builder;"
-        
+
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
@@ -161,7 +165,7 @@ object SpoofClientPatch : BytecodePatch(
                     .getInstructions().find { instruction ->
                         // requestMessage.clientInfo = clientInfoBuilder.build();
                         instruction.opcode == Opcode.IPUT_OBJECT &&
-                            instruction.getReference<FieldReference>()?.type == CLIENT_INFO_CLASS_DESCRIPTOR
+                                instruction.getReference<FieldReference>()?.type == CLIENT_INFO_CLASS_DESCRIPTOR
                     }?.getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoField")
 
                 // Client info object's client type field.
@@ -172,13 +176,15 @@ object SpoofClientPatch : BytecodePatch(
                 // Client info object's client version field.
                 val clientInfoClientVersionField = result.mutableMethod
                     .getInstruction(result.scanResult.stringsScanResult!!.matches.first().index + 1)
-                    .getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoClientVersionField")
+                    .getReference<FieldReference>()
+                    ?: throw PatchException("Could not find clientInfoClientVersionField")
 
                 Triple(clientInfoField, clientInfoClientTypeField, clientInfoClientVersionField)
             }
 
         val clientInfoClientModelField = CreatePlayerRequestBodyWithModelFingerprint.resultOrThrow().let {
-            val getClientModelIndex = CreatePlayerRequestBodyWithModelFingerprint.indexOfBuildModelInstruction(it.method)
+            val getClientModelIndex =
+                CreatePlayerRequestBodyWithModelFingerprint.indexOfBuildModelInstruction(it.method)
 
             // The next IPUT_OBJECT instruction after getting the client model is setting the client model field.
             val index = it.mutableMethod.indexOfFirstInstructionOrThrow(getClientModelIndex) {
@@ -190,7 +196,8 @@ object SpoofClientPatch : BytecodePatch(
         }
 
         val clientInfoOsVersionField = CreatePlayerRequestBodyWithVersionReleaseFingerprint.resultOrThrow().let {
-            val getOsVersionIndex = CreatePlayerRequestBodyWithVersionReleaseFingerprint.indexOfBuildVersionReleaseInstruction(it.method)
+            val getOsVersionIndex =
+                CreatePlayerRequestBodyWithVersionReleaseFingerprint.indexOfBuildVersionReleaseInstruction(it.method)
 
             // The next IPUT_OBJECT instruction after getting the client os version is setting the client os version field.
             val index = it.mutableMethod.indexOfFirstInstructionOrThrow(getOsVersionIndex) {
@@ -218,7 +225,7 @@ object SpoofClientPatch : BytecodePatch(
                 addInstruction(
                     checkCastIndex + 1,
                     "invoke-static { v$requestMessageInstanceRegister }," +
-                        " ${result.classDef.type}->$setClientInfoMethodName($clientInfoContainerClassName)V",
+                            " ${result.classDef.type}->$setClientInfoMethodName($clientInfoContainerClassName)V",
                 )
             }
 
@@ -317,7 +324,8 @@ object SpoofClientPatch : BytecodePatch(
 
             it.mutableMethod.apply {
                 // Find the conditional check if the playback speed menu item is not created.
-                val shouldCreateMenuIndex = indexOfFirstInstructionOrThrow(scanResult.endIndex) { opcode == Opcode.IF_EQZ }
+                val shouldCreateMenuIndex =
+                    indexOfFirstInstructionOrThrow(scanResult.endIndex) { opcode == Opcode.IF_EQZ }
                 val shouldCreateMenuRegister = getInstruction<OneRegisterInstruction>(shouldCreateMenuIndex).registerA
 
                 addInstructions(
@@ -332,35 +340,24 @@ object SpoofClientPatch : BytecodePatch(
 
         // endregion
 
-        // region Change player request user-agent if spoofing to iOS.
+        // region Fix video qualities missing, if spoofing to iOS by overriding the user agent.
 
-        SetPlayerRequestBuilderFingerprint.resultOrThrow().let { result ->
-            val newRequestBuilderIndex = result.scanResult.patternScanResult!!.endIndex
+        BuildRequestFingerprint.resultOrThrow().let { result ->
+            result.mutableMethod.apply {
+                val buildRequestIndex = getInstructions().lastIndex - 2
+                val requestBuilderRegister = getInstruction<FiveRegisterInstruction>(buildRequestIndex).registerC
 
-            with(result.method.implementation) {
-                this?.instructions?.forEachIndexed { index, instruction ->
-                    if (instruction.opcode != Opcode.INVOKE_VIRTUAL) return@forEachIndexed
+                val newRequestBuilderIndex = result.scanResult.patternScanResult!!.endIndex
+                val urlRegister = getInstruction<FiveRegisterInstruction>(newRequestBuilderIndex).registerD
 
-                    val methodRef = (instruction as Instruction35c).reference as MethodReference
-                    
-                    if (methodRef.returnType != "V") return@forEachIndexed
-
-                    result.mutableMethod.apply {
-                        val targetRegister = getInstruction<FiveRegisterInstruction>(newRequestBuilderIndex).registerD
-
-                        addInstructionsWithLabels(
-                            index + 1,
-                            """
-                                invoke-static { v$targetRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getPlayerRequestUserAgent(Ljava/lang/String;)Ljava/lang/String;
-                                move-result-object v$targetRegister
-                                if-eqz v$targetRegister, :skip
-                                const-string v${targetRegister + 1}, "User-Agent"
-                                invoke-virtual { p6, v${targetRegister + 1},  v$targetRegister }, $REQUEST_BUILDER_CLASS_DESCRIPTOR->addHeader(Ljava/lang/String;Ljava/lang/String;)$REQUEST_BUILDER_CLASS_DESCRIPTOR
-                            """,
-                            ExternalLabel("skip", getInstruction(index + 1))
-                        )
-                    }
-                }
+                // Replace "requestBuilder.build(): Request" with "overrideUserAgent(requestBuilder, url): Request".
+                replaceInstruction(
+                    buildRequestIndex,
+                    "invoke-static { v$requestBuilderRegister, v$urlRegister }, " +
+                            "$INTEGRATIONS_CLASS_DESCRIPTOR->" +
+                            "overrideUserAgent(${REQUEST_BUILDER_CLASS_DESCRIPTOR}Ljava/lang/String;)" +
+                            REQUEST_CLASS_DESCRIPTOR
+                )
             }
         }
 
