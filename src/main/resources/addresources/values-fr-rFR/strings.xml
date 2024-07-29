@@ -72,7 +72,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_04_player_title">Lecteur</string>
   <string name="revanced_settings_screen_05_general_title">Disposition générale</string>
   <string name="revanced_settings_screen_07_seekbar_title">Barre de progression</string>
-  <string name="revanced_settings_screen_08_swipe_controls_title">Commandes de balayage</string>
+  <string name="revanced_settings_screen_08_swipe_controls_title">Contrôle par gestes</string>
   <string name="revanced_settings_screen_11_misc_title">Divers</string>
   <string name="revanced_settings_screen_12_video_title">Vidéo</string>
   </patch>
@@ -121,7 +121,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_notify_me_button_summary_on">Le bouton est masqué</string>
   <string name="revanced_hide_notify_me_button_summary_off">Le bouton est affiché</string>
   <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Cacher les recommandations \"Personnes également suivies\"</string>
+  <string name="revanced_hide_search_result_recommendations_title">Masquer les recommandations \'Les gens ont aussi regardé\'</string>
   <string name="revanced_hide_search_result_recommendations_summary_on">Les recommandations sont masquées</string>
   <string name="revanced_hide_search_result_recommendations_summary_off">Les recommandations sont affichées</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
@@ -177,9 +177,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_bar_title">Masquer la barre de la chaîne</string>
   <string name="revanced_hide_channel_bar_summary_on">La barre de la chaîne est masquée</string>
   <string name="revanced_hide_channel_bar_summary_off">La barre de la chaîne est affichée</string>
-  <string name="revanced_hide_playables_title">Cacher les Playables</string>
-  <string name="revanced_hide_playables_summary_on">Les jouables sont masqués</string>
-  <string name="revanced_hide_playables_summary_off">Les jouables sont affichés</string>
+  <string name="revanced_hide_playables_title">Masquer les jeux intégrés</string>
+  <string name="revanced_hide_playables_summary_on">Les jeux sont masqués</string>
+  <string name="revanced_hide_playables_summary_off">Les jeux sont affichés</string>
   <string name="revanced_hide_quick_actions_title">Masquer les actions rapides en plein écran</string>
   <string name="revanced_hide_quick_actions_summary_on">Les actions rapides en plein écran sont masquées</string>
   <string name="revanced_hide_quick_actions_summary_off">Les actions rapides en plein écran sont affichées</string>
@@ -260,9 +260,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_buttoned_ads_title">Masquer les boutons de publicité</string>
   <string name="revanced_hide_buttoned_ads_summary_on">Les boutons de publicité sont masqués</string>
   <string name="revanced_hide_buttoned_ads_summary_off">Les boutons de publicité sont affichés</string>
-  <string name="revanced_hide_paid_promotion_label_title">Masquer le libellé de la promotion payante</string>
-  <string name="revanced_hide_paid_promotion_label_summary_on">Le libellé de la promotion payante est masqué</string>
-  <string name="revanced_hide_paid_promotion_label_summary_off">Le libellé de la promotion payée est affiché</string>
+  <string name="revanced_hide_paid_promotion_label_title">Masquer la bannière \"Communication commerciale\"</string>
+  <string name="revanced_hide_paid_promotion_label_summary_on">La bannière \"Communication commerciale\" est masquée</string>
+  <string name="revanced_hide_paid_promotion_label_summary_off">La bannière \"Communication commerciale\" est affichée</string>
   <string name="revanced_hide_self_sponsor_ads_title">Masquer les cartes auto-sponsorisées</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Les cartes auto-sponsorisées sont masquées</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Les cartes auto-sponsorisées sont affichées</string>
@@ -273,7 +273,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shopping_links_summary_on">Les liens d\'achat sont masqués</string>
   <string name="revanced_hide_shopping_links_summary_off">Les liens d\'achat sont affichés</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Masquer le bouton \'Visiter la boutique\' sur les pages des canaux</string>
+  <string name="revanced_hide_visit_store_button_title">Masquer le bouton \'Visiter la boutique\' sur la page de la chaîne</string>
   <string name="revanced_hide_visit_store_button_summary_on">Le bouton est masqué</string>
   <string name="revanced_hide_visit_store_button_summary_off">Le bouton est affiché</string>
   <string name="revanced_hide_web_search_results_title">Masquer les résultats de la recherche web</string>
@@ -306,9 +306,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_copy_video_url_timestamp_summary_off">Le bouton n\'est pas affiché</string>
   </patch>
   <patch id="interaction.dialog.RemoveViewerDiscretionDialogPatch">
-  <string name="revanced_remove_viewer_discretion_dialog_title">Supprimer la boîte de dialogue de discrétion de la visionneuse</string>
-  <string name="revanced_remove_viewer_discretion_dialog_summary_on">La boîte de dialogue sera supprimée</string>
-  <string name="revanced_remove_viewer_discretion_dialog_summary_off">La boîte de dialogue sera affichée</string>
+  <string name="revanced_remove_viewer_discretion_dialog_title">Supprimer la confirmation pour les vidéos avec limite d\'âge</string>
+  <string name="revanced_remove_viewer_discretion_dialog_summary_on">Le dialogue de confirmation sera supprimé</string>
+  <string name="revanced_remove_viewer_discretion_dialog_summary_off">Le dialogue de confirmation sera affiché</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Cela ne contourne pas la restriction d\'âge. Il l\'accepte tout simplement automatiquement.</string>
   </patch>
   <patch id="interaction.downloads.DownloadsResourcePatch">
@@ -321,8 +321,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_external_downloader_action_button_title">Remplacer l\'action du bouton téléchargement</string>
   <string name="revanced_external_downloader_action_button_summary_on">Le bouton de téléchargement ouvre votre téléchargeur externe</string>
   <string name="revanced_external_downloader_action_button_summary_off">Le bouton de téléchargement ouvre le téléchargeur natif dans l\'application</string>
-  <string name="revanced_external_downloader_name_title">Nom du paquet du téléchargeur</string>
-  <string name="revanced_external_downloader_name_summary">Nom du paquet de votre application de téléchargement externe installée, comme NewPipe ou Seal</string>
+  <string name="revanced_external_downloader_name_title">Nom du package du téléchargeur</string>
+  <string name="revanced_external_downloader_name_summary">Nom du package de votre application de téléchargement externe installée, comme NewPipe ou Seal</string>
   <string name="revanced_external_downloader_not_installed_warning">%s n\'est pas installé. Veuillez l\'installer.</string>
   </patch>
   <patch id="interaction.seekbar.DisablePreciseSeekingGesturePatch">
@@ -331,23 +331,23 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Le geste est activé</string>
   </patch>
   <patch id="interaction.seekbar.EnableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">Activer le tapping de la barre de recherche</string>
-  <string name="revanced_seekbar_tapping_summary_on">Le tapping de la barre de recherche est activé</string>
-  <string name="revanced_seekbar_tapping_summary_off">Le tapotage de la barre de recherche est désactivé</string>
+  <string name="revanced_seekbar_tapping_title">Activer l\'appui dans la barre de lecture</string>
+  <string name="revanced_seekbar_tapping_summary_on">L\'appui dans la barre de lecture est activé</string>
+  <string name="revanced_seekbar_tapping_summary_off">L\'appui dans la barre de lecture est désactivé</string>
   </patch>
   <patch id="interaction.swipecontrols.SwipeControlsResourcePatch">
-  <string name="revanced_swipe_brightness_title">Activer le geste de luminosité</string>
-  <string name="revanced_swipe_brightness_summary_on">Le balayage de la luminosité est activé</string>
-  <string name="revanced_swipe_brightness_summary_off">Le balayage de la luminosité est désactivé</string>
-  <string name="revanced_swipe_volume_title">Activer le mouvement de volume</string>
-  <string name="revanced_swipe_volume_summary_on">Le balayage du volume est activé</string>
-  <string name="revanced_swipe_volume_summary_off">Le balayage du volume est désactivé</string>
+  <string name="revanced_swipe_brightness_title">Activer les gestes pour la luminosité</string>
+  <string name="revanced_swipe_brightness_summary_on">Les gestes de contrôle de la luminosité sont activés</string>
+  <string name="revanced_swipe_brightness_summary_off">Les gestes de contrôle de la luminosité sont désactivés</string>
+  <string name="revanced_swipe_volume_title">Activer les gestes pour le volume</string>
+  <string name="revanced_swipe_volume_summary_on">Les gestes de contrôle du volume sont activés</string>
+  <string name="revanced_swipe_volume_summary_off">Les gestes de contrôle du volume sont désactivés</string>
   <string name="revanced_swipe_press_to_engage_title">Activer le geste d\'appui pour glisser</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Appui pour glisser est activé</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Appui pour glisser est désactivé</string>
   <string name="revanced_swipe_haptic_feedback_title">Activer le retour haptique</string>
-  <string name="revanced_swipe_haptic_feedback_summary_on">Le retour tactile est activé</string>
-  <string name="revanced_swipe_haptic_feedback_summary_off">Le retour tactile est désactivé</string>
+  <string name="revanced_swipe_haptic_feedback_summary_on">Le retour haptique est activé</string>
+  <string name="revanced_swipe_haptic_feedback_summary_off">Le retour haptique est désactivé</string>
   <string name="revanced_swipe_save_and_restore_brightness_title">Enregistrer et restaurer la luminosité</string>
   <string name="revanced_swipe_save_and_restore_brightness_summary_on">Enregistrer et restaurer la luminosité en quittant ou en entrant en plein écran</string>
   <string name="revanced_swipe_save_and_restore_brightness_summary_off">Ne pas enregistrer et restaurer la luminosité en quittant ou en entrant en plein écran</string>
@@ -355,12 +355,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Glisser vers le bas vers la valeur la plus basse du geste de luminosité active la luminosité automatique</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Glisser vers le bas vers la valeur la plus basse n\'active pas la luminosité automatique</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automatique</string>
-  <string name="revanced_swipe_overlay_timeout_title">Délai d\'overlay du balayage</string>
-  <string name="revanced_swipe_overlay_timeout_summary">La quantité de millisecondes que la superposition est visible</string>
-  <string name="revanced_swipe_text_overlay_size_title">Glisser la taille du texte de la superposition</string>
-  <string name="revanced_swipe_text_overlay_size_summary">La taille du texte pour la superposition de balayage</string>
+  <string name="revanced_swipe_overlay_timeout_title">Délai de l\'overlay des gestes</string>
+  <string name="revanced_swipe_overlay_timeout_summary">Le temps en millisecondes où l\'overlay est visible</string>
+  <string name="revanced_swipe_text_overlay_size_title">Taille du texte de l\'overlay des gestes</string>
+  <string name="revanced_swipe_text_overlay_size_summary">La taille du texte pour l\'overlay des gestes</string>
   <string name="revanced_swipe_overlay_background_alpha_title">Visibilité de l\'arrière-plan en glissant</string>
-  <string name="revanced_swipe_overlay_background_alpha_summary">La visibilité de l\'arrière-plan de la superposition de balayage</string>
+  <string name="revanced_swipe_overlay_background_alpha_summary">La visibilité de l\'arrière-plan de l\'overlay des gestes</string>
   <string name="revanced_swipe_threshold_title">Seuil de magnitude de balayage</string>
   <string name="revanced_swipe_threshold_summary">La quantité de seuil pour que le balayage se produise</string>
   </patch>
@@ -866,9 +866,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">Choisissez la catégorie du segment</string>
   <string name="revanced_sb_new_segment_disabled_category">La catégorie est désactivée dans les paramètres. Activez la catégorie pour soumettre.</string>
   <string name="revanced_sb_new_segment_title">Nouveau segment SponsorBlock</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-  <string name="revanced_sb_new_segment_mark_time_as_question">Utiliser %1$02d:%2$02d:%3$03d comme début ou fin d\'un nouveau segment ?</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">Définir %s comme début ou fin d\'un nouveau segment ?</string>
   <string name="revanced_sb_new_segment_mark_start">démarrer</string>
   <string name="revanced_sb_new_segment_mark_end">fin</string>
   <string name="revanced_sb_new_segment_now">maintenant</string>
@@ -957,25 +955,25 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_tablet_layout_user_dialog_message">Les messages de la communauté n\'apparaissent pas sur la disposition de la tablette</string>
   </patch>
   <patch id="layout.miniplayer.MiniplayerPatch">
-  <string name="revanced_miniplayer_screen_title">Minijoueur</string>
+  <string name="revanced_miniplayer_screen_title">Lecteur réduit</string>
   <string name="revanced_miniplayer_screen_summary">Changer le style du lecteur réduit dans l\'application</string>
   <string name="revanced_miniplayer_type_title">Type de Miniplayer</string>
-  <string name="revanced_miniplayer_type_entry_1">Originale</string>
+  <string name="revanced_miniplayer_type_entry_1">Original</string>
   <string name="revanced_miniplayer_type_entry_2">Téléphone</string>
   <string name="revanced_miniplayer_type_entry_3">Tablette</string>
   <string name="revanced_miniplayer_type_entry_4">Moderne 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderne 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderne 3</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Masquer les boutons d\'extension et de fermeture</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Les boutons sont cachés\n(glisser le minijoueur pour l\'expansion ou la fermeture)</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Développer et fermer les boutons sont affichés</string>
+  <string name="revanced_miniplayer_hide_expand_close_title">Masquer les boutons d\'agrandissement et de fermeture</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">Les boutons sont cachés\n(glisser le lecteur réduit pour l\'agrandir ou le fermer)</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">Les boutons agrandir et fermer sont affichés</string>
   <string name="revanced_miniplayer_hide_subtext_title">Masquer les sous-textes</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Les sous-textes sont cachés</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Les sous-textes sont affichés</string>
-  <string name="revanced_miniplayer_hide_rewind_forward_title">Masquer les boutons avant et retour</string>
-  <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Sauter en avant et en arrière sont masqués</string>
-  <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Sauter en avant et en arrière sont affichés</string>
-  <string name="revanced_miniplayer_opacity_title">Overlay opacity</string>
+  <string name="revanced_miniplayer_hide_rewind_forward_title">Masquer les boutons avancer et reculer</string>
+  <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Les boutons avancer et reculer sont masqués</string>
+  <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Les boutons avancer et reculer sont affichés</string>
+  <string name="revanced_miniplayer_opacity_title">Opacité de l\'overlay</string>
   <string name="revanced_miniplayer_opacity_summary">Valeur d\'opacité entre 0 et 100, où 0 est transparent</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">L\'opacité de l\'overlay du Miniplayer doit être comprise entre 0 et 100</string>
   </patch>
@@ -1119,8 +1117,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Le client n\'est pas trompé\n\nLa lecture de la vidéo peut ne pas fonctionner</string>
   <string name="revanced_spoof_client_user_dialog_message">Désactiver ce paramètre peut causer des problèmes de lecture vidéo.</string>
   <string name="revanced_spoof_client_use_ios_title">Falsifier le client vers iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Le client simule actuellement iOS\n\nLes effets secondaires incluent :\n• Aucune vidéo HDR\n• L\'historique de lecture peut ne pas fonctionner\n• Des qualités vidéo plus élevées peuvent manquer\n• Les vidéos en direct ne peuvent pas être lancées uniquement en tant que audio\n• Les vidéos en direct ne sont pas disponibles sur Android 8.0</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Le client est actuellement usurpé à Android VR\n\nEffets secondaires incluant:\n• Aucune vidéo HDR\n• Les vidéos des enfants ne lisent pas\n• Les vidéos en pause peuvent reprendre aléatoirement\n• Les Shorts de basse qualité sur les vignettes de la barre de recherche\n• Le bouton d\'action de téléchargement est toujours caché\n• Les cartes d\'écran de fin sont toujours cachées</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Le client est actuellement usurpé à iOS\n\nLes effets secondaires comprennent :\n• Aucune vidéo HDR\n• Des qualités vidéo plus élevées peuvent manquer\n• Les flux en direct ne peuvent pas jouer uniquement en tant qu\'audio</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">Le client est actuellement falsifié vers Android VR\n\nEffets secondaires incluant:\n• Aucune vidéo HDR\n• Les vidéos des enfants ne lisent pas\n• Les vidéos en pause peuvent reprendre aléatoirement\n• Les Shorts de basse qualité sur les vignettes de la barre de recherche\n• Le bouton d\'action de téléchargement est caché\n• Les cartes d\'écran de fin sont cachées</string>
   <string name="revanced_spoof_client_storyboard_timeout">Tromper les vignettes du client non disponibles (API expirée)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Tromper les vignettes du client temporairement indisponibles : %s</string>
   </patch>

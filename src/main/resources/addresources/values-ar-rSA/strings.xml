@@ -864,9 +864,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">اختيار فئة المقطع</string>
   <string name="revanced_sb_new_segment_disabled_category">الفئة معطلة في الإعدادات. تمكين الفئة للإرسال.</string>
   <string name="revanced_sb_new_segment_title">مقطع مانِع رُعَاة جديد</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-  <string name="revanced_sb_new_segment_mark_time_as_question">تعيين %1$02d:%2$02d:%3$03d كبداية أم نهاية لمقطع جديد؟</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">تعيين %s كبداية أو نهاية لمقطع جديد؟</string>
   <string name="revanced_sb_new_segment_mark_start">البداية</string>
   <string name="revanced_sb_new_segment_mark_end">النهاية</string>
   <string name="revanced_sb_new_segment_now">الآن</string>
@@ -1117,8 +1115,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">لا يتم محاكاة العميل\n\nقد لا يعمل تشغيل الفيديو</string>
   <string name="revanced_spoof_client_user_dialog_message">إيقاف تشغيل هذا الإعداد قد يسبب مشاكل في تشغيل الفيديو.</string>
   <string name="revanced_spoof_client_use_ios_title">Spoof Client to iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">تتم حاليًا محاكاة العميل إلى iOS\n\nالآثار الجانبية تشمل:\n• لا يوجد فيديو HDR\n• قد لا يعمل سجل المشاهدة\n• قد تكون جودة الفيديو الأعلى مفقودة\n• لا يمكن تشغيل البث المباشر كصوت فقط\n• البث المباشر غير متوفر على Android 8.0</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">تتم محاكاة العميل حاليًا إلى Android VR\n\nالآثار الجانبية تشمل:\n• لا يوجد فيديو HDR\n• فيديوهات الأطفال لا يتم تشغيلهم\n• مقاطع الفيديو المتوقفة يمكن أن تستأنف عشوائيا\n• جودة منخفضة لمصغرات شريط التقدم\n• زر التنزيل مخفي بشكل دائم\n• بطاقات نهاية الشاشة مخفية بشكل دائم</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">العميل مرسل حالياً إلى iOS\n\nالآثار الجانبية تشمل:\n• لا يوجد HDR فيديو\n• قد تكون جودة فيديو أعلى مفقودة\n• لا يمكن تشغيل البث المباشر للصوت فقط</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">العميل معطوب حالياً إلى أندرويد VR\n\nالآثار الجانبية تشمل:\n• لا يوجد فيديو HDR\n• فيديوهات الأطفال لا يتم تشغيلهم\n• مقاطع الفيديو الموقوفة يمكن أن تستأنف عشوائياً\n• جودة منخفضة لصور مصغرة شريط البحث\n• زر التحميل مخفي\n• بطاقات إنهاء الشاشة مخفية</string>
   <string name="revanced_spoof_client_storyboard_timeout">محاكاة مصغرات العميل غير متوفرة (انتهت مهلة API)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">محاكاة مصغرات العميل غير متوفرة مؤقتًا: %s</string>
   </patch>

@@ -864,9 +864,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">Bölüm kateqoriyasını seçin</string>
   <string name="revanced_sb_new_segment_disabled_category">Seçimlərdə kateqoriya qeyri-aktivdir. Göndərmək üçün kateqoriyanı aktiv et.</string>
   <string name="revanced_sb_new_segment_title">Yeni SponsorBlock bölümü</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-  <string name="revanced_sb_new_segment_mark_time_as_question">%1$02d:%2$02d:%3$03d yeni bölümün başlanğıcı və ya sonu olaraq tənzimlənsin?</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">%s, yeni bölümün başlanğıcı və ya sonu kimi təyin edilsin?</string>
   <string name="revanced_sb_new_segment_mark_start">başlanğıc</string>
   <string name="revanced_sb_new_segment_mark_end">bitiş</string>
   <string name="revanced_sb_new_segment_now">indi</string>
@@ -1117,8 +1115,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Qəbuledici dəyişməyib\n\nVideo oynatma işləməyə bilər</string>
   <string name="revanced_spoof_client_user_dialog_message">Bu seçimin bağlanması, video oynatma problemlərinə səbəb ola bilər.</string>
   <string name="revanced_spoof_client_use_ios_title">Qəbuledicini iOS olaraq saxtalaşdır</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Qəbuledici hazırda iOS olaraq dəyişib\n\nYan təsirlərə daxildir:\n• HDR video yoxdur\n• Baxış tarixçəsi işləməyə bilər\n• Daha yüksək video keyfiyyətləri olmaya bilər\n• Canlı yayımlar fon səsi kimi səsləndirilməz\n• Canlı yayımlar Android 8.0-də əlçatan olmur</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Qəbuledici hazırda Android VR olaraq dəyişdirilib\n\nYan təsirlərə daxildir:\n• HDR video yoxdur\n• Uşaqlar üçün videolar oynadılmır\n• Fasilə verilmiş videolar gözlənilmədən davam edə bilər\n• Aşağı keyfiyyətli Shorts axtarma çubuğu miniatürləri\n• \"Yüklə\" fəaliyyət düyməsi həmişə gizlidir\n• Bitiş ekran kartları həmişə gizlidir</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Qəbuledici hazırda iOS-a saxtalaşdırılıb\n\nYan təsirlərə daxildir:\n• HDR video yoxdur\n• Daha yüksək video keyfiyyətlər olmaya bilər\n• Canlı yayımlar yalnız səs kimi oynadıla bilməz</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">Qəbuledici hazırda Android VR\'ə saxtalaşdırılıb \n\nYan təsirlərə daxildir:\n• HDR video yoxdur\n• Uşaq videoları oynadılmır\n• Fasilə verilmiş videolar gözlənilmədən davam edə bilər\n• Aşağı keyfiyyətli Shorts axtarma çubuğu miniatürləri\n• \"Yüklə\" fəaliyyət düyməsi gizlidir\n• Bitiş ekran kartları gizlidir</string>
   <string name="revanced_spoof_client_storyboard_timeout">Client kiçik şəkillərini təqlid etmə əlçatmazdır (API vaxtı bitdi)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Client kiçik şəkillərini təqlid etmə müvəqqəti əlçatmazdır: %s</string>
   </patch>

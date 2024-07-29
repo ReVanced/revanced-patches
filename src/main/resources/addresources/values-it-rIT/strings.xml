@@ -864,9 +864,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">Seleziona la categoria della sezione</string>
   <string name="revanced_sb_new_segment_disabled_category">La categoria è disabilitata nelle impostazioni. Abilita la categoria da inviare.</string>
   <string name="revanced_sb_new_segment_title">Nuova sezione di SponsorBlock</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-  <string name="revanced_sb_new_segment_mark_time_as_question">Impostare %1$02d:%2$02d:%3$03d come inizio o fine di un nuovo segmento?</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">Impostare %s come inizio o fine di un nuovo segmento?</string>
   <string name="revanced_sb_new_segment_mark_start">inizio</string>
   <string name="revanced_sb_new_segment_mark_end">fine</string>
   <string name="revanced_sb_new_segment_now">ora</string>
@@ -1117,8 +1115,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Il client non è spoofed\n\nLa riproduzione video potrebbe non funzionare</string>
   <string name="revanced_spoof_client_user_dialog_message">Disattivare questa impostazione potrebbe causare problemi di riproduzione video.</string>
   <string name="revanced_spoof_client_use_ios_title">Spoof client per iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Il client è attualmente spoofed per iOS\n\nGli effetti collaterali includono:\n• Nessun video HDR\n• La cronologia dell\'orologio potrebbe non funzionare\n• Potrebbero mancare qualità video più elevate\n• I flussi dal vivo non possono riprodurre solo l\'audio\n• I flussi dal vivo non sono disponibili su Android 8.0</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Il client è attualmente spoofed per Android VR\n\nGli effetti collaterali includono:\n• Nessun video HDR\n• I video per bambini non riproducono\n• I video in pausa possono riprendere casualmente\n• Bassa qualità Shorts seekbar miniature\n• Il pulsante di azione del download è sempre nascosto\n• Le schede dello schermo finale sono sempre nascoste</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Il client è attualmente spoofed per iOS\n\nGli effetti collaterali includono:\n• Nessun video HDR\n• Potrebbero mancare qualità video più elevate\n• I flussi live non possono essere riprodotti solo come audio</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">Il client è attualmente spoofed per Android VR\n\nGli effetti collaterali includono:\n• Nessun video HDR\n• I video per bambini non riproducono\n• I video in pausa possono riprendere casualmente\n• Bassa qualità Pantaloncini seekbar miniature\n• Il pulsante di azione per scaricare è nascosto\n• Le schede dello schermo finale sono nascoste</string>
   <string name="revanced_spoof_client_storyboard_timeout">Le miniature del client non sono disponibili (timeout API)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Miniature del client Spoof temporaneamente non disponibili: %s</string>
   </patch>

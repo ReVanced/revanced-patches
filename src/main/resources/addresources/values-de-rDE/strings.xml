@@ -865,9 +865,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">Wählen sie die Segmentkategorie</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategorie ist in den Einstellungen deaktiviert. Aktivieren Sie die Kategorie zum Abschicken.</string>
   <string name="revanced_sb_new_segment_title">Neues SponsorBlock Segment</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-  <string name="revanced_sb_new_segment_mark_time_as_question">%1$02d:%2$02d:%3$03d als Start oder Ende eines neuen Segments festlegen?</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">%s als Start oder Ende eines neuen Segments festlegen?</string>
   <string name="revanced_sb_new_segment_mark_start">Start</string>
   <string name="revanced_sb_new_segment_mark_end">Ende</string>
   <string name="revanced_sb_new_segment_now">Jetzt</string>
@@ -1119,8 +1117,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Client ist nicht gefälscht\n\nVideo-Wiedergabe funktioniert möglicherweise nicht</string>
   <string name="revanced_spoof_client_user_dialog_message">Das Deaktivieren dieser Einstellung kann zu Videowiedergabeproblemen führen.</string>
   <string name="revanced_spoof_client_use_ios_title">Spoof-Client zu iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Der Client ist derzeit auf iOS\n\nseitliche Effekte gefälscht:\n• Kein HDR-Video\n• Verlauf kann nicht funktionieren\n• Höhere Video-Qualitäten fehlen möglicherweise\n• Live-Streams können nicht nur als Audio abspielen\n• Live-Streams auf Android 8.0 nicht verfügbar</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Der Client ist derzeit auf Android VR\n\nSeiteneffekte gefälscht:\n• Kein HDR Video\n• Kindervideos spielen nicht\n• Pausierte Videos können zufällig wieder aufgenommen werden\n• Niedrige Shorts Suchleisten-Thumbnails\n• Download-Button ist immer versteckt\n• Endbildschirm-Karten werden immer versteckt</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Der Client ist derzeit zu iOS\n\nSeiteneffekten gefälscht:\n• Kein HDR-Video\n• Höhere Video-Qualitäten fehlen möglicherweise\n• Live-Streams können nicht nur als Audio abspielen</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">Der Client ist derzeit auf Android VR\n\nSeiteneffekte gefälscht:\n• Kein HDR Video\n• Kindervideos spielen nicht\n• Pausierte Videos können zufällig wieder aufgenommen werden\n• Niedrige Shorts Suchleisten-Thumbnails\n• Download-Button ist ausgeblendet\n• Endbildschirm-Karten werden versteckt</string>
   <string name="revanced_spoof_client_storyboard_timeout">Spoof-Thumbnails nicht verfügbar (API-Zeitüberschreitung)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Spoof-Client-Thumbnails vorübergehend nicht verfügbar: %s</string>
   </patch>
