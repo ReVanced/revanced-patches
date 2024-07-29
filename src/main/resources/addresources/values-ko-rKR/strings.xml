@@ -57,9 +57,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <app id="youtube">
   <patch id="misc.settings.SettingsResourcePatch">
   <string name="revanced_settings">ReVanced</string>
-  <string name="revanced_settings_about_links_body">ReVanced Patches &lt;i&gt;%s&lt;/i&gt; 버전을 사용 중입니다</string>
+  <string name="revanced_settings_about_links_body">ReVanced Patches &lt;i&gt;%s&lt;/i&gt;&lt;br&gt;버전을 사용 중입니다</string>
   <string name="revanced_settings_about_links_dev_header">알림</string>
-  <string name="revanced_settings_about_links_dev_body">개발자 버전이므로 알려지지 않은 문제점이 발생할 수 있습니다</string>
+  <string name="revanced_settings_about_links_dev_body">개발자 버전이므로&lt;br&gt;알려지지 않은 문제점이&lt;br&gt;발생할 수 있습니다</string>
   <string name="revanced_settings_about_links_header">공식 링크</string>
   <string name="revanced_pref_import_export_title">가져오기 / 내보내기</string>
   <string name="revanced_pref_import_export_summary">ReVanced 설정을 가져오거나 내보낼 수 있습니다</string>
@@ -151,9 +151,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_compact_banner_title">소형 배너 숨기기</string>
   <string name="revanced_hide_compact_banner_summary_on">소형 배너가 숨겨집니다</string>
   <string name="revanced_hide_compact_banner_summary_off">소형 배너가 노출됩니다</string>
-  <string name="revanced_hide_movies_section_title">영화 섹션 숨기기</string>
-  <string name="revanced_hide_movies_section_summary_on">영화 섹션이 숨겨집니다</string>
-  <string name="revanced_hide_movies_section_summary_off">영화 섹션이 노출됩니다</string>
+  <string name="revanced_hide_movies_section_title">영화 선반 숨기기</string>
+  <string name="revanced_hide_movies_section_summary_on">영화 선반이 숨겨집니다</string>
+  <string name="revanced_hide_movies_section_summary_off">영화 선반이 노출됩니다</string>
   <string name="revanced_hide_feed_survey_title">피드 설문 조사 숨기기</string>
   <string name="revanced_hide_feed_survey_summary_on">피드 설문 조사가 숨겨집니다</string>
   <string name="revanced_hide_feed_survey_summary_off">피드 설문 조사가 노출됩니다</string>
@@ -267,9 +267,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_self_sponsor_ads_title">셀프 스폰서 카드 숨기기</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">셀프 스폰서 카드가 숨겨집니다</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">셀프 스폰서 카드가 노출됩니다</string>
-  <string name="revanced_hide_products_banner_title">제품 쇼핑 배너 숨기기</string>
-  <string name="revanced_hide_products_banner_summary_on">배너가 숨겨집니다</string>
-  <string name="revanced_hide_products_banner_summary_off">배너가 노출됩니다</string>
+  <string name="revanced_hide_products_banner_title">제품 보기 배너 숨기기</string>
+  <string name="revanced_hide_products_banner_summary_on">플레이어에서 제품 보기 배너가 숨겨집니다</string>
+  <string name="revanced_hide_products_banner_summary_off">플레이어에서 제품 보기 배너가 노출됩니다</string>
   <string name="revanced_hide_shopping_links_title">동영상 설명에서 쇼핑 링크 숨기기</string>
   <string name="revanced_hide_shopping_links_summary_on">쇼핑 링크가 숨겨집니다</string>
   <string name="revanced_hide_shopping_links_summary_off">쇼핑 링크가 노출됩니다</string>
@@ -280,9 +280,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_web_search_results_title">웹 검색 결과 숨기기</string>
   <string name="revanced_hide_web_search_results_summary_on">웹 검색 결과가 숨겨집니다</string>
   <string name="revanced_hide_web_search_results_summary_off">웹 검색 결과가 노출됩니다</string>
-  <string name="revanced_hide_merchandise_banners_title">제품 배너 숨기기</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">제품 배너가 숨겨집니다</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">제품 배너가 노출됩니다</string>
+  <string name="revanced_hide_merchandise_banners_title">태그된 제품 선반 숨기기</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">태그된 제품 선반이 숨겨집니다</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">태그된 제품 선반이 노출됩니다</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">\'전체 화면 광고 숨기기\'는 구형 기기에서만 사용할 수 있습니다</string>
   </patch>
@@ -867,9 +867,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">구간 카테고리를 선택하세요</string>
   <string name="revanced_sb_new_segment_disabled_category">이 카테고리는 비활성화되어 있습니다. 제출하려면 설정에서 활성화해야 합니다</string>
   <string name="revanced_sb_new_segment_title">새 SponsorBlock 구간</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-  <string name="revanced_sb_new_segment_mark_time_as_question">%1$02d:%2$02d:%3$03d을 구간의 시작 또는 끝으로 설정하겠습니까?</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">%s 을 구간의 시작 또는 끝으로 설정하겠습니까?</string>
   <string name="revanced_sb_new_segment_mark_start">시작</string>
   <string name="revanced_sb_new_segment_mark_end">끝</string>
   <string name="revanced_sb_new_segment_now">현재</string>
@@ -1121,8 +1119,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">클라이언트를 변경하지 않습니다\n동영상 재생 문제가 발생할 수 있습니다</string>
   <string name="revanced_spoof_client_user_dialog_message">이 설정을 비활성화하면 동영상 재생 문제가 발생할 수 있습니다</string>
   <string name="revanced_spoof_client_use_ios_title">iOS 클라이언트로 변경하기</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">클라이언트를 iOS 클라이언트로 변경합니다\n\n알려진 문제점:\n• HDR 동영상을 재생할 수 없습니다\n• 브랜드 계정 사용자는 시청 기록을 사용할 수 없습니다\n• 동영상이 초고화질 동영상 값으로 재생되지 않을 수 있습니다 (1440p, 2160p)\n• 실시간 스트림에서 \'백그라운드 재생\'을 사용할 수 없습니다\n• Android 8.0 사용자는 실시간 스트림을 재생할 수 없습니다</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">클라이언트를 Android VR 클라이언트로 변경합니다\n\n알려진 문제점: \n• HDR 동영상을 재생할 수 없습니다\n- Kids 동영상을 재생할 수 없습니다\n• 일시 정지된 동영상이 갑자기 다시 시작될 수 있습니다\n• 저화질 Shorts 재생바 썸네일이 표시됩니다\n• 플레이어 하단에서 오프라인 저장 버튼이 표시되지 않습니다\n• 최종 화면 카드가 표시되지 않습니다</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">클라이언트를 iOS 클라이언트로 변경합니다\n\n알려진 문제점:\n• HDR 동영상이 재생되지 않을 수 있습니다\n• 동영상이 초고화질 동영상 값으로 재생되지 않을 수 있습니다 (1440p, 2160p)\n• 실시간 스트림에서 \'백그라운드 재생\'을 사용할 수 없습니다</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">클라이언트를 Android VR 클라이언트로 변경합니다\n\n알려진 문제점: \n• HDR 동영상이 재생되지 않을 수 있습니다\n• Kids 동영상을 재생할 수 없습니다\n• 일시 정지된 동영상이 갑자기 다시 시작될 수 있습니다\n• 저화질 Shorts 재생바 썸네일이 표시됩니다\n• 플레이어 하단에서 오프라인 저장 버튼이 표시되지 않습니다\n• 최종 화면 카드가 표시되지 않습니다</string>
   <string name="revanced_spoof_client_storyboard_timeout">클라이언트 썸네일을 사용할 수 없습니다 (응답 시간 초과)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">클라이언트 썸네일을 일시적으로 사용할 수 없습니다: %s</string>
   </patch>

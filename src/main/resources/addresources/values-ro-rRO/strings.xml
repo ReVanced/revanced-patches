@@ -35,7 +35,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="misc.settings.BaseSettingsResourcePatch">
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Doriți să continuați?</string>
-  <string name="revanced_settings_reset">Reset</string>
+  <string name="revanced_settings_reset">Resetează</string>
   <string name="revanced_settings_restart_title">Reîmprospătați și reporniți</string>
   <string name="revanced_settings_restart">Repornire</string>
   <string name="revanced_settings_import">Importare</string>
@@ -866,9 +866,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">Alege categoria segmentului</string>
   <string name="revanced_sb_new_segment_disabled_category">Categoria este dezactivată în setări. Activați categoria pentru a trimite.</string>
   <string name="revanced_sb_new_segment_title">Segment de sponsorBlock nou</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-  <string name="revanced_sb_new_segment_mark_time_as_question">Setează %1$02d:%2$02d:%3$03d ca început sau sfârșit al unui nou segment?</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">Setați %s ca început sau sfârșit al unui nou segment?</string>
   <string name="revanced_sb_new_segment_mark_start">pornește</string>
   <string name="revanced_sb_new_segment_mark_end">sfarsit</string>
   <string name="revanced_sb_new_segment_now">acum</string>
@@ -1120,8 +1118,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Clientul nu este lovit\n\nEste posibil ca redarea video să nu funcționeze</string>
   <string name="revanced_spoof_client_user_dialog_message">Dezactivarea acestei setări poate cauza probleme de redare video.</string>
   <string name="revanced_spoof_client_use_ios_title">Spoof client pe iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Clientul este în prezent falsificat de iOS\n\nEfectele secundare includ:\n• Niciun video HDR\n• Istoria ceasului nu funcționează\n• Calități video mai înalte pot lipsi\n• Fluxurile live nu pot fi redate deoarece doar audio\n• Fluxuri live nu sunt disponibile pe Android 8.0</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Clientul este în prezent falsificat pe Android VR\n\nEfectele secundare includ:\n• Niciun video HDR\n• Videoclipuri cu copii nu redă\n• Videoclipurile întrerupte pot relua aleatoriu\n• Pictograme scurte de calitate slabă\n• Butonul de acțiune de descărcare este întotdeauna ascuns\n• Cardurile de pe ecran sunt întotdeauna ascunse</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Clientul este în prezent falsificat de iOS\n\nEfectele secundare includ:\n• Niciun video HDR\n• Calități video mai mari pot lipsi\n• Fluxuri live nu pot fi redate deoarece numai audio</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">Clientul este în prezent falsificat pe Android VR\n\nEfectele secundare includ:\n• Niciun video HDR\n• Videoclipuri cu copii nu redă\n• Videoclipurile întrerupte pot relua aleatoriu\n• Pictograme scurte de calitate slabă\n• Butonul acțiunii de descărcare este ascuns\n• Cardurile de pe ecran sunt ascunse</string>
   <string name="revanced_spoof_client_storyboard_timeout">Spoof a miniaturilor clientului nu este disponibil (API a expirat)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Fixarea miniaturilor clientului nu este disponibilă temporar: %s</string>
   </patch>

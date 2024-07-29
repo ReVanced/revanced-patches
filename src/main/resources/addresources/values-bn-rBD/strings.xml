@@ -792,9 +792,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">সেগমেন্টের বিভাগ নির্বাচন করুন</string>
   <string name="revanced_sb_new_segment_disabled_category">সেটিং থেকে বিভাগ নিস্ক্রিয় করা হয়েছে। জমা দিতে বিভাগ সক্রিয় করুন।</string>
   <string name="revanced_sb_new_segment_title">নতুন স্পন্সরব্লক সেগমেন্ট</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-  <string name="revanced_sb_new_segment_mark_time_as_question">একটি নতুন সেগমেন্টের শুরু বা শেষ হিসাবে %1$02d:%2$02d:%3$03d সেট করবেন?</string>
   <string name="revanced_sb_new_segment_mark_start">শুরু</string>
   <string name="revanced_sb_new_segment_mark_end">শেষ</string>
   <string name="revanced_sb_new_segment_now">এখন</string>
@@ -1043,8 +1040,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">ক্লায়েন্ট স্পুফ করা হয়নি\n\nভিডিও প্লেব্যাক ঠিকমতো কাজ নাও করতে পারে</string>
   <string name="revanced_spoof_client_user_dialog_message">এই সেটিংটি বন্ধ করার ফলে ভিডিও প্লেব্যাক ত্রুটি হতে পারে।</string>
   <string name="revanced_spoof_client_use_ios_title">ক্লায়েন্ট iOS এ স্পুফ করুন</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">ক্লায়েন্ট এখন iOS এ স্পুফ করা হয়েছে\n\nপার্শ্বপ্রতিক্রিয়া রয়েছে:\n• কোন এইচিডিআর ভিডিও নেই\n• ভিডিও ইতিহাস কাজ নাও করতে পারে\n• উচ্চ ভিডিও গুণমান অনুপস্থিত থাকতে পারে\n•শুধুমাত্র অডিওতে লাইভ স্ট্রিম চলবে না\n• অ্যান্ড্রয়েট ৮ সংস্করণে লাইভ স্ট্রিম উপলভ্য নয়</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">ক্লায়েন্টকে বর্তমানে Android VR-এর সাথে প্রতারণা করা হয়েছে\n\nসাইড এফেক্টগুলির মধ্যে রয়েছে:\n• কোনও HDR ভিডিও নেই\n• বাচ্চাদের ভিডিও প্লেব্যাক হয় না\n• বিরতি দেওয়া ভিডিওগুলি এলোমেলোভাবে আবার শুরু হতে পারে\n• নিম্নমানের শর্টস সিকবার থাম্বনেল\n• ডাউনলোড অ্যাকশন বোতাম সবসময় লুকানো থাকে\n• শেষ স্ক্রিন কার্ড সবসময় লুকানো থাকে</string>
   <string name="revanced_spoof_client_storyboard_timeout">ক্লায়েন্ট স্পুফ থাম্বনেইল সাময়িকভাবে উপলভ্য নয় (API সময় শেষ হয়েছে)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">স্পুফ ক্লায়েন্ট থাম্বনেইল সাময়িকভাবে উপলভ্য নয়: %s</string>
   </patch>

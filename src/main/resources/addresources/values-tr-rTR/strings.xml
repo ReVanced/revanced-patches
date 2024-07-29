@@ -864,9 +864,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">Bölümün kategorisini seçin</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategori, ayarlarda devre dışı bırakıldı. Göndermek için kategoriyi etkinleştirin.</string>
   <string name="revanced_sb_new_segment_title">Yeni SponsorBlock bölümü</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-  <string name="revanced_sb_new_segment_mark_time_as_question">%1$02d:%2$02d:%3$03d yeni bölümün başlangıcı olarak mı, bitişi olarak mı ayarlansın?</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">%s bu kısmın başlangıcı mı, bitişi mi olarak ayarlansın?</string>
   <string name="revanced_sb_new_segment_mark_start">başlangıç</string>
   <string name="revanced_sb_new_segment_mark_end">bitiş</string>
   <string name="revanced_sb_new_segment_now">şimdi</string>
@@ -1117,8 +1115,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">İstemci taklit edilmiyor\n\nVideo oynatma çalışmayabilir</string>
   <string name="revanced_spoof_client_user_dialog_message">Bu ayarı devre dışı bırakmak video oynatma sorunlarına yol açabilir.</string>
   <string name="revanced_spoof_client_use_ios_title">İstemciyi iOS olarak taklit et</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">İstemci şu anda iOS olarak taklit ediliyor\n\nYan etkiler şunları içerir:\n• HDR videolar yok\n• İzleme geçmişi çalışmayabilir\n• Yüksek video kaliteleri eksik olabilir\n• Canlı yayınlar sadece ses olarak oynatılamaz\n• Canlı yayınlar Android 8.0\'da izlenemez</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">İstemci şu anda Android VR olarak taklit ediliyor\n\nYan etkiler şunları içerir:\n• HDR videolar yok\n• Çocuklara özel videolar oynatılamaz\n• Duraklatılmış videolar rastgele bir şekilde devam edebilir\n• Shorts zaman çubuğu küçük resimleri düşük kalitede\n• \'İndir\' eylem düğmesi her zaman gizli\n• Bitiş ekranı kartları her zaman gizli</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">İstemci şu anda iOS olarak taklit ediliyor\n\nYan etkiler şunları içerir:\n• HDR videolar yok\n• Yüksek görüntü kaliteleri eksik olabilir\n• Canlı yayınlar sadece ses olarak oynatılamaz</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">İstemci şu anda Android VR olarak taklit ediliyor\n\nYan etkiler şunları içerir:\n• HDR videolar yok\n• Çocuklara özel videolar oynatılamaz\n• Duraklatılmış videolar rastgele bir şekilde devam edebilir\n• Shorts zaman çubuğu küçük resimleri düşük kalitede\n• \'İndir\' eylem düğmesi gizli\n• Bitiş ekranı kartları gizli</string>
   <string name="revanced_spoof_client_storyboard_timeout">İstemci küçük resimlerini taklit etme kullanılamıyor (API zaman aşımına uğradı)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">İstemci küçük resimlerini taklit etme geçici olarak kullanılamıyor: %s</string>
   </patch>

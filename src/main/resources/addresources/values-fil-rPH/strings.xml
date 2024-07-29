@@ -854,9 +854,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">Piliin ang kategorya ng segment</string>
   <string name="revanced_sb_new_segment_disabled_category">Naka-disable ang kategorya sa mga setting. Paganahin ang kategoryang isumite.</string>
   <string name="revanced_sb_new_segment_title">Bagong segment ng SponsorBlock</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-  <string name="revanced_sb_new_segment_mark_time_as_question">Itakda ang %1$02d:%2$02d:%3$03d bilang simula o pagtatapos ng isang bagong segment?</string>
   <string name="revanced_sb_new_segment_mark_start">simulan</string>
   <string name="revanced_sb_new_segment_mark_end">wakas</string>
   <string name="revanced_sb_new_segment_now">ngayon</string>
@@ -1093,8 +1090,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Hindi na-spoof ang kliyente\n\nMaaaring hindi gumana ang pag-playback ng video</string>
   <string name="revanced_spoof_client_user_dialog_message">Ang pag-off sa setting na ito ay maaaring magdulot ng mga isyu sa pag-playback ng video.</string>
   <string name="revanced_spoof_client_use_ios_title">Spoof client sa iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Kasalukuyang na-spoof ang kliyente sa iOS\n\nKabilang sa mga side effect ang:\n• Walang HDR video\n• Maaaring hindi gumana ang history ng panonood\n• Maaaring nawawala ang mas matataas na katangian ng video\n• Hindi puwedeng mag-play bilang audio lang ang mga live stream\n• Live hindi available ang mga stream sa Android 8.0</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Kasalukuyang na-spoof ang kliyente sa Android VR\n\nKabilang sa mga side effect ang:\n• Walang HDR na video\n• Hindi nagpe-playback ang mga pambata na video\n• Ang mga naka-pause na video ay maaaring random na ipagpatuloy\n• Mga thumbnail ng shorts seekbar na may mababang kalidad\n• I-download ang action button ay laging nakatago\n• Palaging nakatago ang mga end screen card</string>
   <string name="revanced_spoof_client_storyboard_timeout">Hindi available ang mga thumbnail ng spoof client (nag-time out ang API)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Pansamantalang hindi available ang mga thumbnail ng spoof client: %s</string>
   </patch>
