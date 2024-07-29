@@ -864,9 +864,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">Выберыце катэгорыю сегмента</string>
   <string name="revanced_sb_new_segment_disabled_category">Катэгорыя адключана ў наладах. Уключыце катэгорыю для адпраўкі.</string>
   <string name="revanced_sb_new_segment_title">Новы сегмент SponsorBlock</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-  <string name="revanced_sb_new_segment_mark_time_as_question">Усталяваць %1$02d:%2$02d:%3$03d у якасці пачатку або канца новага сегмента?</string>
   <string name="revanced_sb_new_segment_mark_start">пачаць</string>
   <string name="revanced_sb_new_segment_mark_end">канец</string>
   <string name="revanced_sb_new_segment_now">зараз</string>
@@ -1114,8 +1111,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Кліент не падроблены\n\nПрайграванне відэа можа не працаваць</string>
   <string name="revanced_spoof_client_user_dialog_message">Адключэнне гэтай налады можа выклікаць праблемы з прайграваннем відэа.</string>
   <string name="revanced_spoof_client_use_ios_title">Падробка кліента для iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Кліент зараз падроблены на iOS\n\nПабочныя эфекты ўключаюць:\n• Няма HDR-відэа\n• Гісторыя праглядаў можа не працаваць\n• Можа адсутнічаць больш высокая якасць відэа\n• Жывыя трансляцыі не могуць прайгравацца толькі як аўдыя\n• Жывая трансляцыя патокі недаступныя на Android 8.0</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Кліент у цяперашні час падроблены для Android VR\n\nПабочныя эфекты ўключаюць:\n• Няма HDR-відэа\n• Дзіцячыя відэа не прайграваюцца\n• Прыпыненыя відэа могуць аднаўляцца выпадковым чынам\n• Нізкая якасць мініяцюр на панэлі пошуку Shorts\n• Кнопка дзеяння Спампаваць заўсёды схавана\n• Карткі канцавога экрана заўсёды схаваны</string>
   <string name="revanced_spoof_client_storyboard_timeout">Мініяцюры кліента Spoof недаступныя (час чакання API скончыўся)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Мініяцюры кліента Spoof часова недаступныя: %s</string>
   </patch>

@@ -864,9 +864,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">Вибрати категорію сегмента</string>
   <string name="revanced_sb_new_segment_disabled_category">Категорія вимкнена у налаштуваннях. Увімкніть категорію, щоб надіслати.</string>
   <string name="revanced_sb_new_segment_title">Новий сегмент SponsorBlock</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-  <string name="revanced_sb_new_segment_mark_time_as_question">Встановити %1$02d:%2$02d:%3$03d як початок або кінець нового сегмента?</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">Встановити %s як початок чи кінець нового сегмента?</string>
   <string name="revanced_sb_new_segment_mark_start">початок</string>
   <string name="revanced_sb_new_segment_mark_end">кінець</string>
   <string name="revanced_sb_new_segment_now">зараз</string>
@@ -1117,8 +1115,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Клієнт не підроблений\n\nВідтворення відео може не працювати</string>
   <string name="revanced_spoof_client_user_dialog_message">Вимкнення цього параметра може призвести до проблем відтворення відео.</string>
   <string name="revanced_spoof_client_use_ios_title">Підробити клієнт на iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Наразі клієнт підроблений на iOS\n\nПобічні ефекти:\n• Немає HDR відео\n• Історія переглядів може не працювати\n• Високі якості відео можуть бути відсутні\n• Прямі трансляції не відтворюються в режимі аудіо\n• Прямі трансляції недоступні на Android 8.0</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Наразі клієнт підроблений на Android VR\n\nПобічні ефекти:\n• Немає HDR відео\n• Відео для дітей не відтворюються\n• Призупинені відео можуть випадково продовжуватися\n• Низька якість мініатюр панелі прогресу Shorts\n• Кнопка завантаження завжди прихована\n• Картки кінцевого екрана завжди приховані</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Наразі клієнт підроблений на iOS\n\nПобічні ефекти:\n• Немає HDR відео\n• Високі якості відео можуть бути відсутні\n• Прямі трансляції не відтворюються в режимі аудіо</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">Наразі клієнт підроблений на Android VR\n\nПобічні ефекти:\n• Немає HDR відео\n• Відео для дітей не відтворюються\n• Призупинені відео можуть випадково продовжуватися\n• Низька якість мініатюр панелі прогресу Shorts\n• Кнопка завантаження прихована\n• Картки кінцевого екрана приховані</string>
   <string name="revanced_spoof_client_storyboard_timeout">Мініатюри в режимі підробки клієнта не доступні (закінчився час API)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Мініатюри в режимі підробки клієнта тимчасово не доступні: %s</string>
   </patch>

@@ -859,9 +859,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">Vyberte kategóriu segmentu</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategória je v nastaveniach zakázaná. Povoľte odoslanie kategórie.</string>
   <string name="revanced_sb_new_segment_title">Nový SponsorBlock segment</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-  <string name="revanced_sb_new_segment_mark_time_as_question">Nastaviť %1$02d:%2$02d:%3$03d ako začiatok alebo koniec nového segmentu?</string>
   <string name="revanced_sb_new_segment_mark_start">štart</string>
   <string name="revanced_sb_new_segment_mark_end">koniec</string>
   <string name="revanced_sb_new_segment_now">teraz</string>
@@ -1107,8 +1104,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Klient nie je sfalšovaný\n\nPrehrávanie videa nemusí fungovať</string>
   <string name="revanced_spoof_client_user_dialog_message">Vypnutie tohto nastavenia môže spôsobiť problémy s prehrávaním videa.</string>
   <string name="revanced_spoof_client_use_ios_title">Spoof klienta na iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Klient je momentálne sfalšovaný na iOS\n\nVedľajšie účinky zahŕňajú:\n• Žiadne HDR video\n• História pozerania nemusí fungovať\n• Môže chýbať vyššia kvalita videa\n• Priame prenosy nemožno prehrávať len ako zvuk\n• Naživo streamy nie sú k dispozícii v systéme Android 8.0</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Klient je momentálne sfalšovaný na Android VR\n\nVedľajšie účinky zahŕňajú:\n• Žiadne HDR video\n• Videá pre deti sa neprehrávajú\n• Pozastavené videá sa môžu náhodne obnoviť\n• Miniatúry vyhľadávacieho panela Shorts v nízkej kvalite\n• Tlačidlo akcie Stiahnuť je vždy skryté\n• Karty záverečnej obrazovky sú vždy skryté</string>
   <string name="revanced_spoof_client_storyboard_timeout">Sfalšované miniatúry klientov nie sú k dispozícii (vypršal časový limit rozhrania API)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Sfalšované klientske miniatúry sú dočasne nedostupné: %s</string>
   </patch>

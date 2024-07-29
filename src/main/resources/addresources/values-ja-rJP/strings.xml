@@ -176,9 +176,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_bar_title">チャンネルバーを隠す</string>
   <string name="revanced_hide_channel_bar_summary_on">チャンネルバーは非表示です</string>
   <string name="revanced_hide_channel_bar_summary_off">チャンネルバーが表示されます</string>
-  <string name="revanced_hide_playables_title">Playablesを隠す</string>
-  <string name="revanced_hide_playables_summary_on">プレイ可能ファイルは非表示です</string>
-  <string name="revanced_hide_playables_summary_off">プレイブルが表示されます</string>
+  <string name="revanced_hide_playables_title">ゲームを非表示にする</string>
+  <string name="revanced_hide_playables_summary_on">Playables は非表示です</string>
+  <string name="revanced_hide_playables_summary_off">ゲームは隠されていない</string>
   <string name="revanced_hide_quick_actions_title">全画面表示でクイックアクションを隠す</string>
   <string name="revanced_hide_quick_actions_summary_on">クイックアクションは非表示です</string>
   <string name="revanced_hide_quick_actions_summary_off">クイックアクションを表示する</string>
@@ -864,9 +864,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">セグメントのカテゴリを選択してください</string>
   <string name="revanced_sb_new_segment_disabled_category">カテゴリは設定で無効になっています。提出するカテゴリを有効にしてください。</string>
   <string name="revanced_sb_new_segment_title">新しい SponsorBlock セグメント</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-  <string name="revanced_sb_new_segment_mark_time_as_question">%1$02d:%2$02d:%3$03d を新しいセグメントの開始または終了として設定しますか？</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">新しいセグメントの開始または終了として %s を設定しますか？</string>
   <string name="revanced_sb_new_segment_mark_start">開始</string>
   <string name="revanced_sb_new_segment_mark_end">終了</string>
   <string name="revanced_sb_new_segment_now">今</string>
@@ -965,6 +963,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_entry_5">モダン2</string>
   <string name="revanced_miniplayer_type_entry_6">モダン3</string>
   <string name="revanced_miniplayer_hide_expand_close_title">展開と閉じるボタンを非表示</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">拡大/縮小のボタンを非表示にします\n(ミニプレーヤーをスワイプして拡大/縮小できます) </string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">展開と閉じる ボタンが表示されます</string>
   <string name="revanced_miniplayer_hide_subtext_title">サブテキストを非表示</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">サブテキストは非表示です</string>
@@ -1115,6 +1114,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">クライアントは偽装されていません\n\nビデオ再生が動作しない可能性があります</string>
   <string name="revanced_spoof_client_user_dialog_message">この設定をオフにすると、ビデオ再生の問題が発生する可能性があります。</string>
   <string name="revanced_spoof_client_use_ios_title">クライアントを iOS に偽装する</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">クライアントは現在 iOS\n\nの副作用になりすましています:\n• HDRビデオがありません\n•\n• ライブストリームはオーディオのみとして再生できません</string>
   <string name="revanced_spoof_client_storyboard_timeout">クライアントのサムネイルを偽装できません（APIがタイムアウトしました）</string>
   <string name="revanced_spoof_client_storyboard_io_exception">クライアントのサムネイルを一時的に偽装できません: %s</string>
   </patch>

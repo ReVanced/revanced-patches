@@ -770,33 +770,78 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_general_skipcount_sum_on">Mengizinkan leaderboard SponsorBlock mengetahui berapa banyak waktu yang diselamatkan. Sebuah pesan dikirim ke leaderboard setiap kali sebuah segmen dilewati</string>
   <string name="revanced_sb_general_skipcount_sum_off">Pelacakan melewati hitungan tidak dinyalakan</string>
   <string name="revanced_sb_general_min_duration">Durasi minimum segmen</string>
+  <string name="revanced_sb_general_min_duration_sum">Segmen yang lebih pendek pada dari nilai ini (detik) tidak akan ditampilkan atau dilewati</string>
+  <string name="revanced_sb_general_uuid">ID user pribadi Anda</string>
   <string name="revanced_sb_general_uuid_sum">Ini harus dijaga kerahasiaannya. Seperti kata sandi dan tidak disarankan untuk dibagikan dengan siapa pun. Jika seseorang mendapatkan ini, mereka dapat menyamar sebagai Anda</string>
+  <string name="revanced_sb_general_uuid_invalid">ID user harus tidak lebih dari 30 karakter</string>
   <string name="revanced_sb_general_api_url">Ubah URL API</string>
+  <string name="revanced_sb_general_api_url_sum">Alamat yang digunakan SponsorBlock untuk membuat panggilan ke server</string>
   <string name="revanced_sb_api_url_reset">Reset URL API</string>
+  <string name="revanced_sb_api_url_invalid">URL API tidak valid</string>
   <string name="revanced_sb_api_url_changed">URL API terubah</string>
   <string name="revanced_sb_settings_ie">Impor/Ekspor pengaturan</string>
   <string name="revanced_sb_settings_copy">Salin</string>
+  <string name="revanced_sb_settings_ie_sum">Konfigurasi JSON SponsorBlock Anda yang dapat diimpor/diekspor ke ReVanced dan platform SponsorBlock lainnya</string>
+  <string name="revanced_sb_settings_ie_sum_warning">Konfigurasi JSON SponsorBlock Anda yang dapat diimpor/diekspor ke ReVanced dan platform SponsorBlock lainnya, termasuk ID user Anda. Pastikan untuk membagikannya dengan bijak</string>
+  <string name="revanced_sb_settings_import_successful">Pengaturan berhasil diimpor</string>
+  <string name="revanced_sb_settings_import_failed">Gagal mengimpor: %s</string>
+  <string name="revanced_sb_settings_export_failed">Gagal mengekspor: %s</string>
+  <string name="revanced_sb_settings_revanced_export_user_id_warning">Setelan Anda berisi ID user SponsorBlock pribadi.\n\nID user Anda seperti sebuah password yang sebaiknya tidak boleh dibagikan.\n</string>
+  <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">Jangan tampilkan lagi</string>
+  <string name="revanced_sb_diff_segments">Ubah perilaku segmen</string>
   <string name="revanced_sb_segments_sponsor">Sponsor</string>
   <string name="revanced_sb_segments_sponsor_sum">Promosi dibayar, tautan dibayar dan iklan langsung. Tidak untuk promosi diri sendiri atau dukungan gratis untuk gerakan/kreator/website/produk yang mereka suka</string>
   <string name="revanced_sb_segments_selfpromo">Tidak Dibayar/Promosi Diri Sendiri</string>
+  <string name="revanced_sb_segments_selfpromo_sum">Serupa dengan \'sponsor\' namun untuk yang tidak bebayar atau promosi diri. Ini termasuk bagian tentang merchandise, donasi, atau informasi mengenai mitra kolaborasi</string>
   <string name="revanced_sb_segments_interaction">Pengingat Interaksi (Berlangganan)</string>
+  <string name="revanced_sb_segments_interaction_sum">Pengingat singkat untuk like, subscribe, atau follow di tengah konten. Jika pengingat berdurasi panjang atau mengenai sesuatu yang spesifik, sebaiknya termasuk kategori promosi diri</string>
+  <string name="revanced_sb_segments_highlight">Sorotan</string>
+  <string name="revanced_sb_segments_highlight_sum">Bagian video yang paling dilihat oleh orang</string>
   <string name="revanced_sb_segments_intro">Jeda/Animasi Intro</string>
+  <string name="revanced_sb_segments_intro_sum">Bagian video yang bukan konten. Bisa saja pause, frame statis, atau animasi yang diulang-ulang. Tidak termasuk transisi yang mengandung informasi</string>
   <string name="revanced_sb_segments_outro">Kartu Akhir/Kredit</string>
+  <string name="revanced_sb_segments_outro_sum">Kredit atau ketika layar akhir YouTube muncul. Bukan kesimpulan dengan informasi</string>
+  <string name="revanced_sb_segments_preview">Pratinjau/Rekap/Pengait</string>
+  <string name="revanced_sb_segments_preview_sum">Koleksi klip yang menunjukkan apa yang akan terjadi di video atau di video lain pada series yang dama, di mana informasi diulang di video lain</string>
   <string name="revanced_sb_segments_filler">Pengisi Tidak Relevan/Lelucon</string>
+  <string name="revanced_sb_segments_filler_sum">Adegan berbelit-belit yang ditambahkan hanya sebagai filler atau candaan yang tidak diperlukan untuk memahami isi utama video. Tidak termasuk bagian yang mengandung konteks atau detail latar belakang</string>
   <string name="revanced_sb_segments_nomusic">Musik: Bagian Non-Musik</string>
+  <string name="revanced_sb_segments_nomusic_sum">Hanya untuk digunakan pada video musik. Bagian video musik tanpa musiknya yang belum termasuk pada kategori lain</string>
+  <string name="revanced_sb_skip_button_compact">Lewati</string>
+  <string name="revanced_sb_skip_button_compact_highlight">Sorotan</string>
+  <string name="revanced_sb_skip_button_sponsor">Lewati sponsor</string>
+  <string name="revanced_sb_skip_button_selfpromo">Lewati promo</string>
+  <string name="revanced_sb_skip_button_interaction">Lewati interaksi</string>
+  <string name="revanced_sb_skip_button_highlight">Lewati ke sorotan</string>
+  <string name="revanced_sb_skip_button_intro_beginning">Lewati intro</string>
+  <string name="revanced_sb_skip_button_intro_middle">Lewati jeda</string>
+  <string name="revanced_sb_skip_button_intro_end">Lewati jeda</string>
+  <string name="revanced_sb_skip_button_outro">Lewati outro</string>
+  <string name="revanced_sb_skip_button_preview_beginning">Lewati preview</string>
+  <string name="revanced_sb_skip_button_preview_middle">Lewati preview</string>
+  <string name="revanced_sb_skip_button_preview_end">Lewati rekap</string>
+  <string name="revanced_sb_skip_button_filler">Lewati filler</string>
+  <string name="revanced_sb_skip_button_nomusic">Lewati non-musik</string>
   <string name="revanced_sb_skip_button_unsubmitted">Lewati segmen</string>
   <string name="revanced_sb_skipped_sponsor">Sponsor dilewati</string>
   <string name="revanced_sb_skipped_selfpromo">Promosi diri sendiri dilewati</string>
   <string name="revanced_sb_skipped_interaction">Pengingat mengganggu dilewati</string>
+  <string name="revanced_sb_skipped_highlight">Dilewati ke sorotan</string>
   <string name="revanced_sb_skipped_intro_beginning">Intro dilewati</string>
+  <string name="revanced_sb_skipped_intro_middle">Jeda dilewati</string>
+  <string name="revanced_sb_skipped_intro_end">Jeda dilewati</string>
   <string name="revanced_sb_skipped_outro">Outro dilewati</string>
   <string name="revanced_sb_skipped_preview_beginning">Pratinjau dilewati</string>
   <string name="revanced_sb_skipped_preview_middle">Pratinjau dilewati</string>
+  <string name="revanced_sb_skipped_preview_end">Rekap dilewati</string>
   <string name="revanced_sb_skipped_filler">Pengisi dilewati</string>
   <string name="revanced_sb_skipped_nomusic">Keheningan dilewati</string>
   <string name="revanced_sb_skipped_unsubmitted">Melewati segmen yang belum dikirim</string>
+  <string name="revanced_sb_skipped_multiple_segments">Beberapa segmen dilewati</string>
   <string name="revanced_sb_skip_automatically">Lewati otomatis</string>
+  <string name="revanced_sb_skip_automatically_once">Lewati otomatis sekali</string>
   <string name="revanced_sb_skip_showbutton">Tampilkan tombol lewati</string>
+  <string name="revanced_sb_skip_seekbaronly">Tampilkan di seekbar</string>
   <string name="revanced_sb_skip_ignore">Nonaktifkan</string>
   <string name="revanced_sb_submit_failed_invalid">Tak dapat mengirim segmen: %s</string>
   <string name="revanced_sb_submit_failed_timeout">SponsorBlock sementara anjlok</string>
@@ -806,6 +851,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_submit_failed_duplicate">Tidak dapat mengirim segmen.\nSudah ada</string>
   <string name="revanced_sb_submit_succeeded">Segmen berhasil terkirim</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
+  <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock sementara tidak tersedia (API timed out).</string>
+  <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock sementara tidak tersedia (status %d)</string>
+  <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock sementara tidak tersedia</string>
+  <string name="revanced_sb_vote_failed_timeout">Tidak dapat memilih segmen (API timed out)</string>
+  <string name="revanced_sb_vote_failed_unknown_error">Tidak dapat memilih segmen (status: %1$d %2$s)</string>
+  <string name="revanced_sb_vote_failed_forbidden">Tidak dapat memilih segmen: %s</string>
   <string name="revanced_sb_vote_upvote">Suka</string>
   <string name="revanced_sb_vote_downvote">Tidak suka</string>
   <string name="revanced_sb_vote_category">Ubah kategori</string>
@@ -813,9 +864,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">Pilih kategori segmen</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategori dinonaktifkan di pengaturan. Aktifkan untuk kirim.</string>
   <string name="revanced_sb_new_segment_title">Segmen SponsorBlock Baru</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-  <string name="revanced_sb_new_segment_mark_time_as_question">Atur %1$02d:%2$02d:%3$03d sebagai awal dan akhir dari segmen?</string>
   <string name="revanced_sb_new_segment_mark_start">awal</string>
   <string name="revanced_sb_new_segment_mark_end">akhir</string>
   <string name="revanced_sb_new_segment_now">sekarang</string>
@@ -825,26 +873,52 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- Do not rearrange the (hour):(minute):second) time format operators here.
                  YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <string name="revanced_sb_new_segment_confirm_content">Segmen dari\n\n%1$s\nke\n%2$s\n\n(%3$s)\n\nSiap dikirim?</string>
+  <string name="revanced_sb_new_segment_start_is_before_end">Awal harus sebelum akhir</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Tandai terlebih dahulu dua lokasi di kotak waktu</string>
+  <string name="revanced_sb_new_segment_preview_segment_first">Pratinjau segmen, dan memastikan segmen dilewati dengan lancar</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Atur pengaturan tempo segmen secara manual</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Apakah Anda ingin mengubah tempo untuk awal atau akhir dari segmen?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Waktu yang diberikan tidak valid</string>
   <string name="revanced_sb_stats">Statistik</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
+  <string name="revanced_sb_stats_connection_failure">Data sementara tidak tersedia (API is down)</string>
   <string name="revanced_sb_stats_loading">Memuat...</string>
   <string name="revanced_sb_stats_sb_disabled">SponsorBlock dinonaktifkan</string>
+  <string name="revanced_sb_stats_username">Username Anda: &lt;b&gt;%s&lt;/b&gt;</string>
+  <string name="revanced_sb_stats_username_change">Tekan di sini untuk mengubah username Anda</string>
   <string name="revanced_sb_stats_username_change_unknown_error">Tidak dapat mengubah nama pengguna: Status: %1$d %2$s</string>
   <string name="revanced_sb_stats_username_changed">Nama pengguna berhasil diubah</string>
+  <string name="revanced_sb_stats_reputation">Reputasi Anda: &lt;b&gt;%.2f&lt;/b&gt;</string>
+  <string name="revanced_sb_stats_submissions">Anda telah membuat segmen &lt;b&gt;%s&lt;/b&gt;</string>
+  <string name="revanced_sb_stats_saved_zero">Papan peringkat SponsorBlock</string>
+  <string name="revanced_sb_stats_saved">Anda menghindarkan orang dari segmen &lt;b&gt;%s&lt;/b&gt;</string>
+  <string name="revanced_sb_stats_saved_sum_zero">Tekan di sini untuk melihat data global dan kontributor utama</string>
+  <string name="revanced_sb_stats_saved_sum">Itu &lt;b&gt;%s&lt;/b&gt; dari hidup mereka.&lt;br&gt;Tekan di sini untuk melihat papan peringkat</string>
+  <string name="revanced_sb_stats_self_saved">Anda melewati &lt;b&gt;%s&lt;/b&gt; segmen</string>
+  <string name="revanced_sb_stats_self_saved_sum">Itu &lt;b&gt;%s&lt;/b&gt;</string>
+  <string name="revanced_sb_stats_self_saved_reset_title">Reset perhitungan segmen terlewat?</string>
+  <string name="revanced_sb_stats_saved_hour_format">%1$s jam %2$s menit</string>
+  <string name="revanced_sb_stats_saved_minute_format">%1$s menit %2$s detik</string>
+  <string name="revanced_sb_stats_saved_second_format">%s detik</string>
+  <string name="revanced_sb_color_dot_label">Warna:</string>
   <string name="revanced_sb_color_changed">Warna terubah</string>
   <string name="revanced_sb_color_reset">Reset warna</string>
+  <string name="revanced_sb_color_invalid">Kode warna tidak valid</string>
+  <string name="revanced_sb_reset_color">Reset warna</string>
   <string name="revanced_sb_reset">Setel ulang</string>
   <string name="revanced_sb_about">Tentang</string>
+  <string name="revanced_sb_about_api_sum">Data yang disediakan API SponsorBlock. Tekan di sini untuk mempelajari lebih lanjut dan melihat hasil download untuk platform lain</string>
   </patch>
   <patch id="layout.spoofappversion.SpoofAppVersionPatch">
+  <string name="revanced_spoof_app_version_title">Palsukan versi app</string>
+  <string name="revanced_spoof_app_version_summary_on">Versi yang dipalsukan</string>
+  <string name="revanced_spoof_app_version_summary_off">Versi asli</string>
   <string name="revanced_spoof_app_version_user_dialog_message">Versi aplikasi akan dipalsukan ke versi lama YouTube.\n\nIni akan mengubah tampilan dan fitur aplikasi, tapi mungkin terjadi efek samping tidak diketahui.\n\nJika nanti dinonaktifkan, disarankan menghapus data aplikasi agar UI tidak kacau.</string>
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
+  <string name="revanced_spoof_app_version_target_title">Target versi app yang dipalsukan</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
+  <string name="revanced_spoof_app_version_target_entry_1">18.33.40 - Kembalikan RYD pada mode incognito Shorts</string>
   </patch>
   <patch id="layout.startpage.ChangeStartPagePatch">
   <string name="revanced_start_page_entry_0">Bawaan</string>

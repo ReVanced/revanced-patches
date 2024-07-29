@@ -35,7 +35,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="misc.settings.BaseSettingsResourcePatch">
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Ønsker du å fortsette?</string>
-  <string name="revanced_settings_reset">Reset</string>
   <string name="revanced_settings_restart_title">Oppdater og start på nytt</string>
   <string name="revanced_settings_restart">Omstart</string>
   <string name="revanced_settings_import">Importer</string>
@@ -579,7 +578,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_home_summary_on">Shorts i hjemmefeed er skjult</string>
   <string name="revanced_hide_shorts_home_summary_off">Shorts i hjemmefeed vises</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
-  <string name="revanced_hide_shorts_subscriptions_title">Skjul Shoets i abonnementsfeed</string>
+  <string name="revanced_hide_shorts_subscriptions_title">Skjul Shorts i abonnementsfeed</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts i abonnementsfeed er skjult</string>
   <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts i abonnementsfeed vises</string>
   <string name="revanced_hide_shorts_search_title">Skjul Shorts i søkeresultatene</string>
@@ -682,7 +681,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_enable_summary_on">Misliker vises</string>
   <string name="revanced_ryd_enable_summary_off">Misliker vises ikke</string>
   <string name="revanced_ryd_shorts_title">Vis mislykte på Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on">Misliker vist på shorts</string>
+  <string name="revanced_ryd_shorts_summary_on">Misliker vist på Shorts</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">Misliker som vises på Shorts\n\nLimitasjon: Misdannelser kan hende i inkognito-modus ikke vises i inkognito-modus</string>
   <string name="revanced_ryd_shorts_summary_off">Misliker skjult på Shorts</string>
   <string name="revanced_ryd_dislike_percentage_title">Misliker som prosent</string>
@@ -858,9 +857,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">Velg segmentkategori</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategorien er deaktivert i innstillinger. Aktiver kategori for å sende.</string>
   <string name="revanced_sb_new_segment_title">Nytt sponsorBlock segment</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-  <string name="revanced_sb_new_segment_mark_time_as_question">Satte %1$02d:%2$02d:%3$03d som start eller slutt for et nytt segment?</string>
   <string name="revanced_sb_new_segment_mark_start">start</string>
   <string name="revanced_sb_new_segment_mark_end">slutt</string>
   <string name="revanced_sb_new_segment_now">nå</string>
@@ -1108,7 +1104,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Klienten er ikke spoofed\n\nVideo playback fungerer kanskje ikke</string>
   <string name="revanced_spoof_client_user_dialog_message">Ved å slå av denne innstillingen kan problemer med videoavspilling.</string>
   <string name="revanced_spoof_client_use_ios_title">Forside klienten til iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Klienten er for øyeblikket skummet til Android VR\n\nSide effects include:\n• Ingen HDR video\n• Barn videoer ikke spiller tilbake\n• Paused videoer kan tilfeldig gjenoppta\n• Lavkvalitet Shorts seekbar miniatyrbilder\n• Last ned handlingsknappen alltid ligger skjult\n• Sluttskjermkort er alltid skjult</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Klienten er for øyeblikket oppslukt til iOS\n\nSide include:\n• Ingen HDR-video\n• Høyere videokvaliteter kan mangle\n• Live-strømmer kan ikke spille som lyd</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">Klienten er for øyeblikket skummet til Android VR\n\nsideeffekter inkluderer:\n• Ingen HDR video\n• Barn videoer ikke spiller tilbake\n• Paused videoer kan tilfeldig gjenoppta\n• Lavkvalitet shorts søkbar miniatyrbilder\n• Last ned handlingsknappen er skjult\n• Sluttskjermkort er skjult</string>
   <string name="revanced_spoof_client_storyboard_timeout">Etterligning av klient miniatyrbilder er ikke tilgjengelige (API tidsavbrutt)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Spoav klientens miniatyrbilder er midlertidig ikke tilgjengelig: %s</string>
   </patch>

@@ -866,9 +866,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">Wybierz kategorię segmentu</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategoria jest wyłączona w ustawieniach. Włącz kategorię do wysyłania.</string>
   <string name="revanced_sb_new_segment_title">Nowy segment SponsorBlock\'a</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-  <string name="revanced_sb_new_segment_mark_time_as_question">Ustawić %1$02d:%2$02d:%3$03d jako początek lub koniec nowego segmentu?</string>
   <string name="revanced_sb_new_segment_mark_start">początek</string>
   <string name="revanced_sb_new_segment_mark_end">koniec</string>
   <string name="revanced_sb_new_segment_now">aktualnie</string>
@@ -916,14 +913,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.spoofappversion.SpoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Wersja Spoof app</string>
-  <string name="revanced_spoof_app_version_summary_on">Wersja spofed</string>
-  <string name="revanced_spoof_app_version_summary_off">Wersja nie sfałszowana</string>
-  <string name="revanced_spoof_app_version_user_dialog_message">Wersja aplikacji będzie spoofed do starszej wersji YouTube.\n\nTo zmieni wygląd i cechy aplikacji, ale mogą wystąpić nieznane działania niepożądane.\n\nJeśli później wyłączone, zaleca się wyczyszczenie danych aplikacji, aby zapobiec błędom interfejsu.</string>
+  <string name="revanced_spoof_app_version_summary_on">Wersja zespoofowana</string>
+  <string name="revanced_spoof_app_version_summary_off">Wersja nie zespoofowana</string>
+  <string name="revanced_spoof_app_version_user_dialog_message">Wersja aplikacji będzie zespoofowana do starszej wersji YouTube.\n\nZmieni to wygląd i zachowanie aplikacji, lecz mogą wystąpić niepożądane skutki.\n\nJeśli później wyłączone, zaleca się wyczyszczenie danych aplikacji, aby zapobiec błędom interfejsu.</string>
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
-  <string name="revanced_spoof_app_version_target_title">Cel wersji Spop aplikacji</string>
+  <string name="revanced_spoof_app_version_target_title">Docelowa zespoofowana wersja aplikacji</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_entry_1">18.33.40 - Przywróć RYD w trybie incognito</string>
+  <string name="revanced_spoof_app_version_target_entry_1">18.33.40 - Przywróć RYD (Return YouTube Dislike) w trybie incognito</string>
   <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - Przywracanie szerokiej prędkości wideo &amp; menu jakości</string>
   <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - Przywróć kartę bibliotek</string>
   <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Przywróć starą półkę na liście odtwarzania</string>
@@ -1044,10 +1041,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_auto_repeat_summary_off">Automatyczne powtarzanie jest wyłączone</string>
   </patch>
   <patch id="misc.dimensions.spoof.SpoofDeviceDimensionsPatch">
-  <string name="revanced_spoof_device_dimensions_title">Wymiary łyżki urządzenia</string>
-  <string name="revanced_spoof_device_dimensions_summary_on">Wymiary urządzenia spofed\n\nWyższe właściwości wideo mogą być odblokowane, ale możesz doświadczyć oszołomienia odtwarzania wideo, gorszego żywotności baterii i nieznanych efektów ubocznych</string>
-  <string name="revanced_spoof_device_dimensions_summary_off">Wymiary urządzenia nie spofed\n\nWłączenie tego może odblokować wyższą jakość wideo</string>
-  <string name="revanced_spoof_device_dimensions_user_dialog_message">Włączenie tego może spowodować stłuczenie odtwarzania wideo, pogorszenie żywotności baterii i nieznane działania niepożądane.</string>
+  <string name="revanced_spoof_device_dimensions_title">Zespoofuj wymiar urządzenia</string>
+  <string name="revanced_spoof_device_dimensions_summary_on">Zespoofuj wymiar urządzenia</string>
+  <string name="revanced_spoof_device_dimensions_summary_off">Wymiary urządzenia nie są zespoofowane\n\nWłączenie tej opcji umożliwia ustawienie wyższej jakości wideo niż zwykle</string>
+  <string name="revanced_spoof_device_dimensions_user_dialog_message">Włączenie tego może spowodować zacinanie się odtwarzanego filmu, pogorszenie żywotności baterii i nieznane działania niepożądane.</string>
   </patch>
   <patch id="misc.gms.GmsCoreSupportResourcePatch">
   <string name="microg_settings_title">Ustawienia GmsCore</string>
@@ -1113,15 +1110,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_off">Przesuń, aby przeszukiwać nie jest włączony</string>
   </patch>
   <patch id="misc.fix.playback.SpoofClientPatch">
-  <string name="revanced_spoof_client_screen_title">Spoiwa klienta</string>
-  <string name="revanced_spoof_client_screen_summary">Słuchaj klienta aby zapobiec problemom z odtwarzaniem</string>
-  <string name="revanced_spoof_client_title">Spoiwa klienta</string>
-  <string name="revanced_spoof_client_summary_on">Klient jest spoofed</string>
-  <string name="revanced_spoof_client_summary_off">Klient nie jest spoofed\n\nOdtwarzanie wideo może nie działać</string>
+  <string name="revanced_spoof_client_screen_title">Zespoofowany klient</string>
+  <string name="revanced_spoof_client_screen_summary">Zespoofuj klienta, aby zapobiec problemom z odtwarzaniem</string>
+  <string name="revanced_spoof_client_title">Zespoofowany klient</string>
+  <string name="revanced_spoof_client_summary_on">Klient jest zespoofowany</string>
+  <string name="revanced_spoof_client_summary_off">Klient nie jest zespoofowany\n\nOdtwarzanie wideo może nie działać</string>
   <string name="revanced_spoof_client_user_dialog_message">Wyłączenie tego ustawienia może spowodować problemy z odtwarzaniem wideo.</string>
-  <string name="revanced_spoof_client_use_ios_title">Spośród klientów na iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Klient jest obecnie spoofed to iOS\n\nEfekty niepożądane obejmują:\n• Żaden film HDR\n• Historia zegarków może nie działać\n• Wyższe jakość wideo może brakować\n• Strumienie na żywo nie mogą odtwarzać jako tylko audio\n• Strumienie na żywo niedostępne na Androidzie 8.0</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Klient jest obecnie spoofowany na Androida VR\n\nEfekty uboczne obejmują:\n• Bez filmu HDR\n• Filmy dziecięce nie odtwarza\n• Wstrzymaj filmy można losowo wznowić\n• Niska jakość miniatur paska wyszukiwania Shorts\n• Przycisk pobierania jest zawsze ukryty\n• Karty ekranu końcowego są zawsze ukryte</string>
+  <string name="revanced_spoof_client_use_ios_title">Zespoofuj klient do wersji iOS</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Klient jest obecnie spoofed na iOS\n\nEfekty niepożądane obejmują:\n• Bez wideo HDR\n• Może brakować wyższej jakości wideo\n• Strumienie na żywo nie może odtwarzać tylko jako dźwięk</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">Klient jest obecnie spoofed na Androida VR\n\nEfekty niepożądane obejmują:\n• Brak filmu HDR\n• Filmy dziecięce nie odtwarza\n• Wstrzymane filmy mogą losowo wznawiać\n• Niska jakość miniatur paska wyszukiwania skrótów\n• Przycisk pobierania jest ukryty\n• Karty ekranu końcowego są ukryte</string>
   <string name="revanced_spoof_client_storyboard_timeout">Miniatury klienta nie są dostępne (limit czasu API)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Miniaturki klienta tymczasowo nie są dostępne: %s</string>
   </patch>

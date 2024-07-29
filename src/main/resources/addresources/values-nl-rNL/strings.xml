@@ -865,9 +865,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">Kies de segmentcategorie</string>
   <string name="revanced_sb_new_segment_disabled_category">Categorie is uitgeschakeld in instellingen. Schakel categorie in om in te dienen.</string>
   <string name="revanced_sb_new_segment_title">Nieuw SponsorBlock-segment</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-  <string name="revanced_sb_new_segment_mark_time_as_question">Stel %1$02d:%2$02d:%3$03d in als het begin of einde van een nieuw segment?</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">%s instellen als het begin of einde van een nieuw segment?</string>
   <string name="revanced_sb_new_segment_mark_start">begin</string>
   <string name="revanced_sb_new_segment_mark_end">einde</string>
   <string name="revanced_sb_new_segment_now">nu</string>
@@ -1118,8 +1116,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Client is niet vervalst\n\nVideo afspelen werkt mogelijk niet</string>
   <string name="revanced_spoof_client_user_dialog_message">Het uitschakelen van deze instelling kan problemen met het afspelen van video veroorzaken.</string>
   <string name="revanced_spoof_client_use_ios_title">Klant naar iOS vervalsen</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">De klant is momenteel gespoofd naar iOS\n\nSide effecten zoals:\n• Geen HDR video\n• Bekijk geschiedenis kan mogelijk niet werken\n• Hogere videokwaliteiten ontbreken\n• Live streams kunnen niet worden afgespeeld als alleen audio\n• Live streams die niet beschikbaar zijn op Android 8.0</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Client wordt momenteel vervalst naar Android VR\n\nBijwerkingen zijn onder meer:\n• Geen HDR-video\n• Kindervideo\'s worden niet afgespeeld\n• Gepauzeerde video\'s kunnen willekeurig worden hervat\n• Shorts-zoekbalkthumbnails van lage kwaliteit\n• Actieknop downloaden  is altijd verborgen\n• Eindschermkaarten zijn altijd verborgen</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">De klant is momenteel gespoofd naar iOS\n\nSide effecten zoals:\n• Geen HDR video\n• Hogere videokwaliteiten kunnen ontbreken\n• Live streams kunnen niet alleen worden afgespeeld als audio</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">Cliënt is momenteel ondergesneeuwd naar Android VR\n\nSide effecten inclusief:\n• Geen HDR video\n• Kinderen video\'s spelen niet af\n• Gepauzeerde video\'s kunnen willekeurig hervatten\n• Slechte kwaliteit zoekbalkminiaturen\n• Download actieknop is verborgen\n• Eindscherm kaarten zijn verborgen</string>
   <string name="revanced_spoof_client_storyboard_timeout">Klant miniaturen niet beschikbaar (API timed out)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Klant miniaturen tijdelijk niet beschikbaar: %s</string>
   </patch>

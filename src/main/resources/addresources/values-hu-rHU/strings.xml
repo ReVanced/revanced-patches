@@ -865,9 +865,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">Válassza ki a szakasz kategóriáját</string>
   <string name="revanced_sb_new_segment_disabled_category">A kategória letiltva a beállításokban. Engedélyezze a beküldéshez.</string>
   <string name="revanced_sb_new_segment_title">Új SponsorBlock szakasz</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-  <string name="revanced_sb_new_segment_mark_time_as_question">Beállítja a(z) %1$02d:%2$02d:%3$03d -t az új szakasz kezdetének vagy végének?</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">Beállítja a %s-t egy új szegmens kezdeteként vagy végeként?</string>
   <string name="revanced_sb_new_segment_mark_start">kezdőpont</string>
   <string name="revanced_sb_new_segment_mark_end">végpont</string>
   <string name="revanced_sb_new_segment_now">most</string>
@@ -993,6 +991,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_invalid">Érvénytelen színérték. Az alap érték használata.</string>
   </patch>
   <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  <string name="revanced_bypass_image_region_restrictions_title">Területi kép-korlátozások megkerülése</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_on">A yt4.ggpht.com képtár használata</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">Az eredeti képgazda használata\n\nEnnek engedélyezése javíthatja a hiányzó képeket, amelyek bizonyos régiókban le vannak tiltva</string>
   </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -1116,8 +1117,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">A kliens nincs hamisítva\n\nLehet, hogy a videólejátszás nem működik</string>
   <string name="revanced_spoof_client_user_dialog_message">A beállítás kikapcsolása videolejátszási problémákat okozhat.</string>
   <string name="revanced_spoof_client_use_ios_title">Hamis kliens iOS-re</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">A kliens jelenleg iOS-re van hamisítva\n\nA mellékhatások a következők:\n• Nincs HDR-videó\n• Előfordulhat, hogy a megtekintési előzmények nem működnek\n• Hiányozhatnak a jobb videóminőségek\n• Az élő közvetítések nem játszhatók le csak hangként\n• Élő a streamek nem érhetők el Android 8.0 rendszeren</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">A kliens jelenleg az Android VR-t utánozza\n\nMellékhatásokkal együtt:\n• Nincs HDR video\n• Nincs \'Kids\' videólejátszás\n• A pillanatmegállított videók véletlenszerűen elindulhatnak\n• Alacsony minőségű Shorts csűszka bélyegképek\n• A letöltés gomb mindig rejtett\n• Videó végi kártyák mindig rejtett</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">A kliens jelenleg iOS-re van hamisítva\n\nA mellékhatások a következők:\n• Nincs HDR-videó\n• Hiányozhatnak a jobb videóminőségek\n• Az élő közvetítések nem játszhatók le csak hangként</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">A kliens jelenleg Android VR-re van hamisítva\n\nA mellékhatások a következők:\n• Nincs HDR-videó\n• A gyerekeknek készült videók nem játszhatók le\n• A szüneteltetett videók véletlenszerűen folytatódhatnak\n• Rossz minőségű rövidfilmek kereshető indexképei\n• Letöltés művelet gomb el van rejtve\n• A záróképernyő-kártyák el vannak rejtve</string>
   <string name="revanced_spoof_client_storyboard_timeout">Hamis kliens miniatűrök nem érhetők el (API időtúllépés)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">A hamis kliens miniatűrök átmenetileg nem érhetők el: %s</string>
   </patch>
