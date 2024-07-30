@@ -97,6 +97,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
                     SwitchPreference("revanced_hide_attributes_section"),
                     SwitchPreference("revanced_hide_chapters_section"),
                     SwitchPreference("revanced_hide_info_cards_section"),
+                    SwitchPreference("revanced_hide_key_concepts_section"),
                     SwitchPreference("revanced_hide_podcast_section"),
                     SwitchPreference("revanced_hide_transcript_section"),
                 ),
