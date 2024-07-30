@@ -174,7 +174,13 @@ object UniversalPrivacyPatch : BytecodePatch(
     }
 
     private fun disableMoEngage(context: BytecodeContext) {
-        InitialiseSdkFingerprint.resultOrThrow().mutableMethod.addInstructions(0, "return-void")
+        InitialiseSdkFingerprint.resultOrThrow().mutableMethod.addInstructions(
+            0,
+            """
+            const/4 v0, 0x0
+            return-object v0
+            """
+        )
     }
 
     private fun disableSegment(context: BytecodeContext) {
