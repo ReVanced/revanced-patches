@@ -213,7 +213,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_info_cards_section_title">Hide info cards section</string>
             <string name="revanced_hide_info_cards_section_summary_on">Info cards section is hidden</string>
             <string name="revanced_hide_info_cards_section_summary_off">Info cards section is shown</string>
-            <string name="revanced_hide_key_concepts_section_title">Hide Key concepts section</string>
+            <string name="revanced_hide_key_concepts_section_title">Hide \'Key concepts\' section</string>
             <string name="revanced_hide_key_concepts_section_summary_on">\'Key concepts\' section is hidden</string>
             <string name="revanced_hide_key_concepts_section_summary_off">\'Key concepts\' section is shown</string>
             <string name="revanced_hide_transcript_section_title">Hide Transcript section</string>
