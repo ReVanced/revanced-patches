@@ -22,7 +22,7 @@ object UniversalPrivacyPatch : BytecodePatch(
     setOf(
         StatsigClientFingerprint,
         AnalyticsInitFingerprint,
-        AppsFlyerInitFingerprint,
+        AppsFlyerSDKInitFingerprint,
         ComScoreSetupFingerprint,
         SettingsSpiCallFingerprint,
         DoConfigFetchFingerprint,
@@ -59,11 +59,11 @@ object UniversalPrivacyPatch : BytecodePatch(
             description = "",
             required = true
         ),
-        ::disableAppsFlyer to booleanPatchOption(
-            key = "disableAppsFlyer",
+        ::disableAppsFlyerSDK to booleanPatchOption(
+            key = "disableAppsFlyerSDK",
             default = true,
             values = mapOf(),
-            title = "Apps Flyer",
+            title = "Apps Flyer SDK",
             description = "",
             required = true
         ),
@@ -130,14 +130,8 @@ object UniversalPrivacyPatch : BytecodePatch(
         StatsigClientFingerprint.resultOrThrow().mutableMethod.addInstructions(0,"return-void")
     }
 
-    private fun disableAppsFlyer(context: BytecodeContext) {
-        AppsFlyerInitFingerprint.resultOrThrow().mutableMethod.addInstructions(
-            0,
-            """
-                    sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-                    return-object p0
-                    """
-        )
+    private fun disableAppsFlyerSDK(context: BytecodeContext) {
+        AppsFlyerSDKInitFingerprint.resultOrThrow().mutableMethod.addInstructions(0,"return-object p0")
     }
 
     // This plugin is used to interact with a non-Java app technology, like Flutter or React Native
