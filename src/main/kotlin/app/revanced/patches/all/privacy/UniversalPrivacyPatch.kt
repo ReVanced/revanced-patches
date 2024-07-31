@@ -2,10 +2,13 @@ package app.revanced.patches.all.privacy
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.booleanPatchOption
+import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.privacy.fingerprints.*
 import app.revanced.util.resultOrThrow
 import java.util.logging.Logger
@@ -153,18 +156,21 @@ object UniversalPrivacyPatch : BytecodePatch(
         SettingsSpiCallFingerprint.resultOrThrow().mutableMethod.addInstructions(
             0,
             """
-                    const/4 p1, 0x0
-                    return-object p1
-                    """
+                const/4 p1, 0x0
+                return-object p1
+            """
         )
 
-        DoConfigFetchFingerprint.resultOrThrow().mutableMethod.addInstructions(
-            0,
-            """
-                    sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-                    return-object p1
-                    """
-        )
+        DoConfigFetchFingerprint.resultOrThrow().mutableMethod.apply {
+            // Jumps to the end of the method to directly return an empty object
+            addInstructionsWithLabels(
+                0,
+                """
+                    goto :return_unit
+                """,
+                ExternalLabel("return_unit", getInstruction(implementation!!.instructions.lastIndex - 2))
+            )
+        }
     }
 
     // Prevents the sending of Firebase Logging and Firebase Crashlytics logs to Google's servers.
