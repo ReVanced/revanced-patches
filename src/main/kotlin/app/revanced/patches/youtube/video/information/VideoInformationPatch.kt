@@ -7,6 +7,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
@@ -45,6 +46,7 @@ object VideoInformationPatch : BytecodePatch(
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/VideoInformation;"
+    private const val INTEGRATIONS_SEEK_INTERFACE = "Lapp/revanced/integrations/youtube/patches/VideoInformation${'$'}PlaybackController;"
 
     private lateinit var playerInitMethod: MutableMethod
     private var playerInitInsertIndex = 4
@@ -77,11 +79,11 @@ object VideoInformationPatch : BytecodePatch(
             val seekFingerprintResultMethod =
                 SeekFingerprint.also { it.resolve(context, classDef) }.resultOrThrow().method
 
-            // create helper method
-            val seekHelperMethod = generateSeekMethodHelper(seekFingerprintResultMethod)
+            val seekRelativeFingerprintResultMethod =
+                SeekRelativeFingerprint.also { it.resolve(context, classDef) }.resultOrThrow().method
 
-            // add the seekTo method to the class for the integrations to call
-            mutableClass.methods.add(seekHelperMethod)
+            // create helper method
+            generateSeekMethodHelper(mutableClass, seekFingerprintResultMethod, seekRelativeFingerprintResultMethod)
         }
 
         with(MdxPlayerDirectorSetVideoStageFingerprint.resultOrThrow()) {
@@ -101,11 +103,11 @@ object VideoInformationPatch : BytecodePatch(
             val mdxSeekFingerprintResultMethod =
                 MdxSeekFingerprint.apply { resolve(context, classDef) }.resultOrThrow().method
 
-            // create helper method
-            val mdxSeekHelperMethod = generateSeekMethodHelper(mdxSeekFingerprintResultMethod)
+            val mdxSeekRelativeFingerprintResultMethod =
+                MdxSeekRelativeFingerprint.also { it.resolve(context, classDef) }.resultOrThrow().method
 
-            // add the seekTo method to the class for the integrations to call
-            mutableClass.methods.add(mdxSeekHelperMethod)
+            // create helper method
+            generateSeekMethodHelper(mutableClass, mdxSeekFingerprintResultMethod, mdxSeekRelativeFingerprintResultMethod)
         }
 
         with(CreateVideoPlayerSeekbarFingerprint.result!!) {
@@ -173,33 +175,41 @@ object VideoInformationPatch : BytecodePatch(
         userSelectedPlaybackSpeedHook(INTEGRATIONS_CLASS_DESCRIPTOR, "userSelectedPlaybackSpeed")
     }
 
-    private fun generateSeekMethodHelper(seekMethod: Method): MutableMethod {
+    private fun generateSeekMethodHelper(targetClass: MutableClass, seekToMethod: Method, seekToRelativeMethod: Method) {
+        // Add the interface and methods that integrations calls.
+        targetClass.interfaces.add(INTEGRATIONS_SEEK_INTERFACE)
 
-        // create helper method
-        val generatedMethod = ImmutableMethod(
-            seekMethod.definingClass,
-            "seekTo",
-            listOf(ImmutableMethodParameter("J", null, "time")),
-            "Z",
-            AccessFlags.PUBLIC or AccessFlags.FINAL,
-            null, null,
-            MutableMethodImplementation(4)
-        ).toMutable()
+        arrayOf(
+            seekToMethod to "seekTo",
+            seekToRelativeMethod to "seekToRelative"
+        ).forEach { (method, name) ->
+            // Add interface method.
+            val generatedMethod = ImmutableMethod(
+                method.definingClass,
+                name,
+                listOf(ImmutableMethodParameter("J", null, "time")),
+                "Z",
+                AccessFlags.PUBLIC or AccessFlags.FINAL,
+                null, null,
+                MutableMethodImplementation(4)
+            ).toMutable()
 
-        // get enum type for the seek helper method
-        val seekSourceEnumType = seekMethod.parameterTypes[1].toString()
+            // Get enum type for the seek helper method.
+            val seekSourceEnumType = method.parameterTypes[1].toString()
 
-        // insert helper method instructions
-        generatedMethod.addInstructions(
-            0,
-            """
+            // Insert helper method instructions.
+            generatedMethod.addInstructions(
+                0,
+                """
                 sget-object v0, $seekSourceEnumType->a:$seekSourceEnumType
-                invoke-virtual { p0, p1, p2, v0 }, $seekMethod
+                invoke-virtual { p0, p1, p2, v0 }, $method
                 move-result p1
                 return p1
             """
-        )
-        return generatedMethod
+            )
+
+            targetClass.methods.add(generatedMethod)
+        }
     }
 
     private fun MutableMethod.insert(insertIndex: Int, register: String, descriptor: String) =
@@ -221,7 +231,7 @@ object VideoInformationPatch : BytecodePatch(
         playerInitMethod.insert(
             playerInitInsertIndex++,
             "v0",
-            "$targetMethodClass->$targetMethodName(Ljava/lang/Object;)V"
+            "$targetMethodClass->$targetMethodName($INTEGRATIONS_SEEK_INTERFACE)V"
         )
 
     /**
@@ -234,7 +244,7 @@ object VideoInformationPatch : BytecodePatch(
         mdxInitMethod.insert(
             mdxInitInsertIndex++,
             "v$mdxInitInsertRegister",
-            "$targetMethodClass->$targetMethodName(Ljava/lang/Object;)V"
+            "$targetMethodClass->$targetMethodName($INTEGRATIONS_SEEK_INTERFACE)V"
         )
 
     /**
