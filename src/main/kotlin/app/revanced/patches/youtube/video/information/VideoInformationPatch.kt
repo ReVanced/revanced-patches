@@ -46,7 +46,7 @@ object VideoInformationPatch : BytecodePatch(
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/VideoInformation;"
-    private const val INTEGRATIONS_SEEK_INTERFACE = "Lapp/revanced/integrations/youtube/patches/VideoInformation${'$'}PlaybackController;"
+    private const val INTEGRATIONS_PLAYER_INTERFACE = "Lapp/revanced/integrations/youtube/patches/VideoInformation${'$'}PlaybackController;"
 
     private lateinit var playerInitMethod: MutableMethod
     private var playerInitInsertIndex = 4
@@ -177,7 +177,7 @@ object VideoInformationPatch : BytecodePatch(
 
     private fun generateSeekMethodHelper(targetClass: MutableClass, seekToMethod: Method, seekToRelativeMethod: Method) {
         // Add the interface and methods that integrations calls.
-        targetClass.interfaces.add(INTEGRATIONS_SEEK_INTERFACE)
+        targetClass.interfaces.add(INTEGRATIONS_PLAYER_INTERFACE)
 
         arrayOf(
             seekToMethod to "seekTo",
@@ -231,7 +231,7 @@ object VideoInformationPatch : BytecodePatch(
         playerInitMethod.insert(
             playerInitInsertIndex++,
             "v0",
-            "$targetMethodClass->$targetMethodName($INTEGRATIONS_SEEK_INTERFACE)V"
+            "$targetMethodClass->$targetMethodName($INTEGRATIONS_PLAYER_INTERFACE)V"
         )
 
     /**
@@ -244,7 +244,7 @@ object VideoInformationPatch : BytecodePatch(
         mdxInitMethod.insert(
             mdxInitInsertIndex++,
             "v$mdxInitInsertRegister",
-            "$targetMethodClass->$targetMethodName($INTEGRATIONS_SEEK_INTERFACE)V"
+            "$targetMethodClass->$targetMethodName($INTEGRATIONS_PLAYER_INTERFACE)V"
         )
 
     /**
