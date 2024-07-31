@@ -41,7 +41,7 @@ object HideMultimediaAds : BytecodePatch(
 }
 
 @Deprecated("This patch class has been renamed to HideMultimediaAds.")
-object MusicVideoAdsPatch : BytecodePatch(
+object MultimediaAdsPatch : BytecodePatch(
     dependencies = setOf(HideMultimediaAds::class),
 ) {
     override fun execute(context: BytecodeContext) {
