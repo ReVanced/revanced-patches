@@ -1,3 +1,10 @@
+# [4.12.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v4.12.0-dev.12...v4.12.0-dev.13) (2024-07-31)
+
+
+### Features
+
+* **Boost for Reddit:** Add `Disable ads` patch ([#3474](https://github.com/ReVanced/revanced-patches/issues/3474)) ([b292c20](https://github.com/ReVanced/revanced-patches/commit/b292c200bf4ea5b4f71d96690ac011e7843552f0))
+
 # [4.12.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v4.12.0-dev.11...v4.12.0-dev.12) (2024-07-28)
 
 
