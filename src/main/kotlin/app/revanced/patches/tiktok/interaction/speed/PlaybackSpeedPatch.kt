@@ -20,19 +20,19 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 @Patch(
     name = "Playback speed",
     description = "Enables the playback speed option for all videos and " +
-            "retains the speed configurations in between videos.",
+        "retains the speed configurations in between videos.",
     compatiblePackages = [
         CompatiblePackage("com.ss.android.ugc.trill", ["32.5.3"]),
-        CompatiblePackage("com.zhiliaoapp.musically", ["32.5.3"])
-    ]
+        CompatiblePackage("com.zhiliaoapp.musically", ["32.5.3"]),
+    ],
 )
 @Suppress("unused")
 object PlaybackSpeedPatch : BytecodePatch(
     setOf(
         GetSpeedFingerprint,
         OnRenderFirstFrameFingerprint,
-        SetSpeedFingerprint
-    )
+        SetSpeedFingerprint,
+    ),
 ) {
     override fun execute(context: BytecodeContext) {
         SetSpeedFingerprint.result?.let { onVideoSwiped ->
@@ -44,7 +44,7 @@ object PlaybackSpeedPatch : BytecodePatch(
                 addInstruction(
                     injectIndex,
                     "invoke-static { v$register }," +
-                            " Lapp/revanced/integrations/tiktok/speed/PlaybackSpeedPatch;->rememberPlaybackSpeed(F)V"
+                        " Lapp/revanced/integrations/tiktok/speed/PlaybackSpeedPatch;->rememberPlaybackSpeed(F)V",
                 )
             } ?: throw GetSpeedFingerprint.exception
 
@@ -64,9 +64,9 @@ object PlaybackSpeedPatch : BytecodePatch(
 
                 # Desired playback speed retrieved using getPlaybackSpeed method.
                 invoke-static {}, Lapp/revanced/integrations/tiktok/speed/PlaybackSpeedPatch;->getPlaybackSpeed()F
-                move-result-object v2
+                move-result v2
                 invoke-static { v0, v1, v2 }, ${onVideoSwiped.method}
-            """
+            """,
             ) ?: throw OnRenderFirstFrameFingerprint.exception
 
             // Force enable the playback speed option for all videos.
@@ -75,7 +75,7 @@ object PlaybackSpeedPatch : BytecodePatch(
                 """
                 const/4 v0, 0x1
                 return v0
-            """
+            """,
             ) ?: throw PatchException("Failed to force enable the playback speed option.")
         } ?: throw SetSpeedFingerprint.exception
     }
