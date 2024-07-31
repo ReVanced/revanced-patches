@@ -73,6 +73,7 @@ val settingsPatch = bytecodePatch(
                     const-string v1, "$settingsButtonInfoClass"
                     invoke-static {v0, v1}, $createSettingsEntryMethodDescriptor
                     move-result-object v0
+                    check-cast v0, ${settingsEntryMatch.classDef.type}
                 """,
             )
         }
