@@ -10,7 +10,7 @@ val openLinksWithAppChooserPatch = bytecodePatch(
         "As a result you can select a browser to open the link with.",
     use = false,
 ) {
-    compatibleWith("com.twitter.android")
+    compatibleWith("com.twitter.android"("10.48.0-release"))
 
     val openLinkMatch by openLinkFingerprint()
 
