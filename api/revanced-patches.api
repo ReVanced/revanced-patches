@@ -417,14 +417,14 @@ public final class app/revanced/patches/moneymanager/UnlockProPatch : app/revanc
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/music/ad/video/HideMusicVideoAds : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/ad/video/HideMusicVideoAds;
+public final class app/revanced/patches/music/ad/video/HideMultimediaAds : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/music/ad/video/HideMultimediaAds;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/music/ad/video/MusicVideoAdsPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/music/ad/video/MusicVideoAdsPatch;
+public final class app/revanced/patches/music/ad/video/MultimediaAdsPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/music/ad/video/MultimediaAdsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
