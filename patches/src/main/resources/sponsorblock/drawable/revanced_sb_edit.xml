@@ -1,0 +1,30 @@
+<!--
+   https://github.com/google/material-design-icons/blob/9beae745bb758f3ad56654fb377ea5cf62be4915/symbols/android/edit/materialsymbolsoutlined/edit_wght200gradN25_24px.xml
+   The icon has been resized
+
+
+Copyright 2022 Google
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:tint="#FFFFFF"
+        android:width="24dp"
+        android:height="24dp"
+        android:viewportWidth="24"
+        android:viewportHeight="24">
+    <path
+            android:fillColor="@android:color/white"
+            android:pathData="m 3.1764691,20.823532 h 1.321094 L 18.151971,7.1727918 16.827212,5.8480338 3.1764691,19.506133 Z M 2,22 V 19.004901 L 18.642147,2.3296522 Q 18.818253,2.1719951 19.031033,2.0859976 19.243843,2 19.48495,2 q 0.236708,0 0.4586,0.07902 0.221893,0.079052 0.425336,0.2579928 l 1.301467,1.3051305 q 0.17894,0.1875125 0.254297,0.4089585 0.07534,0.2214462 0.07534,0.4471302 0,0.2407231 -0.08201,0.4619463 -0.08201,0.2212231 -0.249803,0.3912747 L 4.9951003,22 Z M 20.848038,4.4938664 19.506138,3.1519662 Z m -3.368881,2.0269814 -0.651945,-0.672814 1.324759,1.324758 z"/>
+</vector>

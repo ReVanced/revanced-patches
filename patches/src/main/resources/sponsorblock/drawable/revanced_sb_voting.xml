@@ -1,0 +1,30 @@
+<!--
+   https://github.com/google/material-design-icons/blob/9beae745bb758f3ad56654fb377ea5cf62be4915/symbols/android/thumbs_up_down/materialsymbolsoutlined/thumbs_up_down_wght300gradN25_24px.xml
+   The icon has been resized
+
+
+Copyright 2022 Google
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:tint="#FFFFFF"
+        android:width="24dp"
+        android:height="24dp"
+        android:viewportWidth="24"
+        android:viewportHeight="24">
+    <path
+            android:fillColor="@android:color/white"
+            android:pathData="m 3.3559223,13.077965 q -0.5714933,0 -0.9637189,-0.387709 Q 2,12.302548 2,11.722042 V 6.5635083 Q 2,6.4155507 2.0610119,6.272176 2.1220462,6.1288014 2.2453475,6.0054996 L 6.2508464,2 6.5932091,2.3423629 q 0.080402,0.082054 0.1368085,0.1887203 0.056429,0.1066661 0.056429,0.1943391 V 2.8542325 L 6.0203498,6.1627116 h 4.3059752 q 0.523856,0 0.87164,0.3508458 0.347805,0.3508459 0.347805,0.86948 v 0.2717442 q 0,0.1367424 -0.02204,0.2380763 -0.02203,0.1013119 -0.0661,0.2088374 L 9.5355944,12.549151 q -0.1142458,0.252068 -0.323656,0.390441 -0.2093882,0.138373 -0.4774967,0.138373 z M 8.7694977,12.264407 10.73219,7.6779612 V 7.5186341 q 0,-0.2288001 -0.152541,-0.3855933 -0.15254,-0.1567713 -0.389824,-0.1567713 H 5.0406784 L 5.7593141,3.6517056 2.8135578,6.6008558 v 5.1211862 q 0,0.237284 0.1525407,0.389824 0.1525406,0.152541 0.3898238,0.152541 z M 17.74915,22 17.403703,21.656866 q -0.07423,-0.07545 -0.132182,-0.182155 -0.05797,-0.10671 -0.05797,-0.20064 v -0.128303 l 0.766093,-3.30848 h -4.305975 q -0.523857,0 -0.87164,-0.346615 -0.347805,-0.346593 -0.347805,-0.87371 v -0.264187 q 0,-0.135817 0.02204,-0.235829 0.02204,-0.09999 0.06611,-0.218642 l 1.92204,-4.447456 q 0.111865,-0.242373 0.319491,-0.385594 0.207626,-0.14322 0.480515,-0.14322 h 5.379665 q 0.571494,0 0.963719,0.392203 Q 22,11.706464 22,12.277958 v 5.159327 q 0,0.159371 -0.06399,0.303054 -0.06396,0.143684 -0.183477,0.256276 z m -2.518651,-10.264407 -1.962692,4.586446 v 0.159327 q 0,0.237283 0.152541,0.389824 0.15254,0.15254 0.389823,0.15254 h 5.149147 l -0.718636,3.333048 2.945756,-2.94915 v -5.12967 q 0,-0.228801 -0.152541,-0.385593 -0.15254,-0.156772 -0.389824,-0.156772 z M 2.8135578,11.722042 V 6.6008558 12.264407 Z m 18.3728802,0.555916 v 5.12967 -5.672035 z"/>
+</vector>

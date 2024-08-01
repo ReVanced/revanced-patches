@@ -1,0 +1,30 @@
+<!--
+   https://github.com/google/material-design-icons/blob/9beae745bb758f3ad56654fb377ea5cf62be4915/symbols/android/volume_off/materialsymbolsoutlined/volume_off_wght300_24px.xml
+   The icon has been resized
+
+
+Copyright 2022 Google
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:tint="#000000"
+        android:width="24dp"
+        android:height="24dp"
+        android:viewportWidth="24"
+        android:viewportHeight="24">
+    <path
+            android:fillColor="@android:color/white"
+            android:pathData="M 1.3652344 0 L 0 1.3652344 L 6.0546875 7.4179688 L 5.3359375 8.1367188 L 0 8.1367188 L 0 15.326172 L 5.3359375 15.326172 L 11.501953 21.492188 L 11.501953 12.867188 L 18.115234 19.480469 C 17.187378 20.219468 16.127746 20.783449 14.931641 21.164062 L 14.931641 23.392578 C 16.718114 22.913978 18.280985 22.111217 19.625 20.990234 L 22.634766 24 L 24 22.634766 L 1.3652344 0 z M 14.931641 0 L 14.931641 2.2285156 C 17.005369 2.8883985 18.67609 4.0858861 19.943359 5.8222656 C 21.210655 7.5586214 21.84375 9.5165598 21.84375 11.695312 C 21.84375 13.233865 21.521966 14.660986 20.888672 15.978516 L 22.478516 17.568359 C 23.487911 15.792744 24 13.836404 24 11.695312 C 24 8.928565 23.157439 6.467159 21.472656 4.3105469 C 19.787875 2.1539106 17.608115 0.71703359 14.931641 0 z M 11.501953 1.9707031 L 9.1914062 4.28125 L 11.501953 6.5917969 L 11.501953 1.9707031 z M 14.931641 6.40625 L 14.931641 10.021484 L 17.851562 12.941406 C 17.928942 12.549171 17.972656 12.14709 17.972656 11.732422 C 17.972656 10.624629 17.708722 9.590407 17.179688 8.6328125 C 16.650675 7.6752422 15.901216 6.9334278 14.931641 6.40625 z M 7.5917969 8.9570312 L 9.3457031 10.710938 L 9.3457031 16.261719 L 6.2539062 13.169922 L 2.15625 13.169922 L 2.15625 10.294922 L 6.2539062 10.294922 L 7.5917969 8.9570312 z"/>
+</vector>

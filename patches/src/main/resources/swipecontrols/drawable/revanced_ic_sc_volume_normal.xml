@@ -1,0 +1,30 @@
+<!--
+   https://github.com/google/material-design-icons/blob/9beae745bb758f3ad56654fb377ea5cf62be4915/symbols/android/volume_up/materialsymbolsoutlined/volume_up_wght300_24px.xml
+   The icon has been resized
+
+
+Copyright 2022 Google
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:tint="#000000"
+        android:width="24dp"
+        android:height="24dp"
+        android:viewportWidth="24"
+        android:viewportHeight="24">
+    <path
+            android:fillColor="@android:color/white"
+            android:pathData="m 14.930914,23.39174 v -2.22855 q 3.110602,-0.989852 5.011514,-3.594493 1.900948,-2.604606 1.900948,-5.872827 0,-3.2682212 -1.900948,-5.8728269 Q 18.041516,3.2184014 14.930914,2.2285499 V 0 Q 18.945639,1.0755802 21.47282,4.3106241 24,7.5456321 24,11.69587 q 0,4.150238 -2.52718,7.385246 -2.527181,3.235044 -6.541906,4.310624 z M 0,15.326272 V 8.1373576 H 5.3363847 L 11.502271,1.9715077 V 21.492122 l -6.1658863,-6.16585 z m 14.930914,1.659003 V 6.4064653 q 1.454368,0.7907885 2.247888,2.2271839 0.793556,1.4364318 0.793556,3.0981658 0,1.639628 -0.800457,3.051149 -0.800458,1.411522 -2.240987,2.202311 z M 9.3456105,7.2027534 6.2543463,10.294018 H 2.1566241 v 2.875594 h 4.0977222 l 3.0912642,3.091264 z M 5.7511173,11.731815 Z"/>
+</vector>

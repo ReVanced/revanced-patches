@@ -1,0 +1,30 @@
+<!--
+   https://github.com/google/material-design-icons/blob/9beae745bb758f3ad56654fb377ea5cf62be4915/symbols/android/adjust/materialsymbolsoutlined/adjust_wght200gradN25_24px.xml
+   The icon has been resized
+
+
+Copyright 2022 Google
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:tint="#FFFFFF"
+        android:width="24dp"
+        android:height="24dp"
+        android:viewportWidth="24"
+        android:viewportHeight="24">
+    <path
+            android:fillColor="@android:color/white"
+            android:pathData="m 12,14.156532 q 0.913052,0 1.534792,-0.62174 0.62174,-0.62174 0.62174,-1.534792 0,-0.913052 -0.62174,-1.534792 Q 12.913052,9.843468 12,9.843468 q -0.913052,0 -1.534792,0.62174 -0.62174,0.62174 -0.62174,1.534792 0,0.913052 0.62174,1.534792 0.62174,0.62174 1.534792,0.62174 z M 12.0052,22 Q 9.930936,22 8.1033049,21.211917 6.2756454,20.423835 4.9237012,19.072851 3.5717572,17.721839 2.7858786,15.899494 2,14.077147 2,12.005172 2,9.930908 2.788083,8.1032766 3.576166,6.2756454 4.9271491,4.9237012 6.2781605,3.5717572 8.100507,2.7858786 9.922853,2 11.994828,2 q 2.074264,0 3.901896,0.788083 1.827631,0.788083 3.179575,2.1390661 1.351944,1.3510114 2.137823,3.1733579 Q 22,9.922853 22,11.994828 q 0,2.074264 -0.788083,3.901896 -0.788082,1.827631 -2.139066,3.179575 -1.351012,1.351944 -3.173357,2.137823 Q 14.077147,22 12.005172,22 Z m -0.0059,-1.043476 q 3.738745,0 6.347988,-2.608508 2.609242,-2.608536 2.609242,-6.347309 0,-3.7387455 -2.608508,-6.347988 -2.608536,-2.6092425 -6.347309,-2.6092425 -3.7387453,0 -6.3479878,2.6085077 -2.6092425,2.6085359 -2.6092425,6.3473088 0,3.738746 2.6085077,6.347988 2.608536,2.609243 6.3473096,2.609243 z M 12,12 Z"/>
+</vector>

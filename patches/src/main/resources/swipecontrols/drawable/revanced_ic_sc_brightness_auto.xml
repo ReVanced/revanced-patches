@@ -1,0 +1,30 @@
+<!--
+   https://github.com/google/material-design-icons/blob/9beae745bb758f3ad56654fb377ea5cf62be4915/symbols/android/brightness_auto/materialsymbolsoutlined/brightness_auto_wght300_24px.xml
+   The icon has been resized
+
+
+Copyright 2022 Google
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:tint="#000000"
+        android:width="24dp"
+        android:height="24dp"
+        android:viewportWidth="24"
+        android:viewportHeight="24">
+    <path
+            android:fillColor="@android:color/white"
+            android:pathData="m 7.4662814,16.525036 h 1.4401493 l 1.0355546,-2.77594 h 4.1725927 l 1.035554,2.77594 h 1.427112 L 12.643941,6.3437048 H 11.377836 Z M 10.36403,12.561274 11.943437,8.166757 h 0.113126 l 1.601184,4.394517 z M 12,24 8.4496001,20.484415 H 3.5155855 V 15.5504 L 0,12 3.5155855,8.4496001 V 3.5155855 H 8.4496001 L 12,0 15.5504,3.5155855 h 4.934015 V 8.4496001 L 24,12 20.484415,15.5504 v 4.934015 H 15.5504 Z m 0,-2.384298 2.828148,-2.828148 h 3.959406 V 14.828148 L 21.615702,12 18.787554,9.1718524 V 5.2124457 H 14.828148 L 12,2.3842981 9.1718524,5.2124457 H 5.2124457 V 9.1718524 L 2.3842981,12 5.2124457,14.828148 v 3.959406 H 9.1718524 Z M 12,12 Z"/>
+</vector>
