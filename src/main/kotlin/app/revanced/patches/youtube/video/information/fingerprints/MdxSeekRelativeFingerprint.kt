@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object `MdxSeekRelativeFingerprint` : MethodFingerprint(
+internal object MdxSeekRelativeFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "Z",
     parameters = listOf("J", "L"),
