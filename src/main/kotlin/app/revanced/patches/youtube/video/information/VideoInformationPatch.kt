@@ -50,7 +50,8 @@ object VideoInformationPatch : BytecodePatch(
     private const val INTEGRATIONS_PLAYER_INTERFACE = "Lapp/revanced/integrations/youtube/patches/VideoInformation${'$'}PlaybackController;"
 
     private lateinit var playerInitMethod: MutableMethod
-    private var playerInitInsertIndex = 4
+    private var playerInitInsertIndex = -1
+    private var playerInitInsertRegister = -1
 
     private lateinit var mdxInitMethod: MutableMethod
     private var mdxInitInsertIndex = -1
@@ -73,6 +74,13 @@ object VideoInformationPatch : BytecodePatch(
         with(PlayerInitFingerprint.resultOrThrow()) {
             playerInitMethod = mutableClass.methods.first { MethodUtil.isConstructor(it) }
 
+            // find the location of the first invoke-direct call and extract the register storing the 'this' object reference.
+            val initThisIndex = playerInitMethod.indexOfFirstInstructionOrThrow {
+                opcode == Opcode.INVOKE_DIRECT && getReference<MethodReference>()?.name == "<init>"
+            }
+            playerInitInsertRegister = playerInitMethod.getInstruction<FiveRegisterInstruction>(initThisIndex).registerC
+            playerInitInsertIndex = initThisIndex + 1
+
             // hook the player controller for use through integrations
             onCreateHook(INTEGRATIONS_CLASS_DESCRIPTOR, "initialize")
 
@@ -88,7 +96,6 @@ object VideoInformationPatch : BytecodePatch(
         with(MdxPlayerDirectorSetVideoStageFingerprint.resultOrThrow()) {
             mdxInitMethod = mutableClass.methods.first { MethodUtil.isConstructor(it) }
 
-            // find the location of the first invoke-direct call and extract the register storing the 'this' object reference
             val initThisIndex = mdxInitMethod.indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_DIRECT && getReference<MethodReference>()?.name == "<init>"
             }
@@ -227,7 +234,7 @@ object VideoInformationPatch : BytecodePatch(
     internal fun onCreateHook(targetMethodClass: String, targetMethodName: String) =
         playerInitMethod.insert(
             playerInitInsertIndex++,
-            "v0",
+            "v$playerInitInsertRegister",
             "$targetMethodClass->$targetMethodName($INTEGRATIONS_PLAYER_INTERFACE)V"
         )
 
