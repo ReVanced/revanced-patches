@@ -20,12 +20,7 @@ jobs:
       - name: Open pull request
         uses: repo-sync/pull-request@v2
         with:
-          destination_branch: "main"
-          pr_title: "chore: ${{ env.MESSAGE }}"
-          pr_body: |
-            This pull request will ${{ env.MESSAGE }}.
-
-            ## Dependencies before merge
-
-            - [ ] https://github.com/revanced/revanced-integrations
+          destination_branch: 'main'
+          pr_title: 'chore: ${{ env.MESSAGE }}'
+          pr_body: 'This pull request will ${{ env.MESSAGE }}.'
           pr_draft: true
