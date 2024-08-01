@@ -1,3 +1,10 @@
+# [4.12.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v4.12.0-dev.13...v4.12.0-dev.14) (2024-08-01)
+
+
+### Features
+
+* **YouTube - Description components:** Add `Hide 'Key concepts' section` option ([#3495](https://github.com/ReVanced/revanced-patches/issues/3495)) ([d75b645](https://github.com/ReVanced/revanced-patches/commit/d75b64595a7ac26faca4c0ae21923b22f6783975))
+
 # [4.12.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v4.12.0-dev.12...v4.12.0-dev.13) (2024-07-31)
 
 
