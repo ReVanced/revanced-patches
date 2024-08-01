@@ -184,8 +184,11 @@ object VideoInformationPatch : BytecodePatch(
             seekToRelativeMethod to "seekToRelative"
         ).forEach { (method, name) ->
             // Add interface method.
-            val generatedMethod = ImmutableMethod(
-                method.definingClass,
+            // Get enum type for the seek helper method.
+            val seekSourceEnumType = method.parameterTypes[1].toString()
+
+            val interfaceImplementation = ImmutableMethod(
+                targetClass.type,
                 name,
                 listOf(ImmutableMethodParameter("J", null, "time")),
                 "Z",
@@ -194,11 +197,8 @@ object VideoInformationPatch : BytecodePatch(
                 MutableMethodImplementation(4)
             ).toMutable()
 
-            // Get enum type for the seek helper method.
-            val seekSourceEnumType = method.parameterTypes[1].toString()
-
             // Insert helper method instructions.
-            generatedMethod.addInstructions(
+            interfaceImplementation.addInstructions(
                 0,
                 """
                     # first enum (field a) is SEEK_SOURCE_UNKNOWN
@@ -209,7 +209,7 @@ object VideoInformationPatch : BytecodePatch(
                 """
             )
 
-            targetClass.methods.add(generatedMethod)
+            targetClass.methods.add(interfaceImplementation)
         }
     }
 
