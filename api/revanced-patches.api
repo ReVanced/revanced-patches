@@ -2098,6 +2098,7 @@ public final class app/revanced/patches/yuka/misc/unlockpremium/UnlockPremiumPat
 }
 
 public final class app/revanced/util/BytecodeUtilsKt {
+	public static final fun alsoResolve (Lapp/revanced/patcher/fingerprint/MethodFingerprint;Lapp/revanced/patcher/data/BytecodeContext;Lapp/revanced/patcher/fingerprint/MethodFingerprint;)Lapp/revanced/patcher/fingerprint/MethodFingerprintResult;
 	public static final fun containsWideLiteralInstructionValue (Lcom/android/tools/smali/dexlib2/iface/Method;J)Z
 	public static final fun findMutableMethodOf (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableClass;Lcom/android/tools/smali/dexlib2/iface/Method;)Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
 	public static final fun findOpcodeIndicesReversed (Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/Opcode;)Ljava/util/List;

@@ -14,6 +14,7 @@ import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.video.information.fingerprints.*
 import app.revanced.patches.youtube.video.playerresponse.PlayerResponseMethodHookPatch
 import app.revanced.patches.youtube.video.videoid.VideoIdPatch
+import app.revanced.util.alsoResolve
 import app.revanced.util.exception
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -75,14 +76,12 @@ object VideoInformationPatch : BytecodePatch(
             // hook the player controller for use through integrations
             onCreateHook(INTEGRATIONS_CLASS_DESCRIPTOR, "initialize")
 
-            // seek method
             val seekFingerprintResultMethod =
-                SeekFingerprint.also { it.resolve(context, classDef) }.resultOrThrow().method
-
+                SeekFingerprint.alsoResolve(context, PlayerInitFingerprint).method
             val seekRelativeFingerprintResultMethod =
-                SeekRelativeFingerprint.also { it.resolve(context, classDef) }.resultOrThrow().method
+                SeekRelativeFingerprint.alsoResolve(context, PlayerInitFingerprint).method
 
-            // create helper method
+            // Create integrations interface methods.
             generateSeekMethodHelper(mutableClass, seekFingerprintResultMethod, seekRelativeFingerprintResultMethod)
         }
 
@@ -99,14 +98,11 @@ object VideoInformationPatch : BytecodePatch(
             // hook the MDX director for use through integrations
             onCreateHookMdx(INTEGRATIONS_CLASS_DESCRIPTOR, "initializeMdx")
 
-            // MDX seek method
             val mdxSeekFingerprintResultMethod =
-                MdxSeekFingerprint.apply { resolve(context, classDef) }.resultOrThrow().method
-
+                MdxSeekFingerprint.alsoResolve(context, MdxPlayerDirectorSetVideoStageFingerprint).method
             val mdxSeekRelativeFingerprintResultMethod =
-                MdxSeekRelativeFingerprint.also { it.resolve(context, classDef) }.resultOrThrow().method
+                MdxSeekRelativeFingerprint.alsoResolve(context, MdxPlayerDirectorSetVideoStageFingerprint).method
 
-            // create helper method
             generateSeekMethodHelper(mutableClass, mdxSeekFingerprintResultMethod, mdxSeekRelativeFingerprintResultMethod)
         }
 
