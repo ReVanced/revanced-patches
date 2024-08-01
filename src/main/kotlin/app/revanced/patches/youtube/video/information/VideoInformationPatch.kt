@@ -201,11 +201,12 @@ object VideoInformationPatch : BytecodePatch(
             generatedMethod.addInstructions(
                 0,
                 """
-                sget-object v0, $seekSourceEnumType->a:$seekSourceEnumType
-                invoke-virtual { p0, p1, p2, v0 }, $method
-                move-result p1
-                return p1
-            """
+                    # first enum (field a) is SEEK_SOURCE_UNKNOWN
+                    sget-object v0, $seekSourceEnumType->a:$seekSourceEnumType
+                    invoke-virtual { p0, p1, p2, v0 }, $method
+                    move-result p1
+                    return p1
+                """
             )
 
             targetClass.methods.add(generatedMethod)
