@@ -250,5 +250,8 @@ fun List<MethodFingerprint>.returnEarly(bool: Boolean = false) = forEach { finge
     fingerprint.returnEarly(bool)
 }
 
-fun MethodFingerprint.alsoResolve(context: BytecodeContext, fingerprint: MethodFingerprint) =
-    also { resolve(context, fingerprint.resultOrThrow().classDef) }.resultOrThrow()
+/**
+ * Resolves this fingerprint using the classDef of a parent fingerprint.
+ */
+fun MethodFingerprint.alsoResolve(context: BytecodeContext, parentFingerprint: MethodFingerprint) =
+    also { resolve(context, parentFingerprint.resultOrThrow().classDef) }.resultOrThrow()

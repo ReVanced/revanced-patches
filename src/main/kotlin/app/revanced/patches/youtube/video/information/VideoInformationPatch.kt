@@ -81,7 +81,7 @@ object VideoInformationPatch : BytecodePatch(
             playerInitInsertRegister = playerInitMethod.getInstruction<FiveRegisterInstruction>(initThisIndex).registerC
             playerInitInsertIndex = initThisIndex + 1
 
-            // hook the player controller for use through integrations
+            // Hook the player controller for use through integrations.
             onCreateHook(INTEGRATIONS_CLASS_DESCRIPTOR, "initialize")
 
             val seekFingerprintResultMethod =
@@ -90,7 +90,7 @@ object VideoInformationPatch : BytecodePatch(
                 SeekRelativeFingerprint.alsoResolve(context, PlayerInitFingerprint).method
 
             // Create integrations interface methods.
-            generateSeekMethodHelper(mutableClass, seekFingerprintResultMethod, seekRelativeFingerprintResultMethod)
+            addSeekInterfaceMethods(mutableClass, seekFingerprintResultMethod, seekRelativeFingerprintResultMethod)
         }
 
         with(MdxPlayerDirectorSetVideoStageFingerprint.resultOrThrow()) {
@@ -102,7 +102,7 @@ object VideoInformationPatch : BytecodePatch(
             mdxInitInsertRegister = mdxInitMethod.getInstruction<FiveRegisterInstruction>(initThisIndex).registerC
             mdxInitInsertIndex = initThisIndex + 1
 
-            // hook the MDX director for use through integrations
+            // Hook the MDX director for use through integrations.
             onCreateHookMdx(INTEGRATIONS_CLASS_DESCRIPTOR, "initializeMdx")
 
             val mdxSeekFingerprintResultMethod =
@@ -110,7 +110,7 @@ object VideoInformationPatch : BytecodePatch(
             val mdxSeekRelativeFingerprintResultMethod =
                 MdxSeekRelativeFingerprint.alsoResolve(context, MdxPlayerDirectorSetVideoStageFingerprint).method
 
-            generateSeekMethodHelper(mutableClass, mdxSeekFingerprintResultMethod, mdxSeekRelativeFingerprintResultMethod)
+            addSeekInterfaceMethods(mutableClass, mdxSeekFingerprintResultMethod, mdxSeekRelativeFingerprintResultMethod)
         }
 
         with(CreateVideoPlayerSeekbarFingerprint.result!!) {
@@ -178,7 +178,7 @@ object VideoInformationPatch : BytecodePatch(
         userSelectedPlaybackSpeedHook(INTEGRATIONS_CLASS_DESCRIPTOR, "userSelectedPlaybackSpeed")
     }
 
-    private fun generateSeekMethodHelper(targetClass: MutableClass, seekToMethod: Method, seekToRelativeMethod: Method) {
+    private fun addSeekInterfaceMethods(targetClass: MutableClass, seekToMethod: Method, seekToRelativeMethod: Method) {
         // Add the interface and methods that integrations calls.
         targetClass.interfaces.add(INTEGRATIONS_PLAYER_INTERFACE)
 
