@@ -211,6 +211,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">隐藏信息卡片部分</string>
   <string name="revanced_hide_info_cards_section_summary_on">信息卡片段已隐藏</string>
   <string name="revanced_hide_info_cards_section_summary_off">信息卡片段已显示</string>
+  <string name="revanced_hide_key_concepts_section_title">隐藏“关键概念”部分</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">“关键概念”部分已隐藏</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">\'密钥概念\'部分已显示</string>
   <string name="revanced_hide_transcript_section_title">隐藏字幕部分</string>
   <string name="revanced_hide_transcript_section_summary_on">字幕部分已隐藏</string>
   <string name="revanced_hide_transcript_section_summary_off">显示字幕部分</string>

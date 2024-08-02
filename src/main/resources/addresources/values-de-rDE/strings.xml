@@ -214,6 +214,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">Info-Kartenbereich ausblenden</string>
   <string name="revanced_hide_info_cards_section_summary_on">Info-Kartenbereich ist ausgeblendet</string>
   <string name="revanced_hide_info_cards_section_summary_off">Info-Kartenbereich wird angezeigt</string>
+  <string name="revanced_hide_key_concepts_section_title">\'Schlüsselbegriffe\' ausblenden</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">\'Schlüsselbegriffe\' Abschnitt ist versteckt</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">Abschnitt \'Schlüsselkonzepte\' wird angezeigt</string>
   <string name="revanced_hide_transcript_section_title">Transkript-Abschnitt ausblenden</string>
   <string name="revanced_hide_transcript_section_summary_on">Transkript-Abschnitt ist ausgeblendet</string>
   <string name="revanced_hide_transcript_section_summary_off">Sektion Transkripte wird angezeigt</string>

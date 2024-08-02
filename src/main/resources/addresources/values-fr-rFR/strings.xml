@@ -213,6 +213,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">Masquer les cartes d\'information</string>
   <string name="revanced_hide_info_cards_section_summary_on">Les cartes d\'information sont masquées</string>
   <string name="revanced_hide_info_cards_section_summary_off">Les cartes d\'information sont affichées</string>
+  <string name="revanced_hide_key_concepts_section_title">Masquer la section \"concepts clés\"</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">La section \"Concepts clé\" est masquée</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">La section \"Concepts clé\" est affichée</string>
   <string name="revanced_hide_transcript_section_title">Masquer la section de transcription</string>
   <string name="revanced_hide_transcript_section_summary_on">La section transcription est masquée</string>
   <string name="revanced_hide_transcript_section_summary_off">La section transcription est affichée</string>

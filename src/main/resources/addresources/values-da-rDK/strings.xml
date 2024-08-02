@@ -213,6 +213,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">Skjul infokort sektion</string>
   <string name="revanced_hide_info_cards_section_summary_on">Info-kort sektion er skjult</string>
   <string name="revanced_hide_info_cards_section_summary_off">Info-kort sektion er vist</string>
+  <string name="revanced_hide_key_concepts_section_title">Skjul sektion \'Nøglebegreber\'</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">\'Nøglebegreber\' sektion er skjult</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">\'Nøglebegreber\' afsnit vises</string>
   <string name="revanced_hide_transcript_section_title">Skjul udskriftsafsnittet</string>
   <string name="revanced_hide_transcript_section_summary_on">Afsnittet er skjult</string>
   <string name="revanced_hide_transcript_section_summary_off">Afsnittet er vist</string>
