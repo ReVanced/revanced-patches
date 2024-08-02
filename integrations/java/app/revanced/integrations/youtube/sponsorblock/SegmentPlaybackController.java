@@ -11,11 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 import app.revanced.integrations.shared.Logger;
 import app.revanced.integrations.shared.Utils;
@@ -182,7 +178,7 @@ public class SegmentPlaybackController {
      * Injection point.
      * Initializes SponsorBlock when the video player starts playing a new video.
      */
-    public static void initialize(Object ignoredPlayerController) {
+    public static void initialize(VideoInformation.PlaybackController ignoredPlayerController) {
         try {
             Utils.verifyOnMainThread();
             SponsorBlockSettings.initialize();
@@ -632,6 +628,7 @@ public class SegmentPlaybackController {
     /**
      * Injection point
      */
+    @SuppressWarnings("unused")
     public static void setSponsorBarRect(final Object self) {
         try {
             Field field = self.getClass().getDeclaredField("replaceMeWithsetSponsorBarRect");
@@ -663,6 +660,7 @@ public class SegmentPlaybackController {
     /**
      * Injection point
      */
+    @SuppressWarnings("unused")
     public static void setSponsorBarThickness(int thickness) {
         if (sponsorBarThickness != thickness) {
             Logger.printDebug(() -> "setSponsorBarThickness: " + thickness);
@@ -673,6 +671,7 @@ public class SegmentPlaybackController {
     /**
      * Injection point.
      */
+    @SuppressWarnings("unused")
     public static String appendTimeWithoutSegments(String totalTime) {
         try {
             if (Settings.SB_ENABLED.get() && Settings.SB_VIDEO_LENGTH_WITHOUT_SEGMENTS.get()
@@ -725,9 +724,9 @@ public class SegmentPlaybackController {
         final long minutes = (timeWithoutSegmentsValue / 60000) % 60;
         final long seconds = (timeWithoutSegmentsValue / 1000) % 60;
         if (hours > 0) {
-            timeWithoutSegments = String.format("\u2009(%d:%02d:%02d)", hours, minutes, seconds);
+            timeWithoutSegments = String.format(Locale.ENGLISH, "\u2009(%d:%02d:%02d)", hours, minutes, seconds);
         } else {
-            timeWithoutSegments = String.format("\u2009(%d:%02d)", minutes, seconds);
+            timeWithoutSegments = String.format(Locale.ENGLISH, "\u2009(%d:%02d)", minutes, seconds);
         }
     }
 
@@ -744,6 +743,7 @@ public class SegmentPlaybackController {
     /**
      * Injection point.
      */
+    @SuppressWarnings("unused")
     public static void drawSponsorTimeBars(final Canvas canvas, final float posY) {
         try {
             if (segments == null) return;

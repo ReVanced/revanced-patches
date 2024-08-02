@@ -13,7 +13,7 @@ public final class RememberPlaybackSpeedPatch {
     /**
      * Injection point.
      */
-    public static void newVideoStarted(Object ignoredPlayerController) {
+    public static void newVideoStarted(VideoInformation.PlaybackController ignoredPlayerController) {
         Logger.printDebug(() -> "newVideoStarted");
         VideoInformation.overridePlaybackSpeed(Settings.PLAYBACK_SPEED_DEFAULT.get());
     }
