@@ -212,6 +212,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">Ενότητα καρτών πληροφοριών</string>
   <string name="revanced_hide_info_cards_section_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_info_cards_section_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_key_concepts_section_title">Απόκρυψη ενότητας \'Έννοιες κλειδιού\'</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">\'Βασικές έννοιες\' ενότητα είναι κρυμμένη</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">\'Βασικές έννοιες\' ενότητα εμφανίζεται</string>
   <string name="revanced_hide_transcript_section_title">Ενότητα Απομαγνητοφώνησης</string>
   <string name="revanced_hide_transcript_section_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_transcript_section_summary_off">Εμφανίζεται</string>

@@ -213,6 +213,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">Ascunde secțiunea carduri de informații</string>
   <string name="revanced_hide_info_cards_section_summary_on">Secţiunea carduri de informaţii este ascunsă</string>
   <string name="revanced_hide_info_cards_section_summary_off">Secțiunea cartonașelor de informații este afișată</string>
+  <string name="revanced_hide_key_concepts_section_title">Ascunde secţiunea \"Concepte cheie\"</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">Secțiunea „Concepte cheie” este ascunsă</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">Secțiunea „Concepte cheie” este afișată</string>
   <string name="revanced_hide_transcript_section_title">Ascunde secțiunea de Transcriere</string>
   <string name="revanced_hide_transcript_section_summary_on">Secțiunea de transcriere este ascunsă</string>
   <string name="revanced_hide_transcript_section_summary_off">Secțiunea de Transcriere este afișată</string>
@@ -908,7 +911,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_color_reset">Resetare culoare</string>
   <string name="revanced_sb_color_invalid">Cod culoare nevalid</string>
   <string name="revanced_sb_reset_color">Resetare culoare</string>
-  <string name="revanced_sb_reset">Reset</string>
+  <string name="revanced_sb_reset">Resetează</string>
   <string name="revanced_sb_about">Despre</string>
   <string name="revanced_sb_about_api_sum">Datele sunt furnizate de API-ul SponsorBlock. Apasă aici pentru a afla mai multe și a vedea descărcările pentru alte platforme</string>
   </patch>

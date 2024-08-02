@@ -214,6 +214,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">Skrýt sekci informačních karet</string>
   <string name="revanced_hide_info_cards_section_summary_on">Sekce Info karty je skrytá</string>
   <string name="revanced_hide_info_cards_section_summary_off">Je zobrazena sekce Info karty</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">Sekce \'Klíčové pojmy\' je skryta</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">Zobrazí se sekce \'Klíčové pojmy\'</string>
   <string name="revanced_hide_transcript_section_title">Skrýt sekci přepisu</string>
   <string name="revanced_hide_transcript_section_summary_on">Přepsat oddíl je skrytý</string>
   <string name="revanced_hide_transcript_section_summary_off">Je zobrazena sekce přepisu</string>

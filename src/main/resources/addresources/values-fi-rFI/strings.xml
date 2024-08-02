@@ -213,6 +213,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">Piilota infokorttien osio</string>
   <string name="revanced_hide_info_cards_section_summary_on">Infokorttien osio on piilotettu</string>
   <string name="revanced_hide_info_cards_section_summary_off">Infokorttien osio näytetään</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">\'Keskeiset käsitteet\' -osio on piilotettu</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">\'Keskeiset käsitteet\' -osio näytetään</string>
   <string name="revanced_hide_transcript_section_title">Piilota Transkriptio-osio</string>
   <string name="revanced_hide_transcript_section_summary_on">Transkriptio-osio on piilotettu</string>
   <string name="revanced_hide_transcript_section_summary_off">Transkriptio-osio näytetään</string>
