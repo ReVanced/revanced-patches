@@ -1,3 +1,10 @@
+# [4.12.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v4.12.0-dev.14...v4.12.0-dev.15) (2024-08-02)
+
+
+### Bug Fixes
+
+* **YouTube - SponsorBlock:** Improve create segment manual seek accuracy ([#3491](https://github.com/ReVanced/revanced-patches/issues/3491)) ([1544981](https://github.com/ReVanced/revanced-patches/commit/15449819ff74b636fb2fa6aacd770142c51d2e5d))
+
 # [4.12.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v4.12.0-dev.13...v4.12.0-dev.14) (2024-08-01)
 
 
