@@ -16,6 +16,7 @@ import app.revanced.patches.youtube.misc.imageurlhook.fingerprints.cronet.reques
 import app.revanced.patches.youtube.misc.imageurlhook.fingerprints.cronet.request.callback.OnResponseStartedFingerprint
 import app.revanced.patches.youtube.misc.imageurlhook.fingerprints.cronet.request.callback.OnSucceededFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
+import app.revanced.util.alsoResolve
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -84,17 +85,14 @@ object CronetImageUrlHook : BytecodePatch(
     }
 
     override fun execute(context: BytecodeContext) {
-        fun MethodFingerprint.alsoResolve(fingerprint: MethodFingerprint) =
-            also { resolve(context, fingerprint.resultOrThrow().classDef) }.resultOrThrow()
-
         loadImageUrlMethod = MessageDigestImageUrlFingerprint
-            .alsoResolve(MessageDigestImageUrlParentFingerprint).mutableMethod
+            .alsoResolve(context, MessageDigestImageUrlParentFingerprint).mutableMethod
 
         loadImageSuccessCallbackMethod = OnSucceededFingerprint
-            .alsoResolve(OnResponseStartedFingerprint).mutableMethod
+            .alsoResolve(context, OnResponseStartedFingerprint).mutableMethod
 
         loadImageErrorCallbackMethod = OnFailureFingerprint
-            .alsoResolve(OnResponseStartedFingerprint).mutableMethod
+            .alsoResolve(context, OnResponseStartedFingerprint).mutableMethod
 
         // The URL is required for the failure callback hook, but the URL field is obfuscated.
         // Add a helper get method that returns the URL field.

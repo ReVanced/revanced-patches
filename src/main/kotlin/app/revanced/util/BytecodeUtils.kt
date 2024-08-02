@@ -249,3 +249,9 @@ fun Iterable<MethodFingerprint>.returnEarly(bool: Boolean = false) = forEach { f
 fun List<MethodFingerprint>.returnEarly(bool: Boolean = false) = forEach { fingerprint ->
     fingerprint.returnEarly(bool)
 }
+
+/**
+ * Resolves this fingerprint using the classDef of a parent fingerprint.
+ */
+fun MethodFingerprint.alsoResolve(context: BytecodeContext, parentFingerprint: MethodFingerprint) =
+    also { resolve(context, parentFingerprint.resultOrThrow().classDef) }.resultOrThrow()
