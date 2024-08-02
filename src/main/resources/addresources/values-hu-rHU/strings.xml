@@ -212,6 +212,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">Infó kártyák rész elrejtése</string>
   <string name="revanced_hide_info_cards_section_summary_on">Az infó kártyák rész el van rejtve</string>
   <string name="revanced_hide_info_cards_section_summary_off">Az infó kártyák rész látható</string>
+  <string name="revanced_hide_key_concepts_section_title">A „Kulcsfogalmak” szakasz elrejtése</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">A „Kulcsfogalmak” szakasz el van rejtve</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">Megjelenik a „Kulcsfogalmak” rész</string>
   <string name="revanced_hide_transcript_section_title">Az Átirat szakasz elrejtése</string>
   <string name="revanced_hide_transcript_section_summary_on">Az átirat rész el van rejtve</string>
   <string name="revanced_hide_transcript_section_summary_off">Az átirat rész megjelenik</string>

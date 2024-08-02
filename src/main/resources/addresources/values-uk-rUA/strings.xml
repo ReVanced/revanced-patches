@@ -211,6 +211,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">Приховати секцію інформаційних карток</string>
   <string name="revanced_hide_info_cards_section_summary_on">Секцію інформаційних карток приховано</string>
   <string name="revanced_hide_info_cards_section_summary_off">Секція інформаційних карток показується</string>
+  <string name="revanced_hide_key_concepts_section_title">Приховати секцію \"Основні поняття\"</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">Секцію \"Основні поняття\" приховано</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">Секція \"Основні поняття\" показується</string>
   <string name="revanced_hide_transcript_section_title">Приховати секцію \"Текст відео\"</string>
   <string name="revanced_hide_transcript_section_summary_on">Секцію \"Текст відео\" приховано</string>
   <string name="revanced_hide_transcript_section_summary_off">Секція \"Текст відео\" показується</string>
@@ -1006,7 +1009,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Оригінальні прев\'ю</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Стоп-кадри</string>
   <string name="revanced_alt_thumbnail_options_entry_4">Стоп-кадри</string>
-  <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow надає краудсорсингові мініатюри для відео з YouTube. Ці прев\'ю часто більш релевантні, ніж ті, що надаються YouTube\nЯкщо ввімкнено, серверу API надсилатимуться лише посилання на відео, і більше жодних інших даних. Якщо відео не має прев\'ю DeArrow, то відображаються оригінальні або стоп-кадри\n\nНатисніть тут, щоб дізнатися більше про DeArrow</string>
+  <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow надає краудсорсингові прев\'ю для відео YouTube. Ці прев\'ю часто більш релевантні, ніж ті, що надає YouTube\nЯкщо ввімкнено, серверу API надсилатимуться лише посилання на відео, і більше жодних інших даних. Якщо відео не має прев\'ю DeArrow, то відображаються оригінальні прев\'ю або стоп-кадри\n\nНатисніть тут, щоб дізнатися більше про DeArrow</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Показувати тост, якщо API не доступний</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Тост показується, якщо DeArrow не доступний</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Тост не показується, якщо DeArrow не доступний</string>
@@ -1015,7 +1018,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_alt_thumbnail_stills_about_title">Стоп-кадри з відео</string>
   <string name="revanced_alt_thumbnail_stills_about_summary">Кадри беруться з початку/середини/кінця кожного відео. Ці зображення вбудовані в YouTube і зовнішній API не використовується</string>
   <string name="revanced_alt_thumbnail_stills_fast_title">Використовувати неточні кадри</string>
-  <string name="revanced_alt_thumbnail_stills_fast_summary_on">Використовуються кадри середньої якості. Мініатюри завантажуватиметься швидше, але прямі трансляції, неопубліковані або дуже старі відео можуть зображатися порожніми мініатюрами</string>
+  <string name="revanced_alt_thumbnail_stills_fast_summary_on">Використовуються кадри середньої якості. Прев\'ю завантажуватимуться швидше, але прямі трансляції, неопубліковані або дуже старі відео можуть відображатися з порожніми прев\'ю</string>
   <string name="revanced_alt_thumbnail_stills_fast_summary_off">Використовуються кадри високої якості</string>
   <string name="revanced_alt_thumbnail_stills_time_title">Час відео з якого береться кадр</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_1">Початок відео</string>

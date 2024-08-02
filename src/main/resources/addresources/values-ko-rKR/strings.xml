@@ -172,9 +172,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_panels_title">정보 패널 숨기기</string>
   <string name="revanced_hide_info_panels_summary_on">정보 패널이 숨겨집니다</string>
   <string name="revanced_hide_info_panels_summary_off">정보 패널이 노출됩니다</string>
-  <string name="revanced_hide_medical_panels_title">의학 정보 패널 숨기기</string>
-  <string name="revanced_hide_medical_panels_summary_on">의학 정보 패널이 숨겨집니다</string>
-  <string name="revanced_hide_medical_panels_summary_off">의학 정보 패널이 노출됩니다</string>
+  <string name="revanced_hide_medical_panels_title">보건 정보 패널 숨기기</string>
+  <string name="revanced_hide_medical_panels_summary_on">보건 정보 패널이 숨겨집니다</string>
+  <string name="revanced_hide_medical_panels_summary_off">보건 정보 패널이 노출됩니다</string>
   <string name="revanced_hide_channel_bar_title">채널바 숨기기</string>
   <string name="revanced_hide_channel_bar_summary_on">채널바가 숨겨집니다</string>
   <string name="revanced_hide_channel_bar_summary_off">채널바가 노출됩니다</string>
@@ -214,6 +214,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">크리에이터 정보 카드 섹션 숨기기</string>
   <string name="revanced_hide_info_cards_section_summary_on">크리에이터 정보 카드 섹션이 숨겨집니다</string>
   <string name="revanced_hide_info_cards_section_summary_off">크리에이터 정보 카드 섹션이 노출됩니다</string>
+  <string name="revanced_hide_key_concepts_section_title">주요 개념 섹션 숨기기</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">주요 개념 섹션이 숨겨집니다</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">주요 개념 섹션이 노출됩니다</string>
   <string name="revanced_hide_transcript_section_title">스크립트 섹션 숨기기</string>
   <string name="revanced_hide_transcript_section_summary_on">스크립트 섹션이 숨겨집니다</string>
   <string name="revanced_hide_transcript_section_summary_off">스크립트 섹션이 노출됩니다</string>
@@ -300,10 +303,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_share_copy_url_success">URL을 클립보드에 복사하였습니다</string>
   <string name="revanced_share_copy_url_timestamp_success">타임스탬프를 표기한 URL을 클립보드에 복사하였습니다</string>
   <string name="revanced_copy_video_url_title">동영상 URL 복사 버튼 표시하기</string>
-  <string name="revanced_copy_video_url_summary_on">버튼을 표시합니다. \n버튼을 눌러서 동영상 URL을 복사할 수 있습니다. 길게 누르면 타임스탬프를 표기한 동영상 URL이 복사됩니다</string>
+  <string name="revanced_copy_video_url_summary_on">버튼을 표시합니다. 버튼을 눌러서 동영상 URL을 복사할 수 있습니다. 길게 누르면 타임스탬프를 표기한 동영상 URL이 복사됩니다</string>
   <string name="revanced_copy_video_url_summary_off">버튼을 표시하지 않습니다</string>
   <string name="revanced_copy_video_url_timestamp_title">타임스탬프를 표기한 URL 복사 버튼 표시하기</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">버튼을 표시합니다. \n버튼을 눌러서 타임스탬프를 표기한 동영상 URL을 복사할 수 있습니다. 길게 누르면 타임스탬프를 표기하지 않은 동영상 URL이 복사됩니다</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">버튼을 표시합니다. 버튼을 눌러서 타임스탬프를 표기한 동영상 URL을 복사할 수 있습니다. 길게 누르면 타임스탬프를 표기하지 않은 동영상 URL이 복사됩니다</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">버튼을 표시하지 않습니다</string>
   </patch>
   <patch id="interaction.dialog.RemoveViewerDiscretionDialogPatch">
@@ -993,7 +996,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_invalid">잘못된 재생바 색상 값이므로 기본값으로 초기화합니다</string>
   </patch>
   <patch id="layout.thumbnails.BypassImageRegionRestrictions">
-  <string name="revanced_bypass_image_region_restrictions_title">이미지 표시 국가 제한 우회하기</string>
+  <string name="revanced_bypass_image_region_restrictions_title">이미지 표시 제한 국가 우회하기</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">이미지 호스트로 yt4.ggpht.com를 사용합니다</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">기본 이미지 호스트를 사용합니다\n\n이 설정을 활성화하면 일부 국가에서 차단된 이미지를 수신할 수 있습니다 (채널 프로필 사진, 커뮤니티 게시물 이미지, etc.)</string>
   </patch>
@@ -1006,11 +1009,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_alt_thumbnail_library_title">나(보관함) 탭</string>
   <string name="revanced_alt_thumbnail_player_title">플레이어 구성요소: 재생목록, 관련 동영상, etc.</string>
   <string name="revanced_alt_thumbnail_search_title">검색 결과</string>
-  <string name="revanced_alt_thumbnail_options_entry_1">원본 썸네일</string>
-  <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; 원본 썸네일</string>
+  <string name="revanced_alt_thumbnail_options_entry_1">기본 썸네일</string>
+  <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; 기본 썸네일</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; 동영상 스틸 컷 썸네일</string>
   <string name="revanced_alt_thumbnail_options_entry_4">동영상 스틸 컷 썸네일</string>
-  <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow는 YouTube 동영상에 크라우드 소싱된 썸네일을 제공합니다. 이러한 썸네일은 YouTube에서 제공하는 썸네일보다 관련성이 높은 경우가 많습니다\n\n이 설정을 활성화하면 동영상 URL이 API 서버로 전송되며 다른 데이터는 전송되지 않습니다. 동영상에 DeArrow 썸네일이 없는 경우에는 원본 썸네일 또는 동영상 스틸 컷 썸네일을 표시합니다\n\nDeArrow에 대해 자세히 알아보려면 여기를 누르세요</string>
+  <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow는 YouTube 동영상에 크라우드 소싱된 썸네일을 제공합니다. 이러한 썸네일은 YouTube에서 제공하는 썸네일보다 관련성이 높은 경우가 많습니다\n\n이 설정을 활성화하면 동영상 URL이 API 서버로 전송되며 다른 데이터는 전송되지 않습니다. 동영상에 DeArrow 썸네일이 없는 경우에는 기본 썸네일 또는 동영상 스틸 컷 썸네일을 표시합니다\n\nDeArrow에 대해 자세히 알아보려면 여기를 누르세요</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">API를 사용할 수 없을 때, 팝업 메시지 표시하기</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">DeArrow를 사용할 수 없을 때, 팝업 메시지를 표시합니다</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">DeArrow를 사용할 수 없을 때, 팝업 메시지를 표시하지 않습니다</string>

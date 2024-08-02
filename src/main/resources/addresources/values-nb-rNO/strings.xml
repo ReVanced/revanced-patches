@@ -211,6 +211,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">Skjule seksjonen for informasjonskort</string>
   <string name="revanced_hide_info_cards_section_summary_on">Informasjonskort seksjonen er skjult</string>
   <string name="revanced_hide_info_cards_section_summary_off">Informasjonskort delen vises</string>
+  <string name="revanced_hide_key_concepts_section_title">Skjul seksjonen «Key concepts»</string>
   <string name="revanced_hide_transcript_section_title">Skjul transkripsjonsseksjonen</string>
   <string name="revanced_hide_transcript_section_summary_on">Transkripsjonsseksjonen er skjult</string>
   <string name="revanced_hide_transcript_section_summary_off">Transskripsjonsseksjonen vises</string>
@@ -896,7 +897,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_color_reset">Farge tilbakestilt</string>
   <string name="revanced_sb_color_invalid">Ugyldig fargekode</string>
   <string name="revanced_sb_reset_color">Tilbakestill farge</string>
-  <string name="revanced_sb_reset">Reset</string>
+  <string name="revanced_sb_reset">Tilbakestill</string>
   <string name="revanced_sb_about">Om</string>
   <string name="revanced_sb_about_api_sum">Data leveres av SponsorBlock API. Trykk her for å lære mer og se nedlastinger for andre plattformer</string>
   </patch>

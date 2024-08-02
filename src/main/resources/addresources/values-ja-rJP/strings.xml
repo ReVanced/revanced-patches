@@ -212,6 +212,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">情報カードセクションを隠す</string>
   <string name="revanced_hide_info_cards_section_summary_on">情報カードセクションは非表示です</string>
   <string name="revanced_hide_info_cards_section_summary_off">カード情報セクションが表示されます</string>
+  <string name="revanced_hide_key_concepts_section_title">「キーコンセプト」セクションを非表示</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">「キーコンセプト」セクションは非表示です</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">「キーコンセプト」セクションが表示されます</string>
   <string name="revanced_hide_transcript_section_title">トランスクリプトセクションを隠す</string>
   <string name="revanced_hide_transcript_section_summary_on">トランスクリプトセクションは非表示です</string>
   <string name="revanced_hide_transcript_section_summary_off">トランスクリプトセクションが表示されます</string>

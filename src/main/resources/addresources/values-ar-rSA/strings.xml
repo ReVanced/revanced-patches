@@ -211,6 +211,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">إخفاء قسم بطاقات المعلومات</string>
   <string name="revanced_hide_info_cards_section_summary_on">تم إخفاء قسم بطاقات المعلومات</string>
   <string name="revanced_hide_info_cards_section_summary_off">يتم عرض قسم بطاقات المعلومات</string>
+  <string name="revanced_hide_key_concepts_section_title">إخفاء قسم \'المفاهيم الأساسية\'</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">تم إخفاء قسم \'المفاهيم الأساسية\'</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">يتم عرض قسم \'المفاهيم الأساسية\'</string>
   <string name="revanced_hide_transcript_section_title">إخفاء قسم النص</string>
   <string name="revanced_hide_transcript_section_summary_on">تم إخفاء قسم النص</string>
   <string name="revanced_hide_transcript_section_summary_off">يتم عرض قسم النص</string>
@@ -1115,8 +1118,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">لا يتم محاكاة العميل\n\nقد لا يعمل تشغيل الفيديو</string>
   <string name="revanced_spoof_client_user_dialog_message">إيقاف تشغيل هذا الإعداد قد يسبب مشاكل في تشغيل الفيديو.</string>
   <string name="revanced_spoof_client_use_ios_title">Spoof Client to iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">العميل مرسل حالياً إلى iOS\n\nالآثار الجانبية تشمل:\n• لا يوجد HDR فيديو\n• قد تكون جودة فيديو أعلى مفقودة\n• لا يمكن تشغيل البث المباشر للصوت فقط</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">العميل معطوب حالياً إلى أندرويد VR\n\nالآثار الجانبية تشمل:\n• لا يوجد فيديو HDR\n• فيديوهات الأطفال لا يتم تشغيلهم\n• مقاطع الفيديو الموقوفة يمكن أن تستأنف عشوائياً\n• جودة منخفضة لصور مصغرة شريط البحث\n• زر التحميل مخفي\n• بطاقات إنهاء الشاشة مخفية</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">تتم حاليًا محاكاة العميل إلـى iOS\n\nالآثار الجانبية تشمل:\n• لا يوجد فيديو HDR\n• قد تكون جودة الفيديو الأعلى مفقودة\n• لا يمكن تشغيل البث المباشر كصوت فقط</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">تتم حاليًا محاكاة العميل إلـى Android VR\n\nالآثار الجانبية تشمل:\n• لا يوجد فيديو HDR\n• فيديوهات الأطفال لا يتم تشغيلهم\n• مقاطع الفيديو الموقوفة يمكن أن تستأنف عشوائياً\n• جودة منخفضة لمصغرات شريط التقدم\n• زر التنزيل مخفي\n• بطاقات نهاية الشاشة مخفية</string>
   <string name="revanced_spoof_client_storyboard_timeout">محاكاة مصغرات العميل غير متوفرة (انتهت مهلة API)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">محاكاة مصغرات العميل غير متوفرة مؤقتًا: %s</string>
   </patch>

@@ -145,9 +145,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_community_posts_title">İcma elanların gizlət</string>
   <string name="revanced_hide_community_posts_summary_on">İcma elanları gizlədilib</string>
   <string name="revanced_hide_community_posts_summary_off">İcma elanları göstərilir</string>
-  <string name="revanced_hide_compact_banner_title">Yığcam bannerləri gizlət</string>
-  <string name="revanced_hide_compact_banner_summary_on">Yığcam bannerlər gizlidir</string>
-  <string name="revanced_hide_compact_banner_summary_off">Yığcam bannerlər göstərilir</string>
+  <string name="revanced_hide_compact_banner_title">Yığcam etiketləri gizlət</string>
+  <string name="revanced_hide_compact_banner_summary_on">Yığcam etiketlər gizlidir</string>
+  <string name="revanced_hide_compact_banner_summary_off">Yığcam etiketlər göstərilir</string>
   <string name="revanced_hide_movies_section_title">Filmlər bölməsini gizlət</string>
   <string name="revanced_hide_movies_section_summary_on">Filmlər bölməsi gizlidir</string>
   <string name="revanced_hide_movies_section_summary_off">Filmlər bölməsi göstərilir</string>
@@ -184,7 +184,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_related_videos_title">Cəld fəaliyyətlərdə əlaqəli videoları gizlə</string>
   <string name="revanced_hide_related_videos_summary_on">Əlaqədar videolar gizlədilib</string>
   <string name="revanced_hide_related_videos_summary_off">Əlaqədar videolar göstərilir</string>
-  <string name="revanced_hide_image_shelf_title">Axtarış nəticələrindəki şəkil bölməsin gizlət</string>
+  <string name="revanced_hide_image_shelf_title">Axtarış nəticəsində şəkil bölməsin gizlə</string>
   <string name="revanced_hide_image_shelf_summary_on">Şəkil bölməsi gizlidir</string>
   <string name="revanced_hide_image_shelf_summary_off">Şəkil bölməsi göstərilir</string>
   <string name="revanced_hide_latest_posts_ads_title">Son elanları gizlət</string>
@@ -211,6 +211,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">Məlumat kartları bölməsini gizlət</string>
   <string name="revanced_hide_info_cards_section_summary_on">Məlumat kartları bölməsi gizlədilir</string>
   <string name="revanced_hide_info_cards_section_summary_off">Məlumat kartları bölməsi göstərilir</string>
+  <string name="revanced_hide_key_concepts_section_title">\"Əsas anlayışlar\" bölməsin gizlət</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">\"Əsas anlayışlar\" bölməsi gizlidir</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">\"Əsas anlayışlar\" bölməsi göstərilir</string>
   <string name="revanced_hide_transcript_section_title">Transkripsiya bölməsini gizlət</string>
   <string name="revanced_hide_transcript_section_summary_on">Transkripsiya bölməsi gizlidir</string>
   <string name="revanced_hide_transcript_section_summary_off">Transkripsiya bölməsi göstərilir</string>
@@ -264,21 +267,21 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_self_sponsor_ads_title">Öz-sponsorlu kartları gizlət</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Özünə sponsorluq edilən kartlar gizlidir</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Özünə sponsorluq edilən kartlar göstərilir</string>
-  <string name="revanced_hide_products_banner_title">Məhsullara baxma panelin gizlət</string>
-  <string name="revanced_hide_products_banner_summary_on">Panel gizlədilib</string>
-  <string name="revanced_hide_products_banner_summary_off">Panel göstərilir</string>
-  <string name="revanced_hide_shopping_links_title">Video açıqlamadakı alış-veriş linklərin gizlə</string>
+  <string name="revanced_hide_products_banner_title">Məhsullara baxma etiketin gizlət</string>
+  <string name="revanced_hide_products_banner_summary_on">Etiket gizlədilib</string>
+  <string name="revanced_hide_products_banner_summary_off">Etiket göstərilir</string>
+  <string name="revanced_hide_shopping_links_title">Video açıqlama alış-veriş linklər gizlə</string>
   <string name="revanced_hide_shopping_links_summary_on">Alış-veriş bağlantıları gizlədilir</string>
   <string name="revanced_hide_shopping_links_summary_off">Alış-veriş bağlantıları göstərilir</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Kanaldakı \"Mağazanı ziyarət et\" düyməsin gizlə</string>
+  <string name="revanced_hide_visit_store_button_title">Kanalda \"Mağaza ziyarət\" düymə gizlə</string>
   <string name="revanced_hide_visit_store_button_summary_on">Düymə gizlidir</string>
   <string name="revanced_hide_visit_store_button_summary_off">Düymə göstərilir</string>
   <string name="revanced_hide_web_search_results_title">Veb axtarış nəticələrini gizlət</string>
   <string name="revanced_hide_web_search_results_summary_on">Veb axtarış nəticələri gizlədilir</string>
   <string name="revanced_hide_web_search_results_summary_off">Veb axtarış nəticələri göstərilir</string>
-  <string name="revanced_hide_merchandise_banners_title">Məhsul bannerlərini gizlət</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">Məhsul bannerləri gizlədilir</string>
+  <string name="revanced_hide_merchandise_banners_title">Məhsul etiketlərini gizlət</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">Məhsul etiketləri gizlədilir</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Məhsul bannerləri göstərilir</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Tam ekran reklamları gizlətmə yalnız köhnə cihazlarda işləyir</string>
@@ -316,7 +319,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_external_downloader_summary_on">Yükləmə düyməsi oynadıcıda göstərilir</string>
   <string name="revanced_external_downloader_summary_off">Yükləmə düyməsi oynadıcıda göstərilmir</string>
   <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
-  <string name="revanced_external_downloader_action_button_title">Yükləmə fəaliyyəti düyməsini qəbul etmə</string>
+  <string name="revanced_external_downloader_action_button_title">Yükləmə fəaliyyət düyməsin qəbul etmə</string>
   <string name="revanced_external_downloader_action_button_summary_on">Yükləmə düyməsi, xarici yükləyicini açır</string>
   <string name="revanced_external_downloader_action_button_summary_off">Yükləmə düyməsi tətbiqdəki standart yükləyicini açır</string>
   <string name="revanced_external_downloader_name_title">Yükləyici paketi adı</string>
@@ -567,7 +570,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_rolling_number_animations_summary_off">Sürüşən say animasiyası açıqdır</string>
   </patch>
   <patch id="layout.hide.seekbar.HideSeekbarPatch">
-  <string name="revanced_hide_seekbar_title">Video oynadıcıda axtarış çubuğunu gizlət</string>
+  <string name="revanced_hide_seekbar_title">Video oynadıcıda axtarış çubuğun gizlə</string>
   <string name="revanced_hide_seekbar_summary_on">Video oynadıcı axtarış çubuğu gizlidir</string>
   <string name="revanced_hide_seekbar_summary_off">Video oynadıcı axtarış çubuğu göstərilir</string>
   <string name="revanced_hide_seekbar_thumbnail_title">Video miniatürlərdə vaxt çubuğun gizlə</string>
@@ -665,7 +668,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_timestamp_summary_off">Vaxt möhürü göstərilir</string>
   </patch>
   <patch id="layout.panels.popup.PlayerPopupPanelsPatch">
-  <string name="revanced_hide_player_popup_panels_title">Oynadıcı açılan pəncərə panellərini gizlət</string>
+  <string name="revanced_hide_player_popup_panels_title">Oynadıcı açılan pəncərə panellərin gizlə</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Oynadıcı açılan pəncərə panelləri gizlidir</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Oynadıcı açılan pəncərə panelləri göstərilir</string>
   </patch>
@@ -725,7 +728,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_wide_searchbar_summary_off">Geniş axtarış çubuğu qeyri-aktivdir</string>
   </patch>
   <patch id="layout.seekbar.RestoreOldSeekbarThumbnailsPatch">
-  <string name="revanced_restore_old_seekbar_thumbnails_title">Köhnə axtarış çubuğu miniatürlərini qaytar</string>
+  <string name="revanced_restore_old_seekbar_thumbnails_title">Köhnə axtarış çubuğu miniatürlərin al</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Axtarış çubuğu miniatürləri axtarış çubuğu üstündə görünəcək</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Axtarış çubuğu miniatürləri tam ekranda görünəcək</string>
   </patch>
@@ -788,7 +791,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_settings_export_failed">%s ixrac uğursuz</string>
   <string name="revanced_sb_settings_revanced_export_user_id_warning">Tənzimləmələr şəxsi SponsorBlock istifadəçi kimliyi ehtiva edir.\n\nİstifadəçi kimliyiniz parol kimidir və bu paylaşılmamalıdır.\n</string>
   <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">Təkrar göstərmə</string>
-  <string name="revanced_sb_diff_segments">Seqment davranışını dəyişdir</string>
+  <string name="revanced_sb_diff_segments">Bölüm davranışını dəyişdir</string>
   <string name="revanced_sb_segments_sponsor">Sponsor</string>
   <string name="revanced_sb_segments_sponsor_sum">Ödənişli tanıtım, ödənişli yönləndirmələr və birbaşa reklamlar. Öz-tanıtım və ya bəyəndikləri səbəblərə/yaradıcılara/veb saytlara/məhsullara ödənişsiz çağırışlar etmək üçün deyil</string>
   <string name="revanced_sb_segments_selfpromo">Ödənişsiz/Öz reklamı</string>
@@ -942,7 +945,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_start_page_entry_9">Trenddə olan</string>
   </patch>
   <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
-  <string name="revanced_disable_resuming_shorts_player_title">Shorts oynadıcı davam etdirməsini bağla</string>
+  <string name="revanced_disable_resuming_shorts_player_title">Shorts oynadıcı başladıcını bağla</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Tətbiq açılanda Shorts oynadıcı davam etməyəcək</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Tətbiq açılanda Shorts oynadıcı davam edəcək</string>
   </patch>

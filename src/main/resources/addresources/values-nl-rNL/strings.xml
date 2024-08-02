@@ -213,6 +213,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">Verberg info kaarten sectie</string>
   <string name="revanced_hide_info_cards_section_summary_on">Sectie informatiekaarten is verborgen</string>
   <string name="revanced_hide_info_cards_section_summary_off">Sectie informatiekaarten wordt weergegeven</string>
+  <string name="revanced_hide_key_concepts_section_title">Verberg \'Sleutelbegrippen\' sectie</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">\'Sleutelbegrippen\' sectie is verborgen</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">\'Sleutelbegrippen\' sectie wordt weergegeven</string>
   <string name="revanced_hide_transcript_section_title">Transcriptsectie verbergen</string>
   <string name="revanced_hide_transcript_section_summary_on">Transcriptsectie is verborgen</string>
   <string name="revanced_hide_transcript_section_summary_off">Transcriptsectie wordt weergegeven</string>
@@ -376,29 +379,30 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_like_dislike_button_summary_on">Leuk- en niet-leuk-knoppen zijn verborgen</string>
   <string name="revanced_hide_like_dislike_button_summary_off">Leuk- en niet-leuk-knoppen worden weergegeven</string>
   <!-- 'Share' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_share_button_title">Verberg deel</string>
-  <string name="revanced_hide_share_button_summary_on">Share knop is verborgen</string>
-  <string name="revanced_hide_share_button_summary_off">Share knop wordt weergegeven</string>
+  <string name="revanced_hide_share_button_title">Verberg delen</string>
+  <string name="revanced_hide_share_button_summary_on">Deel knop is verborgen</string>
+  <string name="revanced_hide_share_button_summary_off">Deel knop wordt weergegeven</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
-  <string name="revanced_hide_report_button_title">Rapport verbergen</string>
-  <string name="revanced_hide_report_button_summary_on">Rapportknop is verborgen</string>
-  <string name="revanced_hide_report_button_summary_off">Rapportknop wordt weergegeven</string>
+  <string name="revanced_hide_report_button_title">Melden verbergen</string>
+  <string name="revanced_hide_report_button_summary_on">Melden is verborgen</string>
+  <string name="revanced_hide_report_button_summary_off">Melden wordt weergegeven</string>
   <!-- 'Remix' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_remix_button_title">Verberg Remix</string>
   <string name="revanced_hide_remix_button_summary_on">Remix knop is verborgen</string>
   <string name="revanced_hide_remix_button_summary_off">Remix knop wordt weergegeven</string>
   <!-- 'Download' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_download_button_title">Download verbergen</string>
-  <string name="revanced_hide_download_button_summary_on">Download knop is verborgen</string>
-  <string name="revanced_hide_download_button_summary_off">Download knop wordt weergegeven</string>
+  <string name="revanced_hide_download_button_title">Downloaden verbergen</string>
+  <string name="revanced_hide_download_button_summary_on">Downloaden knop is verborgen</string>
+  <string name="revanced_hide_download_button_summary_off">Downloaden knop wordt weergegeven</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Bedankt verbergen</string>
   <string name="revanced_hide_thanks_button_summary_on">Bedankt knop is verborgen</string>
   <string name="revanced_hide_thanks_button_summary_off">Bedankt knop wordt weergegeven</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_clip_button_summary_on">Clip knop is verborgen</string>
-  <string name="revanced_hide_clip_button_summary_off">Clip knop wordt weergegeven</string>
+  <string name="revanced_hide_clip_button_title">Fragment verbergen</string>
+  <string name="revanced_hide_clip_button_summary_on">Fragment knop is verborgen</string>
+  <string name="revanced_hide_clip_button_summary_off">Fragment knop wordt weergegeven</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_playlist_button_title">Verberg opslaan in afspeellijst</string>
   <string name="revanced_hide_playlist_button_summary_on">Opslaan naar afspeellijst knop is verborgen</string>
@@ -631,8 +635,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_remix_button_summary_off">Remix knop wordt weergegeven</string>
   <!-- 'share' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_share_button_title">Verberg share knop</string>
-  <string name="revanced_hide_shorts_share_button_summary_on">Share knop is verborgen</string>
-  <string name="revanced_hide_shorts_share_button_summary_off">Share knop wordt weergegeven</string>
+  <string name="revanced_hide_shorts_share_button_summary_on">Deel knop is verborgen</string>
+  <string name="revanced_hide_shorts_share_button_summary_off">Deel knop wordt weergegeven</string>
   <string name="revanced_hide_shorts_info_panel_title">Verberg informatiepaneel</string>
   <string name="revanced_hide_shorts_info_panel_summary_on">Info paneel is verborgen</string>
   <string name="revanced_hide_shorts_info_panel_summary_off">Info paneel wordt weergegeven</string>

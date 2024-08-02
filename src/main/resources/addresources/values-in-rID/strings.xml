@@ -864,6 +864,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">Pilih kategori segmen</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategori dinonaktifkan di pengaturan. Aktifkan untuk kirim.</string>
   <string name="revanced_sb_new_segment_title">Segmen SponsorBlock Baru</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">Tetapkan %s sebagai awal atau akhir segmen baru?</string>
   <string name="revanced_sb_new_segment_mark_start">awal</string>
   <string name="revanced_sb_new_segment_mark_end">akhir</string>
   <string name="revanced_sb_new_segment_now">sekarang</string>
@@ -919,15 +920,29 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_title">Target versi app yang dipalsukan</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_entry_1">18.33.40 - Kembalikan RYD pada mode incognito Shorts</string>
+  <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - Pulihkan menu kecepatan &amp; kualitas video lebar</string>
+  <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - Pulihkan tab perpustakaan</string>
+  <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Pulihkan rak daftar putar lama</string>
+  <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - Mengembalikan tata letak UI lama</string>
   </patch>
   <patch id="layout.startpage.ChangeStartPagePatch">
+  <string name="revanced_start_page_title">Tetapkan halaman awal</string>
   <string name="revanced_start_page_entry_0">Bawaan</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
+  <string name="revanced_start_page_entry_1">Beranda</string>
+  <string name="revanced_start_page_entry_2">Pencarian</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the subscriptions tab. -->
+  <string name="revanced_start_page_entry_3">Langganan</string>
+  <string name="revanced_start_page_entry_4">Jelajahi</string>
   <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
+  <string name="revanced_start_page_entry_6">Tab Anda</string>
+  <string name="revanced_start_page_entry_7">Video yang disukai</string>
   <!-- 'History' should be translated using the same localized wording YouTube displays for the 'history' section in the 'You' tab. -->
+  <string name="revanced_start_page_entry_8">Riwayat</string>
+  <string name="revanced_start_page_entry_9">Sedang tren</string>
   </patch>
   <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
+  <string name="revanced_disable_resuming_shorts_player_title">Matikan melanjutkan pemutar video Shorts</string>
   </patch>
   <patch id="layout.tablet.EnableTabletLayoutPatch">
   </patch>

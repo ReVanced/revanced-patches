@@ -211,6 +211,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">Nascondi sezione schede info</string>
   <string name="revanced_hide_info_cards_section_summary_on">La sezione delle schede informative è nascosta</string>
   <string name="revanced_hide_info_cards_section_summary_off">La sezione delle schede informative è mostrata</string>
+  <string name="revanced_hide_key_concepts_section_title">Nascondi sezione \'Concetti chiave\'</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">La sezione \'Concetti chiave\' è nascosta</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">La sezione \'Concetti chiave\' è mostrata</string>
   <string name="revanced_hide_transcript_section_title">Nascondi sezione Trascrizione</string>
   <string name="revanced_hide_transcript_section_summary_on">La sezione della trascrizione è nascosta</string>
   <string name="revanced_hide_transcript_section_summary_off">La sezione della trascrizione è mostrata</string>
