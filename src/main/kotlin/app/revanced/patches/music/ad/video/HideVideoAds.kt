@@ -6,11 +6,11 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.music.ad.video.fingerprints.ShowMultimediaAdsParentFingerprint
+import app.revanced.patches.music.ad.video.fingerprints.ShowVideoAdsParentFingerprint
 import app.revanced.util.exception
 
 @Patch(
-    name = "Hide multimedia ads",
+    name = "Hide video ads",
     description = "Hides ads that appear while listening to or streaming music videos, podcasts, or songs.",
     compatiblePackages = [
         CompatiblePackage(
@@ -26,23 +26,23 @@ import app.revanced.util.exception
     ],
 )
 @Suppress("unused")
-object HideMultimediaAds : BytecodePatch(
-    setOf(ShowMultimediaAdsParentFingerprint),
+object HideVideoAds : BytecodePatch(
+    setOf(ShowVideoAdsParentFingerprint),
 ) {
     override fun execute(context: BytecodeContext) {
-        ShowMultimediaAdsParentFingerprint.result?.let {
-            val showMultimediaAdsMethod = context
+        ShowVideoAdsParentFingerprint.result?.let {
+            val showVideoAdsMethod = context
                 .toMethodWalker(it.mutableMethod)
                 .nextMethod(it.scanResult.patternScanResult!!.startIndex + 1, true).getMethod() as MutableMethod
 
-            showMultimediaAdsMethod.addInstruction(0, "const/4 p1, 0x0")
-        } ?: throw ShowMultimediaAdsParentFingerprint.exception
+            showVideoAdsMethod.addInstruction(0, "const/4 p1, 0x0")
+        } ?: throw ShowVideoAdsParentFingerprint.exception
     }
 }
 
-@Deprecated("This patch class has been renamed to HideMultimediaAds.")
-object MultimediaAdsPatch : BytecodePatch(
-    dependencies = setOf(HideMultimediaAds::class),
+@Deprecated("This patch class has been renamed to HideVideoAds.")
+object VideoAdsPatch : BytecodePatch(
+    dependencies = setOf(HideVideoAds::class),
 ) {
     override fun execute(context: BytecodeContext) {
     }
