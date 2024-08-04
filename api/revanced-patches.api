@@ -423,6 +423,12 @@ public final class app/revanced/patches/music/ad/video/HideMusicVideoAds : app/r
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/music/ad/video/HideVideoAds : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/music/ad/video/HideVideoAds;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/music/ad/video/MusicVideoAdsPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/music/ad/video/MusicVideoAdsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
