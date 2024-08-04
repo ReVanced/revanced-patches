@@ -16,7 +16,9 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMu
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.patches.youtube.misc.backgroundplayback.BackgroundPlaybackPatch
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.*
+import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -38,16 +40,21 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
         SettingsPatch::class,
         AddResourcesPatch::class,
         UserAgentClientSpoofPatch::class,
+        // Required since iOS livestream fix partially enables background playback.
+        BackgroundPlaybackPatch::class,
+        PlayerTypeHookPatch::class,
     ],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube",
             [
-                "18.37.36",
-                "18.38.44",
-                "18.43.45",
-                "18.44.41",
-                "18.45.43",
+                // This patch works with these versions,
+                // but the dependent background playback patch does not.
+                // "18.37.36",
+                // "18.38.44",
+                // "18.43.45",
+                // "18.44.41",
+                // "18.45.43",
                 "18.48.39",
                 "18.49.37",
                 "19.01.34",
@@ -89,9 +96,9 @@ object SpoofClientPatch : BytecodePatch(
         // Video qualities missing.
         BuildRequestFingerprint,
 
-        // Watch history.
-        GetTrackingUriFingerprint,
-    ),
+        // Livestream audio only background playback.
+        PlayerResponseModelBackgroundAudioPlaybackFingerprint,
+    )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/spoof/SpoofClientPatch;"
@@ -316,6 +323,23 @@ object SpoofClientPatch : BytecodePatch(
 
         // endregion
 
+        // region Fix livestream audio only background play if spoofing to iOS.
+        // This force enables audio background playback.
+
+        PlayerResponseModelBackgroundAudioPlaybackFingerprint.resultOrThrow().mutableMethod.addInstructions(
+            0,
+            """
+                invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->overrideBackgroundAudioPlayback()Z
+                move-result v0
+                if-eqz v0, :do_not_override
+                return v0
+                :do_not_override
+                nop
+            """
+        )
+
+        // endregion
+
         // Fix playback speed menu item if spoofing to iOS.
 
         CreatePlaybackSpeedMenuItemFingerprint.resultOrThrow().let {
@@ -334,25 +358,6 @@ object SpoofClientPatch : BytecodePatch(
                         invoke-static { v$shouldCreateMenuRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->forceCreatePlaybackSpeedMenu(Z)Z
                         move-result v$shouldCreateMenuRegister
                     """,
-                )
-            }
-        }
-
-        // endregion
-
-        // Fix watch history if spoofing to iOS.
-
-        GetTrackingUriFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
-                val returnUrlIndex = it.scanResult.patternScanResult!!.endIndex
-                val urlRegister = getInstruction<OneRegisterInstruction>(returnUrlIndex).registerA
-
-                addInstructions(
-                    returnUrlIndex,
-                    """
-                        invoke-static { v$urlRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->overrideTrackingUrl(Landroid/net/Uri;)Landroid/net/Uri;
-                        move-result-object v$urlRegister
-                    """
                 )
             }
         }
