@@ -16,6 +16,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMu
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.patches.youtube.misc.backgroundplayback.BackgroundPlaybackPatch
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.*
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.getReference
@@ -38,6 +39,8 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
         SettingsPatch::class,
         AddResourcesPatch::class,
         UserAgentClientSpoofPatch::class,
+        // Required since iOS livestream fix partially enables background playback.
+        BackgroundPlaybackPatch::class,
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -90,7 +93,7 @@ object SpoofClientPatch : BytecodePatch(
         BuildRequestFingerprint,
 
         // Livestream audio only background playback.
-        PlayerResponseModelAudioOnlyPlaybackFingerprint,
+        PlayerResponseModelBackgroundAudioPlaybackFingerprint,
 
         // Watch history.
         GetTrackingUriFingerprint,
@@ -319,9 +322,10 @@ object SpoofClientPatch : BytecodePatch(
 
         // endregion
 
-        // Fix livestream audio only background play if spoofing to iOS.
+        // region Fix livestream audio only background play if spoofing to iOS.
+        // This force enables audio background playback.
 
-        PlayerResponseModelAudioOnlyPlaybackFingerprint.resultOrThrow().mutableMethod.addInstructions(
+        PlayerResponseModelBackgroundAudioPlaybackFingerprint.resultOrThrow().mutableMethod.addInstructions(
             0,
             """
                 invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->enableLivestreamAudioOnlyPlayback()Z
