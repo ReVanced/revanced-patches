@@ -18,6 +18,7 @@ import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.backgroundplayback.BackgroundPlaybackPatch
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.*
+import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -41,6 +42,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
         UserAgentClientSpoofPatch::class,
         // Required since iOS livestream fix partially enables background playback.
         BackgroundPlaybackPatch::class,
+        PlayerTypeHookPatch::class,
     ],
     compatiblePackages = [
         CompatiblePackage(
