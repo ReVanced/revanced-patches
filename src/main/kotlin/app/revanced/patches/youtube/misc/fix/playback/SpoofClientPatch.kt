@@ -94,10 +94,7 @@ object SpoofClientPatch : BytecodePatch(
 
         // Livestream audio only background playback.
         PlayerResponseModelBackgroundAudioPlaybackFingerprint,
-
-        // Watch history.
-        GetTrackingUriFingerprint,
-    ),
+    )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/spoof/SpoofClientPatch;"
@@ -357,25 +354,6 @@ object SpoofClientPatch : BytecodePatch(
                         invoke-static { v$shouldCreateMenuRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->forceCreatePlaybackSpeedMenu(Z)Z
                         move-result v$shouldCreateMenuRegister
                     """,
-                )
-            }
-        }
-
-        // endregion
-
-        // Fix watch history if spoofing to iOS.
-
-        GetTrackingUriFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
-                val returnUrlIndex = it.scanResult.patternScanResult!!.endIndex
-                val urlRegister = getInstruction<OneRegisterInstruction>(returnUrlIndex).registerA
-
-                addInstructions(
-                    returnUrlIndex,
-                    """
-                        invoke-static { v$urlRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->overrideTrackingUrl(Landroid/net/Uri;)Landroid/net/Uri;
-                        move-result-object v$urlRegister
-                    """
                 )
             }
         }
