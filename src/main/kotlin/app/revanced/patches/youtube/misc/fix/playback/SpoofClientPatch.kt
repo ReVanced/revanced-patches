@@ -18,6 +18,7 @@ import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.*
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.util.alsoResolve
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.resultOrThrow
@@ -88,6 +89,9 @@ object SpoofClientPatch : BytecodePatch(
 
         // Video qualities missing.
         BuildRequestFingerprint,
+
+        // Background audio only playback
+        PlayerResponseModelAudioOnlyPlaybackParentFingerprint,
 
         // Watch history.
         GetTrackingUriFingerprint,
@@ -313,6 +317,25 @@ object SpoofClientPatch : BytecodePatch(
                 }
             }
         }
+
+        // endregion
+
+        // Fix livestream audio only background play if spoofing to iOS.
+
+        PlayerResponseModelAudioOnlyPlaybackFingerprint.alsoResolve(
+            context,
+            PlayerResponseModelAudioOnlyPlaybackParentFingerprint
+        ).mutableMethod.addInstructions(
+            0,
+            """
+                invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->enableLivestreamAudioOnlyPlayback()Z
+                move-result v0
+                if-eqz v0, :do_not_override
+                return v0
+                :do_not_override
+                nop
+            """
+        )
 
         // endregion
 
