@@ -1,3 +1,10 @@
+# [4.12.0-dev.16](https://github.com/ReVanced/revanced-patches/compare/v4.12.0-dev.15...v4.12.0-dev.16) (2024-08-04)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof client:** Restore livestream audio only playback with iOS spoofing ([#3504](https://github.com/ReVanced/revanced-patches/issues/3504)) ([90d3288](https://github.com/ReVanced/revanced-patches/commit/90d32880906787d82c4b9a7a1099b46dff3a0870))
+
 # [4.12.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v4.12.0-dev.14...v4.12.0-dev.15) (2024-08-02)
 
 
