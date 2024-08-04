@@ -90,7 +90,7 @@ object SpoofClientPatch : BytecodePatch(
         // Video qualities missing.
         BuildRequestFingerprint,
 
-        // Background audio only playback
+        // Livestream audio only background playback.
         PlayerResponseModelAudioOnlyPlaybackParentFingerprint,
 
         // Watch history.
