@@ -1117,7 +1117,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">客户端未伪装\n\n可能无法正常播放视频</string>
   <string name="revanced_spoof_client_user_dialog_message">关闭此选项可能会导致视频不能正常播放。</string>
   <string name="revanced_spoof_client_use_ios_title">伪装客户端为 iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">客户端目前被伪装成iOS\n\n附带效果包括：\n• 无 HDR 视频\n• 更高的视频质量可能丢失\n• 现场直播不能仅作为音频播放</string>
   <string name="revanced_spoof_client_storyboard_timeout">伪装客户端缩略图不可用（API 超时）</string>
   <string name="revanced_spoof_client_storyboard_io_exception">伪装客户端缩略图暂时不可用： %s</string>
   </patch>

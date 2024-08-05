@@ -1120,8 +1120,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Client is niet vervalst\n\nVideo afspelen werkt mogelijk niet</string>
   <string name="revanced_spoof_client_user_dialog_message">Het uitschakelen van deze instelling kan problemen met het afspelen van video veroorzaken.</string>
   <string name="revanced_spoof_client_use_ios_title">Klant naar iOS vervalsen</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">De klant is momenteel gespoofd naar iOS\n\nSide effecten zoals:\n• Geen HDR video\n• Hogere videokwaliteiten kunnen ontbreken\n• Live streams kunnen niet alleen worden afgespeeld als audio</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Cliënt is momenteel ondergesneeuwd naar Android VR\n\nSide effecten inclusief:\n• Geen HDR video\n• Kinderen video\'s spelen niet af\n• Gepauzeerde video\'s kunnen willekeurig hervatten\n• Slechte kwaliteit zoekbalkminiaturen\n• Download actieknop is verborgen\n• Eindscherm kaarten zijn verborgen</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Klant is momenteel gespoofd naar iOS\n\nSide effecten zoals:\n• HDR video is mogelijk niet beschikbaar\n• Bekijk geschiedenis werkt mogelijk niet</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">Cliënt is momenteel ondergesneeuwd naar Android VR. Side effecten inclusief:\n• Geen HDR video\n• Kinderen video\'s spelen niet af\n• Gepauzeerde video\'s kunnen willekeurig hervatten\n• Slechte kwaliteit zoekbalkminiaturen\n• Download actieknop is verborgen\n• Eindscherm kaarten zijn verborgen</string>
   <string name="revanced_spoof_client_storyboard_timeout">Klant miniaturen niet beschikbaar (API timed out)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Klant miniaturen tijdelijk niet beschikbaar: %s</string>
   </patch>

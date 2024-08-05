@@ -1120,8 +1120,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Le client n\'est pas trompé\n\nLa lecture de la vidéo peut ne pas fonctionner</string>
   <string name="revanced_spoof_client_user_dialog_message">Désactiver ce paramètre peut causer des problèmes de lecture vidéo.</string>
   <string name="revanced_spoof_client_use_ios_title">Falsifier le client vers iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Le client est actuellement usurpé à iOS\n\nLes effets secondaires comprennent :\n• Aucune vidéo HDR\n• Des qualités vidéo plus élevées peuvent manquer\n• Les flux en direct ne peuvent pas jouer uniquement en tant qu\'audio</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Le client est actuellement falsifié vers Android VR\n\nEffets secondaires incluant:\n• Aucune vidéo HDR\n• Les vidéos des enfants ne lisent pas\n• Les vidéos en pause peuvent reprendre aléatoirement\n• Les Shorts de basse qualité sur les vignettes de la barre de recherche\n• Le bouton d\'action de téléchargement est caché\n• Les cartes d\'écran de fin sont cachées</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Le client est actuellement falsifié vers iOS\n\nLes effets secondaires incluent :\n• La vidéo HDR peut ne pas être disponible\n• L\'historique de la montre peut ne pas fonctionner</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">Le client est actuellement falsifié vers Android VR. Effets secondaires incluant:\n• Aucune vidéo HDR\n• Les vidéos des enfants ne lisent pas\n• Les vidéos en pause peuvent reprendre aléatoirement\n• Les Shorts de basse qualité sur les vignettes de la barre de recherche\n• Le bouton d\'action de téléchargement est caché\n• Les cartes d\'écran de fin sont cachées</string>
   <string name="revanced_spoof_client_storyboard_timeout">Tromper les vignettes du client non disponibles (API expirée)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Tromper les vignettes du client temporairement indisponibles : %s</string>
   </patch>

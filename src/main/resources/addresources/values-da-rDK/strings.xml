@@ -1119,8 +1119,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Klienten er ikke forfalsket\n\nVideoafspilning fungerer muligvis ikke</string>
   <string name="revanced_spoof_client_user_dialog_message">At slå denne indstilling fra kan forårsage problemer med videoafspilning.</string>
   <string name="revanced_spoof_client_use_ios_title">Spoof klient til iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Klienten er i øjeblikket spoofed til iOS\n\nBivirkninger omfatter:\n• Ingen HDR-video\n• Højere videokvaliteter mangler muligvis\n• Live streams kan ikke kun afspilles som lyd</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Klienten er i øjeblikket spoofed til Android VR\n\nBivirkninger omfatter:\n• Ingen HDR-video\n• Kids videoer ikke afspilning\n• Pause videoer kan tilfældigt genoptage\n• Lav kvalitet Shorts søgelinje miniaturer\n• Download handling knap er skjult\n• End screen cards are hidden</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Klienten er i øjeblikket spoofed til iOS\n\nBivirkninger omfatter:\n• HDR-video er muligvis ikke tilgængelig\n• Se historie fungerer måske ikke</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">Klienten er i øjeblikket spoofed til Android VR. Bivirkninger omfatter:\n• Ingen HDR-video\n• Kids videoer ikke afspilning\n• Pause videoer kan tilfældigt genoptage\n• Lav kvalitet Shorts søgelinje miniaturer\n• Download handling knap er skjult\n• End screen cards are hidden</string>
   <string name="revanced_spoof_client_storyboard_timeout">Spoof klient miniaturer ikke tilgængelige (API timemed out)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Spoof klient miniaturer midlertidigt ikke tilgængelige: %s</string>
   </patch>

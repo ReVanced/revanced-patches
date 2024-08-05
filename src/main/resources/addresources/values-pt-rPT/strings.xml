@@ -1117,8 +1117,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Cliente não é falsificado\n\nA reprodução de vídeo pode não funcionar</string>
   <string name="revanced_spoof_client_user_dialog_message">Desativar essa configuração pode causar problemas de reprodução de vídeo.</string>
   <string name="revanced_spoof_client_use_ios_title">Cliente Spoof para iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">O cliente está spoofed para o iOS\n\nOs efeitos colaterais incluem:\n• Nenhum vídeo HDR\n• Qualidades maiores de vídeo podem estar faltando\n• Transmissões ao vivo não podem reproduzir apenas áudio</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">O cliente está oculta para o Android VR\n\nOs efeitos colaterais incluem:\n• Nenhum vídeo HDR\n• As crianças não reproduzem\n• Os vídeos pausados podem retomar aleatoriamente\n• Miniaturas da barra de busca curta de baixa qualidade\n• Botão de ação para baixar está oculto\n• Cartões de tela final estão ocultos</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Cliente está spoofed no momento para iOS\n\nOs efeitos colaterais incluem:\n• HDR vídeos podem não estar disponíveis\n• Watch histórico pode não funcionar</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">O cliente está oculta para o Android VR. Os efeitos colaterais incluem:\n• Nenhum vídeo HDR\n• As crianças não reproduzem\n• Os vídeos pausados podem retomar aleatoriamente\n• Miniaturas da barra de busca curta de baixa qualidade\n• Botão de ação para baixar está oculto\n• Cartões de tela final estão ocultos</string>
   <string name="revanced_spoof_client_storyboard_timeout">Miniaturas Spoof client não disponíveis (API timeout)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Miniaturas Spoof client temporariamente não disponíveis: %s</string>
   </patch>
