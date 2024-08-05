@@ -1120,8 +1120,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Klient nie jest zespoofowany\n\nOdtwarzanie wideo może nie działać</string>
   <string name="revanced_spoof_client_user_dialog_message">Wyłączenie tego ustawienia może spowodować problemy z odtwarzaniem wideo.</string>
   <string name="revanced_spoof_client_use_ios_title">Zespoofuj klient do wersji iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Klient jest obecnie spoofed na iOS\n\nEfekty niepożądane obejmują:\n• Bez wideo HDR\n• Może brakować wyższej jakości wideo\n• Strumienie na żywo nie może odtwarzać tylko jako dźwięk</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Klient jest obecnie spoofed na Androida VR\n\nEfekty niepożądane obejmują:\n• Brak filmu HDR\n• Filmy dziecięce nie odtwarza\n• Wstrzymane filmy mogą losowo wznawiać\n• Niska jakość miniatur paska wyszukiwania skrótów\n• Przycisk pobierania jest ukryty\n• Karty ekranu końcowego są ukryte</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Klient jest obecnie spoofed to iOS\n\nDziałania niepożądane obejmują:\n• Wideo HDR może nie być dostępne\n• Historia zegarków może nie działać</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">Klient jest obecnie spoofed na Androida VR. Efekty niepożądane obejmują:\n• Brak filmu HDR\n• Filmy dziecięce nie odtwarza\n• Wstrzymane filmy mogą losowo wznawiać\n• Niska jakość miniatur paska wyszukiwania skrótów\n• Przycisk pobierania jest ukryty\n• Karty ekranu końcowego są ukryte</string>
   <string name="revanced_spoof_client_storyboard_timeout">Miniatury klienta nie są dostępne (limit czasu API)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Miniaturki klienta tymczasowo nie są dostępne: %s</string>
   </patch>

@@ -1118,8 +1118,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Клієнт не підроблений\n\nВідтворення відео може не працювати</string>
   <string name="revanced_spoof_client_user_dialog_message">Вимкнення цього параметра може призвести до проблем відтворення відео.</string>
   <string name="revanced_spoof_client_use_ios_title">Підробити клієнт на iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Наразі клієнт підроблений на iOS\n\nПобічні ефекти:\n• Немає HDR відео\n• Високі якості відео можуть бути відсутні\n• Прямі трансляції не відтворюються в режимі аудіо</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Наразі клієнт підроблений на Android VR\n\nПобічні ефекти:\n• Немає HDR відео\n• Відео для дітей не відтворюються\n• Призупинені відео можуть випадково продовжуватися\n• Низька якість мініатюр панелі прогресу Shorts\n• Кнопка завантаження прихована\n• Картки кінцевого екрана приховані</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Наразі клієнт підроблений на iOS\n\nПобічні ефекти:\n• HDR відео може бути недоступним\n• Історія переглядів може не працювати</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">Наразі клієнт підроблений на Android VR. Побічні ефекти:\n• Немає HDR відео\n• Відео для дітей не відтворюються\n• Призупинені відео можуть випадково продовжуватися\n• Низька якість мініатюр панелі прогресу Shorts\n• Кнопка завантаження прихована\n• Картки кінцевого екрана приховані</string>
   <string name="revanced_spoof_client_storyboard_timeout">Мініатюри в режимі підробки клієнта не доступні (закінчився час API)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Мініатюри в режимі підробки клієнта тимчасово не доступні: %s</string>
   </patch>

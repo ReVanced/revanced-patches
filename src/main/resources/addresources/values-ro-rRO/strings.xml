@@ -1121,8 +1121,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Clientul nu este lovit\n\nEste posibil ca redarea video să nu funcționeze</string>
   <string name="revanced_spoof_client_user_dialog_message">Dezactivarea acestei setări poate cauza probleme de redare video.</string>
   <string name="revanced_spoof_client_use_ios_title">Spoof client pe iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Clientul este în prezent falsificat de iOS\n\nEfectele secundare includ:\n• Niciun video HDR\n• Calități video mai mari pot lipsi\n• Fluxuri live nu pot fi redate deoarece numai audio</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Clientul este în prezent falsificat pe Android VR\n\nEfectele secundare includ:\n• Niciun video HDR\n• Videoclipuri cu copii nu redă\n• Videoclipurile întrerupte pot relua aleatoriu\n• Pictograme scurte de calitate slabă\n• Butonul acțiunii de descărcare este ascuns\n• Cardurile de pe ecran sunt ascunse</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Clientul este în prezent falsificat de iOS\n\nReacţiile adverse includ:\n• este posibil ca videoclipul HDR să nu fie disponibil\n• istoricul ceasului poate să nu funcționeze</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">Clientul este în prezent falsificat pe Android VR. Efectele secundare includ:\n• Niciun video HDR\n• Videoclipuri cu copii nu redă\n• Videoclipurile întrerupte pot relua aleatoriu\n• Pictograme scurte de calitate slabă\n• Butonul acțiunii de descărcare este ascuns\n• Cardurile de pe ecran sunt ascunse</string>
   <string name="revanced_spoof_client_storyboard_timeout">Spoof a miniaturilor clientului nu este disponibil (API a expirat)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Fixarea miniaturilor clientului nu este disponibilă temporar: %s</string>
   </patch>

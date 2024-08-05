@@ -125,6 +125,7 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
         "sk-rSK" to "sk",
         "sl-rSI" to "sl",
         "sq-rAL" to "sq",
+        "sr-rCS" to "b+sr+Latn",
         "sr-rSP" to "sr",
         "sv-rSE" to "sv",
         "sw-rKE" to "sw",

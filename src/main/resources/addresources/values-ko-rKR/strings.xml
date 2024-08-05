@@ -105,8 +105,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_watermark_summary_on">워터마크가 숨겨집니다</string>
   <string name="revanced_hide_channel_watermark_summary_off">워터마크가 노출됩니다</string>
   <string name="revanced_hide_horizontal_shelves_title">좌우 슬라이드 선반 숨기기</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">다음 선반이 숨겨집니다:\n• 다시 듣기\n• 다시 시청하기\n• 이어서 시청하기\n• 채널 더보기\n• 이 게임 더보기\n• 주요 뉴스\n• 맞춤 실시간 스트림\n• 라이브 쇼핑\n• 보건 정보 출처, etc.</string>
-  <string name="revanced_hide_horizontal_shelves_summary_off">다음 선반이 노출됩니다:\n• 다시 듣기\n• 다시 시청하기\n• 이어서 시청하기\n• 채널 더보기\n• 이 게임 더보기\n• 주요 뉴스\n• 맞춤 실시간 스트림\n• 라이브 쇼핑\n• 보건 정보 출처, etc</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">다음 선반이 숨겨집니다:\n• 다시 듣기\n• 다시 시청하기\n• 이어서 시청하기\n• 채널 더보기\n• 이 게임 더보기\n• 주요 뉴스, 뉴스 속보\n• 맞춤 실시간 스트림\n• 라이브 쇼핑\n• 보건 정보 출처, etc.</string>
+  <string name="revanced_hide_horizontal_shelves_summary_off">다음 선반이 노출됩니다:\n• 다시 듣기\n• 다시 시청하기\n• 이어서 시청하기\n• 채널 더보기\n• 이 게임 더보기\n• 주요 뉴스, 뉴스 속보\n• 맞춤 실시간 스트림\n• 라이브 쇼핑\n• 보건 정보 출처, etc</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
   <string name="revanced_hide_join_membership_button_title">가입 버튼 숨기기</string>
@@ -1122,7 +1122,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">클라이언트를 변경하지 않습니다\n동영상 재생 문제가 발생할 수 있습니다</string>
   <string name="revanced_spoof_client_user_dialog_message">이 설정을 비활성화하면 동영상 재생 문제가 발생할 수 있습니다</string>
   <string name="revanced_spoof_client_use_ios_title">iOS 클라이언트로 변경하기</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">클라이언트를 iOS 클라이언트로 변경합니다\n\n알려진 문제점:\n• HDR 동영상이 재생되지 않을 수 있습니다\n• 동영상이 초고화질 동영상 값으로 재생되지 않을 수 있습니다 (1440p, 2160p)\n• 실시간 스트림에서 \'백그라운드 재생\'을 사용할 수 없습니다</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">클라이언트를 iOS 클라이언트로 변경합니다\n\n알려진 문제점: \n• HDR 동영상이 재생되지 않을 수 있습니다\n• 시청 기록이 작동되지 않을 수 있습니다</string>
   <string name="revanced_spoof_client_use_ios_summary_off">클라이언트를 Android VR 클라이언트로 변경합니다\n\n알려진 문제점: \n• HDR 동영상이 재생되지 않을 수 있습니다\n• Kids 동영상을 재생할 수 없습니다\n• 일시 정지된 동영상이 갑자기 다시 시작될 수 있습니다\n• 저화질 Shorts 재생바 썸네일이 표시됩니다\n• 플레이어 하단에서 오프라인 저장 버튼이 표시되지 않습니다\n• 최종 화면 카드가 표시되지 않습니다</string>
   <string name="revanced_spoof_client_storyboard_timeout">클라이언트 썸네일을 사용할 수 없습니다 (응답 시간 초과)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">클라이언트 썸네일을 일시적으로 사용할 수 없습니다: %s</string>

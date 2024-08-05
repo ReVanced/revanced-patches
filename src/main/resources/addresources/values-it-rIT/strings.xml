@@ -1118,8 +1118,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Il client non è spoofed\n\nLa riproduzione video potrebbe non funzionare</string>
   <string name="revanced_spoof_client_user_dialog_message">Disattivare questa impostazione potrebbe causare problemi di riproduzione video.</string>
   <string name="revanced_spoof_client_use_ios_title">Spoof client per iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Il client è attualmente spoofed per iOS\n\nGli effetti collaterali includono:\n• Nessun video HDR\n• Potrebbero mancare qualità video più elevate\n• I flussi live non possono essere riprodotti solo come audio</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Il client è attualmente spoofed per Android VR\n\nGli effetti collaterali includono:\n• Nessun video HDR\n• I video per bambini non riproducono\n• I video in pausa possono riprendere casualmente\n• Bassa qualità Pantaloncini seekbar miniature\n• Il pulsante di azione per scaricare è nascosto\n• Le schede dello schermo finale sono nascoste</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Il client è attualmente spoofed per iOS\n\nGli effetti collaterali includono:\n• video HDR potrebbe non essere disponibile\n• La cronologia degli orologi potrebbe non funzionare</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">Il client è attualmente spoofed per Android VR. Gli effetti collaterali includono:\n• Nessun video HDR\n• I video per bambini non riproducono\n• I video in pausa possono riprendere casualmente\n• Bassa qualità Pantaloncini seekbar miniature\n• Il pulsante di azione per scaricare è nascosto\n• Le schede dello schermo finale sono nascoste</string>
   <string name="revanced_spoof_client_storyboard_timeout">Le miniature del client non sono disponibili (timeout API)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Miniature del client Spoof temporaneamente non disponibili: %s</string>
   </patch>

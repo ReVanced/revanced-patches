@@ -1120,8 +1120,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Client ist nicht gefälscht\n\nVideo-Wiedergabe funktioniert möglicherweise nicht</string>
   <string name="revanced_spoof_client_user_dialog_message">Das Deaktivieren dieser Einstellung kann zu Videowiedergabeproblemen führen.</string>
   <string name="revanced_spoof_client_use_ios_title">Spoof-Client zu iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Der Client ist derzeit zu iOS\n\nSeiteneffekten gefälscht:\n• Kein HDR-Video\n• Höhere Video-Qualitäten fehlen möglicherweise\n• Live-Streams können nicht nur als Audio abspielen</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Der Client ist derzeit auf Android VR\n\nSeiteneffekte gefälscht:\n• Kein HDR Video\n• Kindervideos spielen nicht\n• Pausierte Videos können zufällig wieder aufgenommen werden\n• Niedrige Shorts Suchleisten-Thumbnails\n• Download-Button ist ausgeblendet\n• Endbildschirm-Karten werden versteckt</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Der Client ist derzeit zu iOS\n\nSeiteneffekten gefälscht:\n• HDR-Video ist möglicherweise nicht verfügbar\n• Verlauf kann nicht funktionieren</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">Der Client ist derzeit auf Android VR. Seiteneffekte gefälscht:\n• Kein HDR Video\n• Kindervideos spielen nicht\n• Pausierte Videos können zufällig wieder aufgenommen werden\n• Niedrige Shorts Suchleisten-Thumbnails\n• Download-Button ist ausgeblendet\n• Endbildschirm-Karten werden versteckt</string>
   <string name="revanced_spoof_client_storyboard_timeout">Spoof-Thumbnails nicht verfügbar (API-Zeitüberschreitung)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Spoof-Client-Thumbnails vorübergehend nicht verfügbar: %s</string>
   </patch>
