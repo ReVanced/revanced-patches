@@ -1119,8 +1119,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Asiakas ei ole spoofed\n\nVideon toisto ei ehkä toimi</string>
   <string name="revanced_spoof_client_user_dialog_message">Tämän asetuksen poistaminen käytöstä voi aiheuttaa videon toiston ongelmia.</string>
   <string name="revanced_spoof_client_use_ios_title">Spoof asiakas iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Asiakas on tällä hetkellä pilaantunut iOS\n\nSivuvaikutukset ovat:\n• Ei HDR video\n• Korkeampi videon ominaisuuksia voi puuttua,\n• Live streams ei voi toistaa vain ääntä</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Asiakas on tällä hetkellä hemmoteltu Android VR\n\nSivuefektejä ovat:\n• Ei HDR video\n• Lasten videot eivät toista\n• Keskeytetty videot voivat toistua satunnaisesti\n• Huonolaatuiset shortsit seekbar pikkukuvat\n• Lataa toimintapainike on piilotettu\n• Päätä näytöt ovat piilotettuja</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Asiakas on tällä hetkellä pilkottu iOS\n\nSivuvaikutukset ovat:\n• HDR video ei ehkä ole saatavilla\n• Katsella historia ei ehkä toimi</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">Asiakas on tällä hetkellä hemmoteltu Android VR. Sivuefektejä ovat:\n• Ei HDR video\n• Lasten videot eivät toista\n• Keskeytetty videot voivat toistua satunnaisesti\n• Huonolaatuiset shortsit seekbar pikkukuvat\n• Lataa toimintapainike on piilotettu\n• Päätä näytöt ovat piilotettuj</string>
   <string name="revanced_spoof_client_storyboard_timeout">Spoof asiakkaan pikkukuvat ei ole käytettävissä (API ajastettu)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Spoof asiakkaan pikkukuvat tilapäisesti ei käytettävissä: %s</string>
   </patch>

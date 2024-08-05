@@ -1105,8 +1105,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Klienten er ikke spoofed\n\nVideo playback fungerer kanskje ikke</string>
   <string name="revanced_spoof_client_user_dialog_message">Ved å slå av denne innstillingen kan problemer med videoavspilling.</string>
   <string name="revanced_spoof_client_use_ios_title">Forside klienten til iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Klienten er for øyeblikket oppslukt til iOS\n\nSide include:\n• Ingen HDR-video\n• Høyere videokvaliteter kan mangle\n• Live-strømmer kan ikke spille som lyd</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Klienten er for øyeblikket skummet til Android VR\n\nsideeffekter inkluderer:\n• Ingen HDR video\n• Barn videoer ikke spiller tilbake\n• Paused videoer kan tilfeldig gjenoppta\n• Lavkvalitet shorts søkbar miniatyrbilder\n• Last ned handlingsknappen er skjult\n• Sluttskjermkort er skjult</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Klienten er for øyeblikket oppslitt til iOS\n\nSide include:\n• HDR video er kanskje ikke tilgjengelig\n• Se loggen fungerer kanskje ikke</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">Klienten er for øyeblikket skummet til Android VR. sideeffekter inkluderer:\n• Ingen HDR video\n• Barn videoer ikke spiller tilbake\n• Paused videoer kan tilfeldig gjenoppta\n• Lavkvalitet shorts søkbar miniatyrbilder\n• Last ned handlingsknappen er skjult\n• Sluttskjermkort er skjult</string>
   <string name="revanced_spoof_client_storyboard_timeout">Etterligning av klient miniatyrbilder er ikke tilgjengelige (API tidsavbrutt)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Spoav klientens miniatyrbilder er midlertidig ikke tilgjengelig: %s</string>
   </patch>

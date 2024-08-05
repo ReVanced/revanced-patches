@@ -214,6 +214,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">Сакриј одељак с инфо картицама</string>
   <string name="revanced_hide_info_cards_section_summary_on">Одељак с инфо картицама је скривен</string>
   <string name="revanced_hide_info_cards_section_summary_off">Одељак с инфо картицама је приказан</string>
+  <string name="revanced_hide_key_concepts_section_title">Сакриј одељак „Кључни концепти”</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">Одељак „Кључни концепти” је скривен</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">Одељак „Кључни концепти” је приказан</string>
   <string name="revanced_hide_transcript_section_title">Сакриј одељак за транскрипцију</string>
   <string name="revanced_hide_transcript_section_summary_on">Одељак за транскрипцију је скривен</string>
   <string name="revanced_hide_transcript_section_summary_off">Одељак за транскрипцију је скривен</string>
@@ -1119,8 +1122,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Клијент није лажиран\n\nРепродукција видеа можда неће радити</string>
   <string name="revanced_spoof_client_user_dialog_message">Искључивање овог подешавања можда ће изазвати проблеме са репродукцијом видеа.</string>
   <string name="revanced_spoof_client_use_ios_title">Лажиран клијент на iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Клијент је тренутно лажиран на iOS\n\nНежељени ефекти обухватају:\n• Нема HDR видеа\n• Виши квалитети видеа можда недостају\n• Стримови уживо не могу да се репродукују само као аудио</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Клијент је тренутно лажиран на Android VR\n\nНежељени ефекти обухватају:\н• Нема HDR видеа\n• Дечји видео снимци се не репродукују\n• Паузирани видео снимци могу насумично да се настављају\n• Сличице на траци за премотавање Shorts видеа лошег квалитета\n• Дугме за радњу „Преузми“ је скривено\n• Картице завршног екрана су скривене</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Клијент је тренутно лажиран на iOS\n\nНежељени ефекти обухватају:\n• HDR видео можда неће бити доступан\n• Историја гледања можда неће функционисати</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">Клијент је тренутно лажиран на Android VR Нежељени ефекти обухватају:\n• Нема HDR видеа\n• Дечји видео снимци се не репродукују\n• Паузирани видео снимци могу насумично да се настављају\n• Сличице на траци за премотавање Shorts видеа лошег квалитета\n• Дугме за радњу „Преузми“ је скривено\n• Картице завршног екрана су скривене</string>
   <string name="revanced_spoof_client_storyboard_timeout">Сличице у лажираном клијенту нису доступне (API истекао)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Сличице у лажираном клијенту привремено нису доступне: %s</string>
   </patch>
