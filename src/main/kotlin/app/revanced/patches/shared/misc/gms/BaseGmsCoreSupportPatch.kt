@@ -56,7 +56,7 @@ abstract class BaseGmsCoreSupportPatch(
 ) : BytecodePatch(
     name = "GmsCore support",
     description = "Allows patched Google apps to run without root and under a different package name " +
-            "by using GmsCore instead of Google Play Services.",
+        "by using GmsCore instead of Google Play Services.",
     dependencies = setOf(
         ChangePackageNamePatch::class,
         gmsCoreSupportResourcePatch::class,
@@ -100,7 +100,13 @@ abstract class BaseGmsCoreSupportPatch(
         primeMethodFingerprint?.let { transformPrimeMethod(packageName) }
 
         // Return these methods early to prevent the app from crashing.
-        (earlyReturnFingerprints + ServiceCheckFingerprint + CastDynamiteModuleFingerprint).returnEarly()
+        earlyReturnFingerprints.returnEarly()
+        ServiceCheckFingerprint.returnEarly()
+        // Not all apps have CastDynamiteModule, so we need to check if it's present.
+        if (CastDynamiteModuleFingerprint.result != null) {
+            CastDynamiteModuleFingerprint.returnEarly()
+        }
+        // Google Play Utility is not present in all apps, so we need to check if it's present.
         if (GooglePlayUtilityFingerprint.result != null) {
             GooglePlayUtilityFingerprint.returnEarly()
         }
@@ -109,7 +115,7 @@ abstract class BaseGmsCoreSupportPatch(
         mainActivityOnCreateFingerprint.result?.mutableMethod?.addInstructions(
             0,
             "invoke-static/range { p0 .. p0 }, Lapp/revanced/integrations/shared/GmsCoreSupport;->" +
-                    "checkGmsCore(Landroid/app/Activity;)V",
+                "checkGmsCore(Landroid/app/Activity;)V",
         ) ?: throw mainActivityOnCreateFingerprint.exception
 
         // Change the vendor of GmsCore in ReVanced Integrations.
