@@ -211,6 +211,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">隱藏資訊卡區</string>
   <string name="revanced_hide_info_cards_section_summary_on">已隱藏資訊卡區</string>
   <string name="revanced_hide_info_cards_section_summary_off">已顯示資訊卡區</string>
+  <string name="revanced_hide_key_concepts_section_title">隱藏關鍵概念部分</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">已隱藏關鍵概念部分</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">已顯示關鍵概念部分</string>
   <string name="revanced_hide_transcript_section_title">隱藏文字紀錄區</string>
   <string name="revanced_hide_transcript_section_summary_on">已隱藏字幕記錄區</string>
   <string name="revanced_hide_transcript_section_summary_off">已顯示字幕記錄區</string>
@@ -246,7 +249,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_toast_invalid_common">無效的關鍵字。無法使用：「%s」來過濾</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">無效的關鍵字。「%1$s」小於 %2$d 字元</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">關鍵字「$s」將隱藏所有影片</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">關鍵字「%s」將隱藏所有影片</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">隱藏一般廣告</string>
@@ -864,9 +867,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">選擇片段的類別</string>
   <string name="revanced_sb_new_segment_disabled_category">已在設定中停用類別。啟用類別以提交。</string>
   <string name="revanced_sb_new_segment_title">新 SponsorBlock 片段</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-  <string name="revanced_sb_new_segment_mark_time_as_question">設定 %1$02d:%2$02d:%3$03d 為新片段的開始或結束？</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">將 %s 設為新片段的開始或結束？</string>
   <string name="revanced_sb_new_segment_mark_start">開始</string>
   <string name="revanced_sb_new_segment_mark_end">結束</string>
   <string name="revanced_sb_new_segment_now">現在</string>
@@ -990,6 +991,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_value_summary">進度條顏色</string>
   <string name="revanced_seekbar_custom_color_invalid">無效的進度條顏色。已重設為預設值。</string>
   </patch>
+  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  <string name="revanced_bypass_image_region_restrictions_title">繞過圖片區域限制</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_on">使用圖片主機 yt4.ggpht.com</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">使用原始圖片主機\n\n啟用此功能可以修復在某些區域被封鎖的缺失圖片</string>
+  </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">首頁標籤</string>
@@ -1112,8 +1118,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">尚未欺騙客戶端\n\n影片播放可能未作用</string>
   <string name="revanced_spoof_client_user_dialog_message">關閉此設定可能會導致影片播放發生問題</string>
   <string name="revanced_spoof_client_use_ios_title">欺騙客戶端至 iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">用戶端目前偽裝為 iOS\n\n副作用包括：\n・無 HDR 影片\n・觀看記錄可能無法使用\n・更高的影片品質可能缺失\n・直播無法僅作為音訊播放\n・Android 8.0 上無法觀看直播</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">客戶端目前偽裝為 Android VR\n\n副作用包括：\n・無 HDR 影片\n・兒童影片無法播放\n・暫停的影片可能會隨\n恢復播放\n・低品質短片的進度條縮圖\n・下載操作按鈕總是隱藏\n・結尾畫面卡片總是隱藏</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">客戶端目前偽裝為 Android VR\n\n副作用包括：\n• 無 HDR 影片\n• 兒童影片無法播放\n• 暫停的影片可能會隨\n恢復播放\n• 低品質短片的進度條縮圖\n• 下載操作按鈕隱藏\n• 結尾畫面卡片隱藏</string>
   <string name="revanced_spoof_client_storyboard_timeout">欺騙客戶端縮圖尚不可用 (API 逾時)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">欺騙客戶端縮圖暫不可用: %s</string>
   </patch>

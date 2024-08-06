@@ -33,7 +33,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
 <resources>
   <app id="shared">
   <patch id="misc.settings.BaseSettingsResourcePatch">
-  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">¿Desea continuar?</string>
   <string name="revanced_settings_reset">Restablecer</string>
   <string name="revanced_settings_restart_title">Actualizar y reiniciar</string>
@@ -94,7 +93,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_debug_toast_on_error_user_dialog_message">Desactivar los errores toasts oculta todas las notificaciones de error ReVanced\n\nNo se le notificará de ningún evento inesperado.</string>
   </patch>
   <patch id="layout.hide.general.HideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Desactivar como / botón de suscripción brillo</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Desactivar el brillo del botón de like / suscripción</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">El botón de \"Me gusta\" y \"suscribir\" no brillará cuando se mencione</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">El botón de \"Me gusta\" y \"Suscribir\" brillará cuando se mencione</string>
   <string name="revanced_hide_gray_separator_title">Ocultar separador gris</string>
@@ -213,6 +212,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">Ocultar sección de tarjetas de información</string>
   <string name="revanced_hide_info_cards_section_summary_on">La sección de tarjetas de información está oculta</string>
   <string name="revanced_hide_info_cards_section_summary_off">Se muestra la sección de tarjetas de información</string>
+  <string name="revanced_hide_key_concepts_section_title">Ocultar sección \'Conceptos clave\'</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">la sección \'Conceptos clave\' está oculta</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">la sección \'Conceptos clave\' se muestra</string>
   <string name="revanced_hide_transcript_section_title">Ocultar sección de transcripción</string>
   <string name="revanced_hide_transcript_section_summary_on">La sección transcripción está oculta</string>
   <string name="revanced_hide_transcript_section_summary_off">Se muestra la sección transcripción</string>
@@ -248,7 +250,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_toast_invalid_common">Palabra clave inválida. No se puede usar: \'%s\' como filtro</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Palabra clave no válida. \'%1$s\' es menor de %2$d caracteres</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">La palabra clave \'$s\' oculta todos los vídeos</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">La palabra clave \'%s\' oculta todos los vídeos</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Ocultar anuncios generales</string>
@@ -283,7 +285,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_merchandise_banners_summary_on">Los banners de mercadería están ocultos</string>
   <string name="revanced_hide_merchandise_banners_summary_off">Se muestran los banners de Mercandise</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Ocultar anuncios a pantalla completa sólo funciona con dispositivos antiguos</string>
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Ocultar anuncio solo con dispositivos viejos</string>
   </patch>
   <patch id="ad.getpremium.HideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">Ocultar promociones de YouTube Premium</string>
@@ -674,7 +676,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.player.overlay.CustomPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Opacidad de superposición del jugador</string>
   <string name="revanced_player_overlay_opacity_summary">Valor de potencia entre 0-100, donde 0 es transparente</string>
-  <string name="revanced_player_overlay_opacity_invalid_toast">Opacidad de superposición del jugador debe estar entre 0-100</string>
+  <string name="revanced_player_overlay_opacity_invalid_toast">Opacidad del reproductor debe estar entre 0 y 100</string>
   </patch>
   <patch id="layout.returnyoutubedislike.ReturnYouTubeDislikeResourcePatch">
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Oculto</string>
@@ -866,9 +868,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">Elige la categoría del segmento</string>
   <string name="revanced_sb_new_segment_disabled_category">Categoría está desactivada en la configuración. Habilitar la categoría para enviar.</string>
   <string name="revanced_sb_new_segment_title">Nuevo segmento de SponsorBlock</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-  <string name="revanced_sb_new_segment_mark_time_as_question">¿Establecer %1$02d:%2$02d:%3$03d como inicio o final de un nuevo segmento?</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">¿Establecer %s como inicio o fin de un nuevo segmento?</string>
   <string name="revanced_sb_new_segment_mark_start">comienzo</string>
   <string name="revanced_sb_new_segment_mark_end">final</string>
   <string name="revanced_sb_new_segment_now">ahora</string>
@@ -978,7 +978,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Saltar adelante y atrás se muestran</string>
   <string name="revanced_miniplayer_opacity_title">Overlay opacity</string>
   <string name="revanced_miniplayer_opacity_summary">Valor de potencia entre 0-100, donde 0 es transparente</string>
-  <string name="revanced_miniplayer_opacity_invalid_toast">La opacidad de superposición del Miniplayer debe estar entre 0-100</string>
+  <string name="revanced_miniplayer_opacity_invalid_toast"> Opacidad de reproductor debe estar en 0 -100</string>
   </patch>
   <patch id="layout.theme.ThemeBytecodePatch">
   <string name="revanced_gradient_loading_screen_title">Activar la pantalla de carga del degradado</string>
@@ -992,6 +992,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_value_title">Color personalizado de la barra de búsqueda</string>
   <string name="revanced_seekbar_custom_color_value_summary">El color de la barra de ajustes</string>
   <string name="revanced_seekbar_custom_color_invalid">Valor de color de la barra de búsqueda inválido. Usando el valor por defecto.</string>
+  </patch>
+  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  <string name="revanced_bypass_image_region_restrictions_title">Restricciones de región de imagen bypass</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_on">Usando host de imagen yt4.ggpht.com</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">Utilizando el host de imágenes original\n\nHabilitar esto puede arreglar las imágenes faltantes que están bloqueadas en algunas regiones</string>
   </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -1115,8 +1120,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">El cliente no está falsificado\n\nEs posible que la reproducción de vídeo no funcione</string>
   <string name="revanced_spoof_client_user_dialog_message">Desactivar esta configuración puede causar problemas de reproducción de vídeo.</string>
   <string name="revanced_spoof_client_use_ios_title">Spoof cliente a iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">El cliente está actualmente falseado a iOS\n\nLos efectos laterales incluyen:\n• No hay vídeo HDR\n• Es posible que el historial del reloj no funcione\n• Puede que falten más calidad de vídeo\n• Los streams en vivo no pueden reproducirse como audio solo\n• streams en vivo no disponibles en Android 8.0</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">El cliente está actualmente falseado a Android VR\n\nLos efectos laterales incluyen:\n• No hay vídeo HDR\n• Los vídeos para niños no se reproducirán\n• Los vídeos en pausa pueden reanudarse aleatoriamente\n• Las miniaturas de barras cortas de baja calidad\n• El botón de descarga siempre está oculto\n• Las tarjetas de la pantalla final siempre están ocultas</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">El cliente está actualmente falseado a iOS\n\nLos efectos laterales incluyen:\n• El vídeo HDR puede no estar disponible\n• El historial del reloj puede no funcionar</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">El cliente está actualmente falseado a Android VR. Los efectos laterales incluyen:\n• No hay vídeo HDR\n• Los niños vídeos no se reproducirán\n• Los vídeos en pausa pueden reanudarse aleatoriamente\n• Las miniaturas de barras cortas de baja calidad\n• El botón de acción está oculto\n• Las tarjetas de pantalla final están ocultas</string>
   <string name="revanced_spoof_client_storyboard_timeout">Las miniaturas del cliente de Spoof no están disponibles (API)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Las miniaturas del cliente Spoof temporalmente no están disponibles: %s</string>
   </patch>

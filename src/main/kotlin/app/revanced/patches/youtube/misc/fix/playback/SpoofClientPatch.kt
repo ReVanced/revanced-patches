@@ -5,6 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
@@ -15,7 +16,9 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMu
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.patches.youtube.misc.backgroundplayback.BackgroundPlaybackPatch
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.*
+import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -37,16 +40,21 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
         SettingsPatch::class,
         AddResourcesPatch::class,
         UserAgentClientSpoofPatch::class,
+        // Required since iOS livestream fix partially enables background playback.
+        BackgroundPlaybackPatch::class,
+        PlayerTypeHookPatch::class,
     ],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube",
             [
-                "18.37.36",
-                "18.38.44",
-                "18.43.45",
-                "18.44.41",
-                "18.45.43",
+                // This patch works with these versions,
+                // but the dependent background playback patch does not.
+                // "18.37.36",
+                // "18.38.44",
+                // "18.43.45",
+                // "18.44.41",
+                // "18.45.43",
                 "18.48.39",
                 "18.49.37",
                 "19.01.34",
@@ -77,18 +85,29 @@ object SpoofClientPatch : BytecodePatch(
         SetPlayerRequestClientTypeFingerprint,
         CreatePlayerRequestBodyFingerprint,
         CreatePlayerRequestBodyWithModelFingerprint,
+        CreatePlayerRequestBodyWithVersionReleaseFingerprint,
 
         // Player gesture config.
         PlayerGestureConfigSyntheticFingerprint,
 
         // Player speed menu item.
         CreatePlaybackSpeedMenuItemFingerprint,
-    ),
+
+        // Video qualities missing.
+        BuildRequestFingerprint,
+
+        // Livestream audio only background playback.
+        PlayerResponseModelBackgroundAudioPlaybackFingerprint,
+    )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/spoof/SpoofClientPatch;"
     private const val CLIENT_INFO_CLASS_DESCRIPTOR =
         "Lcom/google/protos/youtube/api/innertube/InnertubeContext\$ClientInfo;"
+    private const val REQUEST_CLASS_DESCRIPTOR =
+        "Lorg/chromium/net/ExperimentalUrlRequest;"
+    private const val REQUEST_BUILDER_CLASS_DESCRIPTOR =
+        "Lorg/chromium/net/ExperimentalUrlRequest\$Builder;"
 
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
@@ -153,7 +172,7 @@ object SpoofClientPatch : BytecodePatch(
                     .getInstructions().find { instruction ->
                         // requestMessage.clientInfo = clientInfoBuilder.build();
                         instruction.opcode == Opcode.IPUT_OBJECT &&
-                            instruction.getReference<FieldReference>()?.type == CLIENT_INFO_CLASS_DESCRIPTOR
+                                instruction.getReference<FieldReference>()?.type == CLIENT_INFO_CLASS_DESCRIPTOR
                     }?.getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoField")
 
                 // Client info object's client type field.
@@ -164,13 +183,15 @@ object SpoofClientPatch : BytecodePatch(
                 // Client info object's client version field.
                 val clientInfoClientVersionField = result.mutableMethod
                     .getInstruction(result.scanResult.stringsScanResult!!.matches.first().index + 1)
-                    .getReference<FieldReference>() ?: throw PatchException("Could not find clientInfoClientVersionField")
+                    .getReference<FieldReference>()
+                    ?: throw PatchException("Could not find clientInfoClientVersionField")
 
                 Triple(clientInfoField, clientInfoClientTypeField, clientInfoClientVersionField)
             }
 
         val clientInfoClientModelField = CreatePlayerRequestBodyWithModelFingerprint.resultOrThrow().let {
-            val getClientModelIndex = CreatePlayerRequestBodyWithModelFingerprint.indexOfBuildModelInstruction(it.method)
+            val getClientModelIndex =
+                CreatePlayerRequestBodyWithModelFingerprint.indexOfBuildModelInstruction(it.method)
 
             // The next IPUT_OBJECT instruction after getting the client model is setting the client model field.
             val index = it.mutableMethod.indexOfFirstInstructionOrThrow(getClientModelIndex) {
@@ -179,6 +200,19 @@ object SpoofClientPatch : BytecodePatch(
 
             it.mutableMethod.getInstruction(index).getReference<FieldReference>()
                 ?: throw PatchException("Could not find clientInfoClientModelField")
+        }
+
+        val clientInfoOsVersionField = CreatePlayerRequestBodyWithVersionReleaseFingerprint.resultOrThrow().let {
+            val getOsVersionIndex =
+                CreatePlayerRequestBodyWithVersionReleaseFingerprint.indexOfBuildVersionReleaseInstruction(it.method)
+
+            // The next IPUT_OBJECT instruction after getting the client os version is setting the client os version field.
+            val index = it.mutableMethod.indexOfFirstInstructionOrThrow(getOsVersionIndex) {
+                opcode == Opcode.IPUT_OBJECT
+            }
+
+            it.mutableMethod.getInstruction(index).getReference<FieldReference>()
+                ?: throw PatchException("Could not find clientInfoOsVersionField")
         }
 
         // endregion
@@ -198,7 +232,7 @@ object SpoofClientPatch : BytecodePatch(
                 addInstruction(
                     checkCastIndex + 1,
                     "invoke-static { v$requestMessageInstanceRegister }," +
-                        " ${result.classDef.type}->$setClientInfoMethodName($clientInfoContainerClassName)V",
+                            " ${result.classDef.type}->$setClientInfoMethodName($clientInfoContainerClassName)V",
                 )
             }
 
@@ -240,6 +274,12 @@ object SpoofClientPatch : BytecodePatch(
                             invoke-static { v1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->getClientVersion(Ljava/lang/String;)Ljava/lang/String;
                             move-result-object v1
                             iput-object v1, v0, $clientInfoClientVersionField
+
+                            # Set client os version to the spoofed value.
+                            iget-object v1, v0, $clientInfoOsVersionField
+                            invoke-static { v1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->getOsVersion(Ljava/lang/String;)Ljava/lang/String;
+                            move-result-object v1
+                            iput-object v1, v0, $clientInfoOsVersionField
                             
                             :disabled
                             return-void
@@ -283,6 +323,23 @@ object SpoofClientPatch : BytecodePatch(
 
         // endregion
 
+        // region Fix livestream audio only background play if spoofing to iOS.
+        // This force enables audio background playback.
+
+        PlayerResponseModelBackgroundAudioPlaybackFingerprint.resultOrThrow().mutableMethod.addInstructions(
+            0,
+            """
+                invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->overrideBackgroundAudioPlayback()Z
+                move-result v0
+                if-eqz v0, :do_not_override
+                return v0
+                :do_not_override
+                nop
+            """
+        )
+
+        // endregion
+
         // Fix playback speed menu item if spoofing to iOS.
 
         CreatePlaybackSpeedMenuItemFingerprint.resultOrThrow().let {
@@ -291,7 +348,8 @@ object SpoofClientPatch : BytecodePatch(
 
             it.mutableMethod.apply {
                 // Find the conditional check if the playback speed menu item is not created.
-                val shouldCreateMenuIndex = indexOfFirstInstructionOrThrow(scanResult.endIndex) { opcode == Opcode.IF_EQZ }
+                val shouldCreateMenuIndex =
+                    indexOfFirstInstructionOrThrow(scanResult.endIndex) { opcode == Opcode.IF_EQZ }
                 val shouldCreateMenuRegister = getInstruction<OneRegisterInstruction>(shouldCreateMenuIndex).registerA
 
                 addInstructions(
@@ -300,6 +358,29 @@ object SpoofClientPatch : BytecodePatch(
                         invoke-static { v$shouldCreateMenuRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->forceCreatePlaybackSpeedMenu(Z)Z
                         move-result v$shouldCreateMenuRegister
                     """,
+                )
+            }
+        }
+
+        // endregion
+
+        // region Fix video qualities missing, if spoofing to iOS by overriding the user agent.
+
+        BuildRequestFingerprint.resultOrThrow().let { result ->
+            result.mutableMethod.apply {
+                val buildRequestIndex = getInstructions().lastIndex - 2
+                val requestBuilderRegister = getInstruction<FiveRegisterInstruction>(buildRequestIndex).registerC
+
+                val newRequestBuilderIndex = result.scanResult.patternScanResult!!.endIndex
+                val urlRegister = getInstruction<FiveRegisterInstruction>(newRequestBuilderIndex).registerD
+
+                // Replace "requestBuilder.build(): Request" with "overrideUserAgent(requestBuilder, url): Request".
+                replaceInstruction(
+                    buildRequestIndex,
+                    "invoke-static { v$requestBuilderRegister, v$urlRegister }, " +
+                            "$INTEGRATIONS_CLASS_DESCRIPTOR->" +
+                            "overrideUserAgent(${REQUEST_BUILDER_CLASS_DESCRIPTOR}Ljava/lang/String;)" +
+                            REQUEST_CLASS_DESCRIPTOR
                 )
             }
         }

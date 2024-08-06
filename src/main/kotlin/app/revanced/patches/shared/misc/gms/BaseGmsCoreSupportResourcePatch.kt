@@ -96,27 +96,23 @@ abstract class BaseGmsCoreSupportResourcePatch(
     private fun ResourceContext.patchManifest() {
         val packageName = ChangePackageNamePatch.setOrGetFallbackPackageName(toPackageName)
 
-        val manifest = this.get("AndroidManifest.xml").readText()
-        this.get("AndroidManifest.xml").writeText(
-            manifest.replace(
-                "package=\"$fromPackageName",
-                "package=\"$packageName",
-            ).replace(
-                "android:authorities=\"$fromPackageName",
-                "android:authorities=\"$packageName",
-            ).replace(
-                "$fromPackageName.permission.C2D_MESSAGE",
-                "$packageName.permission.C2D_MESSAGE",
-            ).replace(
-                "$fromPackageName.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
-                "$packageName.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
-            ).replace(
-                "com.google.android.c2dm",
-                "$gmsCoreVendorGroupId.android.c2dm",
-            ).replace(
-                "</queries>",
-                "<package android:name=\"$gmsCoreVendorGroupId.android.gms\"/></queries>",
-            ),
+        val transformations = mapOf(
+            "package=\"$fromPackageName" to "package=\"$packageName",
+            "android:authorities=\"$fromPackageName" to "android:authorities=\"$packageName",
+            "$fromPackageName.permission.C2D_MESSAGE" to "$packageName.permission.C2D_MESSAGE",
+            "$fromPackageName.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" to "$packageName.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
+            "com.google.android.c2dm" to "$packageName.android.c2dm",
+            "com.google.android.libraries.photos.api.mars" to "$packageName.android.apps.photos.api.mars",
+            "</queries>" to "<package android:name=\"$gmsCoreVendorGroupId.android.gms\"/></queries>",
+        )
+
+        get("AndroidManifest.xml", false).writeText(
+            transformations.entries.fold(get("AndroidManifest.xml", false).readText()) { acc, (from, to) ->
+                acc.replace(
+                    from,
+                    to
+                )
+            }
         )
     }
 
