@@ -1,3 +1,18 @@
+# [4.12.0-dev.17](https://github.com/ReVanced/revanced-patches/compare/v4.12.0-dev.16...v4.12.0-dev.17) (2024-08-06)
+
+
+### Bug Fixes
+
+* **Google Photos - GmsCore support:** Fix by checking first if a method exists before trying to patch it ([acf38ca](https://github.com/ReVanced/revanced-patches/commit/acf38cafae5eb9896b43f3a6cbd808ac273cd081))
+* **Messenger - Disable switching emoji to sticker:** Constrain to last working version `439.0.0.29.119` ([6207c31](https://github.com/ReVanced/revanced-patches/commit/6207c314c657a1188d1081b0a196a61e49cad83b))
+
+
+### Features
+
+* **CandyLink:** Remove non-functional `Unlock pro` patch ([7ae9f8f](https://github.com/ReVanced/revanced-patches/commit/7ae9f8fa0a349b91853e9554f18e564ca6ff887c))
+* **Expense Manager:** Remove non-functional `Unlock pro` patch ([ebbcac7](https://github.com/ReVanced/revanced-patches/commit/ebbcac74fd8598daebb4be0bd7c430c41333e2d4))
+* **Instagram:** Remove unnecessary `Hide timeline ads` patch ([5e1d001](https://github.com/ReVanced/revanced-patches/commit/5e1d001056df68e1e2b39f1365215c91bcc9e46b))
+
 # [4.12.0-dev.16](https://github.com/ReVanced/revanced-patches/compare/v4.12.0-dev.15...v4.12.0-dev.16) (2024-08-04)
 
 
