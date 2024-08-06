@@ -279,6 +279,12 @@ public final class app/revanced/patches/googlenews/misc/integrations/Integration
 	public static final field INSTANCE Lapp/revanced/patches/googlenews/misc/integrations/IntegrationsPatch;
 }
 
+public final class app/revanced/patches/googlephotos/features/EnableUnlimitedStoragePatch : app/revanced/patches/all/misc/build/BaseSpoofBuildInfoPatch {
+	public fun <init> ()V
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/googlephotos/misc/gms/GmsCoreSupportPatch : app/revanced/patches/shared/misc/gms/BaseGmsCoreSupportPatch {
 	public static final field INSTANCE Lapp/revanced/patches/googlephotos/misc/gms/GmsCoreSupportPatch;
 }
