@@ -221,12 +221,12 @@ public class ReturnYouTubeDislikePatch {
 
             String conversionContextString = conversionContext.toString();
 
-            if (isRollingNumber && !conversionContextString.contains("video_action_bar.eml|")) {
+            if (isRollingNumber && !conversionContextString.contains("video_action_bar.eml")) {
                 return original;
             }
 
             final CharSequence replacement;
-            if (conversionContextString.contains("|segmented_like_dislike_button.eml|")) {
+            if (conversionContextString.contains("segmented_like_dislike_button.eml")) {
                 // Regular video.
                 ReturnYouTubeDislike videoData = currentVideoData;
                 if (videoData == null) {

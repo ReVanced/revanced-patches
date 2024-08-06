@@ -273,7 +273,6 @@ public class Utils {
                                                   @NonNull MatchFilter<View> filter) {
         for (int i = 0, childCount = viewGroup.getChildCount(); i < childCount; i++) {
             View childAt = viewGroup.getChildAt(i);
-            Logger.printDebug(() -> "View id: " + childAt.getId() + " tag: " + childAt.getTag());
 
             if (filter.matches(childAt)) {
                 //noinspection unchecked
@@ -285,6 +284,7 @@ public class Utils {
                 if (match != null) return match;
             }
         }
+
         return null;
     }
 

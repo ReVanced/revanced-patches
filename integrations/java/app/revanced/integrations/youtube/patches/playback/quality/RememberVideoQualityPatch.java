@@ -1,19 +1,20 @@
 package app.revanced.integrations.youtube.patches.playback.quality;
 
-import androidx.annotation.Nullable;
+import static app.revanced.integrations.shared.StringRef.str;
+import static app.revanced.integrations.shared.Utils.NetworkType;
 
-import app.revanced.integrations.shared.settings.IntegerSetting;
-import app.revanced.integrations.youtube.settings.Settings;
-import app.revanced.integrations.shared.Logger;
-import app.revanced.integrations.shared.Utils;
+import androidx.annotation.Nullable;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-import static app.revanced.integrations.shared.StringRef.str;
-import static app.revanced.integrations.shared.Utils.NetworkType;
+import app.revanced.integrations.shared.Logger;
+import app.revanced.integrations.shared.Utils;
+import app.revanced.integrations.shared.settings.IntegerSetting;
+import app.revanced.integrations.youtube.patches.VideoInformation;
+import app.revanced.integrations.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
 public class RememberVideoQualityPatch {
@@ -158,7 +159,7 @@ public class RememberVideoQualityPatch {
     /**
      * Injection point.
      */
-    public static void newVideoStarted(Object ignoredPlayerController) {
+    public static void newVideoStarted(VideoInformation.PlaybackController ignoredPlayerController) {
         Logger.printDebug(() -> "newVideoStarted");
         qualityNeedsUpdating = true;
         videoQualities = null;

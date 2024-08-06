@@ -18,6 +18,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import app.revanced.integrations.shared.Logger;
 import app.revanced.integrations.shared.Utils;
 import app.revanced.integrations.youtube.ByteTrieSearch;
+import app.revanced.integrations.youtube.StringTrieSearch;
 import app.revanced.integrations.youtube.TrieSearch;
 import app.revanced.integrations.youtube.settings.Settings;
 import app.revanced.integrations.youtube.shared.NavigationBar;
@@ -59,11 +60,15 @@ final class KeywordContentFilter extends Filter {
      */
     private static final String[] STRINGS_IN_EVERY_BUFFER = {
             // Video playback data.
-            "https://i.ytimg.com/vi/", // Thumbnail url.
-            "sddefault.jpg", // More video sizes exist, but for most devices only these 2 are used.
-            "hqdefault.webp",
             "googlevideo.com/initplayback?source=youtube", // Video url.
             "ANDROID", // Video url parameter.
+            "https://i.ytimg.com/vi/", // Thumbnail url.
+            "mqdefault.jpg",
+            "hqdefault.jpg",
+            "sddefault.jpg",
+            "hq720.jpg",
+            "webp",
+            "_custom_", // Custom thumbnail set by video creator.
             // Video decoders.
             "OMX.ffmpeg.vp9.decoder",
             "OMX.Intel.sw_vd.vp9",
@@ -75,15 +80,22 @@ final class KeywordContentFilter extends Filter {
             "c2.android.av1-dav1d.decoder",
             "c2.android.vp9.decoder",
             "c2.mtk.sw.vp9.decoder",
-            // User analytics.
-            "https://ad.doubleclick.net/ddm/activity/",
-            "DEVICE_ADVERTISER_ID_FOR_CONVERSION_TRACKING",
-            "tag_for_child_directed_treatment", // Found in overflow menu such as 'Watch later'.
-            // Litho components frequently found in the buffer that belong to the path filter items.
+            // Analytics.
+            "searchR",
+            "browse-feed",
+            "FEwhat_to_watch",
+            "FEsubscriptions",
+            "search_vwc_description_transition_key",
+            "g-high-recZ",
+            // Text and litho components found in the buffer that belong to path filters.
             "metadata.eml",
             "thumbnail.eml",
             "avatar.eml",
             "overflow_button.eml",
+            "shorts-lockup-image",
+            "shorts-lockup.overlay-metadata.secondary-text",
+            "YouTubeSans-SemiBold",
+            "sans-serif"
     };
 
     /**
@@ -95,6 +107,7 @@ final class KeywordContentFilter extends Filter {
             "search_video_with_context.eml",
             "video_with_context.eml", // Subscription tab videos.
             "related_video_with_context.eml",
+            "video_lockup_with_attachment.eml", // A/B test for subscribed video.
             "compact_video.eml",
             "inline_shorts",
             "shorts_video_cell",
@@ -108,8 +121,22 @@ final class KeywordContentFilter extends Filter {
     private final StringFilterGroup containsFilter = new StringFilterGroup(
             null,
             "modern_type_shelf_header_content.eml",
-             "shorts_lockup_cell.eml", // Part of 'shorts_shelf_carousel.eml'
+            "shorts_lockup_cell.eml", // Part of 'shorts_shelf_carousel.eml'
             "video_card.eml" // Shorts that appear in a horizontal shelf.
+    );
+
+    /**
+     * Path components to not filter.  Cannot filter the buffer when these are present,
+     * otherwise text in UI controls can be filtered as a keyword (such as using "Playlist" as a keyword).
+     *
+     * This is also a small performance improvement since
+     * the buffer of the parent component was already searched and passed.
+     */
+    private final StringTrieSearch exceptions = new StringTrieSearch(
+            "metadata.eml",
+            "thumbnail.eml",
+            "avatar.eml",
+            "overflow_button.eml"
     );
 
     /**
@@ -121,7 +148,7 @@ final class KeywordContentFilter extends Filter {
 
     private static final float ALL_VIDEOS_FILTERED_SAMPLE_SIZE = 50;
 
-    private static final long ALL_VIDEOS_FILTERED_TIMEOUT_MILLISECONDS = 60 * 1000; // 60 seconds
+    private static final long ALL_VIDEOS_FILTERED_BACKOFF_MILLISECONDS = 60 * 1000; // 60 seconds
 
     /**
      * Rolling average of how many videos were filtered by a keyword.
@@ -140,7 +167,7 @@ final class KeywordContentFilter extends Filter {
 
     /**
      * If filtering is temporarily turned off, the time to resume filtering.
-     * Field is zero if no timeout is in effect.
+     * Field is zero if no backoff is in effect.
      */
     private volatile long timeToResumeFiltering;
 
@@ -339,7 +366,7 @@ final class KeywordContentFilter extends Filter {
 
         // A keyword is hiding everything.
         // Inform the user, and temporarily turn off filtering.
-        timeToResumeFiltering = System.currentTimeMillis() + ALL_VIDEOS_FILTERED_TIMEOUT_MILLISECONDS;
+        timeToResumeFiltering = System.currentTimeMillis() + ALL_VIDEOS_FILTERED_BACKOFF_MILLISECONDS;
 
         Logger.printDebug(() -> "Temporarily turning off filtering due to excessively broad filter: " + keyword);
         Utils.showToastLong(str("revanced_hide_keyword_toast_invalid_broad", keyword));
@@ -360,6 +387,10 @@ final class KeywordContentFilter extends Filter {
         }
 
         if (!hideKeywordSettingIsActive()) return false;
+
+        if (exceptions.matches(path)) {
+            return false; // Do not update statistics.
+        }
 
         MutableReference<String> matchRef = new MutableReference<>();
         if (bufferSearch.matches(protobufBufferArray, matchRef)) {

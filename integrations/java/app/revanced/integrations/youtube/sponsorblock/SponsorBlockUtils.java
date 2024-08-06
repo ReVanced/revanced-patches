@@ -234,9 +234,7 @@ public class SponsorBlockUtils {
             new AlertDialog.Builder(SponsorBlockViewController.getOverLaysViewGroupContext())
                     .setTitle(str("revanced_sb_new_segment_title"))
                     .setMessage(str("revanced_sb_new_segment_mark_time_as_question",
-                            newSponsorSegmentDialogShownMillis / 3600000,
-                            newSponsorSegmentDialogShownMillis / 1000 % 60,
-                            newSponsorSegmentDialogShownMillis % 1000))
+                            formatSegmentTime(newSponsorSegmentDialogShownMillis)))
                     .setNeutralButton(android.R.string.cancel, null)
                     .setNegativeButton(str("revanced_sb_new_segment_mark_start"), newSponsorSegmentDialogListener)
                     .setPositiveButton(str("revanced_sb_new_segment_mark_end"), newSponsorSegmentDialogListener)
@@ -448,17 +446,20 @@ public class SponsorBlockUtils {
             Duration duration = Duration.ofSeconds(totalSecondsSaved);
             final long hours = duration.toHours();
             final long minutes = duration.toMinutes() % 60;
+
             // Format all numbers so non-western numbers use a consistent appearance.
             String minutesFormatted = statsNumberFormatter.format(minutes);
             if (hours > 0) {
                 String hoursFormatted = statsNumberFormatter.format(hours);
                 return str("revanced_sb_stats_saved_hour_format", hoursFormatted, minutesFormatted);
             }
+
             final long seconds = duration.getSeconds() % 60;
             String secondsFormatted = statsNumberFormatter.format(seconds);
             if (minutes > 0) {
                 return str("revanced_sb_stats_saved_minute_format", minutesFormatted, secondsFormatted);
             }
+
             return str("revanced_sb_stats_saved_second_format", secondsFormatted);
         }
         return "error"; // will never be reached.  YouTube requires Android O or greater
