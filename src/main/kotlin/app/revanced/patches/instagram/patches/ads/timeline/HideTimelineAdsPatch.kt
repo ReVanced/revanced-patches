@@ -14,9 +14,9 @@ import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Patch(
-    name = "Hide timeline ads",
     compatiblePackages = [CompatiblePackage("com.instagram.android")],
 )
+@Deprecated("This patch is not needed anymore.", replaceWith = ReplaceWith("HideAdsPatch"))
 @Suppress("unused")
 object HideTimelineAdsPatch : BytecodePatch(
     setOf(

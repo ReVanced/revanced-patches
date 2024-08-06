@@ -213,6 +213,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">Skjul infokort sektion</string>
   <string name="revanced_hide_info_cards_section_summary_on">Info-kort sektion er skjult</string>
   <string name="revanced_hide_info_cards_section_summary_off">Info-kort sektion er vist</string>
+  <string name="revanced_hide_key_concepts_section_title">Skjul sektion \'Nøglebegreber\'</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">\'Nøglebegreber\' sektion er skjult</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">\'Nøglebegreber\' afsnit vises</string>
   <string name="revanced_hide_transcript_section_title">Skjul udskriftsafsnittet</string>
   <string name="revanced_hide_transcript_section_summary_on">Afsnittet er skjult</string>
   <string name="revanced_hide_transcript_section_summary_off">Afsnittet er vist</string>
@@ -248,7 +251,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_toast_invalid_common">Ugyldigt søgeord. Kan ikke bruge: \'%s\' som et filter</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Ugyldigt søgeord. \'%1$s\' er mindre end %2$d tegn</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">Nøgleord \'$s\' vil skjule alle videoer</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">Nøgleord \'%s\' vil skjule alle videoer</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Skjul generelle annoncer</string>
@@ -579,11 +582,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Skjul Shorts i hjemmefeed</string>
   <string name="revanced_hide_shorts_home_summary_on">Shorts i hjemmet feed er skjult</string>
-  <string name="revanced_hide_shorts_home_summary_off">Korte i hjemmet feed er vist</string>
+  <string name="revanced_hide_shorts_home_summary_off">Shorts i hjemmet feed er vist</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Skjul Shorts i abonnementsfeed</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Korte i abonnementsfeed er skjult</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Korte i abonnementsfeed vises</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts i abonnementsfeed er skjult</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts i abonnementsfeed vises</string>
   <string name="revanced_hide_shorts_search_title">Skjul Shorts i søgeresultater</string>
   <string name="revanced_hide_shorts_search_summary_on">Shorts i søgeresultater er skjult</string>
   <string name="revanced_hide_shorts_search_summary_off">Korte i søgeresultater vises</string>
@@ -865,9 +868,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">Vælg segmentkategori</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategori er deaktiveret i indstillinger. Aktivér kategori for at indsende.</string>
   <string name="revanced_sb_new_segment_title">Nyt SponsorBlock segment</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-  <string name="revanced_sb_new_segment_mark_time_as_question">Sæt %1$02d:%2$02d:%3$03d som start eller afslutning af et nyt segment?</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">Sæt %s som start eller afslutning af et nyt segment?</string>
   <string name="revanced_sb_new_segment_mark_start">start</string>
   <string name="revanced_sb_new_segment_mark_end">slut</string>
   <string name="revanced_sb_new_segment_now">nu</string>
@@ -991,6 +992,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_value_summary">Farven på den søgende bar</string>
   <string name="revanced_seekbar_custom_color_invalid">Ugyldig søgelinje farveværdi. Brug standardværdi.</string>
   </patch>
+  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  <string name="revanced_bypass_image_region_restrictions_title">Bypass billede region restriktioner</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_on">Bruger billedvært yt4.ggpht.com</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">Brug af original billedvært\n\nAktivering af dette kan rette manglende billeder, der er blokeret i nogle regioner</string>
+  </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Hjem fane</string>
@@ -1113,8 +1119,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Klienten er ikke forfalsket\n\nVideoafspilning fungerer muligvis ikke</string>
   <string name="revanced_spoof_client_user_dialog_message">At slå denne indstilling fra kan forårsage problemer med videoafspilning.</string>
   <string name="revanced_spoof_client_use_ios_title">Spoof klient til iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Klienten er i øjeblikket spoofed til iOS\n\nBivirkninger omfatter:\n• Ingen HDR-video\n• Se historie fungerer muligvis ikke\n• Højere video kvaliteter mangler muligvis\n• Live streams kan ikke afspilles som lyd kun\n• Live streams ikke tilgængelig på Android 8.0</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Klienten er i øjeblikket spoofed til Android VR\n\nBivirkninger omfatter:\n• Ingen HDR-video\n• Kids videoer ikke afspilning\n• Pause videoer kan tilfældigt genoptage\n• Lav kvalitet Shorts søgelinje miniaturer\n• Download handling knap er altid skjult\n• End screen cards are always hidden</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Klienten er i øjeblikket spoofed til iOS\n\nBivirkninger omfatter:\n• HDR-video er muligvis ikke tilgængelig\n• Se historie fungerer måske ikke</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">Klienten er i øjeblikket spoofed til Android VR. Bivirkninger omfatter:\n• Ingen HDR-video\n• Kids videoer ikke afspilning\n• Pause videoer kan tilfældigt genoptage\n• Lav kvalitet Shorts søgelinje miniaturer\n• Download handling knap er skjult\n• End screen cards are hidden</string>
   <string name="revanced_spoof_client_storyboard_timeout">Spoof klient miniaturer ikke tilgængelige (API timemed out)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Spoof klient miniaturer midlertidigt ikke tilgængelige: %s</string>
   </patch>

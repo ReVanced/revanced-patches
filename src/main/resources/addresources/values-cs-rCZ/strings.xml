@@ -214,6 +214,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">Skrýt sekci informačních karet</string>
   <string name="revanced_hide_info_cards_section_summary_on">Sekce Info karty je skrytá</string>
   <string name="revanced_hide_info_cards_section_summary_off">Je zobrazena sekce Info karty</string>
+  <string name="revanced_hide_key_concepts_section_title">Skrýt sekci \'Klíčové koncepty\'</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">Sekce \'Klíčové pojmy\' je skryta</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">Zobrazí se sekce \'Klíčové pojmy\'</string>
   <string name="revanced_hide_transcript_section_title">Skrýt sekci přepisu</string>
   <string name="revanced_hide_transcript_section_summary_on">Přepsat oddíl je skrytý</string>
   <string name="revanced_hide_transcript_section_summary_off">Je zobrazena sekce přepisu</string>
@@ -249,7 +252,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_toast_invalid_common">Neplatné klíčové slovo. Nelze použít: \'%s\' jako filtr</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Neplatné klíčové slovo. \'%1$s\' je menší než %2$d znaků</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">Klíčové slovo \'$s\' skryje všechna videa</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">Klíčové slovo \'%s\' skryje všechna videa</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Skrýt obecné reklamy</string>
@@ -867,9 +870,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">Vyberte kategorii segmentu</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategorie je v nastavení zakázána. Povolte odeslat kategorii.</string>
   <string name="revanced_sb_new_segment_title">Nový segment SponsorBlock</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-  <string name="revanced_sb_new_segment_mark_time_as_question">Nastavit %1$02d:%2$02d:%3$03d jako začátek nebo konec nového segmentu?</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">Nastavit %s jako začátek nebo konec nového segmentu?</string>
   <string name="revanced_sb_new_segment_mark_start">Začít</string>
   <string name="revanced_sb_new_segment_mark_end">konec</string>
   <string name="revanced_sb_new_segment_now">nyní</string>
@@ -994,6 +995,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_value_summary">Barva vyhledávacího panelu</string>
   <string name="revanced_seekbar_custom_color_invalid">Neplatná hodnota barvy vyhledávacího panelu. Použít výchozí hodnotu.</string>
   </patch>
+  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  <string name="revanced_bypass_image_region_restrictions_title">Obejít omezení oblasti obrázku</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_on">Použití hostitele obrázků yt4.gggpht.com</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">Použití originálního hostitele obrázků\n\nPovolení tohoto nastavení může opravit chybějící obrázky, které jsou blokovány v některých regionech</string>
+  </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Záložka Domů</string>
@@ -1116,8 +1122,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Klient není spoofed\n\nPřehrávání videa nemusí fungovat</string>
   <string name="revanced_spoof_client_user_dialog_message">Vypnutí tohoto nastavení může způsobit problémy při přehrávání videa.</string>
   <string name="revanced_spoof_client_use_ios_title">Spořič do iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Klient je v současné době spokojen s iOS\n\nBoční efekty zahrnují:\n• No HDR video\n• Historie sledování nemusí fungovat\n• Vyšší vlastnosti videa mohou chybět\n• Živé streamy nemohou přehrát pouze\n• Živé streamy nejsou k dispozici na Android 8.0</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Klient je v současné době spout s Androidem VR\n\nBoční efekty zahrnují:\n• No HDR video\n• Dětská videa nepřehrávají\n• Pozastavená videa mohou náhodně pokračovat\n• Nízká kvalita krátkých náhledů ve vyhledávacím panelu\n• Tlačítko stahování akce je vždy skryté\n• Karty s ukončenou obrazovkou jsou vždy skryté</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Klient je v současné době spokojen s iOS\n\nBoční efekty zahrnují:\n• HDR video nemusí být k dispozici\n• Historie sledování nemusí fungovat</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">Klient je v současné době spout s Androidem VR. Boční efekty zahrnují:\n• No HDR video\n• Dětská videa nepřehrávají\n• Pozastavená videa mohou náhodně pokračovat\n• Nízká kvalita krátkých náhledů ve vyhledávacím panelu\n• Tlačítko pro stažení akce je skryté\n• Karty s ukončenou obrazovkou jsou skryté</string>
   <string name="revanced_spoof_client_storyboard_timeout">Náhledy klientů nejsou k dispozici (vypršel časový limit API)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Spouštění náhledů klientů dočasně není k dispozici: %s</string>
   </patch>

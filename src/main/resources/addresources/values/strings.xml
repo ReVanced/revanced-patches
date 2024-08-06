@@ -213,6 +213,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_info_cards_section_title">Hide info cards section</string>
             <string name="revanced_hide_info_cards_section_summary_on">Info cards section is hidden</string>
             <string name="revanced_hide_info_cards_section_summary_off">Info cards section is shown</string>
+            <string name="revanced_hide_key_concepts_section_title">Hide \'Key concepts\' section</string>
+            <string name="revanced_hide_key_concepts_section_summary_on">\'Key concepts\' section is hidden</string>
+            <string name="revanced_hide_key_concepts_section_summary_off">\'Key concepts\' section is shown</string>
             <string name="revanced_hide_transcript_section_title">Hide Transcript section</string>
             <string name="revanced_hide_transcript_section_summary_on">Transcript section is hidden</string>
             <string name="revanced_hide_transcript_section_summary_off">Transcript section is shown</string>
@@ -248,7 +251,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_keyword_toast_invalid_common">Invalid keyword. Cannot use: \'%s\' as a filter</string>
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
             <string name="revanced_hide_keyword_toast_invalid_length">Invalid keyword. \'%1$s\' is less than %2$d characters</string>
-            <string name="revanced_hide_keyword_toast_invalid_broad">Keyword \'$s\' will hide all videos</string>
+            <string name="revanced_hide_keyword_toast_invalid_broad">Keyword \'%s\' will hide all videos</string>
         </patch>
         <patch id="ad.general.HideAdsResourcePatch">
             <string name="revanced_hide_general_ads_title">Hide general ads</string>
@@ -870,9 +873,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_sb_new_segment_choose_category">Choose the segment category</string>
             <string name="revanced_sb_new_segment_disabled_category">Category is disabled in settings. Enable category to submit.</string>
             <string name="revanced_sb_new_segment_title">New SponsorBlock segment</string>
-            <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-            <string name="revanced_sb_new_segment_mark_time_as_question">Set %1$02d:%2$02d:%3$03d as the start or end of a new segment?</string>
+            <string name="revanced_sb_new_segment_mark_time_as_question">Set %s as the start or end of a new segment?</string>
             <string name="revanced_sb_new_segment_mark_start">start</string>
             <string name="revanced_sb_new_segment_mark_end">end</string>
             <string name="revanced_sb_new_segment_now">now</string>
@@ -997,6 +998,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_seekbar_custom_color_value_title">Custom seekbar color</string>
             <string name="revanced_seekbar_custom_color_value_summary">The color of the seekbar</string>
             <string name="revanced_seekbar_custom_color_invalid">Invalid seekbar color value. Using default value.</string>
+        </patch>
+        <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+            <string name="revanced_bypass_image_region_restrictions_title">Bypass image region restrictions</string>
+            <string name="revanced_bypass_image_region_restrictions_summary_on">Using image host yt4.ggpht.com</string>
+            <string name="revanced_bypass_image_region_restrictions_summary_off">Using original image host\n\nEnabling this can fix missing images that are blocked in some regions</string>
         </patch>
         <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -1129,8 +1135,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_spoof_client_summary_off">Client is not spoofed\n\nVideo playback may not work</string>
             <string name="revanced_spoof_client_user_dialog_message">Turning off this setting may cause video playback issues.</string>
             <string name="revanced_spoof_client_use_ios_title">Spoof client to iOS</string>
-            <string name="revanced_spoof_client_use_ios_summary_on">Client is currently spoofed to iOS\n\nSide effects include:\n• No HDR video\n• Watch history may not work\n• Higher video qualities may be missing\n• Live streams cannot play as audio only\n• Live streams not available on Android 8.0</string>
-            <string name="revanced_spoof_client_use_ios_summary_off">Client is currently spoofed to Android VR\n\nSide effects include:\n• No HDR video\n• Kids videos do not playback\n• Paused videos can randomly resume\n• Low quality Shorts seekbar thumbnails\n• Download action button is always hidden\n• End screen cards are always hidden</string>
+            <string name="revanced_spoof_client_use_ios_summary_on">Client is currently spoofed to iOS\n\nSide effects include:\n• HDR video may not be available\n• Watch history may not work</string>
+            <string name="revanced_spoof_client_use_ios_summary_off">Client is currently spoofed to Android VR\n\nSide effects include:\n• No HDR video\n• Kids videos do not playback\n• Paused videos can randomly resume\n• Low quality Shorts seekbar thumbnails\n• Download action button is hidden\n• End screen cards are hidden</string>
             <string name="revanced_spoof_client_storyboard_timeout">Spoof client thumbnails not available (API timed out)</string>
             <string name="revanced_spoof_client_storyboard_io_exception">Spoof client thumbnails temporarily not available: %s</string>
         </patch>

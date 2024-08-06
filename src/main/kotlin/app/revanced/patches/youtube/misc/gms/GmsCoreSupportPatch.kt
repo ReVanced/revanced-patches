@@ -7,7 +7,8 @@ import app.revanced.patches.youtube.misc.fix.playback.SpoofClientPatch
 import app.revanced.patches.youtube.misc.gms.Constants.REVANCED_YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.gms.Constants.YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.gms.GmsCoreSupportResourcePatch.gmsCoreVendorGroupIdOption
-import app.revanced.patches.youtube.misc.gms.fingerprints.*
+import app.revanced.patches.youtube.misc.gms.fingerprints.CastDynamiteModuleV2Fingerprint
+import app.revanced.patches.youtube.misc.gms.fingerprints.PrimeMethodFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.shared.fingerprints.MainActivityOnCreateFingerprint
 
@@ -17,9 +18,6 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
     toPackageName = REVANCED_YOUTUBE_PACKAGE_NAME,
     primeMethodFingerprint = PrimeMethodFingerprint,
     earlyReturnFingerprints = setOf(
-        ServiceCheckFingerprint,
-        GooglePlayUtilityFingerprint,
-        CastDynamiteModuleFingerprint,
         CastDynamiteModuleV2Fingerprint,
         CastContextFetchFingerprint,
     ),
@@ -34,11 +32,12 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
         CompatiblePackage(
             "com.google.android.youtube",
             setOf(
-                "18.37.36",
-                "18.38.44",
-                "18.43.45",
-                "18.44.41",
-                "18.45.43",
+                // Patch supports these versions but ClientSpoof does not.
+                // "18.37.36",
+                // "18.38.44",
+                // "18.43.45",
+                // "18.44.41",
+                // "18.45.43",
                 "18.48.39",
                 "18.49.37",
                 "19.01.34",
@@ -61,9 +60,6 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
         ),
     ),
     fingerprints = setOf(
-        ServiceCheckFingerprint,
-        GooglePlayUtilityFingerprint,
-        CastDynamiteModuleFingerprint,
         CastDynamiteModuleV2Fingerprint,
         CastContextFetchFingerprint,
         PrimeMethodFingerprint,

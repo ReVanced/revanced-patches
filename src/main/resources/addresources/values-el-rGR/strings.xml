@@ -212,6 +212,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">Ενότητα καρτών πληροφοριών</string>
   <string name="revanced_hide_info_cards_section_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_info_cards_section_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_key_concepts_section_title">Ενότητα σχετιζόμενων εννοιών</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">Κρυμμένη</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_transcript_section_title">Ενότητα Απομαγνητοφώνησης</string>
   <string name="revanced_hide_transcript_section_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_transcript_section_summary_off">Εμφανίζεται</string>
@@ -247,7 +250,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_toast_invalid_common">Μη έγκυρη λέξη-κλειδί. Αδυναμία χρήσης: \'%s\' ως φίλτρο</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Μη έγκυρη λέξη-κλειδί. Το \'%1$s\' είναι μικρότερο από %2$d χαρακτήρες</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">Η λέξη «$s» θα κρύψει όλα τα βίντεο</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">Η λέξη «%s» θα κρύψει όλα τα βίντεο</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Γενικές διαφημίσεις</string>
@@ -865,9 +868,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">Επιλέξτε την κατηγορία του τμήματος</string>
   <string name="revanced_sb_new_segment_disabled_category">Η κατηγορία είναι απενεργοποιημένη στις ρυθμίσεις. Ενεργοποιήστε την κατηγορία για υποβολή.</string>
   <string name="revanced_sb_new_segment_title">Νέο τμήμα SponsorBlock</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-  <string name="revanced_sb_new_segment_mark_time_as_question">Ορισμός %1$02d:%2$02d:%3$03d ως αρχή ή τέλος ενός νέου τμήματος;</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">Ορισμός %s ως αρχή ή τέλος ενός νέου τμήματος;</string>
   <string name="revanced_sb_new_segment_mark_start">αρχή</string>
   <string name="revanced_sb_new_segment_mark_end">τέλος</string>
   <string name="revanced_sb_new_segment_now">τώρα</string>
@@ -992,6 +993,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_value_summary">Το χρώμα της γραμμής προόδου</string>
   <string name="revanced_seekbar_custom_color_invalid">Μη έγκυρη τιμή χρώματος. Επαναφορά...</string>
   </patch>
+  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  <string name="revanced_bypass_image_region_restrictions_title">Παράκαμψη μπλοκαρίσματος φόρτωσης εικόνων</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_on">Χρησιμοποιείται το domain yt4.ggpht.com για την φόρτωση εικόνων</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">Χρησιμοποιείται το αρχικό domain για την φόρτωση εικόνων\n\nΗ ενεργοποίηση αυτής της ρύθμισης μπορεί να διορθώσει την φόρτωση εικόνων που είναι μπλοκαρισμένες σε κάποιες περιοχές</string>
+  </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Αρχική σελίδα</string>
@@ -1114,8 +1120,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Το πρόγραμμα πελάτη δεν παραποιείται\n\nΗ αναπαραγωγή βίντεο ενδέχεται να μη λειτουργεί</string>
   <string name="revanced_spoof_client_user_dialog_message">Η απενεργοποίηση αυτής της ρύθμισης ενδέχεται να προκαλέσει προβλήματα αναπαραγωγής βίντεο.</string>
   <string name="revanced_spoof_client_use_ios_title">Παραποίηση σε iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Ο πελάτης αυτή τη στιγμή παραποιείται ως iOS\n\nΟι παρενέργειες περιλαμβάνουν:\n• Δεν υπάρχει η ποιότητα HDR στα βίντεο\n• Το ιστορικό παρακολούθησης μπορεί να μην λειτουργεί\n• Μπορεί να λείπουν επιλογές για υψηλές αναλύσεις βίντεο\n• Δε γίνεται στις ζωντανές ροές η αναπαραγωγή μόνο του ήχου\n• Οι ζωντανές ροές δεν είναι διαθέσιμες σε παλαιότερες συσκευές με Android 8.0</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Ο πελάτης αυτή τη στιγμή παραποιείται ως Android VR\n\nΟι παρενέργειες περιλαμβάνουν:\n• Δεν υπάρχει η ποιότητα HDR στα βίντεο\n• Δεν λειτουργεί η αναπαραγωγή στα βίντεο για παιδιά\n• Βίντεο που έχετε θέσει σε παύση μπορεί να συνεχίσουν να παίζουν τυχαία\n• Χαμηλή ποιότητα μικρογραφιών μπάρας αναζήτησης στα shorts\n• Το κουμπί λήψης είναι πάντα κρυμμένο\n• Οι κάρτες τελικής οθόνης είναι πάντα κρυμμένες</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Ο πελάτης αυτή τη στιγμή παραποιείται ως iOS\n\nΟι παρενέργειες περιλαμβάνουν:\n• Δεν υπάρχει η ποιότητα HDR στα βίντεο\n• Το ιστορικό παρακολούθησης μπορεί να μη λειτουργεί</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">Ο πελάτης αυτή τη στιγμή παραποιείται ως Android VR. Οι παρενέργειες περιλαμβάνουν:\n• Δεν υπάρχει η ποιότητα HDR στα βίντεο\n• Δεν λειτουργεί η αναπαραγωγή στα βίντεο για παιδιά\n• Βίντεο που έχετε θέσει σε παύση μπορεί να συνεχίσουν να παίζουν τυχαία\n• Χαμηλή ποιότητα μικρογραφιών μπάρας αναζήτησης στα shorts\n• Το κουμπί λήψης είναι πάντα κρυμμένο\n• Οι κάρτες τελικής οθόνης είναι πάντα κρυμμένες</string>
   <string name="revanced_spoof_client_storyboard_timeout">Μικρογραφίες προεπισκόπησης μη διαθέσιμες (καθυστέρηση API)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Μικρογραφίες προεπισκόπησης προσωρινά μη διαθέσιμες: %s</string>
   </patch>

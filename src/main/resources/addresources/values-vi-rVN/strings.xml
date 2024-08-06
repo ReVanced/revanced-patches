@@ -71,7 +71,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_05_general_title">Bố cục chung</string>
   <string name="revanced_settings_screen_07_seekbar_title">Thanh tiến trình</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Cử chỉ vuốt</string>
-  <string name="revanced_settings_screen_11_misc_title">Linh tinh</string>
+  <string name="revanced_settings_screen_11_misc_title">Cài đặt khác</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
   </patch>
   <patch id="misc.debugging.DebuggingPatch">
@@ -211,6 +211,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">Ẩn phần thẻ thông tin</string>
   <string name="revanced_hide_info_cards_section_summary_on">Phần thẻ thông tin được ẩn</string>
   <string name="revanced_hide_info_cards_section_summary_off">Phần thẻ thông tin được hiện</string>
+  <string name="revanced_hide_key_concepts_section_title">Ẩn phần \'Khái niệm chính\'</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">Phần \'Khái niệm chính\' được ẩn</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">Phần \'Khái niệm chính\' được hiện</string>
   <string name="revanced_hide_transcript_section_title">Ẩn phần bản chép lời</string>
   <string name="revanced_hide_transcript_section_summary_on">Phần bản chép lời được ẩn</string>
   <string name="revanced_hide_transcript_section_summary_off">Phần bản chép lời được hiện</string>
@@ -246,7 +249,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_toast_invalid_common">Từ khóa không hợp lệ. Không thể dùng \'%s\'</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Từ khóa không hợp lệ. \'%1$s\' nhỏ hơn %2$d ký tự</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">Từ khóa \'$s\' sẽ ẩn toàn bộ video</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">Từ khóa \'%s\' sẽ ẩn toàn bộ video</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Ẩn quảng cáo chung</string>
@@ -864,9 +867,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">Chọn danh mục phân đoạn</string>
   <string name="revanced_sb_new_segment_disabled_category">Danh mục này bị tắt trong cài đặt. Bật danh mục để gửi.</string>
   <string name="revanced_sb_new_segment_title">Tạo phân đoạn SponsorBlock mới</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-  <string name="revanced_sb_new_segment_mark_time_as_question">Đặt %1$02d:%2$02d:%3$03d là bắt đầu hay kết thúc của một phân đoạn mới?</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">Đặt %s là bắt đầu hoặc là kết thúc của một phân đoạn mới?</string>
   <string name="revanced_sb_new_segment_mark_start">bắt đầu</string>
   <string name="revanced_sb_new_segment_mark_end">kết thúc</string>
   <string name="revanced_sb_new_segment_now">bây giờ</string>
@@ -990,6 +991,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_value_summary">Màu của thanh tiến trình</string>
   <string name="revanced_seekbar_custom_color_invalid">Màu thanh tiến trình không hợp lệ.</string>
   </patch>
+  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  <string name="revanced_bypass_image_region_restrictions_title">Vượt qua hạn chế khu vực cho hình ảnh</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_on">Sử dụng máy chủ hình ảnh yt4.ggpht.com</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">Sử dụng máy chủ lưu trữ hình ảnh gốc\n\nBật tính năng này có thể khắc phục tình trạng hình ảnh bị chặn ở một số khu vực</string>
+  </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Thẻ trang chủ</string>
@@ -1112,8 +1118,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Máy khách chưa được giả mạo\n\nPhát nền video có thể không hoạt động</string>
   <string name="revanced_spoof_client_user_dialog_message">Việc tắt cài đặt này có thể gây ra sự cố phát nền video.</string>
   <string name="revanced_spoof_client_use_ios_title">Giả mạo máy khách cho iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Hiện tại máy khách đang giả mạo thành iOS\n\nTác dụng phụ bao gồm:\n• Không có video HDR\n• Lịch sử xem có thể không hoạt động\n• Chất lượng cao hơn cho video có thể thiếu\n• Phát trực tiếp không thể phât dạng chỉ âm thanh\n• Phát trực tiếp không khả dụng trên Android 8.0</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Hiện tại máy khách đang giả mạo thành Android VR\n\nTác dụng phụ bao gồm:\n• Không có video HDR\n• Video dành cho trẻ em không phát\n• Video đã tạm dừng có thể ngẫu nhiên phát tiếp\n• Hình thu nhỏ thanh tiến trình Shorts có chất lượng thấp\n• Nút hành động tải xuống luôn ẩn\n• Các thẻ màn hình kết thúc luôn ẩn</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">Hiện tại máy khách đang giả mạo thành Android VR. Tác dụng phụ bao gồm:\n• Không có video HDR\n• Video dành cho trẻ em không phát lắp\n• Video đã tạm dừng có thể ngẫu nhiên phát tiếp\n• Hình thu nhỏ thanh tiến trình Shorts có chất lượng thấp\n• Nút hành động tải xuống luôn ẩn\n• Các thẻ màn hình kết thúc luôn ẩn</string>
   <string name="revanced_spoof_client_storyboard_timeout">Hình thu nhỏ giả mạo máy khách không khả dụng (API hết hạn)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Hình thu nhỏ giả mạo máy khách tạm thời không khả dụng: %s</string>
   </patch>
@@ -1167,8 +1172,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ads_screen_summary">Cài đặt chặn quảng cáo</string>
   <string name="revanced_chat_screen_title">Trò chuyện</string>
   <string name="revanced_chat_screen_summary">Cài đặt trò chuyện</string>
-  <string name="revanced_misc_screen_title">Linh tinh</string>
-  <string name="revanced_misc_screen_summary">Cài đặt linh tinh</string>
+  <string name="revanced_misc_screen_title">Cài đặt khác</string>
+  <string name="revanced_misc_screen_summary">Cài đặt khác</string>
   <string name="revanced_general_category_title">Cài đặt chung</string>
   <string name="revanced_other_category_title">Cài đặt khác</string>
   <string name="revanced_client_ads_category_title">Quảng cáo phía máy khách</string>

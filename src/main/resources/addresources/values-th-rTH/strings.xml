@@ -223,9 +223,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_vote_no_segments">ไม่มีส่วนใดจะให้โหวต</string>
   <string name="revanced_sb_new_segment_choose_category">กรุณาเลือกหมวดหมู่ของส่วน</string>
   <string name="revanced_sb_new_segment_title">SponsorBlockส่วนใหม่</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-  <string name="revanced_sb_new_segment_mark_time_as_question">ตั้ง %1$02d:%2$02d:%3$03d เป็นเวลาเริ่มต้นเวลาจบในส่วนใหม่</string>
   <string name="revanced_sb_new_segment_mark_start">เริ่มต้น</string>
   <string name="revanced_sb_new_segment_mark_end">จบ</string>
   <string name="revanced_sb_new_segment_now">ขณะนี้</string>
@@ -270,6 +267,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.theme.ThemeBytecodePatch">
   </patch>
   <patch id="layout.theme.ThemeResourcePatch">
+  </patch>
+  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
   </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->

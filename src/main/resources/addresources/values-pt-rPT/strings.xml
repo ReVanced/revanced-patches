@@ -211,6 +211,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">Esconder seção de cartões de informações</string>
   <string name="revanced_hide_info_cards_section_summary_on">Seção de cartões de informações está escondida</string>
   <string name="revanced_hide_info_cards_section_summary_off">Mostrar a seção de cartões de informações</string>
+  <string name="revanced_hide_key_concepts_section_title">Ocultar seção \'Temas principais\'</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">Secção \'Conceitos-chave\' está oculta</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">A seção \'conceitos principais\' é mostrada</string>
   <string name="revanced_hide_transcript_section_title">Ocultar seção de transcrição</string>
   <string name="revanced_hide_transcript_section_summary_on">Seção de transcrição escondida</string>
   <string name="revanced_hide_transcript_section_summary_off">Seção de transcrição exibida</string>
@@ -246,7 +249,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_toast_invalid_common">Chave inválida. Não pode usar: \'%s\' como filtro</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Chave inválida. \'%1$s\' é menor que %2$d caracteres</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">Palavra-chave \'$s\' irá ocultar todos os vídeos</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">Palavra-chave \'%s\' irá ocultar todos os vídeos</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Esconder anúncios gerais</string>
@@ -863,9 +866,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">Escolha a categoria do segmento</string>
   <string name="revanced_sb_new_segment_disabled_category">A categoria está desativada nas configurações. Habilite a categoria para enviar.</string>
   <string name="revanced_sb_new_segment_title">Novo segmento para Patrocinador</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-  <string name="revanced_sb_new_segment_mark_time_as_question">Definir %1$02d:%2$02d:%3$03d como início ou fim de um novo segmento?</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">Definir %s como início ou fim de um novo segmento?</string>
   <string name="revanced_sb_new_segment_mark_start">início</string>
   <string name="revanced_sb_new_segment_mark_end">terminar</string>
   <string name="revanced_sb_new_segment_now">format@@0number@@1format@@2s</string>
@@ -989,6 +990,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_value_summary">A cor da barra de busca</string>
   <string name="revanced_seekbar_custom_color_invalid">Valor de cor inválido da barra. Usando o valor padrão.</string>
   </patch>
+  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  <string name="revanced_bypass_image_region_restrictions_title">Ignorar restrições de região de imagem</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_on">Usando imagem host yt4.ggpht.com</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">Usando a imagem original host\n\nHabilitando isso pode corrigir imagens ausentes que estão bloqueadas em algumas regiões</string>
+  </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Aba principal</string>
@@ -1111,8 +1117,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Cliente não é falsificado\n\nA reprodução de vídeo pode não funcionar</string>
   <string name="revanced_spoof_client_user_dialog_message">Desativar essa configuração pode causar problemas de reprodução de vídeo.</string>
   <string name="revanced_spoof_client_use_ios_title">Cliente Spoof para iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">O cliente está spoofed para o iOS\n\nOs efeitos colaterais incluem:\n• Nenhum vídeo HDR\n• O histórico de assistir pode não funcionar\n• Qualidades de vídeo maiores podem estar faltando\n• Transmissões ao vivo não podem ser reproduzidas como áudio\n• Transmissões ao vivo não disponíveis no Android 8.0</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">O cliente está spoofendido para Android VR\n\nOs efeitos colaterais incluem:\n• Nenhum vídeo HDR\n• As crianças não reproduzem\n• Os vídeos pausados podem retomar aleatoriamente\n• Miniaturas de barra de busca curta de baixa qualidade\n• Botão de ação para download está sempre oculto\n• Cartões de tela final sempre estão ocultos</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Cliente está spoofed no momento para iOS\n\nOs efeitos colaterais incluem:\n• HDR vídeos podem não estar disponíveis\n• Watch histórico pode não funcionar</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">O cliente está oculta para o Android VR. Os efeitos colaterais incluem:\n• Nenhum vídeo HDR\n• As crianças não reproduzem\n• Os vídeos pausados podem retomar aleatoriamente\n• Miniaturas da barra de busca curta de baixa qualidade\n• Botão de ação para baixar está oculto\n• Cartões de tela final estão ocultos</string>
   <string name="revanced_spoof_client_storyboard_timeout">Miniaturas Spoof client não disponíveis (API timeout)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Miniaturas Spoof client temporariamente não disponíveis: %s</string>
   </patch>

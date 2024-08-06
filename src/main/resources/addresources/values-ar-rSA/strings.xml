@@ -211,6 +211,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">إخفاء قسم بطاقات المعلومات</string>
   <string name="revanced_hide_info_cards_section_summary_on">تم إخفاء قسم بطاقات المعلومات</string>
   <string name="revanced_hide_info_cards_section_summary_off">يتم عرض قسم بطاقات المعلومات</string>
+  <string name="revanced_hide_key_concepts_section_title">إخفاء قسم \'المفاهيم الأساسية\'</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">تم إخفاء قسم \'المفاهيم الأساسية\'</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">يتم عرض قسم \'المفاهيم الأساسية\'</string>
   <string name="revanced_hide_transcript_section_title">إخفاء قسم النص</string>
   <string name="revanced_hide_transcript_section_summary_on">تم إخفاء قسم النص</string>
   <string name="revanced_hide_transcript_section_summary_off">يتم عرض قسم النص</string>
@@ -246,7 +249,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_toast_invalid_common">الكلمة المفتاحية غير صالحة. لا يمكن استخدام: \'%s\' كعامل تصفية</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">الكلمة المفتاحية غير صالحة. \'%1$s\' أقل من %2$d حرفًا</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">الكلمة الرئيسية \'$s\' سوف تخفي جميع الفيديوهات</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">الكلمة الرئيسية \'%s\' سوف تخفي جميع الفيديوهات</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">إخفاء الإعلانات العامة</string>
@@ -864,9 +867,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">اختيار فئة المقطع</string>
   <string name="revanced_sb_new_segment_disabled_category">الفئة معطلة في الإعدادات. تمكين الفئة للإرسال.</string>
   <string name="revanced_sb_new_segment_title">مقطع مانِع رُعَاة جديد</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-  <string name="revanced_sb_new_segment_mark_time_as_question">تعيين %1$02d:%2$02d:%3$03d كبداية أم نهاية لمقطع جديد؟</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">تعيين %s كبداية أو نهاية لمقطع جديد؟</string>
   <string name="revanced_sb_new_segment_mark_start">البداية</string>
   <string name="revanced_sb_new_segment_mark_end">النهاية</string>
   <string name="revanced_sb_new_segment_now">الآن</string>
@@ -990,6 +991,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_value_summary">لون شريط التقدم</string>
   <string name="revanced_seekbar_custom_color_invalid">لون الشريط غير صالح. استخدام القيمة الافتراضية.</string>
   </patch>
+  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  <string name="revanced_bypass_image_region_restrictions_title">تجاوز قيود منطقة الصورة</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_on">استخدام مضيف الصورة yt4.ggpht.com</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">استخدام مضيف الصور الأصلي\n\nتمكين هذا يمكن إصلاح الصور المفقودة التي يتم حظرها في بعض المناطق</string>
+  </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">علامة تبويب الصفحة الرئيسية</string>
@@ -1112,8 +1118,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">لا يتم محاكاة العميل\n\nقد لا يعمل تشغيل الفيديو</string>
   <string name="revanced_spoof_client_user_dialog_message">إيقاف تشغيل هذا الإعداد قد يسبب مشاكل في تشغيل الفيديو.</string>
   <string name="revanced_spoof_client_use_ios_title">Spoof Client to iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">تتم حاليًا محاكاة العميل إلى iOS\n\nالآثار الجانبية تشمل:\n• لا يوجد فيديو HDR\n• قد لا يعمل سجل المشاهدة\n• قد تكون جودة الفيديو الأعلى مفقودة\n• لا يمكن تشغيل البث المباشر كصوت فقط\n• البث المباشر غير متوفر على Android 8.0</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">تتم محاكاة العميل حاليًا إلى Android VR\n\nالآثار الجانبية تشمل:\n• لا يوجد فيديو HDR\n• فيديوهات الأطفال لا يتم تشغيلهم\n• مقاطع الفيديو المتوقفة يمكن أن تستأنف عشوائيا\n• جودة منخفضة لمصغرات شريط التقدم\n• زر التنزيل مخفي بشكل دائم\n• بطاقات نهاية الشاشة مخفية بشكل دائم</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">تتم حاليًا محاكاة العميل إلـى iOS\n\nالآثار الجانبية تشمل:\n• قد لا يكون فيديو HDR متوفرًا\n• قد لا يعمل سجل المشاهدة</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">تتم حاليًا محاكاة العميل إلـى Android VR\n\nالآثار الجانبية تشمل:\n• لا يوجد فيديو HDR\n• فيديوهات الأطفال لا يتم تشغيلهم\n• مقاطع الفيديو الموقوفة يمكن أن تستأنف عشوائياً\n• جودة منخفضة لمصغرات شريط التقدم\n• زر التنزيل مخفي\n• بطاقات نهاية الشاشة مخفية</string>
   <string name="revanced_spoof_client_storyboard_timeout">محاكاة مصغرات العميل غير متوفرة (انتهت مهلة API)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">محاكاة مصغرات العميل غير متوفرة مؤقتًا: %s</string>
   </patch>

@@ -13,7 +13,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Patch(
     name = "Disable switching emoji to sticker",
     description = "Disables switching from emoji to sticker search mode in message input field.",
-    compatiblePackages = [CompatiblePackage("com.facebook.orca")],
+    compatiblePackages = [CompatiblePackage("com.facebook.orca", ["439.0.0.29.119"])],
 )
 @Suppress("unused")
 object DisableSwitchingEmojiToStickerPatch : BytecodePatch(

@@ -42,7 +42,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="misc.settings.SettingsResourcePatch">
   </patch>
   <patch id="misc.settings.SettingsPatch">
-  <string name="revanced_settings_screen_00_about_title">Ծրագրի մասին</string>
   </patch>
   <patch id="misc.debugging.DebuggingPatch">
   </patch>
@@ -163,7 +162,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
-  <string name="revanced_ryd_about">Ծրագրի մասին</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   </patch>
   <patch id="layout.searchbar.WideSearchbarPatch">
@@ -175,11 +173,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <!-- Do not rearrange the (hour):(minute):second) time format operators here.
                  YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <!-- Shown in the settings preferences, and translations can be any text length. -->
-  <string name="revanced_sb_stats_loading">Բեռնվում է...</string>
-  <string name="revanced_sb_about">Ծրագրի մասին</string>
   </patch>
   <patch id="layout.spoofappversion.SpoofAppVersionPatch">
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
@@ -201,6 +195,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.theme.ThemeBytecodePatch">
   </patch>
   <patch id="layout.theme.ThemeResourcePatch">
+  </patch>
+  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
   </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -249,7 +245,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="ad.audio.AudioAdsPatch">
   </patch>
   <patch id="ad.embedded.EmbeddedAdsPatch">
-  <string name="revanced_block_embedded_ads_entry_1">Անջատված է</string>
   </patch>
   <patch id="ad.video.VideoAdsPatch">
   </patch>

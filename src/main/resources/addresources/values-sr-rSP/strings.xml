@@ -214,6 +214,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">Сакриј одељак с инфо картицама</string>
   <string name="revanced_hide_info_cards_section_summary_on">Одељак с инфо картицама је скривен</string>
   <string name="revanced_hide_info_cards_section_summary_off">Одељак с инфо картицама је приказан</string>
+  <string name="revanced_hide_key_concepts_section_title">Сакриј одељак „Кључни концепти”</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">Одељак „Кључни концепти” је скривен</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">Одељак „Кључни концепти” је приказан</string>
   <string name="revanced_hide_transcript_section_title">Сакриј одељак за транскрипцију</string>
   <string name="revanced_hide_transcript_section_summary_on">Одељак за транскрипцију је скривен</string>
   <string name="revanced_hide_transcript_section_summary_off">Одељак за транскрипцију је скривен</string>
@@ -249,7 +252,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_toast_invalid_common">Неважећа кључна реч. Није могуће користити „%s”</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Неважећа кључна реч. „%1$s” је краће од %2$d знакова</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">Кључна реч „$s” ће сакрити све видее</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">Кључна реч „%s” ће сакрити све видее</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Сакриј опште огласе</string>
@@ -867,9 +870,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">Изаберите категорију сегмента</string>
   <string name="revanced_sb_new_segment_disabled_category">Категорија је онемогућена у подешавањима. Омогућите категорију да бисте поднели.</string>
   <string name="revanced_sb_new_segment_title">Нови SponsorBlock сегмент</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-  <string name="revanced_sb_new_segment_mark_time_as_question">Поставити %1$02d:%2$02d:%3$03d као почетак или крај новог сегмента?</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">Поставити %s као почетак или крај новог сегмента?</string>
   <string name="revanced_sb_new_segment_mark_start">почетак</string>
   <string name="revanced_sb_new_segment_mark_end">крај</string>
   <string name="revanced_sb_new_segment_now">сада</string>
@@ -994,6 +995,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_value_summary">Боја траке за премотавање</string>
   <string name="revanced_seekbar_custom_color_invalid">Неважећа вредност боје траке за премотавање. Коришћење подразумеване вредности.</string>
   </patch>
+  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  <string name="revanced_bypass_image_region_restrictions_title">Заобиђи ограничења региона слике</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_on">Коришћење хоста слике yt4.ggpht.com</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">Коришћење оригиналног хоста слике\n\nОмогућавањем овога можете да поправите недостајуће слике које су блокиране у неким регионима</string>
+  </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Картица „Почетна”</string>
@@ -1116,8 +1122,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Клијент није лажиран\n\nРепродукција видеа можда неће радити</string>
   <string name="revanced_spoof_client_user_dialog_message">Искључивање овог подешавања можда ће изазвати проблеме са репродукцијом видеа.</string>
   <string name="revanced_spoof_client_use_ios_title">Лажиран клијент на iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Клијент је тренутно лажиран на iOS\n\nНежељени ефекти обухватају:\n• Нема HDR видеа\n• Историја гледања можда неће радити\n• Виши квалитети видеа можда ће недостајати\n• Стримови уживо не могу да се пуштају само као аудио\n• Стримови уживо нису доступни на Android верзији 8.0</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Клијент је тренутно лажиран на Android VR\n\nНежељени ефекти обухватају:\н• Нема HDR видеа\n• Дечји видео снимци се не репродукују\n• Паузирани видео снимци могу насумично да се настављају\n• Сличице на траци за премотавање Shorts видеа лошег квалитета\n• Дугме за радњу „Преузми“ је увек скривено\n• Картице завршног екрана су увек скривене</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Клијент је тренутно лажиран на iOS\n\nНежељени ефекти обухватају:\n• HDR видео можда неће бити доступан\n• Историја гледања можда неће функционисати</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">Клијент је тренутно лажиран на Android VR Нежељени ефекти обухватају:\n• Нема HDR видеа\n• Дечји видео снимци се не репродукују\n• Паузирани видео снимци могу насумично да се настављају\n• Сличице на траци за премотавање Shorts видеа лошег квалитета\n• Дугме за радњу „Преузми“ је скривено\n• Картице завршног екрана су скривене</string>
   <string name="revanced_spoof_client_storyboard_timeout">Сличице у лажираном клијенту нису доступне (API истекао)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Сличице у лажираном клијенту привремено нису доступне: %s</string>
   </patch>

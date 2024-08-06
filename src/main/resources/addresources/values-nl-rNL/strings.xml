@@ -213,6 +213,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">Verberg info kaarten sectie</string>
   <string name="revanced_hide_info_cards_section_summary_on">Sectie informatiekaarten is verborgen</string>
   <string name="revanced_hide_info_cards_section_summary_off">Sectie informatiekaarten wordt weergegeven</string>
+  <string name="revanced_hide_key_concepts_section_title">Verberg \'Sleutelbegrippen\' sectie</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">\'Sleutelbegrippen\' sectie is verborgen</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">\'Sleutelbegrippen\' sectie wordt weergegeven</string>
   <string name="revanced_hide_transcript_section_title">Transcriptsectie verbergen</string>
   <string name="revanced_hide_transcript_section_summary_on">Transcriptsectie is verborgen</string>
   <string name="revanced_hide_transcript_section_summary_off">Transcriptsectie wordt weergegeven</string>
@@ -243,12 +246,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">Trefwoorden en zinnen te verbergen, gescheiden door nieuwe regels\n\nWoorden met hoofdletters in het midden moeten worden ingevoerd met de behuizing (bv: iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">Over trefwoord filteren</string>
-  <string name="revanced_hide_keyword_content_about_summary">Thuis/Abonnement/Zoekresultaten worden gefilterd om de inhoud te verbergen die overeenkomt met trefwoordzinnen\n\nBeperkingen\n• Sommige Kortingen kunnen niet verborgen zijn\n• Sommige UI-componenten kunnen niet verborgen zijn\n• Zoeken naar een trefwoord kan geen resultaten laten zien</string>
+  <string name="revanced_hide_keyword_content_about_summary">Home/Abonnement/Zoekresultaten worden gefilterd om inhoud te verbergen die overeenkomt met trefwoordzinnen\n\nBeperkingen\n• Sommige Shorts zijn mogelijk niet verborgen\n• Sommige UI-componenten zijn mogelijk niet verborgen\n• Zoeken naar een trefwoord levert mogelijk geen resultaten op</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Ongeldig sleutelwoord. Kan niet gebruiken: \'%s\' als filter</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Ongeldig sleutelwoord. \'%1$s\' is minder dan %2$d tekens</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">$szal alle video\'s verbergen</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">Trefwoord \'%s\' verbergt alle video\'s</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Algemene advertenties verbergen</string>
@@ -376,29 +379,30 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_like_dislike_button_summary_on">Leuk- en niet-leuk-knoppen zijn verborgen</string>
   <string name="revanced_hide_like_dislike_button_summary_off">Leuk- en niet-leuk-knoppen worden weergegeven</string>
   <!-- 'Share' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_share_button_title">Verberg deel</string>
-  <string name="revanced_hide_share_button_summary_on">Share knop is verborgen</string>
-  <string name="revanced_hide_share_button_summary_off">Share knop wordt weergegeven</string>
+  <string name="revanced_hide_share_button_title">Verberg delen</string>
+  <string name="revanced_hide_share_button_summary_on">Deel knop is verborgen</string>
+  <string name="revanced_hide_share_button_summary_off">Deel knop wordt weergegeven</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
-  <string name="revanced_hide_report_button_title">Rapport verbergen</string>
-  <string name="revanced_hide_report_button_summary_on">Rapportknop is verborgen</string>
-  <string name="revanced_hide_report_button_summary_off">Rapportknop wordt weergegeven</string>
+  <string name="revanced_hide_report_button_title">Melden verbergen</string>
+  <string name="revanced_hide_report_button_summary_on">Melden is verborgen</string>
+  <string name="revanced_hide_report_button_summary_off">Melden wordt weergegeven</string>
   <!-- 'Remix' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_remix_button_title">Verberg Remix</string>
   <string name="revanced_hide_remix_button_summary_on">Remix knop is verborgen</string>
   <string name="revanced_hide_remix_button_summary_off">Remix knop wordt weergegeven</string>
   <!-- 'Download' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_download_button_title">Download verbergen</string>
-  <string name="revanced_hide_download_button_summary_on">Download knop is verborgen</string>
-  <string name="revanced_hide_download_button_summary_off">Download knop wordt weergegeven</string>
+  <string name="revanced_hide_download_button_title">Downloaden verbergen</string>
+  <string name="revanced_hide_download_button_summary_on">Downloaden knop is verborgen</string>
+  <string name="revanced_hide_download_button_summary_off">Downloaden knop wordt weergegeven</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Bedankt verbergen</string>
   <string name="revanced_hide_thanks_button_summary_on">Bedankt knop is verborgen</string>
   <string name="revanced_hide_thanks_button_summary_off">Bedankt knop wordt weergegeven</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_clip_button_summary_on">Clip knop is verborgen</string>
-  <string name="revanced_hide_clip_button_summary_off">Clip knop wordt weergegeven</string>
+  <string name="revanced_hide_clip_button_title">Fragment verbergen</string>
+  <string name="revanced_hide_clip_button_summary_on">Fragment knop is verborgen</string>
+  <string name="revanced_hide_clip_button_summary_off">Fragment knop wordt weergegeven</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_playlist_button_title">Verberg opslaan in afspeellijst</string>
   <string name="revanced_hide_playlist_button_summary_on">Opslaan naar afspeellijst knop is verborgen</string>
@@ -428,7 +432,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_home_button_summary_on">Thuisknop is verborgen</string>
   <string name="revanced_hide_home_button_summary_off">Home-knop wordt weergegeven</string>
   <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
-  <string name="revanced_hide_shorts_button_title">Verberg verkorten</string>
+  <string name="revanced_hide_shorts_button_title">Verberg Shorts</string>
   <string name="revanced_hide_shorts_button_summary_on">Shorts knop is verborgen</string>
   <string name="revanced_hide_shorts_button_summary_off">Shorts knop wordt weergegeven</string>
   <!-- The Create button has no display name. Translate normally. -->
@@ -577,16 +581,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_hide_shorts_home_title">Verberg verkorten in home feed</string>
-  <string name="revanced_hide_shorts_home_summary_on">Kortingen in de thuisfeed zijn verborgen</string>
-  <string name="revanced_hide_shorts_home_summary_off">Kortingen in de home feed worden weergegeven</string>
+  <string name="revanced_hide_shorts_home_title">Shorts verbergen in de homefeed</string>
+  <string name="revanced_hide_shorts_home_summary_on">Shorts in de thuisfeed zijn verborgen</string>
+  <string name="revanced_hide_shorts_home_summary_off">Shorts in de thuisfeed worden getoond</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
-  <string name="revanced_hide_shorts_subscriptions_title">Verberg verkorten in de abonnementsfeed</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Schorten in de abonnementsfeed zijn verborgen</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Schorten in de abonnementsfeed worden weergegeven</string>
-  <string name="revanced_hide_shorts_search_title">Verberg verkorten in zoekresultaten</string>
-  <string name="revanced_hide_shorts_search_summary_on">Schorten in zoekresultaten zijn verborgen</string>
-  <string name="revanced_hide_shorts_search_summary_off">Korte zoekresultaten worden weergegeven</string>
+  <string name="revanced_hide_shorts_subscriptions_title">Verberg Shorts in de abonnementsfeed</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts in de abonnementsfeed zijn verborgen</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts in de abonnementsfeed worden weergegeven</string>
+  <string name="revanced_hide_shorts_search_title">Verberg Shorts in zoekresultaten</string>
+  <string name="revanced_hide_shorts_search_summary_on">Shorts in zoekresultaten zijn verborgen</string>
+  <string name="revanced_hide_shorts_search_summary_off">Shorts zoekresultaten worden weergegeven</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Toetredingsknop verbergen</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Join knop is verborgen</string>
@@ -631,8 +635,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_remix_button_summary_off">Remix knop wordt weergegeven</string>
   <!-- 'share' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_share_button_title">Verberg share knop</string>
-  <string name="revanced_hide_shorts_share_button_summary_on">Share knop is verborgen</string>
-  <string name="revanced_hide_shorts_share_button_summary_off">Share knop wordt weergegeven</string>
+  <string name="revanced_hide_shorts_share_button_summary_on">Deel knop is verborgen</string>
+  <string name="revanced_hide_shorts_share_button_summary_off">Deel knop wordt weergegeven</string>
   <string name="revanced_hide_shorts_info_panel_title">Verberg informatiepaneel</string>
   <string name="revanced_hide_shorts_info_panel_summary_on">Info paneel is verborgen</string>
   <string name="revanced_hide_shorts_info_panel_summary_off">Info paneel wordt weergegeven</string>
@@ -686,10 +690,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Herlaad video om te stemmen met behulp van Return YouTube Dislike</string>
   <string name="revanced_ryd_enable_summary_on">Dislikes worden weergegeven</string>
   <string name="revanced_ryd_enable_summary_off">Dislikes worden niet weergegeven</string>
-  <string name="revanced_ryd_shorts_title">Toon onlikes op korten</string>
-  <string name="revanced_ryd_shorts_summary_on">Niet leuk weergegeven op Korting</string>
+  <string name="revanced_ryd_shorts_title">Toon onlikes op Shorts</string>
+  <string name="revanced_ryd_shorts_summary_on">Vind ik niet leuk getoond op Shorts</string>
   <string name="revanced_ryd_shorts_summary_on_disclaimer">Niet leuk weergegeven op Shorts\n\nLimitatie: Niet leuk vinden mag niet verschijnen in incognito modus</string>
-  <string name="revanced_ryd_shorts_summary_off">Vindt het niet leuk verborgen op Korte</string>
+  <string name="revanced_ryd_shorts_summary_off">Vindt het niet leuk verborgen op Shorts</string>
   <string name="revanced_ryd_dislike_percentage_title">Niet leuk als percentage</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">Niet leuk weergegeven als percentage</string>
   <string name="revanced_ryd_dislike_percentage_summary_off">Niet leuk weergegeven als nummer</string>
@@ -865,9 +869,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">Kies de segmentcategorie</string>
   <string name="revanced_sb_new_segment_disabled_category">Categorie is uitgeschakeld in instellingen. Schakel categorie in om in te dienen.</string>
   <string name="revanced_sb_new_segment_title">Nieuw SponsorBlock-segment</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-  <string name="revanced_sb_new_segment_mark_time_as_question">Stel %1$02d:%2$02d:%3$03d in als het begin of einde van een nieuw segment?</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">%s instellen als het begin of einde van een nieuw segment?</string>
   <string name="revanced_sb_new_segment_mark_start">begin</string>
   <string name="revanced_sb_new_segment_mark_end">einde</string>
   <string name="revanced_sb_new_segment_now">nu</string>
@@ -945,9 +947,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_start_page_entry_9">Populair</string>
   </patch>
   <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
-  <string name="revanced_disable_resuming_shorts_player_title">Deactiveer speler om te hervatten</string>
-  <string name="revanced_disable_resuming_shorts_player_summary_on">Kortende speler zal bij het opstarten van de app niet hervatten</string>
-  <string name="revanced_disable_resuming_shorts_player_summary_off">Verkort speler zal bij het opstarten van de app hervatten</string>
+  <string name="revanced_disable_resuming_shorts_player_title">Schakel het hervatten van Shorts-speler uit</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts-speler wordt niet hervat bij het opstarten van de app</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts-speler wordt hervat bij het opstarten van de app</string>
   </patch>
   <patch id="layout.tablet.EnableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Tablet lay-out inschakelen</string>
@@ -990,6 +992,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_value_title">Aangepaste zoekbalk kleur</string>
   <string name="revanced_seekbar_custom_color_value_summary">De kleur van de zoekbalk</string>
   <string name="revanced_seekbar_custom_color_invalid">Ongeldige zoekbalk kleurwaarde. Standaardwaarde wordt gebruikt.</string>
+  </patch>
+  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  <string name="revanced_bypass_image_region_restrictions_title">Bypass afbeelding regio beperkingen</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_on">Gebruik yt4.ggpht.com voor afbeeldingen</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">Het gebruik van de originele afbeeldingshost\n\nDit kan ontbrekende afbeeldingen die geblokkeerd zijn in sommige regio\'s herstellen</string>
   </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -1113,8 +1120,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Client is niet vervalst\n\nVideo afspelen werkt mogelijk niet</string>
   <string name="revanced_spoof_client_user_dialog_message">Het uitschakelen van deze instelling kan problemen met het afspelen van video veroorzaken.</string>
   <string name="revanced_spoof_client_use_ios_title">Klant naar iOS vervalsen</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">De klant is momenteel gespoofd naar iOS\n\nSide effecten zoals:\n• Geen HDR video\n• Bekijk geschiedenis kan mogelijk niet werken\n• Hogere videokwaliteiten ontbreken\n• Live streams kunnen niet worden afgespeeld als alleen audio\n• Live streams die niet beschikbaar zijn op Android 8.0</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">De client is momenteel ondergesneeuwd naar Android VR\n\nSide effecten inclusief:\n• Geen HDR video\n• Kinderen video\'s spelen niet af\n• Gepauzeerde video\'s kunnen willekeurig hervatten\n• Kleine kwaliteit zoekbalkminiaturen\n• Download actieknop is altijd verborgen\n• Eindscherm kaarten zijn altijd verborgen</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Klant is momenteel gespoofd naar iOS\n\nSide effecten zoals:\n• HDR video is mogelijk niet beschikbaar\n• Bekijk geschiedenis werkt mogelijk niet</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">Cliënt is momenteel ondergesneeuwd naar Android VR. Side effecten inclusief:\n• Geen HDR video\n• Kinderen video\'s spelen niet af\n• Gepauzeerde video\'s kunnen willekeurig hervatten\n• Slechte kwaliteit zoekbalkminiaturen\n• Download actieknop is verborgen\n• Eindscherm kaarten zijn verborgen</string>
   <string name="revanced_spoof_client_storyboard_timeout">Klant miniaturen niet beschikbaar (API timed out)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Klant miniaturen tijdelijk niet beschikbaar: %s</string>
   </patch>

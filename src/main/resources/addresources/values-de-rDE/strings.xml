@@ -214,6 +214,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">Info-Kartenbereich ausblenden</string>
   <string name="revanced_hide_info_cards_section_summary_on">Info-Kartenbereich ist ausgeblendet</string>
   <string name="revanced_hide_info_cards_section_summary_off">Info-Kartenbereich wird angezeigt</string>
+  <string name="revanced_hide_key_concepts_section_title">\'Schlüsselbegriffe\' ausblenden</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">\'Schlüsselbegriffe\' Abschnitt ist versteckt</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">Abschnitt \'Schlüsselkonzepte\' wird angezeigt</string>
   <string name="revanced_hide_transcript_section_title">Transkript-Abschnitt ausblenden</string>
   <string name="revanced_hide_transcript_section_summary_on">Transkript-Abschnitt ist ausgeblendet</string>
   <string name="revanced_hide_transcript_section_summary_off">Sektion Transkripte wird angezeigt</string>
@@ -249,7 +252,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_toast_invalid_common">Ungültiges Schlüsselwort. Kann nicht verwenden: \'%s\' als Filter</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Ungültiges Schlüsselwort. \'%1$s\' ist weniger als %2$d Zeichen</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">Stichwort \'$s\' wird alle Videos ausblenden</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">Schlüsselwort \'%s\' wird alle Videos ausblenden</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Allgemeine Werbung ausblenden</string>
@@ -680,6 +683,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.returnyoutubedislike.ReturnYouTubeDislikeResourcePatch">
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">Nicht anzeigen</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
+  <string name="revanced_ryd_failure_connection_timeout">Dislikes vorläufig nicht verfügbar (API Timeout)</string>
   <string name="revanced_ryd_failure_connection_status_code">Dislikes nicht verfügbar (Status %d)</string>
   <string name="revanced_ryd_failure_client_rate_limit_requested">Nicht verfügbar (Client-API-Limit erreicht)</string>
   <string name="revanced_ryd_failure_generic">Dislikes nicht verfügbar (%s)</string>
@@ -864,9 +868,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">Wählen sie die Segmentkategorie</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategorie ist in den Einstellungen deaktiviert. Aktivieren Sie die Kategorie zum Abschicken.</string>
   <string name="revanced_sb_new_segment_title">Neues SponsorBlock Segment</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
-  <string name="revanced_sb_new_segment_mark_time_as_question">%1$02d:%2$02d:%3$03d als Start oder Ende eines neuen Segments festlegen?</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">%s als Start oder Ende eines neuen Segments festlegen?</string>
   <string name="revanced_sb_new_segment_mark_start">Start</string>
   <string name="revanced_sb_new_segment_mark_end">Ende</string>
   <string name="revanced_sb_new_segment_now">Jetzt</string>
@@ -991,6 +993,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_value_summary">Die Farbe der Suchleiste</string>
   <string name="revanced_seekbar_custom_color_invalid">Ungültiger Suchleisten-Farbwert. Standardwert wird verwendet.</string>
   </patch>
+  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  <string name="revanced_bypass_image_region_restrictions_title">Bildgebietsbeschränkungen umgehen</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_on">Bild-Host yt4.ggpht.com verwenden</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">Verwendung des ursprünglichen Bild-Hosts\n\nAktivieren kann fehlende Bilder beheben, die in einigen Regionen blockiert werden</string>
+  </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Home-Tab</string>
@@ -1113,8 +1120,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Client ist nicht gefälscht\n\nVideo-Wiedergabe funktioniert möglicherweise nicht</string>
   <string name="revanced_spoof_client_user_dialog_message">Das Deaktivieren dieser Einstellung kann zu Videowiedergabeproblemen führen.</string>
   <string name="revanced_spoof_client_use_ios_title">Spoof-Client zu iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Der Client ist derzeit auf iOS\n\nseitliche Effekte gefälscht:\n• Kein HDR-Video\n• Verlauf kann nicht funktionieren\n• Höhere Video-Qualitäten fehlen möglicherweise\n• Live-Streams können nicht nur als Audio abspielen\n• Live-Streams auf Android 8.0 nicht verfügbar</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Der Client ist derzeit auf Android VR\n\nSeiteneffekte gefälscht:\n• Kein HDR Video\n• Kindervideos spielen nicht\n• Pausierte Videos können zufällig wieder aufgenommen werden\n• Niedrige Shorts Suchleisten-Thumbnails\n• Download-Button ist immer versteckt\n• Endbildschirm-Karten werden immer versteckt</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Der Client ist derzeit zu iOS\n\nSeiteneffekten gefälscht:\n• HDR-Video ist möglicherweise nicht verfügbar\n• Verlauf kann nicht funktionieren</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">Der Client ist derzeit auf Android VR. Seiteneffekte gefälscht:\n• Kein HDR Video\n• Kindervideos spielen nicht\n• Pausierte Videos können zufällig wieder aufgenommen werden\n• Niedrige Shorts Suchleisten-Thumbnails\n• Download-Button ist ausgeblendet\n• Endbildschirm-Karten werden versteckt</string>
   <string name="revanced_spoof_client_storyboard_timeout">Spoof-Thumbnails nicht verfügbar (API-Zeitüberschreitung)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Spoof-Client-Thumbnails vorübergehend nicht verfügbar: %s</string>
   </patch>

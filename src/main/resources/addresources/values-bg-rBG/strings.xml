@@ -423,8 +423,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_vote_upvote">Положителен вот</string>
   <string name="revanced_sb_vote_downvote">Отрицателен вот</string>
   <string name="revanced_sb_vote_category">Промяна на категорията</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <string name="revanced_sb_new_segment_mark_start">начало</string>
   <string name="revanced_sb_new_segment_mark_end">край</string>
   <string name="revanced_sb_new_segment_now">сега</string>
@@ -462,6 +460,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.theme.ThemeBytecodePatch">
   </patch>
   <patch id="layout.theme.ThemeResourcePatch">
+  </patch>
+  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
   </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->

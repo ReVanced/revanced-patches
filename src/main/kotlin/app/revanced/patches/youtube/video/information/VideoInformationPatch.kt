@@ -7,12 +7,14 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.video.information.fingerprints.*
 import app.revanced.patches.youtube.video.playerresponse.PlayerResponseMethodHookPatch
 import app.revanced.patches.youtube.video.videoid.VideoIdPatch
+import app.revanced.util.alsoResolve
 import app.revanced.util.exception
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -45,9 +47,11 @@ object VideoInformationPatch : BytecodePatch(
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/VideoInformation;"
+    private const val INTEGRATIONS_PLAYER_INTERFACE = "Lapp/revanced/integrations/youtube/patches/VideoInformation${'$'}PlaybackController;"
 
     private lateinit var playerInitMethod: MutableMethod
-    private var playerInitInsertIndex = 4
+    private var playerInitInsertIndex = -1
+    private var playerInitInsertRegister = -1
 
     private lateinit var mdxInitMethod: MutableMethod
     private var mdxInitInsertIndex = -1
@@ -70,42 +74,43 @@ object VideoInformationPatch : BytecodePatch(
         with(PlayerInitFingerprint.resultOrThrow()) {
             playerInitMethod = mutableClass.methods.first { MethodUtil.isConstructor(it) }
 
-            // hook the player controller for use through integrations
+            // find the location of the first invoke-direct call and extract the register storing the 'this' object reference.
+            val initThisIndex = playerInitMethod.indexOfFirstInstructionOrThrow {
+                opcode == Opcode.INVOKE_DIRECT && getReference<MethodReference>()?.name == "<init>"
+            }
+            playerInitInsertRegister = playerInitMethod.getInstruction<FiveRegisterInstruction>(initThisIndex).registerC
+            playerInitInsertIndex = initThisIndex + 1
+
+            // Hook the player controller for use through integrations.
             onCreateHook(INTEGRATIONS_CLASS_DESCRIPTOR, "initialize")
 
-            // seek method
             val seekFingerprintResultMethod =
-                SeekFingerprint.also { it.resolve(context, classDef) }.resultOrThrow().method
+                SeekFingerprint.alsoResolve(context, PlayerInitFingerprint).method
+            val seekRelativeFingerprintResultMethod =
+                SeekRelativeFingerprint.alsoResolve(context, PlayerInitFingerprint).method
 
-            // create helper method
-            val seekHelperMethod = generateSeekMethodHelper(seekFingerprintResultMethod)
-
-            // add the seekTo method to the class for the integrations to call
-            mutableClass.methods.add(seekHelperMethod)
+            // Create integrations interface methods.
+            addSeekInterfaceMethods(mutableClass, seekFingerprintResultMethod, seekRelativeFingerprintResultMethod)
         }
 
         with(MdxPlayerDirectorSetVideoStageFingerprint.resultOrThrow()) {
             mdxInitMethod = mutableClass.methods.first { MethodUtil.isConstructor(it) }
 
-            // find the location of the first invoke-direct call and extract the register storing the 'this' object reference
             val initThisIndex = mdxInitMethod.indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_DIRECT && getReference<MethodReference>()?.name == "<init>"
             }
             mdxInitInsertRegister = mdxInitMethod.getInstruction<FiveRegisterInstruction>(initThisIndex).registerC
             mdxInitInsertIndex = initThisIndex + 1
 
-            // hook the MDX director for use through integrations
+            // Hook the MDX director for use through integrations.
             onCreateHookMdx(INTEGRATIONS_CLASS_DESCRIPTOR, "initializeMdx")
 
-            // MDX seek method
             val mdxSeekFingerprintResultMethod =
-                MdxSeekFingerprint.apply { resolve(context, classDef) }.resultOrThrow().method
+                MdxSeekFingerprint.alsoResolve(context, MdxPlayerDirectorSetVideoStageFingerprint).method
+            val mdxSeekRelativeFingerprintResultMethod =
+                MdxSeekRelativeFingerprint.alsoResolve(context, MdxPlayerDirectorSetVideoStageFingerprint).method
 
-            // create helper method
-            val mdxSeekHelperMethod = generateSeekMethodHelper(mdxSeekFingerprintResultMethod)
-
-            // add the seekTo method to the class for the integrations to call
-            mutableClass.methods.add(mdxSeekHelperMethod)
+            addSeekInterfaceMethods(mutableClass, mdxSeekFingerprintResultMethod, mdxSeekRelativeFingerprintResultMethod)
         }
 
         with(CreateVideoPlayerSeekbarFingerprint.result!!) {
@@ -173,33 +178,42 @@ object VideoInformationPatch : BytecodePatch(
         userSelectedPlaybackSpeedHook(INTEGRATIONS_CLASS_DESCRIPTOR, "userSelectedPlaybackSpeed")
     }
 
-    private fun generateSeekMethodHelper(seekMethod: Method): MutableMethod {
+    private fun addSeekInterfaceMethods(targetClass: MutableClass, seekToMethod: Method, seekToRelativeMethod: Method) {
+        // Add the interface and methods that integrations calls.
+        targetClass.interfaces.add(INTEGRATIONS_PLAYER_INTERFACE)
 
-        // create helper method
-        val generatedMethod = ImmutableMethod(
-            seekMethod.definingClass,
-            "seekTo",
-            listOf(ImmutableMethodParameter("J", null, "time")),
-            "Z",
-            AccessFlags.PUBLIC or AccessFlags.FINAL,
-            null, null,
-            MutableMethodImplementation(4)
-        ).toMutable()
+        arrayOf(
+            seekToMethod to "seekTo",
+            seekToRelativeMethod to "seekToRelative"
+        ).forEach { (method, name) ->
+            // Add interface method.
+            // Get enum type for the seek helper method.
+            val seekSourceEnumType = method.parameterTypes[1].toString()
 
-        // get enum type for the seek helper method
-        val seekSourceEnumType = seekMethod.parameterTypes[1].toString()
+            val interfaceImplementation = ImmutableMethod(
+                targetClass.type,
+                name,
+                listOf(ImmutableMethodParameter("J", null, "time")),
+                "Z",
+                AccessFlags.PUBLIC or AccessFlags.FINAL,
+                null, null,
+                MutableMethodImplementation(4)
+            ).toMutable()
 
-        // insert helper method instructions
-        generatedMethod.addInstructions(
-            0,
-            """
-                sget-object v0, $seekSourceEnumType->a:$seekSourceEnumType
-                invoke-virtual { p0, p1, p2, v0 }, $seekMethod
-                move-result p1
-                return p1
-            """
-        )
-        return generatedMethod
+            // Insert helper method instructions.
+            interfaceImplementation.addInstructions(
+                0,
+                """
+                    # first enum (field a) is SEEK_SOURCE_UNKNOWN
+                    sget-object v0, $seekSourceEnumType->a:$seekSourceEnumType
+                    invoke-virtual { p0, p1, p2, v0 }, $method
+                    move-result p1
+                    return p1
+                """
+            )
+
+            targetClass.methods.add(interfaceImplementation)
+        }
     }
 
     private fun MutableMethod.insert(insertIndex: Int, register: String, descriptor: String) =
@@ -220,8 +234,8 @@ object VideoInformationPatch : BytecodePatch(
     internal fun onCreateHook(targetMethodClass: String, targetMethodName: String) =
         playerInitMethod.insert(
             playerInitInsertIndex++,
-            "v0",
-            "$targetMethodClass->$targetMethodName(Ljava/lang/Object;)V"
+            "v$playerInitInsertRegister",
+            "$targetMethodClass->$targetMethodName($INTEGRATIONS_PLAYER_INTERFACE)V"
         )
 
     /**
@@ -234,7 +248,7 @@ object VideoInformationPatch : BytecodePatch(
         mdxInitMethod.insert(
             mdxInitInsertIndex++,
             "v$mdxInitInsertRegister",
-            "$targetMethodClass->$targetMethodName(Ljava/lang/Object;)V"
+            "$targetMethodClass->$targetMethodName($INTEGRATIONS_PLAYER_INTERFACE)V"
         )
 
     /**
