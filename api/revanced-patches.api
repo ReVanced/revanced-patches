@@ -820,8 +820,8 @@ public final class app/revanced/patches/reddit/misc/tracking/url/SanitizeUrlQuer
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/scbeasy/detection/debugging/RemoveDebuggingDetectionPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/scbeasy/detection/debugging/RemoveDebuggingDetectionPatch;
+public final class app/revanced/patches/scbeasy/detectiong/debugging/RemoveDebuggingDetectionPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/scbeasy/detectiong/debugging/RemoveDebuggingDetectionPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
