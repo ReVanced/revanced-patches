@@ -1118,6 +1118,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Máy khách chưa được giả mạo\n\nPhát nền video có thể không hoạt động</string>
   <string name="revanced_spoof_client_user_dialog_message">Việc tắt cài đặt này có thể gây ra sự cố phát nền video.</string>
   <string name="revanced_spoof_client_use_ios_title">Giả mạo máy khách cho iOS</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Máy khách hiện đã được giả mạo thành iOS\n\nTác dụng phụ bao gồm:\n• Không có video HDR\n• Lịch sử xem có thể không hoạt động</string>
   <string name="revanced_spoof_client_use_ios_summary_off">Hiện tại máy khách đang giả mạo thành Android VR. Tác dụng phụ bao gồm:\n• Không có video HDR\n• Video dành cho trẻ em không phát lắp\n• Video đã tạm dừng có thể ngẫu nhiên phát tiếp\n• Hình thu nhỏ thanh tiến trình Shorts có chất lượng thấp\n• Nút hành động tải xuống luôn ẩn\n• Các thẻ màn hình kết thúc luôn ẩn</string>
   <string name="revanced_spoof_client_storyboard_timeout">Hình thu nhỏ giả mạo máy khách không khả dụng (API hết hạn)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Hình thu nhỏ giả mạo máy khách tạm thời không khả dụng: %s</string>

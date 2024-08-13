@@ -41,7 +41,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_import">インポート</string>
   <string name="revanced_settings_import_copy">コピー</string>
   <string name="revanced_settings_import_reset">Revanced設定をデフォルトにリセット</string>
-  <string name="revanced_settings_import_success">%d の設定をインポート</string>
+  <string name="revanced_settings_import_success">%d の設定をインポートしました</string>
   <string name="revanced_settings_import_failure_parse">インポート失敗: %s</string>
   </patch>
   <patch id="misc.gms.BaseGmsCoreSupportResourcePatch">
@@ -51,7 +51,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">MicroG GmsCoreはバックグラウンドで実行する権限がありません。\n\nあなたの端末の \"Don\'t kill my app \"のガイドに従って、MicroGのインストールに適用してください。\n\nこれはアプリが動作するために必要です。</string>
   <string name="gms_core_dialog_open_website_text">ウェブサイトを開く</string>
   <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">問題を防ぐためには、MicroG GmsCoreのバッテリー最適化を無効にする必要があります。\n\n継続ボタンをタップしてバッテリーの最適化を無効にします。</string>
-  <string name="gms_core_dialog_continue_text">続ける</string>
+  <string name="gms_core_dialog_continue_text">続行</string>
   </patch>
   </app>
   <app id="youtube">
@@ -94,24 +94,24 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_debug_toast_on_error_user_dialog_message">エラートーストをオフにすると、すべてのReVancedエラー通知が非表示になります。\n\n予期せぬイベントは通知されません。</string>
   </patch>
   <patch id="layout.hide.general.HideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">いいね / 登録ボタンの発光を無効にする</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">いいねと購読ボタンは、言及されても輝きません</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">いいねと購読ボタンが表示されると点灯します</string>
-  <string name="revanced_hide_gray_separator_title">グレーのセパレーターを非表示</string>
-  <string name="revanced_hide_gray_separator_summary_on">ホームフィードの動画の間に表示される、グレーのセパレーターは非表示です</string>
-  <string name="revanced_hide_gray_separator_summary_off">ホームフィードの動画の間に表示される、グレーのセパレーターは表示されます</string>
+  <string name="revanced_disable_like_subscribe_glow_title">高評価 / チャンネル登録ボタンのアニメーションを無効にする</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">「高評価」と「チャンネル登録」ボタンのアニメーションは無効です</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">「高評価」と「チャンネル登録」ボタンのアニメーションは有効です</string>
+  <string name="revanced_hide_gray_separator_title">灰色のセパレータを非表示</string>
+  <string name="revanced_hide_gray_separator_summary_on">灰色のセパレータは非表示です</string>
+  <string name="revanced_hide_gray_separator_summary_off">灰色のセパレータは表示されます</string>
   <string name="revanced_hide_channel_watermark_title">チャンネルの透かしを非表示</string>
   <string name="revanced_hide_channel_watermark_summary_on">透かしは非表示です</string>
   <string name="revanced_hide_channel_watermark_summary_off">透かしは表示されます</string>
-  <string name="revanced_hide_horizontal_shelves_title">横方向の棚を隠す</string>
-  <string name="revanced_hide_horizontal_shelves_summary_off">棚が表示されます</string>
+  <string name="revanced_hide_horizontal_shelves_title">横方向の欄を隠す</string>
+  <string name="revanced_hide_horizontal_shelves_summary_off">欄が表示されます</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
-  <string name="revanced_hide_join_membership_button_title">「参加」ボタンを隠す</string>
+  <string name="revanced_hide_join_membership_button_title">「メンバーになる」ボタンを隠す</string>
   <string name="revanced_hide_join_membership_button_summary_on">ボタンは非表示です</string>
   <string name="revanced_hide_join_membership_button_summary_off">ボタンは表示されます</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">チャンネルページで「自分のため」の棚を非表示にする</string>
+  <string name="revanced_hide_for_you_shelf_title">チャンネルページで「おすすめ」欄を非表示にする</string>
   <string name="revanced_hide_for_you_shelf_summary_on">おすすめ欄は非表示です</string>
   <string name="revanced_hide_for_you_shelf_summary_off">おすすめ欄は表示されます</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
@@ -120,7 +120,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_notify_me_button_summary_on">ボタンは非表示です</string>
   <string name="revanced_hide_notify_me_button_summary_off">ボタンは表示されます</string>
   <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">推奨事項を非表示にする</string>
+  <string name="revanced_hide_search_result_recommendations_title">「他の人はこの動画も視聴しています」おすすめを非表示にする</string>
   <string name="revanced_hide_search_result_recommendations_summary_on">おすすめは非表示です</string>
   <string name="revanced_hide_search_result_recommendations_summary_off">おすすめが表示されます</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
@@ -128,24 +128,24 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_show_more_button_title">「詳細を表示」ボタンを非表示</string>
   <string name="revanced_hide_show_more_button_summary_on">ボタンは非表示です</string>
   <string name="revanced_hide_show_more_button_summary_off">ボタンは表示されます</string>
-  <string name="revanced_hide_timed_reactions_title">リアクションを非表示</string>
+  <string name="revanced_hide_timed_reactions_title">Timed Reactions を非表示</string>
   <string name="revanced_hide_timed_reactions_summary_on">Timed Reactions は非表示です</string>
   <string name="revanced_hide_timed_reactions_summary_off">Timed Reactions は表示されます</string>
-  <string name="revanced_hide_search_result_shelf_header_title">検索結果の棚ヘッダーを非表示</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">棚ヘッダーは非表示です</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">棚ヘッダーは表示されます</string>
-  <string name="revanced_hide_channel_guidelines_title">チャネルガイドラインを非表示</string>
-  <string name="revanced_hide_channel_guidelines_summary_on">チャンネルガイドラインのバナーは非表示です</string>
-  <string name="revanced_hide_channel_guidelines_summary_off">チャンネルガイドラインのバナーは表示されます</string>
+  <string name="revanced_hide_search_result_shelf_header_title">検索結果のヘッダを非表示</string>
+  <string name="revanced_hide_search_result_shelf_header_summary_on">ヘッダーは非表示です</string>
+  <string name="revanced_hide_search_result_shelf_header_summary_off">ヘッダーは表示されます</string>
+  <string name="revanced_hide_channel_guidelines_title">チャンネルガイドラインを非表示</string>
+  <string name="revanced_hide_channel_guidelines_summary_on">チャンネルガイドラインは非表示です</string>
+  <string name="revanced_hide_channel_guidelines_summary_off">チャンネルガイドラインは表示されます</string>
   <string name="revanced_hide_expandable_chip_title">動画の下に表示される展開可能なチップを非表示</string>
-  <string name="revanced_hide_expandable_chip_summary_on">検索結果の動画の下に表示される、展開可能なチップは非表示です</string>
-  <string name="revanced_hide_expandable_chip_summary_off">検索結果の動画の下に表示される、展開可能なチップは表示されます</string>
+  <string name="revanced_hide_expandable_chip_summary_on">展開可能なチップは非表示です</string>
+  <string name="revanced_hide_expandable_chip_summary_off">展開可能なチップは表示されます</string>
   <string name="revanced_hide_video_quality_menu_footer_title">画質メニューのフッターを非表示</string>
   <string name="revanced_hide_video_quality_menu_footer_summary_on">画質メニューのフッターは非表示です</string>
   <string name="revanced_hide_video_quality_menu_footer_summary_off">画質メニューのフッターは表示されます</string>
   <string name="revanced_hide_community_posts_title">コミュニティの投稿を非表示にする</string>
   <string name="revanced_hide_community_posts_summary_on">コミュニティの投稿は非表示です</string>
-  <string name="revanced_hide_community_posts_summary_off">コミュニティ投稿は表示されます</string>
+  <string name="revanced_hide_community_posts_summary_off">コミュニティの投稿は表示されます</string>
   <string name="revanced_hide_compact_banner_title">コンパクトなバナーを非表示にする</string>
   <string name="revanced_hide_compact_banner_summary_on">コンパクトなバナーは非表示です</string>
   <string name="revanced_hide_compact_banner_summary_off">コンパクトなバナーは表示されます</string>
@@ -156,7 +156,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_feed_survey_summary_on">フィードのアンケートは非表示です</string>
   <string name="revanced_hide_feed_survey_summary_off">フィードのアンケートは表示されます</string>
   <string name="revanced_hide_community_guidelines_title">コミュニティガイドラインを非表示</string>
-  <string name="revanced_hide_community_guidelines_summary_on">コミュニティーガイドラインは非表示です</string>
+  <string name="revanced_hide_community_guidelines_summary_on">コミュニティガイドラインは非表示です</string>
   <string name="revanced_hide_community_guidelines_summary_off">コミュニティガイドラインは表示されます</string>
   <string name="revanced_hide_subscribers_community_guidelines_title">登録チャンネルのコミュニティガイドラインを非表示</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_on">登録チャンネルのコミュニティガイドラインは非表示です</string>
@@ -175,49 +175,49 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_medical_panels_summary_off">医療情報パネルは表示されます</string>
   <string name="revanced_hide_channel_bar_title">チャンネルバーを隠す</string>
   <string name="revanced_hide_channel_bar_summary_on">チャンネルバーは非表示です</string>
-  <string name="revanced_hide_channel_bar_summary_off">チャンネルバーが表示されます</string>
+  <string name="revanced_hide_channel_bar_summary_off">チャンネルバーは表示されます</string>
   <string name="revanced_hide_playables_title">ゲームを非表示にする</string>
-  <string name="revanced_hide_playables_summary_on">Playables は非表示です</string>
-  <string name="revanced_hide_playables_summary_off">ゲームは隠されていない</string>
+  <string name="revanced_hide_playables_summary_on">ゲームは非表示です</string>
+  <string name="revanced_hide_playables_summary_off">ゲームは表示されます</string>
   <string name="revanced_hide_quick_actions_title">全画面表示でクイックアクションを隠す</string>
   <string name="revanced_hide_quick_actions_summary_on">クイックアクションは非表示です</string>
   <string name="revanced_hide_quick_actions_summary_off">クイックアクションを表示する</string>
-  <string name="revanced_hide_related_videos_title">クイックアクションで関連するビデオを隠す</string>
-  <string name="revanced_hide_related_videos_summary_on">関連するビデオは非表示です</string>
-  <string name="revanced_hide_related_videos_summary_off">関連するビデオが表示されます</string>
-  <string name="revanced_hide_image_shelf_title">検索結果に画像棚を隠す</string>
-  <string name="revanced_hide_image_shelf_summary_on">画像棚は非表示です</string>
-  <string name="revanced_hide_image_shelf_summary_off">画像棚が表示されています</string>
+  <string name="revanced_hide_related_videos_title">クイックアクションで関連動画を隠す</string>
+  <string name="revanced_hide_related_videos_summary_on">関連動画は非表示です</string>
+  <string name="revanced_hide_related_videos_summary_off">関連動画が表示されます</string>
+  <string name="revanced_hide_image_shelf_title">検索結果で画像欄を隠す</string>
+  <string name="revanced_hide_image_shelf_summary_on">画像欄は非表示です</string>
+  <string name="revanced_hide_image_shelf_summary_off">画像欄は表示されます</string>
   <string name="revanced_hide_latest_posts_ads_title">最新の投稿を非表示</string>
   <string name="revanced_hide_latest_posts_ads_summary_on">最新の投稿は非表示です</string>
-  <string name="revanced_hide_latest_posts_ads_summary_off">最新の投稿が表示されます</string>
-  <string name="revanced_hide_mix_playlists_title">ミックスプレイリストを隠す</string>
-  <string name="revanced_hide_mix_playlists_summary_on">ミックスプレイリストは非表示です</string>
-  <string name="revanced_hide_mix_playlists_summary_off">ミックス プレイリストが表示されます</string>
+  <string name="revanced_hide_latest_posts_ads_summary_off">最新の投稿は表示されます</string>
+  <string name="revanced_hide_mix_playlists_title">ミックスリストを隠す</string>
+  <string name="revanced_hide_mix_playlists_summary_on">ミックスリストは非表示です</string>
+  <string name="revanced_hide_mix_playlists_summary_off">ミックスリストが表示されます</string>
   <string name="revanced_hide_artist_cards_title">アーティストカードを隠す</string>
   <string name="revanced_hide_artist_cards_summary_on">アーティストカードは非表示です</string>
   <string name="revanced_hide_artist_cards_summary_off">アーティストカードが表示されます</string>
-  <string name="revanced_hide_chips_shelf_title">チップ棚を隠す</string>
-  <string name="revanced_hide_chips_shelf_summary_on">チップ棚は非表示です</string>
-  <string name="revanced_hide_chips_shelf_summary_off">チップ棚が表示されています</string>
+  <string name="revanced_hide_chips_shelf_title">チップ欄を隠す</string>
+  <string name="revanced_hide_chips_shelf_summary_on">チップ欄は非表示です</string>
+  <string name="revanced_hide_chips_shelf_summary_off">チップ欄が表示されています</string>
   <string name="revanced_hide_attributes_section_title">属性セクションを非表示</string>
-  <string name="revanced_hide_attributes_section_summary_on">「注目の場所」、ゲームと音楽のセクションは非表示です</string>
-  <string name="revanced_hide_attributes_section_summary_off">「注目の場所」、ゲーム、音楽セクションが表示されます</string>
-  <string name="revanced_hide_chapters_section_title">章節を非表示</string>
-  <string name="revanced_hide_chapters_section_summary_on">章節は非表示です</string>
-  <string name="revanced_hide_chapters_section_summary_off">章節を表示</string>
+  <string name="revanced_hide_attributes_section_summary_on">「注目の場所」、ゲーム、音楽欄は非表示です</string>
+  <string name="revanced_hide_attributes_section_summary_off">「注目の場所」、ゲーム、音楽欄は表示されます</string>
+  <string name="revanced_hide_chapters_section_title">チャプターセクションを非表示</string>
+  <string name="revanced_hide_chapters_section_summary_on">チャプターセクションは非表示です</string>
+  <string name="revanced_hide_chapters_section_summary_off">チャプターセクションを表示</string>
   <string name="revanced_hide_podcast_section_title">「ポッドキャストを探索」セクションを非表示</string>
   <string name="revanced_hide_podcast_section_summary_on">「ポッドキャストを探索」セクションは非表示です</string>
   <string name="revanced_hide_podcast_section_summary_off">「ポッドキャストを探索」セクションが表示されます</string>
   <string name="revanced_hide_info_cards_section_title">情報カードセクションを隠す</string>
   <string name="revanced_hide_info_cards_section_summary_on">情報カードセクションは非表示です</string>
-  <string name="revanced_hide_info_cards_section_summary_off">カード情報セクションが表示されます</string>
+  <string name="revanced_hide_info_cards_section_summary_off">情報カードセクションは表示されます</string>
   <string name="revanced_hide_key_concepts_section_title">「キーコンセプト」セクションを非表示</string>
   <string name="revanced_hide_key_concepts_section_summary_on">「キーコンセプト」セクションは非表示です</string>
-  <string name="revanced_hide_key_concepts_section_summary_off">「キーコンセプト」セクションが表示されます</string>
-  <string name="revanced_hide_transcript_section_title">トランスクリプトセクションを隠す</string>
-  <string name="revanced_hide_transcript_section_summary_on">トランスクリプトセクションは非表示です</string>
-  <string name="revanced_hide_transcript_section_summary_off">トランスクリプトセクションが表示されます</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">「キーコンセプト」セクションは表示されます</string>
+  <string name="revanced_hide_transcript_section_title">文字起こしセクションを隠す</string>
+  <string name="revanced_hide_transcript_section_summary_on">文字起こしセクションは非表示です</string>
+  <string name="revanced_hide_transcript_section_summary_off">文字起こしセクションは表示されます</string>
   <string name="revanced_hide_description_components_screen_title">概要欄</string>
   <string name="revanced_hide_description_components_screen_summary">概要欄のコンポーネントを非表示または表示</string>
   <string name="revanced_custom_filter_screen_title">カスタムフィルター</string>
@@ -227,7 +227,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_custom_filter_summary_off">カスタムフィルタは無効です</string>
   <string name="revanced_custom_filter_strings_title">カスタムフィルター</string>
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="revanced_custom_filter_strings_summary">新しい行で区切られたフィルタリングするコンポーネントパスビルダー文字列のリスト</string>
+  <string name="revanced_custom_filter_strings_summary">フィルタリングするコンポーネントパスビルダの文字列を改行で区切ったリスト</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">無効なカスタムフィルター: %s</string>
   <string name="revanced_hide_keyword_content_screen_title">キーワード内容を隠す</string>
   <string name="revanced_hide_keyword_content_screen_summary">キーワードフィルタを使用して検索とフィードビデオを非表示</string>
@@ -243,7 +243,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_content_phrases_title">隠すキーワード</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
-  <string name="revanced_hide_keyword_content_phrases_summary">非表示にするキーワードとフレーズ 新しい行で区切られた\n\n中央に大文字を含む単語はケーシングで入力する必要があります (iPhone、TikTok、LeBlancなど)</string>
+  <string name="revanced_hide_keyword_content_phrases_summary">非表示にするキーワードとフレーズ (改行区切り)\n\n中央に大文字を含む単語は大文字と小文字を区別する必要があります (iPhone、TikTok、LeBlancなど)</string>
   <string name="revanced_hide_keyword_content_about_title">キーワードフィルタリングについて</string>
   <string name="revanced_hide_keyword_content_about_summary">ホーム/登録/検索結果は、キーワードフレーズに一致するコンテンツを非表示にするためにフィルタリングされます\n\n制限事項：\n• 一部のショートは非表示にされない場合があります\n• 一部のUIコンポーネントが非表示にされない場合があります\n• キーワードを検索しても結果が表示されない場合があります</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -254,76 +254,76 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">一般的な広告を非表示</string>
-  <string name="revanced_hide_general_ads_summary_on">一般広告は非表示です</string>
-  <string name="revanced_hide_general_ads_summary_off">一般広告が表示されます</string>
+  <string name="revanced_hide_general_ads_summary_on">一般的な広告は非表示です</string>
+  <string name="revanced_hide_general_ads_summary_off">一般的な広告は表示されます</string>
   <string name="revanced_hide_fullscreen_ads_title">全画面広告を非表示</string>
-  <string name="revanced_hide_fullscreen_ads_summary_on">フルスクリーン広告を非表示\n\nこれは古いデバイスでのみ利用できます</string>
-  <string name="revanced_hide_fullscreen_ads_summary_off">全画面表示の広告</string>
-  <string name="revanced_hide_buttoned_ads_title">ボタン付き広告を隠す</string>
+  <string name="revanced_hide_fullscreen_ads_summary_on">全画面広告を非表示\n\nこれは古いデバイスでのみ利用できます</string>
+  <string name="revanced_hide_fullscreen_ads_summary_off">全画面広告は表示されます</string>
+  <string name="revanced_hide_buttoned_ads_title">ボタン付き広告を非表示</string>
   <string name="revanced_hide_buttoned_ads_summary_on">ボタン付き広告は非表示です</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">ボタンをクリックした広告が表示されます</string>
-  <string name="revanced_hide_paid_promotion_label_title">有料プロモーションラベルを非表示</string>
-  <string name="revanced_hide_paid_promotion_label_summary_on">有料プロモーションラベルは非表示です</string>
-  <string name="revanced_hide_paid_promotion_label_summary_off">有料プロモーションラベルが表示されます</string>
+  <string name="revanced_hide_buttoned_ads_summary_off">ボタン付き広告は表示されます</string>
+  <string name="revanced_hide_paid_promotion_label_title">プロモーションラベルを非表示</string>
+  <string name="revanced_hide_paid_promotion_label_summary_on">プロモーションラベルは非表示です</string>
+  <string name="revanced_hide_paid_promotion_label_summary_off">プロモーションラベルが表示されます</string>
   <string name="revanced_hide_self_sponsor_ads_title">自己スポンサーカードを隠す</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">自己スポンサーカードは非表示です</string>
-  <string name="revanced_hide_self_sponsor_ads_summary_off">自己スポンサーカードが表示されます</string>
-  <string name="revanced_hide_products_banner_title">商品を表示するにはバナーを隠す</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_off">自己スポンサーカードは表示されます</string>
+  <string name="revanced_hide_products_banner_title">商品を見るためのバナーを隠す</string>
   <string name="revanced_hide_products_banner_summary_on">バナーは非表示です</string>
-  <string name="revanced_hide_products_banner_summary_off">バナーを表示</string>
+  <string name="revanced_hide_products_banner_summary_off">バナーは表示されます</string>
   <string name="revanced_hide_shopping_links_title">ビデオの説明内のショッピングリンクを非表示</string>
   <string name="revanced_hide_shopping_links_summary_on">ショッピングのリンクは非表示です</string>
-  <string name="revanced_hide_shopping_links_summary_off">ショッピングのリンクが表示されます</string>
+  <string name="revanced_hide_shopping_links_summary_off">ショッピングのリンクは表示されます</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">チャネルページの「ストア訪問」ボタンを非表示にする</string>
+  <string name="revanced_hide_visit_store_button_title">チャンネルページの「ストアを見る」ボタンを非表示にする</string>
   <string name="revanced_hide_visit_store_button_summary_on">ボタンは非表示です</string>
   <string name="revanced_hide_visit_store_button_summary_off">ボタンは表示されます</string>
   <string name="revanced_hide_web_search_results_title">ウェブ検索結果を隠す</string>
-  <string name="revanced_hide_web_search_results_summary_on">ウェブ検索結果は表示されません</string>
+  <string name="revanced_hide_web_search_results_summary_on">ウェブ検索結果は非表示です</string>
   <string name="revanced_hide_web_search_results_summary_off">ウェブ検索結果が表示されます</string>
   <string name="revanced_hide_merchandise_banners_title">商品バナーを非表示</string>
   <string name="revanced_hide_merchandise_banners_summary_on">商品バナーは非表示です</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">商品バナーが表示されます</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">商品バナーは表示されます</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">全画面広告を非表示にするには、古い端末でのみ動作します</string>
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">全画面広告の非表示は、古い端末でのみ動作します</string>
   </patch>
   <patch id="ad.getpremium.HideGetPremiumPatch">
-  <string name="revanced_hide_get_premium_title">YouTube プレミアムプロモーションを非表示</string>
-  <string name="revanced_hide_get_premium_summary_on">YouTube プレミアムプロモーションが非表示になります</string>
-  <string name="revanced_hide_get_premium_summary_off">YouTubeプレミアムプロモーションが表示されます</string>
+  <string name="revanced_hide_get_premium_title">YouTube Premium の広告を非表示</string>
+  <string name="revanced_hide_get_premium_summary_on">YouTube Premium の広告は非表示です</string>
+  <string name="revanced_hide_get_premium_summary_off">YouTube Premium の広告は表示されます</string>
   </patch>
   <patch id="ad.video.VideoAdsPatch">
   <string name="revanced_hide_video_ads_title">動画広告を隠す</string>
-  <string name="revanced_hide_video_ads_summary_on">ビデオ広告は非表示です</string>
-  <string name="revanced_hide_video_ads_summary_off">動画広告が表示されます</string>
+  <string name="revanced_hide_video_ads_summary_on">動画広告は非表示です</string>
+  <string name="revanced_hide_video_ads_summary_off">動画広告は表示されます</string>
   </patch>
   <patch id="interaction.copyvideourl.CopyVideoUrlResourcePatch">
   <string name="revanced_share_copy_url_success">URL をクリップボードにコピーしました</string>
   <string name="revanced_share_copy_url_timestamp_success">タイムスタンプ付きのURLがコピーされました</string>
-  <string name="revanced_copy_video_url_title">動画のコピーURLボタンを表示</string>
-  <string name="revanced_copy_video_url_summary_on">ボタンが表示されます。タップして動画のURLをコピーします。長押しするとタイムスタンプ付きの動画のURLをコピーします。</string>
+  <string name="revanced_copy_video_url_title">動画のURLをコピーボタンを表示</string>
+  <string name="revanced_copy_video_url_summary_on">ボタンが表示されます。タップすると動画のURLをコピーできます。長押しするとタイムスタンプ付きの動画のURLをコピーできます。</string>
   <string name="revanced_copy_video_url_summary_off">ボタンは表示されません</string>
-  <string name="revanced_copy_video_url_timestamp_title">コピータイムスタンプURLボタンを表示</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">ボタンが表示されます。タップするとタイムスタンプ付きの動画URLをコピーします。長押しするとタイムスタンプなしで動画をコピーできます。</string>
+  <string name="revanced_copy_video_url_timestamp_title">タイムスタンプURLコピーボタンを表示</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">ボタンが表示されます。タップするとタイムスタンプ付きの動画URLをコピーできます。長押しするとタイムスタンプなしで動画をコピーできます。</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">ボタンは表示されません</string>
   </patch>
   <patch id="interaction.dialog.RemoveViewerDiscretionDialogPatch">
-  <string name="revanced_remove_viewer_discretion_dialog_title">ビューアの裁量ダイアログを削除</string>
+  <string name="revanced_remove_viewer_discretion_dialog_title">「ご自身の責任」ダイアログを削除</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">ダイアログは削除されます</string>
-  <string name="revanced_remove_viewer_discretion_dialog_summary_off">ダイアログを表示します</string>
-  <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">これは年齢制限を回避するものではありません。自動的に受け入れるだけです。</string>
+  <string name="revanced_remove_viewer_discretion_dialog_summary_off">ダイアログは表示されます</string>
+  <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">これは年齢制限を回避するものではなく、ダイアログを自動的に承認するだけです。</string>
   </patch>
   <patch id="interaction.downloads.DownloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">外部ダウンロード</string>
   <string name="revanced_external_downloader_screen_summary">外部ダウンローダーの設定</string>
   <string name="revanced_external_downloader_title">外部ダウンロードボタンを表示</string>
   <string name="revanced_external_downloader_summary_on">プレイヤーに表示されるダウンロードボタン</string>
-  <string name="revanced_external_downloader_summary_off">プレイヤーにダウンロードボタンが表示されません</string>
+  <string name="revanced_external_downloader_summary_off">プレイヤーにダウンロードボタンは表示されません</string>
   <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
   <string name="revanced_external_downloader_action_button_title">ダウンロードアクションボタンを上書き</string>
-  <string name="revanced_external_downloader_action_button_summary_on">ダウンロードボタンで外部ダウンローダーを開きます</string>
-  <string name="revanced_external_downloader_action_button_summary_off">ダウンロードボタンでネイティブアプリ内ダウンローダーを開きます</string>
-  <string name="revanced_external_downloader_name_title">ダウンロードパッケージ名</string>
+  <string name="revanced_external_downloader_action_button_summary_on">ダウンロードボタンで外部ダウンローダーを開く</string>
+  <string name="revanced_external_downloader_action_button_summary_off">ダウンロードボタンでネイティブアプリ内ダウンローダーを開く</string>
+  <string name="revanced_external_downloader_name_title">ダウンローダーパッケージ名</string>
   <string name="revanced_external_downloader_name_summary">NewPipeやSealなど、インストールされている外部ダウンローダーアプリのパッケージ名</string>
   <string name="revanced_external_downloader_not_installed_warning">%s はインストールされていません。インストールしてください。</string>
   </patch>
@@ -340,22 +340,22 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="interaction.swipecontrols.SwipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">明るさジェスチャーを有効にする</string>
   <string name="revanced_swipe_brightness_summary_on">明るさスワイプは有効です</string>
-  <string name="revanced_swipe_brightness_summary_off">明るさのスワイプは無効です</string>
-  <string name="revanced_swipe_volume_title">ボリュームジェスチャーを有効にする</string>
-  <string name="revanced_swipe_volume_summary_on">音量のスワイプは有効です</string>
-  <string name="revanced_swipe_volume_summary_off">音量のスワイプは無効です</string>
-  <string name="revanced_swipe_press_to_engage_title">プレスツースワイプジェスチャーを有効にする</string>
+  <string name="revanced_swipe_brightness_summary_off">明るさスワイプは無効です</string>
+  <string name="revanced_swipe_volume_title">音量ジェスチャーを有効にする</string>
+  <string name="revanced_swipe_volume_summary_on">音量スワイプは有効です</string>
+  <string name="revanced_swipe_volume_summary_off">音量スワイプは無効です</string>
+  <string name="revanced_swipe_press_to_engage_title">長押しスワイプコントロールを有効化</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Press-to-swipeは有効です</string>
   <string name="revanced_swipe_press_to_engage_summary_off">Press-to-swipeは無効です</string>
   <string name="revanced_swipe_haptic_feedback_title">触覚フィードバックを有効にする</string>
-  <string name="revanced_swipe_haptic_feedback_summary_on">Haptic feedback is enabled</string>
-  <string name="revanced_swipe_haptic_feedback_summary_off">振動フィードバックは無効です</string>
-  <string name="revanced_swipe_save_and_restore_brightness_title">明るさを保存して復元</string>
-  <string name="revanced_swipe_save_and_restore_brightness_summary_on">フルスクリーンを終了または入力したときに明るさを保存して復元します</string>
-  <string name="revanced_swipe_save_and_restore_brightness_summary_off">フルスクリーンを終了または入力したときに明るさを保存および復元しない</string>
+  <string name="revanced_swipe_haptic_feedback_summary_on">触覚フィードバックは有効です</string>
+  <string name="revanced_swipe_haptic_feedback_summary_off">触覚フィードバックは無効です</string>
+  <string name="revanced_swipe_save_and_restore_brightness_title">明るさの保存と復元</string>
+  <string name="revanced_swipe_save_and_restore_brightness_summary_on">フルスクリーンを終了/開始したときに明るさを保存して復元します</string>
+  <string name="revanced_swipe_save_and_restore_brightness_summary_off">フルスクリーンを終了/開始したときに明るさを保存および復元しません</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">自動明るさジェスチャーを有効にする</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">明るさジェスチャーの最小値まで下にスワイプすると、自動明るさが有効になります</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">最低値に下にスワイプすると、自動明るさの自動調節は有効になりません</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">最小値まで下にスワイプしても、自動明るさの自動調節は有効になりません</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">自動</string>
   <string name="revanced_swipe_overlay_timeout_title">スワイプオーバーレイのタイムアウト</string>
   <string name="revanced_swipe_overlay_timeout_summary">オーバーレイが表示されるミリ秒の量</string>
@@ -364,58 +364,58 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_swipe_overlay_background_alpha_title">背景のスワイプ表示</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">オーバーレイの背景をスワイプ表示する</string>
   <string name="revanced_swipe_threshold_title">スワイプの大きさのしきい値</string>
-  <string name="revanced_swipe_threshold_summary">スワイプのしきい値が発生します</string>
+  <string name="revanced_swipe_threshold_summary">スワイプとして検出する量のしきい値</string>
   </patch>
   <patch id="layout.autocaptions.AutoCaptionsPatch">
   <string name="revanced_auto_captions_title">自動字幕を無効にする</string>
   <string name="revanced_auto_captions_summary_on">自動字幕は無効です</string>
-  <string name="revanced_auto_captions_summary_off">自動キャプションは有効です</string>
+  <string name="revanced_auto_captions_summary_off">自動字幕は有効です</string>
   </patch>
   <patch id="layout.buttons.action.HideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">アクションボタン</string>
   <string name="revanced_hide_buttons_screen_summary">ビデオ下のボタンを非表示または表示</string>
-  <string name="revanced_hide_like_dislike_button_title">「いいね」と「いいね」を隠す</string>
-  <string name="revanced_hide_like_dislike_button_summary_on">「いいね」ボタンと「嫌い」ボタンは非表示になります</string>
-  <string name="revanced_hide_like_dislike_button_summary_off">「いいね」ボタンと「嫌い」ボタンが表示されます</string>
+  <string name="revanced_hide_like_dislike_button_title">高評価と低評価を隠す</string>
+  <string name="revanced_hide_like_dislike_button_summary_on">高評価ボタンと低評価ボタンは非表示になります</string>
+  <string name="revanced_hide_like_dislike_button_summary_off">高評価ボタンと低評価ボタンは表示されます</string>
   <!-- 'Share' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_share_button_title">シェアを隠す</string>
+  <string name="revanced_hide_share_button_title">共有ボタンを隠す</string>
   <string name="revanced_hide_share_button_summary_on">共有ボタンは非表示です</string>
-  <string name="revanced_hide_share_button_summary_off">共有ボタンが表示されます</string>
+  <string name="revanced_hide_share_button_summary_off">共有ボタンは表示されます</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
-  <string name="revanced_hide_report_button_title">レポートを隠す</string>
-  <string name="revanced_hide_report_button_summary_on">レポートボタンは非表示です</string>
-  <string name="revanced_hide_report_button_summary_off">レポート ボタンが表示されます</string>
+  <string name="revanced_hide_report_button_title">報告を隠す</string>
+  <string name="revanced_hide_report_button_summary_on">報告ボタンは非表示です</string>
+  <string name="revanced_hide_report_button_summary_off">報告ボタンは表示されます</string>
   <!-- 'Remix' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_remix_button_title">リミックスを隠す</string>
   <string name="revanced_hide_remix_button_summary_on">リミックスボタンは非表示です</string>
-  <string name="revanced_hide_remix_button_summary_off">リミックスボタンが表示されます</string>
+  <string name="revanced_hide_remix_button_summary_off">リミックスボタンは表示されます</string>
   <!-- 'Download' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_download_button_title">ダウンロードを非表示</string>
   <string name="revanced_hide_download_button_summary_on">ダウンロードボタンは非表示です</string>
-  <string name="revanced_hide_download_button_summary_off">ダウンロードボタンが表示されます</string>
+  <string name="revanced_hide_download_button_summary_off">ダウンロードボタンは表示されます</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Thanks ボタンを非表示</string>
   <string name="revanced_hide_thanks_button_summary_on">「Thanks」ボタンは非表示です</string>
   <string name="revanced_hide_thanks_button_summary_off">「Thanks」ボタンは表示されます</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_summary_on">クリップボタンは非表示です</string>
-  <string name="revanced_hide_clip_button_summary_off">クリップボタンを表示する</string>
+  <string name="revanced_hide_clip_button_summary_off">クリップボタンは表示されます</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_playlist_button_title">プレイリストに保存を隠す</string>
-  <string name="revanced_hide_playlist_button_summary_on">プレイリストに保存ボタンが表示されません</string>
-  <string name="revanced_hide_playlist_button_summary_off">プレイリストに保存ボタンが表示されます</string>
+  <string name="revanced_hide_playlist_button_summary_on">プレイリストに保存ボタンは非表示です</string>
+  <string name="revanced_hide_playlist_button_summary_off">プレイリストに保存ボタンは表示されます</string>
   </patch>
   <patch id="layout.buttons.autoplay.HideAutoplayButtonPatch">
   <string name="revanced_hide_autoplay_button_title">自動再生ボタンを隠す</string>
   <string name="revanced_hide_autoplay_button_summary_on">自動再生ボタンは非表示です</string>
-  <string name="revanced_hide_autoplay_button_summary_off">自動再生ボタンを表示する</string>
+  <string name="revanced_hide_autoplay_button_summary_off">自動再生ボタンは表示されます</string>
   </patch>
   <patch id="layout.buttons.captions.HideCaptionsButtonPatch">
   <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
   <string name="revanced_hide_captions_button_title">字幕ボタンを隠す</string>
-  <string name="revanced_hide_captions_button_summary_on">キャプションボタンは非表示です</string>
-  <string name="revanced_hide_captions_button_summary_off">キャプションボタンが表示されます</string>
+  <string name="revanced_hide_captions_button_summary_on">字幕ボタンは非表示です</string>
+  <string name="revanced_hide_captions_button_summary_off">字幕ボタンが表示されます</string>
   </patch>
   <patch id="layout.buttons.cast.HideCastButtonPatch">
   <string name="revanced_hide_cast_button_title">キャストボタンを隠す</string>
@@ -423,142 +423,141 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_cast_button_summary_off">キャスト ボタンは表示されます</string>
   </patch>
   <patch id="layout.buttons.navigation.NavigationButtonsPatch">
-  <string name="revanced_navigation_buttons_screen_title">Navigation buttons</string>
-  <string name="revanced_navigation_buttons_screen_summary">ナビゲーションバーのボタンを非表示または変更する</string>
+  <string name="revanced_navigation_buttons_screen_title">ナビゲーションボタン</string>
+  <string name="revanced_navigation_buttons_screen_summary">ナビゲーションバーのボタンを非表示または変更</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
   <string name="revanced_hide_home_button_title">ホームを隠す</string>
   <string name="revanced_hide_home_button_summary_on">ホームボタンは非表示です</string>
-  <string name="revanced_hide_home_button_summary_off">ホームボタンを表示</string>
+  <string name="revanced_hide_home_button_summary_off">ホームボタンは表示されます</string>
   <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
-  <string name="revanced_hide_shorts_button_title">ショーツを隠す</string>
-  <string name="revanced_hide_shorts_button_summary_on">ショーツボタンは非表示です</string>
-  <string name="revanced_hide_shorts_button_summary_off">ショーツ ボタンは表示されます</string>
+  <string name="revanced_hide_shorts_button_title">Shorts を隠す</string>
+  <string name="revanced_hide_shorts_button_summary_on">Shorts ボタンは非表示です</string>
+  <string name="revanced_hide_shorts_button_summary_off">Shorts ボタンは表示されます</string>
   <!-- The Create button has no display name. Translate normally. -->
   <string name="revanced_hide_create_button_title">作成を隠す</string>
   <string name="revanced_hide_create_button_summary_on">作成ボタンは非表示です</string>
-  <string name="revanced_hide_create_button_summary_off">作成ボタンが表示されます</string>
+  <string name="revanced_hide_create_button_summary_off">作成ボタンは表示されます</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays the tab. -->
-  <string name="revanced_hide_subscriptions_button_title">サブスクリプションを非表示</string>
-  <string name="revanced_hide_subscriptions_button_summary_on">購読ボタンは非表示です</string>
-  <string name="revanced_hide_subscriptions_button_summary_off">サブスクリプションボタンが表示されます</string>
+  <string name="revanced_hide_subscriptions_button_title">登録チャンネルを非表示</string>
+  <string name="revanced_hide_subscriptions_button_summary_on">登録チャンネルボタンは非表示です</string>
+  <string name="revanced_hide_subscriptions_button_summary_off">登録チャンネルボタンは表示されます</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
-  <string name="revanced_switch_create_with_notifications_button_title">通知で作成を切り替える</string>
-  <string name="revanced_switch_create_with_notifications_button_summary_on">Create button is switched with Notifications button\n\nNote: Enabling this also forcly hides video ads</string>
-  <string name="revanced_switch_create_with_notifications_button_summary_off">作成ボタンを通知ボタンは入れ替わりません
-既知の問題: この設定がオンの場合、広告のホワイトリストは動作しません</string>
+  <string name="revanced_switch_create_with_notifications_button_title">「作成」を「通知」と入れ替え</string>
+  <string name="revanced_switch_create_with_notifications_button_summary_on">作成ボタンが通知ボタンと入れ替わります\n\nメモ: これを有効にすると強制的に動画広告が非表示になります</string>
+  <string name="revanced_switch_create_with_notifications_button_summary_off">作成ボタンをと通知ボタンは入れ替わりません</string>
   <string name="revanced_hide_navigation_button_labels_title">ナビゲーションボタンのラベルを隠す</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">ラベルは非表示です</string>
-  <string name="revanced_hide_navigation_button_labels_summary_off">ラベルを表示する</string>
+  <string name="revanced_hide_navigation_button_labels_summary_off">ラベルは表示されます</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.HidePlayerFlyoutMenuPatch">
-  <string name="revanced_hide_player_flyout_title">Flyout menu</string>
+  <string name="revanced_hide_player_flyout_title">フライアウトメニュー</string>
   <string name="revanced_hide_player_flyout_summary">プレイヤーフライアウトメニューアイテムを非表示または表示</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_captions_title">キャプションを隠す</string>
-  <string name="revanced_hide_player_flyout_captions_summary_on">キャプションメニューは非表示です</string>
-  <string name="revanced_hide_player_flyout_captions_summary_off">図表番号メニューが表示されます</string>
+  <string name="revanced_hide_player_flyout_captions_title">字幕を非表示にする</string>
+  <string name="revanced_hide_player_flyout_captions_summary_on">字幕メニューは非表示です</string>
+  <string name="revanced_hide_player_flyout_captions_summary_off">字幕メニューは表示されます</string>
   <!-- 'Additional settings' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_additional_settings_title">追加設定を隠す</string>
+  <string name="revanced_hide_player_flyout_additional_settings_title">追加設定を非表示にする</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_on">追加設定メニューは非表示です</string>
-  <string name="revanced_hide_player_flyout_additional_settings_summary_off">追加設定メニューが表示されます</string>
+  <string name="revanced_hide_player_flyout_additional_settings_summary_off">追加設定メニューは表示されます</string>
   <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_loop_video_title">ループビデオを隠す</string>
-  <string name="revanced_hide_player_flyout_loop_video_summary_on">ループビデオメニューは非表示です</string>
-  <string name="revanced_hide_player_flyout_loop_video_summary_off">ループビデオメニューを表示する</string>
+  <string name="revanced_hide_player_flyout_loop_video_title">動画ループを隠す</string>
+  <string name="revanced_hide_player_flyout_loop_video_summary_on">動画ループメニューは非表示です</string>
+  <string name="revanced_hide_player_flyout_loop_video_summary_off">動画ループメニューを表示する</string>
   <!-- 'Ambient mode' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_ambient_mode_title">アンビエントモードを隠す</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_on">アンビエントモードメニューは非表示です</string>
-  <string name="revanced_hide_player_flyout_ambient_mode_summary_off">アンビエントモードメニューが表示されます</string>
+  <string name="revanced_hide_player_flyout_ambient_mode_summary_off">アンビエントモードメニューは表示されます</string>
   <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_help_title">ヘルプとフィードバックを非表示にする &amp;</string>
-  <string name="revanced_hide_player_flyout_help_summary_on">ヘルプとフィードバックメニューは非表示です &amp;</string>
-  <string name="revanced_hide_player_flyout_help_summary_off">ヘルプとフィードバックメニューは表示されます &amp;</string>
+  <string name="revanced_hide_player_flyout_help_title">ヘルプとフィードバックを非表示にする</string>
+  <string name="revanced_hide_player_flyout_help_summary_on">ヘルプとフィードバックメニューは非表示です</string>
+  <string name="revanced_hide_player_flyout_help_summary_off">ヘルプとフィードバックメニューは表示されます</string>
   <!-- 'Playback speed' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_speed_title">再生速度を隠す</string>
-  <string name="revanced_hide_player_flyout_speed_summary_on">再生速度メニューが表示されません</string>
-  <string name="revanced_hide_player_flyout_speed_summary_off">再生スピードメニューが表示されます</string>
+  <string name="revanced_hide_player_flyout_speed_title">再生速度を非表示にする</string>
+  <string name="revanced_hide_player_flyout_speed_summary_on">再生速度メニューは非表示です</string>
+  <string name="revanced_hide_player_flyout_speed_summary_off">再生速度メニューは表示されます</string>
   <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
   <string name="revanced_hide_player_flyout_more_info_title">詳細情報を隠す</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">その他の情報メニューは非表示です</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">詳細情報メニューが表示されます</string>
+  <string name="revanced_hide_player_flyout_more_info_summary_on">詳細情報メニューは非表示です</string>
+  <string name="revanced_hide_player_flyout_more_info_summary_off">詳細情報メニューは表示されます</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">ロック画面を隠す</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">ロック画面のメニューは非表示です</string>
-  <string name="revanced_hide_player_flyout_lock_screen_summary_off">ロック画面のメニューが表示されます</string>
+  <string name="revanced_hide_player_flyout_lock_screen_summary_off">ロック画面のメニューは表示されます</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">オーディオトラックを隠す</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">オーディオトラックメニューは非表示です</string>
-  <string name="revanced_hide_player_flyout_audio_track_summary_off">オーディオトラックメニューが表示されます</string>
+  <string name="revanced_hide_player_flyout_audio_track_summary_off">オーディオトラックメニューは表示されます</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_watch_in_vr_title">VRでウォッチを隠す</string>
-  <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VRメニューを非表示にする</string>
-  <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">VRメニューで見る</string>
+  <string name="revanced_hide_player_flyout_watch_in_vr_title">VRで見るを隠す</string>
+  <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VRで見るメニューは非表示です</string>
+  <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">VR で見るメニューは表示されます</string>
   </patch>
   <patch id="layout.buttons.player.hide.HidePlayerButtonsPatch">
-  <string name="revanced_hide_player_buttons_title">前の &amp; 次のビデオボタンを隠す</string>
+  <string name="revanced_hide_player_buttons_title">前の動画に戻る/次の動画に進むボタンを非表示</string>
   <string name="revanced_hide_player_buttons_summary_on">ボタンは非表示です</string>
-  <string name="revanced_hide_player_buttons_summary_off">ボタンを表示する</string>
+  <string name="revanced_hide_player_buttons_summary_off">ボタンは表示されます</string>
   </patch>
   <patch id="layout.hide.albumcards.AlbumCardsResourcePatch">
   <string name="revanced_hide_album_cards_title">アルバムカードを隠す</string>
   <string name="revanced_hide_album_cards_summary_on">アルバムカードは非表示です</string>
-  <string name="revanced_hide_album_cards_summary_off">アルバムカードが表示されます</string>
+  <string name="revanced_hide_album_cards_summary_off">アルバムカードは表示されます</string>
   </patch>
   <patch id="layout.hide.comments.CommentsPatch">
   <string name="revanced_comments_screen_title">コメント</string>
   <string name="revanced_comments_screen_summary">コメントセクションのコンポーネントを非表示または表示</string>
   <string name="revanced_hide_comments_by_members_header_title">「メンバーによるコメント」ヘッダーを非表示</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">「メンバーによるコメント」ヘッダーは非表示です</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">「メンバーによるコメント」ヘッダーが表示されています</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">「メンバーによるコメント」ヘッダーは表示されています</string>
   <string name="revanced_hide_comments_section_title">コメントセクションを非表示</string>
   <string name="revanced_hide_comments_section_summary_on">コメントセクションは非表示です</string>
-  <string name="revanced_hide_comments_section_summary_off">コメントセクションが表示されます</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">「ショートカットを作成」ボタンを非表示</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">「ショートカットを作成」ボタンは非表示です</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">「ショートカットを作成」ボタンが表示されます</string>
-  <string name="revanced_hide_comments_preview_comment_title">プレビューコメントを隠す</string>
-  <string name="revanced_hide_comments_preview_comment_summary_on">プレビューコメントは非表示です</string>
-  <string name="revanced_hide_comments_preview_comment_summary_off">プレビューコメントが表示されます</string>
-  <string name="revanced_hide_comments_thanks_button_title">感謝ボタンを非表示</string>
-  <string name="revanced_hide_comments_thanks_button_summary_on">おかげでボタンは表示されません</string>
-  <string name="revanced_hide_comments_thanks_button_summary_off">Thanks button is showed</string>
+  <string name="revanced_hide_comments_section_summary_off">コメントセクションは表示されます</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">「Shortsを作成」ボタンを非表示</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">「Shortsを作成」ボタンは非表示です</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">「Shorsを作成」ボタンは表示されます</string>
+  <string name="revanced_hide_comments_preview_comment_title">コメントのプレビューを非表示</string>
+  <string name="revanced_hide_comments_preview_comment_summary_on">コメントのプレビューは非表示です</string>
+  <string name="revanced_hide_comments_preview_comment_summary_off">コメントのプレビューは表示されます</string>
+  <string name="revanced_hide_comments_thanks_button_title">Thanks ボタンを非表示</string>
+  <string name="revanced_hide_comments_thanks_button_summary_on">「Thanks」ボタンは非表示です</string>
+  <string name="revanced_hide_comments_thanks_button_summary_off">「Thanks」ボタンは表示されます</string>
   <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">タイムスタンプと絵文字ボタンを隠す</string>
   <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">タイムスタンプと絵文字ボタンは非表示です</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">タイムスタンプと絵文字ボタンが表示されます</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">タイムスタンプと絵文字ボタンは表示されます</string>
   </patch>
   <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
   <string name="revanced_hide_crowdfunding_box_title">クラウドファンディングボックスを非表示</string>
   <string name="revanced_hide_crowdfunding_box_summary_on">クラウドファンディングボックスは非表示です</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">クラウドファンディングボックスが表示されます</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">クラウドファンディングボックスは表示されます</string>
   </patch>
   <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
-  <string name="revanced_hide_endscreen_cards_title">終了画面のカードを隠す</string>
+  <string name="revanced_hide_endscreen_cards_title">終了画面のカードを非表示にする</string>
   <string name="revanced_hide_endscreen_cards_summary_on">終了画面のカードは非表示です</string>
-  <string name="revanced_hide_endscreen_cards_summary_off">終了画面のカードが表示されます</string>
+  <string name="revanced_hide_endscreen_cards_summary_off">終了画面のカードは表示されます</string>
   </patch>
   <patch id="layout.hide.filterbar.HideFilterBarResourcePatch">
   <string name="revanced_hide_filter_bar_screen_title">フィルタバー</string>
   <string name="revanced_hide_filter_bar_screen_summary">フィード、検索、および関連する動画のフィルターバーを非表示または表示</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">フィードで非表示</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">フィードに非表示</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">フィードに表示</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">フィードで非表示です</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">フィードでは表示されます</string>
   <string name="revanced_hide_filter_bar_feed_in_search_title">検索時に隠す</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">非表示にする</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">検索結果に表示</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">関連するビデオで非表示</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">関連するビデオに表示しない</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">関連する動画に表示</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">検索で非表示です</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">検索で表示されます</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">関連動画で非表示</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">関連動画で非表示です</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">関連動画で表示されます</string>
   </patch>
   <patch id="layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch">
-  <string name="revanced_hide_floating_microphone_button_title">浮動マイクボタンを非表示</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">マイクボタンを非表示</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">マイクボタンを表示</string>
+  <string name="revanced_hide_floating_microphone_button_title">音声入力のフローティングボタンを非表示</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">マイクボタンは非表示です</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">マイクボタンは表示されます</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">全画面表示でアンビエントモードを無効にする</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">アンビエントモードは無効です</string>
-  <string name="revanced_disable_fullscreen_ambient_mode_summary_off">アンビエントモード有効</string>
+  <string name="revanced_disable_fullscreen_ambient_mode_summary_off">アンビエントモードは有効です</string>
   </patch>
   <patch id="layout.hide.infocards.HideInfocardsResourcePatch">
   <string name="revanced_hide_info_cards_title">情報カードを隠す</string>
@@ -567,8 +566,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.hide.rollingnumber.DisableRollingNumberAnimationPatch">
   <string name="revanced_disable_rolling_number_animations_title">数字のアニメーションを無効にする</string>
-  <string name="revanced_disable_rolling_number_animations_summary_on">ローリング番号はアニメーションされていません</string>
-  <string name="revanced_disable_rolling_number_animations_summary_off">ローリング番号はアニメーション化されています</string>
+  <string name="revanced_disable_rolling_number_animations_summary_on">数字のアニメーションは無効です</string>
+  <string name="revanced_disable_rolling_number_animations_summary_off">数字のアニメーションは有効です</string>
   </patch>
   <patch id="layout.hide.seekbar.HideSeekbarPatch">
   <string name="revanced_hide_seekbar_title">ビデオプレーヤーでシークバーを隠す</string>

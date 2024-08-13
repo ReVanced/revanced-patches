@@ -68,7 +68,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_02_alt_thumbnails_title">替代縮圖</string>
   <string name="revanced_settings_screen_03_feed_title">動態消息</string>
   <string name="revanced_settings_screen_04_player_title">播放器</string>
-  <string name="revanced_settings_screen_05_general_title">一般佈局</string>
+  <string name="revanced_settings_screen_05_general_title">通用版面</string>
   <string name="revanced_settings_screen_07_seekbar_title">進度條</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">滑動控制</string>
   <string name="revanced_settings_screen_11_misc_title">其它</string>
@@ -200,14 +200,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_chips_shelf_summary_on">已隱藏章節櫃</string>
   <string name="revanced_hide_chips_shelf_summary_off">已顯示章節櫃</string>
   <string name="revanced_hide_attributes_section_title">隱藏屬性區</string>
-  <string name="revanced_hide_attributes_section_summary_on">「特色地點」、遊戲和音樂區已隱藏</string>
-  <string name="revanced_hide_attributes_section_summary_off">「特色地點」、遊戲和音樂區已顯示</string>
+  <string name="revanced_hide_attributes_section_summary_on">已隱藏「特色地點」、遊戲和音樂區</string>
+  <string name="revanced_hide_attributes_section_summary_off">已顯示「特色地點」、遊戲和音樂區</string>
   <string name="revanced_hide_chapters_section_title">隱藏章節區</string>
-  <string name="revanced_hide_chapters_section_summary_on">章節區已隱藏</string>
-  <string name="revanced_hide_chapters_section_summary_off">章節區已顯示</string>
-  <string name="revanced_hide_podcast_section_title">隱藏「探索 podcast」區</string>
-  <string name="revanced_hide_podcast_section_summary_on">「探索 podcast」區已隱藏</string>
-  <string name="revanced_hide_podcast_section_summary_off">「探索 podcast」區已顯示</string>
+  <string name="revanced_hide_chapters_section_summary_on">已隱藏章節區</string>
+  <string name="revanced_hide_chapters_section_summary_off">已顯示章節區</string>
+  <string name="revanced_hide_podcast_section_title">隱藏「探索 Podcast」區</string>
+  <string name="revanced_hide_podcast_section_summary_on">已隱藏「探索 Podcast」區</string>
+  <string name="revanced_hide_podcast_section_summary_off">已顯示「探索 Podcast」區</string>
   <string name="revanced_hide_info_cards_section_title">隱藏資訊卡區</string>
   <string name="revanced_hide_info_cards_section_summary_on">已隱藏資訊卡區</string>
   <string name="revanced_hide_info_cards_section_summary_off">已顯示資訊卡區</string>
@@ -264,9 +264,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_paid_promotion_label_title">隱藏付費推廣標籤</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">已隱藏付費推廣標籤</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">已顯示付費推廣標籤</string>
-  <string name="revanced_hide_self_sponsor_ads_title">隱藏自我宣傳卡</string>
-  <string name="revanced_hide_self_sponsor_ads_summary_on">已隱藏自我推銷卡</string>
-  <string name="revanced_hide_self_sponsor_ads_summary_off">已顯示自我推銷卡</string>
+  <string name="revanced_hide_self_sponsor_ads_title">隱藏自我贊助資訊卡</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_on">已隱藏自我贊助資訊卡</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_off">已顯示自我贊助資訊卡</string>
   <string name="revanced_hide_products_banner_title">隱藏檢視產品橫幅</string>
   <string name="revanced_hide_products_banner_summary_on">已隱藏橫幅</string>
   <string name="revanced_hide_products_banner_summary_off">已顯示橫幅</string>
@@ -288,8 +288,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="ad.getpremium.HideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">隱藏 YouTube Premium 推廣</string>
-  <string name="revanced_hide_get_premium_summary_on">已隱藏影片播放器底下的 YouTube Premium 推廣</string>
-  <string name="revanced_hide_get_premium_summary_off">已顯示影片播放器底下的 YouTube Premium 推廣</string>
+  <string name="revanced_hide_get_premium_summary_on">已隱藏影片播放器下方的 YouTube Premium 推廣</string>
+  <string name="revanced_hide_get_premium_summary_off">已顯示影片播放器下方的 YouTube Premium 推廣</string>
   </patch>
   <patch id="ad.video.VideoAdsPatch">
   <string name="revanced_hide_video_ads_title">隱藏影片廣告</string>
@@ -353,8 +353,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_swipe_save_and_restore_brightness_summary_on">當離開或進入全螢幕時，儲存並還原亮度</string>
   <string name="revanced_swipe_save_and_restore_brightness_summary_off">當離開或進入全螢幕時，不儲存並還原亮度</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">啟用自動亮度手勢</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">滑動至亮度手勢最低點以啟用自動亮度</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">滑動至亮度手勢最低點不啟用自動亮度</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">滑動至最低點手勢以啟用自動亮度</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">滑動至最低點手勢不啟用自動亮度</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">自動</string>
   <string name="revanced_swipe_overlay_timeout_title">滑動覆蓋超時</string>
   <string name="revanced_swipe_overlay_timeout_summary">覆蓋顯示毫秒數</string>
@@ -419,8 +419,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.buttons.cast.HideCastButtonPatch">
   <string name="revanced_hide_cast_button_title">隱藏投放按鈕</string>
-  <string name="revanced_hide_cast_button_summary_on">投放按鈕已隱藏</string>
-  <string name="revanced_hide_cast_button_summary_off">投放按鈕已顯示</string>
+  <string name="revanced_hide_cast_button_summary_on">已隱藏投放按鈕</string>
+  <string name="revanced_hide_cast_button_summary_off">已顯示投放按鈕</string>
   </patch>
   <patch id="layout.buttons.navigation.NavigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">導覽列按鈕</string>
@@ -457,9 +457,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_captions_summary_on">已隱藏字幕選項</string>
   <string name="revanced_hide_player_flyout_captions_summary_off">已顯示字幕選單</string>
   <!-- 'Additional settings' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_additional_settings_title">隱藏其他設定</string>
-  <string name="revanced_hide_player_flyout_additional_settings_summary_on">已隱藏其他設定</string>
-  <string name="revanced_hide_player_flyout_additional_settings_summary_off">已顯示其他設定</string>
+  <string name="revanced_hide_player_flyout_additional_settings_title">隱藏其它設定</string>
+  <string name="revanced_hide_player_flyout_additional_settings_summary_on">已隱藏其它設定</string>
+  <string name="revanced_hide_player_flyout_additional_settings_summary_off">已顯示其它設定</string>
   <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_loop_video_title">隱藏循環播放影片</string>
   <string name="revanced_hide_player_flyout_loop_video_summary_on">已隱藏循環播放選項</string>
@@ -570,11 +570,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_rolling_number_animations_summary_off">動畫滾動數字</string>
   </patch>
   <patch id="layout.hide.seekbar.HideSeekbarPatch">
-  <string name="revanced_hide_seekbar_title">在影片播放器中隱藏跳轉列進度條</string>
+  <string name="revanced_hide_seekbar_title">隱藏影片播放器進度條</string>
   <string name="revanced_hide_seekbar_summary_on">已隱藏影片播放器進度條</string>
   <string name="revanced_hide_seekbar_summary_off">已顯示影片播放器進度條</string>
   <string name="revanced_hide_seekbar_thumbnail_title">在縮圖中隱藏進度條</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_on">已隱藏縮圖跳轉列</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">已隱藏縮圖進度條</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">已顯示縮圖進度條</string>
   </patch>
   <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
@@ -717,7 +717,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_title">API取得投票超時數</string>
   <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_zero_summary">無網路呼叫逾時</string>
   <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_non_zero_summary">%d 個網路呼叫逾時</string>
-  <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_title">API 客戶端頻率限制</string>
+  <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_title">API 用戶端頻率限制</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">未遇到用戶端頻率限制</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">遇到 %d 次用戶端頻率限制</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d 毫秒</string>
@@ -734,15 +734,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.sponsorblock.SponsorBlockResourcePatch">
   <string name="revanced_sb_enable_sb">啟用 SponsorBlock</string>
-  <string name="revanced_sb_enable_sb_sum">SponsorBlock 是透過使用者共同編輯新增片段來跳過 YouTube 的擾人片段</string>
+  <string name="revanced_sb_enable_sb_sum">SponsorBlock 是透過使用者共同編輯，新增片段來跳過 YouTube 的擾人片段</string>
   <string name="revanced_sb_appearance_category">外觀</string>
   <string name="revanced_sb_enable_voting">顯示投票按鈕</string>
   <string name="revanced_sb_enable_voting_sum_on">已顯示片段投票按鈕</string>
   <string name="revanced_sb_enable_voting_sum_off">未顯示片段投票按鈕</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">使用小型跳過按鈕</string>
-  <string name="revanced_sb_enable_compact_skip_button_sum_on">跳過按鈕的最小寬度</string>
-  <string name="revanced_sb_enable_compact_skip_button_sum_off">跳過按鈕的最佳外觀</string>
+  <string name="revanced_sb_enable_compact_skip_button_sum_on">以最小的形式呈現跳過按鈕</string>
+  <string name="revanced_sb_enable_compact_skip_button_sum_off">以最佳的形式呈現跳過按鈕</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button">自動隱藏跳過按鈕</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">在幾秒過後隱藏跳過按鈕</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">為整個片段顯示跳過按鈕</string>
@@ -1111,14 +1111,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_off">未啟用滑動預覽</string>
   </patch>
   <patch id="misc.fix.playback.SpoofClientPatch">
-  <string name="revanced_spoof_client_screen_title">欺騙客戶端</string>
-  <string name="revanced_spoof_client_screen_summary">欺騙客戶端以防止播放問題</string>
-  <string name="revanced_spoof_client_title">欺騙客戶端</string>
-  <string name="revanced_spoof_client_summary_on">已欺騙客戶端</string>
-  <string name="revanced_spoof_client_summary_off">尚未欺騙客戶端\n\n影片播放可能未作用</string>
+  <string name="revanced_spoof_client_screen_title">欺騙用戶端</string>
+  <string name="revanced_spoof_client_screen_summary">欺騙用戶端以防止播放問題</string>
+  <string name="revanced_spoof_client_title">欺騙用戶端</string>
+  <string name="revanced_spoof_client_summary_on">已欺騙用戶端</string>
+  <string name="revanced_spoof_client_summary_off">尚未欺騙用戶端\n\n影片播放可能無法播放</string>
   <string name="revanced_spoof_client_user_dialog_message">關閉此設定可能會導致影片播放發生問題</string>
-  <string name="revanced_spoof_client_use_ios_title">欺騙客戶端至 iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">客戶端目前偽裝為 Android VR\n\n副作用包括：\n• 無 HDR 影片\n• 兒童影片無法播放\n• 暫停的影片可能會隨\n恢復播放\n• 低品質短片的進度條縮圖\n• 下載操作按鈕隱藏\n• 結尾畫面卡片隱藏</string>
+  <string name="revanced_spoof_client_use_ios_title">欺騙用戶端為 iOS</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">目前已欺騙用戶端為 iOS\n\n其副作用包括：\n• HDR 影片可能無法使用\n• 觀看記錄可能無法運作</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">目前已欺騙用戶端為 Android VR\n\n副作用包括：\n• 沒有 HDR 影片\n• 兒童影片無法播放\n• 暫停的影片可能會隨機恢復播放\n• 低品質 Shorts 進度條縮圖\n• 下載操作按鈕被隱藏\n• 結尾畫面卡片被隱藏</string>
   <string name="revanced_spoof_client_storyboard_timeout">欺騙客戶端縮圖尚不可用 (API 逾時)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">欺騙客戶端縮圖暫不可用: %s</string>
   </patch>
@@ -1175,7 +1176,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_misc_screen_title">其它</string>
   <string name="revanced_misc_screen_summary">其它設定</string>
   <string name="revanced_general_category_title">一般設定</string>
-  <string name="revanced_other_category_title">其他設定</string>
+  <string name="revanced_other_category_title">其它設定</string>
   <string name="revanced_client_ads_category_title">用戶端廣告</string>
   <string name="revanced_surestream_ads_category_title">伺服端 Surestream 廣告</string>
   <string name="revanced_twitch_debug_title">除錯記錄檔</string>
