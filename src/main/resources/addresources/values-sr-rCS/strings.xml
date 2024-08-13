@@ -202,9 +202,22 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_chips_shelf_title">Sakrij policu oznaka sličnih videa</string>
   <string name="revanced_hide_chips_shelf_summary_on">Polica oznaka sličnih videa je skrivena</string>
   <string name="revanced_hide_chips_shelf_summary_off">Polica oznaka sličnih videa je prikazana</string>
+  <string name="revanced_hide_attributes_section_title">Sakrij odeljak sa atributima</string>
+  <string name="revanced_hide_attributes_section_summary_on"> Odeljci „Istaknuta mesta”, „Igre” i „Muzika” su skriveni</string>
+  <string name="revanced_hide_attributes_section_summary_off">Odeljci „Istaknuta mesta”, „Igre” i „Muzika” su prikazani</string>
+  <string name="revanced_hide_chapters_section_title">Sakrij odeljak za poglavlja</string>
+  <string name="revanced_hide_chapters_section_summary_on">Odeljak za poglavlja je skriven</string>
+  <string name="revanced_hide_chapters_section_summary_off">Odeljak za poglavlja je prikazan</string>
+  <string name="revanced_hide_podcast_section_title">Sakrij odeljak „Istražite podkast”</string>
+  <string name="revanced_hide_podcast_section_summary_on">Odeljak „Istražite podkast” je skriven</string>
+  <string name="revanced_hide_podcast_section_summary_off">Odeljak „Istražite podkast” je prikazan</string>
   <string name="revanced_hide_info_cards_section_title">Sakrij odeljak s info karticama</string>
   <string name="revanced_hide_info_cards_section_summary_on">Odeljak s info karticama je skriven</string>
   <string name="revanced_hide_info_cards_section_summary_off">Odeljak s info karticama je prikazan</string>
+  <string name="revanced_hide_key_concepts_section_title">Sakrij odeljak „Ključni koncepti”</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">Odeljak „Ključni koncepti” je skriven</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">Odeljak „Ključni koncepti” je prikazan</string>
+  <string name="revanced_hide_transcript_section_title">Sakrij odeljak za transkripciju</string>
   <string name="revanced_hide_transcript_section_summary_on">Odeljak za transkripciju je skriven</string>
   <string name="revanced_hide_transcript_section_summary_off">Odeljak za transkripciju je prikazan</string>
   <string name="revanced_hide_description_components_screen_title">Opis videa</string>
@@ -239,6 +252,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_toast_invalid_common">Nevažeća ključna reč. Nije moguće koristiti „%s”</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_length">Nevažeća ključna reč. „%1$s” je kraće od %2$d znakova</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">Ključna reč „%s” će sakriti sve videe</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Sakrij opšte oglase</string>
@@ -502,6 +516,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_section_title">Sakrij odeljak za komentare</string>
   <string name="revanced_hide_comments_section_summary_on">Odeljak za komentare je skriven</string>
   <string name="revanced_hide_comments_section_summary_off">Odeljak za komentare je prikazan</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">Sakrij dugme „Napravi Short”</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">Dugme „Napravi Short” je skriveno</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">Dugme „Napravi Short” je prikazano</string>
   <string name="revanced_hide_comments_preview_comment_title">Sakrij komentar za pregled</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Komentar za pregled je skriven</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Komentar za pregled je prikazan</string>
@@ -853,6 +870,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">Izaberite kategoriju segmenta</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategorija je onemogućena u podešavanjima. Omogućite kategoriju da biste podneli.</string>
   <string name="revanced_sb_new_segment_title">Novi SponsorBlock segment</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">Postaviti %s kao početak ili kraj novog segmenta?</string>
   <string name="revanced_sb_new_segment_mark_start">početak</string>
   <string name="revanced_sb_new_segment_mark_end">kraj</string>
   <string name="revanced_sb_new_segment_now">sada</string>
@@ -978,6 +996,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_invalid">Nevažeća vrednost boje trake za premotavanje. Korišćenje podrazumevane vrednosti.</string>
   </patch>
   <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  <string name="revanced_bypass_image_region_restrictions_title">Zaobiđi ograničenja regiona slike</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_on">Korišćenje hosta slike yt4.ggpht.com</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">Korišćenje originalnog hosta slike\n\nOmogućavanjem ovoga možete da popravite nedostajuće slike koje su blokirane u nekim regionima</string>
   </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -1101,6 +1122,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Klijent nije lažiran\n\nReprodukcija videa možda neće raditi</string>
   <string name="revanced_spoof_client_user_dialog_message">Isključivanje ovog podešavanja možda će izazvati probleme sa reprodukcijom videa.</string>
   <string name="revanced_spoof_client_use_ios_title">Lažiran klijent na iOS</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Klijent je trenutno lažiran na iOS\n\nNeželjeni efekti obuhvataju:\n• HDR video možda neće biti dostupan\n• Istorija gledanja možda neće funkcionisati</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">Klijent je trenutno lažiran na Android VR Neželjeni efekti obuhvataju:\n• Nema HDR videa\n• Dečji video snimci se ne reprodukuju\n• Pauzirani video snimci mogu nasumično da se nastavljaju\n• Sličice na traci za premotavanje Shorts videa lošeg kvaliteta\n• Dugme za radnju „Preuzmi“ je skriveno\n• Kartice završnog ekrana su skrivene</string>
   <string name="revanced_spoof_client_storyboard_timeout">Sličice u lažiranom klijentu nisu dostupne (API istekao)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Sličice u lažiranom klijentu privremeno nisu dostupne: %s</string>
   </patch>
