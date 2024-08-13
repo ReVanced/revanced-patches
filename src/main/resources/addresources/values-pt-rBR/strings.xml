@@ -57,7 +57,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <app id="youtube">
   <patch id="misc.settings.SettingsResourcePatch">
   <string name="revanced_settings">ReVanced</string>
-  <string name="revanced_settings_about_links_body">Você está usando o ReVanced Patches versão &lt;i&gt;%s&lt;/i&gt;</string>
+  <string name="revanced_settings_about_links_body">Você está usando os Patches ReVanced versão &lt;i&gt;%s&lt;/i&gt;</string>
   <string name="revanced_settings_about_links_dev_header">Observação</string>
   <string name="revanced_settings_about_links_dev_body">Esta versão é um pré-lançamento e você pode ter problemas inesperados</string>
   <string name="revanced_settings_about_links_header">Links oficiais</string>
@@ -95,8 +95,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.hide.general.HideLayoutComponentsPatch">
   <string name="revanced_disable_like_subscribe_glow_title">Desativar brilho do botão de Inscrever-se / Curtir</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">O botão de curtir e de inscrever-se não brilhará quando mencionado</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">O botão de curtir e de inscrever-se brilhará quando mencionado</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">O botão de curtir e de inscrever-se não vai brilhar quando clicado</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">O botão de curtir e de inscrever-se vai brilhar quando clicado</string>
   <string name="revanced_hide_gray_separator_title">Ocultar separador cinza</string>
   <string name="revanced_hide_gray_separator_summary_on">Separador cinza está oculto</string>
   <string name="revanced_hide_gray_separator_summary_off">Separador cinza não está oculto</string>
@@ -471,7 +471,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_ambient_mode_summary_on">Menu do modo ambiente está oculto</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_off">Menu do modo ambiente não está oculto</string>
   <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_help_title">Ocultar Ajuda &amp; Opinião</string>
+  <string name="revanced_hide_player_flyout_help_title">Ocultar Ajuda &amp; Feedback</string>
   <string name="revanced_hide_player_flyout_help_summary_on">Menu ajuda &amp; opinião está oculto</string>
   <string name="revanced_hide_player_flyout_help_summary_off">Menu ajuda &amp; opinião não está oculto</string>
   <!-- 'Playback speed' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -567,9 +567,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_summary_off">Cartões de informações não estão ocultos</string>
   </patch>
   <patch id="layout.hide.rollingnumber.DisableRollingNumberAnimationPatch">
-  <string name="revanced_disable_rolling_number_animations_title">Desativar animações de números rolantes</string>
-  <string name="revanced_disable_rolling_number_animations_summary_on">Números rolantes não estão animados</string>
-  <string name="revanced_disable_rolling_number_animations_summary_off">Números rolantes estão animados</string>
+  <string name="revanced_disable_rolling_number_animations_title">Desativar animações de números rodando</string>
+  <string name="revanced_disable_rolling_number_animations_summary_on">Os números rolantes não são animados</string>
+  <string name="revanced_disable_rolling_number_animations_summary_off">Os números rolantes são animados</string>
   </patch>
   <patch id="layout.hide.seekbar.HideSeekbarPatch">
   <string name="revanced_hide_seekbar_title">Ocultar barra de busca no reprodutor de vídeo</string>
@@ -959,17 +959,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_tablet_layout_user_dialog_message">Postagens da comunidade não aparecem nos layouts de tablet</string>
   </patch>
   <patch id="layout.miniplayer.MiniplayerPatch">
-  <string name="revanced_miniplayer_screen_title">Minijogador</string>
+  <string name="revanced_miniplayer_screen_title">Miniplayer</string>
   <string name="revanced_miniplayer_screen_summary">Alterar o estilo do player minimizado no aplicativo</string>
-  <string name="revanced_miniplayer_type_title">Tipo de minijogador</string>
+  <string name="revanced_miniplayer_type_title">Tipo de miniplayer</string>
   <string name="revanced_miniplayer_type_entry_1">Original</string>
   <string name="revanced_miniplayer_type_entry_2">Smartphone</string>
-  <string name="revanced_miniplayer_type_entry_3">Tábua</string>
+  <string name="revanced_miniplayer_type_entry_3">Tablet</string>
   <string name="revanced_miniplayer_type_entry_4">Moderno 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderno 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderno 3</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Ocultar botões de expansão e fechamento</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Os botões são ocultos\n(swipe miniplayer para expandir ou fechar)</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">Os botões estão ocultos.\n(deslize o miniplayer para expandir ou fechar)</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">Botões de expansão e fechamento são mostrados</string>
   <string name="revanced_miniplayer_hide_subtext_title">Ocultar subtextos</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Subtextos estão ocultos</string>
@@ -1121,7 +1121,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Cliente não é falsificado\n\nA reprodução de vídeo pode não funcionar</string>
   <string name="revanced_spoof_client_user_dialog_message">Desativar essa configuração pode causar problemas de reprodução de vídeo.</string>
   <string name="revanced_spoof_client_use_ios_title">Cliente Spoof para iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">O cliente está falsificado para o Android VR\n\nOs efeitos colaterais incluem:\n• Sem vídeo HDR\n• Vídeos infantis não são reproduzidos\n• Vídeos pausados podem ser retomados aleatoriamente\n• Miniaturas da barra de busca de Shorts de baixa qualidade\n• O botão de ação de download está oculto\n• Os cards da tela final estão ocultos</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">O cliente está atualmente falsificado para iOS\n\nOs efeitos colaterais incluem:\n• O vídeo HDR pode não estar disponível\n• O histórico de exibição pode não funcionar</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">O cliente está falsificado para o Android VR. Os efeitos colaterais incluem:\n• Sem vídeo HDR\n• Vídeos infantis não são reproduzidos\n• Vídeos pausados podem ser retomados aleatoriamente\n• Miniaturas da barra de busca de Shorts de baixa qualidade\n• O botão de ação de download está oculto\n• Os cards da tela final estão ocultos</string>
   <string name="revanced_spoof_client_storyboard_timeout">Miniaturas Spoof client não disponíveis (API timeout)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Miniaturas Spoof client temporariamente não disponíveis: %s</string>
   </patch>
