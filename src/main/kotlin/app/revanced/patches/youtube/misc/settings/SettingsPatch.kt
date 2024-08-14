@@ -15,7 +15,7 @@ import app.revanced.patches.shared.misc.settings.preference.IntentPreference
 import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
-import app.revanced.patches.youtube.misc.dnsresolver.DnsResolverVerificationPatch
+import app.revanced.patches.youtube.misc.dns.CheckWatchHistoryDomainNameResolutionPatch
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.fingerprints.LicenseActivityOnCreateFingerprint
 import app.revanced.patches.youtube.misc.settings.fingerprints.SetThemeFingerprint
@@ -32,7 +32,7 @@ import java.io.Closeable
         SettingsResourcePatch::class,
         AddResourcesPatch::class,
         // This should be a dependent of the IntegrationsPatch, but currently there is no way to add dependent patches.
-        DnsResolverVerificationPatch::class,
+        CheckWatchHistoryDomainNameResolutionPatch::class,
     ],
 )
 object SettingsPatch :

@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.misc.dnsresolver
+package app.revanced.patches.youtube.misc.dns
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -12,11 +12,11 @@ import app.revanced.util.resultOrThrow
     description = "Checks, if the endpoint 's.youtube.com' to track watch history  is unreachable.",
 )
 @Suppress("unused")
-internal object DnsResolverVerificationPatch : BytecodePatch(
+internal object CheckWatchHistoryDomainNameResolutionPatch : BytecodePatch(
     setOf(MainActivityOnCreateFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/youtube/patches/DnsResolverVerificationPatch;"
+        "Lapp/revanced/integrations/youtube/patches/CheckWatchHistoryDomainNameResolutionPatch;"
 
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)

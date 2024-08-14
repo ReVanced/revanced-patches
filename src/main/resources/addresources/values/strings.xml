@@ -1045,7 +1045,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_announcements_connection_failed">Failed connecting to announcements provider</string>
             <string name="revanced_announcements_dialog_dismiss">Dismiss</string>
         </patch>
-        <patch id="misc.dnsresolver.DnsResolverVerificationPatch">
+        <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
             <string name="revanced_dns_resolver_verification_dialog_title">Warning</string>
             <string name="revanced_dns_resolver_verification_dialog_message">Tracking watch history will not work. A DNS blocker or a network proxy likely blocks it.&lt;br>&lt;br>To fix this, whitelist &lt;b>s.youtube.com&lt;/b> or turn off your DNS blocker or network proxy.</string>
             <string name="revanced_dns_resolver_verification_dialog_ignore">Do not show again</string>
