@@ -9,7 +9,7 @@ import app.revanced.patches.youtube.shared.fingerprints.MainActivityOnCreateFing
 import app.revanced.util.resultOrThrow
 
 @Patch(
-    description = "Verifies 's.youtube.com' can be resolved and is not blocked by a proxy or dns ad blocker.",
+    description = "Checks, if the endpoint 's.youtube.com' to track watch history  is unreachable.",
 )
 @Suppress("unused")
 internal object DnsResolverVerificationPatch : BytecodePatch(
