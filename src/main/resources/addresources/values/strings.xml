@@ -1047,7 +1047,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
         </patch>
         <patch id="misc.dnsresolver.DnsResolverVerificationPatch">
             <string name="revanced_dns_resolver_verification_dialog_title">Warning</string>
-            <string name="revanced_dns_resolver_verification_dialog_message">Your watch history will not work because of a third party DNS blocker.&lt;br>&lt;br>To fix this, whitelist &lt;b>s.youtube.com&lt;/b> or turn off all DNS ad blockers.</string>
+            <string name="revanced_dns_resolver_verification_dialog_message">Tracking watch history will not work. A DNS blocker or a network proxy likely blocks it.&lt;br>&lt;br>To fix this, whitelist &lt;b>s.youtube.com&lt;/b> or turn off your DNS blocker or network proxy.</string>
             <string name="revanced_dns_resolver_verification_dialog_ignore">Do not show again</string>
         </patch>
         <patch id="misc.autorepeat.AutoRepeatPatch">
