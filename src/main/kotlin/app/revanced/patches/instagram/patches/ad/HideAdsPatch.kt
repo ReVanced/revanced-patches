@@ -10,7 +10,7 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Hide ads",
-    description = "Hides ads in stories, discover, profile, etc." +
+    description = "Hides ads in stories, discover, profile, etc. " +
         "An ad can still appear once when refreshing the home feed.",
     compatiblePackages = [CompatiblePackage("com.instagram.android")],
 )

@@ -11,7 +11,7 @@ import app.revanced.util.exception
 
 @Patch(
     name = "Spoof Android device ID",
-    description = "Spoofs the Android device ID used by the app for account authentication." +
+    description = "Spoofs the Android device ID used by the app for account authentication. " +
         "This can be used to copy the account to another device.",
     compatiblePackages = [
         CompatiblePackage(
