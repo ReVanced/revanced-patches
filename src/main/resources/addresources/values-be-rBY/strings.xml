@@ -211,6 +211,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">Схаваць раздзел інфармацыйных карт</string>
   <string name="revanced_hide_info_cards_section_summary_on">Раздзел інфармацыйных картак схаваны</string>
   <string name="revanced_hide_info_cards_section_summary_off">Паказваецца раздзел інфармацыйных карт</string>
+  <string name="revanced_hide_key_concepts_section_title">Схаваць раздзел «Ключавыя паняцці»</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">Раздзел \"Ключавыя паняцці\" схаваны</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">Паказаны раздзел «Ключавыя паняцці»</string>
   <string name="revanced_hide_transcript_section_title">Схаваць раздзел стэнаграмы</string>
   <string name="revanced_hide_transcript_section_summary_on">Раздзел стэнаграмы схаваны</string>
   <string name="revanced_hide_transcript_section_summary_off">Паказваецца раздзел стэнаграмы</string>
@@ -864,6 +867,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">Выберыце катэгорыю сегмента</string>
   <string name="revanced_sb_new_segment_disabled_category">Катэгорыя адключана ў наладах. Уключыце катэгорыю для адпраўкі.</string>
   <string name="revanced_sb_new_segment_title">Новы сегмент SponsorBlock</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">Усталяваць %s у якасці пачатку або канца новага сегмента?</string>
   <string name="revanced_sb_new_segment_mark_start">пачаць</string>
   <string name="revanced_sb_new_segment_mark_end">канец</string>
   <string name="revanced_sb_new_segment_now">зараз</string>
@@ -988,6 +992,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_invalid">Няправільнае значэнне колеру панэлі пошуку. Выкарыстоўваецца значэнне па змаўчанні.</string>
   </patch>
   <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  <string name="revanced_bypass_image_region_restrictions_title">Абыход абмежаванняў рэгіёну</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_on">Выкарыстанне хаста відарысаў yt4.ggpht.com</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">Выкарыстанне арыгінальнага хаста відарысаў\n\nУключэнне гэтай опцыі можа выправіць адсутнічаючыя відарысы, якія заблакіраваныя ў некаторых рэгіёнах</string>
   </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -1111,6 +1118,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Кліент не падроблены\n\nПрайграванне відэа можа не працаваць</string>
   <string name="revanced_spoof_client_user_dialog_message">Адключэнне гэтай налады можа выклікаць праблемы з прайграваннем відэа.</string>
   <string name="revanced_spoof_client_use_ios_title">Падробка кліента для iOS</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Зараз кліент падменены на iOS\n\nПабочныя эфекты ўключаюць:\n• Можа адсутнічаць HDR відэа\n• Можа не працаваць гісторыя праглядаў</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">Кліент у цяперашні час падроблены для Android VR. Пабочныя эфекты ўключаюць:\n• Няма HDR-відэа\n• Дзіцячыя відэа не прайграваюцца\n• Прыпыненыя відэа могуць аднаўляцца выпадковым чынам\n• Нізкая якасць мініяцюр на панэлі пошуку Shorts\n• Кнопка дзеяння Спампаваць схавана\n• Карткі канцавога экрана схаваны</string>
   <string name="revanced_spoof_client_storyboard_timeout">Мініяцюры кліента Spoof недаступныя (час чакання API скончыўся)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Мініяцюры кліента Spoof часова недаступныя: %s</string>
   </patch>

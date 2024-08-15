@@ -10,11 +10,13 @@ import app.revanced.patches.scbeasy.detection.debugging.fingerprints.DebuggingDe
 
 @Patch(
     use = false,
-    name = "Remove debugging detection",
     description = "Removes the USB and wireless debugging checks.",
     compatiblePackages = [CompatiblePackage("com.scb.phone")]
 )
 @Suppress("unused")
+@Deprecated("This patch no longer work and will be removed in the future " +
+        "due to the complexity of the application.\n" +
+        "See https://github.com/ReVanced/revanced-patches/issues/3517 for more details.")
 object RemoveDebuggingDetectionPatch : BytecodePatch(
     setOf(DebuggingDetectionFingerprint)
 ) {
