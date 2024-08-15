@@ -1038,6 +1038,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_announcements_connection_failed">Yhteyden muodostaminen ilmoitusten tarjoajaan epäonnistui</string>
   <string name="revanced_announcements_dialog_dismiss">Sulje</string>
   </patch>
+  <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Varoitus</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Kellon historiaa ei tallenneta.&lt;br&gt;&lt;br&gt;Tämä todennäköisesti johtuu DNS mainosten estäjä tai verkkovälityspalvelin.&lt;br&gt;&lt;br&gt;Korjataksesi tämän, valkoiselle listalle &lt;b&gt;s.youtube.com&lt;/b&gt; tai poistaaksesi kaikki DNS-estäjät ja -profiilit.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Älä näytä uudelleen</string>
+  </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
   <string name="revanced_auto_repeat_title">Ota automaattinen toisto käyttöön</string>
   <string name="revanced_auto_repeat_summary_on">Automaattinen toisto käytössä</string>
@@ -1120,7 +1125,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Päätettä ei ole naamioitu\n\nVideon toisto ei ehkä toimi</string>
   <string name="revanced_spoof_client_user_dialog_message">Tämän asetuksen poistaminen käytöstä voi aiheuttaa videon toiston ongelmia.</string>
   <string name="revanced_spoof_client_use_ios_title">Naamioi pääte iOS:ksi</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Pääte on naamioitu iOS:ksi\n\nSivuvaikutuksia ovat:\n• HDR-video ei ehkä ole saatavilla\n• Katseluhistoria ei ehkä toimi</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Asiakas on tällä hetkellä pilkottu iOS\n\nSivuvaikutukset ovat:\n• HDR video ei ehkä ole saatavilla\n• Watch historia ei toimi tuotemerkin tilin</string>
   <string name="revanced_spoof_client_use_ios_summary_off">Pääte on baamioitu Android VR:ksi. Sivuvaikutuksia ovat:\n• Ei HDR-videota\n• Lasten videot eivät toistu\n• Pysäytetyt videot voivat jatkaa toistoa satunnaisesti\n• Huonolaatuiset Shorts-liukusäätimen pikkukuvat\n• Lataa-toimintapainike on piilotettu\n• Loppunäytön kortit on piilotettu</string>
   <string name="revanced_spoof_client_storyboard_timeout">Spoof asiakkaan pikkukuvat ei ole käytettävissä (API ajastettu)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Spoof asiakkaan pikkukuvat tilapäisesti ei käytettävissä: %s</string>

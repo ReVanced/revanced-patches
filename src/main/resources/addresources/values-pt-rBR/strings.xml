@@ -315,17 +315,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Isto não ignora a restrição de idade, apenas a aceita automaticamente.</string>
   </patch>
   <patch id="interaction.downloads.DownloadsResourcePatch">
-  <string name="revanced_external_downloader_screen_title">Baixador externo</string>
-  <string name="revanced_external_downloader_screen_summary">Configurações para usar um baixador externo</string>
-  <string name="revanced_external_downloader_title">Mostrar botão de baixar externo</string>
-  <string name="revanced_external_downloader_summary_on">Mostrar botão de baixar no reprodutor</string>
-  <string name="revanced_external_downloader_summary_off">Não mostrar botão de baixar no reprodutor</string>
+  <string name="revanced_external_downloader_screen_title">App de download externo</string>
+  <string name="revanced_external_downloader_screen_summary">Configurações para usar um app de download externo</string>
+  <string name="revanced_external_downloader_title">Mostrar botão de download externo</string>
+  <string name="revanced_external_downloader_summary_on">Mostrar botão de download no reprodutor</string>
+  <string name="revanced_external_downloader_summary_off">Não mostrar o botão de download no reprodutor</string>
   <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
-  <string name="revanced_external_downloader_action_button_title">Substituir botão de ação de baixar</string>
-  <string name="revanced_external_downloader_action_button_summary_on">Botão de baixar abre seu baixador externo</string>
-  <string name="revanced_external_downloader_action_button_summary_off">Botão de baixar abre o baixador nativo</string>
-  <string name="revanced_external_downloader_name_title">Nome do pacote do aplicativo de baixar</string>
-  <string name="revanced_external_downloader_name_summary">Nome do pacote do seu aplicativo de baixar externo instalado, como NewPipe ou Seal</string>
+  <string name="revanced_external_downloader_action_button_title">Substituir botão de ação de download</string>
+  <string name="revanced_external_downloader_action_button_summary_on">Botão de download abre seu app de download externo</string>
+  <string name="revanced_external_downloader_action_button_summary_off">Botão de download abre o download nativo</string>
+  <string name="revanced_external_downloader_name_title">Nome do pacote do app de download</string>
+  <string name="revanced_external_downloader_name_summary">Nome do pacote do seu app de baixar externo instalado, como NewPipe ou Seal</string>
   <string name="revanced_external_downloader_not_installed_warning">%s não está instalado. Por favor, instale-o.</string>
   </patch>
   <patch id="interaction.seekbar.DisablePreciseSeekingGesturePatch">
@@ -392,9 +392,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_remix_button_summary_on">Botão remix está oculto</string>
   <string name="revanced_hide_remix_button_summary_off">Botão remix não está oculto</string>
   <!-- 'Download' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_download_button_title">Ocultar Baixar</string>
-  <string name="revanced_hide_download_button_summary_on">Botão baixar está oculto</string>
-  <string name="revanced_hide_download_button_summary_off">Botão baixar não está oculto</string>
+  <string name="revanced_hide_download_button_title">Ocultar Download</string>
+  <string name="revanced_hide_download_button_summary_on">Botão download está oculto</string>
+  <string name="revanced_hide_download_button_summary_off">Botão download não está oculto</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Ocultar Valeu</string>
   <string name="revanced_hide_thanks_button_summary_on">Botão valeu está oculto</string>
@@ -404,9 +404,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_clip_button_summary_on">Botão clipe está oculto</string>
   <string name="revanced_hide_clip_button_summary_off">Botão clipe não está oculto</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Ocultar Salvar na lista de reprodução</string>
-  <string name="revanced_hide_playlist_button_summary_on">Botão de salvar na lista de reprodução está oculto</string>
-  <string name="revanced_hide_playlist_button_summary_off">Botão de salvar na lista de reprodução não está oculto</string>
+  <string name="revanced_hide_playlist_button_title">Ocultar Salvar</string>
+  <string name="revanced_hide_playlist_button_summary_on">Botão salvar na playlist está oculto</string>
+  <string name="revanced_hide_playlist_button_summary_off">Botão salvar na playlist não está oculto</string>
   </patch>
   <patch id="layout.buttons.autoplay.HideAutoplayButtonPatch">
   <string name="revanced_hide_autoplay_button_title">Ocultar botão de reprodução automática</string>
@@ -969,7 +969,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_entry_5">Moderno 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderno 3</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Ocultar botões de expansão e fechamento</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Os botões estão ocultos.\n(deslize o miniplayer para expandir ou fechar)</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">Os botões estão ocultos\n(deslize o miniplayer para expandir ou fechar)</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">Botões de expansão e fechamento são mostrados</string>
   <string name="revanced_miniplayer_hide_subtext_title">Ocultar subtextos</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Subtextos estão ocultos</string>
@@ -1038,6 +1038,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_announcements_enabled_summary">Mostrar avisos na inicialização</string>
   <string name="revanced_announcements_connection_failed">Falha ao conectar ao provedor de avisos</string>
   <string name="revanced_announcements_dialog_dismiss">Dispensar</string>
+  </patch>
+  <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Atenção</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Seu histórico de exibição não está sendo salvo.&lt;br&gt;&lt;br&gt;Na maioria dos casos isso é causado por um bloqueador de anúncios por DNS ou proxy de rede.&lt;br&gt;&lt;br&gt;Para corrigir isso, permita &lt;b&gt;s.youtube.com&lt;/b&gt; na sua lista ou desative todos os bloqueadores de DNS e proxies.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Não exibir novamente</string>
   </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
   <string name="revanced_auto_repeat_title">Ativar repetição automática</string>
@@ -1121,7 +1126,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Cliente não é falsificado\n\nA reprodução de vídeo pode não funcionar</string>
   <string name="revanced_spoof_client_user_dialog_message">Desativar essa configuração pode causar problemas de reprodução de vídeo.</string>
   <string name="revanced_spoof_client_use_ios_title">Cliente Spoof para iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">O cliente está atualmente falsificado para iOS\n\nOs efeitos colaterais incluem:\n• O vídeo HDR pode não estar disponível\n• O histórico de exibição pode não funcionar</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">O cliente está simulando para o iOS\n\nEfeitos adversos incluem:\n• O HDR pode não estar disponível\n• O histórico de exibição não funciona com uma conta de Marca</string>
   <string name="revanced_spoof_client_use_ios_summary_off">O cliente está falsificado para o Android VR. Os efeitos colaterais incluem:\n• Sem vídeo HDR\n• Vídeos infantis não são reproduzidos\n• Vídeos pausados podem ser retomados aleatoriamente\n• Miniaturas da barra de busca de Shorts de baixa qualidade\n• O botão de ação de download está oculto\n• Os cards da tela final estão ocultos</string>
   <string name="revanced_spoof_client_storyboard_timeout">Miniaturas Spoof client não disponíveis (API timeout)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Miniaturas Spoof client temporariamente não disponíveis: %s</string>

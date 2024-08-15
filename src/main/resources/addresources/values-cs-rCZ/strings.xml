@@ -1040,6 +1040,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_announcements_connection_failed">Připojení k poskytovateli oznámení se nezdařilo</string>
   <string name="revanced_announcements_dialog_dismiss">Zrušit</string>
   </patch>
+  <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Varování</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Vaše historie sledování není ukládána.&lt;br&gt;&lt;br&gt;Příčinou je s největší pravděpodobností DNS blokátor reklam nebo síťový proxy server.&lt;br&gt;&lt;br&gt;Chcete-li to opravit, přidejte&lt;b&gt;s.youtube.com&lt;/b&gt; na whitelist nebo vypněte všechny DNS blokátory a proxy servery.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Znovu nezobrazovat</string>
+  </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
   <string name="revanced_auto_repeat_title">Povolit automatické opakování</string>
   <string name="revanced_auto_repeat_summary_on">Automaticky opakovat je povoleno</string>
@@ -1122,7 +1127,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Klient není spoofed\n\nPřehrávání videa nemusí fungovat</string>
   <string name="revanced_spoof_client_user_dialog_message">Vypnutí tohoto nastavení může způsobit problémy při přehrávání videa.</string>
   <string name="revanced_spoof_client_use_ios_title">Spořič do iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Klient je v současné době spokojen s iOS\n\nBoční efekty zahrnují:\n• HDR video nemusí být k dispozici\n• Historie sledování nemusí fungovat</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Klient je v současné době spokojen s iOS\n\nBoční efekty zahrnují:\n• HDR video nemusí být k dispozici\n• Historie sledování nefunguje s obchodním účtem</string>
   <string name="revanced_spoof_client_use_ios_summary_off">Klient je v současné době spout s Androidem VR. Boční efekty zahrnují:\n• No HDR video\n• Dětská videa nepřehrávají\n• Pozastavená videa mohou náhodně pokračovat\n• Nízká kvalita krátkých náhledů ve vyhledávacím panelu\n• Tlačítko pro stažení akce je skryté\n• Karty s ukončenou obrazovkou jsou skryté</string>
   <string name="revanced_spoof_client_storyboard_timeout">Náhledy klientů nejsou k dispozici (vypršel časový limit API)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Spouštění náhledů klientů dočasně není k dispozici: %s</string>

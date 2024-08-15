@@ -1036,6 +1036,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_announcements_connection_failed">Не вдалося підключитися до постачальника оголошень</string>
   <string name="revanced_announcements_dialog_dismiss">Закрити</string>
   </patch>
+  <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Увага</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Ваша історія переглядів не зберігається.&lt;br&gt;&lt;br&gt;Швидше за все, це спричинено блокувальником реклами DNS або мережевим проксі.&lt;br&gt;&lt;br&gt;Щоб це виправити, додайте &lt;b&gt;s.youtube.com&lt;/b&gt; у білий список блокувальника або вимкніть усі DNS блокувальники та проксі.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Більше не показувати</string>
+  </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
   <string name="revanced_auto_repeat_title">Увімкнути автоповтор відео</string>
   <string name="revanced_auto_repeat_summary_on">Автоповторення поточного відео ввімкнуто</string>
@@ -1118,7 +1123,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Клієнт не підроблений\n\nВідтворення відео може не працювати</string>
   <string name="revanced_spoof_client_user_dialog_message">Вимкнення цього параметра може призвести до проблем відтворення відео.</string>
   <string name="revanced_spoof_client_use_ios_title">Підробити клієнт на iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Наразі клієнт підроблений на iOS\n\nПобічні ефекти:\n• HDR відео може бути недоступним\n• Історія переглядів може не працювати</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Наразі клієнт підроблений на iOS\n\nПобічні ефекти:\n• HDR відео може бути недоступним\n• Історія переглядів не працює з акаунтом бренду</string>
   <string name="revanced_spoof_client_use_ios_summary_off">Наразі клієнт підроблений на Android VR. Побічні ефекти:\n• Немає HDR відео\n• Відео для дітей не відтворюються\n• Призупинені відео можуть випадково продовжуватися\n• Низька якість мініатюр панелі прогресу Shorts\n• Кнопка завантаження прихована\n• Картки кінцевого екрана приховані</string>
   <string name="revanced_spoof_client_storyboard_timeout">Мініатюри в режимі підробки клієнта не доступні (закінчився час API)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Мініатюри в режимі підробки клієнта тимчасово не доступні: %s</string>

@@ -1038,6 +1038,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_announcements_connection_failed">Не удалось подключиться к поставщику объявлений</string>
   <string name="revanced_announcements_dialog_dismiss">Закрыть</string>
   </patch>
+  <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Внимание</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Не показывать снова</string>
+  </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
   <string name="revanced_auto_repeat_title">Автоповтор текущего видео</string>
   <string name="revanced_auto_repeat_summary_on">Автоповтор текущего видео включен</string>
@@ -1120,7 +1124,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Клиент не подменен\n\nВоспроизведение видео может не работать</string>
   <string name="revanced_spoof_client_user_dialog_message">Отключение этой настройки может вызвать проблемы с воспроизведением видео.</string>
   <string name="revanced_spoof_client_use_ios_title">Подмена клиента на iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">В настоящее время клиент подменен на iOS\n\nПобочные эффекты включают:\n• HDR видео может отсутствовать\n• История просмотров может не работать</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">В настоящее время клиент подключен к iOS\n\nк таким эффектам:\n• HDR видео может быть недоступно\n• История просмотра не работает с учетной записью бренда</string>
   <string name="revanced_spoof_client_use_ios_summary_off">В настоящее время клиент подменен на Android VR. Побочные эффекты включают:\n• Отсутствует HDR видео\n• Детские видео не воспроизводятся\n• Приостановленные видео могут случайно возобновляться\n• Миниатюры прогресса воспроизведения Shorts низкого качества\n• Кнопка \"Скачать\" скрыта\n• Заставки следующих видео в конце просмотра скрыты</string>
   <string name="revanced_spoof_client_storyboard_timeout">Миниатюры в режиме подмены клиента недоступны (время API истекло)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Миниатюры в режиме подмены клиента временно недоступны: %s</string>
