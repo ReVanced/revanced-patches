@@ -101,8 +101,8 @@ abstract class BaseGmsCoreSupportResourcePatch(
             "android:authorities=\"$fromPackageName" to "android:authorities=\"$packageName",
             "$fromPackageName.permission.C2D_MESSAGE" to "$packageName.permission.C2D_MESSAGE",
             "$fromPackageName.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" to "$packageName.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
-            "com.google.android.c2dm" to "$packageName.android.c2dm",
-            "com.google.android.libraries.photos.api.mars" to "$packageName.android.apps.photos.api.mars",
+            "com.google.android.c2dm" to "$gmsCoreVendorGroupId.android.c2dm",
+            "com.google.android.libraries.photos.api.mars" to "$gmsCoreVendorGroupId.android.apps.photos.api.mars",
             "</queries>" to "<package android:name=\"$gmsCoreVendorGroupId.android.gms\"/></queries>",
         )
 
@@ -110,9 +110,9 @@ abstract class BaseGmsCoreSupportResourcePatch(
             transformations.entries.fold(get("AndroidManifest.xml", false).readText()) { acc, (from, to) ->
                 acc.replace(
                     from,
-                    to
+                    to,
                 )
-            }
+            },
         )
     }
 
