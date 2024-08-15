@@ -10,7 +10,8 @@ import app.revanced.patches.youtube.shared.fingerprints.MainActivityOnCreateFing
 import app.revanced.util.resultOrThrow
 
 @Patch(
-    description = "Checks, if the endpoint 's.youtube.com' to track watch history  is unreachable.",
+    name = "Check watch history domain name resolution",
+    description = "Checks if the device DNS server is preventing user watch history from being saved.",
     dependencies = [IntegrationsPatch::class],
 )
 @Suppress("unused")
