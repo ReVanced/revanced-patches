@@ -279,6 +279,16 @@ public final class app/revanced/patches/googlenews/misc/integrations/Integration
 	public static final field INSTANCE Lapp/revanced/patches/googlenews/misc/integrations/IntegrationsPatch;
 }
 
+public final class app/revanced/patches/googlephotos/features/SpoofFeaturesPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/googlephotos/features/SpoofFeaturesPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/googlephotos/features/fingerprints/InitializeFeaturesEnumFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/googlephotos/features/fingerprints/InitializeFeaturesEnumFingerprint;
+}
+
 public final class app/revanced/patches/googlephotos/misc/gms/GmsCoreSupportPatch : app/revanced/patches/shared/misc/gms/BaseGmsCoreSupportPatch {
 	public static final field INSTANCE Lapp/revanced/patches/googlephotos/misc/gms/GmsCoreSupportPatch;
 }
