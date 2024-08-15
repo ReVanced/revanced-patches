@@ -1,3 +1,10 @@
+## [4.13.2](https://github.com/ReVanced/revanced-patches/compare/v4.13.1...v4.13.2) (2024-08-15)
+
+
+### Bug Fixes
+
+* **YouTube - GmsCore Support:** Fix patch exception by using correct patch offset ([#3543](https://github.com/ReVanced/revanced-patches/issues/3543)) ([b2b8454](https://github.com/ReVanced/revanced-patches/commit/b2b8454aa992bcb217fb03eb4de5532e0a9bd354))
+
 ## [4.13.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.13.1...v4.13.2-dev.1) (2024-08-15)
 
 
