@@ -1,3 +1,10 @@
+## [4.13.1](https://github.com/ReVanced/revanced-patches/compare/v4.13.0...v4.13.1) (2024-08-15)
+
+
+### Bug Fixes
+
+* **YouTube - Check watch history domain name resolution:** Add compatibility field ([6c598f0](https://github.com/ReVanced/revanced-patches/commit/6c598f084ed90ee1318e4c66d8c1751c797b8e3b))
+
 ## [4.13.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.13.0...v4.13.1-dev.1) (2024-08-15)
 
 
