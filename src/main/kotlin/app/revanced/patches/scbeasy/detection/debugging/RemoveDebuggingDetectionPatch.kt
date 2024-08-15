@@ -10,7 +10,6 @@ import app.revanced.patches.scbeasy.detection.debugging.fingerprints.DebuggingDe
 
 @Patch(
     use = false,
-    name = "Remove debugging detection",
     description = "Removes the USB and wireless debugging checks.",
     compatiblePackages = [CompatiblePackage("com.scb.phone")]
 )
