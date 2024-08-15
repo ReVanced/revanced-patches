@@ -1,3 +1,11 @@
+# [4.13.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.12.1-dev.1...v4.13.0-dev.1) (2024-08-15)
+
+
+### Features
+
+* **Google Photos:** Add `Spoof features` patch ([#3459](https://github.com/ReVanced/revanced-patches/issues/3459)) ([7c218cd](https://github.com/ReVanced/revanced-patches/commit/7c218cd168aa72eb99bcb47d12dfa45616e8ad88))
+* **SCB Easy:** Remove broken `Remove debugging detection` patch ([#3518](https://github.com/ReVanced/revanced-patches/issues/3518)) ([f4e23cb](https://github.com/ReVanced/revanced-patches/commit/f4e23cbb8a24638318d8cee20a1991c51855d9d2))
+
 ## [4.12.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.12.0...v4.12.1-dev.1) (2024-08-15)
 
 
