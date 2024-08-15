@@ -18,7 +18,7 @@ import app.revanced.patches.shared.misc.gms.fingerprints.GooglePlayUtilityFinger
 import app.revanced.patches.shared.misc.gms.fingerprints.ServiceCheckFingerprint
 import app.revanced.util.exception
 import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
@@ -115,15 +115,16 @@ abstract class BaseGmsCoreSupportPatch(
 
         // Verify GmsCore is installed and whitelisted for power optimizations and background usage.
         mainActivityOnCreateFingerprint.result?.mutableMethod?.apply {
-            val setContextIndex = indexOfFirstInstructionOrThrow {
-                val reference = getReference<MethodReference>() ?: return@indexOfFirstInstructionOrThrow false
+            // Temporary fix for Google photos integration.
+            var setContextIndex = indexOfFirstInstruction {
+                val reference = getReference<MethodReference>() ?: return@indexOfFirstInstruction false
 
                 reference.toString() == "Lapp/revanced/integrations/shared/Utils;->setContext(Landroid/content/Context;)V"
             }
 
             // Add after setContext call, because this patch needs the context.
             addInstructions(
-                setContextIndex + 1,
+                if (setContextIndex < 0) 0 else setContextIndex + 1,
                 "invoke-static/range { p0 .. p0 }, Lapp/revanced/integrations/shared/GmsCoreSupport;->" +
                     "checkGmsCore(Landroid/app/Activity;)V",
             )
