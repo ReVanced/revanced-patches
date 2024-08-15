@@ -1040,6 +1040,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_announcements_connection_failed">Neuspešno povezivanje sa pružaocem saopštenja</string>
   <string name="revanced_announcements_dialog_dismiss">Odbaci</string>
   </patch>
+  <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Upozorenje</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ne prikazuj ponovo</string>
+  </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
   <string name="revanced_auto_repeat_title">Omogući automatsko ponavljanje videa</string>
   <string name="revanced_auto_repeat_summary_on">Automatsko ponavljanje videa je omogućeno</string>
@@ -1122,7 +1126,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Klijent nije lažiran\n\nReprodukcija videa možda neće raditi</string>
   <string name="revanced_spoof_client_user_dialog_message">Isključivanje ovog podešavanja možda će izazvati probleme sa reprodukcijom videa.</string>
   <string name="revanced_spoof_client_use_ios_title">Lažiran klijent na iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Klijent je trenutno lažiran na iOS\n\nNeželjeni efekti obuhvataju:\n• HDR video možda neće biti dostupan\n• Istorija gledanja možda neće funkcionisati</string>
   <string name="revanced_spoof_client_use_ios_summary_off">Klijent je trenutno lažiran na Android VR Neželjeni efekti obuhvataju:\n• Nema HDR videa\n• Dečji video snimci se ne reprodukuju\n• Pauzirani video snimci mogu nasumično da se nastavljaju\n• Sličice na traci za premotavanje Shorts videa lošeg kvaliteta\n• Dugme za radnju „Preuzmi“ je skriveno\n• Kartice završnog ekrana su skrivene</string>
   <string name="revanced_spoof_client_storyboard_timeout">Sličice u lažiranom klijentu nisu dostupne (API istekao)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Sličice u lažiranom klijentu privremeno nisu dostupne: %s</string>

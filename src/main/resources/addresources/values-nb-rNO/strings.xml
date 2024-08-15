@@ -1023,6 +1023,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_announcements_connection_failed">Kan ikke koble til kunngjøringstjenesten</string>
   <string name="revanced_announcements_dialog_dismiss">Avvis</string>
   </patch>
+  <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Advarsel</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Overvåkningshistorikken din lagres.&lt;br&gt;&lt;br&gt;Dette er mest sannsynlig forårsaket av en DNS-annonseblokkering eller nettverksproxy.&lt;br&gt;&lt;br&gt;For å fikse dette, hviteliste &lt;b&gt;s.youtube.com&lt;/b&gt; eller slå av alle DNS-blokkere og proxyer.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ikke vis dette igjen</string>
+  </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
   <string name="revanced_auto_repeat_title">Aktiver automatisk gjenta</string>
   <string name="revanced_auto_repeat_summary_on">Auto-Repetering er aktivert</string>
@@ -1105,7 +1110,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Klienten er ikke spoofed\n\nVideo playback fungerer kanskje ikke</string>
   <string name="revanced_spoof_client_user_dialog_message">Ved å slå av denne innstillingen kan problemer med videoavspilling.</string>
   <string name="revanced_spoof_client_use_ios_title">Forside klienten til iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Klienten er for øyeblikket oppslitt til iOS\n\nSide include:\n• HDR video er kanskje ikke tilgjengelig\n• Se loggen fungerer kanskje ikke</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Klienten er for øyeblikket oppslitt til iOS\n\nSide effects include:\n• HDR video er kanskje ikke tilgjengelig\n• Se historien fungerer ikke med en merkevarekonto</string>
   <string name="revanced_spoof_client_use_ios_summary_off">Klienten er for øyeblikket skummet til Android VR. sideeffekter inkluderer:\n• Ingen HDR video\n• Barn videoer ikke spiller tilbake\n• Paused videoer kan tilfeldig gjenoppta\n• Lavkvalitet shorts søkbar miniatyrbilder\n• Last ned handlingsknappen er skjult\n• Sluttskjermkort er skjult</string>
   <string name="revanced_spoof_client_storyboard_timeout">Etterligning av klient miniatyrbilder er ikke tilgjengelige (API tidsavbrutt)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Spoav klientens miniatyrbilder er midlertidig ikke tilgjengelig: %s</string>

@@ -1036,6 +1036,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_announcements_connection_failed">فشل الاتصال بموفر الإعلانات</string>
   <string name="revanced_announcements_dialog_dismiss">تجاهل</string>
   </patch>
+  <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">تحذير</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">لم يتم حفظ سجل المشاهدة الخاص بك.&lt;br&gt;&lt;br&gt;من المرجح أن يكون السبب في ذلك هو مانع إعلانات DNS أو وكيل الشبكة.&lt;br&gt;&lt;br&gt;لإصلاح هذه المشكلة، قم بإضافة &lt;b&gt;s.youtube.com&lt;/b&gt; إلى القائمة البيضاء أو قم بإيقاف تشغيل جميع أدوات حظر DNS ووكلاء البروكسي.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">لا تعرض مرة أخرى</string>
+  </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
   <string name="revanced_auto_repeat_title">تمكين التكرار التلقائي</string>
   <string name="revanced_auto_repeat_summary_on">تم تمكين التكرار التلقائي</string>
@@ -1118,7 +1123,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">لا يتم محاكاة العميل\n\nقد لا يعمل تشغيل الفيديو</string>
   <string name="revanced_spoof_client_user_dialog_message">إيقاف تشغيل هذا الإعداد قد يسبب مشاكل في تشغيل الفيديو.</string>
   <string name="revanced_spoof_client_use_ios_title">Spoof Client to iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">تتم حاليًا محاكاة العميل إلـى iOS\n\nالآثار الجانبية تشمل:\n• قد لا يكون فيديو HDR متوفرًا\n• قد لا يعمل سجل المشاهدة</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">تتم حاليًا محاكاة العميل إلـى iOS\n\nالآثار الجانبية تشمل:\n• قد لا يكون فيديو HDR متوفرًا\n• لا يعمل سجل المشاهدة مع حساب العلامة التجارية</string>
   <string name="revanced_spoof_client_use_ios_summary_off">تتم حاليًا محاكاة العميل إلـى Android VR\n\nالآثار الجانبية تشمل:\n• لا يوجد فيديو HDR\n• فيديوهات الأطفال لا يتم تشغيلهم\n• مقاطع الفيديو الموقوفة يمكن أن تستأنف عشوائياً\n• جودة منخفضة لمصغرات شريط التقدم\n• زر التنزيل مخفي\n• بطاقات نهاية الشاشة مخفية</string>
   <string name="revanced_spoof_client_storyboard_timeout">محاكاة مصغرات العميل غير متوفرة (انتهت مهلة API)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">محاكاة مصغرات العميل غير متوفرة مؤقتًا: %s</string>

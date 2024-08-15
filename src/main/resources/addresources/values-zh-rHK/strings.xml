@@ -243,6 +243,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="misc.announcements.AnnouncementsPatch">
   <string name="revanced_announcements_dialog_dismiss">忽略</string>
   </patch>
+  <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">警告</string>
+  </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
   </patch>
   <patch id="misc.dimensions.spoof.SpoofDeviceDimensionsPatch">
