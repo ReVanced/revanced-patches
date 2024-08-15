@@ -1,3 +1,10 @@
+## [4.13.3-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.13.2...v4.13.3-dev.1) (2024-08-15)
+
+
+### Bug Fixes
+
+* **YouTube:** Remove translated string that breaks patching ([a48c2db](https://github.com/ReVanced/revanced-patches/commit/a48c2db53d84767c8fd5d569f9ce1c46c2bfd9a1))
+
 ## [4.13.2](https://github.com/ReVanced/revanced-patches/compare/v4.13.1...v4.13.2) (2024-08-15)
 
 
