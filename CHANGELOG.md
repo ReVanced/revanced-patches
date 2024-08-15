@@ -1,3 +1,10 @@
+# [4.13.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.13.0-dev.1...v4.13.0-dev.2) (2024-08-15)
+
+
+### Features
+
+* **YouTube:** Add `Check watch history domain name resolution` patch ([#3537](https://github.com/ReVanced/revanced-patches/issues/3537)) ([2af1425](https://github.com/ReVanced/revanced-patches/commit/2af142525cda07a131335faadd4b3889979fd077))
+
 # [4.13.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.12.1-dev.1...v4.13.0-dev.1) (2024-08-15)
 
 
