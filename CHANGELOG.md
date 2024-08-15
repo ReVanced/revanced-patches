@@ -1,3 +1,10 @@
+## [4.12.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.12.0...v4.12.1-dev.1) (2024-08-15)
+
+
+### Bug Fixes
+
+* **YouTube - GmsCore support:** Fix notifications not working by using the correct permissions ([19ddae2](https://github.com/ReVanced/revanced-patches/commit/19ddae2d15e513e18eb1556c468cd94bd197685b))
+
 # [4.12.0](https://github.com/ReVanced/revanced-patches/compare/v4.11.0...v4.12.0) (2024-08-06)
 
 
