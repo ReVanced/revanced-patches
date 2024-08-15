@@ -1038,6 +1038,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_announcements_connection_failed">Échec de la connexion au fournisseur d\'annonces</string>
   <string name="revanced_announcements_dialog_dismiss">Ignorer</string>
   </patch>
+  <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Avertissement</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Votre historique de surveillance n\'est pas enregistré.&lt;br&gt;&lt;br&gt;Ceci est probablement dû à un bloqueur de publicités DNS ou à un proxy réseau.&lt;br&gt;&lt;br&gt;Pour résoudre ce problème, mettez sur la liste blanche &lt;b&gt;s.youtube.com&lt;/b&gt; ou désactivez tous les bloqueurs DNS et proxies.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ne plus afficher</string>
+  </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
   <string name="revanced_auto_repeat_title">Activer la répétition automatique</string>
   <string name="revanced_auto_repeat_summary_on">La répétition automatique est activée</string>
@@ -1120,7 +1125,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Le client n\'est pas trompé\n\nLa lecture de la vidéo peut ne pas fonctionner</string>
   <string name="revanced_spoof_client_user_dialog_message">Désactiver ce paramètre peut causer des problèmes de lecture vidéo.</string>
   <string name="revanced_spoof_client_use_ios_title">Falsifier le client vers iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Le client est actuellement falsifié vers iOS\n\nLes effets secondaires incluent :\n• La vidéo HDR peut ne pas être disponible\n• L\'historique de la montre peut ne pas fonctionner</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Le client est actuellement falsifié vers iOS\n\nLes effets secondaires incluent :\n• La vidéo HDR peut ne pas être disponible\n• Regarder l\'historique ne fonctionne pas avec un compte de marque</string>
   <string name="revanced_spoof_client_use_ios_summary_off">Le client est actuellement falsifié vers Android VR. Effets secondaires incluant:\n• Aucune vidéo HDR\n• Les vidéos des enfants ne lisent pas\n• Les vidéos en pause peuvent reprendre aléatoirement\n• Les Shorts de basse qualité sur les vignettes de la barre de recherche\n• Le bouton d\'action de téléchargement est caché\n• Les cartes d\'écran de fin sont cachées</string>
   <string name="revanced_spoof_client_storyboard_timeout">Tromper les vignettes du client non disponibles (API expirée)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Tromper les vignettes du client temporairement indisponibles : %s</string>

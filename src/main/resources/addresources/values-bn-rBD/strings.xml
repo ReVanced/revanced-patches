@@ -958,6 +958,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_announcements_connection_failed">ঘোষনাদাতার সাথে সম্পর্ক স্থাপন ব্যর্থ হয়েছে</string>
   <string name="revanced_announcements_dialog_dismiss">বাতিল করুন</string>
   </patch>
+  <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">সতর্কীকরণ</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">আবার দেখাবেন না</string>
+  </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
   <string name="revanced_auto_repeat_title">স্বয়ংক্রিয়ভাবে-আবার দেখানো সক্রিয় করুন</string>
   <string name="revanced_auto_repeat_summary_on">স্বয়ংক্রিয়ভাবে-আবার দেখানো সক্রিয় হয়েছে</string>

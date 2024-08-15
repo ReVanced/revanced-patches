@@ -1035,6 +1035,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_announcements_connection_failed">无法连接到通知提供商</string>
   <string name="revanced_announcements_dialog_dismiss">忽略</string>
   </patch>
+  <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Warning</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">您的观察历史未被保存。&lt;br&gt;&lt;br&gt;这很可能是由DNS 广告拦截器或网络代理引起的。&lt;br&gt;&lt;br&gt;要解决这个问题，请将 &lt;b&gt;s.youtube.com&lt;/b&gt; 或关闭所有 DNS 拦截器和代理人。</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">不再显示</string>
+  </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
   <string name="revanced_auto_repeat_title">启用自动重复</string>
   <string name="revanced_auto_repeat_summary_on">自动重复已启用</string>

@@ -319,7 +319,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_external_downloader_summary_on">Mostrar botão de transferir no leitor</string>
   <string name="revanced_external_downloader_summary_off">Botão de transferir não exibido no leitor</string>
   <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
-  <string name="revanced_external_downloader_action_button_title">Substituir botão de ação de download</string>
+  <string name="revanced_external_downloader_action_button_title">Substituir botão de ação de transferir</string>
   <string name="revanced_external_downloader_action_button_summary_on">Botão de transferir abre seu downloader externo</string>
   <string name="revanced_external_downloader_action_button_summary_off">O botão de transferir abre o downloader nativo</string>
   <string name="revanced_external_downloader_name_title">Nome do pacote do downloader</string>
@@ -390,9 +390,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_remix_button_summary_on">Botão de remixar está escondido</string>
   <string name="revanced_hide_remix_button_summary_off">Botão de remixar é visível</string>
   <!-- 'Download' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_download_button_title">Esconder download</string>
-  <string name="revanced_hide_download_button_summary_on">O botão download está escondido</string>
-  <string name="revanced_hide_download_button_summary_off">O botão \"Transferir\" está visível</string>
+  <string name="revanced_hide_download_button_title">Esconder Transferir</string>
+  <string name="revanced_hide_download_button_summary_on">O botão transferir está escondido</string>
+  <string name="revanced_hide_download_button_summary_off">O botão transferir está visível</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Esconder Obrigado</string>
   <string name="revanced_hide_thanks_button_summary_on">O botão de agradecimento está escondido</string>
@@ -1036,6 +1036,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_announcements_connection_failed">Falha ao conectar ao provedor de avisos</string>
   <string name="revanced_announcements_dialog_dismiss">Dispensar</string>
   </patch>
+  <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Atenção</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Não mostrar novamente</string>
+  </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
   <string name="revanced_auto_repeat_title">Habilitar auto-repetição</string>
   <string name="revanced_auto_repeat_summary_on">Repetição automática está habilitada</string>
@@ -1118,7 +1122,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Cliente não é falsificado\n\nA reprodução de vídeo pode não funcionar</string>
   <string name="revanced_spoof_client_user_dialog_message">Desativar essa configuração pode causar problemas de reprodução de vídeo.</string>
   <string name="revanced_spoof_client_use_ios_title">Cliente Spoof para iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Cliente está spoofed no momento para iOS\n\nOs efeitos colaterais incluem:\n• HDR vídeos podem não estar disponíveis\n• Watch histórico pode não funcionar</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Cliente é falsificado atualmente para iOS\n\nOs efeitos colaterais incluem:\n• O vídeo HDR pode não estar disponível\n• Histórico de assistir não funciona com uma conta de marca</string>
   <string name="revanced_spoof_client_use_ios_summary_off">O cliente está oculta para o Android VR. Os efeitos colaterais incluem:\n• Nenhum vídeo HDR\n• As crianças não reproduzem\n• Os vídeos pausados podem retomar aleatoriamente\n• Miniaturas da barra de busca curta de baixa qualidade\n• Botão de ação para baixar está oculto\n• Cartões de tela final estão ocultos</string>
   <string name="revanced_spoof_client_storyboard_timeout">Miniaturas Spoof client não disponíveis (API timeout)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Miniaturas Spoof client temporariamente não disponíveis: %s</string>

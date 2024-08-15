@@ -1037,6 +1037,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_announcements_connection_failed">Kunne ikke forbinde til udbyder af annonceringer</string>
   <string name="revanced_announcements_dialog_dismiss">Luk</string>
   </patch>
+  <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Advarsel</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Din urhistorik gemmes ikke.&lt;br&gt;&lt;br&gt;Dette skyldes sandsynligvis en DNS-annonceblokker eller netværksproxy.&lt;br&gt;&lt;br&gt;For at løse dette, whitelist &lt;b&gt;s.youtube.com&lt;/b&gt; eller slå alle DNS-blokkere og fuldmagter fra.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Vis ikke igen</string>
+  </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
   <string name="revanced_auto_repeat_title">Aktivér auto-gentag</string>
   <string name="revanced_auto_repeat_summary_on">Auto-gentag er aktiveret</string>
@@ -1119,7 +1124,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Klienten er ikke forfalsket\n\nVideoafspilning fungerer muligvis ikke</string>
   <string name="revanced_spoof_client_user_dialog_message">At slå denne indstilling fra kan forårsage problemer med videoafspilning.</string>
   <string name="revanced_spoof_client_use_ios_title">Spoof klient til iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Klienten er i øjeblikket spoofed til iOS\n\nBivirkninger omfatter:\n• HDR-video er muligvis ikke tilgængelig\n• Se historie fungerer måske ikke</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Klienten er i øjeblikket spoofed til iOS\n\nBivirkninger omfatter:\n• HDR-video er muligvis ikke tilgængelig\n• Watch historie fungerer ikke med en brandkonto</string>
   <string name="revanced_spoof_client_use_ios_summary_off">Klienten er i øjeblikket spoofed til Android VR. Bivirkninger omfatter:\n• Ingen HDR-video\n• Kids videoer ikke afspilning\n• Pause videoer kan tilfældigt genoptage\n• Lav kvalitet Shorts søgelinje miniaturer\n• Download handling knap er skjult\n• End screen cards are hidden</string>
   <string name="revanced_spoof_client_storyboard_timeout">Spoof klient miniaturer ikke tilgængelige (API timemed out)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Spoof klient miniaturer midlertidigt ikke tilgængelige: %s</string>

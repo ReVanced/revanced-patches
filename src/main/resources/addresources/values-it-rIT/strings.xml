@@ -1036,6 +1036,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_announcements_connection_failed">Connessione al provider di annunci non riuscita</string>
   <string name="revanced_announcements_dialog_dismiss">Chiudi</string>
   </patch>
+  <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Attenzione</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">La cronologia dell\'orologio non è stata salvata.&lt;br&gt;&lt;br&gt;Questo molto probabilmente è causato da un blocco annunci DNS o da un proxy di rete.&lt;br&gt;&lt;br&gt;Per risolvere questo problema, whitelist &lt;b&gt;s.youtube.com&lt;/b&gt; o disattiva tutti i DNS bloccanti e proxy.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Non mostrare più</string>
+  </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
   <string name="revanced_auto_repeat_title">Abilita ripetizione automatica</string>
   <string name="revanced_auto_repeat_summary_on">La ripetizione automatica è abilitata</string>
@@ -1118,7 +1123,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Il client non è simulato\n\nLa riproduzione video potrebbe non funzionare</string>
   <string name="revanced_spoof_client_user_dialog_message">Disattivare questa impostazione potrebbe causare problemi di riproduzione video.</string>
   <string name="revanced_spoof_client_use_ios_title">Spoof client per iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Il client è attualmente spoofed per iOS\n\nGli effetti collaterali includono:\n• video HDR potrebbe non essere disponibile\n• La cronologia degli orologi potrebbe non funzionare</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Il client è attualmente spoofed per iOS\n\nGli effetti collaterali includono:\n• video HDR potrebbe non essere disponibile\n• La cronologia degli orologi non funziona con un account di marca</string>
   <string name="revanced_spoof_client_use_ios_summary_off">Il client è attualmente spoofed per Android VR. Gli effetti collaterali includono:\n• Nessun video HDR\n• I video per bambini non riproducono\n• I video in pausa possono riprendere casualmente\n• Bassa qualità Pantaloncini seekbar miniature\n• Il pulsante di azione per scaricare è nascosto\n• Le schede dello schermo finale sono nascoste</string>
   <string name="revanced_spoof_client_storyboard_timeout">Le miniature del client non sono disponibili (timeout API)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Miniature del client Spoof temporaneamente non disponibili: %s</string>

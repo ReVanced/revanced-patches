@@ -1036,6 +1036,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_announcements_connection_failed">Не ўдалося падключыцца да пастаўшчыка аб\"яў</string>
   <string name="revanced_announcements_dialog_dismiss">расслабіцца</string>
   </patch>
+  <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Увага</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Больш не паказваць</string>
+  </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
   <string name="revanced_auto_repeat_title">Уключыць аўтаматычны паўтор</string>
   <string name="revanced_auto_repeat_summary_on">Аўтаматычны паўтор уключаны</string>
@@ -1118,7 +1122,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Кліент не падроблены\n\nПрайграванне відэа можа не працаваць</string>
   <string name="revanced_spoof_client_user_dialog_message">Адключэнне гэтай налады можа выклікаць праблемы з прайграваннем відэа.</string>
   <string name="revanced_spoof_client_use_ios_title">Падробка кліента для iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Зараз кліент падменены на iOS\n\nПабочныя эфекты ўключаюць:\n• Можа адсутнічаць HDR відэа\n• Можа не працаваць гісторыя праглядаў</string>
   <string name="revanced_spoof_client_use_ios_summary_off">Кліент у цяперашні час падроблены для Android VR. Пабочныя эфекты ўключаюць:\n• Няма HDR-відэа\n• Дзіцячыя відэа не прайграваюцца\n• Прыпыненыя відэа могуць аднаўляцца выпадковым чынам\n• Нізкая якасць мініяцюр на панэлі пошуку Shorts\n• Кнопка дзеяння Спампаваць схавана\n• Карткі канцавога экрана схаваны</string>
   <string name="revanced_spoof_client_storyboard_timeout">Мініяцюры кліента Spoof недаступныя (час чакання API скончыўся)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Мініяцюры кліента Spoof часова недаступныя: %s</string>

@@ -1038,6 +1038,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_announcements_connection_failed">Det gick inte att ansluta till meddelandeleverantören</string>
   <string name="revanced_announcements_dialog_dismiss">Avfärda</string>
   </patch>
+  <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Varningar</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Din klockhistorik sparas inte.&lt;br&gt;&lt;br&gt;Detta troligen orsakas av en DNS-annonsblockerare eller nätverksproxy.&lt;br&gt;&lt;br&gt;För att åtgärda detta, whitelist &lt;b&gt;s.youtube.com&lt;/b&gt; eller stäng av alla DNS-blockerare och proxyer.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Visa inte igen</string>
+  </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
   <string name="revanced_auto_repeat_title">Aktivera automatisk upprepning</string>
   <string name="revanced_auto_repeat_summary_on">Automatisk upprepning är aktiverad</string>
@@ -1120,7 +1125,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Klienten är inte förfalskad\n\nVideouppspelning kanske inte fungerar</string>
   <string name="revanced_spoof_client_user_dialog_message">Att stänga av den här inställningen kan orsaka videouppspelningsproblem.</string>
   <string name="revanced_spoof_client_use_ios_title">Spoof klient till iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Klienten är för närvarande förfalskad till iOS\n\nBiverkningar inkluderar:\n• HDR-video kanske inte är tillgänglig\n• Titta historik kanske inte fungerar</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Klienten är för närvarande förfalskad till iOS\n\nBiverkningar inkluderar:\n• HDR-video kanske inte är tillgänglig\n• Se historik fungerar inte med ett varumärkeskonto</string>
   <string name="revanced_spoof_client_use_ios_summary_off">Klienten är för närvarande förfalskad till Android VR. Biverkningar inkluderar:\n• Ingen HDR-video\n• Barnvideor spelar inte upp\n• Pausade videor kan slumpmässigt återuppta\n• Lågkvalitativa Shorts seekbar miniatyrer\n• Nedladdningsknappen är dold\n• Slutskärmskorten är dolda</string>
   <string name="revanced_spoof_client_storyboard_timeout">Spoof klientminiatyrer är inte tillgängliga (API gick ut)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Miniatyrer för Spoof klientminiatyrer tillfälligt inte tillgängliga: %s</string>

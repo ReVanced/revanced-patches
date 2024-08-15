@@ -1039,6 +1039,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_announcements_connection_failed">Conectarea la furnizorul de anunțuri a eșuat</string>
   <string name="revanced_announcements_dialog_dismiss">Anulare</string>
   </patch>
+  <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Atenție</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Istoricul de vizionare nu este salvat.&lt;br&gt;&lt;br&gt;Cel mai probabil este cauzată de un DNS de blocare a anunțurilor sau de un proxy de rețea.&lt;br&gt;&lt;br&gt;Pentru a remedia acest lucru, lista albă &lt;b&gt;s.youtube.com&lt;/b&gt; sau pentru a opri toate blocantele DNS și proxy-urile.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Nu mai afișa</string>
+  </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
   <string name="revanced_auto_repeat_title">Activare auto-repetare</string>
   <string name="revanced_auto_repeat_summary_on">Auto-repetarea este activată</string>
@@ -1121,7 +1126,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Clientul nu este lovit\n\nEste posibil ca redarea video să nu funcționeze</string>
   <string name="revanced_spoof_client_user_dialog_message">Dezactivarea acestei setări poate cauza probleme de redare video.</string>
   <string name="revanced_spoof_client_use_ios_title">Spoof client pe iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Clientul este în prezent falsificat de iOS\n\nReacţiile adverse includ:\n• este posibil ca videoclipul HDR să nu fie disponibil\n• istoricul ceasului poate să nu funcționeze</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">În prezent, clientul este falsificat de iOS\n\nEfectele secundare includ:\n• este posibil ca videoclipul HDR să nu fie disponibil\n• Istoricul ceasului nu funcționează cu un cont de marcă</string>
   <string name="revanced_spoof_client_use_ios_summary_off">Clientul este în prezent falsificat pe Android VR. Efectele secundare includ:\n• Niciun video HDR\n• Videoclipuri cu copii nu redă\n• Videoclipurile întrerupte pot relua aleatoriu\n• Pictograme scurte de calitate slabă\n• Butonul acțiunii de descărcare este ascuns\n• Cardurile de pe ecran sunt ascunse</string>
   <string name="revanced_spoof_client_storyboard_timeout">Spoof a miniaturilor clientului nu este disponibil (API a expirat)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Fixarea miniaturilor clientului nu este disponibilă temporar: %s</string>
