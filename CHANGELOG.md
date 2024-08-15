@@ -1,3 +1,25 @@
+# [4.13.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.13.0-dev.1...v4.13.0-dev.2) (2024-08-15)
+
+
+### Features
+
+* **YouTube:** Add `Check watch history domain name resolution` patch ([#3537](https://github.com/ReVanced/revanced-patches/issues/3537)) ([2af1425](https://github.com/ReVanced/revanced-patches/commit/2af142525cda07a131335faadd4b3889979fd077))
+
+# [4.13.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.12.1-dev.1...v4.13.0-dev.1) (2024-08-15)
+
+
+### Features
+
+* **Google Photos:** Add `Spoof features` patch ([#3459](https://github.com/ReVanced/revanced-patches/issues/3459)) ([7c218cd](https://github.com/ReVanced/revanced-patches/commit/7c218cd168aa72eb99bcb47d12dfa45616e8ad88))
+* **SCB Easy:** Remove broken `Remove debugging detection` patch ([#3518](https://github.com/ReVanced/revanced-patches/issues/3518)) ([f4e23cb](https://github.com/ReVanced/revanced-patches/commit/f4e23cbb8a24638318d8cee20a1991c51855d9d2))
+
+## [4.12.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.12.0...v4.12.1-dev.1) (2024-08-15)
+
+
+### Bug Fixes
+
+* **YouTube - GmsCore support:** Fix notifications not working by using the correct permissions ([19ddae2](https://github.com/ReVanced/revanced-patches/commit/19ddae2d15e513e18eb1556c468cd94bd197685b))
+
 # [4.12.0](https://github.com/ReVanced/revanced-patches/compare/v4.11.0...v4.12.0) (2024-08-06)
 
 

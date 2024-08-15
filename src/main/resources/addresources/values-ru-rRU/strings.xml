@@ -796,19 +796,19 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_diff_segments">Изменить поведение сегмента</string>
   <string name="revanced_sb_segments_sponsor">Спонсорская реклама</string>
   <string name="revanced_sb_segments_sponsor_sum">Рекламные интеграции, реферальные ссылки и прямая реклама. Не для саморекламы или рекомендаций различных событий/создателей/сайтов/продуктов, которые нравятся автору видео</string>
-  <string name="revanced_sb_segments_selfpromo">Бесплатная реклама / самореклама</string>
+  <string name="revanced_sb_segments_selfpromo">Бесплатная реклама/самореклама</string>
   <string name="revanced_sb_segments_selfpromo_sum">Подобно \"Спонсорской рекламе\", за исключением неоплачиваемой рекламы или саморекламы. Включает разделы о товарах, пожертвованиях или информации о том, с кем сотрудничал автор</string>
   <string name="revanced_sb_segments_interaction">Напоминание о взаимодействии (подписка)</string>
   <string name="revanced_sb_segments_interaction_sum">Короткое напоминание поставить лайк, подписаться на канал или соцсети посреди видеоролика. Если эта вставка длительная или о чем-то конкретном, она должна классифицироваться как самореклама</string>
   <string name="revanced_sb_segments_highlight">Основной момент</string>
   <string name="revanced_sb_segments_highlight_sum">Часть видео, которая интересна большинству людей</string>
-  <string name="revanced_sb_segments_intro">Антракт / вступительная анимация </string>
+  <string name="revanced_sb_segments_intro">Антракт/вступительная анимация </string>
   <string name="revanced_sb_segments_intro_sum">Интервал без фактического содержания. Может быть паузой, статическим кадром или повторяющейся анимацией. Не включает переходы, содержащие информацию</string>
-  <string name="revanced_sb_segments_outro">Конечные заставки / титры</string>
+  <string name="revanced_sb_segments_outro">Конечные заставки/титры</string>
   <string name="revanced_sb_segments_outro_sum">Титры или время появления конечных заставок YouTube. Не для выводов с информацией</string>
-  <string name="revanced_sb_segments_preview">Предпросмотр / пересказ / завязка</string>
+  <string name="revanced_sb_segments_preview">Предпросмотр/пересказ/завязка</string>
   <string name="revanced_sb_segments_preview_sum">Фрагменты, повторяющие текущее видео или предыдущие серии</string>
-  <string name="revanced_sb_segments_filler">Отвлеченные темы / шутки</string>
+  <string name="revanced_sb_segments_filler">Отвлеченные темы/шутки</string>
   <string name="revanced_sb_segments_filler_sum">Сегменты, которые увеличивают длительность видео за счет отвлеченных тем или шуток, но не требуются для понимания основного содержания. Не включает сегменты, объясняющие контекст или предысторию</string>
   <string name="revanced_sb_segments_nomusic">Музыка: сегмент без музыки</string>
   <string name="revanced_sb_segments_nomusic_sum">Только для использования в музыкальных видеороликах. Разделы музыкальных видео без музыки, которые еще не охвачены другой категорией</string>
@@ -1121,7 +1121,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_user_dialog_message">Отключение этой настройки может вызвать проблемы с воспроизведением видео.</string>
   <string name="revanced_spoof_client_use_ios_title">Подмена клиента на iOS</string>
   <string name="revanced_spoof_client_use_ios_summary_on">В настоящее время клиент подменен на iOS\n\nПобочные эффекты включают:\n• HDR видео может отсутствовать\n• История просмотров может не работать</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">В настоящее время клиент подменен на Android VR\n\nПобочные эффекты включают:\n• Отсутствует HDR видео\n• Детские видео не воспроизводятся\n• Приостановленные видео могут случайно возобновляться\n• Миниатюры прогресса воспроизведения Shorts низкого качества\n• Кнопка \"Скачать\" скрыта\n• Заставки следующих видео в конце просмотра скрыты</string>
+  <string name="revanced_spoof_client_use_ios_summary_off">В настоящее время клиент подменен на Android VR. Побочные эффекты включают:\n• Отсутствует HDR видео\n• Детские видео не воспроизводятся\n• Приостановленные видео могут случайно возобновляться\n• Миниатюры прогресса воспроизведения Shorts низкого качества\n• Кнопка \"Скачать\" скрыта\n• Заставки следующих видео в конце просмотра скрыты</string>
   <string name="revanced_spoof_client_storyboard_timeout">Миниатюры в режиме подмены клиента недоступны (время API истекло)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Миниатюры в режиме подмены клиента временно недоступны: %s</string>
   </patch>
