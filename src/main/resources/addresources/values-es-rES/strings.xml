@@ -1038,6 +1038,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_announcements_connection_failed">Error al conectar con el proveedor de anuncios</string>
   <string name="revanced_announcements_dialog_dismiss">Descartar</string>
   </patch>
+  <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Advertencia</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">No mostrar de nuevo</string>
+  </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
   <string name="revanced_auto_repeat_title">Activar autorepetición</string>
   <string name="revanced_auto_repeat_summary_on">Auto-repetición habilitada</string>
@@ -1120,7 +1124,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">El cliente no está falsificado\n\nEs posible que la reproducción de vídeo no funcione</string>
   <string name="revanced_spoof_client_user_dialog_message">Desactivar esta configuración puede causar problemas de reproducción de vídeo.</string>
   <string name="revanced_spoof_client_use_ios_title">Spoof cliente a iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">El cliente está actualmente falseado a iOS\n\nLos efectos laterales incluyen:\n• El vídeo HDR puede no estar disponible\n• El historial del reloj puede no funcionar</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">El cliente está actualmente falseado a iOS\n\nLos efectos laterales incluyen:\n• El vídeo HDR puede no estar disponible\n• El historial de visualización no funciona con una cuenta de marca</string>
   <string name="revanced_spoof_client_use_ios_summary_off">El cliente está actualmente falseado a Android VR. Los efectos laterales incluyen:\n• No hay vídeo HDR\n• Los niños vídeos no se reproducirán\n• Los vídeos en pausa pueden reanudarse aleatoriamente\n• Las miniaturas de barras cortas de baja calidad\n• El botón de acción está oculto\n• Las tarjetas de pantalla final están ocultas</string>
   <string name="revanced_spoof_client_storyboard_timeout">Las miniaturas del cliente de Spoof no están disponibles (API)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Las miniaturas del cliente Spoof temporalmente no están disponibles: %s</string>

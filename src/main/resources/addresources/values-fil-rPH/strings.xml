@@ -1012,6 +1012,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_announcements_connection_failed">Nabigong kumonekta sa provider ng mga anunsyo</string>
   <string name="revanced_announcements_dialog_dismiss">Kalimutan</string>
   </patch>
+  <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Babala</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Huwag ipakitang muli</string>
+  </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
   <string name="revanced_auto_repeat_title">Paganahin ang auto-repeat</string>
   <string name="revanced_auto_repeat_summary_on">Naka-enable ang auto-repeat</string>

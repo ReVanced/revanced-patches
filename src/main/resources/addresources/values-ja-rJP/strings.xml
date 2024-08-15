@@ -1035,6 +1035,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_announcements_connection_failed">アナウンスプロバイダーへの接続に失敗しました</string>
   <string name="revanced_announcements_dialog_dismiss">取り消し</string>
   </patch>
+  <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">警告</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">今後表示しない</string>
+  </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
   <string name="revanced_auto_repeat_title">自動繰り返しを有効化</string>
   <string name="revanced_auto_repeat_summary_on">自動繰り返し処理は有効です</string>

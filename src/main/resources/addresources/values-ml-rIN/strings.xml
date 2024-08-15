@@ -206,6 +206,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.announcements.AnnouncementsPatch">
   </patch>
+  <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
+  </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
   </patch>
   <patch id="misc.dimensions.spoof.SpoofDeviceDimensionsPatch">

@@ -1036,6 +1036,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_announcements_connection_failed">Duyuru sağlayıcısına bağlanılamadı</string>
   <string name="revanced_announcements_dialog_dismiss">Yoksay</string>
   </patch>
+  <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Uyarı</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Bir daha gösterme</string>
+  </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
   <string name="revanced_auto_repeat_title">Otomatik tekrarı etkinleştir</string>
   <string name="revanced_auto_repeat_summary_on">Otomatik tekrar etkin</string>
@@ -1118,7 +1122,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">İstemci taklit edilmiyor\n\nVideo oynatma çalışmayabilir</string>
   <string name="revanced_spoof_client_user_dialog_message">Bu ayarı devre dışı bırakmak video oynatma sorunlarına yol açabilir.</string>
   <string name="revanced_spoof_client_use_ios_title">İstemciyi iOS olarak taklit et</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">İstemci şu anda iOS olarak taklit ediliyor\n\nYan etkiler şunları içerir:\n• HDR videolar olmayabilir\n• İzleme geçmişi çalışmayabilir</string>
   <string name="revanced_spoof_client_use_ios_summary_off">İstemci şu anda Android VR olarak taklit ediliyor. Yan etkiler şunları içerir:\n• HDR videolar yok\n• Çocuklara özel videolar oynatılamaz\n• Duraklatılmış videolar rastgele bir şekilde devam edebilir\n• Shorts zaman çubuğu küçük resimleri düşük kalitede\n• \'İndir\' eylem düğmesi gizli\n• Bitiş ekranı kartları gizli</string>
   <string name="revanced_spoof_client_storyboard_timeout">İstemci küçük resimlerini taklit etme kullanılamıyor (API zaman aşımına uğradı)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">İstemci küçük resimlerini taklit etme geçici olarak kullanılamıyor: %s</string>

@@ -857,7 +857,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_submit_failed_duplicate">Segment kann nicht abgesendet werden. \nBereits vorhanden</string>
   <string name="revanced_sb_submit_succeeded">Segment erfolgreich übertragen</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
-  <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock vorübergehend nicht verfügbar (API 🕛 out)</string>
+  <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock vorübergehend nicht verfügbar (API Timeout)</string>
   <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock vorübergehend nicht verfügbar (Status %d)</string>
   <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock vorübergehend nicht verfügbar</string>
   <string name="revanced_sb_vote_failed_timeout">Abstimmung für Segment nicht möglich (API Timeout)</string>
@@ -889,7 +889,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_stats">Statistiken</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Statistiken vorübergehend nicht verfügbar (API ist herunter)</string>
-  <string name="revanced_sb_stats_loading">Lädt …</string>
+  <string name="revanced_sb_stats_loading">Lädt...</string>
   <string name="revanced_sb_stats_sb_disabled">SponsorBlock ist deaktiviert</string>
   <string name="revanced_sb_stats_username">Ihr Benutzername: &lt;b&gt;%s&lt;/b&gt;</string>
   <string name="revanced_sb_stats_username_change">Tippe hier, um deinen Benutzernamen zu ändern</string>
@@ -1040,6 +1040,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_announcements_connection_failed">Verbindung zum Ankündigungsanbieter fehlgeschlagen</string>
   <string name="revanced_announcements_dialog_dismiss">Verwerfen</string>
   </patch>
+  <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Warnung</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Ihr Beobachtungsverlauf wird nicht gespeichert.&lt;br&gt;&lt;br&gt;Dies wird höchstwahrscheinlich durch einen DNS-Werbeblocker oder einen Netzwerkproxy verursacht.&lt;br&gt;&lt;br&gt;Um dies zu beheben, ist die Whitelist &lt;b&gt;s.youtube.com&lt;/b&gt; oder schalten Sie alle DNS-Blocker und Proxies aus.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Nicht wieder anzeigen</string>
+  </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
   <string name="revanced_auto_repeat_title">Auto-Wiederholung aktivieren</string>
   <string name="revanced_auto_repeat_summary_on">Auto-Wiederholung ist aktiviert</string>
@@ -1122,7 +1127,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Client ist nicht gefälscht\n\nVideo-Wiedergabe funktioniert möglicherweise nicht</string>
   <string name="revanced_spoof_client_user_dialog_message">Das Deaktivieren dieser Einstellung kann zu Videowiedergabeproblemen führen.</string>
   <string name="revanced_spoof_client_use_ios_title">Spoof-Client zu iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Der Client ist derzeit zu iOS\n\nSeiteneffekten gefälscht:\n• HDR-Video ist möglicherweise nicht verfügbar\n• Verlauf kann nicht funktionieren</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Der Client ist derzeit zu iOS\n\nSeiteneffekten gefälscht:\n• HDR-Video ist möglicherweise nicht verfügbar\n• Verlauf funktioniert nicht mit einem Markenkonto</string>
   <string name="revanced_spoof_client_use_ios_summary_off">Der Client ist derzeit auf Android VR gespoofed. Nebeneffekte können sein:\n• Kein HDR Video\n• Kindervideos spielen nicht\n• Pausierte Videos könnten zufällig wieder aufgenommen werden\n• Niedrige Qualität der Shorts-Suchleisten-Thumbnails\n• Download-Button ist ausgeblendet\n• Endbildschirm-Karten werden versteckt</string>
   <string name="revanced_spoof_client_storyboard_timeout">Spoof-Thumbnails nicht verfügbar (API-Zeitüberschreitung)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Spoof-Client-Thumbnails vorübergehend nicht verfügbar: %s</string>
