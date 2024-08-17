@@ -25,6 +25,11 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
                 "7.01.53",
                 "7.02.52",
                 "7.03.52",
+                "7.08.54",
+                "7.10.52",
+                "7.11.51",
+                "7.13.53",
+                "7.14.52",
             ]
         )
     ]
