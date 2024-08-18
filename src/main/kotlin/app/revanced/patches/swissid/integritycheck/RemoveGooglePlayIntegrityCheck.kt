@@ -9,7 +9,7 @@ import app.revanced.patches.swissid.integritycheck.fingerprints.CheckIntegrityFi
 import app.revanced.util.resultOrThrow
 
 @Patch(
-    name = "Remove Google Play Integrity Integrity check",
+    name = "Remove Google Play Integrity check",
     description = "Removes the Google Play Integrity check. With this it's possible to use SwissID on custom ROMS." +
             "If the device is rooted, root permissions must be hidden from the app.",
     compatiblePackages = [CompatiblePackage("com.swisssign.swissid.mobile")],
