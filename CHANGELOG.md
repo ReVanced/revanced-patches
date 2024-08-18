@@ -1,3 +1,10 @@
+## [4.13.4-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.13.3...v4.13.4-dev.1) (2024-08-18)
+
+
+### Bug Fixes
+
+* **SwissID:** Rename `Remove Google Play Integrity Integrity check` to `Remove Google Play Integrity check` ([#3558](https://github.com/ReVanced/revanced-patches/issues/3558)) ([0f5a771](https://github.com/ReVanced/revanced-patches/commit/0f5a771a5cff5684b4a8fd317f4938fe2cf3cbbe))
+
 ## [4.13.3](https://github.com/ReVanced/revanced-patches/compare/v4.13.2...v4.13.3) (2024-08-15)
 
 
