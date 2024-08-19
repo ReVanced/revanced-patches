@@ -21,7 +21,6 @@ object EnableDebugMenuPatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext) {
         InitializeBuildConfigProviderFingerprint.resultOrThrow().let {
-            println("class: " + it.classDef + " method: " + it.method)
             it.mutableMethod.apply {
                 val insertIndex = it.scanResult.patternScanResult!!.startIndex
                 val register = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
