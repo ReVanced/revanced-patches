@@ -3,6 +3,7 @@ package app.revanced.patches.duolingo.debug.fingerprints
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
 /**
  * The `BuildConfigProvider` class has two booleans:
@@ -18,4 +19,7 @@ internal object InitializeBuildConfigProviderFingerprint : MethodFingerprint(
         "release",
         "china",
     ),
+    opcodes = listOf(
+        Opcode.IPUT_BOOLEAN
+    )
 )

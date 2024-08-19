@@ -3,6 +3,7 @@ package app.revanced.patches.duolingo.ad.fingerprints
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
 internal object InitializeMonetizationDebugSettingsFingerprint : MethodFingerprint(
     returnType = "V",
@@ -13,5 +14,8 @@ internal object InitializeMonetizationDebugSettingsFingerprint : MethodFingerpri
         "Z", // showManageSubscriptions
         "Z", // alwaysShowSuperAds
         "Lcom/duolingo/debug/FamilyQuestOverride;",
+    ),
+    opcodes = listOf(
+        Opcode.IPUT_BOOLEAN
     )
 )

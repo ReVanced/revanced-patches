@@ -2,15 +2,13 @@ package app.revanced.patches.duolingo.debug
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.duolingo.debug.fingerprints.InitializeBuildConfigProviderFingerprint
-import app.revanced.util.exception
 import app.revanced.util.resultOrThrow
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction22c
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Enable debug menu",
@@ -22,15 +20,17 @@ object EnableDebugMenuPatch : BytecodePatch(
     setOf(InitializeBuildConfigProviderFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
-        InitializeBuildConfigProviderFingerprint.resultOrThrow().mutableMethod.apply {
-            val setIsDebugBuildIndex = getInstructions().firstOrNull {
-                it.opcode == Opcode.IPUT_BOOLEAN
-            } as? BuilderInstruction22c ?: throw InitializeBuildConfigProviderFingerprint.exception
+        InitializeBuildConfigProviderFingerprint.resultOrThrow().let {
+            println("class: " + it.classDef + " method: " + it.method)
+            it.mutableMethod.apply {
+                val insertIndex = it.scanResult.patternScanResult!!.startIndex
+                val register = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
-            addInstructions(
-                setIsDebugBuildIndex.location.index,
-                "const/4 v${setIsDebugBuildIndex.registerA}, 0x1"
-            )
+                addInstructions(
+                    insertIndex,
+                    "const/4 v$register, 0x1"
+                )
+            }
         }
     }
 }
