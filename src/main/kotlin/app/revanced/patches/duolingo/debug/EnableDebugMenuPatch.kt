@@ -12,7 +12,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Enable debug menu",
-    compatiblePackages = [CompatiblePackage("com.duolingo")],
+    compatiblePackages = [CompatiblePackage("com.duolingo", ["5.158.4"])],
     use = false
 )
 @Suppress("unused")
