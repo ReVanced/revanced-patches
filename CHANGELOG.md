@@ -1,3 +1,10 @@
+## [4.13.4-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.13.4-dev.1...v4.13.4-dev.2) (2024-08-20)
+
+
+### Bug Fixes
+
+* **YouTube - SponsorBlock:** Handle if the user enters an invalid number into any SB settings ([37b3dd1](https://github.com/ReVanced/revanced-patches/commit/37b3dd1e789f8bb16fa1b9dd582e39c89dbe730c))
+
 ## [4.13.4-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.13.3...v4.13.4-dev.1) (2024-08-18)
 
 
