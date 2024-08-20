@@ -780,6 +780,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_sb_general_skipcount_sum_off">Skip count tracking is not enabled</string>
             <string name="revanced_sb_general_min_duration">Minimum segment duration</string>
             <string name="revanced_sb_general_min_duration_sum">Segments shorter than this value (in seconds) will not be shown or skipped</string>
+            <string name="revanced_sb_general_min_duration_invalid">Invalid time duration</string>
             <string name="revanced_sb_general_uuid">Your private user id</string>
             <string name="revanced_sb_general_uuid_sum">This should be kept private. This is like a password and should not be shared with anyone. If someone has this, they can impersonate you</string>
             <string name="revanced_sb_general_uuid_invalid">Private user id must be at least 30 characters long</string>
@@ -880,8 +881,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_sb_new_segment_time_start">Time the segment begins at</string>
             <string name="revanced_sb_new_segment_time_end">Time the segment ends at</string>
             <string name="revanced_sb_new_segment_confirm_title">Are the times correct?</string>
-            <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
             <string name="revanced_sb_new_segment_confirm_content">The segment is from\n\n%1$s\nto\n%2$s\n\n(%3$s)\n\nReady to submit?</string>
             <string name="revanced_sb_new_segment_start_is_before_end">Start must be before the end</string>
             <string name="revanced_sb_new_segment_mark_locations_first">Mark two locations on the time bar first</string>
