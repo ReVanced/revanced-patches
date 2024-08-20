@@ -718,8 +718,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_zero_summary">Không gọi mạng lần nào bị hết hạn</string>
   <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_non_zero_summary">%d lần gọi mạng bị hết hạn</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_title">Số lần đạt giới hạn API máy khách</string>
-  <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">Không gặp phải giới hạn tỷ lệ máy khách</string>
-  <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Gặp phải %d lần đạt giới hạn tỷ lệ máy khách</string>
+  <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">Không gặp phải giới hạn truy cập máy khách</string>
+  <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Gặp phải %d lần đạt giới hạn truy cập máy khách</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d mili-giây</string>
   </patch>
   <patch id="layout.searchbar.WideSearchbarPatch">

@@ -40,7 +40,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_restart">Redémarrer</string>
   <string name="revanced_settings_import">Importer</string>
   <string name="revanced_settings_import_copy">Copier</string>
-  <string name="revanced_settings_import_reset">Réglages ReVanced réinitialisés à la valeur par défaut</string>
+  <string name="revanced_settings_import_reset">Réglages ReVanced réinitialisés aux valeurs par défaut</string>
   <string name="revanced_settings_import_success">%d paramètres importés</string>
   <string name="revanced_settings_import_failure_parse">Échec de l\'importation : %s</string>
   </patch>
@@ -82,10 +82,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_debug_title">Journal de débogage</string>
   <string name="revanced_debug_summary_on">Les journaux de débogage sont activés</string>
   <string name="revanced_debug_summary_off">Les journaux de débogage sont désactivés</string>
-  <string name="revanced_debug_protobuffer_title">Mémoire tampon du protocole de log</string>
+  <string name="revanced_debug_protobuffer_title">Mémoire tampon du protocole de journal</string>
   <string name="revanced_debug_protobuffer_summary_on">Les journaux de débogage incluent le proto buffer</string>
   <string name="revanced_debug_protobuffer_summary_off">Les journaux de débogage n\'incluent pas le proto buffer</string>
-  <string name="revanced_debug_stacktrace_title">Loguer les traces de stack</string>
+  <string name="revanced_debug_stacktrace_title">Enregistrer les traces de la pile</string>
   <string name="revanced_debug_stacktrace_summary_on">Les journaux de débogage incluent la trace de la pile</string>
   <string name="revanced_debug_stacktrace_summary_off">Les journaux de débogage n\'incluent pas la trace de pile</string>
   <string name="revanced_debug_toast_on_error_title">Afficher le toast en cas d\'erreur ReVanced</string>
@@ -135,9 +135,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_search_result_shelf_header_title">Masquer le tiroir d\'en-tête des résultats de recherche</string>
   <string name="revanced_hide_search_result_shelf_header_summary_on">Le tiroir d\'en-tête est masqué</string>
   <string name="revanced_hide_search_result_shelf_header_summary_off">Le tiroir d\'en-tête est affiché</string>
-  <string name="revanced_hide_channel_guidelines_title">Masquer les règlements de la chaîne</string>
-  <string name="revanced_hide_channel_guidelines_summary_on">Les règlements de la chaîne sont masqués</string>
-  <string name="revanced_hide_channel_guidelines_summary_off">Les règlements de la chaîne sont affichés</string>
+  <string name="revanced_hide_channel_guidelines_title">Masquer les règles de la chaîne</string>
+  <string name="revanced_hide_channel_guidelines_summary_on">Les règles de la chaîne sont masqués</string>
+  <string name="revanced_hide_channel_guidelines_summary_off">Les règles de la chaîne sont affichés</string>
   <string name="revanced_hide_expandable_chip_title">Masquer les options extensibles sous les vidéos</string>
   <string name="revanced_hide_expandable_chip_summary_on">Les puces extensibles sont masquées</string>
   <string name="revanced_hide_expandable_chip_summary_off">Les puces extensibles sont affichées</string>

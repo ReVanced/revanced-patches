@@ -201,6 +201,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_chips_shelf_summary_off">চিপ শেলপ প্রদর্শিত হয়েছে</string>
   <string name="revanced_hide_attributes_section_title">বৈশিষ্ট্য বিভাগ লুকান</string>
   <string name="revanced_hide_attributes_section_summary_on">\'বৈশিষ্ট্যযুক্ত স্থান\', গেম এবং সঙ্গীত বিভাগগুলি লুকানো আছে</string>
+  <string name="revanced_hide_attributes_section_summary_off">\'বৈশিষ্ট্যযুক্ত স্থান\', গেম এবং সঙ্গীত বিভাগগুলি প্রদর্শিত হয়েছে</string>
   <string name="revanced_hide_info_cards_section_title">তথ্য কার্ড সেকশন লুকান</string>
   <string name="revanced_hide_info_cards_section_summary_on">তথ্য কার্ড সেকশন লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_info_cards_section_summary_off">তথ্য কার্ড সেকশন প্রদর্শিত হয়েছে</string>

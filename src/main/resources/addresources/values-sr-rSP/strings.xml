@@ -1042,6 +1042,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
   <string name="revanced_check_watch_history_domain_name_dialog_title">Упозорење</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Ваша историја гледања се не чува.&lt;br&gt;&lt;br&gt;Ово је највероватније узроковано DNS блокатором огласа или мрежним проксијем.&lt;br&gt;&lt;br&gt;Да бисте ово поправили, ставите на белу листу &lt;b&gt;s.youtube.com&lt;/b&gt; или искључите све DNS блокаторе и проксије.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Не приказуј поново</string>
   </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
@@ -1126,6 +1127,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Клијент није лажиран\n\nРепродукција видеа можда неће радити</string>
   <string name="revanced_spoof_client_user_dialog_message">Искључивање овог подешавања можда ће изазвати проблеме са репродукцијом видеа.</string>
   <string name="revanced_spoof_client_use_ios_title">Лажиран клијент на iOS</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Клијент је тренутно лажиран на iOS\n\nНежељени ефекти обухватају:\n• HDR видео можда неће бити доступан\n• Историја гледања не ради са налогом бренда</string>
   <string name="revanced_spoof_client_use_ios_summary_off">Клијент је тренутно лажиран на Android VR Нежељени ефекти обухватају:\n• Нема HDR видеа\n• Дечји видео снимци се не репродукују\n• Паузирани видео снимци могу насумично да се настављају\n• Сличице на траци за премотавање Shorts видеа лошег квалитета\n• Дугме за радњу „Преузми“ је скривено\n• Картице завршног екрана су скривене</string>
   <string name="revanced_spoof_client_storyboard_timeout">Сличице у лажираном клијенту нису доступне (API истекао)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Сличице у лажираном клијенту привремено нису доступне: %s</string>
