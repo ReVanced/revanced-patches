@@ -1042,6 +1042,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
   <string name="revanced_check_watch_history_domain_name_dialog_title">Warning</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">시청 기록이 저장되지 않습니다.&lt;br&gt;&lt;br&gt; DNS 광고 차단기 또는 네트워크 프록시로 인해 발생한 문제일 가능성이 높습니다.&lt;br&gt;&lt;br&gt; 이 문제를 해결하려면 &lt;b&gt;s.youtube.com&lt;/b&gt;을 허용 목록에서 제외하거나 모든 DNS 차단기 및 프록시를 해제하세요.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">다시 보지 않기</string>
   </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
@@ -1126,6 +1127,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">클라이언트를 변경하지 않습니다\n동영상 재생 문제가 발생할 수 있습니다</string>
   <string name="revanced_spoof_client_user_dialog_message">이 설정을 비활성화하면 동영상 재생 문제가 발생할 수 있습니다</string>
   <string name="revanced_spoof_client_use_ios_title">iOS 클라이언트로 변경하기</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">클라이언트를 iOS 클라이언트로 변경합니다\n\n알려진 문제점: \n• HDR 동영상이 재생되지 않을 수 있습니다\n• 브랜드 계정에서는 시청 기록이 작동되지 않습니다</string>
   <string name="revanced_spoof_client_use_ios_summary_off">클라이언트를 Android VR 클라이언트로 변경합니다\n\n알려진 문제점: \n• HDR 동영상이 재생되지 않을 수 있습니다\n• Kids 동영상을 재생할 수 없습니다\n• 일시 정지된 동영상이 갑자기 다시 시작될 수 있습니다\n• 저화질 Shorts 재생바 썸네일이 표시됩니다\n• 플레이어 하단에서 오프라인 저장 버튼이 표시되지 않습니다\n• 최종 화면 카드가 표시되지 않습니다</string>
   <string name="revanced_spoof_client_storyboard_timeout">클라이언트 썸네일을 사용할 수 없습니다 (응답 시간 초과)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">클라이언트 썸네일을 일시적으로 사용할 수 없습니다: %s</string>

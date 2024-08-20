@@ -1038,6 +1038,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
   <string name="revanced_check_watch_history_domain_name_dialog_title">Xәbәrdarlıq</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Baxış tarixçəniz saxlanmır.&lt;br&gt;&lt;br&gt;Bu çox güman ki, DNS reklam bloklayıcı və ya şəbəkə proksisinə görədir.&lt;br&gt;&lt;br&gt;.Bunu düzəltmək üçün s.youtube.com-u&lt;/b&gt; &lt;b&gt;ağ siyahıya salın və ya bütün DNS bloklayıcıları və proksiləri bağlayın.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Təkrar göstərmə</string>
   </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
@@ -1122,6 +1123,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_off">Qəbuledici dəyişməyib\n\nVideo oynatma işləməyə bilər</string>
   <string name="revanced_spoof_client_user_dialog_message">Bu seçimin bağlanması, video oynatma problemlərinə səbəb ola bilər.</string>
   <string name="revanced_spoof_client_use_ios_title">Qəbuledicini iOS olaraq saxtalaşdır</string>
+  <string name="revanced_spoof_client_use_ios_summary_on">Qəbuledici hazırda iOS üzrə saxtalaşdırılıb\n\nYan təsirlərə daxildir:\n• HDR video mövcud olmaya bilər\n• Baxış tarixçəsi ödəyici hesab ilə işləmir</string>
   <string name="revanced_spoof_client_use_ios_summary_off">Qəbuledici hazırda Android VR\'ə saxtalaşdırılıb. Yan təsirlərə daxildir:\n• HDR video yoxdur\n• Uşaq videoları oynadılmır\n• Fasilə verilmiş videolar gözlənilmədən davam edə bilər\n• Aşağı keyfiyyətli Shorts axtarma çubuğu miniatürləri\n• \"Yüklə\" fəaliyyət düyməsi gizlidir\n• Bitiş ekran kartları gizlidir</string>
   <string name="revanced_spoof_client_storyboard_timeout">Client kiçik şəkillərini təqlid etmə əlçatmazdır (API vaxtı bitdi)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Client kiçik şəkillərini təqlid etmə müvəqqəti əlçatmazdır: %s</string>

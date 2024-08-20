@@ -889,7 +889,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_stats">Statistiken</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Statistiken vorübergehend nicht verfügbar (API ist herunter)</string>
-  <string name="revanced_sb_stats_loading">Lädt ...</string>
+  <string name="revanced_sb_stats_loading">Lädt...</string>
   <string name="revanced_sb_stats_sb_disabled">SponsorBlock ist deaktiviert</string>
   <string name="revanced_sb_stats_username">Ihr Benutzername: &lt;b&gt;%s&lt;/b&gt;</string>
   <string name="revanced_sb_stats_username_change">Tippe hier, um deinen Benutzernamen zu ändern</string>
