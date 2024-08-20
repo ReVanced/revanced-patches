@@ -869,6 +869,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">Wybierz kategorię segmentu</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategoria jest wyłączona w ustawieniach. Włącz kategorię do wysyłania.</string>
   <string name="revanced_sb_new_segment_title">Nowy segment SponsorBlock\'a</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">Ustawić %s jako początek lub koniec nowego segmentu?</string>
   <string name="revanced_sb_new_segment_mark_start">początek</string>
   <string name="revanced_sb_new_segment_mark_end">koniec</string>
   <string name="revanced_sb_new_segment_now">aktualnie</string>
