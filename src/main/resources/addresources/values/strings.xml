@@ -1141,8 +1141,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_spoof_client_type_title">Spoof client type</string>
             <string name="revanced_spoof_client_type_entry_1">iOS</string>
             <string name="revanced_spoof_client_type_entry_2">Android VR</string>
-            <string name="revanced_spoof_client_ios_force_avc_title">Force iOS AVC</string>
-            <string name="revanced_spoof_client_ios_force_avc_summary_on">iOS video codec is AVC (H.264)</string>
+            <string name="revanced_spoof_client_ios_force_avc_title">Force iOS AVC (H.264)</string>
+            <string name="revanced_spoof_client_ios_force_avc_summary_on">iOS video codec is AVC</string>
             <string name="revanced_spoof_client_ios_force_avc_summary_off">iOS video codec is AVC, VP9, or AV1</string>
             <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Enabling this might improve battery life and fix playback stuttering.\n\nWith AVC you might experience higher data usage or decreased video quality.</string>
             <string name="revanced_spoof_client_about_android_ios_title">iOS spoofing side effects</string>
