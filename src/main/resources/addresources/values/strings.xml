@@ -1141,6 +1141,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_spoof_client_use_ios_title">Spoof client to iOS</string>
             <string name="revanced_spoof_client_use_ios_summary_on">Client is currently spoofed to iOS\n\nSide effects include:\n• HDR video may not be available\n• Watch history does not work with a brand account</string>
             <string name="revanced_spoof_client_use_ios_summary_off">Client is currently spoofed to Android VR\n\nSide effects include:\n• No HDR video\n• Kids videos do not playback\n• Paused videos can randomly resume\n• Low quality Shorts seekbar thumbnails\n• Download action button is hidden\n• End screen cards are hidden</string>
+            <string name="revanced_spoof_client_ios_force_avc1_title">Force iOS AVC1</string>
+            <string name="revanced_spoof_client_ios_force_avc1_summary_on">iOS video codec is AVC1</string>
+            <string name="revanced_spoof_client_ios_force_avc1_summary_off">iOS video codec is AVC1, VP9, or AV1</string>
             <string name="revanced_spoof_client_storyboard_timeout">Spoof client thumbnails not available (API timed out)</string>
             <string name="revanced_spoof_client_storyboard_io_exception">Spoof client thumbnails temporarily not available: %s</string>
         </patch>

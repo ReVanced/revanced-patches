@@ -119,6 +119,7 @@ object SpoofClientPatch : BytecodePatch(
                 preferences = setOf(
                     SwitchPreference("revanced_spoof_client"),
                     SwitchPreference("revanced_spoof_client_use_ios"),
+                    SwitchPreference("revanced_spoof_client_ios_force_avc1")
                 ),
             ),
         )
