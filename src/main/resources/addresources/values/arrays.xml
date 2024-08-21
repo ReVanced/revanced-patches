@@ -97,6 +97,17 @@
                 <item>END</item>
             </string-array>
         </patch>
+        <patch id="misc.fix.playback.SpoofClientPatch">
+            <string-array name="revanced_spoof_client_type_entries">
+                <item>@string/revanced_spoof_client_type_entry_1</item>
+                <item>@string/revanced_spoof_client_type_entry_2</item>
+            </string-array>
+            <string-array name="revanced_spoof_client_type_entry_values">
+                <!-- Enum names from Integrations -->
+                <item>IOS</item>
+                <item>ANDROID_VR</item>
+            </string-array>
+        </patch>
         <patch id="video.quality.RememberVideoQualityPatch">
             <string-array name="revanced_video_quality_default_entries">
                 <item>@string/revanced_video_quality_default_entry_1</item>
