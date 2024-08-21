@@ -125,7 +125,7 @@ object SpoofClientPatch : BytecodePatch(
                         entriesKey = "revanced_spoof_client_type_entries",
                         entryValuesKey = "revanced_spoof_client_type_entry_values"
                     ),
-                    SwitchPreference("revanced_spoof_client_ios_force_avc1"),
+                    SwitchPreference("revanced_spoof_client_ios_force_avc"),
                     NonInteractivePreference("revanced_spoof_client_about_android_ios"),
                     NonInteractivePreference("revanced_spoof_client_about_android_vr")
                 )
