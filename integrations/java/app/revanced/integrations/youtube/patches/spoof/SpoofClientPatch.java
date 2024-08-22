@@ -1,19 +1,25 @@
 package app.revanced.integrations.youtube.patches.spoof;
 
+import static app.revanced.integrations.youtube.patches.spoof.SpoofClientPatch.DeviceHardwareSupport.allowAV1;
+import static app.revanced.integrations.youtube.patches.spoof.SpoofClientPatch.DeviceHardwareSupport.allowVP9;
+
 import android.media.MediaCodecInfo;
 import android.media.MediaCodecList;
 import android.net.Uri;
 import android.os.Build;
+
+import org.chromium.net.ExperimentalUrlRequest;
+
 import app.revanced.integrations.shared.Logger;
+import app.revanced.integrations.shared.settings.Setting;
 import app.revanced.integrations.youtube.patches.BackgroundPlaybackPatch;
 import app.revanced.integrations.youtube.settings.Settings;
-import org.chromium.net.ExperimentalUrlRequest;
 
 @SuppressWarnings("unused")
 public class SpoofClientPatch {
     private static final boolean SPOOF_CLIENT_ENABLED = Settings.SPOOF_CLIENT.get();
-    private static final ClientType SPOOF_CLIENT_TYPE = Settings.SPOOF_CLIENT_USE_IOS.get() ? ClientType.IOS : ClientType.ANDROID_VR;
-    private static final boolean SPOOFING_TO_IOS = SPOOF_CLIENT_ENABLED && SPOOF_CLIENT_TYPE == ClientType.IOS;
+    private static final ClientType SPOOF_CLIENT_TYPE = Settings.SPOOF_CLIENT_TYPE.get();
+    private static final boolean SPOOF_IOS = SPOOF_CLIENT_ENABLED && SPOOF_CLIENT_TYPE == ClientType.IOS;
 
     /**
      * Any unreachable ip address.  Used to intentionally fail requests.
@@ -81,7 +87,7 @@ public class SpoofClientPatch {
      * Injection point.
      */
     public static String getClientVersion(String originalClientVersion) {
-        return SPOOF_CLIENT_ENABLED ? SPOOF_CLIENT_TYPE.version : originalClientVersion;
+        return SPOOF_CLIENT_ENABLED ? SPOOF_CLIENT_TYPE.appVersion : originalClientVersion;
     }
 
     /**
@@ -96,7 +102,7 @@ public class SpoofClientPatch {
      * Fix video qualities missing, if spoofing to iOS by using the correct client OS version.
      */
     public static String getOsVersion(String originalOsVersion) {
-        return SPOOFING_TO_IOS ? ClientType.IOS.osVersion : originalOsVersion;
+        return SPOOF_CLIENT_ENABLED ? SPOOF_CLIENT_TYPE.osVersion : originalOsVersion;
     }
 
     /**
@@ -119,7 +125,7 @@ public class SpoofClientPatch {
      * Return true to force create the playback speed menu.
      */
     public static boolean forceCreatePlaybackSpeedMenu(boolean original) {
-        return SPOOFING_TO_IOS || original;
+        return SPOOF_IOS || original;
     }
 
     /**
@@ -128,7 +134,7 @@ public class SpoofClientPatch {
      * Return true to force enable audio background play.
      */
     public static boolean overrideBackgroundAudioPlayback() {
-        return SPOOFING_TO_IOS && BackgroundPlaybackPatch.playbackIsNotShort();
+        return SPOOF_IOS && BackgroundPlaybackPatch.playbackIsNotShort();
     }
 
     /**
@@ -136,36 +142,97 @@ public class SpoofClientPatch {
      * Fix video qualities missing, if spoofing to iOS by using the correct iOS user-agent.
      */
     public static ExperimentalUrlRequest overrideUserAgent(ExperimentalUrlRequest.Builder builder, String url) {
-        if (SPOOFING_TO_IOS) {
+        if (SPOOF_CLIENT_ENABLED) {
             String path = Uri.parse(url).getPath();
             if (path != null && path.contains("player")) {
-                return builder.addHeader("User-Agent", ClientType.IOS.userAgent).build();
+                return builder.addHeader("User-Agent", SPOOF_CLIENT_TYPE.userAgent).build();
             }
         }
 
         return builder.build();
     }
 
-    private enum ClientType {
+    // Must check for device features in a separate class and cannot place this code inside
+    // the Patch or ClientType enum due to cyclic Setting references.
+    static class DeviceHardwareSupport {
+        private static final boolean DEVICE_HAS_HARDWARE_DECODING_VP9 = deviceHasVP9HardwareDecoding();
+        private static final boolean DEVICE_HAS_HARDWARE_DECODING_AV1 = deviceHasAV1HardwareDecoding();
+
+        private static boolean deviceHasVP9HardwareDecoding() {
+            MediaCodecList codecList = new MediaCodecList(MediaCodecList.ALL_CODECS);
+
+            for (MediaCodecInfo codecInfo : codecList.getCodecInfos()) {
+                final boolean isHardwareAccelerated = (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+                        ? codecInfo.isHardwareAccelerated()
+                        : !codecInfo.getName().startsWith("OMX.google"); // Software decoder.
+                if (isHardwareAccelerated && !codecInfo.isEncoder()) {
+                    for (String type : codecInfo.getSupportedTypes()) {
+                        if (type.equalsIgnoreCase("video/x-vnd.on2.vp9")) {
+                            Logger.printDebug(() -> "Device supports VP9 hardware decoding.");
+                            return true;
+                        }
+                    }
+                }
+            }
+
+            Logger.printDebug(() -> "Device does not support VP9 hardware decoding.");
+            return false;
+        }
+
+        private static boolean deviceHasAV1HardwareDecoding() {
+            // It appears all devices with hardware AV1 are also Android 10 or newer.
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                MediaCodecList codecList = new MediaCodecList(MediaCodecList.ALL_CODECS);
+
+                for (MediaCodecInfo codecInfo : codecList.getCodecInfos()) {
+                    if (codecInfo.isHardwareAccelerated() && !codecInfo.isEncoder()) {
+                        for (String type : codecInfo.getSupportedTypes()) {
+                            if (type.equalsIgnoreCase("video/av01")) {
+                                Logger.printDebug(() -> "Device supports AV1 hardware decoding.");
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+
+            Logger.printDebug(() -> "Device does not support AV1 hardware decoding.");
+            return false;
+        }
+
+        static boolean allowVP9() {
+            return DEVICE_HAS_HARDWARE_DECODING_VP9 && !Settings.SPOOF_CLIENT_IOS_FORCE_AVC.get();
+        }
+
+        static boolean allowAV1() {
+            return allowVP9() && DEVICE_HAS_HARDWARE_DECODING_AV1;
+        }
+    }
+
+    public enum ClientType {
         // https://dumps.tadiphone.dev/dumps/oculus/eureka
+        IOS(5,
+                // iPhone 15 supports AV1 hardware decoding.
+                // Only use if this Android device also has hardware decoding.
+                allowAV1()
+                        ? "iPhone16,2"  // 15 Pro Max
+                        : "iPhone11,4", // XS Max
+                // iOS 14+ forces VP9.
+                allowVP9()
+                        ? "17.5.1.21F90"
+                        : "13.7.17H35",
+                allowVP9()
+                        ? "com.google.ios.youtube/19.10.7 (iPhone; U; CPU iOS 17_5_1 like Mac OS X)"
+                        : "com.google.ios.youtube/19.10.7 (iPhone; U; CPU iOS 13_7 like Mac OS X)",
+                // Version number should be a valid iOS release.
+                // https://www.ipa4fun.com/history/185230
+                "19.10.7"
+        ),
         ANDROID_VR(28,
                 "Quest 3",
-                "1.56.21",
                 "12",
-                "com.google.android.apps.youtube.vr.oculus/1.56.21 (Linux; U; Android 12; GB) gzip"
-        ),
-        // 11,4 = iPhone XS Max.
-        // 16,2 = iPhone 15 Pro Max.
-        // Since the 15 supports AV1 hardware decoding, only spoof that device if this
-        // Android device also has hardware decoding.
-        //
-        // Version number should be a valid iOS release.
-        // https://www.ipa4fun.com/history/185230
-        IOS(5,
-                deviceHasAV1HardwareDecoding() ? "iPhone16,2" : "iPhone11,4",
-                "19.10.7",
-                "17.5.1.21F90",
-                "com.google.ios.youtube/19.10.7 (iPhone; U; CPU iOS 17_5_1 like Mac OS X)"
+                "com.google.android.apps.youtube.vr.oculus/1.56.21 (Linux; U; Android 12; GB) gzip",
+                "1.56.21"
         );
 
         /**
@@ -180,11 +247,6 @@ public class SpoofClientPatch {
         final String model;
 
         /**
-         * App version.
-         */
-        final String version;
-
-        /**
          * Device OS version.
          */
         final String osVersion;
@@ -194,36 +256,24 @@ public class SpoofClientPatch {
          */
         final String userAgent;
 
-        ClientType(int id, String model, String version, String osVersion, String userAgent) {
+        /**
+         * App version.
+         */
+        final String appVersion;
+
+        ClientType(int id, String model, String osVersion, String userAgent, String appVersion) {
             this.id = id;
             this.model = model;
-            this.version = version;
             this.osVersion = osVersion;
             this.userAgent = userAgent;
+            this.appVersion = appVersion;
         }
     }
 
-    private static boolean deviceHasAV1HardwareDecoding() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            MediaCodecList codecList = new MediaCodecList(MediaCodecList.ALL_CODECS);
-
-            for (MediaCodecInfo codecInfo : codecList.getCodecInfos()) {
-                if (codecInfo.isHardwareAccelerated() && !codecInfo.isEncoder()) {
-                    String[] supportedTypes = codecInfo.getSupportedTypes();
-                    for (String type : supportedTypes) {
-                        if (type.equalsIgnoreCase("video/av01")) {
-                            MediaCodecInfo.CodecCapabilities capabilities = codecInfo.getCapabilitiesForType(type);
-                            if (capabilities != null) {
-                                Logger.printDebug(() -> "Device supports AV1 hardware decoding.");
-                                return true;
-                            }
-                        }
-                    }
-                }
-            }
+    public static final class ForceiOSAVCAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            return Settings.SPOOF_CLIENT.get() && Settings.SPOOF_CLIENT_TYPE.get() == ClientType.IOS;
         }
-
-        Logger.printDebug(() -> "Device does not support AV1 hardware decoding.");
-        return false;
     }
 }
