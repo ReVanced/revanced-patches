@@ -99,8 +99,9 @@
         </patch>
         <patch id="misc.fix.playback.SpoofClientPatch">
             <string-array name="revanced_spoof_client_type_entries">
-                <item>@string/revanced_spoof_client_type_entry_1</item>
-                <item>@string/revanced_spoof_client_type_entry_2</item>
+                <!-- OS names are the same in all languages, so specify them here and not in Strings.xml -->
+                <item>iOS</item>
+                <item>Android VR</item>
             </string-array>
             <string-array name="revanced_spoof_client_type_entry_values">
                 <!-- Enum names from Integrations -->
