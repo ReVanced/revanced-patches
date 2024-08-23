@@ -59,6 +59,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">Poznámka</string>
   <string name="revanced_settings_about_links_dev_body">Táto verzia je predbežná a môžu sa vyskytnúť neočakávané problémy</string>
   <string name="revanced_settings_about_links_header">Oficiálne odkazy</string>
+  <string name="revanced_pref_import_export_title">Import / Export</string>
   <string name="revanced_pref_import_export_summary">Import / Export nastavení ReVanced</string>
   </patch>
   <patch id="misc.settings.SettingsPatch">
