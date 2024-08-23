@@ -865,8 +865,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">Čas, kedy segment začína</string>
   <string name="revanced_sb_new_segment_time_end">Čas, kedy segment končí</string>
   <string name="revanced_sb_new_segment_confirm_title">Sú časy správne?</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <string name="revanced_sb_new_segment_confirm_content">Segment je od\n\n%1$s\ndo\n%2$s\n\n(%3$s)\n\nSte pripravený na odoslanie?</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Začiatok musí byť pred koncom</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Najprv označte dve miesta na časovej lište</string>
@@ -1107,7 +1105,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_on">Klient je sfalšovaný</string>
   <string name="revanced_spoof_client_summary_off">Klient nie je sfalšovaný\n\nPrehrávanie videa nemusí fungovať</string>
   <string name="revanced_spoof_client_user_dialog_message">Vypnutie tohto nastavenia môže spôsobiť problémy s prehrávaním videa.</string>
-  <string name="revanced_spoof_client_use_ios_title">Spoof klienta na iOS</string>
   <string name="revanced_spoof_client_storyboard_timeout">Sfalšované miniatúry klientov nie sú k dispozícii (vypršal časový limit rozhrania API)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Sfalšované klientske miniatúry sú dočasne nedostupné: %s</string>
   </patch>

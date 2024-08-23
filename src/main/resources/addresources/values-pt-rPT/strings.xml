@@ -774,6 +774,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_general_skipcount_sum_off">O rastreamento da contagem ignorada não está habilitado</string>
   <string name="revanced_sb_general_min_duration">Duração mínima do segmento</string>
   <string name="revanced_sb_general_min_duration_sum">Segmentos menores que este valor (em segundos) não serão visíveis ou ignorados</string>
+  <string name="revanced_sb_general_min_duration_invalid">Duração inválida</string>
   <string name="revanced_sb_general_uuid">Seu ID de usuário privado</string>
   <string name="revanced_sb_general_uuid_sum">Isso deve ser mantido em particular. Isto é como uma senha e não deve ser compartilhado com ninguém. Se alguém tiver isso, ele pode representar você</string>
   <string name="revanced_sb_general_uuid_invalid">ID do usuário privado deve ter pelo menos 30 caracteres</string>
@@ -874,8 +875,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">Hora do início do segmento em</string>
   <string name="revanced_sb_new_segment_time_end">Tempo que o segmento termina em</string>
   <string name="revanced_sb_new_segment_confirm_title">Os tempos estão corretos?</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <string name="revanced_sb_new_segment_confirm_content">O segmento é de\n\n%1$s\na\n%2$s\n\n(%3$s)\n\nPronto para enviar?</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Iniciar deve ser antes do fim</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Marcar dois locais na barra de tempo</string>
@@ -1121,9 +1120,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_on">Cliente é falsificado</string>
   <string name="revanced_spoof_client_summary_off">Cliente não é falsificado\n\nA reprodução de vídeo pode não funcionar</string>
   <string name="revanced_spoof_client_user_dialog_message">Desativar essa configuração pode causar problemas de reprodução de vídeo.</string>
-  <string name="revanced_spoof_client_use_ios_title">Cliente Spoof para iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Cliente é falsificado atualmente para iOS\n\nOs efeitos colaterais incluem:\n• O vídeo HDR pode não estar disponível\n• Histórico de assistir não funciona com uma conta de marca</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">O cliente está oculta para o Android VR. Os efeitos colaterais incluem:\n• Nenhum vídeo HDR\n• As crianças não reproduzem\n• Os vídeos pausados podem retomar aleatoriamente\n• Miniaturas da barra de busca curta de baixa qualidade\n• Botão de ação para baixar está oculto\n• Cartões de tela final estão ocultos</string>
+  <string name="revanced_spoof_client_type_title">Tipo de cliente Spoof</string>
+  <string name="revanced_spoof_client_ios_force_avc_title">Forçar iOS AVC (H.264)</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_on">Codec de vídeo do iOS é AVC</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_off">Codec de vídeo para iOS é AVC, VP9 ou AV1</string>
+  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Habilitar isso pode melhorar a duração da bateria e corrigir travamentos na reprodução.\n\nAVC tem uma resolução máxima de 1080p, e a reprodução de vídeo usará mais dados na internet do que VP9 ou AV1.</string>
+  <string name="revanced_spoof_client_about_android_ios_title">Efeitos colaterais de iOS</string>
+  <string name="revanced_spoof_client_about_android_ios_summary">• O HDR é suportado somente com código AV1\n• O histórico do relógio não funciona com uma conta de marca</string>
+  <string name="revanced_spoof_client_about_android_vr_title">Android VR efeito de spoofing side</string>
+  <string name="revanced_spoof_client_about_android_vr_summary">• Nenhum vídeo HDR\n• Os vídeos de crianças não são reproduzidos\n• Vídeos pausados podem retomar aleatoriamente\n• Miniaturas da barra de busca de baixa qualidade\n• O botão de ação de download está oculto\n• Cartões de tela final estão ocultos</string>
   <string name="revanced_spoof_client_storyboard_timeout">Miniaturas Spoof client não disponíveis (API timeout)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Miniaturas Spoof client temporariamente não disponíveis: %s</string>
   </patch>

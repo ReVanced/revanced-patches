@@ -876,8 +876,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">Tempo em que o segmento começa</string>
   <string name="revanced_sb_new_segment_time_end">Tempo em que o segmento termina</string>
   <string name="revanced_sb_new_segment_confirm_title">Os tempos estão corretos?</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <string name="revanced_sb_new_segment_confirm_content">O segmento é de\n\n%1$s\na\n%2$s\n\n(%3$s)\n\nPronto para enviar?</string>
   <string name="revanced_sb_new_segment_start_is_before_end">O início deve ser antes do fim</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Marque dois locais na barra de tempo primeiro</string>
@@ -1125,9 +1123,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_on">Cliente é falsificado</string>
   <string name="revanced_spoof_client_summary_off">Cliente não é falsificado\n\nA reprodução de vídeo pode não funcionar</string>
   <string name="revanced_spoof_client_user_dialog_message">Desativar essa configuração pode causar problemas de reprodução de vídeo.</string>
-  <string name="revanced_spoof_client_use_ios_title">Cliente Spoof para iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">O cliente está simulando para o iOS\n\nEfeitos adversos incluem:\n• O HDR pode não estar disponível\n• O histórico de exibição não funciona com uma conta de Marca</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">O cliente está falsificado para o Android VR. Os efeitos colaterais incluem:\n• Sem vídeo HDR\n• Vídeos infantis não são reproduzidos\n• Vídeos pausados podem ser retomados aleatoriamente\n• Miniaturas da barra de busca de Shorts de baixa qualidade\n• O botão de ação de download está oculto\n• Os cards da tela final estão ocultos</string>
   <string name="revanced_spoof_client_storyboard_timeout">Miniaturas Spoof client não disponíveis (API timeout)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Miniaturas Spoof client temporariamente não disponíveis: %s</string>
   </patch>

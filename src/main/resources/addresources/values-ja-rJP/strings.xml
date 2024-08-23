@@ -774,6 +774,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_general_skipcount_sum_off">スキップカウント追跡が有効になっていません</string>
   <string name="revanced_sb_general_min_duration">最小のセグメントの長さ</string>
   <string name="revanced_sb_general_min_duration_sum">設定値 (単位: 秒) より短いセグメントはスキップされず、プレーヤーにも表示されません</string>
+  <string name="revanced_sb_general_min_duration_invalid">無効な時間の長さ</string>
   <string name="revanced_sb_general_uuid">あなたのプライベート ユーザー ID</string>
   <string name="revanced_sb_general_uuid_sum">これは非公開にする必要があります。パスワードのようなもので誰とも共有するべきではありません。誰かがこれを持っている場合、あなたになりすますことができます</string>
   <string name="revanced_sb_general_uuid_invalid">プライベートユーザーIDは30文字以上でなければなりません</string>
@@ -874,8 +875,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">セグメントの開始時刻</string>
   <string name="revanced_sb_new_segment_time_end">セグメントの終了時刻</string>
   <string name="revanced_sb_new_segment_confirm_title">これらの変更は正しいですか？</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <string name="revanced_sb_new_segment_confirm_content">The segment is from\n\n%1$s\nto\n%2$s\n\n(%3$s)\n\nReady to submit?</string>
   <string name="revanced_sb_new_segment_start_is_before_end">開始は終了前にする必要があります</string>
   <string name="revanced_sb_new_segment_mark_locations_first">最初にタイムバーに 2 つの場所をマークしてください</string>
@@ -1120,7 +1119,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_on">クライアントは偽装されています</string>
   <string name="revanced_spoof_client_summary_off">クライアントは偽装されていません\n\nビデオ再生が動作しない可能性があります</string>
   <string name="revanced_spoof_client_user_dialog_message">この設定をオフにすると、ビデオ再生の問題が発生する可能性があります。</string>
-  <string name="revanced_spoof_client_use_ios_title">クライアントを iOS に偽装する</string>
+  <string name="revanced_spoof_client_type_title">クライアントの種類を偽装する</string>
+  <string name="revanced_spoof_client_ios_force_avc_title">iOS AVC (H.264) を強制する</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_on">iOSビデオコーデックはAVCです</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_off">iOSビデオコーデックはAVC、VP9、AV1です</string>
+  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">これを有効にするとバッテリー寿命が延長され、再生が停止する可能性があります。\n\nAVCの最大解像度は1080pで、ビデオ再生はVP9やAV1よりも多くのインターネットデータを使用します。</string>
+  <string name="revanced_spoof_client_about_android_ios_title">iOSスプーフィングの副効果</string>
+  <string name="revanced_spoof_client_about_android_vr_title">Android VR スプーフィング副効果</string>
   <string name="revanced_spoof_client_storyboard_io_exception">クライアントのサムネイルを一時的に偽装できません: %s</string>
   </patch>
   <!-- This patch is no longer used, these strings are not in use, and these strings will be deleted in the future. -->

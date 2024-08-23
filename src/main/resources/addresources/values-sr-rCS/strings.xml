@@ -777,6 +777,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_general_skipcount_sum_off">Praćenje broja preskakanja nije omogućeno</string>
   <string name="revanced_sb_general_min_duration">Minimalno trajanje segmenta</string>
   <string name="revanced_sb_general_min_duration_sum">Segmenti kraći od ove vrednosti (u sekundama) neće biti prikazani ili preskočeni</string>
+  <string name="revanced_sb_general_min_duration_invalid">Nevažeće vremensko trajanje</string>
   <string name="revanced_sb_general_uuid">Vaš privatni korisnički ID</string>
   <string name="revanced_sb_general_uuid_sum">Ovo treba da ostane privatno. Ovo je kao lozinka i ne bi trebalo da se deli ni sa kim. Ako neko ima ovo, može da se lažno predstavlja za vas</string>
   <string name="revanced_sb_general_uuid_invalid">Privatni korisnički ID mora da ima najmanje 30 znakova</string>
@@ -877,8 +878,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">Vreme početka segmenta</string>
   <string name="revanced_sb_new_segment_time_end">Vreme kraja segmenta</string>
   <string name="revanced_sb_new_segment_confirm_title">Da li su vremena tačna?</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <string name="revanced_sb_new_segment_confirm_content">Segment je od\n\n%1$s\ndo\n%%2$s\n\n(%3$s)\n\nSpreman za podnošenje?</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Početak mora biti pre kraja</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Prvo označite dva mesta na vremenskoj traci</string>
@@ -1126,9 +1125,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_on">Klijent je lažiran</string>
   <string name="revanced_spoof_client_summary_off">Klijent nije lažiran\n\nReprodukcija videa možda neće raditi</string>
   <string name="revanced_spoof_client_user_dialog_message">Isključivanje ovog podešavanja možda će izazvati probleme sa reprodukcijom videa.</string>
-  <string name="revanced_spoof_client_use_ios_title">Lažiran klijent na iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Klijent je trenutno lažiran na iOS\n\nNeželjeni efekti obuhvataju:\n• HDR video možda neće biti dostupan\n• Istorija gledanja ne radi sa nalogom brenda</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Klijent je trenutno lažiran na Android VR Neželjeni efekti obuhvataju:\n• Nema HDR videa\n• Dečji video snimci se ne reprodukuju\n• Pauzirani video snimci mogu nasumično da se nastavljaju\n• Sličice na traci za premotavanje Shorts videa lošeg kvaliteta\n• Dugme za radnju „Preuzmi“ je skriveno\n• Kartice završnog ekrana su skrivene</string>
+  <string name="revanced_spoof_client_type_title">Tip lažiranog klijenta</string>
+  <string name="revanced_spoof_client_ios_force_avc_title">Prisili iOS AVC (H.264)</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_on">iOS video kodek je AVC</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_off">iOS video kodek je AVC, VP9 ili AV1</string>
+  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Ako ovo omogućite, možda će se produžiti trajanje baterije i popraviti zastoj pri reprodukciji.\n\nAVC ima maksimalnu rezoluciju od 1080p, a reprodukcija videa će koristiti više internet podataka nego VP9 ili AV1.</string>
+  <string name="revanced_spoof_client_about_android_ios_title">Neželjeni efekti lažiranja na iOS</string>
+  <string name="revanced_spoof_client_about_android_ios_summary">• HDR je podržan samo kodekom AV1\n• Istorija gledanja ne radi sa nalogom brenda</string>
+  <string name="revanced_spoof_client_about_android_vr_title">Neželjeni efekti lažiranja na Android VR</string>
+  <string name="revanced_spoof_client_about_android_vr_summary">• Nema HDR videa\n• Dečji video snimci se ne reprodukuju\n• Pauzirani video snimci mogu nasumično da se nastavljaju\n• Sličice na traci za premotavanje Shorts videa lošeg kvaliteta\n• Dugme za radnju „Preuzmi“ je skriveno\n• Kartice završnog ekrana su skrivene</string>
   <string name="revanced_spoof_client_storyboard_timeout">Sličice u lažiranom klijentu nisu dostupne (API istekao)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Sličice u lažiranom klijentu privremeno nisu dostupne: %s</string>
   </patch>

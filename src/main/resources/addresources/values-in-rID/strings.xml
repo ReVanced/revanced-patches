@@ -211,6 +211,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">Sembunyikan kartu info</string>
   <string name="revanced_hide_info_cards_section_summary_on">Kartu info sudah disembunyikan</string>
   <string name="revanced_hide_info_cards_section_summary_off">Bagian kartu info sudah ditampilkan</string>
+  <string name="revanced_hide_key_concepts_section_title">Sembunyikan bagian \'Konsep kunci\'</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">Bagian \'Konsep kunci\' disembunyikan</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">Bagian \'Konsep kunci\' ditampilkan</string>
   <string name="revanced_hide_transcript_section_title">Sembunyikan bagian transkrip</string>
   <string name="revanced_hide_transcript_section_summary_on">Bagian transkrip sudah disembunyikan</string>
   <string name="revanced_hide_transcript_section_summary_off">Bagian transkrip sudah ditampilkan</string>
@@ -771,6 +774,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_general_skipcount_sum_off">Pelacakan melewati hitungan tidak dinyalakan</string>
   <string name="revanced_sb_general_min_duration">Durasi minimum segmen</string>
   <string name="revanced_sb_general_min_duration_sum">Segmen yang lebih pendek pada dari nilai ini (detik) tidak akan ditampilkan atau dilewati</string>
+  <string name="revanced_sb_general_min_duration_invalid">Durasi waktu tidak valid</string>
   <string name="revanced_sb_general_uuid">ID user pribadi Anda</string>
   <string name="revanced_sb_general_uuid_sum">Ini harus dijaga kerahasiaannya. Seperti kata sandi dan tidak disarankan untuk dibagikan dengan siapa pun. Jika seseorang mendapatkan ini, mereka dapat menyamar sebagai Anda</string>
   <string name="revanced_sb_general_uuid_invalid">ID user harus tidak lebih dari 30 karakter</string>
@@ -871,8 +875,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">Waktu segmen dimulai pada</string>
   <string name="revanced_sb_new_segment_time_end">Waktu segmen diakhiri pada</string>
   <string name="revanced_sb_new_segment_confirm_title">Apakah waktunya benar?</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <string name="revanced_sb_new_segment_confirm_content">Segmen dari\n\n%1$s\nke\n%2$s\n\n(%3$s)\n\nSiap dikirim?</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Awal harus sebelum akhir</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Tandai terlebih dahulu dua lokasi di kotak waktu</string>
@@ -943,6 +945,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Matikan melanjutkan pemutar video Shorts</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_on">Pemutaran Shorts tidak akan dilanjutkan saat aplikasi dimulai</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_off">Pemutaran Shorts akan dilanjutkan saat aplikasi dimulai</string>
   </patch>
   <patch id="layout.tablet.EnableTabletLayoutPatch">
   </patch>
