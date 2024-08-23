@@ -229,8 +229,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">เวลาที่เริ่มต้นส่วนนี้</string>
   <string name="revanced_sb_new_segment_time_end">เวลาที่จบส่วนนี้</string>
   <string name="revanced_sb_new_segment_confirm_title">เวลานี้ถูกต้องไหม?</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <string name="revanced_sb_new_segment_mark_locations_first">กำหนดจุดบนเส้นเวลาก่อน</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">แก้ไขส่วนแบบมือ</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">คุณต้องการแก้ไขจุดเริ่มต้นและจุดจบของส่วนนี้ไหม?</string>

@@ -139,7 +139,6 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
         "uz-rUZ" to "uz",
         "vi-rVN" to "vi",
         "zh-rCN" to "zh-rCN",
-        "zh-rHK" to "zh-rHK",
         "zh-rTW" to "zh-rTW",
         "zu-rZA" to "zu",
     )

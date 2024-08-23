@@ -774,6 +774,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_general_skipcount_sum_off">跳过计数跟踪未启用</string>
   <string name="revanced_sb_general_min_duration">最短片段时长</string>
   <string name="revanced_sb_general_min_duration_sum">短于此值的线段 (以秒为单位) 将不会显示或跳过</string>
+  <string name="revanced_sb_general_min_duration_invalid">无效的时长</string>
   <string name="revanced_sb_general_uuid">您的私人用户 id</string>
   <string name="revanced_sb_general_uuid_sum">这应该被保密。这就像一个密码，不应该与他人分享。如果有人拥有它，他们就可以冒充您</string>
   <string name="revanced_sb_general_uuid_invalid">私有用户ID必须至少 30 个字符长</string>
@@ -874,8 +875,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">片段开始时间</string>
   <string name="revanced_sb_new_segment_time_end">片段结束时间</string>
   <string name="revanced_sb_new_segment_confirm_title">时间是否正确？</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <string name="revanced_sb_new_segment_confirm_content">该片段从\n\n%1$s\n到\n%2$s\n\n(%3$s)\n\n立即提交？</string>
   <string name="revanced_sb_new_segment_start_is_before_end">开始时间必须早于结束</string>
   <string name="revanced_sb_new_segment_mark_locations_first">首先在时间栏上标记两个位置</string>
@@ -1121,7 +1120,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_on">客户端已伪装</string>
   <string name="revanced_spoof_client_summary_off">客户端未伪装\n\n可能无法正常播放视频</string>
   <string name="revanced_spoof_client_user_dialog_message">关闭此选项可能会导致视频不能正常播放。</string>
-  <string name="revanced_spoof_client_use_ios_title">伪装客户端为 iOS</string>
+  <string name="revanced_spoof_client_type_title">Spoof 客户端类型</string>
+  <string name="revanced_spoof_client_ios_force_avc_title">强制iOS AVC (H.264)</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_on">iOS 视频编解码器是AVC</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_off">iOS 视频编解码器是AVC, VP9, 或 AV1</string>
+  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">启用这可能会改善电池寿命并修复播放停顿。\n\nAVC 最大分辨率为1080p，视频播放将使用超过 VP9 或 AV1。</string>
+  <string name="revanced_spoof_client_about_android_ios_title">iOS 正在破坏副效果</string>
+  <string name="revanced_spoof_client_about_android_ios_summary">• HDR 仅支持 AV1 编解码器\n• 观察历史无法使用品牌帐户</string>
+  <string name="revanced_spoof_client_about_android_vr_title">Android VR 破坏副效果</string>
+  <string name="revanced_spoof_client_about_android_vr_summary">• 没有 HDR 视频\n• 儿童视频不播放\n• 暂停的视频可以随机恢复\n• 低质量的搜索栏缩略图\n• 隐藏下载动作按钮\n• 隐藏终端屏幕卡</string>
   <string name="revanced_spoof_client_storyboard_timeout">伪装客户端缩略图不可用（API 超时）</string>
   <string name="revanced_spoof_client_storyboard_io_exception">伪装客户端缩略图暂时不可用： %s</string>
   </patch>

@@ -799,8 +799,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">সেগমেন্টটি শুরু হওয়ার সময়</string>
   <string name="revanced_sb_new_segment_time_end">সেগমেন্টটি শেষ হওয়ার সময়</string>
   <string name="revanced_sb_new_segment_confirm_title">সময়কাল কি সঠিক?</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <string name="revanced_sb_new_segment_confirm_content">সেগমেন্ট সময়কাল\n\n%1$s\nথেকে\n%2$s\n\n(%3$s)\n\nজমা করার জন্য প্রস্তুত?</string>
   <string name="revanced_sb_new_segment_start_is_before_end">শুরু অবশ্যই শেষের আগে হতে হবে</string>
   <string name="revanced_sb_new_segment_mark_locations_first">আগে সময় বারে দুটি অবস্থান চিহ্নিত করুন</string>
@@ -1044,7 +1042,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_on">ক্লায়েন্ট স্পুফ করা হয়েছে</string>
   <string name="revanced_spoof_client_summary_off">ক্লায়েন্ট স্পুফ করা হয়নি\n\nভিডিও প্লেব্যাক ঠিকমতো কাজ নাও করতে পারে</string>
   <string name="revanced_spoof_client_user_dialog_message">এই সেটিংটি বন্ধ করার ফলে ভিডিও প্লেব্যাক ত্রুটি হতে পারে।</string>
-  <string name="revanced_spoof_client_use_ios_title">ক্লায়েন্ট iOS এ স্পুফ করুন</string>
   <string name="revanced_spoof_client_storyboard_timeout">ক্লায়েন্ট স্পুফ থাম্বনেইল সাময়িকভাবে উপলভ্য নয় (API সময় শেষ হয়েছে)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">স্পুফ ক্লায়েন্ট থাম্বনেইল সাময়িকভাবে উপলভ্য নয়: %s</string>
   </patch>
