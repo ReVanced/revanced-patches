@@ -776,6 +776,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_general_skipcount_sum_off">Omiterea numărului de urmărire nu este activată</string>
   <string name="revanced_sb_general_min_duration">Durata minimă a segmentului</string>
   <string name="revanced_sb_general_min_duration_sum">Segmente mai scurte decat aceasta valoare (in secunde) nu vor fi afisate sau omise</string>
+  <string name="revanced_sb_general_min_duration_invalid">Durată de timp invalidă</string>
   <string name="revanced_sb_general_uuid">ID-ul dvs. privat de utilizator</string>
   <string name="revanced_sb_general_uuid_sum">Acest lucru ar trebui să fie păstrat. Este ca o parolă și nu ar trebui să fie partajat cu nimeni. Dacă cineva are acest lucru, te poate impersona.</string>
   <string name="revanced_sb_general_uuid_invalid">Id-ul utilizatorului privat trebuie să aibă cel puțin 30 de caractere</string>
@@ -876,8 +877,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">Timpul în care segmentul începe la</string>
   <string name="revanced_sb_new_segment_time_end">Timpul în care segmentul se termină la</string>
   <string name="revanced_sb_new_segment_confirm_title">Sunt vremurile corecte?</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <string name="revanced_sb_new_segment_confirm_content">Segmentul este de la\n\n%1$s\nla\n%2$s\n\n(%3$s)\n\nGata de trimitere?</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Începe trebuie să fie înainte de sfârșit</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Marchează mai întâi două locații pe bara de timp</string>
@@ -1125,9 +1124,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_on">Clientul este falsificat</string>
   <string name="revanced_spoof_client_summary_off">Clientul nu este lovit\n\nEste posibil ca redarea video să nu funcționeze</string>
   <string name="revanced_spoof_client_user_dialog_message">Dezactivarea acestei setări poate cauza probleme de redare video.</string>
-  <string name="revanced_spoof_client_use_ios_title">Spoof client pe iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">În prezent, clientul este falsificat de iOS\n\nEfectele secundare includ:\n• este posibil ca videoclipul HDR să nu fie disponibil\n• Istoricul ceasului nu funcționează cu un cont de marcă</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Clientul este în prezent falsificat pe Android VR. Efectele secundare includ:\n• Niciun video HDR\n• Videoclipuri cu copii nu redă\n• Videoclipurile întrerupte pot relua aleatoriu\n• Pictograme scurte de calitate slabă\n• Butonul acțiunii de descărcare este ascuns\n• Cardurile de pe ecran sunt ascunse</string>
+  <string name="revanced_spoof_client_type_title">Spoof tipul clientului</string>
+  <string name="revanced_spoof_client_ios_force_avc_title">Forțați iOS AVC (H.264)</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_on">Codecul video iOS este AVC</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_off">Codecul video iOS este AVC, VP9 sau AV1</string>
+  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Activarea acestei funcții ar putea îmbunătăți durata de viață a bateriei și repara blocajul de redare.\n\nAVC are o rezoluție maximă de 1080p, iar redarea video va folosi mai multe date internet decât VP9 sau AV1.</string>
+  <string name="revanced_spoof_client_about_android_ios_title">Reacţii adverse de lingere iOS</string>
+  <string name="revanced_spoof_client_about_android_ios_summary">• HDR este acceptat numai cu AV1 codec\n• Istoricul ceasului nu funcționează cu un cont de marcă</string>
+  <string name="revanced_spoof_client_about_android_vr_title">Reacţii adverse de spoofing Android VR</string>
+  <string name="revanced_spoof_client_about_android_vr_summary">• Niciun video HDR\n• Videoclipuri cu copii nu redă\n• Videoclipurile întrerupte pot relua aleatoriu\n• Miniaturile panourilor căutate de calitate scăzută\n• Butonul de acțiune este ascuns\n• Cardurile de pe ecranul de închidere sunt ascunse</string>
   <string name="revanced_spoof_client_storyboard_timeout">Spoof a miniaturilor clientului nu este disponibil (API a expirat)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Fixarea miniaturilor clientului nu este disponibilă temporar: %s</string>
   </patch>

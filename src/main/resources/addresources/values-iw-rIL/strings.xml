@@ -221,8 +221,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_mark_end">סוף</string>
   <string name="revanced_sb_new_segment_now">עכשיו</string>
   <string name="revanced_sb_new_segment_confirm_title">האם הזמנים נכונים?</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <string name="revanced_sb_new_segment_mark_locations_first">סמן שני מיקומים על סרגל הזמן תחילה</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">נרשם זמן לא חוקי</string>
   <string name="revanced_sb_stats">נתונים</string>

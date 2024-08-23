@@ -774,6 +774,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_general_skipcount_sum_off">Theo dõi số lần bỏ qua được bật</string>
   <string name="revanced_sb_general_min_duration">Thời lượng phân đoạn tối thiểu</string>
   <string name="revanced_sb_general_min_duration_sum">Các phân đoạn ngắn hơn giá trị này (bằng giây) sẽ không được hiện hoặc bỏ qua</string>
+  <string name="revanced_sb_general_min_duration_invalid">Thời lượng không hợp lệ</string>
   <string name="revanced_sb_general_uuid">Định danh người dùng riêng tư của bạn</string>
   <string name="revanced_sb_general_uuid_sum">Mã này nên được giữ riêng tư. Nó giống như mật khẩu và không nên được chia sẻ với bất kỳ ai. Nếu ai đó có nó, họ có thể mạo danh bạn</string>
   <string name="revanced_sb_general_uuid_invalid">Định danh người dùng riêng tư phải dài ít nhất 30 ký tự</string>
@@ -874,8 +875,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">Thời gian phân đoạn bắt đầu lúc</string>
   <string name="revanced_sb_new_segment_time_end">Thời gian phân đoạn kết thúc lúc</string>
   <string name="revanced_sb_new_segment_confirm_title">Thời gian đã đúng chưa?</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <string name="revanced_sb_new_segment_confirm_content">Phân đoạn từ\n\n%1$s\nđến\n%2$s\n\n(%3$s)\n\nCó sẵn sàng để gửi?</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Thời gian bắt đầu phải trước thời gian kết thúc</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Đánh dấu hai vị trí đầu - cuối trên thanh thời gian trước</string>
@@ -1038,6 +1037,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
   <string name="revanced_check_watch_history_domain_name_dialog_title">Cảnh báo</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Lịch sử xem của bạn chưa được lưu.&lt;br&gt;&lt;br&gt;Điều này hầu hết gây ra bởi một DNS trình chặn quảng cáo hoặc proxy mạng.&lt;br&gt;&lt;br&gt;Để sửa nó, cho phép &lt;b&gt;s.youtube.com&lt;/b&gt; hoặc tắt tất cả trình chặn DNS và các proxy.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Không hiện lại</string>
   </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
@@ -1121,8 +1121,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_on">Máy khách đã được giả mạo</string>
   <string name="revanced_spoof_client_summary_off">Máy khách chưa được giả mạo\n\nPhát nền video có thể không hoạt động</string>
   <string name="revanced_spoof_client_user_dialog_message">Việc tắt cài đặt này có thể gây ra sự cố phát nền video.</string>
-  <string name="revanced_spoof_client_use_ios_title">Giả mạo máy khách cho iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Hiện tại máy khách đang giả mạo thành Android VR. Tác dụng phụ bao gồm:\n• Không có video HDR\n• Video dành cho trẻ em không phát lắp\n• Video đã tạm dừng có thể ngẫu nhiên phát tiếp\n• Hình thu nhỏ thanh tiến trình Shorts có chất lượng thấp\n• Nút hành động tải xuống luôn ẩn\n• Các thẻ màn hình kết thúc luôn ẩn</string>
   <string name="revanced_spoof_client_storyboard_timeout">Hình thu nhỏ giả mạo máy khách không khả dụng (API hết hạn)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Hình thu nhỏ giả mạo máy khách tạm thời không khả dụng: %s</string>
   </patch>

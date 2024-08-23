@@ -775,6 +775,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_general_skipcount_sum_off">Overspring tælling er ikke aktiveret</string>
   <string name="revanced_sb_general_min_duration">Minimum linjestykketid</string>
   <string name="revanced_sb_general_min_duration_sum">Segmenter kortere end denne værdi (i sekunder) vil ikke blive vist eller sprunget over</string>
+  <string name="revanced_sb_general_min_duration_invalid">Ugyldig tidsvarighed</string>
   <string name="revanced_sb_general_uuid">Dit private bruger-id</string>
   <string name="revanced_sb_general_uuid_sum">Dette bør holdes privat. Dette er ligesom en adgangskode og bør ikke deles med nogen. Hvis nogen har dette, kan de udgive dig</string>
   <string name="revanced_sb_general_uuid_invalid">Privat bruger-id skal være mindst 30 tegn langt</string>
@@ -875,8 +876,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">Tidspunkt for segmentet begynder på</string>
   <string name="revanced_sb_new_segment_time_end">Tidspunkt for segmentet slutter på</string>
   <string name="revanced_sb_new_segment_confirm_title">Er tiderne korrekte?</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <string name="revanced_sb_new_segment_confirm_content">Segmentet er fra\n\n%1$s\ntil\n%2$s\n\n(%3$s)\n\nKlar til at indsende?</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Start skal være før slutningen</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Markér to steder på tidsbjælken først</string>
@@ -1123,9 +1122,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_on">Kunden er spoofed</string>
   <string name="revanced_spoof_client_summary_off">Klienten er ikke forfalsket\n\nVideoafspilning fungerer muligvis ikke</string>
   <string name="revanced_spoof_client_user_dialog_message">At slå denne indstilling fra kan forårsage problemer med videoafspilning.</string>
-  <string name="revanced_spoof_client_use_ios_title">Spoof klient til iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Klienten er i øjeblikket spoofed til iOS\n\nBivirkninger omfatter:\n• HDR-video er muligvis ikke tilgængelig\n• Watch historie fungerer ikke med en brandkonto</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Klienten er i øjeblikket spoofed til Android VR. Bivirkninger omfatter:\n• Ingen HDR-video\n• Kids videoer ikke afspilning\n• Pause videoer kan tilfældigt genoptage\n• Lav kvalitet Shorts søgelinje miniaturer\n• Download handling knap er skjult\n• End screen cards are hidden</string>
+  <string name="revanced_spoof_client_type_title">Spoof klient type</string>
+  <string name="revanced_spoof_client_ios_force_avc_title">Gennemtving iOS AVC (H.264)</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_on">iOS video codec er AVC</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_off">iOS video codec er AVC, VP9 eller AV1</string>
+  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Aktivering af dette kan forbedre batteriets levetid og rette afspilningsstuttering.\n\nAVC har en maksimal opløsning på 1080p, og videoafspilning vil bruge flere internetdata end VP9 eller AV1.</string>
+  <string name="revanced_spoof_client_about_android_ios_title">iOS forfalskning bivirkninger</string>
+  <string name="revanced_spoof_client_about_android_ios_summary">• HDR er kun understøttet med AV1 codec\n• Watch historie virker ikke med en brandkonto</string>
+  <string name="revanced_spoof_client_about_android_vr_title">Android VR spoofing bivirkninger</string>
+  <string name="revanced_spoof_client_about_android_vr_summary">• Ingen HDR-video\n• Kids videoer ikke afspilning\n• Pausede videoer kan tilfældigt genoptage\n• Lav kvalitet Kortsøgerbar miniaturer\n• Download handling knap er skjult\n• End screen cards are hidden</string>
   <string name="revanced_spoof_client_storyboard_timeout">Spoof klient miniaturer ikke tilgængelige (API timemed out)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Spoof klient miniaturer midlertidigt ikke tilgængelige: %s</string>
   </patch>

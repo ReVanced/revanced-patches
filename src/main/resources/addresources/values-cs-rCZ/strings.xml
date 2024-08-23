@@ -777,6 +777,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_general_skipcount_sum_off">Přeskočit počet sledování není povoleno</string>
   <string name="revanced_sb_general_min_duration">Minimální doba trvání segmentu</string>
   <string name="revanced_sb_general_min_duration_sum">Segmenty kratší než tato hodnota (v sekundách) nebudou zobrazeny nebo přeskočeny</string>
+  <string name="revanced_sb_general_min_duration_invalid">Neplatná doba trvání</string>
   <string name="revanced_sb_general_uuid">Vaše soukromé ID uživatele</string>
   <string name="revanced_sb_general_uuid_sum">Toto by mělo být ponecháno v soukromí. To je jako heslo a nemělo by být s nikým sdíleno. Pokud to někdo má, mohou vás zosobnit</string>
   <string name="revanced_sb_general_uuid_invalid">Soukromé ID uživatele musí mít alespoň 30 znaků</string>
@@ -877,8 +878,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">Čas začátku segmentu</string>
   <string name="revanced_sb_new_segment_time_end">Čas ukončení segmentu v</string>
   <string name="revanced_sb_new_segment_confirm_title">Mají časy pravdu?</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <string name="revanced_sb_new_segment_confirm_content">Segment je od\n\n%1$s\ndo\n%2$s\n\n(%3$s)\n\nPřipraveno k odeslání?</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Začátek musí být před koncem</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Nejdříve označte dvě místa v časové liště</string>
@@ -1126,9 +1125,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_on">Klient je falešný</string>
   <string name="revanced_spoof_client_summary_off">Klient není spoofed\n\nPřehrávání videa nemusí fungovat</string>
   <string name="revanced_spoof_client_user_dialog_message">Vypnutí tohoto nastavení může způsobit problémy při přehrávání videa.</string>
-  <string name="revanced_spoof_client_use_ios_title">Spořič do iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Klient je v současné době spokojen s iOS\n\nBoční efekty zahrnují:\n• HDR video nemusí být k dispozici\n• Historie sledování nefunguje s obchodním účtem</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Klient je v současné době spout s Androidem VR. Boční efekty zahrnují:\n• No HDR video\n• Dětská videa nepřehrávají\n• Pozastavená videa mohou náhodně pokračovat\n• Nízká kvalita krátkých náhledů ve vyhledávacím panelu\n• Tlačítko pro stažení akce je skryté\n• Karty s ukončenou obrazovkou jsou skryté</string>
+  <string name="revanced_spoof_client_type_title">Typ klienta</string>
+  <string name="revanced_spoof_client_ios_force_avc_title">Vynutit iOS AVC (H.264)</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_on">iOS video kodek je AVC</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_off">iOS video kodek je AVC, VP9 nebo AV1</string>
+  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Povolení této funkce může zlepšit životnost baterie a opravit stahování přehrávání.\n\nAVC má maximální rozlišení 1080p a video přehrávání bude používat více dat než VP9 nebo AV1.</string>
+  <string name="revanced_spoof_client_about_android_ios_title">Boční efekty iOS</string>
+  <string name="revanced_spoof_client_about_android_ios_summary">• HDR je podporováno pouze s AV1 kodekem\n• Historie sledování nefunguje s obchodním účtem</string>
+  <string name="revanced_spoof_client_about_android_vr_title">Boční efekty Android VR</string>
+  <string name="revanced_spoof_client_about_android_vr_summary">• Žádné HDR video\n• Dětská videa nepřehrávají\n• Pozastavená videa mohou náhodně obnovit\n• Nízká kvalita rychlých náhledů ve vyhledávacím panelu\n• Tlačítko stahování je skryté\n• Karty na konci obrazovky jsou skryté</string>
   <string name="revanced_spoof_client_storyboard_timeout">Náhledy klientů nejsou k dispozici (vypršel časový limit API)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Spouštění náhledů klientů dočasně není k dispozici: %s</string>
   </patch>
