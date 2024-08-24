@@ -7,5 +7,5 @@ internal object InitSDKFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PRIVATE.value,
     parameters = listOf("L", "L"),
-    strings = listOf("manualStart", "afDevKey", "AF Dev Key is empty")
+    strings = listOf("manualStart", "afDevKey", "AF Dev Key is empty"),
 )
