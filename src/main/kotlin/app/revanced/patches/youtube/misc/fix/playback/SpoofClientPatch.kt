@@ -3,6 +3,7 @@ package app.revanced.patches.youtube.misc.fix.playback
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
@@ -13,6 +14,7 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -29,6 +31,7 @@ import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
@@ -93,6 +96,9 @@ object SpoofClientPatch : BytecodePatch(
         // Player speed menu item.
         CreatePlaybackSpeedMenuItemFingerprint,
 
+        // Player streaming data.
+        CreateStreamingDataFingerprint,
+
         // Video qualities missing.
         BuildRequestFingerprint,
 
@@ -108,6 +114,8 @@ object SpoofClientPatch : BytecodePatch(
         "Lorg/chromium/net/ExperimentalUrlRequest;"
     private const val REQUEST_BUILDER_CLASS_DESCRIPTOR =
         "Lorg/chromium/net/ExperimentalUrlRequest\$Builder;"
+    private const val STREAMING_DATA_CLASS_DESCRIPTOR =
+        "Lcom/google/protos/youtube/api/innertube/StreamingDataOuterClass\$StreamingData;"
 
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
@@ -119,6 +127,7 @@ object SpoofClientPatch : BytecodePatch(
                 preferences = setOf(
                     SwitchPreference("revanced_spoof_client"),
                     SwitchPreference("revanced_spoof_client_use_ios"),
+                    SwitchPreference("revanced_spoof_stream"),
                 ),
             ),
         )
@@ -377,10 +386,61 @@ object SpoofClientPatch : BytecodePatch(
                 // Replace "requestBuilder.build(): Request" with "overrideUserAgent(requestBuilder, url): Request".
                 replaceInstruction(
                     buildRequestIndex,
-                    "invoke-static { v$requestBuilderRegister, v$urlRegister }, " +
+                    "invoke-static { v$requestBuilderRegister, v$urlRegister, v${urlRegister + 1} }, " +
                             "$INTEGRATIONS_CLASS_DESCRIPTOR->" +
-                            "overrideUserAgent(${REQUEST_BUILDER_CLASS_DESCRIPTOR}Ljava/lang/String;)" +
+                            "overrideUserAgent(${REQUEST_BUILDER_CLASS_DESCRIPTOR}Ljava/lang/String;Ljava/util/Map;)" +
                             REQUEST_CLASS_DESCRIPTOR
+                )
+                
+                // Copy request headers for streaming data fetch.
+                addInstruction(newRequestBuilderIndex + 2, "move-object v${urlRegister + 1}, p1")
+            }
+        }
+
+        // endregion
+
+        // region Fix playback by replace the streaming data.
+
+        CreateStreamingDataFingerprint.resultOrThrow().let { result ->
+            result.mutableMethod.apply {
+                val videoDetailsIndex = result.scanResult.patternScanResult!!.endIndex
+                val videoDetailsClass = getInstruction(videoDetailsIndex).getReference<FieldReference>()!!.type
+                val playerProtoClass = parameterTypes.first()
+                val protobufClass = getInstructions().find { instruction ->
+                    instruction.opcode == Opcode.INVOKE_STATIC &&
+                    instruction.getReference<MethodReference>()!!.name.endsWith("smcheckIsLite")
+                }!!.getReference<MethodReference>()!!.definingClass
+
+                addInstructionsWithLabels(
+                    videoDetailsIndex + 1,
+                    """
+                        # Registers is free at this index.
+
+                        invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->isSpoofStreamEnabled()Z
+                        move-result v1
+                        if-eqz v1, :disabled
+
+                        # Get video id.
+                        iget-object v1, v0, $videoDetailsClass->c:Ljava/lang/String;
+                        if-eqz v1, :disabled
+
+                        # Get streaming data.
+                        invoke-static { v1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->getStreamingData(Ljava/lang/String;)Ljava/nio/ByteBuffer;
+                        move-result-object v1
+                        if-eqz v1, :disabled
+
+                        # Parse streaming data.
+                        sget-object v0, $playerProtoClass->a:$playerProtoClass
+                        invoke-static { v0, v1 }, $protobufClass->parseFrom(${protobufClass}Ljava/nio/ByteBuffer;)$protobufClass
+                        move-result-object v1
+                        check-cast v1, $playerProtoClass
+
+                        # Set streaming data.
+                        iget-object v0, v1, $playerProtoClass->h:$STREAMING_DATA_CLASS_DESCRIPTOR
+                        if-eqz v0, :disabled
+                        iput-object v0, p0, $definingClass->a:$STREAMING_DATA_CLASS_DESCRIPTOR
+                    """,
+                    ExternalLabel("disabled", getInstruction(videoDetailsIndex + 1))
                 )
             }
         }
