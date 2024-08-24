@@ -774,6 +774,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_general_skipcount_sum_off">Відстеження кількості пропусків вимкнуто</string>
   <string name="revanced_sb_general_min_duration">Мінімальна тривалість сегменту</string>
   <string name="revanced_sb_general_min_duration_sum">Сегменти, коротші за це значення (в секундах), не будуть показані або пропущені </string>
+  <string name="revanced_sb_general_min_duration_invalid">Неприпустима тривалість</string>
   <string name="revanced_sb_general_uuid">Ваш особистий id користувача</string>
   <string name="revanced_sb_general_uuid_sum">Це повинно залишатися конфіденційним. Це як пароль, і його не можна нікому передавати. Якщо хтось отримає його, він зможе видавати себе за вас</string>
   <string name="revanced_sb_general_uuid_invalid">Особистий id користувача повинен мати довжину не менше 30 символів</string>
@@ -874,8 +875,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">Час сегменту починається з</string>
   <string name="revanced_sb_new_segment_time_end">Час сегменту закінчується на</string>
   <string name="revanced_sb_new_segment_confirm_title">Час початку і кінця сегмента правильні?</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <string name="revanced_sb_new_segment_confirm_content">Час сегменту з\n\n%1$s\nдо\n%2$s\n\n(%3$s)\n\nГотові відправити?</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Початок має бути перед кінцем</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Спочатку позначте дві позиції на панелі часу</string>
@@ -1050,7 +1049,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_device_dimensions_title">Підробити розміри пристрою</string>
   <string name="revanced_spoof_device_dimensions_summary_on">Розміри пристрою підроблено\n\nБільш високі якості відео може бути розблоковано, але можуть спостерігатися затримки під час відтворення відео, підвищене споживання батареї та невідомі побічні ефекти</string>
   <string name="revanced_spoof_device_dimensions_summary_off">Розміри пристрою не підроблено\n\nУвімкнення цієї опції може розблокувати вищі якості відео</string>
-  <string name="revanced_spoof_device_dimensions_user_dialog_message">Увімкнення цієї опції може викликати затримки під час відтворення відео, підвищене споживання батареї та невідомі побічні ефекти.</string>
+  <string name="revanced_spoof_device_dimensions_user_dialog_message">Увімкнення цієї опції може викликати затримки під час відтворення відео, підвищене споживання акумулятора та невідомі побічні ефекти.</string>
   </patch>
   <patch id="misc.gms.GmsCoreSupportResourcePatch">
   <string name="microg_settings_title">Налаштування GmsCore</string>
@@ -1122,9 +1121,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_on">Клієнт підроблений</string>
   <string name="revanced_spoof_client_summary_off">Клієнт не підроблений\n\nВідтворення відео може не працювати</string>
   <string name="revanced_spoof_client_user_dialog_message">Вимкнення цього параметра може призвести до проблем відтворення відео.</string>
-  <string name="revanced_spoof_client_use_ios_title">Підробити клієнт на iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Наразі клієнт підроблений на iOS\n\nПобічні ефекти:\n• HDR відео може бути недоступним\n• Історія переглядів не працює з акаунтом бренду</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Наразі клієнт підроблений на Android VR. Побічні ефекти:\n• Немає HDR відео\n• Відео для дітей не відтворюються\n• Призупинені відео можуть випадково продовжуватися\n• Низька якість мініатюр панелі прогресу Shorts\n• Кнопка завантаження прихована\n• Картки кінцевого екрана приховані</string>
+  <string name="revanced_spoof_client_type_title">Тип підміни клієнта</string>
+  <string name="revanced_spoof_client_ios_force_avc_title">Примусово AVC (H.264) для iOS</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_on">Для підміни клієнта на iOS використовується відео кодек AVC</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_off">Для підміни клієнта на iOS використовується відео кодек AVC, VP9, або AV1</string>
+  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Увімкнення цієї опції може збільшити час роботи від акумулятора та виправити затримки відтворення.\n\nAVC має максимальну роздільну здатність 1080p, а відтворення відео використовуватиме більше даних Інтернету, ніж VP9 або AV1.</string>
+  <string name="revanced_spoof_client_about_android_ios_title">Побічні ефекти підміни iOS:</string>
+  <string name="revanced_spoof_client_about_android_ios_summary">• HDR підтримується тільки AV1 кодеком\n• Історія переглядів не працює з акаунтом бренду</string>
+  <string name="revanced_spoof_client_about_android_vr_title">Побічні ефекти підміни Android VR:</string>
+  <string name="revanced_spoof_client_about_android_vr_summary">• Немає HDR відео\n• Відео для дітей не відтворюються\n• Призупинені відео можуть випадково продовжуватися\n• Низька якість мініатюр панелі прогресу Shorts\n• Кнопка завантаження прихована\n• Картки кінцевого екрана приховані</string>
   <string name="revanced_spoof_client_storyboard_timeout">Мініатюри в режимі підробки клієнта не доступні (закінчився час API)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Мініатюри в режимі підробки клієнта тимчасово не доступні: %s</string>
   </patch>

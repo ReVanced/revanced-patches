@@ -875,8 +875,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">A szakasz kezdetének időpontja:</string>
   <string name="revanced_sb_new_segment_time_end">A szakasz végének időpontja:</string>
   <string name="revanced_sb_new_segment_confirm_title">Helyesek az időpontok?</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <string name="revanced_sb_new_segment_confirm_content">A szegmens:\n\n%1$s\n\n%2$s\n\n(%3$s)\n\nKészen áll a beküldésre?</string>
   <string name="revanced_sb_new_segment_start_is_before_end">A kezdetnek a vége előtt kell lennie</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Előbb jelöljön meg két pontot az idősávon</string>
@@ -1123,8 +1121,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_on">A kliens meghamisítva</string>
   <string name="revanced_spoof_client_summary_off">A kliens nincs hamisítva\n\nLehet, hogy a videólejátszás nem működik</string>
   <string name="revanced_spoof_client_user_dialog_message">A beállítás kikapcsolása videolejátszási problémákat okozhat.</string>
-  <string name="revanced_spoof_client_use_ios_title">Hamis kliens iOS-re</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">A kliens jelenleg Android VR-re van hamisítva. A mellékhatások a következők:\n• Nincs HDR-videó\n• A gyerekeknek készült videók nem játszhatók le\n• A szüneteltetett videók véletlenszerűen folytatódhatnak\n• Rossz minőségű rövidfilmek kereshető indexképei\n• Letöltés művelet gomb el van rejtve\n• A záróképernyő-kártyák el vannak rejtve</string>
   <string name="revanced_spoof_client_storyboard_timeout">Hamis kliens miniatűrök nem érhetők el (API időtúllépés)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">A hamis kliens miniatűrök átmenetileg nem érhetők el: %s</string>
   </patch>

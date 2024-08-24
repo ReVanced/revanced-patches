@@ -774,6 +774,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_general_skipcount_sum_off">Atlama sayısı izleme etkin değil</string>
   <string name="revanced_sb_general_min_duration">En az bölüm süresi</string>
   <string name="revanced_sb_general_min_duration_sum">Bu değerden (saniye cinsinden) kısa olan bölümler gösterilmeyecek ve atlanmayacaktır</string>
+  <string name="revanced_sb_general_min_duration_invalid">Geçersiz zaman süresi</string>
   <string name="revanced_sb_general_uuid">Özel kullanıcı kimliğiniz</string>
   <string name="revanced_sb_general_uuid_sum">Bu gizli tutulmalıdır. Bu bir şifreye benzer ve diğerleriyle paylaşılmaması gerekir. Birinin eline geçerse, sizi taklit edebilir</string>
   <string name="revanced_sb_general_uuid_invalid">Özel kullanıcı kimliğiniz en az 30 karakter olmalıdır</string>
@@ -874,8 +875,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">Bölümün başladığı zaman</string>
   <string name="revanced_sb_new_segment_time_end">Bölümün bittiği zaman</string>
   <string name="revanced_sb_new_segment_confirm_title">Süreler doğru mu?</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <string name="revanced_sb_new_segment_confirm_content">Segment\n\n%1$s\niçin\n%2$s\n\n(%3$s)\n\nGöndermeye hazır mısınız?</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Başlangıç bitişten önce olmalıdır</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Öncelikle zaman çubuğunda iki yer işaretleyin</string>
@@ -1122,9 +1121,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_on">İstemci taklit ediliyor</string>
   <string name="revanced_spoof_client_summary_off">İstemci taklit edilmiyor\n\nVideo oynatma çalışmayabilir</string>
   <string name="revanced_spoof_client_user_dialog_message">Bu ayarı devre dışı bırakmak video oynatma sorunlarına yol açabilir.</string>
-  <string name="revanced_spoof_client_use_ios_title">İstemciyi iOS olarak taklit et</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">İstemci şu anda iOS olarak taklit ediliyor\n\nYan etkiler şunları içerir:\n• HDR videolar olmayabilir\n• İzleme geçmişi bir marka hesabı ile çalışmaz</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">İstemci şu anda Android VR olarak taklit ediliyor. Yan etkiler şunları içerir:\n• HDR videolar yok\n• Çocuklara özel videolar oynatılamaz\n• Duraklatılmış videolar rastgele bir şekilde devam edebilir\n• Shorts zaman çubuğu küçük resimleri düşük kalitede\n• \'İndir\' eylem düğmesi gizli\n• Bitiş ekranı kartları gizli</string>
+  <string name="revanced_spoof_client_type_title">İstemci taklit tipi</string>
+  <string name="revanced_spoof_client_ios_force_avc_title">iOS AVC (H.264) zorla</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_on">iOS video kodeği AVC</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_off">iOS video kodeği AVC, VP9 ya da AV1</string>
+  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Bunu etkinleştirmek batarya ömrünü uzatabilir ve oynatma takılmalarını çözebilir.\n\nAVC en fazla 1080p çözünürlüğe sahiptir ve video oynatımı VP9 veya AV1\'e göre daha fazla internet harcayacaktır.</string>
+  <string name="revanced_spoof_client_about_android_ios_title">iOS taklidi yan etkileri</string>
+  <string name="revanced_spoof_client_about_android_ios_summary">• HDR yalnızca AV1 kodeğiyle desteklenir\n• İzleme geçmişi bir marka hesabıyla çalışmaz</string>
+  <string name="revanced_spoof_client_about_android_vr_title">Android VR taklidi yan etkileri</string>
+  <string name="revanced_spoof_client_about_android_vr_summary">• HDR video yok\n• Çocuklara özel videolar oynatılamaz\n• Duraklatılmış videolar rastgele bir şekilde devam edebilir\n• Shorts zaman çubuğu küçük resimleri düşük kalitede\n• İndirme eylem düğmesi gizli\n• Bitiş ekranı kartları gizli</string>
   <string name="revanced_spoof_client_storyboard_timeout">İstemci küçük resimlerini taklit etme kullanılamıyor (API zaman aşımına uğradı)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">İstemci küçük resimlerini taklit etme geçici olarak kullanılamıyor: %s</string>
   </patch>

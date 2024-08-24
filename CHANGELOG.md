@@ -1,3 +1,10 @@
+# [4.14.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.13.4-dev.2...v4.14.0-dev.1) (2024-08-22)
+
+
+### Features
+
+* **YouTube - Spoof client:** Allow forcing AVC codec with iOS ([#3570](https://github.com/ReVanced/revanced-patches/issues/3570)) ([1a49d1f](https://github.com/ReVanced/revanced-patches/commit/1a49d1f3c2a343d05d0abc07c143add486246fd0))
+
 ## [4.13.4-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.13.4-dev.1...v4.13.4-dev.2) (2024-08-20)
 
 

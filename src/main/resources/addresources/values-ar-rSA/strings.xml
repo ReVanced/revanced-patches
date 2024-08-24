@@ -774,6 +774,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_general_skipcount_sum_off">تم تعطيل تتبع مرات التخطي</string>
   <string name="revanced_sb_general_min_duration">الحد الأدنى لمدة المقطع</string>
   <string name="revanced_sb_general_min_duration_sum">لن يتم عرض المقاطع الأقصر من هذه القيمة (بالثواني) أو تخطيها</string>
+  <string name="revanced_sb_general_min_duration_invalid">المدة الزمنية غير صالحة</string>
   <string name="revanced_sb_general_uuid">معرف المستخدم الفريد الخاص بك</string>
   <string name="revanced_sb_general_uuid_sum">يجب أن يبقى هذا خاصًا. انه مثل كلمة المرور ولا ينبغي مشاركته مع أي شخص. إذا كان شخص ما يملك هذا، فيمكنه انتحال شخصيتك</string>
   <string name="revanced_sb_general_uuid_invalid">يجب أن يكون معرف المستخدم الخاص 30 حرفًا على الأقل</string>
@@ -874,8 +875,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">الوقت الذي يبدأ عنده المقطع</string>
   <string name="revanced_sb_new_segment_time_end">الوقت الذي ينتهي عنده المقطع</string>
   <string name="revanced_sb_new_segment_confirm_title">هل الأوقات صحيحة؟</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <string name="revanced_sb_new_segment_confirm_content">المقطع من\n\n%1$s\nto\n%2$s\n\n(%3$s)\n\nReady to جاهز للإرسال؟</string>
   <string name="revanced_sb_new_segment_start_is_before_end">يجب أن تكون البداية قبل النهاية</string>
   <string name="revanced_sb_new_segment_mark_locations_first">ضع علامة على موقعين في شريط الوقت أولًا</string>
@@ -926,7 +925,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - استعادة سرعة الفيديو الواسعة &amp; قائمة الجودة</string>
   <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - استعادة علامة تبويب المكتبة</string>
   <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - استعادة رف قائمة التشغيل القديم</string>
-  <string name="revanced_spoof_app_version_target_entry_5">17.30.34 - استعادة تصميم واجهة المستخدم القديم</string>
+  <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - استعادة تصميم واجهة المستخدم القديم</string>
   </patch>
   <patch id="layout.startpage.ChangeStartPagePatch">
   <string name="revanced_start_page_title">تعيين صفحة البداية</string>
@@ -1122,9 +1121,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_on">يتم محاكاة العميل</string>
   <string name="revanced_spoof_client_summary_off">لا يتم محاكاة العميل\n\nقد لا يعمل تشغيل الفيديو</string>
   <string name="revanced_spoof_client_user_dialog_message">إيقاف تشغيل هذا الإعداد قد يسبب مشاكل في تشغيل الفيديو.</string>
-  <string name="revanced_spoof_client_use_ios_title">Spoof Client to iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">تتم حاليًا محاكاة العميل إلـى iOS\n\nالآثار الجانبية تشمل:\n• قد لا يكون فيديو HDR متوفرًا\n• لا يعمل سجل المشاهدة مع حساب العلامة التجارية</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">تتم حاليًا محاكاة العميل إلـى Android VR\n\nالآثار الجانبية تشمل:\n• لا يوجد فيديو HDR\n• فيديوهات الأطفال لا يتم تشغيلهم\n• مقاطع الفيديو الموقوفة يمكن أن تستأنف عشوائياً\n• جودة منخفضة لمصغرات شريط التقدم\n• زر التنزيل مخفي\n• بطاقات نهاية الشاشة مخفية</string>
+  <string name="revanced_spoof_client_type_title">نوع Spoof Client</string>
+  <string name="revanced_spoof_client_ios_force_avc_title">فرض AVC iOS (H.264)</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_on">ترميز فيديو iOS هو AVC</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_off">ترميز فيديو iOS هو AVC أو VP9 أو AV1</string>
+  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">قد يؤدي تمكين هذا إلى تحسين عمر البطارية وإصلاح مشكلة تقطيع التشغيل.\n\nيتمتع تنسيق AVC بدقة قصوى تبلغ 1080P، وسيستخدم تشغيل الفيديو المزيد من بيانات الإنترنت مقارنةً بتنسيق VP9 أو AV1.</string>
+  <string name="revanced_spoof_client_about_android_ios_title">التأثيرات الجانبية لمحاكاة iOS</string>
+  <string name="revanced_spoof_client_about_android_ios_summary">• HDR مدعوم فقط مع ترميز AV1\n• سجل المشاهدة لا يعمل مع حساب العلامة التجارية</string>
+  <string name="revanced_spoof_client_about_android_vr_title">التأثيرات الجانبية لمحاكاة Android VR</string>
+  <string name="revanced_spoof_client_about_android_vr_summary">• لا يوجد فيديو HDR\n• لا يتم تشغيل مقاطع فيديو الأطفال\n• يمكن استئناف مقاطع الفيديو المتوقفة مؤقتًا بشكل عشوائي\n• مصغرات شريط تقدم فيديوهات Shorts منخفضة الجودة\n• زر إجراء التنزيل مخفي\n• بطاقات شاشة النهاية مخفية</string>
   <string name="revanced_spoof_client_storyboard_timeout">محاكاة مصغرات العميل غير متوفرة (انتهت مهلة API)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">محاكاة مصغرات العميل غير متوفرة مؤقتًا: %s</string>
   </patch>

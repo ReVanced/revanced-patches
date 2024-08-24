@@ -16,6 +16,8 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.ListPreference
+import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.backgroundplayback.BackgroundPlaybackPatch
@@ -126,10 +128,17 @@ object SpoofClientPatch : BytecodePatch(
                 sorting = PreferenceScreen.Sorting.UNSORTED,
                 preferences = setOf(
                     SwitchPreference("revanced_spoof_client"),
-                    SwitchPreference("revanced_spoof_client_use_ios"),
+                    ListPreference("revanced_spoof_client_type",
+                        summaryKey = null,
+                        entriesKey = "revanced_spoof_client_type_entries",
+                        entryValuesKey = "revanced_spoof_client_type_entry_values"
+                    ),
+                    SwitchPreference("revanced_spoof_client_ios_force_avc"),
+                    NonInteractivePreference("revanced_spoof_client_about_android_ios"),
+                    NonInteractivePreference("revanced_spoof_client_about_android_vr"),
                     SwitchPreference("revanced_spoof_stream"),
-                ),
-            ),
+                )
+            )
         )
 
         // region Block /initplayback requests to fall back to /get_watch requests.
