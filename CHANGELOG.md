@@ -1,3 +1,10 @@
+# [4.14.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.1...v4.14.0-dev.2) (2024-08-24)
+
+
+### Features
+
+* **Duolingo:** Add `Disable ads` and `Enable debug menu` patch ([#3422](https://github.com/ReVanced/revanced-patches/issues/3422)) ([d0a8599](https://github.com/ReVanced/revanced-patches/commit/d0a8599f76ce653e5d7c98069ad3c58b9ab9c5eb))
+
 # [4.14.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.13.4-dev.2...v4.14.0-dev.1) (2024-08-22)
 
 
