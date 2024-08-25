@@ -100,6 +100,7 @@ object SpoofClientPatch : BytecodePatch(
 
         // Player streaming data.
         CreateStreamingDataFingerprint,
+        BuildMediaDataSourceFingerprint,
 
         // Video qualities missing.
         BuildRequestFingerprint,
@@ -450,6 +451,32 @@ object SpoofClientPatch : BytecodePatch(
                         iput-object v0, p0, $definingClass->a:$STREAMING_DATA_CLASS_DESCRIPTOR
                     """,
                     ExternalLabel("disabled", getInstruction(videoDetailsIndex + 1))
+                )
+            }
+        }
+
+        // endregion
+
+        // region Remove /videoplayback request body to fix playback.
+        // This is needed when using iOS client as streaming data source.
+
+        BuildMediaDataSourceFingerprint.resultOrThrow().let {
+            it.mutableMethod.apply {
+                val targetIndex = getInstructions().lastIndex
+
+                addInstructions(
+                    targetIndex,
+                    """
+                        # Field a: Stream uri.
+                        # Field c: Http method.
+                        # Field d: Post data.
+                        iget-object v1, v0, $definingClass->a:Landroid/net/Uri;
+                        iget v2, v0, $definingClass->c:I
+                        iget-object v3, v0, $definingClass->d:[B
+                        invoke-static { v1, v2, v3 }, $INTEGRATIONS_CLASS_DESCRIPTOR->removeVideoPlaybackPostBody(Landroid/net/Uri;I[B)[B
+                        move-result-object v1
+                        iput-object v1, v0, $definingClass->d:[B
+                    """,
                 )
             }
         }
