@@ -1138,19 +1138,19 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_spoof_client_summary_on">Client is spoofed</string>
             <string name="revanced_spoof_client_summary_off">Client is not spoofed\n\nVideo playback may not work</string>
             <string name="revanced_spoof_client_user_dialog_message">Turning off this setting may cause video playback issues.</string>
-            <string name="revanced_spoof_client_type_title">Spoof client type</string>
-            <string name="revanced_spoof_client_ios_force_avc_title">Force iOS AVC (H.264)</string>
-            <string name="revanced_spoof_client_ios_force_avc_summary_on">iOS video codec is AVC</string>
-            <string name="revanced_spoof_client_ios_force_avc_summary_off">iOS video codec is AVC, VP9, or AV1</string>
-            <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Enabling this might improve battery life and fix playback stuttering.\n\nAVC has a maximum resolution of 1080p, and video playback will use more internet data than VP9 or AV1.</string>
+            <string name="revanced_spoof_client_strategy_title">Spoof type</string>
+            <string name="revanced_spoof_client_strategy_replace_streams">Replace streams</string>
+            <string name="revanced_spoof_client_force_avc_title">Force AVC (H.264)</string>
+            <string name="revanced_spoof_client_force_avc_summary_on">Video codec is AVC</string>
+            <string name="revanced_spoof_client_force_avc_summary_off">Video codec is AVC, VP9, or AV1</string>
+            <string name="revanced_spoof_client_force_avc_user_dialog_message">Enabling this might improve battery life and fix playback stuttering.\n\nAVC has a maximum resolution of 1080p, and video playback will use more internet data than VP9 or AV1.</string>
             <string name="revanced_spoof_client_about_android_ios_title">iOS spoofing side effects</string>
             <string name="revanced_spoof_client_about_android_ios_summary">• HDR is supported only with AV1 codec\n• Watch history does not work with a brand account</string>
             <string name="revanced_spoof_client_about_android_vr_title">Android VR spoofing side effects</string>
             <string name="revanced_spoof_client_about_android_vr_summary">• No HDR video\n• Kids videos do not playback\n• Paused videos can randomly resume\n• Low quality Shorts seekbar thumbnails\n• Download action button is hidden\n• End screen cards are hidden</string>
-            <string name="revanced_spoof_stream_title">Spoof stream</string>
-            <string name="revanced_spoof_stream_summary_on">Streaming data is spoofed</string>
-            <string name="revanced_spoof_stream_summary_off">Streaming data is not spoofed\n\nVideo playback may not work</string>
+            <!-- Deprecated string -->
             <string name="revanced_spoof_client_storyboard_timeout">Spoof client thumbnails not available (API timed out)</string>
+            <!-- Deprecated string -->
             <string name="revanced_spoof_client_storyboard_io_exception">Spoof client thumbnails temporarily not available: %s</string>
         </patch>
         <!-- This patch is no longer used, these strings are not in use, and these strings will be deleted in the future. -->

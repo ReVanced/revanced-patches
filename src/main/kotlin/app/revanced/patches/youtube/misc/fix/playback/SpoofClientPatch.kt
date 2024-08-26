@@ -129,15 +129,14 @@ object SpoofClientPatch : BytecodePatch(
                 sorting = PreferenceScreen.Sorting.UNSORTED,
                 preferences = setOf(
                     SwitchPreference("revanced_spoof_client"),
-                    ListPreference("revanced_spoof_client_type",
+                    ListPreference("revanced_spoof_client_strategy",
                         summaryKey = null,
-                        entriesKey = "revanced_spoof_client_type_entries",
-                        entryValuesKey = "revanced_spoof_client_type_entry_values"
+                        entriesKey = "revanced_spoof_client_strategy_entries",
+                        entryValuesKey = "revanced_spoof_client_strategy_entry_values"
                     ),
-                    SwitchPreference("revanced_spoof_client_ios_force_avc"),
+                    SwitchPreference("revanced_spoof_client_force_avc"),
                     NonInteractivePreference("revanced_spoof_client_about_android_ios"),
                     NonInteractivePreference("revanced_spoof_client_about_android_vr"),
-                    SwitchPreference("revanced_spoof_stream"),
                 )
             )
         )
@@ -270,7 +269,7 @@ object SpoofClientPatch : BytecodePatch(
                 ).toMutable().apply {
                     addInstructions(
                         """
-                            invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->isClientSpoofingEnabled()Z
+                            invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->isClientTypeSpoofingEnabled()Z
                             move-result v0
                             if-eqz v0, :disabled
                             
