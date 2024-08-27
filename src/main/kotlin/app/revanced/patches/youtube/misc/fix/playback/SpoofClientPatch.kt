@@ -139,7 +139,7 @@ object SpoofClientPatch : BytecodePatch(
 
         // endregion
 
-        // region Fix video qualities missing, if spoofing to iOS by overriding the user agent.
+        // region Fetch replacement streams.
 
         BuildRequestFingerprint.resultOrThrow().let { result ->
             result.mutableMethod.apply {
@@ -149,12 +149,12 @@ object SpoofClientPatch : BytecodePatch(
                 val newRequestBuilderIndex = result.scanResult.patternScanResult!!.endIndex
                 val urlRegister = getInstruction<FiveRegisterInstruction>(newRequestBuilderIndex).registerD
 
-                // Replace "requestBuilder.build(): Request" with "overrideUserAgent(requestBuilder, url): Request".
+                // Replace "requestBuilder.build()" with integrations call.
                 replaceInstruction(
                     buildRequestIndex,
                     "invoke-static { v$requestBuilderRegister, v$urlRegister, v${urlRegister + 1} }, " +
                             "$INTEGRATIONS_CLASS_DESCRIPTOR->" +
-                            "overrideUserAgent(${REQUEST_BUILDER_CLASS_DESCRIPTOR}Ljava/lang/String;Ljava/util/Map;)" +
+                            "buildRequest(${REQUEST_BUILDER_CLASS_DESCRIPTOR}Ljava/lang/String;Ljava/util/Map;)" +
                             REQUEST_CLASS_DESCRIPTOR
                 )
                 
@@ -165,7 +165,7 @@ object SpoofClientPatch : BytecodePatch(
 
         // endregion
 
-        // region Fix playback by replace the streaming data.
+        // region Replace the streaming data.
 
         CreateStreamingDataFingerprint.resultOrThrow().let { result ->
             result.mutableMethod.apply {
