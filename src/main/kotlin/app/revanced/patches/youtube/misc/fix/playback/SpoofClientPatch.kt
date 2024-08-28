@@ -79,9 +79,9 @@ object SpoofClientPatch : BytecodePatch(
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/spoof/SpoofClientPatch;"
     private const val REQUEST_CLASS_DESCRIPTOR =
-        "Lorg/chromium/net/ExperimentalUrlRequest;"
+        "Lorg/chromium/net/UrlRequest;"
     private const val REQUEST_BUILDER_CLASS_DESCRIPTOR =
-        "Lorg/chromium/net/ExperimentalUrlRequest\$Builder;"
+        "Lorg/chromium/net/UrlRequest\$Builder;"
     private const val STREAMING_DATA_CLASS_DESCRIPTOR =
         "Lcom/google/protos/youtube/api/innertube/StreamingDataOuterClass\$StreamingData;"
 
