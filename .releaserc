@@ -33,7 +33,7 @@
       {
         "assets": [
           {
-            "path": "build/libs/revanced-patches*"
+            "path": "patches/build/libs/patches-!(*sources*|*javadoc*).rvp?(.asc)"
           },
           {
             "path": "patches.json"
