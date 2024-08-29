@@ -432,9 +432,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_home_button_summary_on">Butonul Acasă este ascuns</string>
   <string name="revanced_hide_home_button_summary_off">Butonul Acasă este afișat</string>
   <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
-  <string name="revanced_hide_shorts_button_title">Ascunde scurturi</string>
-  <string name="revanced_hide_shorts_button_summary_on">Butonul scurt este ascuns</string>
-  <string name="revanced_hide_shorts_button_summary_off">Butonul scurt este afișat</string>
+  <string name="revanced_hide_shorts_button_title">Ascunde Shorts</string>
+  <string name="revanced_hide_shorts_button_summary_on">Butonul Shorts este ascuns</string>
+  <string name="revanced_hide_shorts_button_summary_off">Butonul Shorts este afișat</string>
   <!-- The Create button has no display name. Translate normally. -->
   <string name="revanced_hide_create_button_title">Ascunde Creare</string>
   <string name="revanced_hide_create_button_summary_on">Butonul de creare este ascuns</string>
@@ -515,9 +515,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_section_title">Ascunde secțiunea comentarii</string>
   <string name="revanced_hide_comments_section_summary_on">Secţiunea de comentarii este ascunsă</string>
   <string name="revanced_hide_comments_section_summary_off">Secțiunea comentariilor este afișată</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">Ascunde butonul \'Creare scurtă\'</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">Butonul \'Crează un scurt\' este ascuns</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">Butonul \'Crează un scurt\' este afișat</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">Ascunde butonul \'Creare Short\'</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">Butonul \'Crează un Short\' este ascuns</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">Butonul \'Crează un Short\' este afișat</string>
   <string name="revanced_hide_comments_preview_comment_title">Ascunde previzualizarea comentariului</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Previzualizarea comentariului este ascunsă</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Previzualizarea comentariului este afișată</string>
@@ -581,16 +581,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_hide_shorts_home_title">Ascunde scurtăturile din feed-ul de acasă</string>
-  <string name="revanced_hide_shorts_home_summary_on">Scurtăturile din fluxul de acasă sunt ascunse</string>
-  <string name="revanced_hide_shorts_home_summary_off">Scurtăturile din feed-ul acasă sunt afișate</string>
+  <string name="revanced_hide_shorts_home_title">Ascunde Short din feed-ul de acasă</string>
+  <string name="revanced_hide_shorts_home_summary_on">Shorts în fluxul de acasă sunt ascunse</string>
+  <string name="revanced_hide_shorts_home_summary_off">Sunt afișate Shorts în fluxul de acasă</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
-  <string name="revanced_hide_shorts_subscriptions_title">Ascunde scurtăturile în feed-ul abonamentelor</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Scurtăturile din feed-ul abonamentelor sunt ascunse</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Scurte din feed-ul abonamentelor sunt afișate</string>
-  <string name="revanced_hide_shorts_search_title">Ascunde scurtăturile în rezultatele căutării</string>
-  <string name="revanced_hide_shorts_search_summary_on">Punctele slabe din rezultatele căutării sunt ascunse</string>
-  <string name="revanced_hide_shorts_search_summary_off">Punctele slabe din rezultatele căutării sunt afișate</string>
+  <string name="revanced_hide_shorts_subscriptions_title">Ascundeți Shorts în fluxul de abonament</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts din feed-ul abonamentelor sunt ascunse</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts din feed-ul abonamentelor sunt afișate</string>
+  <string name="revanced_hide_shorts_search_title">Ascunde Shorts în rezultatele căutării</string>
+  <string name="revanced_hide_shorts_search_summary_on">Shorts în rezultatele căutării sunt ascunse</string>
+  <string name="revanced_hide_shorts_search_summary_off">Sunt afișate Shorts în rezultatele căutării</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Ascunde butonul de alăturare</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Butonul de alăturare este ascuns</string>
@@ -976,7 +976,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_hide_rewind_forward_title">Ascunde butoanele de omitere înainte şi înapoi</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Sari înainte și înapoi sunt ascunse</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Sari înainte și înapoi sunt afișate</string>
-  <string name="revanced_miniplayer_opacity_title">Overlay opacity</string>
+  <string name="revanced_miniplayer_opacity_title">Opacitatea suprapunerii</string>
   <string name="revanced_miniplayer_opacity_summary">Valoarea Opacității între 0-100, unde 0 este transparent</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Opacitatea miniplayer suprapusă trebuie să fie între 0-100</string>
   </patch>

@@ -85,6 +85,7 @@ object AddResourcesPatch : ResourcePatch(), MutableMap<Value, MutableSet<BaseRes
         "fi-rFI" to "fi",
         "fil-rPH" to "tl",
         "fr-rFR" to "fr",
+        "ga-rIE" to "ga",
         "gl-rES" to "gl",
         "gu-rIN" to "gu",
         "hi-rIN" to "hi",

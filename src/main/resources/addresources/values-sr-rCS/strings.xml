@@ -71,7 +71,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_03_feed_title">Fid</string>
   <string name="revanced_settings_screen_04_player_title">Plejer</string>
   <string name="revanced_settings_screen_05_general_title">Opšti izgled</string>
-  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Traka za premotavanje</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Kontrole prevlačenja</string>
   <string name="revanced_settings_screen_11_misc_title">Razno</string>

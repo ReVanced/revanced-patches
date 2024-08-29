@@ -949,21 +949,38 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_resuming_shorts_player_summary_off">Pemutaran Shorts akan dilanjutkan saat aplikasi dimulai</string>
   </patch>
   <patch id="layout.tablet.EnableTabletLayoutPatch">
+  <string name="revanced_tablet_layout_title">Aktifkan tata letak tablet</string>
+  <string name="revanced_tablet_layout_summary_on">Tata letak tablet diaktifkan</string>
+  <string name="revanced_tablet_layout_summary_off">Tata letak tablet dinonaktifkan</string>
+  <string name="revanced_tablet_layout_user_dialog_message">Tidak ada postingan komunitas untuk tablet</string>
   </patch>
   <patch id="layout.miniplayer.MiniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Pemutar Mini</string>
+  <string name="revanced_miniplayer_screen_summary">Mengubah gaya pemutar aplikasi saat diciuitkan</string>
+  <string name="revanced_miniplayer_type_title">Jenis miniplayer</string>
   <string name="revanced_miniplayer_type_entry_1">Orisinal</string>
   <string name="revanced_miniplayer_type_entry_2">Ponsel</string>
   <string name="revanced_miniplayer_type_entry_3">Tablet</string>
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
   <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
+  <string name="revanced_miniplayer_hide_expand_close_title">Sembunyikan perbesar dan tutup</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">Tombol disembunyikan\n(usap miniplayer untuk membentang/tutup)</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">Tombol bentang dan tutup ditampilkan</string>
   <string name="revanced_miniplayer_hide_subtext_title">Sembunyikan subteks</string>
+  <string name="revanced_miniplayer_hide_subtext_summary_on">Subteks disembunyikan</string>
+  <string name="revanced_miniplayer_hide_subtext_summary_off">Subteks ditampilkan</string>
+  <string name="revanced_miniplayer_hide_rewind_forward_title">Sembunyikan percepat dan kembali</string>
+  <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Kembali dan percepat disembunyikan</string>
+  <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Kembali dan percepat ditampilkan</string>
   <string name="revanced_miniplayer_opacity_title">Kelegapan hamparan</string>
   </patch>
   <patch id="layout.theme.ThemeBytecodePatch">
+  <string name="revanced_gradient_loading_screen_title">Aktifkan layar pemuatan gradien</string>
   </patch>
   <patch id="layout.theme.ThemeResourcePatch">
+  <string name="revanced_seekbar_custom_color_value_title">Warna seekbar kustom</string>
+  <string name="revanced_seekbar_custom_color_value_summary">Warna dari seekbar</string>
   </patch>
   <patch id="layout.thumbnails.BypassImageRegionRestrictions">
   <string name="revanced_bypass_image_region_restrictions_title">Abaikan batasan daerah gambar</string>
@@ -972,11 +989,33 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
+  <string name="revanced_alt_thumbnail_home_title">Tab beranda</string>
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
+  <string name="revanced_alt_thumbnail_subscription_title">Tab langganan</string>
   <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
+  <string name="revanced_alt_thumbnail_library_title">Tab Anda</string>
+  <string name="revanced_alt_thumbnail_player_title">Daftar putar video, anjuran</string>
+  <string name="revanced_alt_thumbnail_search_title">Hasil pencarian</string>
+  <string name="revanced_alt_thumbnail_options_entry_1">Thumbnail asli</string>
+  <string name="revanced_alt_thumbnail_options_entry_4">Tangkapan diam</string>
+  <string name="revanced_alt_thumbnail_dearrow_api_url_title">Titik akhir API DeArrow</string>
+  <string name="revanced_alt_thumbnail_stills_about_title">Tangkapan video diam</string>
+  <string name="revanced_alt_thumbnail_stills_fast_title">Gunakan tangkapan diam cepat</string>
+  <string name="revanced_alt_thumbnail_stills_fast_summary_on">Menggunakan tangkapan diam mutu sedang. Gambar mini akan cepat dimuat; tapi live stream, video belum rilis, dan lawas mungkin tidak muncul gambar mini</string>
+  <string name="revanced_alt_thumbnail_stills_fast_summary_off">Menggunakan tangkapan diam mutu tinggi</string>
+  <string name="revanced_alt_thumbnail_stills_time_title">Lama waktu menangkap layar video</string>
+  <string name="revanced_alt_thumbnail_stills_time_entry_1">Awal video</string>
+  <string name="revanced_alt_thumbnail_stills_time_entry_2">Pertengahan video</string>
+  <string name="revanced_alt_thumbnail_stills_time_entry_3">Akhir video</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_alt_thumbnail_dearrow_error">DeArrow sementara ini tidak tersedia (kode status: %s)</string>
+  <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow sementara ini tidak tersedia</string>
   </patch>
   <patch id="misc.announcements.AnnouncementsPatch">
+  <string name="revanced_announcements_title">Tampilkan pengumuman ReVanced</string>
+  <string name="revanced_announcements_summary_on">Pengumuman dimunculkan di awal buka</string>
+  <string name="revanced_announcements_summary_off">Pengumuman tidak dimunculkan di awal buka</string>
+  <string name="revanced_announcements_enabled_summary">Tampilkan pengumuman di awal buka</string>
   <string name="revanced_announcements_dialog_dismiss">Abaikan</string>
   </patch>
   <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
@@ -984,13 +1023,18 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Jangan tampilkan lagi</string>
   </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
+  <string name="revanced_auto_repeat_title">Aktifkan ulang-otomatis</string>
+  <string name="revanced_auto_repeat_summary_on">Ulang-otomatis diaktifkan</string>
+  <string name="revanced_auto_repeat_summary_off">Ulang-otomatis dinonaktifkan</string>
   </patch>
   <patch id="misc.dimensions.spoof.SpoofDeviceDimensionsPatch">
+  <string name="revanced_spoof_device_dimensions_title">Palsukan dimensi perangkat</string>
   <string name="revanced_spoof_device_dimensions_summary_on">Dimensi perangkat dipalsukan\n\nAkan ada resolusi video lebih tinggi tapi video jadi patah-patah, baterai terkuras, dan efek samping tidak jelas</string>
   <string name="revanced_spoof_device_dimensions_summary_off">Dimensi perangkat tidak dipalsukan\n\nMengaktifkan ini akan ada resolusi video lebih tinggi</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Mengaktifkan ini menyebabkan video jadi patah-patah, baterai terkuras, dan efek samping tidak jelas.</string>
   </patch>
   <patch id="misc.gms.GmsCoreSupportResourcePatch">
+  <string name="microg_settings_title">Pengaturan GmsCore</string>
   </patch>
   <patch id="misc.links.BypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Abaikan pengalihan URL</string>
@@ -998,10 +1042,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_bypass_url_redirects_summary_off">Pengalihan URL tidak diabaikan</string>
   </patch>
   <patch id="misc.links.OpenLinksExternallyPatch">
+  <string name="revanced_external_browser_title">Buka tautan di peramban</string>
+  <string name="revanced_external_browser_summary_on">Membuka tautan di eksternal</string>
+  <string name="revanced_external_browser_summary_off">Membuka tautan di aplikasi</string>
   </patch>
   <patch id="misc.privacy.RemoveTrackingQueryParameterPatch">
   </patch>
   <patch id="misc.zoomhaptics.ZoomHapticsPatch">
+  <string name="revanced_disable_zoom_haptics_summary_on">Sentuh getar dinonaktifkan</string>
+  <string name="revanced_disable_zoom_haptics_summary_off">Sentuh getar diaktifkan</string>
   </patch>
   <patch id="video.quality.RememberVideoQualityPatch">
   <string name="revanced_video_quality_default_entry_1">Mutu video otomatis</string>
@@ -1015,10 +1064,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_remember_video_quality_toast">Mutu bawaan %1$s diubah ke: %2$s</string>
   </patch>
   <patch id="video.speed.button.PlaybackSpeedButtonPatch">
+  <string name="revanced_playback_speed_dialog_button_title">Tampilkan tombol cepat dialog</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Tombol ditampilkan</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Tombol tidak ditampilkan</string>
   </patch>
   <patch id="video.speed.custom.CustomPlaybackSpeedPatch">
+  <string name="revanced_custom_playback_speeds_title">Kecepatan putar kustom</string>
+  <string name="revanced_custom_playback_speeds_summary">Tambah atau ubah kecepatan putar yang tersedia</string>
   </patch>
   <patch id="video.speed.remember.RememberPlaybackSpeedPatch">
   </patch>

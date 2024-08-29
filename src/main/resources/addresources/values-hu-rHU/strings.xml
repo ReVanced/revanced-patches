@@ -69,7 +69,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_03_feed_title">Hírfolyam</string>
   <string name="revanced_settings_screen_04_player_title">Lejátszó</string>
   <string name="revanced_settings_screen_05_general_title">Általános elrendezés</string>
-  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Keresősáv</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Csúsztatási vezérlők</string>
   <string name="revanced_settings_screen_11_misc_title">Egyéb</string>
@@ -1121,6 +1120,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_on">A kliens meghamisítva</string>
   <string name="revanced_spoof_client_summary_off">A kliens nincs hamisítva\n\nLehet, hogy a videólejátszás nem működik</string>
   <string name="revanced_spoof_client_user_dialog_message">A beállítás kikapcsolása videolejátszási problémákat okozhat.</string>
+  <string name="revanced_spoof_client_type_title">Hamis ügyféltípus</string>
+  <string name="revanced_spoof_client_ios_force_avc_title">Kényszerített iOS AVC (H.264)</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_on">Az iOS videokodek AVC</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_off">Az iOS videokodek AVC, VP9 vagy AV1</string>
+  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Ennek engedélyezése javíthatja az akkumulátor élettartamát, és kijavíthatja a lejátszás akadozását.\n\nAz AVC maximális felbontása 1080p, és a videolejátszás több internetadatot használ, mint a VP9 vagy az AV1.</string>
+  <string name="revanced_spoof_client_about_android_ios_title">iOS hamisítási mellékhatások</string>
+  <string name="revanced_spoof_client_about_android_ios_summary">• A HDR csak AV1 kodekkel támogatott\n• A megtekintési előzmények nem működnek márkafiókkal</string>
+  <string name="revanced_spoof_client_about_android_vr_title">Android VR-hamisítási mellékhatások</string>
+  <string name="revanced_spoof_client_about_android_vr_summary">• Nincs HDR-videó\n• A gyerekeknek készült videók nem játszhatók le\n• A szüneteltetett videók véletlenszerűen folytatódhatnak\n• Rossz minőségű rövidfilmek kereshető indexképei\n• Letöltés művelet gomb el van rejtve\n• A záróképernyő-kártyák el vannak rejtve</string>
   <string name="revanced_spoof_client_storyboard_timeout">Hamis kliens miniatűrök nem érhetők el (API időtúllépés)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">A hamis kliens miniatűrök átmenetileg nem érhetők el: %s</string>
   </patch>

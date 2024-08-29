@@ -1125,7 +1125,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_ios_force_avc_title">Примусово AVC (H.264) для iOS</string>
   <string name="revanced_spoof_client_ios_force_avc_summary_on">Для підміни клієнта на iOS використовується відео кодек AVC</string>
   <string name="revanced_spoof_client_ios_force_avc_summary_off">Для підміни клієнта на iOS використовується відео кодек AVC, VP9, або AV1</string>
-  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Увімкнення цієї опції може збільшити час роботи від акумулятора та виправити затримки відтворення.\n\nAVC має максимальну роздільну здатність 1080p, а відтворення відео використовуватиме більше даних Інтернету, ніж VP9 або AV1.</string>
+  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Увімкнення цієї опції може збільшити час роботи від акумулятора та виправити затримки відтворення.\n\nAVC має максимальну роздільну здатність 1080p, а відтворення відео використовуватиме більше інтернет-даних, ніж на кодеках VP9 або AV1.</string>
   <string name="revanced_spoof_client_about_android_ios_title">Побічні ефекти підміни iOS:</string>
   <string name="revanced_spoof_client_about_android_ios_summary">• HDR підтримується тільки AV1 кодеком\n• Історія переглядів не працює з акаунтом бренду</string>
   <string name="revanced_spoof_client_about_android_vr_title">Побічні ефекти підміни Android VR:</string>
