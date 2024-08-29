@@ -136,9 +136,9 @@ object HideLayoutComponentsPatch : BytecodePatch(
                     SwitchPreference("revanced_hide_keyword_content_home"),
                     SwitchPreference("revanced_hide_keyword_content_subscriptions"),
                     SwitchPreference("revanced_hide_keyword_content_search"),
+                    SwitchPreference("revanced_hide_keyword_content_whole_word"),
                     TextPreference("revanced_hide_keyword_content_phrases", inputType = InputType.TEXT_MULTI_LINE),
                     NonInteractivePreference("revanced_hide_keyword_content_about"),
-                    NonInteractivePreference("revanced_hide_keyword_content_limitations"),
                 ),
             ),
         )
