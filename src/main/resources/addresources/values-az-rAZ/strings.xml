@@ -1121,6 +1121,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_on">Qəbuledici saxtalaşdırıldı</string>
   <string name="revanced_spoof_client_summary_off">Qəbuledici dəyişməyib\n\nVideo oynatma işləməyə bilər</string>
   <string name="revanced_spoof_client_user_dialog_message">Bu seçimin bağlanması, video oynatma problemlərinə səbəb ola bilər.</string>
+  <string name="revanced_spoof_client_type_title">Qəbuledici saxtalaşdırma növü</string>
+  <string name="revanced_spoof_client_ios_force_avc_title">iOS AVC-yə Zorla (H.264)</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_on">iOS video kodlayıcı AVC-dir</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_off">iOS video kodlayıcı AVC, VP9 və ya AV1-dir</string>
+  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Bunu aktivləşdirmə batareya ömrünü yaxşılaşdıra və oynatma donmasını düzəldə bilər.\n\nAVC maksimum 1080p görüntü imkanına malikdir və video oynadılması VP9 və ya AV1-dən daha çox internet məlumatından istifadə edəcək.</string>
+  <string name="revanced_spoof_client_about_android_ios_title">iOS saxtakarlığının yan təsirləri</string>
+  <string name="revanced_spoof_client_about_android_ios_summary">• HDR yalnız AV1 kodlayıcı ilə dəstəklənir\n• Baxış tarixçəsi ödəyici hesab ilə işləmir</string>
+  <string name="revanced_spoof_client_about_android_vr_title">Android VR saxtakarlığı yan təsirləri</string>
   <string name="revanced_spoof_client_about_android_vr_summary">• HDR video yoxdur• Uşaq videoları oynadılmır\n• Fasilə verilmiş videolar gözlənilmədən davam edə bilər\n• Aşağı keyfiyyətli Shorts axtarma çubuğu miniatürləri\n• \"Yüklə\" fəaliyyət düyməsi gizlidir\n• Bitiş ekran kartları gizlidir</string>
   <string name="revanced_spoof_client_storyboard_timeout">Client kiçik şəkillərini təqlid etmə əlçatmazdır (API vaxtı bitdi)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Client kiçik şəkillərini təqlid etmə müvəqqəti əlçatmazdır: %s</string>

@@ -71,7 +71,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_03_feed_title">피드</string>
   <string name="revanced_settings_screen_04_player_title">플레이어</string>
   <string name="revanced_settings_screen_05_general_title">일반</string>
-  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">재생바</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">스와이프 제스처</string>
   <string name="revanced_settings_screen_11_misc_title">기타</string>
@@ -1125,6 +1124,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_on">클라이언트를 변경합니다</string>
   <string name="revanced_spoof_client_summary_off">클라이언트를 변경하지 않습니다\n동영상 재생 문제가 발생할 수 있습니다</string>
   <string name="revanced_spoof_client_user_dialog_message">이 설정을 비활성화하면 동영상 재생 문제가 발생할 수 있습니다</string>
+  <string name="revanced_spoof_client_type_title">클라이언트 타입 변경하기</string>
+  <string name="revanced_spoof_client_ios_force_avc_title">iOS AVC (H.264) 강제로 활성화하기</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_on">iOS 동영상 코덱을 AVC로 활성화합니다</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_off">iOS 동영상 코덱을 AVC, VP9 또는 AV1으로 활성화합니다</string>
+  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">이 설정을 활성화하면 배터리 수명이 향상되고 재생 끊김 현상이 해결될 수 있습니다\n\nAVC의 최대 화질 값은 1080p이며 동영상을 재생하면 VP9 또는 AV1보다 더 많은 인터넷 데이터가 사용됩니다</string>
+  <string name="revanced_spoof_client_about_android_ios_title">\'iOS로 변경\'의 알려진 문제점</string>
+  <string name="revanced_spoof_client_about_android_ios_summary">• HDR 동영상은 하드웨어 AV1 디코딩을 지원하는 AP가 탑재된 기기에서만 재생할 수 있습니다\n• 브랜드 계정에서는 시청 기록이 작동되지 않습니다</string>
+  <string name="revanced_spoof_client_about_android_vr_title">\'Android VR로 변경\'의 알려진 문제점</string>
+  <string name="revanced_spoof_client_about_android_vr_summary">• HDR 동영상을 재생할 수 없습니다\n• Kids 동영상을 재생할 수 없습니다\n• 일시 정지된 동영상이 갑자기 다시 시작될 수 있습니다\n• 저화질 Shorts 재생바 썸네일이 표시됩니다\n• 플레이어 하단에서 오프라인 저장 버튼이 표시되지 않습니다\n• 최종 화면 카드가 표시되지 않습니다</string>
   <string name="revanced_spoof_client_storyboard_timeout">클라이언트 썸네일을 사용할 수 없습니다 (응답 시간 초과)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">클라이언트 썸네일을 일시적으로 사용할 수 없습니다: %s</string>
   </patch>

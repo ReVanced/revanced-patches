@@ -1123,14 +1123,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_on">Клиент подменен</string>
   <string name="revanced_spoof_client_summary_off">Клиент не подменен\n\nВоспроизведение видео может не работать</string>
   <string name="revanced_spoof_client_user_dialog_message">Отключение этой настройки может вызвать проблемы с воспроизведением видео.</string>
-  <string name="revanced_spoof_client_type_title">Тип клиента</string>
-  <string name="revanced_spoof_client_ios_force_avc_title">Принудительно использовать iOS AVC (H.264)</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_on">Видеокодек iOS - AVC</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_off">Видеокодек iOS — AVC, VP9 или AV1</string>
-  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Включение этого параметра может улучшить время работы батареи и исправить затяжку воспроизведения.\n\nAVC имеет максимальное разрешение 1080p, а воспроизведение видео будет больше интернет-данных, чем VP9 или AV1.</string>
-  <string name="revanced_spoof_client_about_android_ios_title">Побочные эффекты подмены iOS</string>
+  <string name="revanced_spoof_client_type_title">Тип подмены клиента</string>
+  <string name="revanced_spoof_client_ios_force_avc_title">Принудительно AVC (H.264) для iOS</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_on">При подмене клиента на iOS используется видеокодек AVC</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_off">При подмене клиента на iOS используется видеокодек AVC, VP9 или AV1</string>
+  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Включение этого параметра может улучшить время работы батареи и исправить задержки воспроизведения.\n\nAVC имеет максимальное разрешение 1080p, а воспроизведение видео будет использовать больше интернет данных, чем VP9 или AV1.</string>
+  <string name="revanced_spoof_client_about_android_ios_title">Побочные эффекты подмены на iOS</string>
   <string name="revanced_spoof_client_about_android_ios_summary">• HDR поддерживается только с кодеком AV1\n• История просмотров не работает с учетной записью бренда</string>
-  <string name="revanced_spoof_client_about_android_vr_title">Побочные эффекты подмены Android VR</string>
+  <string name="revanced_spoof_client_about_android_vr_title">Побочные эффекты подмены на Android VR</string>
+  <string name="revanced_spoof_client_about_android_vr_summary">• Отсутствует HDR видео\n• Детские видео не воспроизводятся\n• Приостановленные видео могут случайно возобновляться\n• Миниатюры прогресса воспроизведения Shorts низкого качества\n• Кнопка \"Скачать\" скрыта\n• Заставки следующих видео в конце просмотра скрыты</string>
   <string name="revanced_spoof_client_storyboard_timeout">Миниатюры в режиме подмены клиента недоступны (время API истекло)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Миниатюры в режиме подмены клиента временно недоступны: %s</string>
   </patch>

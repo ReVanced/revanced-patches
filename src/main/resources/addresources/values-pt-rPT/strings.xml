@@ -244,7 +244,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">Palavras-chave e frases para esconder, separados por novas linhas\n\nPalavras com letras maiúsculas no meio devem ser inseridas com letras maiúsculas (ex: iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">Sobre a filtragem por palavra-chave</string>
-  <string name="revanced_hide_keyword_content_about_summary">Principal/Subscrição/Resultados de pesquisa são filtrados para esconder conteúdo que corresponde às frases chave\n\nLimitações\n• Alguns abreviados podem não ser escondidos\n• Alguns componentes da UI podem não ser escondidos\n• Procurar por uma palavra-chave pode não mostrar resultados</string>
+  <string name="revanced_hide_keyword_content_about_summary">Principal/Subscrição/Resultados de pesquisa são filtrados para esconder conteúdo que corresponde às frases chave\n\nLimitações\n•Alguns Calções podem não estar ocultos\n• Alguns abreviados podem não ser escondidos\n• Alguns componentes da UI podem não ser escondidos\n• Procurar por uma palavra-chave pode não mostrar resultados</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Chave inválida. Não pode usar: \'%s\' como filtro</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -430,9 +430,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_home_button_summary_on">O botão Início está escondido</string>
   <string name="revanced_hide_home_button_summary_off">O botão \"Início\" está visível</string>
   <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
-  <string name="revanced_hide_shorts_button_title">Esconder Curtos</string>
-  <string name="revanced_hide_shorts_button_summary_on">Botão curto está escondido</string>
-  <string name="revanced_hide_shorts_button_summary_off">O botão \"Shorts\" está visível</string>
+  <string name="revanced_hide_shorts_button_title">Esconder Shorts</string>
+  <string name="revanced_hide_shorts_button_summary_on">O botão Shorts está oculto</string>
+  <string name="revanced_hide_shorts_button_summary_off">O botão Shorts está visível</string>
   <!-- The Create button has no display name. Translate normally. -->
   <string name="revanced_hide_create_button_title">Esconder Criar</string>
   <string name="revanced_hide_create_button_summary_on">O botão criar está escondido</string>
@@ -450,7 +450,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_navigation_button_labels_summary_off">Marcadores são mostrados</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.HidePlayerFlyoutMenuPatch">
-  <string name="revanced_hide_player_flyout_title">Flyout menu</string>
+  <string name="revanced_hide_player_flyout_title">Menu suspenso</string>
   <string name="revanced_hide_player_flyout_summary">Esconder ou mostrar itens do menu de saída do player</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_captions_title">Esconder legendas</string>
@@ -513,9 +513,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_section_title">Esconder seção de comentários</string>
   <string name="revanced_hide_comments_section_summary_on">Seção de comentários está oculta</string>
   <string name="revanced_hide_comments_section_summary_off">Seção de comentários exibida</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">Ocultar botão \'Criar curto\'</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">O botão \'Criar curto\' está oculto</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">O botão \'Criar Atalho\' é mostrado</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">Ocultar o botão \'Criar um Short\'</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">O botão \'Criar um Short\' está oculto</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">O botão \'Criar um Short\' é mostrado</string>
   <string name="revanced_hide_comments_preview_comment_title">Esconder comentário de pré-visualização</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Visualização do comentário está escondida</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Pré-visualização de comentário é exibida</string>
@@ -580,15 +580,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Esconder Shorts no feed inicial</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts in home feed estão escondidos</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shorts in home feed são exibidos</string>
+  <string name="revanced_hide_shorts_home_summary_on">Os Shorts no feed inicial estão ocultos</string>
+  <string name="revanced_hide_shorts_home_summary_off">Os calções no feed inicial são exibidos</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Esconder Shorts na assinatura do feed</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts in subscrition feed are hidden</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">São visíveis abreviações no feed de assinatura</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Os calções no feed de inscrições são exibidos</string>
   <string name="revanced_hide_shorts_search_title">Esconder Shorts nos resultados de pesquisa</string>
-  <string name="revanced_hide_shorts_search_summary_on">Abreviações nos resultados de busca estão escondidos</string>
-  <string name="revanced_hide_shorts_search_summary_off">Curtos são mostrados nos resultados da pesquisa</string>
+  <string name="revanced_hide_shorts_search_summary_on">Shorts nos resultados da pesquisa estão ocultos</string>
+  <string name="revanced_hide_shorts_search_summary_off">Shorts são mostrados nos resultados da pesquisa</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Esconder botão \'Aderir\'</string>
   <string name="revanced_hide_shorts_join_button_summary_on">O botão \"Aderir\" está escondido</string>
@@ -973,7 +973,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_hide_rewind_forward_title">Ocultar botões pular para frente e para trás</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Pular para frente e para trás estão escondidos</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Pular para frente e para trás são mostrados</string>
-  <string name="revanced_miniplayer_opacity_title">Overlay opacity</string>
+  <string name="revanced_miniplayer_opacity_title">Opacidade da sobreposição</string>
   <string name="revanced_miniplayer_opacity_summary">Valor de opacidade entre 0-100, onde 0 é transparente</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Opacidade da sobreposição de minijogador deve estar entre 0-100</string>
   </patch>

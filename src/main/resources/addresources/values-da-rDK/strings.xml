@@ -974,7 +974,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_hide_rewind_forward_title">Skjul overspring fremad og tilbage knapper</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Spring frem og tilbage er skjult</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Spring frem og tilbage vises</string>
-  <string name="revanced_miniplayer_opacity_title">Overlay opacity</string>
+  <string name="revanced_miniplayer_opacity_title">Overlay uigennemsigtighed</string>
   <string name="revanced_miniplayer_opacity_summary">Gennemsigtighedsværdi mellem 0-100, hvor 0 er gennemsigtig</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Miniplayer overlay gennemsigtighed skal være mellem 0-100</string>
   </patch>
