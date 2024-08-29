@@ -976,7 +976,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_hide_rewind_forward_title">Ukryj przyciski przeskakujące do przodu i do tyłu</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Pomiń do przodu i z powrotem są ukryte</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Pomiń do przodu i do tyłu są wyświetlane</string>
-  <string name="revanced_miniplayer_opacity_title">Overlay opacity</string>
+  <string name="revanced_miniplayer_opacity_title">Przezroczystość nakładki</string>
   <string name="revanced_miniplayer_opacity_summary">Wartość przezroczystości między 0-100, gdzie 0 jest przezroczysty</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Przezroczystość nakładki musi być pomiędzy 0-100</string>
   </patch>

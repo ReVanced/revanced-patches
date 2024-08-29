@@ -432,7 +432,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_home_button_summary_on">Le bouton Accueil est caché</string>
   <string name="revanced_hide_home_button_summary_off">Le bouton d\'accueil est affiché</string>
   <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
-  <string name="revanced_hide_shorts_button_title">Cacher les shorts</string>
+  <string name="revanced_hide_shorts_button_title">Cacher les Shorts</string>
   <string name="revanced_hide_shorts_button_summary_on">Le bouton Shorts est masqué</string>
   <string name="revanced_hide_shorts_button_summary_off">Le bouton Shorts est affiché</string>
   <!-- The Create button has no display name. Translate normally. -->

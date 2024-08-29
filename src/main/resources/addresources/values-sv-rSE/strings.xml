@@ -975,7 +975,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_hide_rewind_forward_title">Dölj hoppa över framåt- och bakknapparna</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Hoppa framåt och tillbaka är dolda</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Hoppa framåt och tillbaka visas</string>
-  <string name="revanced_miniplayer_opacity_title">Overlay opacity</string>
+  <string name="revanced_miniplayer_opacity_title">Överlager opacitet</string>
   <string name="revanced_miniplayer_opacity_summary">Opacitetsvärde mellan 0-100, där 0 är transparent</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Miniplayer overlay opacitet måste vara mellan 0-100</string>
   </patch>

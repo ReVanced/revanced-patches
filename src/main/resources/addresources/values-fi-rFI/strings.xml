@@ -432,9 +432,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_home_button_summary_on">Kotinäppäin on piilotettu</string>
   <string name="revanced_hide_home_button_summary_off">Kotinäppäin näytetään</string>
   <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
-  <string name="revanced_hide_shorts_button_title">Piilota Shortsit</string>
-  <string name="revanced_hide_shorts_button_summary_on">Shortsit painike on piilotettu</string>
-  <string name="revanced_hide_shorts_button_summary_off">Shortsit painike näytetään</string>
+  <string name="revanced_hide_shorts_button_title">Piilota Shorts</string>
+  <string name="revanced_hide_shorts_button_summary_on">Shorts painike on piilotettu</string>
+  <string name="revanced_hide_shorts_button_summary_off">Shorts painike näytetään</string>
   <!-- The Create button has no display name. Translate normally. -->
   <string name="revanced_hide_create_button_title">Piilota Luo</string>
   <string name="revanced_hide_create_button_summary_on">Luo painike on piilotettu</string>
@@ -976,7 +976,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_hide_rewind_forward_title">Piilota ohita etu- ja takapainikkeet</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Ohita eteenpäin ja takaisin on piilotettu</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Ohita eteenpäin ja takaisin näytetään</string>
-  <string name="revanced_miniplayer_opacity_title">Overlay opacity</string>
+  <string name="revanced_miniplayer_opacity_title">Valikon peiton läpinäkyvyys</string>
   <string name="revanced_miniplayer_opacity_summary">Läpinäkyvyysarvo välillä 0–100, jossa 0 on läpinäkyvä</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Miniplayer peittokuvan läpinäkyvyyden on oltava välillä 0-100</string>
   </patch>

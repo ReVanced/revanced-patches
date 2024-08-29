@@ -1042,6 +1042,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_on">ক্লায়েন্ট স্পুফ করা হয়েছে</string>
   <string name="revanced_spoof_client_summary_off">ক্লায়েন্ট স্পুফ করা হয়নি\n\nভিডিও প্লেব্যাক ঠিকমতো কাজ নাও করতে পারে</string>
   <string name="revanced_spoof_client_user_dialog_message">এই সেটিংটি বন্ধ করার ফলে ভিডিও প্লেব্যাক ত্রুটি হতে পারে।</string>
+  <string name="revanced_spoof_client_about_android_vr_summary">• কোনও HDR ভিডিও নেই\n• বাচ্চাদের ভিডিও প্লেব্যাক হয় না\n• বিরতি দেওয়া ভিডিওগুলি এলোমেলোভাবে আবার শুরু হতে পারে\n• নিম্নমানের শর্টস সিকবার থাম্বনেল\n• ডাউনলোড অ্যাকশন বোতাম সবসময় লুকানো থাকে\n• শেষ স্ক্রিন কার্ড সবসময় লুকানো থাকে</string>
   <string name="revanced_spoof_client_storyboard_timeout">ক্লায়েন্ট স্পুফ থাম্বনেইল সাময়িকভাবে উপলভ্য নয় (API সময় শেষ হয়েছে)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">স্পুফ ক্লায়েন্ট থাম্বনেইল সাময়িকভাবে উপলভ্য নয়: %s</string>
   </patch>
