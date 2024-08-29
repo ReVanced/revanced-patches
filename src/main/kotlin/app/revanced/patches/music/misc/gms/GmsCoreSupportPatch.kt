@@ -25,22 +25,6 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
     compatiblePackages = setOf(
         CompatiblePackage(
             "com.google.android.apps.youtube.music",
-            setOf(
-                "6.45.54",
-                "6.51.53",
-                "7.01.53",
-                "7.02.52",
-                "7.03.52",
-                "7.04.54",
-                "7.06.54",
-                "7.07.52",
-                "7.08.54",
-                "7.10.52",
-                "7.11.51",
-                "7.13.53",
-                "7.14.52",
-                "7.15.51",
-            ),
         ),
     ),
     fingerprints = setOf(
