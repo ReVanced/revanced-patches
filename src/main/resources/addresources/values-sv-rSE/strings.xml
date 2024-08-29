@@ -776,6 +776,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_general_skipcount_sum_off">Tracking av Skip count är inte aktiverat</string>
   <string name="revanced_sb_general_min_duration">Minsta segmentlängd</string>
   <string name="revanced_sb_general_min_duration_sum">Segment kortare än detta värde (i sekunder) kommer inte att visas eller hoppas över</string>
+  <string name="revanced_sb_general_min_duration_invalid">Ogiltig tidslängd</string>
   <string name="revanced_sb_general_uuid">Ditt privata användar-id</string>
   <string name="revanced_sb_general_uuid_sum">Detta bör hållas privat. Detta är som ett lösenord och bör inte delas med någon. Om någon har det här, kan de utge sig för att vara dig</string>
   <string name="revanced_sb_general_uuid_invalid">Privat användar-id måste vara minst 30 tecken långt</string>
@@ -876,8 +877,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">Tid då segmentet börjar på</string>
   <string name="revanced_sb_new_segment_time_end">Tid då segmentet slutar på</string>
   <string name="revanced_sb_new_segment_confirm_title">Är tiderna korrekta?</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <string name="revanced_sb_new_segment_confirm_content">Segmentet är från\n\n%1$s\ntill\n%2$s\n\n(%3$s)\n\nRedo att skicka?</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Start måste vara innan slutet</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Markera två platser i tidsfältet först</string>
@@ -976,7 +975,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_hide_rewind_forward_title">Dölj hoppa över framåt- och bakknapparna</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Hoppa framåt och tillbaka är dolda</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Hoppa framåt och tillbaka visas</string>
-  <string name="revanced_miniplayer_opacity_title">Overlay opacity</string>
+  <string name="revanced_miniplayer_opacity_title">Överlager opacitet</string>
   <string name="revanced_miniplayer_opacity_summary">Opacitetsvärde mellan 0-100, där 0 är transparent</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Miniplayer overlay opacitet måste vara mellan 0-100</string>
   </patch>
@@ -1124,9 +1123,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_on">Klienten är förfalskad</string>
   <string name="revanced_spoof_client_summary_off">Klienten är inte förfalskad\n\nVideouppspelning kanske inte fungerar</string>
   <string name="revanced_spoof_client_user_dialog_message">Att stänga av den här inställningen kan orsaka videouppspelningsproblem.</string>
-  <string name="revanced_spoof_client_use_ios_title">Spoof klient till iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Klienten är för närvarande förfalskad till iOS\n\nBiverkningar inkluderar:\n• HDR-video kanske inte är tillgänglig\n• Se historik fungerar inte med ett varumärkeskonto</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Klienten är för närvarande förfalskad till Android VR. Biverkningar inkluderar:\n• Ingen HDR-video\n• Barnvideor spelar inte upp\n• Pausade videor kan slumpmässigt återuppta\n• Lågkvalitativa Shorts seekbar miniatyrer\n• Nedladdningsknappen är dold\n• Slutskärmskorten är dolda</string>
+  <string name="revanced_spoof_client_type_title">Typ av Spoof klient</string>
+  <string name="revanced_spoof_client_ios_force_avc_title">Tvinga iOS AVC (H.264)</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_on">iOS video codec är AVC</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_off">iOS video codec är AVC, VP9, eller AV1</string>
+  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Aktivering av detta kan förbättra batteriets livslängd och åtgärda uppspelningshjälp.\n\nAVC har en maximal upplösning på 1080p, och videouppspelning kommer att använda mer internetdata än VP9 eller AV1.</string>
+  <string name="revanced_spoof_client_about_android_ios_title">iOS förfalskning biverkningar</string>
+  <string name="revanced_spoof_client_about_android_ios_summary">• HDR stöds endast med AV1 codec\n• Klockhistorik fungerar inte med ett varumärkeskonto</string>
+  <string name="revanced_spoof_client_about_android_vr_title">Android VR förfalskning biverkningar</string>
+  <string name="revanced_spoof_client_about_android_vr_summary">• Ingen HDR-video\n• Barnvideor spelar inte upp\n• Pausade videor kan slumpmässigt återupptas\n• Lågkvalitativa Shorts seekbar miniatyrer\n• Nedladdningsknappen är dold\n• Slutskärmskorten är dolda</string>
   <string name="revanced_spoof_client_storyboard_timeout">Spoof klientminiatyrer är inte tillgängliga (API gick ut)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Miniatyrer för Spoof klientminiatyrer tillfälligt inte tillgängliga: %s</string>
   </patch>

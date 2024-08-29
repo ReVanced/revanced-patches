@@ -430,7 +430,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_home_button_summary_on">Кнопка \"Дадому\" схавана</string>
   <string name="revanced_hide_home_button_summary_off">Паказана кнопка \"Дадому\".</string>
   <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
-  <string name="revanced_hide_shorts_button_title">Схаваць шорты</string>
+  <string name="revanced_hide_shorts_button_title">Схаваць кнопку \"Shorts\"</string>
   <string name="revanced_hide_shorts_button_summary_on">Кнопка Shorts схавана</string>
   <string name="revanced_hide_shorts_button_summary_off">Паказана кнопка Shorts</string>
   <!-- The Create button has no display name. Translate normally. -->
@@ -874,8 +874,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">Час пачатку сегмента</string>
   <string name="revanced_sb_new_segment_time_end">Час заканчэння сегмента</string>
   <string name="revanced_sb_new_segment_confirm_title">Ці правільны час?</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <string name="revanced_sb_new_segment_confirm_content">Сегмент ад\n\n%1$s\nда\n%2$s\n\n(%3$s)\n\nГатовы адправіць?</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Пачынаць трэба раней за канец</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Спачатку адзначце два месцы на панэлі часу</string>
@@ -1121,8 +1119,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_on">Кліент падроблены</string>
   <string name="revanced_spoof_client_summary_off">Кліент не падроблены\n\nПрайграванне відэа можа не працаваць</string>
   <string name="revanced_spoof_client_user_dialog_message">Адключэнне гэтай налады можа выклікаць праблемы з прайграваннем відэа.</string>
-  <string name="revanced_spoof_client_use_ios_title">Падробка кліента для iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Кліент у цяперашні час падроблены для Android VR. Пабочныя эфекты ўключаюць:\n• Няма HDR-відэа\n• Дзіцячыя відэа не прайграваюцца\n• Прыпыненыя відэа могуць аднаўляцца выпадковым чынам\n• Нізкая якасць мініяцюр на панэлі пошуку Shorts\n• Кнопка дзеяння Спампаваць схавана\n• Карткі канцавога экрана схаваны</string>
+  <string name="revanced_spoof_client_about_android_vr_summary">• Няма HDR-відэа\n• Дзіцячыя відэа не прайграваюцца\n• Прыпыненыя відэа могуць аднаўляцца выпадковым чынам\n• Нізкая якасць мініяцюр на панэлі пошуку Shorts\n• Кнопка дзеяння Спампаваць схавана\n• Карткі канцавога экрана схаваны</string>
   <string name="revanced_spoof_client_storyboard_timeout">Мініяцюры кліента Spoof недаступныя (час чакання API скончыўся)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Мініяцюры кліента Spoof часова недаступныя: %s</string>
   </patch>

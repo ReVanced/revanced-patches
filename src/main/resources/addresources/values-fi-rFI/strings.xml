@@ -432,9 +432,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_home_button_summary_on">Kotinäppäin on piilotettu</string>
   <string name="revanced_hide_home_button_summary_off">Kotinäppäin näytetään</string>
   <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
-  <string name="revanced_hide_shorts_button_title">Piilota Shortsit</string>
-  <string name="revanced_hide_shorts_button_summary_on">Shortsit painike on piilotettu</string>
-  <string name="revanced_hide_shorts_button_summary_off">Shortsit painike näytetään</string>
+  <string name="revanced_hide_shorts_button_title">Piilota Shorts</string>
+  <string name="revanced_hide_shorts_button_summary_on">Shorts painike on piilotettu</string>
+  <string name="revanced_hide_shorts_button_summary_off">Shorts painike näytetään</string>
   <!-- The Create button has no display name. Translate normally. -->
   <string name="revanced_hide_create_button_title">Piilota Luo</string>
   <string name="revanced_hide_create_button_summary_on">Luo painike on piilotettu</string>
@@ -776,6 +776,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_general_skipcount_sum_off">Ohitusmäärän seuranta ei ole käytössä</string>
   <string name="revanced_sb_general_min_duration">Osion vähimmäiskesto</string>
   <string name="revanced_sb_general_min_duration_sum">Tätä arvoa (sekunteina) lyhyempiä osioita ei näytetä tai ohiteta</string>
+  <string name="revanced_sb_general_min_duration_invalid">Virheellinen kellonaika</string>
   <string name="revanced_sb_general_uuid">Yksityinen käyttäjätunnuksesi</string>
   <string name="revanced_sb_general_uuid_sum">Tämä pitäisi pitää yksityisenä. Tämä on kuin salasana, eikä sitä pitäisi jakaa kenenkään kanssa. Jos jollakulla on tämä, he voivat esiintyä sinuna</string>
   <string name="revanced_sb_general_uuid_invalid">Yksityisen käyttäjätunnuksen on oltava vähintään 30 merkkiä pitkä</string>
@@ -876,8 +877,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">Aika jolloin osio alkaa</string>
   <string name="revanced_sb_new_segment_time_end">Aika jolloin osio päättyy</string>
   <string name="revanced_sb_new_segment_confirm_title">Ovatko ajat oikein?</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <string name="revanced_sb_new_segment_confirm_content">Osio alkaa\n\n%1$s\nja loppuu\n%2$s\n\n(%3$s)\n\nValmis lähettämään?</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Alku on oltava ennen loppua</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Merkitse ensin kaksi sijaintia aikapalkissa</string>
@@ -977,7 +976,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_hide_rewind_forward_title">Piilota ohita etu- ja takapainikkeet</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Ohita eteenpäin ja takaisin on piilotettu</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Ohita eteenpäin ja takaisin näytetään</string>
-  <string name="revanced_miniplayer_opacity_title">Overlay opacity</string>
+  <string name="revanced_miniplayer_opacity_title">Valikon peiton läpinäkyvyys</string>
   <string name="revanced_miniplayer_opacity_summary">Läpinäkyvyysarvo välillä 0–100, jossa 0 on läpinäkyvä</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Miniplayer peittokuvan läpinäkyvyyden on oltava välillä 0-100</string>
   </patch>
@@ -1124,9 +1123,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_on">Pääte on naamioitu</string>
   <string name="revanced_spoof_client_summary_off">Päätettä ei ole naamioitu\n\nVideon toisto ei ehkä toimi</string>
   <string name="revanced_spoof_client_user_dialog_message">Tämän asetuksen poistaminen käytöstä voi aiheuttaa videon toiston ongelmia.</string>
-  <string name="revanced_spoof_client_use_ios_title">Naamioi pääte iOS:ksi</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Asiakas on tällä hetkellä pilkottu iOS\n\nSivuvaikutukset ovat:\n• HDR video ei ehkä ole saatavilla\n• Watch historia ei toimi tuotemerkin tilin</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Pääte on baamioitu Android VR:ksi. Sivuvaikutuksia ovat:\n• Ei HDR-videota\n• Lasten videot eivät toistu\n• Pysäytetyt videot voivat jatkaa toistoa satunnaisesti\n• Huonolaatuiset Shorts-liukusäätimen pikkukuvat\n• Lataa-toimintapainike on piilotettu\n• Loppunäytön kortit on piilotettu</string>
+  <string name="revanced_spoof_client_type_title">Spoof asiakastyyppi</string>
+  <string name="revanced_spoof_client_ios_force_avc_title">Pakota iOS AVC (H.264)</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_on">iOS-videokoodekki on AVC</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_off">iOS-videokoodekki on AVC, VP9 tai AV1</string>
+  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Tämän käyttöönotto voi parantaa akun kestoa ja korjata toistoa stuttering.\n\nAVC on suurin resoluutio 1080p, ja videon toisto käyttää enemmän internet-tietoja kuin VP9 tai AV1.</string>
+  <string name="revanced_spoof_client_about_android_ios_title">iOS:n havainnot haittavaikutuksista</string>
+  <string name="revanced_spoof_client_about_android_ios_summary">• HDR on tuettu vain AV1-koodekki\n• Kellon historia ei toimi bränditilin kanssa</string>
+  <string name="revanced_spoof_client_about_android_vr_title">Android VR havaintoon sivuvaikutukset</string>
+  <string name="revanced_spoof_client_about_android_vr_summary">• Ei HDR video\n• Lasten videot eivät toistu\n• Keskeytetty videot voivat palata satunnaisesti\n• Huonolaatuiset shortsit seekbar pikkukuvat\n• Lataa toimintapainike on piilotettu\n• Päätä näytöt ovat piilotettuja</string>
   <string name="revanced_spoof_client_storyboard_timeout">Spoof asiakkaan pikkukuvat ei ole käytettävissä (API ajastettu)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Spoof asiakkaan pikkukuvat tilapäisesti ei käytettävissä: %s</string>
   </patch>

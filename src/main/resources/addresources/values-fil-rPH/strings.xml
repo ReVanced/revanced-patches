@@ -860,8 +860,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">Oras na magsisimula ang segment sa</string>
   <string name="revanced_sb_new_segment_time_end">Oras na nagtatapos ang segment sa</string>
   <string name="revanced_sb_new_segment_confirm_title">Tama ba ang mga oras?</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <string name="revanced_sb_new_segment_confirm_content">Ang segment ay mula sa\n\n%1$s\nto\n%2$s\n\n(%3$s)\n\nHanda nang isumite?</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Ang simula ay dapat bago ang katapusan</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Markahan muna ang dalawang lokasyon sa time bar</string>
@@ -1093,7 +1091,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_on">Na-spoof ang kliyente</string>
   <string name="revanced_spoof_client_summary_off">Hindi na-spoof ang kliyente\n\nMaaaring hindi gumana ang pag-playback ng video</string>
   <string name="revanced_spoof_client_user_dialog_message">Ang pag-off sa setting na ito ay maaaring magdulot ng mga isyu sa pag-playback ng video.</string>
-  <string name="revanced_spoof_client_use_ios_title">Spoof client sa iOS</string>
+  <string name="revanced_spoof_client_about_android_vr_summary">• Walang HDR na video\n• Hindi nagpe-playback ang mga pambata na video\n• Ang mga naka-pause na video ay maaaring random na ipagpatuloy\n• Mga thumbnail ng shorts seekbar na may mababang kalidad\n• I-download ang action button ay laging nakatago\n• Palaging nakatago ang mga end screen card</string>
   <string name="revanced_spoof_client_storyboard_timeout">Hindi available ang mga thumbnail ng spoof client (nag-time out ang API)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Pansamantalang hindi available ang mga thumbnail ng spoof client: %s</string>
   </patch>

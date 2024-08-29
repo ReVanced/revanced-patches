@@ -69,7 +69,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_03_feed_title">Ροή</string>
   <string name="revanced_settings_screen_04_player_title">Οθόνη αναπαραγωγής</string>
   <string name="revanced_settings_screen_05_general_title">Γενική διάταξη</string>
-  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Γραμμή προόδου βίντεο</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Έλεγχος με κατακόρυφη σάρωση οθόνης</string>
   <string name="revanced_settings_screen_11_misc_title">Διάφορα</string>
@@ -775,6 +774,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_general_skipcount_sum_off">Ο μετρητής παραλείψεων δεν είναι ενεργός</string>
   <string name="revanced_sb_general_min_duration">Ελάχιστη διάρκεια τμήματος</string>
   <string name="revanced_sb_general_min_duration_sum">Τμήματα μικρότερα από την καθορισμένη τιμή (σε δευτερόλεπτα) δεν θα εμφανίζονται ούτε θα παραλείπονται</string>
+  <string name="revanced_sb_general_min_duration_invalid">Μη έγκυρη διάρκεια χρόνου</string>
   <string name="revanced_sb_general_uuid">Το ιδιωτικό σας αναγνωριστικό χρήστη</string>
   <string name="revanced_sb_general_uuid_sum">Αυτό πρέπει να μείνει μυστικό. Είναι σαν έναν κωδικό που δεν πρέπει να μοιραστείτε με κανέναν. Εάν κάποιος αποκτήσει αυτόν τον κωδικό, μπορεί να σας υποδυθεί</string>
   <string name="revanced_sb_general_uuid_invalid">Το ιδιωτικό αναγνωριστικό χρήστη πρέπει να είναι τουλάχιστον 30 χαρακτήρες</string>
@@ -875,8 +875,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">Χρόνος έναρξης του τμήματος</string>
   <string name="revanced_sb_new_segment_time_end">Χρόνος λήξης του τμήματος</string>
   <string name="revanced_sb_new_segment_confirm_title">Είναι σωστοί οι χρόνοι;</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <string name="revanced_sb_new_segment_confirm_content">Το τμήμα είναι από\n\n%1$s\nσε\n%2$s\n\n(%3$s)\n\nΈτοιμο για υποβολή;</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Η αρχή πρέπει να είναι πριν από το τέλος</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Σημειώστε δύο σημεία στην γραμμή προόδου πρώτα</string>
@@ -1124,9 +1122,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_on">Το πρόγραμμα πελάτη παραποιείται</string>
   <string name="revanced_spoof_client_summary_off">Το πρόγραμμα πελάτη δεν παραποιείται\n\nΗ αναπαραγωγή βίντεο ενδέχεται να μη λειτουργεί</string>
   <string name="revanced_spoof_client_user_dialog_message">Η απενεργοποίηση αυτής της ρύθμισης ενδέχεται να προκαλέσει προβλήματα αναπαραγωγής βίντεο.</string>
-  <string name="revanced_spoof_client_use_ios_title">Παραποίηση σε iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Ο πελάτης αυτή τη στιγμή παραποιείται ως iOS\n\nΟι παρενέργειες περιλαμβάνουν:\n• Δεν υπάρχει η ποιότητα HDR στα βίντεο\n• Το ιστορικό παρακολούθησης δε λειτουργεί σε ολοκαίνουριους λογαριασμούς</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Ο πελάτης αυτή τη στιγμή παραποιείται ως Android VR. Οι παρενέργειες περιλαμβάνουν:\n• Δεν υπάρχει η ποιότητα HDR στα βίντεο\n• Δεν λειτουργεί η αναπαραγωγή στα βίντεο για παιδιά\n• Βίντεο που έχετε θέσει σε παύση μπορεί να συνεχίσουν να παίζουν τυχαία\n• Χαμηλή ποιότητα μικρογραφιών μπάρας αναζήτησης στα shorts\n• Το κουμπί λήψης είναι πάντα κρυμμένο\n• Οι κάρτες τελικής οθόνης είναι πάντα κρυμμένες</string>
+  <string name="revanced_spoof_client_type_title">Παραποίηση τύπου πελάτη</string>
+  <string name="revanced_spoof_client_ios_force_avc_title">Εξαναγκασμός iOS AVC (H.264)</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_on">Ο κωδικοποιητής βίντεο στο iOS είναι ο AVC</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_off">Ο κωδικοποιητής βίντεο στο iOS είναι ο AVC, ο VP9 ή ο AV1</string>
+  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Ενεργοποιώντας αυτόν τον κωδικοποιητή ίσως να βελτιώσει κατανάλωση ενέργειας και ίσως διορθώσει κολλήματα αναπαραγωγής.\n\nΟ AVC έχει μέγιστη ανάλυση 1080p, και καταναλώνει περισσότερα δεδομένα internet από τον VP9 ή τον AV1.</string>
+  <string name="revanced_spoof_client_about_android_ios_title">Παρενέργειες παραποίησης σε iOS</string>
+  <string name="revanced_spoof_client_about_android_ios_summary">• Το HDR υποστηρίζεται μόνο με τον κωδικοποιητή AV1\n• Το ιστορικό παρακολούθησης δε λειτουργεί με λογαριασμό επωνυμίας</string>
+  <string name="revanced_spoof_client_about_android_vr_title">Παρενέργειες παραποίησης σε Android VR</string>
+  <string name="revanced_spoof_client_about_android_vr_summary">• Δεν υπάρχει η ποιότητα HDR στα βίντεο• Δεν λειτουργεί η αναπαραγωγή στα βίντεο για παιδιά\n• Βίντεο που έχετε θέσει σε παύση μπορεί να συνεχίσουν να παίζουν τυχαία\n• Χαμηλή ποιότητα μικρογραφιών γραμμής προόδου στα Shorts\n• Το κουμπί λήψης είναι πάντα κρυμμένο\n• Οι κάρτες τελικής οθόνης είναι πάντα κρυμμένες</string>
   <string name="revanced_spoof_client_storyboard_timeout">Μικρογραφίες προεπισκόπησης μη διαθέσιμες (καθυστέρηση API)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Μικρογραφίες προεπισκόπησης προσωρινά μη διαθέσιμες: %s</string>
   </patch>

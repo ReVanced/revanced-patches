@@ -180,8 +180,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_appearance_category">Izgled</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_loading">Nalaganje...</string>
   <string name="revanced_sb_reset">Ponastavi</string>

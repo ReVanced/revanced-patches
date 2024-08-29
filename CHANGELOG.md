@@ -1,3 +1,31 @@
+# [4.14.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.1...v4.14.0-dev.2) (2024-08-24)
+
+
+### Features
+
+* **Duolingo:** Add `Disable ads` and `Enable debug menu` patch ([#3422](https://github.com/ReVanced/revanced-patches/issues/3422)) ([d0a8599](https://github.com/ReVanced/revanced-patches/commit/d0a8599f76ce653e5d7c98069ad3c58b9ab9c5eb))
+
+# [4.14.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.13.4-dev.2...v4.14.0-dev.1) (2024-08-22)
+
+
+### Features
+
+* **YouTube - Spoof client:** Allow forcing AVC codec with iOS ([#3570](https://github.com/ReVanced/revanced-patches/issues/3570)) ([1a49d1f](https://github.com/ReVanced/revanced-patches/commit/1a49d1f3c2a343d05d0abc07c143add486246fd0))
+
+## [4.13.4-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.13.4-dev.1...v4.13.4-dev.2) (2024-08-20)
+
+
+### Bug Fixes
+
+* **YouTube - SponsorBlock:** Handle if the user enters an invalid number into any SB settings ([37b3dd1](https://github.com/ReVanced/revanced-patches/commit/37b3dd1e789f8bb16fa1b9dd582e39c89dbe730c))
+
+## [4.13.4-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.13.3...v4.13.4-dev.1) (2024-08-18)
+
+
+### Bug Fixes
+
+* **SwissID:** Rename `Remove Google Play Integrity Integrity check` to `Remove Google Play Integrity check` ([#3558](https://github.com/ReVanced/revanced-patches/issues/3558)) ([0f5a771](https://github.com/ReVanced/revanced-patches/commit/0f5a771a5cff5684b4a8fd317f4938fe2cf3cbbe))
+
 ## [4.13.3](https://github.com/ReVanced/revanced-patches/compare/v4.13.2...v4.13.3) (2024-08-15)
 
 

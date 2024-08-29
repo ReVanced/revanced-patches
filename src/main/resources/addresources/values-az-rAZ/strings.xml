@@ -774,6 +774,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_general_skipcount_sum_off">Ötürmə sayının izlənməsi aktiv deyil</string>
   <string name="revanced_sb_general_min_duration">Minimum bölüm müddəti</string>
   <string name="revanced_sb_general_min_duration_sum">Bölümlər bu dəyərdən (saniyə olaraq) daha qısadırsa göstərilməyəcək və ya ötürülməyəcək</string>
+  <string name="revanced_sb_general_min_duration_invalid">Etibarsız vaxt müddəti</string>
   <string name="revanced_sb_general_uuid">Şəxsi istifadəçi kimliyiniz</string>
   <string name="revanced_sb_general_uuid_sum">Bu gizli saxlanılmalıdır. Bu, parol kimidir və heç kimlə paylaşılmamalıdır. Kimsə bunu bilsə, onlar sizi təqlid edə bilər</string>
   <string name="revanced_sb_general_uuid_invalid">Şəxsi istifadəçi kimliyiniz ən az 30 simvol uzunluğunda olmalıdır</string>
@@ -874,8 +875,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">Bölüm başladığı vaxt</string>
   <string name="revanced_sb_new_segment_time_end">Bölümün bitmə vaxtı</string>
   <string name="revanced_sb_new_segment_confirm_title">Vaxtlar düzgündür?</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <string name="revanced_sb_new_segment_confirm_content">Bölüm \n\n%1$s\n\n%2$s\n\n(%3$s)\n\nTəqdim etməyə hazırsınız?</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Başlanğıc sondan əvvəl olmalıdır</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Əvvəlcə vaxt çubuğunda iki yeri doldur</string>
@@ -1038,6 +1037,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
   <string name="revanced_check_watch_history_domain_name_dialog_title">Xәbәrdarlıq</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Baxış tarixçəniz saxlanmır.&lt;br&gt;&lt;br&gt;Bu çox güman ki, DNS reklam bloklayıcı və ya şəbəkə proksisinə görədir.&lt;br&gt;&lt;br&gt;.Bunu düzəltmək üçün s.youtube.com-u&lt;/b&gt; &lt;b&gt;ağ siyahıya salın və ya bütün DNS bloklayıcıları və proksiləri bağlayın.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Təkrar göstərmə</string>
   </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
@@ -1121,8 +1121,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_on">Qəbuledici saxtalaşdırıldı</string>
   <string name="revanced_spoof_client_summary_off">Qəbuledici dəyişməyib\n\nVideo oynatma işləməyə bilər</string>
   <string name="revanced_spoof_client_user_dialog_message">Bu seçimin bağlanması, video oynatma problemlərinə səbəb ola bilər.</string>
-  <string name="revanced_spoof_client_use_ios_title">Qəbuledicini iOS olaraq saxtalaşdır</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Qəbuledici hazırda Android VR\'ə saxtalaşdırılıb. Yan təsirlərə daxildir:\n• HDR video yoxdur\n• Uşaq videoları oynadılmır\n• Fasilə verilmiş videolar gözlənilmədən davam edə bilər\n• Aşağı keyfiyyətli Shorts axtarma çubuğu miniatürləri\n• \"Yüklə\" fəaliyyət düyməsi gizlidir\n• Bitiş ekran kartları gizlidir</string>
+  <string name="revanced_spoof_client_type_title">Qəbuledici saxtalaşdırma növü</string>
+  <string name="revanced_spoof_client_ios_force_avc_title">iOS AVC-yə Zorla (H.264)</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_on">iOS video kodlayıcı AVC-dir</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_off">iOS video kodlayıcı AVC, VP9 və ya AV1-dir</string>
+  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Bunu aktivləşdirmə batareya ömrünü yaxşılaşdıra və oynatma donmasını düzəldə bilər.\n\nAVC maksimum 1080p görüntü imkanına malikdir və video oynadılması VP9 və ya AV1-dən daha çox internet məlumatından istifadə edəcək.</string>
+  <string name="revanced_spoof_client_about_android_ios_title">iOS saxtakarlığının yan təsirləri</string>
+  <string name="revanced_spoof_client_about_android_ios_summary">• HDR yalnız AV1 kodlayıcı ilə dəstəklənir\n• Baxış tarixçəsi ödəyici hesab ilə işləmir</string>
+  <string name="revanced_spoof_client_about_android_vr_title">Android VR saxtakarlığı yan təsirləri</string>
+  <string name="revanced_spoof_client_about_android_vr_summary">• HDR video yoxdur• Uşaq videoları oynadılmır\n• Fasilə verilmiş videolar gözlənilmədən davam edə bilər\n• Aşağı keyfiyyətli Shorts axtarma çubuğu miniatürləri\n• \"Yüklə\" fəaliyyət düyməsi gizlidir\n• Bitiş ekran kartları gizlidir</string>
   <string name="revanced_spoof_client_storyboard_timeout">Client kiçik şəkillərini təqlid etmə əlçatmazdır (API vaxtı bitdi)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Client kiçik şəkillərini təqlid etmə müvəqqəti əlçatmazdır: %s</string>
   </patch>

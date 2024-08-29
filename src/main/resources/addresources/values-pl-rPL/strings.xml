@@ -776,6 +776,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_general_skipcount_sum_off">Pomiń licznik śledzenia nie jest włączony</string>
   <string name="revanced_sb_general_min_duration">Minimalna długość segmentu</string>
   <string name="revanced_sb_general_min_duration_sum">Segmenty krótsze niż ta wartość (w sekundach) nie będą wyświetlane lub pominięte</string>
+  <string name="revanced_sb_general_min_duration_invalid">Nieprawidłowy czas trwania</string>
   <string name="revanced_sb_general_uuid">Twój prywatny identyfikator użytkownika</string>
   <string name="revanced_sb_general_uuid_sum">Ta informacja jest poufna i działa jak hasło. Użytkownik, który ma do niej dostęp, może zgłaszać treści jako ty</string>
   <string name="revanced_sb_general_uuid_invalid">ID użytkownika prywatnego musi mieć co najmniej 30 znaków</string>
@@ -869,14 +870,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">Wybierz kategorię segmentu</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategoria jest wyłączona w ustawieniach. Włącz kategorię do wysyłania.</string>
   <string name="revanced_sb_new_segment_title">Nowy segment SponsorBlock\'a</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">Ustawić %s jako początek lub koniec nowego segmentu?</string>
   <string name="revanced_sb_new_segment_mark_start">początek</string>
   <string name="revanced_sb_new_segment_mark_end">koniec</string>
   <string name="revanced_sb_new_segment_now">aktualnie</string>
   <string name="revanced_sb_new_segment_time_start">Czas rozpoczęcia segmentu od</string>
   <string name="revanced_sb_new_segment_time_end">Czas zakończenia segmentu od</string>
   <string name="revanced_sb_new_segment_confirm_title">Czy te czasy są poprawne?</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <string name="revanced_sb_new_segment_confirm_content">Segment jest od\n\n%1$s\ndo\n%2$s\n\n(%3$s)\n\nGotowy do wysłania?</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Początek musi być przed końcem</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Najpierw zaznacz dwie lokalizacje na pasku czasu</string>
@@ -976,7 +976,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_hide_rewind_forward_title">Ukryj przyciski przeskakujące do przodu i do tyłu</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Pomiń do przodu i z powrotem są ukryte</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Pomiń do przodu i do tyłu są wyświetlane</string>
-  <string name="revanced_miniplayer_opacity_title">Overlay opacity</string>
+  <string name="revanced_miniplayer_opacity_title">Przezroczystość nakładki</string>
   <string name="revanced_miniplayer_opacity_summary">Wartość przezroczystości między 0-100, gdzie 0 jest przezroczysty</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Przezroczystość nakładki musi być pomiędzy 0-100</string>
   </patch>
@@ -1124,9 +1124,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_on">Klient jest zespoofowany</string>
   <string name="revanced_spoof_client_summary_off">Klient nie jest zespoofowany\n\nOdtwarzanie wideo może nie działać</string>
   <string name="revanced_spoof_client_user_dialog_message">Wyłączenie tego ustawienia może spowodować problemy z odtwarzaniem wideo.</string>
-  <string name="revanced_spoof_client_use_ios_title">Zespoofuj klient do wersji iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_on">Klient jest obecnie spoofed to iOS\n\nEfekty niepożądane obejmują:\n• Wideo HDR może nie być dostępne\n• Historia zegarka nie działa z kontem markowym</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Klient jest obecnie spoofed na Androida VR. Efekty niepożądane obejmują:\n• Brak filmu HDR\n• Filmy dziecięce nie odtwarza\n• Wstrzymane filmy mogą losowo wznawiać\n• Niska jakość miniatur paska wyszukiwania skrótów\n• Przycisk pobierania jest ukryty\n• Karty ekranu końcowego są ukryte</string>
+  <string name="revanced_spoof_client_type_title">Typ plamki klienta</string>
+  <string name="revanced_spoof_client_ios_force_avc_title">Wymuś iOS AVC (H.264)</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_on">Kodek wideo iOS to AVC</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_off">Kodek wideo iOS to AVC, VP9 lub AV1</string>
+  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Włączenie tego może poprawić żywotność baterii i naprawić stłuczenie odtwarzania.\n\nAVC ma maksymalną rozdzielczość 1080p, a odtwarzanie wideo wykorzysta więcej danych internetowych niż VP9 lub AV1.</string>
+  <string name="revanced_spoof_client_about_android_ios_title">iOS spoofing działania niepożądane</string>
+  <string name="revanced_spoof_client_about_android_ios_summary">• HDR jest obsługiwany tylko z kodekiem AV1\n• Historia zegarka nie działa z kontem markowym</string>
+  <string name="revanced_spoof_client_about_android_vr_title">Działania niepożądane związane z systemem Android VR</string>
+  <string name="revanced_spoof_client_about_android_vr_summary">• Brak filmu HDR\n• Filmy dziecięce nie odtwarza\n• Wstrzymane filmy mogą losowo wznawiać\n• Niska jakość miniatur paska wyszukiwania krótkich\n• Przycisk pobierania jest ukryty\n• Karty ekranu końcowego są ukryte</string>
   <string name="revanced_spoof_client_storyboard_timeout">Miniatury klienta nie są dostępne (limit czasu API)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Miniaturki klienta tymczasowo nie są dostępne: %s</string>
   </patch>

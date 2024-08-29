@@ -71,7 +71,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_03_feed_title">Фид</string>
   <string name="revanced_settings_screen_04_player_title">Плејер</string>
   <string name="revanced_settings_screen_05_general_title">Општи изглед</string>
-  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Трака за премотавање</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Контроле превлачења</string>
   <string name="revanced_settings_screen_11_misc_title">Разно</string>
@@ -777,6 +776,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_general_skipcount_sum_off">Праћење броја прескакања није омогућено</string>
   <string name="revanced_sb_general_min_duration">Минимално трајање сегмента</string>
   <string name="revanced_sb_general_min_duration_sum">Сегменти краћи од ове вредности (у секундама) неће бити приказани или прескочени</string>
+  <string name="revanced_sb_general_min_duration_invalid">Неважеће временско трајање</string>
   <string name="revanced_sb_general_uuid">Ваш приватни кориснички ID</string>
   <string name="revanced_sb_general_uuid_sum">Ово треба да остане приватно. Ово је као лозинка и не би требало да се дели ни са ким. Ако неко има ово, може да се лажно представља за вас</string>
   <string name="revanced_sb_general_uuid_invalid">Приватни кориснички ID мора да има најмање 30 знакова</string>
@@ -877,8 +877,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">Време почетка сегмента</string>
   <string name="revanced_sb_new_segment_time_end">Време краја сегмента</string>
   <string name="revanced_sb_new_segment_confirm_title">Да ли су времена тачна?</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <string name="revanced_sb_new_segment_confirm_content">Сегмент је од\n\n%1$s\nдо\n%%2$s\n\n(%3$s)\n\nСпреман за подношење?</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Почетак мора бити пре краја</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Прво означите два места на временској траци</string>
@@ -1042,6 +1040,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
   <string name="revanced_check_watch_history_domain_name_dialog_title">Упозорење</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Ваша историја гледања се не чува.&lt;br&gt;&lt;br&gt;Ово је највероватније узроковано DNS блокатором огласа или мрежним проксијем.&lt;br&gt;&lt;br&gt;Да бисте ово поправили, ставите на белу листу &lt;b&gt;s.youtube.com&lt;/b&gt; или искључите све DNS блокаторе и проксије.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Не приказуј поново</string>
   </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
@@ -1125,8 +1124,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_on">Клијент је лажиран</string>
   <string name="revanced_spoof_client_summary_off">Клијент није лажиран\n\nРепродукција видеа можда неће радити</string>
   <string name="revanced_spoof_client_user_dialog_message">Искључивање овог подешавања можда ће изазвати проблеме са репродукцијом видеа.</string>
-  <string name="revanced_spoof_client_use_ios_title">Лажиран клијент на iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Клијент је тренутно лажиран на Android VR Нежељени ефекти обухватају:\n• Нема HDR видеа\n• Дечји видео снимци се не репродукују\n• Паузирани видео снимци могу насумично да се настављају\n• Сличице на траци за премотавање Shorts видеа лошег квалитета\n• Дугме за радњу „Преузми“ је скривено\n• Картице завршног екрана су скривене</string>
+  <string name="revanced_spoof_client_type_title">Тип лажираног клијента</string>
+  <string name="revanced_spoof_client_ios_force_avc_title">Присили iOS AVC (H.264)</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_on">iOS видео кодек је AVC</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_off">iOS видео кодек је AVC, VP9 или AV1</string>
+  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Ако ово омогућите, можда ће се продужити трајање батерије и поправити застој при репродукцији.\n\nAVC има максималну резолуцију од 1080p, а репродукција видеа ће користити више интернет података него VP9 или AV1.</string>
+  <string name="revanced_spoof_client_about_android_ios_title">Нежељени ефекти лажирања на iOS</string>
+  <string name="revanced_spoof_client_about_android_ios_summary">• HDR је подржан само кодеком AV1\n• Историја гледања не ради са налогом бренда</string>
+  <string name="revanced_spoof_client_about_android_vr_title">Нежељени ефекти лажирања на Android VR</string>
+  <string name="revanced_spoof_client_about_android_vr_summary">• Нема HDR видеа\n• Дечји видео снимци се не репродукују\n• Паузирани видео снимци могу насумично да се настављају\n• Сличице на траци за премотавање Shorts видеа лошег квалитета\n• Дугме за радњу „Преузми“ је скривено\n• Картице завршног екрана су скривене</string>
   <string name="revanced_spoof_client_storyboard_timeout">Сличице у лажираном клијенту нису доступне (API истекао)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">Сличице у лажираном клијенту привремено нису доступне: %s</string>
   </patch>
