@@ -2,6 +2,7 @@ package app.revanced.integrations.youtube.patches.components;
 
 import static app.revanced.integrations.shared.StringRef.str;
 import static app.revanced.integrations.youtube.shared.NavigationBar.NavigationButton;
+import static java.lang.Character.UnicodeBlock.*;
 
 import android.os.Build;
 
@@ -10,9 +11,8 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
 import app.revanced.integrations.shared.Logger;
@@ -26,7 +26,7 @@ import app.revanced.integrations.youtube.shared.PlayerType;
 
 /**
  * <pre>
- * Allows hiding home feed and search results based on keywords and/or channel names.
+ * Allows hiding home feed and search results based on video title keywords and/or channel names.
  *
  * Limitations:
  * - Searching for a keyword phrase will give no search results.
@@ -41,19 +41,14 @@ import app.revanced.integrations.youtube.shared.PlayerType;
  *   (ie: "mr beast" automatically filters "Mr Beast" and "MR BEAST").
  * - Keywords present in the layout or video data cannot be used as filters, otherwise all videos
  *   will always be hidden.  This patch checks for some words of these words.
+ * - When using whole word syntax, some keywords may need additional pluralized variations.
  */
 @SuppressWarnings("unused")
 @RequiresApi(api = Build.VERSION_CODES.N)
 final class KeywordContentFilter extends Filter {
 
     /**
-     * Minimum keyword/phrase length to prevent excessively broad content filtering.
-     */
-    private static final int MINIMUM_KEYWORD_LENGTH = 3;
-
-    /**
-     * Strings found in the buffer for every videos.
-     * Full strings should be specified, as they are compared using {@link String#contains(CharSequence)}.
+     * Strings found in the buffer for every videos.  Full strings should be specified.
      *
      * This list does not include every common buffer string, and this can be added/changed as needed.
      * Words must be entered with the exact casing as found in the buffer.
@@ -88,7 +83,7 @@ final class KeywordContentFilter extends Filter {
             "search_vwc_description_transition_key",
             "g-high-recZ",
             // Text and litho components found in the buffer that belong to path filters.
-            "metadata.eml",
+            "expandable_metadata.eml",
             "thumbnail.eml",
             "avatar.eml",
             "overflow_button.eml",
@@ -107,7 +102,8 @@ final class KeywordContentFilter extends Filter {
             "search_video_with_context.eml",
             "video_with_context.eml", // Subscription tab videos.
             "related_video_with_context.eml",
-            "video_lockup_with_attachment.eml", // A/B test for subscribed video.
+            // A/B test for subscribed video, and sometimes when tablet layout is enabled.
+            "video_lockup_with_attachment.eml",
             "compact_video.eml",
             "inline_shorts",
             "shorts_video_cell",
@@ -140,6 +136,12 @@ final class KeywordContentFilter extends Filter {
     );
 
     /**
+     * Minimum keyword/phrase length to prevent excessively broad content filtering.
+     * Only applies when not using whole word syntax.
+     */
+    private static final int MINIMUM_KEYWORD_LENGTH = 3;
+
+    /**
      * Threshold for {@link #filteredVideosPercentage}
      * that indicates all or nearly all videos have been filtered.
      * This should be close to 100% to reduce false positives.
@@ -149,6 +151,8 @@ final class KeywordContentFilter extends Filter {
     private static final float ALL_VIDEOS_FILTERED_SAMPLE_SIZE = 50;
 
     private static final long ALL_VIDEOS_FILTERED_BACKOFF_MILLISECONDS = 60 * 1000; // 60 seconds
+
+    private static final int UTF8_MAX_BYTE_COUNT = 4;
 
     /**
      * Rolling average of how many videos were filtered by a keyword.
@@ -216,23 +220,167 @@ final class KeywordContentFilter extends Filter {
                 capitalizeNext = false;
             }
         }
+
         return new String(codePoints, 0, codePoints.length);
     }
 
     /**
-     * @return If the phrase will will hide all videos. Not an exhaustive check.
+     * @return If the string contains any characters from languages that do not use spaces between words.
      */
-    private static boolean phrasesWillHideAllVideos(@NonNull String[] phrases) {
-        for (String commonString : STRINGS_IN_EVERY_BUFFER) {
-            if (Utils.containsAny(commonString, phrases)) {
+    private static boolean isLanguageWithNoSpaces(String text) {
+        for (int i = 0, length = text.length(); i < length;) {
+            final int codePoint = text.codePointAt(i);
+
+            Character.UnicodeBlock block = Character.UnicodeBlock.of(codePoint);
+            if (block == CJK_UNIFIED_IDEOGRAPHS // Chinese and Kanji
+                    || block == HIRAGANA // Japanese Hiragana
+                    || block == KATAKANA // Japanese Katakana
+                    || block == THAI
+                    || block == LAO
+                    || block == MYANMAR
+                    || block == KHMER
+                    || block == TIBETAN) {
                 return true;
             }
+
+            i += Character.charCount(codePoint);
         }
+
         return false;
+    }
+
+    /**
+     * @return If the phrase will hide all videos. Not an exhaustive check.
+     */
+    private static boolean phrasesWillHideAllVideos(@NonNull String[] phrases, boolean matchWholeWords) {
+        for (String phrase : phrases) {
+            for (String commonString : STRINGS_IN_EVERY_BUFFER) {
+                if (matchWholeWords) {
+                    byte[] commonStringBytes = commonString.getBytes(StandardCharsets.UTF_8);
+                    int matchIndex = 0;
+                    while (true) {
+                        matchIndex = commonString.indexOf(phrase, matchIndex);
+                        if (matchIndex < 0) break;
+
+                        if (keywordMatchIsWholeWord(commonStringBytes, matchIndex, phrase.length())) {
+                            return true;
+                        }
+
+                        matchIndex++;
+                    }
+                } else if (Utils.containsAny(commonString, phrases)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * @return If the start and end indexes are not surrounded by other letters.
+     *         If the indexes are surrounded by numbers/symbols/punctuation it is considered a whole word.
+     */
+    private static boolean keywordMatchIsWholeWord(byte[] text, int keywordStartIndex, int keywordLength) {
+        final Integer codePointBefore = getUtf8CodePointBefore(text, keywordStartIndex);
+        if (codePointBefore != null && Character.isLetter(codePointBefore)) {
+            return false;
+        }
+
+        final Integer codePointAfter = getUtf8CodePointAt(text, keywordStartIndex + keywordLength);
+        //noinspection RedundantIfStatement
+        if (codePointAfter != null && Character.isLetter(codePointAfter)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * @return The UTF8 character point immediately before the index,
+     *         or null if the bytes before the index is not a valid UTF8 character.
+     */
+    @Nullable
+    private static Integer getUtf8CodePointBefore(byte[] data, int index) {
+        int characterByteCount = 0;
+        while (--index >= 0 && ++characterByteCount <= UTF8_MAX_BYTE_COUNT) {
+            if (isValidUtf8(data, index, characterByteCount)) {
+                return decodeUtf8ToCodePoint(data, index, characterByteCount);
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * @return The UTF8 character point at the index,
+     *         or null if the index holds no valid UTF8 character.
+     */
+    @Nullable
+    private static Integer getUtf8CodePointAt(byte[] data, int index) {
+        int characterByteCount = 0;
+        final int dataLength = data.length;
+        while (index + characterByteCount < dataLength && ++characterByteCount <= UTF8_MAX_BYTE_COUNT) {
+            if (isValidUtf8(data, index, characterByteCount)) {
+                return decodeUtf8ToCodePoint(data, index, characterByteCount);
+            }
+        }
+
+        return null;
+    }
+
+    public static boolean isValidUtf8(byte[] data, int startIndex, int numberOfBytes) {
+        switch (numberOfBytes) {
+            case 1: // 0xxxxxxx (ASCII)
+                return (data[startIndex] & 0x80) == 0;
+            case 2: // 110xxxxx, 10xxxxxx
+                return (data[startIndex] & 0xE0) == 0xC0
+                        && (data[startIndex + 1] & 0xC0) == 0x80;
+            case 3: // 1110xxxx, 10xxxxxx, 10xxxxxx
+                return (data[startIndex] & 0xF0) == 0xE0
+                        && (data[startIndex + 1] & 0xC0) == 0x80
+                        && (data[startIndex + 2] & 0xC0) == 0x80;
+            case 4: // 11110xxx, 10xxxxxx, 10xxxxxx, 10xxxxxx
+                return (data[startIndex] & 0xF8) == 0xF0
+                        && (data[startIndex + 1] & 0xC0) == 0x80
+                        && (data[startIndex + 2] & 0xC0) == 0x80
+                        && (data[startIndex + 3] & 0xC0) == 0x80;
+        }
+
+        throw new IllegalArgumentException("numberOfBytes: " + numberOfBytes);
+    }
+
+    public static int decodeUtf8ToCodePoint(byte[] data, int startIndex, int numberOfBytes) {
+        switch (numberOfBytes) {
+            case 1:
+                return data[startIndex];
+            case 2:
+                return ((data[startIndex] & 0x1F) << 6) |
+                        (data[startIndex + 1] & 0x3F);
+            case 3:
+                return ((data[startIndex] & 0x0F) << 12) |
+                        ((data[startIndex + 1] & 0x3F) << 6) |
+                        (data[startIndex + 2] & 0x3F);
+            case 4:
+                return ((data[startIndex] & 0x07) << 18) |
+                        ((data[startIndex + 1] & 0x3F) << 12) |
+                        ((data[startIndex + 2] & 0x3F) << 6) |
+                        (data[startIndex + 3] & 0x3F);
+        }
+        throw new IllegalArgumentException("numberOfBytes: " + numberOfBytes);
+    }
+
+    private static boolean phraseUsesWholeWordSyntax(String phrase) {
+        return phrase.startsWith("\"") && phrase.endsWith("\"");
+    }
+
+    private static String stripWholeWordSyntax(String phrase) {
+        return phrase.substring(1, phrase.length() - 1);
     }
 
     private synchronized void parseKeywords() { // Must be synchronized since Litho is multi-threaded.
         String rawKeywords = Settings.HIDE_KEYWORD_CONTENT_PHRASES.get();
+
         //noinspection StringEquality
         if (rawKeywords == lastKeywordPhrasesParsed) {
             Logger.printDebug(() -> "Using previously initialized search");
@@ -243,20 +391,33 @@ final class KeywordContentFilter extends Filter {
         String[] split = rawKeywords.split("\n");
         if (split.length != 0) {
             // Linked Set so log statement are more organized and easier to read.
-            Set<String> keywords = new LinkedHashSet<>(10 * split.length);
+            // Map is: Phrase -> isWholeWord
+            Map<String, Boolean> keywords = new LinkedHashMap<>(10 * split.length);
 
             for (String phrase : split) {
-                // Remove any trailing white space the user may have accidentally included.
+                // Remove any trailing spaces the user may have accidentally included.
                 phrase = phrase.stripTrailing();
                 if (phrase.isBlank()) continue;
 
-                if (phrase.length() < MINIMUM_KEYWORD_LENGTH) {
+                final boolean wholeWordMatching;
+                if (phraseUsesWholeWordSyntax(phrase)) {
+                    if (phrase.length() == 2) {
+                        continue; // Empty "" phrase
+                    }
+                    phrase = stripWholeWordSyntax(phrase);
+                    wholeWordMatching = true;
+                } else if (phrase.length() < MINIMUM_KEYWORD_LENGTH && !isLanguageWithNoSpaces(phrase)) {
+                    // Allow phrases of 1 and 2 characters if using a
+                    // language that does not use spaces between words.
+
                     // Do not reset the setting. Keep the invalid keywords so the user can fix the mistake.
                     Utils.showToastLong(str("revanced_hide_keyword_toast_invalid_length", phrase, MINIMUM_KEYWORD_LENGTH));
                     continue;
+                } else {
+                    wholeWordMatching = false;
                 }
 
-                // Add common casing that might appear.
+                // Common casing that might appear.
                 //
                 // This could be simplified by adding case insensitive search to the prefix search,
                 // which is very simple to add to StringTreSearch for Unicode and ByteTrieSearch for ASCII.
@@ -265,7 +426,7 @@ final class KeywordContentFilter extends Filter {
                 // UTF-8 characters can be different byte lengths, which does
                 // not allow comparing two different byte arrays using simple plain array indexes.
                 //
-                // Instead add all common case variations of the words.
+                // Instead use all common case variations of the words.
                 String[] phraseVariations = {
                         phrase,
                         phrase.toLowerCase(),
@@ -273,20 +434,45 @@ final class KeywordContentFilter extends Filter {
                         capitalizeAllFirstLetters(phrase),
                         phrase.toUpperCase()
                 };
-                if (phrasesWillHideAllVideos(phraseVariations)) {
-                    Utils.showToastLong(str("revanced_hide_keyword_toast_invalid_common", phrase));
+
+                if (phrasesWillHideAllVideos(phraseVariations, wholeWordMatching)) {
+                    String toastMessage;
+                    // If whole word matching is off, but would pass with on, then show a different toast.
+                    if (!wholeWordMatching && !phrasesWillHideAllVideos(phraseVariations, true)) {
+                        toastMessage = "revanced_hide_keyword_toast_invalid_common_whole_word_required";
+                    } else {
+                        toastMessage = "revanced_hide_keyword_toast_invalid_common";
+                    }
+
+                    Utils.showToastLong(str(toastMessage, phrase));
                     continue;
                 }
 
-                keywords.addAll(Arrays.asList(phraseVariations));
+                for (String variation : phraseVariations) {
+                    // Check if the same phrase is declared both with and without quotes.
+                    Boolean existing = keywords.get(variation);
+                    if (existing == null) {
+                        keywords.put(variation, wholeWordMatching);
+                    } else if (existing != wholeWordMatching) {
+                        Utils.showToastLong(str("revanced_hide_keyword_toast_invalid_conflicting", phrase));
+                        break;
+                    }
+                }
             }
 
-            for (String keyword : keywords) {
-                // Use a callback to get the keyword that matched.
-                // TrieSearch could have this built in, but that's slightly more complicated since
-                // the strings are stored as a byte array and embedded in the search tree.
+            for (Map.Entry<String, Boolean> entry : keywords.entrySet()) {
+                String keyword = entry.getKey();
+                //noinspection ExtractMethodRecommender
+                final boolean isWholeWord = entry.getValue();
+
                 TrieSearch.TriePatternMatchedCallback<byte[]> callback =
-                        (textSearched, matchedStartIndex, matchedLength, callbackParameter) -> {
+                        (textSearched, startIndex, matchLength, callbackParameter) -> {
+                            if (isWholeWord && !keywordMatchIsWholeWord(textSearched, startIndex, matchLength)) {
+                                return false;
+                            }
+
+                            Logger.printDebug(() -> (isWholeWord ? "Matched whole keyword: '"
+                                    : "Matched keyword: '") + keyword + "'");
                             // noinspection unchecked
                             ((MutableReference<String>) callbackParameter).value = keyword;
                             return true;
@@ -295,7 +481,7 @@ final class KeywordContentFilter extends Filter {
                 search.addPattern(stringBytes, callback);
             }
 
-            Logger.printDebug(() -> "Search using: (" + search.getEstimatedMemorySize() + " KB) keywords: " + keywords);
+            Logger.printDebug(() -> "Search using: (" + search.getEstimatedMemorySize() + " KB) keywords: " + keywords.keySet());
         }
 
         bufferSearch = search;
@@ -382,7 +568,7 @@ final class KeywordContentFilter extends Filter {
         // Field is intentionally compared using reference equality.
         //noinspection StringEquality
         if (Settings.HIDE_KEYWORD_CONTENT_PHRASES.get() != lastKeywordPhrasesParsed) {
-            // User changed the keywords.
+            // User changed the keywords or whole word setting.
             parseKeywords();
         }
 
