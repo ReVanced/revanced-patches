@@ -249,13 +249,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_keyword_content_about_summary">Home/Subscription/Search results are filtered to hide content that matches keyword phrases\n\nLimitations\n• Shorts cannot be hidden by channel name\n• Some UI components may not be hidden\n• Searching for a keyword may show no results</string>
             <string name="revanced_hide_keyword_content_about_whole_words_title">Match whole words</string>
             <!-- Translations _must_ use a localized example.  Or if using machine translations, or if nobody wants to think of a localized example (or none exist), then the English 'ai' example should be left as-is.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist. -->
-            <string name="revanced_hide_keyword_content_about_whole_words_summary">Surrounding a keyword/phrase with double-quotes will prevent partial matches of video titles and channel names&lt;br>&lt;br>For example,&lt;br>&lt;b>\"ai\"&lt;/b> will hide the video: &lt;b>Is AI dumb?&lt;/b>&lt;br>but will not hide: &lt;b>DMCA fair use explained!&lt;/b></string>
+            <string name="revanced_hide_keyword_content_about_whole_words_summary">Surrounding a keyword/phrase with double-quotes will prevent partial matches of video titles and channel names&lt;br>&lt;br>For example,&lt;br>&lt;b>\"ai\"&lt;/b> will hide the video: &lt;b>Is AI dumb?&lt;/b>&lt;br>but will not hide: &lt;b>What does fair use mean?&lt;/b></string>
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-            <string name="revanced_hide_keyword_toast_invalid_common">Cannot use keyword: \'%s\'</string>
-            <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Add quotes to use keyword: \'%s\'</string>
-            <string name="revanced_hide_keyword_toast_invalid_conflicting">Keyword has conflicting declarations: \'%s\'</string>
-            <string name="revanced_hide_keyword_toast_invalid_length">\'%1$s\' is too short and requires quotes</string>
-            <string name="revanced_hide_keyword_toast_invalid_broad">Keyword will hide all videos: \'%s\'</string>
+            <string name="revanced_hide_keyword_toast_invalid_common">Cannot use keyword: %s</string>
+            <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Add quotes to use keyword: %s</string>
+            <string name="revanced_hide_keyword_toast_invalid_conflicting">Keyword has conflicting declarations: %s</string>
+            <string name="revanced_hide_keyword_toast_invalid_length">Keyword is too short and requires quotes: %s</string>
+            <string name="revanced_hide_keyword_toast_invalid_broad">Keyword will hide all videos: %s</string>
         </patch>
         <patch id="ad.general.HideAdsResourcePatch">
             <string name="revanced_hide_general_ads_title">Hide general ads</string>
