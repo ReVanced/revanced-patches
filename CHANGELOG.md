@@ -1,3 +1,10 @@
+# [4.14.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.2...v4.14.0-dev.3) (2024-08-30)
+
+
+### Features
+
+* **YouTube - Keyword filter:** Add syntax to match whole keywords and not substrings ([#3592](https://github.com/ReVanced/revanced-patches/issues/3592)) ([f5fb351](https://github.com/ReVanced/revanced-patches/commit/f5fb3512cfafe214ba6a6d25ba0825ae1884a0ff))
+
 # [4.14.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.1...v4.14.0-dev.2) (2024-08-24)
 
 
