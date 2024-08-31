@@ -6,7 +6,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
@@ -14,12 +13,12 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.patches.youtube.misc.fix.playback.fingerprints.BuildBrowseRequestFingerprint
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.BuildInitPlaybackRequestFingerprint
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.BuildMediaDataSourceFingerprint
-import app.revanced.patches.youtube.misc.fix.playback.fingerprints.BuildPlayerRequestURIFingerprint
-import app.revanced.patches.youtube.misc.fix.playback.fingerprints.BuildRequestFingerprint
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.CreateStreamingDataFingerprint
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.patches.youtube.video.videoid.VideoIdPatch
 import app.revanced.util.getReference
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -35,6 +34,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
         SettingsPatch::class,
         AddResourcesPatch::class,
         UserAgentClientSpoofPatch::class,
+        VideoIdPatch::class,
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -70,18 +70,13 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 object SpoofClientPatch : BytecodePatch(
     setOf(
         BuildInitPlaybackRequestFingerprint,
-        BuildPlayerRequestURIFingerprint,
+        BuildBrowseRequestFingerprint,
         CreateStreamingDataFingerprint,
-        BuildMediaDataSourceFingerprint,
-        BuildRequestFingerprint
+        BuildMediaDataSourceFingerprint
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/spoof/SpoofClientPatch;"
-    private const val REQUEST_CLASS_DESCRIPTOR =
-        "Lorg/chromium/net/UrlRequest;"
-    private const val REQUEST_BUILDER_CLASS_DESCRIPTOR =
-        "Lorg/chromium/net/UrlRequest\$Builder;"
     private const val STREAMING_DATA_CLASS_DESCRIPTOR =
         "Lcom/google/protos/youtube/api/innertube/StreamingDataOuterClass\$StreamingData;"
 
@@ -99,6 +94,9 @@ object SpoofClientPatch : BytecodePatch(
             )
         )
 
+        // Prefetch streaming data.
+        VideoIdPatch.hookPlayerResponseVideoId("$INTEGRATIONS_CLASS_DESCRIPTOR->fetchStreamingData(Ljava/lang/String;Z)V")
+        
         // region Block /initplayback requests to fall back to /get_watch requests.
 
         BuildInitPlaybackRequestFingerprint.resultOrThrow().let {
@@ -119,47 +117,19 @@ object SpoofClientPatch : BytecodePatch(
 
         // endregion
 
-        // region Block /get_watch requests to fall back to /player requests.
+        // region Copy request headers for streaming data fetch.
 
-        BuildPlayerRequestURIFingerprint.resultOrThrow().let {
-            val invokeToStringIndex = it.scanResult.patternScanResult!!.startIndex
-
+        BuildBrowseRequestFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val uriRegister = getInstruction<FiveRegisterInstruction>(invokeToStringIndex).registerC
-
-                addInstructions(
-                    invokeToStringIndex,
-                    """
-                        invoke-static { v$uriRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->blockGetWatchRequest(Landroid/net/Uri;)Landroid/net/Uri;
-                        move-result-object v$uriRegister
-                    """,
-                )
-            }
-        }
-
-        // endregion
-
-        // region Fetch replacement streams.
-
-        BuildRequestFingerprint.resultOrThrow().let { result ->
-            result.mutableMethod.apply {
-                val buildRequestIndex = getInstructions().lastIndex - 2
-                val requestBuilderRegister = getInstruction<FiveRegisterInstruction>(buildRequestIndex).registerC
-
-                val newRequestBuilderIndex = result.scanResult.patternScanResult!!.endIndex
+                val newRequestBuilderIndex = it.scanResult.patternScanResult!!.endIndex
                 val urlRegister = getInstruction<FiveRegisterInstruction>(newRequestBuilderIndex).registerD
 
-                // Replace "requestBuilder.build()" with integrations call.
-                replaceInstruction(
-                    buildRequestIndex,
-                    "invoke-static { v$requestBuilderRegister, v$urlRegister, v${urlRegister + 1} }, " +
-                            "$INTEGRATIONS_CLASS_DESCRIPTOR->" +
-                            "buildRequest(${REQUEST_BUILDER_CLASS_DESCRIPTOR}Ljava/lang/String;Ljava/util/Map;)" +
-                            REQUEST_CLASS_DESCRIPTOR
+                addInstruction(
+                    newRequestBuilderIndex,
+                    """
+                        invoke-static { v$urlRegister, p1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->setFetchHeaders(Ljava/lang/String;Ljava/util/Map;)V
+                    """
                 )
-                
-                // Copy request headers for streaming data fetch.
-                addInstruction(newRequestBuilderIndex + 2, "move-object v${urlRegister + 1}, p1")
             }
         }
 
