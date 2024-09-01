@@ -685,7 +685,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
         </patch>
         <patch id="layout.returnyoutubedislike.ReturnYouTubeDislikeResourcePatch">
             <string name="revanced_ryd_settings_title">Return YouTube Dislike</string>
-            <string name="revanced_ryd_video_likes_hidden_by_video_owner">Hidden</string>
             <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
             <string name="revanced_ryd_failure_connection_timeout">Dislikes temporarily not available (API timed out)</string>
             <string name="revanced_ryd_failure_connection_status_code">Dislikes not available (status %d)</string>
