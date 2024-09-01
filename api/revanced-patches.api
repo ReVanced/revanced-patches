@@ -355,6 +355,20 @@ public final class app/revanced/patches/instagram/developerMenu/EnableDeveloperM
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/instagram/misc/integrations/IntegrationsPatch : app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch {
+	public static final field INSTANCE Lapp/revanced/patches/instagram/misc/integrations/IntegrationsPatch;
+}
+
+public final class app/revanced/patches/instagram/misc/links/openInExternalBrowser/OpenLinksInExternalBrowser : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/instagram/misc/links/openInExternalBrowser/OpenLinksInExternalBrowser;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/instagram/misc/links/openInExternalBrowser/fingerprints/OpenLinksInExternalBrowserFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/instagram/misc/links/openInExternalBrowser/fingerprints/OpenLinksInExternalBrowserFingerprint;
+}
+
 public final class app/revanced/patches/instagram/misc/links/sanitizeSharingLinks/SanitizeSharingLinksPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/instagram/misc/links/sanitizeSharingLinks/SanitizeSharingLinksPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
