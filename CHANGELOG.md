@@ -1,3 +1,10 @@
+# [4.14.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.3...v4.14.0-dev.4) (2024-09-01)
+
+
+### Bug Fixes
+
+* **YouTube - ReturnYouTubeDislike:** Show estimated like count for videos with hidden likes ([#3601](https://github.com/ReVanced/revanced-patches/issues/3601)) ([005be82](https://github.com/ReVanced/revanced-patches/commit/005be82d71b2a42387b1b57035930b20f4663794))
+
 # [4.14.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.2...v4.14.0-dev.3) (2024-08-30)
 
 
