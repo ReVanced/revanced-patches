@@ -24,6 +24,7 @@ import java.net.URL;
  * @noinspection unused
  */
 public class GmsCoreSupport {
+    public static final String ORIGINAL_UNPATCHED_PACKAGE_NAME = "com.google.android.youtube";
     private static final String GMS_CORE_PACKAGE_NAME
             = getGmsCoreVendorGroupId() + ".android.gms";
     private static final Uri GMS_CORE_PROVIDER
@@ -73,6 +74,21 @@ public class GmsCoreSupport {
     @RequiresApi(api = Build.VERSION_CODES.N)
     public static void checkGmsCore(Activity context) {
         try {
+            // Verify the user has not included GmsCore for a root installation.
+            // GmsCore Support changes the package name, but with a mounted installation
+            // all manifest changes are ignored and the original package name is used.
+            if (context.getPackageName().equals(ORIGINAL_UNPATCHED_PACKAGE_NAME)) {
+                Logger.printInfo(() -> "App is mounted with root, but GmsCore patch was included");
+                // Cannot use localize text here, since the app will load
+                // resources from the unpatched app and all patch strings are missing.
+                Utils.showToastLong("The 'GmsCore support' patch breaks mount installations");
+
+                // Do not exit. If the app exits before launch completes (and without
+                // opening another activity), then on some devices such as Pixel phone Android 10
+                // no toast will be shown and the app will continually be relaunched
+                // with the appearance of a hung app.
+            }
+
             // Verify GmsCore is installed.
             try {
                 PackageManager manager = context.getPackageManager();
