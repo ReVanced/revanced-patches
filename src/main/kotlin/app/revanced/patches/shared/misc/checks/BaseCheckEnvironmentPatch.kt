@@ -48,7 +48,7 @@ abstract class BaseCheckEnvironmentPatch(
         AddResourcesPatch(BaseCheckEnvironmentPatch::class)
 
         setPatchInfo()
-        invokeRunChecks()
+        invokeCheck()
     }
 
     private fun setPatchInfo() {
@@ -93,9 +93,9 @@ abstract class BaseCheckEnvironmentPatch(
         } catch (_: ClassNotFoundException) { }
     }
 
-    private fun invokeRunChecks() = mainActivityOnCreateFingerprint.result?.mutableMethod?.addInstructions(
+    private fun invokeCheck() = mainActivityOnCreateFingerprint.result?.mutableMethod?.addInstructions(
         0,
-        "invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->runChecks()V",
+        "invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->check()V",
     ) ?: throw mainActivityOnCreateFingerprint.exception
 
     private companion object {
