@@ -854,6 +854,12 @@ public final class app/revanced/patches/serviceportalbund/detection/root/RootDet
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public abstract class app/revanced/patches/shared/misc/checks/BaseCheckEnvironmentPatch : app/revanced/patcher/patch/BytecodePatch {
+	public fun <init> (Lapp/revanced/patcher/fingerprint/MethodFingerprint;Ljava/util/Set;Lapp/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch;)V
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/shared/misc/fix/verticalscroll/VerticalScrollPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/shared/misc/fix/verticalscroll/VerticalScrollPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -1860,6 +1866,10 @@ public final class app/revanced/patches/youtube/misc/backgroundplayback/Backgrou
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/backgroundplayback/BackgroundPlaybackPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/youtube/misc/check/CheckEnvironmentPatch : app/revanced/patches/shared/misc/checks/BaseCheckEnvironmentPatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/check/CheckEnvironmentPatch;
 }
 
 public final class app/revanced/patches/youtube/misc/debugging/DebuggingPatch : app/revanced/patcher/patch/ResourcePatch {

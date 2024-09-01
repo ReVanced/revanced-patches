@@ -31,6 +31,18 @@ This is because Crowdin requires temporarily flattening this file and removing t
 -->
 <resources>
     <app id="shared">
+        <patch id="misc.checks.BaseCheckEnvironmentPatch">
+            <string name="revanced_check_environment_failed_title">Failed checks</string>
+            <string name="revanced_check_environment_dialog_open_official_source_button">Open official link</string>
+            <string name="revanced_check_environment_dialog_ignore_button">Ignore</string>
+            <string name="revanced_check_environment_dialog_ignore_button_countdown">Ignore (%s)</string>
+            <string name="revanced_check_environment_failed_message">&lt;p&gt;This app looks to be pre-patched or obtained from someone other than you. It is possible, this app does not function correctly or is &lt;b&gt;harmful and even dangerous&lt;/b&gt; to run and use.&lt;p&gt;It is strongly recommended to &lt;b&gt;uninstall this version of the app and patch it yourself&lt;/b&gt; to ensure, all patches are intended and secure.&lt;p&gt;The following checks have failed and concluded this app to be pre-patched, obtained from someone else other than you, not correctly functional or &lt;b&gt;harmful and even dangerous&lt;/b&gt; to use:&lt;/p&gt;&lt;p&gt;This warning will only be shown once more, if dismissed, and never again.&lt;p&gt;Uninstall this version of the app and patch it yourself, by opening the offical link below.&lt;/p&gt;&lt;br&gt;&lt;h2&gt;Official links&lt;/h2&gt;&lt;br&gt;&lt;p&gt;ReVanced is always available at &lt;a href=https://revanced.app&gt;revanced.app&lt;/a&gt;.&lt;/p&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;&lt;a href=https://revanced.app&gt;Website&lt;/a&gt;&lt;li&gt;&lt;a href=https://revanced.app/discord&gt;Discord&lt;/a&gt;&lt;li&gt;&lt;a href=https://www.reddit.com/r/revancedapp&gt;Reddit&lt;/a&gt;&lt;li&gt;&lt;a href=https://twitter.com/revancedapp&gt;Twitter&lt;/a&gt;&lt;li&gt;&lt;a href=https://t.me/app_revanced&gt;Telegram&lt;/a&gt;&lt;li&gt;&lt;a href=https://www.youtube.com/@ReVanced&gt;YouTube&lt;/a&gt;&lt;/ul&gt;</string>
+            <string name="revanced_check_environment_manager_not_expected_installer">Not installed by ReVanced Manager</string>
+            <string name="revanced_check_environment_manager_not_installed">No installation of ReVanced Manager found</string>
+            <string name="revanced_check_environment_not_patch_time_build">Patched on another device</string>
+            <string name="revanced_check_environment_not_near_patch_time">Patched longer than 10 minutes ago</string>
+            <string name="revanced_check_environment_not_patch_time_public_ip">IP during patching different from current</string>
+        </patch>
         <patch id="misc.settings.BaseSettingsResourcePatch">
             <string name="revanced_settings_title">ReVanced</string>
             <string name="revanced_settings_confirm_user_dialog_title">Do you wish to proceed?</string>

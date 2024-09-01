@@ -5,3 +5,5 @@ buildCache {
         isEnabled = "CI" !in System.getenv()
     }
 }
+
+include(":stub")
