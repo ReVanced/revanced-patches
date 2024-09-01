@@ -58,14 +58,6 @@ abstract class BaseCheckEnvironmentPatch(
         )
 
         fun setBuildInfo() {
-            try {
-                Class.forName("android.os.Build")
-            } catch (e: ClassNotFoundException) {
-                // This only works on Android,
-                // because it uses Android APIs.
-                return
-            }
-
             PatchInfoBuildFingerprint.setClassFields(
                 "PATCH_BOARD" to BOARD.encodedAndHashed,
                 "PATCH_BOOTLOADER" to BOOTLOADER.encodedAndHashed,
@@ -93,7 +85,12 @@ abstract class BaseCheckEnvironmentPatch(
             )
         }
 
-        setBuildInfo()
+        try {
+            Class.forName("android.os.Build")
+            // This only works on Android,
+            // because it uses Android APIs.
+            setBuildInfo()
+        } catch (_: ClassNotFoundException) { }
     }
 
     private fun invokeRunChecks() = mainActivityOnCreateFingerprint.result?.mutableMethod?.addInstructions(
