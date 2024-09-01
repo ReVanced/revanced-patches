@@ -95,7 +95,7 @@ abstract class BaseCheckEnvironmentPatch(
 
     private fun invokeCheck() = mainActivityOnCreateFingerprint.result?.mutableMethod?.addInstructions(
         0,
-        "invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->check()V",
+        "invoke-static/range { p0 .. p0 },$INTEGRATIONS_CLASS_DESCRIPTOR->check(Landroid/app/Activity;)V",
     ) ?: throw mainActivityOnCreateFingerprint.exception
 
     private companion object {
