@@ -18,7 +18,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Max media quality",
-    description = "Sets the images/videos/stories quality to max",
+    description = "Sets the images/videos/stories quality to max.",
     compatiblePackages = [CompatiblePackage("com.instagram.android")],
 )
 @Suppress("unused")

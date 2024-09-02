@@ -14,7 +14,7 @@ import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
 
 @Patch(
     name = "Selectable bio",
-    description = "Make the user's bio selectable",
+    description = "Make the user's bio selectable.",
     compatiblePackages = [CompatiblePackage("com.instagram.android")],
 )
 @Suppress("unused")
