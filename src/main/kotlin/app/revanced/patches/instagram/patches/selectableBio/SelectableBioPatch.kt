@@ -16,7 +16,6 @@ import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
     name = "Selectable bio",
     description = "Make the user's bio selectable",
     compatiblePackages = [CompatiblePackage("com.instagram.android")],
-    use = false,
 )
 @Suppress("unused")
 object SelectableBioPatch : BytecodePatch(
@@ -25,24 +24,24 @@ object SelectableBioPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         SelectableBioFingerprint.resultOrThrow().let { it ->
             it.mutableMethod.apply {
-                // location where bio text is set to a textview.
+                // Location where bio text is set to a textview.
                 val index = getInstructions().first { it.opcode == Opcode.INVOKE_VIRTUAL }.location.index
 
-                // get reference of the setTextView method
+                // Get reference of the setTextView method.
                 val methodRef = getInstruction<BuilderInstruction35c>(index)
 
-                // get the textview register.
+                // Get the textview register.
                 val textViewRegister = methodRef.registerC
-                // get the text register (needed to set selectable boolean).
+                // Get the text register (needed to set selectable boolean).
                 val textRegister = methodRef.registerD
 
-                // make the textview selectable.
+                // Make the textview selectable.
                 addInstructions(
                     index + 1,
                     """
-                    const/4 v$textRegister, 0x1
-                    invoke-virtual {v$textViewRegister, v$textRegister}, Landroid/widget/TextView;->setTextIsSelectable(Z)V
-                    """.trimIndent(),
+                        const/4 v$textRegister, 0x1
+                        invoke-virtual {v$textViewRegister, v$textRegister}, Landroid/widget/TextView;->setTextIsSelectable(Z)V
+                    """,
                 )
             }
         }
