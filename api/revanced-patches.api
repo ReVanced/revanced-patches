@@ -349,12 +349,6 @@ public final class app/revanced/patches/inshorts/ad/HideAdsPatch : app/revanced/
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/instagram/developerMenu/EnableDeveloperMenuPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/instagram/developerMenu/EnableDeveloperMenuPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
 public final class app/revanced/patches/instagram/misc/integrations/IntegrationsPatch : app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch {
 	public static final field INSTANCE Lapp/revanced/patches/instagram/misc/integrations/IntegrationsPatch;
 }
@@ -407,6 +401,12 @@ public final class app/revanced/patches/instagram/patches/ad/HideAdsPatch : app/
 
 public final class app/revanced/patches/instagram/patches/ads/timeline/HideTimelineAdsPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/instagram/patches/ads/timeline/HideTimelineAdsPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/instagram/patches/developerMenu/EnableDeveloperMenuPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/instagram/patches/developerMenu/EnableDeveloperMenuPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
