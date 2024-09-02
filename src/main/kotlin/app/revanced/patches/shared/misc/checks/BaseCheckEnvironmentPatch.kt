@@ -53,7 +53,8 @@ abstract class BaseCheckEnvironmentPatch(
 
     private fun setPatchInfo() {
         PatchInfoFingerprint.setClassFields(
-            "PUBLIC_IP_DURING_PATCH" to (publicIp ?: "").encodedAndHashed,
+            // Use last three digits to prevent brute forcing the hashed IP.
+            "PUBLIC_IP_DURING_PATCH" to (publicIp?.takeLast(3) ?: "").encodedAndHashed,
             "PATCH_TIME" to System.currentTimeMillis().encoded,
         )
 
