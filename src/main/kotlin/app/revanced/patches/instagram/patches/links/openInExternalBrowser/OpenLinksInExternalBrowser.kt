@@ -16,14 +16,12 @@ import com.android.tools.smali.dexlib2.Opcode
     name = "Open links in external browser",
     dependencies = [IntegrationsPatch::class],
     compatiblePackages = [CompatiblePackage("com.instagram.android")],
-    use = false,
-    requiresIntegrations = true,
 )
 @Suppress("unused")
 object OpenLinksInExternalBrowser : BytecodePatch(
     setOf(OpenLinksInExternalBrowserFingerprint),
 ) {
-    private const val FUNC_CALL = """
+    private const val INVOKE_INTEGRATIONS_METHOD_INSTRUCTIONS = """
         invoke-static{v0}, Lapp/revanced/integrations/instagram/links/ExternalBrowser;->openInExternalBrowser(Ljava/lang/String;)Z
         move-result v0
     """
@@ -33,30 +31,29 @@ object OpenLinksInExternalBrowser : BytecodePatch(
             it.mutableClass.apply {
                 val className = it.classDef.type
 
-                // get the method that returns the url.
+                // Get the method that returns the url.
                 val getUrlMethod = methods.first { it.returnType == "Ljava/lang/String;" && it.parameters.size == 0 }.name
-                val getUrlMethodCall = """
+                val getUrlMethodInstruction = """
                     invoke-virtual {p0}, $className->$getUrlMethod()Ljava/lang/String;
                     move-result-object v0
                 """.trimIndent()
 
                 // Hooking the call method.
-                // finding the method with browser call happens.
+                // Finding the method where browser call happens.
                 val browserCallMethod = methods.last { it.returnType == "V" && it.parameters.size == 0 }
-                val const4 = browserCallMethod.getInstructions().first { it.opcode == Opcode.CONST_4 }
 
-                // call the openInExternalBrowser method.
-                // if it returns true, return void.
-                // if it returns false, proceed as usual.
+                // Call the openInExternalBrowser method.
+                // If it returns true, return void.
+                // If it returns false, proceed as usual.
                 browserCallMethod.addInstructionsWithLabels(
                     0,
                     """
-                        $getUrlMethodCall
-                        $FUNC_CALL
+                        $getUrlMethodInstruction
+                        $INVOKE_INTEGRATIONS_METHOD_INSTRUCTIONS
                         if-eqz v0, :revanced
                         return-void
-                    """.trimIndent(),
-                    ExternalLabel("revanced", const4),
+                    """,
+                    ExternalLabel("revanced", browserCallMethod.getInstructions().first { it.opcode == Opcode.CONST_4 }),
                 )
             }
         }
