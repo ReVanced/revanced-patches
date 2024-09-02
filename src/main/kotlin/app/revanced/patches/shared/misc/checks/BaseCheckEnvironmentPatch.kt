@@ -53,8 +53,8 @@ abstract class BaseCheckEnvironmentPatch(
 
     private fun setPatchInfo() {
         PatchInfoFingerprint.setClassFields(
-            // Use last three digits to prevent brute forcing the hashed IP.
-            "PUBLIC_IP_DURING_PATCH" to (publicIp?.takeLast(3) ?: "").encodedAndHashed,
+            // Use last five characters to prevent brute forcing the hashed IP.
+            "PUBLIC_IP_DURING_PATCH" to (publicIp?.takeLast(5) ?: "").encodedAndHashed,
             "PATCH_TIME" to System.currentTimeMillis().encoded,
         )
 
@@ -139,7 +139,10 @@ abstract class BaseCheckEnvironmentPatch(
                     val urlConnection = URL(service).openConnection() as HttpURLConnection
 
                     try {
-                        val reader = BufferedReader(InputStreamReader(urlConnection.inputStream))
+                        // TODO: This needed to run in a background thread in integrations.
+                        // Probably needs to, here as well.
+                        val stream = urlConnection.inputStream
+                        val reader = BufferedReader(InputStreamReader(stream))
 
                         publicIP = reader.readLine()
 
