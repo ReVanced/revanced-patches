@@ -975,7 +975,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_hide_rewind_forward_title">Voor- en achterkant knoppen verbergen</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Vooruit en achterkant zijn verborgen</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Spring vooruit en achterkant worden weergegeven</string>
-  <string name="revanced_miniplayer_opacity_title">Overlay opacity</string>
+  <string name="revanced_miniplayer_opacity_title">Dekking van de overlay</string>
   <string name="revanced_miniplayer_opacity_summary">Transparantiewaarde tussen 0-100, waarbij 0 transparant is</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Minispeler overlay transparantie moet tussen de 0-100 zijn</string>
   </patch>

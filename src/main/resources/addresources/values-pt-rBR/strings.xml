@@ -68,13 +68,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_00_about_title">Sobre</string>
   <string name="revanced_settings_screen_01_ads_title">Anúncios</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Miniaturas alternativas</string>
-  <string name="revanced_settings_screen_03_feed_title">Tela Inicial</string>
+  <string name="revanced_settings_screen_03_feed_title">Feed</string>
   <string name="revanced_settings_screen_04_player_title">Reprodutor</string>
   <string name="revanced_settings_screen_05_general_title">Layout geral</string>
   <string name="revanced_settings_screen_07_seekbar_title">Barra de busca</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Controles deslizantes</string>
   <string name="revanced_settings_screen_11_misc_title">Outras configurações</string>
-  <string name="revanced_settings_screen_12_video_title">Video</string>
+  <string name="revanced_settings_screen_12_video_title">Vídeo</string>
   </patch>
   <patch id="misc.debugging.DebuggingPatch">
   <string name="revanced_debug_screen_title">Depuração</string>
@@ -246,12 +246,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">Palavras-chave e frases para ocultar, separados por novas linhas\n\nPalavras com letras maiúsculas no meio devem ser inseridas com letras maiúsculas (ex: iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">Sobre a filtragem com palavra-chave</string>
-  <string name="revanced_hide_keyword_content_about_summary">Início/Inscrições/Busca resultados são filtrados para ocultar conteúdo que corresponde às frases chave\n\nLimitações\n• Alguns Shorts podem não ser ocultados\n• Alguns componentes da UI podem não ser ocultados\n• Procurar por uma palavra-chave pode não mostrar resultados</string>
+  <string name="revanced_hide_keyword_content_about_summary">Início/Inscrições/Busca resultados são filtrados para ocultar conteúdo que corresponde às frases chave\n\nLimitações\n• Alguns Shorts podem não ser ocultados\n• Alguns caracteres abreviados podem não estar ocultos\n• Alguns componentes da UI podem não ser ocultados\n• Procurar por uma palavra-chave pode não mostrar resultados</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_keyword_toast_invalid_common">Palavra-chave inválida. Não pode usar: \'%s\' como um filtro</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_keyword_toast_invalid_length">Palavra-chave inválida. \'%1$s\' é menor que %2$d caracteres</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">Palavra-chave \'%s\' irá ocultar todos os vídeos</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">Palavra-chave \'%s\' vai ocultar todos os vídeos</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Ocultar anúncios gerais</string>
@@ -263,9 +261,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_buttoned_ads_title">Ocultar anúncios com botões</string>
   <string name="revanced_hide_buttoned_ads_summary_on">Os anúncios com botões estão ocultos</string>
   <string name="revanced_hide_buttoned_ads_summary_off">Anúncios com botões não estão ocultos</string>
-  <string name="revanced_hide_paid_promotion_label_title">Ocultar rótulo de promoção paga</string>
-  <string name="revanced_hide_paid_promotion_label_summary_on">O rótulo de promoção pago está oculto</string>
-  <string name="revanced_hide_paid_promotion_label_summary_off">Rótulo de promoção pago é mostrado</string>
+  <string name="revanced_hide_paid_promotion_label_title">Ocultar o rótulo de promoção paga</string>
+  <string name="revanced_hide_paid_promotion_label_summary_on">O rótulo de promoção paga está oculto</string>
+  <string name="revanced_hide_paid_promotion_label_summary_off">O rótulo de promoção paga é mostrada</string>
   <string name="revanced_hide_self_sponsor_ads_title">Ocultar cartões auto-patrocinados</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Cartões autopatrocinados estão ocultos</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Cartões autopatrocinados não estão ocultos</string>
@@ -326,12 +324,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_external_downloader_action_button_summary_off">Botão de download abre o download nativo</string>
   <string name="revanced_external_downloader_name_title">Nome do pacote do app de download</string>
   <string name="revanced_external_downloader_name_summary">Nome do pacote do seu app de baixar externo instalado, como NewPipe ou Seal</string>
-  <string name="revanced_external_downloader_not_installed_warning">%s não está instalado. Por favor, instale-o.</string>
+  <string name="revanced_external_downloader_not_installed_warning">%s não está instalado. Por favor, instale.</string>
   </patch>
   <patch id="interaction.seekbar.DisablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Desativar gesto de busca precisa</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_on">Gesto desativado</string>
-  <string name="revanced_disable_precise_seeking_gesture_summary_off">Gesto ativado</string>
+  <string name="revanced_disable_precise_seeking_gesture_summary_off">O gesto está ativado</string>
   </patch>
   <patch id="interaction.seekbar.EnableSeekbarTappingPatch">
   <string name="revanced_seekbar_tapping_title">Ativar toque na barra de busca</string>
@@ -355,8 +353,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_swipe_save_and_restore_brightness_summary_on">Salvar e restaurar o brilho quando sair ou entrar em tela cheia</string>
   <string name="revanced_swipe_save_and_restore_brightness_summary_off">Não salvar e restaurar o brilho ao sair ou entrar em tela cheia</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Ativar gesto de brilho automático</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Deslizando para baixo até o menor valor do gesto de brilho, habilite o brilho automático</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Deslizando para baixo até o menor valor não habilita o brilho automático</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Deslizar para baixo até o menor valor do gesto de brilho, ativa o brilho automático</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Deslizar para baixo até o menor valor do gesto de brilho, não ativa o brilho automático</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automático</string>
   <string name="revanced_swipe_overlay_timeout_title">Tempo limite da sobreposição no gesto</string>
   <string name="revanced_swipe_overlay_timeout_summary">A quantidade de milissegundos em que a sobreposição é visível</string>
@@ -433,8 +431,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_home_button_summary_off">Botão de início não está oculto</string>
   <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_hide_shorts_button_title">Ocultar Shorts</string>
-  <string name="revanced_hide_shorts_button_summary_on">Botão shorts está oculto</string>
-  <string name="revanced_hide_shorts_button_summary_off">Botão de shorts não está oculto</string>
+  <string name="revanced_hide_shorts_button_summary_on">O botão Shorts está oculto</string>
+  <string name="revanced_hide_shorts_button_summary_off">O botão Shorts é mostrado </string>
   <!-- The Create button has no display name. Translate normally. -->
   <string name="revanced_hide_create_button_title">Ocultar Criar</string>
   <string name="revanced_hide_create_button_summary_on">Botão criar está oculto</string>
@@ -448,11 +446,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_switch_create_with_notifications_button_summary_on">O botão Criar é alternado com o botão Notificações\n\nNota: Ativar isso também forçar a ocultação de anúncios de vídeo</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Botão criar não está alternado com o botão notificações</string>
   <string name="revanced_hide_navigation_button_labels_title">Ocultar rótulos dos botões de navegação</string>
-  <string name="revanced_hide_navigation_button_labels_summary_on">Marcadores estão ocultos</string>
-  <string name="revanced_hide_navigation_button_labels_summary_off">Marcadores são mostrados</string>
+  <string name="revanced_hide_navigation_button_labels_summary_on">Rótulos são ocultos</string>
+  <string name="revanced_hide_navigation_button_labels_summary_off">Rótulos são mostrados</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.HidePlayerFlyoutMenuPatch">
-  <string name="revanced_hide_player_flyout_title">Menu suspenso</string>
+  <string name="revanced_hide_player_flyout_title">Menu flutuante</string>
   <string name="revanced_hide_player_flyout_summary">Ocultar ou mostrar itens no menu suspenso do reprodutor</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_captions_title">Ocultar Legendas</string>
@@ -515,9 +513,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_section_title">Ocultar seção de comentários</string>
   <string name="revanced_hide_comments_section_summary_on">Seção de comentários está oculta</string>
   <string name="revanced_hide_comments_section_summary_off">Seção de comentários exibida</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">Ocultar botão \'Criar curto\'</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">O botão \'Criar curto\' está oculto</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">O botão \'Criar Atalho\' é mostrado</string>
   <string name="revanced_hide_comments_preview_comment_title">Ocultar prévia de comentário</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Prévia de comentário está oculta</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Prévia de comentário não está oculta</string>
@@ -582,14 +577,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Ocultar Shorts na tela inicial</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts na tela inicial estão ocultos</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shorts na tela inicial não estão ocultos</string>
+  <string name="revanced_hide_shorts_home_summary_on">Os Shorts no feed inicial estão ocultos</string>
+  <string name="revanced_hide_shorts_home_summary_off">Shorts no feed inicial são mostrados</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Ocultar Shorts na tela inscrições</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts na tela inscrições estão ocultos</string>
   <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts na tela inscrições não estão ocultos</string>
   <string name="revanced_hide_shorts_search_title">Ocultar Shorts nos resultados de pesquisa</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shorts no resultados de pesquisa estão ocultos</string>
+  <string name="revanced_hide_shorts_search_summary_on">Os shorts no feed de assinatura são exibidos</string>
   <string name="revanced_hide_shorts_search_summary_off">Shorts nos resultados da pesquisa são mostrados</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Ocultar botão seja membro</string>
@@ -975,7 +970,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_hide_rewind_forward_title">Ocultar botões pular para frente e para trás</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Pular para frente e para trás estão escondidos</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Pular para frente e para trás são mostrados</string>
-  <string name="revanced_miniplayer_opacity_title">Overlay opacity</string>
+  <string name="revanced_miniplayer_opacity_title">Opacidade de sobreposição</string>
   <string name="revanced_miniplayer_opacity_summary">Valor de opacidade entre 0-100, onde 0 é transparente</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Opacidade da sobreposição de minijogador deve estar entre 0-100</string>
   </patch>

@@ -244,7 +244,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">要隐藏的关键词和短语，以换行符分隔\n\n字母区分大小写（例如：iPhone、TikTok、LeBlanc）</string>
   <string name="revanced_hide_keyword_content_about_title">关于关键字过滤</string>
-  <string name="revanced_hide_keyword_content_about_summary">主页/订阅/搜索结果被过滤以隐藏匹配关键字短语的内容\n\n限制\n• 一些短语可能不被隐藏\n• 某些界面组件可能不被隐藏\n• 搜索关键字可能不显示结果</string>
+  <string name="revanced_hide_keyword_content_about_summary">主页/订阅/搜索结果经过过滤，隐藏与关键词匹配的内容\n\n限制\n• 部分 Shorts 可能无法隐藏\n• 部分 UI 组件可能无法隐藏\n• 搜索关键词可能不会显示任何结果</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">无效关键字。不能使用: \'%s\' 作为过滤器</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -430,9 +430,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_home_button_summary_on">Home 键已隐藏</string>
   <string name="revanced_hide_home_button_summary_off">显示主页按钮</string>
   <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
-  <string name="revanced_hide_shorts_button_title">隐藏快捷方式</string>
-  <string name="revanced_hide_shorts_button_summary_on">已隐藏shorts按钮</string>
-  <string name="revanced_hide_shorts_button_summary_off">已显示shorts按钮</string>
+  <string name="revanced_hide_shorts_button_title">隐藏Shorts</string>
+  <string name="revanced_hide_shorts_button_summary_on">已隐藏Shorts按钮</string>
+  <string name="revanced_hide_shorts_button_summary_off">已显示Shorts按钮</string>
   <!-- The Create button has no display name. Translate normally. -->
   <string name="revanced_hide_create_button_title">隐藏创建</string>
   <string name="revanced_hide_create_button_summary_on">新建按钮已隐藏</string>
@@ -513,9 +513,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_section_title">隐藏评论部分</string>
   <string name="revanced_hide_comments_section_summary_on">评论部分已隐藏</string>
   <string name="revanced_hide_comments_section_summary_off">评论部分已显示</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">隐藏“创建一个短语”按钮</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">“创建一个短语”按钮已隐藏</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">显示“创建一个短”按钮</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">隐藏“创建 Short按钮</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">“创建 Short 按钮被隐藏</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">显示“创建 Short”按钮</string>
   <string name="revanced_hide_comments_preview_comment_title">隐藏预览评论</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">预览已隐藏</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">显示预览评论</string>
@@ -579,16 +579,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_hide_shorts_home_title">隐藏主页新闻源中的短路</string>
-  <string name="revanced_hide_shorts_home_summary_on">Home Feed中的短暂是隐藏的</string>
-  <string name="revanced_hide_shorts_home_summary_off">家庭种子中的短暂显示</string>
+  <string name="revanced_hide_shorts_home_title">在主页动态中隐藏 Shorts</string>
+  <string name="revanced_hide_shorts_home_summary_on">主页动态中的 Shorts已隐藏</string>
+  <string name="revanced_hide_shorts_home_summary_off">主页动态中显示 Shorts</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
-  <string name="revanced_hide_shorts_subscriptions_title">隐藏订阅源中的短暂内容</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">订阅源中的缺失已隐藏</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">订阅订阅源的短缺显示</string>
-  <string name="revanced_hide_shorts_search_title">隐藏搜索结果中的短号</string>
-  <string name="revanced_hide_shorts_search_summary_on">搜索结果中的短暂已隐藏</string>
-  <string name="revanced_hide_shorts_search_summary_off">搜索结果中的短暂显示</string>
+  <string name="revanced_hide_shorts_subscriptions_title">在订阅信息流中隐藏 Shorts</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">已在訂閱動態影片中隱藏 Shorts</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">已在訂閱動態影片中顯示 Shorts</string>
+  <string name="revanced_hide_shorts_search_title">隱藏 Shorts 搜尋結果</string>
+  <string name="revanced_hide_shorts_search_summary_on">已在搜尋結果中隱藏 Shorts</string>
+  <string name="revanced_hide_shorts_search_summary_off">已在搜尋結果中顯示 Shorts</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">隐藏加入按钮</string>
   <string name="revanced_hide_shorts_join_button_summary_on">加入按钮已隐藏</string>
@@ -972,7 +972,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_hide_rewind_forward_title">隐藏跳过后退按钮</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">向前跳过并隐藏</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">向前跳过并显示</string>
-  <string name="revanced_miniplayer_opacity_title">Overlay opacity</string>
+  <string name="revanced_miniplayer_opacity_title">覆盖层不透明度</string>
   <string name="revanced_miniplayer_opacity_summary">0-100之间的不透明度值, 其中0是透明的</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">最小播放器覆盖不透明度必须介于 0-100 之间</string>
   </patch>
@@ -1120,14 +1120,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_on">客户端已伪装</string>
   <string name="revanced_spoof_client_summary_off">客户端未伪装\n\n可能无法正常播放视频</string>
   <string name="revanced_spoof_client_user_dialog_message">关闭此选项可能会导致视频不能正常播放。</string>
-  <string name="revanced_spoof_client_type_title">Spoof 客户端类型</string>
-  <string name="revanced_spoof_client_ios_force_avc_title">强制iOS AVC (H.264)</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_on">iOS 视频编解码器是AVC</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_off">iOS 视频编解码器是AVC, VP9, 或 AV1</string>
-  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">启用这可能会改善电池寿命并修复播放停顿。\n\nAVC 最大分辨率为1080p，视频播放将使用超过 VP9 或 AV1。</string>
-  <string name="revanced_spoof_client_about_android_ios_title">iOS 正在破坏副效果</string>
-  <string name="revanced_spoof_client_about_android_ios_summary">• HDR 仅支持 AV1 编解码器\n• 观察历史无法使用品牌帐户</string>
-  <string name="revanced_spoof_client_about_android_vr_title">Android VR 破坏副效果</string>
+  <string name="revanced_spoof_client_type_title">伪装客户端类型</string>
+  <string name="revanced_spoof_client_ios_force_avc_title">強制使用 iOS AVC (H.264)</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_on">iOS 影片编解码器为 AVC</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_off">iOS 影片编解码器可以是 AVC、VP9 或 AV1</string>
+  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">启用此功能可能会改善电池续航力并修复播放卡顿问题。\n\nAVC 的最大解析度为 1080p，且影片播放将使用比 VP9 或 AV1 更多的网路数据。</string>
+  <string name="revanced_spoof_client_about_android_ios_title">iOS 伪装副作用</string>
+  <string name="revanced_spoof_client_about_android_ios_summary">• HDR 仅支援 AV1 编解码器\n• 观看记录无法与品牌帐户一起使用</string>
+  <string name="revanced_spoof_client_about_android_vr_title">Android VR 伪装副作用</string>
   <string name="revanced_spoof_client_about_android_vr_summary">• 没有 HDR 视频\n• 儿童视频不播放\n• 暂停的视频可以随机恢复\n• 低质量的搜索栏缩略图\n• 隐藏下载动作按钮\n• 隐藏终端屏幕卡</string>
   <string name="revanced_spoof_client_storyboard_timeout">伪装客户端缩略图不可用（API 超时）</string>
   <string name="revanced_spoof_client_storyboard_io_exception">伪装客户端缩略图暂时不可用： %s</string>

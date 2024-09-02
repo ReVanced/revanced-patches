@@ -300,10 +300,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_share_copy_url_success">已複製 URL 到剪貼簿</string>
   <string name="revanced_share_copy_url_timestamp_success">已複製時間戳記 URL</string>
   <string name="revanced_copy_video_url_title">顯示複製影片 URL 按鈕</string>
-  <string name="revanced_copy_video_url_summary_on">已顯示按鈕。點擊複製影片 URL。點擊並按住複製帶有時間戳記的影片 URL</string>
+  <string name="revanced_copy_video_url_summary_on">已顯示按鈕。點擊將複製影片 URL。點擊並按住將複製帶有時間戳記的影片 URL</string>
   <string name="revanced_copy_video_url_summary_off">未顯示按鈕</string>
   <string name="revanced_copy_video_url_timestamp_title">顯示複製時間戳記 URL 按鈕</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">已顯示按鈕。點擊複製帶有時間戳記的影片 URL。點擊並按住以在沒有時間戳記的情況下複製影片</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">已顯示按鈕。點擊將複製帶有時間戳記的影片 URL。點擊並按住將複製不帶時間戳記的影片 URL</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">未顯示按鈕</string>
   </patch>
   <patch id="interaction.dialog.RemoveViewerDiscretionDialogPatch">
@@ -515,7 +515,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_section_summary_off">已顯示留言區塊</string>
   <string name="revanced_hide_comments_create_a_short_button_title">隱藏「建立 Short」按鈕</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">「建立 Short」按鈕已隱藏</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">「建立Short」按鈕已顯示</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">「建立 Short」按鈕已顯示</string>
   <string name="revanced_hide_comments_preview_comment_title">隱藏留言預覽</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">已隱藏留言預覽</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">已顯示留言預覽</string>
@@ -523,8 +523,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_thanks_button_summary_on">已隱藏超級感謝按鈕</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">已顯示超級感謝按鈕</string>
   <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">隱藏時間戳記和表情按鈕</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">時間戳記和表情符號按鈕已隱藏</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">時間戳記和表情符號按鈕已顯示</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">已隱藏時間戳記和表情符號按鈕</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">已顯示時間戳記和表情符號按鈕</string>
   </patch>
   <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
   <string name="revanced_hide_crowdfunding_box_title">隱藏群眾募資</string>
@@ -1121,6 +1121,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_on">已欺騙用戶端</string>
   <string name="revanced_spoof_client_summary_off">尚未欺騙用戶端\n\n影片播放可能無法播放</string>
   <string name="revanced_spoof_client_user_dialog_message">關閉此設定可能會導致影片播放發生問題</string>
+  <string name="revanced_spoof_client_type_title">偽裝用戶端類型</string>
+  <string name="revanced_spoof_client_ios_force_avc_title">強制使用 iOS AVC (H.264)</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_on">iOS 影片編解碼器為 AVC</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_off">iOS 影片編解碼器可以是 AVC、VP9 或 AV1</string>
+  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">啟用此功能可能會改善電池續航力並修復播放卡頓問題。\n\nAVC 的最大解析度為 1080p，且影片播放將使用比 VP9 或 AV1 更多的網路數據。</string>
+  <string name="revanced_spoof_client_about_android_ios_title">iOS 偽裝副作用</string>
+  <string name="revanced_spoof_client_about_android_ios_summary">• HDR 僅支援 AV1 編解碼器\n• 觀看記錄無法與品牌帳戶一起使用</string>
+  <string name="revanced_spoof_client_about_android_vr_title">Android VR 偽裝副作用</string>
   <string name="revanced_spoof_client_about_android_vr_summary">• 沒有 HDR 影片\n• 兒童影片無法播放\n• 暫停的影片可能會隨機恢復播放\n• 低品質 Shorts 進度條縮圖\n• 下載操作按鈕被隱藏\n• 結尾畫面卡片被隱藏</string>
   <string name="revanced_spoof_client_storyboard_timeout">欺騙客戶端縮圖尚不可用 (API 逾時)</string>
   <string name="revanced_spoof_client_storyboard_io_exception">欺騙客戶端縮圖暫不可用: %s</string>

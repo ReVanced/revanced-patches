@@ -1,3 +1,24 @@
+# [4.14.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.3...v4.14.0-dev.4) (2024-09-01)
+
+
+### Bug Fixes
+
+* **YouTube - ReturnYouTubeDislike:** Show estimated like count for videos with hidden likes ([#3601](https://github.com/ReVanced/revanced-patches/issues/3601)) ([005be82](https://github.com/ReVanced/revanced-patches/commit/005be82d71b2a42387b1b57035930b20f4663794))
+
+# [4.14.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.2...v4.14.0-dev.3) (2024-08-30)
+
+
+### Features
+
+* **YouTube - Keyword filter:** Add syntax to match whole keywords and not substrings ([#3592](https://github.com/ReVanced/revanced-patches/issues/3592)) ([f5fb351](https://github.com/ReVanced/revanced-patches/commit/f5fb3512cfafe214ba6a6d25ba0825ae1884a0ff))
+
+# [4.14.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.1...v4.14.0-dev.2) (2024-08-24)
+
+
+### Features
+
+* **Duolingo:** Add `Disable ads` and `Enable debug menu` patch ([#3422](https://github.com/ReVanced/revanced-patches/issues/3422)) ([d0a8599](https://github.com/ReVanced/revanced-patches/commit/d0a8599f76ce653e5d7c98069ad3c58b9ab9c5eb))
+
 # [4.14.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.13.4-dev.2...v4.14.0-dev.1) (2024-08-22)
 
 

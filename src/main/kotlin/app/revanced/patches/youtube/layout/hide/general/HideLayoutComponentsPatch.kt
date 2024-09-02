@@ -138,8 +138,10 @@ object HideLayoutComponentsPatch : BytecodePatch(
                     SwitchPreference("revanced_hide_keyword_content_search"),
                     TextPreference("revanced_hide_keyword_content_phrases", inputType = InputType.TEXT_MULTI_LINE),
                     NonInteractivePreference("revanced_hide_keyword_content_about"),
-                ),
-            ),
+                    NonInteractivePreference(key = "revanced_hide_keyword_content_about_whole_words",
+                        tag = "app.revanced.integrations.youtube.settings.preference.HtmlPreference")
+                )
+            )
         )
 
         SettingsPatch.PreferenceScreen.GENERAL_LAYOUT.addPreferences(

@@ -71,7 +71,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_03_feed_title">Feed</string>
   <string name="revanced_settings_screen_04_player_title">Player</string>
   <string name="revanced_settings_screen_05_general_title">Generelles Layout</string>
-  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Suchleiste</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Wischgesten</string>
   <string name="revanced_settings_screen_11_misc_title">Sonstiges</string>
@@ -977,7 +976,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_hide_rewind_forward_title">Vorwärts- und Rückwärts-Buttons ausblenden</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Vorwärts skippen und zurück sind ausgeblendet</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Vorwärts und zurück springen werden angezeigt</string>
-  <string name="revanced_miniplayer_opacity_title">Overlay opacity</string>
+  <string name="revanced_miniplayer_opacity_title">Deckkraft der Überlagerung</string>
   <string name="revanced_miniplayer_opacity_summary">Deckkraft Wert zwischen 0-100, wobei 0 transparent ist</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Miniplayer-Overlay-Deckkraft muss zwischen 0-100 liegen</string>
   </patch>

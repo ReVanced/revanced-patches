@@ -33,7 +33,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
 <resources>
   <app id="shared">
   <patch id="misc.settings.BaseSettingsResourcePatch">
-  <string name="revanced_settings_confirm_user_dialog_title">Желаете ли да продължите?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Искате ли да продължите?</string>
   <string name="revanced_settings_reset">Нулиране</string>
   <string name="revanced_settings_restart_title">Опреснете и рестартирайте</string>
   <string name="revanced_settings_restart">Рестартиране</string>
@@ -69,7 +69,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_03_feed_title">Поток</string>
   <string name="revanced_settings_screen_04_player_title">Плейър</string>
   <string name="revanced_settings_screen_05_general_title">Общо оформление</string>
-  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Лента за прогрес на видеото</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Контроли с плъзгане</string>
   <string name="revanced_settings_screen_11_misc_title">Разни</string>
@@ -245,7 +244,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">Ключови думи и фрази, които да бъдат скрити, разделени с нови редове\n\nДуми с главни букви в средата трябва да бъдат въведени с големи букви (например: iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">За филтриране с ключови думи</string>
-  <string name="revanced_hide_keyword_content_about_summary">Начало/Абонамент/Резултатите от търсенето се филтрират, за да се скрие съдържанието, което съответства на ключовите фрази\n\nОграничения\n• Някои кратки видеоклипове може да не са скрити\n• Някои компоненти на потребителския интерфейс може да не са скрити\n• Търсенето на ключова дума може да не покаже резултати</string>
+  <string name="revanced_hide_keyword_content_about_summary">Начало/Абонамент/Резултатите от търсенето се филтрират, за да се скрие съдържание, което съответства на ключови фрази\n\nОграничения\n• Някои Shorts може да не са скрити\n• Някои компоненти на потребителския интерфейс може да не са скрити\n• Търсенето на ключова дума може да не покаже резултати</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Невалидна дума. Не може да се използва: \'%s\' като филтър</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -466,9 +465,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_loop_video_summary_on">Менюто за повторение е скрито</string>
   <string name="revanced_hide_player_flyout_loop_video_summary_off">Менюто за повторение се показва</string>
   <!-- 'Ambient mode' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_ambient_mode_title">Ambient mode</string>
-  <string name="revanced_hide_player_flyout_ambient_mode_summary_on">Менюто за околен режим е скрито</string>
-  <string name="revanced_hide_player_flyout_ambient_mode_summary_off">Менюто за околен режим се показва</string>
+  <string name="revanced_hide_player_flyout_ambient_mode_title">Подсветка около видеото</string>
+  <string name="revanced_hide_player_flyout_ambient_mode_summary_on">Менюто за подсветка около видеото е скрито</string>
+  <string name="revanced_hide_player_flyout_ambient_mode_summary_off">Менюто за подсветка около видеото се показва</string>
   <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_help_title">Помощ &amp; Отзиви</string>
   <string name="revanced_hide_player_flyout_help_summary_on">Менюто &amp; за помощ е скрито</string>
@@ -556,7 +555,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_summary_off">Показан е бутон на микрофона</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
-  <string name="revanced_disable_fullscreen_ambient_mode_title">Деактивирайте околния режим на цял екран</string>
+  <string name="revanced_disable_fullscreen_ambient_mode_title">Деактивирайте подсветка около видеото на цял екран</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Подсветката в режим на цял екран е деактивирана</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Подсветката в режим на цял екран е активирана</string>
   </patch>
@@ -1123,6 +1122,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_client_summary_on">Версията е подменена</string>
   <string name="revanced_spoof_client_summary_off">Клиентът не е подправен.\n\nВъзпроизвеждането на видео може да не работи</string>
   <string name="revanced_spoof_client_user_dialog_message">Деактивирането на тази настройка ще доведе до проблеми с възпроизвеждането на видео.</string>
+  <string name="revanced_spoof_client_type_title">Начин за подмяна на версията</string>
+  <string name="revanced_spoof_client_ios_force_avc_title">Принудително AVC (H.264) за iOS</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_on">При подмяна на клиента на iOS се използва видеокодек AVC</string>
+  <string name="revanced_spoof_client_ios_force_avc_summary_off">При подмяна на клиента на iOS се използва видеокодек AVC, VP9 или AV1</string>
+  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Активирането на това може да подобри живота на батерията и да коригира прекъсванията при възпроизвеждане.\n\nAVC има максимална разделителна способност от 1080p и възпроизвеждането на видео ще използва повече интернет данни от VP9 или AV1.</string>
+  <string name="revanced_spoof_client_about_android_ios_title">Cтранични ефекти от подмяната на iOS</string>
+  <string name="revanced_spoof_client_about_android_ios_summary">• HDR се поддържа само с кодек AV1\n• Историята на гледане не работи с акаунт на марка</string>
+  <string name="revanced_spoof_client_about_android_vr_title">Странични ефекти от подправяне на Android VR</string>
   <string name="revanced_spoof_client_about_android_vr_summary">• Няма HDR видео\n• Детските видеоклипове не се възпроизвеждат\n• Поставените на пауза видеоклипове могат произволно да се възобновят\n• Нискокачествени миниатюри на лентата за търсене на Shorts\n• Бутон за действие за изтегляне е скрито\n• Картите на крайния екран са скрити</string>
   </patch>
   <!-- This patch is no longer used, these strings are not in use, and these strings will be deleted in the future. -->
