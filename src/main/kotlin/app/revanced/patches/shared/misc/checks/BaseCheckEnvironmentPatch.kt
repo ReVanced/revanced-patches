@@ -139,14 +139,14 @@ abstract class BaseCheckEnvironmentPatch(
                     val urlConnection = URL(service).openConnection() as HttpURLConnection
 
                     try {
-                        // TODO: This needed to run in a background thread in integrations.
-                        // Probably needs to, here as well.
+                        // It is ok to make the url call here and not on a background thread,
+                        // since Manager already does patching off the main thread
+                        // and with CLI patching there is no UI to worry about blocking.
                         val stream = urlConnection.inputStream
-                        val reader = BufferedReader(InputStreamReader(stream))
+                        BufferedReader(InputStreamReader(stream)).use { reader ->
+                            publicIP = reader.readLine()
+                        }
 
-                        publicIP = reader.readLine()
-
-                        reader.close()
                     } finally {
                         urlConnection.disconnect()
                     }
