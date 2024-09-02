@@ -353,16 +353,6 @@ public final class app/revanced/patches/instagram/misc/integrations/Integrations
 	public static final field INSTANCE Lapp/revanced/patches/instagram/misc/integrations/IntegrationsPatch;
 }
 
-public final class app/revanced/patches/instagram/misc/links/openInExternalBrowser/OpenLinksInExternalBrowser : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/instagram/misc/links/openInExternalBrowser/OpenLinksInExternalBrowser;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
-public final class app/revanced/patches/instagram/misc/links/openInExternalBrowser/fingerprints/OpenLinksInExternalBrowserFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/instagram/misc/links/openInExternalBrowser/fingerprints/OpenLinksInExternalBrowserFingerprint;
-}
-
 public final class app/revanced/patches/instagram/patches/ad/HideAdsPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/instagram/patches/ad/HideAdsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -379,6 +369,16 @@ public final class app/revanced/patches/instagram/patches/developerMenu/EnableDe
 	public static final field INSTANCE Lapp/revanced/patches/instagram/patches/developerMenu/EnableDeveloperMenuPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/instagram/patches/links/openInExternalBrowser/OpenLinksInExternalBrowser : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/instagram/patches/links/openInExternalBrowser/OpenLinksInExternalBrowser;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/instagram/patches/links/openInExternalBrowser/fingerprints/OpenLinksInExternalBrowserFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/instagram/patches/links/openInExternalBrowser/fingerprints/OpenLinksInExternalBrowserFingerprint;
 }
 
 public final class app/revanced/patches/instagram/patches/links/sanitizeSharingLinks/SanitizeSharingLinksPatch : app/revanced/patcher/patch/BytecodePatch {

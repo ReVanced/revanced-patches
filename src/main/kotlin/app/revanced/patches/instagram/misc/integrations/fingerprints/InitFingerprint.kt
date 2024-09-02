@@ -9,8 +9,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal object InitFingerprint : IntegrationsFingerprint(
     customFingerprint = { methodDef, _ ->
-        methodDef.name == "onCreate"
-                && methodDef.definingClass == "Lcom/instagram/app/InstagramAppShell;"
+        methodDef.name == "onCreate" && methodDef.definingClass == "Lcom/instagram/app/InstagramAppShell;"
     },
     insertIndexResolver = { method ->
         getApplicationContextIndex = method.indexOfFirstInstructionOrThrow {
@@ -21,9 +20,9 @@ internal object InitFingerprint : IntegrationsFingerprint(
     },
     contextRegisterResolver = { method ->
         val moveResultInstruction = method.implementation!!.instructions.elementAt(getApplicationContextIndex)
-                as BuilderInstruction35c
+            as BuilderInstruction35c
         moveResultInstruction.registerC
-    }
-){
+    },
+) {
     private var getApplicationContextIndex = -1
 }
