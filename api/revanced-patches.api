@@ -387,12 +387,20 @@ public final class app/revanced/patches/instagram/patches/links/sanitizeSharingL
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/instagram/patches/links/sanitizeSharingLinks/fingerprints/HighlightsShareUrlFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/instagram/patches/links/sanitizeSharingLinks/fingerprints/HighlightsShareUrlFingerprint;
+}
+
 public final class app/revanced/patches/instagram/patches/links/sanitizeSharingLinks/fingerprints/LiveShareUrlFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
 	public static final field INSTANCE Lapp/revanced/patches/instagram/patches/links/sanitizeSharingLinks/fingerprints/LiveShareUrlFingerprint;
 }
 
 public final class app/revanced/patches/instagram/patches/links/sanitizeSharingLinks/fingerprints/PostShareClassFinderFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
 	public static final field INSTANCE Lapp/revanced/patches/instagram/patches/links/sanitizeSharingLinks/fingerprints/PostShareClassFinderFingerprint;
+}
+
+public final class app/revanced/patches/instagram/patches/links/sanitizeSharingLinks/fingerprints/ProfileShareUrlFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/instagram/patches/links/sanitizeSharingLinks/fingerprints/ProfileShareUrlFingerprint;
 }
 
 public final class app/revanced/patches/instagram/patches/links/sanitizeSharingLinks/fingerprints/StoryShareUrlFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {

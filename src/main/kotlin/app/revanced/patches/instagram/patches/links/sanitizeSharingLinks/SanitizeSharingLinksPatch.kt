@@ -9,9 +9,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.instagram.patches.links.sanitizeSharingLinks.fingerprints.LiveShareUrlFingerprint
-import app.revanced.patches.instagram.patches.links.sanitizeSharingLinks.fingerprints.PostShareClassFinderFingerprint
-import app.revanced.patches.instagram.patches.links.sanitizeSharingLinks.fingerprints.StoryShareUrlFingerprint
+import app.revanced.patches.instagram.patches.links.sanitizeSharingLinks.fingerprints.*
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
@@ -26,7 +24,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 )
 @Suppress("unused")
 object SanitizeSharingLinksPatch : BytecodePatch(
-    setOf(StoryShareUrlFingerprint, LiveShareUrlFingerprint, PostShareClassFinderFingerprint),
+    setOf(StoryShareUrlFingerprint, LiveShareUrlFingerprint, PostShareClassFinderFingerprint, ProfileShareUrlFingerprint, HighlightsShareUrlFingerprint),
 ) {
     private const val INVOKE_INTEGRATIONS_METHOD_INSTRUCTION = "Lapp/revanced/integrations/instagram/links/ShareLink;->sanitizeUrl(Ljava/lang/String;)Ljava/lang/String;"
 
@@ -53,6 +51,10 @@ object SanitizeSharingLinksPatch : BytecodePatch(
         addMethod(StoryShareUrlFingerprint)
         // Sanitize share link of live.
         addMethod(LiveShareUrlFingerprint)
+        // Sanitize share link of profile.
+        addMethod(ProfileShareUrlFingerprint)
+        // Sanitize share link of highlights.
+        addMethod(HighlightsShareUrlFingerprint)
 
         // Finding post share url class.
         PostShareClassFinderFingerprint.resultOrThrow().let { it ->
