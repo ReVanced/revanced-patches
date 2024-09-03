@@ -19,12 +19,13 @@ import com.android.tools.smali.dexlib2.immutable.value.ImmutableStringEncodedVal
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
+import java.net.InetAddress
 import java.net.URL
+import java.net.UnknownHostException
 import java.security.MessageDigest
 import java.util.logging.Logger
 import kotlin.io.encoding.Base64
 import kotlin.io.encoding.ExperimentalEncodingApi
-import kotlin.random.Random
 
 abstract class BaseCheckEnvironmentPatch(
     private val mainActivityOnCreateFingerprint: MethodFingerprint,
@@ -124,39 +125,47 @@ abstract class BaseCheckEnvironmentPatch(
         private val publicIp: String?
             get() {
                 // Using multiple services to increase reliability, distribute the load and minimize tracking.
-                val getIpServices = listOf(
+                mutableListOf(
                     "https://wtfismyip.com/text",
                     "https://whatsmyfuckingip.com/text",
                     "https://api.ipify.org?format=text",
                     "https://icanhazip.com",
                     "https://ifconfig.me/ip",
-                )
-
-                var publicIP: String? = null
-
-                try {
-                    val service = getIpServices[Random.Default.nextInt(getIpServices.size - 1)]
-                    val urlConnection = URL(service).openConnection() as HttpURLConnection
-
+                ).shuffled().forEach { service ->
                     try {
-                        // It is ok to make the url call here and not on a background thread,
-                        // since Manager already does patching off the main thread
-                        // and with CLI patching there is no UI to worry about blocking.
-                        val stream = urlConnection.inputStream
-                        BufferedReader(InputStreamReader(stream)).use { reader ->
-                            publicIP = reader.readLine()
-                        }
+                        var urlConnection : HttpURLConnection? = null
 
-                    } finally {
-                        urlConnection.disconnect()
+                        try {
+                            urlConnection = URL(service).openConnection() as HttpURLConnection
+                            urlConnection.setFixedLengthStreamingMode(0)
+                            urlConnection.readTimeout = 10000
+                            urlConnection.connectTimeout = 10000
+
+                            // It is ok to make the url call here and not on a background thread,
+                            // since Manager already does patching off the main thread
+                            // and with CLI patching there is no UI to worry about blocking.
+                            BufferedReader(InputStreamReader(urlConnection.inputStream)).use {
+                                val ipString = it.readLine()
+                                //noinspection ResultOfMethodCallIgnored
+                                InetAddress.getByName(ipString) // Validate IP address.
+                                return ipString
+                            }
+                        } catch (e: UnknownHostException) {
+                            // Site is returning nonsense.  Try another.
+                        } finally {
+                            urlConnection?.disconnect()
+                        }
+                    } catch (e: Exception) {
+                        // If the app does not have the INTERNET permission or the service is down,
+                        // the public IP can not be retrieved.
+                        Logger.getLogger(this::class.simpleName)
+                            .info("Failed to get public IP address: " + e.message)
                     }
-                } catch (e: Exception) {
-                    // If the app does not have the INTERNET permission or the service is down,
-                    // the public IP can not be retrieved.
-                    Logger.getLogger(this::class.simpleName).severe("Failed to get public IP address: " + e.message)
                 }
 
-                return publicIP
+                Logger.getLogger(this::class.simpleName).severe("Failed to get network address")
+
+                return null
             }
     }
 }
