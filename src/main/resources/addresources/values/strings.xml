@@ -32,11 +32,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
 <resources>
     <app id="shared">
         <patch id="misc.checks.BaseCheckEnvironmentPatch">
-            <string name="revanced_check_environment_failed_title">Failed checks</string>
+            <string name="revanced_check_environment_failed_title">Checks failed</string>
             <string name="revanced_check_environment_dialog_open_official_source_button">Open official website</string>
             <string name="revanced_check_environment_dialog_ignore_button">Ignore</string>
             <string name="revanced_check_environment_failed_message">&lt;h5>This app does not appear to be patched by you.&lt;/h5>&lt;br>It\'s possible this install will not function correctly or &lt;b>could be harmful or dangerous to use&lt;/b>.&lt;br>&lt;br>The following checks have failed and imply this app is pre-patched or obtained from someone else:&lt;br>&lt;br>&lt;small>%1$s&lt;/small>&lt;br>It is strongly recommended to &lt;b>uninstall this app and patch it yourself&lt;/b> to ensure you are using a validated and secure app.&lt;p>&lt;br>&lt;p>If this warning is ignored it will not be shown again.</string>
-            <string name="revanced_check_environment_not_same_patching_device">Patched on another device</string>
+            <string name="revanced_check_environment_not_same_patching_device">Patched on a different device</string>
             <string name="revanced_check_environment_manager_not_expected_installer">Not installed by ReVanced Manager</string>
             <string name="revanced_check_environment_not_near_patch_time">Patched more than 10 minutes ago</string>
         </patch>
