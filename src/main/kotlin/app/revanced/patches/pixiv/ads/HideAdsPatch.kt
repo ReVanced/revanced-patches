@@ -19,8 +19,8 @@ object HideAdsPatch : BytecodePatch(setOf(IsNotPremiumFingerprint, ShouldShowAds
     // However, this is not the method that controls the user's premium status.
     // Instead, this method is used to determine whether ads should be shown.
     override fun execute(context: BytecodeContext) {
-        val method = IsNotPremiumFingerprint.result?.mutableClass?.virtualMethods?.first() // Fingerprint for older version
-            ?: ShouldShowAdsFingerprint.result?.mutableMethod // Fingerprint for newer version
+        val method = IsNotPremiumFingerprint.result?.mutableClass?.virtualMethods?.first()
+            ?: ShouldShowAdsFingerprint.result?.mutableMethod
             ?: throw ShouldShowAdsFingerprint.exception
 
         method.addInstructions(
