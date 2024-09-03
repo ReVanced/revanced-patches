@@ -37,10 +37,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_check_environment_dialog_ignore_button">Ignore</string>
             <string name="revanced_check_environment_dialog_ignore_button_countdown">Ignore (%s)</string>
             <string name="revanced_check_environment_failed_message">&lt;h5>This app appears to be pre-patched and not patched by you.&lt;/h5>&lt;br>It\'s possible this install will not function correctly or &lt;b>could be harmful or dangerous to use&lt;/b>.&lt;br>&lt;br>The following checks have failed and imply this app is pre-patched or obtained from someone else other than yourself:&lt;br>%1$s&lt;br>It is strongly recommended to &lt;b>uninstall this app and patch it yourself&lt;/b> to ensure you are using a validated and secure app.&lt;p>&lt;br>&lt;p>This warning will only be shown once more, and if dismissed it will never show.&lt;br>&lt;br>&lt;h5>Official links&lt;/h5>&lt;br>%2$s</string>
+            <string name="revanced_check_environment_not_same_patching_device">Patched on another device</string>
             <string name="revanced_check_environment_manager_not_expected_installer">Not installed by ReVanced Manager</string>
             <string name="revanced_check_environment_not_near_patch_time">Patched more than 10 minutes ago</string>
-            <string name="revanced_check_environment_not_same_patching_device">Patched on another device</string>
-            <string name="revanced_check_environment_not_same_patch_time_network_address">Network address during patching is different from current</string>
         </patch>
         <patch id="misc.settings.BaseSettingsResourcePatch">
             <string name="revanced_settings_title">ReVanced</string>
