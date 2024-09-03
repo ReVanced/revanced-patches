@@ -16,14 +16,7 @@ import app.revanced.util.exception
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.immutable.value.ImmutableLongEncodedValue
 import com.android.tools.smali.dexlib2.immutable.value.ImmutableStringEncodedValue
-import java.io.BufferedReader
-import java.io.InputStreamReader
-import java.net.HttpURLConnection
-import java.net.InetAddress
-import java.net.URL
-import java.net.UnknownHostException
 import java.security.MessageDigest
-import java.util.logging.Logger
 import kotlin.io.encoding.Base64
 import kotlin.io.encoding.ExperimentalEncodingApi
 
@@ -54,8 +47,6 @@ abstract class BaseCheckEnvironmentPatch(
 
     private fun setPatchInfo() {
         PatchInfoFingerprint.setClassFields(
-            // Use last five characters to prevent brute forcing the hashed IP.
-            "PUBLIC_IP_DURING_PATCH" to (publicIp?.takeLast(5) ?: "").encodedAndHashed,
             "PATCH_TIME" to System.currentTimeMillis().encoded,
         )
 
@@ -121,51 +112,5 @@ abstract class BaseCheckEnvironmentPatch(
                 field.initialValue = fieldNameValueMap[field.name] ?: return@forEach
             }
         }
-
-        private val publicIp: String?
-            get() {
-                // Using multiple services to increase reliability, distribute the load and minimize tracking.
-                mutableListOf(
-                    "https://wtfismyip.com/text",
-                    "https://whatsmyfuckingip.com/text",
-                    "https://api.ipify.org?format=text",
-                    "https://icanhazip.com",
-                    "https://ifconfig.me/ip",
-                ).shuffled().forEach { service ->
-                    try {
-                        var urlConnection : HttpURLConnection? = null
-
-                        try {
-                            urlConnection = URL(service).openConnection() as HttpURLConnection
-                            urlConnection.setFixedLengthStreamingMode(0)
-                            urlConnection.readTimeout = 10000
-                            urlConnection.connectTimeout = 10000
-
-                            // It is ok to make the url call here and not on a background thread,
-                            // since Manager already does patching off the main thread
-                            // and with CLI patching there is no UI to worry about blocking.
-                            BufferedReader(InputStreamReader(urlConnection.inputStream)).use {
-                                val ipString = it.readLine()
-                                //noinspection ResultOfMethodCallIgnored
-                                InetAddress.getByName(ipString) // Validate IP address.
-                                return ipString
-                            }
-                        } catch (e: UnknownHostException) {
-                            // Site is returning nonsense.  Try another.
-                        } finally {
-                            urlConnection?.disconnect()
-                        }
-                    } catch (e: Exception) {
-                        // If the app does not have the INTERNET permission or the service is down,
-                        // the public IP can not be retrieved.
-                        Logger.getLogger(this::class.simpleName)
-                            .info("Failed to get public IP address: " + e.message)
-                    }
-                }
-
-                Logger.getLogger(this::class.simpleName).severe("Failed to get network address")
-
-                return null
-            }
     }
 }
