@@ -39,6 +39,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_check_environment_not_same_patching_device">Patched on a different device</string>
             <string name="revanced_check_environment_manager_not_expected_installer">Not installed by ReVanced Manager</string>
             <string name="revanced_check_environment_not_near_patch_time">Patched more than 10 minutes ago</string>
+            <string name="revanced_check_environment_not_near_patch_time_days">Patched %s days ago</string>
+            <string name="revanced_check_environment_not_near_patch_time_invalid">APK build date is corrupted</string>
         </patch>
         <patch id="misc.settings.BaseSettingsResourcePatch">
             <string name="revanced_settings_title">ReVanced</string>
