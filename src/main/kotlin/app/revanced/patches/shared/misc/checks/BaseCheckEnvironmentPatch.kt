@@ -25,8 +25,7 @@ abstract class BaseCheckEnvironmentPatch(
     compatiblePackages: Set<CompatiblePackage>,
     integrationsPatch: BaseIntegrationsPatch,
 ) : BytecodePatch(
-    name = "Check environment",
-    description = "Checks, if the application was patched by the user, otherwise warns the user.",
+    description = "Checks, if the application was patched by, otherwise warns the user.",
     compatiblePackages = compatiblePackages,
     dependencies = setOf(
         AddResourcesPatch::class,
