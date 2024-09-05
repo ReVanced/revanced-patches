@@ -17,7 +17,6 @@ public class Build {
     public static final String ODM_SKU = null;
     public static final String PRODUCT = null;
     public static final String RADIO = null;
-    public static final String SERIAL = null;
     public static final String SKU = null;
     public static final String SOC_MANUFACTURER = null;
     public static final String SOC_MODEL = null;

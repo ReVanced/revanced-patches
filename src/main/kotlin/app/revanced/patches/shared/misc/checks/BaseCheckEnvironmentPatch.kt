@@ -16,6 +16,7 @@ import app.revanced.util.exception
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.immutable.value.ImmutableLongEncodedValue
 import com.android.tools.smali.dexlib2.immutable.value.ImmutableStringEncodedValue
+import java.nio.charset.StandardCharsets
 import java.security.MessageDigest
 import kotlin.io.encoding.Base64
 import kotlin.io.encoding.ExperimentalEncodingApi
@@ -67,7 +68,6 @@ abstract class BaseCheckEnvironmentPatch(
                 "PATCH_ODM_SKU" to ODM_SKU.encodedAndHashed,
                 "PATCH_PRODUCT" to PRODUCT.encodedAndHashed,
                 "PATCH_RADIO" to RADIO.encodedAndHashed,
-                "PATCH_SERIAL" to SERIAL.encodedAndHashed,
                 "PATCH_SKU" to SKU.encodedAndHashed,
                 "PATCH_SOC_MANUFACTURER" to SOC_MANUFACTURER.encodedAndHashed,
                 "PATCH_SOC_MODEL" to SOC_MODEL.encodedAndHashed,
@@ -98,7 +98,8 @@ abstract class BaseCheckEnvironmentPatch(
         private val String.encodedAndHashed
             get() = MutableStringEncodedValue(
                 ImmutableStringEncodedValue(
-                    Base64.encode(MessageDigest.getInstance("SHA-1").digest(toByteArray())),
+                    Base64.encode(MessageDigest.getInstance("SHA-1")
+                        .digest(this.toByteArray(StandardCharsets.US_ASCII))),
                 ),
             )
 
