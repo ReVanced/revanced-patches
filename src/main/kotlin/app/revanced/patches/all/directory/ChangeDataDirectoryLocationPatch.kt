@@ -17,7 +17,7 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
 
 @Patch(
     name = "Change data directory location",
-    description = "Changes data directory in the application from data/0 to android/data for root-less devices.",
+    description = "Changes the data directory in the application from /data/user/0 to /sdcard/android/data for root-less devices.",
     use = false,
 )
 @Suppress("unused")
