@@ -99,7 +99,7 @@ abstract class BaseCheckEnvironmentPatch(
             get() = MutableStringEncodedValue(
                 ImmutableStringEncodedValue(
                     Base64.encode(MessageDigest.getInstance("SHA-1")
-                        .digest(this.toByteArray(StandardCharsets.US_ASCII))),
+                        .digest(this.toByteArray(StandardCharsets.UTF_8))),
                 ),
             )
 
