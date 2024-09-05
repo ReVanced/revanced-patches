@@ -14,9 +14,6 @@ import app.revanced.patches.pixiv.ads.fingerprints.ShouldShowAdsFingerprint
 )
 @Suppress("unused")
 object HideAdsPatch : BytecodePatch(setOf(ShouldShowAdsFingerprint)) {
-    // Always return false in the "shouldShowAds" method which normally returns !this.accountManager.isPremium.
-    // However, this is not the method that controls the user's premium status.
-    // Instead, this method is used to determine whether ads should be shown.
     override fun execute(context: BytecodeContext) {
         ShouldShowAdsFingerprint.result?.mutableMethod.addInstructions(
             0,
