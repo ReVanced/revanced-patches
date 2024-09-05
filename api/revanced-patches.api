@@ -243,6 +243,12 @@ public final class app/revanced/patches/cieid/restrictions/root/BypassRootChecks
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/facebook/ads/mainfeed/HideSponsoredStoriesPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/facebook/ads/mainfeed/HideSponsoredStoriesPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/facebook/ads/story/HideStoryAdsPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/facebook/ads/story/HideStoryAdsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
