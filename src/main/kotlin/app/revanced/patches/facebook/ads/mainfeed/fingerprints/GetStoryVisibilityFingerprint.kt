@@ -10,12 +10,13 @@ import com.android.tools.smali.dexlib2.iface.value.StringEncodedValue
 internal object GetStoryVisibilityFingerprint : MethodFingerprint(
     returnType = "Ljava/lang/Integer;",
     accessFlags = (AccessFlags.PUBLIC or AccessFlags.STATIC),
-    parameters = listOf(), // Means at least one ?
     opcodes = listOf(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.IF_NEZ,
         Opcode.SGET_OBJECT,
+        Opcode.RETURN_OBJECT,
+        Opcode.INVOKE_STATIC,
     ),
     customFingerprint = { methodDef, classDef ->
         // Method has a deprecated annotation
