@@ -1,3 +1,10 @@
+# [4.14.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.4...v4.14.0-dev.5) (2024-09-06)
+
+
+### Bug Fixes
+
+* **Pixiv - Hide ads:** Fix for latest version ([#3616](https://github.com/ReVanced/revanced-patches/issues/3616)) ([98956e8](https://github.com/ReVanced/revanced-patches/commit/98956e8f1a41347bb435720bbf984969469a7110))
+
 # [4.14.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.3...v4.14.0-dev.4) (2024-09-01)
 
 
