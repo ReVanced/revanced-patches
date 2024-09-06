@@ -14,9 +14,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
     name = "Hide category bar",
     description = "Hides the category bar at the top of the homepage.",
     compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.apps.youtube.music",
-        )
+        CompatiblePackage("com.google.android.apps.youtube.music")
     ],
     use = false,
 )

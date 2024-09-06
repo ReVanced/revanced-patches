@@ -14,9 +14,7 @@ import app.revanced.util.resultOrThrow
     name = "Remove background playback restrictions",
     description = "Removes restrictions on background playback, including playing kids videos in the background.",
     compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.apps.youtube.music",
-        )
+        CompatiblePackage("com.google.android.apps.youtube.music")
     ]
 )
 @Suppress("unused")

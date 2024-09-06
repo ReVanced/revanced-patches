@@ -23,9 +23,7 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
     integrationsPatchDependency = IntegrationsPatch::class,
     gmsCoreSupportResourcePatch = GmsCoreSupportResourcePatch,
     compatiblePackages = setOf(
-        CompatiblePackage(
-            "com.google.android.apps.youtube.music",
-        ),
+        CompatiblePackage("com.google.android.apps.youtube.music"),
     ),
     fingerprints = setOf(
         CastDynamiteModuleV2Fingerprint,
