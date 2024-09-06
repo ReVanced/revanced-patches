@@ -15,6 +15,7 @@ import app.revanced.patches.shared.misc.settings.preference.IntentPreference
 import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
+import app.revanced.patches.youtube.misc.check.CheckEnvironmentPatch
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.fingerprints.LicenseActivityOnCreateFingerprint
 import app.revanced.patches.youtube.misc.settings.fingerprints.SetThemeFingerprint
@@ -30,6 +31,9 @@ import java.io.Closeable
         IntegrationsPatch::class,
         SettingsResourcePatch::class,
         AddResourcesPatch::class,
+        // Currently there is no easy way to make a mandatory patch,
+        // so for now this is a dependent of this patch.
+        CheckEnvironmentPatch::class,
     ],
 )
 object SettingsPatch :
