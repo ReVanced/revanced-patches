@@ -19,7 +19,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 @Patch(
     name = "Max media quality",
     description = "Sets the images/videos/stories quality to max. " +
-        "Instagram ,sometimes, compresses the media resolution with respect to device dimensions causing quality loss. " +
+        "Instagram occasionally compresses media resolution based on device dimensions, leading to a loss in quality. " +
         "This patch overrides that limitation.",
     compatiblePackages = [CompatiblePackage("com.instagram.android")],
 )
