@@ -188,7 +188,6 @@ public final class CheckEnvironmentPatch {
          */
         long durationBetweenPatchingAndInstallation;
 
-        @NonNull
         @Override
         protected Boolean check() {
             try {
@@ -214,7 +213,8 @@ public final class CheckEnvironmentPatch {
             }
 
             // User installed more than 30 minutes after patching.
-            return false;
+            // Don't fail this, to allow adb install of older patched apps.
+            return null;
         }
 
         @Override
@@ -273,15 +273,17 @@ public final class CheckEnvironmentPatch {
 
                 CheckIsNearPatchTime nearPatchTime = new CheckIsNearPatchTime();
                 Boolean timeCheckPassed = nearPatchTime.check();
-                if (timeCheckPassed && !DEBUG_ALWAYS_SHOW_CHECK_FAILED_DIALOG) {
-                    if (failedChecks.isEmpty()) {
-                        // Recently patched and installed. No further checks are needed.
-                        // Stopping here also prevents showing warnings if patching and installing with Termux.
-                        Check.disableForever();
-                        return;
+                if (timeCheckPassed != null) {
+                    if (timeCheckPassed && !DEBUG_ALWAYS_SHOW_CHECK_FAILED_DIALOG) {
+                        if (failedChecks.isEmpty()) {
+                            // Recently patched and installed. No further checks are needed.
+                            // Stopping here also prevents showing warnings if patching and installing with Termux.
+                            Check.disableForever();
+                            return;
+                        }
+                    } else {
+                        failedChecks.add(nearPatchTime);
                     }
-                } else {
-                    failedChecks.add(nearPatchTime);
                 }
 
                 CheckExpectedInstaller installerCheck = new CheckExpectedInstaller();
