@@ -31,6 +31,8 @@ dependencies {
     implementation(libs.guava)
     // Used in JsonGenerator.
     implementation(libs.gson)
+    // Android API stubs defined here.
+    compileOnly(project(":stub"))
 }
 
 kotlin {
