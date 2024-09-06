@@ -1,3 +1,10 @@
+# [4.14.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.5...v4.14.0-dev.6) (2024-09-06)
+
+
+### Features
+
+* Add `Change data directory location` patch ([#3602](https://github.com/ReVanced/revanced-patches/issues/3602)) ([5998029](https://github.com/ReVanced/revanced-patches/commit/59980292809cc0626bf49a160eeb05a1523c4eda))
+
 # [4.14.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.4...v4.14.0-dev.5) (2024-09-06)
 
 
