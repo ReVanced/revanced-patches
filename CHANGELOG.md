@@ -1,3 +1,10 @@
+# [4.14.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.6...v4.14.0-dev.7) (2024-09-06)
+
+
+### Features
+
+* Add `Check environment` patch ([#3610](https://github.com/ReVanced/revanced-patches/issues/3610)) ([fbcbdaf](https://github.com/ReVanced/revanced-patches/commit/fbcbdafa4938a35b5fdec46aae7b250a84b9c139))
+
 # [4.14.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.5...v4.14.0-dev.6) (2024-09-06)
 
 
