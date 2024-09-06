@@ -1,18 +1,5 @@
 package app.revanced.integrations.youtube.settings;
 
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
-import static app.revanced.integrations.shared.settings.Setting.*;
-import static app.revanced.integrations.youtube.patches.MiniplayerPatch.MiniplayerType;
-import static app.revanced.integrations.youtube.patches.MiniplayerPatch.MiniplayerType.MODERN_1;
-import static app.revanced.integrations.youtube.patches.MiniplayerPatch.MiniplayerType.MODERN_3;
-import static app.revanced.integrations.youtube.patches.spoof.SpoofClientPatch.ClientType;
-import static app.revanced.integrations.youtube.sponsorblock.objects.CategoryBehaviour.*;
-
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-
 import app.revanced.integrations.shared.Logger;
 import app.revanced.integrations.shared.settings.*;
 import app.revanced.integrations.shared.settings.preference.SharedPrefCategory;
@@ -23,6 +10,19 @@ import app.revanced.integrations.youtube.patches.AlternativeThumbnailsPatch.Thum
 import app.revanced.integrations.youtube.patches.spoof.SpoofAppVersionPatch;
 import app.revanced.integrations.youtube.patches.spoof.SpoofClientPatch;
 import app.revanced.integrations.youtube.sponsorblock.SponsorBlockSettings;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
+import static app.revanced.integrations.shared.settings.Setting.*;
+import static app.revanced.integrations.youtube.patches.MiniplayerPatch.MiniplayerType;
+import static app.revanced.integrations.youtube.patches.MiniplayerPatch.MiniplayerType.MODERN_1;
+import static app.revanced.integrations.youtube.patches.MiniplayerPatch.MiniplayerType.MODERN_3;
+import static app.revanced.integrations.youtube.patches.spoof.SpoofClientPatch.ClientType;
+import static app.revanced.integrations.youtube.sponsorblock.objects.CategoryBehaviour.*;
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
 
 @SuppressWarnings("deprecation")
 public class Settings extends BaseSettings {
@@ -264,6 +264,7 @@ public class Settings extends BaseSettings {
     public static final IntegerSetting ANNOUNCEMENT_LAST_ID = new IntegerSetting("revanced_announcement_last_id", -1);
     public static final BooleanSetting CHECK_WATCH_HISTORY_DOMAIN_NAME = new BooleanSetting("revanced_check_watch_history_domain_name", TRUE, false, false);
     public static final BooleanSetting REMOVE_TRACKING_QUERY_PARAMETER = new BooleanSetting("revanced_remove_tracking_query_parameter", TRUE);
+    public static final IntegerSetting CHECK_ENVIRONMENT_WARNINGS_ISSUED = new IntegerSetting("revanced_check_environment_warnings_issued", 0, true, false);
 
     // Debugging
     /**

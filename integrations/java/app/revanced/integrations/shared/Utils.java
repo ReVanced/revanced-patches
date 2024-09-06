@@ -1,6 +1,10 @@
 package app.revanced.integrations.shared;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -8,6 +12,7 @@ import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.net.ConnectivityManager;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.preference.Preference;
@@ -378,6 +383,82 @@ public class Utils {
         }
 
         return false;
+    }
+
+    /**
+     * Ignore this class. It must be public to satisfy Android requirement.
+     */
+    @SuppressWarnings("deprecation")
+    public static class DialogFragmentWrapper extends DialogFragment {
+
+        private Dialog dialog;
+        @Nullable
+        private DialogFragmentOnStartAction onStartAction;
+
+        @Override
+        public void onSaveInstanceState(Bundle outState) {
+            // Do not call super method to prevent state saving.
+        }
+
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            return dialog;
+        }
+
+        @Override
+        public void onStart() {
+            try {
+                super.onStart();
+
+                if (onStartAction != null) {
+                    onStartAction.onStart((AlertDialog) getDialog());
+                }
+            } catch (Exception ex) {
+                Logger.printException(() -> "onStart failure: " + dialog.getClass().getSimpleName(), ex);
+            }
+        }
+    }
+
+    /**
+     * Interface for {@link #showDialog(Activity, AlertDialog, boolean, DialogFragmentOnStartAction)}.
+     */
+    @FunctionalInterface
+    public interface DialogFragmentOnStartAction {
+        void onStart(AlertDialog dialog);
+    }
+
+    public static void showDialog(Activity activity, AlertDialog dialog) {
+        showDialog(activity, dialog, true, null);
+    }
+
+    /**
+     * Utility method to allow showing an AlertDialog on top of other alert dialogs.
+     * Calling this will always display the dialog on top of all other dialogs
+     * previously called using this method.
+     * <br>
+     * Be aware the on start action can be called multiple times for some situations,
+     * such as the user switching apps without dismissing the dialog then switching back to this app.
+     *<br>
+     * This method is only useful during app startup and multiple patches may show their own dialog,
+     * and the most important dialog can be called last (using a delay) so it's always on top.
+     *<br>
+     * For all other situations it's better to not use this method and
+     * call {@link AlertDialog#show()} on the dialog.
+     */
+    @SuppressWarnings("deprecation")
+    public static void showDialog(Activity activity,
+                                  AlertDialog dialog,
+                                  boolean isCancelable,
+                                  @Nullable DialogFragmentOnStartAction onStartAction) {
+        verifyOnMainThread();
+
+        DialogFragmentWrapper fragment = new DialogFragmentWrapper();
+        fragment.dialog = dialog;
+        fragment.onStartAction = onStartAction;
+        fragment.setCancelable(isCancelable);
+
+        fragment.show(activity.getFragmentManager(), null);
     }
 
     /**
