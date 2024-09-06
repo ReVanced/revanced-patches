@@ -8,20 +8,16 @@ import com.android.tools.smali.dexlib2.iface.Annotation
 import com.android.tools.smali.dexlib2.iface.value.StringEncodedValue
 
 internal object GetStoryVisibilityFingerprint : MethodFingerprint(
-    returnType = "Ljava/lang/Integer;",
+    returnType = "Ljava/lang/String;",
     accessFlags = (AccessFlags.PUBLIC or AccessFlags.STATIC),
     opcodes = listOf(
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.INSTANCE_OF,
         Opcode.IF_NEZ,
-        Opcode.SGET_OBJECT,
-        Opcode.RETURN_OBJECT,
-        Opcode.INVOKE_STATIC,
+        Opcode.INSTANCE_OF,
+        Opcode.IF_NEZ,
+        Opcode.INSTANCE_OF,
+        Opcode.IF_NEZ,
+        Opcode.CONST
     ),
-    customFingerprint = { methodDef, classDef ->
-        // Method has a deprecated annotation
-        methodDef.annotations.any any@{annotation ->
-            return@any annotation.type == "Ljava/lang/Deprecated;"
-        }
-    },
+    strings = listOf("This should not be called for base class object"),
 )
