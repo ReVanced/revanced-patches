@@ -20,7 +20,6 @@ import java.util.*;
 import static app.revanced.integrations.shared.StringRef.str;
 import static app.revanced.integrations.shared.checks.Check.debugAlwaysShowWarning;
 import static app.revanced.integrations.shared.checks.PatchInfo.Build.*;
-import static app.revanced.integrations.shared.checks.PatchInfo.PATCH_TIME;
 
 /**
  * This class is used to check if the app was patched by the user
@@ -180,64 +179,47 @@ public final class CheckEnvironmentPatch {
      */
     private static class CheckIsNearPatchTime extends Check {
         /**
-         * How soon after patching the app must be first launched.
+         * How soon after patching the app must be installed to pass.
          */
-        static final int THRESHOLD_FOR_PATCHING_RECENTLY = 30 * 60 * 1000;  // 30 minutes.
+        static final int INSTALL_AFTER_PATCHING_DURATION_THRESHOLD = 30 * 60 * 1000;  // 30 minutes.
 
         /**
-         * How soon after installation or updating the app to check the patch time.
-         * If the install/update is older than this, this entire check is ignored
-         * to prevent showing any errors if the user clears the app data after installation.
+         * Milliseconds between the time the app was patched, and when it was installed/updated.
          */
-        static final int THRESHOLD_FOR_RECENT_INSTALLATION = 12 * 60 * 60 * 1000;  // 12 hours.
+        long durationBetweenPatchingAndInstallation;
 
-        static final long DURATION_SINCE_PATCHING = System.currentTimeMillis() - PATCH_TIME;
-
+        @NonNull
         @Override
         protected Boolean check() {
-            Logger.printInfo(() -> "Installed: " + (DURATION_SINCE_PATCHING / 1000) + " seconds after patching");
-
-            // Also verify patched time is not in the future.
-            if (DURATION_SINCE_PATCHING < 0) {
-                // Patch time is in the future and clearly wrong.
-                return false;
-            }
-
-            if (DURATION_SINCE_PATCHING < THRESHOLD_FOR_PATCHING_RECENTLY) {
-                // App is recently patched and this installation is new or recently updated.
-                return true;
-            }
-
-            // Verify the app install/update is recent,
-            // to prevent showing errors if the user later clears the app data.
             try {
                 Context context = Utils.getContext();
                 PackageManager packageManager = context.getPackageManager();
                 PackageInfo packageInfo = packageManager.getPackageInfo(context.getPackageName(), 0);
 
                 // Duration since initial install or last update, which ever is sooner.
-                final long durationSinceInstallUpdate = System.currentTimeMillis() - packageInfo.lastUpdateTime;
+                durationBetweenPatchingAndInstallation = packageInfo.lastUpdateTime - PatchInfo.PATCH_TIME;
                 Logger.printInfo(() -> "App was installed/updated: "
-                        + (durationSinceInstallUpdate / (60 * 60 * 1000)) + " hours ago");
+                        + (durationBetweenPatchingAndInstallation / (60 * 1000) + " minutes after patching"));
 
-                if (durationSinceInstallUpdate > THRESHOLD_FOR_RECENT_INSTALLATION) {
-                    Logger.printInfo(() -> "Ignoring install time check since install/update was over "
-                            + THRESHOLD_FOR_RECENT_INSTALLATION + " hours ago");
-                    return null;
+                if (durationBetweenPatchingAndInstallation < 0) {
+                    // Patch time is in the future and clearly wrong.
+                    return false;
+                }
+
+                if (durationBetweenPatchingAndInstallation < INSTALL_AFTER_PATCHING_DURATION_THRESHOLD) {
+                    return true;
                 }
             } catch (PackageManager.NameNotFoundException ex) {
                 Logger.printException(() -> "Package name not found exception", ex); // Will never happen.
             }
 
-            // Was patched between 30 minutes and 12 hours ago.
-            // This can only happen if someone installs the app then waits 30+ minutes to launch,
-            // or they clear the app data within 12 hours after installation.
+            // User installed more than 30 minutes after patching.
             return false;
         }
 
         @Override
         protected String failureReason() {
-            if (DURATION_SINCE_PATCHING < 0) {
+            if (durationBetweenPatchingAndInstallation < 0) {
                 // Could happen if the user has their device clock incorrectly set in the past,
                 // but assume that isn't the case and the apk was patched on a device with the wrong system time.
                 return str("revanced_check_environment_not_near_patch_time_invalid");
@@ -246,7 +228,7 @@ public final class CheckEnvironmentPatch {
             // If patched over 1 day ago, show how old this pre-patched apk is.
             // Showing the age can help convey it's better to patch yourself and know it's the latest.
             final long oneDay = 24 * 60 * 60 * 1000;
-            final long daysSincePatching = DURATION_SINCE_PATCHING / oneDay;
+            final long daysSincePatching = durationBetweenPatchingAndInstallation / oneDay;
             if (daysSincePatching > 1) { // Use over 1 day to avoid singular vs plural strings.
                 return str("revanced_check_environment_not_near_patch_time_days", daysSincePatching);
             }
@@ -291,17 +273,15 @@ public final class CheckEnvironmentPatch {
 
                 CheckIsNearPatchTime nearPatchTime = new CheckIsNearPatchTime();
                 Boolean timeCheckPassed = nearPatchTime.check();
-                if (timeCheckPassed != null) {
-                    if (timeCheckPassed && !DEBUG_ALWAYS_SHOW_CHECK_FAILED_DIALOG) {
-                        if (failedChecks.isEmpty()) {
-                            // Recently patched and installed. No further checks are needed.
-                            // Stopping here also prevents showing warnings if patching and installing with Termux.
-                            Check.disableForever();
-                            return;
-                        }
-                    } else {
-                        failedChecks.add(nearPatchTime);
+                if (timeCheckPassed && !DEBUG_ALWAYS_SHOW_CHECK_FAILED_DIALOG) {
+                    if (failedChecks.isEmpty()) {
+                        // Recently patched and installed. No further checks are needed.
+                        // Stopping here also prevents showing warnings if patching and installing with Termux.
+                        Check.disableForever();
+                        return;
                     }
+                } else {
+                    failedChecks.add(nearPatchTime);
                 }
 
                 CheckExpectedInstaller installerCheck = new CheckExpectedInstaller();
