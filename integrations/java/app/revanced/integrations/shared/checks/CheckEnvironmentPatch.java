@@ -188,6 +188,7 @@ public final class CheckEnvironmentPatch {
          */
         long durationBetweenPatchingAndInstallation;
 
+        @NonNull
         @Override
         protected Boolean check() {
             try {
@@ -213,8 +214,7 @@ public final class CheckEnvironmentPatch {
             }
 
             // User installed more than 30 minutes after patching.
-            // Don't fail this, to allow adb install of older patched apps.
-            return null;
+            return false;
         }
 
         @Override
@@ -271,34 +271,33 @@ public final class CheckEnvironmentPatch {
                     failedChecks.add(sameHardware);
                 }
 
-                CheckIsNearPatchTime nearPatchTime = new CheckIsNearPatchTime();
-                Boolean timeCheckPassed = nearPatchTime.check();
-                if (timeCheckPassed != null) {
-                    if (timeCheckPassed && !DEBUG_ALWAYS_SHOW_CHECK_FAILED_DIALOG) {
-                        if (failedChecks.isEmpty()) {
-                            // Recently patched and installed. No further checks are needed.
-                            // Stopping here also prevents showing warnings if patching and installing with Termux.
-                            Check.disableForever();
-                            return;
-                        }
-                    } else {
-                        failedChecks.add(nearPatchTime);
+                CheckExpectedInstaller installerCheck = new CheckExpectedInstaller();
+                if (installerCheck.check() && !DEBUG_ALWAYS_SHOW_CHECK_FAILED_DIALOG) {
+                    // If the installer package is Manager but this code is reached,
+                    // that means it must not be the right Manager otherwise the hardware hash
+                    // signatures would be present and this check would not have run.
+                    if (installerCheck.installerFound == InstallationType.MANAGER) {
+                        failedChecks.add(installerCheck);
+                        // Also could not have been patched on this device.
+                        failedChecks.add(sameHardware);
+                    } else if (failedChecks.isEmpty()) {
+                        // ADB install of CLI build. Allow even if patched a long time ago.
+                        Check.disableForever();
+                        return;
                     }
+                } else {
+                    failedChecks.add(installerCheck);
                 }
 
-                CheckExpectedInstaller installerCheck = new CheckExpectedInstaller();
-                // If the installer package is Manager but this code is reached,
-                // that means it must not be the right Manager otherwise the hardware hash
-                // signatures would be present and this check would not have run.
-                final boolean isManagerInstall = installerCheck.installerFound == InstallationType.MANAGER;
-                if (!installerCheck.check() || isManagerInstall) {
-                    failedChecks.add(installerCheck);
-
-                    if (isManagerInstall) {
-                        // If using Manager and reached here, then this must
-                        // have been patched on a different device.
-                        failedChecks.add(sameHardware);
-                    }
+                CheckIsNearPatchTime nearPatchTime = new CheckIsNearPatchTime();
+                Boolean timeCheckPassed = nearPatchTime.check();
+                if (timeCheckPassed && !DEBUG_ALWAYS_SHOW_CHECK_FAILED_DIALOG) {
+                    // Allow installing recently patched apks,
+                    // even if the install source is not Manager or ADB.
+                    Check.disableForever();
+                    return;
+                } else {
+                    failedChecks.add(nearPatchTime);
                 }
 
                 if (DEBUG_ALWAYS_SHOW_CHECK_FAILED_DIALOG) {
@@ -308,11 +307,6 @@ public final class CheckEnvironmentPatch {
                             nearPatchTime,
                             installerCheck
                     );
-                }
-
-                if (failedChecks.isEmpty()) {
-                    Check.disableForever();
-                    return;
                 }
 
                 //noinspection ComparatorCombinators
