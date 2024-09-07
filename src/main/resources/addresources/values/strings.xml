@@ -53,6 +53,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_settings_import_reset">ReVanced settings reset to default</string>
             <string name="revanced_settings_import_success">Imported %d settings</string>
             <string name="revanced_settings_import_failure_parse">Import failed: %s</string>
+            <string name="revanced_pref_import_export_title">Import / Export</string>
+            <string name="revanced_pref_import_export_summary">Import / Export ReVanced settings</string>
             <!-- Settings about dialog. -->
             <string name="revanced_settings_about_links_body">You are using ReVanced Patches version &lt;i>%s&lt;/i></string>
             <string name="revanced_settings_about_links_dev_header">Note</string>
@@ -83,8 +85,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_settings_screen_08_swipe_controls_title">Swipe controls</string>
             <string name="revanced_settings_screen_11_misc_title">Misc</string>
             <string name="revanced_settings_screen_12_video_title">Video</string>
-            <string name="revanced_pref_import_export_title">Import / Export</string>
-            <string name="revanced_pref_import_export_summary">Import / Export ReVanced settings</string>
         </patch>
         <patch id="misc.debugging.DebuggingPatch">
             <string name="revanced_debug_screen_title">Debugging</string>
