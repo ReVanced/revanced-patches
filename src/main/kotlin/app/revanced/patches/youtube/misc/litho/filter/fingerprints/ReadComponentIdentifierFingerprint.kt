@@ -8,5 +8,6 @@ internal object ReadComponentIdentifierFingerprint : MethodFingerprint(
         Opcode.IF_NEZ,
         null,
         Opcode.MOVE_RESULT_OBJECT // Register stores the component identifier string
-    )
+    ),
+    strings = listOf("Number of bits must be positive")
 )

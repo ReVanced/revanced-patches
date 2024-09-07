@@ -5,6 +5,8 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
+import app.revanced.util.getNode
+import org.w3c.dom.Element
 
 @Patch(dependencies = [ResourceMappingPatch::class])
 internal object MiniplayerResourcePatch : ResourcePatch() {
@@ -21,19 +23,22 @@ internal object MiniplayerResourcePatch : ResourcePatch() {
     var playerOverlays = -1L
 
     override fun execute(context: ResourceContext) {
+        val appVersionName = context.document["AndroidManifest.xml"].use { document ->
+            val manifestElement = document.getNode("manifest") as Element
+            manifestElement.getAttribute("android:versionName")
+        }
+
         floatyBarButtonTopMargin = ResourceMappingPatch[
             "dimen",
             "floaty_bar_button_top_margin"
         ]
 
-        try {
+        // Only required for 19.16.
+        if (appVersionName.contains("19.16")) {
             ytOutlinePictureInPictureWhite24 = ResourceMappingPatch[
                 "drawable",
                 "yt_outline_picture_in_picture_white_24"
             ]
-        } catch (exception: PatchException) {
-            // Ignore, and assume the app is 19.14 or earlier.
-            return
         }
 
         ytOutlineXWhite24 = ResourceMappingPatch[
@@ -46,10 +51,15 @@ internal object MiniplayerResourcePatch : ResourcePatch() {
             "scrim_overlay"
         ]
 
-        modernMiniplayerClose = ResourceMappingPatch[
-            "id",
-            "modern_miniplayer_close"
-        ]
+        try {
+            modernMiniplayerClose = ResourceMappingPatch[
+                "id",
+                "modern_miniplayer_close"
+            ]
+        } catch (exception: PatchException) {
+            // Ignore, and assume the app is 19.14 or earlier.
+            return
+        }
 
         modernMiniplayerExpand = ResourceMappingPatch[
             "id",

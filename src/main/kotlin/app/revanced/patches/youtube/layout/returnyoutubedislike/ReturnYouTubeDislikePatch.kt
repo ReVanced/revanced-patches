@@ -5,6 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
@@ -72,6 +73,7 @@ import com.android.tools.smali.dexlib2.iface.reference.TypeReference
                 "19.14.43",
                 "19.15.36",
                 "19.16.39",
+                "19.31.36"
             ]
         )
     ]
@@ -184,20 +186,27 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
 
         ShortsTextViewFingerprint.result?.let {
             it.mutableMethod.apply {
-                val patternResult = it.scanResult.patternScanResult!!
+                val insertIndex = it.scanResult.patternScanResult!!.endIndex
 
                 // If the field is true, the TextView is for a dislike button.
-                val isDisLikesBooleanReference = getInstruction<ReferenceInstruction>(patternResult.endIndex).reference
+                val isDisLikesBooleanInstruction = getInstructions().first { instruction ->
+                    instruction.opcode == Opcode.IGET_BOOLEAN
+                } as ReferenceInstruction
 
-                val textViewFieldReference = // Like/Dislike button TextView field
-                    getInstruction<ReferenceInstruction>(patternResult.endIndex - 1).reference
+                val isDisLikesBooleanReference = isDisLikesBooleanInstruction.reference
+
+                // Like/Dislike button TextView field.
+                val textViewFieldInstruction = getInstructions().first { instruction ->
+                    instruction.opcode == Opcode.IGET_OBJECT
+                } as ReferenceInstruction
+
+                val textViewFieldReference = textViewFieldInstruction.reference
 
                 // Check if the hooked TextView object is that of the dislike button.
                 // If RYD is disabled, or the TextView object is not that of the dislike button, the execution flow is not interrupted.
                 // Otherwise, the TextView object is modified, and the execution flow is interrupted to prevent it from being changed afterward.
-                val insertIndex = patternResult.startIndex + 6
                 addInstructionsWithLabels(
-                    insertIndex,
+                    insertIndex + 1,
                     """
                         # Check, if the TextView is for a dislike button
                         iget-boolean v0, p0, $isDisLikesBooleanReference

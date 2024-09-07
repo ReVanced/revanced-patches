@@ -50,6 +50,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
                 "19.14.43",
                 "19.15.36",
                 "19.16.39",
+                "19.31.36"
             ],
         ),
     ],

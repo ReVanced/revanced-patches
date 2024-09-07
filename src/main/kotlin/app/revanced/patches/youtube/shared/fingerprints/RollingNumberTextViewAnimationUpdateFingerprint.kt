@@ -25,6 +25,9 @@ internal object RollingNumberTextViewAnimationUpdateFingerprint : MethodFingerpr
         Opcode.INVOKE_VIRTUAL, // set textview padding using bitmap width
     ),
     customFingerprint = { _, classDef ->
-        classDef.superclass == "Landroid/support/v7/widget/AppCompatTextView;"
+        val appCompatTextView = "Landroid/support/v7/widget/AppCompatTextView;"
+        val youTubeAppCompatTextView = "Lcom/google/android/libraries/youtube/rendering/ui/spec/typography/YouTubeAppCompatTextView;"
+
+        classDef.superclass in listOf(appCompatTextView, youTubeAppCompatTextView)
     }
 )

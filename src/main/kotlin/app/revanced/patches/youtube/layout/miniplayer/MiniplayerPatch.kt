@@ -100,7 +100,8 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
                 // It's simpler to not bother with supporting this single old version.
                 // 19.15 has a different code for handling sub title texts,
                 // and also probably not worth making changes just to support this single old version.
-                "19.16.39" // Earliest supported version with modern miniplayers.
+                "19.16.39", // Earliest supported version with modern miniplayers.
+                "19.31.36"
             ]
         )
     ]
@@ -123,7 +124,7 @@ object MiniplayerPatch : BytecodePatch(
 
         // Modern mini player is only present and functional in 19.15+.
         // Resource is not present in older versions. Using it to determine, if patching an old version.
-        val isPatchingOldVersion = ytOutlinePictureInPictureWhite24 < 0
+        val isPatchingOldVersion = modernMiniplayerClose < 0
 
         SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
             PreferenceScreen(
@@ -217,21 +218,22 @@ object MiniplayerPatch : BytecodePatch(
         // region Fix 19.16 using mixed up drawables for tablet modern.
         // YT fixed this mistake in 19.17.
         // Fix this, by swapping the drawable resource values with each other.
+        if (ytOutlinePictureInPictureWhite24 >= 0) {
+            MiniplayerModernExpandCloseDrawablesFingerprint.apply {
+                resolve(
+                    context,
+                    MiniplayerModernViewParentFingerprint.resultOrThrow().classDef
+                )
+            }.resultOrThrow().mutableMethod.apply {
+                listOf(
+                    ytOutlinePictureInPictureWhite24 to ytOutlineXWhite24,
+                    ytOutlineXWhite24 to ytOutlinePictureInPictureWhite24,
+                ).forEach { (originalResource, replacementResource) ->
+                    val imageResourceIndex = indexOfFirstWideLiteralInstructionValueOrThrow(originalResource)
+                    val register = getInstruction<OneRegisterInstruction>(imageResourceIndex).registerA
 
-        MiniplayerModernExpandCloseDrawablesFingerprint.apply {
-            resolve(
-                context,
-                MiniplayerModernViewParentFingerprint.resultOrThrow().classDef
-            )
-        }.resultOrThrow().mutableMethod.apply {
-            listOf(
-                ytOutlinePictureInPictureWhite24 to ytOutlineXWhite24,
-                ytOutlineXWhite24 to ytOutlinePictureInPictureWhite24,
-            ).forEach { (originalResource, replacementResource) ->
-                val imageResourceIndex = indexOfFirstWideLiteralInstructionValueOrThrow(originalResource)
-                val register = getInstruction<OneRegisterInstruction>(imageResourceIndex).registerA
-
-                replaceInstruction(imageResourceIndex, "const v$register, $replacementResource")
+                    replaceInstruction(imageResourceIndex, "const v$register, $replacementResource")
+                }
             }
         }
 

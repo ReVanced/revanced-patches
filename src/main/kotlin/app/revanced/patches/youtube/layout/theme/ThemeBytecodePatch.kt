@@ -58,6 +58,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
                 "19.14.43",
                 "19.15.36",
                 "19.16.39",
+                "19.31.36"
             ]
         )
     ]

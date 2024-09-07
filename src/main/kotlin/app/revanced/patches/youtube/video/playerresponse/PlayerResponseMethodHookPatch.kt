@@ -22,7 +22,7 @@ object PlayerResponseMethodHookPatch :
     // Parameter numbers of the patched method.
     private const val PARAMETER_VIDEO_ID = 1
     private const val PARAMETER_PROTO_BUFFER = 3
-    private const val PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING = 11
+    private var PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING = 11
 
     // Registers used to pass the parameters to integrations.
     private var playerResponseMethodCopyRegisters = false
@@ -41,6 +41,9 @@ object PlayerResponseMethodHookPatch :
         // If needed, move the parameters to 4-bit registers so they can be passed to integrations.
         playerResponseMethodCopyRegisters = playerResponseMethod.implementation!!.registerCount -
                 playerResponseMethod.parameterTypes.size + PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING > 15
+
+        PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING =
+                if (playerResponseMethod.parameterTypes[10] == "Z") 11 else 12
 
         if (playerResponseMethodCopyRegisters) {
             REGISTER_VIDEO_ID = "v0"

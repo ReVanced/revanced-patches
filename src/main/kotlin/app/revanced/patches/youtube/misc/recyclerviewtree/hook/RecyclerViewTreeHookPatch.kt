@@ -26,7 +26,7 @@ internal object RecyclerViewTreeHookPatch : BytecodePatch(
 
                 addHook = { classDescriptor ->
                     addInstruction(
-                        insertIndex,
+                        insertIndex + 1,
                         "invoke-static/range { p$recyclerViewParameter .. p$recyclerViewParameter }, $classDescriptor->onFlyoutMenuCreate(Landroid/support/v7/widget/RecyclerView;)V"
                     )
                 }

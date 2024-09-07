@@ -46,6 +46,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
                 "19.14.43",
                 "19.15.36",
                 "19.16.39",
+                "19.31.36"
             ]
         )
     ]
@@ -66,7 +67,7 @@ object DisablePreciseSeekingGesturePatch : BytecodePatch(
         )
 
         IsSwipingUpFingerprint.result?.let {
-            val addMovementIndex = it.scanResult.patternScanResult!!.startIndex - 1
+            val addMovementIndex = it.scanResult.patternScanResult!!.endIndex
 
             it.mutableMethod.apply {
                 val addMovementInstruction = getInstruction<FiveRegisterInstruction>(addMovementIndex)

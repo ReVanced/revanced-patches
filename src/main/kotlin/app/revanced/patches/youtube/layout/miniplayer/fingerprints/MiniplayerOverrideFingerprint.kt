@@ -7,6 +7,5 @@ import com.android.tools.smali.dexlib2.AccessFlags
 internal object MiniplayerOverrideFingerprint : MethodFingerprint(
     returnType = "L",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf("L"),
     strings = listOf("appName")
 )
