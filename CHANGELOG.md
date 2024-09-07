@@ -1,3 +1,24 @@
+# [4.14.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.6...v4.14.0-dev.7) (2024-09-06)
+
+
+### Features
+
+* Add `Check environment` patch ([#3610](https://github.com/ReVanced/revanced-patches/issues/3610)) ([fbcbdaf](https://github.com/ReVanced/revanced-patches/commit/fbcbdafa4938a35b5fdec46aae7b250a84b9c139))
+
+# [4.14.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.5...v4.14.0-dev.6) (2024-09-06)
+
+
+### Features
+
+* Add `Change data directory location` patch ([#3602](https://github.com/ReVanced/revanced-patches/issues/3602)) ([5998029](https://github.com/ReVanced/revanced-patches/commit/59980292809cc0626bf49a160eeb05a1523c4eda))
+
+# [4.14.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.4...v4.14.0-dev.5) (2024-09-06)
+
+
+### Bug Fixes
+
+* **Pixiv - Hide ads:** Fix for latest version ([#3616](https://github.com/ReVanced/revanced-patches/issues/3616)) ([98956e8](https://github.com/ReVanced/revanced-patches/commit/98956e8f1a41347bb435720bbf984969469a7110))
+
 # [4.14.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.3...v4.14.0-dev.4) (2024-09-01)
 
 
