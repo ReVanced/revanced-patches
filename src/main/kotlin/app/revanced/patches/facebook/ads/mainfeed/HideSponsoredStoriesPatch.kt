@@ -2,14 +2,12 @@ package app.revanced.patches.facebook.ads.mainfeed
 
 import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.facebook.ads.mainfeed.fingerprints.GetStoryVisibilityFingerprint
 import app.revanced.patches.facebook.ads.mainfeed.fingerprints.GraphQLStorySponsoredDataGetterFingerprint
-import app.revanced.patches.spotify.lite.ondemand.fingerprints.OnDemandFingerprint
 
 @Patch(
     name = "Hide Sponsored stories",
@@ -26,7 +24,7 @@ object HideSponsoredStoriesPatch : BytecodePatch(setOf(GetStoryVisibilityFingerp
 
             // Hide stories with sponsored data defined
             // Check if param type is GraphQLStory
-            // If so calling the sponsoredDataModelGetter, only sponsored content has non-null data
+            // If so, calling the sponsoredDataModelGetter, only sponsored content has non-null data
             // Sponsored Stories gets their visibility forced to StoryVisibility.GONE
             mutableMethod.addInstructionsWithLabels(scanResult.patternScanResult!!.startIndex, """
                     instance-of v0, p0, Lcom/facebook/graphql/model/GraphQLStory;
