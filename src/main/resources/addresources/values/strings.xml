@@ -990,7 +990,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_miniplayer_width_dip_summary">On screen size, in pixels</string>
             <string name="revanced_miniplayer_width_dip_invalid_toast">Pixel size must be between %1$s and %2$s</string>
             <string name="revanced_miniplayer_enable_double_tap_action_title">Enable double-tap action</string>
-            <string name="revanced_miniplayer_enable_double_tap_action_summary_on">Double-tap action is enabled\n• Double tap to increase miniplayer size\n• Double tap again to restore original size</string>
+            <string name="revanced_miniplayer_enable_double_tap_action_summary_on">Double-tap action is enabled\n\n• Double tap to increase miniplayer size\n• Double tap again to restore original size</string>
             <string name="revanced_miniplayer_enable_double_tap_action_summary_off">Double-tap action is disabled</string>
             <string name="revanced_miniplayer_enable_drag_and_drop_title">Enable drag and drop</string>
             <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">Drag and drop is enabled</string>
