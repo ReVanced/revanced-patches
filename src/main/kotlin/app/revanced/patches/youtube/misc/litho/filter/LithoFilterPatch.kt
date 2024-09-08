@@ -84,7 +84,7 @@ object LithoFilterPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         // region Hook the method that parses bytes into a ComponentContext.
 
-        ComponentContextParserFingerprint.resultOrThrow()?.let {
+        ComponentContextParserFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 // region Get references that this patch needs.
 
@@ -139,7 +139,7 @@ object LithoFilterPatch : BytecodePatch(
 
         // region Pass the buffer into Integrations.
 
-        ProtobufBufferReferenceFingerprint.resultOrThrow()?.mutableMethod?.apply {
+        ProtobufBufferReferenceFingerprint.resultOrThrow().mutableMethod.apply {
             addInstruction(
                 0, " invoke-static { p2 }, $INTEGRATIONS_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V"
             )
@@ -149,7 +149,7 @@ object LithoFilterPatch : BytecodePatch(
 
         // region Read component then store the result.
 
-        ReadComponentIdentifierFingerprint.resultOrThrow()?.let {
+        ReadComponentIdentifierFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val identifierIndex = it.scanResult.patternScanResult!!.endIndex
                 val identifierRegister = getInstruction<OneRegisterInstruction>(identifierIndex).registerA
@@ -173,7 +173,7 @@ object LithoFilterPatch : BytecodePatch(
 
         // endregion
 
-        LithoFilterFingerprint.result?.mutableMethod?.apply {
+        LithoFilterFingerprint.resultOrThrow().mutableMethod.apply {
             removeInstructions(2, 4) // Remove dummy filter.
 
             addFilter = { classDescriptor ->
@@ -187,7 +187,7 @@ object LithoFilterPatch : BytecodePatch(
                     """
                 )
             }
-        } ?: throw LithoFilterFingerprint.exception
+        }
     }
 
     override fun close() = LithoFilterFingerprint.result!!
