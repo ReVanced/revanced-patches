@@ -113,6 +113,11 @@ object SpoofClientPatch : BytecodePatch(
         "Lorg/chromium/net/ExperimentalUrlRequest\$Builder;"
 
     override fun execute(context: BytecodeContext) {
+        // FIXME: this patch is not updated to support 19.31 and does not work
+        // and this will soon be replaced with stream replacing.
+        println("FIXME: skipping 'Spoof client'")
+        if (true) return;
+
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.MISC.addPreferences(
