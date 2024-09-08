@@ -100,20 +100,20 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
                 "19.13.37",
                 // 19.14.43 // Incomplete code for modern miniplayers.
                 // 19.15.36 // Different code for handling sub title texts and not worth supporting.
-                "19.16.39",
+                "19.16.39", // First with modern miniplayers.
                 "19.17.41",
                 "19.18.41",
                 "19.19.39", // Last bug free version with smaller Modern 1 miniplayer.
-                // 19.20.35 // Cannot swipe to expand. Premium cold start cannot resume playback.
-                // 19.21.40 // Same issues as last.
-                // 19.22.43 // Same issues as last.
-                // 19.23.40 // First with Modern 1 drag and drop, same issues as last.
-                // 19.24.45 // First with larger Modern 1, same issues as last.
+                // 19.20.35 // Cannot swipe to expand.
+                // 19.21.40 // Cannot swipe to expand.
+                // 19.22.43 // Cannot swipe to expand.
+                // 19.23.40 // First with Modern 1 drag and drop, Cannot swipe to expand.
+                // 19.24.45 // First with larger Modern 1, Cannot swipe to expand.
                 "19.25.37", // First with double tap, last with skip forward/back buttons. Screen flickers when swiping to expand Modern 1.
                 // 19.26.42 // Modern 1 Pause/play button are always hidden. Unusable.
                 "19.28.42", // First with custom miniplayer size, screen flickers when swiping to maximize Modern 1.
-                "19.29.42", // Same issues as last.
-                "19.30.39", // Same issues as last.
+                "19.29.42", // Screen flickers when swiping to maximize Modern 1.
+                "19.30.39", // Screen flickers when swiping to maximize Modern 1.
                 // 19.31.36 // All Modern 1 buttons are missing. Unusable.
             ]
         )
