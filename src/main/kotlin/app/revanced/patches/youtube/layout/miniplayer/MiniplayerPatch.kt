@@ -96,12 +96,23 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
                 "19.11.43",
                 "19.12.41",
                 "19.13.37",
-                // 19.14 is left out, as it has incomplete miniplayer code and missing some UI resources.
-                // It's simpler to not bother with supporting this single old version.
-                // 19.15 has a different code for handling sub title texts,
-                // and also probably not worth making changes just to support this single old version.
-                "19.16.39", // Earliest supported version with modern miniplayers.
-                "19.31.36"
+                // 19.14.43 // Incomplete code for modern miniplayers.
+                // 19.15.36 // Different code for handling sub title texts and not worth supporting.
+                "19.16.39",
+                "19.17.41",
+                "19.18.41",
+                "19.19.39",
+                "19.20.35", // Last version Modern 1 hide expand/close buttons.
+                "19.21.40",
+                "19.22.43",
+                "19.23.40",
+                "19.24.45", // Last version with Modern 1 smaller miniplayer and skip forward/back buttons.
+                // 19.25.37 // Issues with resuming miniplayer on cold start for Premium users.
+                "19.26.42",
+                "19.28.42",
+                "19.29.42",
+                "19.30.39",
+                // 19.31.36 // Issues with resuming miniplayer on cold start for Premium users.
             ]
         )
     ]

@@ -60,7 +60,19 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
                 "19.14.43",
                 "19.15.36",
                 "19.16.39",
-                "19.31.36"
+                "19.17.41",
+                "19.18.41",
+                "19.19.39",
+                "19.20.35",
+                "19.21.40",
+                "19.22.43",
+                "19.23.40",
+                "19.24.45",
+                "19.25.37", 
+                "19.26.42",
+                "19.28.42",
+                "19.29.42",
+                "19.30.39",
             ],
         ),
     ],
@@ -152,7 +164,7 @@ object HideShortsComponentsPatch : BytecodePatch(
              BottomNavigationBarFingerprint.result ?: BottomNavigationBarNewFingerprint.result
                  ?: throw BottomNavigationBarFingerprint.exception
 
-        bottomNavigationBarResult?.let {
+        bottomNavigationBarResult.let {
             it.mutableMethod.apply {
                 val moveResultIndex = it.scanResult.patternScanResult!!.startIndex + 2
                 val viewRegister = getInstruction<OneRegisterInstruction>(moveResultIndex).registerA
