@@ -5,8 +5,7 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
-import app.revanced.util.getNode
-import org.w3c.dom.Element
+import app.revanced.util.ResourceUtils
 
 @Patch(dependencies = [ResourceMappingPatch::class])
 internal object MiniplayerResourcePatch : ResourcePatch() {
@@ -22,19 +21,39 @@ internal object MiniplayerResourcePatch : ResourcePatch() {
     var modernMiniplayerForwardButton = -1L
     var playerOverlays = -1L
 
+    // These version checks assume no new bug fix versions will be released (such as 19.16.40).
+    /**
+     * Supports only legacy miniplayer.
+     */
+    var is_19_15_36_or_less = false
+    /**
+     * First supported version with modern miniplayers
+     */
+    var is_19_16_35_or_less = false
+    /**
+     * Last version with Modern 1swipe to expand/close functionality.
+     */
+    var is_19_19_39_or_less = false
+    /**
+     * Last version with Modern 1 skip forward/back buttons.
+     */
+    var is_19_24_45_or_less = false
+
     override fun execute(context: ResourceContext) {
-        val appVersionName = context.document["AndroidManifest.xml"].use { document ->
-            val manifestElement = document.getNode("manifest") as Element
-            manifestElement.getAttribute("android:versionName")
-        }
+        val playVersion = ResourceUtils.getPlayServicesVersion(context)
+
+        is_19_15_36_or_less = playVersion <= 241602000
+        is_19_16_35_or_less = playVersion <= 241702000
+        is_19_19_39_or_less = playVersion <= 241999000
+        is_19_24_45_or_less = playVersion <= 242505000
 
         floatyBarButtonTopMargin = ResourceMappingPatch[
             "dimen",
             "floaty_bar_button_top_margin"
         ]
 
-        // Only required for 19.16.
-        if (appVersionName.contains("19.16")) {
+        // Only required for 19.16
+        if (!is_19_15_36_or_less && is_19_16_35_or_less) {
             ytOutlinePictureInPictureWhite24 = ResourceMappingPatch[
                 "drawable",
                 "yt_outline_picture_in_picture_white_24"

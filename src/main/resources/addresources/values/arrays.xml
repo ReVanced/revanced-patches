@@ -17,7 +17,7 @@
             </string-array>
         </patch>
         <patch id="layout.miniplayer.MiniplayerPatch">
-            <string-array name="revanced_miniplayer_type_19_15_entries">
+            <string-array name="revanced_miniplayer_type_19_16_entries">
                 <item>@string/revanced_miniplayer_type_entry_1</item>
                 <item>@string/revanced_miniplayer_type_entry_2</item>
                 <item>@string/revanced_miniplayer_type_entry_3</item>
@@ -25,7 +25,7 @@
                 <item>@string/revanced_miniplayer_type_entry_5</item>
                 <item>@string/revanced_miniplayer_type_entry_6</item>
             </string-array>
-            <string-array name="revanced_miniplayer_type_19_15_entry_values">
+            <string-array name="revanced_miniplayer_type_19_16_entry_values">
                 <!-- Enum names from Integrations. -->
                 <item>ORIGINAL</item>
                 <item>PHONE</item>

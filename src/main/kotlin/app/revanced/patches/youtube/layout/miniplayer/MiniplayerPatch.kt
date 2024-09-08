@@ -12,6 +12,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.BasePreference
 import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
@@ -101,16 +102,16 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
                 "19.16.39",
                 "19.17.41",
                 "19.18.41",
-                "19.19.39",
-                "19.20.35", // Last version Modern 1 hide expand/close buttons.
-                "19.21.40",
-                "19.22.43",
-                "19.23.40",
-                "19.24.45", // Last version with Modern 1 smaller miniplayer and skip forward/back buttons.
+                "19.19.39", // Last (bug free) version with Modern 1 skip forward/back buttons and swipe to close.
+                // 19.20.35 // Issues with resuming miniplayer on cold start for Premium users.
+                // 19.21.40 // Issues with resuming miniplayer on cold start for Premium users.
+                // 19.22.43 // Issues with resuming miniplayer on cold start for Premium users.
+                // 19.23.40 // Issues with resuming miniplayer on cold start for Premium users.
+                // 19.24.45 // Last version with skip forward/back buttons, but has issues for Premium users.
                 // 19.25.37 // Issues with resuming miniplayer on cold start for Premium users.
-                "19.26.42",
-                "19.28.42",
-                "19.29.42",
+                // 19.26.42 // Issues with resuming miniplayer on cold start for Premium users.
+                // 19.28.42 // Issues with resuming miniplayer on cold start for Premium users.
+                "19.29.42", // Miniplayer can show layout glitches on cold start, but is still functional.
                 "19.30.39",
                 // 19.31.36 // Issues with resuming miniplayer on cold start for Premium users.
             ]
@@ -133,38 +134,40 @@ object MiniplayerPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        // Modern mini player is only present and functional in 19.15+.
-        // Resource is not present in older versions. Using it to determine, if patching an old version.
-        val isPatchingOldVersion = modernMiniplayerClose < 0
+        val preferences = mutableSetOf<BasePreference>()
+
+        if (MiniplayerResourcePatch.is_19_15_36_or_less) {
+            preferences += ListPreference(
+                "revanced_miniplayer_type",
+                summaryKey = null,
+                entriesKey = "revanced_miniplayer_type_legacy_entries",
+                entryValuesKey = "revanced_miniplayer_type_legacy_entry_values"
+            )
+        } else {
+            preferences += ListPreference(
+                "revanced_miniplayer_type",
+                summaryKey = null,
+                entriesKey = "revanced_miniplayer_type_19_16_entries",
+                entryValuesKey = "revanced_miniplayer_type_19_16_entry_values"
+            )
+
+            if (MiniplayerResourcePatch.is_19_19_39_or_less) {
+                preferences += SwitchPreference("revanced_miniplayer_hide_expand_close")
+
+                if (MiniplayerResourcePatch.is_19_24_45_or_less) {
+                    preferences += SwitchPreference("revanced_miniplayer_hide_rewind_forward")
+                }
+            }
+
+            preferences += SwitchPreference("revanced_miniplayer_hide_subtext")
+            preferences += TextPreference("revanced_miniplayer_opacity", inputType = InputType.NUMBER)
+        }
 
         SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
             PreferenceScreen(
                 key = "revanced_miniplayer_screen",
                 sorting = Sorting.UNSORTED,
-                preferences =
-                if (isPatchingOldVersion) {
-                    setOf(
-                        ListPreference(
-                            "revanced_miniplayer_type",
-                            summaryKey = null,
-                            entriesKey = "revanced_miniplayer_type_legacy_entries",
-                            entryValuesKey = "revanced_miniplayer_type_legacy_entry_values"
-                        )
-                    )
-                } else {
-                    setOf(
-                        ListPreference(
-                            "revanced_miniplayer_type",
-                            summaryKey = null,
-                            entriesKey = "revanced_miniplayer_type_19_15_entries",
-                            entryValuesKey = "revanced_miniplayer_type_19_15_entry_values"
-                        ),
-                        SwitchPreference("revanced_miniplayer_hide_expand_close"),
-                        SwitchPreference("revanced_miniplayer_hide_subtext"),
-                        SwitchPreference("revanced_miniplayer_hide_rewind_forward"),
-                        TextPreference("revanced_miniplayer_opacity", inputType = InputType.NUMBER)
-                    )
-                }
+                preferences = preferences
             )
         )
 
@@ -200,7 +203,7 @@ object MiniplayerPatch : BytecodePatch(
             it.mutableMethod.insertLegacyTabletMiniplayerOverride(it.scanResult.patternScanResult!!.endIndex)
         }
 
-        if (isPatchingOldVersion) {
+        if (MiniplayerResourcePatch.is_19_15_36_or_less) {
             // Return here, as patch below is only intended for new versions of the app.
             return
         }
