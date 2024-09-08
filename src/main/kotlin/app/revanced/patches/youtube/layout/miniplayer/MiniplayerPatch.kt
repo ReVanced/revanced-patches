@@ -6,6 +6,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
@@ -61,6 +62,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
+import java.util.ArrayList
 
 // YT uses "Miniplayer" without a space between 'mini' and 'player: https://support.google.com/youtube/answer/9162927.
 @Patch(
@@ -256,13 +258,37 @@ object MiniplayerPatch : BytecodePatch(
 
         // region Add hooks to hide tablet modern miniplayer buttons.
 
-        listOf(
-            Triple(MiniplayerModernExpandButtonFingerprint, modernMiniplayerExpand,"hideMiniplayerExpandClose"),
-            Triple(MiniplayerModernCloseButtonFingerprint, modernMiniplayerClose, "hideMiniplayerExpandClose"),
-            Triple(MiniplayerModernRewindButtonFingerprint, modernMiniplayerRewindButton, "hideMiniplayerRewindForward"),
-            Triple(MiniplayerModernForwardButtonFingerprint, modernMiniplayerForwardButton, "hideMiniplayerRewindForward"),
+        val modernHideFeatures = mutableListOf<Triple<MethodFingerprint, Long, String>>(
             Triple(MiniplayerModernOverlayViewFingerprint, scrimOverlay, "adjustMiniplayerOpacity")
-        ).forEach { (fingerprint, literalValue, methodName) ->
+        )
+
+        if (MiniplayerResourcePatch.is_19_19_39_or_less) {
+            modernHideFeatures += Triple(
+                MiniplayerModernExpandButtonFingerprint,
+                modernMiniplayerExpand,
+                "hideMiniplayerExpandClose"
+            )
+            modernHideFeatures += Triple(
+                MiniplayerModernCloseButtonFingerprint,
+                modernMiniplayerClose,
+                "hideMiniplayerExpandClose"
+            )
+
+            if (MiniplayerResourcePatch.is_19_24_45_or_less) {
+                modernHideFeatures += Triple(
+                    MiniplayerModernRewindButtonFingerprint,
+                    modernMiniplayerRewindButton,
+                    "hideMiniplayerRewindForward"
+                )
+                modernHideFeatures += Triple(
+                    MiniplayerModernForwardButtonFingerprint,
+                    modernMiniplayerForwardButton,
+                    "hideMiniplayerRewindForward"
+                )
+            }
+        }
+
+        modernHideFeatures.forEach { (fingerprint, literalValue, methodName) ->
             fingerprint.resolve(
                 context,
                 MiniplayerModernViewParentFingerprint.resultOrThrow().classDef
@@ -364,7 +390,7 @@ object MiniplayerPatch : BytecodePatch(
         removeInstruction(iPutIndex)
     }
 
-    private fun LiteralValueFingerprint.hookInflatedView(
+    private fun MethodFingerprint.hookInflatedView(
         literalValue: Long,
         hookedClassType: String,
         integrationsMethodName: String,
