@@ -1,49 +1,13 @@
 package app.revanced.util
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.DomFileEditor
 import app.revanced.util.resource.BaseResource
-import org.w3c.dom.Element
 import org.w3c.dom.Node
 import org.w3c.dom.NodeList
 import java.io.InputStream
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
-
-internal object ResourceUtils {
-    private var playStoreServicesVersion : Int? = null
-
-    /**
-     * Used to check what version an app is.
-     * Returns the Google Play services version,
-     * since the decoded app manifest does not have the app version.
-     */
-    fun getPlayServicesVersion(context: ResourceContext) : Int {
-        if (playStoreServicesVersion != null) {
-            return playStoreServicesVersion!!
-        }
-
-        // The app version is missing from the decompiled manifest,
-        // so instead use the Google Play services version and compare against specific releases.
-        context.document["res/values/integers.xml"].use { document ->
-            val nodeList = document.documentElement.childNodes
-            for (i in 0 until nodeList.length) {
-                val node = nodeList.item(i)
-                if (node.nodeType == Node.ELEMENT_NODE) {
-                    val element = node as Element
-                    if (element.getAttribute("name") == "google_play_services_version") {
-                        val version = element.textContent.toInt()
-                        playStoreServicesVersion = version
-                        return version
-                    }
-                }
-            }
-        }
-
-        throw PatchException("integers.xml does not contain a Google Play services version")
-    }
-}
 
 private val classLoader = object {}.javaClass.classLoader
 

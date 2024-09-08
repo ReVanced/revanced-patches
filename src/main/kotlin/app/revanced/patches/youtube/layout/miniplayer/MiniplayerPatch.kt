@@ -13,6 +13,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.shared.misc.playservice.YouTubeVersionCheck
 import app.revanced.patches.shared.misc.settings.preference.BasePreference
 import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
@@ -137,7 +138,7 @@ object MiniplayerPatch : BytecodePatch(
         AddResourcesPatch(this::class)
 
         val preferences = mutableSetOf<BasePreference>()
-        if (!MiniplayerResourcePatch.is_19_16_or_greater) {
+        if (!YouTubeVersionCheck.is_19_16_or_greater) {
             preferences += ListPreference(
                 "revanced_miniplayer_type",
                 summaryKey = null,
@@ -151,16 +152,16 @@ object MiniplayerPatch : BytecodePatch(
                 entriesKey = "revanced_miniplayer_type_19_16_entries",
                 entryValuesKey = "revanced_miniplayer_type_19_16_entry_values"
             )
-            if (MiniplayerResourcePatch.is_19_25_or_greater) {
+            if (YouTubeVersionCheck.is_19_25_or_greater) {
                 preferences += SwitchPreference("revanced_miniplayer_enable_double_tap_action")
                 preferences += SwitchPreference("revanced_miniplayer_enable_drag_and_drop")
             }
             preferences += SwitchPreference("revanced_miniplayer_hide_expand_close")
-            if (!MiniplayerResourcePatch.is_19_26_or_greater) {
+            if (!YouTubeVersionCheck.is_19_26_or_greater) {
                 preferences += SwitchPreference("revanced_miniplayer_hide_rewind_forward")
             }
             preferences += SwitchPreference("revanced_miniplayer_hide_subtext")
-            if (MiniplayerResourcePatch.is_19_26_or_greater) {
+            if (YouTubeVersionCheck.is_19_26_or_greater) {
                 preferences += TextPreference("revanced_miniplayer_width_dip", inputType = InputType.NUMBER)
             }
             preferences += TextPreference("revanced_miniplayer_opacity", inputType = InputType.NUMBER)
@@ -206,7 +207,7 @@ object MiniplayerPatch : BytecodePatch(
             it.mutableMethod.insertLegacyTabletMiniplayerOverride(it.scanResult.patternScanResult!!.endIndex)
         }
 
-        if (!MiniplayerResourcePatch.is_19_16_or_greater) {
+        if (!YouTubeVersionCheck.is_19_16_or_greater) {
             // Return here, as patch below is only intended for new versions of the app.
             return
         }
@@ -230,14 +231,14 @@ object MiniplayerPatch : BytecodePatch(
             }
         }
 
-        if (MiniplayerResourcePatch.is_19_23_or_greater) {
+        if (YouTubeVersionCheck.is_19_23_or_greater) {
             MiniplayerModernConstructorFingerprint.insertLiteralValueBooleanOverride(
                 MiniplayerModernConstructorFingerprint.DRAG_DROP_ENABLED_FEATURE_KEY_LITERAL,
                 "enableMiniplayerDragAndDrop"
             )
         }
 
-        if (MiniplayerResourcePatch.is_19_25_or_greater) {
+        if (YouTubeVersionCheck.is_19_25_or_greater) {
             MiniplayerModernEnabledFingerprint.insertLiteralValueBooleanOverride(
                 MiniplayerModernEnabledFingerprint.MODERN_MINIPLAYER_ENABLED_FEATURE_KEY_LITERAL,
                 "getModernMiniplayerOverride"
@@ -254,7 +255,7 @@ object MiniplayerPatch : BytecodePatch(
             )
         }
 
-        if (MiniplayerResourcePatch.is_19_26_or_greater) {
+        if (YouTubeVersionCheck.is_19_26_or_greater) {
             MiniplayerModernConstructorFingerprint.resultOrThrow().mutableMethod.apply {
                 val literalIndex = indexOfFirstWideLiteralInstructionValueOrThrow(
                     MiniplayerModernConstructorFingerprint.MINIPLAYER_SIZE_FEATURE_KEY_LITERAL
