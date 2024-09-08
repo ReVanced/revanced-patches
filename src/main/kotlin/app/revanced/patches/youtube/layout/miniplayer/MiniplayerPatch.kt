@@ -49,7 +49,6 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.findOpcodeIndicesReversed
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstWideLiteralInstructionValue
 import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -68,7 +67,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 @Patch(
     name = "Miniplayer",
     description = "Adds options to change the in app minimized player. " +
-            "If patching target 19.16+ modern miniplayers can be selected, with 19.25.37 offering the most features.",
+            "Patching target 19.16+ adds modern miniplayers, and 19.28+ offers the most customization",
     dependencies = [
         IntegrationsPatch::class,
         SettingsPatch::class,
@@ -112,7 +111,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
                 // 19.24.45 // First with larger Modern 1, same issues as last.
                 "19.25.37", // First with double tap, last with skip forward/back buttons. Screen flickers when swiping to expand Modern 1.
                 // 19.26.42 // Modern 1 Pause/play button are always hidden. Unusable.
-                "19.28.42", // Screen flickers when swiping to maximize Modern 1, otherwise no issues.
+                "19.28.42", // First with custom miniplayer size, screen flickers when swiping to maximize Modern 1.
                 "19.29.42", // Same issues as last.
                 "19.30.39", // Same issues as last.
                 // 19.31.36 // All Modern 1 buttons are missing. Unusable.
@@ -161,6 +160,9 @@ object MiniplayerPatch : BytecodePatch(
                 preferences += SwitchPreference("revanced_miniplayer_hide_rewind_forward")
             }
             preferences += SwitchPreference("revanced_miniplayer_hide_subtext")
+            if (MiniplayerResourcePatch.is_19_26_or_greater) {
+                preferences += TextPreference("revanced_miniplayer_width_dip", inputType = InputType.NUMBER)
+            }
             preferences += TextPreference("revanced_miniplayer_opacity", inputType = InputType.NUMBER)
         }
 
@@ -228,38 +230,47 @@ object MiniplayerPatch : BytecodePatch(
             }
         }
 
+        if (MiniplayerResourcePatch.is_19_23_or_greater) {
+            MiniplayerModernConstructorFingerprint.insertLiteralValueBooleanOverride(
+                MiniplayerModernConstructorFingerprint.DRAG_DROP_ENABLED_FEATURE_KEY_LITERAL,
+                "enableMiniplayerDragAndDrop"
+            )
+        }
+
         if (MiniplayerResourcePatch.is_19_25_or_greater) {
-            arrayOf(
-                Triple(
-                    MiniplayerModernEnabledFingerprint,
-                    MiniplayerModernEnabledFingerprint.MODERN_MINIPLAYER_ENABLED_FEATURE_KEY_LITERAL,
-                    "getModernMiniplayerOverride"
-                ),
-                Triple(
-                    MiniplayerModernConstructorFingerprint,
-                    MiniplayerModernConstructorFingerprint.MODERN_MINIPLAYER_ENABLED_FEATURE_KEY_LITERAL,
-                    "getModernMiniplayerOverride"
-                ),
-                Triple(
-                    MiniplayerModernConstructorFingerprint,
-                    MiniplayerModernConstructorFingerprint.DOUBLE_TAP_ENABLED_FEATURE_KEY_LITERAL,
-                    "enableMiniplayerDoubleTapAction"
-                ),
-                Triple(
-                    MiniplayerModernConstructorFingerprint,
-                    MiniplayerModernConstructorFingerprint.DRAG_DROP_ENABLED_FEATURE_KEY_LITERAL,
-                    "enableMiniplayerDragAndDrop"
+            MiniplayerModernEnabledFingerprint.insertLiteralValueBooleanOverride(
+                MiniplayerModernEnabledFingerprint.MODERN_MINIPLAYER_ENABLED_FEATURE_KEY_LITERAL,
+                "getModernMiniplayerOverride"
+            )
+
+            MiniplayerModernConstructorFingerprint.insertLiteralValueBooleanOverride(
+                MiniplayerModernConstructorFingerprint.MODERN_MINIPLAYER_ENABLED_FEATURE_KEY_LITERAL,
+                "getModernMiniplayerOverride"
+            )
+
+            MiniplayerModernConstructorFingerprint.insertLiteralValueBooleanOverride(
+                MiniplayerModernConstructorFingerprint.DOUBLE_TAP_ENABLED_FEATURE_KEY_LITERAL,
+                "enableMiniplayerDoubleTapAction"
+            )
+        }
+
+        if (MiniplayerResourcePatch.is_19_26_or_greater) {
+            MiniplayerModernConstructorFingerprint.resultOrThrow().mutableMethod.apply {
+                val literalIndex = indexOfFirstWideLiteralInstructionValueOrThrow(
+                    MiniplayerModernConstructorFingerprint.MINIPLAYER_SIZE_FEATURE_KEY_LITERAL
                 )
-
-            ).forEach { (fingerprint, literal, intergrationsMethod) ->
-                fingerprint.resultOrThrow().mutableMethod.apply {
-                    val literalIndex = indexOfFirstWideLiteralInstructionValue(literal)
-                    val targetIndex = indexOfFirstInstructionOrThrow(literalIndex) {
-                        opcode == Opcode.MOVE_RESULT
-                    }
-
-                    insertBooleanOverride(targetIndex + 1, intergrationsMethod)
+                val targetIndex = indexOfFirstInstructionOrThrow(literalIndex) {
+                    opcode == Opcode.LONG_TO_INT
                 }
+                val register = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+
+                addInstructions(
+                    targetIndex + 1,
+                    """
+                        invoke-static {v$register}, $INTEGRATIONS_CLASS_DESCRIPTOR->setMiniplayerSize(I)I
+                        move-result v$register
+                    """
+                )
             }
         }
 
@@ -391,6 +402,20 @@ object MiniplayerPatch : BytecodePatch(
      */
     private fun MutableMethod.insertModernMiniplayerOverride(index: Int) {
         insertBooleanOverride(index, "getModernMiniplayerOverride")
+    }
+
+    private fun MethodFingerprint.insertLiteralValueBooleanOverride(
+        literal: Long,
+        integrationsMethod: String
+    ) {
+        resultOrThrow().mutableMethod.apply {
+            val literalIndex = indexOfFirstWideLiteralInstructionValueOrThrow(literal)
+            val targetIndex = indexOfFirstInstructionOrThrow(literalIndex) {
+                opcode == Opcode.MOVE_RESULT
+            }
+
+            insertBooleanOverride(targetIndex + 1, integrationsMethod)
+        }
     }
 
     private fun MutableMethod.insertBooleanOverride(index: Int, methodName: String) {
