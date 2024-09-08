@@ -3,6 +3,8 @@ package app.revanced.patches.youtube.misc.backgroundplayback
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
@@ -14,7 +16,10 @@ import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
+import app.revanced.util.findOpcodeIndicesReversed
 import app.revanced.util.resultOrThrow
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
@@ -79,14 +84,24 @@ object BackgroundPlaybackPatch : BytecodePatch(
         "Lapp/revanced/integrations/youtube/patches/BackgroundPlaybackPatch;"
 
     override fun execute(context: BytecodeContext) {
-        BackgroundPlaybackManagerFingerprint.resultOrThrow().mutableMethod.addInstructions(
-            0,
-            """
-                invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->playbackIsNotShort()Z
-                move-result v0
-                return v0
-            """
-        )
+        BackgroundPlaybackManagerFingerprint.resultOrThrow().mutableMethod.apply {
+            findOpcodeIndicesReversed(Opcode.RETURN).forEach{ index ->
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                // Replace to preserve control flow label.
+                replaceInstruction(
+                    index,
+                    "invoke-static { v$register }, $INTEGRATIONS_CLASS_DESCRIPTOR->allowBackgroundPlayback(Z)Z"
+                )
+
+                addInstructions(index + 1,
+                    """
+                       move-result v$register
+                       return v$register
+                    """
+                )
+            }
+        }
 
         // Enable background playback option in YouTube settings
         BackgroundPlaybackSettingsFingerprint.resultOrThrow().mutableMethod.apply {
