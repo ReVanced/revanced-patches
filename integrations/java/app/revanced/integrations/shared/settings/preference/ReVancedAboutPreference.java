@@ -1,5 +1,6 @@
 package app.revanced.integrations.shared.settings.preference;
 
+import static app.revanced.integrations.shared.StringRef.sf;
 import static app.revanced.integrations.shared.StringRef.str;
 import static app.revanced.integrations.youtube.requests.Route.Method.GET;
 
@@ -71,7 +72,7 @@ public class ReVancedAboutPreference extends Preference {
         return Color.BLACK;
     }
 
-    private String createDialogHtml(ReVancedSocialLink[] socialLinks) {
+    private String createDialogHtml(WebLink[] socialLinks) {
         final boolean isNetworkConnected = Utils.isNetworkConnected();
 
         StringBuilder builder = new StringBuilder();
@@ -122,7 +123,7 @@ public class ReVancedAboutPreference extends Preference {
                 .append("</h2>");
 
         builder.append("<div>");
-        for (ReVancedSocialLink social : socialLinks) {
+        for (WebLink social : socialLinks) {
             builder.append("<div style=\"margin-bottom: 20px;\">");
             builder.append(String.format("<a href=\"%s\">%s</a>", social.url, social.name));
             builder.append("</div>");
@@ -151,7 +152,7 @@ public class ReVancedAboutPreference extends Preference {
     }
 
     private void fetchLinksAndShowDialog(@Nullable ProgressDialog progress) {
-        ReVancedSocialLink[] socialLinks = SocialLinksRoutes.fetchSocialLinks();
+        WebLink[] socialLinks = SocialLinksRoutes.fetchSocialLinks();
         String htmlDialog = createDialogHtml(socialLinks);
 
         Utils.runOnMainThreadNowOrLater(() -> {
@@ -221,19 +222,19 @@ class WebViewDialog extends Dialog {
     }
 }
 
-class ReVancedSocialLink {
+class WebLink {
     final boolean preferred;
     final String name;
     final String url;
 
-    ReVancedSocialLink(JSONObject json) throws JSONException {
+    WebLink(JSONObject json) throws JSONException {
         this(json.getBoolean("preferred"),
                 json.getString("name"),
                 json.getString("url")
         );
     }
 
-    ReVancedSocialLink(boolean preferred, String name, String url) {
+    WebLink(boolean preferred, String name, String url) {
         this.preferred = preferred;
         this.name = name;
         this.url = url;
@@ -252,23 +253,32 @@ class ReVancedSocialLink {
 
 class SocialLinksRoutes {
     /**
+     * Simple link to the website donate page,
+     * rather than fetching and parsing the donation links using the API.
+     */
+    public static final WebLink DONATE_LINK = new WebLink(true,
+            sf("revanced_settings_about_links_donate").toString(),
+            "https://revanced.app/donate");
+
+    /**
      * Links to use if fetch links api call fails.
      */
-    private static final ReVancedSocialLink[] NO_CONNECTION_STATIC_LINKS = {
-            new ReVancedSocialLink(true, "ReVanced.app", "https://revanced.app")
+    private static final WebLink[] NO_CONNECTION_STATIC_LINKS = {
+            new WebLink(true, "ReVanced.app", "https://revanced.app"),
+            DONATE_LINK,
     };
 
     private static final String SOCIAL_LINKS_PROVIDER = "https://api.revanced.app/v2";
     private static final Route.CompiledRoute GET_SOCIAL = new Route(GET, "/socials").compile();
 
     @Nullable
-    private static volatile ReVancedSocialLink[] fetchedLinks;
+    private static volatile WebLink[] fetchedLinks;
 
     static boolean hasFetchedLinks() {
         return fetchedLinks != null;
     }
 
-    static ReVancedSocialLink[] fetchSocialLinks() {
+    static WebLink[] fetchSocialLinks() {
         try {
             if (hasFetchedLinks()) return fetchedLinks;
 
@@ -290,14 +300,17 @@ class SocialLinksRoutes {
             JSONObject json = Requester.parseJSONObjectAndDisconnect(connection);
             JSONArray socials = json.getJSONArray("socials");
 
-            List<ReVancedSocialLink> links = new ArrayList<>();
+            List<WebLink> links = new ArrayList<>();
+
+            links.add(DONATE_LINK); // Show donate link first.
             for (int i = 0, length = socials.length(); i < length; i++) {
-                ReVancedSocialLink link = new ReVancedSocialLink(socials.getJSONObject(i));
+                WebLink link = new WebLink(socials.getJSONObject(i));
                 links.add(link);
             }
+
             Logger.printDebug(() -> "links: " + links);
 
-            return fetchedLinks = links.toArray(new ReVancedSocialLink[0]);
+            return fetchedLinks = links.toArray(new WebLink[0]);
 
         } catch (SocketTimeoutException ex) {
             Logger.printInfo(() -> "Could not fetch social links", ex); // No toast.
