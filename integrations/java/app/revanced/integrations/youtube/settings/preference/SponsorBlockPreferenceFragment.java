@@ -519,6 +519,7 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment {
                 statsCategory.addPreference(preference);
                 String formatted = SponsorBlockUtils.getNumberOfSkipsString(stats.segmentCount);
                 preference.setTitle(fromHtml(str("revanced_sb_stats_submissions", formatted)));
+                preference.setSummary(str("revanced_sb_stats_submissions_sum"));
                 if (stats.totalSegmentCountIncludingIgnored == 0) {
                     preference.setSelectable(false);
                 } else {
