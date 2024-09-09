@@ -1148,14 +1148,19 @@ This is because Crowdin requires temporarily flattening this file and removing t
         <patch id="misc.fix.playback.SpoofClientPatch">
             <string name="revanced_spoof_client_screen_title">Spoof client</string>
             <string name="revanced_spoof_client_screen_summary">Spoof the client to prevent playback issues</string>
-            <string name="revanced_spoof_client_title">Spoof client</string>
-            <string name="revanced_spoof_client_summary_on">Client is spoofed</string>
-            <string name="revanced_spoof_client_summary_off">Client is not spoofed\n\nVideo playback may not work</string>
-            <string name="revanced_spoof_client_user_dialog_message">Turning off this setting may cause video playback issues.</string>
-            <string name="revanced_spoof_client_force_avc_title">Force AVC (H.264)</string>
-            <string name="revanced_spoof_client_force_avc_summary_on">Video codec is AVC</string>
-            <string name="revanced_spoof_client_force_avc_summary_off">Video codec is AVC, VP9, or AV1</string>
-            <string name="revanced_spoof_client_force_avc_user_dialog_message">Enabling this might improve battery life and fix playback stuttering.\n\nAVC has a maximum resolution of 1080p, and video playback will use more internet data than VP9 or AV1.</string>
+            <string name="revanced_spoof_streaming_data_title">Spoof client</string>
+            <string name="revanced_spoof_streaming_data_summary_on">Client is spoofed</string>
+            <string name="revanced_spoof_streaming_data_summary_off">Client is not spoofed\n\nVideo playback may not work</string>
+            <string name="revanced_spoof_streaming_data_user_dialog_message">Turning off this setting may cause video playback issues.</string>
+            <string name="revanced_spoof_streaming_data_type_title">Default client</string>
+            <string name="revanced_spoof_streaming_data_ios_force_avc_title">Force AVC (H.264)</string>
+            <string name="revanced_spoof_streaming_data_ios_force_avc_summary_on">Video codec is AVC</string>
+            <string name="revanced_spoof_streaming_data_ios_force_avc_summary_off">Video codec is AVC, VP9, or AV1</string>
+            <string name="revanced_spoof_streaming_data_ios_force_avc_user_dialog_message">Enabling this might improve battery life and fix playback stuttering.\n\nAVC has a maximum resolution of 1080p, and video playback will use more internet data than VP9 or AV1.</string>
+            <string name="revanced_spoof_streaming_data_about_ios_title">iOS spoofing side effects</string>
+            <string name="revanced_spoof_streaming_data_about_ios_summary">• Movies or paid videos may not play\n• Livestreams do not start a the current time</string>
+            <string name="revanced_spoof_streaming_data_about_android_vr_title">Android VR spoofing side effects</string>
+            <string name="revanced_spoof_streaming_data_about_android_vr_summary">• Audio track menu is missing</string>
         </patch>
         <!-- This patch is no longer used and these strings will soon be deleted. -->
         <patch id="video.hdrbrightness.HDRBrightnessPatch">

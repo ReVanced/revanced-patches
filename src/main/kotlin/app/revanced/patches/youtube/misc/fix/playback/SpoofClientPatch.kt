@@ -12,6 +12,8 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
+import app.revanced.patches.shared.misc.settings.preference.ListPreference
+import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.BuildInitPlaybackRequestFingerprint
@@ -93,8 +95,15 @@ object SpoofClientPatch : BytecodePatch(
                 key = "revanced_spoof_client_screen",
                 sorting = PreferenceScreen.Sorting.UNSORTED,
                 preferences = setOf(
-                    SwitchPreference("revanced_spoof_client"),
-                    SwitchPreference("revanced_spoof_client_force_avc"),
+                    SwitchPreference("revanced_spoof_streaming_data"),
+                    ListPreference("revanced_spoof_streaming_data_type",
+                        summaryKey = null,
+                        entriesKey = "revanced_spoof_streaming_data_type_entries",
+                        entryValuesKey = "revanced_spoof_streaming_data_type_entry_values"
+                    ),
+                    SwitchPreference("revanced_spoof_streaming_data_ios_force_avc"),
+                    NonInteractivePreference("revanced_spoof_streaming_data_about_ios"),
+                    NonInteractivePreference("revanced_spoof_streaming_data_about_android_vr"),
                 )
             )
         )
