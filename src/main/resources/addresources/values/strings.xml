@@ -913,6 +913,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_sb_stats_username_changed">Username successfully changed</string>
             <string name="revanced_sb_stats_reputation">Your reputation is &lt;b>%.2f&lt;/b></string>
             <string name="revanced_sb_stats_submissions">You\'ve created &lt;b>%s&lt;/b> segments</string>
+            <string name="revanced_sb_stats_submissions_sum">Tap here to view your segments</string>
             <string name="revanced_sb_stats_saved_zero">SponsorBlock leaderboard</string>
             <string name="revanced_sb_stats_saved">You\'ve saved people from &lt;b>%s&lt;/b> segments</string>
             <string name="revanced_sb_stats_saved_sum_zero">Tap here to see the global stats and top contributors</string>
