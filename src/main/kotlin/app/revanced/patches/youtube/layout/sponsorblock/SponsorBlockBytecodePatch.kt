@@ -25,6 +25,9 @@ import app.revanced.patches.youtube.shared.fingerprints.SeekbarOnDrawFingerprint
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import app.revanced.patches.youtube.video.videoid.VideoIdPatch
 import app.revanced.util.exception
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.*
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
@@ -187,43 +190,41 @@ object SponsorBlockBytecodePatch : BytecodePatch(
          */
         val controlsMethodResult = PlayerControlsBytecodePatch.showPlayerControlsFingerprintResult
 
-        val controlsLayoutStubResourceId =
-            ResourceMappingPatch["id", "controls_layout_stub"]
-        val zoomOverlayResourceId =
-            ResourceMappingPatch["id", "video_zoom_overlay_stub"]
+        val controlsLayoutStubResourceId = ResourceMappingPatch["id", "controls_layout_stub"]
+        val zoomOverlayResourceId = ResourceMappingPatch["id", "video_zoom_overlay_stub"]
 
-        methods@ for (method in controlsMethodResult.mutableClass.methods) {
+        for (method in controlsMethodResult.mutableClass.methods) {
             val instructions = method.implementation?.instructions!!
-            instructions@ for ((index, instruction) in instructions.withIndex()) {
+            for ((constIndex, instruction) in instructions.withIndex()) {
                 // search for method which inflates the controls layout view
-                if (instruction.opcode != Opcode.CONST) continue@instructions
+                if (instruction.opcode != Opcode.CONST) continue
 
                 when ((instruction as NarrowLiteralInstruction).wideLiteral) {
                     controlsLayoutStubResourceId -> {
-                        // replace the view with the YouTubeControlsOverlay
-                        val moveResultInstructionIndex = index + 5
-                        val inflatedViewRegister =
-                            (instructions[moveResultInstructionIndex] as OneRegisterInstruction).registerA
-                        // initialize with the player overlay object
+                        val insertIndex = method.indexOfFirstInstructionOrThrow(constIndex) {
+                            getReference<MethodReference>()?.name == "inflate"
+                        } + 1
+                        val inflatedViewRegister = method.getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
                         method.addInstructions(
-                            moveResultInstructionIndex + 1, // insert right after moving the view to the register and use that register
+                            insertIndex + 1,
                             """
-                                invoke-static {v$inflatedViewRegister}, $INTEGRATIONS_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->initialize(Landroid/view/View;)V
-                                invoke-static {v$inflatedViewRegister}, $INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->initialize(Landroid/view/View;)V
+                                invoke-static { v$inflatedViewRegister }, $INTEGRATIONS_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->initialize(Landroid/view/View;)V
+                                invoke-static { v$inflatedViewRegister }, $INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->initialize(Landroid/view/View;)V
                             """,
                         )
                     }
 
                     zoomOverlayResourceId -> {
                         val invertVisibilityMethod =
-                            context.toMethodWalker(method).nextMethod(index - 6, true).getMethod() as MutableMethod
+                            context.toMethodWalker(method).nextMethod(constIndex - 6, true).getMethod() as MutableMethod
                         // change visibility of the buttons
                         invertVisibilityMethod.addInstructions(
                             0,
                             """
                                 invoke-static {p1}, $INTEGRATIONS_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->changeVisibilityNegatedImmediate(Z)V
                                 invoke-static {p1}, $INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->changeVisibilityNegatedImmediate(Z)V
-                            """.trimIndent(),
+                            """
                         )
                     }
                 }
