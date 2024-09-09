@@ -10,7 +10,6 @@ internal object CreateStreamingDataFingerprint : MethodFingerprint(
     returnType = "V",
     parameters = listOf("L"),
     opcodes = listOf(
-        Opcode.MOVE_RESULT_OBJECT,
         Opcode.IPUT_OBJECT,
         Opcode.IGET_OBJECT,
         Opcode.IF_NEZ,

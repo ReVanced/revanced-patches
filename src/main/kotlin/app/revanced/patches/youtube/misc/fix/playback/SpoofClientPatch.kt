@@ -19,14 +19,13 @@ import app.revanced.patches.youtube.misc.fix.playback.fingerprints.BuildMediaDat
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.BuildPlayerRequestURIFingerprint
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.BuildRequestFingerprint
 import app.revanced.patches.youtube.misc.fix.playback.fingerprints.CreateStreamingDataFingerprint
+import app.revanced.patches.youtube.misc.fix.playback.fingerprints.ProtobufClassParseByteBufferFingerprint
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.getReference
 import app.revanced.util.resultOrThrow
-import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Spoof client",
@@ -73,7 +72,8 @@ object SpoofClientPatch : BytecodePatch(
         BuildPlayerRequestURIFingerprint,
         CreateStreamingDataFingerprint,
         BuildMediaDataSourceFingerprint,
-        BuildRequestFingerprint
+        BuildRequestFingerprint,
+        ProtobufClassParseByteBufferFingerprint
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
@@ -171,11 +171,10 @@ object SpoofClientPatch : BytecodePatch(
             result.mutableMethod.apply {
                 val videoDetailsIndex = result.scanResult.patternScanResult!!.endIndex
                 val videoDetailsClass = getInstruction(videoDetailsIndex).getReference<FieldReference>()!!.type
-                val playerProtoClass = parameterTypes.first()
-                val protobufClass = getInstructions().find { instruction ->
-                    instruction.opcode == Opcode.INVOKE_STATIC &&
-                    instruction.getReference<MethodReference>()!!.name.endsWith("smcheckIsLite")
-                }!!.getReference<MethodReference>()!!.definingClass
+                val setStreamingDataIndex = result.scanResult.patternScanResult!!.startIndex
+                val playerProtoClass = getInstruction(setStreamingDataIndex + 1)
+                    .getReference<FieldReference>()!!.definingClass
+                val protobufClass = ProtobufClassParseByteBufferFingerprint.resultOrThrow().mutableMethod.definingClass
 
                 addInstructionsWithLabels(
                     videoDetailsIndex + 1,
