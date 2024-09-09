@@ -1,3 +1,10 @@
+# [4.14.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.8...v4.14.0-dev.9) (2024-09-09)
+
+
+### Features
+
+* **YouTube:** Add donation link to settings about screen ([#3626](https://github.com/ReVanced/revanced-patches/issues/3626)) ([0684ab5](https://github.com/ReVanced/revanced-patches/commit/0684ab5f183631de5720352049cfd293daa58eb0))
+
 # [4.14.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.7...v4.14.0-dev.8) (2024-09-09)
 
 
