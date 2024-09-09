@@ -171,7 +171,11 @@ fun Method.indexOfFirstInstruction(predicate: Instruction.() -> Boolean) = index
  * @see indexOfFirstInstructionOrThrow
  */
 fun Method.indexOfFirstInstruction(startIndex: Int = 0, predicate: Instruction.() -> Boolean): Int {
-    val index = this.implementation!!.instructions.drop(startIndex).indexOfFirst(predicate)
+    var instructions = this.implementation!!.instructions
+    if (startIndex != 0) {
+        instructions = instructions.drop(startIndex)
+    }
+    val index = instructions.indexOfFirst(predicate)
 
     return if (index >= 0) {
         startIndex + index
@@ -192,6 +196,41 @@ fun Method.indexOfFirstInstructionOrThrow(startIndex: Int = 0, predicate: Instru
     if (index < 0) {
         throw PatchException("Could not find instruction index")
     }
+
+    return index
+}
+
+/**
+ * Get the index of the last [Instruction] that matches the predicate,
+ * starting from and [endIndex] and searching down.
+ *
+ * @param endIndex Optional last index to start searching _down_ from.
+ * @return -1 if the instruction is not found.
+ * @see indexOfLastInstructionOrThrow
+ */
+fun Method.indexOfLastInstruction(endIndex: Int? = null, predicate: Instruction.() -> Boolean): Int {
+    var instructions = this.implementation!!.instructions
+    if (endIndex != null) {
+        instructions = instructions.take(endIndex + 1)
+    }
+
+    return instructions.indexOfLast(predicate)
+}
+
+/**
+ * Get the index of the last [Instruction] that matches the predicate,
+ * starting from and [endIndex] and searching down.
+ *
+ * @return the last index that matches the predicate, or throws an exception if not found.
+ * @throws PatchException
+ * @see indexOfLastInstruction
+ */
+fun Method.indexOfLastInstructionOrThrow(endIndex: Int? = null, predicate: Instruction.() -> Boolean): Int {
+    val index = indexOfLastInstruction(endIndex, predicate)
+    if (index < 0) {
+        throw PatchException("Could not find instruction index")
+    }
+
     return index
 }
 
