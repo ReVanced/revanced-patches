@@ -1,3 +1,10 @@
+# [4.14.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.7...v4.14.0-dev.8) (2024-09-09)
+
+
+### Bug Fixes
+
+* **YouTube - SponsorBlock:** Add summary text to 'view my segments' button ([df80b9f](https://github.com/ReVanced/revanced-patches/commit/df80b9f92f0d981b9a40b7756d74f8ccc3dcb1e9))
+
 # [4.14.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.6...v4.14.0-dev.7) (2024-09-06)
 
 
