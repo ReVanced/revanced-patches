@@ -17,8 +17,8 @@ internal object CreateStreamingDataFingerprint : MethodFingerprint(
         Opcode.IPUT_OBJECT
     ),
     customFingerprint = { methodDef, classDef ->
-        methodDef.name == "<init>" && classDef.fields.any { field ->
-            field.name == "a" && field.type.contains("StreamingDataOuterClass")
+        classDef.fields.any { field ->
+            field.name == "a" && field.type.endsWith("/StreamingDataOuterClass\$StreamingData;")
         }
     },
 )
