@@ -97,18 +97,6 @@
                 <item>END</item>
             </string-array>
         </patch>
-        <patch id="misc.fix.playback.SpoofClientPatch">
-            <string-array name="revanced_spoof_client_type_entries">
-                <!-- OS names are the same in all languages, so specify them here and not in Strings.xml -->
-                <item>iOS</item>
-                <item>Android VR</item>
-            </string-array>
-            <string-array name="revanced_spoof_client_type_entry_values">
-                <!-- Enum names from Integrations -->
-                <item>IOS</item>
-                <item>ANDROID_VR</item>
-            </string-array>
-        </patch>
         <patch id="video.quality.RememberVideoQualityPatch">
             <string-array name="revanced_video_quality_default_entries">
                 <item>@string/revanced_video_quality_default_entry_1</item>
