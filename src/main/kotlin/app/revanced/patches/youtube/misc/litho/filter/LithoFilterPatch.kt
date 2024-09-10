@@ -215,12 +215,16 @@ object LithoFilterPatch : BytecodePatch(
                     throw PatchException("Free register will clobber StringBuilder register")
                 }
 
+                val commonInstructions = """
+                    invoke-static { v$identifierRegister, v$stringBuilderRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->filter(Ljava/lang/String;Ljava/lang/StringBuilder;)Z
+                    move-result v$register
+                    if-eqz v$register, :unfiltered
+                """
+
                 addInstructionsWithLabels(
                     insertHookIndex,
                     if (YouTubeVersionCheck.is_19_18_or_greater) """
-                        invoke-static { v$identifierRegister, v$stringBuilderRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->filter(Ljava/lang/String;Ljava/lang/StringBuilder;)Z
-                        move-result v$register
-                        if-eqz v$register, :unfiltered
+                        $commonInstructions
                         
                         # Return null, and the ComponentContextParserFingerprint hook 
                         # handles returning an empty component.
@@ -228,10 +232,10 @@ object LithoFilterPatch : BytecodePatch(
                         return-object v$register
                     """
                     else """
-                        invoke-static { v$identifierRegister, v$stringBuilderRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->filter(Ljava/lang/String;Ljava/lang/StringBuilder;)Z
-                        move-result v$register
-                        if-eqz v$register, :unfiltered
+                        $commonInstructions
                         
+                        # Exact same code as ComponentContextParserFingerprint hook,
+                        # but with the free register of this method.
                         move-object/from16 v$register, p1
                         invoke-static { v$register }, $builderMethodDescriptor
                         move-result-object v$register
