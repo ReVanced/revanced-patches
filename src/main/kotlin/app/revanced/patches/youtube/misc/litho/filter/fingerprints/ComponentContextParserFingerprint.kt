@@ -8,5 +8,8 @@ internal object ComponentContextParserFingerprint : MethodFingerprint(
         Opcode.INVOKE_INTERFACE,
         Opcode.INVOKE_STATIC_RANGE
     ),
-    strings = listOf("Component was not found %s because it was removed due to duplicate converter bindings.")
+    strings = listOf(
+        "Element missing type extension",
+        "Component was not found %s because it was removed due to duplicate converter bindings."
+    )
 )
