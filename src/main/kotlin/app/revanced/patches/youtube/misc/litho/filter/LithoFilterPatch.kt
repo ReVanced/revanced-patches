@@ -8,22 +8,26 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.fingerprints.ComponentContextParserFingerprint
+import app.revanced.patches.youtube.misc.litho.filter.fingerprints.EmptyComponentFingerprint
 import app.revanced.patches.youtube.misc.litho.filter.fingerprints.LithoFilterFingerprint
 import app.revanced.patches.youtube.misc.litho.filter.fingerprints.ProtobufBufferReferenceFingerprint
 import app.revanced.patches.youtube.misc.litho.filter.fingerprints.ReadComponentIdentifierFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.resultOrThrow
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import java.io.Closeable
 
 @Patch(
@@ -36,7 +40,8 @@ object LithoFilterPatch : BytecodePatch(
         ComponentContextParserFingerprint,
         LithoFilterFingerprint,
         ProtobufBufferReferenceFingerprint,
-        ReadComponentIdentifierFingerprint
+        ReadComponentIdentifierFingerprint,
+        EmptyComponentFingerprint
     )
 ), Closeable {
     private val Instruction.descriptor
@@ -86,21 +91,32 @@ object LithoFilterPatch : BytecodePatch(
 
         ComponentContextParserFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                // Get references that this patch needs.
+                // Get references this patch needs.
+                val builderMethodDescriptor = EmptyComponentFingerprint.resultOrThrow().classDef
+                    .methods.first{ method -> AccessFlags.STATIC.isSet(method.accessFlags) }
+                val emptyComponentClass = context.findClass(builderMethodDescriptor.returnType)!!.immutableClass
+                val emptyComponentField = emptyComponentClass.fields.single()
 
-                val builderMethodIndex = it.scanResult.patternScanResult!!.endIndex
-                val emptyComponentFieldIndex = builderMethodIndex + 2
+                val readComponentMethod = ReadComponentIdentifierFingerprint.resultOrThrow().method
+                val readComponentIndex = indexOfFirstInstructionOrThrow {
+                    val reference = getReference<MethodReference>() ?: return@indexOfFirstInstructionOrThrow false
 
-                val builderMethodDescriptor = getInstruction(builderMethodIndex).descriptor
-                val emptyComponentFieldDescriptor = getInstruction(emptyComponentFieldIndex).descriptor
+                    reference.definingClass == readComponentMethod.definingClass
+                            && reference.name == readComponentMethod.name
+                }
 
-                // Get insert hook index and free register
-                val stringIndex = it.scanResult.stringsScanResult!!.matches.first().index
-                val insertHookIndex = stringIndex - 2 // This is fragile and could be improved.
-                val register = getInstruction<OneRegisterInstruction>(stringIndex).registerA
+                // Find a free temporary register
+                val register = getInstruction<OneRegisterInstruction>(
+                    indexOfFirstInstructionOrThrow(readComponentIndex, Opcode.CONST_STRING)
+                ).registerA
+                // Verify the temp register will not clobber the method result register
+                if (getInstruction<OneRegisterInstruction>(readComponentIndex + 1).registerA == register) {
+                    throw PatchException("Could not find a free register")
+                }
 
-                // Insert the instructions that are responsible
-                // to return an EmptyComponent instead of the original component if the filterState method returns true.
+                // Insert after 'move-result-object'
+                val insertHookIndex = readComponentIndex + 2
+                // Return an EmptyComponent instead of the original component if the filterState method returns true.
                 addInstructionsWithLabels(
                     insertHookIndex,
                     """
@@ -111,7 +127,7 @@ object LithoFilterPatch : BytecodePatch(
                         move-object/from16 v$register, p1
                         invoke-static { v$register }, $builderMethodDescriptor
                         move-result-object v$register
-                        iget-object v$register, v$register, $emptyComponentFieldDescriptor
+                        iget-object v$register, v$register, $emptyComponentField
                         return-object v$register
                     """,
                     // Used to jump over the instruction which block the component from being created..
