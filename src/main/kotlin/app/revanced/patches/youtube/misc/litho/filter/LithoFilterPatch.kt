@@ -11,6 +11,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.shared.misc.playservice.YouTubeVersionCheck
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.fingerprints.ComponentContextParserFingerprint
 import app.revanced.patches.youtube.misc.litho.filter.fingerprints.EmptyComponentFingerprint
@@ -19,21 +20,22 @@ import app.revanced.patches.youtube.misc.litho.filter.fingerprints.ProtobufBuffe
 import app.revanced.patches.youtube.misc.litho.filter.fingerprints.ReadComponentIdentifierFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfLastInstructionOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.Field
+import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import java.io.Closeable
 
 @Patch(
     description = "Hooks the method which parses the bytes into a ComponentContext to filter components.",
-    dependencies = [IntegrationsPatch::class]
+    dependencies = [IntegrationsPatch::class, YouTubeVersionCheck::class]
 )
 @Suppress("unused")
 object LithoFilterPatch : BytecodePatch(
@@ -88,95 +90,9 @@ object LithoFilterPatch : BytecodePatch(
      * }
      */
     override fun execute(context: BytecodeContext) {
-        // region Hook the method that parses bytes into a ComponentContext.
 
-        ComponentContextParserFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
-                // Get references this patch needs.
-                val builderMethodDescriptor = EmptyComponentFingerprint.resultOrThrow().classDef
-                    .methods.first{ method -> AccessFlags.STATIC.isSet(method.accessFlags) }
-                val emptyComponentClass = context.findClass(builderMethodDescriptor.returnType)!!.immutableClass
-                val emptyComponentField = emptyComponentClass.fields.single()
-
-                val readComponentMethod = ReadComponentIdentifierFingerprint.resultOrThrow().method
-                val readComponentIndex = indexOfFirstInstructionOrThrow {
-                    val reference = getReference<MethodReference>() ?: return@indexOfFirstInstructionOrThrow false
-
-                    reference.definingClass == readComponentMethod.definingClass
-                            && reference.name == readComponentMethod.name
-                }
-
-                // Find a free temporary register
-                val register = getInstruction<OneRegisterInstruction>(
-                    indexOfFirstInstructionOrThrow(readComponentIndex, Opcode.CONST_STRING)
-                ).registerA
-                // Verify the temp register will not clobber the method result register
-                if (getInstruction<OneRegisterInstruction>(readComponentIndex + 1).registerA == register) {
-                    throw PatchException("Could not find a free register")
-                }
-
-                // Insert after 'move-result-object'
-                val insertHookIndex = readComponentIndex + 2
-                // Return an EmptyComponent instead of the original component if the filterState method returns true.
-                addInstructionsWithLabels(
-                    insertHookIndex,
-                    """
-                        invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->filterState()Z
-                        move-result v$register
-                        if-eqz v$register, :unfiltered
-
-                        move-object/from16 v$register, p1
-                        invoke-static { v$register }, $builderMethodDescriptor
-                        move-result-object v$register
-                        iget-object v$register, v$register, $emptyComponentField
-                        return-object v$register
-                    """,
-                    // Used to jump over the instruction which block the component from being created..
-                    ExternalLabel("unfiltered", getInstruction(insertHookIndex))
-                )
-            }
-        }
-
-        // endregion
-
-        // region Pass the buffer into Integrations.
-
-        ProtobufBufferReferenceFingerprint.resultOrThrow().mutableMethod.addInstruction(
-            0,
-            " invoke-static { p2 }, $INTEGRATIONS_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V"
-        )
-
-        // endregion
-
-        // region Read component then store the result.
-
-        ReadComponentIdentifierFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
-                val identifierIndex = it.scanResult.patternScanResult!!.endIndex
-                val identifierRegister = getInstruction<OneRegisterInstruction>(identifierIndex).registerA
-
-                val putBuilderIndex = indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.IPUT_OBJECT &&
-                            getReference<FieldReference>()?.type == "Ljava/lang/StringBuilder;"
-                }
-                val stringBuilderRegister = getInstruction<FiveRegisterInstruction>(
-                    indexOfLastInstructionOrThrow(putBuilderIndex) {
-                        getReference<MethodReference>()?.name == "append"
-                    }
-                ).registerC
-
-                addInstruction(
-                    putBuilderIndex + 1,
-                    """
-                        # Invoke the filter method.
-                        invoke-static { v$identifierRegister, v$stringBuilderRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->filter(Ljava/lang/String;Ljava/lang/StringBuilder;)V
-                    """,
-                )
-            }
-        }
-
-        // endregion
-
+        // Remove dummy filter from Integrations static field
+        // and add the filters included during patching.
         LithoFilterFingerprint.resultOrThrow().mutableMethod.apply {
             removeInstructions(2, 4) // Remove dummy filter.
 
@@ -192,6 +108,113 @@ object LithoFilterPatch : BytecodePatch(
                 )
             }
         }
+
+        // region Pass the buffer into Integrations.
+
+        ProtobufBufferReferenceFingerprint.resultOrThrow().mutableMethod.addInstruction(
+            0,
+            " invoke-static { p2 }, $INTEGRATIONS_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V"
+        )
+
+        // endregion
+
+        // region Hook the method that parses bytes into a ComponentContext.
+
+        var readComponentMethod : Method
+        var builderMethodDescriptor : Method
+        val emptyComponentField : Field
+
+        ComponentContextParserFingerprint.resultOrThrow().let {
+            it.mutableMethod.apply {
+                readComponentMethod = ReadComponentIdentifierFingerprint.resultOrThrow().method
+                builderMethodDescriptor = EmptyComponentFingerprint.resultOrThrow().classDef
+                    .methods.first { method -> AccessFlags.STATIC.isSet(method.accessFlags) }
+                emptyComponentField = context.findClass(builderMethodDescriptor.returnType)!!
+                    .immutableClass.fields.single()
+
+                // 19.18 and later require patching 2 methods instead of one.
+                // Otherwise the patched code is the same.
+                if (YouTubeVersionCheck.is_19_18_or_greater) {
+                    val readComponentMethodCallIndex = indexOfFirstInstructionOrThrow {
+                        val reference = getReference<MethodReference>()
+                            ?: return@indexOfFirstInstructionOrThrow false
+                        reference.definingClass == readComponentMethod.definingClass
+                                && reference.name == readComponentMethod.name
+                    }
+
+                    // Result of read component, and also a free register.
+                    val register = getInstruction<OneRegisterInstruction>(
+                        readComponentMethodCallIndex + 1).registerA
+
+                    // Insert after 'move-result-object'
+                    val insertHookIndex = readComponentMethodCallIndex + 2
+
+                    // Return an EmptyComponent instead of the original component if the filterState method returns true.
+                    addInstructionsWithLabels(
+                        insertHookIndex,
+                        """
+                            if-nez v$register, :unfiltered
+    
+                            # Component was filtered in ReadComponentIdentifierFingerprint hook
+                            move-object/from16 v$register, p1
+                            invoke-static { v$register }, $builderMethodDescriptor
+                            move-result-object v$register
+                            iget-object v$register, v$register, $emptyComponentField
+                            return-object v$register
+                        """,
+                        ExternalLabel("unfiltered", getInstruction(insertHookIndex))
+                    )
+                }
+            }
+        }
+
+        // endregion
+
+        // region Read component then store the result.
+
+        ReadComponentIdentifierFingerprint.resultOrThrow().let {
+            it.mutableMethod.apply {
+                val identifierIndex = it.scanResult.patternScanResult!!.endIndex
+                val identifierRegister = getInstruction<OneRegisterInstruction>(identifierIndex).registerA
+
+                val putBuilderIndex = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.IPUT_OBJECT &&
+                            getReference<FieldReference>()?.type == "Ljava/lang/StringBuilder;"
+                }
+
+                // Register has the StringBuilder and is also free.
+                val register = getInstruction<TwoRegisterInstruction>(putBuilderIndex).registerA
+                val insertHookIndex = putBuilderIndex + 1
+
+                addInstructionsWithLabels(
+                    insertHookIndex,
+                    if (YouTubeVersionCheck.is_19_18_or_greater) """
+                        invoke-static { v$identifierRegister, v$register }, $INTEGRATIONS_CLASS_DESCRIPTOR->filter(Ljava/lang/String;Ljava/lang/StringBuilder;)Z
+                        move-result v$register
+                        if-eqz v$register, :unfiltered
+                        
+                        # Return null, and the ComponentContextParserFingerprint hook 
+                        # handles returning an empty component.
+                        const/4 v$register, 0x0
+                        return-object v$register
+                    """
+                    else """
+                        invoke-static { v$identifierRegister, v$register }, $INTEGRATIONS_CLASS_DESCRIPTOR->filter(Ljava/lang/String;Ljava/lang/StringBuilder;)Z
+                        move-result v$register
+                        if-eqz v$register, :unfiltered
+                        
+                        move-object/from16 v$register, p1
+                        invoke-static { v$register }, $builderMethodDescriptor
+                        move-result-object v$register
+                        iget-object v$register, v$register, $emptyComponentField
+                        return-object v$register
+                    """,
+                    ExternalLabel("unfiltered", getInstruction(insertHookIndex))
+                )
+            }
+        }
+
+        // endregion
     }
 
     override fun close() = LithoFilterFingerprint.result!!

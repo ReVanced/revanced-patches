@@ -21,6 +21,7 @@ internal object YouTubeVersionCheck : ResourcePatch() {
     var is_19_15_or_greater by Delegates.notNull<Boolean>()
     var is_19_16_or_greater by Delegates.notNull<Boolean>()
     var is_19_17_or_greater by Delegates.notNull<Boolean>()
+    var is_19_18_or_greater by Delegates.notNull<Boolean>()
     var is_19_19_or_greater by Delegates.notNull<Boolean>()
     var is_19_23_or_greater by Delegates.notNull<Boolean>()
     var is_19_24_or_greater by Delegates.notNull<Boolean>()
@@ -33,6 +34,7 @@ internal object YouTubeVersionCheck : ResourcePatch() {
         is_19_15_or_greater = 241602000 <= playStoreServicesVersion
         is_19_16_or_greater = 241702000 <= playStoreServicesVersion
         is_19_17_or_greater = 241802000 <= playStoreServicesVersion
+        is_19_18_or_greater = 241902000 <= playStoreServicesVersion
         is_19_19_or_greater = 241999000 <= playStoreServicesVersion
         is_19_24_or_greater = 242505000 <= playStoreServicesVersion
         is_19_23_or_greater = 242402000 <= playStoreServicesVersion
