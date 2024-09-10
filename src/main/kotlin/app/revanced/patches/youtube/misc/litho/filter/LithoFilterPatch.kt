@@ -19,6 +19,7 @@ import app.revanced.patches.youtube.misc.litho.filter.fingerprints.ProtobufBuffe
 import app.revanced.patches.youtube.misc.litho.filter.fingerprints.ReadComponentIdentifierFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfLastInstructionOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -154,15 +155,18 @@ object LithoFilterPatch : BytecodePatch(
                 val identifierIndex = it.scanResult.patternScanResult!!.endIndex
                 val identifierRegister = getInstruction<OneRegisterInstruction>(identifierIndex).registerA
 
-                val insertHookIndex = indexOfFirstInstructionOrThrow {
+                val putBuilderIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.IPUT_OBJECT &&
                             getReference<FieldReference>()?.type == "Ljava/lang/StringBuilder;"
-                } + 1
-
-                val stringBuilderRegister = getInstruction<FiveRegisterInstruction>(insertHookIndex - 2).registerC
+                }
+                val stringBuilderRegister = getInstruction<FiveRegisterInstruction>(
+                    indexOfLastInstructionOrThrow(putBuilderIndex) {
+                        getReference<MethodReference>()?.name == "append"
+                    }
+                ).registerC
 
                 addInstruction(
-                    insertHookIndex,
+                    putBuilderIndex + 1,
                     """
                         # Invoke the filter method.
                         invoke-static { v$identifierRegister, v$stringBuilderRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->filter(Ljava/lang/String;Ljava/lang/StringBuilder;)V
