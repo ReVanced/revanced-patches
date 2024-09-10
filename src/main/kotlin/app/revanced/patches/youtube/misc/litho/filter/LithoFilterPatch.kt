@@ -20,6 +20,7 @@ import app.revanced.patches.youtube.misc.litho.filter.fingerprints.ProtobufBuffe
 import app.revanced.patches.youtube.misc.litho.filter.fingerprints.ReadComponentIdentifierFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfLastInstructionOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -79,12 +80,31 @@ object LithoFilterPatch : BytecodePatch(
      *   }
      * }
      *
-     * class ComponentContextParser {
+     * When patching 19.17 and earlier:
      *
-     *    public ComponentContext parseBytesToComponentContext(...) {
+     * class ComponentContextParser {
+     *    public ComponentContext ReadComponentIdentifierFingerprint(...) {
      *        ...
      *        if (IntegrationsClass.filter(identifier, pathBuilder)); // Inserted by this patch.
      *            return emptyComponent;
+     *        ...
+     *    }
+     * }
+     *
+     * When patching 19.18 and later:
+     *
+     * class ComponentContextParser {
+     *    public ComponentContext parseBytesToComponentContext(...) {
+     *        ...
+     *        if (ReadComponentIdentifierFingerprint() == null); // Inserted by this patch.
+     *            return emptyComponent;
+     *        ...
+     *    }
+     *
+     *    public ComponentIdentifierObj readComponentIdentifier(...) {
+     *        ...
+     *        if (IntegrationsClass.filter(identifier, pathBuilder)); // Inserted by this patch.
+     *            return null;
      *        ...
      *    }
      * }
@@ -177,19 +197,28 @@ object LithoFilterPatch : BytecodePatch(
                 val identifierIndex = it.scanResult.patternScanResult!!.endIndex
                 val identifierRegister = getInstruction<OneRegisterInstruction>(identifierIndex).registerA
 
-                val putBuilderIndex = indexOfFirstInstructionOrThrow {
+                val insertHookIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.IPUT_OBJECT &&
                             getReference<FieldReference>()?.type == "Ljava/lang/StringBuilder;"
                 }
 
-                // Register has the StringBuilder and is also free.
-                val register = getInstruction<TwoRegisterInstruction>(putBuilderIndex).registerA
-                val insertHookIndex = putBuilderIndex + 1
+                val stringBuilderRegister = getInstruction<TwoRegisterInstruction>(insertHookIndex).registerA
+
+                // Find a free temporary register.
+                val register = getInstruction<OneRegisterInstruction>(
+                    // Immediately before is a StringBuilder append constant character.
+                    indexOfLastInstructionOrThrow(insertHookIndex, Opcode.CONST_16)
+                ).registerA
+
+                // Verify the temp register will not clobber the method result register.
+                if (stringBuilderRegister == register) {
+                    throw PatchException("Free register will clobber StringBuilder register")
+                }
 
                 addInstructionsWithLabels(
                     insertHookIndex,
                     if (YouTubeVersionCheck.is_19_18_or_greater) """
-                        invoke-static { v$identifierRegister, v$register }, $INTEGRATIONS_CLASS_DESCRIPTOR->filter(Ljava/lang/String;Ljava/lang/StringBuilder;)Z
+                        invoke-static { v$identifierRegister, v$stringBuilderRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->filter(Ljava/lang/String;Ljava/lang/StringBuilder;)Z
                         move-result v$register
                         if-eqz v$register, :unfiltered
                         
@@ -199,7 +228,7 @@ object LithoFilterPatch : BytecodePatch(
                         return-object v$register
                     """
                     else """
-                        invoke-static { v$identifierRegister, v$register }, $INTEGRATIONS_CLASS_DESCRIPTOR->filter(Ljava/lang/String;Ljava/lang/StringBuilder;)Z
+                        invoke-static { v$identifierRegister, v$stringBuilderRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->filter(Ljava/lang/String;Ljava/lang/StringBuilder;)Z
                         move-result v$register
                         if-eqz v$register, :unfiltered
                         
