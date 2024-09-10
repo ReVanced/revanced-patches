@@ -103,7 +103,10 @@ object SpoofClientPatch : BytecodePatch(
                         entriesKey = "revanced_spoof_streaming_data_type_entries",
                         entryValuesKey = "revanced_spoof_streaming_data_type_entry_values"
                     ),
-                    SwitchPreference("revanced_spoof_streaming_data_ios_force_avc"),
+                    SwitchPreference(
+                        "revanced_spoof_streaming_data_ios_force_avc",
+                        tag = "app.revanced.integrations.youtube.settings.preference.ForceAVCSpoofingPreference"
+                    ),
                     NonInteractivePreference("revanced_spoof_streaming_data_about_ios"),
                     NonInteractivePreference("revanced_spoof_streaming_data_about_android_vr"),
                 )
