@@ -10,22 +10,17 @@ import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.youtube.layout.startpage.fingerprints.StartActivityFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.patches.youtube.shared.fingerprints.HomeActivityFingerprint
-import app.revanced.util.exception
+import app.revanced.util.resultOrThrow
 
 @Patch(
     name = "Change start page",
     description = "Adds an option to set which page the app opens in instead of the homepage.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.youtube"
-        )
-    ]
+    compatiblePackages = [CompatiblePackage("com.google.android.youtube")]
 )
 @Suppress("unused")
 object ChangeStartPagePatch : BytecodePatch(
-    setOf(HomeActivityFingerprint)
+    setOf(StartActivityFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/ChangeStartPagePatch;"
@@ -40,14 +35,9 @@ object ChangeStartPagePatch : BytecodePatch(
             )
         )
 
-        StartActivityFingerprint.resolve(
-            context,
-            HomeActivityFingerprint.result?.classDef ?: throw HomeActivityFingerprint.exception
-        )
-
-        StartActivityFingerprint.result?.mutableMethod?.addInstruction(
+        StartActivityFingerprint.resultOrThrow().mutableMethod.addInstruction(
             0,
             "invoke-static { p1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->changeIntent(Landroid/content/Intent;)V"
-        ) ?: throw StartActivityFingerprint.exception
+        )
     }
 }

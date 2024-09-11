@@ -989,12 +989,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_miniplayer_width_dip_title">Miniplayer size</string>
             <string name="revanced_miniplayer_width_dip_summary">On screen size, in pixels</string>
             <string name="revanced_miniplayer_width_dip_invalid_toast">Pixel size must be between %1$s and %2$s</string>
-            <string name="revanced_miniplayer_enable_double_tap_action_title">Enable double-tap action</string>
-            <string name="revanced_miniplayer_enable_double_tap_action_summary_on">Double-tap action is enabled\n\n• Double tap to increase miniplayer size\n• Double tap again to restore original size</string>
-            <string name="revanced_miniplayer_enable_double_tap_action_summary_off">Double-tap action is disabled</string>
-            <string name="revanced_miniplayer_enable_drag_and_drop_title">Enable drag and drop</string>
-            <string name="revanced_miniplayer_enable_drag_and_drop_summary_on">Drag and drop is enabled</string>
-            <string name="revanced_miniplayer_enable_drag_and_drop_summary_off">Drag and drop is disabled</string>
+            <string name="revanced_miniplayer_double_tap_action_title">Enable double-tap and pinch to resize</string>
+            <string name="revanced_miniplayer_double_tap_action_summary_on">Double-tap action and pinch to resize is enabled\n\n• Double tap to increase miniplayer size\n• Double tap again to restore original size</string>
+            <string name="revanced_miniplayer_double_tap_action_summary_off">Double-tap action and pinch to resize is disabled</string>
+            <string name="revanced_miniplayer_drag_and_drop_title">Enable drag and drop</string>
+            <string name="revanced_miniplayer_drag_and_drop_summary_on">Drag and drop is enabled\n\nMiniplayer can be dragged to any corner of the screen</string>
+            <string name="revanced_miniplayer_drag_and_drop_summary_off">Drag and drop is disabled</string>
+            <string name="revanced_miniplayer_drop_shadow_title">Show drop shadow</string>
+            <string name="revanced_miniplayer_drop_shadow_summary_on">Drop shadow is shown</string>
+            <string name="revanced_miniplayer_drop_shadow_summary_off">Drag and drop is not shown</string>
             <string name="revanced_miniplayer_hide_expand_close_title">Hide expand and close buttons</string>
             <string name="revanced_miniplayer_hide_expand_close_summary_on">Buttons are hidden\n(swipe miniplayer to expand or close)</string>
             <string name="revanced_miniplayer_hide_expand_close_summary_off">Expand and close buttons are shown</string>
@@ -1007,6 +1010,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_miniplayer_opacity_title">Overlay opacity</string>
             <string name="revanced_miniplayer_opacity_summary">Opacity value between 0-100, where 0 is transparent</string>
             <string name="revanced_miniplayer_opacity_invalid_toast">Miniplayer overlay opacity must be between 0-100</string>
+            <string name="revanced_miniplayer_about_title">About modern miniplayers</string>
+            <string name="revanced_miniplayer_about_summary">Modern miniplayers are under active development, and if selected you may experience bugs or incomplete features</string>
         </patch>
         <patch id="layout.theme.ThemeBytecodePatch">
             <string name="revanced_gradient_loading_screen_title">Enable gradient loading screen</string>

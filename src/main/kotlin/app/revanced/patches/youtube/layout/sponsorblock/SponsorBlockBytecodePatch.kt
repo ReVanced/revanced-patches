@@ -25,10 +25,9 @@ import app.revanced.patches.youtube.shared.fingerprints.SeekbarOnDrawFingerprint
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import app.revanced.patches.youtube.video.videoid.VideoIdPatch
 import app.revanced.util.alsoResolve
-import app.revanced.util.findOpcodeIndicesReversed
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfLastInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -149,7 +148,7 @@ object SponsorBlockBytecodePatch : BytecodePatch(
             )
 
             // Find the drawCircle call and draw the segment before it.
-            val drawCircleIndex = indexOfLastInstructionOrThrow {
+            val drawCircleIndex = indexOfFirstInstructionReversedOrThrow {
                 getReference<MethodReference>()?.name == "drawCircle"
             }
             val drawCircleInstruction = getInstruction<FiveRegisterInstruction>(drawCircleIndex)

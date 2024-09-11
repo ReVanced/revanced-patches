@@ -20,7 +20,7 @@ import app.revanced.patches.youtube.misc.litho.filter.fingerprints.ReadComponent
 import app.revanced.patches.youtube.misc.playservice.YouTubeVersionCheck
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfLastInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -205,7 +205,7 @@ object LithoFilterPatch : BytecodePatch(
 
                 // Identifier is saved to a field just before the string builder.
                 val identifierRegister = getInstruction<TwoRegisterInstruction>(
-                    indexOfLastInstructionOrThrow(insertHookIndex) {
+                    indexOfFirstInstructionReversedOrThrow(insertHookIndex) {
                         opcode == Opcode.IPUT_OBJECT
                                 && getReference<FieldReference>()?.type == "Ljava/lang/String;"
                     }
@@ -214,7 +214,7 @@ object LithoFilterPatch : BytecodePatch(
                 // Find a free temporary register.
                 val register = getInstruction<OneRegisterInstruction>(
                     // Immediately before is a StringBuilder append constant character.
-                    indexOfLastInstructionOrThrow(insertHookIndex, Opcode.CONST_16)
+                    indexOfFirstInstructionReversedOrThrow(insertHookIndex, Opcode.CONST_16)
                 ).registerA
 
                 // Verify the temp register will not clobber the method result register.

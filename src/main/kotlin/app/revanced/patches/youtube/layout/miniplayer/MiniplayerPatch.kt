@@ -1,3 +1,5 @@
+@file:Suppress("SpellCheckingInspection")
+
 package app.revanced.patches.youtube.layout.miniplayer
 
 import app.revanced.patcher.data.BytecodeContext
@@ -16,6 +18,7 @@ import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.BasePreference
 import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
+import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -47,6 +50,7 @@ import app.revanced.patches.youtube.layout.tablet.fingerprints.GetFormFactorFing
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playservice.YouTubeVersionCheck
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.util.alsoResolve
 import app.revanced.util.findOpcodeIndicesReversed
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -116,6 +120,10 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
                 "19.29.42", // Screen flickers when swiping to maximize Modern 1.
                 "19.30.39", // Screen flickers when swiping to maximize Modern 1.
                 // 19.31.36 // All Modern 1 buttons are missing. Unusable.
+                // 19.32.36 // ?
+                // 19.33.35 // Modern 1 cannot tap miniplayer to open. Unusable.
+                // 19.34.42 // ?
+                // 19.35.36 // ?
             ]
         )
     ]
@@ -153,19 +161,30 @@ object MiniplayerPatch : BytecodePatch(
                 entryValuesKey = "revanced_miniplayer_type_19_16_entry_values"
             )
             if (YouTubeVersionCheck.is_19_25_or_greater) {
-                preferences += SwitchPreference("revanced_miniplayer_enable_double_tap_action")
-                preferences += SwitchPreference("revanced_miniplayer_enable_drag_and_drop")
+                preferences += SwitchPreference("revanced_miniplayer_double_tap_action")
+                preferences += SwitchPreference("revanced_miniplayer_drag_and_drop")
             }
+
             preferences += SwitchPreference("revanced_miniplayer_hide_expand_close")
+
             if (!YouTubeVersionCheck.is_19_26_or_greater) {
                 preferences += SwitchPreference("revanced_miniplayer_hide_rewind_forward")
             }
+
             preferences += SwitchPreference("revanced_miniplayer_hide_subtext")
+
+            if (YouTubeVersionCheck.is_19_36_or_greater) {
+                preferences += SwitchPreference("revanced_miniplayer_drop_shadow")
+            }
+
             if (YouTubeVersionCheck.is_19_26_or_greater) {
                 preferences += TextPreference("revanced_miniplayer_width_dip", inputType = InputType.NUMBER)
             }
+
             preferences += TextPreference("revanced_miniplayer_opacity", inputType = InputType.NUMBER)
         }
+
+        preferences += NonInteractivePreference("revanced_miniplayer_about")
 
         SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
             PreferenceScreen(
@@ -177,11 +196,10 @@ object MiniplayerPatch : BytecodePatch(
 
         // region Enable tablet miniplayer.
 
-        MiniplayerOverrideNoContextFingerprint.resolve(
+        MiniplayerOverrideNoContextFingerprint.alsoResolve(
             context,
-            MiniplayerDimensionsCalculatorParentFingerprint.resultOrThrow().classDef
-        )
-        MiniplayerOverrideNoContextFingerprint.resultOrThrow().mutableMethod.apply {
+            MiniplayerDimensionsCalculatorParentFingerprint
+        ).mutableMethod.apply {
             findReturnIndicesReversed().forEach { index -> insertLegacyTabletMiniplayerOverride(index) }
         }
 
@@ -245,8 +263,8 @@ object MiniplayerPatch : BytecodePatch(
             )
 
             MiniplayerModernConstructorFingerprint.insertLiteralValueBooleanOverride(
-                MiniplayerModernConstructorFingerprint.MODERN_MINIPLAYER_ENABLED_FEATURE_KEY_LITERAL,
-                "getModernMiniplayerOverride"
+                MiniplayerModernConstructorFingerprint.MODERN_FEATURE_FLAGS_ENABLED_KEY_LITERAL,
+                "getModernFeatureFlagsActiveOverride"
             )
 
             MiniplayerModernConstructorFingerprint.insertLiteralValueBooleanOverride(
@@ -258,7 +276,7 @@ object MiniplayerPatch : BytecodePatch(
         if (YouTubeVersionCheck.is_19_26_or_greater) {
             MiniplayerModernConstructorFingerprint.resultOrThrow().mutableMethod.apply {
                 val literalIndex = indexOfFirstWideLiteralInstructionValueOrThrow(
-                    MiniplayerModernConstructorFingerprint.MINIPLAYER_SIZE_FEATURE_KEY_LITERAL
+                    MiniplayerModernConstructorFingerprint.INITIAL_SIZE_FEATURE_KEY_LITERAL
                 )
                 val targetIndex = indexOfFirstInstructionOrThrow(literalIndex) {
                     opcode == Opcode.LONG_TO_INT
@@ -268,11 +286,32 @@ object MiniplayerPatch : BytecodePatch(
                 addInstructions(
                     targetIndex + 1,
                     """
-                        invoke-static {v$register}, $INTEGRATIONS_CLASS_DESCRIPTOR->setMiniplayerSize(I)I
+                        invoke-static {v$register}, $INTEGRATIONS_CLASS_DESCRIPTOR->setMiniplayerDefaultSize(I)I
                         move-result v$register
                     """
                 )
             }
+        }
+
+        if (YouTubeVersionCheck.is_19_32_or_greater) {
+            // Feature is not exposed in the settings, and currently only for debugging.
+
+            MiniplayerModernConstructorFingerprint.insertLiteralValueFloatOverride(
+                MiniplayerModernConstructorFingerprint.ANIMATION_INTERPOLATION_FEATURE_KEY,
+                "setMovementBoundFactor"
+            )
+        }
+
+        if (YouTubeVersionCheck.is_19_36_or_greater) {
+            MiniplayerModernConstructorFingerprint.insertLiteralValueBooleanOverride(
+                MiniplayerModernConstructorFingerprint.DROP_SHADOW_FEATURE_KEY,
+                "setDropShadow"
+            )
+
+            MiniplayerModernConstructorFingerprint.insertLiteralValueBooleanOverride(
+                MiniplayerModernConstructorFingerprint.VIEW_OUTLINE_PROVIDER_FEATURE_KEY,
+                "setUseBackgroundViewOutlineProvider"
+            )
         }
 
         // endregion
@@ -281,12 +320,10 @@ object MiniplayerPatch : BytecodePatch(
         // YT fixed this mistake in 19.17.
         // Fix this, by swapping the drawable resource values with each other.
         if (ytOutlinePictureInPictureWhite24 >= 0) {
-            MiniplayerModernExpandCloseDrawablesFingerprint.apply {
-                resolve(
-                    context,
-                    MiniplayerModernViewParentFingerprint.resultOrThrow().classDef
-                )
-            }.resultOrThrow().mutableMethod.apply {
+            MiniplayerModernExpandCloseDrawablesFingerprint.alsoResolve(
+                context,
+                MiniplayerModernViewParentFingerprint
+            ).mutableMethod.apply {
                 listOf(
                     ytOutlinePictureInPictureWhite24 to ytOutlineXWhite24,
                     ytOutlineXWhite24 to ytOutlinePictureInPictureWhite24,
@@ -330,24 +367,20 @@ object MiniplayerPatch : BytecodePatch(
                 "adjustMiniplayerOpacity"
             )
         ).forEach { (fingerprint, literalValue, methodName) ->
-            fingerprint.resolve(
+            fingerprint.alsoResolve(
                 context,
-                MiniplayerModernViewParentFingerprint.resultOrThrow().classDef
-            )
-
-            fingerprint.hookInflatedView(
+                MiniplayerModernViewParentFingerprint
+            ).mutableMethod.hookInflatedView(
                 literalValue,
                 "Landroid/widget/ImageView;",
                 "$INTEGRATIONS_CLASS_DESCRIPTOR->$methodName(Landroid/widget/ImageView;)V"
             )
         }
 
-        MiniplayerModernAddViewListenerFingerprint.apply {
-            resolve(
-                context,
-                MiniplayerModernViewParentFingerprint.resultOrThrow().classDef
-            )
-        }.resultOrThrow().mutableMethod.addInstruction(
+        MiniplayerModernAddViewListenerFingerprint.alsoResolve(
+            context,
+            MiniplayerModernViewParentFingerprint
+        ).mutableMethod.addInstruction(
             0,
             "invoke-static { p1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->" +
                     "hideMiniplayerSubTexts(Landroid/view/View;)V"
@@ -419,6 +452,27 @@ object MiniplayerPatch : BytecodePatch(
         }
     }
 
+    private fun MethodFingerprint.insertLiteralValueFloatOverride(
+        literal: Long,
+        integrationsMethod: String
+    ) {
+        resultOrThrow().mutableMethod.apply {
+            val literalIndex = indexOfFirstWideLiteralInstructionValueOrThrow(literal)
+            val targetIndex = indexOfFirstInstructionOrThrow(literalIndex) {
+                opcode == Opcode.DOUBLE_TO_FLOAT
+            }
+            val register = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+
+            addInstructions(
+                targetIndex + 1,
+                """
+                        invoke-static {v$register}, $INTEGRATIONS_CLASS_DESCRIPTOR->$integrationsMethod(F)F
+                        move-result v$register
+                    """
+            )
+        }
+    }
+
     private fun MutableMethod.insertBooleanOverride(index: Int, methodName: String) {
         val register = getInstruction<OneRegisterInstruction>(index).registerA
         addInstructions(
@@ -448,23 +502,21 @@ object MiniplayerPatch : BytecodePatch(
         removeInstruction(iPutIndex)
     }
 
-    private fun MethodFingerprint.hookInflatedView(
+    private fun MutableMethod.hookInflatedView(
         literalValue: Long,
         hookedClassType: String,
         integrationsMethodName: String,
     ) {
-        resultOrThrow().mutableMethod.apply {
-            val imageViewIndex = indexOfFirstInstructionOrThrow(
-                indexOfFirstWideLiteralInstructionValueOrThrow(literalValue)
-            ) {
-                opcode == Opcode.CHECK_CAST && getReference<TypeReference>()?.type == hookedClassType
-            }
-
-            val register = getInstruction<OneRegisterInstruction>(imageViewIndex).registerA
-            addInstruction(
-                imageViewIndex + 1,
-                "invoke-static { v$register }, $integrationsMethodName"
-            )
+        val imageViewIndex = indexOfFirstInstructionOrThrow(
+            indexOfFirstWideLiteralInstructionValueOrThrow(literalValue)
+        ) {
+            opcode == Opcode.CHECK_CAST && getReference<TypeReference>()?.type == hookedClassType
         }
+
+        val register = getInstruction<OneRegisterInstruction>(imageViewIndex).registerA
+        addInstruction(
+            imageViewIndex + 1,
+            "invoke-static { v$register }, $integrationsMethodName"
+        )
     }
 }

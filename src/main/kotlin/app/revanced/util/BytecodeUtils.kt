@@ -225,58 +225,59 @@ fun Method.indexOfFirstInstructionOrThrow(startIndex: Int = 0, predicate: Instru
 }
 
 /**
- * Get the index of the last [Instruction] that matches the predicate,
- * starting from and [endIndex] and searching down.
+ * Get the index of matching instruction,
+ * starting from and [startIndex] and searching down.
  *
- * @param endIndex Optional last index to start searching _down_ from.
+ * @param startIndex Optional starting index to search down from. Searching includes the start index.
  * @return -1 if the instruction is not found.
- * @see indexOfLastInstructionOrThrow
+ * @see indexOfFirstInstructionReversedOrThrow
  */
-fun Method.indexOfLastInstruction(endIndex: Int? = null, targetOpcode: Opcode): Int =
-    indexOfLastInstruction(endIndex) {
+fun Method.indexOfFirstInstructionReversed(startIndex: Int? = null, targetOpcode: Opcode): Int =
+    indexOfFirstInstructionReversed(startIndex) {
         opcode == targetOpcode
     }
 
 /**
- * Get the index of the last [Instruction] that matches the predicate,
- * starting from and [endIndex] and searching down.
+ * Get the index of matching instruction,
+ * starting from and [startIndex] and searching down.
  *
- * @param endIndex Optional last index to start searching _down_ from.
+ * @param startIndex Optional starting index to search down from. Searching includes the start index.
  * @return -1 if the instruction is not found.
- * @see indexOfLastInstructionOrThrow
+ * @see indexOfFirstInstructionReversedOrThrow
  */
-fun Method.indexOfLastInstruction(endIndex: Int? = null, predicate: Instruction.() -> Boolean): Int {
+fun Method.indexOfFirstInstructionReversed(startIndex: Int? = null, predicate: Instruction.() -> Boolean): Int {
     var instructions = this.implementation!!.instructions
-    if (endIndex != null) {
-        instructions = instructions.take(endIndex + 1)
+    if (startIndex != null) {
+        instructions = instructions.take(startIndex + 1)
     }
 
     return instructions.indexOfLast(predicate)
 }
 
 /**
- * Get the index of the last [Instruction] that matches the predicate,
- * starting from and [endIndex] and searching down.
+ * Get the index of matching instruction,
+ * starting from and [startIndex] and searching down.
  *
- * @return the last index that matches the predicate, or throws an exception if not found.
- * @throws PatchException
- * @see indexOfLastInstruction
+ * @param startIndex Optional starting index to search down from. Searching includes the start index.
+ * @return -1 if the instruction is not found.
+ * @see indexOfFirstInstructionReversed
  */
-fun Method.indexOfLastInstructionOrThrow(endIndex: Int? = null, targetOpcode: Opcode): Int =
-    indexOfLastInstructionOrThrow(endIndex) {
+fun Method.indexOfFirstInstructionReversedOrThrow(startIndex: Int? = null, targetOpcode: Opcode): Int =
+    indexOfFirstInstructionReversedOrThrow(startIndex) {
         opcode == targetOpcode
     }
 
 /**
- * Get the index of the last [Instruction] that matches the predicate,
- * starting from and [endIndex] and searching down.
+ * Get the index of matching instruction,
+ * starting from and [startIndex] and searching down.
  *
- * @return the last index that matches the predicate, or throws an exception if not found.
- * @throws PatchException
- * @see indexOfLastInstruction
+ * @param startIndex Optional starting index to search down from. Searching includes the start index.
+ * @return -1 if the instruction is not found.
+ * @see indexOfFirstInstructionReversed
  */
-fun Method.indexOfLastInstructionOrThrow(endIndex: Int? = null, predicate: Instruction.() -> Boolean): Int {
-    val index = indexOfLastInstruction(endIndex, predicate)
+fun Method.indexOfFirstInstructionReversedOrThrow(startIndex: Int? = null, predicate: Instruction.() -> Boolean): Int {
+    val index = indexOfFirstInstructionReversed(startIndex, predicate)
+
     if (index < 0) {
         throw PatchException("Could not find instruction index")
     }

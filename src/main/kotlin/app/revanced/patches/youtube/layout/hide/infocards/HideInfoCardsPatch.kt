@@ -13,6 +13,7 @@ import app.revanced.patches.youtube.layout.hide.infocards.fingerprints.Infocards
 import app.revanced.patches.youtube.layout.hide.infocards.fingerprints.InfocardsMethodCallFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
+import app.revanced.util.alsoResolve
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -81,9 +82,7 @@ object HideInfoCardsPatch : BytecodePatch(
         "Lapp/revanced/integrations/youtube/patches/components/HideInfoCardsFilterPatch;"
 
     override fun execute(context: BytecodeContext) {
-        InfocardsIncognitoFingerprint.also {
-            it.resolve(context, InfocardsIncognitoParentFingerprint.result!!.classDef)
-        }.result!!.mutableMethod.apply {
+        InfocardsIncognitoFingerprint.alsoResolve(context, InfocardsIncognitoParentFingerprint).mutableMethod.apply {
             val invokeInstructionIndex = implementation!!.instructions.indexOfFirst {
                 it.opcode.ordinal == Opcode.INVOKE_VIRTUAL.ordinal &&
                         ((it as ReferenceInstruction).reference.toString() == "Landroid/view/View;->setVisibility(I)V")

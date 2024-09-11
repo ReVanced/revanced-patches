@@ -10,15 +10,26 @@ import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.links.fingerprints.ABUriParserFingerprint
+import app.revanced.patches.youtube.misc.links.fingerprints.ABUriParserLegacyFingerprint
 import app.revanced.patches.youtube.misc.links.fingerprints.HTTPUriParserFingerprint
+import app.revanced.patches.youtube.misc.links.fingerprints.HTTPUriParserLegacyFingerprint
+import app.revanced.patches.youtube.misc.playservice.YouTubeVersionCheck
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Bypass URL redirects",
     description = "Adds an option to bypass URL redirects and open the original URL directly.",
-    dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
+    dependencies = [
+        IntegrationsPatch::class,
+        SettingsPatch::class,
+        AddResourcesPatch::class,
+        YouTubeVersionCheck::class
+   ],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube",
@@ -63,7 +74,12 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 )
 @Suppress("unused")
 object BypassURLRedirectsPatch : BytecodePatch(
-    setOf(ABUriParserFingerprint, HTTPUriParserFingerprint),
+    setOf(
+        ABUriParserFingerprint,
+        ABUriParserLegacyFingerprint,
+        HTTPUriParserFingerprint,
+        HTTPUriParserLegacyFingerprint,
+    ),
 ) {
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
@@ -72,23 +88,36 @@ object BypassURLRedirectsPatch : BytecodePatch(
             SwitchPreference("revanced_bypass_url_redirects"),
         )
 
-        mapOf(
-            ABUriParserFingerprint to 7, // Offset to Uri.parse.
-            HTTPUriParserFingerprint to 0, // Offset to Uri.parse.
-        ).map { (fingerprint, offset) ->
-            fingerprint.resultOrThrow() to offset
-        }.forEach { (result, offset) ->
-            result.mutableMethod.apply {
-                val insertIndex = result.scanResult.patternScanResult!!.startIndex + offset
-                val uriStringRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
-
-                replaceInstruction(
-                    insertIndex,
-                    "invoke-static {v$uriStringRegister}," +
-                        "Lapp/revanced/integrations/youtube/patches/BypassURLRedirectsPatch;" +
-                        "->" +
-                        "parseRedirectUri(Ljava/lang/String;)Landroid/net/Uri;",
+        val fingerprints =
+            if (YouTubeVersionCheck.is_19_25_or_greater)
+                arrayOf(
+                    ABUriParserFingerprint,
+                    HTTPUriParserFingerprint
                 )
+            else arrayOf(
+                ABUriParserLegacyFingerprint,
+                HTTPUriParserLegacyFingerprint
+            )
+
+        fingerprints.forEach { fingerprint ->
+            fingerprint.resultOrThrow().let {
+                it.mutableMethod.apply {
+                    val insertIndex = indexOfFirstInstructionOrThrow {
+                        val reference = getReference<MethodReference>()
+                        reference?.returnType == "Landroid/net/Uri;" &&
+                        reference.name == "parse"
+                    }
+
+                    val uriStringRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
+
+                    replaceInstruction(
+                        insertIndex,
+                        "invoke-static {v$uriStringRegister}," +
+                                "Lapp/revanced/integrations/youtube/patches/BypassURLRedirectsPatch;" +
+                                "->" +
+                                "parseRedirectUri(Ljava/lang/String;)Landroid/net/Uri;",
+                    )
+                }
             }
         }
     }

@@ -21,6 +21,7 @@ import app.revanced.patches.youtube.layout.hide.general.fingerprints.ShowWaterma
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.util.alsoResolve
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -204,9 +205,10 @@ object HideLayoutComponentsPatch : BytecodePatch(
 
         // region Watermark (legacy code for old versions of YouTube)
 
-        ShowWatermarkFingerprint.also {
-            it.resolve(context, PlayerOverlayFingerprint.resultOrThrow().classDef)
-        }.resultOrThrow().mutableMethod.apply {
+        ShowWatermarkFingerprint.alsoResolve(
+            context,
+            PlayerOverlayFingerprint
+        ).mutableMethod.apply {
             val index = implementation!!.instructions.size - 5
 
             removeInstruction(index)
