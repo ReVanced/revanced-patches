@@ -5,7 +5,7 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
-import app.revanced.patches.shared.misc.playservice.YouTubeVersionCheck
+import app.revanced.patches.youtube.misc.playservice.YouTubeVersionCheck
 
 @Patch(dependencies = [ResourceMappingPatch::class, YouTubeVersionCheck::class])
 internal object MiniplayerResourcePatch : ResourcePatch() {

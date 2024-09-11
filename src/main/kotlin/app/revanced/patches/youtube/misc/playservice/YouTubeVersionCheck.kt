@@ -1,4 +1,4 @@
-package app.revanced.patches.shared.misc.playservice
+package app.revanced.patches.youtube.misc.playservice
 
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchException
@@ -29,15 +29,15 @@ internal object YouTubeVersionCheck : ResourcePatch() {
     var is_19_26_or_greater by Delegates.notNull<Boolean>()
 
     override fun execute(context: ResourceContext) {
-        findPlayServicesVersion(context)
+        playStoreServicesVersion = findPlayServicesVersion(context)
 
         is_19_15_or_greater = 241602000 <= playStoreServicesVersion
         is_19_16_or_greater = 241702000 <= playStoreServicesVersion
         is_19_17_or_greater = 241802000 <= playStoreServicesVersion
         is_19_18_or_greater = 241902000 <= playStoreServicesVersion
         is_19_19_or_greater = 241999000 <= playStoreServicesVersion
-        is_19_24_or_greater = 242505000 <= playStoreServicesVersion
         is_19_23_or_greater = 242402000 <= playStoreServicesVersion
+        is_19_24_or_greater = 242505000 <= playStoreServicesVersion
         is_19_25_or_greater = 242599000 <= playStoreServicesVersion
         is_19_26_or_greater = 242705000 <= playStoreServicesVersion
     }
@@ -47,7 +47,7 @@ internal object YouTubeVersionCheck : ResourcePatch() {
      * Returns the Google Play services version,
      * since the decoded app manifest does not have the app version.
      */
-    private fun findPlayServicesVersion(context: ResourceContext) {
+    private fun findPlayServicesVersion(context: ResourceContext): Int {
         // The app version is missing from the decompiled manifest,
         // so instead use the Google Play services version and compare against specific releases.
         context.document["res/values/integers.xml"].use { document ->
@@ -57,8 +57,7 @@ internal object YouTubeVersionCheck : ResourcePatch() {
                 if (node.nodeType == Node.ELEMENT_NODE) {
                     val element = node as Element
                     if (element.getAttribute("name") == "google_play_services_version") {
-                        playStoreServicesVersion = element.textContent.toInt()
-                        return
+                        return element.textContent.toInt()
                     }
                 }
             }

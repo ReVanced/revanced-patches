@@ -7,13 +7,14 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
+import app.revanced.patches.youtube.misc.playservice.YouTubeVersionCheck
 import app.revanced.patches.youtube.video.playerresponse.fingerprint.PlayerParameterBuilderFingerprint
 import app.revanced.patches.youtube.video.playerresponse.fingerprint.PlayerParameterBuilderLegacyFingerprint
 import app.revanced.util.resultOrThrow
 import java.io.Closeable
 
 @Patch(
-    dependencies = [IntegrationsPatch::class],
+    dependencies = [IntegrationsPatch::class, YouTubeVersionCheck::class],
 )
 object PlayerResponseMethodHookPatch :
     BytecodePatch(
@@ -40,12 +41,12 @@ object PlayerResponseMethodHookPatch :
     private var numberOfInstructionsAdded = 0
 
     override fun execute(context: BytecodeContext) {
-        if (PlayerParameterBuilderLegacyFingerprint.result != null) {
-            playerResponseMethod = PlayerParameterBuilderLegacyFingerprint.resultOrThrow().mutableMethod
-            PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING = 11
-        } else {
+        if (YouTubeVersionCheck.is_19_23_or_greater) {
             playerResponseMethod = PlayerParameterBuilderFingerprint.resultOrThrow().mutableMethod
             PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING = 12
+        } else {
+            playerResponseMethod = PlayerParameterBuilderLegacyFingerprint.resultOrThrow().mutableMethod
+            PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING = 11
         }
 
         // On some app targets the method has too many registers pushing the parameters past v15.

@@ -11,13 +11,13 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.misc.playservice.YouTubeVersionCheck
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.fingerprints.ComponentContextParserFingerprint
 import app.revanced.patches.youtube.misc.litho.filter.fingerprints.EmptyComponentFingerprint
 import app.revanced.patches.youtube.misc.litho.filter.fingerprints.LithoFilterFingerprint
 import app.revanced.patches.youtube.misc.litho.filter.fingerprints.ProtobufBufferReferenceFingerprint
 import app.revanced.patches.youtube.misc.litho.filter.fingerprints.ReadComponentIdentifierFingerprint
+import app.revanced.patches.youtube.misc.playservice.YouTubeVersionCheck
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfLastInstructionOrThrow
