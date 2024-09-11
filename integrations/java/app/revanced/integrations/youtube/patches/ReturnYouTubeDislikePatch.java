@@ -664,6 +664,7 @@ public class ReturnYouTubeDislikePatch {
         if (videoIdIsSame(lastLithoShortsVideoData, videoId)) {
             return;
         }
+
         if (videoId == null) {
             // Litho filter did not detect the video id.  App is in incognito mode,
             // or the proto buffer structure was changed and the video id is no longer present.

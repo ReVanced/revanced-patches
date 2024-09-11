@@ -68,18 +68,23 @@ public final class ReturnYouTubeDislikeFilterPatch extends Filter {
     private final ByteArrayFilterGroupList videoIdFilterGroup = new ByteArrayFilterGroupList();
 
     public ReturnYouTubeDislikeFilterPatch() {
-        // Likes always seems to load before the dislikes, but if this
-        // ever changes then both likes and dislikes need callbacks.
+        // When a new Short is opened, the like buttons always seem to load before the dislike.
+        // But if swiping back to a previous video and liking/disliking, then only that single button reloads.
+        // So must check for both buttons.
         addPathCallbacks(
-                new StringFilterGroup(null, "|shorts_like_button.eml")
+                new StringFilterGroup(null, "|shorts_like_button.eml"),
+                new StringFilterGroup(null, "|shorts_dislike_button.eml")
         );
 
         // After the likes icon name is some binary data and then the video id for that specific short.
         videoIdFilterGroup.addAll(
-                // Video was previously liked before video was opened.
+                // on_shadowed  = Video was previously like/disliked before opening.
+                // off_shadowed = Video was not previously liked/disliked before opening.
                 new ByteArrayFilterGroup(null, "ic_right_like_on_shadowed"),
-                // Video was not already liked.
-                new ByteArrayFilterGroup(null, "ic_right_like_off_shadowed")
+                new ByteArrayFilterGroup(null, "ic_right_like_off_shadowed"),
+
+                new ByteArrayFilterGroup(null, "ic_right_dislike_on_shadowed"),
+                new ByteArrayFilterGroup(null, "ic_right_dislike_off_shadowed")
         );
     }
 
@@ -111,6 +116,7 @@ public final class ReturnYouTubeDislikeFilterPatch extends Filter {
                     return videoId;
                 }
             }
+
             return null;
         }
     }
@@ -132,6 +138,7 @@ public final class ReturnYouTubeDislikeFilterPatch extends Filter {
                 return true;
             }
         }
+
         return false;
     }
 }
