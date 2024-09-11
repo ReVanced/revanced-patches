@@ -146,25 +146,28 @@ object LithoFilterPatch : BytecodePatch(
 
         ComponentContextParserFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                readComponentMethod = ReadComponentIdentifierFingerprint.resultOrThrow().method
+                // Get the only static method in the class.
                 builderMethodDescriptor = EmptyComponentFingerprint.resultOrThrow().classDef
                     .methods.first { method -> AccessFlags.STATIC.isSet(method.accessFlags) }
+                // Only one field.
                 emptyComponentField = context.findClass(builderMethodDescriptor.returnType)!!
                     .immutableClass.fields.single()
+                readComponentMethod = ReadComponentIdentifierFingerprint.resultOrThrow().method
 
                 // 19.18 and later require patching 2 methods instead of one.
                 // Otherwise the patched code is the same.
                 if (YouTubeVersionCheck.is_19_18_or_greater) {
+                    // Get the method name of the ReadComponentIdentifierFingerprint call.
                     val readComponentMethodCallIndex = indexOfFirstInstructionOrThrow {
                         val reference = getReference<MethodReference>()
-                            ?: return@indexOfFirstInstructionOrThrow false
-                        reference.definingClass == readComponentMethod.definingClass
+                        reference?.definingClass == readComponentMethod.definingClass
                                 && reference.name == readComponentMethod.name
                     }
 
                     // Result of read component, and also a free register.
                     val register = getInstruction<OneRegisterInstruction>(
-                        readComponentMethodCallIndex + 1).registerA
+                        readComponentMethodCallIndex + 1
+                    ).registerA
 
                     // Insert after 'move-result-object'
                     val insertHookIndex = readComponentMethodCallIndex + 2
@@ -194,15 +197,19 @@ object LithoFilterPatch : BytecodePatch(
 
         ReadComponentIdentifierFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
-                val identifierIndex = it.scanResult.patternScanResult!!.endIndex
-                val identifierRegister = getInstruction<OneRegisterInstruction>(identifierIndex).registerA
-
                 val insertHookIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.IPUT_OBJECT &&
                             getReference<FieldReference>()?.type == "Ljava/lang/StringBuilder;"
                 }
-
                 val stringBuilderRegister = getInstruction<TwoRegisterInstruction>(insertHookIndex).registerA
+
+                // Identifier is saved to a field just before the string builder.
+                val identifierRegister = getInstruction<TwoRegisterInstruction>(
+                    indexOfLastInstructionOrThrow(insertHookIndex) {
+                        opcode == Opcode.IPUT_OBJECT
+                                && getReference<FieldReference>()?.type == "Ljava/lang/String;"
+                    }
+                ).registerA
 
                 // Find a free temporary register.
                 val register = getInstruction<OneRegisterInstruction>(
