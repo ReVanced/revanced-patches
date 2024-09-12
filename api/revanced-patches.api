@@ -828,6 +828,12 @@ public final class app/revanced/patches/reddit/customclients/syncforreddit/fix/s
 	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/syncforreddit/fix/slink/FixSLinksPatch;
 }
 
+public final class app/revanced/patches/reddit/customclients/syncforreddit/fix/user/FixUserEndpointPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/syncforreddit/fix/user/FixUserEndpointPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/reddit/customclients/syncforreddit/misc/integrations/IntegrationsPatch : app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch {
 	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/syncforreddit/misc/integrations/IntegrationsPatch;
 }
