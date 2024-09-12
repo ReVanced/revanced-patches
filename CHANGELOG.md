@@ -1,3 +1,10 @@
+# [4.14.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.9...v4.14.0-dev.10) (2024-09-12)
+
+
+### Features
+
+* **Sync for Reddit:** Add `Fix /user/ endpoint` patch ([46d11f3](https://github.com/ReVanced/revanced-patches/commit/46d11f3530fcdae9ed08b7e93aac235638a92dff))
+
 # [4.14.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.8...v4.14.0-dev.9) (2024-09-09)
 
 
