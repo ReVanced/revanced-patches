@@ -17,16 +17,17 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 @Patch(
-    name = "Fix /user/ endpoint",
-    description = "Fixes the endpoint for viewing user profiles by replacing /u/ with /user/.",
+    name = "Use /user/ endpoint",
+    description = "Replaces the deprecated endpoint for viewing user profiles /u with /user, that used to fix a bug.",
     compatiblePackages = [
         CompatiblePackage("com.laurencedawson.reddit_sync"),
         CompatiblePackage("com.laurencedawson.reddit_sync.pro"),
         CompatiblePackage("com.laurencedawson.reddit_sync.dev"),
     ],
+    use = false,
 )
 @Suppress("unused")
-object FixUserEndpointPatch : BytecodePatch(
+object UseUserEndpointPatch : BytecodePatch(
     fingerprints = setOf(
         OAuthFriendRequestFingerprint,
         OAuthSubredditInfoRequestConstructorFingerprint,
