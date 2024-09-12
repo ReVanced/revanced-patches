@@ -1,3 +1,10 @@
+# [4.14.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.10...v4.14.0-dev.11) (2024-09-12)
+
+
+### Features
+
+* **Sync for Reddit:** Rename patch to `Use /user/ endpoint` ([98ead49](https://github.com/ReVanced/revanced-patches/commit/98ead493380932cb105530f4ba992673fd364d82))
+
 # [4.14.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.9...v4.14.0-dev.10) (2024-09-12)
 
 
