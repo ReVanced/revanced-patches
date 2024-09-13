@@ -1634,12 +1634,6 @@ public final class app/revanced/patches/youtube/layout/buttons/navigation/Naviga
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/youtube/layout/buttons/player/flyout/SleepTimerMenuPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/buttons/player/flyout/SleepTimerMenuPatch;
-	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
-	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-}
-
 public final class app/revanced/patches/youtube/layout/buttons/player/hide/HidePlayerButtonsPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/buttons/player/hide/HidePlayerButtonsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
