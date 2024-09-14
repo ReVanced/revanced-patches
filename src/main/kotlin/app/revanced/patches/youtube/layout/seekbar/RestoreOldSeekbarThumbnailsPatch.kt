@@ -45,6 +45,7 @@ import app.revanced.util.exception
                 "19.14.43",
                 "19.15.36",
                 "19.16.39"
+                // 19.17+ is not supported.
             ]
         )
     ]
