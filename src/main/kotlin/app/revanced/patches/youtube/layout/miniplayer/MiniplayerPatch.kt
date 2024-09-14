@@ -18,7 +18,6 @@ import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.BasePreference
 import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
-import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -189,8 +188,6 @@ object MiniplayerPatch : BytecodePatch(
 
             preferences += TextPreference("revanced_miniplayer_opacity", inputType = InputType.NUMBER)
         }
-
-        preferences += NonInteractivePreference("revanced_miniplayer_about")
 
         SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
             PreferenceScreen(

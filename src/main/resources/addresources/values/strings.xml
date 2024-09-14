@@ -1008,8 +1008,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_miniplayer_opacity_title">Overlay opacity</string>
             <string name="revanced_miniplayer_opacity_summary">Opacity value between 0-100, where 0 is transparent</string>
             <string name="revanced_miniplayer_opacity_invalid_toast">Miniplayer overlay opacity must be between 0-100</string>
-            <string name="revanced_miniplayer_about_title">About modern miniplayers</string>
-            <string name="revanced_miniplayer_about_summary">Modern miniplayers are under active development, and if selected you may experience bugs or incomplete features</string>
         </patch>
         <patch id="layout.theme.ThemeBytecodePatch">
             <string name="revanced_gradient_loading_screen_title">Enable gradient loading screen</string>
