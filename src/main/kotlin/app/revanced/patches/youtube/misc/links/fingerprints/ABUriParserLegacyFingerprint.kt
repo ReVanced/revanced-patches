@@ -6,7 +6,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 /**
- * Target 19.25+
+ * Target 19.35+
  */
 internal object ABUriParserLegacyFingerprint : MethodFingerprint(
     returnType = "Ljava/lang/Object",

@@ -89,7 +89,7 @@ object BypassURLRedirectsPatch : BytecodePatch(
         )
 
         val fingerprints =
-            if (YouTubeVersionCheck.is_19_25_or_greater)
+            if (YouTubeVersionCheck.is_19_35_or_greater)
                 arrayOf(
                     ABUriParserFingerprint,
                     HTTPUriParserFingerprint

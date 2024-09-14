@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
 /**
- * Target 19.25+
+ * Target 19.35+
  */
 internal object ABUriParserFingerprint : MethodFingerprint(
     returnType = "Ljava/lang/Object",
