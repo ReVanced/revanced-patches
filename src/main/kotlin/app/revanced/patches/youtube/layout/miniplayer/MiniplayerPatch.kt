@@ -34,7 +34,6 @@ import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniplayerDim
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniplayerModernAddViewListenerFingerprint
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniplayerModernCloseButtonFingerprint
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniplayerModernConstructorFingerprint
-import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniplayerModernEnabledFingerprint
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniplayerModernExpandButtonFingerprint
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniplayerModernExpandCloseDrawablesFingerprint
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniplayerModernForwardButtonFingerprint
@@ -72,7 +71,8 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 @Patch(
     name = "Miniplayer",
     description = "Adds options to change the in app minimized player. " +
-            "Patching target 19.16+ adds modern miniplayers, and 19.28+ offers the most customization",
+            "Patching target 19.16+ adds modern miniplayers. " +
+            "19.25 has drag and drop, and is the last version that can swipe to expand the miniplayer.",
     dependencies = [
         IntegrationsPatch::class,
         SettingsPatch::class,
@@ -106,24 +106,25 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
                 // 19.14.43 // Incomplete code for modern miniplayers.
                 // 19.15.36 // Different code for handling sub title texts and not worth supporting.
                 "19.16.39", // First with modern miniplayers.
-                "19.17.41",
-                "19.18.41",
-                "19.19.39", // Last bug free version with smaller Modern 1 miniplayer.
+                // 19.17.41 // Works without issues, but no reason to recommend over 19.19.
+                // 19.18.41 // Works without issues, but no reason to recommend over 19.19.
+                // 19.19.39 // Last bug free version with smaller Modern 1 miniplayer, but no reason to recommend over 19.16.
                 // 19.20.35 // Cannot swipe to expand.
                 // 19.21.40 // Cannot swipe to expand.
                 // 19.22.43 // Cannot swipe to expand.
                 // 19.23.40 // First with Modern 1 drag and drop, Cannot swipe to expand.
                 // 19.24.45 // First with larger Modern 1, Cannot swipe to expand.
-                "19.25.37", // First with double tap, last with skip forward/back buttons. Screen flickers when swiping to expand Modern 1.
+                "19.25.37", // First with double tap, last with skip forward/back buttons, last with swipe to expand/close, and last before double tap to expand seems to be required.
                 // 19.26.42 // Modern 1 Pause/play button are always hidden. Unusable.
-                "19.28.42", // First with custom miniplayer size, screen flickers when swiping to maximize Modern 1.
-                "19.29.42", // Screen flickers when swiping to maximize Modern 1.
-                "19.30.39", // Screen flickers when swiping to maximize Modern 1.
+                // 19.28.42 // First with custom miniplayer size, screen flickers when swiping to maximize Modern 1. Swipe to close miniplayer is broken.
+                // 19.29.42 // All modern players are broken and ignore tapping the miniplayer video.
+                // 19.30.39 // Modern 3 is less broken when double tap expand is enabled, but cannot swipe to expand when double tap is off.
                 // 19.31.36 // All Modern 1 buttons are missing. Unusable.
-                // 19.32.36 // ?
-                // 19.33.35 // Modern 1 cannot tap miniplayer to open. Unusable.
-                // 19.34.42 // ?
-                // 19.35.36 // ?
+                // 19.32.36 // Works without issues, but no reason to recommend over 19.36.
+                // 19.33.35 // Works without issues, but no reason to recommend over 19.36.
+                // 19.34.42 // Works without issues, but no reason to recommend over 19.36.
+                // 19.35.36 // Works without issues, but no reason to recommend over 19.36.
+                "19.36.37", // Works without issues.
             ]
         )
     ]
@@ -134,7 +135,6 @@ object MiniplayerPatch : BytecodePatch(
         MiniplayerDimensionsCalculatorParentFingerprint,
         MiniplayerResponseModelSizeCheckFingerprint,
         MiniplayerOverrideFingerprint,
-        MiniplayerModernEnabledFingerprint,
         MiniplayerModernConstructorFingerprint,
         MiniplayerModernViewParentFingerprint,
         YouTubePlayerOverlaysLayoutFingerprint
@@ -161,21 +161,27 @@ object MiniplayerPatch : BytecodePatch(
                 entryValuesKey = "revanced_miniplayer_type_19_16_entry_values"
             )
             if (YouTubeVersionCheck.is_19_25_or_greater) {
-                preferences += SwitchPreference("revanced_miniplayer_double_tap_action")
+                if (!YouTubeVersionCheck.is_19_29_or_greater) {
+                    preferences += SwitchPreference("revanced_miniplayer_double_tap_action")
+                }
                 preferences += SwitchPreference("revanced_miniplayer_drag_and_drop")
             }
 
-            preferences += SwitchPreference("revanced_miniplayer_hide_expand_close")
+            preferences += SwitchPreference(
+                key = "revanced_miniplayer_hide_expand_close",
+                summaryOnKey =
+                if (YouTubeVersionCheck.is_19_26_or_greater) {
+                    "revanced_miniplayer_hide_expand_close_19_26_summary_on"
+                } else {
+                    "revanced_miniplayer_hide_expand_close_summary_on"
+                }
+            )
 
             if (!YouTubeVersionCheck.is_19_26_or_greater) {
                 preferences += SwitchPreference("revanced_miniplayer_hide_rewind_forward")
             }
 
             preferences += SwitchPreference("revanced_miniplayer_hide_subtext")
-
-            if (YouTubeVersionCheck.is_19_36_or_greater) {
-                preferences += SwitchPreference("revanced_miniplayer_drop_shadow")
-            }
 
             if (YouTubeVersionCheck.is_19_26_or_greater) {
                 preferences += TextPreference("revanced_miniplayer_width_dip", inputType = InputType.NUMBER)
@@ -257,8 +263,8 @@ object MiniplayerPatch : BytecodePatch(
         }
 
         if (YouTubeVersionCheck.is_19_25_or_greater) {
-            MiniplayerModernEnabledFingerprint.insertLiteralValueBooleanOverride(
-                MiniplayerModernEnabledFingerprint.MODERN_MINIPLAYER_ENABLED_FEATURE_KEY_LITERAL,
+            MiniplayerModernConstructorFingerprint.insertLiteralValueBooleanOverride(
+                MiniplayerModernConstructorFingerprint.MODERN_MINIPLAYER_ENABLED_OLD_TARGETS_FEATURE_KEY_LITERAL,
                 "getModernMiniplayerOverride"
             )
 
