@@ -9,14 +9,16 @@ internal object InterceptFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC.value,
     parameters = listOf("L"),
     opcodes = listOf(
-        Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.GOTO,
+        Opcode.CONST_4,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
         Opcode.IF_EQZ,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT
     ),
-    strings = listOf("SC-Mob-UserPlan", "Configuration"),
+    strings = listOf("chain", "Configuration"),
     customFingerprint = { _, classDef ->
-        classDef.sourceFile == "ApiUserPlanInterceptor.java"
+        classDef.sourceFile == "ApiUserPlanInterceptor.kt"
     },
 )
