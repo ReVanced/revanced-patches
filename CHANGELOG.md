@@ -1,3 +1,10 @@
+# [4.14.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.11...v4.14.0-dev.12) (2024-09-14)
+
+
+### Bug Fixes
+
+* **Soundcloud - Hide ads:** Support latest version ([#3628](https://github.com/ReVanced/revanced-patches/issues/3628)) ([66e7e33](https://github.com/ReVanced/revanced-patches/commit/66e7e33efce9b702fdfcc2b9803e9da8491c1f08))
+
 # [4.14.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.10...v4.14.0-dev.11) (2024-09-12)
 
 
