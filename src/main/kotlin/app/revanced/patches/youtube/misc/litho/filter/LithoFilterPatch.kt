@@ -15,6 +15,7 @@ import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.fingerprints.ComponentContextParserFingerprint
 import app.revanced.patches.youtube.misc.litho.filter.fingerprints.EmptyComponentFingerprint
 import app.revanced.patches.youtube.misc.litho.filter.fingerprints.LithoFilterFingerprint
+import app.revanced.patches.youtube.misc.litho.filter.fingerprints.ObfuscationConfigFingerprint
 import app.revanced.patches.youtube.misc.litho.filter.fingerprints.ProtobufBufferReferenceFingerprint
 import app.revanced.patches.youtube.misc.litho.filter.fingerprints.ReadComponentIdentifierFingerprint
 import app.revanced.patches.youtube.misc.playservice.YouTubeVersionCheck
@@ -22,6 +23,7 @@ import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.resultOrThrow
+import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Field
@@ -41,6 +43,7 @@ import java.io.Closeable
 @Suppress("unused")
 object LithoFilterPatch : BytecodePatch(
     setOf(
+        ObfuscationConfigFingerprint,
         ComponentContextParserFingerprint,
         LithoFilterFingerprint,
         ProtobufBufferReferenceFingerprint,
@@ -110,6 +113,14 @@ object LithoFilterPatch : BytecodePatch(
      * }
      */
     override fun execute(context: BytecodeContext) {
+
+        // region turn off conversion context obfuscation (19.19+)
+
+        if (YouTubeVersionCheck.is_19_19_or_greater) {
+            ObfuscationConfigFingerprint.returnEarly(false)
+        }
+
+        // endregion
 
         // Remove dummy filter from Integrations static field
         // and add the filters included during patching.
