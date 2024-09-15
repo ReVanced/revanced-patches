@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal object BottomNavigationBarFingerprint : MethodFingerprint(
+internal object BottomNavigationBarLegacyFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("Landroid/view/View;", "Landroid/os/Bundle;"),
@@ -19,6 +19,6 @@ internal object BottomNavigationBarFingerprint : MethodFingerprint(
         Opcode.IGET_OBJECT,
     ),
     strings = listOf(
-        "r_pfvc"
+        "ReelWatchPaneFragmentViewModelKey"
     ),
 )

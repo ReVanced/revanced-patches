@@ -18,9 +18,7 @@ internal object RollingNumberTextViewFingerprint : MethodFingerprint(
         Opcode.RETURN_VOID
     ),
     customFingerprint = { _, classDef ->
-        val appCompatTextView = "Landroid/support/v7/widget/AppCompatTextView;"
-        val youTubeAppCompatTextView = "Lcom/google/android/libraries/youtube/rendering/ui/spec/typography/YouTubeAppCompatTextView;"
-
-        classDef.superclass in listOf(appCompatTextView, youTubeAppCompatTextView)
+        classDef.superclass == "Landroid/support/v7/widget/AppCompatTextView;" ||
+                classDef.superclass == "Lcom/google/android/libraries/youtube/rendering/ui/spec/typography/YouTubeAppCompatTextView;"
     }
 )

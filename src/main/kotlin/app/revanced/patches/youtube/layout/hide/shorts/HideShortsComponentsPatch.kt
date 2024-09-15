@@ -12,10 +12,12 @@ import app.revanced.patches.youtube.layout.hide.shorts.fingerprints.*
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
+import app.revanced.patches.youtube.misc.playservice.YouTubeVersionCheck
 import app.revanced.util.exception
 import app.revanced.util.getReference
 import app.revanced.util.indexOfIdResourceOrThrow
 import app.revanced.util.injectHideViewCall
+import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -31,6 +33,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
         HideShortsComponentsResourcePatch::class,
         ResourceMappingPatch::class,
         NavigationBarHookPatch::class,
+        YouTubeVersionCheck::class
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -71,8 +74,8 @@ object HideShortsComponentsPatch : BytecodePatch(
     setOf(
         CreateShortsButtonsFingerprint,
         ReelConstructorFingerprint,
+        BottomNavigationBarLegacyFingerprint,
         BottomNavigationBarFingerprint,
-        BottomNavigationBarNewFingerprint,
         RenderBottomNavigationBarParentFingerprint,
         SetPivotBarVisibilityParentFingerprint,
     ),
@@ -83,20 +86,21 @@ object HideShortsComponentsPatch : BytecodePatch(
         // region Hide the Shorts shelf.
 
         // This patch point is not present in 19.03.x and greater.
-        // If 19.02.x and lower is dropped, then this section of code and the fingerprint should be removed.
-        ReelConstructorFingerprint.result?.let {
-            it.mutableMethod.apply {
-                val insertIndex = it.scanResult.patternScanResult!!.startIndex + 2
-                val viewRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
+        if (!YouTubeVersionCheck.is_19_03_or_greater) {
+            ReelConstructorFingerprint.result?.let {
+                it.mutableMethod.apply {
+                    val insertIndex = it.scanResult.patternScanResult!!.startIndex + 2
+                    val viewRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
-                injectHideViewCall(
-                    insertIndex,
-                    viewRegister,
-                    FILTER_CLASS_DESCRIPTOR,
-                    "hideShortsShelf",
-                )
+                    injectHideViewCall(
+                        insertIndex,
+                        viewRegister,
+                        FILTER_CLASS_DESCRIPTOR,
+                        "hideShortsShelf",
+                    )
+                }
             }
-        } // Do not throw an exception if not resolved.
+        }
 
         // endregion
 
@@ -149,11 +153,14 @@ object HideShortsComponentsPatch : BytecodePatch(
 
         // Required to prevent a black bar from appearing at the bottom of the screen.
         // BottomNavigationBar class deprecated on 19.29+.
-        val bottomNavigationBarResult =
-             BottomNavigationBarFingerprint.result ?: BottomNavigationBarNewFingerprint.result
-                 ?: throw BottomNavigationBarFingerprint.exception
+        val navbarFingerprint =
+            if (YouTubeVersionCheck.is_19_29_or_greater) {
+                BottomNavigationBarFingerprint
+            } else {
+                BottomNavigationBarLegacyFingerprint
+            }
 
-        bottomNavigationBarResult.let {
+        navbarFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val moveResultIndex = it.scanResult.patternScanResult!!.startIndex + 2
                 val viewRegister = getInstruction<OneRegisterInstruction>(moveResultIndex).registerA

@@ -8,5 +8,6 @@ internal object RollingNumberSetterFingerprint : MethodFingerprint(
         Opcode.INVOKE_DIRECT,
         Opcode.IGET_OBJECT
     ),
+    // Partial string match.
     strings = listOf("RollingNumberType required properties missing! Need")
 )

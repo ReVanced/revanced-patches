@@ -210,9 +210,7 @@ object SpoofClientPatch : BytecodePatch(
                 CreatePlayerRequestBodyWithModelFingerprint.indexOfBuildModelInstruction(it.method)
 
             // The next IPUT_OBJECT instruction after getting the client model is setting the client model field.
-            val index = it.mutableMethod.indexOfFirstInstructionOrThrow(getClientModelIndex) {
-                opcode == Opcode.IPUT_OBJECT
-            }
+            val index = it.mutableMethod.indexOfFirstInstructionOrThrow(getClientModelIndex, Opcode.IPUT_OBJECT)
 
             it.mutableMethod.getInstruction(index).getReference<FieldReference>()
                 ?: throw PatchException("Could not find clientInfoClientModelField")
