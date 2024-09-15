@@ -41,21 +41,9 @@ import app.revanced.util.resultOrThrow
                 "19.14.43",
                 "19.15.36",
                 "19.16.39",
-                "19.17.41",
-                "19.18.41",
-                "19.19.39",
-                "19.20.35",
-                "19.21.40",
-                "19.22.43",
-                "19.23.40",
-                "19.24.45",
                 "19.25.37",
-                "19.26.42",
-                "19.28.42",
-                "19.29.42",
-                "19.30.39",
-                "19.31.36",
-                // 19.32+ needs changes for this patch to work.
+                // 19.31.36 // Last version that works with this patch in it's current form.
+                // 19.32+   // Needs changes for this patch to work.
             ]
         )
     ]
