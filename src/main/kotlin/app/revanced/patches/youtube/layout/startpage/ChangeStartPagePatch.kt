@@ -16,7 +16,49 @@ import app.revanced.util.resultOrThrow
     name = "Change start page",
     description = "Adds an option to set which page the app opens in instead of the homepage.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class, AddResourcesPatch::class],
-    compatiblePackages = [CompatiblePackage("com.google.android.youtube")]
+    compatiblePackages = [
+        CompatiblePackage(
+            "com.google.android.youtube",
+            [
+                "18.43.45",
+                "18.44.41",
+                "18.45.43",
+                "18.48.39",
+                "18.49.37",
+                "19.01.34",
+                "19.02.39",
+                "19.03.36",
+                "19.04.38",
+                "19.05.36",
+                "19.06.39",
+                "19.07.40",
+                "19.08.36",
+                "19.09.38",
+                "19.10.39",
+                "19.11.43",
+                "19.12.41",
+                "19.13.37",
+                "19.14.43",
+                "19.15.36",
+                "19.16.39",
+                "19.17.41",
+                "19.18.41",
+                "19.19.39",
+                "19.20.35",
+                "19.21.40",
+                "19.22.43",
+                "19.23.40",
+                "19.24.45",
+                "19.25.37",
+                "19.26.42",
+                "19.28.42",
+                "19.29.42",
+                "19.30.39",
+                "19.31.36",
+                // 19.32+ needs changes for this patch to work.
+            ]
+        )
+    ]
 )
 @Suppress("unused")
 object ChangeStartPagePatch : BytecodePatch(
@@ -28,16 +70,17 @@ object ChangeStartPagePatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
+        StartActivityFingerprint.resultOrThrow().mutableMethod.addInstruction(
+            0,
+            "invoke-static { p1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->changeIntent(Landroid/content/Intent;)V"
+        )
+
+        // Add settings only after resolving, in case the user turns off version checks and is patching 19.32+
         SettingsPatch.PreferenceScreen.GENERAL_LAYOUT.addPreferences(
             ListPreference(
                 key = "revanced_start_page",
                 summaryKey = null,
             )
-        )
-
-        StartActivityFingerprint.resultOrThrow().mutableMethod.addInstruction(
-            0,
-            "invoke-static { p1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->changeIntent(Landroid/content/Intent;)V"
         )
     }
 }

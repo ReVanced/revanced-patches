@@ -8,10 +8,11 @@ object StartActivityFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "V",
     parameters = listOf("Landroid/content/Intent;"),
-
     customFingerprint = { method, classDef ->
         method.name == "startActivity" &&
-                (classDef.type.endsWith("/Shell_HomeActivity;") ||
-                        classDef.type.endsWith("/Shell_UrlActivity;"))
+                classDef.type.endsWith("/Shell_HomeActivity;")
+                    // 19.32+ renamed the target class to "/Shell_UrlActivity;",
+                    // but on app launch startActivity is no longer called so the start page is never changed.
+                    // || classDef.type.endsWith("/Shell_UrlActivity;"))
     }
 )
