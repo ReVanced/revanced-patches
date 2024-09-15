@@ -7,14 +7,18 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.patches.youtube.layout.startupshortsreset.fingerprints.UserWasInShortsConfigFingerprint
+import app.revanced.patches.youtube.layout.startupshortsreset.fingerprints.UserWasInShortsConfigFingerprint.indexOfOptionalInstruction
 import app.revanced.patches.youtube.layout.startupshortsreset.fingerprints.UserWasInShortsFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.exception
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -61,7 +65,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 )
 @Suppress("unused")
 object DisableResumingShortsOnStartupPatch : BytecodePatch(
-    setOf(UserWasInShortsFingerprint)
+    setOf(UserWasInShortsConfigFingerprint, UserWasInShortsFingerprint)
 ) {
 
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
@@ -73,6 +77,35 @@ object DisableResumingShortsOnStartupPatch : BytecodePatch(
         SettingsPatch.PreferenceScreen.SHORTS.addPreferences(
             SwitchPreference("revanced_disable_resuming_shorts_player")
         )
+
+        UserWasInShortsConfigFingerprint.resultOrThrow().mutableMethod.apply {
+            val startIndex = indexOfOptionalInstruction(this)
+            val walkerIndex = indexOfFirstInstructionOrThrow(startIndex) {
+                val reference = getReference<MethodReference>()
+                opcode == Opcode.INVOKE_VIRTUAL
+                        && reference?.returnType == "Z"
+                        && reference.definingClass != "Lj${'$'}/util/Optional;"
+                        && reference.parameterTypes.size == 0
+            }
+
+            val walkerMethod = context.toMethodWalker(this)
+                .nextMethod(walkerIndex, true)
+                .getMethod() as MutableMethod
+
+            // This method will only be called for the user being A/B tested.
+            // Presumably a method that processes the ProtoDataStore value (boolean) for the 'user_was_in_shorts' key.
+            walkerMethod.addInstructionsWithLabels(
+                0, """
+                    invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->disableResumingStartupShortsPlayer()Z
+                    move-result v0
+                    if-eqz v0, :show
+                    const/4 v0, 0x0
+                    return v0
+                    :show
+                    nop
+                """
+            )
+        }
 
         UserWasInShortsFingerprint.result?.mutableMethod?.apply {
             val listenableInstructionIndex = indexOfFirstInstructionOrThrow {
