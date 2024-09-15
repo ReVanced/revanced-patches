@@ -16,8 +16,9 @@ import app.revanced.patches.youtube.misc.links.fingerprints.HTTPUriParserLegacyF
 import app.revanced.patches.youtube.misc.playservice.YouTubeVersionCheck
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.resultOrThrow
+import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
@@ -95,7 +96,7 @@ object BypassURLRedirectsPatch : BytecodePatch(
         )
 
         val fingerprints =
-            if (YouTubeVersionCheck.is_19_35_or_greater)
+            if (YouTubeVersionCheck.is_19_33_or_greater)
                 arrayOf(
                     ABUriParserFingerprint,
                     HTTPUriParserFingerprint
@@ -108,11 +109,7 @@ object BypassURLRedirectsPatch : BytecodePatch(
         fingerprints.forEach { fingerprint ->
             fingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
-                    val insertIndex = indexOfFirstInstructionOrThrow {
-                        val reference = getReference<MethodReference>()
-                        reference?.returnType == "Landroid/net/Uri;" &&
-                        reference.name == "parse"
-                    }
+                    val insertIndex = findUriParseIndex()
 
                     val uriStringRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
 
@@ -126,5 +123,11 @@ object BypassURLRedirectsPatch : BytecodePatch(
                 }
             }
         }
+    }
+
+    internal fun Method.findUriParseIndex(): Int = indexOfFirstInstruction {
+        val reference = getReference<MethodReference>()
+        reference?.returnType == "Landroid/net/Uri;" &&
+                reference.name == "parse"
     }
 }
