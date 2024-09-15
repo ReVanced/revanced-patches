@@ -119,11 +119,9 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
                 // 19.29.42 // All modern players are broken and ignore tapping the miniplayer video.
                 // 19.30.39 // Modern 3 is less broken when double tap expand is enabled, but cannot swipe to expand when double tap is off.
                 // 19.31.36 // All Modern 1 buttons are missing. Unusable.
-                // 19.32.36 // Works without issues, but no reason to recommend over 19.36.
-                // 19.33.35 // Works without issues, but no reason to recommend over 19.36.
-                // 19.34.42 // Works without issues, but no reason to recommend over 19.36.
-                // 19.35.36 // Works without issues, but no reason to recommend over 19.36.
-                "19.36.37", // Works without issues.
+                // 19.32.36 // Works without issues, but no reason to recommend over 19.34.
+                // 19.33.35 // Works without issues, but no reason to recommend over 19.34.
+                "19.34.42",  // Works without issues.
             ]
         )
     ]

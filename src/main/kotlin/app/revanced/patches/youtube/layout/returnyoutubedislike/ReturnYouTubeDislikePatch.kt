@@ -96,8 +96,6 @@ import com.android.tools.smali.dexlib2.iface.reference.TypeReference
                 "19.32.36",
                 "19.33.36",
                 "19.34.42",
-                "19.35.36",
-                "19.36.37",
             ]
         )
     ]
