@@ -3,6 +3,7 @@ package app.revanced.patches.youtube.interaction.seekbar
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
@@ -12,8 +13,13 @@ import app.revanced.patches.youtube.interaction.seekbar.fingerprints.DoubleSpeed
 import app.revanced.patches.youtube.interaction.seekbar.fingerprints.SlideToSeekFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.util.exception
+import app.revanced.patches.youtube.misc.playservice.YouTubeVersionCheck
+import app.revanced.util.getReference
+import app.revanced.util.resultOrThrow
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Enable slide to seek",
@@ -44,7 +50,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
                 "19.14.43",
                 "19.15.36",
                 "19.16.39",
-                // 19.17.41 is the last version with the target code.
+                "19.25.37",
+                "19.34.42",
             ]
         )
     ],
@@ -66,26 +73,43 @@ object EnableSlideToSeekPatch : BytecodePatch(
             SwitchPreference("revanced_slide_to_seek")
         )
 
-        arrayOf(
-            // Restore the behaviour to slide to seek.
-            SlideToSeekFingerprint,
-            // Disable the double speed seek notice.
-            DoubleSpeedSeekNoticeFingerprint
-        ).map {
-            it.result ?: throw it.exception
-        }.forEach {
-            val insertIndex = it.scanResult.patternScanResult!!.endIndex + 1
+        // Restore the behaviour to slide to seek.
+        SlideToSeekFingerprint.resultOrThrow().let {
+            val checkIndex = it.scanResult.patternScanResult!!.startIndex
+            val checkReference = it.mutableMethod
+                .getInstruction(checkIndex).getReference<MethodReference>()!!.toString()
 
-            it.mutableMethod.apply {
-                val isEnabledRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+            // A/B check method was only called on this class.
+            it.mutableClass.methods.forEach { method ->
+                method.implementation!!.instructions!!.forEachIndexed { index, instruction ->
+                    if (instruction.opcode != Opcode.INVOKE_VIRTUAL) return@forEachIndexed
 
-                addInstructions(
-                    insertIndex,
-                    """
-                        invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->isSlideToSeekDisabled()Z
-                        move-result v$isEnabledRegister
-                    """
-                )
+                    val reference = (instruction as Instruction35c).reference as MethodReference
+                    if (reference.toString() != checkReference) return@forEachIndexed
+
+                    method.replaceInstruction(index,
+                        "invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->isSlideToSeekDisabled()Z "
+                    )
+                }
+            }
+        }
+
+        // Disable the double speed seek notice.
+        // 19.17.41 is the last version with this code.
+        if (!YouTubeVersionCheck.is_19_17_or_greater) {
+            DoubleSpeedSeekNoticeFingerprint.resultOrThrow().let {
+                it.mutableMethod.apply {
+                    val insertIndex = it.scanResult.patternScanResult!!.endIndex + 1
+                    val targetRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+                    addInstructions(
+                        insertIndex,
+                        """
+                            invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->isSlideToSeekDisabled()Z
+                            move-result v$targetRegister
+                        """
+                    )
+                }
             }
         }
     }
