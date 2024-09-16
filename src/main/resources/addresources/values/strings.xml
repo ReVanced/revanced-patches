@@ -950,20 +950,21 @@ This is because Crowdin requires temporarily flattening this file and removing t
         </patch>
         <patch id="layout.startpage.ChangeStartPagePatch">
             <string name="revanced_start_page_title">Set start page</string>
-            <string name="revanced_start_page_entry_0">Default</string>
-            <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
-            <string name="revanced_start_page_entry_1">Home</string>
-            <string name="revanced_start_page_entry_2">Search</string>
-            <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the subscriptions tab. -->
-            <string name="revanced_start_page_entry_3">Subscriptions</string>
-            <string name="revanced_start_page_entry_4">Explore</string>
-            <string name="revanced_start_page_entry_5">Shorts</string>
-            <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
-            <string name="revanced_start_page_entry_6">You tab</string>
-            <string name="revanced_start_page_entry_7">Liked videos</string>
-            <!-- 'History' should be translated using the same localized wording YouTube displays for the 'history' section in the 'You' tab. -->
-            <string name="revanced_start_page_entry_8">History</string>
-            <string name="revanced_start_page_entry_9">Trending</string>
+            <string name="revanced_change_start_page_entry_default">Default</string>
+            <string name="revanced_change_start_page_entry_browse">Browse channels</string>
+            <string name="revanced_change_start_page_entry_explore">Explore</string>
+            <string name="revanced_change_start_page_entry_gaming">Gaming</string>
+            <string name="revanced_change_start_page_entry_history">History</string>
+            <string name="revanced_change_start_page_entry_library">Library</string>
+            <string name="revanced_change_start_page_entry_liked_videos">Liked videos</string>
+            <string name="revanced_change_start_page_entry_live">Live</string>
+            <string name="revanced_change_start_page_entry_movies">Movies</string>
+            <string name="revanced_change_start_page_entry_music">Music</string>
+            <string name="revanced_change_start_page_entry_search">Search</string>
+            <string name="revanced_change_start_page_entry_sports">Sports</string>
+            <string name="revanced_change_start_page_entry_subscriptions">Subscriptions</string>
+            <string name="revanced_change_start_page_entry_trending">Trending</string>
+            <string name="revanced_change_start_page_entry_watch_later">Watch later</string>
         </patch>
         <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
             <string name="revanced_disable_resuming_shorts_player_title">Disable resuming Shorts player</string>
