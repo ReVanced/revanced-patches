@@ -71,7 +71,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
     name = "Miniplayer",
     description = "Adds options to change the in app minimized player. " +
             "Patching target 19.16+ adds modern miniplayers. " +
-            "19.25 has drag and drop, and is the last version that can swipe to expand the miniplayer.",
+            "19.25 has drag and drop, and is the last version that can swipe to expand modern miniplayers.",
     dependencies = [
         IntegrationsPatch::class,
         SettingsPatch::class,
