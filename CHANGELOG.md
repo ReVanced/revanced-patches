@@ -1,3 +1,24 @@
+# [4.14.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.14...v4.14.0-dev.15) (2024-09-17)
+
+
+### Bug Fixes
+
+* **YouTube:** Fix issues related to playback by replace streaming data ([#3582](https://github.com/ReVanced/revanced-patches/issues/3582)) ([dfa94d7](https://github.com/ReVanced/revanced-patches/commit/dfa94d70f65150d6ef24ea6378b8e6a317055186))
+
+# [4.14.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.13...v4.14.0-dev.14) (2024-09-17)
+
+
+### Features
+
+* **YouTube Music:** Make working patches compatible with latest versions ([#3556](https://github.com/ReVanced/revanced-patches/issues/3556)) ([12f6f19](https://github.com/ReVanced/revanced-patches/commit/12f6f1966ad04631451940f7b64d785c3ef481a0))
+
+# [4.14.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.12...v4.14.0-dev.13) (2024-09-17)
+
+
+### Features
+
+* **YouTube - Hide Shorts components:** Hide 'Use this sound' button ([#3647](https://github.com/ReVanced/revanced-patches/issues/3647)) ([33fc090](https://github.com/ReVanced/revanced-patches/commit/33fc09061431d4aa457d743c09a0de31ec566df1))
+
 # [4.14.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.11...v4.14.0-dev.12) (2024-09-14)
 
 
