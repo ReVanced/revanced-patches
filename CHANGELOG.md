@@ -1,3 +1,10 @@
+# [4.14.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.13...v4.14.0-dev.14) (2024-09-17)
+
+
+### Features
+
+* **YouTube Music:** Make working patches compatible with latest versions ([#3556](https://github.com/ReVanced/revanced-patches/issues/3556)) ([12f6f19](https://github.com/ReVanced/revanced-patches/commit/12f6f1966ad04631451940f7b64d785c3ef481a0))
+
 # [4.14.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.12...v4.14.0-dev.13) (2024-09-17)
 
 
