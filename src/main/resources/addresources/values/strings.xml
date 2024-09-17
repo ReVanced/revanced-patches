@@ -631,6 +631,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_shorts_save_sound_button_title">Hide save sound to playlist button</string>
             <string name="revanced_hide_shorts_save_sound_button_summary_on">Save sound to playlist is hidden</string>
             <string name="revanced_hide_shorts_save_sound_button_summary_off">Save sound to playlist is shown</string>
+            <string name="revanced_hide_shorts_use_this_sound_button_title">Hide use this sound button</string>
+            <string name="revanced_hide_shorts_use_this_sound_button_summary_on">Use this sound button is hidden</string>
+            <string name="revanced_hide_shorts_use_this_sound_button_summary_off">Use this sound button is shown</string>
             <string name="revanced_hide_shorts_search_suggestions_title">Hide search suggestions</string>
             <string name="revanced_hide_shorts_search_suggestions_summary_on">Search suggestions are hidden</string>
             <string name="revanced_hide_shorts_search_suggestions_summary_off">Search suggestions are shown</string>
