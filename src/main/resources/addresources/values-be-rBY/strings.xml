@@ -32,6 +32,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
 -->
 <resources>
   <app id="shared">
+  <patch id="misc.checks.BaseCheckEnvironmentPatch">
+  </patch>
   <patch id="misc.settings.BaseSettingsResourcePatch">
   <string name="revanced_settings_confirm_user_dialog_title">Вы хочаце працягнуць?</string>
   <string name="revanced_settings_reset">Скінуць</string>
@@ -42,6 +44,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_import_reset">Налады ReVanced скінуты да стандартных</string>
   <string name="revanced_settings_import_success">Імпартавана %d налад</string>
   <string name="revanced_settings_import_failure_parse">Памылка імпарту: %s</string>
+  <string name="revanced_pref_import_export_title">Імпарт / Экспарт</string>
+  <string name="revanced_pref_import_export_summary">Імпарт / Экспарт налад ReVanced</string>
+  <!-- Settings about dialog. -->
+  <string name="revanced_settings_about_links_body">Вы выкарыстоўваеце версію ReVanced Patches &lt;i&gt;%s&lt;/i&gt;</string>
+  <string name="revanced_settings_about_links_dev_header">Нататка</string>
+  <string name="revanced_settings_about_links_dev_body">Гэтая версія з\"яўляецца папярэдняй версіяй, і вы можаце сутыкнуцца з непрадбачанымі праблемамі</string>
+  <string name="revanced_settings_about_links_header">Афіцыйныя спасылкі</string>
   </patch>
   <patch id="misc.gms.BaseGmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -54,14 +63,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   </app>
   <app id="youtube">
-  <patch id="misc.settings.SettingsResourcePatch">
-  <string name="revanced_settings_about_links_body">Вы выкарыстоўваеце версію ReVanced Patches &lt;i&gt;%s&lt;/i&gt;</string>
-  <string name="revanced_settings_about_links_dev_header">Нататка</string>
-  <string name="revanced_settings_about_links_dev_body">Гэтая версія з\"яўляецца папярэдняй версіяй, і вы можаце сутыкнуцца з непрадбачанымі праблемамі</string>
-  <string name="revanced_settings_about_links_header">Афіцыйныя спасылкі</string>
-  <string name="revanced_pref_import_export_title">Імпарт / Экспарт</string>
-  <string name="revanced_pref_import_export_summary">Імпарт / Экспарт налад ReVanced</string>
-  </patch>
   <patch id="misc.settings.SettingsPatch">
   <string name="revanced_settings_screen_00_about_title">Пра праграму</string>
   <string name="revanced_settings_screen_01_ads_title">Аб\"явы</string>
@@ -242,14 +243,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_content_phrases_title">Ключавыя словы, якія трэба схаваць</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
-  <string name="revanced_hide_keyword_content_phrases_summary">Ключавыя словы і фразы, якія трэба схаваць, падзеленыя новымі радкамі\n\nСловы з вялікімі літарамі пасярэдзіне трэба ўводзіць з вялікім рэгістрам (напрыклад: iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">Аб фільтрацыі ключавых слоў</string>
-  <string name="revanced_hide_keyword_content_about_summary">Галоўная/Падпіска/Вынікі пошуку фільтруюцца, каб схаваць змесціва, якое супадае з ключавымі фразамі\n\nАбмежаванні\n• Некаторыя шорты могуць быць не схаваны\n• Некаторыя кампаненты карыстальніцкага інтэрфейсу могуць быць не схаваны\n• Пошук па ключавым слове можа не даць вынікаў</string>
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_keyword_toast_invalid_common">Няправільнае ключавое слова. Немагчыма выкарыстоўваць: \"%s\" у якасці фільтра</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_keyword_toast_invalid_length">Няправільнае ключавое слова. \"%1$s\" змяшчае менш за %2$d сімвалаў</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">Ключавое слова \"%s\" схавае ўсе відэа</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Схаваць агульную рэкламу</string>
@@ -678,7 +674,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_player_overlay_opacity_invalid_toast">Непразрыстасць накладання прайгравальніка павінна быць паміж 0-100</string>
   </patch>
   <patch id="layout.returnyoutubedislike.ReturnYouTubeDislikeResourcePatch">
-  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Схаваны</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">Адзнакі \"Не падабаецца\" часова недаступныя (час чакання API скончыўся)</string>
   <string name="revanced_ryd_failure_connection_status_code">Дызлайкі недаступныя (статус %d)</string>
