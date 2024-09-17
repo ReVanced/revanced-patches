@@ -365,56 +365,32 @@ public final class app/revanced/patches/instagram/patches/ads/timeline/HideTimel
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/instagram/patches/developerMenu/EnableDeveloperMenuPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/instagram/patches/developerMenu/EnableDeveloperMenuPatch;
+public final class app/revanced/patches/instagram/patches/interaction/bio/SelectableBioPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/instagram/patches/interaction/bio/SelectableBioPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/instagram/patches/links/openInExternalBrowser/OpenLinksInExternalBrowser : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/instagram/patches/links/openInExternalBrowser/OpenLinksInExternalBrowser;
+public final class app/revanced/patches/instagram/patches/interaction/links/browser/OpenLinksInExternalBrowser : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/instagram/patches/interaction/links/browser/OpenLinksInExternalBrowser;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/instagram/patches/links/openInExternalBrowser/fingerprints/OpenLinksInExternalBrowserFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/instagram/patches/links/openInExternalBrowser/fingerprints/OpenLinksInExternalBrowserFingerprint;
-}
-
-public final class app/revanced/patches/instagram/patches/links/sanitizeSharingLinks/SanitizeSharingLinksPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/instagram/patches/links/sanitizeSharingLinks/SanitizeSharingLinksPatch;
+public final class app/revanced/patches/instagram/patches/interaction/links/tracking/SanitizeSharingLinksPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/instagram/patches/interaction/links/tracking/SanitizeSharingLinksPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/instagram/patches/links/sanitizeSharingLinks/fingerprints/HighlightsShareUrlFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/instagram/patches/links/sanitizeSharingLinks/fingerprints/HighlightsShareUrlFingerprint;
-}
-
-public final class app/revanced/patches/instagram/patches/links/sanitizeSharingLinks/fingerprints/LiveShareUrlFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/instagram/patches/links/sanitizeSharingLinks/fingerprints/LiveShareUrlFingerprint;
-}
-
-public final class app/revanced/patches/instagram/patches/links/sanitizeSharingLinks/fingerprints/PostShareClassFinderFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/instagram/patches/links/sanitizeSharingLinks/fingerprints/PostShareClassFinderFingerprint;
-}
-
-public final class app/revanced/patches/instagram/patches/links/sanitizeSharingLinks/fingerprints/ProfileShareUrlFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/instagram/patches/links/sanitizeSharingLinks/fingerprints/ProfileShareUrlFingerprint;
-}
-
-public final class app/revanced/patches/instagram/patches/links/sanitizeSharingLinks/fingerprints/StoryShareUrlFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/instagram/patches/links/sanitizeSharingLinks/fingerprints/StoryShareUrlFingerprint;
-}
-
-public final class app/revanced/patches/instagram/patches/maxQuality/MaxMediaQualityPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/instagram/patches/maxQuality/MaxMediaQualityPatch;
+public final class app/revanced/patches/instagram/patches/layout/menu/developer/EnableDeveloperMenuPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/instagram/patches/layout/menu/developer/EnableDeveloperMenuPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/instagram/patches/selectableBio/SelectableBioPatch : app/revanced/patcher/patch/BytecodePatch {
-	public static final field INSTANCE Lapp/revanced/patches/instagram/patches/selectableBio/SelectableBioPatch;
+public final class app/revanced/patches/instagram/patches/misc/quality/MaxMediaQualityPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/instagram/patches/misc/quality/MaxMediaQualityPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }

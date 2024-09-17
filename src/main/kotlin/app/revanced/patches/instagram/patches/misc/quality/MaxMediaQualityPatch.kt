@@ -1,4 +1,4 @@
-package app.revanced.patches.instagram.patches.maxQuality
+package app.revanced.patches.instagram.patches.misc.quality
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
@@ -18,14 +18,18 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Max media quality",
-    description = "Sets the images/videos/stories quality to max. " +
-        "Instagram occasionally compresses media resolution based on device dimensions, leading to a loss in quality. " +
-        "This patch overrides that limitation.",
+    description = "Sets the images/videos/stories quality to highest " +
+        "to fight unwanted compression based on screen size.",
     compatiblePackages = [CompatiblePackage("com.instagram.android")],
 )
 @Suppress("unused")
 object MaxMediaQualityPatch : BytecodePatch(
-    setOf(DisplayMetricsFingerprint, MediaSizeFingerprint, StoryMediaBitrateFingerprint, VideoEncoderConfigFingerprint),
+    setOf(
+        DisplayMetricsFingerprint,
+        MediaSizeFingerprint,
+        StoryMediaBitrateFingerprint,
+        VideoEncoderConfigFingerprint,
+    ),
 ) {
     override fun execute(context: BytecodeContext) {
         val maxPostSize = "0x800" // Decimal value = 2048. Maximum post size.
@@ -54,9 +58,11 @@ object MaxMediaQualityPatch : BytecodePatch(
         // Yet another method where the image resolution is compressed.
         MediaSizeFingerprint.resultOrThrow().let { it ->
             it.mutableClass.apply {
-                val mediaSetMethod = methods.first { it.returnType == "Lcom/instagram/model/mediasize/ExtendedImageUrl;" }
+                val mediaSetMethod =
+                    methods.first { it.returnType == "Lcom/instagram/model/mediasize/ExtendedImageUrl;" }
 
-                val mediaSetInstructions = mediaSetMethod.getInstructions().filter { it.opcode == Opcode.INVOKE_VIRTUAL }
+                val mediaSetInstructions =
+                    mediaSetMethod.getInstructions().filter { it.opcode == Opcode.INVOKE_VIRTUAL }
 
                 mediaSetInstructions.forEach { instruction ->
                     val index = instruction.location.index + 1
@@ -89,13 +95,18 @@ object MaxMediaQualityPatch : BytecodePatch(
                 // Get the constructor.
                 val videoEncoderConfigConstructor = methods.first()
 
-                val lastMoveResIndex = videoEncoderConfigConstructor.getInstructions().last { it.opcode == Opcode.MOVE_RESULT }.location.index
+                val lastMoveResIndex = videoEncoderConfigConstructor.getInstructions()
+                    .last { it.opcode == Opcode.MOVE_RESULT }.location.index
 
                 // Finding the register were the bitrate is stored.
-                val bitRateRegister = videoEncoderConfigConstructor.getInstruction<OneRegisterInstruction>(lastMoveResIndex).registerA
+                val bitRateRegister =
+                    videoEncoderConfigConstructor.getInstruction<OneRegisterInstruction>(lastMoveResIndex).registerA
 
                 // Set bitrate to maximum possible.
-                videoEncoderConfigConstructor.addInstruction(lastMoveResIndex + 1, "const v$bitRateRegister, $maxBitRate")
+                videoEncoderConfigConstructor.addInstruction(
+                    lastMoveResIndex + 1,
+                    "const v$bitRateRegister, $maxBitRate",
+                )
             }
         }
     }

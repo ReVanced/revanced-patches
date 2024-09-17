@@ -1,4 +1,4 @@
-package app.revanced.patches.instagram.patches.selectableBio.fingerprints
+package app.revanced.patches.instagram.patches.interaction.bio.fingerprints
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
 

@@ -1,4 +1,4 @@
-package app.revanced.patches.instagram.patches.developerMenu.fingerprints
+package app.revanced.patches.instagram.patches.layout.menu.developer.fingerprints
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
 
