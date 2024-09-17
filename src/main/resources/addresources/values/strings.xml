@@ -53,6 +53,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_settings_import_reset">ReVanced settings reset to default</string>
             <string name="revanced_settings_import_success">Imported %d settings</string>
             <string name="revanced_settings_import_failure_parse">Import failed: %s</string>
+            <string name="revanced_pref_import_export_title">Import / Export</string>
+            <string name="revanced_pref_import_export_summary">Import / Export ReVanced settings</string>
+            <!-- Settings about dialog. -->
+            <string name="revanced_settings_about_links_body">You are using ReVanced Patches version &lt;i>%s&lt;/i></string>
+            <string name="revanced_settings_about_links_dev_header">Note</string>
+            <string name="revanced_settings_about_links_dev_body">This version is a pre-release and you may experience unexpected issues</string>
+            <string name="revanced_settings_about_links_header">Official links</string>
+            <string name="revanced_settings_about_links_donate">Donate</string>
         </patch>
         <patch id="misc.gms.BaseGmsCoreSupportResourcePatch">
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -65,15 +73,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
         </patch>
     </app>
     <app id="youtube">
-        <patch id="misc.settings.SettingsResourcePatch">
-            <string name="revanced_settings">ReVanced</string>
-            <string name="revanced_settings_about_links_body">You are using ReVanced Patches version &lt;i>%s&lt;/i></string>
-            <string name="revanced_settings_about_links_dev_header">Note</string>
-            <string name="revanced_settings_about_links_dev_body">This version is a pre-release and you may experience unexpected issues</string>
-            <string name="revanced_settings_about_links_header">Official links</string>
-            <string name="revanced_pref_import_export_title">Import / Export</string>
-            <string name="revanced_pref_import_export_summary">Import / Export ReVanced settings</string>
-        </patch>
         <patch id="misc.settings.SettingsPatch">
             <string name="revanced_settings_screen_00_about_title">About</string>
             <string name="revanced_settings_screen_01_ads_title">Ads</string>
@@ -913,6 +912,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_sb_stats_username_changed">Username successfully changed</string>
             <string name="revanced_sb_stats_reputation">Your reputation is &lt;b>%.2f&lt;/b></string>
             <string name="revanced_sb_stats_submissions">You\'ve created &lt;b>%s&lt;/b> segments</string>
+            <string name="revanced_sb_stats_submissions_sum">Tap here to view your segments</string>
             <string name="revanced_sb_stats_saved_zero">SponsorBlock leaderboard</string>
             <string name="revanced_sb_stats_saved">You\'ve saved people from &lt;b>%s&lt;/b> segments</string>
             <string name="revanced_sb_stats_saved_sum_zero">Tap here to see the global stats and top contributors</string>

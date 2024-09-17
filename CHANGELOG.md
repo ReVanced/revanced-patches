@@ -1,3 +1,38 @@
+# [4.14.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.11...v4.14.0-dev.12) (2024-09-14)
+
+
+### Bug Fixes
+
+* **Soundcloud - Hide ads:** Support latest version ([#3628](https://github.com/ReVanced/revanced-patches/issues/3628)) ([66e7e33](https://github.com/ReVanced/revanced-patches/commit/66e7e33efce9b702fdfcc2b9803e9da8491c1f08))
+
+# [4.14.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.10...v4.14.0-dev.11) (2024-09-12)
+
+
+### Features
+
+* **Sync for Reddit:** Rename patch to `Use /user/ endpoint` ([98ead49](https://github.com/ReVanced/revanced-patches/commit/98ead493380932cb105530f4ba992673fd364d82))
+
+# [4.14.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.9...v4.14.0-dev.10) (2024-09-12)
+
+
+### Features
+
+* **Sync for Reddit:** Add `Fix /user/ endpoint` patch ([46d11f3](https://github.com/ReVanced/revanced-patches/commit/46d11f3530fcdae9ed08b7e93aac235638a92dff))
+
+# [4.14.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.8...v4.14.0-dev.9) (2024-09-09)
+
+
+### Features
+
+* **YouTube:** Add donation link to settings about screen ([#3626](https://github.com/ReVanced/revanced-patches/issues/3626)) ([0684ab5](https://github.com/ReVanced/revanced-patches/commit/0684ab5f183631de5720352049cfd293daa58eb0))
+
+# [4.14.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.7...v4.14.0-dev.8) (2024-09-09)
+
+
+### Bug Fixes
+
+* **YouTube - SponsorBlock:** Add summary text to 'view my segments' button ([df80b9f](https://github.com/ReVanced/revanced-patches/commit/df80b9f92f0d981b9a40b7756d74f8ccc3dcb1e9))
+
 # [4.14.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.6...v4.14.0-dev.7) (2024-09-06)
 
 
