@@ -84,10 +84,11 @@ object SpoofClientPatch : BytecodePatch(
         CreateStreamingDataFingerprint,
         BuildMediaDataSourceFingerprint,
         BuildRequestFingerprint,
-        ProtobufClassParseByteBufferFingerprint
-    )
+        ProtobufClassParseByteBufferFingerprint,
+    ),
 ) {
-    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/spoof/SpoofClientPatch;"
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR =
+        "Lapp/revanced/integrations/youtube/patches/spoof/SpoofClientPatch;"
 
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
@@ -98,19 +99,20 @@ object SpoofClientPatch : BytecodePatch(
                 sorting = PreferenceScreen.Sorting.UNSORTED,
                 preferences = setOf(
                     SwitchPreference("revanced_spoof_streaming_data"),
-                    ListPreference("revanced_spoof_streaming_data_type",
+                    ListPreference(
+                        "revanced_spoof_streaming_data_type",
                         summaryKey = null,
                         entriesKey = "revanced_spoof_streaming_data_type_entries",
-                        entryValuesKey = "revanced_spoof_streaming_data_type_entry_values"
+                        entryValuesKey = "revanced_spoof_streaming_data_type_entry_values",
                     ),
                     SwitchPreference(
                         "revanced_spoof_streaming_data_ios_force_avc",
-                        tag = "app.revanced.integrations.youtube.settings.preference.ForceAVCSpoofingPreference"
+                        tag = "app.revanced.integrations.youtube.settings.preference.ForceAVCSpoofingPreference",
                     ),
                     NonInteractivePreference("revanced_spoof_streaming_data_about_ios"),
                     NonInteractivePreference("revanced_spoof_streaming_data_about_android_vr"),
-                )
-            )
+                ),
+            ),
         )
 
         // region Block /initplayback requests to fall back to /get_watch requests.
@@ -153,12 +155,12 @@ object SpoofClientPatch : BytecodePatch(
 
         // endregion
 
-        // region Fetch replacement streams.
+        // region Get replacement streams at player requests.
 
         BuildRequestFingerprint.resultOrThrow().mutableMethod.apply {
             val newRequestBuilderIndex = indexOfFirstInstructionOrThrow {
-                opcode == Opcode.INVOKE_VIRTUAL
-                        && getReference<MethodReference>()?.name == "newUrlRequestBuilder"
+                opcode == Opcode.INVOKE_VIRTUAL &&
+                    getReference<MethodReference>()?.name == "newUrlRequestBuilder"
             }
             val urlRegister = getInstruction<FiveRegisterInstruction>(newRequestBuilderIndex).registerD
             val freeRegister = getInstruction<OneRegisterInstruction>(newRequestBuilderIndex + 1).registerA
@@ -168,13 +170,13 @@ object SpoofClientPatch : BytecodePatch(
                 """
                     move-object v$freeRegister, p1
                     invoke-static { v$urlRegister, v$freeRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->fetchStreams(Ljava/lang/String;Ljava/util/Map;)V
-                """
+                """,
             )
         }
 
         // endregion
 
-        // region Replace the streaming data.
+        // region Replace the streaming data with the replacement streams.
 
         CreateStreamingDataFingerprint.resultOrThrow().let { result ->
             result.mutableMethod.apply {
@@ -186,7 +188,8 @@ object SpoofClientPatch : BytecodePatch(
 
                 addInstruction(
                     videoDetailsIndex + 1,
-                    "invoke-direct { p0, v$videoDetailsRegister }, $resultMethodType->$setStreamDataMethodName($videoDetailsClass)V"
+                    "invoke-direct { p0, v$videoDetailsRegister }, " +
+                        "$resultMethodType->$setStreamDataMethodName($videoDetailsClass)V",
                 )
 
                 val protobufClass = ProtobufClassParseByteBufferFingerprint.resultOrThrow().mutableMethod.definingClass
@@ -197,7 +200,7 @@ object SpoofClientPatch : BytecodePatch(
                 val setStreamingDataField = getInstruction(setStreamingDataIndex).getReference<FieldReference>()
                 val getStreamingDataField = getInstructions().find { instruction ->
                     instruction.opcode == Opcode.IGET_OBJECT &&
-                            instruction.getReference<FieldReference>()?.definingClass == playerProtoClass
+                        instruction.getReference<FieldReference>()?.definingClass == playerProtoClass
                 }?.getReference<FieldReference>() ?: throw PatchException("Could not find getStreamingDataField")
 
                 // Use a helper method to avoid the need of picking out multiple free registers from the hooked code.
@@ -212,7 +215,9 @@ object SpoofClientPatch : BytecodePatch(
                         null,
                         MutableMethodImplementation(9),
                     ).toMutable().apply {
-                        addInstructionsWithLabels(0, """
+                        addInstructionsWithLabels(
+                            0,
+                            """
                             invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->isSpoofingEnabled()Z
                             move-result v0
                             if-eqz v0, :disabled
@@ -239,9 +244,9 @@ object SpoofClientPatch : BytecodePatch(
                             
                             :disabled
                             return-void
-                        """
+                        """,
                         )
-                    }
+                    },
                 )
             }
         }
