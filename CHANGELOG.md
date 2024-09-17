@@ -1,3 +1,10 @@
+# [4.14.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.12...v4.14.0-dev.13) (2024-09-17)
+
+
+### Features
+
+* **YouTube - Hide Shorts components:** Hide 'Use this sound' button ([#3647](https://github.com/ReVanced/revanced-patches/issues/3647)) ([33fc090](https://github.com/ReVanced/revanced-patches/commit/33fc09061431d4aa457d743c09a0de31ec566df1))
+
 # [4.14.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.11...v4.14.0-dev.12) (2024-09-14)
 
 
