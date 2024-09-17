@@ -1,12 +1,12 @@
 <resources>
     <app id="youtube">
-        <patch id="misc.fix.playback.SpoofClientPatch">
-            <string-array name="revanced_spoof_streaming_data_type_entries">
+        <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+            <string-array name="revanced_spoof_video_streams_client_type_entries">
                 <!-- Device and operating systems names are not translatable, so no need to use strings.xml -->
                 <item>iOS</item>
                 <item>Android VR</item>
             </string-array>
-            <string-array name="revanced_spoof_streaming_data_type_entry_values">
+            <string-array name="revanced_spoof_video_streams_client_type_entry_values">
                 <!-- Enum names from Integrations -->
                 <item>IOS</item>
                 <item>ANDROID_VR</item>
