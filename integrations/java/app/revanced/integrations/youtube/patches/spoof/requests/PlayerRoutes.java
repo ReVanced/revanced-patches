@@ -1,94 +1,68 @@
 package app.revanced.integrations.youtube.patches.spoof.requests;
 
-import app.revanced.integrations.youtube.requests.Requester;
-import app.revanced.integrations.youtube.requests.Route;
-import app.revanced.integrations.shared.Logger;
-import app.revanced.integrations.shared.Utils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
 
+import app.revanced.integrations.shared.Logger;
+import app.revanced.integrations.youtube.patches.spoof.ClientType;
+import app.revanced.integrations.youtube.requests.Requester;
+import app.revanced.integrations.youtube.requests.Route;
+
 final class PlayerRoutes {
-    private static final String YT_API_URL = "https://www.youtube.com/youtubei/v1/";
-    static final Route.CompiledRoute GET_STORYBOARD_SPEC_RENDERER = new Route(
+    private static final String YT_API_URL = "https://youtubei.googleapis.com/youtubei/v1/";
+
+    static final Route.CompiledRoute GET_STREAMING_DATA = new Route(
             Route.Method.POST,
             "player" +
-                    "?fields=storyboards.playerStoryboardSpecRenderer," +
-                    "storyboards.playerLiveStoryboardSpecRenderer," +
-                    "playabilityStatus.status"
+                    "?fields=streamingData" +
+                    "&alt=proto"
     ).compile();
-
-    static final String ANDROID_INNER_TUBE_BODY;
-    static final String TV_EMBED_INNER_TUBE_BODY;
 
     /**
      * TCP connection and HTTP read timeout
      */
     private static final int CONNECTION_TIMEOUT_MILLISECONDS = 10 * 1000; // 10 Seconds.
 
-    static {
-        JSONObject innerTubeBody = new JSONObject();
+    private PlayerRoutes() {
+    }
+
+    static String createInnertubeBody(ClientType clientType) {
+    	JSONObject innerTubeBody = new JSONObject();
 
         try {
             JSONObject context = new JSONObject();
 
             JSONObject client = new JSONObject();
-            client.put("clientName", "ANDROID");
-            client.put("clientVersion", Utils.getAppVersionName());
-            client.put("androidSdkVersion", 34);
+            client.put("clientName", clientType.name());
+            client.put("clientVersion", clientType.appVersion);
+            client.put("deviceModel", clientType.model);
+            client.put("osVersion", clientType.osVersion);
+            if (clientType.androidSdkVersion != null) {
+                client.put("androidSdkVersion", clientType.androidSdkVersion);
+            }
 
             context.put("client", client);
 
             innerTubeBody.put("context", context);
+            innerTubeBody.put("contentCheckOk", true);
+            innerTubeBody.put("racyCheckOk", true);
             innerTubeBody.put("videoId", "%s");
         } catch (JSONException e) {
             Logger.printException(() -> "Failed to create innerTubeBody", e);
         }
 
-        ANDROID_INNER_TUBE_BODY = innerTubeBody.toString();
-
-        JSONObject tvEmbedInnerTubeBody = new JSONObject();
-
-        try {
-            JSONObject context = new JSONObject();
-
-            JSONObject client = new JSONObject();
-            client.put("clientName", "TVHTML5_SIMPLY_EMBEDDED_PLAYER");
-            client.put("clientVersion", "2.0");
-            client.put("platform", "TV");
-            client.put("clientScreen", "EMBED");
-
-            JSONObject thirdParty = new JSONObject();
-            thirdParty.put("embedUrl", "https://www.youtube.com/watch?v=%s");
-
-            context.put("thirdParty", thirdParty);
-            context.put("client", client);
-
-            tvEmbedInnerTubeBody.put("context", context);
-            tvEmbedInnerTubeBody.put("videoId", "%s");
-        } catch (JSONException e) {
-            Logger.printException(() -> "Failed to create tvEmbedInnerTubeBody", e);
-        }
-
-        TV_EMBED_INNER_TUBE_BODY = tvEmbedInnerTubeBody.toString();
-    }
-
-    private PlayerRoutes() {
+        return innerTubeBody.toString();
     }
 
     /** @noinspection SameParameterValue*/
-    static HttpURLConnection getPlayerResponseConnectionFromRoute(Route.CompiledRoute route) throws IOException {
+    static HttpURLConnection getPlayerResponseConnectionFromRoute(Route.CompiledRoute route, ClientType clientType) throws IOException {
         var connection = Requester.getConnectionFromCompiledRoute(YT_API_URL, route);
 
-        connection.setRequestProperty(
-                "User-Agent", "com.google.android.youtube/" +
-                        Utils.getAppVersionName() +
-                        " (Linux; U; Android 12; GB) gzip"
-        );
-        connection.setRequestProperty("X-Goog-Api-Format-Version", "2");
         connection.setRequestProperty("Content-Type", "application/json");
+        connection.setRequestProperty("User-Agent", clientType.userAgent);
 
         connection.setUseCaches(false);
         connection.setDoOutput(true);

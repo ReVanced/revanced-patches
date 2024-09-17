@@ -7,8 +7,9 @@ import app.revanced.integrations.youtube.patches.AlternativeThumbnailsPatch.DeAr
 import app.revanced.integrations.youtube.patches.AlternativeThumbnailsPatch.StillImagesAvailability;
 import app.revanced.integrations.youtube.patches.AlternativeThumbnailsPatch.ThumbnailOption;
 import app.revanced.integrations.youtube.patches.AlternativeThumbnailsPatch.ThumbnailStillTime;
+import app.revanced.integrations.youtube.patches.spoof.ClientType;
 import app.revanced.integrations.youtube.patches.spoof.SpoofAppVersionPatch;
-import app.revanced.integrations.youtube.patches.spoof.SpoofClientPatch;
+import app.revanced.integrations.youtube.patches.spoof.SpoofVideoStreamsPatch;
 import app.revanced.integrations.youtube.sponsorblock.SponsorBlockSettings;
 
 import java.util.Arrays;
@@ -19,7 +20,6 @@ import static app.revanced.integrations.shared.settings.Setting.*;
 import static app.revanced.integrations.youtube.patches.MiniplayerPatch.MiniplayerType;
 import static app.revanced.integrations.youtube.patches.MiniplayerPatch.MiniplayerType.MODERN_1;
 import static app.revanced.integrations.youtube.patches.MiniplayerPatch.MiniplayerType.MODERN_3;
-import static app.revanced.integrations.youtube.patches.spoof.SpoofClientPatch.ClientType;
 import static app.revanced.integrations.youtube.sponsorblock.objects.CategoryBehaviour.*;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
@@ -256,10 +256,10 @@ public class Settings extends BaseSettings {
             "revanced_spoof_device_dimensions_user_dialog_message");
     public static final BooleanSetting BYPASS_URL_REDIRECTS = new BooleanSetting("revanced_bypass_url_redirects", TRUE);
     public static final BooleanSetting ANNOUNCEMENTS = new BooleanSetting("revanced_announcements", TRUE);
-    public static final BooleanSetting SPOOF_CLIENT = new BooleanSetting("revanced_spoof_client", TRUE, true,"revanced_spoof_client_user_dialog_message");
-    public static final BooleanSetting SPOOF_CLIENT_IOS_FORCE_AVC = new BooleanSetting("revanced_spoof_client_ios_force_avc", FALSE, true,
-            "revanced_spoof_client_ios_force_avc_user_dialog_message", new SpoofClientPatch.ForceiOSAVCAvailability());
-    public static final EnumSetting<ClientType> SPOOF_CLIENT_TYPE = new EnumSetting<>("revanced_spoof_client_type", ClientType.IOS, true, parent(SPOOF_CLIENT));
+    public static final BooleanSetting SPOOF_VIDEO_STREAMS = new BooleanSetting("revanced_spoof_video_streams", TRUE, true,"revanced_spoof_video_streams_user_dialog_message");
+    public static final BooleanSetting SPOOF_VIDEO_STREAMS_IOS_FORCE_AVC = new BooleanSetting("revanced_spoof_video_streams_ios_force_avc", FALSE, true,
+            "revanced_spoof_video_streams_ios_force_avc_user_dialog_message", new SpoofVideoStreamsPatch.ForceiOSAVCAvailability());
+    public static final EnumSetting<ClientType> SPOOF_VIDEO_STREAMS_CLIENT_TYPE = new EnumSetting<>("revanced_spoof_video_streams_client_type", ClientType.IOS, true, parent(SPOOF_VIDEO_STREAMS));
     @Deprecated
     public static final StringSetting DEPRECATED_ANNOUNCEMENT_LAST_HASH = new StringSetting("revanced_announcement_last_hash", "");
     public static final IntegerSetting ANNOUNCEMENT_LAST_ID = new IntegerSetting("revanced_announcement_last_id", -1);
