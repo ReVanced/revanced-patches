@@ -1,3 +1,10 @@
+# [4.14.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.14...v4.14.0-dev.15) (2024-09-17)
+
+
+### Bug Fixes
+
+* **YouTube:** Fix issues related to playback by replace streaming data ([#3582](https://github.com/ReVanced/revanced-patches/issues/3582)) ([dfa94d7](https://github.com/ReVanced/revanced-patches/commit/dfa94d70f65150d6ef24ea6378b8e6a317055186))
+
 # [4.14.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.13...v4.14.0-dev.14) (2024-09-17)
 
 
