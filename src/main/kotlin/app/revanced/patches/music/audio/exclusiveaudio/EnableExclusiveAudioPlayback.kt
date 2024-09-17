@@ -12,16 +12,7 @@ import app.revanced.util.exception
     name = "Enable exclusive audio playback",
     description = "Enables the option to play audio without video.",
     compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.apps.youtube.music",
-            [
-                "6.45.54",
-                "6.51.53",
-                "7.01.53",
-                "7.02.52",
-                "7.03.52",
-            ]
-        )
+        CompatiblePackage("com.google.android.apps.youtube.music")
     ]
 )
 @Suppress("unused")

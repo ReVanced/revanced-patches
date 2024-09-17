@@ -28,8 +28,6 @@ object SettingsResourcePatch : BaseSettingsResourcePatch(
     override fun execute(context: ResourceContext) {
         super.execute(context)
 
-        AddResourcesPatch(this::class)
-
         // Used for a fingerprint from SettingsPatch.
         appearanceStringId = ResourceMappingPatch["string", "app_theme_appearance_dark"]
 

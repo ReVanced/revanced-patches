@@ -32,6 +32,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
 -->
 <resources>
   <app id="shared">
+  <patch id="misc.checks.BaseCheckEnvironmentPatch">
+  <string name="revanced_check_environment_failed_title">Controlli falliti</string>
+  <string name="revanced_check_environment_dialog_open_official_source_button">Apri sito ufficiale</string>
+  <string name="revanced_check_environment_dialog_ignore_button">Ignora</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Questa app non sembra essere patched da te.&lt;/h5&gt;&lt;br&gt;Questa app potrebbe non funzionare correttamente, &lt;b&gt;potrebbe essere dannosa o addirittura pericolosa da usare&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Questi controlli implicano che questa app sia pre-patchata o ottenuta da qualcun altro:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Si consiglia vivamente di &lt;b&gt;disinstallare questa app e patch te stesso&lt;/b&gt; per assicurarsi di utilizzare un\'app convalidata e sicura.&lt;p&gt;&lt;br&gt;Se ignorato, questo avviso verrà visualizzato solo due volte.</string>
+  <string name="revanced_check_environment_not_same_patching_device">Patchato su un altro dispositivo</string>
+  <string name="revanced_check_environment_manager_not_expected_installer">Non installato da ReVanced Manager</string>
+  <string name="revanced_check_environment_not_near_patch_time">Patched more than 10 minutes ago</string>
+  <string name="revanced_check_environment_not_near_patch_time_days">Patched %s days ago</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">La data di compilazione APK è danneggiata</string>
+  </patch>
   <patch id="misc.settings.BaseSettingsResourcePatch">
   <string name="revanced_settings_confirm_user_dialog_title">Sei sicuro di voler continuare?</string>
   <string name="revanced_settings_reset">Reimposta</string>
@@ -42,6 +53,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_import_reset">Reimposta le impostazioni di ReVanced a quelle di default</string>
   <string name="revanced_settings_import_success">Importate %d impostazioni</string>
   <string name="revanced_settings_import_failure_parse">Importazione fallita: %s</string>
+  <string name="revanced_pref_import_export_title">Importa / Esporta</string>
+  <string name="revanced_pref_import_export_summary">Importa / Esporta impostazioni ReVanced</string>
+  <!-- Settings about dialog. -->
+  <string name="revanced_settings_about_links_body">Stai usando la versione &lt;i&gt;%s&lt;/i&gt; di ReVanced Patches</string>
+  <string name="revanced_settings_about_links_dev_header">Nota</string>
+  <string name="revanced_settings_about_links_dev_body">Questa versione è una pre-release e potresti riscontrare problemi inaspettati</string>
+  <string name="revanced_settings_about_links_header">Link ufficiali</string>
+  <string name="revanced_settings_about_links_donate">Dona</string>
   </patch>
   <patch id="misc.gms.BaseGmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -54,14 +73,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   </app>
   <app id="youtube">
-  <patch id="misc.settings.SettingsResourcePatch">
-  <string name="revanced_settings_about_links_body">Stai usando la versione &lt;i&gt;%s&lt;/i&gt; di ReVanced Patches</string>
-  <string name="revanced_settings_about_links_dev_header">Nota</string>
-  <string name="revanced_settings_about_links_dev_body">Questa versione è una pre-release e potresti riscontrare problemi inaspettati</string>
-  <string name="revanced_settings_about_links_header">Link ufficiali</string>
-  <string name="revanced_pref_import_export_title">Importa / Esporta</string>
-  <string name="revanced_pref_import_export_summary">Importa / Esporta impostazioni ReVanced</string>
-  </patch>
   <patch id="misc.settings.SettingsPatch">
   <string name="revanced_settings_screen_00_about_title">Informazioni</string>
   <string name="revanced_settings_screen_01_ads_title">Annunci</string>
@@ -242,14 +253,18 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_content_phrases_title">Parole chiave da nascondere</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
-  <string name="revanced_hide_keyword_content_phrases_summary">Parole chiave e frasi da nascondere, separate da nuove linee\n\nLe parole con lettere maiuscole nel centro devono essere inserite con il budello (ie: iPhone, TikTok, LeBlanc)</string>
+  <string name="revanced_hide_keyword_content_phrases_summary">Parole chiave e frasi da nascondere, separate da nuove righe\n\nLe parole chiave possono essere nomi di canali o qualsiasi testo mostrato nei titoli video\n\nLe parole con lettere maiuscole nel centro devono essere inserite con il contenitore (es: iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">Informazioni sul filtro delle parole chiave</string>
-  <string name="revanced_hide_keyword_content_about_summary">Home/Abbonamento/I risultati della ricerca sono filtrati per nascondere il contenuto che corrisponde alle frasi di parole chiave\n\nLimitazioni\n• Alcuni Shorts potrebbero non essere nascosti\n• Alcuni componenti dell\'interfaccia utente potrebbero non essere nascosti\n• La ricerca di una parola chiave potrebbe non mostrare alcun risultato</string>
+  <string name="revanced_hide_keyword_content_about_summary">Home/Abbonamento/I risultati della ricerca sono filtrati per nascondere il contenuto che corrisponde alle frasi di parole chiave\n\nLimitazioni\n• I resort non possono essere nascosti dal nome del canale\n• Alcuni componenti dell\'interfaccia utente potrebbero non essere nascosti\n• La ricerca di una parola chiave potrebbe non mostrare alcun risultato</string>
+  <string name="revanced_hide_keyword_content_about_whole_words_title">Corrispondenza parole intere</string>
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <string name="revanced_hide_keyword_content_about_whole_words_summary">Circondare una parola chiave/frase con doppie virgolette impedirà partite parziali di titoli video e nomi di canali&lt;br&gt;&lt;br&gt;Per esempio,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; nasconderà il video: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;ma non si nasconde: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_keyword_toast_invalid_common">Parola chiave non valida. Impossibile utilizzare: \'%s\' come filtro</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_keyword_toast_invalid_length">Parola chiave non valida. \'%1$s\' è minore di %2$d caratteri</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">La parola chiave \'%s\' nasconderà tutti i video</string>
+  <string name="revanced_hide_keyword_toast_invalid_common">Impossibile usare la parola chiave: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Aggiungi preventivi per usare la parola chiave: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_conflicting">La parola chiave ha dichiarazioni in conflitto: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_length">Parola chiave troppo corta e richiede preventivi: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">Parola chiave nasconderà tutti i video: %s</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Nascondi gli annunci generali</string>
@@ -615,6 +630,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_save_sound_button_title">Nascondi il pulsante Salva suono nella playlist</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Salva il suono nella scaletta è nascosto</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Il suono di salvataggio nella scaletta è mostrato</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_title">Nascondi il pulsante audio</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">Usa questo pulsante audio è nascosto</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">Usa questo pulsante audio è mostrato</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Nascondi suggerimenti di ricerca</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">I suggerimenti di ricerca sono nascosti</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">I suggerimenti di ricerca sono mostrati</string>
@@ -678,7 +696,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_player_overlay_opacity_invalid_toast">L\'opacità della sovrapposizione del lettore deve essere compresa tra 0-100</string>
   </patch>
   <patch id="layout.returnyoutubedislike.ReturnYouTubeDislikeResourcePatch">
-  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Nascosto</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">API dei Dislike temporaneamente non disponibile</string>
   <string name="revanced_ryd_failure_connection_status_code">Non piace (stato %d)</string>
@@ -893,6 +910,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_stats_username_changed">Il tuo nome utente è stato correttamente modificato</string>
   <string name="revanced_sb_stats_reputation">La tua reputazione è &lt;b&gt;%.2f&lt;/b&gt;</string>
   <string name="revanced_sb_stats_submissions">Hai creato segmenti &lt;b&gt;%s&lt;/b&gt;</string>
+  <string name="revanced_sb_stats_submissions_sum">Tocca qui per visualizzare i tuoi segmenti</string>
   <string name="revanced_sb_stats_saved_zero">Classifica di SponsorBlock</string>
   <string name="revanced_sb_stats_saved">Hai salvato le persone dai segmenti &lt;b&gt;%s&lt;/b&gt;</string>
   <string name="revanced_sb_stats_saved_sum_zero">Tocca qui per vedere le statistiche globali e i migliori contributori</string>

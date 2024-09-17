@@ -32,6 +32,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
 -->
 <resources>
   <app id="shared">
+  <patch id="misc.checks.BaseCheckEnvironmentPatch">
+  <string name="revanced_check_environment_failed_title">Kontroller misslyckades</string>
+  <string name="revanced_check_environment_dialog_open_official_source_button">Öppna officiell hemsida</string>
+  <string name="revanced_check_environment_dialog_ignore_button">Ignorera</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Denna app verkar inte vara lappad av dig.&lt;/h5&gt;&lt;br&gt;Denna app kanske inte fungerar korrekt, &lt;b&gt;kan vara skadligt eller till och med farligt att använda&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Dessa kontroller innebär att appen är förlagad eller erhållen från någon annan:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Det rekommenderas starkt att &lt;b&gt;avinstallera denna app och patch den själv&lt;/b&gt; för att säkerställa att du använder en validerad och säker app.&lt;p&gt;&lt;br&gt;Om den ignoreras kommer denna varning endast visas två gånger.</string>
+  <string name="revanced_check_environment_not_same_patching_device">Patchad på en annan enhet</string>
+  <string name="revanced_check_environment_manager_not_expected_installer">Inte installerad av ReVanced Manager</string>
+  <string name="revanced_check_environment_not_near_patch_time">Patchade mer än 10 minuter sedan</string>
+  <string name="revanced_check_environment_not_near_patch_time_days">Patchade %s dagar sedan</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">APK byggdatum är skadat</string>
+  </patch>
   <patch id="misc.settings.BaseSettingsResourcePatch">
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Vill du fortsätta?</string>
@@ -43,6 +54,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_import_reset">ReVanced-inställningarna återställda till standard</string>
   <string name="revanced_settings_import_success">Importerade %d inställningar</string>
   <string name="revanced_settings_import_failure_parse">Importen misslyckades: %s</string>
+  <string name="revanced_pref_import_export_title">Importera / Exportera</string>
+  <string name="revanced_pref_import_export_summary">Importera / Exportera ReVanced-inställningar</string>
+  <!-- Settings about dialog. -->
+  <string name="revanced_settings_about_links_body">Du använder ReVanced Patches version &lt;i&gt;%s&lt;/i&gt;</string>
+  <string name="revanced_settings_about_links_dev_header">Anteckning</string>
+  <string name="revanced_settings_about_links_dev_body">Denna version är en pre-release och du kan uppleva oväntade problem</string>
+  <string name="revanced_settings_about_links_header">Officiella länkar</string>
+  <string name="revanced_settings_about_links_donate">Donera</string>
   </patch>
   <patch id="misc.gms.BaseGmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -55,15 +74,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   </app>
   <app id="youtube">
-  <patch id="misc.settings.SettingsResourcePatch">
-  <string name="revanced_settings">ReVanced</string>
-  <string name="revanced_settings_about_links_body">Du använder ReVanced Patches version &lt;i&gt;%s&lt;/i&gt;</string>
-  <string name="revanced_settings_about_links_dev_header">Anteckning</string>
-  <string name="revanced_settings_about_links_dev_body">Denna version är en pre-release och du kan uppleva oväntade problem</string>
-  <string name="revanced_settings_about_links_header">Officiella länkar</string>
-  <string name="revanced_pref_import_export_title">Importera / Exportera</string>
-  <string name="revanced_pref_import_export_summary">Importera / Exportera ReVanced-inställningar</string>
-  </patch>
   <patch id="misc.settings.SettingsPatch">
   <string name="revanced_settings_screen_00_about_title">Om</string>
   <string name="revanced_settings_screen_01_ads_title">Annonser</string>
@@ -244,14 +254,18 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_content_phrases_title">Nyckelord att dölja</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
-  <string name="revanced_hide_keyword_content_phrases_summary">Nyckelord och fraser att dölja, separerade med nya rader\n\nOrd med versaler i mitten måste anges med höljet (dvs. iPhone, TikTok, LeBlanc)</string>
+  <string name="revanced_hide_keyword_content_phrases_summary">Nyckelord och fraser att dölja, separerade med nya rader\n\nNyckelord kan vara kanalnamn eller någon text som visas i videotitlar\n\nOrd med versaler i mitten måste anges med höljet (dvs: iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">Om sökordsfiltrering</string>
-  <string name="revanced_hide_keyword_content_about_summary">Hem/Prenumeration/Sökresultat filtreras för att dölja innehåll som matchar sökordsfraser\n\nBegränsningar\n• Vissa shorts kanske inte är dolda\n• Vissa UI-komponenter kanske inte är dolda\n• Att söka efter ett sökord kan inte visa några resultat</string>
+  <string name="revanced_hide_keyword_content_about_summary">Hem/Prenumeration/Sökresultat filtreras för att dölja innehåll som matchar sökordsfraser\n\nBegränsningar\n• Shorts kan inte döljas av kanalnamn\n• Vissa UI-komponenter kanske inte är dolda\n• Sökandet efter ett sökord kan inte visa några resultat</string>
+  <string name="revanced_hide_keyword_content_about_whole_words_title">Matcha hela ord</string>
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <string name="revanced_hide_keyword_content_about_whole_words_summary">Om du omger ett sökord/fras med dubbelcitat kommer det att förhindra partiella matchningar av videotitlar och kanalnamn&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; kommer att dölja videon: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;men döljer inte: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_keyword_toast_invalid_common">Ogiltigt sökord. Kan inte använda \'%s\' som filter</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_keyword_toast_invalid_length">Ogiltigt sökord. \'%1$s\' är mindre än %2$d tecken</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">Nyckelord \'%s\' kommer att dölja alla videor</string>
+  <string name="revanced_hide_keyword_toast_invalid_common">Kan inte använda sökord: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Lägg till offerter för att använda sökord: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_conflicting">Nyckelordet har motstridiga deklarationer: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_length">Nyckelordet är för kort och kräver citattecken: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">Nyckelord döljer alla videor: %s</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Dölj allmänna annonser</string>
@@ -617,6 +631,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_save_sound_button_title">Dölj spara ljud till spellistknappen</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Spara ljud till spellistan är dolt</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Spara ljud till spellistan är synlig</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_title">Dölj använda den här ljudknappen</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">Använd den här ljudknappen är dold</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">Använd den här ljudknappen visas</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Dölj sökförslag</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Sökförslag är dolda</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Sökförslag är synliga</string>
@@ -680,7 +697,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_player_overlay_opacity_invalid_toast">Överlagrad spelaropacitet måste vara mellan 0-100</string>
   </patch>
   <patch id="layout.returnyoutubedislike.ReturnYouTubeDislikeResourcePatch">
-  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Dold</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">Dislikes inte tillgängligt (API timed out)</string>
   <string name="revanced_ryd_failure_connection_status_code">Gillar inte tillgänglig (status %d)</string>
@@ -895,6 +911,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_stats_username_changed">Användarnamnet har ändrats</string>
   <string name="revanced_sb_stats_reputation">Ditt rykte är &lt;b&gt;%.2f&lt;/b&gt;</string>
   <string name="revanced_sb_stats_submissions">Du har skapat &lt;b&gt;%s&lt;/b&gt; segment</string>
+  <string name="revanced_sb_stats_submissions_sum">Tryck här för att visa dina segment</string>
   <string name="revanced_sb_stats_saved_zero">Sponsra topplista</string>
   <string name="revanced_sb_stats_saved">Du har räddat personer från &lt;b&gt;%s&lt;/b&gt; segment</string>
   <string name="revanced_sb_stats_saved_sum_zero">Tryck här för att se den globala statistiken och de bästa bidragsgivarna</string>
