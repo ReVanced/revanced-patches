@@ -8,7 +8,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
@@ -193,15 +192,18 @@ object SpoofClientPatch : BytecodePatch(
                 )
 
                 val protobufClass = ProtobufClassParseByteBufferFingerprint.resultOrThrow().mutableMethod.definingClass
-
                 val setStreamingDataIndex = result.scanResult.patternScanResult!!.startIndex
+
                 val playerProtoClass = getInstruction(setStreamingDataIndex + 1)
                     .getReference<FieldReference>()!!.definingClass
+
                 val setStreamingDataField = getInstruction(setStreamingDataIndex).getReference<FieldReference>()
-                val getStreamingDataField = getInstructions().find { instruction ->
-                    instruction.opcode == Opcode.IGET_OBJECT &&
-                        instruction.getReference<FieldReference>()?.definingClass == playerProtoClass
-                }?.getReference<FieldReference>() ?: throw PatchException("Could not find getStreamingDataField")
+
+                val getStreamingDataField = getInstruction(
+                    indexOfFirstInstructionOrThrow {
+                        opcode == Opcode.IGET_OBJECT && getReference<FieldReference>()?.definingClass == playerProtoClass
+                    }
+                ).getReference<FieldReference>()
 
                 // Use a helper method to avoid the need of picking out multiple free registers from the hooked code.
                 result.mutableClass.methods.add(

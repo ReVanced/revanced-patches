@@ -14,9 +14,9 @@ internal object BuildRequestFingerprint : MethodFingerprint(
         //L
         //Ljava/util/Map;
         //[B
-        //Lwtx;
-        //Lagxk;
-        //Lwss;
+        //L
+        //L
+        //L
         //Lorg/chromium/net/UrlRequest$Callback;
 
         // Later targets have parameters:
