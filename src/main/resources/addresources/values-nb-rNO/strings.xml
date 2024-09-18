@@ -1118,40 +1118,23 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_on">Slide for å søke er aktivert</string>
   <string name="revanced_slide_to_seek_summary_off">Slide for å søke er ikke aktivert</string>
   </patch>
-  <patch id="misc.fix.playback.SpoofClientPatch">
-  <string name="revanced_spoof_client_screen_title">Etterligning av kunde</string>
-  <string name="revanced_spoof_client_screen_summary">Spot klienten for å forhindre problemer med avspilling</string>
-  <string name="revanced_spoof_client_title">Etterligning av kunde</string>
-  <string name="revanced_spoof_client_summary_on">Klienten er spoofed</string>
-  <string name="revanced_spoof_client_summary_off">Klienten er ikke spoofed\n\nVideo playback fungerer kanskje ikke</string>
-  <string name="revanced_spoof_client_user_dialog_message">Ved å slå av denne innstillingen kan problemer med videoavspilling.</string>
-  <string name="revanced_spoof_client_type_title">Etterligning av klienttypen</string>
-  <string name="revanced_spoof_client_ios_force_avc_title">Tving iOS AVC (H.264)</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_on">iOS videokodeken er AVC</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_off">iOS videokodeker er AVC, VP9 eller AV1</string>
-  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Aktivering av dette kan forbedre batterilevetiden og korrigere avspilling med avvik.\n\nAVC har en maksimal oppløsning på 1080p, og videoavspilling vil bruke flere Internettdata enn VP9 eller AV1.</string>
-  <string name="revanced_spoof_client_about_android_ios_title">iOS med bivirkninger</string>
-  <string name="revanced_spoof_client_about_android_ios_summary">• HDR støttes bare med AV1 codec\n• Se historikken fungerer ikke med en merkekonto</string>
-  <string name="revanced_spoof_client_about_android_vr_title">Android VR opplever bivirkninger</string>
-  <string name="revanced_spoof_client_about_android_vr_summary">• Ingen HDR video\n• Hjelper videoer ikke avspiller\n• Malte videoer kan tilfeldig gjenoppta\n• lavere kvalitet Shorts søkbar miniatyrbilder\n• Last ned handlingsknappen skjules\n• Sluttskjermkort skjules</string>
-  <string name="revanced_spoof_client_storyboard_timeout">Etterligning av klient miniatyrbilder er ikke tilgjengelige (API tidsavbrutt)</string>
-  <string name="revanced_spoof_client_storyboard_io_exception">Spoav klientens miniatyrbilder er midlertidig ikke tilgjengelig: %s</string>
-  </patch>
-  <!-- This patch is no longer used, these strings are not in use, and these strings will be deleted in the future. -->
-  <patch id="misc.fix.playback.SpoofSignaturePatch">
-  <string name="revanced_spoof_signature_verification_screen_title">Falsk app signatur</string>
-  <string name="revanced_spoof_signature_verification_screen_summary">Etterlign appens signatur for å forhindre problemer i avspillingen</string>
-  <string name="revanced_spoof_signature_verification_enabled_title">Falsk app signatur</string>
-  <string name="revanced_spoof_signature_verification_enabled_summary_off">Appen signatur som ikke er spoofed\n\nVideoavspilling fungerer kanskje ikke</string>
-  <string name="revanced_spoof_signature_verification_enabled_user_dialog_message">Ved å slå av denne innstillingen, vil avspilling av video forårsake.</string>
-  <string name="revanced_spoof_signature_in_feed_enabled_title">Falsk appens signatur i feeden</string>
-  <string name="revanced_spoof_signature_in_feed_enabled_summary_on">App-signatur spoofed\n\nBivirkninger inkluderer:\n• Feed videoer mangler undertekster\n• Spillte feed videoer vises automatisk i overvåkningshistorien</string>
-  <string name="revanced_spoof_signature_in_feed_enabled_summary_off">App-signatur som ikke spobefant seg for feed videoene\n\nFeed-videoer spilles av mindre enn 1 minutt før det møter spillproblemer</string>
-  <string name="revanced_spoof_storyboard_title">Kjøringstavle</string>
-  <string name="revanced_spoof_storyboard_summary_on">Storjboard skremt</string>
-  <string name="revanced_spoof_storyboard_summary_off">Oppsprukket\n\nSide omfatter:\n• Ingen omgivelsesmodus\n• Miniatyrbilder i Seekbar</string>
-  <string name="revanced_spoof_storyboard_timeout">Spoof Storyboard midlertidig ikke tilgjengelig (API tidsavbrutt)</string>
-  <string name="revanced_spoof_storyboard_io_exception">Forsprang midlertidig ikke tilgjengelig: %s</string>
+  <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Spoof video strømmer</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Forkort klientens videostrømmer for å forhindre avspillingsproblemer</string>
+  <string name="revanced_spoof_video_streams_title">Spoof video strømmer</string>
+  <string name="revanced_spoof_video_streams_summary_on">Videostrømmer er skjevet</string>
+  <string name="revanced_spoof_video_streams_summary_off">Videostrømmer er ikke skummet\n\nVideoavspilling vil kanskje ikke virke</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Ved å slå av denne innstillingen kan problemer med videoavspilling.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Standard klient</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Tving AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Videokodek er AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Videokodek er VP9 eller AV1</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Din enhet har ikke VP9, dekotering av maskinvare og denne innstillingen er alltid på når spoofing av klient er aktivert</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Aktivering av dette kan forbedre batterilevetiden og korrigere avspilling med avvik.\n\nAVC har en maksimal oppløsning på 1080p, og videoavspilling vil bruke flere Internettdata enn VP9 eller AV1.</string>
+  <string name="revanced_spoof_video_streams_about_ios_title">iOS med bivirkninger</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmer eller betalte videoer spiller ikke\n• Start av direktestrømming i begynnelsen</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR opplever bivirkninger</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Lydspormeny mangler</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">
