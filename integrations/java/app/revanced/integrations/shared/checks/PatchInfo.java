@@ -19,13 +19,8 @@ final class PatchInfo {
         static String PATCH_ID = "";
         static String PATCH_MANUFACTURER = "";
         static String PATCH_MODEL = "";
-        static String PATCH_ODM_SKU = "";
         static String PATCH_PRODUCT = "";
         static String PATCH_RADIO = "";
-        static String PATCH_SERIAL = "";
-        static String PATCH_SKU = "";
-        static String PATCH_SOC_MANUFACTURER = "";
-        static String PATCH_SOC_MODEL = "";
         static String PATCH_TAGS = "";
         static String PATCH_TYPE = "";
         static String PATCH_USER = "";
