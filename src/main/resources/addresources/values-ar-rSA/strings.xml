@@ -630,9 +630,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_save_sound_button_title">إخفاء حفظ الصوت إلى زر قائمة التشغيل</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">تم إخفاء حفظ الصوت في قائمة التشغيل</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">يتم عرض حفظ الصوت في قائمة التشغيل</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_title">إخفاء استخدام هذا الزر الصوتي</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">تم إخفاء زر الصوت هذا</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">استخدم هذا الزر الصوتي يظهر</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_title">إخفاء زر استخدام هذا الصوت</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">تم إخفاء زر استخدام هذا الصوت</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">يتم عرض زر استخدام هذا الصوت</string>
   <string name="revanced_hide_shorts_search_suggestions_title">إخفاء اقتراحات البحث</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">تم إخفاء اقتراحات البحث</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">يتم عرض اقتراحات البحث</string>
@@ -1132,27 +1132,23 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_on">تم تمكين Slide to Seek</string>
   <string name="revanced_slide_to_seek_summary_off">تم تعطيل Slide to Seek</string>
   </patch>
-  <patch id="misc.fix.playback.SpoofClientPatch">
-  <string name="revanced_spoof_client_screen_title">Spoof Client</string>
-  <string name="revanced_spoof_client_screen_summary">محاكاة العميل لمنع مشكلات التشغيل</string>
-  <string name="revanced_spoof_client_title">Spoof Client</string>
-  <string name="revanced_spoof_client_summary_on">يتم محاكاة العميل</string>
-  <string name="revanced_spoof_client_summary_off">لا يتم محاكاة العميل\n\nقد لا يعمل تشغيل الفيديو</string>
-  <string name="revanced_spoof_client_user_dialog_message">إيقاف تشغيل هذا الإعداد قد يسبب مشاكل في تشغيل الفيديو.</string>
-  <string name="revanced_spoof_client_type_title">نوع Spoof Client</string>
-  <string name="revanced_spoof_client_ios_force_avc_title">فرض AVC iOS (H.264)</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_on">ترميز فيديو iOS هو AVC</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_off">ترميز فيديو iOS هو AVC أو VP9 أو AV1</string>
-  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">قد يؤدي تمكين هذا إلى تحسين عمر البطارية وإصلاح مشكلة تقطيع التشغيل.\n\nيتمتع تنسيق AVC بدقة قصوى تبلغ 1080P، وسيستخدم تشغيل الفيديو المزيد من بيانات الإنترنت مقارنةً بتنسيق VP9 أو AV1.</string>
-  <string name="revanced_spoof_client_about_android_ios_title">التأثيرات الجانبية لمحاكاة iOS</string>
-  <string name="revanced_spoof_client_about_android_ios_summary">• HDR مدعوم فقط مع ترميز AV1\n• سجل المشاهدة لا يعمل مع حساب العلامة التجارية</string>
-  <string name="revanced_spoof_client_about_android_vr_title">التأثيرات الجانبية لمحاكاة Android VR</string>
-  <string name="revanced_spoof_client_about_android_vr_summary">• لا يوجد فيديو HDR\n• لا يتم تشغيل مقاطع فيديو الأطفال\n• يمكن استئناف مقاطع الفيديو المتوقفة مؤقتًا بشكل عشوائي\n• مصغرات شريط تقدم فيديوهات Shorts منخفضة الجودة\n• زر إجراء التنزيل مخفي\n• بطاقات شاشة النهاية مخفية</string>
-  <string name="revanced_spoof_client_storyboard_timeout">محاكاة مصغرات العميل غير متوفرة (انتهت مهلة API)</string>
-  <string name="revanced_spoof_client_storyboard_io_exception">محاكاة مصغرات العميل غير متوفرة مؤقتًا: %s</string>
-  </patch>
-  <!-- This patch is no longer used, these strings are not in use, and these strings will be deleted in the future. -->
-  <patch id="misc.fix.playback.SpoofSignaturePatch">
+  <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Spoof Video Streams</string>
+  <string name="revanced_spoof_video_streams_screen_summary">تزييف تدفقات الفيديو الخاصة بالعميل لمنع حدوث مشكلات أثناء التشغيل</string>
+  <string name="revanced_spoof_video_streams_title">Spoof Video Streams</string>
+  <string name="revanced_spoof_video_streams_summary_on">يتم تزييف تدفقات الفيديو</string>
+  <string name="revanced_spoof_video_streams_summary_off">لا يتم تزييف تدفقات الفيديو\n\nقد لا يعمل تشغيل الفيديو</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">إيقاف تشغيل هذا الإعداد قد يسبب مشاكل في تشغيل الفيديو.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">العميل الافتراضي</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">فرض AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">ترميز الفيديو هو AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">ترميز الفيديو هو VP9 أو AV1</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">لا يحتوي جهازك على فك تشفير الأجهزة VP9، وهذا الإعداد يعمل دائما عند تمكين تزييف العميل</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">قد يؤدي تمكين هذا إلى تحسين عمر البطارية وإصلاح مشكلة تقطيع التشغيل.\n\nيتمتع تنسيق AVC بدقة قصوى تبلغ 1080P، وسيستخدم تشغيل الفيديو المزيد من بيانات الإنترنت مقارنةً بتنسيق VP9 أو AV1.</string>
+  <string name="revanced_spoof_video_streams_about_ios_title">التأثيرات الجانبية لمحاكاة iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• قد لا يتم تشغيل الأفلام أو الفيديوهات المدفوعة\n• يبدأ البث المباشر من البداية</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_title">التأثيرات الجانبية لمحاكاة Android VR</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• قائمة المقطع الصوتي مفقودة</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

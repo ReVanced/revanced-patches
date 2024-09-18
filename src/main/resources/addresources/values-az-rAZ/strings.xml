@@ -1132,27 +1132,23 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_on">Axtarmaq üçün sürüşdürmə aktivdir</string>
   <string name="revanced_slide_to_seek_summary_off">Axtarmaq üçün sürüşdürmə aktiv deyil</string>
   </patch>
-  <patch id="misc.fix.playback.SpoofClientPatch">
-  <string name="revanced_spoof_client_screen_title">Qəbuledicini saxtalaşdır</string>
-  <string name="revanced_spoof_client_screen_summary">Oynatma problemlərinin olmaması üçün client-i saxtalaşdır</string>
-  <string name="revanced_spoof_client_title">Qəbuledicini saxtalaşdır</string>
-  <string name="revanced_spoof_client_summary_on">Qəbuledici saxtalaşdırıldı</string>
-  <string name="revanced_spoof_client_summary_off">Qəbuledici dəyişməyib\n\nVideo oynatma işləməyə bilər</string>
-  <string name="revanced_spoof_client_user_dialog_message">Bu seçimin bağlanması, video oynatma problemlərinə səbəb ola bilər.</string>
-  <string name="revanced_spoof_client_type_title">Qəbuledici saxtalaşdırma növü</string>
-  <string name="revanced_spoof_client_ios_force_avc_title">iOS AVC-yə Zorla (H.264)</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_on">iOS video kodlayıcı AVC-dir</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_off">iOS video kodlayıcı AVC, VP9 və ya AV1-dir</string>
-  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Bunu aktivləşdirmə batareya ömrünü yaxşılaşdıra və oynatma donmasını düzəldə bilər.\n\nAVC maksimum 1080p görüntü imkanına malikdir və video oynadılması VP9 və ya AV1-dən daha çox internet məlumatından istifadə edəcək.</string>
-  <string name="revanced_spoof_client_about_android_ios_title">iOS saxtakarlığının yan təsirləri</string>
-  <string name="revanced_spoof_client_about_android_ios_summary">• HDR yalnız AV1 kodlayıcı ilə dəstəklənir\n• Baxış tarixçəsi ödəyici hesab ilə işləmir</string>
-  <string name="revanced_spoof_client_about_android_vr_title">Android VR saxtakarlığı yan təsirləri</string>
-  <string name="revanced_spoof_client_about_android_vr_summary">• HDR video yoxdur• Uşaq videoları oynadılmır\n• Fasilə verilmiş videolar gözlənilmədən davam edə bilər\n• Aşağı keyfiyyətli Shorts axtarma çubuğu miniatürləri\n• \"Yüklə\" fəaliyyət düyməsi gizlidir\n• Bitiş ekran kartları gizlidir</string>
-  <string name="revanced_spoof_client_storyboard_timeout">Client kiçik şəkillərini təqlid etmə əlçatmazdır (API vaxtı bitdi)</string>
-  <string name="revanced_spoof_client_storyboard_io_exception">Client kiçik şəkillərini təqlid etmə müvəqqəti əlçatmazdır: %s</string>
-  </patch>
-  <!-- This patch is no longer used, these strings are not in use, and these strings will be deleted in the future. -->
-  <patch id="misc.fix.playback.SpoofSignaturePatch">
+  <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Video yayımları təqlid et</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Oxutma problemlərini önləmək üçün client video yayımlarını təqlid et</string>
+  <string name="revanced_spoof_video_streams_title">Video yayımları təqlid et</string>
+  <string name="revanced_spoof_video_streams_summary_on">Video yayımları təqlid edilir</string>
+  <string name="revanced_spoof_video_streams_summary_off">Video yayımları təqlid edilmir\n\nVideo oxutma işləməyə bilər</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Bu ayarı söndürmək, video oxutma problemlərinə səbəb ola bilər.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">İlkin client</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Məcburi AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodlaşdırma: AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodlaşdırma: VP9 və ya AV1</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Cihazınızda VP9 hardware decoding yoxdur və bu ayar, \"Client təqlid etmə\" fəal olduqda həmişə açıqdır</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Bunu fəallaşdırmaq, batareya ömrünü uzada və oxutmadakı ilişmələri düzəldə bilər.\n\nAVC, maksimum 1080p dəqiqliyinə sahibdir və video oxutma, VP9 və ya AV1-ə görə daha çox internet datası istifadə edəcək.</string>
+  <string name="revanced_spoof_video_streams_about_ios_title">iOS təqlidinin yan təsirləri</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmlər və ya ödənişli videolar oxudulmaya bilər\n• Canlı yayımlar başdan başlayır</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR təqlidinin yan təsirləri</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Səs trek menyusu əskikdir</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

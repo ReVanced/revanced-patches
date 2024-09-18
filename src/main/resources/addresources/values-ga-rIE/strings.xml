@@ -1129,25 +1129,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_on">Tá sleamhnán le lorg cumasaithe</string>
   <string name="revanced_slide_to_seek_summary_off">Níl sleamhnán le lorg cumasaithe</string>
   </patch>
-  <patch id="misc.fix.playback.SpoofClientPatch">
-  <string name="revanced_spoof_client_screen_title">Cliant spoof</string>
-  <string name="revanced_spoof_client_screen_summary">An cliant a shaothrú chun ceisteanna athsheinm a chosc</string>
-  <string name="revanced_spoof_client_title">Cliant spoof</string>
-  <string name="revanced_spoof_client_summary_on">Tá an cliant spoofed</string>
-  <string name="revanced_spoof_client_summary_off">Ní dhéantar an cliant a spreagadh\n\nB\'fhéidir nach n-oibreoidh athsheinm físeáin</string>
-  <string name="revanced_spoof_client_user_dialog_message">Seans go mbeidh fadhbanna athsheinm físe ag baint leis an socrú seo a mhúchadh.</string>
-  <string name="revanced_spoof_client_type_title">Cineál cliant spoof</string>
-  <string name="revanced_spoof_client_ios_force_avc_title">Fórsa iOS AVC (H.264)</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_on">Is é codec físe iOS AVC</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_off">Is é codec físe iOS AVC, VP9, nó AV1</string>
-  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Má dhéantar é seo a chumasú, d\'fhéadfadh sé go bhfeabhsófaí saol na gceallraí agus go n-athshocraigh sé stopáil athsheinm.\n\nTá uas-taifeach 1080p ag AVC, agus úsáidfidh athsheinm físe níos mó sonraí idirlín ná mar a úsáideann VP9 nó AV1.</string>
-  <string name="revanced_spoof_client_about_android_ios_title">Fo-iarsmaí spoofing iOS</string>
-  <string name="revanced_spoof_client_about_android_ios_summary">• Ní thacaítear le HDR ach le codec AV1\n• Ní oibríonn stair faire le cuntas branda</string>
-  <string name="revanced_spoof_client_about_android_vr_title">Fo-iarsmaí spoofing Android VR</string>
-  <string name="revanced_spoof_client_about_android_vr_summary">• Níl físeán HDR ar bith\n• Ní athsheintear físeáin do pháistí\n• Is féidir físeáin ar sos a atosú go randamach\n• Mionsamhlacha barra cuardaigh Shorts ar chaighdeán íseal\n• Tá an cnaipe gnímh íoslódála i bhfolach\n• Tá na cártaí scáileáin deiridh i bhfolach</string>
-  </patch>
-  <!-- This patch is no longer used, these strings are not in use, and these strings will be deleted in the future. -->
-  <patch id="misc.fix.playback.SpoofSignaturePatch">
+  <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_user_dialog_message">Seans go mbeidh fadhbanna athsheinm físe ag baint leis an socrú seo a mhúchadh.</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Má dhéantar é seo a chumasú, d\'fhéadfadh sé go bhfeabhsófaí saol na gceallraí agus go n-athshocraigh sé stopáil athsheinm.\n\nTá uas-taifeach 1080p ag AVC, agus úsáidfidh athsheinm físe níos mó sonraí idirlín ná mar a úsáideann VP9 nó AV1.</string>
+  <string name="revanced_spoof_video_streams_about_ios_title">Fo-iarsmaí spoofing iOS</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_title">Fo-iarsmaí spoofing Android VR</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

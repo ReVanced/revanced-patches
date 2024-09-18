@@ -1133,41 +1133,23 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_on">Glid för att söka är aktiverat</string>
   <string name="revanced_slide_to_seek_summary_off">Glid för att söka är inaktiverat</string>
   </patch>
-  <patch id="misc.fix.playback.SpoofClientPatch">
-  <string name="revanced_spoof_client_screen_title">Spoof klient</string>
-  <string name="revanced_spoof_client_screen_summary">Spoof klienten för att förhindra uppspelningsproblem</string>
-  <string name="revanced_spoof_client_title">Spoof klient</string>
-  <string name="revanced_spoof_client_summary_on">Klienten är förfalskad</string>
-  <string name="revanced_spoof_client_summary_off">Klienten är inte förfalskad\n\nVideouppspelning kanske inte fungerar</string>
-  <string name="revanced_spoof_client_user_dialog_message">Att stänga av den här inställningen kan orsaka videouppspelningsproblem.</string>
-  <string name="revanced_spoof_client_type_title">Typ av Spoof klient</string>
-  <string name="revanced_spoof_client_ios_force_avc_title">Tvinga iOS AVC (H.264)</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_on">iOS video codec är AVC</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_off">iOS video codec är AVC, VP9, eller AV1</string>
-  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Aktivering av detta kan förbättra batteriets livslängd och åtgärda uppspelningshjälp.\n\nAVC har en maximal upplösning på 1080p, och videouppspelning kommer att använda mer internetdata än VP9 eller AV1.</string>
-  <string name="revanced_spoof_client_about_android_ios_title">iOS förfalskning biverkningar</string>
-  <string name="revanced_spoof_client_about_android_ios_summary">• HDR stöds endast med AV1 codec\n• Klockhistorik fungerar inte med ett varumärkeskonto</string>
-  <string name="revanced_spoof_client_about_android_vr_title">Android VR förfalskning biverkningar</string>
-  <string name="revanced_spoof_client_about_android_vr_summary">• Ingen HDR-video\n• Barnvideor spelar inte upp\n• Pausade videor kan slumpmässigt återupptas\n• Lågkvalitativa Shorts seekbar miniatyrer\n• Nedladdningsknappen är dold\n• Slutskärmskorten är dolda</string>
-  <string name="revanced_spoof_client_storyboard_timeout">Spoof klientminiatyrer är inte tillgängliga (API gick ut)</string>
-  <string name="revanced_spoof_client_storyboard_io_exception">Miniatyrer för Spoof klientminiatyrer tillfälligt inte tillgängliga: %s</string>
-  </patch>
-  <!-- This patch is no longer used, these strings are not in use, and these strings will be deleted in the future. -->
-  <patch id="misc.fix.playback.SpoofSignaturePatch">
-  <string name="revanced_spoof_signature_verification_screen_title">Förfalska appens signatur</string>
-  <string name="revanced_spoof_signature_verification_screen_summary">Förfalska appens signatur för att förhindra uppspelningsproblem</string>
-  <string name="revanced_spoof_signature_verification_enabled_title">Förfalska appens signatur</string>
-  <string name="revanced_spoof_signature_verification_enabled_summary_on">Appens signatur förfalskad\n\nNackdelar:\n• Förbättrad bithastighet är inte tillgänglig\n• Videor kan inte laddas ner\n• Inga sökfältsminiatyrer för betalda videor</string>
-  <string name="revanced_spoof_signature_verification_enabled_summary_off">Appens signatur inte förfalskad\n\nVideouppspelning kanske inte fungerar</string>
-  <string name="revanced_spoof_signature_verification_enabled_user_dialog_message">Att stänga av den här inställningen kommer att orsaka videouppspelningsproblem.</string>
-  <string name="revanced_spoof_signature_in_feed_enabled_title">Förfalska appens signatur i flödet</string>
-  <string name="revanced_spoof_signature_in_feed_enabled_summary_on">Appens signatur förfalskad\n\nNackdelar:\n• Flödesvideos saknas undertexter\n• Automatiskt uppspelade flödesvideos kommer att visas i din tittarhistorik</string>
-  <string name="revanced_spoof_signature_in_feed_enabled_summary_off">Appens signatur inte förfalskad för flödesvideor\n\nFlödesvideos spelas upp i mindre än 1 minut innan uppspelningsproblem uppstår</string>
-  <string name="revanced_spoof_storyboard_title">Förfalska storyboard</string>
-  <string name="revanced_spoof_storyboard_summary_on">Storyboard förfalskad</string>
-  <string name="revanced_spoof_storyboard_summary_off">Storyboard är inte förfalskad\n\nNackdelar:\n• Inget omgivningsläge\n• Sökfältsminiatyrer är dolda</string>
-  <string name="revanced_spoof_storyboard_timeout">Förfalska storyboard tillfälligt inte tillgänglig (API timed out)</string>
-  <string name="revanced_spoof_storyboard_io_exception">Förfalska storyboard tillfälligt inte tillgänglig: %s</string>
+  <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Spoof videoströmmar</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Spoof klientens videoströmmar för att förhindra uppspelningsproblem</string>
+  <string name="revanced_spoof_video_streams_title">Spoof videoströmmar</string>
+  <string name="revanced_spoof_video_streams_summary_on">Videoströmmar är förfalskade</string>
+  <string name="revanced_spoof_video_streams_summary_off">Videoströmmar är inte förfalskade\n\nVideouppspelning kanske inte fungerar</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Att stänga av den här inställningen kan orsaka videouppspelningsproblem.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Standard klient</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Tvinga AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Videocodec är AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video-codec är VP9 eller AV1</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Din enhet har inte VP9 hårdvaruavkodning, och denna inställning är alltid på när klientförfalskning är aktiverad</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Aktivering av detta kan förbättra batteriets livslängd och åtgärda uppspelningshjälp.\n\nAVC har en maximal upplösning på 1080p, och videouppspelning kommer att använda mer internetdata än VP9 eller AV1.</string>
+  <string name="revanced_spoof_video_streams_about_ios_title">iOS förfalskning biverkningar</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmer eller betalda videor kanske inte spelar\n• Livestreams startar från början</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR förfalskning biverkningar</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Ljudspårsmenyn saknas</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

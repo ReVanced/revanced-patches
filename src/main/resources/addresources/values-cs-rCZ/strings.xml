@@ -1134,41 +1134,23 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_on">Posunutí pro vyhledání je povoleno</string>
   <string name="revanced_slide_to_seek_summary_off">Posunutí k vyhledání není povoleno</string>
   </patch>
-  <patch id="misc.fix.playback.SpoofClientPatch">
-  <string name="revanced_spoof_client_screen_title">Sponzor</string>
-  <string name="revanced_spoof_client_screen_summary">Spořič klienta, aby zabránil problémům s přehráváním</string>
-  <string name="revanced_spoof_client_title">Sponzor</string>
-  <string name="revanced_spoof_client_summary_on">Klient je falešný</string>
-  <string name="revanced_spoof_client_summary_off">Klient není spoofed\n\nPřehrávání videa nemusí fungovat</string>
-  <string name="revanced_spoof_client_user_dialog_message">Vypnutí tohoto nastavení může způsobit problémy při přehrávání videa.</string>
-  <string name="revanced_spoof_client_type_title">Typ klienta</string>
-  <string name="revanced_spoof_client_ios_force_avc_title">Vynutit iOS AVC (H.264)</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_on">iOS video kodek je AVC</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_off">iOS video kodek je AVC, VP9 nebo AV1</string>
-  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Povolení této funkce může zlepšit životnost baterie a opravit stahování přehrávání.\n\nAVC má maximální rozlišení 1080p a video přehrávání bude používat více dat než VP9 nebo AV1.</string>
-  <string name="revanced_spoof_client_about_android_ios_title">Boční efekty iOS</string>
-  <string name="revanced_spoof_client_about_android_ios_summary">• HDR je podporováno pouze s AV1 kodekem\n• Historie sledování nefunguje s obchodním účtem</string>
-  <string name="revanced_spoof_client_about_android_vr_title">Boční efekty Android VR</string>
-  <string name="revanced_spoof_client_about_android_vr_summary">• Žádné HDR video\n• Dětská videa nepřehrávají\n• Pozastavená videa mohou náhodně obnovit\n• Nízká kvalita rychlých náhledů ve vyhledávacím panelu\n• Tlačítko stahování je skryté\n• Karty na konci obrazovky jsou skryté</string>
-  <string name="revanced_spoof_client_storyboard_timeout">Náhledy klientů nejsou k dispozici (vypršel časový limit API)</string>
-  <string name="revanced_spoof_client_storyboard_io_exception">Spouštění náhledů klientů dočasně není k dispozici: %s</string>
-  </patch>
-  <!-- This patch is no longer used, these strings are not in use, and these strings will be deleted in the future. -->
-  <patch id="misc.fix.playback.SpoofSignaturePatch">
-  <string name="revanced_spoof_signature_verification_screen_title">Podpis aplikace</string>
-  <string name="revanced_spoof_signature_verification_screen_summary">Podpis aplikace zabraňující problémům při přehrávání</string>
-  <string name="revanced_spoof_signature_verification_enabled_title">Podpis aplikace</string>
-  <string name="revanced_spoof_signature_verification_enabled_summary_on">Podpis aplikace spoofed\n\nBoční efekty zahrnují:\n• Rozšířená bitrate není k dispozici\n• Videa nelze stáhnout\n• Žádné náhledy pro placená videa</string>
-  <string name="revanced_spoof_signature_verification_enabled_summary_off">Podpis aplikace není falešný\n\nPřehrávání videa nemusí fungovat</string>
-  <string name="revanced_spoof_signature_verification_enabled_user_dialog_message">Vypnutí tohoto nastavení způsobí problémy při přehrávání videa.</string>
-  <string name="revanced_spoof_signature_in_feed_enabled_title">Podpis aplikace do kanálu</string>
-  <string name="revanced_spoof_signature_in_feed_enabled_summary_on">Podpis aplikace spoofed\n\nBoční efekty zahrnují:\n• Video kanálu chybí titulky\n• Automaticky přehrávaná videa se zobrazí ve vaší historii sledování</string>
-  <string name="revanced_spoof_signature_in_feed_enabled_summary_off">Podpis aplikace není falešný pro videa s kanálem\n\nPřed zjištěním problémů s přehráváním se videa kanálu budou přehrávat méně než 1 minutu</string>
-  <string name="revanced_spoof_storyboard_title">Příběh</string>
-  <string name="revanced_spoof_storyboard_summary_on">Skládací krabice</string>
-  <string name="revanced_spoof_storyboard_summary_off">Storyboard není falešný\n\nBoční efekty zahrnují:\n• Žádný ambientní režim\n• Náhledy v panelu vyhledávání jsou skryté</string>
-  <string name="revanced_spoof_storyboard_timeout">Spoof storyboard dočasně není k dispozici (vypršel časový limit API)</string>
-  <string name="revanced_spoof_storyboard_io_exception">Příběhová deska dočasně není k dispozici: %s</string>
+  <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Spouštěcí video streamy</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Spouštět klientské video streamy, aby se zabránilo problémům s přehráváním</string>
+  <string name="revanced_spoof_video_streams_title">Spouštěcí video streamy</string>
+  <string name="revanced_spoof_video_streams_summary_on">Video streamy jsou falešné</string>
+  <string name="revanced_spoof_video_streams_summary_off">Video streamy nejsou falešné\n\nPřehrávání videa nemusí fungovat</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Vypnutí tohoto nastavení může způsobit problémy při přehrávání videa.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Výchozí klient</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Síla AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodek je AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodek je VP9 nebo AV1</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Vaše zařízení nemá hardwarové dekódování VP9 a toto nastavení je vždy zapnuto, když je aktivní spoofování klienta</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Povolení této funkce může zlepšit životnost baterie a opravit stahování přehrávání.\n\nAVC má maximální rozlišení 1080p a video přehrávání bude používat více dat než VP9 nebo AV1.</string>
+  <string name="revanced_spoof_video_streams_about_ios_title">Boční efekty iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmy nebo placené videa nemusí hrát\n• Živočišné rekony začínají od začátku</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_title">Boční efekty Android VR</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Menu zvukové stopy chybí</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

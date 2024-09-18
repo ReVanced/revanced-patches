@@ -631,9 +631,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_save_sound_button_title">Кнопка \"Сохранить звук в плейлист\"</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Кнопка \"Сохранить звук в плейлист\" в Shorts скрыта</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Кнопка \"Сохранить звук в плейлист\" в Shorts отображена</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_title">Скрыть использование этой кнопки звука</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">Использовать эту кнопку звука скрыта</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">Использовать эту кнопку звука показана</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_title">Кнопка \"Использовать этот звук\"</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">Кнопка \"Использовать этот звук\" скрыта</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">Кнопка \"Использовать этот звук\" отображена</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Поисковые подсказки</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Поисковые подсказки скрыты</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Поисковые подсказки отображены</string>
@@ -1133,41 +1133,26 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_on">Перемотка видео слайдом включена</string>
   <string name="revanced_slide_to_seek_summary_off">Перемотка видео слайдом отключена. Ускорение видео \"2x\" при нажатии и удержании на экране включено</string>
   </patch>
-  <patch id="misc.fix.playback.SpoofClientPatch">
-  <string name="revanced_spoof_client_screen_title">Подмена клиента</string>
-  <string name="revanced_spoof_client_screen_summary">Подмена клиента для предотвращения проблем с воспроизведением видео</string>
-  <string name="revanced_spoof_client_title">Подмена клиента</string>
-  <string name="revanced_spoof_client_summary_on">Клиент подменен</string>
-  <string name="revanced_spoof_client_summary_off">Клиент не подменен\n\nВоспроизведение видео может не работать</string>
-  <string name="revanced_spoof_client_user_dialog_message">Отключение этой настройки может вызвать проблемы с воспроизведением видео.</string>
-  <string name="revanced_spoof_client_type_title">Тип подмены клиента</string>
-  <string name="revanced_spoof_client_ios_force_avc_title">Принудительно AVC (H.264) для iOS</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_on">При подмене клиента на iOS используется видеокодек AVC</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_off">При подмене клиента на iOS используется видеокодек AVC, VP9 или AV1</string>
-  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Включение этого параметра может улучшить время работы батареи и исправить задержки воспроизведения.\n\nAVC имеет максимальное разрешение 1080p, а воспроизведение видео будет использовать больше интернет данных, чем VP9 или AV1.</string>
-  <string name="revanced_spoof_client_about_android_ios_title">Побочные эффекты подмены на iOS</string>
-  <string name="revanced_spoof_client_about_android_ios_summary">• HDR поддерживается только с кодеком AV1\n• История просмотров не работает с учетной записью бренда</string>
-  <string name="revanced_spoof_client_about_android_vr_title">Побочные эффекты подмены на Android VR</string>
-  <string name="revanced_spoof_client_about_android_vr_summary">• Отсутствует HDR видео\n• Детские видео не воспроизводятся\n• Приостановленные видео могут случайно возобновляться\n• Миниатюры прогресса воспроизведения Shorts низкого качества\n• Кнопка \"Скачать\" скрыта\n• Заставки следующих видео в конце просмотра скрыты</string>
-  <string name="revanced_spoof_client_storyboard_timeout">Миниатюры в режиме подмены клиента недоступны (время API истекло)</string>
-  <string name="revanced_spoof_client_storyboard_io_exception">Миниатюры в режиме подмены клиента временно недоступны: %s</string>
-  </patch>
-  <!-- This patch is no longer used, these strings are not in use, and these strings will be deleted in the future. -->
-  <patch id="misc.fix.playback.SpoofSignaturePatch">
-  <string name="revanced_spoof_signature_verification_screen_title">Подпись приложения</string>
-  <string name="revanced_spoof_signature_verification_screen_summary">Сводка подписи приложения для предотвращения проблем с воспроизведением</string>
-  <string name="revanced_spoof_signature_verification_enabled_title">Подпись приложения</string>
-  <string name="revanced_spoof_signature_verification_enabled_summary_on">Подпись приложения подделена\n\nэффектами бока:\n• Расширенный битрейт не доступен\n• Видео не могут быть загружены\n• Нет миниатюр в панели поиска для платных видео</string>
-  <string name="revanced_spoof_signature_verification_enabled_summary_off">Подпись приложения не подделана\n\nвоспроизведение видео может не работать</string>
-  <string name="revanced_spoof_signature_verification_enabled_user_dialog_message">Отключение этой настройки вызовет проблемы с воспроизведением видео.</string>
-  <string name="revanced_spoof_signature_in_feed_enabled_title">Подпись приложения в ленте новостей</string>
-  <string name="revanced_spoof_signature_in_feed_enabled_summary_on">Подпись приложения подменена\n\nПобочные эффекты включают:\n• В видео в ленте отсутствуют субтитры\n• Автоматически воспроизведенные видео с ленты будут появляться в Вашей истории просмотра</string>
-  <string name="revanced_spoof_signature_in_feed_enabled_summary_off">Подпись приложения не подделана для лент новостей\n\nвидео будет воспроизводиться менее чем за 1 минуту до возникновения проблем с воспроизведением</string>
-  <string name="revanced_spoof_storyboard_title">Презентация истории</string>
-  <string name="revanced_spoof_storyboard_summary_on">Доска историй подделена</string>
-  <string name="revanced_spoof_storyboard_summary_off">Панель историй не подделена\n\nэффектами бока:\n• Эмбиентный режим\n• Эскизы в панели поиска скрыты</string>
-  <string name="revanced_spoof_storyboard_timeout">Сбор историй временно недоступен (время API истекло)</string>
-  <string name="revanced_spoof_storyboard_io_exception">Сводка историй временно недоступна: %s</string>
+  <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Подмена видеопотоков</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Подмена видеопотоков клиента для предотвращения проблем с воспроизведением видео</string>
+  <string name="revanced_spoof_video_streams_title">Подмена видеопотоков</string>
+  <string name="revanced_spoof_video_streams_summary_on">Подмена видеопотоков включена</string>
+  <string name="revanced_spoof_video_streams_summary_off">Подмена видеопотоков отключена.
+Воспроизведение видео может не работать</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Отключение этой настройки может вызвать проблемы с воспроизведением видео.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Клиент по умолчанию</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Принудительно AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Видеокодек AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Видеокодек VP9 или AV1</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">На вашем устройстве нет аппаратного декодирования VP9, и эта настройка всегда включена, когда включена подмена видеопотоков</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Включение - может улучшить время работы батареи и исправить задержки воспроизведения.
+
+AVC макс. разрешение 1080p, и будет использоваться больше интернет данных, чем VP9 или AV1.</string>
+  <string name="revanced_spoof_video_streams_about_ios_title">Побочные эффекты подмены на iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Фильмы или платные видео могут не воспроизводиться\n• Прямые трансляции начинаются с самого начала</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_title">Побочные эффекты подмены на Android VR</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Отсутствует меню аудиодорожки</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

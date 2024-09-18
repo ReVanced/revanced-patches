@@ -1133,41 +1133,23 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_on">Slide pentru căutare este activat</string>
   <string name="revanced_slide_to_seek_summary_off">Slide pentru a căuta nu este activat</string>
   </patch>
-  <patch id="misc.fix.playback.SpoofClientPatch">
-  <string name="revanced_spoof_client_screen_title">Spoof client</string>
-  <string name="revanced_spoof_client_screen_summary">Spoof al clientului pentru a preveni problemele de redare</string>
-  <string name="revanced_spoof_client_title">Spoof client</string>
-  <string name="revanced_spoof_client_summary_on">Clientul este falsificat</string>
-  <string name="revanced_spoof_client_summary_off">Clientul nu este lovit\n\nEste posibil ca redarea video să nu funcționeze</string>
-  <string name="revanced_spoof_client_user_dialog_message">Dezactivarea acestei setări poate cauza probleme de redare video.</string>
-  <string name="revanced_spoof_client_type_title">Spoof tipul clientului</string>
-  <string name="revanced_spoof_client_ios_force_avc_title">Forțați iOS AVC (H.264)</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_on">Codecul video iOS este AVC</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_off">Codecul video iOS este AVC, VP9 sau AV1</string>
-  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Activarea acestei funcții ar putea îmbunătăți durata de viață a bateriei și repara blocajul de redare.\n\nAVC are o rezoluție maximă de 1080p, iar redarea video va folosi mai multe date internet decât VP9 sau AV1.</string>
-  <string name="revanced_spoof_client_about_android_ios_title">Reacţii adverse de lingere iOS</string>
-  <string name="revanced_spoof_client_about_android_ios_summary">• HDR este acceptat numai cu AV1 codec\n• Istoricul ceasului nu funcționează cu un cont de marcă</string>
-  <string name="revanced_spoof_client_about_android_vr_title">Reacţii adverse de spoofing Android VR</string>
-  <string name="revanced_spoof_client_about_android_vr_summary">• Niciun video HDR\n• Videoclipuri cu copii nu redă\n• Videoclipurile întrerupte pot relua aleatoriu\n• Miniaturile panourilor căutate de calitate scăzută\n• Butonul de acțiune este ascuns\n• Cardurile de pe ecranul de închidere sunt ascunse</string>
-  <string name="revanced_spoof_client_storyboard_timeout">Spoof a miniaturilor clientului nu este disponibil (API a expirat)</string>
-  <string name="revanced_spoof_client_storyboard_io_exception">Fixarea miniaturilor clientului nu este disponibilă temporar: %s</string>
-  </patch>
-  <!-- This patch is no longer used, these strings are not in use, and these strings will be deleted in the future. -->
-  <patch id="misc.fix.playback.SpoofSignaturePatch">
-  <string name="revanced_spoof_signature_verification_screen_title">Semnătură aplicație Spoof</string>
-  <string name="revanced_spoof_signature_verification_screen_summary">Sporirea semnăturii aplicației pentru a preveni problemele de redare</string>
-  <string name="revanced_spoof_signature_verification_enabled_title">Semnătură aplicație Spoof</string>
-  <string name="revanced_spoof_signature_verification_enabled_summary_on">Semnătura aplicației falsificată\n\nEfectele secundare includ:\n• Rata de biți îmbunătățită nu este disponibilă\n• Videoclipurile nu pot fi descărcate\n• Nicio miniatură din bara de căutare pentru videoclipuri cu plată</string>
-  <string name="revanced_spoof_signature_verification_enabled_summary_off">Semnătura aplicației nu este falsificată de\n\nEste posibil ca redarea video să nu funcționeze</string>
-  <string name="revanced_spoof_signature_verification_enabled_user_dialog_message">Dezactivarea acestei setări va cauza probleme de redare video.</string>
-  <string name="revanced_spoof_signature_in_feed_enabled_title">Spoof app signature in feed</string>
-  <string name="revanced_spoof_signature_in_feed_enabled_summary_on">Semnătura aplicației falsificată\n\nEfectele secundare includ:\n• Flux de videoclipuri lipsește subtitrările\n• Fluxurile de videoclipuri redate automat vor apărea în istoricul vizionărilor</string>
-  <string name="revanced_spoof_signature_in_feed_enabled_summary_off">Semnătura aplicației nu este falsificată pentru videoclipurile feed\n\nFlux de videoclipuri vor fi redate pentru mai puțin de 1 minut înainte de a întâmpina probleme de redare</string>
-  <string name="revanced_spoof_storyboard_title">Panou de povestiri</string>
-  <string name="revanced_spoof_storyboard_summary_on">Storyboard cu lingură</string>
-  <string name="revanced_spoof_storyboard_summary_off">Povestirile care nu sunt falsificate de\n\nEfectele secundare includ:\n• Niciun mod ambiental\n• Miniaturile din Seekbar sunt ascunse</string>
-  <string name="revanced_spoof_storyboard_timeout">Spoof storyboard temporar indisponibil (API a expirat)</string>
-  <string name="revanced_spoof_storyboard_io_exception">Tabloul de povestire temporar indisponibil: %s</string>
+  <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Spoof video stream-uri</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Sporirea canalelor video client pentru a preveni problemele de redare</string>
+  <string name="revanced_spoof_video_streams_title">Spoof video stream-uri</string>
+  <string name="revanced_spoof_video_streams_summary_on">Fluxurile video sunt falsificate</string>
+  <string name="revanced_spoof_video_streams_summary_off">Fluxurile video nu sunt marcate cu\n\nEste posibil ca redarea video să nu funcționeze</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Dezactivarea acestei setări poate cauza probleme de redare video.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Client implicit</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Forțează AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Codecul video este AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Codecul video este VP9 sau AV1</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Dispozitivul dvs. nu are decodare hardware VP9 și această setare este întotdeauna activată atunci când este activată lingerea clientului</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Activarea acestei funcții ar putea îmbunătăți durata de viață a bateriei și repara blocajul de redare.\n\nAVC are o rezoluție maximă de 1080p, iar redarea video va folosi mai multe date internet decât VP9 sau AV1.</string>
+  <string name="revanced_spoof_video_streams_about_ios_title">Reacţii adverse de lingere iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmele sau videoclipurile plătite nu pot reda\n• Livestreams începe de la început</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_title">Reacţii adverse de spoofing Android VR</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Meniul piesei audio lipsește</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">
