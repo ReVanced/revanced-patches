@@ -58,31 +58,10 @@
             </string-array>
         </patch>
         <patch id="layout.startpage.ChangeStartPagePatch">
-            <string-array name="revanced_start_page_legacy_entry_values">
-                <item/>
-                <!-- YouTube Shortcuts -->
-                <item>open.search</item>
-                <item>open.subscriptions</item>
-                <item>open.explore</item>
-                <!-- Shorts is a valid default, but if used with 'hide Shorts navigation bar' (default on)
-                     the nav bar is permanently hidden. Instead the user can turn off 'Disable resuming Shorts'. -->
-                <!-- <item>open.shorts</item> -->
-                <!-- YouTube Widgets -->
-                <item>www.youtube.com/feed/library</item>
-                <item>www.youtube.com/playlist?list=LL</item>
-                <item>www.youtube.com/playlist?list=WL</item>
-                <item>www.youtube.com/feed/history</item>
-                <item>www.youtube.com/feed/trending</item>
-                <item>www.youtube.com/gaming</item>
-                <item>www.youtube.com/channel/UC4R8DWoMoI7CAwX8_LjQHig</item>
-                <item>www.youtube.com/channel/UC-9-kyTW8ZkZNDHQJ6FgpwQ</item>
-                <item>www.youtube.com/feed/storefront?bp=ogUCKAI%3D</item>
-                <item>www.youtube.com/channel/UCEgdi0XIXXZ-qJOFPf4JSKw</item>
-                <item>www.youtube.com/feed/guide_builder</item>
-            </string-array>
-            <string-array name="revanced_start_page_legacy_entries">
+            <string-array name="revanced_change_start_page_entries">
                 <item>@string/revanced_change_start_page_entry_default</item>
                 <item>@string/revanced_change_start_page_entry_search</item>
+                <item>Shorts</item> <!-- Non translatable name. -->
                 <item>@string/revanced_change_start_page_entry_subscriptions</item>
                 <item>@string/revanced_change_start_page_entry_explore</item>
                 <item>@string/revanced_change_start_page_entry_library</item>
@@ -96,6 +75,27 @@
                 <item>@string/revanced_change_start_page_entry_movies</item>
                 <item>@string/revanced_change_start_page_entry_sports</item>
                 <item>@string/revanced_change_start_page_entry_browse</item>
+            </string-array>
+            <string-array name="revanced_change_start_page_entry_values">
+                <!-- Enum names from Integrations -->
+                <item>ORIGINAL</item>
+                <!-- Intent Action -->
+                <item>SEARCH</item>
+                <item>SHORTS</item>
+                <!-- Browser Id -->
+                <item>SUBSCRIPTIONS</item>
+                <item>EXPLORE</item>
+                <item>LIBRARY</item>
+                <item>LIKED_VIDEO</item>
+                <item>WATCH_LATER</item>
+                <item>HISTORY</item>
+                <item>TRENDING</item>
+                <item>GAMING</item>
+                <item>LIVE</item>
+                <item>MUSIC</item>
+                <item>MOVIE</item>
+                <item>SPORTS</item>
+                <item>BROWSE</item>
             </string-array>
             <string-array name="revanced_start_page_entries">
                 <item>@string/revanced_change_start_page_entry_default</item>

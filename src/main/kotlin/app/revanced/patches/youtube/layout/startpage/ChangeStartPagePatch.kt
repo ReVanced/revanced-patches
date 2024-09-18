@@ -2,24 +2,23 @@ package app.revanced.patches.youtube.layout.startpage
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
-import app.revanced.patches.youtube.layout.startpage.fingerprints.StartActivityFingerprint
-import app.revanced.patches.youtube.layout.startpage.fingerprints.StartActivityLegacyFingerprint
-import app.revanced.patches.youtube.layout.startpage.fingerprints.StartActivityParentFingerprint
+import app.revanced.patches.youtube.layout.startpage.fingerprints.BrowseIdFingerprint
+import app.revanced.patches.youtube.layout.startpage.fingerprints.IntentActionFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
-import app.revanced.patches.youtube.misc.playservice.YouTubeVersionCheck
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.util.alsoResolve
 import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionReversed
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.resultOrThrow
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 @Patch(
     name = "Change start page",
@@ -27,8 +26,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
     dependencies = [
         IntegrationsPatch::class,
         SettingsPatch::class,
-        AddResourcesPatch::class,
-        YouTubeVersionCheck::class
+        AddResourcesPatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -63,7 +61,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 )
 @Suppress("unused")
 object ChangeStartPagePatch : BytecodePatch(
-    setOf(StartActivityLegacyFingerprint, StartActivityParentFingerprint)
+    setOf(BrowseIdFingerprint, IntentActionFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/ChangeStartPagePatch;"
@@ -73,32 +71,32 @@ object ChangeStartPagePatch : BytecodePatch(
 
         SettingsPatch.PreferenceScreen.GENERAL_LAYOUT.addPreferences(
             ListPreference(
-                key = "revanced_start_page",
-                entriesKey = if (YouTubeVersionCheck.is_19_32_or_greater) "revanced_start_page_entries"
-                else "revanced_start_page_legacy_entries",
-                entryValuesKey = if (YouTubeVersionCheck.is_19_32_or_greater) "revanced_start_page_entry_values"
-                else "revanced_start_page_legacy_entry_values",
+                key = "revanced_change_start_page",
                 summaryKey = null,
             )
         )
 
-        if (YouTubeVersionCheck.is_19_32_or_greater) {
-            StartActivityFingerprint.alsoResolve(context, StartActivityParentFingerprint).mutableMethod.apply {
-                val index = indexOfFirstInstructionReversed {
-                    getReference<MethodReference>()?.name == "getIntent"
-                }
-                val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
-
-                addInstruction(
-                    index + 2,
-                    "invoke-static { v$register }, $INTEGRATIONS_CLASS_DESCRIPTOR->changeStartPage(Landroid/content/Intent;)V"
-                )
+        // Hook broseId.
+        BrowseIdFingerprint.resultOrThrow().mutableMethod.apply {
+            val browseIdIndex = indexOfFirstInstructionOrThrow {
+                opcode == Opcode.CONST_STRING &&
+                        getReference<StringReference>()?.string == "FEwhat_to_watch"
             }
-        } else {
-            StartActivityLegacyFingerprint.resultOrThrow().mutableMethod.addInstruction(
-                0,
-                "invoke-static { p1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->changeStartPageLegacy(Landroid/content/Intent;)V"
+            val browseIdRegister = getInstruction<OneRegisterInstruction>(browseIdIndex).registerA
+
+            addInstructions(
+                browseIdIndex + 1, """
+                        invoke-static { v$browseIdRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->overrideBrowseId(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v$browseIdRegister
+                    """
             )
         }
+
+        // There is no browserId assigned to Shorts and Search.
+        // Just hook the Intent action.
+        IntentActionFingerprint.resultOrThrow().mutableMethod.addInstruction(
+            0,
+            "invoke-static { p1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->overrideIntentAction(Landroid/content/Intent;)V"
+        )
     }
 }
