@@ -2,6 +2,7 @@ package app.revanced.patches.youtube.layout.hide.shorts
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
@@ -13,8 +14,10 @@ import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
 import app.revanced.patches.youtube.misc.playservice.YouTubeVersionCheck
+import app.revanced.util.alsoResolve
 import app.revanced.util.exception
 import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfIdResourceOrThrow
 import app.revanced.util.injectHideViewCall
 import app.revanced.util.resultOrThrow
@@ -74,7 +77,6 @@ object HideShortsComponentsPatch : BytecodePatch(
     setOf(
         CreateShortsButtonsFingerprint,
         ReelConstructorFingerprint,
-        BottomNavigationBarLegacyFingerprint,
         BottomNavigationBarFingerprint,
         RenderBottomNavigationBarParentFingerprint,
         SetPivotBarVisibilityParentFingerprint,
@@ -122,56 +124,37 @@ object HideShortsComponentsPatch : BytecodePatch(
         // region Hide the navigation bar.
 
         // Hook to get the pivotBar view.
-        SetPivotBarVisibilityParentFingerprint.result?.let {
-            if (!SetPivotBarVisibilityFingerprint.resolve(context, it.classDef)) {
-                throw SetPivotBarVisibilityFingerprint.exception
-            }
-
-            SetPivotBarVisibilityFingerprint.result!!.let { result ->
-                result.mutableMethod.apply {
-                    val insertIndex = result.scanResult.patternScanResult!!.endIndex
-                    val viewRegister = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
-                    addInstruction(
-                        insertIndex,
-                        "sput-object v$viewRegister, $FILTER_CLASS_DESCRIPTOR->pivotBar:" +
-                            "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;",
-                    )
-                }
-            }
-        } ?: throw SetPivotBarVisibilityParentFingerprint.exception
-
-        // Hook to hide the navigation bar when Shorts are being played.
-        RenderBottomNavigationBarParentFingerprint.result?.let {
-            if (!RenderBottomNavigationBarFingerprint.resolve(context, it.classDef)) {
-                throw RenderBottomNavigationBarFingerprint.exception
-            }
-
-            RenderBottomNavigationBarFingerprint.result!!.mutableMethod.apply {
-                addInstruction(0, "invoke-static { }, $FILTER_CLASS_DESCRIPTOR->hideNavigationBar()V")
-            }
-        } ?: throw RenderBottomNavigationBarParentFingerprint.exception
-
-        // Required to prevent a black bar from appearing at the bottom of the screen.
-        // BottomNavigationBar class deprecated on 19.29+.
-        val navbarFingerprint =
-            if (YouTubeVersionCheck.is_19_29_or_greater) {
-                BottomNavigationBarFingerprint
-            } else {
-                BottomNavigationBarLegacyFingerprint
-            }
-
-        navbarFingerprint.resultOrThrow().let {
-            it.mutableMethod.apply {
-                val moveResultIndex = it.scanResult.patternScanResult!!.startIndex + 2
-                val viewRegister = getInstruction<OneRegisterInstruction>(moveResultIndex).registerA
-                val insertIndex = moveResultIndex + 1
-
-                addInstruction(
-                    insertIndex,
-                    "invoke-static { v$viewRegister }, $FILTER_CLASS_DESCRIPTOR->" +
-                        "hideNavigationBar(Landroid/view/View;)Landroid/view/View;",
+        SetPivotBarVisibilityFingerprint.alsoResolve(context, SetPivotBarVisibilityParentFingerprint).let { result->
+            result.mutableMethod.apply {
+                val insertIndex = result.scanResult.patternScanResult!!.endIndex
+                val viewRegister = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
+                addInstruction(insertIndex, "invoke-static {v$viewRegister}," +
+                        " $FILTER_CLASS_DESCRIPTOR->setNavigationBar(Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;)V"
                 )
             }
+        }
+
+        // Hook to hide the navigation bar when Shorts are being played.
+        RenderBottomNavigationBarFingerprint.alsoResolve(
+            context,
+            RenderBottomNavigationBarParentFingerprint
+        ).mutableMethod.addInstruction(
+            0,
+            "invoke-static { }, $FILTER_CLASS_DESCRIPTOR->hideNavigationBar()V"
+        )
+
+        BottomNavigationBarFingerprint.resultOrThrow().mutableMethod.apply {
+            val targetIndex = indexOfFirstInstructionOrThrow {
+                getReference<MethodReference>()?.name == "findViewById"
+            } + 1
+            val viewRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+
+            addInstructions(
+                targetIndex + 1, """
+                        invoke-static { v$viewRegister }, $FILTER_CLASS_DESCRIPTOR->hideNavigationBar(Landroid/view/View;)Landroid/view/View;
+                        move-result-object v$viewRegister
+                        """
+            )
         }
 
         // endregion
