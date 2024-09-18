@@ -1,3 +1,10 @@
+## [4.14.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.14.0...v4.14.1-dev.1) (2024-09-18)
+
+
+### Bug Fixes
+
+* **YouTube - Check environment:** Only use fields available since Android 8 ([#3655](https://github.com/ReVanced/revanced-patches/issues/3655)) ([4413533](https://github.com/ReVanced/revanced-patches/commit/441353306572340131030e1c4fee1ab6acb63cd9))
+
 # [4.14.0](https://github.com/ReVanced/revanced-patches/compare/v4.13.3...v4.14.0) (2024-09-18)
 
 
