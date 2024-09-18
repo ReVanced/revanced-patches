@@ -1129,27 +1129,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_on">Vuốt để tua được bật</string>
   <string name="revanced_slide_to_seek_summary_off">Vuốt để tua không được bật</string>
   </patch>
-  <patch id="misc.fix.playback.SpoofClientPatch">
-  <string name="revanced_spoof_client_screen_title">Giả mạo máy khách</string>
-  <string name="revanced_spoof_client_screen_summary">Giả mạo máy khách để ngăn ngừa sự cố khi phát nền</string>
-  <string name="revanced_spoof_client_title">Giả mạo máy khách</string>
-  <string name="revanced_spoof_client_summary_on">Máy khách đã được giả mạo</string>
-  <string name="revanced_spoof_client_summary_off">Máy khách chưa được giả mạo\n\nPhát nền video có thể không hoạt động</string>
-  <string name="revanced_spoof_client_user_dialog_message">Việc tắt cài đặt này có thể gây ra sự cố phát nền video.</string>
-  <string name="revanced_spoof_client_type_title">Kiểu giả mạo máy khách</string>
-  <string name="revanced_spoof_client_ios_force_avc_title">iOS AVC (H.264) ép buộc</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_on">Bộ giải mã video trên iOS là AVC</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_off">Bộ giải mã video trên iOS là AVC, VP9, hoặc AV1</string>
-  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Bật chức năng này có thể tăng cường thời lượng pin và sửa lỗi phát lặp.\n\nAVC có độ phân giải tối đa 1080p, và video phát sẽ dùng nhiều dữ liệu mạng hơn VP9 hoặc AV1.</string>
-  <string name="revanced_spoof_client_about_android_ios_title">Tác dụng phụ của giả mạo iOS</string>
-  <string name="revanced_spoof_client_about_android_ios_summary">• HDR chỉ được hỗ trợ với bộ giải mã AV1\n• Lịch sử xem không hoạt động với tài khoản thương hiệu</string>
-  <string name="revanced_spoof_client_about_android_vr_title">Tác dụng phụ của giả mạo Android VR</string>
-  <string name="revanced_spoof_client_about_android_vr_summary">• Không có video HDR\n• Video dành cho trẻ em không phát lắp\n• Video đã tạm dừng có thể ngẫu nhiên phát tiếp\n• Hình thu nhỏ thanh tiến trình Shorts có chất lượng thấp\n• Nút hành động tải xuống luôn ẩn\n• Các thẻ màn hình kết thúc luôn ẩn</string>
-  <string name="revanced_spoof_client_storyboard_timeout">Hình thu nhỏ giả mạo máy khách không khả dụng (API hết hạn)</string>
-  <string name="revanced_spoof_client_storyboard_io_exception">Hình thu nhỏ giả mạo máy khách tạm thời không khả dụng: %s</string>
-  </patch>
-  <!-- This patch is no longer used, these strings are not in use, and these strings will be deleted in the future. -->
-  <patch id="misc.fix.playback.SpoofSignaturePatch">
+  <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_user_dialog_message">Việc tắt cài đặt này có thể gây ra sự cố phát nền video.</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Bật chức năng này có thể tăng cường thời lượng pin và sửa lỗi phát lặp.\n\nAVC có độ phân giải tối đa 1080p, và video phát sẽ dùng nhiều dữ liệu mạng hơn VP9 hoặc AV1.</string>
+  <string name="revanced_spoof_video_streams_about_ios_title">Tác dụng phụ của giả mạo iOS</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_title">Tác dụng phụ của giả mạo Android VR</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

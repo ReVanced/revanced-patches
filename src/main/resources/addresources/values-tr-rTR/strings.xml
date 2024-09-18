@@ -1132,27 +1132,23 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_on">Kaydırarak sardırma etkin</string>
   <string name="revanced_slide_to_seek_summary_off">Kaydırarak saydırma etkin değil</string>
   </patch>
-  <patch id="misc.fix.playback.SpoofClientPatch">
-  <string name="revanced_spoof_client_screen_title">İstemciyi taklit et</string>
-  <string name="revanced_spoof_client_screen_summary">Oynatma sorunlarını önlemek için istemciyi taklit et</string>
-  <string name="revanced_spoof_client_title">İstemciyi taklit et</string>
-  <string name="revanced_spoof_client_summary_on">İstemci taklit ediliyor</string>
-  <string name="revanced_spoof_client_summary_off">İstemci taklit edilmiyor\n\nVideo oynatma çalışmayabilir</string>
-  <string name="revanced_spoof_client_user_dialog_message">Bu ayarı devre dışı bırakmak video oynatma sorunlarına yol açabilir.</string>
-  <string name="revanced_spoof_client_type_title">İstemci taklit tipi</string>
-  <string name="revanced_spoof_client_ios_force_avc_title">iOS AVC (H.264) zorla</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_on">iOS video kodeği AVC</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_off">iOS video kodeği AVC, VP9 ya da AV1</string>
-  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Bunu etkinleştirmek batarya ömrünü uzatabilir ve oynatma takılmalarını çözebilir.\n\nAVC en fazla 1080p çözünürlüğe sahiptir ve video oynatımı VP9 veya AV1\'e göre daha fazla internet harcayacaktır.</string>
-  <string name="revanced_spoof_client_about_android_ios_title">iOS taklidi yan etkileri</string>
-  <string name="revanced_spoof_client_about_android_ios_summary">• HDR yalnızca AV1 kodeğiyle desteklenir\n• İzleme geçmişi bir marka hesabıyla çalışmaz</string>
-  <string name="revanced_spoof_client_about_android_vr_title">Android VR taklidi yan etkileri</string>
-  <string name="revanced_spoof_client_about_android_vr_summary">• HDR video yok\n• Çocuklara özel videolar oynatılamaz\n• Duraklatılmış videolar rastgele bir şekilde devam edebilir\n• Shorts zaman çubuğu küçük resimleri düşük kalitede\n• İndirme eylem düğmesi gizli\n• Bitiş ekranı kartları gizli</string>
-  <string name="revanced_spoof_client_storyboard_timeout">İstemci küçük resimlerini taklit etme kullanılamıyor (API zaman aşımına uğradı)</string>
-  <string name="revanced_spoof_client_storyboard_io_exception">İstemci küçük resimlerini taklit etme geçici olarak kullanılamıyor: %s</string>
-  </patch>
-  <!-- This patch is no longer used, these strings are not in use, and these strings will be deleted in the future. -->
-  <patch id="misc.fix.playback.SpoofSignaturePatch">
+  <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Video akışlarını taklit et</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Oynatma sorunlarını önlemek için istemci video akışlarını taklit et</string>
+  <string name="revanced_spoof_video_streams_title">Video akışlarını taklit et</string>
+  <string name="revanced_spoof_video_streams_summary_on">Video akışları taklit ediliyor</string>
+  <string name="revanced_spoof_video_streams_summary_off">Video akışları taklit edilmiyor\n\nVideo oynatımı çalışmayabilir</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Bu ayarı devre dışı bırakmak video oynatma sorunlarına yol açabilir.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Varsayılan istemci</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">AVC\'yi (H.264) zorla</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodeği AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodeği VP9 ya da AV1</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Cihazınız VP9 donanım çözme özelliği yok ve bu ayar istemci taklit etme açık iken her zaman açıktır</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Bunu etkinleştirmek batarya ömrünü uzatabilir ve oynatma takılmalarını çözebilir.\n\nAVC en fazla 1080p çözünürlüğe sahiptir ve video oynatımı VP9 veya AV1\'e göre daha fazla internet harcayacaktır.</string>
+  <string name="revanced_spoof_video_streams_about_ios_title">iOS taklidi yan etkileri</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmler veya paralı videolar oynatılmayabilir\n• Canlı yayınlar baştan başlar</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR taklidi yan etkileri</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Ses parçası menüsü eksik</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

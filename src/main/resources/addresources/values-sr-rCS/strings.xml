@@ -631,6 +631,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_save_sound_button_title">Sakrij dugme „Sačuvaj zvuk na plejlistu”</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Dugme „Sačuvaj zvuk na plejlistu” je skriveno</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Dugme „Sačuvaj zvuk na plejlistu” je prikazano</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_title">Sakrij dugme „Koristi ovaj zvuk”</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">Dugme „Koristi ovaj zvuk” je skriveno</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">Dugme „Koristi ovaj zvuk” je prikazano</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Sakrij predloge za pretragu</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Predlozi za pretragu su skriveni</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Predlozi za pretragu su prikazani</string>
@@ -1131,41 +1134,23 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_on">Prevlačenje za premotavanje je omogućeno</string>
   <string name="revanced_slide_to_seek_summary_off">Prevlaćenje za premotavanje nije omogućeno</string>
   </patch>
-  <patch id="misc.fix.playback.SpoofClientPatch">
-  <string name="revanced_spoof_client_screen_title">Lažiran klijent</string>
-  <string name="revanced_spoof_client_screen_summary">Lažiranje klijenta da bi se sprečili problemi sa reprodukcijom</string>
-  <string name="revanced_spoof_client_title">Lažiran klijent</string>
-  <string name="revanced_spoof_client_summary_on">Klijent je lažiran</string>
-  <string name="revanced_spoof_client_summary_off">Klijent nije lažiran\n\nReprodukcija videa možda neće raditi</string>
-  <string name="revanced_spoof_client_user_dialog_message">Isključivanje ovog podešavanja možda će izazvati probleme sa reprodukcijom videa.</string>
-  <string name="revanced_spoof_client_type_title">Tip lažiranog klijenta</string>
-  <string name="revanced_spoof_client_ios_force_avc_title">Prisili iOS AVC (H.264)</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_on">iOS video kodek je AVC</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_off">iOS video kodek je AVC, VP9 ili AV1</string>
-  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Ako ovo omogućite, možda će se produžiti trajanje baterije i popraviti zastoj pri reprodukciji.\n\nAVC ima maksimalnu rezoluciju od 1080p, a reprodukcija videa će koristiti više internet podataka nego VP9 ili AV1.</string>
-  <string name="revanced_spoof_client_about_android_ios_title">Neželjeni efekti lažiranja na iOS</string>
-  <string name="revanced_spoof_client_about_android_ios_summary">• HDR je podržan samo kodekom AV1\n• Istorija gledanja ne radi sa nalogom brenda</string>
-  <string name="revanced_spoof_client_about_android_vr_title">Neželjeni efekti lažiranja na Android VR</string>
-  <string name="revanced_spoof_client_about_android_vr_summary">• Nema HDR videa\n• Dečji video snimci se ne reprodukuju\n• Pauzirani video snimci mogu nasumično da se nastavljaju\n• Sličice na traci za premotavanje Shorts videa lošeg kvaliteta\n• Dugme za radnju „Preuzmi“ je skriveno\n• Kartice završnog ekrana su skrivene</string>
-  <string name="revanced_spoof_client_storyboard_timeout">Sličice u lažiranom klijentu nisu dostupne (API istekao)</string>
-  <string name="revanced_spoof_client_storyboard_io_exception">Sličice u lažiranom klijentu privremeno nisu dostupne: %s</string>
-  </patch>
-  <!-- This patch is no longer used, these strings are not in use, and these strings will be deleted in the future. -->
-  <patch id="misc.fix.playback.SpoofSignaturePatch">
-  <string name="revanced_spoof_signature_verification_screen_title">Lažirani potpis aplikacije</string>
-  <string name="revanced_spoof_signature_verification_screen_summary">Lažiranje potpisa aplikacije da bi se sprečili problemi s reprodukcijom</string>
-  <string name="revanced_spoof_signature_verification_enabled_title">Lažirani potpis aplikacije</string>
-  <string name="revanced_spoof_signature_verification_enabled_summary_on">Potpis aplikacije je lažiran\n\nNeželjeni efekti obuhvataju:\n• Poboljšana brzina prenosa nije dostupna\n• Videi se ne mogu preuzimati\n• Nema sličica na traci za premotavanje za plaćene videe</string>
-  <string name="revanced_spoof_signature_verification_enabled_summary_off">Potpis aplikacije nije lažiran\n\nReprodukcija videa možda neće raditi</string>
-  <string name="revanced_spoof_signature_verification_enabled_user_dialog_message">Isključivanje ovog podešavanja može izazvati probleme s reprodukcijom videa.</string>
-  <string name="revanced_spoof_signature_in_feed_enabled_title">Lažirani potpis aplikacije u fidu</string>
-  <string name="revanced_spoof_signature_in_feed_enabled_summary_on">Potpis plikacije je lažiran\n\nNeželjeni efekti obuhvataju:\n• Videi u fidu nemaju titlove\n• Automatski pušteni videi u fidu će se pojaviti u istoriji gledanja</string>
-  <string name="revanced_spoof_signature_in_feed_enabled_summary_off">Potpis aplikacije nije lažiran za videe u fidu\n\nVidei u fidu će se pustiti na manje od 1 minuta pre nego što naiđu na probleme s reprodukcijom</string>
-  <string name="revanced_spoof_storyboard_title">Lažirani storibord</string>
-  <string name="revanced_spoof_storyboard_summary_on">Storibord je lažiran</string>
-  <string name="revanced_spoof_storyboard_summary_off">Storibord nije lažiran\n\nNeželjeni efekti uključuju:\n• Nema ambijentalnog režima\n• Sličice na traci za premotavanje su skrivene</string>
-  <string name="revanced_spoof_storyboard_timeout">Lažiranje storiborda privremeno nije dostupno (API je istekao)</string>
-  <string name="revanced_spoof_storyboard_io_exception">Lažiranje storiborda privremeno nije dostupno: %s</string>
+  <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Lažiran video strim</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Lažiranje klijenta video strimova da bi se sprečili problemi s reprodukcijom</string>
+  <string name="revanced_spoof_video_streams_title">Lažirani video strimovi</string>
+  <string name="revanced_spoof_video_streams_summary_on">Video strimovi su lažirani</string>
+  <string name="revanced_spoof_video_streams_summary_off">Video strimovi nisu lažirani\n\nReprodukcija videa možda neće raditi</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Isključivanje ovog podešavanja možda će izazvati probleme sa reprodukcijom videa.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Podrazumevani klijent</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Prisili AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodek je AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodek je VP9 ili AV1</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Vaš uređaj nema VP9 hardversko dekodiranje, i ova opcija je uvek uključena kada je omogućeno lažiranje klijenta</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Ako ovo omogućite, možda će se produžiti trajanje baterije i popraviti zastoj pri reprodukciji.\n\nAVC ima maksimalnu rezoluciju od 1080p, a reprodukcija videa će koristiti više internet podataka nego VP9 ili AV1.</string>
+  <string name="revanced_spoof_video_streams_about_ios_title">Neželjeni efekti lažiranja na iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmovi ili plaćeni videi se možda neće puštati\n• Strimovi uživo počinju od početka</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_title">Neželjeni efekti lažiranja na Android VR</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Nedostaje meni „Audio snimak”</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

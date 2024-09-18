@@ -65,11 +65,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="misc.gms.BaseGmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore belum dipasang. Pasang dulu.</string>
-  <string name="gms_core_dialog_title">Perlu tindakan</string>
+  <string name="gms_core_dialog_title">Tindakan diperlukan</string>
   <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">MicroG GmsCore tidak memiliki izin untuk berjalan di latar belakang.\n\nIkuti panduan \"Don\'t kill my app\" untuk ponsel Anda, dan terapkan petunjuk tersebut pada pemasangan MicroG Anda.\n\nIni diperlukan supaya aplikasi dapat berfungsi.</string>
   <string name="gms_core_dialog_open_website_text">Buka situs</string>
   <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">Pengoptimalan baterai MicroG GmsCore harus dinonaktifkan untuk mencegah masalah.\n\nKetuk tombol lanjutkan dan matikan pengoptimalan baterai.</string>
-  <string name="gms_core_dialog_continue_text">Lanjut</string>
+  <string name="gms_core_dialog_continue_text">Lanjutkan</string>
   </patch>
   </app>
   <app id="youtube">
@@ -472,9 +472,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_captions_summary_on">Menu caption disembunyikan</string>
   <string name="revanced_hide_player_flyout_captions_summary_off">Menu caption ditampilkan</string>
   <!-- 'Additional settings' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_additional_settings_title">Sembunyikan P\'aturan tambahan</string>
-  <string name="revanced_hide_player_flyout_additional_settings_summary_on">Menu p\'aturan tambahan disembunyikan</string>
-  <string name="revanced_hide_player_flyout_additional_settings_summary_off">Menu p\'aturan tambahan ditampilkan</string>
+  <string name="revanced_hide_player_flyout_additional_settings_title">Sembunyikan Pengaturan tambahan</string>
+  <string name="revanced_hide_player_flyout_additional_settings_summary_on">Menu pengaturan tambahan disembunyikan</string>
+  <string name="revanced_hide_player_flyout_additional_settings_summary_off">Menu pengaturan tambahan ditampilkan</string>
   <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_loop_video_title">Sembunyikan Ulangi video</string>
   <string name="revanced_hide_player_flyout_loop_video_summary_on">Menu ulangi video disembunyikan</string>
@@ -1009,7 +1009,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_invalid">Nilai warna bilah pencarian tidak sah.</string>
   </patch>
   <patch id="layout.thumbnails.BypassImageRegionRestrictions">
-  <string name="revanced_bypass_image_region_restrictions_title">Abaikan batasan daerah gambar</string>
+  <string name="revanced_bypass_image_region_restrictions_title">Abaikan pembatasan wilayah gambar</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Menggunakan sumber yt4.ggpht.com</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">Menggunakan sumber gambar asli\n\nMengaktifkan ini akan memperbaiki gambar hilang di daerah tertentu</string>
   </patch>
@@ -1023,15 +1023,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_alt_thumbnail_player_title">Daftar putar video, anjuran</string>
   <string name="revanced_alt_thumbnail_search_title">Hasil pencarian</string>
   <string name="revanced_alt_thumbnail_options_entry_1">Thumbnail asli</string>
-  <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Gambar mini asli</string>
+  <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Thumbnail asli</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Gambar diam</string>
   <string name="revanced_alt_thumbnail_options_entry_4">Tangkapan diam</string>
-  <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow menyediakan gambar mini yang dibuat oleh banyak orang untuk video YouTube. Gambar mini ini sering kali lebih relevan daripada yang disediakan oleh YouTube\n\nJika dinyalakan, URL video akan dikirim ke server API dan tidak ada data lain yang dikirim. Jika video tidak memiliki gambar mini DeArrow, maka rekaman asli atau gambar diam akan ditampilkan\n\nKetuk di sini untuk mempelajari lebih lanjut tentang DeArrow</string>
+  <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow menyediakan thumbnail yang dibuat oleh banyak orang untuk video YouTube. Thumbnail ini seringkali lebih relevan daripada yang disediakan oleh YouTube\n\nJika dinyalakan, URL video akan dikirim ke server API dan tidak ada data lain yang dikirim. Jika video tidak memiliki thumbnail DeArrow, maka rekaman asli atau gambar diam akan ditampilkan\n\nKetuk di sini untuk mempelajari lebih lanjut tentang DeArrow</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Tampilkan pemberitahuan halus jika API tidak tersedia</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Pemberitahuan halus ditampilkan jika DeArrow tidak tersedia</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Pemberitahuan halus tidak ditampilkan jika DeArrow tidak tersedia</string>
   <string name="revanced_alt_thumbnail_dearrow_api_url_title">Titik akhir API DeArrow</string>
-  <string name="revanced_alt_thumbnail_dearrow_api_url_summary">URL titik akhir cache gambar mini DeArrow</string>
+  <string name="revanced_alt_thumbnail_dearrow_api_url_summary">URL titik akhir cache thumbnail DeArrow</string>
   <string name="revanced_alt_thumbnail_stills_about_title">Tangkapan video diam</string>
   <string name="revanced_alt_thumbnail_stills_about_summary">Tangkapan gambar diam diambil dari awal/tengah/akhir setiap video. Gambar-gambar ini dibuat di YouTube dan tidak ada API eksternal yang digunakan</string>
   <string name="revanced_alt_thumbnail_stills_fast_title">Gunakan tangkapan diam cepat</string>
@@ -1132,25 +1132,23 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_on">Geser untuk mencari dinyalakan</string>
   <string name="revanced_slide_to_seek_summary_off">Geser untuk mencari tidak dinyalakan</string>
   </patch>
-  <patch id="misc.fix.playback.SpoofClientPatch">
-  <string name="revanced_spoof_client_screen_title">Palsukan  klien</string>
-  <string name="revanced_spoof_client_screen_summary">Palsukan klien untuk mencegah masalah pemutaran</string>
-  <string name="revanced_spoof_client_title">Palsukan klien</string>
-  <string name="revanced_spoof_client_summary_on">Klien dipalsukan</string>
-  <string name="revanced_spoof_client_summary_off">Klient tidak dipalsukan\n\Pemutaran video mungkin tidak berfungsi</string>
-  <string name="revanced_spoof_client_user_dialog_message">Mematikan pengaturan ini dapat menyebabkan masalah pemutaran video.</string>
-  <string name="revanced_spoof_client_type_title">Palsukan jenis klien</string>
-  <string name="revanced_spoof_client_ios_force_avc_title">Paksa iOS AVC (H.264)</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_on">Kodek video iOS adalah AVC</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_off">Kodek video iOS adalah AVC, VP9, atau AV1</string>
-  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Menyalakan ini dapat meningkatkan masa pakai baterai dan memperbaiki gangguan pemutaran.\n\nAVC memiliki resolusi maksimum 1080p, dan pemutaran video akan menggunakan lebih banyak data internet daripada VP9 atau AV1.</string>
-  <string name="revanced_spoof_client_about_android_ios_title">Efek samping pemalsuan iOS</string>
-  <string name="revanced_spoof_client_about_android_ios_summary">• HDR hanya didukung dengan codec AV1\n• Riwayat tontonan tidak berfungsi dengan akun merek</string>
-  <string name="revanced_spoof_client_about_android_vr_title">Efek samping pemalsuan Android VR</string>
-  <string name="revanced_spoof_client_about_android_vr_summary">• Tidak ada video HDR\n• Video anak-anak tidak dapat diputar\n• Video yang dijeda dapat dilanjutkan secara acak\n• Gambar mini bilah pencarian Shorts berkualitas rendah\n• Tombol tindakan unduhan disembunyikan\n• Kartu layar akhir disembunyikan</string>
-  </patch>
-  <!-- This patch is no longer used, these strings are not in use, and these strings will be deleted in the future. -->
-  <patch id="misc.fix.playback.SpoofSignaturePatch">
+  <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Palsukan aliran video</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Palsukan klien aliran video untuk mencegah masalah pemutaran</string>
+  <string name="revanced_spoof_video_streams_title">Palsukan aliran video</string>
+  <string name="revanced_spoof_video_streams_summary_on">Aliran video dipalsukan</string>
+  <string name="revanced_spoof_video_streams_summary_off">Aliran video tidak dipalsukan\n\nPemutaran video mungkin tidak berfungsi</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Mematikan pengaturan ini dapat menyebabkan masalah pemutaran video.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Klien bawaan</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Paksa AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Kodek video adalah AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodek video adalah VP9 atau AV1</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Perangkat Anda tidak memiliki dekode perangkat keras VP9, ​​dan pengaturan ini selalu aktif saat pemalsuan Klien diaktifkan</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Menyalakan ini dapat meningkatkan masa pakai baterai dan memperbaiki gangguan pemutaran.\n\nAVC memiliki resolusi maksimum 1080p, dan pemutaran video akan menggunakan lebih banyak data internet daripada VP9 atau AV1.</string>
+  <string name="revanced_spoof_video_streams_about_ios_title">Efek samping pemalsuan iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Film atau video berbayar mungkin tidak dapat diputar\n• Siaran langsung dimulai dari awal</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_title">Efek samping pemalsuan Android VR</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Menu trek audio hilang</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

@@ -630,9 +630,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_save_sound_button_title">Κουμπί αποθήκευσης ήχου σε λίστα αναπαραγωγής</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Εμφανίζεται</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_title">Απόκρυψη χρήσης αυτού του κουμπιού ήχου</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">Χρήση αυτού του κουμπιού ήχου είναι κρυμμένο</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">Χρήση αυτού του κουμπιού ήχου</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_title">Κουμπί «Χρήση αυτού του ήχου»</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">Κρυμμένο</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Προτάσεις αναζήτησης</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Εμφανίζονται</string>
@@ -1133,28 +1133,23 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_on">Η αναζήτηση στη γραμμή προόδου με χειρονομία οριζόντιας σάρωσης είναι ενεργοποιημένη</string>
   <string name="revanced_slide_to_seek_summary_off">Η αναζήτηση στη γραμμή προόδου με χειρονομία σάρωσης είναι απενεργοποιημένη</string>
   </patch>
-  <patch id="misc.fix.playback.SpoofClientPatch">
-  <string name="revanced_spoof_client_screen_title">Παραποίηση προγράμματος πελάτη</string>
-  <string name="revanced_spoof_client_screen_summary">Παραποίηση του προγράμματος πελάτη για την αποφυγή προβλημάτων αναπαραγωγής</string>
-  <string name="revanced_spoof_client_title">Παραποίηση προγράμματος πελάτη</string>
-  <string name="revanced_spoof_client_summary_on">Το πρόγραμμα πελάτη παραποιείται</string>
-  <string name="revanced_spoof_client_summary_off">Το πρόγραμμα πελάτη δεν παραποιείται\n\nΗ αναπαραγωγή βίντεο ενδέχεται να μη λειτουργεί</string>
-  <string name="revanced_spoof_client_user_dialog_message">Η απενεργοποίηση αυτής της ρύθμισης ενδέχεται να προκαλέσει προβλήματα αναπαραγωγής βίντεο.</string>
-  <string name="revanced_spoof_client_type_title">Παραποίηση τύπου πελάτη</string>
-  <string name="revanced_spoof_client_ios_force_avc_title">Εξαναγκασμός iOS AVC (H.264)</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_on">Ο κωδικοποιητής βίντεο στο iOS είναι ο AVC</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_off">Ο κωδικοποιητής βίντεο στο iOS είναι ο AVC, ο VP9 ή ο AV1</string>
-  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Ενεργοποιώντας αυτόν τον κωδικοποιητή ίσως να βελτιώσει κατανάλωση ενέργειας και ίσως διορθώσει κολλήματα αναπαραγωγής.\n\nΟ AVC έχει μέγιστη ανάλυση 1080p, και καταναλώνει περισσότερα δεδομένα internet από τον VP9 ή τον AV1.</string>
-  <string name="revanced_spoof_client_about_android_ios_title">Παρενέργειες παραποίησης σε iOS</string>
-  <string name="revanced_spoof_client_about_android_ios_summary">• Το HDR υποστηρίζεται μόνο με τον κωδικοποιητή AV1\n• Το ιστορικό παρακολούθησης δε λειτουργεί με λογαριασμό επωνυμίας</string>
-  <string name="revanced_spoof_client_about_android_vr_title">Παρενέργειες παραποίησης σε Android VR</string>
-  <string name="revanced_spoof_client_about_android_vr_summary">• Δεν υπάρχει η ποιότητα HDR στα βίντεο• Δεν λειτουργεί η αναπαραγωγή στα βίντεο για παιδιά\n• Βίντεο που έχετε θέσει σε παύση μπορεί να συνεχίσουν να παίζουν τυχαία\n• Χαμηλή ποιότητα μικρογραφιών γραμμής προόδου στα Shorts\n• Το κουμπί λήψης είναι πάντα κρυμμένο\n• Οι κάρτες τελικής οθόνης είναι πάντα κρυμμένες</string>
-  <string name="revanced_spoof_client_storyboard_timeout">Μικρογραφίες προεπισκόπησης μη διαθέσιμες (καθυστέρηση API)</string>
-  <string name="revanced_spoof_client_storyboard_io_exception">Μικρογραφίες προεπισκόπησης προσωρινά μη διαθέσιμες: %s</string>
-  </patch>
-  <!-- This patch is no longer used, these strings are not in use, and these strings will be deleted in the future. -->
-  <patch id="misc.fix.playback.SpoofSignaturePatch">
-  <string name="revanced_spoof_signature_in_feed_enabled_summary_off">Η εγκυρότητα της εφαρμογής δεν παραποιείται για βίντεο στη ροή\n\nΤα βίντεο στη ροή θα αναπαράγονται για λιγότερο από 1 λεπτό πριν αντιμετωπίσουν προβλήματα αναπαραγωγής</string>
+  <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Παραποίηση ροών βίντεο</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Παραποίηση ροών βίντεο του προγράμματος πελάτη για την αποφυγή προβλημάτων αναπαραγωγής</string>
+  <string name="revanced_spoof_video_streams_title">Παραποίηση ροών βίντεο</string>
+  <string name="revanced_spoof_video_streams_summary_on">Οι ροές βίντεο παραποιούνται</string>
+  <string name="revanced_spoof_video_streams_summary_off">Οι ροές βίντεο δεν παραποιούνται\n\nΗ αναπαραγωγή βίντεο ενδέχεται να μην λειτουργεί</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Η απενεργοποίηση αυτής της ρύθμισης ενδέχεται να προκαλέσει προβλήματα αναπαραγωγής βίντεο.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Προεπιλεγμένο πρόγραμμα πελάτη</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Εξαναγκασμός AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Ο κωδικοποιητής βίντεο είναι ο AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Ο κωδικοποιητής βίντεο είναι ο VP9 ή ο AV1</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Η συσκευή σας δεν διαθέτει αποκωδικοποίηση υλικού VP9, και αυτή η ρύθμιση είναι πάντα ενεργή όταν είναι ενεργοποιημένη η παραποίηση προγράμματος πελάτη</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Ενεργοποιώντας αυτόν τον κωδικοποιητή ίσως να βελτιώσει κατανάλωση ενέργειας και ίσως διορθώσει κολλήματα αναπαραγωγής.\n\nΟ AVC έχει μέγιστη ανάλυση 1080p, και καταναλώνει περισσότερα δεδομένα internet από τον VP9 ή τον AV1.</string>
+  <string name="revanced_spoof_video_streams_about_ios_title">Παρενέργειες παραποίησης σε iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Οι ταινίες ή τα επί πληρωμή βίντεο ενδέχεται να μην αναπαράγονται\n• Οι ζωντανές μεταδόσεις ξεκινούν από την αρχή κατά την αναπαραγωγή</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_title">Παρενέργειες παραποίησης σε Android VR</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Το μενού «Κομμάτι ήχου» λείπει</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

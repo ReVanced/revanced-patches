@@ -1129,41 +1129,23 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_on">Deslizar para buscar está activado</string>
   <string name="revanced_slide_to_seek_summary_off">Slide to seek no está habilitado</string>
   </patch>
-  <patch id="misc.fix.playback.SpoofClientPatch">
-  <string name="revanced_spoof_client_screen_title">Cliente Falseado</string>
-  <string name="revanced_spoof_client_screen_summary">Fusiona al cliente para evitar problemas de reproducción</string>
-  <string name="revanced_spoof_client_title">Cliente Falseado</string>
-  <string name="revanced_spoof_client_summary_on">Cliente Falseado</string>
-  <string name="revanced_spoof_client_summary_off">El cliente no está falsificado\n\nEs posible que la reproducción de vídeo no funcione</string>
-  <string name="revanced_spoof_client_user_dialog_message">Desactivar esta configuración puede causar problemas de reproducción de vídeo.</string>
-  <string name="revanced_spoof_client_type_title">Tipo de cliente falseado</string>
-  <string name="revanced_spoof_client_ios_force_avc_title">Forzar iOS AVC (H.264)</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_on">El código de vídeo de iOS es AVC</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_off">El códec de vídeo de iOS es AVC, VP9 o AV1</string>
-  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Activar esto puede mejorar la vida de la batería y corregir el retraso en la reproducción.\n\nAVC tiene una resolución máxima de 1080p, y la reproducción de vídeo utilizará más datos de Internet que VP9 o AV1.</string>
-  <string name="revanced_spoof_client_about_android_ios_title">Efectos secundarios para falseo de iOS</string>
-  <string name="revanced_spoof_client_about_android_ios_summary">• HDR solo es compatible con el código AV1\n• El historial de reproducción no funciona con una cuenta comercial</string>
-  <string name="revanced_spoof_client_about_android_vr_title">Efectos secundarios de falsear RV de Android</string>
-  <string name="revanced_spoof_client_about_android_vr_summary">• No hay vídeo HDR\n• Los vídeos para niños no se reproducirán\n• Los vídeos en pausa pueden reanudar aleatoriamente\n• Miniaturas de Shorts de baja calidad\n• El botón de acción está oculto\n• Las tarjetas para la pantalla final están ocultas</string>
-  <string name="revanced_spoof_client_storyboard_timeout">Las miniaturas del cliente de Spoof no están disponibles (API)</string>
-  <string name="revanced_spoof_client_storyboard_io_exception">Las miniaturas del cliente Spoof temporalmente no están disponibles: %s</string>
-  </patch>
-  <!-- This patch is no longer used, these strings are not in use, and these strings will be deleted in the future. -->
-  <patch id="misc.fix.playback.SpoofSignaturePatch">
-  <string name="revanced_spoof_signature_verification_screen_title">Firma de aplicación Spoof</string>
-  <string name="revanced_spoof_signature_verification_screen_summary">Espoya la firma de la aplicación para evitar problemas de reproducción</string>
-  <string name="revanced_spoof_signature_verification_enabled_title">Firma de aplicación Spoof</string>
-  <string name="revanced_spoof_signature_verification_enabled_summary_on">La firma de la aplicación falseada\n\nLos efectos laterales incluyen:\n• La tasa de bits mejorada no está disponible\n• Los vídeos no se pueden descargar\n• No hay miniaturas en la barra de búsqueda para vídeos pagados</string>
-  <string name="revanced_spoof_signature_verification_enabled_summary_off">La firma de la aplicación no está falseada\n\nLa reproducción de vídeo puede no funcionar</string>
-  <string name="revanced_spoof_signature_verification_enabled_user_dialog_message">Desactivar esta configuración causará problemas de reproducción de vídeo.</string>
-  <string name="revanced_spoof_signature_in_feed_enabled_title">Spoof firma de aplicación en el feed</string>
-  <string name="revanced_spoof_signature_in_feed_enabled_summary_on">La firma de la aplicación está falseada\n\nLos efectos laterales incluyen:\n• Los vídeos alimentarios no tienen subtítulos\n• Los vídeos reproducidos automáticamente se mostrarán en tu historial de relojes</string>
-  <string name="revanced_spoof_signature_in_feed_enabled_summary_off">Firma de la aplicación no simulada para videos de feed\n\nLos vídeos alimentarios se reproducirán durante menos de 1 minuto antes de encontrar problemas de reproducción</string>
-  <string name="revanced_spoof_storyboard_title">Cuadro de historias</string>
-  <string name="revanced_spoof_storyboard_summary_on">Cuadro de historias falseado</string>
-  <string name="revanced_spoof_storyboard_summary_off">El storyboard no está falseado\n\nLos efectos laterales incluyen:\n• Sin modo ambiente\n• Las miniaturas de la barra de búsqueda están ocultas</string>
-  <string name="revanced_spoof_storyboard_timeout">El storyboard espía no está disponible temporalmente (API)</string>
-  <string name="revanced_spoof_storyboard_io_exception">El storyboard espía no está disponible temporalmente: %s</string>
+  <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Flujos de video espía</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Espoya los flujos de vídeo del cliente para evitar problemas de reproducción</string>
+  <string name="revanced_spoof_video_streams_title">Flujos de video espía</string>
+  <string name="revanced_spoof_video_streams_summary_on">Los flujos de vídeo están falsificados</string>
+  <string name="revanced_spoof_video_streams_summary_off">Los streams de vídeo no están falseados\n\nLa reproducción de vídeo puede no funcionar</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Desactivar esta configuración puede causar problemas de reproducción de vídeo.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Cliente por defecto</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Forzar AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Codec de vídeo AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">El códec de vídeo es VP9 o AV1</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Su dispositivo no tiene decodificación de hardware VP9, y esta configuración siempre está encendida cuando el cliente spoofing está habilitado</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Activar esto puede mejorar la vida de la batería y corregir el retraso en la reproducción.\n\nAVC tiene una resolución máxima de 1080p, y la reproducción de vídeo utilizará más datos de Internet que VP9 o AV1.</string>
+  <string name="revanced_spoof_video_streams_about_ios_title">Efectos secundarios para falseo de iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Las películas o los vídeos de pago no pueden reproducir\n• Las imágenes comienzan desde el principio</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_title">Efectos secundarios de falsear RV de Android</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Falta el menú de pista de audio</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">
