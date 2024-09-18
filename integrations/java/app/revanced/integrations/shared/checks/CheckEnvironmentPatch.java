@@ -141,12 +141,8 @@ public final class CheckEnvironmentPatch {
                     buildFieldEqualsHash("ID", Build.ID, PATCH_ID) &
                     buildFieldEqualsHash("MANUFACTURER", Build.MANUFACTURER, PATCH_MANUFACTURER) &
                     buildFieldEqualsHash("MODEL", Build.MODEL, PATCH_MODEL) &
-                    buildFieldEqualsHash("ODM_SKU", Build.ODM_SKU, PATCH_ODM_SKU) &
                     buildFieldEqualsHash("PRODUCT", Build.PRODUCT, PATCH_PRODUCT) &
                     buildFieldEqualsHash("RADIO", Build.RADIO, PATCH_RADIO) &
-                    buildFieldEqualsHash("SKU", Build.SKU, PATCH_SKU) &
-                    buildFieldEqualsHash("SOC_MANUFACTURER", Build.SOC_MANUFACTURER, PATCH_SOC_MANUFACTURER) &
-                    buildFieldEqualsHash("SOC_MODEL", Build.SOC_MODEL, PATCH_SOC_MODEL) &
                     buildFieldEqualsHash("TAGS", Build.TAGS, PATCH_TAGS) &
                     buildFieldEqualsHash("TYPE", Build.TYPE, PATCH_TYPE) &
                     buildFieldEqualsHash("USER", Build.USER, PATCH_USER);
