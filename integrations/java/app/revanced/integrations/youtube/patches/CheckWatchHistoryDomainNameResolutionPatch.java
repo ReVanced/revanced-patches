@@ -55,7 +55,7 @@ public class CheckWatchHistoryDomainNameResolutionPatch {
                 }
 
                 Utils.runOnMainThread(() -> {
-                    var alertDialog = new android.app.AlertDialog.Builder(context)
+                    var alert = new android.app.AlertDialog.Builder(context)
                             .setTitle(str("revanced_check_watch_history_domain_name_dialog_title"))
                             .setMessage(Html.fromHtml(str("revanced_check_watch_history_domain_name_dialog_message")))
                             .setIconAttribute(android.R.attr.alertDialogIcon)
@@ -64,9 +64,9 @@ public class CheckWatchHistoryDomainNameResolutionPatch {
                             }).setNegativeButton(str("revanced_check_watch_history_domain_name_dialog_ignore"), (dialog, which) -> {
                                 Settings.CHECK_WATCH_HISTORY_DOMAIN_NAME.save(false);
                                 dialog.dismiss();
-                            })
-                            .setCancelable(false)
-                            .show();
+                            }).create();
+
+                    Utils.showDialog(context, alert, false, null);
                 });
             } catch (Exception ex) {
                 Logger.printException(() -> "checkDnsResolver failure", ex);

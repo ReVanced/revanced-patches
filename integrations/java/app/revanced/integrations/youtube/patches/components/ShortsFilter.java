@@ -202,6 +202,10 @@ public final class ShortsFilter extends Filter {
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_SUPER_THANKS_BUTTON,
                         "yt_outline_dollar_sign_heart_"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_SHORTS_USE_THIS_SOUND_BUTTON,
+                        "yt_outline_camera_"
                 )
         );
     }

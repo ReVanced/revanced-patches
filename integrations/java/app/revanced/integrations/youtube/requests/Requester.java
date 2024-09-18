@@ -23,6 +23,9 @@ public class Requester {
     public static HttpURLConnection getConnectionFromCompiledRoute(String apiUrl, Route.CompiledRoute route) throws IOException {
         String url = apiUrl + route.getCompiledRoute();
         HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+        // Request data is in the URL parameters and no body is sent.
+        // The calling code must set a length if using a request body.
+        connection.setFixedLengthStreamingMode(0);
         connection.setRequestMethod(route.getMethod().name());
         String agentString = System.getProperty("http.agent")
                 + "; ReVanced/" + Utils.getAppVersionName()
