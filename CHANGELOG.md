@@ -1,3 +1,122 @@
+# [4.14.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.14...v4.14.0-dev.15) (2024-09-17)
+
+
+### Bug Fixes
+
+* **YouTube:** Fix issues related to playback by replace streaming data ([#3582](https://github.com/ReVanced/revanced-patches/issues/3582)) ([dfa94d7](https://github.com/ReVanced/revanced-patches/commit/dfa94d70f65150d6ef24ea6378b8e6a317055186))
+
+# [4.14.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.13...v4.14.0-dev.14) (2024-09-17)
+
+
+### Features
+
+* **YouTube Music:** Make working patches compatible with latest versions ([#3556](https://github.com/ReVanced/revanced-patches/issues/3556)) ([12f6f19](https://github.com/ReVanced/revanced-patches/commit/12f6f1966ad04631451940f7b64d785c3ef481a0))
+
+# [4.14.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.12...v4.14.0-dev.13) (2024-09-17)
+
+
+### Features
+
+* **YouTube - Hide Shorts components:** Hide 'Use this sound' button ([#3647](https://github.com/ReVanced/revanced-patches/issues/3647)) ([33fc090](https://github.com/ReVanced/revanced-patches/commit/33fc09061431d4aa457d743c09a0de31ec566df1))
+
+# [4.14.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.11...v4.14.0-dev.12) (2024-09-14)
+
+
+### Bug Fixes
+
+* **Soundcloud - Hide ads:** Support latest version ([#3628](https://github.com/ReVanced/revanced-patches/issues/3628)) ([66e7e33](https://github.com/ReVanced/revanced-patches/commit/66e7e33efce9b702fdfcc2b9803e9da8491c1f08))
+
+# [4.14.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.10...v4.14.0-dev.11) (2024-09-12)
+
+
+### Features
+
+* **Sync for Reddit:** Rename patch to `Use /user/ endpoint` ([98ead49](https://github.com/ReVanced/revanced-patches/commit/98ead493380932cb105530f4ba992673fd364d82))
+
+# [4.14.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.9...v4.14.0-dev.10) (2024-09-12)
+
+
+### Features
+
+* **Sync for Reddit:** Add `Fix /user/ endpoint` patch ([46d11f3](https://github.com/ReVanced/revanced-patches/commit/46d11f3530fcdae9ed08b7e93aac235638a92dff))
+
+# [4.14.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.8...v4.14.0-dev.9) (2024-09-09)
+
+
+### Features
+
+* **YouTube:** Add donation link to settings about screen ([#3626](https://github.com/ReVanced/revanced-patches/issues/3626)) ([0684ab5](https://github.com/ReVanced/revanced-patches/commit/0684ab5f183631de5720352049cfd293daa58eb0))
+
+# [4.14.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.7...v4.14.0-dev.8) (2024-09-09)
+
+
+### Bug Fixes
+
+* **YouTube - SponsorBlock:** Add summary text to 'view my segments' button ([df80b9f](https://github.com/ReVanced/revanced-patches/commit/df80b9f92f0d981b9a40b7756d74f8ccc3dcb1e9))
+
+# [4.14.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.6...v4.14.0-dev.7) (2024-09-06)
+
+
+### Features
+
+* Add `Check environment` patch ([#3610](https://github.com/ReVanced/revanced-patches/issues/3610)) ([fbcbdaf](https://github.com/ReVanced/revanced-patches/commit/fbcbdafa4938a35b5fdec46aae7b250a84b9c139))
+
+# [4.14.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.5...v4.14.0-dev.6) (2024-09-06)
+
+
+### Features
+
+* Add `Change data directory location` patch ([#3602](https://github.com/ReVanced/revanced-patches/issues/3602)) ([5998029](https://github.com/ReVanced/revanced-patches/commit/59980292809cc0626bf49a160eeb05a1523c4eda))
+
+# [4.14.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.4...v4.14.0-dev.5) (2024-09-06)
+
+
+### Bug Fixes
+
+* **Pixiv - Hide ads:** Fix for latest version ([#3616](https://github.com/ReVanced/revanced-patches/issues/3616)) ([98956e8](https://github.com/ReVanced/revanced-patches/commit/98956e8f1a41347bb435720bbf984969469a7110))
+
+# [4.14.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.3...v4.14.0-dev.4) (2024-09-01)
+
+
+### Bug Fixes
+
+* **YouTube - ReturnYouTubeDislike:** Show estimated like count for videos with hidden likes ([#3601](https://github.com/ReVanced/revanced-patches/issues/3601)) ([005be82](https://github.com/ReVanced/revanced-patches/commit/005be82d71b2a42387b1b57035930b20f4663794))
+
+# [4.14.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.2...v4.14.0-dev.3) (2024-08-30)
+
+
+### Features
+
+* **YouTube - Keyword filter:** Add syntax to match whole keywords and not substrings ([#3592](https://github.com/ReVanced/revanced-patches/issues/3592)) ([f5fb351](https://github.com/ReVanced/revanced-patches/commit/f5fb3512cfafe214ba6a6d25ba0825ae1884a0ff))
+
+# [4.14.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.14.0-dev.1...v4.14.0-dev.2) (2024-08-24)
+
+
+### Features
+
+* **Duolingo:** Add `Disable ads` and `Enable debug menu` patch ([#3422](https://github.com/ReVanced/revanced-patches/issues/3422)) ([d0a8599](https://github.com/ReVanced/revanced-patches/commit/d0a8599f76ce653e5d7c98069ad3c58b9ab9c5eb))
+
+# [4.14.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.13.4-dev.2...v4.14.0-dev.1) (2024-08-22)
+
+
+### Features
+
+* **YouTube - Spoof client:** Allow forcing AVC codec with iOS ([#3570](https://github.com/ReVanced/revanced-patches/issues/3570)) ([1a49d1f](https://github.com/ReVanced/revanced-patches/commit/1a49d1f3c2a343d05d0abc07c143add486246fd0))
+
+## [4.13.4-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.13.4-dev.1...v4.13.4-dev.2) (2024-08-20)
+
+
+### Bug Fixes
+
+* **YouTube - SponsorBlock:** Handle if the user enters an invalid number into any SB settings ([37b3dd1](https://github.com/ReVanced/revanced-patches/commit/37b3dd1e789f8bb16fa1b9dd582e39c89dbe730c))
+
+## [4.13.4-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.13.3...v4.13.4-dev.1) (2024-08-18)
+
+
+### Bug Fixes
+
+* **SwissID:** Rename `Remove Google Play Integrity Integrity check` to `Remove Google Play Integrity check` ([#3558](https://github.com/ReVanced/revanced-patches/issues/3558)) ([0f5a771](https://github.com/ReVanced/revanced-patches/commit/0f5a771a5cff5684b4a8fd317f4938fe2cf3cbbe))
+
 ## [4.13.3](https://github.com/ReVanced/revanced-patches/compare/v4.13.2...v4.13.3) (2024-08-15)
 
 

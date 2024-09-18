@@ -32,6 +32,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
 -->
 <resources>
   <app id="shared">
+  <patch id="misc.checks.BaseCheckEnvironmentPatch">
+  <string name="revanced_check_environment_failed_title">확인에 실패함</string>
+  <string name="revanced_check_environment_dialog_open_official_source_button">공식 홈페이지 열기</string>
+  <string name="revanced_check_environment_dialog_ignore_button">무시</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;이 앱은 사용자가 패치하지 않은 것 같습니다.&lt;/h5&gt;&lt;br&gt;이 앱은 제대로 작동하지 않을 수 있으며, &lt;b&gt;사용 시 해롭거나 심지어 위험할 수도 있습니다&lt;/b&gt;.&lt;br&gt;&lt;br&gt;이러한 확인은 이 앱이 사전 패치되었거나 다른 사람에게서 얻은 것임을 의미합니다:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;검증되고 안전한 앱을 사용하고 있는지 확인하려면 &lt;b&gt;이 앱을 제거하고 직접 패치하는 것&lt;/b&gt;을 강력히 권장합니다.&lt;p&gt;&lt;br&gt;이 경고를 무시하면 두 번만 표시됩니다.</string>
+  <string name="revanced_check_environment_not_same_patching_device">다른 기기에서 패치됨</string>
+  <string name="revanced_check_environment_manager_not_expected_installer">ReVanced Manager에 의해 설치되지 않음</string>
+  <string name="revanced_check_environment_not_near_patch_time">10분 이상 전에 패치됨</string>
+  <string name="revanced_check_environment_not_near_patch_time_days">%s 일 전에 패치됨</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">APK 빌드 날짜가 손상됨</string>
+  </patch>
   <patch id="misc.settings.BaseSettingsResourcePatch">
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">계속하시겠습니까?</string>
@@ -43,6 +54,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_import_reset">ReVanced 설정을 기본값으로 초기화합니다</string>
   <string name="revanced_settings_import_success">%d 설정을 가져왔습니다</string>
   <string name="revanced_settings_import_failure_parse">설정을 가져올 수 없습니다: %s</string>
+  <string name="revanced_pref_import_export_title">가져오기 / 내보내기</string>
+  <string name="revanced_pref_import_export_summary">ReVanced 설정을 가져오거나 내보낼 수 있습니다</string>
+  <!-- Settings about dialog. -->
+  <string name="revanced_settings_about_links_body">ReVanced Patches &lt;i&gt;%s&lt;/i&gt;&lt;br&gt;버전을 사용 중입니다</string>
+  <string name="revanced_settings_about_links_dev_header">알림</string>
+  <string name="revanced_settings_about_links_dev_body">개발자 버전이므로&lt;br&gt;알려지지 않은 문제점이&lt;br&gt;발생할 수 있습니다</string>
+  <string name="revanced_settings_about_links_header">공식 링크</string>
+  <string name="revanced_settings_about_links_donate">후원</string>
   </patch>
   <patch id="misc.gms.BaseGmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -55,15 +74,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   </app>
   <app id="youtube">
-  <patch id="misc.settings.SettingsResourcePatch">
-  <string name="revanced_settings">ReVanced</string>
-  <string name="revanced_settings_about_links_body">ReVanced Patches &lt;i&gt;%s&lt;/i&gt;&lt;br&gt;버전을 사용 중입니다</string>
-  <string name="revanced_settings_about_links_dev_header">알림</string>
-  <string name="revanced_settings_about_links_dev_body">개발자 버전이므로&lt;br&gt;알려지지 않은 문제점이&lt;br&gt;발생할 수 있습니다</string>
-  <string name="revanced_settings_about_links_header">공식 링크</string>
-  <string name="revanced_pref_import_export_title">가져오기 / 내보내기</string>
-  <string name="revanced_pref_import_export_summary">ReVanced 설정을 가져오거나 내보낼 수 있습니다</string>
-  </patch>
   <patch id="misc.settings.SettingsPatch">
   <string name="revanced_settings_screen_00_about_title">정보</string>
   <string name="revanced_settings_screen_01_ads_title">광고</string>
@@ -71,7 +81,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_03_feed_title">피드</string>
   <string name="revanced_settings_screen_04_player_title">플레이어</string>
   <string name="revanced_settings_screen_05_general_title">일반</string>
-  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">재생바</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">스와이프 제스처</string>
   <string name="revanced_settings_screen_11_misc_title">기타</string>
@@ -139,9 +148,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_guidelines_title">채널 가이드라인 숨기기</string>
   <string name="revanced_hide_channel_guidelines_summary_on">채널 가이드라인이 숨겨집니다</string>
   <string name="revanced_hide_channel_guidelines_summary_off">채널 가이드라인이 표시됩니다</string>
-  <string name="revanced_hide_expandable_chip_title">썸네일 하단에서 동영상 관련 정보 숨기기</string>
-  <string name="revanced_hide_expandable_chip_summary_on">다음 정보들이 숨겨집니다:\n동영상 설명, 챕터, 주요 순간, 스크립트,\n재생목록의 동영상, 이 동영상에 나온 제품</string>
-  <string name="revanced_hide_expandable_chip_summary_off">다음 정보들이 표시됩니다:\n동영상 설명, 챕터, 주요 순간, 스크립트,\n재생목록의 동영상, 이 동영상에 나온 제품</string>
+  <string name="revanced_hide_expandable_chip_title">펼쳐볼 수 있는 정보 숨기기</string>
+  <string name="revanced_hide_expandable_chip_summary_on">썸네일 하단에서 다음 정보들이 숨겨집니다:\n동영상 설명, 챕터, 주요 순간, 스크립트,\n재생목록의 동영상, 이 동영상에 나온 제품</string>
+  <string name="revanced_hide_expandable_chip_summary_off">썸네일 하단에서 다음 정보들이 표시됩니다:\n동영상 설명, 챕터, 주요 순간, 스크립트,\n재생목록의 동영상, 이 동영상에 나온 제품</string>
   <string name="revanced_hide_video_quality_menu_footer_title">화질 설정 메뉴에서 하단 설명 숨기기</string>
   <string name="revanced_hide_video_quality_menu_footer_summary_on">화질 설정 메뉴에서 하단 설명이 숨겨집니다</string>
   <string name="revanced_hide_video_quality_menu_footer_summary_off">화질 설정 메뉴에서 하단 설명이 표시됩니다</string>
@@ -245,14 +254,18 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_content_phrases_title">키워드 필터</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
-  <string name="revanced_hide_keyword_content_phrases_summary">필터링할 키워드 및 구문을 줄바꿈으로 구분하여 설정합니다\n\n영어 키워드는 대소문자를 구분하여 입력해야 합니다</string>
+  <string name="revanced_hide_keyword_content_phrases_summary">필터링할 키워드 및 구문을 줄바꿈으로 구분하여 설정합니다\n\n• 필터링 키워드는 채널 이름 또는 동영상 제목에 표시되는 모든 텍스트가 될 수 있습니다\n• 가운데 대문자가 있는 단어는 대소문자를 함께 입력해야 합니다 (예: iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">키워드 필터링 정보</string>
-  <string name="revanced_hide_keyword_content_about_summary">홈 피드 / 구독 피드 / 검색 결과에서 키워드와 일치하는 콘텐츠가 숨겨집니다\n\n알려진 문제점:\n• 일부 Shorts는 숨겨지지 않을 수 있습니다\n• 일부 화면 구성요소가 숨겨지지 않을 수 있습니다\n• 필터링 키워드를 검색하면 결과가 표시되지 않을 수 있습니다</string>
+  <string name="revanced_hide_keyword_content_about_summary">홈 / 구독 / 검색 결과가 필터링되어 키워드 구문과 일치하는 콘텐츠가 숨겨집니다\n\n알려진 문제점:\n• 채널 이름으로 Shorts는 숨길 수 없습니다\n• 일부 화면 구성요소는 숨겨지지 않을 수 있습니다\n• 필터링 키워드를 검색하면 검색 결과가 표시되지 않을 수 있습니다</string>
+  <string name="revanced_hide_keyword_content_about_whole_words_title">전체 단어 일치시키기</string>
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <string name="revanced_hide_keyword_content_about_whole_words_summary">필터링할 키워드 및 구문을 큰따옴표로 묶으면 동영상 제목과 채널 이름이 부분적으로 일치하지 않도록 방지할 수 있습니다&lt;br&gt;&lt;br&gt;예를 들어,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt;라는 키워드로 &lt;b&gt;AI 커리어 완벽 가이드&lt;/b&gt;라는 제목의 동영상을 숨길 수 있지만, &lt;b&gt;생성형AI가 바꿔놓은 세계&lt;/b&gt; 또는 &lt;b&gt;What does fair use mean?&lt;/b&gt;라는 제목의 동영상은 숨길 수 없습니다</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_keyword_toast_invalid_common">잘못된 키워드입니다. \'%s\'를 필터로 사용할 수 없습니다</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_keyword_toast_invalid_length">\'%1$s\'는 잘못된 키워드입니다. 필터링 키워드는 %2$d 글자 이상이어야 합니다.</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">키워드 \'%s\'를 사용하면 모든 동영상이 숨겨집니다</string>
+  <string name="revanced_hide_keyword_toast_invalid_common">키워드를 사용할 수 없습니다: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">따옴표를 추가하여 키워드를 사용합니다: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_conflicting">키워드에 충돌하는 선언이 있습니다: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_length">키워드가 너무 짧아서 따옴표가 필요합니다: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">키워드가 모든 동영상을 숨깁니다: %s</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">일반 레이아웃 광고 숨기기</string>
@@ -290,9 +303,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">\'전체 화면 광고 숨기기\'는 구형 기기에서만 사용할 수 있습니다</string>
   </patch>
   <patch id="ad.getpremium.HideGetPremiumPatch">
-  <string name="revanced_hide_get_premium_title">YouTube Premium 광고 숨기기</string>
-  <string name="revanced_hide_get_premium_summary_on">YouTube Premium 광고가 숨겨집니다</string>
-  <string name="revanced_hide_get_premium_summary_off">YouTube Premium 광고가 표시됩니다</string>
+  <string name="revanced_hide_get_premium_title">YouTube Premium 프로모션 숨기기</string>
+  <string name="revanced_hide_get_premium_summary_on">YouTube Premium 프로모션이 숨겨집니다</string>
+  <string name="revanced_hide_get_premium_summary_off">YouTube Premium 프로모션이 표시됩니다</string>
   </patch>
   <patch id="ad.video.VideoAdsPatch">
   <string name="revanced_hide_video_ads_title">동영상 광고 숨기기</string>
@@ -313,7 +326,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_remove_viewer_discretion_dialog_title">시청 경고 다이얼로그 제거하기</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">다이얼로그가 숨겨집니다</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">다이얼로그가 표시됩니다</string>
-  <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">이 설정은 연령 제한(성인인증 절차)을 우회할 수 없고, 다이얼로그를 자동으로 허용하기만 합니다</string>
+  <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">• 이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다\n• 성인인증이 필요한 동영상에서 인증을 하려 할 때, 휴대폰 번호가 필요하다고 알려주는 소형 팝업창(다이얼로그) 없이 바로 휴대폰 번호 인증 페이지가 표시됩니다</string>
   </patch>
   <patch id="interaction.downloads.DownloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">외부 다운로드</string>
@@ -569,8 +582,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.hide.rollingnumber.DisableRollingNumberAnimationPatch">
   <string name="revanced_disable_rolling_number_animations_title">롤링 넘버 애니메이션 비활성화하기</string>
-  <string name="revanced_disable_rolling_number_animations_summary_on">다음 롤링 넘버 애니메이션을 비활성화합니다\n• 조회수, 시청자 수 롤링 애니메이션 (플레이어 하단)\n• 좋아요 개수, 조회수 롤링 애니메이션 (동영상 설명)</string>
-  <string name="revanced_disable_rolling_number_animations_summary_off">다음 롤링 넘버 애니메이션을 활성화합니다\n• 조회수, 시청자 수 롤링 애니메이션 (플레이어 하단)\n• 좋아요 개수, 조회수 롤링 애니메이션 (동영상 설명)</string>
+  <string name="revanced_disable_rolling_number_animations_summary_on">다음 롤링 넘버 애니메이션을 비활성화합니다\n• 조회수, 시청자 수 롤링 애니메이션 (플레이어 하단)\n• 좋아요 수, 조회수 롤링 애니메이션 (동영상 설명)</string>
+  <string name="revanced_disable_rolling_number_animations_summary_off">다음 롤링 넘버 애니메이션을 활성화합니다\n• 조회수, 시청자 수 롤링 애니메이션 (플레이어 하단)\n• 좋아요 수, 조회수 롤링 애니메이션 (동영상 설명)</string>
   </patch>
   <patch id="layout.hide.seekbar.HideSeekbarPatch">
   <string name="revanced_hide_seekbar_title">동영상 플레이어 재생바 숨기기</string>
@@ -618,6 +631,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_save_sound_button_title">(재생목록에) 음악 저장 버튼 숨기기</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">(재생목록에) 음악 저장 버튼이 숨겨집니다</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">(재생목록에) 음악 저장 버튼이 표시됩니다</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_title">\'이 사운드 사용\' 버튼 숨기기</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">\'이 사운드 사용\' 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">\'이 사운드 사용\' 버튼이 표시됩니다</string>
   <string name="revanced_hide_shorts_search_suggestions_title">검색 추천 숨기기</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">검색 추천이 숨겨집니다</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">검색 추천이 표시됩니다</string>
@@ -681,23 +697,22 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_player_overlay_opacity_invalid_toast">플레이어 오버레이 불투명도는 0-100 사이여야 합니다</string>
   </patch>
   <patch id="layout.returnyoutubedislike.ReturnYouTubeDislikeResourcePatch">
-  <string name="revanced_ryd_video_likes_hidden_by_video_owner">숨겨짐</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
-  <string name="revanced_ryd_failure_connection_timeout">싫어요 개수를 일시적으로 표시할 수 없습니다 (API 시간 초과)</string>
-  <string name="revanced_ryd_failure_connection_status_code">싫어요 개수를 표시할 수 없습니다 (상태 코드: %d)</string>
-  <string name="revanced_ryd_failure_client_rate_limit_requested">싫어요 개수를 표시할 수 없습니다 (클라이언트 API 제한 도달)</string>
-  <string name="revanced_ryd_failure_generic">싫어요 개수를 표시할 수 없습니다 (%s)</string>
+  <string name="revanced_ryd_failure_connection_timeout">싫어요 수를 일시적으로 표시할 수 없습니다 (API 시간 초과)</string>
+  <string name="revanced_ryd_failure_connection_status_code">싫어요 수를 표시할 수 없습니다 (상태 코드: %d)</string>
+  <string name="revanced_ryd_failure_client_rate_limit_requested">싫어요 수를 표시할 수 없습니다 (클라이언트 API 제한 도달)</string>
+  <string name="revanced_ryd_failure_generic">싫어요 수를 표시할 수 없습니다 (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">ReturnYouTubeDislike를 사용하여 투표하려면 동영상을 다시 로드하세요</string>
-  <string name="revanced_ryd_enable_summary_on">싫어요 개수를 표시합니다</string>
-  <string name="revanced_ryd_enable_summary_off">싫어요 개수를 표시하지 않습니다</string>
-  <string name="revanced_ryd_shorts_title">Shorts에서 싫어요 개수 표시하기</string>
-  <string name="revanced_ryd_shorts_summary_on">Shorts에서 싫어요 개수를 표시합니다</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">Shorts에서 싫어요 개수를 표시합니다\n\n알려진 문제점: 사용자가 로그인을 하지 않았거나 시크릿 모드에서는 싫어요 개수가 표시되지 않을 수 있습니다</string>
-  <string name="revanced_ryd_shorts_summary_off">Shorts에서 싫어요 개수를 표시하지 않습니다</string>
-  <string name="revanced_ryd_dislike_percentage_title">싫어요 개수를 퍼센트로 표시하기</string>
-  <string name="revanced_ryd_dislike_percentage_summary_on">싫어요 개수를 퍼센트로 표시합니다</string>
-  <string name="revanced_ryd_dislike_percentage_summary_off">싫어요 개수를 숫자로 표시합니다</string>
+  <string name="revanced_ryd_enable_summary_on">싫어요 수를 표시합니다</string>
+  <string name="revanced_ryd_enable_summary_off">싫어요 수를 표시하지 않습니다</string>
+  <string name="revanced_ryd_shorts_title">Shorts에서 싫어요 수 표시하기</string>
+  <string name="revanced_ryd_shorts_summary_on">Shorts에서 싫어요 수를 표시합니다</string>
+  <string name="revanced_ryd_shorts_summary_on_disclaimer">Shorts에서 싫어요 수를 표시합니다\n\n알려진 문제점: 사용자가 로그인을 하지 않았거나 시크릿 모드에서는 싫어요 수가 표시되지 않을 수 있습니다</string>
+  <string name="revanced_ryd_shorts_summary_off">Shorts에서 싫어요 수를 표시하지 않습니다</string>
+  <string name="revanced_ryd_dislike_percentage_title">싫어요 수를 퍼센트로 표시하기</string>
+  <string name="revanced_ryd_dislike_percentage_summary_on">싫어요 수를 퍼센트로 표시합니다</string>
+  <string name="revanced_ryd_dislike_percentage_summary_off">싫어요 수를 숫자로 표시합니다</string>
   <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
   <string name="revanced_ryd_compact_layout_title">좋아요 버튼에서 구분선 숨기기</string>
   <string name="revanced_ryd_compact_layout_summary_on">좋아요 버튼에서 구분선을 표시하지 않습니다</string>
@@ -706,14 +721,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_toast_on_connection_error_summary_on">ReturnYouTubeDislike를 사용할 수 없을 때, 팝업 메시지를 표시합니다</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">ReturnYouTubeDislike를 사용할 수 없을 때, 팝업 메시지를 표시하지 않습니다</string>
   <string name="revanced_ryd_about">정보</string>
-  <string name="revanced_ryd_attribution_summary">싫어요 개수의 데이터는 Return YouTube Dislike API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 누르세요</string>
+  <string name="revanced_ryd_attribution_summary">싫어요 수의 데이터는 Return YouTube Dislike API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 누르세요</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">이 기기의 ReturnYouTubeDislike API 사용 통계</string>
   <string name="revanced_ryd_statistics_getFetchCallResponseTimeAverage_title">평균 API 응답 시간</string>
   <string name="revanced_ryd_statistics_getFetchCallResponseTimeMin_title">최소 API 응답 시간</string>
   <string name="revanced_ryd_statistics_getFetchCallResponseTimeMax_title">최대 API 응답 시간</string>
   <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_title">최근 동영상 API 응답 시간</string>
-  <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_rate_limit_summary">싫어요 개수를 일시적으로 표시할 수 없습니다 - 클라이언트 API 속도 제한이 적용됨</string>
+  <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_rate_limit_summary">싫어요 수를 일시적으로 표시할 수 없습니다 - 클라이언트 API 속도 제한이 적용됨</string>
   <string name="revanced_ryd_statistics_getFetchCallCount_title">API 투표 가져오기, 호출 횟수</string>
   <string name="revanced_ryd_statistics_getFetchCallCount_zero_summary">네트워크 호출한 적이 없습니다</string>
   <string name="revanced_ryd_statistics_getFetchCallCount_non_zero_summary">%d 건의 네트워크 호출이 이루어졌습니다</string>
@@ -777,6 +792,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_general_skipcount_sum_off">건너뛴 횟수 기록을 비활성화합니다</string>
   <string name="revanced_sb_general_min_duration">건너뛸 최소 구간 길이</string>
   <string name="revanced_sb_general_min_duration_sum">설정한 값(초)보다 작은 구간은 건너뛰지 않으며, 재생바에도 표시되지 않습니다</string>
+  <string name="revanced_sb_general_min_duration_invalid">잘못된 지속 시간입니다</string>
   <string name="revanced_sb_general_uuid">비공개 사용자 아이디</string>
   <string name="revanced_sb_general_uuid_sum">비공개 사용자 아이디는 SponsorBlock 서버에서 구간을 제출하거나 건너뛴 구간 정보를 기록하는데 사용되는 고유 아이디 입니다. 절대 다른 이에게 공개하지 마세요</string>
   <string name="revanced_sb_general_uuid_invalid">비공개 사용자 아이디는 30자 이상이어야 합니다</string>
@@ -877,8 +893,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">구간의 시작</string>
   <string name="revanced_sb_new_segment_time_end">구간의 끝</string>
   <string name="revanced_sb_new_segment_confirm_title">설정된 구간이 정확합니까?</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <string name="revanced_sb_new_segment_confirm_content">선택한 구간이\n\n%1$s\n부터\n%2$s\n\n(%3$s) 까지 입니다\n\n이렇게 제출하시겠습니까?</string>
   <string name="revanced_sb_new_segment_start_is_before_end">구간의 시작 또는 끝을 잘못 설정하였습니다</string>
   <string name="revanced_sb_new_segment_mark_locations_first">먼저 재생바에서 시작 지점과 끝 지점을 표시하세요</string>
@@ -897,6 +911,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_stats_username_changed">사용자 이름을 성공적으로 변경하였습니다</string>
   <string name="revanced_sb_stats_reputation">사용자의 평판: &lt;b&gt;%.2f&lt;/b&gt;</string>
   <string name="revanced_sb_stats_submissions">제출 횟수: &lt;b&gt;%s&lt;/b&gt;</string>
+  <string name="revanced_sb_stats_submissions_sum">구간을 보려면 여기를 누르세요</string>
   <string name="revanced_sb_stats_saved_zero">SponsorBlock 리더보드</string>
   <string name="revanced_sb_stats_saved">다른 분들이 &lt;b&gt;%s&lt;/b&gt;개의 구간을 건너뛸 수 있게 해주셨습니다</string>
   <string name="revanced_sb_stats_saved_sum_zero">글로벌 기록 또는 상위 기여자를 확인하려면 여기를 누르세요</string>
@@ -942,7 +957,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_start_page_entry_4">탐색</string>
   <string name="revanced_start_page_entry_5">Shorts</string>
   <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
-  <string name="revanced_start_page_entry_6">나 (보관함)</string>
+  <string name="revanced_start_page_entry_6">내 페이지</string>
   <string name="revanced_start_page_entry_7">좋아요 표시한 동영상</string>
   <!-- 'History' should be translated using the same localized wording YouTube displays for the 'history' section in the 'You' tab. -->
   <string name="revanced_start_page_entry_8">기록</string>
@@ -1006,7 +1021,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_alt_thumbnail_subscription_title">구독 탭</string>
   <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
-  <string name="revanced_alt_thumbnail_library_title">나(보관함) 탭</string>
+  <string name="revanced_alt_thumbnail_library_title">내 페이지 탭</string>
   <string name="revanced_alt_thumbnail_player_title">플레이어: 재생목록, 관련 동영상, etc.</string>
   <string name="revanced_alt_thumbnail_search_title">검색 결과</string>
   <string name="revanced_alt_thumbnail_options_entry_1">기본 썸네일</string>
@@ -1042,6 +1057,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
   <string name="revanced_check_watch_history_domain_name_dialog_title">Warning</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">시청 기록이 저장되지 않습니다.&lt;br&gt;&lt;br&gt; DNS 광고 차단기 또는 네트워크 프록시로 인해 발생한 문제일 가능성이 높습니다.&lt;br&gt;&lt;br&gt; 이 문제를 해결하려면 &lt;b&gt;s.youtube.com&lt;/b&gt;을 허용 목록에서 제외하거나 모든 DNS 차단기 및 프록시를 해제하세요.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">다시 보지 않기</string>
   </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
@@ -1118,26 +1134,23 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_on">슬라이드하여 탐색을 활성화합니다</string>
   <string name="revanced_slide_to_seek_summary_off">슬라이드하여 탐색을 비활성화합니다</string>
   </patch>
-  <patch id="misc.fix.playback.SpoofClientPatch">
-  <string name="revanced_spoof_client_screen_title">클라이언트 변경하기</string>
-  <string name="revanced_spoof_client_screen_summary">클라이언트를 변경하여 재생 문제를 방지할 수 있습니다</string>
-  <string name="revanced_spoof_client_title">클라이언트 변경하기</string>
-  <string name="revanced_spoof_client_summary_on">클라이언트를 변경합니다</string>
-  <string name="revanced_spoof_client_summary_off">클라이언트를 변경하지 않습니다\n동영상 재생 문제가 발생할 수 있습니다</string>
-  <string name="revanced_spoof_client_user_dialog_message">이 설정을 비활성화하면 동영상 재생 문제가 발생할 수 있습니다</string>
-  <string name="revanced_spoof_client_use_ios_title">iOS 클라이언트로 변경하기</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">클라이언트를 Android VR 클라이언트로 변경합니다\n\n알려진 문제점: \n• HDR 동영상이 재생되지 않을 수 있습니다\n• Kids 동영상을 재생할 수 없습니다\n• 일시 정지된 동영상이 갑자기 다시 시작될 수 있습니다\n• 저화질 Shorts 재생바 썸네일이 표시됩니다\n• 플레이어 하단에서 오프라인 저장 버튼이 표시되지 않습니다\n• 최종 화면 카드가 표시되지 않습니다</string>
-  <string name="revanced_spoof_client_storyboard_timeout">클라이언트 썸네일을 사용할 수 없습니다 (응답 시간 초과)</string>
-  <string name="revanced_spoof_client_storyboard_io_exception">클라이언트 썸네일을 일시적으로 사용할 수 없습니다: %s</string>
-  </patch>
-  <!-- This patch is no longer used, these strings are not in use, and these strings will be deleted in the future. -->
-  <patch id="misc.fix.playback.SpoofSignaturePatch">
-  <string name="revanced_spoof_signature_verification_screen_title">새로운 동영상 화질 설정을 활성화합니다</string>
-  <string name="revanced_spoof_signature_verification_enabled_title">새로운 동영상 화질 설정을 활성화합니다</string>
-  <string name="revanced_spoof_signature_verification_enabled_user_dialog_message">이 설정을 비활성화하면 동영상 재생 문제가 발생할 수 있습니다.</string>
-  <string name="revanced_spoof_signature_in_feed_enabled_title">피드 동영상에 대한 앱 서명 변경하기</string>
-  <string name="revanced_spoof_storyboard_title">스토리보드 변경하기</string>
-  <string name="revanced_spoof_storyboard_io_exception">스토리보드를 일시적으로 변경할 수 없습니다: %s</string>
+  <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">동영상 스트림 변경하기</string>
+  <string name="revanced_spoof_video_streams_screen_summary">동영상 스트림을 변경하여 재생 문제를 방지할 수 있습니다</string>
+  <string name="revanced_spoof_video_streams_title">동영상 스트림 변경하기</string>
+  <string name="revanced_spoof_video_streams_summary_on">동영상 스트림을 변경합니다</string>
+  <string name="revanced_spoof_video_streams_summary_off">동영상 스트림을 변경하지 않습니다\n동영상 재생 문제가 발생할 수 있습니다</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">이 설정을 비활성화하면 동영상 재생 문제가 발생할 수 있습니다</string>
+  <string name="revanced_spoof_video_streams_client_type_title">기본 클라이언트</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">AVC (H.264) 강제로 활성화하기</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">동영상 코덱을 AVC (H.264)로 활성화합니다</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">동영상 코덱을 VP9 또는 AV1으로 활성화합니다</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">이 기기는 VP9 하드웨어 디코딩을 지원하지 않습니다. 그러므로 \'클라이언트 변경하기\'가 활성화된 경우에는 이 설정은 항상 켜져 있습니다</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">이 설정을 활성화하면 배터리 수명이 향상되고 재생 끊김 현상이 해결될 수 있습니다\n\nAVC의 최대 화질 값은 1080p이며 동영상을 재생하면 VP9 또는 AV1보다 더 많은 인터넷 데이터가 사용됩니다</string>
+  <string name="revanced_spoof_video_streams_about_ios_title">\'iOS로 변경\'의 알려진 문제점</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• 영화 또는 유료 동영상이 재생되지 않을 수 있습니다\n• 되감기가 가능한 실시간 스트림이 라이브 중인 시점이 아닌 처음부터 재생될 수 있습니다</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_title">\'Android VR로 변경\'의 알려진 문제점</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• 오디오 트랙 메뉴가 표시되지 않습니다\n• 안정적인 볼륨 메뉴가 비활성화된 채로 잠겨있습니다</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

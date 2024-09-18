@@ -115,8 +115,8 @@ abstract class BaseGmsCoreSupportPatch(
 
         // Verify GmsCore is installed and whitelisted for power optimizations and background usage.
         mainActivityOnCreateFingerprint.result?.mutableMethod?.apply {
-            // Temporary fix for Google photos integration.
-            var setContextIndex = indexOfFirstInstruction {
+            // Temporary fix for patches with an integrations patch that hook the onCreate method as well.
+            val setContextIndex = indexOfFirstInstruction {
                 val reference = getReference<MethodReference>() ?: return@indexOfFirstInstruction false
 
                 reference.toString() == "Lapp/revanced/integrations/shared/Utils;->setContext(Landroid/content/Context;)V"

@@ -32,6 +32,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
 -->
 <resources>
   <app id="shared">
+  <patch id="misc.checks.BaseCheckEnvironmentPatch">
+  </patch>
   <patch id="misc.settings.BaseSettingsResourcePatch">
   <string name="revanced_settings_confirm_user_dialog_title">Chcete pokračovať?</string>
   <string name="revanced_settings_reset">Resetovať</string>
@@ -42,6 +44,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_import_reset">Nastavenia ReVanced sa obnovia na predvolené</string>
   <string name="revanced_settings_import_success">Počet importovaných nastavení: %d</string>
   <string name="revanced_settings_import_failure_parse">Import zlyhal: %s</string>
+  <string name="revanced_pref_import_export_title">Import / Export</string>
+  <string name="revanced_pref_import_export_summary">Import / Export nastavení ReVanced</string>
+  <!-- Settings about dialog. -->
+  <string name="revanced_settings_about_links_body">Používate ReVanced Patches verziu &lt;i&gt;%s&lt;/i&gt;</string>
+  <string name="revanced_settings_about_links_dev_header">Poznámka</string>
+  <string name="revanced_settings_about_links_dev_body">Táto verzia je predbežná a môžu sa vyskytnúť neočakávané problémy</string>
+  <string name="revanced_settings_about_links_header">Oficiálne odkazy</string>
   </patch>
   <patch id="misc.gms.BaseGmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -54,13 +63,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   </app>
   <app id="youtube">
-  <patch id="misc.settings.SettingsResourcePatch">
-  <string name="revanced_settings_about_links_body">Používate ReVanced Patches verziu &lt;i&gt;%s&lt;/i&gt;</string>
-  <string name="revanced_settings_about_links_dev_header">Poznámka</string>
-  <string name="revanced_settings_about_links_dev_body">Táto verzia je predbežná a môžu sa vyskytnúť neočakávané problémy</string>
-  <string name="revanced_settings_about_links_header">Oficiálne odkazy</string>
-  <string name="revanced_pref_import_export_summary">Import / Export nastavení ReVanced</string>
-  </patch>
   <patch id="misc.settings.SettingsPatch">
   <string name="revanced_settings_screen_00_about_title">Informácie</string>
   <string name="revanced_settings_screen_01_ads_title">Reklamy</string>
@@ -235,14 +237,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_content_phrases_title">Kľúčové slová na skrytie</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
-  <string name="revanced_hide_keyword_content_phrases_summary">Kľúčové slová a frázy, ktoré sa majú skryť, oddelené novými riadkami\n\nSlová s veľkými písmenami v strede musia byť zadané s veľkými a malými písmenami (napr.: iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">O filtrovaní kľúčových slov</string>
-  <string name="revanced_hide_keyword_content_about_summary">Výsledky domovskej stránky/odberu/vyhľadávania sú filtrované, aby sa skryl obsah, ktorý sa zhoduje s kľúčovými frázami\n\nObmedzenia\n• Niektoré krátke videá Shorts nemusia byť skryté\n• Niektoré súčasti používateľského rozhrania nemusia byť skryté\n• Pri vyhľadávaní kľúčového slova sa nemusia zobraziť žiadne výsledky</string>
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_keyword_toast_invalid_common">Neplatné kľúčové slovo. Nemožno použiť: \"%s\" ako filter</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_keyword_toast_invalid_length">Neplatné kľúčové slovo. \"%1$s\" má menej ako %2$d znakov</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">Kľúčové slovo \"%s\" skryje všetky videá</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Skryť všeobecné reklamy</string>
@@ -670,7 +667,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_player_overlay_opacity_invalid_toast">Nepriehľadnosť prekrytia hráča musí byť medzi 0-100</string>
   </patch>
   <patch id="layout.returnyoutubedislike.ReturnYouTubeDislikeResourcePatch">
-  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Skryté</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">Nepáči sa mi dočasne nedostupné (rozhranie API vypršalo)</string>
   <string name="revanced_ryd_failure_connection_status_code">Nepáči sa mi nie sú k dispozícii (stav %d)</string>
@@ -865,8 +861,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">Čas, kedy segment začína</string>
   <string name="revanced_sb_new_segment_time_end">Čas, kedy segment končí</string>
   <string name="revanced_sb_new_segment_confirm_title">Sú časy správne?</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <string name="revanced_sb_new_segment_confirm_content">Segment je od\n\n%1$s\ndo\n%2$s\n\n(%3$s)\n\nSte pripravený na odoslanie?</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Začiatok musí byť pred koncom</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Najprv označte dve miesta na časovej lište</string>
@@ -1100,19 +1094,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_on">Slide to search je zapnuté</string>
   <string name="revanced_slide_to_seek_summary_off">Nie je povolené posúvanie</string>
   </patch>
-  <patch id="misc.fix.playback.SpoofClientPatch">
-  <string name="revanced_spoof_client_screen_title">Spoof klienta</string>
-  <string name="revanced_spoof_client_screen_summary">Spoof klienta, aby sa predišlo problémom s prehrávaním</string>
-  <string name="revanced_spoof_client_title">Spoof klienta</string>
-  <string name="revanced_spoof_client_summary_on">Klient je sfalšovaný</string>
-  <string name="revanced_spoof_client_summary_off">Klient nie je sfalšovaný\n\nPrehrávanie videa nemusí fungovať</string>
-  <string name="revanced_spoof_client_user_dialog_message">Vypnutie tohto nastavenia môže spôsobiť problémy s prehrávaním videa.</string>
-  <string name="revanced_spoof_client_use_ios_title">Spoof klienta na iOS</string>
-  <string name="revanced_spoof_client_storyboard_timeout">Sfalšované miniatúry klientov nie sú k dispozícii (vypršal časový limit rozhrania API)</string>
-  <string name="revanced_spoof_client_storyboard_io_exception">Sfalšované klientske miniatúry sú dočasne nedostupné: %s</string>
-  </patch>
-  <!-- This patch is no longer used, these strings are not in use, and these strings will be deleted in the future. -->
-  <patch id="misc.fix.playback.SpoofSignaturePatch">
+  <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_user_dialog_message">Vypnutie tohto nastavenia môže spôsobiť problémy s prehrávaním videa.</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">
