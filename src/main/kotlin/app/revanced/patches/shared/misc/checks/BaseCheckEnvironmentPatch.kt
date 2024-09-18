@@ -65,12 +65,8 @@ abstract class BaseCheckEnvironmentPatch(
                 "PATCH_ID" to ID.encodedAndHashed,
                 "PATCH_MANUFACTURER" to MANUFACTURER.encodedAndHashed,
                 "PATCH_MODEL" to MODEL.encodedAndHashed,
-                "PATCH_ODM_SKU" to ODM_SKU.encodedAndHashed,
                 "PATCH_PRODUCT" to PRODUCT.encodedAndHashed,
                 "PATCH_RADIO" to RADIO.encodedAndHashed,
-                "PATCH_SKU" to SKU.encodedAndHashed,
-                "PATCH_SOC_MANUFACTURER" to SOC_MANUFACTURER.encodedAndHashed,
-                "PATCH_SOC_MODEL" to SOC_MODEL.encodedAndHashed,
                 "PATCH_TAGS" to TAGS.encodedAndHashed,
                 "PATCH_TYPE" to TYPE.encodedAndHashed,
                 "PATCH_USER" to USER.encodedAndHashed,
@@ -98,8 +94,10 @@ abstract class BaseCheckEnvironmentPatch(
         private val String.encodedAndHashed
             get() = MutableStringEncodedValue(
                 ImmutableStringEncodedValue(
-                    Base64.encode(MessageDigest.getInstance("SHA-1")
-                        .digest(this.toByteArray(StandardCharsets.UTF_8))),
+                    Base64.encode(
+                        MessageDigest.getInstance("SHA-1")
+                            .digest(this.toByteArray(StandardCharsets.UTF_8)),
+                    ),
                 ),
             )
 
