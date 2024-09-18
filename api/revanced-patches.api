@@ -16,6 +16,14 @@ public final class app/revanced/patches/all/connectivity/wifi/spoof/SpoofWifiPat
 	public fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lkotlin/Triple;)V
 }
 
+public final class app/revanced/patches/all/directory/ChangeDataDirectoryLocationPatch : app/revanced/patches/all/misc/transformation/BaseTransformInstructionsPatch {
+	public static final field INSTANCE Lapp/revanced/patches/all/directory/ChangeDataDirectoryLocationPatch;
+	public fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Ljava/lang/Integer;
+	public synthetic fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Ljava/lang/Object;
+	public fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;I)V
+	public synthetic fun transform (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Ljava/lang/Object;)V
+}
+
 public final class app/revanced/patches/all/interaction/gestures/PredictiveBackGesturePatch : app/revanced/patcher/patch/ResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/all/interaction/gestures/PredictiveBackGesturePatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
@@ -239,6 +247,18 @@ public final class app/revanced/patches/candylinkvpn/UnlockProPatch : app/revanc
 
 public final class app/revanced/patches/cieid/restrictions/root/BypassRootChecksPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/cieid/restrictions/root/BypassRootChecksPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/duolingo/ad/DisableAdsPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/duolingo/ad/DisableAdsPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/duolingo/debug/EnableDebugMenuPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/duolingo/debug/EnableDebugMenuPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
@@ -808,6 +828,12 @@ public final class app/revanced/patches/reddit/customclients/syncforreddit/fix/s
 	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/syncforreddit/fix/slink/FixSLinksPatch;
 }
 
+public final class app/revanced/patches/reddit/customclients/syncforreddit/fix/user/UseUserEndpointPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/syncforreddit/fix/user/UseUserEndpointPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/reddit/customclients/syncforreddit/misc/integrations/IntegrationsPatch : app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch {
 	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/syncforreddit/misc/integrations/IntegrationsPatch;
 }
@@ -838,6 +864,12 @@ public final class app/revanced/patches/scbeasy/detection/debugging/RemoveDebugg
 
 public final class app/revanced/patches/serviceportalbund/detection/root/RootDetectionPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/serviceportalbund/detection/root/RootDetectionPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public abstract class app/revanced/patches/shared/misc/checks/BaseCheckEnvironmentPatch : app/revanced/patcher/patch/BytecodePatch {
+	public fun <init> (Lapp/revanced/patcher/fingerprint/MethodFingerprint;Ljava/util/Set;Lapp/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch;)V
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
@@ -1850,6 +1882,10 @@ public final class app/revanced/patches/youtube/misc/backgroundplayback/Backgrou
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/youtube/misc/check/CheckEnvironmentPatch : app/revanced/patches/shared/misc/checks/BaseCheckEnvironmentPatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/check/CheckEnvironmentPatch;
+}
+
 public final class app/revanced/patches/youtube/misc/debugging/DebuggingPatch : app/revanced/patcher/patch/ResourcePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/debugging/DebuggingPatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
@@ -1878,6 +1914,12 @@ public final class app/revanced/patches/youtube/misc/fix/playback/SpoofSignature
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/fix/playback/SpoofSignatureResourcePatch;
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
+public final class app/revanced/patches/youtube/misc/fix/playback/SpoofVideoStreamsPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/fix/playback/SpoofVideoStreamsPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
 public final class app/revanced/patches/youtube/misc/fix/playback/UserAgentClientSpoofPatch : app/revanced/patches/all/misc/transformation/BaseTransformInstructionsPatch {

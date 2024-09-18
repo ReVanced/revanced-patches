@@ -62,7 +62,7 @@ object HideAdsPatch : BytecodePatch(
 
         // Prevent verification of an HTTP header containing the user's current plan, which would contradict the previous patch.
         InterceptFingerprint.resultOrThrow().let { result ->
-            val conditionIndex = result.scanResult.patternScanResult!!.endIndex
+            val conditionIndex = result.scanResult.patternScanResult!!.endIndex + 1
             result.mutableMethod.addInstruction(
                 conditionIndex,
                 "return-object p1",

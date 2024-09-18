@@ -32,16 +32,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
 -->
 <resources>
   <app id="shared">
+  <patch id="misc.checks.BaseCheckEnvironmentPatch">
+  </patch>
   <patch id="misc.settings.BaseSettingsResourcePatch">
   <string name="revanced_settings_reset">रीसेट करें</string>
+  <!-- Settings about dialog. -->
   </patch>
   <patch id="misc.gms.BaseGmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   </patch>
   </app>
   <app id="youtube">
-  <patch id="misc.settings.SettingsResourcePatch">
-  </patch>
   <patch id="misc.settings.SettingsPatch">
   <string name="revanced_settings_screen_00_about_title">विवरण</string>
   </patch>
@@ -59,7 +60,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
@@ -175,8 +176,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_appearance_category">स्वरूप</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_loading">लोड हो रहा है...</string>
   <string name="revanced_sb_reset">रीसेट करें</string>
@@ -244,10 +243,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="interaction.seekbar.EnableSlideToSeekPatch">
   </patch>
-  <patch id="misc.fix.playback.SpoofClientPatch">
-  </patch>
-  <!-- This patch is no longer used, these strings are not in use, and these strings will be deleted in the future. -->
-  <patch id="misc.fix.playback.SpoofSignaturePatch">
+  <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

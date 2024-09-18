@@ -32,6 +32,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
 -->
 <resources>
   <app id="shared">
+  <patch id="misc.checks.BaseCheckEnvironmentPatch">
+  <string name="revanced_check_environment_failed_title">Провере нису успеле</string>
+  <string name="revanced_check_environment_dialog_open_official_source_button">Отвори званични веб-сајт</string>
+  <string name="revanced_check_environment_dialog_ignore_button">Занемари</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Изгледа да нисте печовали ову апликацију.&lt;/h5&gt;&lt;br&gt;Ова апликација можда неће исправно радити, &lt;b&gt;може бити штетна или чак опасна за коришћење&lt;/b&gt;&lt;br&gt;&lt;br&gt;Ове провере подразумевају да је ова апликација унапред печована или добијена од неког другог:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Изричито се препоручује да &lt;b&gt;деинсталирате ову апликацију и сами је печујете&lt;/b&gt; да бисте били сигурни да користите проверену и безбедну апликацију.&lt;p&gt;&lt;br&gt;;Ако се занемари, ово упозорење ће бити приказано само два пута.</string>
+  <string name="revanced_check_environment_not_same_patching_device">Печовано на другом уређају</string>
+  <string name="revanced_check_environment_manager_not_expected_installer">Није инсталирано у ReVanced Manager-у</string>
+  <string name="revanced_check_environment_not_near_patch_time">Печовано пре више од 10 минута</string>
+  <string name="revanced_check_environment_not_near_patch_time_days">Печовано пре %s дана</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">Датум израде APK-а је оштећен</string>
+  </patch>
   <patch id="misc.settings.BaseSettingsResourcePatch">
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Желите ли да наставите?</string>
@@ -43,6 +54,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_import_reset">Подешавања ReVanced-а су враћена на подразумеване вредности</string>
   <string name="revanced_settings_import_success">Увезено %d подешавања</string>
   <string name="revanced_settings_import_failure_parse">Неуспешан увоз: %s</string>
+  <string name="revanced_pref_import_export_title">Увоз / Извоз</string>
+  <string name="revanced_pref_import_export_summary">Увоз / Извоз подешавања ReVanced-а</string>
+  <!-- Settings about dialog. -->
+  <string name="revanced_settings_about_links_body">Користите верзију &lt;i&gt;%s&lt;/i&gt; ReVanced печева</string>
+  <string name="revanced_settings_about_links_dev_header">Напомена</string>
+  <string name="revanced_settings_about_links_dev_body">Ова верзија је предиздање и можда ћете имати неочекиване проблеме</string>
+  <string name="revanced_settings_about_links_header">Званични линкови</string>
+  <string name="revanced_settings_about_links_donate">Донација</string>
   </patch>
   <patch id="misc.gms.BaseGmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -55,15 +74,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   </app>
   <app id="youtube">
-  <patch id="misc.settings.SettingsResourcePatch">
-  <string name="revanced_settings">ReVanced</string>
-  <string name="revanced_settings_about_links_body">Користите верзију &lt;i&gt;%s&lt;/i&gt; ReVanced печева</string>
-  <string name="revanced_settings_about_links_dev_header">Напомена</string>
-  <string name="revanced_settings_about_links_dev_body">Ова верзија је предиздање и можда ћете имати неочекиване проблеме</string>
-  <string name="revanced_settings_about_links_header">Званични линкови</string>
-  <string name="revanced_pref_import_export_title">Увоз / Извоз</string>
-  <string name="revanced_pref_import_export_summary">Увоз / Извоз подешавања ReVanced-а</string>
-  </patch>
   <patch id="misc.settings.SettingsPatch">
   <string name="revanced_settings_screen_00_about_title">О програму</string>
   <string name="revanced_settings_screen_01_ads_title">Огласи</string>
@@ -71,7 +81,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_03_feed_title">Фид</string>
   <string name="revanced_settings_screen_04_player_title">Плејер</string>
   <string name="revanced_settings_screen_05_general_title">Општи изглед</string>
-  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Трака за премотавање</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Контроле превлачења</string>
   <string name="revanced_settings_screen_11_misc_title">Разно</string>
@@ -245,14 +254,18 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_content_phrases_title">Кључне речи за сакривање</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
-  <string name="revanced_hide_keyword_content_phrases_summary">Кључне речи и фразе које треба сакрити, одвојене новим редовима\n\nРечи са великим словима у средини морају се унети са великим словима (нпр.: iPhone, TikTok, LeBlanc)</string>
+  <string name="revanced_hide_keyword_content_phrases_summary">Кључне речи и фразе које треба сакрити, одвојене новим редовима\n\nКључне речи могу бити називи канала или било који текст приказан у насловима видеа\n\nРечи са великим словима у средини морају се унети великим словима (нпр.: iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">О филтрирању према кључним речима</string>
-  <string name="revanced_hide_keyword_content_about_summary">Почетна/Праћења/Резултати претраге се филтрирају да би се сакрио садржај који се подудара са кључним фразама\n\nОграничења\n• Неки Shorts видеи можда неће бити сакривени\n• Неке компоненте корисничког интерфејса можда неће бити сакривене\n• Претраживање кључне речи можда неће показати резултате</string>
+  <string name="revanced_hide_keyword_content_about_summary">Почетна/Праћења/Резултати претраге се филтрирају да би се сакрио садржај који се подудара са кључним фразама\n\nОграничења\n• Shorts видеи се не могу сакрити према називу канала\n• Неке компоненте корисничког интерфејса можда неће бити сакривене\n• Претраживање кључне речи можда неће показати резултате</string>
+  <string name="revanced_hide_keyword_content_about_whole_words_title">Само целе речи</string>
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <string name="revanced_hide_keyword_content_about_whole_words_summary">Обележавање кључне речи/фразе двоструким наводницима ће спречити делимична подударања наслова видеа и назива канала&lt;br&gt;&lt;br&gt;На пример,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; ће сакрити видео: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;али неће сакрити: &lt;b&gt;What does fair use mean?&lt;br&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_keyword_toast_invalid_common">Неважећа кључна реч. Није могуће користити „%s”</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_keyword_toast_invalid_length">Неважећа кључна реч. „%1$s” је краће од %2$d знакова</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">Кључна реч „%s” ће сакрити све видее</string>
+  <string name="revanced_hide_keyword_toast_invalid_common">Није могуће користити кључну реч: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Додајте наводнике да бисте користили кључну реч: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_conflicting">Кључна реч има конфликтне изјаве: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_length">Кључна реч је прекратка и захтева наводнике: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">Кључна реч ће сакрити све видее: %s</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Сакриј опште огласе</string>
@@ -618,6 +631,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_save_sound_button_title">Сакриј дугме „Сачувај звук на плејлисту”</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Дугме „Сачувај звук на плејлисту” је скривено</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Дугме „Сачувај звук на плејлисту” је приказано</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_title">Сакриј дугме „Користи овај звук”</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">Дугме „Користи овај звук” је скривено</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">Дугме „Користи овај звук” је приказано</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Сакриј предлоге за претрагу</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Предлози за претрагу су скривени</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Предлози за претрагу су приказани</string>
@@ -681,7 +697,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_player_overlay_opacity_invalid_toast">Прозирност преклопа плејера мора бити између 0-100</string>
   </patch>
   <patch id="layout.returnyoutubedislike.ReturnYouTubeDislikeResourcePatch">
-  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Скривено</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">Несвиђања привремено нису доступна (API истекао)</string>
   <string name="revanced_ryd_failure_connection_status_code">Несвиђања нису доступна (статус %d)</string>
@@ -777,6 +792,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_general_skipcount_sum_off">Праћење броја прескакања није омогућено</string>
   <string name="revanced_sb_general_min_duration">Минимално трајање сегмента</string>
   <string name="revanced_sb_general_min_duration_sum">Сегменти краћи од ове вредности (у секундама) неће бити приказани или прескочени</string>
+  <string name="revanced_sb_general_min_duration_invalid">Неважеће временско трајање</string>
   <string name="revanced_sb_general_uuid">Ваш приватни кориснички ID</string>
   <string name="revanced_sb_general_uuid_sum">Ово треба да остане приватно. Ово је као лозинка и не би требало да се дели ни са ким. Ако неко има ово, може да се лажно представља за вас</string>
   <string name="revanced_sb_general_uuid_invalid">Приватни кориснички ID мора да има најмање 30 знакова</string>
@@ -877,8 +893,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">Време почетка сегмента</string>
   <string name="revanced_sb_new_segment_time_end">Време краја сегмента</string>
   <string name="revanced_sb_new_segment_confirm_title">Да ли су времена тачна?</string>
-  <!-- Do not rearrange the (hour):(minute):second) time format operators here.
-                 YT shows the same seekbar time format for all languages, and this string is confirming the segment time as it appears in the seekbar. -->
   <string name="revanced_sb_new_segment_confirm_content">Сегмент је од\n\n%1$s\nдо\n%%2$s\n\n(%3$s)\n\nСпреман за подношење?</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Почетак мора бити пре краја</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Прво означите два места на временској траци</string>
@@ -897,6 +911,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_stats_username_changed">Корисничко име успешно промењено</string>
   <string name="revanced_sb_stats_reputation">Ваша репутација је &lt;b&gt;%.2f&lt;/b&gt;</string>
   <string name="revanced_sb_stats_submissions">Направили сте &lt;b&gt;%s&lt;/b&gt; сегмената</string>
+  <string name="revanced_sb_stats_submissions_sum">Додирните овде да бисте видели своје сегменте</string>
   <string name="revanced_sb_stats_saved_zero">SponsorBlock ранг-листа</string>
   <string name="revanced_sb_stats_saved">Сачували сте људе од &lt;b&gt;%s&lt;/b&gt; сегмената</string>
   <string name="revanced_sb_stats_saved_sum_zero">Додирните овде да бисте видели глобалну статистику и најбоље доприносиоце</string>
@@ -1042,6 +1057,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
   <string name="revanced_check_watch_history_domain_name_dialog_title">Упозорење</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Ваша историја гледања се не чува.&lt;br&gt;&lt;br&gt;Ово је највероватније узроковано DNS блокатором огласа или мрежним проксијем.&lt;br&gt;&lt;br&gt;Да бисте ово поправили, ставите на белу листу &lt;b&gt;s.youtube.com&lt;/b&gt; или искључите све DNS блокаторе и проксије.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Не приказуј поново</string>
   </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
@@ -1118,34 +1134,23 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_on">Превлачење за премотавање је омогућено</string>
   <string name="revanced_slide_to_seek_summary_off">Превлачење за премотавање није омогућено</string>
   </patch>
-  <patch id="misc.fix.playback.SpoofClientPatch">
-  <string name="revanced_spoof_client_screen_title">Лажиран клијент</string>
-  <string name="revanced_spoof_client_screen_summary">Лажирање клијента да би се спречили проблеми са репродукцијом</string>
-  <string name="revanced_spoof_client_title">Лажиран клијент</string>
-  <string name="revanced_spoof_client_summary_on">Клијент је лажиран</string>
-  <string name="revanced_spoof_client_summary_off">Клијент није лажиран\n\nРепродукција видеа можда неће радити</string>
-  <string name="revanced_spoof_client_user_dialog_message">Искључивање овог подешавања можда ће изазвати проблеме са репродукцијом видеа.</string>
-  <string name="revanced_spoof_client_use_ios_title">Лажиран клијент на iOS</string>
-  <string name="revanced_spoof_client_use_ios_summary_off">Клијент је тренутно лажиран на Android VR Нежељени ефекти обухватају:\n• Нема HDR видеа\n• Дечји видео снимци се не репродукују\n• Паузирани видео снимци могу насумично да се настављају\n• Сличице на траци за премотавање Shorts видеа лошег квалитета\n• Дугме за радњу „Преузми“ је скривено\n• Картице завршног екрана су скривене</string>
-  <string name="revanced_spoof_client_storyboard_timeout">Сличице у лажираном клијенту нису доступне (API истекао)</string>
-  <string name="revanced_spoof_client_storyboard_io_exception">Сличице у лажираном клијенту привремено нису доступне: %s</string>
-  </patch>
-  <!-- This patch is no longer used, these strings are not in use, and these strings will be deleted in the future. -->
-  <patch id="misc.fix.playback.SpoofSignaturePatch">
-  <string name="revanced_spoof_signature_verification_screen_title">Лажирани потпис апликације</string>
-  <string name="revanced_spoof_signature_verification_screen_summary">Лажирање потписа апликације да би се спречили проблеми с репродукцијом</string>
-  <string name="revanced_spoof_signature_verification_enabled_title">Лажирани потпис апликације</string>
-  <string name="revanced_spoof_signature_verification_enabled_summary_on">Потпис апликације је лажиран\n\nНежељени ефекти обухватају:\n• Побољшана брзина преноса није доступна\n• Видеи се не могу преузимати\n• Нема сличица на траци за премотавање за плаћене видее</string>
-  <string name="revanced_spoof_signature_verification_enabled_summary_off">Потпис апликације није лажиран\n\nРепродукција видеа можда неће радити</string>
-  <string name="revanced_spoof_signature_verification_enabled_user_dialog_message">Искључивање овог подешавања ће изазвати проблеме с репродукцијом видеа.</string>
-  <string name="revanced_spoof_signature_in_feed_enabled_title">Лажирани потпис апликације</string>
-  <string name="revanced_spoof_signature_in_feed_enabled_summary_on">Потпис пликације је лажиран\n\nНежељени ефекти обухватају:\n• Видеи у фиду немају титлове\n• Аутоматски пуштени видеи у фиду ће се појавити у историји гледања</string>
-  <string name="revanced_spoof_signature_in_feed_enabled_summary_off">Потпис апликације није лажиран за видее у фиду\n\nВидеи у фиду ће се пустити на мање од 1 минута пре него што наиђу на проблеме с репродукцијом</string>
-  <string name="revanced_spoof_storyboard_title">Лажирани сториборд</string>
-  <string name="revanced_spoof_storyboard_summary_on">Сториборд је лажиран</string>
-  <string name="revanced_spoof_storyboard_summary_off">Сториборд није лажиран\n\nНежељени ефекти укључују:\n• Нема амбијенталног режима\n• Сличице на траци за премотавање су скривене</string>
-  <string name="revanced_spoof_storyboard_timeout">Лажирање сториборда привремено није доступно (API је истекао)</string>
-  <string name="revanced_spoof_storyboard_io_exception">Лажирање сториборда привремено није доступно: %s</string>
+  <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Лажиран видео стрим</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Лажирање клијента видео стримова да би се спречили проблеми с репродукцијом</string>
+  <string name="revanced_spoof_video_streams_title">Лажирани видео стримови</string>
+  <string name="revanced_spoof_video_streams_summary_on">Видео стримови су лажирани</string>
+  <string name="revanced_spoof_video_streams_summary_off">Видео стримови нису лажирани\n\nРепродукција видеа можда неће радити</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Искључивање ове опције ће можда изазвати проблеме с репродукцијом видеа.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Подразумевани клијент</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Присили AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Видео кодек је AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Видео кодек је VP9 или AV1</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Ваш уређај нема VP9 хардверско декодирање, и ова опција је увек укључена када је омогућено лажирање клијента</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Ако ово омогућите, можда ће се продужити трајање батерије и поправити застој при репродукцији.\n\nAVC има максималну резолуцију од 1080p, а репродукција видеа ће користити више интернет података него VP9 или AV1.</string>
+  <string name="revanced_spoof_video_streams_about_ios_title">Нежељени ефекти лажирања на iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Филмови или плаћени видеи се можда неће пуштати\n• Стримови уживо почињу од почетка</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_title">Нежељени ефекти лажирања на Android VR</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Недостаје мени „Аудио снимак”</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">
