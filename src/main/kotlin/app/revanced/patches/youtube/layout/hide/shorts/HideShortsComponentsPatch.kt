@@ -81,6 +81,7 @@ object HideShortsComponentsPatch : BytecodePatch(
         ShortsBottomBarContainerFingerprint,
         RenderBottomNavigationBarParentFingerprint,
         SetPivotBarVisibilityParentFingerprint,
+        ShortsSoundButtonSizeFingerprint
     ),
 ) {
     private const val FILTER_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/components/ShortsFilter;"
@@ -119,6 +120,24 @@ object HideShortsComponentsPatch : BytecodePatch(
         // region Hide the Shorts buttons in newer versions of YouTube.
 
         LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
+
+        ShortsSoundButtonSizeFingerprint.resultOrThrow().mutableMethod.apply {
+            val resourceIndex = indexOfFirstWideLiteralInstructionValue(
+                HideShortsComponentsResourcePatch.reelPlayerRightPivotV2Size
+            )
+
+            val targetIndex = indexOfFirstInstructionOrThrow(resourceIndex) {
+                getReference<MethodReference>()?.name == "getDimensionPixelSize"
+            } + 1
+
+            val sizeRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+
+            addInstructions(targetIndex + 1, """
+                    invoke-static { v$sizeRegister }, $FILTER_CLASS_DESCRIPTOR->getSoundButtonSize(I)I
+                    move-result v$sizeRegister
+                """
+            )
+        }
 
         // endregion
 

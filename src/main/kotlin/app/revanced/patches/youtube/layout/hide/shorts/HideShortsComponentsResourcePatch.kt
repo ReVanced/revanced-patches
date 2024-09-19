@@ -13,6 +13,7 @@ object HideShortsComponentsResourcePatch : ResourcePatch() {
     internal var reelMultipleItemShelfId = -1L
     internal var reelPlayerRightCellButtonHeight = -1L
     internal var bottomBarContainer = -1L
+    internal var reelPlayerRightPivotV2Size = -1L
 
     override fun execute(context: ResourceContext) {
         AddResourcesPatch(this::class)
@@ -61,6 +62,11 @@ object HideShortsComponentsResourcePatch : ResourcePatch() {
         bottomBarContainer = ResourceMappingPatch[
                 "id",
                 "bottom_bar_container"
+        ]
+
+        reelPlayerRightPivotV2Size = ResourceMappingPatch[
+            "dimen",
+            "reel_player_right_pivot_v2_size"
         ]
     }
 }
