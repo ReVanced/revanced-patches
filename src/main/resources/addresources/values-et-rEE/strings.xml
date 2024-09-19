@@ -234,10 +234,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="interaction.seekbar.EnableSlideToSeekPatch">
   </patch>
-  <patch id="misc.fix.playback.SpoofClientPatch">
-  </patch>
-  <!-- This patch is no longer used, these strings are not in use, and these strings will be deleted in the future. -->
-  <patch id="misc.fix.playback.SpoofSignaturePatch">
+  <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

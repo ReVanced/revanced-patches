@@ -631,6 +631,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_save_sound_button_title">(재생목록에) 음악 저장 버튼 숨기기</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">(재생목록에) 음악 저장 버튼이 숨겨집니다</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">(재생목록에) 음악 저장 버튼이 표시됩니다</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_title">\'이 사운드 사용\' 버튼 숨기기</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">\'이 사운드 사용\' 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">\'이 사운드 사용\' 버튼이 표시됩니다</string>
   <string name="revanced_hide_shorts_search_suggestions_title">검색 추천 숨기기</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">검색 추천이 숨겨집니다</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">검색 추천이 표시됩니다</string>
@@ -1131,33 +1134,23 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_on">슬라이드하여 탐색을 활성화합니다</string>
   <string name="revanced_slide_to_seek_summary_off">슬라이드하여 탐색을 비활성화합니다</string>
   </patch>
-  <patch id="misc.fix.playback.SpoofClientPatch">
-  <string name="revanced_spoof_client_screen_title">클라이언트 변경하기</string>
-  <string name="revanced_spoof_client_screen_summary">클라이언트를 변경하여 재생 문제를 방지할 수 있습니다</string>
-  <string name="revanced_spoof_client_title">클라이언트 변경하기</string>
-  <string name="revanced_spoof_client_summary_on">클라이언트를 변경합니다</string>
-  <string name="revanced_spoof_client_summary_off">클라이언트를 변경하지 않습니다\n\n• 동영상 재생 문제가 발생할 수 있습니다</string>
-  <string name="revanced_spoof_client_user_dialog_message">이 설정을 비활성화하면 동영상 재생 문제가 발생할 수 있습니다</string>
-  <string name="revanced_spoof_client_type_title">클라이언트 타입 변경하기</string>
-  <string name="revanced_spoof_client_ios_force_avc_title">iOS AVC (H.264) 강제로 활성화하기</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_on">iOS 동영상 코덱을 AVC로 활성화합니다\n\n• 일부 VP9 코덱 동영상에서 제거되었던 화질 값들(480+)이 표시될 수 있습니다\n• 지원되는 최대 화질 값이 1080p이므로 초고화질 동영상은 재생할 수 없습니다\n• HDR 동영상을 재생할 수 없습니다</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_off">iOS 동영상 코덱을 AVC, VP9 또는 AV1으로 활성화합니다\n\n• 예전에 업로드된 동영상을 재생했는데 VP9 코덱 응답을 받았을 경우, 일부 화질 값들(480p+)이 제거되어 있거나 화질 메뉴를 선택할 수 없을 수 있습니다</string>
-  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">이 설정을 활성화하면 배터리 수명이 향상되고 재생 끊김 현상이 해결될 수 있습니다\n\nAVC의 최대 화질 값은 1080p이며 동영상을 재생하면 VP9 또는 AV1보다 더 많은 인터넷 데이터가 사용됩니다</string>
-  <string name="revanced_spoof_client_about_android_ios_title">\'iOS로 변경\'의 알려진 문제점</string>
-  <string name="revanced_spoof_client_about_android_ios_summary">• HDR 동영상은 하드웨어 AV1 디코딩을 지원하는 AP가 탑재된 기기에서만 재생할 수 있습니다\n• 브랜드 계정에서는 시청 기록이 작동되지 않습니다\n• 일부 기기에서 VP9 코덱이 사용된 4K 동영상이 재생되지 않을 수 있습니다</string>
-  <string name="revanced_spoof_client_about_android_vr_title">\'Android VR로 변경\'의 알려진 문제점</string>
-  <string name="revanced_spoof_client_about_android_vr_summary">• HDR 동영상을 재생할 수 없습니다\n• Kids 동영상을 재생할 수 없습니다\n• 일시 정지된 동영상이 갑자기 다시 시작될 수 있습니다\n• 저화질 Shorts 재생바 썸네일이 표시됩니다\n• 플레이어 하단에서 오프라인 저장 버튼이 표시되지 않습니다\n• 최종 화면 카드가 표시되지 않습니다</string>
-  <string name="revanced_spoof_client_storyboard_timeout">클라이언트 썸네일을 사용할 수 없습니다 (응답 시간 초과)</string>
-  <string name="revanced_spoof_client_storyboard_io_exception">클라이언트 썸네일을 일시적으로 사용할 수 없습니다: %s</string>
-  </patch>
-  <!-- This patch is no longer used, these strings are not in use, and these strings will be deleted in the future. -->
-  <patch id="misc.fix.playback.SpoofSignaturePatch">
-  <string name="revanced_spoof_signature_verification_screen_title">새로운 동영상 화질 설정을 활성화합니다</string>
-  <string name="revanced_spoof_signature_verification_enabled_title">새로운 동영상 화질 설정을 활성화합니다</string>
-  <string name="revanced_spoof_signature_verification_enabled_user_dialog_message">이 설정을 비활성화하면 동영상 재생 문제가 발생할 수 있습니다.</string>
-  <string name="revanced_spoof_signature_in_feed_enabled_title">피드 동영상에 대한 앱 서명 변경하기</string>
-  <string name="revanced_spoof_storyboard_title">스토리보드 변경하기</string>
-  <string name="revanced_spoof_storyboard_io_exception">스토리보드를 일시적으로 변경할 수 없습니다: %s</string>
+  <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">동영상 스트림 변경하기</string>
+  <string name="revanced_spoof_video_streams_screen_summary">동영상 스트림을 변경하여 재생 문제를 방지할 수 있습니다</string>
+  <string name="revanced_spoof_video_streams_title">동영상 스트림 변경하기</string>
+  <string name="revanced_spoof_video_streams_summary_on">동영상 스트림을 변경합니다</string>
+  <string name="revanced_spoof_video_streams_summary_off">동영상 스트림을 변경하지 않습니다\n동영상 재생 문제가 발생할 수 있습니다</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">이 설정을 비활성화하면 동영상 재생 문제가 발생할 수 있습니다</string>
+  <string name="revanced_spoof_video_streams_client_type_title">기본 클라이언트</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">AVC (H.264) 강제로 활성화하기</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">동영상 코덱을 AVC (H.264)로 활성화합니다</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">동영상 코덱을 VP9 또는 AV1으로 활성화합니다</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">이 기기는 VP9 하드웨어 디코딩을 지원하지 않습니다. 그러므로 \'클라이언트 변경하기\'가 활성화된 경우에는 이 설정은 항상 켜져 있습니다</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">이 설정을 활성화하면 배터리 수명이 향상되고 재생 끊김 현상이 해결될 수 있습니다\n\nAVC의 최대 화질 값은 1080p이며 동영상을 재생하면 VP9 또는 AV1보다 더 많은 인터넷 데이터가 사용됩니다</string>
+  <string name="revanced_spoof_video_streams_about_ios_title">\'iOS로 변경\'의 알려진 문제점</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• 영화 또는 유료 동영상이 재생되지 않을 수 있습니다\n• 되감기가 가능한 실시간 스트림이 라이브 중인 시점이 아닌 처음부터 재생될 수 있습니다</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_title">\'Android VR로 변경\'의 알려진 문제점</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• 오디오 트랙 메뉴가 표시되지 않습니다\n• 안정적인 볼륨 메뉴가 비활성화된 채로 잠겨있습니다</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">
