@@ -12,6 +12,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 object HideShortsComponentsResourcePatch : ResourcePatch() {
     internal var reelMultipleItemShelfId = -1L
     internal var reelPlayerRightCellButtonHeight = -1L
+    internal var bottomBarContainer = -1L
 
     override fun execute(context: ResourceContext) {
         AddResourcesPatch(this::class)
@@ -57,14 +58,9 @@ object HideShortsComponentsResourcePatch : ResourcePatch() {
             "reel_player_right_cell_button_height",
         ]
 
-        // Resource not present in new versions of the app.
-        try {
-            ResourceMappingPatch[
-                "dimen",
-                "reel_player_right_cell_button_height",
-            ]
-        } catch (e: NoSuchElementException) {
-            return
-        }.also { reelPlayerRightCellButtonHeight = it }
+        bottomBarContainer = ResourceMappingPatch[
+                "id",
+                "bottom_bar_container"
+        ]
     }
 }

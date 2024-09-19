@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.layout.hide.shorts
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
@@ -18,6 +17,7 @@ import app.revanced.util.alsoResolve
 import app.revanced.util.exception
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstWideLiteralInstructionValue
 import app.revanced.util.indexOfIdResourceOrThrow
 import app.revanced.util.injectHideViewCall
 import app.revanced.util.resultOrThrow
@@ -77,7 +77,7 @@ object HideShortsComponentsPatch : BytecodePatch(
     setOf(
         CreateShortsButtonsFingerprint,
         ReelConstructorFingerprint,
-        BottomNavigationBarFingerprint,
+        ShortsBottomBarContainerFingerprint,
         RenderBottomNavigationBarParentFingerprint,
         SetPivotBarVisibilityParentFingerprint,
     ),
@@ -134,7 +134,7 @@ object HideShortsComponentsPatch : BytecodePatch(
             }
         }
 
-        // Hook to hide the navigation bar when Shorts are being played.
+        // Hook to hide the shared navigation bar when the Shorts player is opened.
         RenderBottomNavigationBarFingerprint.alsoResolve(
             context,
             RenderBottomNavigationBarParentFingerprint
@@ -143,17 +143,18 @@ object HideShortsComponentsPatch : BytecodePatch(
             "invoke-static { p1 }, $FILTER_CLASS_DESCRIPTOR->hideNavigationBar(Ljava/lang/String;)V"
         )
 
-        BottomNavigationBarFingerprint.resultOrThrow().mutableMethod.apply {
-            val targetIndex = indexOfFirstInstructionOrThrow {
+        // Hide the bottom bar container of the Shorts player.
+        ShortsBottomBarContainerFingerprint.resultOrThrow().mutableMethod.apply {
+            val resourceIndex = indexOfFirstWideLiteralInstructionValue(HideShortsComponentsResourcePatch.bottomBarContainer)
+
+            val targetIndex = indexOfFirstInstructionOrThrow(resourceIndex) {
                 getReference<MethodReference>()?.name == "findViewById"
             } + 1
+
             val viewRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
-            addInstructions(
-                targetIndex + 1, """
-                        invoke-static { v$viewRegister }, $FILTER_CLASS_DESCRIPTOR->hideNavigationBar(Landroid/view/View;)Landroid/view/View;
-                        move-result-object v$viewRegister
-                        """
+            addInstruction(targetIndex + 1, "invoke-static { v$viewRegister }," +
+                    " $FILTER_CLASS_DESCRIPTOR->setBottomBarContainerSize(Landroid/view/View;)V"
             )
         }
 
