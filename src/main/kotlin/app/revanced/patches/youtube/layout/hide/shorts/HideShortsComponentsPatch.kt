@@ -2,6 +2,7 @@ package app.revanced.patches.youtube.layout.hide.shorts
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
@@ -153,8 +154,11 @@ object HideShortsComponentsPatch : BytecodePatch(
 
             val viewRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
-            addInstruction(targetIndex + 1, "invoke-static { v$viewRegister }," +
-                    " $FILTER_CLASS_DESCRIPTOR->setBottomBarContainerSize(Landroid/view/View;)V"
+            addInstructions(
+                targetIndex + 1, """
+                        invoke-static { v$viewRegister }, $FILTER_CLASS_DESCRIPTOR->hideNavigationBar(Landroid/view/View;)Landroid/view/View;
+                        move-result-object v$viewRegister
+                        """
             )
         }
 
