@@ -140,7 +140,7 @@ object HideShortsComponentsPatch : BytecodePatch(
             RenderBottomNavigationBarParentFingerprint
         ).mutableMethod.addInstruction(
             0,
-            "invoke-static { }, $FILTER_CLASS_DESCRIPTOR->hideNavigationBar()V"
+            "invoke-static { p1 }, $FILTER_CLASS_DESCRIPTOR->hideNavigationBar(Ljava/lang/String;)V"
         )
 
         BottomNavigationBarFingerprint.resultOrThrow().mutableMethod.apply {
