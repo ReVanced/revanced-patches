@@ -149,16 +149,15 @@ object HideShortsComponentsPatch : BytecodePatch(
             val resourceIndex = indexOfFirstWideLiteralInstructionValue(HideShortsComponentsResourcePatch.bottomBarContainer)
 
             val targetIndex = indexOfFirstInstructionOrThrow(resourceIndex) {
-                getReference<MethodReference>()?.name == "findViewById"
+                getReference<MethodReference>()?.name == "getHeight"
             } + 1
 
-            val viewRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+            val heightRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
-            addInstructions(
-                targetIndex + 1, """
-                        invoke-static { v$viewRegister }, $FILTER_CLASS_DESCRIPTOR->hideNavigationBar(Landroid/view/View;)Landroid/view/View;
-                        move-result-object v$viewRegister
-                        """
+            addInstructions(targetIndex + 1, """
+                    invoke-static { v$heightRegister }, $FILTER_CLASS_DESCRIPTOR->getNavigationBarHeight(I)I
+                    move-result v$heightRegister
+                """
             )
         }
 
@@ -175,14 +174,12 @@ object HideShortsComponentsPatch : BytecodePatch(
         fun injectHideCall(method: MutableMethod) {
             val referencedIndex = method.indexOfIdResourceOrThrow(resourceName)
 
-            val instruction = method.implementation!!.instructions
-                .subList(referencedIndex, referencedIndex + 20)
-                .first {
-                    it.opcode == Opcode.INVOKE_VIRTUAL && it.getReference<MethodReference>()?.name == "setId"
-                }
+            val setIdIndex = method.indexOfFirstInstructionOrThrow(referencedIndex) {
+                opcode == Opcode.INVOKE_VIRTUAL && getReference<MethodReference>()?.name == "setId"
+            }
 
-            val setIdIndex = instruction.location.index
             val viewRegister = method.getInstruction<FiveRegisterInstruction>(setIdIndex).registerC
+
             method.injectHideViewCall(setIdIndex + 1, viewRegister, FILTER_CLASS_DESCRIPTOR, methodName)
         }
     }
