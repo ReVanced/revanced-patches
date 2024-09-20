@@ -306,6 +306,26 @@ fun Method.findOpcodeIndicesReversed(filter: Instruction.() -> Boolean): List<In
     return indexes
 }
 
+/**
+ * Called for _all_ instructions with the given literal value.
+ */
+fun BytecodeContext.forEachLiteralValueInstruction(
+    literal: Long,
+    block: MutableMethod.(literalInstructionIndex: Int) -> Unit,
+) {
+    classes.forEach { classDef ->
+        classDef.methods.forEach { method ->
+            method.implementation?.instructions?.forEachIndexed { index, instruction ->
+                if (instruction.opcode == Opcode.CONST &&
+                    (instruction as WideLiteralInstruction).wideLiteral == literal
+                ) {
+                    val mutableMethod = proxy(classDef).mutableClass.findMutableMethodOf(method)
+                    block.invoke(mutableMethod, index)
+                }
+            }
+        }
+    }
+}
 
 /**
  * Return the resolved method early.

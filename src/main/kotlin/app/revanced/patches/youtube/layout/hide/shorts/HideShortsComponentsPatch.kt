@@ -14,6 +14,7 @@ import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
 import app.revanced.patches.youtube.misc.playservice.YouTubeVersionCheck
+import app.revanced.util.forEachLiteralValueInstruction
 import app.revanced.util.alsoResolve
 import app.revanced.util.exception
 import app.revanced.util.getReference
@@ -81,7 +82,6 @@ object HideShortsComponentsPatch : BytecodePatch(
         ShortsBottomBarContainerFingerprint,
         RenderBottomNavigationBarParentFingerprint,
         SetPivotBarVisibilityParentFingerprint,
-        ShortsSoundButtonSizeFingerprint
     ),
 ) {
     private const val FILTER_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/components/ShortsFilter;"
@@ -121,12 +121,10 @@ object HideShortsComponentsPatch : BytecodePatch(
 
         LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
 
-        ShortsSoundButtonSizeFingerprint.resultOrThrow().mutableMethod.apply {
-            val resourceIndex = indexOfFirstWideLiteralInstructionValue(
-                HideShortsComponentsResourcePatch.reelPlayerRightPivotV2Size
-            )
-
-            val targetIndex = indexOfFirstInstructionOrThrow(resourceIndex) {
+        context.forEachLiteralValueInstruction(
+            HideShortsComponentsResourcePatch.reelPlayerRightPivotV2Size,
+        ) { literalInstructionIndex ->
+            val targetIndex = indexOfFirstInstructionOrThrow(literalInstructionIndex) {
                 getReference<MethodReference>()?.name == "getDimensionPixelSize"
             } + 1
 
@@ -138,6 +136,7 @@ object HideShortsComponentsPatch : BytecodePatch(
                 """
             )
         }
+
 
         // endregion
 
