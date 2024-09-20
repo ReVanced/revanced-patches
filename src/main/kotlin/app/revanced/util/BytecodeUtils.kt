@@ -315,7 +315,7 @@ fun BytecodeContext.forEachLiteralValueInstruction(
 ) {
     classes.forEach { classDef ->
         classDef.methods.forEach { method ->
-            method.implementation?.instructions?.reversed()?.forEachIndexed { index, instruction ->
+            method.implementation?.instructions?.forEachIndexed { index, instruction ->
                 if (instruction.opcode == Opcode.CONST &&
                     (instruction as WideLiteralInstruction).wideLiteral == literal
                 ) {
