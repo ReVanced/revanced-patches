@@ -1,3 +1,11 @@
+## [4.14.2-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.14.2-dev.1...v4.14.2-dev.2) (2024-09-21)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Change default client type to Android VR ([74c8637](https://github.com/ReVanced/revanced-patches/commit/74c8637943347078955f51325bc6af92a35d4463))
+* **YouTube - Spoof video streams:** Change default client type to Android VR ([#3672](https://github.com/ReVanced/revanced-patches/issues/3672)) ([a3306f6](https://github.com/ReVanced/revanced-patches/commit/a3306f6717a09b734354f00363a96abad0ae14e7))
+
 ## [4.14.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.14.1...v4.14.2-dev.1) (2024-09-21)
 
 
