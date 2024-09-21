@@ -5,6 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
@@ -12,13 +13,12 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.interaction.seekbar.fingerprints.DoubleSpeedSeekNoticeFingerprint
 import app.revanced.patches.youtube.interaction.seekbar.fingerprints.SlideToSeekFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
-import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.misc.playservice.YouTubeVersionCheck
+import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.getReference
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
@@ -73,30 +73,36 @@ object EnableSlideToSeekPatch : BytecodePatch(
             SwitchPreference("revanced_slide_to_seek")
         )
 
+        var modifiedMethods = false
+
         // Restore the behaviour to slide to seek.
         SlideToSeekFingerprint.resultOrThrow().let {
             val checkIndex = it.scanResult.patternScanResult!!.startIndex
             val checkReference = it.mutableMethod
-                .getInstruction(checkIndex).getReference<MethodReference>()!!.toString()
+                .getInstruction(checkIndex).getReference<MethodReference>()!!
 
             // A/B check method was only called on this class.
             it.mutableClass.methods.forEach { method ->
-                method.implementation!!.instructions!!.forEachIndexed { index, instruction ->
-                    if (instruction.opcode != Opcode.INVOKE_VIRTUAL) return@forEachIndexed
+                method.implementation!!.instructions.forEachIndexed { index, instruction ->
+                    if (instruction.opcode == Opcode.INVOKE_VIRTUAL &&
+                        instruction.getReference<MethodReference>() == checkReference
+                    ) {
+                        method.replaceInstruction(
+                            index,
+                            "invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->isSlideToSeekDisabled()Z "
+                        )
 
-                    val reference = (instruction as Instruction35c).reference as MethodReference
-                    if (reference.toString() != checkReference) return@forEachIndexed
-
-                    method.replaceInstruction(index,
-                        "invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->isSlideToSeekDisabled()Z "
-                    )
+                        modifiedMethods = true
+                    }
                 }
             }
         }
 
+        if (!modifiedMethods) throw PatchException("Could not find methods to modify")
+
         // Disable the double speed seek notice.
         // 19.17.41 is the last version with this code.
-        if (!YouTubeVersionCheck.is_19_17_or_greater) {
+        if (!YouTubeVersionCheck.is_19_18_or_greater) {
             DoubleSpeedSeekNoticeFingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
                     val insertIndex = it.scanResult.patternScanResult!!.endIndex + 1
