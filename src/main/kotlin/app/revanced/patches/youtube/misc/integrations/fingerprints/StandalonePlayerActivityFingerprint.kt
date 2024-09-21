@@ -10,6 +10,8 @@ import com.android.tools.smali.dexlib2.AccessFlags
  * In 2023 supported was ended and is no longer available,
  * but this may still be used by older apps:
  * https://developers.google.com/youtube/android/player
+ *
+ * StandalonePlayerActivity was removed in 19.38
  */
 internal object StandalonePlayerActivityFingerprint : IntegrationsFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
