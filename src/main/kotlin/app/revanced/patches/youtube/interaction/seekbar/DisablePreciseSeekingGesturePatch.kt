@@ -1,18 +1,19 @@
 package app.revanced.patches.youtube.interaction.seekbar
 
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.youtube.interaction.seekbar.fingerprints.IsSwipingUpFingerprint
+import app.revanced.patches.youtube.interaction.seekbar.fingerprints.AllowSwipingUpGestureFingerprint
+import app.revanced.patches.youtube.interaction.seekbar.fingerprints.ShowSwipingUpGuideFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.util.exception
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.util.resultOrThrow
 
 @Patch(
     name = "Disable precise seeking gesture",
@@ -52,11 +53,10 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 )
 @Suppress("unused")
 object DisablePreciseSeekingGesturePatch : BytecodePatch(
-    setOf(IsSwipingUpFingerprint)
+    setOf(AllowSwipingUpGestureFingerprint, ShowSwipingUpGuideFingerprint)
 ) {
-    private const val INTEGRATIONS_METHOD_DESCRIPTOR =
-        "Lapp/revanced/integrations/youtube/patches/DisablePreciseSeekingGesturePatch;->" +
-                "disableGesture(Landroid/view/VelocityTracker;Landroid/view/MotionEvent;)V"
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR =
+        "Lapp/revanced/integrations/youtube/patches/DisablePreciseSeekingGesturePatch;"
 
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
@@ -65,19 +65,29 @@ object DisablePreciseSeekingGesturePatch : BytecodePatch(
             SwitchPreference("revanced_disable_precise_seeking_gesture")
         )
 
-        IsSwipingUpFingerprint.result?.let {
-            val addMovementIndex = it.scanResult.patternScanResult!!.startIndex - 1
+        AllowSwipingUpGestureFingerprint.resultOrThrow().mutableMethod.apply {
+            addInstructionsWithLabels(
+                0,
+                """
+                    invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->isGestureDisabled()Z
+                    move-result v0
+                    if-eqz v0, :disabled
+                    return-void
+                """, ExternalLabel("disabled", getInstruction(0))
+            )
+        }
 
-            it.mutableMethod.apply {
-                val addMovementInstruction = getInstruction<FiveRegisterInstruction>(addMovementIndex)
-                val trackerRegister = addMovementInstruction.registerC
-                val eventRegister = addMovementInstruction.registerD
-
-                replaceInstruction(
-                    addMovementIndex,
-                    "invoke-static {v$trackerRegister, v$eventRegister}, $INTEGRATIONS_METHOD_DESCRIPTOR"
-                )
-            }
-        } ?: throw IsSwipingUpFingerprint.exception
+        ShowSwipingUpGuideFingerprint.resultOrThrow().mutableMethod.apply {
+            addInstructionsWithLabels(
+                0,
+                """
+                    invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->isGestureDisabled()Z
+                    move-result v0
+                    if-eqz v0, :disabled
+                    const/4 v0, 0x0
+                    return v0
+                """, ExternalLabel("disabled", getInstruction(0))
+            )
+        }
     }
 }
