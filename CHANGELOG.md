@@ -1,3 +1,12 @@
+## [4.14.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.14.1...v4.14.2-dev.1) (2024-09-21)
+
+
+### Bug Fixes
+
+* **TikTok - Playback speed:** Prevent crash by fixing invalid patch ([82d53cb](https://github.com/ReVanced/revanced-patches/commit/82d53cbc3bbfa585ba4337fdfaec9f0f19c802e6))
+* **TikTok - Settings:** Prevent crash by fixing invalid patch ([8074032](https://github.com/ReVanced/revanced-patches/commit/8074032fad3eff1c03296a882d2e2820da99b592))
+* **Twitter - Open links with app chooser:** Constrain patch to last working version `10.48.0-release` ([b9955d5](https://github.com/ReVanced/revanced-patches/commit/b9955d5ff6e456593b01f0f25d80ff660d02082a))
+
 ## [4.14.1](https://github.com/ReVanced/revanced-patches/compare/v4.14.0...v4.14.1) (2024-09-18)
 
 
