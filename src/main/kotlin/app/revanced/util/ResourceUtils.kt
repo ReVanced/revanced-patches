@@ -3,6 +3,7 @@ package app.revanced.util
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.util.DomFileEditor
 import app.revanced.util.resource.BaseResource
+import org.w3c.dom.Element
 import org.w3c.dom.Node
 import org.w3c.dom.NodeList
 import java.io.InputStream
@@ -164,3 +165,24 @@ internal fun Node.addResource(
 }
 
 internal fun org.w3c.dom.Document.getNode(tagName: String) = this.getElementsByTagName(tagName).item(0)
+
+internal fun NodeList.findElementById(id: String): Element? {
+    for (i in 0 until length) {
+        val node = item(i)
+        if (node.nodeType == Node.ELEMENT_NODE) {
+            val element = node as Element
+
+            if (element.getAttribute("android:id") == id) {
+                return element
+            }
+
+            // Recursively search.
+            val found = element.childNodes.findElementById(id)
+            if (found != null) {
+                return found
+            }
+        }
+    }
+
+    return null
+}

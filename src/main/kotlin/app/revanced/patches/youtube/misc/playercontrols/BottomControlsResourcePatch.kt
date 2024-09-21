@@ -1,10 +1,13 @@
 package app.revanced.patches.youtube.misc.playercontrols
 
 import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.DomFileEditor
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
+import app.revanced.util.findElementById
+import org.w3c.dom.Element
 import java.io.Closeable
 
 @Patch(dependencies = [ResourceMappingPatch::class])
@@ -14,17 +17,25 @@ object BottomControlsResourcePatch : ResourcePatch(), Closeable {
     private const val TARGET_RESOURCE_NAME = "youtube_controls_bottom_ui_container.xml"
     private const val TARGET_RESOURCE = "res/layout/$TARGET_RESOURCE_NAME"
 
-    // The element to the left of the element being added.
-    private var lastLeftOf = "fullscreen_button"
-
     private lateinit var resourceContext: ResourceContext
     private lateinit var targetDocumentEditor: DomFileEditor
+    private lateinit var targetElement : Element
 
     override fun execute(context: ResourceContext) {
+        bottomUiContainerResourceId = ResourceMappingPatch["id", "bottom_ui_container_stub"]
+
         resourceContext = context
         targetDocumentEditor = context.xmlEditor[TARGET_RESOURCE]
 
-        bottomUiContainerResourceId = ResourceMappingPatch["id", "bottom_ui_container_stub"]
+        // Add all buttons to an inner layout, to prevent audio track and other
+        // YT buttons from being inserted into the middle.
+        targetElement = targetDocumentEditor.file.createElement("LinearLayout")
+        targetElement.setAttribute("android:layout_height", "wrap_content")
+        targetElement.setAttribute("android:layout_width", "wrap_content")
+
+        val bottomContainer = targetDocumentEditor.file.childNodes.findElementById("@id/bottom_end_container")
+            ?: throw PatchException("Could not find target element")
+        bottomContainer.appendChild(targetElement)
     }
 
     /**
@@ -38,33 +49,19 @@ object BottomControlsResourcePatch : ResourcePatch(), Closeable {
                 "$resourceDirectoryName/host/layout/$TARGET_RESOURCE_NAME",
             )!!,
         ]
-        val sourceDocument = sourceDocumentEditor.file
-        val targetDocument = targetDocumentEditor.file
 
-        val targetElementTag = "android.support.constraint.ConstraintLayout"
+        val sourceElements = sourceDocumentEditor.file.getElementsByTagName(
+            "android.support.constraint.ConstraintLayout"
+        ).item(0).childNodes
 
-        val sourceElements = sourceDocument.getElementsByTagName(targetElementTag).item(0).childNodes
-        val targetElement = targetDocument.getElementsByTagName(targetElementTag).item(0)
-
+        // Copy the patch layout xml into the target layout file.
         for (index in 1 until sourceElements.length) {
             val element = sourceElements.item(index).cloneNode(true)
 
-            // If the element has no attributes there's no point to adding it to the destination.
-            if (!element.hasAttributes()) continue
-
-            // Set the elements lastLeftOf attribute to the lastLeftOf value.
-            val namespace = "@+id"
-            element.attributes.getNamedItem("yt:layout_constraintRight_toLeftOf").nodeValue =
-                "$namespace/$lastLeftOf"
-
-            // Set lastLeftOf attribute to the current element.
-            val nameSpaceLength = 5
-            lastLeftOf = element.attributes.getNamedItem("android:id").nodeValue.substring(nameSpaceLength)
-
-            // Add the element.
-            targetDocument.adoptNode(element)
+            targetDocumentEditor.file.adoptNode(element)
             targetElement.appendChild(element)
         }
+
         sourceDocumentEditor.close()
     }
 
