@@ -259,7 +259,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting SPOOF_VIDEO_STREAMS = new BooleanSetting("revanced_spoof_video_streams", TRUE, true,"revanced_spoof_video_streams_user_dialog_message");
     public static final BooleanSetting SPOOF_VIDEO_STREAMS_IOS_FORCE_AVC = new BooleanSetting("revanced_spoof_video_streams_ios_force_avc", FALSE, true,
             "revanced_spoof_video_streams_ios_force_avc_user_dialog_message", new SpoofVideoStreamsPatch.ForceiOSAVCAvailability());
-    public static final EnumSetting<ClientType> SPOOF_VIDEO_STREAMS_CLIENT_TYPE = new EnumSetting<>("revanced_spoof_video_streams_client_type", ClientType.IOS, true, parent(SPOOF_VIDEO_STREAMS));
+    public static final EnumSetting<ClientType> SPOOF_VIDEO_STREAMS_CLIENT_TYPE = new EnumSetting<>("revanced_spoof_video_streams_client", ClientType.ANDROID_VR, true, parent(SPOOF_VIDEO_STREAMS));
     @Deprecated
     public static final StringSetting DEPRECATED_ANNOUNCEMENT_LAST_HASH = new StringSetting("revanced_announcement_last_hash", "");
     public static final IntegerSetting ANNOUNCEMENT_LAST_ID = new IntegerSetting("revanced_announcement_last_id", -1);
