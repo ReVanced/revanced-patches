@@ -31,10 +31,8 @@ object BottomControlsResourcePatch : ResourcePatch(), Closeable {
         // cardboard VR from being inserted into the middle.
         targetElement = targetDocumentEditor.file.createElement("LinearLayout")
         targetElement.setAttribute("android:layoutDirection", "ltr")
-        targetElement.setAttribute("android:layout_width", "wrap_content")
+        targetElement.setAttribute("android:layout_width", "match_parent")
         targetElement.setAttribute("android:layout_height", "wrap_content")
-        targetElement.setAttribute("android:paddingTop", "0dip")
-        targetElement.setAttribute("android:paddingBottom", "1dip")
         targetElement.setAttribute("android:orientation", "horizontal")
 
         val bottomContainer = targetDocumentEditor.file.childNodes.findElementByAttributeValueOrThrow(
