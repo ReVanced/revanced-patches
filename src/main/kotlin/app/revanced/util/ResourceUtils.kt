@@ -50,7 +50,7 @@ fun ResourceContext.copyResources(
     sourceResourceDirectory: String,
     vararg resources: ResourceGroup,
 ) {
-    val targetResourceDirectory = this.get("res")
+    val targetResourceDirectory = this["res", false]
 
     for (resourceGroup in resources) {
         resourceGroup.resources.forEach { resource ->
@@ -166,18 +166,18 @@ internal fun Node.addResource(
 
 internal fun org.w3c.dom.Document.getNode(tagName: String) = this.getElementsByTagName(tagName).item(0)
 
-internal fun NodeList.findElementById(id: String): Element? {
+internal fun NodeList.findElementByAttributeValue(attributeName: String, value: String): Element? {
     for (i in 0 until length) {
         val node = item(i)
         if (node.nodeType == Node.ELEMENT_NODE) {
             val element = node as Element
 
-            if (element.getAttribute("android:id") == id) {
+            if (element.getAttribute(attributeName) == value) {
                 return element
             }
 
             // Recursively search.
-            val found = element.childNodes.findElementById(id)
+            val found = element.childNodes.findElementByAttributeValue(attributeName, value)
             if (found != null) {
                 return found
             }

@@ -6,7 +6,7 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.DomFileEditor
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
-import app.revanced.util.findElementById
+import app.revanced.util.findElementByAttributeValue
 import org.w3c.dom.Element
 import java.io.Closeable
 
@@ -33,8 +33,11 @@ object BottomControlsResourcePatch : ResourcePatch(), Closeable {
         targetElement.setAttribute("android:layout_height", "wrap_content")
         targetElement.setAttribute("android:layout_width", "wrap_content")
 
-        val bottomContainer = targetDocumentEditor.file.childNodes.findElementById("@id/bottom_end_container")
-            ?: throw PatchException("Could not find target element")
+        val bottomContainer = targetDocumentEditor.file.childNodes.findElementByAttributeValue(
+            "android:id",
+            "@id/bottom_end_container"
+        ) ?: throw PatchException("Could not find target element")
+
         bottomContainer.appendChild(targetElement)
     }
 
