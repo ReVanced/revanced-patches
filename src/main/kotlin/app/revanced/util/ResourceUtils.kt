@@ -1,6 +1,7 @@
 package app.revanced.util
 
 import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.DomFileEditor
 import app.revanced.util.resource.BaseResource
 import org.w3c.dom.Element
@@ -38,6 +39,14 @@ fun Node.forEachChildElement(action: (Node) -> Unit) =
 fun Node.doRecursively(action: (Node) -> Unit) {
     action(this)
     for (i in 0 until this.childNodes.length) this.childNodes.item(i).doRecursively(action)
+}
+
+fun Node.insertFirst(node: Node) {
+    if (hasChildNodes()) {
+        insertBefore(node, firstChild)
+    } else {
+        appendChild(node)
+    }
 }
 
 /**
@@ -185,4 +194,8 @@ internal fun NodeList.findElementByAttributeValue(attributeName: String, value: 
     }
 
     return null
+}
+
+internal fun NodeList.findElementByAttributeValueOrThrow(attributeName: String, value: String): Element {
+    return findElementByAttributeValue(attributeName, value) ?: throw PatchException("Could not find: $attributeName $value")
 }

@@ -9,6 +9,7 @@ import app.revanced.patches.shared.misc.settings.preference.IntentPreference
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 import app.revanced.util.getNode
+import app.revanced.util.insertFirst
 import org.w3c.dom.Node
 import java.io.Closeable
 
@@ -47,11 +48,7 @@ abstract class BaseSettingsResourcePatch(
                 //  It may be necessary to ask for the desired resourceValue in the future.
                 AddResourcesPatch("values", resource)
             }.let { preferenceNode ->
-                if (prepend && firstChild != null) {
-                    insertBefore(preferenceNode, firstChild)
-                } else {
-                    appendChild(preferenceNode)
-                }
+                insertFirst(preferenceNode)
             }
         }
 
