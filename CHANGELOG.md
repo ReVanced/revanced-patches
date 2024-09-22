@@ -1,3 +1,10 @@
+# [4.15.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.14.2-dev.2...v4.15.0-dev.1) (2024-09-22)
+
+
+### Features
+
+* **TikTok:** Bump patches to support the latest version 36.5.4 ([e5dcb72](https://github.com/ReVanced/revanced-patches/commit/e5dcb72597092fb32003f11fdf6f861ede4e7ff3))
+
 ## [4.14.2-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.14.2-dev.1...v4.14.2-dev.2) (2024-09-21)
 
 
