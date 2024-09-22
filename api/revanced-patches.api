@@ -301,6 +301,12 @@ public final class app/revanced/patches/googlephotos/misc/integrations/Integrati
 	public static final field INSTANCE Lapp/revanced/patches/googlephotos/misc/integrations/IntegrationsPatch;
 }
 
+public final class app/revanced/patches/googlephotos/preferences/BackupPreferencesFingerprint : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/googlephotos/preferences/BackupPreferencesFingerprint;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/googlerecorder/restrictions/RemoveDeviceRestrictions : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/googlerecorder/restrictions/RemoveDeviceRestrictions;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
