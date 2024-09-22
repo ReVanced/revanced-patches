@@ -1,12 +1,12 @@
 package app.revanced.patches.youtube.misc.playercontrols
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.DomFileEditor
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
-import app.revanced.util.findElementByAttributeValue
+import app.revanced.util.findElementByAttributeValueOrThrow
+import app.revanced.util.insertFirst
 import org.w3c.dom.Element
 import java.io.Closeable
 
@@ -31,17 +31,16 @@ object BottomControlsResourcePatch : ResourcePatch(), Closeable {
         // cardboard VR from being inserted into the middle.
         targetElement = targetDocumentEditor.file.createElement("LinearLayout")
         targetElement.setAttribute("android:layoutDirection", "ltr")
-        targetElement.setAttribute("android:layout_width", "match_parent")
+        targetElement.setAttribute("android:layout_width", "wrap_content")
         targetElement.setAttribute("android:layout_height", "wrap_content")
         targetElement.setAttribute("android:paddingTop", "0dip")
         targetElement.setAttribute("android:paddingBottom", "1dip")
         targetElement.setAttribute("android:orientation", "horizontal")
-        targetElement.setAttribute("android:gravity", "center_vertical")
 
-        val bottomContainer = targetDocumentEditor.file.childNodes.findElementByAttributeValue(
+        val bottomContainer = targetDocumentEditor.file.childNodes.findElementByAttributeValueOrThrow(
             "android:id",
             "@id/bottom_end_container"
-        ) ?: throw PatchException("Could not find target element")
+        )
 
         bottomContainer.appendChild(targetElement)
     }
@@ -67,7 +66,9 @@ object BottomControlsResourcePatch : ResourcePatch(), Closeable {
             val element = sourceElements.item(index).cloneNode(true)
 
             targetDocumentEditor.file.adoptNode(element)
-            targetElement.appendChild(element)
+
+            // Add the element as the first view.
+            targetElement.insertFirst(element)
         }
 
         sourceDocumentEditor.close()
