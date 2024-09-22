@@ -3,14 +3,15 @@ package app.revanced.patches.youtube.interaction.seekbar
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.youtube.interaction.seekbar.fingerprints.DoubleSpeedSeekNoticeFingerprint
+import app.revanced.patches.youtube.interaction.seekbar.fingerprints.DisableFastForwardLegacyFingerprint
+import app.revanced.patches.youtube.interaction.seekbar.fingerprints.DisableFastForwardGestureFingerprint
+import app.revanced.patches.youtube.interaction.seekbar.fingerprints.DisableFastForwardNoticeFingerprint
 import app.revanced.patches.youtube.interaction.seekbar.fingerprints.SlideToSeekFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playservice.YouTubeVersionCheck
@@ -61,10 +62,13 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 object EnableSlideToSeekPatch : BytecodePatch(
     setOf(
         SlideToSeekFingerprint,
-        DoubleSpeedSeekNoticeFingerprint
+        DisableFastForwardLegacyFingerprint,
+        DisableFastForwardGestureFingerprint,
+        DisableFastForwardNoticeFingerprint
     )
 ) {
-    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/SlideToSeekPatch;"
+    private const val INTEGRATIONS_METHOD_DESCRIPTOR =
+        "Lapp/revanced/integrations/youtube/patches/SlideToSeekPatch;->isSlideToSeekDisabled(Z)Z"
 
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
@@ -87,10 +91,17 @@ object EnableSlideToSeekPatch : BytecodePatch(
                     if (instruction.opcode == Opcode.INVOKE_VIRTUAL &&
                         instruction.getReference<MethodReference>() == checkReference
                     ) {
-                        method.replaceInstruction(
-                            index,
-                            "invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->isSlideToSeekDisabled()Z "
-                        )
+                        method.apply {
+                            val targetRegister = getInstruction<OneRegisterInstruction>(index + 1).registerA
+
+                            addInstructions(
+                                index + 2,
+                                """
+                                    invoke-static { v$targetRegister }, $INTEGRATIONS_METHOD_DESCRIPTOR
+                                    move-result v$targetRegister
+                               """
+                            )
+                        }
 
                         modifiedMethods = true
                     }
@@ -100,10 +111,9 @@ object EnableSlideToSeekPatch : BytecodePatch(
 
         if (!modifiedMethods) throw PatchException("Could not find methods to modify")
 
-        // Disable the double speed seek notice.
-        // 19.17.41 is the last version with this code.
-        if (!YouTubeVersionCheck.is_19_18_or_greater) {
-            DoubleSpeedSeekNoticeFingerprint.resultOrThrow().let {
+        // Disable the double speed seek gesture.
+        if (!YouTubeVersionCheck.is_19_17_or_greater) {
+            DisableFastForwardLegacyFingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
                     val insertIndex = it.scanResult.patternScanResult!!.endIndex + 1
                     val targetRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
@@ -111,12 +121,30 @@ object EnableSlideToSeekPatch : BytecodePatch(
                     addInstructions(
                         insertIndex,
                         """
-                            invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->isSlideToSeekDisabled()Z
+                            invoke-static { v$targetRegister }, $INTEGRATIONS_METHOD_DESCRIPTOR
                             move-result v$targetRegister
                         """
                     )
                 }
             }
+        } else {
+            arrayOf(
+                DisableFastForwardGestureFingerprint,
+                DisableFastForwardNoticeFingerprint
+            ).forEach { it.resultOrThrow().let {
+                it.mutableMethod.apply {
+                    val targetIndex = it.scanResult.patternScanResult!!.endIndex
+                    val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+
+                    addInstructions(
+                        targetIndex + 1,
+                        """
+                            invoke-static { v$targetRegister }, $INTEGRATIONS_METHOD_DESCRIPTOR
+                            move-result v$targetRegister
+                        """
+                    )
+                }
+            }}
         }
     }
 }
