@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.interaction.seekbar.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.util.containsWideLiteralInstructionValue
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
