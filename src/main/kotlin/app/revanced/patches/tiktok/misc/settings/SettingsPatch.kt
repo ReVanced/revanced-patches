@@ -24,8 +24,8 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
     description = "Adds ReVanced settings to TikTok.",
     dependencies = [IntegrationsPatch::class],
     compatiblePackages = [
-        CompatiblePackage("com.ss.android.ugc.trill", ["32.5.3"]),
-        CompatiblePackage("com.zhiliaoapp.musically", ["32.5.3"]),
+        CompatiblePackage("com.ss.android.ugc.trill", ["36.5.4"]),
+        CompatiblePackage("com.zhiliaoapp.musically", ["36.5.4"]),
     ],
 )
 object SettingsPatch : BytecodePatch(
