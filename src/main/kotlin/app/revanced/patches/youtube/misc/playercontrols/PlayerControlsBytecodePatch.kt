@@ -82,7 +82,7 @@ object PlayerControlsBytecodePatch : BytecodePatch(
         }
 
         // Hook the fullscreen close button.  Used to fix visibility
-        // when the buttons immediately are set to hidden.
+        // when seeking and other situations.
         OverlayViewInflateFingerprint.resultOrThrow().mutableMethod.apply {
             val resourceIndex = indexOfFirstWideLiteralInstructionValueReversedOrThrow(
                 PlayerControlsResourcePatch.fullscreenButton
@@ -105,7 +105,7 @@ object PlayerControlsBytecodePatch : BytecodePatch(
      * Injects the code to initialize the controls.
      * @param descriptor The descriptor of the method which should be called.
      */
-    fun initializeTopControl(descriptor: String) {
+    internal fun initializeTopControl(descriptor: String) {
         inflateTopControlMethod.addInstruction(
             inflateTopControlInsertIndex++,
             "invoke-static { v$inflateTopControlRegister }, $descriptor->initialize(Landroid/view/View;)V"
@@ -122,10 +122,6 @@ object PlayerControlsBytecodePatch : BytecodePatch(
             "invoke-static { v$inflateBottomControlRegister }, $descriptor->initializeButton(Landroid/view/View;)V"
         )
     }
-
-    @Deprecated("Obsolete", replaceWith = ReplaceWith("initializeBottomControl"))
-    fun initializeControl(descriptor: String)= initializeBottomControl(descriptor)
-
     /**
      * Injects the code to change the visibility of controls.
      * @param descriptor The descriptor of the method which should be called.
@@ -141,4 +137,8 @@ object PlayerControlsBytecodePatch : BytecodePatch(
             "invoke-static { p0 }, $descriptor->changeVisibilityImmediate(Z)V"
         )
     }
+
+
+    @Deprecated("Obsolete", replaceWith = ReplaceWith("initializeBottomControl"))
+    fun initializeControl(descriptor: String)= initializeBottomControl(descriptor)
 }
