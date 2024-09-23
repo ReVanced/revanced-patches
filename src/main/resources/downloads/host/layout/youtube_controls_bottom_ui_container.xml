@@ -9,7 +9,7 @@
     <com.google.android.libraries.youtube.common.ui.TouchImageView
         android:id="@+id/revanced_external_download_button"
         style="@style/YouTubePlayerButton"
-        android:layout_width="60.0dip"
+        android:layout_width="48.0dip"
         android:layout_height="60.0dip"
         android:paddingTop="6.5dp"
         android:paddingBottom="0dp"
