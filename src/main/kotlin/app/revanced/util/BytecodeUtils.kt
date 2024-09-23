@@ -15,6 +15,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.reference.Reference
 import com.android.tools.smali.dexlib2.util.MethodUtil
+import org.stringtemplate.v4.compiler.Bytecode.instructions
 
 fun MethodFingerprint.resultOrThrow() = result ?: throw exception
 
@@ -73,7 +74,7 @@ fun MutableMethod.injectHideViewCall(
  * @param resourceName the name of the resource to find the id for.
  * @return the index of the first instruction with the id of the given resource name, or -1 if not found.
  * @throws PatchException if the resource cannot be found.
- * @see [indexOfIdResourceOrThrow]
+ * @see [indexOfIdResourceOrThrow], [indexOfFirstWideLiteralInstructionValueReversed]
  */
 fun Method.indexOfIdResource(resourceName: String): Int {
     val resourceId = ResourceMappingPatch["id", resourceName]
@@ -86,6 +87,7 @@ fun Method.indexOfIdResource(resourceName: String): Int {
  * Requires [ResourceMappingPatch] as a dependency.
  *
  * @throws [PatchException] if the resource is not found, or the method does not contain the resource id literal value.
+ * @see [indexOfIdResource], [indexOfFirstWideLiteralInstructionValueReversedOrThrow]
  */
 fun Method.indexOfIdResourceOrThrow(resourceName: String): Int {
     val index = indexOfIdResource(resourceName)
@@ -116,6 +118,30 @@ fun Method.indexOfFirstWideLiteralInstructionValue(literal: Long) = implementati
  */
 fun Method.indexOfFirstWideLiteralInstructionValueOrThrow(literal: Long): Int {
     val index = indexOfFirstWideLiteralInstructionValue(literal)
+    if (index < 0) throw PatchException("Could not find literal value: $literal")
+    return index
+}
+
+/**
+ * Find the index of the last wide literal instruction with the given value.
+ *
+ * @return the last literal instruction with the value, or -1 if not found.
+ * @see indexOfFirstWideLiteralInstructionValueOrThrow
+ */
+fun Method.indexOfFirstWideLiteralInstructionValueReversed(literal: Long) = implementation?.let {
+    it.instructions.indexOfLast { instruction ->
+        (instruction as? WideLiteralInstruction)?.wideLiteral == literal
+    }
+} ?: -1
+
+/**
+ * Find the index of the last wide literal instruction with the given value,
+ * or throw an exception if not found.
+ *
+ * @return the last literal instruction with the value, or throws [PatchException] if not found.
+ */
+fun Method.indexOfFirstWideLiteralInstructionValueReversedOrThrow(literal: Long): Int {
+    val index = indexOfFirstWideLiteralInstructionValueReversed(literal)
     if (index < 0) throw PatchException("Could not find literal value: $literal")
     return index
 }

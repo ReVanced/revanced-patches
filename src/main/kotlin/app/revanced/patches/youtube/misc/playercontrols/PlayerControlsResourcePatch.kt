@@ -11,12 +11,13 @@ import java.io.Closeable
 
 @Patch(dependencies = [ResourceMappingPatch::class])
 internal object PlayerControlsResourcePatch : ResourcePatch(), Closeable {
-    internal var bottomUiContainerResourceId: Long = -1L
-    internal var controlsLayoutStub: Long = -1L
-    internal var fastForwardRewindHintContainer = -1L
-
     private const val TARGET_RESOURCE_NAME = "youtube_controls_bottom_ui_container.xml"
     private const val TARGET_RESOURCE = "res/layout/$TARGET_RESOURCE_NAME"
+
+    internal var bottomUiContainerResourceId: Long = -1L
+    internal var controlsLayoutStub: Long = -1L
+    internal var heatseekerViewstub = -1L
+    internal var fullscreenButton = -1L
 
     /**
      * The element to the left of the element being added.
@@ -31,7 +32,8 @@ internal object PlayerControlsResourcePatch : ResourcePatch(), Closeable {
     override fun execute(context: ResourceContext) {
         bottomUiContainerResourceId = ResourceMappingPatch["id", "bottom_ui_container_stub"]
         controlsLayoutStub = ResourceMappingPatch["id", "controls_layout_stub"]
-        fastForwardRewindHintContainer = ResourceMappingPatch["id", "fast_forward_rewind_hint_container"]
+        heatseekerViewstub = ResourceMappingPatch["id", "heatseeker_viewstub"]
+        fullscreenButton = ResourceMappingPatch["id", "fullscreen_button"]
 
         resourceContext = context
         targetDocumentEditor = context.xmlEditor[TARGET_RESOURCE]

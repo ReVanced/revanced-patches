@@ -61,6 +61,7 @@ internal object SponsorBlockResourcePatch : ResourcePatch() {
         }
 
         // copy nodes from host resources to their real xml files
+        // TODO: move this to PlayerControlsPatch
 
         val hostingResourceStream =
             inputStreamFromBundledResource(

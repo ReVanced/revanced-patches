@@ -6,17 +6,21 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.youtube.misc.playercontrols.fingerprints.PlayerBottomControlsInflateFingerprint
-import app.revanced.patches.youtube.misc.playercontrols.fingerprints.PlayerTopControlsInflateFingerprint
-import app.revanced.patches.youtube.misc.playercontrols.fingerprints.MotionOverlayVisibilityFingerprint
-import app.revanced.patches.youtube.misc.playercontrols.fingerprints.MotionOverlayFingerprint
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.youtube.misc.playercontrols.fingerprints.ControlsOverlayVisibility
+import app.revanced.patches.youtube.misc.playercontrols.fingerprints.OverlayViewInflateFingerprint
+import app.revanced.patches.youtube.misc.playercontrols.fingerprints.PlayerBottomControlsInflateFingerprint
+import app.revanced.patches.youtube.misc.playercontrols.fingerprints.PlayerControlsIntegrationHookFingerprint
+import app.revanced.patches.youtube.misc.playercontrols.fingerprints.PlayerTopControlsInflateFingerprint
 import app.revanced.util.alsoResolve
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstWideLiteralInstructionValueReversedOrThrow
 import app.revanced.util.resultOrThrow
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 @Patch(
     description = "Manages the code for the player controls of the YouTube player.",
@@ -26,9 +30,13 @@ object PlayerControlsBytecodePatch : BytecodePatch(
     setOf(
         PlayerTopControlsInflateFingerprint,
         PlayerBottomControlsInflateFingerprint,
-        MotionOverlayFingerprint
+        OverlayViewInflateFingerprint,
+        PlayerControlsIntegrationHookFingerprint
     )
 ) {
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR =
+        "Lapp/revanced/integrations/youtube/patches/PlayerControlsPatch;"
+
     private lateinit var inflateTopControlMethod: MutableMethod
     private var inflateTopControlInsertIndex: Int = -1
     private var inflateTopControlRegister: Int = -1
@@ -40,8 +48,8 @@ object PlayerControlsBytecodePatch : BytecodePatch(
     private lateinit var visibilityMethod: MutableMethod
     private var visibilityInsertIndex: Int = 0
 
-    private lateinit var invertVisibilityMethod: MutableMethod
-    private var invertVisibilityInsertIndex: Int = 0
+    private lateinit var visibilityImmediateMethod: MutableMethod
+    private var visibilityImmediateInsertIndex: Int = 0
 
     override fun execute(context: BytecodeContext) {
         fun MutableMethod.indexOfFirstViewInflateOrThrow() =
@@ -73,11 +81,24 @@ object PlayerControlsBytecodePatch : BytecodePatch(
             visibilityMethod = this
         }
 
-        MotionOverlayVisibilityFingerprint.alsoResolve(
-            context, MotionOverlayFingerprint
-        ).mutableMethod.apply {
-            invertVisibilityMethod = this
+        // Hook the fullscreen close button.  Used to fix visibility
+        // when the buttons immediately are set to hidden.
+        OverlayViewInflateFingerprint.resultOrThrow().mutableMethod.apply {
+            val resourceIndex = indexOfFirstWideLiteralInstructionValueReversedOrThrow(
+                PlayerControlsResourcePatch.fullscreenButton
+            )
+
+            val index = indexOfFirstInstructionOrThrow(resourceIndex) {
+                opcode == Opcode.CHECK_CAST && getReference<TypeReference>()?.type ==
+                        "Landroid/widget/ImageView;"
+            }
+            val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+            addInstruction(index + 1, "invoke-static { v$register }, " +
+                    "$INTEGRATIONS_CLASS_DESCRIPTOR->setFullscreenCloseButton(Landroid/widget/ImageView;)V")
         }
+        
+        visibilityImmediateMethod = PlayerControlsIntegrationHookFingerprint.resultOrThrow().mutableMethod
     }
 
     /**
@@ -115,11 +136,9 @@ object PlayerControlsBytecodePatch : BytecodePatch(
             "invoke-static { p1 }, $descriptor->changeVisibility(Z)V"
         )
 
-        // Edit: It's not clear if this hook is still needed,
-        // and it only seems to be called on app startup.
-        invertVisibilityMethod.addInstruction(
-            invertVisibilityInsertIndex++,
-            "invoke-static { p1 }, $descriptor->changeVisibilityNegatedImmediate(Z)V"
+        visibilityImmediateMethod.addInstruction(
+            visibilityImmediateInsertIndex++,
+            "invoke-static { p0 }, $descriptor->changeVisibilityImmediate(Z)V"
         )
     }
 }
