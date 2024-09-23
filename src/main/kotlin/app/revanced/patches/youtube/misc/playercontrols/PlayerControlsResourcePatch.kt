@@ -5,6 +5,7 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.DomFileEditor
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
+import app.revanced.util.findElementByAttributeValue
 import app.revanced.util.findElementByAttributeValueOrThrow
 import org.w3c.dom.Node
 import java.io.Closeable
@@ -37,15 +38,26 @@ internal object PlayerControlsResourcePatch : ResourcePatch(), Closeable {
 
         resourceContext = context
         targetDocumentEditor = context.xmlEditor[TARGET_RESOURCE]
+        val document = targetDocumentEditor.file
 
-        targetElement = targetDocumentEditor.file.getElementsByTagName(
+        targetElement = document.getElementsByTagName(
             "android.support.constraint.ConstraintLayout"
         ).item(0)
 
-        insertBeforeNode = targetDocumentEditor.file.childNodes.findElementByAttributeValueOrThrow(
+        var fullscreenNode = document.childNodes.findElementByAttributeValue(
             "android:inflatedId",
             lastLeftOf
         )
+
+        if (fullscreenNode == null) {
+            // Older targets use non inflated id.
+            fullscreenNode = document.childNodes.findElementByAttributeValueOrThrow(
+                "android:id",
+                lastLeftOf
+            )
+        }
+
+        insertBeforeNode = fullscreenNode
     }
 
     /**
@@ -89,10 +101,10 @@ internal object PlayerControlsResourcePatch : ResourcePatch(), Closeable {
             "@id/bottom_end_container",
             "@id/multiview_button",
         ).forEach {
-            targetDocumentEditor.file.childNodes.findElementByAttributeValueOrThrow(
+            targetDocumentEditor.file.childNodes.findElementByAttributeValue(
                 "android:id",
                 it
-            ).setAttribute("yt:layout_constraintRight_toLeftOf", lastLeftOf)
+            )?.setAttribute("yt:layout_constraintRight_toLeftOf", lastLeftOf)
         }
 
         targetDocumentEditor.close()
