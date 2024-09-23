@@ -1140,16 +1140,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_summary_on">Fluxurile video sunt falsificate</string>
   <string name="revanced_spoof_video_streams_summary_off">Fluxurile video nu sunt marcate cu\n\nEste posibil ca redarea video să nu funcționeze</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Dezactivarea acestei setări poate cauza probleme de redare video.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Client implicit</string>
+  <string name="revanced_spoof_video_streams_client_title">Client implicit</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Forțează AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Codecul video este AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Codecul video este VP9 sau AV1</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Dispozitivul dvs. nu are decodare hardware VP9 și această setare este întotdeauna activată atunci când este activată lingerea clientului</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Activarea acestei funcții ar putea îmbunătăți durata de viață a bateriei și repara blocajul de redare.\n\nAVC are o rezoluție maximă de 1080p, iar redarea video va folosi mai multe date internet decât VP9 sau AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Reacţii adverse de lingere iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmele sau videoclipurile plătite nu pot reda\n• Livestreams începe de la început</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Este posibil ca filmele sau videoclipurile plătite să nu redea\n• Livestream-urile încep de la începutul\n• Videoclipurile se pot termina cu 1 secundă\n• Nici un codec audio opus</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Reacţii adverse de spoofing Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Meniul piesei audio lipsește</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Meniul piesei audio lipsește\n• Volum stabil nu este disponibil</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

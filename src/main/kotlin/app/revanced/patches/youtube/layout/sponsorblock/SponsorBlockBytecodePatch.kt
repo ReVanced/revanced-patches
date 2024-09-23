@@ -10,7 +10,6 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
 import app.revanced.patches.youtube.layout.sponsorblock.fingerprints.AppendTimeFingerprint
 import app.revanced.patches.youtube.layout.sponsorblock.fingerprints.ControlsOverlayFingerprint
 import app.revanced.patches.youtube.layout.sponsorblock.fingerprints.RectangleFieldInvalidatorFingerprint
@@ -32,7 +31,6 @@ import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
-import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
@@ -156,57 +154,12 @@ object SponsorBlockBytecodePatch : BytecodePatch(
             )
         }
 
-
-        // Voting & Shield button.
-        PlayerControlsBytecodePatch.showPlayerControlsFingerprintResult.let { controlsMethodResult ->
-            val controlsLayoutStubResourceId = ResourceMappingPatch["id", "controls_layout_stub"]
-            val zoomOverlayResourceId = ResourceMappingPatch["id", "video_zoom_overlay_stub"]
-
-            for (method in controlsMethodResult.mutableClass.methods) {
-                val instructions = method.implementation?.instructions!!
-                for ((constIndex, instruction) in instructions.withIndex()) {
-                    // search for method which inflates the controls layout view
-                    if (instruction.opcode != Opcode.CONST) continue
-
-                    when ((instruction as NarrowLiteralInstruction).wideLiteral) {
-                        controlsLayoutStubResourceId -> {
-                            val insertIndex = method.indexOfFirstInstructionOrThrow(constIndex) {
-                                getReference<MethodReference>()?.name == "inflate"
-                            } + 1
-                            val inflatedViewRegister =
-                                method.getInstruction<OneRegisterInstruction>(insertIndex).registerA
-
-                            method.addInstructions(
-                                insertIndex + 1,
-                                """
-                                    invoke-static { v$inflatedViewRegister }, $INTEGRATIONS_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->initialize(Landroid/view/View;)V
-                                    invoke-static { v$inflatedViewRegister }, $INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->initialize(Landroid/view/View;)V
-                                """,
-                            )
-                        }
-
-                        zoomOverlayResourceId -> {
-                            val invertVisibilityMethod =
-                                context.toMethodWalker(method).nextMethod(constIndex - 6, true)
-                                    .getMethod() as MutableMethod
-                            // change visibility of the buttons
-                            invertVisibilityMethod.addInstructions(
-                                0,
-                                """
-                                invoke-static {p1}, $INTEGRATIONS_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->changeVisibilityNegatedImmediate(Z)V
-                                invoke-static {p1}, $INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->changeVisibilityNegatedImmediate(Z)V
-                            """
-                            )
-                        }
-                    }
-                }
-            }
-        }
-
-
         // Change visibility of the buttons.
-        PlayerControlsBytecodePatch.injectVisibilityCheckCall("$INTEGRATIONS_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->changeVisibility(Z)V")
-        PlayerControlsBytecodePatch.injectVisibilityCheckCall("$INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->changeVisibility(Z)V")
+        PlayerControlsBytecodePatch.initializeTopControl(INTEGRATIONS_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR)
+        PlayerControlsBytecodePatch.injectVisibilityCheckCall(INTEGRATIONS_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR)
+
+        PlayerControlsBytecodePatch.initializeTopControl(INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR)
+        PlayerControlsBytecodePatch.injectVisibilityCheckCall(INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR)
 
         // Append the new time to the player layout.
         AppendTimeFingerprint.resultOrThrow().let {

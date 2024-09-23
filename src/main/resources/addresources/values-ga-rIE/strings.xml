@@ -630,6 +630,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_save_sound_button_title">Folaigh fuaim a shábháil go cnaipe seinmliosta</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Tá fuaim a shábháil go seinmliosta i bhfolach</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Taispeántar fuaim a shábháil go seinmliosta</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_title">Folaigh úsáid an cnaipe fuaime seo</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">Bain úsáid as an cnaipe fuaime seo i bhfolach</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">Taispeántar úsáid an cnaipe fuaime seo</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Folaigh moltaí cuardaigh</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Tá moltaí cuardaigh i bhfolach</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Taispeántar moltaí cuardaigh</string>
@@ -1130,7 +1133,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_off">Níl sleamhnán le lorg cumasaithe</string>
   </patch>
   <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Sruthanna físeán spoof</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Spoof na sruthanna físeáin cliant chun saincheisteanna athsheinm a chosc</string>
+  <string name="revanced_spoof_video_streams_title">Sruthanna físeán spoof</string>
+  <string name="revanced_spoof_video_streams_summary_on">Tá sruthanna físe spoofed</string>
+  <string name="revanced_spoof_video_streams_summary_off">Níl sruthanna físeáin meallta\n\nSeans nach n-oibreoidh athsheinm físe</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Seans go mbeidh fadhbanna athsheinm físe ag baint leis an socrú seo a mhúchadh.</string>
+  <string name="revanced_spoof_video_streams_client_title">Cliant réamhshocraithe</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Fórsa AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Is é AVC (H.264) an codec físeán</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Is é VP9 nó AV1 an codec físeán</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Níl díchódú crua-earraí VP9 ar do ghléas, agus bíonn an socrú seo ar siúl i gcónaí nuair atá spoofing Cliant cumasaithe</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Má dhéantar é seo a chumasú, d\'fhéadfadh sé go bhfeabhsófaí saol na gceallraí agus go n-athshocraigh sé stopáil athsheinm.\n\nTá uas-taifeach 1080p ag AVC, agus úsáidfidh athsheinm físe níos mó sonraí idirlín ná mar a úsáideann VP9 nó AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Fo-iarsmaí spoofing iOS</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Fo-iarsmaí spoofing Android VR</string>

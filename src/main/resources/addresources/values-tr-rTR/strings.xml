@@ -1139,16 +1139,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_summary_on">Video akışları taklit ediliyor</string>
   <string name="revanced_spoof_video_streams_summary_off">Video akışları taklit edilmiyor\n\nVideo oynatımı çalışmayabilir</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Bu ayarı devre dışı bırakmak video oynatma sorunlarına yol açabilir.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Varsayılan istemci</string>
+  <string name="revanced_spoof_video_streams_client_title">Varsayılan istemci</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">AVC\'yi (H.264) zorla</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodeği AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodeği VP9 ya da AV1</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Cihazınız VP9 donanım çözme özelliği yok ve bu ayar istemci taklit etme açık iken her zaman açıktır</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Bunu etkinleştirmek batarya ömrünü uzatabilir ve oynatma takılmalarını çözebilir.\n\nAVC en fazla 1080p çözünürlüğe sahiptir ve video oynatımı VP9 veya AV1\'e göre daha fazla internet harcayacaktır.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS taklidi yan etkileri</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmler veya paralı videolar oynatılmayabilir\n• Canlı yayınlar baştan başlar</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmler ve paralı videolar oynatılmayabilir\n• Canlı yayınlar baştan başlar\n• Videolar 1 saniye erken bitebilir\n• Opus ses kodeği yok</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR taklidi yan etkileri</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Ses parçası menüsü eksik</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Ses parçası menüsü eksik\n• Sabit ses kullanılamaz</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

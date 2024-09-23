@@ -630,6 +630,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_save_sound_button_title">Ẩn nút lưu âm thanh vào danh sách phát</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Lưu âm thanh vào danh sách phát được ẩn</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Lưu âm thanh vào danh sách phát được hiện</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_title">Ẩn nút dùng bản âm thanh này</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">Nút dùng bản âm thanh này được ẩn</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">Nút dùng bản âm thanh này được hiện</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Ẩn đề xuất tìm kiếm</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Đề xuất tìm kiếm được ẩn</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Đề xuất tìm kiếm được hiện</string>
@@ -1130,10 +1133,22 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_off">Vuốt để tua không được bật</string>
   </patch>
   <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Giả mạo luồng video</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Giả mạo luồng video máy khách để ngăn ngừa sự cố khi phát nền</string>
+  <string name="revanced_spoof_video_streams_title">Giả mạo luồng video</string>
+  <string name="revanced_spoof_video_streams_summary_on">Luồng video đã được giả mạo</string>
+  <string name="revanced_spoof_video_streams_summary_off">Luồng video chưa được giả mạo\n\nPhát nền video có thể không hoạt động</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Việc tắt cài đặt này có thể gây ra sự cố phát nền video.</string>
+  <string name="revanced_spoof_video_streams_client_title">Máy khách mặc định</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">AVC (H.264) ép buộc</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Bộ giải mã là AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Bộ giải mã là VP9 hoặc AV1</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Thiết bị của bạn không có phần cứng giải mã VP9, và thiết lập này luôn bật khi Giả mạo máy khách bật</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Bật chức năng này có thể tăng cường thời lượng pin và sửa lỗi phát lặp.\n\nAVC có độ phân giải tối đa 1080p, và video phát sẽ dùng nhiều dữ liệu mạng hơn VP9 hoặc AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Tác dụng phụ của giả mạo iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Phim hoặc video trả tiền có thể không phát được\n• Luồng phát trực tiếp có thể phát từ đầu\n• Video có thể kết thúc sớm trước 1 giây\n• Không có bộ giải mã âm thanh opus</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Tác dụng phụ của giả mạo Android VR</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Trình đơn bản âm thanh bị mất\n• Âm lượng thích ứng không hữu dụng</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

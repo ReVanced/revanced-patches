@@ -5,7 +5,7 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.youtube.misc.playercontrols.BottomControlsResourcePatch
+import app.revanced.patches.youtube.misc.playercontrols.PlayerControlsResourcePatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
@@ -13,7 +13,7 @@ import app.revanced.util.copyResources
 @Patch(
     dependencies = [
         SettingsPatch::class,
-        BottomControlsResourcePatch::class,
+        PlayerControlsResourcePatch::class,
         AddResourcesPatch::class
     ]
 )
@@ -34,6 +34,6 @@ internal object CopyVideoUrlResourcePatch : ResourcePatch() {
             )
         )
 
-        BottomControlsResourcePatch.addControls("copyvideourl")
+        PlayerControlsResourcePatch.addBottomControls("copyvideourl")
     }
 }

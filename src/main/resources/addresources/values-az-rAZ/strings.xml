@@ -1133,22 +1133,22 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_off">Axtarmaq üçün sürüşdürmə aktiv deyil</string>
   </patch>
   <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">Video yayımları təqlid et</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Oxutma problemlərini önləmək üçün client video yayımlarını təqlid et</string>
-  <string name="revanced_spoof_video_streams_title">Video yayımları təqlid et</string>
-  <string name="revanced_spoof_video_streams_summary_on">Video yayımları təqlid edilir</string>
-  <string name="revanced_spoof_video_streams_summary_off">Video yayımları təqlid edilmir\n\nVideo oxutma işləməyə bilər</string>
-  <string name="revanced_spoof_video_streams_user_dialog_message">Bu ayarı söndürmək, video oxutma problemlərinə səbəb ola bilər.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">İlkin client</string>
+  <string name="revanced_spoof_video_streams_screen_title">Video yayımları saxtalaşdır</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Oynatma problemlərin önləmək üçün qəbuledici video yayımların saxtalaşdır</string>
+  <string name="revanced_spoof_video_streams_title">Video yayımları saxtalaşdır</string>
+  <string name="revanced_spoof_video_streams_summary_on">Video yayımları saxtalaşdırılır</string>
+  <string name="revanced_spoof_video_streams_summary_off">Video yayımları saxtalaşmır\n\nVideo oynatma işləməyə bilər</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Bu seçimi bağlamaq, video oynatma problemlərinə səbəb olar.</string>
+  <string name="revanced_spoof_video_streams_client_title">İlkin qəbuledici</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Məcburi AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodlaşdırma: AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodlaşdırma: VP9 və ya AV1</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Cihazınızda VP9 hardware decoding yoxdur və bu ayar, \"Client təqlid etmə\" fəal olduqda həmişə açıqdır</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Bunu fəallaşdırmaq, batareya ömrünü uzada və oxutmadakı ilişmələri düzəldə bilər.\n\nAVC, maksimum 1080p dəqiqliyinə sahibdir və video oxutma, VP9 və ya AV1-ə görə daha çox internet datası istifadə edəcək.</string>
-  <string name="revanced_spoof_video_streams_about_ios_title">iOS təqlidinin yan təsirləri</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmlər və ya ödənişli videolar oxudulmaya bilər\n• Canlı yayımlar başdan başlayır</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR təqlidinin yan təsirləri</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Səs trek menyusu əskikdir</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodlaşdırma / VP9 və ya AV1</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Cihazınızın VP9 hardware decoding\'i yoxdur və bu seçim, \"Qəbuledicini saxtalaşdırma\" aktivləşdikdə həmişəlikdir</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Bunu aktivləşdirmə batareya ömrünü yaxşılaşdıra və oynatma donmasını düzəldə bilər.\n\nAVC maksimum 1080p görüntü imkanına malikdir və video oynadılması VP9 və ya AV1-dən daha çox internet məlumatı istifadə edəcək.</string>
+  <string name="revanced_spoof_video_streams_about_ios_title">iOS saxtakarlığı yan təsirləri</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmlər və ya ödənişli videolar oynadılmaya bilər\n• Canlı yayımlar əvvəldən başlayır\n• Videolar 1 saniyə tez bitə bilər\n• Opus səs kodlama yoxdur</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR saxtakarlığı yan təsirləri</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Səs axını menyusu əskikdir\n• Stabil səs səviyyəsi əlçatan deyil</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

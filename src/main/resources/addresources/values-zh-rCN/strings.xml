@@ -1137,16 +1137,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_summary_on">视频流已被破坏了</string>
   <string name="revanced_spoof_video_streams_summary_off">视频流没有被破坏的\n\n视频播放可能无法工作</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">关闭此选项可能会导致视频不能正常播放。</string>
-  <string name="revanced_spoof_video_streams_client_type_title">默认客户端</string>
+  <string name="revanced_spoof_video_streams_client_title">默认客户端</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">强制使用 AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">视频编解码器是 AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">视频编解码器是 VP9 或 AV1</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">您的设备没有 VP9 硬件解码，启用客户端伪装时此设置始终开启</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">启用此功能可能会改善电池续航力并修复播放卡顿问题。\n\nAVC 的最大解析度为 1080p，且影片播放将使用比 VP9 或 AV1 更多的网路数据。</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS 伪装副作用</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• 电影或付费视频不能播放\n• Livestreams 不能从一开始开始</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR 伪装副作用</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• 缺少音轨菜单</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• 音轨菜单缺少\n• 稳定音量不可用</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

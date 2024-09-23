@@ -1,8 +1,11 @@
 package app.revanced.util
 
 import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.DomFileEditor
 import app.revanced.util.resource.BaseResource
+import org.w3c.dom.Attr
+import org.w3c.dom.Element
 import org.w3c.dom.Node
 import org.w3c.dom.NodeList
 import java.io.InputStream
@@ -39,6 +42,14 @@ fun Node.doRecursively(action: (Node) -> Unit) {
     for (i in 0 until this.childNodes.length) this.childNodes.item(i).doRecursively(action)
 }
 
+fun Node.insertFirst(node: Node) {
+    if (hasChildNodes()) {
+        insertBefore(node, firstChild)
+    } else {
+        appendChild(node)
+    }
+}
+
 /**
  * Copy resources from the current class loader to the resource directory.
  *
@@ -49,7 +60,7 @@ fun ResourceContext.copyResources(
     sourceResourceDirectory: String,
     vararg resources: ResourceGroup,
 ) {
-    val targetResourceDirectory = this.get("res")
+    val targetResourceDirectory = this["res", false]
 
     for (resourceGroup in resources) {
         resourceGroup.resources.forEach { resource ->
@@ -164,3 +175,37 @@ internal fun Node.addResource(
 }
 
 internal fun org.w3c.dom.Document.getNode(tagName: String) = this.getElementsByTagName(tagName).item(0)
+
+internal fun NodeList.findElementByAttributeValue(attributeName: String, value: String): Element? {
+    for (i in 0 until length) {
+        val node = item(i)
+        if (node.nodeType == Node.ELEMENT_NODE) {
+            val element = node as Element
+
+            if (element.getAttribute(attributeName) == value) {
+                return element
+            }
+
+            // Recursively search.
+            val found = element.childNodes.findElementByAttributeValue(attributeName, value)
+            if (found != null) {
+                return found
+            }
+        }
+    }
+
+    return null
+}
+
+internal fun NodeList.findElementByAttributeValueOrThrow(attributeName: String, value: String): Element {
+    return findElementByAttributeValue(attributeName, value) ?: throw PatchException("Could not find: $attributeName $value")
+}
+
+internal fun Element.copyAttributesFrom(oldContainer: Element) {
+    // Copy attributes from the old element to the new element
+    val attributes = oldContainer.attributes
+    for (i in 0 until attributes.length) {
+        val attr = attributes.item(i) as Attr
+        setAttribute(attr.name, attr.value)
+    }
+}
