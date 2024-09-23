@@ -115,6 +115,8 @@ object PlayerControlsBytecodePatch : BytecodePatch(
             "invoke-static { p1 }, $descriptor->changeVisibility(Z)V"
         )
 
+        // Edit: It's not clear if this hook is still needed,
+        // and it only seems to be called on app startup.
         invertVisibilityMethod.addInstruction(
             invertVisibilityInsertIndex++,
             "invoke-static { p1 }, $descriptor->changeVisibilityNegatedImmediate(Z)V"

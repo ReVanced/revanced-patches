@@ -4,6 +4,7 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.DomFileEditor
 import app.revanced.util.resource.BaseResource
+import org.w3c.dom.Attr
 import org.w3c.dom.Element
 import org.w3c.dom.Node
 import org.w3c.dom.NodeList
@@ -198,4 +199,13 @@ internal fun NodeList.findElementByAttributeValue(attributeName: String, value: 
 
 internal fun NodeList.findElementByAttributeValueOrThrow(attributeName: String, value: String): Element {
     return findElementByAttributeValue(attributeName, value) ?: throw PatchException("Could not find: $attributeName $value")
+}
+
+internal fun Element.copyAttributesFrom(oldContainer: Element) {
+    // Copy attributes from the old element to the new element
+    val attributes = oldContainer.attributes
+    for (i in 0 until attributes.length) {
+        val attr = attributes.item(i) as Attr
+        setAttribute(attr.name, attr.value)
+    }
 }

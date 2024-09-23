@@ -6,8 +6,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.DomFileEditor
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
 import app.revanced.util.findElementByAttributeValueOrThrow
-import app.revanced.util.insertFirst
-import org.w3c.dom.Element
+import org.w3c.dom.Node
 import java.io.Closeable
 
 @Patch(dependencies = [ResourceMappingPatch::class])
@@ -19,9 +18,15 @@ internal object PlayerControlsResourcePatch : ResourcePatch(), Closeable {
     private const val TARGET_RESOURCE_NAME = "youtube_controls_bottom_ui_container.xml"
     private const val TARGET_RESOURCE = "res/layout/$TARGET_RESOURCE_NAME"
 
+    /**
+     * The element to the left of the element being added.
+     */
+    private var lastLeftOf = "@id/fullscreen_button"
+    private lateinit var insertBeforeNode: Node
+
     private lateinit var resourceContext: ResourceContext
     private lateinit var targetDocumentEditor: DomFileEditor
-    private lateinit var targetElement : Element
+    private lateinit var targetElement : Node
 
     override fun execute(context: ResourceContext) {
         bottomUiContainerResourceId = ResourceMappingPatch["id", "bottom_ui_container_stub"]
@@ -31,20 +36,14 @@ internal object PlayerControlsResourcePatch : ResourcePatch(), Closeable {
         resourceContext = context
         targetDocumentEditor = context.xmlEditor[TARGET_RESOURCE]
 
-        // Add all buttons to an inner layout, to prevent
-        // cardboard VR from being inserted into the middle.
-        targetElement = targetDocumentEditor.file.createElement("LinearLayout")
-        targetElement.setAttribute("android:layoutDirection", "ltr")
-        targetElement.setAttribute("android:layout_width", "match_parent")
-        targetElement.setAttribute("android:layout_height", "wrap_content")
-        targetElement.setAttribute("android:orientation", "horizontal")
+        targetElement = targetDocumentEditor.file.getElementsByTagName(
+            "android.support.constraint.ConstraintLayout"
+        ).item(0)
 
-        val bottomContainer = targetDocumentEditor.file.childNodes.findElementByAttributeValueOrThrow(
-            "android:id",
-            "@id/bottom_end_container"
+        insertBeforeNode = targetDocumentEditor.file.childNodes.findElementByAttributeValueOrThrow(
+            "android:inflatedId",
+            lastLeftOf
         )
-
-        bottomContainer.appendChild(targetElement)
     }
 
     /**
@@ -67,14 +66,33 @@ internal object PlayerControlsResourcePatch : ResourcePatch(), Closeable {
         for (index in 1 until sourceElements.length) {
             val element = sourceElements.item(index).cloneNode(true)
 
-            targetDocumentEditor.file.adoptNode(element)
+            // If the element has no attributes there's no point to adding it to the destination.
+            if (!element.hasAttributes()) continue
 
-            // Add the element as the first view.
-            targetElement.insertFirst(element)
+            element.attributes.getNamedItem("yt:layout_constraintRight_toLeftOf").nodeValue = lastLeftOf
+            lastLeftOf = element.attributes.getNamedItem("android:id").nodeValue
+
+            targetDocumentEditor.file.adoptNode(element)
+            // Elements do not need to be added in the layout order since a layout constraint is used,
+            // but in order is easier to make sense of while debugging.
+            targetElement.insertBefore(element, insertBeforeNode)
+            insertBeforeNode = element
         }
 
         sourceDocumentEditor.close()
     }
 
-    override fun close() = targetDocumentEditor.close()
+    override fun close() {
+        arrayOf(
+            "@id/bottom_end_container",
+            "@id/multiview_button",
+        ).forEach {
+            targetDocumentEditor.file.childNodes.findElementByAttributeValueOrThrow(
+                "android:id",
+                it
+            ).setAttribute("yt:layout_constraintRight_toLeftOf", lastLeftOf)
+        }
+
+        targetDocumentEditor.close()
+    }
 }
