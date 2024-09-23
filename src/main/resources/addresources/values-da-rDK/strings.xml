@@ -1139,16 +1139,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_summary_on">Video streams er spoofed</string>
   <string name="revanced_spoof_video_streams_summary_off">Videostreams er ikke forfalskede\n\nVideoafspilning fungerer muligvis ikke</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">At slå denne indstilling fra kan forårsage problemer med videoafspilning.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Standard klient</string>
+  <string name="revanced_spoof_video_streams_client_title">Standard klient</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Gennemtving AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video codec er AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video-codec er VP9 eller AV1</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Din enhed har ikke VP9 hardwareafkodning, og denne indstilling er altid tændt, når Client spoofing er aktiveret</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Aktivering af dette kan forbedre batteriets levetid og rette afspilningsstuttering.\n\nAVC har en maksimal opløsning på 1080p, og videoafspilning vil bruge flere internetdata end VP9 eller AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS forfalskning bivirkninger</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Film eller betalte videoer kan ikke afspille\n• Livestreams starter fra starten</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Film eller betalte videoer kan ikke afspille\n• Livestreams starter fra begyndelsen\n• Videoer kan ende 1 sekund tidlig\n• Ingen opus lydkode</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR spoofing bivirkninger</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Menuen Lydspor mangler</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Menuen Lydspor mangler\n• Stabil lydstyrke er ikke tilgængelig</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

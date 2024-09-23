@@ -1139,16 +1139,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_summary_on">Videon purot ovat puolattu</string>
   <string name="revanced_spoof_video_streams_summary_off">Videon suoratoistot eivät ole spoofed\n\nVideon toisto ei ehkä toimi</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Tämän asetuksen poistaminen käytöstä voi aiheuttaa videon toiston ongelmia.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Oletus asiakas</string>
+  <string name="revanced_spoof_video_streams_client_title">Oletus asiakas</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Pakota AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Videokoodekki on AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Videokoodekki on VP9 tai AV1</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Laitteessasi ei ole VP9-laitteiston dekoodausta, ja tämä asetus on aina päällä, kun asiakkaan spoofing on käytössä</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Tämän käyttöönotto voi parantaa akun kestoa ja korjata toistoa stuttering.\n\nAVC on suurin resoluutio 1080p, ja videon toisto käyttää enemmän internet-tietoja kuin VP9 tai AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS:n havainnot haittavaikutuksista</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Elokuvat tai maksetut videot eivät välttämättä pelaa\n• Livestreams alkavat alusta</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Elokuvat tai maksetut videot eivät välttämättä pelaa\n• Livestreams alkavat alusta\n• Videot saattavat päättyä 1 sekunnin alkupuolella\n• Ei opus-äänikoodekkia</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR havaintoon sivuvaikutukset</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Ääniraidan valikko puuttuu</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Ääniraidan valikko puuttuu\n• Vakaa äänenvoimakkuus ei ole käytettävissä</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

@@ -1139,16 +1139,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_summary_on">Video-Streams sind gefälscht</string>
   <string name="revanced_spoof_video_streams_summary_off">Video-Streams sind nicht gefälscht\n\nVideo-Wiedergabe funktioniert möglicherweise nicht</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Das Deaktivieren dieser Einstellung kann zu Videowiedergabeproblemen führen.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Standard-Client</string>
+  <string name="revanced_spoof_video_streams_client_title">Standard-Client</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">AVC erzwingen (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video Codec ist AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video Codec ist VP9 oder AV1</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Ihr Gerät hat keine VP9-Hardware-Dekodierung, und diese Einstellung ist immer aktiviert, wenn Client-Spoofing aktiviert ist</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Das Aktivieren kann die Akkulaufzeit verbessern und die Wiedergabe-Stutting beheben.\n\nAVC hat eine maximale Auflösung von 1080p, und die Videowiedergabe wird mehr Internet-Daten als VP9 oder AV1 verwenden.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS Spoofing Nebeneffekte</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Filme oder bezahlte Videos dürfen nicht\nabspielen • Livestreams beginnen von Anfang an</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR Spoofing Nebeneffekte</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Audiospurmenü fehlt</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Audio Track Menü fehlt\n• Stabile Lautstärke ist nicht verfügbar</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">
