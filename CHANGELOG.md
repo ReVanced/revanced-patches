@@ -1,3 +1,10 @@
+## [4.15.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.15.0...v4.15.1-dev.1) (2024-09-23)
+
+
+### Bug Fixes
+
+* **Twitter - Open links with app chooser:** Fix incorrect version in compatibility list ([#3683](https://github.com/ReVanced/revanced-patches/issues/3683)) ([adafe85](https://github.com/ReVanced/revanced-patches/commit/adafe85d77f6a0031a5523b9b7da69475959d78d))
+
 # [4.15.0](https://github.com/ReVanced/revanced-patches/compare/v4.14.1...v4.15.0) (2024-09-23)
 
 
