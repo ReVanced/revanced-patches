@@ -2000,13 +2000,19 @@ public final class app/revanced/patches/youtube/misc/playercontrols/BottomContro
 
 public final class app/revanced/patches/youtube/misc/playercontrols/PlayerControlsBytecodePatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/playercontrols/PlayerControlsBytecodePatch;
-	public static field showPlayerControlsFingerprintResult Lapp/revanced/patcher/fingerprint/MethodFingerprintResult;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public final fun getShowPlayerControlsFingerprintResult ()Lapp/revanced/patcher/fingerprint/MethodFingerprintResult;
+	public final fun initializeBottomControl (Ljava/lang/String;)V
 	public final fun initializeControl (Ljava/lang/String;)V
 	public final fun injectVisibilityCheckCall (Ljava/lang/String;)V
-	public final fun setShowPlayerControlsFingerprintResult (Lapp/revanced/patcher/fingerprint/MethodFingerprintResult;)V
+}
+
+public final class app/revanced/patches/youtube/misc/playercontrols/PlayerControlsResourcePatch : app/revanced/patcher/patch/ResourcePatch, java/io/Closeable {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/playercontrols/PlayerControlsResourcePatch;
+	public final fun addBottomControls (Ljava/lang/String;)V
+	public fun close ()V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
 public final class app/revanced/patches/youtube/misc/playeroverlay/PlayerOverlaysHookPatch : app/revanced/patcher/patch/BytecodePatch {
@@ -2174,6 +2180,8 @@ public final class app/revanced/util/BytecodeUtilsKt {
 	public static synthetic fun indexOfFirstInstructionOrThrow$default (Lcom/android/tools/smali/dexlib2/iface/Method;ILkotlin/jvm/functions/Function1;ILjava/lang/Object;)I
 	public static final fun indexOfFirstWideLiteralInstructionValue (Lcom/android/tools/smali/dexlib2/iface/Method;J)I
 	public static final fun indexOfFirstWideLiteralInstructionValueOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;J)I
+	public static final fun indexOfFirstWideLiteralInstructionValueReversed (Lcom/android/tools/smali/dexlib2/iface/Method;J)I
+	public static final fun indexOfFirstWideLiteralInstructionValueReversedOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;J)I
 	public static final fun indexOfIdResource (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/String;)I
 	public static final fun indexOfIdResourceOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/String;)I
 	public static final fun injectHideViewCall (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;IILjava/lang/String;Ljava/lang/String;)V
@@ -2201,6 +2209,7 @@ public final class app/revanced/util/ResourceUtilsKt {
 	public static final fun copyXmlNode (Ljava/lang/String;Lapp/revanced/patcher/util/DomFileEditor;Lapp/revanced/patcher/util/DomFileEditor;)Ljava/lang/AutoCloseable;
 	public static final fun doRecursively (Lorg/w3c/dom/Node;Lkotlin/jvm/functions/Function1;)V
 	public static final fun forEachChildElement (Lorg/w3c/dom/Node;Lkotlin/jvm/functions/Function1;)V
+	public static final fun insertFirst (Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)V
 	public static final fun iterateXmlNodeChildren (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
 }
 

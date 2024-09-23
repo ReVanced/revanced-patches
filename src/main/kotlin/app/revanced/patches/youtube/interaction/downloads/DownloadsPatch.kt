@@ -58,8 +58,8 @@ object DownloadsPatch : BytecodePatch(
     private const val BUTTON_DESCRIPTOR = "Lapp/revanced/integrations/youtube/videoplayer/ExternalDownloadButton;"
 
     override fun execute(context: BytecodeContext) {
-        PlayerControlsBytecodePatch.initializeControl("$BUTTON_DESCRIPTOR->initializeButton(Landroid/view/View;)V")
-        PlayerControlsBytecodePatch.injectVisibilityCheckCall("$BUTTON_DESCRIPTOR->changeVisibility(Z)V")
+        PlayerControlsBytecodePatch.initializeBottomControl(BUTTON_DESCRIPTOR)
+        PlayerControlsBytecodePatch.injectVisibilityCheckCall(BUTTON_DESCRIPTOR)
 
         // Main activity is used to launch downloader intent.
         MainActivityFingerprint.resultOrThrow().mutableMethod.apply {
