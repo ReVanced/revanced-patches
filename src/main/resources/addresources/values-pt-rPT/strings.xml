@@ -1136,16 +1136,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_summary_on">Fluxos de vídeo são falsificados</string>
   <string name="revanced_spoof_video_streams_summary_off">Fluxos de vídeo não são spoofed\n\nA reprodução de vídeo pode não funcionar</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Desativar essa configuração pode causar problemas de reprodução de vídeo.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Cliente padrão</string>
+  <string name="revanced_spoof_video_streams_client_title">Cliente padrão</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Forçar AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Codec de vídeo é AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Codec de vídeo é VP9 ou AV1</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Seu dispositivo não possui decodificação por hardware VP9, e esta configuração está sempre ligada quando o spoofing do cliente está ativado</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Habilitar isso pode melhorar a duração da bateria e corrigir travamentos na reprodução.\n\nAVC tem uma resolução máxima de 1080p, e a reprodução de vídeo usará mais dados na internet do que VP9 ou AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Efeitos colaterais de iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmes ou vídeos pagos podem não reproduzir\n• Livestreams começa desde o início</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmes ou vídeos pagos podem não reproduzir\n• Livestreams iniciados desde o início\n• Vídeos podem terminar de 1 segundo cedo\n• Nenhum codec de áudio de opus</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR efeito de spoofing side</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Falta o menu de faixa de áudio</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Falta o menu de faixa de áudio\n• Volume estável não está disponível</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

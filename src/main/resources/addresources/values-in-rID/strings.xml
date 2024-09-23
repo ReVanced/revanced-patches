@@ -100,7 +100,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_debug_toast_on_error_title">Tampilkan pesan timbul error di ReVanced</string>
   <string name="revanced_debug_toast_on_error_summary_on">Pesan timbul ditampilkan jika terjadi kesalahan</string>
   <string name="revanced_debug_toast_on_error_summary_off">Pesan timbul tidak ditampilkan jika terjadi kesalahan</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">Menonaktifkan pesan timbul kesalahan akan menyembunyikan semua notifikasi kesalahan ReVanced.\n\nAnda tidak akan diberitahu tentang kejadian yang tidak terduga.</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">Menonaktifkan pemberitahuan kesalahan akan menyembunyikan semua notifikasi kesalahan ReVanced.\n\nAnda tidak akan diberitahu tentang kejadian yang tidak terduga.</string>
   </patch>
   <patch id="layout.hide.general.HideLayoutComponentsPatch">
   <string name="revanced_disable_like_subscribe_glow_title">Nonaktifkan kilau tombol suka / langganan</string>
@@ -113,7 +113,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_watermark_summary_on">Tanda air disembunyikan</string>
   <string name="revanced_hide_channel_watermark_summary_off">Tanda air ditampilkan</string>
   <string name="revanced_hide_horizontal_shelves_title">Sembunyikan rak mendatar</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">Rak berikut disembunyikan:\n• Berita sela\n• Lanjut menonton\n• Jelajahi saluran lain\n• Belanja\n• Tonton lagi</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">Rak disembunyikan seperti:\n• Berita terkini\n• Lanjut menonton\n• Jelajahi saluran lainnya\n• Belanja\n• Tonton lagi</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Rak ditampilkan</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
@@ -153,8 +153,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_video_quality_menu_footer_title">Sembunyikan footer menu kualitas video</string>
   <string name="revanced_hide_video_quality_menu_footer_summary_on">Footer menu kualitas video disembunyikan</string>
   <string name="revanced_hide_video_quality_menu_footer_summary_off">Footer menu kualitas video ditampilkan</string>
-  <string name="revanced_hide_community_posts_title">Sembunyikan post. komunitas</string>
-  <string name="revanced_hide_community_posts_summary_on">Post. komunitas disembunyikan</string>
+  <string name="revanced_hide_community_posts_title">Sembunyikan postingan komunitas</string>
+  <string name="revanced_hide_community_posts_summary_on">Postingan komunitas disembunyikan</string>
   <string name="revanced_hide_community_posts_summary_off">Postingan komunitas ditampilkan</string>
   <string name="revanced_hide_compact_banner_title">Sembunyikan spanduk ringkas</string>
   <string name="revanced_hide_compact_banner_summary_on">Spanduk ringkas disembunyikan</string>
@@ -198,8 +198,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_image_shelf_title">Sembunyikan rak gambar di pencarian</string>
   <string name="revanced_hide_image_shelf_summary_on">Rak gambar disembunyikan</string>
   <string name="revanced_hide_image_shelf_summary_off">Rak gambar ditampilkan</string>
-  <string name="revanced_hide_latest_posts_ads_title">Sembunyikan post. terbaru</string>
-  <string name="revanced_hide_latest_posts_ads_summary_on">Post. terbaru disembunyikan</string>
+  <string name="revanced_hide_latest_posts_ads_title">Sembunyikan postingan terbaru</string>
+  <string name="revanced_hide_latest_posts_ads_summary_on">Postingan terbaru disembunyikan</string>
   <string name="revanced_hide_latest_posts_ads_summary_off">Kiriman terbaru ditampilkan</string>
   <string name="revanced_hide_mix_playlists_title">Sembunyikan daftar putar campuran</string>
   <string name="revanced_hide_mix_playlists_summary_on">Daftar putar campuran disembunyikan</string>
@@ -458,7 +458,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_subscriptions_button_summary_off">Tombol subscription ditampilkan</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Ganti Buat dengan Notifikasi</string>
-  <string name="revanced_switch_create_with_notifications_button_summary_on">Tombol Buat diganti dengan tombol Pemberitahuan\n\nCatatan: Iklan video juga akan disembunyikan paksa</string>
+  <string name="revanced_switch_create_with_notifications_button_summary_on">Tombol buat diganti dengan tombol Pemberitahuan\n\nCatatan: Menyalakan ini juga secara paksa menyembunyikan iklan video</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Tombol buat tidak diganti dengan tombol Notifikasi</string>
   <string name="revanced_hide_navigation_button_labels_title">Sembunyikan label tombol navigasi</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Label disembunyikan</string>
@@ -1047,8 +1047,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.announcements.AnnouncementsPatch">
   <string name="revanced_announcements_title">Tampilkan pengumuman ReVanced</string>
-  <string name="revanced_announcements_summary_on">Pengumuman dimunculkan di awal buka</string>
-  <string name="revanced_announcements_summary_off">Pengumuman tidak dimunculkan di awal buka</string>
+  <string name="revanced_announcements_summary_on">Pengumuman ditampilkan saat memulai</string>
+  <string name="revanced_announcements_summary_off">Pengumuman tidak ditampilkan saat memulai</string>
   <string name="revanced_announcements_enabled_summary">Tampilkan pengumuman di awal buka</string>
   <string name="revanced_announcements_connection_failed">Gagal menghubungkan ke penyedia pengumuman</string>
   <string name="revanced_announcements_dialog_dismiss">Abaikan</string>
@@ -1065,9 +1065,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.dimensions.spoof.SpoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Palsukan dimensi perangkat</string>
-  <string name="revanced_spoof_device_dimensions_summary_on">Dimensi perangkat dipalsukan\n\nAkan ada resolusi video lebih tinggi tapi video jadi patah-patah, baterai terkuras, dan efek samping tidak jelas</string>
+  <string name="revanced_spoof_device_dimensions_summary_on">Dimensi perangkat dipalsukan\n\nAkan ada resolusi video lebih tinggi tapi video menjadi patah-patah, baterai boros, dan efek lainnya yang tidak jelas</string>
   <string name="revanced_spoof_device_dimensions_summary_off">Dimensi perangkat tidak dipalsukan\n\nMengaktifkan ini akan ada resolusi video lebih tinggi</string>
-  <string name="revanced_spoof_device_dimensions_user_dialog_message">Mengaktifkan ini menyebabkan video jadi patah-patah, baterai terkuras, dan efek samping tidak jelas.</string>
+  <string name="revanced_spoof_device_dimensions_user_dialog_message">Mengaktifkan ini menyebabkan video jadi patah-patah, baterai boros, dan efek lainnya yang tidak jelas.</string>
   </patch>
   <patch id="misc.gms.GmsCoreSupportResourcePatch">
   <string name="microg_settings_title">Pengaturan GmsCore</string>
@@ -1139,16 +1139,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_summary_on">Aliran video dipalsukan</string>
   <string name="revanced_spoof_video_streams_summary_off">Aliran video tidak dipalsukan\n\nPemutaran video mungkin tidak berfungsi</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Mematikan pengaturan ini dapat menyebabkan masalah pemutaran video.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Klien bawaan</string>
+  <string name="revanced_spoof_video_streams_client_title">Klien bawaan</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Paksa AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Kodek video adalah AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodek video adalah VP9 atau AV1</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Perangkat Anda tidak memiliki dekode perangkat keras VP9, ​​dan pengaturan ini selalu aktif saat pemalsuan Klien diaktifkan</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Menyalakan ini dapat meningkatkan masa pakai baterai dan memperbaiki gangguan pemutaran.\n\nAVC memiliki resolusi maksimum 1080p, dan pemutaran video akan menggunakan lebih banyak data internet daripada VP9 atau AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Efek samping pemalsuan iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Film atau video berbayar mungkin tidak dapat diputar\n• Siaran langsung dimulai dari awal</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Film atau video berbayar mungkin tidak dapat diputar\n• Siaran langsung dimulai dari awal\n• Video mungkin berakhir 1 detik lebih awal\n• Tidak ada codec audio opus</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Efek samping pemalsuan Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Menu trek audio hilang</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Menu trek audio hilang\n• Volume stabil tidak tersedia</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">
