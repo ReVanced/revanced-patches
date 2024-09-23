@@ -99,17 +99,15 @@ object SpoofVideoStreamsPatch : BytecodePatch(
                 preferences = setOf(
                     SwitchPreference("revanced_spoof_video_streams"),
                     ListPreference(
-                        "revanced_spoof_video_streams_client_type",
-                        summaryKey = null,
-                        entriesKey = "revanced_spoof_video_streams_client_type_entries",
-                        entryValuesKey = "revanced_spoof_video_streams_client_type_entry_values",
+                        "revanced_spoof_video_streams_client",
+                        summaryKey = null
                     ),
                     SwitchPreference(
                         "revanced_spoof_video_streams_ios_force_avc",
                         tag = "app.revanced.integrations.youtube.settings.preference.ForceAVCSpoofingPreference",
                     ),
-                    NonInteractivePreference("revanced_spoof_video_streams_about_ios"),
                     NonInteractivePreference("revanced_spoof_video_streams_about_android_vr"),
+                    NonInteractivePreference("revanced_spoof_video_streams_about_ios"),
                 ),
             ),
         )

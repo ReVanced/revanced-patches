@@ -24,9 +24,9 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
     description = "Adds ReVanced settings to TikTok.",
     dependencies = [IntegrationsPatch::class],
     compatiblePackages = [
-        CompatiblePackage("com.ss.android.ugc.trill", ["32.5.3"]),
-        CompatiblePackage("com.zhiliaoapp.musically", ["32.5.3"])
-    ]
+        CompatiblePackage("com.ss.android.ugc.trill", ["36.5.4"]),
+        CompatiblePackage("com.zhiliaoapp.musically", ["36.5.4"]),
+    ],
 )
 object SettingsPatch : BytecodePatch(
     setOf(
@@ -34,21 +34,21 @@ object SettingsPatch : BytecodePatch(
         AddSettingsEntryFingerprint,
         SettingsEntryFingerprint,
         SettingsEntryInfoFingerprint,
-    )
+    ),
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/tiktok/settings/AdPersonalizationActivityHook;"
 
     private const val INITIALIZE_SETTINGS_METHOD_DESCRIPTOR =
         "$INTEGRATIONS_CLASS_DESCRIPTOR->initialize(" +
-                "Lcom/bytedance/ies/ugc/aweme/commercialize/compliance/personalization/AdPersonalizationActivity;" +
-                ")Z"
+            "Lcom/bytedance/ies/ugc/aweme/commercialize/compliance/personalization/AdPersonalizationActivity;" +
+            ")Z"
 
     private const val CREATE_SETTINGS_ENTRY_METHOD_DESCRIPTOR =
         "$INTEGRATIONS_CLASS_DESCRIPTOR->createSettingsEntry(" +
-                "Ljava/lang/String;" +
-                "Ljava/lang/String;" +
-                ")Ljava/lang/Object;"
+            "Ljava/lang/String;" +
+            "Ljava/lang/String;" +
+            ")Ljava/lang/Object;"
 
     override fun execute(context: BytecodeContext) {
         // Find the class name of classes which construct a settings entry
@@ -70,8 +70,8 @@ object SettingsPatch : BytecodePatch(
                 markIndex + 2,
                 listOf(
                     getUnitManager,
-                    addEntry
-                )
+                    addEntry,
+                ),
             )
 
             addInstructions(
@@ -81,7 +81,8 @@ object SettingsPatch : BytecodePatch(
                     const-string v1, "$settingsButtonInfoClass"
                     invoke-static {v0, v1}, $CREATE_SETTINGS_ENTRY_METHOD_DESCRIPTOR
                     move-result-object v0
-                """
+                    check-cast v0, ${SettingsEntryFingerprint.result!!.classDef}
+                """,
             )
         } ?: throw AddSettingsEntryFingerprint.exception
 
@@ -102,12 +103,10 @@ object SettingsPatch : BytecodePatch(
                     if-eqz v$usableRegister, :do_not_open
                     return-void
                 """,
-                ExternalLabel("do_not_open", getInstruction(initializeSettingsIndex))
+                ExternalLabel("do_not_open", getInstruction(initializeSettingsIndex)),
             )
         } ?: throw AdPersonalizationActivityOnCreateFingerprint.exception
     }
 
-    private fun String.toClassName(): String {
-        return substring(1, this.length - 1).replace("/", ".")
-    }
+    private fun String.toClassName(): String = substring(1, this.length - 1).replace("/", ".")
 }
