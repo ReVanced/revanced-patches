@@ -1141,16 +1141,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_summary_on">Strumienie wideo są spoofowane</string>
   <string name="revanced_spoof_video_streams_summary_off">Strumienie wideo nie jest spoofed\n\nOdtwarzanie wideo może nie działać</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Wyłączenie tego ustawienia może spowodować problemy z odtwarzaniem wideo.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Domyślny klient</string>
+  <string name="revanced_spoof_video_streams_client_title">Domyślny klient</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Siła AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Kodek wideo to AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodek wideo to VP9 lub AV1</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Twoje urządzenie nie posiada dekodowania VP9, a to ustawienie jest zawsze włączone, gdy spoofing klienta jest włączony</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Włączenie tego może poprawić żywotność baterii i naprawić stłuczenie odtwarzania.\n\nAVC ma maksymalną rozdzielczość 1080p, a odtwarzanie wideo wykorzysta więcej danych internetowych niż VP9 lub AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS spoofing działania niepożądane</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmy lub płatne filmy mogą nie odtwarzać\n• Livestreams zaczynają się od początku</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmy lub płatne filmy mogą nie odtwarzać\n• Livestreams zaczynają się od początku\n• Filmy mogą zakończyć się 1 sekundą na początku\n• Brak kodeka opus audio</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Działania niepożądane związane z systemem Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Brakuje menu ścieżki audio</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Brakuje menu ścieżki dźwiękowej\n• Stabilna głośność nie jest dostępna</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

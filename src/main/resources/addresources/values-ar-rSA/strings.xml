@@ -1139,16 +1139,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_summary_on">يتم تزييف تدفقات الفيديو</string>
   <string name="revanced_spoof_video_streams_summary_off">لا يتم تزييف تدفقات الفيديو\n\nقد لا يعمل تشغيل الفيديو</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">إيقاف تشغيل هذا الإعداد قد يسبب مشاكل في تشغيل الفيديو.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">العميل الافتراضي</string>
+  <string name="revanced_spoof_video_streams_client_title">العميل الافتراضي</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">فرض AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">ترميز الفيديو هو AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">ترميز الفيديو هو VP9 أو AV1</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">لا يحتوي جهازك على فك تشفير الأجهزة VP9، وهذا الإعداد يعمل دائما عند تمكين تزييف العميل</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">قد يؤدي تمكين هذا إلى تحسين عمر البطارية وإصلاح مشكلة تقطيع التشغيل.\n\nيتمتع تنسيق AVC بدقة قصوى تبلغ 1080P، وسيستخدم تشغيل الفيديو المزيد من بيانات الإنترنت مقارنةً بتنسيق VP9 أو AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">التأثيرات الجانبية لمحاكاة iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• قد لا يتم تشغيل الأفلام أو الفيديوهات المدفوعة\n• يبدأ البث المباشر من البداية</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• قد لا يتم تشغيل الأفلام أو الفيديوهات المدفوعة\n• تبدأ البثوث المباشرة من البداية\n• قد تنتهي الفيديوهات قبل النهاية بثانية واحدة\n• لا يوجد ترميز الصوت Opus</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">التأثيرات الجانبية لمحاكاة Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• قائمة المقطع الصوتي مفقودة</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• قائمة المقطع الصوتي مفقودة\n• مستوى الصوت الثابت غير متوفر</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">
