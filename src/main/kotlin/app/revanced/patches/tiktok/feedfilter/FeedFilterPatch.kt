@@ -17,16 +17,16 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Patch(
     name = "Feed filter",
     description = "Removes ads, livestreams, stories, image videos " +
-            "and videos with a specific amount of views or likes from the feed.",
+        "and videos with a specific amount of views or likes from the feed.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
-        CompatiblePackage("com.ss.android.ugc.trill", ["32.5.3"]),
-        CompatiblePackage("com.zhiliaoapp.musically", ["32.5.3"])
-    ]
+        CompatiblePackage("com.ss.android.ugc.trill", ["36.5.4"]),
+        CompatiblePackage("com.zhiliaoapp.musically", ["36.5.4"]),
+    ],
 )
 @Suppress("unused")
 object FeedFilterPatch : BytecodePatch(
-    setOf(FeedApiServiceLIZFingerprint, SettingsStatusLoadFingerprint)
+    setOf(FeedApiServiceLIZFingerprint, SettingsStatusLoadFingerprint),
 ) {
     override fun execute(context: BytecodeContext) {
         FeedApiServiceLIZFingerprint.result?.mutableMethod?.apply {
@@ -36,13 +36,13 @@ object FeedFilterPatch : BytecodePatch(
             addInstruction(
                 returnFeedItemInstruction.location.index,
                 "invoke-static { v$feedItemsRegister }, " +
-                        "Lapp/revanced/integrations/tiktok/feedfilter/FeedItemsFilter;->filter(Lcom/ss/android/ugc/aweme/feed/model/FeedItemList;)V"
+                    "Lapp/revanced/integrations/tiktok/feedfilter/FeedItemsFilter;->filter(Lcom/ss/android/ugc/aweme/feed/model/FeedItemList;)V",
             )
         } ?: throw FeedApiServiceLIZFingerprint.exception
 
         SettingsStatusLoadFingerprint.result?.mutableMethod?.addInstruction(
             0,
-            "invoke-static {}, Lapp/revanced/integrations/tiktok/settings/SettingsStatus;->enableFeedFilter()V"
+            "invoke-static {}, Lapp/revanced/integrations/tiktok/settings/SettingsStatus;->enableFeedFilter()V",
         ) ?: throw SettingsStatusLoadFingerprint.exception
     }
 }
