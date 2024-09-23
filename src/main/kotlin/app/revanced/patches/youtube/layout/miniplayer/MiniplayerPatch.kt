@@ -121,7 +121,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
                 // 19.31.36 // All Modern 1 buttons are missing. Unusable.
                 // 19.32.36 // Works without issues.
                 // 19.33.35 // Works without issues.
-                "19.34.42", // Works without issues.
+                "19.37.39", // Works without issues.
             ]
         )
     ]

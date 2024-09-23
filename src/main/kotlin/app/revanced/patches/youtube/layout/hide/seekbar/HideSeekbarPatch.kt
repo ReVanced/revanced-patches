@@ -50,7 +50,7 @@ import app.revanced.patches.youtube.shared.fingerprints.SeekbarOnDrawFingerprint
                 "19.15.36",
                 "19.16.39",
                 "19.25.37",
-                "19.34.42",
+                "19.37.39",
             ]
         )
     ]
