@@ -27,12 +27,19 @@ internal object MiniplayerResourcePatch : ResourcePatch() {
             "floaty_bar_button_top_margin"
         ]
 
-        // Only required for 19.16
-        if (YouTubeVersionCheck.is_19_16_or_greater && !YouTubeVersionCheck.is_19_17_or_greater) {
-            ytOutlinePictureInPictureWhite24 = ResourceMappingPatch[
-                "drawable",
-                "yt_outline_picture_in_picture_white_24"
+        if (YouTubeVersionCheck.is_19_16_or_greater) {
+            modernMiniplayerClose = ResourceMappingPatch[
+                "id",
+                "modern_miniplayer_close"
             ]
+
+            // Only required for exactly 19.16
+            if (!YouTubeVersionCheck.is_19_17_or_greater) {
+                ytOutlinePictureInPictureWhite24 = ResourceMappingPatch[
+                    "drawable",
+                    "yt_outline_picture_in_picture_white_24"
+                ]
+            }
         }
 
         ytOutlineXWhite24 = ResourceMappingPatch[
@@ -44,16 +51,6 @@ internal object MiniplayerResourcePatch : ResourcePatch() {
             "id",
             "scrim_overlay"
         ]
-
-        try {
-            modernMiniplayerClose = ResourceMappingPatch[
-                "id",
-                "modern_miniplayer_close"
-            ]
-        } catch (exception: PatchException) {
-            // Ignore, and assume the app is 19.14 or earlier.
-            return
-        }
 
         modernMiniplayerExpand = ResourceMappingPatch[
             "id",
