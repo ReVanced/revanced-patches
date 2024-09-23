@@ -8,12 +8,12 @@ import java.io.Closeable
 @Patch(
     dependencies = [PlayerControlsBytecodePatch::class],
 )
-@Deprecated("Obsolete", replaceWith = ReplaceWith("PlayerControlsBytecodePatch"))
+@Deprecated("Patch renamed to PlayerControlsResourcePatch", replaceWith = ReplaceWith("PlayerControlsBytecodePatch"))
 object BottomControlsResourcePatch : ResourcePatch(), Closeable {
     override fun execute(context: ResourceContext) {}
 
     fun addControls(resourceDirectoryName: String) {
-        PlayerControlsResourcePatch.addControls(resourceDirectoryName)
+        PlayerControlsResourcePatch.addBottomControls(resourceDirectoryName)
     }
 
     override fun close() {}

@@ -34,6 +34,6 @@ internal object CopyVideoUrlResourcePatch : ResourcePatch() {
             )
         )
 
-        PlayerControlsResourcePatch.addControls("copyvideourl")
+        PlayerControlsResourcePatch.addBottomControls("copyvideourl")
     }
 }

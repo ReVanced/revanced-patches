@@ -2008,6 +2008,14 @@ public final class app/revanced/patches/youtube/misc/playercontrols/PlayerContro
 	public final fun injectVisibilityCheckCall (Ljava/lang/String;)V
 }
 
+public final class app/revanced/patches/youtube/misc/playercontrols/PlayerControlsResourcePatch : app/revanced/patcher/patch/ResourcePatch, java/io/Closeable {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/playercontrols/PlayerControlsResourcePatch;
+	public final fun addBottomControls (Ljava/lang/String;)V
+	public fun close ()V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
 public final class app/revanced/patches/youtube/misc/playeroverlay/PlayerOverlaysHookPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/playeroverlay/PlayerOverlaysHookPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V

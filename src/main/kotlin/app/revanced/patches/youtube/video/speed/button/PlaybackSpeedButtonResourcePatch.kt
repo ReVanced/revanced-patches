@@ -20,6 +20,6 @@ internal object PlaybackSpeedButtonResourcePatch : ResourcePatch() {
             ),
         )
 
-        PlayerControlsResourcePatch.addControls("speedbutton")
+        PlayerControlsResourcePatch.addBottomControls("speedbutton")
     }
 }

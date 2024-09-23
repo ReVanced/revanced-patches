@@ -1,17 +1,20 @@
 package app.revanced.patches.youtube.misc.playercontrols
 
 import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.DomFileEditor
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
+import app.revanced.util.copyXmlNode
 import app.revanced.util.findElementByAttributeValue
 import app.revanced.util.findElementByAttributeValueOrThrow
+import app.revanced.util.inputStreamFromBundledResource
 import org.w3c.dom.Node
 import java.io.Closeable
 
 @Patch(dependencies = [ResourceMappingPatch::class])
-internal object PlayerControlsResourcePatch : ResourcePatch(), Closeable {
+object PlayerControlsResourcePatch : ResourcePatch(), Closeable {
     private const val TARGET_RESOURCE_NAME = "youtube_controls_bottom_ui_container.xml"
     private const val TARGET_RESOURCE = "res/layout/$TARGET_RESOURCE_NAME"
 
@@ -20,15 +23,15 @@ internal object PlayerControlsResourcePatch : ResourcePatch(), Closeable {
     internal var heatseekerViewstub = -1L
     internal var fullscreenButton = -1L
 
+    private lateinit var resourceContext: ResourceContext
+
     /**
      * The element to the left of the element being added.
      */
-    private var lastLeftOf = "@id/fullscreen_button"
-    private lateinit var insertBeforeNode: Node
-
-    private lateinit var resourceContext: ResourceContext
-    private lateinit var targetDocumentEditor: DomFileEditor
-    private lateinit var targetElement : Node
+    private var bottomLastLeftOf = "@id/fullscreen_button"
+    private lateinit var bottomInsertBeforeNode: Node
+    private lateinit var bottomTargetDocumentEditor: DomFileEditor
+    private lateinit var bottomTargetElement : Node
 
     override fun execute(context: ResourceContext) {
         bottomUiContainerResourceId = ResourceMappingPatch["id", "bottom_ui_container_stub"]
@@ -37,27 +40,58 @@ internal object PlayerControlsResourcePatch : ResourcePatch(), Closeable {
         fullscreenButton = ResourceMappingPatch["id", "fullscreen_button"]
 
         resourceContext = context
-        targetDocumentEditor = context.xmlEditor[TARGET_RESOURCE]
-        val document = targetDocumentEditor.file
+        bottomTargetDocumentEditor = context.xmlEditor[TARGET_RESOURCE]
+        val document = bottomTargetDocumentEditor.file
 
-        targetElement = document.getElementsByTagName(
+        bottomTargetElement = document.getElementsByTagName(
             "android.support.constraint.ConstraintLayout"
         ).item(0)
 
-        var fullscreenNode = document.childNodes.findElementByAttributeValue(
+        bottomInsertBeforeNode = document.childNodes.findElementByAttributeValue(
             "android:inflatedId",
-            lastLeftOf
+            bottomLastLeftOf
+        ) ?: document.childNodes.findElementByAttributeValueOrThrow(
+            "android:id", // Older targets use non inflated id.
+            bottomLastLeftOf
         )
+    }
 
-        if (fullscreenNode == null) {
-            // Older targets use non inflated id.
-            fullscreenNode = document.childNodes.findElementByAttributeValueOrThrow(
-                "android:id",
-                lastLeftOf
-            )
+    // Internal until this is modified to work with any patch (and not just SponsorBlock).
+    internal fun addTopControls(resourceDirectoryName: String) {
+        val hostingResourceStream = inputStreamFromBundledResource(
+            resourceDirectoryName,
+            "host/layout/youtube_controls_layout.xml",
+        )!!
+
+        val editor = resourceContext.xmlEditor["res/layout/youtube_controls_layout.xml"]
+
+        "RelativeLayout".copyXmlNode(
+            resourceContext.xmlEditor[hostingResourceStream],
+            editor,
+        ).use {
+            val document = editor.file
+            val children = document.getElementsByTagName("RelativeLayout").item(0).childNodes
+
+            // Replace the startOf with the voting button view so that the button does not overlap
+            for (index in 1 until children.length) {
+                val view = children.item(index)
+
+                // FIXME: This uses hard coded values that only works with SponsorBlock.
+                // If other top buttons are added by other patches, this code must be changed.
+                if (view.hasAttributes() && view.attributes.getNamedItem("android:id")
+                        .nodeValue.endsWith("live_chat_overlay_button")
+                ) {
+                    // voting button id from the voting button view from the youtube_controls_layout.xml host file
+                    val votingButtonId = "@+id/revanced_sb_voting_button"
+                    view.attributes.getNamedItem("android:layout_toStartOf").nodeValue =
+                        votingButtonId
+
+                    return
+                }
+            }
         }
 
-        insertBeforeNode = fullscreenNode
+        throw PatchException("Could not find expected xml to modify")
     }
 
     /**
@@ -65,7 +99,7 @@ internal object PlayerControlsResourcePatch : ResourcePatch(), Closeable {
      *
      * @param resourceDirectoryName The name of the directory containing the hosting resource.
      */
-    fun addControls(resourceDirectoryName: String) {
+    fun addBottomControls(resourceDirectoryName: String) {
         val sourceDocumentEditor = resourceContext.xmlEditor[
             this::class.java.classLoader.getResourceAsStream(
                 "$resourceDirectoryName/host/layout/$TARGET_RESOURCE_NAME",
@@ -83,14 +117,14 @@ internal object PlayerControlsResourcePatch : ResourcePatch(), Closeable {
             // If the element has no attributes there's no point to adding it to the destination.
             if (!element.hasAttributes()) continue
 
-            element.attributes.getNamedItem("yt:layout_constraintRight_toLeftOf").nodeValue = lastLeftOf
-            lastLeftOf = element.attributes.getNamedItem("android:id").nodeValue
+            element.attributes.getNamedItem("yt:layout_constraintRight_toLeftOf").nodeValue = bottomLastLeftOf
+            bottomLastLeftOf = element.attributes.getNamedItem("android:id").nodeValue
 
-            targetDocumentEditor.file.adoptNode(element)
+            bottomTargetDocumentEditor.file.adoptNode(element)
             // Elements do not need to be added in the layout order since a layout constraint is used,
             // but in order is easier to make sense of while debugging.
-            targetElement.insertBefore(element, insertBeforeNode)
-            insertBeforeNode = element
+            bottomTargetElement.insertBefore(element, bottomInsertBeforeNode)
+            bottomInsertBeforeNode = element
         }
 
         sourceDocumentEditor.close()
@@ -101,12 +135,12 @@ internal object PlayerControlsResourcePatch : ResourcePatch(), Closeable {
             "@id/bottom_end_container",
             "@id/multiview_button",
         ).forEach {
-            targetDocumentEditor.file.childNodes.findElementByAttributeValue(
+            bottomTargetDocumentEditor.file.childNodes.findElementByAttributeValue(
                 "android:id",
                 it
-            )?.setAttribute("yt:layout_constraintRight_toLeftOf", lastLeftOf)
+            )?.setAttribute("yt:layout_constraintRight_toLeftOf", bottomLastLeftOf)
         }
 
-        targetDocumentEditor.close()
+        bottomTargetDocumentEditor.close()
     }
 }

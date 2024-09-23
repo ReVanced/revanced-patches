@@ -42,6 +42,6 @@ internal object DownloadsResourcePatch : ResourcePatch() {
             ResourceGroup("drawable", "revanced_yt_download_button.xml"),
         )
 
-        PlayerControlsResourcePatch.addControls("downloads")
+        PlayerControlsResourcePatch.addBottomControls("downloads")
     }
 }
