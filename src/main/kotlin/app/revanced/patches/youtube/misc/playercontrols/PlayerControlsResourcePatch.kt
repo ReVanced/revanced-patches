@@ -1,0 +1,80 @@
+package app.revanced.patches.youtube.misc.playercontrols
+
+import app.revanced.patcher.data.ResourceContext
+import app.revanced.patcher.patch.ResourcePatch
+import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.util.DomFileEditor
+import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
+import app.revanced.util.findElementByAttributeValueOrThrow
+import app.revanced.util.insertFirst
+import org.w3c.dom.Element
+import java.io.Closeable
+
+@Patch(dependencies = [ResourceMappingPatch::class])
+internal object PlayerControlsResourcePatch : ResourcePatch(), Closeable {
+    internal var bottomUiContainerResourceId: Long = -1L
+    internal var controlsLayoutStub: Long = -1L
+    internal var fastForwardRewindHintContainer = -1L
+
+    private const val TARGET_RESOURCE_NAME = "youtube_controls_bottom_ui_container.xml"
+    private const val TARGET_RESOURCE = "res/layout/$TARGET_RESOURCE_NAME"
+
+    private lateinit var resourceContext: ResourceContext
+    private lateinit var targetDocumentEditor: DomFileEditor
+    private lateinit var targetElement : Element
+
+    override fun execute(context: ResourceContext) {
+        bottomUiContainerResourceId = ResourceMappingPatch["id", "bottom_ui_container_stub"]
+        controlsLayoutStub = ResourceMappingPatch["id", "controls_layout_stub"]
+        fastForwardRewindHintContainer = ResourceMappingPatch["id", "fast_forward_rewind_hint_container"]
+
+        resourceContext = context
+        targetDocumentEditor = context.xmlEditor[TARGET_RESOURCE]
+
+        // Add all buttons to an inner layout, to prevent
+        // cardboard VR from being inserted into the middle.
+        targetElement = targetDocumentEditor.file.createElement("LinearLayout")
+        targetElement.setAttribute("android:layoutDirection", "ltr")
+        targetElement.setAttribute("android:layout_width", "match_parent")
+        targetElement.setAttribute("android:layout_height", "wrap_content")
+        targetElement.setAttribute("android:orientation", "horizontal")
+
+        val bottomContainer = targetDocumentEditor.file.childNodes.findElementByAttributeValueOrThrow(
+            "android:id",
+            "@id/bottom_end_container"
+        )
+
+        bottomContainer.appendChild(targetElement)
+    }
+
+    /**
+     * Add new controls to the bottom of the YouTube player.
+     *
+     * @param resourceDirectoryName The name of the directory containing the hosting resource.
+     */
+    fun addControls(resourceDirectoryName: String) {
+        val sourceDocumentEditor = resourceContext.xmlEditor[
+            this::class.java.classLoader.getResourceAsStream(
+                "$resourceDirectoryName/host/layout/$TARGET_RESOURCE_NAME",
+            )!!,
+        ]
+
+        val sourceElements = sourceDocumentEditor.file.getElementsByTagName(
+            "android.support.constraint.ConstraintLayout"
+        ).item(0).childNodes
+
+        // Copy the patch layout xml into the target layout file.
+        for (index in 1 until sourceElements.length) {
+            val element = sourceElements.item(index).cloneNode(true)
+
+            targetDocumentEditor.file.adoptNode(element)
+
+            // Add the element as the first view.
+            targetElement.insertFirst(element)
+        }
+
+        sourceDocumentEditor.close()
+    }
+
+    override fun close() = targetDocumentEditor.close()
+}

@@ -2000,13 +2000,12 @@ public final class app/revanced/patches/youtube/misc/playercontrols/BottomContro
 
 public final class app/revanced/patches/youtube/misc/playercontrols/PlayerControlsBytecodePatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/misc/playercontrols/PlayerControlsBytecodePatch;
-	public static field showPlayerControlsFingerprintResult Lapp/revanced/patcher/fingerprint/MethodFingerprintResult;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
-	public final fun getShowPlayerControlsFingerprintResult ()Lapp/revanced/patcher/fingerprint/MethodFingerprintResult;
+	public final fun initializeBottomControl (Ljava/lang/String;)V
 	public final fun initializeControl (Ljava/lang/String;)V
+	public final fun initializeTopControl (Ljava/lang/String;)V
 	public final fun injectVisibilityCheckCall (Ljava/lang/String;)V
-	public final fun setShowPlayerControlsFingerprintResult (Lapp/revanced/patcher/fingerprint/MethodFingerprintResult;)V
 }
 
 public final class app/revanced/patches/youtube/misc/playeroverlay/PlayerOverlaysHookPatch : app/revanced/patcher/patch/BytecodePatch {
