@@ -133,7 +133,7 @@ object PlayerControlsBytecodePatch : BytecodePatch(
     fun injectVisibilityCheckCall(descriptor: String) {
         visibilityMethod.addInstruction(
             visibilityInsertIndex++,
-            "invoke-static { p1 }, $descriptor->changeVisibility(Z)V"
+            "invoke-static { p1 , p2 }, $descriptor->changeVisibility(ZZ)V"
         )
 
         visibilityImmediateMethod.addInstruction(
