@@ -1,3 +1,10 @@
+## [4.15.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.15.1-dev.1...v4.15.1-dev.2) (2024-09-23)
+
+
+### Bug Fixes
+
+* **YouTube:** Show video chapter titles without clipping when overlay buttons are enabled ([#3674](https://github.com/ReVanced/revanced-patches/issues/3674)) ([4b88c31](https://github.com/ReVanced/revanced-patches/commit/4b88c316ed90c56e83e2aee266561833b36fc37d))
+
 ## [4.15.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.15.0...v4.15.1-dev.1) (2024-09-23)
 
 
