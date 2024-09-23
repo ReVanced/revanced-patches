@@ -119,9 +119,8 @@ object SponsorBlockBytecodePatch : BytecodePatch(
         // Seekbar drawing
         SeekbarOnDrawFingerprint.alsoResolve(context, SeekbarFingerprint).mutableMethod.apply {
             // Get left and right of seekbar rectangle.
-            val moveRectangleToRegisterIndex = indexOfFirstInstructionOrThrow {
-                opcode == Opcode.MOVE_OBJECT_FROM16
-            }
+            val moveRectangleToRegisterIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_OBJECT_FROM16)
+
             addInstruction(
                 moveRectangleToRegisterIndex + 1,
                 "invoke-static/range { p0 .. p0 }, " +

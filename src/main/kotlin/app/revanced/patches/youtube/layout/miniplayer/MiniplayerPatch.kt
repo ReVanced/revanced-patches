@@ -279,9 +279,8 @@ object MiniplayerPatch : BytecodePatch(
                 val literalIndex = indexOfFirstWideLiteralInstructionValueOrThrow(
                     MiniplayerModernConstructorFingerprint.INITIAL_SIZE_FEATURE_KEY_LITERAL
                 )
-                val targetIndex = indexOfFirstInstructionOrThrow(literalIndex) {
-                    opcode == Opcode.LONG_TO_INT
-                }
+                val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.LONG_TO_INT)
+
                 val register = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstructions(
@@ -445,9 +444,7 @@ object MiniplayerPatch : BytecodePatch(
     ) {
         resultOrThrow().mutableMethod.apply {
             val literalIndex = indexOfFirstWideLiteralInstructionValueOrThrow(literal)
-            val targetIndex = indexOfFirstInstructionOrThrow(literalIndex) {
-                opcode == Opcode.MOVE_RESULT
-            }
+            val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
 
             insertBooleanOverride(targetIndex + 1, integrationsMethod)
         }
@@ -459,9 +456,7 @@ object MiniplayerPatch : BytecodePatch(
     ) {
         resultOrThrow().mutableMethod.apply {
             val literalIndex = indexOfFirstWideLiteralInstructionValueOrThrow(literal)
-            val targetIndex = indexOfFirstInstructionOrThrow(literalIndex) {
-                opcode == Opcode.DOUBLE_TO_FLOAT
-            }
+            val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.DOUBLE_TO_FLOAT)
             val register = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
             addInstructions(

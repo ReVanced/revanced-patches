@@ -15,7 +15,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.reference.Reference
 import com.android.tools.smali.dexlib2.util.MethodUtil
-import org.stringtemplate.v4.compiler.Bytecode.instructions
 
 fun MethodFingerprint.resultOrThrow() = result ?: throw exception
 
@@ -190,10 +189,15 @@ inline fun <reified T : Reference> Instruction.getReference() = (this as? Refere
 fun Method.indexOfFirstInstruction(predicate: Instruction.() -> Boolean) = indexOfFirstInstruction(0, predicate)
 
 /**
- * Get the index of the first [Instruction] that matches the predicate, starting from [startIndex].
- *
+ * @return The index of the first opcode specified, or -1 if not found.
+ * @see indexOfFirstInstructionOrThrow
+ */
+fun Method.indexOfFirstInstruction(targetOpcode: Opcode): Int =
+    indexOfFirstInstruction(0, targetOpcode)
+
+/**
  * @param startIndex Optional starting index to start searching from.
- * @return -1 if the instruction is not found.
+ * @return The index of the first opcode specified, or -1 if not found.
  * @see indexOfFirstInstructionOrThrow
  */
 fun Method.indexOfFirstInstruction(startIndex: Int = 0, targetOpcode: Opcode): Int =
@@ -223,9 +227,15 @@ fun Method.indexOfFirstInstruction(startIndex: Int = 0, predicate: Instruction.(
 }
 
 /**
- * Get the index of the first [Instruction] that matches the predicate, starting from [startIndex].
- *
- * @return the index of the instruction
+ * @return The index of the first opcode specified
+ * @throws PatchException
+ * @see indexOfFirstInstruction
+ */
+fun Method.indexOfFirstInstructionOrThrow(targetOpcode: Opcode): Int =
+    indexOfFirstInstructionOrThrow(0, targetOpcode)
+
+/**
+ * @return The index of the first opcode specified, starting from the index specified.
  * @throws PatchException
  * @see indexOfFirstInstruction
  */
