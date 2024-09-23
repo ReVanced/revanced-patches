@@ -9,14 +9,14 @@ import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
-import app.revanced.patches.youtube.misc.playercontrols.BottomControlsResourcePatch
+import app.revanced.patches.youtube.misc.playercontrols.PlayerControlsResourcePatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 
 @Patch(
     dependencies = [
-        BottomControlsResourcePatch::class,
+        PlayerControlsResourcePatch::class,
         SettingsPatch::class,
         AddResourcesPatch::class,
     ],
@@ -42,6 +42,6 @@ internal object DownloadsResourcePatch : ResourcePatch() {
             ResourceGroup("drawable", "revanced_yt_download_button.xml"),
         )
 
-        BottomControlsResourcePatch.addControls("downloads")
+        PlayerControlsResourcePatch.addBottomControls("downloads")
     }
 }
