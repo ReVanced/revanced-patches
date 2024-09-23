@@ -9,7 +9,8 @@ import app.revanced.integrations.youtube.patches.CopyVideoUrlPatch;
 import app.revanced.integrations.youtube.settings.Settings;
 import app.revanced.integrations.shared.Logger;
 
-public class CopyVideoUrlButton extends BottomControlButton {
+@SuppressWarnings("unused")
+public class CopyVideoUrlButton extends PlayerControlButton {
     @Nullable
     private static CopyVideoUrlButton instance;
 
@@ -38,9 +39,16 @@ public class CopyVideoUrlButton extends BottomControlButton {
     }
 
     /**
-     * Injection point.
+     * injection point
      */
-    public static void changeVisibility(boolean showing) {
-        if (instance != null) instance.setVisibility(showing);
+    public static void changeVisibilityImmediate(boolean visible) {
+        if (instance != null) instance.setVisibilityImmediate(visible);
+    }
+
+    /**
+     * injection point
+     */
+    public static void changeVisibility(boolean visible, boolean animated) {
+        if (instance != null) instance.setVisibility(visible, animated);
     }
 }
