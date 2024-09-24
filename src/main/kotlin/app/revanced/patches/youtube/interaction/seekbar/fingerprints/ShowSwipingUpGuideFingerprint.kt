@@ -1,14 +1,14 @@
 package app.revanced.patches.youtube.interaction.seekbar.fingerprints
 
-import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.util.containsWideLiteralInstructionValue
+import app.revanced.util.patch.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal object ShowSwipingUpGuideFingerprint : MethodFingerprint(
+/**
+ * Resolves using the class found in [SwipingUpGestureParentFingerprint].
+ */
+internal object ShowSwipingUpGuideFingerprint : LiteralValueFingerprint(
     accessFlags = AccessFlags.FINAL.value,
     returnType = "Z",
     parameters = emptyList(),
-    customFingerprint = { methodDef, _ ->
-        methodDef.containsWideLiteralInstructionValue(1L)
-    }
+    literalSupplier = { 1L }
 )
