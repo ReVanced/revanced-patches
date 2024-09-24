@@ -42,6 +42,7 @@ import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniplayerMod
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniplayerOverrideFingerprint
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniplayerOverrideNoContextFingerprint
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniplayerResponseModelSizeCheckFingerprint
+import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniplayerMinimumSizeFingerprint
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.YouTubePlayerOverlaysLayoutFingerprint
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.YouTubePlayerOverlaysLayoutFingerprint.YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME
 import app.revanced.patches.youtube.layout.tablet.fingerprints.GetFormFactorFingerprint
@@ -58,6 +59,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -134,6 +136,7 @@ object MiniplayerPatch : BytecodePatch(
         MiniplayerOverrideFingerprint,
         MiniplayerModernConstructorFingerprint,
         MiniplayerModernViewParentFingerprint,
+        MiniplayerMinimumSizeFingerprint,
         YouTubePlayerOverlaysLayoutFingerprint
     )
 ) {
@@ -286,10 +289,23 @@ object MiniplayerPatch : BytecodePatch(
                 addInstructions(
                     targetIndex + 1,
                     """
-                        invoke-static {v$register}, $INTEGRATIONS_CLASS_DESCRIPTOR->setMiniplayerDefaultSize(I)I
+                        invoke-static { v$register }, $INTEGRATIONS_CLASS_DESCRIPTOR->setMiniplayerDefaultSize(I)I
                         move-result v$register
                     """
                 )
+            }
+
+            // Override a mininimum miniplayer size constant.
+            MiniplayerMinimumSizeFingerprint.resultOrThrow().mutableMethod.apply {
+                val index = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.CONST_16 && (this as NarrowLiteralInstruction).narrowLiteral == 192
+                }
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                // Smaller sizes can be used, but the miniplayer will always start in size 170 if set any smaller.
+                // The 170 initial limit probably could be patched to allow even smaller initial sizes,
+                // but 170 is already half the horizontal space and smaller does not seem useful.
+                replaceInstruction(index, "const/16 v$register, 170")
             }
         }
 

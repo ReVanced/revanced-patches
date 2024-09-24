@@ -1,7 +1,6 @@
 package app.revanced.patches.youtube.layout.miniplayer
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
@@ -20,6 +19,7 @@ internal object MiniplayerResourcePatch : ResourcePatch() {
     var modernMiniplayerRewindButton = -1L
     var modernMiniplayerForwardButton = -1L
     var playerOverlays = -1L
+    var miniplayerMaxSize = -1L
 
     override fun execute(context: ResourceContext) {
         floatyBarButtonTopMargin = ResourceMappingPatch[
@@ -50,6 +50,11 @@ internal object MiniplayerResourcePatch : ResourcePatch() {
         scrimOverlay = ResourceMappingPatch[
             "id",
             "scrim_overlay"
+        ]
+
+        miniplayerMaxSize = ResourceMappingPatch[
+            "dimen",
+            "miniplayer_max_size"
         ]
 
         modernMiniplayerExpand = ResourceMappingPatch[
