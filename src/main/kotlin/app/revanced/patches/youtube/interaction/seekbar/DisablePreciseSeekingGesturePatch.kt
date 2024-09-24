@@ -10,9 +10,11 @@ import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.interaction.seekbar.fingerprints.AllowSwipingUpGestureFingerprint
 import app.revanced.patches.youtube.interaction.seekbar.fingerprints.ShowSwipingUpGuideFingerprint
+import app.revanced.patches.youtube.interaction.seekbar.fingerprints.SwipingUpGestureParentFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.util.alsoResolve
 import app.revanced.util.resultOrThrow
 
 @Patch(
@@ -53,7 +55,7 @@ import app.revanced.util.resultOrThrow
 )
 @Suppress("unused")
 object DisablePreciseSeekingGesturePatch : BytecodePatch(
-    setOf(AllowSwipingUpGestureFingerprint, ShowSwipingUpGuideFingerprint)
+    setOf(SwipingUpGestureParentFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/DisablePreciseSeekingGesturePatch;"
@@ -65,29 +67,37 @@ object DisablePreciseSeekingGesturePatch : BytecodePatch(
             SwitchPreference("revanced_disable_precise_seeking_gesture")
         )
 
-        AllowSwipingUpGestureFingerprint.resultOrThrow().mutableMethod.apply {
-            addInstructionsWithLabels(
-                0,
-                """
-                    invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->isGestureDisabled()Z
-                    move-result v0
-                    if-eqz v0, :disabled
-                    return-void
-                """, ExternalLabel("disabled", getInstruction(0))
-            )
-        }
+        with(SwipingUpGestureParentFingerprint.resultOrThrow()) {
+            val allowSwipingUpGestureMethod = AllowSwipingUpGestureFingerprint
+                .alsoResolve(context, SwipingUpGestureParentFingerprint).mutableMethod
 
-        ShowSwipingUpGuideFingerprint.resultOrThrow().mutableMethod.apply {
-            addInstructionsWithLabels(
-                0,
-                """
-                    invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->isGestureDisabled()Z
-                    move-result v0
-                    if-eqz v0, :disabled
-                    const/4 v0, 0x0
-                    return v0
-                """, ExternalLabel("disabled", getInstruction(0))
-            )
+            val showSwipingUpGuideMethod = ShowSwipingUpGuideFingerprint
+                .alsoResolve(context, SwipingUpGestureParentFingerprint).mutableMethod
+
+            allowSwipingUpGestureMethod.apply {
+                addInstructionsWithLabels(
+                    0,
+                    """
+                        invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->isGestureDisabled()Z
+                        move-result v0
+                        if-eqz v0, :disabled
+                        return-void
+                    """, ExternalLabel("disabled", getInstruction(0))
+                )
+            }
+
+            showSwipingUpGuideMethod.apply {
+                addInstructionsWithLabels(
+                    0,
+                    """
+                        invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->isGestureDisabled()Z
+                        move-result v0
+                        if-eqz v0, :disabled
+                        const/4 v0, 0x0
+                        return v0
+                    """, ExternalLabel("disabled", getInstruction(0))
+                )
+            }
         }
     }
 }

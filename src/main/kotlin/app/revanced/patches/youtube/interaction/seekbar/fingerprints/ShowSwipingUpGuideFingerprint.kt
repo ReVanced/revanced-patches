@@ -8,9 +8,7 @@ internal object ShowSwipingUpGuideFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.FINAL.value,
     returnType = "Z",
     parameters = emptyList(),
-    customFingerprint = { methodDef, classDef ->
-        classDef.methods.any { method ->
-                method.containsWideLiteralInstructionValue(45379021L)
-        } && methodDef.containsWideLiteralInstructionValue(1L)
+    customFingerprint = { methodDef, _ ->
+        methodDef.containsWideLiteralInstructionValue(1L)
     }
 )
