@@ -100,7 +100,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_debug_toast_on_error_title">Mostrar brindis en error ReVanced</string>
   <string name="revanced_debug_toast_on_error_summary_on">Toast mostrado si ocurre un error</string>
   <string name="revanced_debug_toast_on_error_summary_off">Toast no se muestra si ocurre un error</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">Desactivar los brindis de errores oculta todas las notificaciones de error ReVanced\n\nNo se le notificará de ningún evento inesperado.</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">Desactivar los avisos (toasts) de errores oculta todas las notificaciones de error ReVanced\n\nNo se le notificará de ningún evento inesperado.</string>
   </patch>
   <patch id="layout.hide.general.HideLayoutComponentsPatch">
   <string name="revanced_disable_like_subscribe_glow_title">Desactivar el brillo del botón de like / suscripción</string>
@@ -199,8 +199,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_image_shelf_summary_on">El estante de imágenes está oculto</string>
   <string name="revanced_hide_image_shelf_summary_off">El estante de imágenes se muestra</string>
   <string name="revanced_hide_latest_posts_ads_title">Ocultar últimos mensajes</string>
-  <string name="revanced_hide_latest_posts_ads_summary_on">Los últimos mensajes están ocultos</string>
-  <string name="revanced_hide_latest_posts_ads_summary_off">Se muestran los últimos mensajes</string>
+  <string name="revanced_hide_latest_posts_ads_summary_on">Las últimas publicaciones están ocultas</string>
+  <string name="revanced_hide_latest_posts_ads_summary_off">Se muestran las últimas publicaciones</string>
   <string name="revanced_hide_mix_playlists_title">Ocultar listas de mezcla</string>
   <string name="revanced_hide_mix_playlists_summary_on">Las listas de reproducción mixtas están ocultas</string>
   <string name="revanced_hide_mix_playlists_summary_off">Mezclar listas de reproducción son mostradas</string>
@@ -258,11 +258,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_content_about_summary">Los resultados de inicio/suscripción/búsqueda se filtran para ocultar el contenido que coincide con las frases de palabras clave\n\nLimitaciones\n• Los cortos no se pueden ocultar con el nombre del canal\n• Algunos componentes de la interfaz pueden no estar ocultos\n• Buscar una palabra clave no puede mostrar resultados</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Coincidir palabras completas</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
-  <string name="revanced_hide_keyword_content_about_whole_words_summary">Rodear una palabra clave/frase con comillas dobles evitará las coincidencias parciales de títulos de vídeo y nombres de canales&lt;br&gt;&lt;br&gt;Por ejemplo,&lt;br&gt;&lt;b&gt;\"ia\"&lt;/b&gt; ocultará el vídeo: &lt;b&gt;¿Cómo funciona la IA?&lt;/b&gt;&lt;br&gt;pero no ocultará: &lt;b&gt;¿Qué significa uso justo?&lt;/b&gt;</string>
+  <string name="revanced_hide_keyword_content_about_whole_words_summary">Rodear una palabra clave/frase con comillas dobles evitará las coincidencias parciales de títulos de vídeo y nombres de canales&lt;br&gt;&lt;br&gt;Por ejemplo,&lt;br&gt;&lt;b&gt;\"ia\"&lt;/b&gt; ocultará el vídeo: &lt;b&gt;¿Cómo funciona la AI?&lt;/b&gt;&lt;br&gt;pero no ocultará: &lt;b&gt;¿Quieres aprender a bailar?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">No se puede usar la palabra clave: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Añadir comillas para usar palabra clave: %s</string>
-  <string name="revanced_hide_keyword_toast_invalid_conflicting">La palabra clave tiene declaraciones en conflicto: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_conflicting">La palabra clave tiene declaraciones conflictivas: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_length">La palabra clave es demasiado corta y requiere comillas: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Palabra clave ocultará todos los vídeos: %s</string>
   </patch>
@@ -274,7 +274,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_fullscreen_ads_summary_on">Los anuncios a pantalla completa están ocultos\n\nEsta función solo está disponible para dispositivos más antiguos</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Se muestran anuncios a pantalla completa</string>
   <string name="revanced_hide_buttoned_ads_title">Ocultar anuncios botonados</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Los anuncios bloqueados están ocultos</string>
+  <string name="revanced_hide_buttoned_ads_summary_on">Los anuncios botonados están ocultos</string>
   <string name="revanced_hide_buttoned_ads_summary_off">Se muestran anuncios botonados</string>
   <string name="revanced_hide_paid_promotion_label_title">Ocultar etiqueta de promoción de pago</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Etiqueta de promoción pagada está oculta</string>
@@ -307,7 +307,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_get_premium_summary_off">Se muestran las promociones de YouTube Premium en el reproductor de vídeo</string>
   </patch>
   <patch id="ad.video.VideoAdsPatch">
-  <string name="revanced_hide_video_ads_title">Ocultar video anuncios</string>
+  <string name="revanced_hide_video_ads_title">Ocultar anuncios de video</string>
   <string name="revanced_hide_video_ads_summary_on">Los anuncios de vídeo están ocultos</string>
   <string name="revanced_hide_video_ads_summary_off">Los anuncios de vídeo se muestran</string>
   </patch>
@@ -328,7 +328,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Esto no pasa por alto la restricción de edad, sino que simplemente la acepta automáticamente.</string>
   </patch>
   <patch id="interaction.downloads.DownloadsResourcePatch">
-  <string name="revanced_external_downloader_screen_title">Descarga externa</string>
+  <string name="revanced_external_downloader_screen_title">Descargas externa</string>
   <string name="revanced_external_downloader_screen_summary">Configuración para el uso de un descargador externo</string>
   <string name="revanced_external_downloader_title">Mostrar botón externo de descarga</string>
   <string name="revanced_external_downloader_summary_on">Botón de descarga mostrado en el reproductor</string>
@@ -442,8 +442,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_navigation_buttons_screen_summary">Ocultar o cambiar botones en la barra de navegación</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
   <string name="revanced_hide_home_button_title">Ocultar Principal</string>
-  <string name="revanced_hide_home_button_summary_on">El botón de principal está oculto</string>
-  <string name="revanced_hide_home_button_summary_off">Se muestra el botón de principal</string>
+  <string name="revanced_hide_home_button_summary_on">El botón de inicio está oculto</string>
+  <string name="revanced_hide_home_button_summary_off">El botón de inicio es visible</string>
   <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_hide_shorts_button_title">Ocultar Shorts</string>
   <string name="revanced_hide_shorts_button_summary_on">El botón de Shorts está oculto</string>
@@ -928,7 +928,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_reset_color">Reiniciar color</string>
   <string name="revanced_sb_reset">Restablecer</string>
   <string name="revanced_sb_about">Acerca de</string>
-  <string name="revanced_sb_about_api_sum">Los datos son proporcionados por la API de SponsorBlock. Pulsa aquí para aprender más y ver las descargas de otras plataformas</string>
+  <string name="revanced_sb_about_api_sum">Los datos son proporcionados por la API de SponsorBlock. Pulsa aquí para aprender más y ver las descargas para otras plataformas</string>
   </patch>
   <patch id="layout.spoofappversion.SpoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Versión de la aplicación Spoof</string>
@@ -1164,8 +1164,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_block_audio_ads_summary_off">Anuncios de audio desbloqueados</string>
   </patch>
   <patch id="ad.embedded.EmbeddedAdsPatch">
-  <string name="revanced_embedded_ads_service_unavailable">%s no está disponible. Los anuncios pueden mostrarse. Intenta cambiar a otro servicio de bloque de anuncios en la configuración.</string>
-  <string name="revanced_embedded_ads_service_failed">El servidor %s devolvió un error. Los anuncios pueden mostrar. Intente cambiar a otro servicio de bloque de anuncios en la configuración.</string>
+  <string name="revanced_embedded_ads_service_unavailable">%s no está disponible. Los anuncios pueden mostrarse. Intenta cambiar a otro servicio de bloqueo de anuncios en la configuración.</string>
+  <string name="revanced_embedded_ads_service_failed">El servidor %s devolvió un error. Los anuncios pueden mostrar. Intente cambiar a otro servicio de bloqueo de anuncios en la configuración.</string>
   <string name="revanced_block_embedded_ads_title">Bloquear anuncios de vídeo incrustados</string>
   <string name="revanced_block_embedded_ads_entry_1">Desactivado</string>
   <string name="revanced_block_embedded_ads_entry_2">Proxy luminoso</string>
