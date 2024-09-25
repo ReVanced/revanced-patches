@@ -630,6 +630,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_save_sound_button_title">Hang mentése a lejátszási listára gomb elrejtése</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">A hang mentése a lejátszási listára gomb el van rejtve</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">A hang mentése a lejátszási listára gomb megjelenik</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_title">\'Használja ezt a hang gombot\' elrejtése</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">\'Használja ezt a hang gombot\' elrejtve</string>
+  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">\'Használja ezt a hang gombot\' látszik</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Keresési javaslatok elrejtése</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">A keresési javaslatok el vannak rejtve</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">A keresési javaslatok megjelennek</string>
@@ -1131,10 +1134,22 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_off">A csúsztatás a kereséshez nincs engedélyezve</string>
   </patch>
   <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Hamis videó stream</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Hamisítsa meg az ügyfél videó streamet a lejátszási problémák elkerülése érdekében</string>
+  <string name="revanced_spoof_video_streams_title">Hamis videó stream</string>
+  <string name="revanced_spoof_video_streams_summary_on">A videó stream hamisítva</string>
+  <string name="revanced_spoof_video_streams_summary_off">A videó stream nincs hamisítva\n\nLehet, hogy a videólejátszás nem működik</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">A beállítás kikapcsolása videolejátszási problémákat okozhat.</string>
+  <string name="revanced_spoof_video_streams_client_title">Alapértelmezett kliens</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">AVC (H.264) kényszerítése</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">A videokodek AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">A videokodek VP9 vagy AV1</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Eszközén nincs VP9 hardveres dekódolás, és ez a beállítás mindig be van kapcsolva, ha az ügyfélhamisítás engedélyezve van</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Ennek engedélyezése javíthatja az akkumulátor élettartamát, és kijavíthatja a lejátszás akadozását.\n\nAz AVC maximális felbontása 1080p, és a videolejátszás több internetadatot használ, mint a VP9 vagy az AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS hamisítási mellékhatások</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Előfordulhat, hogy a filmeket és a fizetős videókat nem lehet lejátszani\n• Az élő közvetítések elölről kezdődnek.\n• A videók 1 másodperccel korábban véget érhetnek\n• Nincs opus audiokodek</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR-hamisítási mellékhatások</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Hiányzik a hangsáv menü\n• A stabil hangerő nem érhető el</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

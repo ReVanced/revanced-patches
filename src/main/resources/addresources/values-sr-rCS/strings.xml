@@ -669,9 +669,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_full_video_link_label_title">Sakrij oznaku linka Shorts videa</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">Oznaka linka Shorts videa je skrivena</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">Oznaka linka Shorts videa je prikazana</string>
-  <string name="revanced_hide_shorts_sound_button_title">Sakrij dugme za zvuk</string>
-  <string name="revanced_hide_shorts_sound_button_summary_on">Dugme za zvuk je skriveno</string>
-  <string name="revanced_hide_shorts_sound_button_summary_off">Dugme za zvuk je prikazano</string>
+  <string name="revanced_hide_shorts_sound_button_title">Sakrij dugme „Zvuk”</string>
+  <string name="revanced_hide_shorts_sound_button_summary_on">Dugme „Zvuk” je skriveno</string>
+  <string name="revanced_hide_shorts_sound_button_summary_off">Dugme „Zvuk” je prikazano</string>
   <string name="revanced_hide_shorts_navigation_bar_title">Sakrij traku za navigaciju</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Traka za navigaciju je skrivena</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Traka za navigaciju je prikazana</string>
@@ -1140,7 +1140,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_title">Lažirani video strimovi</string>
   <string name="revanced_spoof_video_streams_summary_on">Video strimovi su lažirani</string>
   <string name="revanced_spoof_video_streams_summary_off">Video strimovi nisu lažirani\n\nReprodukcija videa možda neće raditi</string>
-  <string name="revanced_spoof_video_streams_user_dialog_message">Isključivanje ovog podešavanja možda će izazvati probleme sa reprodukcijom videa.</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Isključivanje ove opcije će možda izazvati probleme sa reprodukcijom videa.</string>
   <string name="revanced_spoof_video_streams_client_title">Podrazumevani klijent</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Prisili AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodek je AVC (H.264)</string>
@@ -1148,7 +1148,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Vaš uređaj nema VP9 hardversko dekodiranje, i ova opcija je uvek uključena kada je omogućeno lažiranje klijenta</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Ako ovo omogućite, možda će se produžiti trajanje baterije i popraviti zastoj pri reprodukciji.\n\nAVC ima maksimalnu rezoluciju od 1080p, a reprodukcija videa će koristiti više internet podataka nego VP9 ili AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Neželjeni efekti lažiranja na iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmovi ili plaćeni videi se možda neće puštati\n• Strimovi uživo počinju od početka\n• Videi će se možda završiti 1 sekundu ranije\n• Nema audio kodeka opus</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Neželjeni efekti lažiranja na Android VR</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Meni „Audio snimak” nedostaje\n• Opcija „Ujednačena jačina zvuka” nije dostupna</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">
