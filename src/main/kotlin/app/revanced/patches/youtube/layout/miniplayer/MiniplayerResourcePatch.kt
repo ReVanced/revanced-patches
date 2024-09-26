@@ -27,10 +27,42 @@ internal object MiniplayerResourcePatch : ResourcePatch() {
             "floaty_bar_button_top_margin"
         ]
 
+        scrimOverlay = ResourceMappingPatch[
+            "id",
+            "scrim_overlay"
+        ]
+
+        playerOverlays = ResourceMappingPatch[
+            "layout",
+            "player_overlays"
+        ]
+
         if (YouTubeVersionCheck.is_19_16_or_greater) {
             modernMiniplayerClose = ResourceMappingPatch[
                 "id",
                 "modern_miniplayer_close"
+            ]
+
+            modernMiniplayerExpand = ResourceMappingPatch[
+                "id",
+                "modern_miniplayer_expand"
+            ]
+
+            modernMiniplayerRewindButton = ResourceMappingPatch[
+                "id",
+                "modern_miniplayer_rewind_button"
+            ]
+
+            modernMiniplayerForwardButton = ResourceMappingPatch[
+                "id",
+                "modern_miniplayer_forward_button"
+            ]
+
+            // Resource id is not used during patching, but is used by integrations.
+            // Verify the resource is present while patching.
+            ResourceMappingPatch[
+                "id",
+                "modern_miniplayer_subtitle_text"
             ]
 
             // Only required for exactly 19.16
@@ -38,6 +70,11 @@ internal object MiniplayerResourcePatch : ResourcePatch() {
                 ytOutlinePictureInPictureWhite24 = ResourceMappingPatch[
                     "drawable",
                     "yt_outline_picture_in_picture_white_24"
+                ]
+
+                ytOutlineXWhite24 = ResourceMappingPatch[
+                    "drawable",
+                    "yt_outline_x_white_24"
                 ]
             }
 
@@ -48,42 +85,5 @@ internal object MiniplayerResourcePatch : ResourcePatch() {
                 ]
             }
         }
-
-        ytOutlineXWhite24 = ResourceMappingPatch[
-            "drawable",
-            "yt_outline_x_white_24"
-        ]
-
-        scrimOverlay = ResourceMappingPatch[
-            "id",
-            "scrim_overlay"
-        ]
-
-        modernMiniplayerExpand = ResourceMappingPatch[
-            "id",
-            "modern_miniplayer_expand"
-        ]
-
-        modernMiniplayerRewindButton = ResourceMappingPatch[
-            "id",
-            "modern_miniplayer_rewind_button"
-        ]
-
-        modernMiniplayerForwardButton = ResourceMappingPatch[
-            "id",
-            "modern_miniplayer_forward_button"
-        ]
-
-        playerOverlays = ResourceMappingPatch[
-            "layout",
-            "player_overlays"
-        ]
-
-        // Resource id is not used during patching, but is used by integrations.
-        // Verify the resource is present while patching.
-        ResourceMappingPatch[
-            "id",
-            "modern_miniplayer_subtitle_text"
-        ]
     }
 }
