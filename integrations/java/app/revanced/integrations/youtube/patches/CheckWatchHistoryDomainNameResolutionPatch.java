@@ -20,7 +20,6 @@ public class CheckWatchHistoryDomainNameResolutionPatch {
     private static final String SINKHOLE_IPV4 = "0.0.0.0";
     private static final String SINKHOLE_IPV6 = "::";
 
-    /** @noinspection SameParameterValue */
     private static boolean domainResolvesToValidIP(String host) {
         try {
             InetAddress address = InetAddress.getByName(host);
@@ -50,7 +49,16 @@ public class CheckWatchHistoryDomainNameResolutionPatch {
 
         Utils.runOnBackgroundThread(() -> {
             try {
-                if (domainResolvesToValidIP(HISTORY_TRACKING_ENDPOINT)) {
+                // If the user has a flaky DNS server, or they just lost internet connectivity
+                // and the isNetworkConnected() check has not detected it yet (it can take a few
+                // seconds after losing connection), then the history tracking endpoint will
+                // show a resolving error but it's actually an internet connection problem.
+                //
+                // Prevent this false positive by verify youtube.com resolves.
+                // If youtube.com does not resolve, then it's not a watch history domain resolving error
+                // because the entire app will not work since no domains are resolving.
+                if (domainResolvesToValidIP(HISTORY_TRACKING_ENDPOINT)
+                        || !domainResolvesToValidIP("youtube.com")) {
                     return;
                 }
 
