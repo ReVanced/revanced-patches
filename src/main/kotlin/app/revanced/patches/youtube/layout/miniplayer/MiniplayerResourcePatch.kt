@@ -40,6 +40,13 @@ internal object MiniplayerResourcePatch : ResourcePatch() {
                     "yt_outline_picture_in_picture_white_24"
                 ]
             }
+
+            if (YouTubeVersionCheck.is_19_26_or_greater) {
+                miniplayerMaxSize = ResourceMappingPatch[
+                    "dimen",
+                    "miniplayer_max_size"
+                ]
+            }
         }
 
         ytOutlineXWhite24 = ResourceMappingPatch[
@@ -50,11 +57,6 @@ internal object MiniplayerResourcePatch : ResourcePatch() {
         scrimOverlay = ResourceMappingPatch[
             "id",
             "scrim_overlay"
-        ]
-
-        miniplayerMaxSize = ResourceMappingPatch[
-            "dimen",
-            "miniplayer_max_size"
         ]
 
         modernMiniplayerExpand = ResourceMappingPatch[
