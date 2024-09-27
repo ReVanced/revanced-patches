@@ -19,19 +19,6 @@ object HideShortsComponentsResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         AddResourcesPatch(this::class)
 
-        if (hideShortsLongPressMenuItem == true) {
-            context.xmlEditor["res/xml/main_shortcuts.xml"].use { editor ->
-                val shortcuts = editor.file.getElementsByTagName("shortcuts").item(0) as Element
-                val shortsItem =
-                    shortcuts.getElementsByTagName("shortcut").findElementByAttributeValueOrThrow(
-                        "android:shortcutId",
-                        "shorts-shortcut"
-                    )
-
-                shortsItem.parentNode.removeChild(shortsItem)
-            }
-        }
-
         SettingsPatch.PreferenceScreen.SHORTS.addPreferences(
             SwitchPreference("revanced_hide_shorts_home"),
             SwitchPreference("revanced_hide_shorts_subscriptions"),
@@ -67,6 +54,19 @@ object HideShortsComponentsResourcePatch : ResourcePatch() {
             SwitchPreference("revanced_hide_shorts_sound_metadata_label"),
             SwitchPreference("revanced_hide_shorts_navigation_bar"),
         )
+
+        if (hideShortsLongPressMenuItem == true) {
+            context.xmlEditor["res/xml/main_shortcuts.xml"].use { editor ->
+                val shortcuts = editor.file.getElementsByTagName("shortcuts").item(0) as Element
+                val shortsItem =
+                    shortcuts.getElementsByTagName("shortcut").findElementByAttributeValueOrThrow(
+                        "android:shortcutId",
+                        "shorts-shortcut"
+                    )
+
+                shortsItem.parentNode.removeChild(shortsItem)
+            }
+        }
 
         reelPlayerRightCellButtonHeight = ResourceMappingPatch[
             "dimen",
