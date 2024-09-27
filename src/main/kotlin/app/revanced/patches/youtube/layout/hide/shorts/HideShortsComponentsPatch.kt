@@ -80,7 +80,7 @@ object HideShortsComponentsPatch : BytecodePatch(
     internal val hideShortsLongPressMenuItem by booleanPatchOption(
         key = "hideShortsAppShortcut",
         default = false,
-        title = "hide Shorts app shortcut",
+        title = "Hide Shorts app shortcut",
         description = "Permanently hides the Shorts app shortcut (long pressing app icon)."
     )
 
