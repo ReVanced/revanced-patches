@@ -669,9 +669,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_full_video_link_label_title">Сакриј ознаку линка Shorts видеа</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">Ознака линка Shorts видеа је скривена</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">Ознака линка Shorts видеа је приказана</string>
-  <string name="revanced_hide_shorts_sound_button_title">Сакриј дугме за звук</string>
-  <string name="revanced_hide_shorts_sound_button_summary_on">Дугме за звук је скривено</string>
-  <string name="revanced_hide_shorts_sound_button_summary_off">Дугме за звук је приказано</string>
+  <string name="revanced_hide_shorts_sound_button_title">Сакриј дугме „Звук”</string>
+  <string name="revanced_hide_shorts_sound_button_summary_on">Дугме „Звук” је скривено</string>
+  <string name="revanced_hide_shorts_sound_button_summary_off">Дугме „Звук” је приказано</string>
   <string name="revanced_hide_shorts_navigation_bar_title">Сакриј траку за навигацију</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Трака за навигацију је скривена</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Трака за навигацију је приказана</string>
@@ -1148,7 +1148,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Ваш уређај нема VP9 хардверско декодирање, и ова опција је увек укључена када је омогућено лажирање клијента</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Ако ово омогућите, можда ће се продужити трајање батерије и поправити застој при репродукцији.\n\nAVC има максималну резолуцију од 1080p, а репродукција видеа ће користити више интернет података него VP9 или AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Нежељени ефекти лажирања на iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Филмови или плаћени видеи се можда неће пуштати\n• Стримови уживо почињу од почетка\n• Видеи ће се можда завршити 1 секунду раније\n• Нема аудио кодека opus</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Нежељени ефекти лажирања на Android VR</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Мени „Аудио снимак” недостаје\n• Опција „Уједначена јачина звука” није доступна</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

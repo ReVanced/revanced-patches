@@ -1145,9 +1145,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Примусово увімкнено відеокодек VP9 або AV1</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Ваш пристрій не має апаратного декодування VP9, ​​тому це налаштування завжди ввімкнено, коли ввімкнено підробку відеопотоків</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Увімкнення цієї опції може збільшити час роботи від акумулятора та виправити затримки відтворення.\n\nAVC має максимальну роздільну здатність 1080p, а відтворення відео використовуватиме більше інтернет-даних, ніж на кодеках VP9 або AV1.</string>
-  <string name="revanced_spoof_video_streams_about_ios_title">Побічні ефекти підміни iOS:</string>
+  <string name="revanced_spoof_video_streams_about_ios_title">Побічні ефекти підробки iOS:</string>
   <string name="revanced_spoof_video_streams_about_ios_summary">• Фільми чи платні відео можуть не відтворюватися\n• Прямі трансляції починаються з початку\n• Відео можуть закінчуватися на 1 секунду раніше\n• Відсутній аудіокодек Opus</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Побічні ефекти підміни Android VR:</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_title">Побічні ефекти підробки Android VR:</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">• Меню звукової доріжки відсутнє\n• Меню стабілізації гучності недоступне</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
