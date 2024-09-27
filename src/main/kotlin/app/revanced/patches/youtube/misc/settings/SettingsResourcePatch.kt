@@ -8,6 +8,8 @@ import app.revanced.patches.shared.misc.settings.BaseSettingsResourcePatch
 import app.revanced.patches.shared.misc.settings.preference.IntentPreference
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
+import app.revanced.util.copyXmlNode
+import app.revanced.util.inputStreamFromBundledResource
 import org.w3c.dom.Element
 
 object SettingsResourcePatch : BaseSettingsResourcePatch(
@@ -35,6 +37,18 @@ object SettingsResourcePatch : BaseSettingsResourcePatch(
             ResourceGroup("layout", "revanced_settings_with_toolbar.xml"),
         ).forEach { resourceGroup ->
             context.copyResources("settings", resourceGroup)
+        }
+
+        // Copy style properties used to fix oversized copy menu that appear in EditTextPreference.
+        val targetResource = "values/styles.xml"
+        inputStreamFromBundledResource(
+            "settings/host",
+            targetResource
+        )!!.let { inputStream ->
+            "resources".copyXmlNode(
+                context.xmlEditor[inputStream],
+                context.xmlEditor["res/${targetResource}"]
+            ).close()
         }
 
         // Remove horizontal divider from the settings Preferences
