@@ -14,7 +14,4 @@ internal object DownloadOperationsURLBuilderFingerprint : MethodFingerprint(
         Opcode.SGET_OBJECT,
         Opcode.FILLED_NEW_ARRAY
     ),
-    customFingerprint = { _, classDef ->
-        classDef.sourceFile == "DownloadOperations.kt"
-    }
 )
