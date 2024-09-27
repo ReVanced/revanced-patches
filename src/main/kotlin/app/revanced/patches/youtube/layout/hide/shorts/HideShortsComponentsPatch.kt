@@ -77,7 +77,7 @@ object HideShortsComponentsPatch : BytecodePatch(
 ) {
     private const val FILTER_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/components/ShortsFilter;"
 
-    internal val hideShortsLongPressMenuItem by booleanPatchOption(
+    internal val hideShortsAppShortcut by booleanPatchOption(
         key = "hideShortsAppShortcut",
         default = false,
         title = "Hide Shorts app shortcut",
