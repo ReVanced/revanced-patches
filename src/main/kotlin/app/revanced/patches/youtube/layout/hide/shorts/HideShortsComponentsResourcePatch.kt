@@ -6,7 +6,10 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.patches.youtube.layout.hide.shorts.HideShortsComponentsPatch.hideShortsLongPressMenuItem
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.util.findElementByAttributeValueOrThrow
+import org.w3c.dom.Element
 
 @Patch(dependencies = [SettingsPatch::class, ResourceMappingPatch::class, AddResourcesPatch::class])
 object HideShortsComponentsResourcePatch : ResourcePatch() {
@@ -15,6 +18,19 @@ object HideShortsComponentsResourcePatch : ResourcePatch() {
 
     override fun execute(context: ResourceContext) {
         AddResourcesPatch(this::class)
+
+        if (hideShortsLongPressMenuItem == true) {
+            context.xmlEditor["res/xml/main_shortcuts.xml"].use { editor ->
+                val shortcuts = editor.file.getElementsByTagName("shortcuts").item(0) as Element
+                val shortsItem =
+                    shortcuts.getElementsByTagName("shortcut").findElementByAttributeValueOrThrow(
+                        "android:shortcutId",
+                        "shorts-shortcut"
+                    )
+
+                shortsItem.parentNode.removeChild(shortsItem)
+            }
+        }
 
         SettingsPatch.PreferenceScreen.SHORTS.addPreferences(
             SwitchPreference("revanced_hide_shorts_home"),
