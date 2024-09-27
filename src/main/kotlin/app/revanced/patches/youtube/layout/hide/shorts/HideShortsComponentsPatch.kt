@@ -81,7 +81,7 @@ object HideShortsComponentsPatch : BytecodePatch(
         key = "hideShortsAppShortcut",
         default = false,
         title = "Hide Shorts app shortcut",
-        description = "Permanently hides the Shorts app shortcut (long pressing app icon)."
+        description = "Permanently hides the shortcut to open Shorts from long pressing the app icon in your launcher."
     )
 
     override fun execute(context: BytecodeContext) {
