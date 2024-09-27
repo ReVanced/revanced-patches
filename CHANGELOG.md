@@ -1,3 +1,10 @@
+# [4.16.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.15.1-dev.2...v4.16.0-dev.1) (2024-09-27)
+
+
+### Features
+
+* **YouTube - Hide Shorts components:** Add patch option to hide Shorts app shortcut (long press app icon) ([#3699](https://github.com/ReVanced/revanced-patches/issues/3699)) ([0d4e1f5](https://github.com/ReVanced/revanced-patches/commit/0d4e1f5d03cf3dcc06fd41165e26a1ce901b976b))
+
 ## [4.15.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.15.1-dev.1...v4.15.1-dev.2) (2024-09-23)
 
 
