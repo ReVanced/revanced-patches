@@ -6,6 +6,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
+import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.booleanPatchOption
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
 import app.revanced.patches.youtube.layout.hide.shorts.fingerprints.*
@@ -75,6 +76,13 @@ object HideShortsComponentsPatch : BytecodePatch(
     ),
 ) {
     private const val FILTER_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/components/ShortsFilter;"
+
+    internal val hideShortsAppShortcut by booleanPatchOption(
+        key = "hideShortsAppShortcut",
+        default = false,
+        title = "Hide Shorts app shortcut",
+        description = "Permanently hides the shortcut to open Shorts from long pressing the app icon in your launcher."
+    )
 
     override fun execute(context: BytecodeContext) {
         // region Hide the Shorts shelf.
