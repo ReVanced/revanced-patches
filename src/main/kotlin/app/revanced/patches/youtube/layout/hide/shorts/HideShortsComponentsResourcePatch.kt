@@ -58,12 +58,10 @@ object HideShortsComponentsResourcePatch : ResourcePatch() {
 
         if (hideShortsAppShortcut == true) {
             context.xmlEditor["res/xml/main_shortcuts.xml"].use { editor ->
-                val shortcuts = editor.file.getElementsByTagName("shortcuts").item(0) as Element
-                val shortsItem =
-                    shortcuts.getElementsByTagName("shortcut").findElementByAttributeValueOrThrow(
-                        "android:shortcutId",
-                        "shorts-shortcut"
-                    )
+                val shortsItem = editor.file.childNodes.findElementByAttributeValueOrThrow(
+                    "android:shortcutId",
+                    "shorts-shortcut"
+                )
 
                 shortsItem.parentNode.removeChild(shortsItem)
             }
