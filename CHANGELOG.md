@@ -1,3 +1,10 @@
+# [4.16.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.16.0-dev.1...v4.16.0-dev.2) (2024-09-28)
+
+
+### Features
+
+* **YouTube - Hide Shorts components:** Add patch option to hide Shorts from app launcher widget Beta ([#3707](https://github.com/ReVanced/revanced-patches/issues/3707)) ([838f183](https://github.com/ReVanced/revanced-patches/commit/838f1834a5df547ce2c3217b874c0594b6878a67))
+
 # [4.16.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.15.1-dev.2...v4.16.0-dev.1) (2024-09-27)
 
 
