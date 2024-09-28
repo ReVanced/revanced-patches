@@ -1147,7 +1147,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">На вашем устройстве нет аппаратного декодирования VP9, и эта настройка всегда включена при активной подмене клиента</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Включение данной настройки может улучшить время работы батареи и исправить задержки воспроизведения.\n\nAVC имеет максимальное разрешение 1080p, воспроизведение видео будет использовать больше интернет данных в сравнении с VP9 или AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Побочные эффекты подмены на iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Фильмы или платные видео могут не воспроизводиться.\n• Прямые трансляции начинаются с самого начала.\n• Видео может закончиться на 1 секунду раньше.\n• Отсутствует аудиокодек opus</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Фильмы или платные видео могут не воспроизводиться\n• Прямые трансляции начинаются с самого начала\n• Видео может закончиться на 1 секунду раньше\n• Отсутствует аудиокодек opus</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Побочные эффекты подмены на Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">• Пункт меню \"Звуковая дорожка\" отсутствует\n• Пункт меню \"Постоянный уровень громкости\" недоступен</string>
   </patch>
