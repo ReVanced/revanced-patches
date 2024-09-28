@@ -7,6 +7,7 @@ import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.layout.hide.shorts.HideShortsComponentsPatch.hideShortsAppShortcut
+import app.revanced.patches.youtube.layout.hide.shorts.HideShortsComponentsPatch.hideShortsWidget
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.findElementByAttributeValueOrThrow
 import org.w3c.dom.Element
@@ -63,6 +64,17 @@ object HideShortsComponentsResourcePatch : ResourcePatch() {
                         "android:shortcutId",
                         "shorts-shortcut"
                     )
+
+                shortsItem.parentNode.removeChild(shortsItem)
+            }
+        }
+
+        if (hideShortsWidget == true) {
+            context.xmlEditor["res/layout/appwidget_two_rows.xml"].use { editor ->
+                val shortsItem = editor.file.childNodes.findElementByAttributeValueOrThrow(
+                    "android:id",
+                    "@id/button_shorts_container"
+                )
 
                 shortsItem.parentNode.removeChild(shortsItem)
             }

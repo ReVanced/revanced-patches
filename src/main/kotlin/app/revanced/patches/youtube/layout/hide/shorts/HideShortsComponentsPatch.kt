@@ -84,6 +84,13 @@ object HideShortsComponentsPatch : BytecodePatch(
         description = "Permanently hides the shortcut to open Shorts from long pressing the app icon in your launcher."
     )
 
+    internal val hideShortsWidget by booleanPatchOption(
+        key = "hideShortsWidget",
+        default = false,
+        title = "Hide Shorts widget",
+        description = "Permanently hides the Shorts button in the YouTube launcher widget."
+    )
+
     override fun execute(context: BytecodeContext) {
         // region Hide the Shorts shelf.
 
