@@ -148,6 +148,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_channel_guidelines_title">Hide channel guidelines</string>
             <string name="revanced_hide_channel_guidelines_summary_on">Channel guidelines are hidden</string>
             <string name="revanced_hide_channel_guidelines_summary_off">Channel guidelines are shown</string>
+            <string name="revanced_hide_chips_shelf_title">Hide chips shelf</string>
+            <string name="revanced_hide_chips_shelf_summary_on">Chips shelf is hidden</string>
+            <string name="revanced_hide_chips_shelf_summary_off">Chips shelf is shown</string>
             <string name="revanced_hide_expandable_chip_title">Hide expandable chip under videos</string>
             <string name="revanced_hide_expandable_chip_summary_on">Expandable chips are hidden</string>
             <string name="revanced_hide_expandable_chip_summary_off">Expandable chips are shown</string>
@@ -208,9 +211,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_artist_cards_title">Hide artist cards</string>
             <string name="revanced_hide_artist_cards_summary_on">Artist cards are hidden</string>
             <string name="revanced_hide_artist_cards_summary_off">Artist cards are shown</string>
-            <string name="revanced_hide_chips_shelf_title">Hide chips shelf</string>
-            <string name="revanced_hide_chips_shelf_summary_on">Chips shelf is hidden</string>
-            <string name="revanced_hide_chips_shelf_summary_off">Chips shelf is shown</string>
             <string name="revanced_hide_attributes_section_title">Hide attributes section</string>
             <string name="revanced_hide_attributes_section_summary_on">\'Featured places\', Games and Music sections are hidden</string>
             <string name="revanced_hide_attributes_section_summary_off">\'Featured places\', Games and Music sections are shown</string>
