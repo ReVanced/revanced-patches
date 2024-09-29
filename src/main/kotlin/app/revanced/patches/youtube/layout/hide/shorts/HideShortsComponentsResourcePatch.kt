@@ -7,10 +7,10 @@ import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.layout.hide.shorts.HideShortsComponentsPatch.hideShortsAppShortcut
+import app.revanced.patches.youtube.layout.hide.shorts.HideShortsComponentsPatch.hideShortsWidget
 import app.revanced.patches.youtube.misc.playservice.YouTubeVersionCheck
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.findElementByAttributeValueOrThrow
-import org.w3c.dom.Element
 
 @Patch(
     dependencies = [
@@ -51,9 +51,9 @@ object HideShortsComponentsResourcePatch : ResourcePatch() {
             SwitchPreference("revanced_hide_shorts_subscribe_button"),
             SwitchPreference("revanced_hide_shorts_paused_overlay_buttons"),
             SwitchPreference("revanced_hide_shorts_save_sound_button"),
-            SwitchPreference("revanced_hide_shorts_use_this_sound_button"),
             SwitchPreference("revanced_hide_shorts_shop_button"),
             SwitchPreference("revanced_hide_shorts_tagged_products"),
+            SwitchPreference("revanced_hide_shorts_stickers"),
             SwitchPreference("revanced_hide_shorts_search_suggestions"),
             SwitchPreference("revanced_hide_shorts_super_thanks_button"),
             SwitchPreference("revanced_hide_shorts_location_label"),
@@ -67,12 +67,21 @@ object HideShortsComponentsResourcePatch : ResourcePatch() {
 
         if (hideShortsAppShortcut == true) {
             context.xmlEditor["res/xml/main_shortcuts.xml"].use { editor ->
-                val shortcuts = editor.file.getElementsByTagName("shortcuts").item(0) as Element
-                val shortsItem =
-                    shortcuts.getElementsByTagName("shortcut").findElementByAttributeValueOrThrow(
-                        "android:shortcutId",
-                        "shorts-shortcut"
-                    )
+                val shortsItem = editor.file.childNodes.findElementByAttributeValueOrThrow(
+                    "android:shortcutId",
+                    "shorts-shortcut"
+                )
+
+                shortsItem.parentNode.removeChild(shortsItem)
+            }
+        }
+
+        if (hideShortsWidget == true) {
+            context.xmlEditor["res/layout/appwidget_two_rows.xml"].use { editor ->
+                val shortsItem = editor.file.childNodes.findElementByAttributeValueOrThrow(
+                    "android:id",
+                    "@id/button_shorts_container"
+                )
 
                 shortsItem.parentNode.removeChild(shortsItem)
             }

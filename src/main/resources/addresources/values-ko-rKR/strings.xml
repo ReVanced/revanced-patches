@@ -35,8 +35,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="misc.checks.BaseCheckEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">확인에 실패함</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">공식 홈페이지 열기</string>
-  <string name="revanced_check_environment_dialog_ignore_button">무시</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;이 앱은 사용자가 패치하지 않은 것 같습니다.&lt;/h5&gt;&lt;br&gt;이 앱은 제대로 작동하지 않을 수 있으며, &lt;b&gt;사용 시 해롭거나 심지어 위험할 수도 있습니다&lt;/b&gt;.&lt;br&gt;&lt;br&gt;이러한 확인은 이 앱이 사전 패치되었거나 다른 사람에게서 얻은 것임을 의미합니다:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;검증되고 안전한 앱을 사용하고 있는지 확인하려면 &lt;b&gt;이 앱을 제거하고 직접 패치하는 것&lt;/b&gt;을 강력히 권장합니다.&lt;p&gt;&lt;br&gt;이 경고를 무시하면 두 번만 표시됩니다.</string>
+  <string name="revanced_check_environment_dialog_ignore_button">닫기</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;이 앱은 사용자가 패치하지 않은 것 같습니다.&lt;/h5&gt;&lt;br&gt;이 앱은 제대로 작동하지 않을 수 있으며, &lt;b&gt;사용 시 해롭거나 심지어 위험할 수도 있습니다&lt;/b&gt;.&lt;br&gt;&lt;br&gt;이러한 확인은 이 앱이 사전에 패치되었거나 다른 사람으로부터 받은 것임을 의미합니다:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;검증되고 안전한 앱을 사용하고 있는지 확인하려면 &lt;b&gt;이 앱을 제거하고 직접 패치하는 것&lt;/b&gt;을 강력히 권장합니다.&lt;p&gt;&lt;br&gt;이 경고는 두 번만 표시됩니다.</string>
   <string name="revanced_check_environment_not_same_patching_device">다른 기기에서 패치됨</string>
   <string name="revanced_check_environment_manager_not_expected_installer">ReVanced Manager에 의해 설치되지 않음</string>
   <string name="revanced_check_environment_not_near_patch_time">10분 이상 전에 패치됨</string>
@@ -459,8 +459,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_subscriptions_button_summary_off">구독 버튼이 표시됩니다</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">만들기 버튼과 알림 버튼 위치 교환하기</string>
-  <string name="revanced_switch_create_with_notifications_button_summary_on">만들기 버튼과 알림 버튼의 위치를 교환합니다\n\n알려진 문제점:\n• 이 설정을 비활성화하면 서버에서 광고 필터에 등록되지 않은 광고(Shorts 광고)가 로드됩니다\n• 이 설정을 활성화하면 일부 광고가 강제로 숨겨집니다 (동영상 광고, 일반 레이아웃 광고)\n• 광고 설정에 있는 일부 설정들을 비활성화하려면 이 설정도 비활성화해야 합니다</string>
-  <string name="revanced_switch_create_with_notifications_button_summary_off">만들기 버튼과 알림 버튼을 위치를 교환하지 않습니다\n\n알려진 문제점:\n• 이 설정을 비활성화하면 서버에서 광고 필터에 등록되지 않은 광고(Shorts 광고)가 로드됩니다\n• 이 설정을 활성화하면 일부 광고가 강제로 숨겨집니다 (동영상 광고, 일반 레이아웃 광고)\n• 광고 설정에 있는 일부 설정들을 비활성화하려면 이 설정도 비활성화해야 합니다</string>
+  <string name="revanced_switch_create_with_notifications_button_summary_on">만들기 버튼과 알림 버튼의 위치를 교환합니다\n\n알려진 문제점:\n• 동영상 광고가 강제로 숨겨집니다</string>
+  <string name="revanced_switch_create_with_notifications_button_summary_off">만들기 버튼과 알림 버튼의 위치를 교환하지 않습니다\n\n알려진 문제점:\n• 서버에서 더 많은 광고가 로드될 수 있습니다\n• Shorts 광고가 더 이상 숨겨지지 않습니다</string>
   <string name="revanced_hide_navigation_button_labels_title">하단바 버튼 라벨 숨기기</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">라벨이 숨겨집니다</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">라벨이 표시됩니다</string>
