@@ -77,7 +77,8 @@ object DisablePreciseSeekingGesturePatch : BytecodePatch(
                     move-result v0
                     if-eqz v0, :disabled
                     return-void
-                """, ExternalLabel("disabled", getInstruction(0))
+                """,
+                ExternalLabel("disabled", getInstruction(0))
             )
         }
 
@@ -93,7 +94,8 @@ object DisablePreciseSeekingGesturePatch : BytecodePatch(
                     if-eqz v0, :disabled
                     const/4 v0, 0x0
                     return v0
-                """, ExternalLabel("disabled", getInstruction(0))
+                """,
+                ExternalLabel("disabled", getInstruction(0))
             )
         }
     }
