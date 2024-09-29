@@ -10,7 +10,6 @@ import app.revanced.patches.youtube.layout.hide.shorts.HideShortsComponentsPatch
 import app.revanced.patches.youtube.layout.hide.shorts.HideShortsComponentsPatch.hideShortsWidget
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.findElementByAttributeValueOrThrow
-import org.w3c.dom.Element
 
 @Patch(dependencies = [SettingsPatch::class, ResourceMappingPatch::class, AddResourcesPatch::class])
 object HideShortsComponentsResourcePatch : ResourcePatch() {
@@ -42,9 +41,9 @@ object HideShortsComponentsResourcePatch : ResourcePatch() {
             SwitchPreference("revanced_hide_shorts_subscribe_button"),
             SwitchPreference("revanced_hide_shorts_paused_overlay_buttons"),
             SwitchPreference("revanced_hide_shorts_save_sound_button"),
-            SwitchPreference("revanced_hide_shorts_use_this_sound_button"),
             SwitchPreference("revanced_hide_shorts_shop_button"),
             SwitchPreference("revanced_hide_shorts_tagged_products"),
+            SwitchPreference("revanced_hide_shorts_stickers"),
             SwitchPreference("revanced_hide_shorts_search_suggestions"),
             SwitchPreference("revanced_hide_shorts_super_thanks_button"),
             SwitchPreference("revanced_hide_shorts_location_label"),
