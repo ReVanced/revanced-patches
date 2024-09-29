@@ -134,6 +134,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_guidelines_title">Itago ang mga alituntunin ng channel</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Nakatago ang mga alituntunin ng channel</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Ipinapakita ang mga alituntunin sa channel</string>
+  <string name="revanced_hide_chips_shelf_title">Itago ang shelf ng chips</string>
+  <string name="revanced_hide_chips_shelf_summary_on">Nakatago ang istante ng chips</string>
+  <string name="revanced_hide_chips_shelf_summary_off">Ipinapakita ang istante ng chips</string>
   <string name="revanced_hide_expandable_chip_title">Itago ang napapalawak na chip sa ilalim ng mga video</string>
   <string name="revanced_hide_expandable_chip_summary_on">Nakatago ang mga napapalawak na chip</string>
   <string name="revanced_hide_expandable_chip_summary_off">Ipinapakita ang mga napapalawak na chip</string>
@@ -194,9 +197,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_artist_cards_title">Itago ang mga card ng artist</string>
   <string name="revanced_hide_artist_cards_summary_on">Nakatago ang mga artist card</string>
   <string name="revanced_hide_artist_cards_summary_off">Ipinapakita ang mga card ng artist</string>
-  <string name="revanced_hide_chips_shelf_title">Itago ang shelf ng chips</string>
-  <string name="revanced_hide_chips_shelf_summary_on">Nakatago ang istante ng chips</string>
-  <string name="revanced_hide_chips_shelf_summary_off">Ipinapakita ang istante ng chips</string>
   <string name="revanced_hide_attributes_section_title">Itago ang seksyon ng mga katangian</string>
   <string name="revanced_hide_attributes_section_summary_on">Ang \"Mga itinatampok na lugar\", Mga seksyon ng Laro at Musika ay nakatago</string>
   <string name="revanced_hide_attributes_section_summary_off">Ipinapakita ang \"Mga itinatampok na lugar\", Mga seksyon ng Laro at Musika</string>
@@ -600,9 +600,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">Itago ang label ng lokasyon</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Nakatago ang label ng lokasyon</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Ipinapakita ang label ng lokasyon</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Itago ang save sound to playlist button</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Nakatago ang pag-save ng tunog sa playlist</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Ang pag-save ng tunog sa playlist ay ipinapakita</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Itago ang mga mungkahi sa paghahanap</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Nakatago ang mga mungkahi sa paghahanap</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Ipinapakita ang mga mungkahi sa paghahanap</string>

@@ -44,7 +44,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK 構建日期已損壞</string>
   </patch>
   <patch id="misc.settings.BaseSettingsResourcePatch">
-  <string name="revanced_settings_confirm_user_dialog_title">您想繼續嗎?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">確定要繼續嗎？</string>
   <string name="revanced_settings_reset">重設</string>
   <string name="revanced_settings_restart_title">套用並重新啟動</string>
   <string name="revanced_settings_restart">重新啟動</string>
@@ -68,7 +68,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="gms_core_dialog_title">需要採取行動</string>
   <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">MicroG GmsCore 沒有在背景執行的權限。\n\n請遵循適用於您手機的「Don\'t kill my app」嚮導，並將這些說明套用到您的 MicroG 安裝中。\n\n這是讓應用程式執行所必需做的。</string>
   <string name="gms_core_dialog_open_website_text">開啟網站</string>
-  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">請務必停用 MicroG GmsCore  的最佳化電池以避免意外問題。\n\n點擊繼續按鈕並停用最佳化電池。</string>
+  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">請務必停用 MicroG GmsCore 的最佳化電池以避免意外問題。\n\n輕觸 [繼續] 並停用最佳化電池。</string>
   <string name="gms_core_dialog_continue_text">繼續</string>
   </patch>
   </app>
@@ -80,17 +80,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_03_feed_title">動態消息</string>
   <string name="revanced_settings_screen_04_player_title">播放器</string>
   <string name="revanced_settings_screen_05_general_title">通用版面</string>
-  <string name="revanced_settings_screen_07_seekbar_title">進度條</string>
+  <string name="revanced_settings_screen_07_seekbar_title">拖拽欄</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">滑動控制</string>
   <string name="revanced_settings_screen_11_misc_title">其他</string>
   <string name="revanced_settings_screen_12_video_title">影片</string>
   </patch>
   <patch id="misc.debugging.DebuggingPatch">
-  <string name="revanced_debug_screen_title">除錯</string>
-  <string name="revanced_debug_screen_summary">啟用或停用除錯選項</string>
-  <string name="revanced_debug_title">除錯記錄檔</string>
-  <string name="revanced_debug_summary_on">已啟用除錯記錄檔</string>
-  <string name="revanced_debug_summary_off">已停用除錯記錄檔</string>
+  <string name="revanced_debug_screen_title">偵錯</string>
+  <string name="revanced_debug_screen_summary">啟用或停用偵錯選項</string>
+  <string name="revanced_debug_title">偵錯記錄檔</string>
+  <string name="revanced_debug_summary_on">已啟用偵錯記錄檔</string>
+  <string name="revanced_debug_summary_off">已停用偵錯記錄檔</string>
   <string name="revanced_debug_protobuffer_title">記錄檔協議緩衝區</string>
   <string name="revanced_debug_protobuffer_summary_on">除錯記錄檔會包含協議緩衝資訊</string>
   <string name="revanced_debug_protobuffer_summary_off">除錯記錄檔不會包含協議緩衝資訊</string>
@@ -147,6 +147,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_guidelines_title">隱藏頻道規範</string>
   <string name="revanced_hide_channel_guidelines_summary_on">已隱藏頻道規範</string>
   <string name="revanced_hide_channel_guidelines_summary_off">已顯示頻道規範</string>
+  <string name="revanced_hide_chips_shelf_title">隱藏章節櫃</string>
+  <string name="revanced_hide_chips_shelf_summary_on">已隱藏章節櫃</string>
+  <string name="revanced_hide_chips_shelf_summary_off">已顯示章節櫃</string>
   <string name="revanced_hide_expandable_chip_title">隱藏影片下方的章節選擇欄</string>
   <string name="revanced_hide_expandable_chip_summary_on">已隱藏影片下方的章節選擇欄</string>
   <string name="revanced_hide_expandable_chip_summary_off">已顯示影片下方的章節選擇欄</string>
@@ -207,9 +210,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_artist_cards_title">隱藏藝人卡</string>
   <string name="revanced_hide_artist_cards_summary_on">已隱藏藝人卡</string>
   <string name="revanced_hide_artist_cards_summary_off">已顯示藝人卡</string>
-  <string name="revanced_hide_chips_shelf_title">隱藏章節櫃</string>
-  <string name="revanced_hide_chips_shelf_summary_on">已隱藏章節櫃</string>
-  <string name="revanced_hide_chips_shelf_summary_off">已顯示章節櫃</string>
   <string name="revanced_hide_attributes_section_title">隱藏屬性區</string>
   <string name="revanced_hide_attributes_section_summary_on">已隱藏「特色地點」、遊戲和音樂區</string>
   <string name="revanced_hide_attributes_section_summary_off">已顯示「特色地點」、遊戲和音樂區</string>
@@ -627,15 +627,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">隱藏地區標籤</string>
   <string name="revanced_hide_shorts_location_label_summary_on">已隱藏地區標籤</string>
   <string name="revanced_hide_shorts_location_label_summary_off">已顯示地區標籤</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">隱藏儲存音訊到播放清單按鈕</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">已隱藏儲存音訊到播放清單按鈕</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">已顯示儲存音訊到播放清單按鈕</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_title">隱藏使用此聲音按鈕</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">已隱藏使用此聲音按鈕</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">已顯示使用此聲音按鈕</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">隱藏 [儲存音樂] 按鈕</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">已隱藏 [儲存音樂] 按鈕</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">已顯示 [顯示音樂] 按鈕</string>
   <string name="revanced_hide_shorts_search_suggestions_title">隱藏搜尋建議</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">已隱藏搜尋建議</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">已顯示搜尋建議</string>
+  <string name="revanced_hide_shorts_stickers_title">隱藏「Stickers」</string>
+  <string name="revanced_hide_shorts_stickers_summary_on">已隱藏「Stickers」</string>
+  <string name="revanced_hide_shorts_stickers_summary_off">已顯示「Stickers」</string>
   <string name="revanced_hide_shorts_like_button_title">隱藏「喜歡」按鈕</string>
   <string name="revanced_hide_shorts_like_button_summary_on">已隱藏「喜歡」按鈕</string>
   <string name="revanced_hide_shorts_like_button_summary_off">已顯示「喜歡」按鈕</string>

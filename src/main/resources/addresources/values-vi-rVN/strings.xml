@@ -147,6 +147,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_guidelines_title">Ẩn nguyên tắc của kênh</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Nguyên tắc của kênh được ẩn</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Nguyên tắc của kênh được hiện</string>
+  <string name="revanced_hide_chips_shelf_title">Ẩn kệ danh mục được đề xuất</string>
+  <string name="revanced_hide_chips_shelf_summary_on">Kệ danh mục được đề xuất được ẩn</string>
+  <string name="revanced_hide_chips_shelf_summary_off">Kệ danh mục được đề xuất được hiện</string>
   <string name="revanced_hide_expandable_chip_title">Ẩn bảng mở rộng dưới video</string>
   <string name="revanced_hide_expandable_chip_summary_on">Bảng mở rộng được ẩn</string>
   <string name="revanced_hide_expandable_chip_summary_off">Bảng mở rộng được hiện</string>
@@ -207,9 +210,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_artist_cards_title">Ẩn thẻ nghệ sĩ</string>
   <string name="revanced_hide_artist_cards_summary_on">Thẻ nghệ sĩ được ẩn</string>
   <string name="revanced_hide_artist_cards_summary_off">Thẻ nghệ sĩ được hiện</string>
-  <string name="revanced_hide_chips_shelf_title">Ẩn kệ danh mục được đề xuất</string>
-  <string name="revanced_hide_chips_shelf_summary_on">Kệ danh mục được đề xuất được ẩn</string>
-  <string name="revanced_hide_chips_shelf_summary_off">Kệ danh mục được đề xuất được hiện</string>
   <string name="revanced_hide_attributes_section_title">Ẩn phần thuộc tính</string>
   <string name="revanced_hide_attributes_section_summary_on">Phần \'Địa điểm nổi bật\', Trò chơi và Âm nhạc được ẩn</string>
   <string name="revanced_hide_attributes_section_summary_off">Phần \'Địa điểm nổi bật\', Trò chơi và Âm nhạc được hiện</string>
@@ -627,12 +627,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">Ẩn nhãn vị trí</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Nhãn vị trí được ẩn</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Nhãn vị trí được hiện</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Ẩn nút lưu âm thanh vào danh sách phát</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Lưu âm thanh vào danh sách phát được ẩn</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Lưu âm thanh vào danh sách phát được hiện</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_title">Ẩn nút dùng bản âm thanh này</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">Nút dùng bản âm thanh này được ẩn</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">Nút dùng bản âm thanh này được hiện</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Ẩn đề xuất tìm kiếm</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Đề xuất tìm kiếm được ẩn</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Đề xuất tìm kiếm được hiện</string>

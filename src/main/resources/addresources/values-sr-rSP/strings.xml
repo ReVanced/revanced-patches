@@ -148,6 +148,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_guidelines_title">Сакриј смернице канала</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Смернице канала су скривене</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Смернице канала су приказане</string>
+  <string name="revanced_hide_chips_shelf_title">Сакриј полицу ознака сличних видеа</string>
+  <string name="revanced_hide_chips_shelf_summary_on">Полица ознака сличних видеа је скривена</string>
+  <string name="revanced_hide_chips_shelf_summary_off">Полица ознака сличних видеа је приказана</string>
   <string name="revanced_hide_expandable_chip_title">Сакриј прошириви део испод видеа</string>
   <string name="revanced_hide_expandable_chip_summary_on">Прошириви делови су скривени</string>
   <string name="revanced_hide_expandable_chip_summary_off">Прошириви делови су приказани</string>
@@ -208,9 +211,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_artist_cards_title">Сакриј картице извођача</string>
   <string name="revanced_hide_artist_cards_summary_on">Картице извођача су скривене</string>
   <string name="revanced_hide_artist_cards_summary_off">Картице извођача су приказане</string>
-  <string name="revanced_hide_chips_shelf_title">Сакриј полицу ознака сличних видеа</string>
-  <string name="revanced_hide_chips_shelf_summary_on">Полица ознака сличних видеа је скривена</string>
-  <string name="revanced_hide_chips_shelf_summary_off">Полица ознака сличних видеа је приказана</string>
   <string name="revanced_hide_attributes_section_title">Сакриј одељак са атрибутима</string>
   <string name="revanced_hide_attributes_section_summary_on">Одељци „Истакнута места”, „Игре” и „Музика” су скривени</string>
   <string name="revanced_hide_attributes_section_summary_off">Одељци „Истакнута места”, „Игре” и „Музика” су приказани</string>
@@ -628,12 +628,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">Сакриј ознаку локације</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Ознака локације је скривена</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Ознака локације је приказана</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Сакриј дугме „Сачувај звук на плејлисту”</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Дугме „Сачувај звук на плејлисту” је скривено</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Дугме „Сачувај звук на плејлисту” је приказано</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_title">Сакриј дугме „Користи овај звук”</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">Дугме „Користи овај звук” је скривено</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">Дугме „Користи овај звук” је приказано</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Сакриј предлоге за претрагу</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Предлози за претрагу су скривени</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Предлози за претрагу су приказани</string>
