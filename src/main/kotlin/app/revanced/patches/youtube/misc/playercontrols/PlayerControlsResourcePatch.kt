@@ -79,7 +79,7 @@ object PlayerControlsResourcePatch : ResourcePatch(), Closeable {
                 // FIXME: This uses hard coded values that only works with SponsorBlock.
                 // If other top buttons are added by other patches, this code must be changed.
                 if (view.hasAttributes() && view.attributes.getNamedItem("android:id")
-                        .nodeValue.endsWith("live_chat_overlay_button")
+                        .nodeValue.endsWith("player_video_heading")
                 ) {
                     // voting button id from the voting button view from the youtube_controls_layout.xml host file
                     val votingButtonId = "@+id/revanced_sb_voting_button"
