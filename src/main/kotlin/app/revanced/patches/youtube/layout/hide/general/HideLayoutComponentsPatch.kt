@@ -89,7 +89,6 @@ object HideLayoutComponentsPatch : BytecodePatch(
             SwitchPreference("revanced_hide_channel_guidelines"),
             SwitchPreference("revanced_hide_channel_member_shelf"),
             SwitchPreference("revanced_hide_channel_watermark"),
-            SwitchPreference("revanced_hide_chips_shelf"),
             SwitchPreference("revanced_hide_community_guidelines"),
             PreferenceScreen(
                 key = "revanced_hide_description_components_screen",
@@ -145,6 +144,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
         )
 
         SettingsPatch.PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+            SwitchPreference("revanced_hide_chips_shelf"),
             SwitchPreference("revanced_hide_expandable_chip"),
             SwitchPreference("revanced_hide_gray_separator"),
             PreferenceScreen(
