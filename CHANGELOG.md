@@ -1,3 +1,10 @@
+# [4.16.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v4.16.0-dev.6...v4.16.0-dev.7) (2024-09-29)
+
+
+### Bug Fixes
+
+* **YouTube - SponsorBlock:** Fade out SB buttons without overlapping other buttons ([#3719](https://github.com/ReVanced/revanced-patches/issues/3719)) ([bf96108](https://github.com/ReVanced/revanced-patches/commit/bf9610894f0a9f9e751e2eed5b825c5d327a722c))
+
 # [4.16.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.16.0-dev.5...v4.16.0-dev.6) (2024-09-29)
 
 
