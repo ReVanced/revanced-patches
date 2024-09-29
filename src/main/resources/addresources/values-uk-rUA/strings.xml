@@ -147,6 +147,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_guidelines_title">Приховати правила каналу</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Правила каналу приховано</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Правила каналу показуються</string>
+  <string name="revanced_hide_chips_shelf_title">Приховати полицю фішок</string>
+  <string name="revanced_hide_chips_shelf_summary_on">Полицю фішок приховано</string>
+  <string name="revanced_hide_chips_shelf_summary_off">Полиця фішок показується</string>
   <string name="revanced_hide_expandable_chip_title">Приховати розширювану фішку</string>
   <string name="revanced_hide_expandable_chip_summary_on">Розширювані фішки під відео приховано</string>
   <string name="revanced_hide_expandable_chip_summary_off">Розширювані фішки під відео показуються</string>
@@ -207,9 +210,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_artist_cards_title">Приховати картки виконавця</string>
   <string name="revanced_hide_artist_cards_summary_on">Картки виконавця приховано</string>
   <string name="revanced_hide_artist_cards_summary_off">Картки виконавця показуються</string>
-  <string name="revanced_hide_chips_shelf_title">Приховати полицю фішок</string>
-  <string name="revanced_hide_chips_shelf_summary_on">Полицю фішок приховано</string>
-  <string name="revanced_hide_chips_shelf_summary_off">Полиця фішок показується</string>
   <string name="revanced_hide_attributes_section_title">Приховати секції атрибутів</string>
   <string name="revanced_hide_attributes_section_summary_on">Секції \"Місця на відео\", \"Ігри\" та \"Музика\" приховано</string>
   <string name="revanced_hide_attributes_section_summary_off">Секції \"Місця на відео\", \"Ігри\" та \"Музика\" показуються</string>
@@ -630,12 +630,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_save_sound_button_title">Приховати \"Зберегти музику\"</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Кнопку \"Зберегти музику\" приховано</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Кнопка \"Зберегти музику\" показується</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_title">Приховати \"Використати цю звукову доріжку\"</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">Кнопку \"Використати цю звукову доріжку\" приховано</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">Кнопка \"Використати цю звукову доріжку\" показується</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Приховати пропозиції пошуку</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Пропозиції пошуку приховано</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Пропозиції пошуку показуються</string>
+  <string name="revanced_hide_shorts_stickers_title">Приховати стікери</string>
+  <string name="revanced_hide_shorts_stickers_summary_on">Стікери приховано</string>
+  <string name="revanced_hide_shorts_stickers_summary_off">Стікери показуються</string>
   <string name="revanced_hide_shorts_like_button_title">Приховати \"Подобається\"</string>
   <string name="revanced_hide_shorts_like_button_summary_on">Кнопку \"Подобається\" приховано</string>
   <string name="revanced_hide_shorts_like_button_summary_off">Кнопка \"Подобається\" показується</string>

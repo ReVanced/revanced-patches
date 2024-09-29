@@ -147,6 +147,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_guidelines_title">Kanal təlimatlarını gizlət</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Kanal təlimatları gizlidir</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Kanal təlimatları göstərilir</string>
+  <string name="revanced_hide_chips_shelf_title">Çip bölməsin gizlət</string>
+  <string name="revanced_hide_chips_shelf_summary_on">Çip bölməsi gizlidir</string>
+  <string name="revanced_hide_chips_shelf_summary_off">Çip bölməsi göstərilir</string>
   <string name="revanced_hide_expandable_chip_title">Videoların altında genişlənən çipi gizlət</string>
   <string name="revanced_hide_expandable_chip_summary_on">Genişlənən çiplər gizlidir</string>
   <string name="revanced_hide_expandable_chip_summary_off">Genişlənən çiplər göstərilir</string>
@@ -207,9 +210,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_artist_cards_title">Sənətçi kartlarını gizlət</string>
   <string name="revanced_hide_artist_cards_summary_on">Sənətçi kartları gizlidir</string>
   <string name="revanced_hide_artist_cards_summary_off">Sənətçi kartları göstərilir</string>
-  <string name="revanced_hide_chips_shelf_title">Çip bölməsin gizlət</string>
-  <string name="revanced_hide_chips_shelf_summary_on">Çip bölməsi gizlidir</string>
-  <string name="revanced_hide_chips_shelf_summary_off">Çip bölməsi göstərilir</string>
   <string name="revanced_hide_attributes_section_title">Atributlar bölməsini gizlət</string>
   <string name="revanced_hide_attributes_section_summary_on">\"Seçilən məkanlar\", Oyunlar və Musiqi bölmələri gizlidir</string>
   <string name="revanced_hide_attributes_section_summary_off">\"Seçilən məkanlar\", Oyunlar və Musiqi bölmələri göstərilir</string>
@@ -627,12 +627,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">Məkan etiketini gizlət</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Məkan etiketi gizlidir</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Məkan etiketi göstərilir</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Səsi pleylistdə saxlama düyməsini gizlət</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Səsi pleylistdə saxlama gizlidir</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Səsi pleylistdə saxlama göstərilir</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_title">\"Bu səsi istifadə et\" düyməsini gizlət</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">\"Bu səsi istifadə et\" düyməsi gizlidir</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">\"Bu səsi istifadə et\" düyməsi göstərilir</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Axtarış təkliflərini gizlət</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Axtarış təklifləri gizlədilib</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Axtarış təklifləri göstərilir</string>

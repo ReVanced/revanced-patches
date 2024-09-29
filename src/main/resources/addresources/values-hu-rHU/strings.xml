@@ -147,6 +147,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_guidelines_title">Csatornák irányelveinek elrejtése</string>
   <string name="revanced_hide_channel_guidelines_summary_on">A csatorna irányelvei elrejtve</string>
   <string name="revanced_hide_channel_guidelines_summary_off">A csatorna irányelvei megjelenítve</string>
+  <string name="revanced_hide_chips_shelf_title">Vágások polc elrejtése</string>
+  <string name="revanced_hide_chips_shelf_summary_on">A vágások polc el van rejtve</string>
+  <string name="revanced_hide_chips_shelf_summary_off">A vágások polc megjelenik</string>
   <string name="revanced_hide_expandable_chip_title">Kiterjeszthető vágások elrejtése a videók alatt</string>
   <string name="revanced_hide_expandable_chip_summary_on">A kiterjeszthető vágások el vannak rejtve</string>
   <string name="revanced_hide_expandable_chip_summary_off">A kiterjeszthető vágások megjelennek</string>
@@ -207,9 +210,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_artist_cards_title">Előadó kártyák elrejtése</string>
   <string name="revanced_hide_artist_cards_summary_on">Az előadó kártyák rejtve vannak</string>
   <string name="revanced_hide_artist_cards_summary_off">A előadó kártyák láthatók</string>
-  <string name="revanced_hide_chips_shelf_title">Vágások polc elrejtése</string>
-  <string name="revanced_hide_chips_shelf_summary_on">A vágások polc el van rejtve</string>
-  <string name="revanced_hide_chips_shelf_summary_off">A vágások polc megjelenik</string>
   <string name="revanced_hide_attributes_section_title">Az attribútumok szakasz elrejtése</string>
   <string name="revanced_hide_attributes_section_summary_on">A „Kiemelt helyek”, a Játékok és a Zene szakaszok el vannak rejtve</string>
   <string name="revanced_hide_attributes_section_summary_off">Megjelennek a „Kiemelt helyek”, a Játékok és a Zene szakaszok</string>
@@ -627,12 +627,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">Helycímke elrejtése</string>
   <string name="revanced_hide_shorts_location_label_summary_on">A helycímke el van rejtve</string>
   <string name="revanced_hide_shorts_location_label_summary_off">A helycímke megjelenik</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Hang mentése a lejátszási listára gomb elrejtése</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">A hang mentése a lejátszási listára gomb el van rejtve</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">A hang mentése a lejátszási listára gomb megjelenik</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_title">\'Használja ezt a hang gombot\' elrejtése</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">\'Használja ezt a hang gombot\' elrejtve</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">\'Használja ezt a hang gombot\' látszik</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Keresési javaslatok elrejtése</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">A keresési javaslatok el vannak rejtve</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">A keresési javaslatok megjelennek</string>
