@@ -1,3 +1,10 @@
+# [4.16.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.16.0-dev.5...v4.16.0-dev.6) (2024-09-29)
+
+
+### Features
+
+* **YouTube - Hide Shorts components:** Add `Hide save music`, `Hide stickers` ([#3710](https://github.com/ReVanced/revanced-patches/issues/3710)) ([8c99321](https://github.com/ReVanced/revanced-patches/commit/8c99321df4db696156330fc90dd547c1345d880e))
+
 # [4.16.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v4.16.0-dev.4...v4.16.0-dev.5) (2024-09-29)
 
 
