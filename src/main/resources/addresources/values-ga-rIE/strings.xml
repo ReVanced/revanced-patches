@@ -147,6 +147,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_guidelines_title">Folaigh treoirlínte cainéal</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Tá treoirlínte cainéal i bhfolach</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Taispeántar treoirlínte cainéal</string>
+  <string name="revanced_hide_chips_shelf_title">Folaigh seilf sliseanna</string>
+  <string name="revanced_hide_chips_shelf_summary_on">Tá seilf sliseanna i bhfolach</string>
+  <string name="revanced_hide_chips_shelf_summary_off">Taispeántar seilf sliseanna</string>
   <string name="revanced_hide_expandable_chip_title">Folaigh sliseanna inmhéadaithe faoi fhíseáin</string>
   <string name="revanced_hide_expandable_chip_summary_on">Tá sceallóga leathnaithe i bhfolach</string>
   <string name="revanced_hide_expandable_chip_summary_off">Taispeántar sceallóga leathnaithe</string>
@@ -207,9 +210,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_artist_cards_title">Folaigh cártaí ealaíontóirí</string>
   <string name="revanced_hide_artist_cards_summary_on">Tá cártaí ealaíontóirí i bhfolach</string>
   <string name="revanced_hide_artist_cards_summary_off">Taispeántar cártaí ealaíonta</string>
-  <string name="revanced_hide_chips_shelf_title">Folaigh seilf sliseanna</string>
-  <string name="revanced_hide_chips_shelf_summary_on">Tá seilf sliseanna i bhfolach</string>
-  <string name="revanced_hide_chips_shelf_summary_off">Taispeántar seilf sliseanna</string>
   <string name="revanced_hide_attributes_section_title">Folaigh roinn tréithe</string>
   <string name="revanced_hide_attributes_section_summary_on">Tá rannáin \'Áiteanna Réadmhaí\', Cluichí agus Ceol i bhfolach</string>
   <string name="revanced_hide_attributes_section_summary_off">Taispeántar \'Áiteanna faoi Thrácht\', rannóga Cluichí agus Ceoil</string>
@@ -627,12 +627,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">Folaigh lipéad suímh</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Tá lipéad suímh i bhfolach</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Taispeántar lipéad suímh</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Folaigh fuaim a shábháil go cnaipe seinmliosta</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Tá fuaim a shábháil go seinmliosta i bhfolach</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Taispeántar fuaim a shábháil go seinmliosta</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_title">Folaigh úsáid an cnaipe fuaime seo</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">Bain úsáid as an cnaipe fuaime seo i bhfolach</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">Taispeántar úsáid an cnaipe fuaime seo</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Folaigh moltaí cuardaigh</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Tá moltaí cuardaigh i bhfolach</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Taispeántar moltaí cuardaigh</string>

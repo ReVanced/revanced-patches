@@ -148,6 +148,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_guidelines_title">Sakrij smernice kanala</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Smernice kanala su skrivene</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Smernice kanala su prikazane</string>
+  <string name="revanced_hide_chips_shelf_title">Sakrij policu oznaka sličnih videa</string>
+  <string name="revanced_hide_chips_shelf_summary_on">Polica oznaka sličnih videa je skrivena</string>
+  <string name="revanced_hide_chips_shelf_summary_off">Polica oznaka sličnih videa je prikazana</string>
   <string name="revanced_hide_expandable_chip_title">Sakrij proširivi deo ispod videa</string>
   <string name="revanced_hide_expandable_chip_summary_on">Proširivi delovi su skriveni</string>
   <string name="revanced_hide_expandable_chip_summary_off">Proširivi delovi su prikazani</string>
@@ -208,9 +211,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_artist_cards_title">Sakrij kartice izvođača</string>
   <string name="revanced_hide_artist_cards_summary_on">Kartice izvođača su skrivene</string>
   <string name="revanced_hide_artist_cards_summary_off">Kartice izvođača su prikazane</string>
-  <string name="revanced_hide_chips_shelf_title">Sakrij policu oznaka sličnih videa</string>
-  <string name="revanced_hide_chips_shelf_summary_on">Polica oznaka sličnih videa je skrivena</string>
-  <string name="revanced_hide_chips_shelf_summary_off">Polica oznaka sličnih videa je prikazana</string>
   <string name="revanced_hide_attributes_section_title">Sakrij odeljak sa atributima</string>
   <string name="revanced_hide_attributes_section_summary_on"> Odeljci „Istaknuta mesta”, „Igre” i „Muzika” su skriveni</string>
   <string name="revanced_hide_attributes_section_summary_off">Odeljci „Istaknuta mesta”, „Igre” i „Muzika” su prikazani</string>
@@ -628,12 +628,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">Sakrij oznaku lokacije</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Oznaka lokacije je skrivena</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Oznaka lokacije je prikazana</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Sakrij dugme „Sačuvaj zvuk na plejlistu”</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Dugme „Sačuvaj zvuk na plejlistu” je skriveno</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Dugme „Sačuvaj zvuk na plejlistu” je prikazano</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_title">Sakrij dugme „Koristi ovaj zvuk”</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">Dugme „Koristi ovaj zvuk” je skriveno</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">Dugme „Koristi ovaj zvuk” je prikazano</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Sakrij predloge za pretragu</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Predlozi za pretragu su skriveni</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Predlozi za pretragu su prikazani</string>

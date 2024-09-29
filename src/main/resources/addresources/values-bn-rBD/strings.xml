@@ -137,6 +137,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_guidelines_title">চ্যানেল নির্দেশিকা লুকান</string>
   <string name="revanced_hide_channel_guidelines_summary_on">চ্যানেল নির্দেশিকা লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_channel_guidelines_summary_off">চ্যানেল নির্দেশিকা প্রদর্শিত হয়েছে</string>
+  <string name="revanced_hide_chips_shelf_title">চিপ শেলপ লুকান</string>
+  <string name="revanced_hide_chips_shelf_summary_on">চিপ শেলপ লুকিয়ে রয়েছে</string>
+  <string name="revanced_hide_chips_shelf_summary_off">চিপ শেলপ প্রদর্শিত হয়েছে</string>
   <string name="revanced_hide_expandable_chip_title">ভিডিওর নিচের সম্প্রসারণযোগ্য চিপস লুকান</string>
   <string name="revanced_hide_expandable_chip_summary_on">সম্প্রসারণযোগ্য চিপস লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_expandable_chip_summary_off">সম্প্রসারণযোগ্য চিপস প্রদর্শিত হয়েছে</string>
@@ -197,9 +200,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_artist_cards_title">আর্টিস্ট কার্ড লুকান</string>
   <string name="revanced_hide_artist_cards_summary_on">আর্টিস্ট কার্ড লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_artist_cards_summary_off">আর্টিস্ট কার্ড প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_chips_shelf_title">চিপ শেলপ লুকান</string>
-  <string name="revanced_hide_chips_shelf_summary_on">চিপ শেলপ লুকিয়ে রয়েছে</string>
-  <string name="revanced_hide_chips_shelf_summary_off">চিপ শেলপ প্রদর্শিত হয়েছে</string>
   <string name="revanced_hide_attributes_section_title">বৈশিষ্ট্য বিভাগ লুকান</string>
   <string name="revanced_hide_attributes_section_summary_on">\'বৈশিষ্ট্যযুক্ত স্থান\', গেম এবং সঙ্গীত বিভাগগুলি লুকানো আছে</string>
   <string name="revanced_hide_attributes_section_summary_off">\'বৈশিষ্ট্যযুক্ত স্থান\', গেম এবং সঙ্গীত বিভাগগুলি প্রদর্শিত হয়েছে</string>
@@ -535,9 +535,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">অবস্থান লেবেল লুকান</string>
   <string name="revanced_hide_shorts_location_label_summary_on">অবস্থান লেবেল লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_shorts_location_label_summary_off">অবস্থান লেবেল প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">প্লেলিস্টে সাউন্ড সংরক্ষণ করুন বোতাম লুকান</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">প্লেলিস্টে সাউন্ড সংরক্ষণ করুন বোতাম লুকিয়ে রয়েছে</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">প্লেলিস্টে সাউন্ড সংরক্ষণ করুন বোতাম প্রদর্শিত হয়েছে</string>
   <string name="revanced_hide_shorts_search_suggestions_title">অনুসন্ধান পরামর্শগুলি লুকান</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">অনুসন্ধান পরামর্শগুলি লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">অনুসন্ধান পরামর্শগুলি প্রদর্শিত হয়েছে</string>
