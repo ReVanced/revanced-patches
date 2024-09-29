@@ -22,7 +22,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="4dp"
-        android:layout_toStartOf="@+id/player_additional_view_container"
+        android:layout_toStartOf="@id/music_app_deeplink_button"
         android:padding="@dimen/controls_overlay_action_button_padding"
         android:src="@drawable/revanced_sb_logo" />
 </RelativeLayout>

@@ -1,7 +1,6 @@
 package app.revanced.patches.youtube.misc.playercontrols
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.DomFileEditor
@@ -69,29 +68,17 @@ object PlayerControlsResourcePatch : ResourcePatch(), Closeable {
             resourceContext.xmlEditor[hostingResourceStream],
             editor,
         ).use {
-            val document = editor.file
-            val children = document.getElementsByTagName("RelativeLayout").item(0).childNodes
+            val element = editor.file.childNodes.findElementByAttributeValueOrThrow(
+                "android:id",
+                "@id/player_video_heading"
+            )
 
-            // Replace the startOf with the voting button view so that the button does not overlap
-            for (index in 1 until children.length) {
-                val view = children.item(index)
-
-                // FIXME: This uses hard coded values that only works with SponsorBlock.
-                // If other top buttons are added by other patches, this code must be changed.
-                if (view.hasAttributes() && view.attributes.getNamedItem("android:id")
-                        .nodeValue.endsWith("live_chat_overlay_button")
-                ) {
-                    // voting button id from the voting button view from the youtube_controls_layout.xml host file
-                    val votingButtonId = "@+id/revanced_sb_voting_button"
-                    view.attributes.getNamedItem("android:layout_toStartOf").nodeValue =
-                        votingButtonId
-
-                    return
-                }
-            }
+            // FIXME: This uses hard coded values that only works with SponsorBlock.
+            // If other top buttons are added by other patches, this code must be changed.
+            // voting button id from the voting button view from the youtube_controls_layout.xml host file
+            val votingButtonId = "@+id/revanced_sb_voting_button"
+            element.attributes.getNamedItem("android:layout_toStartOf").nodeValue = votingButtonId
         }
-
-        throw PatchException("Could not find expected xml to modify")
     }
 
     /**
