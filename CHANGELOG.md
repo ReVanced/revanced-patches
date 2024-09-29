@@ -1,3 +1,10 @@
+# [4.16.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.16.0-dev.2...v4.16.0-dev.3) (2024-09-29)
+
+
+### Features
+
+* **Google Photos:** Restore hidden 'Back up while charging' toggle ([#3678](https://github.com/ReVanced/revanced-patches/issues/3678)) ([f9e19ce](https://github.com/ReVanced/revanced-patches/commit/f9e19ce6e9185fdf31b2b0d5f2934f6e8a544b8e))
+
 # [4.16.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.16.0-dev.1...v4.16.0-dev.2) (2024-09-28)
 
 
