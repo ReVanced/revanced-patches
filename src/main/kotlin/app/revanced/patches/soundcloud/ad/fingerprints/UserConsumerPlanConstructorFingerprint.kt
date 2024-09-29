@@ -8,7 +8,4 @@ internal object UserConsumerPlanConstructorFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     parameters = listOf("Ljava/lang/String;", "Z", "Ljava/lang/String;", "Ljava/util/List;", "Ljava/lang/String;", "Ljava/lang/String;"),
-    customFingerprint = { _, classDef ->
-        classDef.sourceFile == "UserConsumerPlan.kt"
-    },
 )
