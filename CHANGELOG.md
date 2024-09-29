@@ -1,3 +1,10 @@
+# [4.16.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v4.16.0-dev.4...v4.16.0-dev.5) (2024-09-29)
+
+
+### Features
+
+* **YouTube - Disable precise seeking gesture:** Hide "pull up" label that shows up when swiping ([#3668](https://github.com/ReVanced/revanced-patches/issues/3668)) ([3fa8af9](https://github.com/ReVanced/revanced-patches/commit/3fa8af9fe534b59ad093c36f1927f56f549a330d))
+
 # [4.16.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.16.0-dev.3...v4.16.0-dev.4) (2024-09-29)
 
 
