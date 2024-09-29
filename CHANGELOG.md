@@ -1,3 +1,10 @@
+# [4.16.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.16.0-dev.3...v4.16.0-dev.4) (2024-09-29)
+
+
+### Bug Fixes
+
+* **Soundcloud:** Support latest versions ([#3702](https://github.com/ReVanced/revanced-patches/issues/3702)) ([099ac5e](https://github.com/ReVanced/revanced-patches/commit/099ac5ea2cf55633a7c6a7e6f8e963599bcd5784))
+
 # [4.16.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.16.0-dev.2...v4.16.0-dev.3) (2024-09-29)
 
 
