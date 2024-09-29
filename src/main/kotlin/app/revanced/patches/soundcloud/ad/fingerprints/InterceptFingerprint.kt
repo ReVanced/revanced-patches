@@ -14,8 +14,4 @@ internal object InterceptFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT
     ),
     strings = listOf("SC-Mob-UserPlan", "Configuration"),
-    customFingerprint = { _, classDef ->
-        classDef.sourceFile == "ApiUserPlanInterceptor.java" ||
-        classDef.sourceFile == "ApiUserPlanInterceptor.kt"
-    },
 )
