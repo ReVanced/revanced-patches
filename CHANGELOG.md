@@ -1,3 +1,22 @@
+# [4.16.0](https://github.com/ReVanced/revanced-patches/compare/v4.15.0...v4.16.0) (2024-09-30)
+
+
+### Bug Fixes
+
+* **Soundcloud:** Support latest versions ([#3702](https://github.com/ReVanced/revanced-patches/issues/3702)) ([099ac5e](https://github.com/ReVanced/revanced-patches/commit/099ac5ea2cf55633a7c6a7e6f8e963599bcd5784))
+* **Twitter - Open links with app chooser:** Fix incorrect version in compatibility list ([#3683](https://github.com/ReVanced/revanced-patches/issues/3683)) ([adafe85](https://github.com/ReVanced/revanced-patches/commit/adafe85d77f6a0031a5523b9b7da69475959d78d))
+* **YouTube - SponsorBlock:** Fade out SB buttons without overlapping other buttons ([#3719](https://github.com/ReVanced/revanced-patches/issues/3719)) ([bf96108](https://github.com/ReVanced/revanced-patches/commit/bf9610894f0a9f9e751e2eed5b825c5d327a722c))
+* **YouTube:** Show video chapter titles without clipping when overlay buttons are enabled ([#3674](https://github.com/ReVanced/revanced-patches/issues/3674)) ([4b88c31](https://github.com/ReVanced/revanced-patches/commit/4b88c316ed90c56e83e2aee266561833b36fc37d))
+
+
+### Features
+
+* **Google Photos:** Restore hidden 'Back up while charging' toggle ([#3678](https://github.com/ReVanced/revanced-patches/issues/3678)) ([f9e19ce](https://github.com/ReVanced/revanced-patches/commit/f9e19ce6e9185fdf31b2b0d5f2934f6e8a544b8e))
+* **YouTube - Disable precise seeking gesture:** Hide "pull up" label that shows up when swiping ([#3668](https://github.com/ReVanced/revanced-patches/issues/3668)) ([3fa8af9](https://github.com/ReVanced/revanced-patches/commit/3fa8af9fe534b59ad093c36f1927f56f549a330d))
+* **YouTube - Hide Shorts components:** Add `Hide save music`, `Hide stickers` ([#3710](https://github.com/ReVanced/revanced-patches/issues/3710)) ([8c99321](https://github.com/ReVanced/revanced-patches/commit/8c99321df4db696156330fc90dd547c1345d880e))
+* **YouTube - Hide Shorts components:** Add patch option to hide Shorts app shortcut (long press app icon) ([#3699](https://github.com/ReVanced/revanced-patches/issues/3699)) ([0d4e1f5](https://github.com/ReVanced/revanced-patches/commit/0d4e1f5d03cf3dcc06fd41165e26a1ce901b976b))
+* **YouTube - Hide Shorts components:** Add patch option to hide Shorts from app launcher widget Beta ([#3707](https://github.com/ReVanced/revanced-patches/issues/3707)) ([838f183](https://github.com/ReVanced/revanced-patches/commit/838f1834a5df547ce2c3217b874c0594b6878a67))
+
 # [4.16.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v4.16.0-dev.6...v4.16.0-dev.7) (2024-09-29)
 
 
