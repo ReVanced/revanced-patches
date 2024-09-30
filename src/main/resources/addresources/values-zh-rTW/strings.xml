@@ -34,7 +34,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <app id="shared">
   <patch id="misc.checks.BaseCheckEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">檢查失敗</string>
-  <string name="revanced_check_environment_dialog_open_official_source_button">打開官方網站</string>
+  <string name="revanced_check_environment_dialog_open_official_source_button">開啟官方網站</string>
   <string name="revanced_check_environment_dialog_ignore_button">忽略</string>
   <string name="revanced_check_environment_failed_message">&lt;h5&gt;此應用程式似乎並非由您修補。&lt;/h5&gt;&lt;br&gt;該應用程式可能無法正常運作，&lt;b&gt;可能有害甚至存在危險。&lt;/b&gt;&lt;br&gt;&lt;br&gt;這些檢查表明該應用程式是預先修補的或來自其他來源：&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;強烈建議&lt;b&gt;解除安裝此應用程式並自行修補&lt;/b&gt;，以確保您使用的是經過驗證且安全的應用程式。&lt;p&gt;&lt;br&gt;如果忽略，此警告僅會顯示兩次。</string>
   <string name="revanced_check_environment_not_same_patching_device">在其他裝置上修補</string>
@@ -44,7 +44,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK 構建日期已損壞</string>
   </patch>
   <patch id="misc.settings.BaseSettingsResourcePatch">
-  <string name="revanced_settings_confirm_user_dialog_title">您想繼續嗎?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">確定要繼續嗎？</string>
   <string name="revanced_settings_reset">重設</string>
   <string name="revanced_settings_restart_title">套用並重新啟動</string>
   <string name="revanced_settings_restart">重新啟動</string>
@@ -68,7 +68,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="gms_core_dialog_title">需要採取行動</string>
   <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">MicroG GmsCore 沒有在背景執行的權限。\n\n請遵循適用於您手機的「Don\'t kill my app」嚮導，並將這些說明套用到您的 MicroG 安裝中。\n\n這是讓應用程式執行所必需做的。</string>
   <string name="gms_core_dialog_open_website_text">開啟網站</string>
-  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">請務必停用 MicroG GmsCore  的最佳化電池以避免意外問題。\n\n點擊繼續按鈕並停用最佳化電池。</string>
+  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">請務必停用 MicroG GmsCore 的最佳化電池以避免意外問題。\n\n輕觸 [繼續] 並停用最佳化電池。</string>
   <string name="gms_core_dialog_continue_text">繼續</string>
   </patch>
   </app>
@@ -80,17 +80,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_03_feed_title">動態消息</string>
   <string name="revanced_settings_screen_04_player_title">播放器</string>
   <string name="revanced_settings_screen_05_general_title">通用版面</string>
-  <string name="revanced_settings_screen_07_seekbar_title">進度條</string>
+  <string name="revanced_settings_screen_07_seekbar_title">拖拽欄</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">滑動控制</string>
   <string name="revanced_settings_screen_11_misc_title">其他</string>
   <string name="revanced_settings_screen_12_video_title">影片</string>
   </patch>
   <patch id="misc.debugging.DebuggingPatch">
-  <string name="revanced_debug_screen_title">除錯</string>
-  <string name="revanced_debug_screen_summary">啟用或停用除錯選項</string>
-  <string name="revanced_debug_title">除錯記錄檔</string>
-  <string name="revanced_debug_summary_on">已啟用除錯記錄檔</string>
-  <string name="revanced_debug_summary_off">已停用除錯記錄檔</string>
+  <string name="revanced_debug_screen_title">偵錯</string>
+  <string name="revanced_debug_screen_summary">啟用或停用偵錯選項</string>
+  <string name="revanced_debug_title">偵錯記錄檔</string>
+  <string name="revanced_debug_summary_on">已啟用偵錯記錄檔</string>
+  <string name="revanced_debug_summary_off">已停用偵錯記錄檔</string>
   <string name="revanced_debug_protobuffer_title">記錄檔協議緩衝區</string>
   <string name="revanced_debug_protobuffer_summary_on">除錯記錄檔會包含協議緩衝資訊</string>
   <string name="revanced_debug_protobuffer_summary_off">除錯記錄檔不會包含協議緩衝資訊</string>
@@ -147,6 +147,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_guidelines_title">隱藏頻道規範</string>
   <string name="revanced_hide_channel_guidelines_summary_on">已隱藏頻道規範</string>
   <string name="revanced_hide_channel_guidelines_summary_off">已顯示頻道規範</string>
+  <string name="revanced_hide_chips_shelf_title">隱藏章節櫃</string>
+  <string name="revanced_hide_chips_shelf_summary_on">已隱藏章節櫃</string>
+  <string name="revanced_hide_chips_shelf_summary_off">已顯示章節櫃</string>
   <string name="revanced_hide_expandable_chip_title">隱藏影片下方的章節選擇欄</string>
   <string name="revanced_hide_expandable_chip_summary_on">已隱藏影片下方的章節選擇欄</string>
   <string name="revanced_hide_expandable_chip_summary_off">已顯示影片下方的章節選擇欄</string>
@@ -207,9 +210,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_artist_cards_title">隱藏藝人卡</string>
   <string name="revanced_hide_artist_cards_summary_on">已隱藏藝人卡</string>
   <string name="revanced_hide_artist_cards_summary_off">已顯示藝人卡</string>
-  <string name="revanced_hide_chips_shelf_title">隱藏章節櫃</string>
-  <string name="revanced_hide_chips_shelf_summary_on">已隱藏章節櫃</string>
-  <string name="revanced_hide_chips_shelf_summary_off">已顯示章節櫃</string>
   <string name="revanced_hide_attributes_section_title">隱藏屬性區</string>
   <string name="revanced_hide_attributes_section_summary_on">已隱藏「特色地點」、遊戲和音樂區</string>
   <string name="revanced_hide_attributes_section_summary_off">已顯示「特色地點」、遊戲和音樂區</string>
@@ -255,7 +255,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">關鍵字和詞組（以換行符分隔）\n\n關鍵字可以是頻道名稱或影片標題中顯示的任何文字\n\n中間帶有大寫字母的詞必須按照其大小寫格式輸入（例如：iPhone、TikTok、LeBlanc）</string>
   <string name="revanced_hide_keyword_content_about_title">關於關鍵字過濾</string>
-  <string name="revanced_hide_keyword_content_about_summary">主頁/訂閱/搜尋結果將過濾並隱藏符合關鍵字詞組的內容\n\n限制\n• 短片無法通過頻道名稱隱藏\n• 某些使用者介面元件可能無法被隱藏\n• 搜尋關鍵字時可能顯示無結果</string>
+  <string name="revanced_hide_keyword_content_about_summary">主頁 / 訂閱 / 搜尋結果將過濾並隱藏符合關鍵字詞組的內容\n\n限制\n• 短片無法通過頻道名稱隱藏\n• 某些使用者介面元件可能無法被隱藏\n• 搜尋關鍵字時可能顯示無結果</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">匹配整個詞彙</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">將關鍵字或詞組用雙引號括起來，可以防止影片標題和頻道名稱的部分匹配&lt;br&gt;&lt;br&gt;例如：&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; 會隱藏影片：&lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;但不會隱藏：&lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
@@ -529,8 +529,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_section_summary_on">已隱藏留言區塊</string>
   <string name="revanced_hide_comments_section_summary_off">已顯示留言區塊</string>
   <string name="revanced_hide_comments_create_a_short_button_title">隱藏「建立 Short」按鈕</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">「建立 Short」按鈕已隱藏</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">「建立 Short」按鈕已顯示</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">已隱藏「建立 Short」按鈕</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">已顯示「建立 Short」按鈕</string>
   <string name="revanced_hide_comments_preview_comment_title">隱藏留言預覽</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">已隱藏留言預覽</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">已顯示留言預覽</string>
@@ -627,12 +627,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">隱藏地區標籤</string>
   <string name="revanced_hide_shorts_location_label_summary_on">已隱藏地區標籤</string>
   <string name="revanced_hide_shorts_location_label_summary_off">已顯示地區標籤</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">隱藏儲存音訊到播放清單按鈕</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">已隱藏儲存音訊到播放清單按鈕</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">已顯示儲存音訊到播放清單按鈕</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">隱藏 [儲存音樂] 按鈕</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">已隱藏 [儲存音樂] 按鈕</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">已顯示 [顯示音樂] 按鈕</string>
   <string name="revanced_hide_shorts_search_suggestions_title">隱藏搜尋建議</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">已隱藏搜尋建議</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">已顯示搜尋建議</string>
+  <string name="revanced_hide_shorts_stickers_title">隱藏「Stickers」</string>
+  <string name="revanced_hide_shorts_stickers_summary_on">已隱藏「Stickers」</string>
+  <string name="revanced_hide_shorts_stickers_summary_off">已顯示「Stickers」</string>
   <string name="revanced_hide_shorts_like_button_title">隱藏「喜歡」按鈕</string>
   <string name="revanced_hide_shorts_like_button_summary_on">已隱藏「喜歡」按鈕</string>
   <string name="revanced_hide_shorts_like_button_summary_off">已顯示「喜歡」按鈕</string>
@@ -980,14 +983,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_entry_5">現代樣式 2</string>
   <string name="revanced_miniplayer_type_entry_6">現代樣式 3</string>
   <string name="revanced_miniplayer_hide_expand_close_title">隱藏擴展和關閉按鈕</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">按鈕已隱藏\n（滑動迷你播放器以擴展或關閉）</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">擴展和關閉按鈕已顯示</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">已隱藏按鈕\n（滑動迷你播放器以擴展或關閉）</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">已顯示擴展和關閉按鈕</string>
   <string name="revanced_miniplayer_hide_subtext_title">隱藏副標</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">副標已隱藏</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">副標已顯示</string>
   <string name="revanced_miniplayer_hide_rewind_forward_title">隱藏快轉和倒帶按鈕</string>
-  <string name="revanced_miniplayer_hide_rewind_forward_summary_on">快轉和倒帶按鈕已隱藏</string>
-  <string name="revanced_miniplayer_hide_rewind_forward_summary_off">快轉和倒帶按鈕已顯示</string>
+  <string name="revanced_miniplayer_hide_rewind_forward_summary_on">已隱藏快轉和倒帶按鈕</string>
+  <string name="revanced_miniplayer_hide_rewind_forward_summary_off">已顯示快轉和倒帶按鈕</string>
   <string name="revanced_miniplayer_opacity_title">覆蓋層不透明度</string>
   <string name="revanced_miniplayer_opacity_summary">不透明度值介於 0-100 之間，0 為透明</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">迷你播放器覆蓋層的不透明度必須在 0-100 之間</string>
@@ -1052,7 +1055,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
   <string name="revanced_check_watch_history_domain_name_dialog_title">警告</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">你的觀看記錄未被保存。&lt;br&gt;&lt;br&gt;這很可能是由於 DNS 廣告封鎖器或網路代理所導致。&lt;br&gt;&lt;br&gt;若要解決此問題，請將 &lt;b&gt;s.youtube.com&lt;/b&gt; 加入白名單，或關閉所有 DNS 封鎖器和代理。</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">你的觀看記錄未被儲存。&lt;br&gt;&lt;br&gt;這很可能是由於 DNS 廣告封鎖器或網路代理所導致。&lt;br&gt;&lt;br&gt;若要解決此問題，請將 &lt;b&gt;s.youtube.com&lt;/b&gt; 加入白名單，或關閉所有 DNS 封鎖器和代理。</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">不要再顯示</string>
   </patch>
   <patch id="misc.autorepeat.AutoRepeatPatch">
@@ -1130,10 +1133,22 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_off">未啟用滑動預覽</string>
   </patch>
   <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">欺騙影片串流</string>
+  <string name="revanced_spoof_video_streams_screen_summary">欺騙用戶端影片串流以避免播放問題</string>
+  <string name="revanced_spoof_video_streams_title">欺騙影片串流</string>
+  <string name="revanced_spoof_video_streams_summary_on">已欺騙影片串流</string>
+  <string name="revanced_spoof_video_streams_summary_off">未欺騙影片串流\n\n可能無法播放影片</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">關閉此設定可能會導致影片播放發生問題</string>
+  <string name="revanced_spoof_video_streams_client_title">預設用戶端</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">強制 AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">影片編碼器為 AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">影片編碼器為 VP9 或 AV1</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">您的裝置不支援 VP9 硬體解碼，當啟用用戶端欺騙時，此設定將始終保持開啟</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">啟用此功能可能會改善電池續航力並修復播放卡頓問題。\n\nAVC 的最大解析度為 1080p，且影片播放將使用比 VP9 或 AV1 更多的網路數據。</string>
-  <string name="revanced_spoof_video_streams_about_ios_title">iOS 偽裝副作用</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR 偽裝副作用</string>
+  <string name="revanced_spoof_video_streams_about_ios_title">iOS 欺騙副作用</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• 電影或付費影片可能無法播放\n• 直播從頭開始播放\n• 影片可能會提前 1 秒結束\n• 無 opus 音訊編解碼器</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR 欺騙副作用</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• 音訊軌道選單缺失\n• 穩定音量不可用</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

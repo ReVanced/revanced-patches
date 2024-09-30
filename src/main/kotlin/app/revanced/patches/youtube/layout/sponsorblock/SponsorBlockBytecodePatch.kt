@@ -10,7 +10,6 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
 import app.revanced.patches.youtube.layout.sponsorblock.fingerprints.AppendTimeFingerprint
 import app.revanced.patches.youtube.layout.sponsorblock.fingerprints.ControlsOverlayFingerprint
 import app.revanced.patches.youtube.layout.sponsorblock.fingerprints.RectangleFieldInvalidatorFingerprint
@@ -26,7 +25,10 @@ import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import app.revanced.patches.youtube.video.videoid.VideoIdPatch
 import app.revanced.util.exception
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.*
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.Instruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -169,59 +171,14 @@ object SponsorBlockBytecodePatch : BytecodePatch(
             break
         }
 
-        /*
-         * Voting & Shield button
-         */
-        val controlsMethodResult = PlayerControlsBytecodePatch.showPlayerControlsFingerprintResult
+        // Change visibility of the buttons.
+        PlayerControlsBytecodePatch.initializeTopControl(INTEGRATIONS_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR)
+        PlayerControlsBytecodePatch.injectVisibilityCheckCall(INTEGRATIONS_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR)
 
-        val controlsLayoutStubResourceId =
-            ResourceMappingPatch["id", "controls_layout_stub"]
-        val zoomOverlayResourceId =
-            ResourceMappingPatch["id", "video_zoom_overlay_stub"]
+        PlayerControlsBytecodePatch.initializeTopControl(INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR)
+        PlayerControlsBytecodePatch.injectVisibilityCheckCall(INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR)
 
-        methods@ for (method in controlsMethodResult.mutableClass.methods) {
-            val instructions = method.implementation?.instructions!!
-            instructions@ for ((index, instruction) in instructions.withIndex()) {
-                // search for method which inflates the controls layout view
-                if (instruction.opcode != Opcode.CONST) continue@instructions
-
-                when ((instruction as NarrowLiteralInstruction).wideLiteral) {
-                    controlsLayoutStubResourceId -> {
-                        // replace the view with the YouTubeControlsOverlay
-                        val moveResultInstructionIndex = index + 5
-                        val inflatedViewRegister =
-                            (instructions[moveResultInstructionIndex] as OneRegisterInstruction).registerA
-                        // initialize with the player overlay object
-                        method.addInstructions(
-                            moveResultInstructionIndex + 1, // insert right after moving the view to the register and use that register
-                            """
-                                invoke-static {v$inflatedViewRegister}, $INTEGRATIONS_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->initialize(Landroid/view/View;)V
-                                invoke-static {v$inflatedViewRegister}, $INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->initialize(Landroid/view/View;)V
-                            """,
-                        )
-                    }
-
-                    zoomOverlayResourceId -> {
-                        val invertVisibilityMethod =
-                            context.toMethodWalker(method).nextMethod(index - 6, true).getMethod() as MutableMethod
-                        // change visibility of the buttons
-                        invertVisibilityMethod.addInstructions(
-                            0,
-                            """
-                                invoke-static {p1}, $INTEGRATIONS_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->changeVisibilityNegatedImmediate(Z)V
-                                invoke-static {p1}, $INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->changeVisibilityNegatedImmediate(Z)V
-                            """.trimIndent(),
-                        )
-                    }
-                }
-            }
-        }
-
-        // change visibility of the buttons
-        PlayerControlsBytecodePatch.injectVisibilityCheckCall("$INTEGRATIONS_CREATE_SEGMENT_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->changeVisibility(Z)V")
-        PlayerControlsBytecodePatch.injectVisibilityCheckCall("$INTEGRATIONS_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR->changeVisibility(Z)V")
-
-        // append the new time to the player layout
+        // Append the new time to the player layout.
         val appendTimeFingerprintResult = AppendTimeFingerprint.result!!
         val appendTimePatternScanStartIndex = appendTimeFingerprintResult.scanResult.patternScanResult!!.startIndex
         val targetRegister =

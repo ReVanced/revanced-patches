@@ -87,7 +87,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.debugging.DebuggingPatch">
   <string name="revanced_debug_screen_title">Debugging</string>
-  <string name="revanced_debug_screen_summary">Mengaktifkan atau menonaktifkan opsi debugging</string>
+  <string name="revanced_debug_screen_summary">Menyalakan atau mematikan opsi debugging</string>
   <string name="revanced_debug_title">Catatan debug</string>
   <string name="revanced_debug_summary_on">Log debug diaktifkan</string>
   <string name="revanced_debug_summary_off">Log debug dinonaktifkan</string>
@@ -100,7 +100,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_debug_toast_on_error_title">Tampilkan pesan timbul error di ReVanced</string>
   <string name="revanced_debug_toast_on_error_summary_on">Pesan timbul ditampilkan jika terjadi kesalahan</string>
   <string name="revanced_debug_toast_on_error_summary_off">Pesan timbul tidak ditampilkan jika terjadi kesalahan</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">Menonaktifkan pesan timbul kesalahan akan menyembunyikan semua notifikasi kesalahan ReVanced.\n\nAnda tidak akan diberitahu tentang kejadian yang tidak terduga.</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">Menonaktifkan pemberitahuan kesalahan akan menyembunyikan semua notifikasi kesalahan ReVanced.\n\nAnda tidak akan diberitahu tentang kejadian yang tidak terduga.</string>
   </patch>
   <patch id="layout.hide.general.HideLayoutComponentsPatch">
   <string name="revanced_disable_like_subscribe_glow_title">Nonaktifkan kilau tombol suka / langganan</string>
@@ -109,11 +109,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_gray_separator_title">Sembunyikan pemisah abu-abu</string>
   <string name="revanced_hide_gray_separator_summary_on">Pemisah abu-abu disembunyikan</string>
   <string name="revanced_hide_gray_separator_summary_off">Pemisah abu-abu ditampilkan</string>
-  <string name="revanced_hide_channel_watermark_title">Sembunyikan watermark saluran</string>
+  <string name="revanced_hide_channel_watermark_title">Sembunyikan tanda air saluran</string>
   <string name="revanced_hide_channel_watermark_summary_on">Tanda air disembunyikan</string>
   <string name="revanced_hide_channel_watermark_summary_off">Tanda air ditampilkan</string>
   <string name="revanced_hide_horizontal_shelves_title">Sembunyikan rak mendatar</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">Rak berikut disembunyikan:\n• Berita sela\n• Lanjut menonton\n• Jelajahi saluran lain\n• Belanja\n• Tonton lagi</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">Rak disembunyikan seperti:\n• Berita terkini\n• Lanjut menonton\n• Jelajahi saluran lainnya\n• Belanja\n• Tonton lagi</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Rak ditampilkan</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
@@ -147,14 +147,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_guidelines_title">Sembunyikan Panduan Saluran</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Panduan saluran disembunyikan</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Panduan saluran ditampilkan</string>
+  <string name="revanced_hide_chips_shelf_title">Sembunyikan rak chip</string>
+  <string name="revanced_hide_chips_shelf_summary_on">Rak opsi deret disembunyikan</string>
+  <string name="revanced_hide_chips_shelf_summary_off">Rak chip ditampilkan</string>
   <string name="revanced_hide_expandable_chip_title">Sembunyikan opsi deret di bawah video</string>
   <string name="revanced_hide_expandable_chip_summary_on">Opsi deret disembunyikan</string>
   <string name="revanced_hide_expandable_chip_summary_off">Chip yang dapat diperluas ditampilkan</string>
   <string name="revanced_hide_video_quality_menu_footer_title">Sembunyikan footer menu kualitas video</string>
   <string name="revanced_hide_video_quality_menu_footer_summary_on">Footer menu kualitas video disembunyikan</string>
   <string name="revanced_hide_video_quality_menu_footer_summary_off">Footer menu kualitas video ditampilkan</string>
-  <string name="revanced_hide_community_posts_title">Sembunyikan post. komunitas</string>
-  <string name="revanced_hide_community_posts_summary_on">Post. komunitas disembunyikan</string>
+  <string name="revanced_hide_community_posts_title">Sembunyikan postingan komunitas</string>
+  <string name="revanced_hide_community_posts_summary_on">Postingan komunitas disembunyikan</string>
   <string name="revanced_hide_community_posts_summary_off">Postingan komunitas ditampilkan</string>
   <string name="revanced_hide_compact_banner_title">Sembunyikan spanduk ringkas</string>
   <string name="revanced_hide_compact_banner_summary_on">Spanduk ringkas disembunyikan</string>
@@ -198,8 +201,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_image_shelf_title">Sembunyikan rak gambar di pencarian</string>
   <string name="revanced_hide_image_shelf_summary_on">Rak gambar disembunyikan</string>
   <string name="revanced_hide_image_shelf_summary_off">Rak gambar ditampilkan</string>
-  <string name="revanced_hide_latest_posts_ads_title">Sembunyikan post. terbaru</string>
-  <string name="revanced_hide_latest_posts_ads_summary_on">Post. terbaru disembunyikan</string>
+  <string name="revanced_hide_latest_posts_ads_title">Sembunyikan postingan terbaru</string>
+  <string name="revanced_hide_latest_posts_ads_summary_on">Postingan terbaru disembunyikan</string>
   <string name="revanced_hide_latest_posts_ads_summary_off">Kiriman terbaru ditampilkan</string>
   <string name="revanced_hide_mix_playlists_title">Sembunyikan daftar putar campuran</string>
   <string name="revanced_hide_mix_playlists_summary_on">Daftar putar campuran disembunyikan</string>
@@ -207,9 +210,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_artist_cards_title">Sembunyikan kartu artis</string>
   <string name="revanced_hide_artist_cards_summary_on">Kartu artis disembunyikan</string>
   <string name="revanced_hide_artist_cards_summary_off">Kartu artis ditampilkan</string>
-  <string name="revanced_hide_chips_shelf_title">Sembunyikan rak chip</string>
-  <string name="revanced_hide_chips_shelf_summary_on">Rak opsi deret disembunyikan</string>
-  <string name="revanced_hide_chips_shelf_summary_off">Rak chip ditampilkan</string>
   <string name="revanced_hide_attributes_section_title">Sembunyikan bagian atribut</string>
   <string name="revanced_hide_attributes_section_summary_on">\'Tempat menonjol\', \'Permainan\', dan \'Musik\' disembunyikan</string>
   <string name="revanced_hide_attributes_section_summary_off">\'Tempat menonjol\', \'Permainan\', dan \'Musik\' ditampilkan</string>
@@ -289,15 +289,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shopping_links_summary_on">Tautan belanja disembunyikan</string>
   <string name="revanced_hide_shopping_links_summary_off">Tautan belanja ditampilkan</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Sembunyikan \'Lihat toko\' di laman saluran</string>
+  <string name="revanced_hide_visit_store_button_title">Sembunyikan tombol \'Lihat toko\' di laman saluran</string>
   <string name="revanced_hide_visit_store_button_summary_on">Tombol disembunyikan</string>
   <string name="revanced_hide_visit_store_button_summary_off">Tombol ditampilkan</string>
   <string name="revanced_hide_web_search_results_title">Sembunyikan hasil pencarian web</string>
   <string name="revanced_hide_web_search_results_summary_on">Hasil pencarian web disembunyikan</string>
   <string name="revanced_hide_web_search_results_summary_off">Hasil pencarian web ditampilkan</string>
-  <string name="revanced_hide_merchandise_banners_title">Sembunyikan banner merchandise</string>
+  <string name="revanced_hide_merchandise_banners_title">Sembunyikan spanduk barang dagangan</string>
   <string name="revanced_hide_merchandise_banners_summary_on">Banner merchandise disembunyikan</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">Banner merchandise ditampilkan</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">Spanduk barang dagangan ditampilkan</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Sembunyikan iklan layar penuh hanya berfungsi pada perangkat lama</string>
   </patch>
@@ -409,9 +409,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_download_button_summary_on">Tombol download disembunyikan</string>
   <string name="revanced_hide_download_button_summary_off">Tombol download ditampilkan</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_thanks_button_title">Sembunyikan Thanks</string>
-  <string name="revanced_hide_thanks_button_summary_on">Tombol thanks disembunyikan</string>
-  <string name="revanced_hide_thanks_button_summary_off">Tombol thanks ditampilkan</string>
+  <string name="revanced_hide_thanks_button_title">Sembunyikan Terima kasih</string>
+  <string name="revanced_hide_thanks_button_summary_on">Tombol terima kasih disembunyikan</string>
+  <string name="revanced_hide_thanks_button_summary_off">Tombol terima kasih ditampilkan</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_clip_button_title">Sembunyikan Klip</string>
   <string name="revanced_hide_clip_button_summary_on">Tombol klip disembunyikan</string>
@@ -458,7 +458,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_subscriptions_button_summary_off">Tombol subscription ditampilkan</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Ganti Buat dengan Notifikasi</string>
-  <string name="revanced_switch_create_with_notifications_button_summary_on">Tombol Buat diganti dengan tombol Pemberitahuan\n\nCatatan: Iklan video juga akan disembunyikan paksa</string>
+  <string name="revanced_switch_create_with_notifications_button_summary_on">Tombol buat diganti dengan tombol Pemberitahuan\n\nCatatan: Menyalakan ini juga secara paksa menyembunyikan iklan video</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Tombol buat tidak diganti dengan tombol Notifikasi</string>
   <string name="revanced_hide_navigation_button_labels_title">Sembunyikan label tombol navigasi</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Label disembunyikan</string>
@@ -535,8 +535,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_preview_comment_summary_on">Komentar pratinjau disembunyikan</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Komentar pratinjau ditampilkan</string>
   <string name="revanced_hide_comments_thanks_button_title">Sembunyikan \'terima kasih\'</string>
-  <string name="revanced_hide_comments_thanks_button_summary_on">Tmbl terima kasih disembunyikan</string>
-  <string name="revanced_hide_comments_thanks_button_summary_off">Tmbl terima kasih ditampilkan</string>
+  <string name="revanced_hide_comments_thanks_button_summary_on">Tombol terima kasih disembunyikan</string>
+  <string name="revanced_hide_comments_thanks_button_summary_off">Tombol terima kasih ditampilkan</string>
   <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Sembunyikan timestamp dan tombol emoji</string>
   <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Tombol timestamp dan emoji disembunyikan</string>
   <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Tombol timestamp dan emoji ditampilkan</string>
@@ -627,15 +627,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">Sembunyikan label lokasi</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Label lokasi disembunyikan</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Label lokasi ditampilkan</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Sembunyikan tombol simpan suara ke daftar putar</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Simpan suara ke daftar putar disembunyikan</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Simpan suara ke daftar putar ditampilkan</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_title">Sembunyikan gunakan tombol suara ini</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">Gunakan tombol suara ini disembunyikan</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">Gunakan tombol suara ini ditampilkan</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Sembunyikan tombol simpan musik</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">Simpan musik disembunyikan</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">Simpan musik ditampilkan</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Sembunyikan saran penelusuran</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Saran penelusuran disembunyikan</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Saran penelusuran ditampilkan</string>
+  <string name="revanced_hide_shorts_stickers_title">Sembunyikan stiker</string>
+  <string name="revanced_hide_shorts_stickers_summary_on">Stiker disembunyikan</string>
+  <string name="revanced_hide_shorts_stickers_summary_off">Stiker ditampilkan</string>
   <string name="revanced_hide_shorts_like_button_title">Sembunyikan tombol suka</string>
   <string name="revanced_hide_shorts_like_button_summary_on">Tombol suka disembunyikan</string>
   <string name="revanced_hide_shorts_like_button_summary_off">Tombol suka ditampilkan</string>
@@ -872,7 +872,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_submit_failed_duplicate">Tidak dapat mengirim segmen.\nSudah ada</string>
   <string name="revanced_sb_submit_succeeded">Segmen berhasil terkirim</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
-  <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock sementara tidak tersedia (API timed out).</string>
+  <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock tidak tersedia (API kehabisan waktu)</string>
   <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock sementara tidak tersedia (status %d)</string>
   <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock sementara tidak tersedia</string>
   <string name="revanced_sb_vote_failed_timeout">Tidak dapat memilih segmen (API timed out)</string>
@@ -894,7 +894,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_confirm_title">Apakah waktunya benar?</string>
   <string name="revanced_sb_new_segment_confirm_content">Segmen dari\n\n%1$s\nke\n%2$s\n\n(%3$s)\n\nSiap dikirim?</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Awal harus sebelum akhir</string>
-  <string name="revanced_sb_new_segment_mark_locations_first">Tandai terlebih dahulu dua lokasi di kotak waktu</string>
+  <string name="revanced_sb_new_segment_mark_locations_first">Tandai dua lokasi pada bilah waktu terlebih dahulu</string>
   <string name="revanced_sb_new_segment_preview_segment_first">Pratinjau segmen, dan memastikan segmen dilewati dengan lancar</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Atur pengaturan tempo segmen secara manual</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Apakah Anda ingin mengubah tempo untuk awal atau akhir dari segmen?</string>
@@ -1047,8 +1047,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.announcements.AnnouncementsPatch">
   <string name="revanced_announcements_title">Tampilkan pengumuman ReVanced</string>
-  <string name="revanced_announcements_summary_on">Pengumuman dimunculkan di awal buka</string>
-  <string name="revanced_announcements_summary_off">Pengumuman tidak dimunculkan di awal buka</string>
+  <string name="revanced_announcements_summary_on">Pengumuman ditampilkan saat memulai</string>
+  <string name="revanced_announcements_summary_off">Pengumuman tidak ditampilkan saat memulai</string>
   <string name="revanced_announcements_enabled_summary">Tampilkan pengumuman di awal buka</string>
   <string name="revanced_announcements_connection_failed">Gagal menghubungkan ke penyedia pengumuman</string>
   <string name="revanced_announcements_dialog_dismiss">Abaikan</string>
@@ -1065,9 +1065,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.dimensions.spoof.SpoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Palsukan dimensi perangkat</string>
-  <string name="revanced_spoof_device_dimensions_summary_on">Dimensi perangkat dipalsukan\n\nAkan ada resolusi video lebih tinggi tapi video jadi patah-patah, baterai terkuras, dan efek samping tidak jelas</string>
+  <string name="revanced_spoof_device_dimensions_summary_on">Dimensi perangkat dipalsukan\n\nAkan ada resolusi video lebih tinggi tapi video menjadi patah-patah, baterai boros, dan efek lainnya yang tidak jelas</string>
   <string name="revanced_spoof_device_dimensions_summary_off">Dimensi perangkat tidak dipalsukan\n\nMengaktifkan ini akan ada resolusi video lebih tinggi</string>
-  <string name="revanced_spoof_device_dimensions_user_dialog_message">Mengaktifkan ini menyebabkan video jadi patah-patah, baterai terkuras, dan efek samping tidak jelas.</string>
+  <string name="revanced_spoof_device_dimensions_user_dialog_message">Mengaktifkan ini menyebabkan video jadi patah-patah, baterai boros, dan efek lainnya yang tidak jelas.</string>
   </patch>
   <patch id="misc.gms.GmsCoreSupportResourcePatch">
   <string name="microg_settings_title">Pengaturan GmsCore</string>
@@ -1139,16 +1139,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_summary_on">Aliran video dipalsukan</string>
   <string name="revanced_spoof_video_streams_summary_off">Aliran video tidak dipalsukan\n\nPemutaran video mungkin tidak berfungsi</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Mematikan pengaturan ini dapat menyebabkan masalah pemutaran video.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Klien bawaan</string>
+  <string name="revanced_spoof_video_streams_client_title">Klien bawaan</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Paksa AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Kodek video adalah AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodek video adalah VP9 atau AV1</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Perangkat Anda tidak memiliki dekode perangkat keras VP9, ​​dan pengaturan ini selalu aktif saat pemalsuan Klien diaktifkan</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Menyalakan ini dapat meningkatkan masa pakai baterai dan memperbaiki gangguan pemutaran.\n\nAVC memiliki resolusi maksimum 1080p, dan pemutaran video akan menggunakan lebih banyak data internet daripada VP9 atau AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Efek samping pemalsuan iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Film atau video berbayar mungkin tidak dapat diputar\n• Siaran langsung dimulai dari awal</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Film atau video berbayar mungkin tidak dapat diputar\n• Siaran langsung dimulai dari awal\n• Video mungkin berakhir 1 detik lebih awal\n• Tidak ada codec audio opus</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Efek samping pemalsuan Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Menu trek audio hilang</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Menu trek audio hilang\n• Volume stabil tidak tersedia</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

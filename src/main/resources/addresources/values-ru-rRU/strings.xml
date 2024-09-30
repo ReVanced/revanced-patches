@@ -148,6 +148,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_guidelines_title">Правила канала</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Правила канала в комментариях скрыты</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Правила канала в комментариях отображены</string>
+  <string name="revanced_hide_chips_shelf_title">Секция тегов видео</string>
+  <string name="revanced_hide_chips_shelf_summary_on">Секция тегов похожих видео под плеером скрыта</string>
+  <string name="revanced_hide_chips_shelf_summary_off">Секция тегов похожих видео под плеером отображена</string>
   <string name="revanced_hide_expandable_chip_title">Расширяемые фрагменты</string>
   <string name="revanced_hide_expandable_chip_summary_on">Расширяемые фрагменты под видео скрыты</string>
   <string name="revanced_hide_expandable_chip_summary_off">Расширяемые фрагменты под видео отображены</string>
@@ -208,9 +211,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_artist_cards_title">Карточки исполнителей</string>
   <string name="revanced_hide_artist_cards_summary_on">Карточки исполнителей скрыты</string>
   <string name="revanced_hide_artist_cards_summary_off">Карточки исполнителей отображены</string>
-  <string name="revanced_hide_chips_shelf_title">Секция тегов видео</string>
-  <string name="revanced_hide_chips_shelf_summary_on">Секция тегов похожих видео под плеером скрыта</string>
-  <string name="revanced_hide_chips_shelf_summary_off">Секция тегов похожих видео под плеером отображена</string>
   <string name="revanced_hide_attributes_section_title">Разделы атрибутов</string>
   <string name="revanced_hide_attributes_section_summary_on">Разделы \"Упомянутые или показанные места\", \"Игры\" и \"Музыка\" в описании видео скрыты</string>
   <string name="revanced_hide_attributes_section_summary_off">Разделы \"Упомянутые или показанные места\", \"Игры\" и \"Музыка\" в описании видео отображены</string>
@@ -628,15 +628,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">Метка местоположения</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Метка местоположения в Shorts скрыта</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Метка местоположения в Shorts отображена</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Кнопка \"Сохранить звук в плейлист\"</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Кнопка \"Сохранить звук в плейлист\" в Shorts скрыта</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Кнопка \"Сохранить звук в плейлист\" в Shorts отображена</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_title">Кнопка \"Использовать этот звук\"</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">Кнопка \"Использовать этот звук\" скрыта</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">Кнопка \"Использовать этот звук\" отображена</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Кнопка сохранения музыки</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">Кнопка сохранения музыки скрыта</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">Кнопка сохранения музыки отображена</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Поисковые подсказки</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Поисковые подсказки скрыты</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Поисковые подсказки отображены</string>
+  <string name="revanced_hide_shorts_stickers_title">Стикеры</string>
+  <string name="revanced_hide_shorts_stickers_summary_on">Стикеры скрыты</string>
+  <string name="revanced_hide_shorts_stickers_summary_off">Стикеры отображены</string>
   <string name="revanced_hide_shorts_like_button_title">Кнопка \"Лайк\"</string>
   <string name="revanced_hide_shorts_like_button_summary_on">Кнопка \"Лайк\" в Shorts скрыта</string>
   <string name="revanced_hide_shorts_like_button_summary_off">Кнопка \"Лайк\" в Shorts отображена</string>
@@ -1137,22 +1137,19 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_screen_title">Подмена видеопотоков</string>
   <string name="revanced_spoof_video_streams_screen_summary">Подмена видеопотоков клиента для предотвращения проблем с воспроизведением видео</string>
   <string name="revanced_spoof_video_streams_title">Подмена видеопотоков</string>
-  <string name="revanced_spoof_video_streams_summary_on">Подмена видеопотоков включена</string>
-  <string name="revanced_spoof_video_streams_summary_off">Подмена видеопотоков отключена.
-Воспроизведение видео может не работать</string>
+  <string name="revanced_spoof_video_streams_summary_on">Видеопотоки подменены</string>
+  <string name="revanced_spoof_video_streams_summary_off">Видеопотоки не подменены\n\nВоспроизведение видео может не работать</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Отключение этой настройки может вызвать проблемы с воспроизведением видео.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Клиент по умолчанию</string>
+  <string name="revanced_spoof_video_streams_client_title">Клиент по умолчанию</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Принудительно AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Видеокодек AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Видеокодек VP9 или AV1</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">На вашем устройстве нет аппаратного декодирования VP9, и эта настройка всегда включена, когда включена подмена видеопотоков</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Включение - может улучшить время работы батареи и исправить задержки воспроизведения.
-
-AVC макс. разрешение 1080p, и будет использоваться больше интернет данных, чем VP9 или AV1.</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">На вашем устройстве нет аппаратного декодирования VP9, и эта настройка всегда включена при активной подмене клиента</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Включение данной настройки может улучшить время работы батареи и исправить задержки воспроизведения.\n\nAVC имеет максимальное разрешение 1080p, воспроизведение видео будет использовать больше интернет данных в сравнении с VP9 или AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Побочные эффекты подмены на iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Фильмы или платные видео могут не воспроизводиться\n• Прямые трансляции начинаются с самого начала</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Фильмы или платные видео могут не воспроизводиться\n• Прямые трансляции начинаются с самого начала\n• Видео может закончиться на 1 секунду раньше\n• Отсутствует аудиокодек opus</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Побочные эффекты подмены на Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Отсутствует меню аудиодорожки</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Пункт меню \"Звуковая дорожка\" отсутствует\n• Пункт меню \"Постоянный уровень громкости\" недоступен</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

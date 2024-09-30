@@ -147,6 +147,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_guidelines_title">Ascunde ghidurile canalelor</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Regulile canalului sunt ascunse</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Ghidul canalului este afișat</string>
+  <string name="revanced_hide_chips_shelf_title">Ascunde raftul cipurilor</string>
+  <string name="revanced_hide_chips_shelf_summary_on">Raftul cipurilor este ascuns</string>
+  <string name="revanced_hide_chips_shelf_summary_off">Se afișează raftul cipurilor</string>
   <string name="revanced_hide_expandable_chip_title">Ascunde cipul expandabil sub videoclipuri</string>
   <string name="revanced_hide_expandable_chip_summary_on">Cipurile expandabile sunt ascunse</string>
   <string name="revanced_hide_expandable_chip_summary_off">Cipurile expandabile sunt afișate</string>
@@ -207,9 +210,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_artist_cards_title">Ascunde cărțile artistului</string>
   <string name="revanced_hide_artist_cards_summary_on">Cartonaşele artistice sunt ascunse</string>
   <string name="revanced_hide_artist_cards_summary_off">Cardurile artistului sunt afișate</string>
-  <string name="revanced_hide_chips_shelf_title">Ascunde raftul cipurilor</string>
-  <string name="revanced_hide_chips_shelf_summary_on">Raftul cipurilor este ascuns</string>
-  <string name="revanced_hide_chips_shelf_summary_off">Se afișează raftul cipurilor</string>
   <string name="revanced_hide_attributes_section_title">Ascunde secțiunea atributelor</string>
   <string name="revanced_hide_attributes_section_summary_on">Secțiunile de jocuri și muzică sunt ascunse</string>
   <string name="revanced_hide_attributes_section_summary_off">\'Locuri recomandate\', secțiunile de jocuri și muzică sunt afișate</string>
@@ -627,15 +627,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">Ascunde eticheta locației</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Eticheta locației este ascunsă</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Eticheta locației este afișată</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Ascunde sunetul de salvare în butonul de redare</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Salvarea sunetului în lista de redare este ascunsă</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Salvarea sunetului în lista de redare este afișată</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_title">Ascunde butonul de sunet</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">Utilizaţi acest buton de sunet este ascuns</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">Utilizaţi acest buton de sunet este afișat</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Ascunde butonul de salvare a muzicii</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">Salvarea muzicii este ascunsă</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">Salvarea muzicii este afișată</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Ascunde sugestiile de căutare</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Sugestiile de căutare sunt ascunse</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Sugestiile de căutare sunt afișate</string>
+  <string name="revanced_hide_shorts_stickers_title">Ascunde autocolante</string>
+  <string name="revanced_hide_shorts_stickers_summary_on">Stickerele sunt ascunse</string>
+  <string name="revanced_hide_shorts_stickers_summary_off">Stickerele sunt afișate</string>
   <string name="revanced_hide_shorts_like_button_title">Ascunde butonul similar</string>
   <string name="revanced_hide_shorts_like_button_summary_on">Butonul Like este ascuns</string>
   <string name="revanced_hide_shorts_like_button_summary_off">Butonul Like este afișat</string>
@@ -1140,16 +1140,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_summary_on">Fluxurile video sunt falsificate</string>
   <string name="revanced_spoof_video_streams_summary_off">Fluxurile video nu sunt marcate cu\n\nEste posibil ca redarea video să nu funcționeze</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Dezactivarea acestei setări poate cauza probleme de redare video.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Client implicit</string>
+  <string name="revanced_spoof_video_streams_client_title">Client implicit</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Forțează AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Codecul video este AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Codecul video este VP9 sau AV1</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Dispozitivul dvs. nu are decodare hardware VP9 și această setare este întotdeauna activată atunci când este activată lingerea clientului</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Activarea acestei funcții ar putea îmbunătăți durata de viață a bateriei și repara blocajul de redare.\n\nAVC are o rezoluție maximă de 1080p, iar redarea video va folosi mai multe date internet decât VP9 sau AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Reacţii adverse de lingere iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmele sau videoclipurile plătite nu pot reda\n• Livestreams începe de la început</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Este posibil ca filmele sau videoclipurile plătite să nu redea\n• Livestream-urile încep de la începutul\n• Videoclipurile se pot termina cu 1 secundă\n• Nici un codec audio opus</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Reacţii adverse de spoofing Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Meniul piesei audio lipsește</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Meniul piesei audio lipsește\n• Volum stabil nu este disponibil</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

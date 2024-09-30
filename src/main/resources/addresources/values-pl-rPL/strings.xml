@@ -148,6 +148,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_guidelines_title">Ukryj wytyczne kanału</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Wytyczne kanału są ukryte</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Wytyczne kanału są wyświetlane</string>
+  <string name="revanced_hide_chips_shelf_title">Ukryj półkę chipów</string>
+  <string name="revanced_hide_chips_shelf_summary_on">Półka czipów jest ukryta</string>
+  <string name="revanced_hide_chips_shelf_summary_off">Półka na czipy jest pokazana</string>
   <string name="revanced_hide_expandable_chip_title">Ukryj rozszerzalny chipy pod filmami</string>
   <string name="revanced_hide_expandable_chip_summary_on">Rozwijalne chipy są ukryte</string>
   <string name="revanced_hide_expandable_chip_summary_off">Rozwijalne chipy są wyświetlane</string>
@@ -208,9 +211,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_artist_cards_title">Ukryj karty artystów</string>
   <string name="revanced_hide_artist_cards_summary_on">Karty wykonawcy są ukryte</string>
   <string name="revanced_hide_artist_cards_summary_off">Karty artystów są wyświetlane</string>
-  <string name="revanced_hide_chips_shelf_title">Ukryj półkę chipów</string>
-  <string name="revanced_hide_chips_shelf_summary_on">Półka czipów jest ukryta</string>
-  <string name="revanced_hide_chips_shelf_summary_off">Półka na czipy jest pokazana</string>
   <string name="revanced_hide_attributes_section_title">Ukryj sekcję atrybutów</string>
   <string name="revanced_hide_attributes_section_summary_on">Sekcje \'Polecane miejsca\', gry i muzyka są ukryte</string>
   <string name="revanced_hide_attributes_section_summary_off">Wyświetlane są sekcje \'Polecane miejsca\', gry i muzyka</string>
@@ -628,15 +628,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">Ukryj etykietę lokalizacji</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Etykieta lokalizacji jest ukryta</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Etykieta lokalizacji jest wyświetlana</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Ukryj dźwięk do przycisku playlisty</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Zapisz dźwięk na liście odtwarzania jest ukryty</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Zapisz dźwięk na liście odtwarzania</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_title">Ukryj ten przycisk dźwięku</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">Użyj tego przycisku dźwięku jest ukryty</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">Użyj tego przycisku dźwięku jest pokazany</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Ukryj przycisk zapisu muzyki</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">Zapisz muzykę ukrytą</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">Zapisz muzykę</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Ukryj sugestie wyszukiwania</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Sugestie wyszukiwania są ukryte</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Sugestie wyszukiwania są wyświetlane</string>
+  <string name="revanced_hide_shorts_stickers_title">Ukryj naklejki</string>
+  <string name="revanced_hide_shorts_stickers_summary_on">Naklejki są ukryte</string>
+  <string name="revanced_hide_shorts_stickers_summary_off">Naklejki są wyświetlane</string>
   <string name="revanced_hide_shorts_like_button_title">Ukryj przycisk polubień</string>
   <string name="revanced_hide_shorts_like_button_summary_on">Przycisk polubienia jest ukryty</string>
   <string name="revanced_hide_shorts_like_button_summary_off">Przycisk polubienia jest pokazany</string>
@@ -1141,16 +1141,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_summary_on">Strumienie wideo są spoofowane</string>
   <string name="revanced_spoof_video_streams_summary_off">Strumienie wideo nie jest spoofed\n\nOdtwarzanie wideo może nie działać</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Wyłączenie tego ustawienia może spowodować problemy z odtwarzaniem wideo.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Domyślny klient</string>
+  <string name="revanced_spoof_video_streams_client_title">Domyślny klient</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Siła AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Kodek wideo to AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodek wideo to VP9 lub AV1</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Twoje urządzenie nie posiada dekodowania VP9, a to ustawienie jest zawsze włączone, gdy spoofing klienta jest włączony</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Włączenie tego może poprawić żywotność baterii i naprawić stłuczenie odtwarzania.\n\nAVC ma maksymalną rozdzielczość 1080p, a odtwarzanie wideo wykorzysta więcej danych internetowych niż VP9 lub AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS spoofing działania niepożądane</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmy lub płatne filmy mogą nie odtwarzać\n• Livestreams zaczynają się od początku</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmy lub płatne filmy mogą nie odtwarzać\n• Livestreams zaczynają się od początku\n• Filmy mogą zakończyć się 1 sekundą na początku\n• Brak kodeka opus audio</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Działania niepożądane związane z systemem Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Brakuje menu ścieżki audio</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Brakuje menu ścieżki dźwiękowej\n• Stabilna głośność nie jest dostępna</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

@@ -148,6 +148,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_guidelines_title">Dölj kanalens riktlinjer</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Kanalriktlinjerna är dolda</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Kanalriktlinjer är synliga</string>
+  <string name="revanced_hide_chips_shelf_title">Dölj hylla för flis</string>
+  <string name="revanced_hide_chips_shelf_summary_on">Chips hylla är dold</string>
+  <string name="revanced_hide_chips_shelf_summary_off">Chipshyllan är synlig</string>
   <string name="revanced_hide_expandable_chip_title">Dölj utökningsbart chip under videor</string>
   <string name="revanced_hide_expandable_chip_summary_on">Utökningsbara marker är dolda</string>
   <string name="revanced_hide_expandable_chip_summary_off">Expanderbara marker är synliga</string>
@@ -208,9 +211,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_artist_cards_title">Dölj artistkort</string>
   <string name="revanced_hide_artist_cards_summary_on">Konstnärskort är dolda</string>
   <string name="revanced_hide_artist_cards_summary_off">Artistkort är synliga</string>
-  <string name="revanced_hide_chips_shelf_title">Dölj hylla för flis</string>
-  <string name="revanced_hide_chips_shelf_summary_on">Chips hylla är dold</string>
-  <string name="revanced_hide_chips_shelf_summary_off">Chipshyllan är synlig</string>
   <string name="revanced_hide_attributes_section_title">Dölj attributsektion</string>
   <string name="revanced_hide_attributes_section_summary_on">\'Utvalda platser\', Spel- och musiksektioner är dolda</string>
   <string name="revanced_hide_attributes_section_summary_off">\'Utvalda platser\', Spel- och musiksektioner visas</string>
@@ -628,15 +628,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">Dölj platsetikett</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Platsetiketten är dold</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Platsetikett är synlig</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Dölj spara ljud till spellistknappen</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Spara ljud till spellistan är dolt</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Spara ljud till spellistan är synlig</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_title">Dölj använda den här ljudknappen</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">Använd den här ljudknappen är dold</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">Använd den här ljudknappen visas</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Dölj spara musikknappen</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">Spara musik är dold</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">Spara musik visas</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Dölj sökförslag</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Sökförslag är dolda</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Sökförslag är synliga</string>
+  <string name="revanced_hide_shorts_stickers_title">Dölj klistermärken</string>
+  <string name="revanced_hide_shorts_stickers_summary_on">Klistermärken är dolda</string>
+  <string name="revanced_hide_shorts_stickers_summary_off">Klistermärken visas</string>
   <string name="revanced_hide_shorts_like_button_title">Dölj knappen gilla</string>
   <string name="revanced_hide_shorts_like_button_summary_on">Knappen gilla är dold</string>
   <string name="revanced_hide_shorts_like_button_summary_off">Knappen gilla är synlig</string>
@@ -1140,16 +1140,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_summary_on">Videoströmmar är förfalskade</string>
   <string name="revanced_spoof_video_streams_summary_off">Videoströmmar är inte förfalskade\n\nVideouppspelning kanske inte fungerar</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Att stänga av den här inställningen kan orsaka videouppspelningsproblem.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Standard klient</string>
+  <string name="revanced_spoof_video_streams_client_title">Standard klient</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Tvinga AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Videocodec är AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video-codec är VP9 eller AV1</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Din enhet har inte VP9 hårdvaruavkodning, och denna inställning är alltid på när klientförfalskning är aktiverad</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Aktivering av detta kan förbättra batteriets livslängd och åtgärda uppspelningshjälp.\n\nAVC har en maximal upplösning på 1080p, och videouppspelning kommer att använda mer internetdata än VP9 eller AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS förfalskning biverkningar</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmer eller betalda videor kanske inte spelar\n• Livestreams startar från början</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmer eller betalda videor kanske inte spelar\n• Livestreams startar från början\n• Videor kan sluta 1 sekund tidigt\n• Ingen opus-ljud-codec</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR förfalskning biverkningar</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Ljudspårsmenyn saknas</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Ljudspårsmenyn saknar\n• Stabil volym är inte tillgänglig</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

@@ -147,6 +147,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_guidelines_title">إخفاء إرشادات القناة</string>
   <string name="revanced_hide_channel_guidelines_summary_on">تم إخفاء إرشادات القناة</string>
   <string name="revanced_hide_channel_guidelines_summary_off">يتم عرض إرشادات القناة</string>
+  <string name="revanced_hide_chips_shelf_title">إخفاء رف الشرائح</string>
+  <string name="revanced_hide_chips_shelf_summary_on">تم إخفاء رف الشرائح</string>
+  <string name="revanced_hide_chips_shelf_summary_off">يتم عرض رف الشرائح</string>
   <string name="revanced_hide_expandable_chip_title">إخفاء الشريحة القابلة للتوسيع تحت مقاطع الفيديو</string>
   <string name="revanced_hide_expandable_chip_summary_on">تم إخفاء الرقائق القابلة للتوسيع</string>
   <string name="revanced_hide_expandable_chip_summary_off">يتم عرض الرقائق القابلة للتوسيع</string>
@@ -207,9 +210,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_artist_cards_title">إخفاء بطاقات الفنان</string>
   <string name="revanced_hide_artist_cards_summary_on">تم إخفاء بطاقات الفنان</string>
   <string name="revanced_hide_artist_cards_summary_off">يتم عرض بطاقات الفنان</string>
-  <string name="revanced_hide_chips_shelf_title">إخفاء رف الشرائح</string>
-  <string name="revanced_hide_chips_shelf_summary_on">تم إخفاء رف الشرائح</string>
-  <string name="revanced_hide_chips_shelf_summary_off">يتم عرض رف الشرائح</string>
   <string name="revanced_hide_attributes_section_title">إخفاء قسم الصفات</string>
   <string name="revanced_hide_attributes_section_summary_on">تم إخفاء \'الأماكن المميزة\'، أقسام الألعاب والموسيقى</string>
   <string name="revanced_hide_attributes_section_summary_off">يتم عرض \'الأماكن المميزة\'، أقسام الألعاب والموسيقى</string>
@@ -627,15 +627,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">إخفاء تسمية الموقع</string>
   <string name="revanced_hide_shorts_location_label_summary_on">تم إخفاء تسمية الموقع</string>
   <string name="revanced_hide_shorts_location_label_summary_off">يتم عرض تسمية الموقع</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">إخفاء حفظ الصوت إلى زر قائمة التشغيل</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">تم إخفاء حفظ الصوت في قائمة التشغيل</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">يتم عرض حفظ الصوت في قائمة التشغيل</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_title">إخفاء زر استخدام هذا الصوت</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">تم إخفاء زر استخدام هذا الصوت</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">يتم عرض زر استخدام هذا الصوت</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">إخفاء زر حفظ الموسيقى</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">تم إخفاء حفظ الموسيقى</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">يتم عرض حفظ الموسيقى</string>
   <string name="revanced_hide_shorts_search_suggestions_title">إخفاء اقتراحات البحث</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">تم إخفاء اقتراحات البحث</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">يتم عرض اقتراحات البحث</string>
+  <string name="revanced_hide_shorts_stickers_title">إخفاء الملصقات</string>
+  <string name="revanced_hide_shorts_stickers_summary_on">تم إخفاء الملصقات</string>
+  <string name="revanced_hide_shorts_stickers_summary_off">يتم عرض الملصقات</string>
   <string name="revanced_hide_shorts_like_button_title">إخفاء زر أعجبني</string>
   <string name="revanced_hide_shorts_like_button_summary_on">تم إخفاء زر أعجبني</string>
   <string name="revanced_hide_shorts_like_button_summary_off">يتم عرض زر أعجبني</string>
@@ -1139,16 +1139,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_summary_on">يتم تزييف تدفقات الفيديو</string>
   <string name="revanced_spoof_video_streams_summary_off">لا يتم تزييف تدفقات الفيديو\n\nقد لا يعمل تشغيل الفيديو</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">إيقاف تشغيل هذا الإعداد قد يسبب مشاكل في تشغيل الفيديو.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">العميل الافتراضي</string>
+  <string name="revanced_spoof_video_streams_client_title">العميل الافتراضي</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">فرض AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">ترميز الفيديو هو AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">ترميز الفيديو هو VP9 أو AV1</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">لا يحتوي جهازك على فك تشفير الأجهزة VP9، وهذا الإعداد يعمل دائما عند تمكين تزييف العميل</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">قد يؤدي تمكين هذا إلى تحسين عمر البطارية وإصلاح مشكلة تقطيع التشغيل.\n\nيتمتع تنسيق AVC بدقة قصوى تبلغ 1080P، وسيستخدم تشغيل الفيديو المزيد من بيانات الإنترنت مقارنةً بتنسيق VP9 أو AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">التأثيرات الجانبية لمحاكاة iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• قد لا يتم تشغيل الأفلام أو الفيديوهات المدفوعة\n• يبدأ البث المباشر من البداية</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• قد لا يتم تشغيل الأفلام أو الفيديوهات المدفوعة\n• تبدأ البثوث المباشرة من البداية\n• قد تنتهي الفيديوهات قبل النهاية بثانية واحدة\n• لا يوجد ترميز الصوت Opus</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">التأثيرات الجانبية لمحاكاة Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• قائمة المقطع الصوتي مفقودة</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• قائمة المقطع الصوتي مفقودة\n• مستوى الصوت الثابت غير متوفر</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">
