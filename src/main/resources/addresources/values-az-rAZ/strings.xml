@@ -627,9 +627,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">Məkan etiketini gizlət</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Məkan etiketi gizlidir</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Məkan etiketi göstərilir</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">\"Musiqini saxla\" düyməsini gizlət</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">\"Musiqini saxla\" gizlidir</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">\"Musiqini saxla\" göstərilir</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Axtarış təkliflərini gizlət</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Axtarış təklifləri gizlədilib</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Axtarış təklifləri göstərilir</string>
+  <string name="revanced_hide_shorts_stickers_title">Stikerləri gizlət</string>
+  <string name="revanced_hide_shorts_stickers_summary_on">Stikerlər gizlidir</string>
+  <string name="revanced_hide_shorts_stickers_summary_off">Stikerlər göstərilir</string>
   <string name="revanced_hide_shorts_like_button_title">\"Bəyən\" düyməsini gizlət</string>
   <string name="revanced_hide_shorts_like_button_summary_on">Bəyənmə düyməsi gizlidir</string>
   <string name="revanced_hide_shorts_like_button_summary_off">Bəyənmə düyməsi göstərilir</string>
