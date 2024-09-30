@@ -11,7 +11,7 @@ import app.revanced.integrations.youtube.patches.VideoInformation;
 import app.revanced.integrations.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
-public class ExternalDownloadButton extends BottomControlButton {
+public class ExternalDownloadButton extends PlayerControlButton {
     @Nullable
     private static ExternalDownloadButton instance;
 
@@ -37,10 +37,17 @@ public class ExternalDownloadButton extends BottomControlButton {
     }
 
     /**
-     * Injection point.
+     * injection point
      */
-    public static void changeVisibility(boolean showing) {
-        if (instance != null) instance.setVisibility(showing);
+    public static void changeVisibilityImmediate(boolean visible) {
+        if (instance != null) instance.setVisibilityImmediate(visible);
+    }
+
+    /**
+     * injection point
+     */
+    public static void changeVisibility(boolean visible, boolean animated) {
+        if (instance != null) instance.setVisibility(visible, animated);
     }
 
     private static void onDownloadClick(View view) {

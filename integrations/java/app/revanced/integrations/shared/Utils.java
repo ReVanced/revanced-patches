@@ -386,10 +386,10 @@ public class Utils {
     }
 
     /**
-     * Ignore this class. It must be public to satisfy Android requirement.
+     * Ignore this class. It must be public to satisfy Android requirements.
      */
     @SuppressWarnings("deprecation")
-    public static class DialogFragmentWrapper extends DialogFragment {
+    public static final class DialogFragmentWrapper extends DialogFragment {
 
         private Dialog dialog;
         @Nullable
