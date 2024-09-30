@@ -147,6 +147,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_guidelines_title">Kanal yönergelerini gizle</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Kanal yönergeleri gizleniyor </string>
   <string name="revanced_hide_channel_guidelines_summary_off">Kanal yönergeleri gösteriliyor</string>
+  <string name="revanced_hide_chips_shelf_title">Çip rafını gizle</string>
+  <string name="revanced_hide_chips_shelf_summary_on">Çip rafı gizlendi</string>
+  <string name="revanced_hide_chips_shelf_summary_off">Çip rafı gösteriliyor</string>
   <string name="revanced_hide_expandable_chip_title">Videoların altındaki genişletilebilir çentiği gizle</string>
   <string name="revanced_hide_expandable_chip_summary_on">Genişletilebilir çentikler gizleniyor</string>
   <string name="revanced_hide_expandable_chip_summary_off">Genişletilebilir çentikler gösteriliyor</string>
@@ -207,9 +210,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_artist_cards_title">Sanatçı kartlarını gizle</string>
   <string name="revanced_hide_artist_cards_summary_on">Sanatçı kartları gizlendi</string>
   <string name="revanced_hide_artist_cards_summary_off">Sanatçı kartları gösteriliyor</string>
-  <string name="revanced_hide_chips_shelf_title">Çip rafını gizle</string>
-  <string name="revanced_hide_chips_shelf_summary_on">Çip rafı gizlendi</string>
-  <string name="revanced_hide_chips_shelf_summary_off">Çip rafı gösteriliyor</string>
   <string name="revanced_hide_attributes_section_title">Nitelikler bölümünü gizle</string>
   <string name="revanced_hide_attributes_section_summary_on">Öne çıkan yerler, Oyunlar ve Müzik bölümleri gizli</string>
   <string name="revanced_hide_attributes_section_summary_off">Öne çıkan yerler, Oyunlar ve Müzik bölümleri görünür</string>
@@ -627,15 +627,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">Konum etiketini gizle</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Konum etiketi gizli</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Konum etiketi görünür</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Sesi oynatma listesine kaydetme butonunu gizle</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Sesi oynatma listesine kaydetme butonu gizleniyor</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Sesi oynatma listesine kaydetme butonu gösteriliyor </string>
-  <string name="revanced_hide_shorts_use_this_sound_button_title">\"Bu sesi kullan\" düğmesini gizle</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">\"Bu sesi kullan\" düğmesi gizli</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">\"Bu sesi kullan\" düğmesi görünür</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Müziği kaydet düğmesini gizle</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">Müziği kaydet düğmesi gizli</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">Müziği kaydet düğmesi görünür</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Arama önerilerini gizle</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Arama önerileri gizleniyor </string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Arama önerileri gösteriliyor </string>
+  <string name="revanced_hide_shorts_stickers_title">Çıkartmaları gizle</string>
+  <string name="revanced_hide_shorts_stickers_summary_on">Çıkartmalar gizli</string>
+  <string name="revanced_hide_shorts_stickers_summary_off">Çıkartmalar görünür</string>
   <string name="revanced_hide_shorts_like_button_title">\"Beğen\" butonunu gizle</string>
   <string name="revanced_hide_shorts_like_button_summary_on">\"Beğen\" butonu gizleniyor</string>
   <string name="revanced_hide_shorts_like_button_summary_off">\"Beğen\" butonu gösteriliyor</string>
@@ -1139,16 +1139,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_summary_on">Video akışları taklit ediliyor</string>
   <string name="revanced_spoof_video_streams_summary_off">Video akışları taklit edilmiyor\n\nVideo oynatımı çalışmayabilir</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Bu ayarı devre dışı bırakmak video oynatma sorunlarına yol açabilir.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Varsayılan istemci</string>
+  <string name="revanced_spoof_video_streams_client_title">Varsayılan istemci</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">AVC\'yi (H.264) zorla</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodeği AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodeği VP9 ya da AV1</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Cihazınız VP9 donanım çözme özelliği yok ve bu ayar istemci taklit etme açık iken her zaman açıktır</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Bunu etkinleştirmek batarya ömrünü uzatabilir ve oynatma takılmalarını çözebilir.\n\nAVC en fazla 1080p çözünürlüğe sahiptir ve video oynatımı VP9 veya AV1\'e göre daha fazla internet harcayacaktır.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS taklidi yan etkileri</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmler veya paralı videolar oynatılmayabilir\n• Canlı yayınlar baştan başlar</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmler ve paralı videolar oynatılmayabilir\n• Canlı yayınlar baştan başlar\n• Videolar 1 saniye erken bitebilir\n• Opus ses kodeği yok</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR taklidi yan etkileri</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Ses parçası menüsü eksik</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Ses parçası menüsü eksik\n• Sabit ses kullanılamaz</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

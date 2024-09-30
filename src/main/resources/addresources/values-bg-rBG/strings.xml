@@ -147,6 +147,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_guidelines_title">Скриване на насоките на канала</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Насоките на канала са скрити</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Насоките на канала са показани</string>
+  <string name="revanced_hide_chips_shelf_title">Скриване на рафта за чипове</string>
+  <string name="revanced_hide_chips_shelf_summary_on">Рафтът за чипове е скрит</string>
+  <string name="revanced_hide_chips_shelf_summary_off">Рафтът за чипове е показан</string>
   <string name="revanced_hide_expandable_chip_title">Скриване на разширяемия чип под видеоклиповете</string>
   <string name="revanced_hide_expandable_chip_summary_on">Разширяващите се чипове са скрити</string>
   <string name="revanced_hide_expandable_chip_summary_off">Разширяващите се чипове са показани</string>
@@ -207,9 +210,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_artist_cards_title">Скриване на картите на артистите</string>
   <string name="revanced_hide_artist_cards_summary_on">Картите на артистите са скрити</string>
   <string name="revanced_hide_artist_cards_summary_off">Картите на артистите са показани</string>
-  <string name="revanced_hide_chips_shelf_title">Скриване на рафта за чипове</string>
-  <string name="revanced_hide_chips_shelf_summary_on">Рафтът за чипове е скрит</string>
-  <string name="revanced_hide_chips_shelf_summary_off">Рафтът за чипове е показан</string>
   <string name="revanced_hide_attributes_section_title">Скриване на секцията с атрибути</string>
   <string name="revanced_hide_attributes_section_summary_on">„Популярни места“, „Игри“ и „Музика“ под описанието са скрити</string>
   <string name="revanced_hide_attributes_section_summary_off">„Популярни места“, „Игри“ и „Музика“ под описанието се показват</string>
@@ -627,9 +627,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">Етикет за местоположение</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Етикет за местоположение е скрит</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Етикет за местоположение се показва</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Бутон за запазване на аудиото в плейлиста</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Бутонът за Запазване в плейлиста е скрит</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Бутонът за Запазване в плейлиста се показва</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Скриване на предложенията за търсене</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Предложенията за търсене са скрити</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Предложенията за търсене се показват</string>
@@ -1131,10 +1128,22 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_off">Слайд за превъртане е деактивиран</string>
   </patch>
   <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Подправяне на видео потоци</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Подправете клиентските видео потоци, за да предотвратите проблеми с възпроизвеждането</string>
+  <string name="revanced_spoof_video_streams_title">Подправяне на видео потоци</string>
+  <string name="revanced_spoof_video_streams_summary_on">Видео потоците са подправени</string>
+  <string name="revanced_spoof_video_streams_summary_off">Видео потоците не са подправени\n\nВъзпроизвеждането на видео може да не работи</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Деактивирането на тази настройка ще доведе до проблеми с възпроизвеждането на видео.</string>
+  <string name="revanced_spoof_video_streams_client_title">Клиент по подразбиране</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Принудително AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Видеокодека е AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Видеокодека е VP9 или AV1</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Вашето устройство няма хардуерно VP9 декодиране и тази настройка винаги е активирана, когато е активно подправяне на клиента</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Активирането на това може да подобри живота на батерията и да коригира прекъсванията при възпроизвеждане.\n\nAVC има максимална разделителна способност от 1080p и възпроизвеждането на видео ще използва повече интернет данни от VP9 или AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Cтранични ефекти от подмяната на iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Филми или платени видеоклипове може да не се възпроизвеждат\n• Потоците на живо започват отначало\n• Видеоклиповете може да завършват 1 секунда по-рано\n• Няма аудиокодек Opus</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Странични ефекти от подправяне на Android VR</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Липсва менюто за избор аудио\n• Не е налична стабилна сила на звука</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

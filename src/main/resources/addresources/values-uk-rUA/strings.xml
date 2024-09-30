@@ -147,6 +147,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_guidelines_title">Приховати правила каналу</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Правила каналу приховано</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Правила каналу показуються</string>
+  <string name="revanced_hide_chips_shelf_title">Приховати полицю фішок</string>
+  <string name="revanced_hide_chips_shelf_summary_on">Полицю фішок приховано</string>
+  <string name="revanced_hide_chips_shelf_summary_off">Полиця фішок показується</string>
   <string name="revanced_hide_expandable_chip_title">Приховати розширювану фішку</string>
   <string name="revanced_hide_expandable_chip_summary_on">Розширювані фішки під відео приховано</string>
   <string name="revanced_hide_expandable_chip_summary_off">Розширювані фішки під відео показуються</string>
@@ -207,9 +210,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_artist_cards_title">Приховати картки виконавця</string>
   <string name="revanced_hide_artist_cards_summary_on">Картки виконавця приховано</string>
   <string name="revanced_hide_artist_cards_summary_off">Картки виконавця показуються</string>
-  <string name="revanced_hide_chips_shelf_title">Приховати полицю фішок</string>
-  <string name="revanced_hide_chips_shelf_summary_on">Полицю фішок приховано</string>
-  <string name="revanced_hide_chips_shelf_summary_off">Полиця фішок показується</string>
   <string name="revanced_hide_attributes_section_title">Приховати секції атрибутів</string>
   <string name="revanced_hide_attributes_section_summary_on">Секції \"Місця на відео\", \"Ігри\" та \"Музика\" приховано</string>
   <string name="revanced_hide_attributes_section_summary_off">Секції \"Місця на відео\", \"Ігри\" та \"Музика\" показуються</string>
@@ -627,15 +627,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">Приховати мітку місцезнаходження</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Мітку місцезнаходження приховано</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Мітка місцезнаходження показується</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Приховати \"Зберегти звук у список відтворення\"</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Кнопку \"Зберегти звук у список відтворення\" приховано</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Кнопка \"Зберегти звук у список відтворення\" показується</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_title">Приховати \"Використати цю звукову доріжку\"</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">Кнопку \"Використати цю звукову доріжку\" приховано</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">Кнопка \"Використати цю звукову доріжку\" показується</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Приховати \"Зберегти музику\"</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">Кнопку \"Зберегти музику\" приховано</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">Кнопка \"Зберегти музику\" показується</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Приховати пропозиції пошуку</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Пропозиції пошуку приховано</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Пропозиції пошуку показуються</string>
+  <string name="revanced_hide_shorts_stickers_title">Приховати стікери</string>
+  <string name="revanced_hide_shorts_stickers_summary_on">Стікери приховано</string>
+  <string name="revanced_hide_shorts_stickers_summary_off">Стікери показуються</string>
   <string name="revanced_hide_shorts_like_button_title">Приховати \"Подобається\"</string>
   <string name="revanced_hide_shorts_like_button_summary_on">Кнопку \"Подобається\" приховано</string>
   <string name="revanced_hide_shorts_like_button_summary_off">Кнопка \"Подобається\" показується</string>
@@ -1139,16 +1139,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_summary_on">Відеопотоки підроблено</string>
   <string name="revanced_spoof_video_streams_summary_off">Відеопотоки не підроблено\n\nВідтворення відео може не працювати</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Вимкнення цього параметра може спричинити проблеми відтворення відео.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Клієнт за замовчуванням</string>
+  <string name="revanced_spoof_video_streams_client_title">Клієнт за замовчуванням</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Примусово AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Примусово увімкнено відеокодек AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Примусово увімкнено відеокодек VP9 або AV1</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Ваш пристрій не має апаратного декодування VP9, ​​тому це налаштування завжди ввімкнено, коли ввімкнено підробку відеопотоків</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Увімкнення цієї опції може збільшити час роботи від акумулятора та виправити затримки відтворення.\n\nAVC має максимальну роздільну здатність 1080p, а відтворення відео використовуватиме більше інтернет-даних, ніж на кодеках VP9 або AV1.</string>
-  <string name="revanced_spoof_video_streams_about_ios_title">Побічні ефекти підміни iOS:</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Фільми чи платні відео можуть не відтворюватися.\n• Прямі трансляції починаються з початку</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Побічні ефекти підміни Android VR:</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Меню звукової доріжки відсутнє</string>
+  <string name="revanced_spoof_video_streams_about_ios_title">Побічні ефекти підробки iOS:</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Фільми чи платні відео можуть не відтворюватися\n• Прямі трансляції починаються з початку\n• Відео можуть закінчуватися на 1 секунду раніше\n• Відсутній аудіокодек Opus</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_title">Побічні ефекти підробки Android VR:</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Меню звукової доріжки відсутнє\n• Меню стабілізації гучності недоступне</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

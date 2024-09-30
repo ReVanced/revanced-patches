@@ -148,6 +148,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_guidelines_title">Skrýt pokyny pro kanály</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Pokyny kanálu jsou skryty</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Jsou zobrazeny pokyny kanálu</string>
+  <string name="revanced_hide_chips_shelf_title">Skrýt čipy</string>
+  <string name="revanced_hide_chips_shelf_summary_on">Šipka je skrytá</string>
+  <string name="revanced_hide_chips_shelf_summary_off">Šipky jsou zobrazeny</string>
   <string name="revanced_hide_expandable_chip_title">Skrýt rozšiřitelný čip pod videem</string>
   <string name="revanced_hide_expandable_chip_summary_on">Rozšiřitelné čipy jsou skryty</string>
   <string name="revanced_hide_expandable_chip_summary_off">Jsou zobrazeny rozšiřitelné čipy</string>
@@ -208,9 +211,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_artist_cards_title">Skrýt karty umělce</string>
   <string name="revanced_hide_artist_cards_summary_on">Karty umělců jsou skryty</string>
   <string name="revanced_hide_artist_cards_summary_off">Karty umělců jsou zobrazeny</string>
-  <string name="revanced_hide_chips_shelf_title">Skrýt čipy</string>
-  <string name="revanced_hide_chips_shelf_summary_on">Šipka je skrytá</string>
-  <string name="revanced_hide_chips_shelf_summary_off">Šipky jsou zobrazeny</string>
   <string name="revanced_hide_attributes_section_title">Skrýt část atributů</string>
   <string name="revanced_hide_attributes_section_summary_on">\'Doporučená místa\', sekce Hry a hudba jsou skryté</string>
   <string name="revanced_hide_attributes_section_summary_off">\'Doporučená místa\', jsou zobrazeny sekce Hry a hudba</string>
@@ -628,15 +628,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">Skrýt štítek polohy</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Štítek polohy je skrytý</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Popisek umístění je zobrazen</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Skrýt zvuk do playlistu</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Uložit zvuk do playlistu je skrytý</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Ukládat zvuk do seznamu skladeb je zobrazen</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_title">Skrýt toto tlačítko zvuku</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">Použít toto zvukové tlačítko je skryté</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">Použít toto zvukové tlačítko je zobrazeno</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Skrýt tlačítko uložit hudbu</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">Uložení hudby je skryté</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">Ukládání hudby je zobrazeno</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Skrýt návrhy hledání</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Návrhy hledání jsou skryty</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Návrhy hledání jsou zobrazeny</string>
+  <string name="revanced_hide_shorts_stickers_title">Skrýt nálepky</string>
+  <string name="revanced_hide_shorts_stickers_summary_on">Samolepky jsou skryté</string>
+  <string name="revanced_hide_shorts_stickers_summary_off">Samolepky jsou zobrazeny</string>
   <string name="revanced_hide_shorts_like_button_title">Skrýt tlačítko „To se mi líbí“</string>
   <string name="revanced_hide_shorts_like_button_summary_on">Tlačítko se mi líbí je skryté</string>
   <string name="revanced_hide_shorts_like_button_summary_off">Tlačítko se mi líbí</string>
@@ -1141,16 +1141,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_summary_on">Video streamy jsou falešné</string>
   <string name="revanced_spoof_video_streams_summary_off">Video streamy nejsou falešné\n\nPřehrávání videa nemusí fungovat</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Vypnutí tohoto nastavení může způsobit problémy při přehrávání videa.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Výchozí klient</string>
+  <string name="revanced_spoof_video_streams_client_title">Výchozí klient</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Síla AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodek je AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodek je VP9 nebo AV1</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Vaše zařízení nemá hardwarové dekódování VP9 a toto nastavení je vždy zapnuto, když je aktivní spoofování klienta</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Povolení této funkce může zlepšit životnost baterie a opravit stahování přehrávání.\n\nAVC má maximální rozlišení 1080p a video přehrávání bude používat více dat než VP9 nebo AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Boční efekty iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmy nebo placené videa nemusí hrát\n• Živočišné rekony začínají od začátku</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmy nebo placená videa nemusí přehrávat\n• Živočišné rekony začínající od začátku\n• Videa mohou skončit 1 sekundu na začátku\n• Žádný opus audio kodek</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Boční efekty Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Menu zvukové stopy chybí</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Menu zvukové stopy chybí\n• Stabilní hlasitost není k dispozici</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

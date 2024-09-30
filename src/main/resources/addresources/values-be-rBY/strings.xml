@@ -137,6 +137,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_guidelines_title">Схаваць рэкамендацыі канала</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Правілы канала схаваны</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Паказваюцца інструкцыі па каналах</string>
+  <string name="revanced_hide_chips_shelf_title">Схавайце паліцу для чыпсаў</string>
+  <string name="revanced_hide_chips_shelf_summary_on">Паліца для чыпсаў схаваная</string>
+  <string name="revanced_hide_chips_shelf_summary_off">Паказана паліца для чыпсаў</string>
   <string name="revanced_hide_expandable_chip_title">Схаваць пашыраемы чып пад відэа</string>
   <string name="revanced_hide_expandable_chip_summary_on">Чыпы, якія пашыраюцца, схаваныя</string>
   <string name="revanced_hide_expandable_chip_summary_off">Паказаны чыпы, якія пашыраюцца</string>
@@ -197,9 +200,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_artist_cards_title">Схаваць карткі выканаўцаў</string>
   <string name="revanced_hide_artist_cards_summary_on">Карткі выканаўцаў схаваныя</string>
   <string name="revanced_hide_artist_cards_summary_off">Паказваюцца карткі выканаўцаў</string>
-  <string name="revanced_hide_chips_shelf_title">Схавайце паліцу для чыпсаў</string>
-  <string name="revanced_hide_chips_shelf_summary_on">Паліца для чыпсаў схаваная</string>
-  <string name="revanced_hide_chips_shelf_summary_off">Паказана паліца для чыпсаў</string>
   <string name="revanced_hide_attributes_section_title">Схаваць раздзел атрыбутаў</string>
   <string name="revanced_hide_attributes_section_summary_on">Раздзелы \"Выбраныя месцы\", гульні і музыка схаваны</string>
   <string name="revanced_hide_attributes_section_summary_off">Паказваюцца раздзелы \"Выбраныя месцы\", Гульні і Музыка</string>
@@ -608,9 +608,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">Схаваць метку месцазнаходжання</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Метка месцазнаходжання схавана</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Паказана метка месцазнаходжання</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Схаваць кнопку захавання гуку ў спіс прайгравання</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Захаваць гук у плэйліст схавана</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Паказваецца Захаваць гук у спіс прайгравання</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Схаваць прапановы пошуку</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Пошукавыя прапановы схаваны</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Паказваюцца прапановы пошуку</string>

@@ -147,6 +147,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_guidelines_title">Nascondi linee guida del canale</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Linee guida del canale nascoste</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Linee guida del canale visibili</string>
+  <string name="revanced_hide_chips_shelf_title">Nascondi scaffale chip</string>
+  <string name="revanced_hide_chips_shelf_summary_on">Lo scaffale di chip è nascosto</string>
+  <string name="revanced_hide_chips_shelf_summary_off">Lo scaffale delle fiches è mostrato</string>
   <string name="revanced_hide_expandable_chip_title">Nascondi il frammento espandibile sotto i video</string>
   <string name="revanced_hide_expandable_chip_summary_on">Frammenti espandibili nascosti</string>
   <string name="revanced_hide_expandable_chip_summary_off">Frammenti espandibili visibili</string>
@@ -207,9 +210,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_artist_cards_title">Nascondi le carte artista</string>
   <string name="revanced_hide_artist_cards_summary_on">Le carte dell\'artista sono nascoste</string>
   <string name="revanced_hide_artist_cards_summary_off">Vengono mostrate le carte dell\'artista</string>
-  <string name="revanced_hide_chips_shelf_title">Nascondi scaffale chip</string>
-  <string name="revanced_hide_chips_shelf_summary_on">Lo scaffale di chip è nascosto</string>
-  <string name="revanced_hide_chips_shelf_summary_off">Lo scaffale delle fiches è mostrato</string>
   <string name="revanced_hide_attributes_section_title">Nascondi la sezione attributi</string>
   <string name="revanced_hide_attributes_section_summary_on">Le sezioni \'Luoghi in evidenza\', Giochi e Musica sono nascoste</string>
   <string name="revanced_hide_attributes_section_summary_off">Le sezioni \'Luoghi in evidenza\', Giochi e Musica sono visibili</string>
@@ -627,15 +627,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">Nascondi etichetta posizione</string>
   <string name="revanced_hide_shorts_location_label_summary_on">L\'etichetta di localizzazione è nascosta</string>
   <string name="revanced_hide_shorts_location_label_summary_off">L\'etichetta di posizione è mostrata</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Nascondi il pulsante Salva suono nella playlist</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Salva il suono nella scaletta è nascosto</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Il suono di salvataggio nella scaletta è mostrato</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_title">Nascondi il pulsante audio</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">Usa questo pulsante audio è nascosto</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">Usa questo pulsante audio è mostrato</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Nascondi il pulsante per salvare musica</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">Salva musica nascosta</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">Salva musica mostrata</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Nascondi suggerimenti di ricerca</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">I suggerimenti di ricerca sono nascosti</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">I suggerimenti di ricerca sono mostrati</string>
+  <string name="revanced_hide_shorts_stickers_title">Nascondi adesivi</string>
+  <string name="revanced_hide_shorts_stickers_summary_on">Gli adesivi sono nascosti</string>
+  <string name="revanced_hide_shorts_stickers_summary_off">Gli adesivi sono mostrati</string>
   <string name="revanced_hide_shorts_like_button_title">Nascondi pulsante come</string>
   <string name="revanced_hide_shorts_like_button_summary_on">Il pulsante simile è nascosto</string>
   <string name="revanced_hide_shorts_like_button_summary_off">Il pulsante simile è mostrato</string>
@@ -1139,16 +1139,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_summary_on">I flussi video sono spoofed</string>
   <string name="revanced_spoof_video_streams_summary_off">I flussi video non sono spoofed\n\nLa riproduzione video potrebbe non funzionare</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Disattivare questa impostazione potrebbe causare problemi di riproduzione video.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Client predefinito</string>
+  <string name="revanced_spoof_video_streams_client_title">Client predefinito</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Forza AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Il codec video è AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Il codec video è VP9 o AV1</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Il tuo dispositivo non ha la decodifica hardware VP9, e questa impostazione è sempre attiva quando lo spoofing client è abilitato</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Abilitando questo si potrebbe migliorare la durata della batteria e correggere la riproduzione della balbuzia.\n\nAVC ha una risoluzione massima di 1080p, e la riproduzione video utilizzerà più dati internet di VP9 o AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS spoofing effetti collaterali</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• I film o i video a pagamento potrebbero non riprodurre\n• Livestreams start dall\'inizio</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• I film o i video a pagamento potrebbero non riprodurre\n• Livestreams start from the start\n• I video potrebbero terminare 1 secondo presto\n• Nessun opus codec audio</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR spoofing effetti collaterali</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Manca il menu traccia audio</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Il menu traccia audio è mancante\n• Volume stabile non disponibile</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

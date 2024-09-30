@@ -134,6 +134,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_guidelines_title">Skryť pokyny pre kanál</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Pokyny kanála sú skryté</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Zobrazia sa vodítka kanálov</string>
+  <string name="revanced_hide_chips_shelf_title">Skryť poličku na žetóny</string>
+  <string name="revanced_hide_chips_shelf_summary_on">Polica na žetóny je skrytá</string>
+  <string name="revanced_hide_chips_shelf_summary_off">Je zobrazená polica na hranolky</string>
   <string name="revanced_hide_expandable_chip_title">Skryť rozšíriteľný čip pod videami</string>
   <string name="revanced_hide_expandable_chip_summary_on">Rozšíriteľné čipy sú skryté</string>
   <string name="revanced_hide_expandable_chip_summary_off">Zobrazujú sa rozšíriteľné čipy</string>
@@ -194,9 +197,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_artist_cards_title">Skryť karty umelcov</string>
   <string name="revanced_hide_artist_cards_summary_on">Karty umelcov sú skryté</string>
   <string name="revanced_hide_artist_cards_summary_off">Zobrazia sa karty umelcov</string>
-  <string name="revanced_hide_chips_shelf_title">Skryť poličku na žetóny</string>
-  <string name="revanced_hide_chips_shelf_summary_on">Polica na žetóny je skrytá</string>
-  <string name="revanced_hide_chips_shelf_summary_off">Je zobrazená polica na hranolky</string>
   <string name="revanced_hide_attributes_section_title">Skryť sekciu atribútov</string>
   <string name="revanced_hide_attributes_section_summary_on">Sekcie \"Odporúčané miesta\", Hry a Hudba sú skryté</string>
   <string name="revanced_hide_attributes_section_summary_off">Zobrazia sa sekcie \"Odporúčané miesta\", Hry a Hudba</string>
@@ -601,9 +601,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">Skryť štítok polohy</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Štítok miesta je skrytý</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Zobrazí sa štítok s umiestnením</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Tlačidlo Skryť uloženie zvuku do zoznamu skladieb</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Uloženie zvuku do zoznamu skladieb je skryté</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Zobrazí sa Uložiť zvuk do zoznamu skladieb</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Skryť návrhy vyhľadávania</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Návrhy vyhľadávania sú skryté</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Zobrazia sa návrhy vyhľadávania</string>

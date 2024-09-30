@@ -39,6 +39,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_check_environment_not_same_patching_device">Auf einem anderen Gerät gepatcht</string>
   <string name="revanced_check_environment_manager_not_expected_installer">Nicht von ReVanced Manager installiert</string>
   <string name="revanced_check_environment_not_near_patch_time">Vor mehr als 10 Minuten gepatcht</string>
+  <string name="revanced_check_environment_not_near_patch_time_days">Vor %s Tagen gepatcht</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK-Erstellungsdatum ist beschädigt</string>
   </patch>
   <patch id="misc.settings.BaseSettingsResourcePatch">
@@ -146,6 +147,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_guidelines_title">Kanalrichtlinien ausblenden</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Kanal-Richtlinien sind ausgeblendet</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Kanalrichtlinien werden angezeigt</string>
+  <string name="revanced_hide_chips_shelf_title">Chips ausblenden</string>
+  <string name="revanced_hide_chips_shelf_summary_on">Chips sind ausgeblendet</string>
+  <string name="revanced_hide_chips_shelf_summary_off">Chips werden angezeigt</string>
   <string name="revanced_hide_expandable_chip_title">Erweiterbaren Sektions-Chip unter Videos ausblenden</string>
   <string name="revanced_hide_expandable_chip_summary_on">Erweiterbare Chips sind ausgeblendet</string>
   <string name="revanced_hide_expandable_chip_summary_off">Erweiterbare Chips werden angezeigt</string>
@@ -206,9 +210,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_artist_cards_title">Interpretenkarten ausblenden</string>
   <string name="revanced_hide_artist_cards_summary_on">Künstlerkarten sind ausgeblendet</string>
   <string name="revanced_hide_artist_cards_summary_off">Interpretenkarten werden angezeigt</string>
-  <string name="revanced_hide_chips_shelf_title">Chips ausblenden</string>
-  <string name="revanced_hide_chips_shelf_summary_on">Chips sind ausgeblendet</string>
-  <string name="revanced_hide_chips_shelf_summary_off">Chips werden angezeigt</string>
   <string name="revanced_hide_attributes_section_title">Attributbereich ausblenden</string>
   <string name="revanced_hide_attributes_section_summary_on">\'Vorgestellte Orte\', Spiele und Musik Sektionen sind ausgeblendet</string>
   <string name="revanced_hide_attributes_section_summary_off">\'Vorgestellte Orte\', Spiele- und Musiksektionen werden angezeigt</string>
@@ -626,15 +627,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">Standortbezeichnung ausblenden</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Ortsbezeichnung ist ausgeblendet</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Ortsbezeichnung wird angezeigt</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Speicherton in Wiedergabelisten-Button ausblenden</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Ton in Wiedergabeliste speichern ist ausgeblendet</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Ton in Wiedergabeliste speichern wird angezeigt</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_title">Diese Sound-Taste ausblenden</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_on">Diese Sound-Taste ist ausgeblendet</string>
-  <string name="revanced_hide_shorts_use_this_sound_button_summary_off">Diese Sound-Taste wird angezeigt</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Musikspeichern-Button ausblenden</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">Musik speichern ist ausgeblendet</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">Musik speichern wird angezeigt</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Suchvorschläge ausblenden</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Suchvorschläge sind ausgeblendet</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Suchvorschläge werden angezeigt</string>
+  <string name="revanced_hide_shorts_stickers_title">Sticker ausblenden</string>
+  <string name="revanced_hide_shorts_stickers_summary_on">Sticker sind versteckt</string>
+  <string name="revanced_hide_shorts_stickers_summary_off">Sticker werden angezeigt</string>
   <string name="revanced_hide_shorts_like_button_title">Verstecke \"Gefällt mir\" Button</string>
   <string name="revanced_hide_shorts_like_button_summary_on">\"Gefällt mir\" Button ist ausgeblendet</string>
   <string name="revanced_hide_shorts_like_button_summary_off">\"Gefällt mir\" Button wird angezeigt</string>
@@ -1139,16 +1140,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_summary_on">Video-Streams sind gefälscht</string>
   <string name="revanced_spoof_video_streams_summary_off">Video-Streams sind nicht gefälscht\n\nVideo-Wiedergabe funktioniert möglicherweise nicht</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Das Deaktivieren dieser Einstellung kann zu Videowiedergabeproblemen führen.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Standard-Client</string>
+  <string name="revanced_spoof_video_streams_client_title">Standard-Client</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">AVC erzwingen (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video Codec ist AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video Codec ist VP9 oder AV1</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Ihr Gerät hat keine VP9-Hardware-Dekodierung, und diese Einstellung ist immer aktiviert, wenn Client-Spoofing aktiviert ist</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Das Aktivieren kann die Akkulaufzeit verbessern und die Wiedergabe-Stutting beheben.\n\nAVC hat eine maximale Auflösung von 1080p, und die Videowiedergabe wird mehr Internet-Daten als VP9 oder AV1 verwenden.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS Spoofing Nebeneffekte</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Filme oder bezahlte Videos dürfen nicht\nabspielen • Livestreams beginnen von Anfang an</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Filme oder bezahlte Videos werden möglicherweise nicht abgespielt\n• Livestreams starten von Anfang an\n• Videos enden möglicherweise 1 Sekunde früher\n• kein Opus-Audiocodec</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR Spoofing Nebeneffekte</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Audiospurmenü fehlt</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Audio Track Menü fehlt\n• Stabile Lautstärke ist nicht verfügbar</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

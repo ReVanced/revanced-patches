@@ -32,7 +32,7 @@ object PlaybackSpeedButtonPatch : BytecodePatch(emptySet()) {
             SwitchPreference("revanced_playback_speed_dialog_button"),
         )
 
-        PlayerControlsBytecodePatch.initializeControl("$SPEED_BUTTON_CLASS_DESCRIPTOR->initializeButton(Landroid/view/View;)V")
-        PlayerControlsBytecodePatch.injectVisibilityCheckCall("$SPEED_BUTTON_CLASS_DESCRIPTOR->changeVisibility(Z)V")
+        PlayerControlsBytecodePatch.initializeBottomControl(SPEED_BUTTON_CLASS_DESCRIPTOR)
+        PlayerControlsBytecodePatch.injectVisibilityCheckCall(SPEED_BUTTON_CLASS_DESCRIPTOR)
     }
 }
