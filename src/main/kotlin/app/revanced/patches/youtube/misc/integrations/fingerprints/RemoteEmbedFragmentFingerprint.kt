@@ -6,6 +6,9 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 /**
  * For embedded playback.  Likely covers Google Play store and other Google products.
+ *
+ * Note: This fingerprint may be obsolete and non functional,
+ * as the embedded player was deprecated in 2023 and support ended in 2024.
  */
 internal object RemoteEmbedFragmentFingerprint : IntegrationsFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,

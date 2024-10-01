@@ -6,6 +6,9 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 /**
  * For embedded playback inside 3rd party android app (such as 3rd party Reddit apps).
+ *
+ * Note: This fingerprint may be obsolete and non functional,
+ * as the embedded player was deprecated in 2023 and support ended in 2024.
  */
 internal object RemoteEmbeddedPlayerFingerprint : IntegrationsFingerprint(
     accessFlags = AccessFlags.PRIVATE or AccessFlags.CONSTRUCTOR,
