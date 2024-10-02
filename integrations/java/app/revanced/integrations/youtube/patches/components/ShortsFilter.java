@@ -33,7 +33,7 @@ public final class ShortsFilter extends Filter {
     private final StringFilterGroup shelfHeader;
 
     private final StringFilterGroup suggestedAction;
-    private final ByteArrayFilterGroupList suggestedActionsGroupList =  new ByteArrayFilterGroupList();
+    private final ByteArrayFilterGroupList suggestedActionsGroupList = new ByteArrayFilterGroupList();
 
     private final StringFilterGroup actionBar;
     private final ByteArrayFilterGroupList videoActionButtonGroupList = new ByteArrayFilterGroupList();
@@ -117,6 +117,11 @@ public final class ShortsFilter extends Filter {
                 "stickers_layer.eml"
         );
 
+        StringFilterGroup likeFountain = new StringFilterGroup(
+                Settings.HIDE_SHORTS_LIKE_FOUNTAIN,
+                "like_fountain.eml"
+        );
+
         joinButton = new StringFilterGroup(
                 Settings.HIDE_SHORTS_JOIN_BUTTON,
                 "sponsor_button"
@@ -145,7 +150,7 @@ public final class ShortsFilter extends Filter {
         addPathCallbacks(
                 shortsCompactFeedVideoPath, suggestedAction, actionBar, joinButton, subscribeButton,
                 paidPromotionButton, pausedOverlayButtons, channelBar, fullVideoLinkLabel, videoTitle,
-                reelSoundMetadata, soundButton, infoPanel, stickers
+                reelSoundMetadata, soundButton, infoPanel, stickers, likeFountain
         );
 
         //
