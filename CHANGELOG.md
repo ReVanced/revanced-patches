@@ -1,3 +1,10 @@
+# [4.17.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.16.1-dev.1...v4.17.0-dev.1) (2024-10-02)
+
+
+### Features
+
+* **YouTube - Hide Shorts components:** Add option to hide like fountain ([#3731](https://github.com/ReVanced/revanced-patches/issues/3731)) ([00a99dd](https://github.com/ReVanced/revanced-patches/commit/00a99dd13be6e5c44fa691d74c92b23ce6ba659d))
+
 ## [4.16.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.16.0...v4.16.1-dev.1) (2024-10-01)
 
 # [4.16.0](https://github.com/ReVanced/revanced-patches/compare/v4.15.0...v4.16.0) (2024-09-30)
