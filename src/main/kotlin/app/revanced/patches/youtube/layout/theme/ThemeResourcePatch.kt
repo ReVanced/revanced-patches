@@ -11,6 +11,7 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.layout.theme.ThemeBytecodePatch.darkThemeBackgroundColor
 import app.revanced.patches.youtube.layout.theme.ThemeBytecodePatch.lightThemeBackgroundColor
+import app.revanced.patches.youtube.misc.playservice.YouTubeVersionCheck
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import org.w3c.dom.Element
 
@@ -19,6 +20,7 @@ import org.w3c.dom.Element
         SettingsPatch::class,
         ResourceMappingPatch::class,
         AddResourcesPatch::class,
+        YouTubeVersionCheck::class,
     ],
 )
 internal object ThemeResourcePatch : ResourcePatch() {
@@ -89,12 +91,36 @@ internal object ThemeResourcePatch : ResourcePatch() {
                             return@editSplashScreen
                         }
                     }
+
                     throw PatchException("Failed to modify launch screen")
+                }
+            }
+
+            // Fix the splash screen dark mode background color.
+            // Normally this is white and makes no sense for dark mode.
+            if (YouTubeVersionCheck.is_19_32_or_greater) {
+                // Only dark mode needs this fix as light mode correctly uses the custom color.
+                context.xmlEditor["res/values-night/styles.xml"].use { editor ->
+                    val document = editor.file
+
+                    // Create a night mode specific override for the splash screen background.
+                    val style = document.createElement("style")
+                    style.setAttribute("name", "Theme.YouTube.Home")
+                    style.setAttribute("parent", "@style/Base.V23.Theme.YouTube.Home")
+
+                    val windowItem = document.createElement("item")
+                    windowItem.setAttribute("name", "android:windowBackground")
+                    windowItem.textContent = "@color/$SPLASH_BACKGROUND_COLOR"
+                    style.appendChild(windowItem)
+
+                    val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
+                    resourcesNode.appendChild(style)
                 }
             }
         }
     }
 
+    @Suppress("SameParameterValue")
     private fun addColorResource(
         context: ResourceContext,
         resourceFile: String,
