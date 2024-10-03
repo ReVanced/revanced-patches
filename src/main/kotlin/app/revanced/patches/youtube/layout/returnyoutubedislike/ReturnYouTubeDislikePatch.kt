@@ -63,21 +63,7 @@ import com.android.tools.smali.dexlib2.iface.reference.TypeReference
         CompatiblePackage(
             "com.google.android.youtube", [
                 "18.49.37",
-                "19.01.34",
-                "19.02.39",
-                "19.03.36",
-                "19.04.38",
                 "19.05.36",
-                "19.06.39",
-                "19.07.40",
-                "19.08.36",
-                "19.09.38",
-                "19.10.39",
-                "19.11.43",
-                "19.12.41",
-                "19.13.37",
-                "19.14.43",
-                "19.15.36",
                 "19.16.39",
                 "19.25.37",
                 "19.34.42",
@@ -306,10 +292,6 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
 
 
         // region Hook rolling numbers.
-
-        // Do this last to allow patching old unsupported versions (if the user really wants),
-        // On older unsupported version this will fail to resolve and throw an exception,
-        // but everything will still work correctly anyways.
 
         RollingNumberSetterFingerprint.result?.let {
             val dislikesIndex = it.scanResult.patternScanResult!!.endIndex
