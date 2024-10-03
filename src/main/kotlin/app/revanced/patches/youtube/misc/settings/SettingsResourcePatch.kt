@@ -38,7 +38,8 @@ object SettingsResourcePatch : BaseSettingsResourcePatch(
             context.copyResources("settings", resourceGroup)
         }
 
-        // Copy style properties used to fix oversized copy menu that appear in EditTextPreference.
+        // Copy style properties used to fix over-sized copy menu that appear in EditTextPreference.
+        // See integrations code for a full explanation of how this fixes the issue.
         val targetResource = "values/styles.xml"
         inputStreamFromBundledResource(
             "settings/host",
