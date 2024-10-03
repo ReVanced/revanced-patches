@@ -219,7 +219,7 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
 
         ShortsTextViewFingerprint.result?.let {
             it.mutableMethod.apply {
-                val insertIndex = it.scanResult.patternScanResult!!.endIndex
+                val insertIndex = it.scanResult.patternScanResult!!.endIndex + 1
 
                 // If the field is true, the TextView is for a dislike button.
                 val isDisLikesBooleanInstruction = getInstructions().first { instruction ->
@@ -239,7 +239,7 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                 // If RYD is disabled, or the TextView object is not that of the dislike button, the execution flow is not interrupted.
                 // Otherwise, the TextView object is modified, and the execution flow is interrupted to prevent it from being changed afterward.
                 addInstructionsWithLabels(
-                    insertIndex + 1,
+                    insertIndex,
                     """
                         # Check, if the TextView is for a dislike button
                         iget-boolean v0, p0, $isDisLikesBooleanReference

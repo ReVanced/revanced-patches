@@ -21,12 +21,12 @@ internal object RecyclerViewTreeHookPatch : BytecodePatch(
 
         RecyclerViewTreeObserverFingerprint.result?.let {
             it.mutableMethod.apply {
-                val startIndex = it.scanResult.patternScanResult!!.startIndex
+                val insertIndex = it.scanResult.patternScanResult!!.startIndex + 1
                 val recyclerViewParameter = 2
 
                 addHook = { classDescriptor ->
                     addInstruction(
-                        startIndex + 1,
+                        insertIndex,
                         "invoke-static/range { p$recyclerViewParameter .. p$recyclerViewParameter }, $classDescriptor->onFlyoutMenuCreate(Landroid/support/v7/widget/RecyclerView;)V"
                     )
                 }
