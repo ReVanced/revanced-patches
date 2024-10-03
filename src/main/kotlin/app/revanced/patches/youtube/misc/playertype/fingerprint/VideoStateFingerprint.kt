@@ -8,11 +8,8 @@ import com.android.tools.smali.dexlib2.Opcode
 internal object VideoStateFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "V",
-    parameters = listOf("L"),
+    parameters = listOf("Lcom/google/android/libraries/youtube/player/features/overlay/controls/ControlsState;"),
     opcodes = listOf(
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.IGET_OBJECT,
         Opcode.CONST_4,
         Opcode.IF_EQZ,
         Opcode.IF_EQZ,
