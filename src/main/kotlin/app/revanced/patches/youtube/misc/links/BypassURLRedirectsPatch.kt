@@ -13,7 +13,7 @@ import app.revanced.patches.youtube.misc.links.fingerprints.ABUriParserFingerpri
 import app.revanced.patches.youtube.misc.links.fingerprints.ABUriParserLegacyFingerprint
 import app.revanced.patches.youtube.misc.links.fingerprints.HTTPUriParserFingerprint
 import app.revanced.patches.youtube.misc.links.fingerprints.HTTPUriParserLegacyFingerprint
-import app.revanced.patches.youtube.misc.playservice.YouTubeVersionCheck
+import app.revanced.patches.youtube.misc.playservice.VersionCheckPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -29,7 +29,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
         IntegrationsPatch::class,
         SettingsPatch::class,
         AddResourcesPatch::class,
-        YouTubeVersionCheck::class
+        VersionCheckPatch::class
    ],
     compatiblePackages = [
         CompatiblePackage(
@@ -79,7 +79,7 @@ object BypassURLRedirectsPatch : BytecodePatch(
         )
 
         val fingerprints =
-            if (YouTubeVersionCheck.is_19_33_or_greater)
+            if (VersionCheckPatch.is_19_33_or_greater)
                 arrayOf(
                     ABUriParserFingerprint,
                     HTTPUriParserFingerprint

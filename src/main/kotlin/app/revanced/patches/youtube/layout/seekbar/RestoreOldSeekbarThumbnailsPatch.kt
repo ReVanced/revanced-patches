@@ -11,14 +11,14 @@ import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.layout.seekbar.fingerprints.FullscreenSeekbarThumbnailsFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
-import app.revanced.patches.youtube.misc.playservice.YouTubeVersionCheck
+import app.revanced.patches.youtube.misc.playservice.VersionCheckPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.exception
 
 @Patch(
     name = "Restore old seekbar thumbnails",
     description = "Adds an option to restore the old seekbar thumbnails that appear above the seekbar while seeking instead of fullscreen thumbnails.",
-    dependencies = [IntegrationsPatch::class, AddResourcesPatch::class, YouTubeVersionCheck::class],
+    dependencies = [IntegrationsPatch::class, AddResourcesPatch::class, VersionCheckPatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", [
@@ -58,7 +58,7 @@ object RestoreOldSeekbarThumbnailsPatch : BytecodePatch(
         "Lapp/revanced/integrations/youtube/patches/RestoreOldSeekbarThumbnailsPatch;"
 
     override fun execute(context: BytecodeContext) {
-        if (YouTubeVersionCheck.is_19_17_or_greater) {
+        if (VersionCheckPatch.is_19_17_or_greater) {
             // Give a more informative error, if the user has turned off version checks.
             throw PatchException("'Restore old seekbar thumbnails' cannot be patched to any version after 19.16.39")
         }

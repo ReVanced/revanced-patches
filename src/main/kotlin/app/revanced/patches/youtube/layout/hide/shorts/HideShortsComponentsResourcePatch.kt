@@ -8,7 +8,7 @@ import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.layout.hide.shorts.HideShortsComponentsPatch.hideShortsAppShortcut
 import app.revanced.patches.youtube.layout.hide.shorts.HideShortsComponentsPatch.hideShortsWidget
-import app.revanced.patches.youtube.misc.playservice.YouTubeVersionCheck
+import app.revanced.patches.youtube.misc.playservice.VersionCheckPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.findElementByAttributeValueOrThrow
 
@@ -17,7 +17,7 @@ import app.revanced.util.findElementByAttributeValueOrThrow
         SettingsPatch::class,
         ResourceMappingPatch::class,
         AddResourcesPatch::class,
-        YouTubeVersionCheck::class
+        VersionCheckPatch::class
     ]
 )
 object HideShortsComponentsResourcePatch : ResourcePatch() {
@@ -102,7 +102,7 @@ object HideShortsComponentsResourcePatch : ResourcePatch() {
             "reel_player_right_pivot_v2_size"
         ]
 
-        if (!YouTubeVersionCheck.is_19_03_or_greater) {
+        if (!VersionCheckPatch.is_19_03_or_greater) {
             reelMultipleItemShelfId = ResourceMappingPatch[
                 "dimen",
                 "reel_player_right_cell_button_height",

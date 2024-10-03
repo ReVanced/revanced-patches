@@ -17,7 +17,7 @@ import app.revanced.patches.youtube.misc.litho.filter.fingerprints.EmptyComponen
 import app.revanced.patches.youtube.misc.litho.filter.fingerprints.LithoFilterFingerprint
 import app.revanced.patches.youtube.misc.litho.filter.fingerprints.ProtobufBufferReferenceFingerprint
 import app.revanced.patches.youtube.misc.litho.filter.fingerprints.ReadComponentIdentifierFingerprint
-import app.revanced.patches.youtube.misc.playservice.YouTubeVersionCheck
+import app.revanced.patches.youtube.misc.playservice.VersionCheckPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
@@ -36,7 +36,7 @@ import java.io.Closeable
 
 @Patch(
     description = "Hooks the method which parses the bytes into a ComponentContext to filter components.",
-    dependencies = [IntegrationsPatch::class, YouTubeVersionCheck::class]
+    dependencies = [IntegrationsPatch::class, VersionCheckPatch::class]
 )
 @Suppress("unused")
 object LithoFilterPatch : BytecodePatch(
@@ -156,7 +156,7 @@ object LithoFilterPatch : BytecodePatch(
 
                 // 19.18 and later require patching 2 methods instead of one.
                 // Otherwise the patched code is the same.
-                if (YouTubeVersionCheck.is_19_18_or_greater) {
+                if (VersionCheckPatch.is_19_18_or_greater) {
                     // Get the method name of the ReadComponentIdentifierFingerprint call.
                     val readComponentMethodCallIndex = indexOfFirstInstructionOrThrow {
                         val reference = getReference<MethodReference>()
@@ -230,7 +230,7 @@ object LithoFilterPatch : BytecodePatch(
 
                 addInstructionsWithLabels(
                     insertHookIndex,
-                    if (YouTubeVersionCheck.is_19_18_or_greater) """
+                    if (VersionCheckPatch.is_19_18_or_greater) """
                         $commonInstructions
                         
                         # Return null, and the ComponentContextParserFingerprint hook 

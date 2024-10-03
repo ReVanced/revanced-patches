@@ -11,7 +11,7 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.layout.theme.ThemeBytecodePatch.darkThemeBackgroundColor
 import app.revanced.patches.youtube.layout.theme.ThemeBytecodePatch.lightThemeBackgroundColor
-import app.revanced.patches.youtube.misc.playservice.YouTubeVersionCheck
+import app.revanced.patches.youtube.misc.playservice.VersionCheckPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import org.w3c.dom.Element
 
@@ -20,7 +20,7 @@ import org.w3c.dom.Element
         SettingsPatch::class,
         ResourceMappingPatch::class,
         AddResourcesPatch::class,
-        YouTubeVersionCheck::class,
+        VersionCheckPatch::class,
     ],
 )
 internal object ThemeResourcePatch : ResourcePatch() {
@@ -98,7 +98,7 @@ internal object ThemeResourcePatch : ResourcePatch() {
 
             // Fix the splash screen dark mode background color.
             // Normally this is white and makes no sense for dark mode.
-            if (YouTubeVersionCheck.is_19_32_or_greater) {
+            if (VersionCheckPatch.is_19_32_or_greater) {
                 // Only dark mode needs this fix as light mode correctly uses the custom color.
                 context.xmlEditor["res/values-night/styles.xml"].use { editor ->
                     val document = editor.file

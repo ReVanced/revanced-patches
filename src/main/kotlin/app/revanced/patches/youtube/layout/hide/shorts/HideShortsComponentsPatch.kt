@@ -14,7 +14,7 @@ import app.revanced.patches.youtube.layout.hide.shorts.fingerprints.*
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
-import app.revanced.patches.youtube.misc.playservice.YouTubeVersionCheck
+import app.revanced.patches.youtube.misc.playservice.VersionCheckPatch
 import app.revanced.util.forEachLiteralValueInstruction
 import app.revanced.util.alsoResolve
 import app.revanced.util.exception
@@ -39,7 +39,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
         HideShortsComponentsResourcePatch::class,
         ResourceMappingPatch::class,
         NavigationBarHookPatch::class,
-        YouTubeVersionCheck::class
+        VersionCheckPatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -105,7 +105,7 @@ object HideShortsComponentsPatch : BytecodePatch(
         // region Hide the Shorts shelf.
 
         // This patch point is not present in 19.03.x and greater.
-        if (!YouTubeVersionCheck.is_19_03_or_greater) {
+        if (!VersionCheckPatch.is_19_03_or_greater) {
             ReelConstructorFingerprint.result?.let {
                 it.mutableMethod.apply {
                     val insertIndex = it.scanResult.patternScanResult!!.startIndex + 2

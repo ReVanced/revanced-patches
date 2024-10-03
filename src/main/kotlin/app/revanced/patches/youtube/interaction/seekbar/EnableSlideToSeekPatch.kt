@@ -14,7 +14,7 @@ import app.revanced.patches.youtube.interaction.seekbar.fingerprints.DisableFast
 import app.revanced.patches.youtube.interaction.seekbar.fingerprints.DisableFastForwardNoticeFingerprint
 import app.revanced.patches.youtube.interaction.seekbar.fingerprints.SlideToSeekFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
-import app.revanced.patches.youtube.misc.playservice.YouTubeVersionCheck
+import app.revanced.patches.youtube.misc.playservice.VersionCheckPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.getReference
 import app.revanced.util.resultOrThrow
@@ -112,7 +112,7 @@ object EnableSlideToSeekPatch : BytecodePatch(
         if (!modifiedMethods) throw PatchException("Could not find methods to modify")
 
         // Disable the double speed seek gesture.
-        if (!YouTubeVersionCheck.is_19_17_or_greater) {
+        if (!VersionCheckPatch.is_19_17_or_greater) {
             DisableFastForwardLegacyFingerprint.resultOrThrow().let {
                 it.mutableMethod.apply {
                     val insertIndex = it.scanResult.patternScanResult!!.endIndex + 1

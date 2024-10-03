@@ -29,7 +29,7 @@ import app.revanced.patches.youtube.layout.returnyoutubedislike.fingerprints.Tex
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
 import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
-import app.revanced.patches.youtube.misc.playservice.YouTubeVersionCheck
+import app.revanced.patches.youtube.misc.playservice.VersionCheckPatch
 import app.revanced.patches.youtube.shared.fingerprints.RollingNumberTextViewAnimationUpdateFingerprint
 import app.revanced.patches.youtube.video.videoid.VideoIdPatch
 import app.revanced.util.alsoResolve
@@ -57,7 +57,7 @@ import com.android.tools.smali.dexlib2.iface.reference.TypeReference
         VideoIdPatch::class,
         ReturnYouTubeDislikeResourcePatch::class,
         PlayerTypeHookPatch::class,
-        YouTubeVersionCheck::class
+        VersionCheckPatch::class
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -162,7 +162,7 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                 val tempRegister : Int
                 val charSequenceRegister : Int
 
-                if (YouTubeVersionCheck.is_19_33_or_greater) {
+                if (VersionCheckPatch.is_19_33_or_greater) {
                     insertIndex = indexOfFirstInstructionOrThrow {
                         opcode == Opcode.INVOKE_STATIC_RANGE &&
                                 getReference<MethodReference>()?.returnType == textDataClassType

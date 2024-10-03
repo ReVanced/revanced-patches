@@ -4,9 +4,9 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
-import app.revanced.patches.youtube.misc.playservice.YouTubeVersionCheck
+import app.revanced.patches.youtube.misc.playservice.VersionCheckPatch
 
-@Patch(dependencies = [ResourceMappingPatch::class, YouTubeVersionCheck::class])
+@Patch(dependencies = [ResourceMappingPatch::class, VersionCheckPatch::class])
 internal object MiniplayerResourcePatch : ResourcePatch() {
     var floatyBarButtonTopMargin = -1L
 
@@ -37,7 +37,7 @@ internal object MiniplayerResourcePatch : ResourcePatch() {
             "player_overlays"
         ]
 
-        if (YouTubeVersionCheck.is_19_16_or_greater) {
+        if (VersionCheckPatch.is_19_16_or_greater) {
             modernMiniplayerClose = ResourceMappingPatch[
                 "id",
                 "modern_miniplayer_close"
@@ -66,7 +66,7 @@ internal object MiniplayerResourcePatch : ResourcePatch() {
             ]
 
             // Only required for exactly 19.16
-            if (!YouTubeVersionCheck.is_19_17_or_greater) {
+            if (!VersionCheckPatch.is_19_17_or_greater) {
                 ytOutlinePictureInPictureWhite24 = ResourceMappingPatch[
                     "drawable",
                     "yt_outline_picture_in_picture_white_24"
@@ -78,7 +78,7 @@ internal object MiniplayerResourcePatch : ResourcePatch() {
                 ]
             }
 
-            if (YouTubeVersionCheck.is_19_26_or_greater) {
+            if (VersionCheckPatch.is_19_26_or_greater) {
                 miniplayerMaxSize = ResourceMappingPatch[
                     "dimen",
                     "miniplayer_max_size"

@@ -14,7 +14,7 @@ import kotlin.properties.Delegates
  * All bug fix releases always seem to use the same play store version.
  */
 @Patch(dependencies = [ResourceMappingPatch::class])
-internal object YouTubeVersionCheck : ResourcePatch() {
+internal object VersionCheckPatch : ResourcePatch() {
 
     private var playStoreServicesVersion by Delegates.notNull<Int>()
 

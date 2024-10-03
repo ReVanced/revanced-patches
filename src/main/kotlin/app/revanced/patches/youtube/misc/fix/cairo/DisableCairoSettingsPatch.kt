@@ -7,7 +7,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.youtube.misc.backgroundplayback.BackgroundPlaybackPatch
 import app.revanced.patches.youtube.misc.fix.cairo.fingerprints.CarioFragmentConfigFingerprint
-import app.revanced.patches.youtube.misc.playservice.YouTubeVersionCheck
+import app.revanced.patches.youtube.misc.playservice.VersionCheckPatch
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
 import app.revanced.util.resultOrThrow
@@ -17,14 +17,14 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Patch(
     description = "Disables Cairo Fragment from being used.",
     dependencies = [
-        YouTubeVersionCheck::class
+        VersionCheckPatch::class
     ]
 )
 internal object DisableCairoSettingsPatch : BytecodePatch(
     setOf(CarioFragmentConfigFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
-        if (!YouTubeVersionCheck.is_19_04_or_greater) {
+        if (!VersionCheckPatch.is_19_04_or_greater) {
             return
         }
 
