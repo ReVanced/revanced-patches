@@ -105,7 +105,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
                 "19.12.41",
                 "19.13.37",
                 // 19.14.43 // Incomplete code for modern miniplayers.
-                // 19.15.36 // Different code for handling sub title texts and not worth supporting.
+                // 19.15.36 // Different code for handling subtitle texts and not worth supporting.
                 "19.16.39", // First with modern miniplayers.
                 // 19.17.41 // Works without issues, but no reason to recommend over 19.16.
                 // 19.18.41 // Works without issues, but no reason to recommend over 19.16.

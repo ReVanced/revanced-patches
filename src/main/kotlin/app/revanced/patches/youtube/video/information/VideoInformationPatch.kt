@@ -185,7 +185,7 @@ object VideoInformationPatch : BytecodePatch(
         arrayOf(
             Triple(seekToMethod, "seekTo", true),
             Triple(seekToRelativeMethod, "seekToRelative", false)
-        ).forEach { (method, name, hasBooleanReturn) ->
+        ).forEach { (method, name, returnsBoolean) ->
             // Add interface method.
             // Get enum type for the seek helper method.
             val seekSourceEnumType = method.parameterTypes[1].toString()
@@ -194,7 +194,7 @@ object VideoInformationPatch : BytecodePatch(
                 targetClass.type,
                 name,
                 listOf(ImmutableMethodParameter("J", null, "time")),
-                if (hasBooleanReturn) "Z" else "V",
+                if (returnsBoolean) "Z" else "V",
                 AccessFlags.PUBLIC or AccessFlags.FINAL,
                 null, null,
                 MutableMethodImplementation(4)
@@ -206,7 +206,7 @@ object VideoInformationPatch : BytecodePatch(
                     invoke-virtual { p0, p1, p2, v0 }, $method
                 """
 
-            instructions += if (hasBooleanReturn) """
+            instructions += if (returnsBoolean) """
                 move-result p1
                 return p1                
             """ else """

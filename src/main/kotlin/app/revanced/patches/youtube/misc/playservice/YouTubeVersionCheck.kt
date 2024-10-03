@@ -36,7 +36,31 @@ internal object YouTubeVersionCheck : ResourcePatch() {
     var is_19_36_or_greater by Delegates.notNull<Boolean>()
 
     override fun execute(context: ResourceContext) {
-        playStoreServicesVersion = findPlayServicesVersion(context)
+        /**
+         * Used to check what version an app is.
+         * Returns the Google Play services version,
+         * since the decoded app manifest does not have the app version.
+         */
+        fun getPlayServicesVersion(context: ResourceContext): Int {
+            // The app version is missing from the decompiled manifest,
+            // so instead use the Google Play services version and compare against specific releases.
+            context.document["res/values/integers.xml"].use { document ->
+                val nodeList = document.documentElement.childNodes
+                for (i in 0 until nodeList.length) {
+                    val node = nodeList.item(i)
+                    if (node.nodeType == Node.ELEMENT_NODE) {
+                        val element = node as Element
+                        if (element.getAttribute("name") == "google_play_services_version") {
+                            return element.textContent.toInt()
+                        }
+                    }
+                }
+            }
+
+            throw PatchException("integers.xml does not contain a Google Play services version")
+        }
+
+        playStoreServicesVersion = getPlayServicesVersion(context)
 
         is_19_03_or_greater = 240402000 <= playStoreServicesVersion
         is_19_04_or_greater = 240502000 <= playStoreServicesVersion
@@ -54,29 +78,5 @@ internal object YouTubeVersionCheck : ResourcePatch() {
         is_19_33_or_greater = 243405000 <= playStoreServicesVersion
         is_19_35_or_greater = 243605000 <= playStoreServicesVersion
         is_19_36_or_greater = 243705000 <= playStoreServicesVersion
-    }
-
-    /**
-     * Used to check what version an app is.
-     * Returns the Google Play services version,
-     * since the decoded app manifest does not have the app version.
-     */
-    private fun findPlayServicesVersion(context: ResourceContext): Int {
-        // The app version is missing from the decompiled manifest,
-        // so instead use the Google Play services version and compare against specific releases.
-        context.document["res/values/integers.xml"].use { document ->
-            val nodeList = document.documentElement.childNodes
-            for (i in 0 until nodeList.length) {
-                val node = nodeList.item(i)
-                if (node.nodeType == Node.ELEMENT_NODE) {
-                    val element = node as Element
-                    if (element.getAttribute("name") == "google_play_services_version") {
-                        return element.textContent.toInt()
-                    }
-                }
-            }
-        }
-
-        throw PatchException("integers.xml does not contain a Google Play services version")
     }
 }
