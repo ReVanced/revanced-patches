@@ -3,18 +3,11 @@ package app.revanced.patches.youtube.misc.playservice
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
 import app.revanced.util.findElementByAttributeValueOrThrow
 import kotlin.properties.Delegates
 
-/**
- * Uses the Play Store service version to find the major/minor version of the target app.
- * All bug fix releases always seem to use the same play store version.
- */
-@Patch(dependencies = [ResourceMappingPatch::class])
+@Patch(description = "Uses the Play Store service version to find the major/minor version of the YouTube target app.")
 internal object VersionCheckPatch : ResourcePatch() {
-
-    private var playStoreServicesVersion by Delegates.notNull<Int>()
 
     var is_19_03_or_greater by Delegates.notNull<Boolean>()
     var is_19_04_or_greater by Delegates.notNull<Boolean>()
@@ -30,24 +23,17 @@ internal object VersionCheckPatch : ResourcePatch() {
     var is_19_36_or_greater by Delegates.notNull<Boolean>()
 
     override fun execute(context: ResourceContext) {
-        /**
-         * Used to check what version an app is.
-         * Returns the Google Play services version,
-         * since the decoded app manifest does not have the app version.
-         */
-        fun getPlayServicesVersion(context: ResourceContext): Int {
-            // The app version is missing from the decompiled manifest,
-            // so instead use the Google Play services version and compare against specific releases.
-            context.document["res/values/integers.xml"].use { document ->
-                return document.documentElement.childNodes.findElementByAttributeValueOrThrow(
-                    "name",
-                    "google_play_services_version"
-                ).textContent.toInt()
-            }
+
+        // The app version is missing from the decompiled manifest,
+        // so instead use the Google Play services version and compare against specific releases.
+        val playStoreServicesVersion = context.document["res/values/integers.xml"].use { document ->
+            document.documentElement.childNodes.findElementByAttributeValueOrThrow(
+                "name",
+                "google_play_services_version"
+            ).textContent.toInt()
         }
 
-        playStoreServicesVersion = getPlayServicesVersion(context)
-
+        // All bug fix releases always seem to use the same play store version as the minor version.
         is_19_03_or_greater = 240402000 <= playStoreServicesVersion
         is_19_04_or_greater = 240502000 <= playStoreServicesVersion
         is_19_16_or_greater = 241702000 <= playStoreServicesVersion
