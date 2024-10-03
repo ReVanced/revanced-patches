@@ -628,13 +628,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_summary_on">تم إخفاء تسمية الموقع</string>
   <string name="revanced_hide_shorts_location_label_summary_off">يتم عرض تسمية الموقع</string>
   <string name="revanced_hide_shorts_save_sound_button_title">إخفاء زر حفظ الموسيقى</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">حفظ الموسيقى مخفية</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">حفظ الموسيقى يظهر</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">تم إخفاء حفظ الموسيقى</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">يتم عرض حفظ الموسيقى</string>
   <string name="revanced_hide_shorts_search_suggestions_title">إخفاء اقتراحات البحث</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">تم إخفاء اقتراحات البحث</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">يتم عرض اقتراحات البحث</string>
   <string name="revanced_hide_shorts_stickers_title">إخفاء الملصقات</string>
-  <string name="revanced_hide_shorts_stickers_summary_on">الملصقات مخفية</string>
+  <string name="revanced_hide_shorts_stickers_summary_on">تم إخفاء الملصقات</string>
   <string name="revanced_hide_shorts_stickers_summary_off">يتم عرض الملصقات</string>
   <string name="revanced_hide_shorts_like_button_title">إخفاء زر أعجبني</string>
   <string name="revanced_hide_shorts_like_button_summary_on">تم إخفاء زر أعجبني</string>

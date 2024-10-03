@@ -637,6 +637,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_shorts_stickers_title">Hide stickers</string>
             <string name="revanced_hide_shorts_stickers_summary_on">Stickers are hidden</string>
             <string name="revanced_hide_shorts_stickers_summary_off">Stickers are shown</string>
+            <string name="revanced_hide_shorts_like_fountain_title">Hide like fountain</string>
+            <string name="revanced_hide_shorts_like_fountain_summary_on">Like button fountain animation is hidden</string>
+            <string name="revanced_hide_shorts_like_fountain_summary_off">Like button fountain animation is shown</string>
             <string name="revanced_hide_shorts_like_button_title">Hide like button</string>
             <string name="revanced_hide_shorts_like_button_summary_on">Like button is hidden</string>
             <string name="revanced_hide_shorts_like_button_summary_off">Like button is shown</string>

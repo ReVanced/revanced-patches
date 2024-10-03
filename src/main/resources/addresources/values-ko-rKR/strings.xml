@@ -634,9 +634,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_search_suggestions_title">검색 추천 숨기기</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">검색 추천이 숨겨집니다</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">검색 추천이 표시됩니다</string>
-  <string name="revanced_hide_shorts_stickers_title">Q&amp;A 스티커 숨기기</string>
-  <string name="revanced_hide_shorts_stickers_summary_on">Q&amp;A 스티커가 숨겨집니다</string>
-  <string name="revanced_hide_shorts_stickers_summary_off">Q&amp;A 스티커가 표시됩니다</string>
+  <string name="revanced_hide_shorts_stickers_title">스티커 숨기기</string>
+  <string name="revanced_hide_shorts_stickers_summary_on">스티커가 숨겨집니다</string>
+  <string name="revanced_hide_shorts_stickers_summary_off">스티커가 표시됩니다</string>
   <string name="revanced_hide_shorts_like_button_title">좋아요 버튼 숨기기</string>
   <string name="revanced_hide_shorts_like_button_summary_on">좋아요 버튼이 숨겨집니다</string>
   <string name="revanced_hide_shorts_like_button_summary_off">좋아요 버튼이 표시됩니다</string>
