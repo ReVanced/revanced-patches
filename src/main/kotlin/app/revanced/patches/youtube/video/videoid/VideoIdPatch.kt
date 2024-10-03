@@ -8,7 +8,6 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
-import app.revanced.patches.youtube.misc.playservice.VersionCheckPatch
 import app.revanced.patches.youtube.video.playerresponse.PlayerResponseMethodHookPatch
 import app.revanced.patches.youtube.video.videoid.fingerprint.VideoIdBackgroundPlayFingerprint
 import app.revanced.patches.youtube.video.videoid.fingerprint.VideoIdFingerprint
@@ -23,7 +22,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     description = "Hooks to detect when the video id changes",
-    dependencies = [IntegrationsPatch::class, PlayerResponseMethodHookPatch::class, VersionCheckPatch::class],
+    dependencies = [IntegrationsPatch::class, PlayerResponseMethodHookPatch::class],
 )
 object VideoIdPatch : BytecodePatch(
     setOf(
