@@ -1003,8 +1003,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_miniplayer_drag_and_drop_summary_on">Drag and drop is enabled\n\nMiniplayer can be dragged to any corner of the screen</string>
             <string name="revanced_miniplayer_drag_and_drop_summary_off">Drag and drop is disabled</string>
             <string name="revanced_miniplayer_hide_expand_close_title">Hide expand and close buttons</string>
-            <string name="revanced_miniplayer_hide_expand_close_summary_on">Buttons are hidden\n\nSwipe to expand or close</string>
-            <string name="revanced_miniplayer_hide_expand_close_19_26_summary_on">Buttons are hidden\n\nTap to expand, swipe to close</string>
+            <string name="revanced_miniplayer_hide_expand_close_summary_on">Buttons are hidden\n\nTap to expand, swipe to close</string>
+            <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Buttons are hidden\n\nSwipe to expand or close</string>
             <string name="revanced_miniplayer_hide_expand_close_summary_off">Expand and close buttons are shown</string>
             <string name="revanced_miniplayer_hide_subtext_title">Hide subtexts</string>
             <string name="revanced_miniplayer_hide_subtext_summary_on">Subtexts are hidden</string>

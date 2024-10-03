@@ -153,9 +153,9 @@ object MiniplayerPatch : BytecodePatch(
                 key = "revanced_miniplayer_hide_expand_close",
                 summaryOnKey =
                 if (VersionCheckPatch.is_19_26_or_greater) {
-                    "revanced_miniplayer_hide_expand_close_19_26_summary_on"
-                } else {
                     "revanced_miniplayer_hide_expand_close_summary_on"
+                } else {
+                    "revanced_miniplayer_hide_expand_close_legacy_summary_on"
                 }
             )
 
