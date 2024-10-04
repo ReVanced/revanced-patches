@@ -6,7 +6,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.reddit.customclients.syncforreddit.fix.video.fingerprints.RedditVideoRequestFingerprint
+import app.revanced.patches.reddit.customclients.syncforreddit.fix.video.fingerprints.ParseRedditVideoNetworkResponseFingerprint
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -20,17 +20,17 @@ import com.android.tools.smali.dexlib2.Opcode
         CompatiblePackage("com.laurencedawson.reddit_sync.dev"),
     ],
     requiresIntegrations = true,
-    use = false,
+    use = true,
 )
 @Suppress("unused")
-object FixRedditVideoDownloadPatch : BytecodePatch(
-    fingerprints = setOf(RedditVideoRequestFingerprint),
+object FixVideoDownloadsPatch : BytecodePatch(
+    fingerprints = setOf(ParseRedditVideoNetworkResponseFingerprint),
 ) {
     private const val integrationsClassDescriptor = "Lapp/revanced/integrations/syncforreddit/FixRedditVideoDownloadPatch;"
     private const val getLinksMethod = "getLinks([B)[Ljava/lang/String;"
 
     override fun execute(context: BytecodeContext) {
-        val downloadMethod = RedditVideoRequestFingerprint.resultOrThrow().mutableMethod
+        val downloadMethod = ParseRedditVideoNetworkResponseFingerprint.resultOrThrow().mutableMethod
         val constIdx = downloadMethod.indexOfFirstInstruction { opcode == Opcode.CONST_WIDE_32 } - 2
 
         downloadMethod.addInstructions(constIdx, """
