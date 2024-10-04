@@ -17,16 +17,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
     name = "Hide 'Get Music Premium' label",
     description = "Hides the \"Get Music Premium\" label from the account menu and settings.",
     compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.apps.youtube.music",
-            [
-                "6.45.54",
-                "6.51.53",
-                "7.01.53",
-                "7.02.52",
-                "7.03.52",
-            ]
-        )
+        CompatiblePackage("com.google.android.apps.youtube.music")
     ]
 )
 @Suppress("unused")

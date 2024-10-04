@@ -32,6 +32,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
 -->
 <resources>
   <app id="shared">
+  <patch id="misc.checks.BaseCheckEnvironmentPatch">
+  <string name="revanced_check_environment_failed_title">Controlli falliti</string>
+  <string name="revanced_check_environment_dialog_open_official_source_button">Apri sito ufficiale</string>
+  <string name="revanced_check_environment_dialog_ignore_button">Ignora</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Questa app non sembra essere patched da te.&lt;/h5&gt;&lt;br&gt;Questa app potrebbe non funzionare correttamente, &lt;b&gt;potrebbe essere dannosa o addirittura pericolosa da usare&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Questi controlli implicano che questa app sia pre-patchata o ottenuta da qualcun altro:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Si consiglia vivamente di &lt;b&gt;disinstallare questa app e patch te stesso&lt;/b&gt; per assicurarsi di utilizzare un\'app convalidata e sicura.&lt;p&gt;&lt;br&gt;Se ignorato, questo avviso verrà visualizzato solo due volte.</string>
+  <string name="revanced_check_environment_not_same_patching_device">Patchato su un altro dispositivo</string>
+  <string name="revanced_check_environment_manager_not_expected_installer">Non installato da ReVanced Manager</string>
+  <string name="revanced_check_environment_not_near_patch_time">Patched more than 10 minutes ago</string>
+  <string name="revanced_check_environment_not_near_patch_time_days">Patched %s days ago</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">La data di compilazione APK è danneggiata</string>
+  </patch>
   <patch id="misc.settings.BaseSettingsResourcePatch">
   <string name="revanced_settings_confirm_user_dialog_title">Sei sicuro di voler continuare?</string>
   <string name="revanced_settings_reset">Reimposta</string>
@@ -42,6 +53,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_import_reset">Reimposta le impostazioni di ReVanced a quelle di default</string>
   <string name="revanced_settings_import_success">Importate %d impostazioni</string>
   <string name="revanced_settings_import_failure_parse">Importazione fallita: %s</string>
+  <string name="revanced_pref_import_export_title">Importa / Esporta</string>
+  <string name="revanced_pref_import_export_summary">Importa / Esporta impostazioni ReVanced</string>
+  <!-- Settings about dialog. -->
+  <string name="revanced_settings_about_links_body">Stai usando la versione &lt;i&gt;%s&lt;/i&gt; di ReVanced Patches</string>
+  <string name="revanced_settings_about_links_dev_header">Nota</string>
+  <string name="revanced_settings_about_links_dev_body">Questa versione è una pre-release e potresti riscontrare problemi inaspettati</string>
+  <string name="revanced_settings_about_links_header">Link ufficiali</string>
+  <string name="revanced_settings_about_links_donate">Dona</string>
   </patch>
   <patch id="misc.gms.BaseGmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -54,14 +73,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   </app>
   <app id="youtube">
-  <patch id="misc.settings.SettingsResourcePatch">
-  <string name="revanced_settings_about_links_body">Stai usando la versione &lt;i&gt;%s&lt;/i&gt; di ReVanced Patches</string>
-  <string name="revanced_settings_about_links_dev_header">Nota</string>
-  <string name="revanced_settings_about_links_dev_body">Questa versione è una pre-release e potresti riscontrare problemi inaspettati</string>
-  <string name="revanced_settings_about_links_header">Link ufficiali</string>
-  <string name="revanced_pref_import_export_title">Importa / Esporta</string>
-  <string name="revanced_pref_import_export_summary">Importa / Esporta impostazioni ReVanced</string>
-  </patch>
   <patch id="misc.settings.SettingsPatch">
   <string name="revanced_settings_screen_00_about_title">Informazioni</string>
   <string name="revanced_settings_screen_01_ads_title">Annunci</string>
@@ -136,6 +147,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_guidelines_title">Nascondi linee guida del canale</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Linee guida del canale nascoste</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Linee guida del canale visibili</string>
+  <string name="revanced_hide_chips_shelf_title">Nascondi scaffale chip</string>
+  <string name="revanced_hide_chips_shelf_summary_on">Lo scaffale di chip è nascosto</string>
+  <string name="revanced_hide_chips_shelf_summary_off">Lo scaffale delle fiches è mostrato</string>
   <string name="revanced_hide_expandable_chip_title">Nascondi il frammento espandibile sotto i video</string>
   <string name="revanced_hide_expandable_chip_summary_on">Frammenti espandibili nascosti</string>
   <string name="revanced_hide_expandable_chip_summary_off">Frammenti espandibili visibili</string>
@@ -196,9 +210,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_artist_cards_title">Nascondi le carte artista</string>
   <string name="revanced_hide_artist_cards_summary_on">Le carte dell\'artista sono nascoste</string>
   <string name="revanced_hide_artist_cards_summary_off">Vengono mostrate le carte dell\'artista</string>
-  <string name="revanced_hide_chips_shelf_title">Nascondi scaffale chip</string>
-  <string name="revanced_hide_chips_shelf_summary_on">Lo scaffale di chip è nascosto</string>
-  <string name="revanced_hide_chips_shelf_summary_off">Lo scaffale delle fiches è mostrato</string>
   <string name="revanced_hide_attributes_section_title">Nascondi la sezione attributi</string>
   <string name="revanced_hide_attributes_section_summary_on">Le sezioni \'Luoghi in evidenza\', Giochi e Musica sono nascoste</string>
   <string name="revanced_hide_attributes_section_summary_off">Le sezioni \'Luoghi in evidenza\', Giochi e Musica sono visibili</string>
@@ -242,14 +253,18 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_content_phrases_title">Parole chiave da nascondere</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
-  <string name="revanced_hide_keyword_content_phrases_summary">Parole chiave e frasi da nascondere, separate da nuove linee\n\nLe parole con lettere maiuscole nel centro devono essere inserite con il budello (ie: iPhone, TikTok, LeBlanc)</string>
+  <string name="revanced_hide_keyword_content_phrases_summary">Parole chiave e frasi da nascondere, separate da nuove righe\n\nLe parole chiave possono essere nomi di canali o qualsiasi testo mostrato nei titoli video\n\nLe parole con lettere maiuscole nel centro devono essere inserite con il contenitore (es: iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">Informazioni sul filtro delle parole chiave</string>
-  <string name="revanced_hide_keyword_content_about_summary">Home/Abbonamento/I risultati della ricerca sono filtrati per nascondere il contenuto che corrisponde alle frasi di parole chiave\n\nLimitazioni\n• Alcuni Shorts potrebbero non essere nascosti\n• Alcuni componenti dell\'interfaccia utente potrebbero non essere nascosti\n• La ricerca di una parola chiave potrebbe non mostrare alcun risultato</string>
+  <string name="revanced_hide_keyword_content_about_summary">Home/Abbonamento/I risultati della ricerca sono filtrati per nascondere il contenuto che corrisponde alle frasi di parole chiave\n\nLimitazioni\n• I resort non possono essere nascosti dal nome del canale\n• Alcuni componenti dell\'interfaccia utente potrebbero non essere nascosti\n• La ricerca di una parola chiave potrebbe non mostrare alcun risultato</string>
+  <string name="revanced_hide_keyword_content_about_whole_words_title">Corrispondenza parole intere</string>
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <string name="revanced_hide_keyword_content_about_whole_words_summary">Circondare una parola chiave/frase con doppie virgolette impedirà partite parziali di titoli video e nomi di canali&lt;br&gt;&lt;br&gt;Per esempio,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; nasconderà il video: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;ma non si nasconde: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_keyword_toast_invalid_common">Parola chiave non valida. Impossibile utilizzare: \'%s\' come filtro</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_keyword_toast_invalid_length">Parola chiave non valida. \'%1$s\' è minore di %2$d caratteri</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">La parola chiave \'%s\' nasconderà tutti i video</string>
+  <string name="revanced_hide_keyword_toast_invalid_common">Impossibile usare la parola chiave: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Aggiungi preventivi per usare la parola chiave: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_conflicting">La parola chiave ha dichiarazioni in conflitto: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_length">Parola chiave troppo corta e richiede preventivi: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">Parola chiave nasconderà tutti i video: %s</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Nascondi gli annunci generali</string>
@@ -612,12 +627,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">Nascondi etichetta posizione</string>
   <string name="revanced_hide_shorts_location_label_summary_on">L\'etichetta di localizzazione è nascosta</string>
   <string name="revanced_hide_shorts_location_label_summary_off">L\'etichetta di posizione è mostrata</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Nascondi il pulsante Salva suono nella playlist</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Salva il suono nella scaletta è nascosto</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Il suono di salvataggio nella scaletta è mostrato</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Nascondi il pulsante per salvare musica</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">Salva musica nascosta</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">Salva musica mostrata</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Nascondi suggerimenti di ricerca</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">I suggerimenti di ricerca sono nascosti</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">I suggerimenti di ricerca sono mostrati</string>
+  <string name="revanced_hide_shorts_stickers_title">Nascondi adesivi</string>
+  <string name="revanced_hide_shorts_stickers_summary_on">Gli adesivi sono nascosti</string>
+  <string name="revanced_hide_shorts_stickers_summary_off">Gli adesivi sono mostrati</string>
   <string name="revanced_hide_shorts_like_button_title">Nascondi pulsante come</string>
   <string name="revanced_hide_shorts_like_button_summary_on">Il pulsante simile è nascosto</string>
   <string name="revanced_hide_shorts_like_button_summary_off">Il pulsante simile è mostrato</string>
@@ -678,7 +696,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_player_overlay_opacity_invalid_toast">L\'opacità della sovrapposizione del lettore deve essere compresa tra 0-100</string>
   </patch>
   <patch id="layout.returnyoutubedislike.ReturnYouTubeDislikeResourcePatch">
-  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Nascosto</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">API dei Dislike temporaneamente non disponibile</string>
   <string name="revanced_ryd_failure_connection_status_code">Non piace (stato %d)</string>
@@ -893,6 +910,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_stats_username_changed">Il tuo nome utente è stato correttamente modificato</string>
   <string name="revanced_sb_stats_reputation">La tua reputazione è &lt;b&gt;%.2f&lt;/b&gt;</string>
   <string name="revanced_sb_stats_submissions">Hai creato segmenti &lt;b&gt;%s&lt;/b&gt;</string>
+  <string name="revanced_sb_stats_submissions_sum">Tocca qui per visualizzare i tuoi segmenti</string>
   <string name="revanced_sb_stats_saved_zero">Classifica di SponsorBlock</string>
   <string name="revanced_sb_stats_saved">Hai salvato le persone dai segmenti &lt;b&gt;%s&lt;/b&gt;</string>
   <string name="revanced_sb_stats_saved_sum_zero">Tocca qui per vedere le statistiche globali e i migliori contributori</string>
@@ -1114,27 +1132,23 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_on">La diapositiva per cercare è abilitata</string>
   <string name="revanced_slide_to_seek_summary_off">La diapositiva per cercare non è abilitata</string>
   </patch>
-  <patch id="misc.fix.playback.SpoofClientPatch">
-  <string name="revanced_spoof_client_screen_title">Simula client</string>
-  <string name="revanced_spoof_client_screen_summary">Simula il client per prevenire problemi di riproduzione</string>
-  <string name="revanced_spoof_client_title">Simula client</string>
-  <string name="revanced_spoof_client_summary_on">Il client è simulato</string>
-  <string name="revanced_spoof_client_summary_off">Il client non è simulato\n\nLa riproduzione video potrebbe non funzionare</string>
-  <string name="revanced_spoof_client_user_dialog_message">Disattivare questa impostazione potrebbe causare problemi di riproduzione video.</string>
-  <string name="revanced_spoof_client_type_title">Tipo di client Spoof</string>
-  <string name="revanced_spoof_client_ios_force_avc_title">Forza iOS AVC (H.264)</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_on">codec video iOS è AVC</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_off">Il codec video iOS è AVC, VP9 o AV1</string>
-  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Abilitando questo si potrebbe migliorare la durata della batteria e correggere la riproduzione della balbuzia.\n\nAVC ha una risoluzione massima di 1080p, e la riproduzione video utilizzerà più dati internet di VP9 o AV1.</string>
-  <string name="revanced_spoof_client_about_android_ios_title">iOS spoofing effetti collaterali</string>
-  <string name="revanced_spoof_client_about_android_ios_summary">• HDR è supportato solo con AV1 codec\n• La cronologia degli orologi non funziona con un account di marca</string>
-  <string name="revanced_spoof_client_about_android_vr_title">Android VR spoofing effetti collaterali</string>
-  <string name="revanced_spoof_client_about_android_vr_summary">• Nessun video HDR\n• I video per bambini non riproducono\n• I video in pausa possono riprendere casualmente\n• Bassa qualità Pantaloncini seekbar miniature\n• Il pulsante di azione per scaricare è nascosto\n• Le schede dello schermo finale sono nascoste</string>
-  <string name="revanced_spoof_client_storyboard_timeout">Le miniature del client non sono disponibili (timeout API)</string>
-  <string name="revanced_spoof_client_storyboard_io_exception">Miniature del client Spoof temporaneamente non disponibili: %s</string>
-  </patch>
-  <!-- This patch is no longer used, these strings are not in use, and these strings will be deleted in the future. -->
-  <patch id="misc.fix.playback.SpoofSignaturePatch">
+  <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Spoof flussi video</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Abbandonare i flussi video client per evitare problemi di riproduzione</string>
+  <string name="revanced_spoof_video_streams_title">Spoof flussi video</string>
+  <string name="revanced_spoof_video_streams_summary_on">I flussi video sono spoofed</string>
+  <string name="revanced_spoof_video_streams_summary_off">I flussi video non sono spoofed\n\nLa riproduzione video potrebbe non funzionare</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Disattivare questa impostazione potrebbe causare problemi di riproduzione video.</string>
+  <string name="revanced_spoof_video_streams_client_title">Client predefinito</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Forza AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Il codec video è AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Il codec video è VP9 o AV1</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Il tuo dispositivo non ha la decodifica hardware VP9, e questa impostazione è sempre attiva quando lo spoofing client è abilitato</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Abilitando questo si potrebbe migliorare la durata della batteria e correggere la riproduzione della balbuzia.\n\nAVC ha una risoluzione massima di 1080p, e la riproduzione video utilizzerà più dati internet di VP9 o AV1.</string>
+  <string name="revanced_spoof_video_streams_about_ios_title">iOS spoofing effetti collaterali</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• I film o i video a pagamento potrebbero non riprodurre\n• Livestreams start from the start\n• I video potrebbero terminare 1 secondo presto\n• Nessun opus codec audio</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR spoofing effetti collaterali</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Il menu traccia audio è mancante\n• Volume stabile non disponibile</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

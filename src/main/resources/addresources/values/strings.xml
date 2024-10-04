@@ -53,6 +53,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_settings_import_reset">ReVanced settings reset to default</string>
             <string name="revanced_settings_import_success">Imported %d settings</string>
             <string name="revanced_settings_import_failure_parse">Import failed: %s</string>
+            <string name="revanced_pref_import_export_title">Import / Export</string>
+            <string name="revanced_pref_import_export_summary">Import / Export ReVanced settings</string>
+            <!-- Settings about dialog. -->
+            <string name="revanced_settings_about_links_body">You are using ReVanced Patches version &lt;i>%s&lt;/i></string>
+            <string name="revanced_settings_about_links_dev_header">Note</string>
+            <string name="revanced_settings_about_links_dev_body">This version is a pre-release and you may experience unexpected issues</string>
+            <string name="revanced_settings_about_links_header">Official links</string>
+            <string name="revanced_settings_about_links_donate">Donate</string>
         </patch>
         <patch id="misc.gms.BaseGmsCoreSupportResourcePatch">
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -65,15 +73,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
         </patch>
     </app>
     <app id="youtube">
-        <patch id="misc.settings.SettingsResourcePatch">
-            <string name="revanced_settings">ReVanced</string>
-            <string name="revanced_settings_about_links_body">You are using ReVanced Patches version &lt;i>%s&lt;/i></string>
-            <string name="revanced_settings_about_links_dev_header">Note</string>
-            <string name="revanced_settings_about_links_dev_body">This version is a pre-release and you may experience unexpected issues</string>
-            <string name="revanced_settings_about_links_header">Official links</string>
-            <string name="revanced_pref_import_export_title">Import / Export</string>
-            <string name="revanced_pref_import_export_summary">Import / Export ReVanced settings</string>
-        </patch>
         <patch id="misc.settings.SettingsPatch">
             <string name="revanced_settings_screen_00_about_title">About</string>
             <string name="revanced_settings_screen_01_ads_title">Ads</string>
@@ -149,6 +148,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_channel_guidelines_title">Hide channel guidelines</string>
             <string name="revanced_hide_channel_guidelines_summary_on">Channel guidelines are hidden</string>
             <string name="revanced_hide_channel_guidelines_summary_off">Channel guidelines are shown</string>
+            <string name="revanced_hide_chips_shelf_title">Hide chips shelf</string>
+            <string name="revanced_hide_chips_shelf_summary_on">Chips shelf is hidden</string>
+            <string name="revanced_hide_chips_shelf_summary_off">Chips shelf is shown</string>
             <string name="revanced_hide_expandable_chip_title">Hide expandable chip under videos</string>
             <string name="revanced_hide_expandable_chip_summary_on">Expandable chips are hidden</string>
             <string name="revanced_hide_expandable_chip_summary_off">Expandable chips are shown</string>
@@ -209,9 +211,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_artist_cards_title">Hide artist cards</string>
             <string name="revanced_hide_artist_cards_summary_on">Artist cards are hidden</string>
             <string name="revanced_hide_artist_cards_summary_off">Artist cards are shown</string>
-            <string name="revanced_hide_chips_shelf_title">Hide chips shelf</string>
-            <string name="revanced_hide_chips_shelf_summary_on">Chips shelf is hidden</string>
-            <string name="revanced_hide_chips_shelf_summary_off">Chips shelf is shown</string>
             <string name="revanced_hide_attributes_section_title">Hide attributes section</string>
             <string name="revanced_hide_attributes_section_summary_on">\'Featured places\', Games and Music sections are hidden</string>
             <string name="revanced_hide_attributes_section_summary_off">\'Featured places\', Games and Music sections are shown</string>
@@ -629,12 +628,18 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_shorts_location_label_title">Hide location label</string>
             <string name="revanced_hide_shorts_location_label_summary_on">Location label is hidden</string>
             <string name="revanced_hide_shorts_location_label_summary_off">Location label is shown</string>
-            <string name="revanced_hide_shorts_save_sound_button_title">Hide save sound to playlist button</string>
-            <string name="revanced_hide_shorts_save_sound_button_summary_on">Save sound to playlist is hidden</string>
-            <string name="revanced_hide_shorts_save_sound_button_summary_off">Save sound to playlist is shown</string>
+            <string name="revanced_hide_shorts_save_sound_button_title">Hide save music button</string>
+            <string name="revanced_hide_shorts_save_sound_button_summary_on">Save music is hidden</string>
+            <string name="revanced_hide_shorts_save_sound_button_summary_off">Save music is shown</string>
             <string name="revanced_hide_shorts_search_suggestions_title">Hide search suggestions</string>
             <string name="revanced_hide_shorts_search_suggestions_summary_on">Search suggestions are hidden</string>
             <string name="revanced_hide_shorts_search_suggestions_summary_off">Search suggestions are shown</string>
+            <string name="revanced_hide_shorts_stickers_title">Hide stickers</string>
+            <string name="revanced_hide_shorts_stickers_summary_on">Stickers are hidden</string>
+            <string name="revanced_hide_shorts_stickers_summary_off">Stickers are shown</string>
+            <string name="revanced_hide_shorts_like_fountain_title">Hide like fountain</string>
+            <string name="revanced_hide_shorts_like_fountain_summary_on">Like button fountain animation is hidden</string>
+            <string name="revanced_hide_shorts_like_fountain_summary_off">Like button fountain animation is shown</string>
             <string name="revanced_hide_shorts_like_button_title">Hide like button</string>
             <string name="revanced_hide_shorts_like_button_summary_on">Like button is hidden</string>
             <string name="revanced_hide_shorts_like_button_summary_off">Like button is shown</string>
@@ -913,6 +918,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_sb_stats_username_changed">Username successfully changed</string>
             <string name="revanced_sb_stats_reputation">Your reputation is &lt;b>%.2f&lt;/b></string>
             <string name="revanced_sb_stats_submissions">You\'ve created &lt;b>%s&lt;/b> segments</string>
+            <string name="revanced_sb_stats_submissions_sum">Tap here to view your segments</string>
             <string name="revanced_sb_stats_saved_zero">SponsorBlock leaderboard</string>
             <string name="revanced_sb_stats_saved">You\'ve saved people from &lt;b>%s&lt;/b> segments</string>
             <string name="revanced_sb_stats_saved_sum_zero">Tap here to see the global stats and top contributors</string>
@@ -1145,41 +1151,23 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_slide_to_seek_summary_on">Slide to seek is enabled</string>
             <string name="revanced_slide_to_seek_summary_off">Slide to seek is not enabled</string>
         </patch>
-        <patch id="misc.fix.playback.SpoofClientPatch">
-            <string name="revanced_spoof_client_screen_title">Spoof client</string>
-            <string name="revanced_spoof_client_screen_summary">Spoof the client to prevent playback issues</string>
-            <string name="revanced_spoof_client_title">Spoof client</string>
-            <string name="revanced_spoof_client_summary_on">Client is spoofed</string>
-            <string name="revanced_spoof_client_summary_off">Client is not spoofed\n\nVideo playback may not work</string>
-            <string name="revanced_spoof_client_user_dialog_message">Turning off this setting may cause video playback issues.</string>
-            <string name="revanced_spoof_client_type_title">Spoof client type</string>
-            <string name="revanced_spoof_client_ios_force_avc_title">Force iOS AVC (H.264)</string>
-            <string name="revanced_spoof_client_ios_force_avc_summary_on">iOS video codec is AVC</string>
-            <string name="revanced_spoof_client_ios_force_avc_summary_off">iOS video codec is AVC, VP9, or AV1</string>
-            <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Enabling this might improve battery life and fix playback stuttering.\n\nAVC has a maximum resolution of 1080p, and video playback will use more internet data than VP9 or AV1.</string>
-            <string name="revanced_spoof_client_about_android_ios_title">iOS spoofing side effects</string>
-            <string name="revanced_spoof_client_about_android_ios_summary">• HDR is supported only with AV1 codec\n• Watch history does not work with a brand account</string>
-            <string name="revanced_spoof_client_about_android_vr_title">Android VR spoofing side effects</string>
-            <string name="revanced_spoof_client_about_android_vr_summary">• No HDR video\n• Kids videos do not playback\n• Paused videos can randomly resume\n• Low quality Shorts seekbar thumbnails\n• Download action button is hidden\n• End screen cards are hidden</string>
-            <string name="revanced_spoof_client_storyboard_timeout">Spoof client thumbnails not available (API timed out)</string>
-            <string name="revanced_spoof_client_storyboard_io_exception">Spoof client thumbnails temporarily not available: %s</string>
-        </patch>
-        <!-- This patch is no longer used, these strings are not in use, and these strings will be deleted in the future. -->
-        <patch id="misc.fix.playback.SpoofSignaturePatch">
-            <string name="revanced_spoof_signature_verification_screen_title">Spoof app signature</string>
-            <string name="revanced_spoof_signature_verification_screen_summary">Spoof the app signature to prevent playback issues</string>
-            <string name="revanced_spoof_signature_verification_enabled_title">Spoof app signature</string>
-            <string name="revanced_spoof_signature_verification_enabled_summary_on">App signature spoofed\n\nSide effects include:\n• Enhanced bitrate is not available\n• Videos cannot be downloaded\n• No seekbar thumbnails for paid videos</string>
-            <string name="revanced_spoof_signature_verification_enabled_summary_off">App signature not spoofed\n\nVideo playback may not work</string>
-            <string name="revanced_spoof_signature_verification_enabled_user_dialog_message">Turning off this setting will cause video playback issues.</string>
-            <string name="revanced_spoof_signature_in_feed_enabled_title">Spoof app signature in feed</string>
-            <string name="revanced_spoof_signature_in_feed_enabled_summary_on">App signature spoofed\n\nSide effects include:\n• Feed videos are missing subtitles\n• Automatically played feed videos will show up in your watch history</string>
-            <string name="revanced_spoof_signature_in_feed_enabled_summary_off">App signature not spoofed for feed videos\n\nFeed videos will play for less than 1 minute before encountering playback issues</string>
-            <string name="revanced_spoof_storyboard_title">Spoof storyboard</string>
-            <string name="revanced_spoof_storyboard_summary_on">Storyboard spoofed</string>
-            <string name="revanced_spoof_storyboard_summary_off">Storyboard not spoofed\n\nSide effects include:\n• No ambient mode\n• Seekbar thumbnails are hidden</string>
-            <string name="revanced_spoof_storyboard_timeout">Spoof storyboard temporarily not available (API timed out)</string>
-            <string name="revanced_spoof_storyboard_io_exception">Spoof storyboard temporarily not available: %s</string>
+        <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+            <string name="revanced_spoof_video_streams_screen_title">Spoof video streams</string>
+            <string name="revanced_spoof_video_streams_screen_summary">Spoof the client video streams to prevent playback issues</string>
+            <string name="revanced_spoof_video_streams_title">Spoof video streams</string>
+            <string name="revanced_spoof_video_streams_summary_on">Video streams are spoofed</string>
+            <string name="revanced_spoof_video_streams_summary_off">Video streams are not spoofed\n\nVideo playback may not work</string>
+            <string name="revanced_spoof_video_streams_user_dialog_message">Turning off this setting may cause video playback issues.</string>
+            <string name="revanced_spoof_video_streams_client_title">Default client</string>
+            <string name="revanced_spoof_video_streams_ios_force_avc_title">Force AVC (H.264)</string>
+            <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video codec is AVC (H.264)</string>
+            <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video codec is VP9 or AV1</string>
+            <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Your device does not have VP9 hardware decoding, and this setting is always on when Client spoofing is enabled</string>
+            <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Enabling this might improve battery life and fix playback stuttering.\n\nAVC has a maximum resolution of 1080p, and video playback will use more internet data than VP9 or AV1.</string>
+            <string name="revanced_spoof_video_streams_about_ios_title">iOS spoofing side effects</string>
+            <string name="revanced_spoof_video_streams_about_ios_summary">• Movies or paid videos may not play\n• Livestreams start from the beginning\n• Videos may end 1 second early\n• No opus audio codec</string>
+            <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR spoofing side effects</string>
+            <string name="revanced_spoof_video_streams_about_android_vr_summary">• Audio track menu is missing\n• Stable volume is not available</string>
         </patch>
         <!-- This patch is no longer used and these strings will soon be deleted. -->
         <patch id="video.hdrbrightness.HDRBrightnessPatch">

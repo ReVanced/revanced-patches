@@ -12,7 +12,7 @@ import app.revanced.util.exception
     name = "Open links with app chooser",
     description = "Instead of opening links directly, open them with an app chooser. " +
         "As a result you can select a browser to open the link with.",
-    compatiblePackages = [CompatiblePackage("com.twitter.android")],
+    compatiblePackages = [CompatiblePackage("com.twitter.android", ["10.48.0-release.0"])],
     use = false,
 )
 @Suppress("unused")

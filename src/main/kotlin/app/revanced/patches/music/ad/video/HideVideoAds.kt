@@ -13,16 +13,7 @@ import app.revanced.util.exception
     name = "Hide video ads",
     description = "Hides ads that appear while listening to or streaming music videos, podcasts, or songs.",
     compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.apps.youtube.music",
-            [
-                "6.45.54",
-                "6.51.53",
-                "7.01.53",
-                "7.02.52",
-                "7.03.52",
-            ]
-        )
+        CompatiblePackage("com.google.android.apps.youtube.music")
     ],
 )
 @Suppress("unused")

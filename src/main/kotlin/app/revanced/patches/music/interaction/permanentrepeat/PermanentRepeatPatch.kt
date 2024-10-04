@@ -14,16 +14,7 @@ import app.revanced.patches.music.interaction.permanentrepeat.fingerprints.Repea
     name = "Permanent repeat",
     description = "Permanently remember your repeating preference even if the playlist ends or another track is played.",
     compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.apps.youtube.music",
-            [
-                "6.45.54",
-                "6.51.53",
-                "7.01.53",
-                "7.02.52",
-                "7.03.52",
-            ]
-        )
+        CompatiblePackage("com.google.android.apps.youtube.music")
     ],
     use = false
 )

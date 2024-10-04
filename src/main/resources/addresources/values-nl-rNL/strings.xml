@@ -32,6 +32,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
 -->
 <resources>
   <app id="shared">
+  <patch id="misc.checks.BaseCheckEnvironmentPatch">
+  <string name="revanced_check_environment_failed_title">Controle mislukt</string>
+  <string name="revanced_check_environment_dialog_open_official_source_button">Open officiële website</string>
+  <string name="revanced_check_environment_dialog_ignore_button">Negeren</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Deze app lijkt niet te worden gepatched door jou.&lt;/h5&gt;&lt;br&gt;Deze app werkt mogelijk niet goed. &lt;b&gt;kan schadelijk of zelfs gevaarlijk zijn om&lt;/b&gt;te gebruiken.&lt;br&gt;&lt;br&gt;Deze controles impliceren dat deze app vooraf wordt gepatenteerd of verkregen is van iemand anders:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Het wordt sterk aangeraden om deze app &lt;b&gt;te verwijderen en het zelf te repareren&lt;/b&gt; om ervoor te zorgen dat je een gevalideerde en beveiligde app gebruikt.&lt;p&gt;&lt;br&gt;wanneer genegeerd, zal deze waarschuwing slechts twee keer worden weergegeven.</string>
+  <string name="revanced_check_environment_not_same_patching_device">Opgenomen op een ander apparaat</string>
+  <string name="revanced_check_environment_manager_not_expected_installer">Niet geïnstalleerd door ReVanced Manager</string>
+  <string name="revanced_check_environment_not_near_patch_time">Meer dan 10 minuten geleden besteld</string>
+  <string name="revanced_check_environment_not_near_patch_time_days">Gekochte %s dagen geleden</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">APK build datum is beschadigd</string>
+  </patch>
   <patch id="misc.settings.BaseSettingsResourcePatch">
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Wilt u doorgaan?</string>
@@ -43,6 +54,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_import_reset">ReVanced instellingen hersteld naar standaard</string>
   <string name="revanced_settings_import_success">%d instellingen geïmporteerd</string>
   <string name="revanced_settings_import_failure_parse">Importeren mislukt: %s</string>
+  <string name="revanced_pref_import_export_title">Importeren / Exporteren</string>
+  <string name="revanced_pref_import_export_summary">Importeer / Exporteer ReVanced instellingen</string>
+  <!-- Settings about dialog. -->
+  <string name="revanced_settings_about_links_body">U gebruikt ReVanced Patches versie &lt;i&gt;%s&lt;/i&gt;</string>
+  <string name="revanced_settings_about_links_dev_header">Notitie</string>
+  <string name="revanced_settings_about_links_dev_body">Deze versie is een pre-release en je kunt onverwachte problemen ondervinden</string>
+  <string name="revanced_settings_about_links_header">Officiële links</string>
+  <string name="revanced_settings_about_links_donate">Doneren</string>
   </patch>
   <patch id="misc.gms.BaseGmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -55,15 +74,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   </app>
   <app id="youtube">
-  <patch id="misc.settings.SettingsResourcePatch">
-  <string name="revanced_settings">ReVanced</string>
-  <string name="revanced_settings_about_links_body">U gebruikt ReVanced Patches versie &lt;i&gt;%s&lt;/i&gt;</string>
-  <string name="revanced_settings_about_links_dev_header">Notitie</string>
-  <string name="revanced_settings_about_links_dev_body">Deze versie is een pre-release en je kunt onverwachte problemen ondervinden</string>
-  <string name="revanced_settings_about_links_header">Officiële links</string>
-  <string name="revanced_pref_import_export_title">Importeren / Exporteren</string>
-  <string name="revanced_pref_import_export_summary">Importeer / Exporteer ReVanced instellingen</string>
-  </patch>
   <patch id="misc.settings.SettingsPatch">
   <string name="revanced_settings_screen_00_about_title">Over</string>
   <string name="revanced_settings_screen_01_ads_title">Advertenties</string>
@@ -138,6 +148,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_guidelines_title">Kanaalrichtlijnen verbergen</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Kanaalrichtlijnen zijn verborgen</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Kanaalrichtlijnen worden getoond</string>
+  <string name="revanced_hide_chips_shelf_title">Verberg chips plank</string>
+  <string name="revanced_hide_chips_shelf_summary_on">Chips plank is verborgen</string>
+  <string name="revanced_hide_chips_shelf_summary_off">Chips plank wordt weergegeven</string>
   <string name="revanced_hide_expandable_chip_title">Uitbreidbare chip verbergen onder video\'s</string>
   <string name="revanced_hide_expandable_chip_summary_on">Uitklapbare chips zijn verborgen</string>
   <string name="revanced_hide_expandable_chip_summary_off">Uitklapbare chips worden getoond</string>
@@ -198,9 +211,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_artist_cards_title">Verberg artiest kaarten</string>
   <string name="revanced_hide_artist_cards_summary_on">Kunstenaartjes zijn verborgen</string>
   <string name="revanced_hide_artist_cards_summary_off">Kunstenaarkaarten worden weergegeven</string>
-  <string name="revanced_hide_chips_shelf_title">Verberg chips plank</string>
-  <string name="revanced_hide_chips_shelf_summary_on">Chips plank is verborgen</string>
-  <string name="revanced_hide_chips_shelf_summary_off">Chips plank wordt weergegeven</string>
   <string name="revanced_hide_attributes_section_title">Attributensectie verbergen</string>
   <string name="revanced_hide_attributes_section_summary_on">\'Aanbevolen plaatsen\', Games en Muziek secties zijn verborgen</string>
   <string name="revanced_hide_attributes_section_summary_off">\'Aanbevolen plaatsen\', spellen en Muziek secties worden weergegeven</string>
@@ -244,14 +254,18 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_content_phrases_title">Trefwoorden om te verbergen</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
-  <string name="revanced_hide_keyword_content_phrases_summary">Trefwoorden en zinnen te verbergen, gescheiden door nieuwe regels\n\nWoorden met hoofdletters in het midden moeten worden ingevoerd met de behuizing (bv: iPhone, TikTok, LeBlanc)</string>
+  <string name="revanced_hide_keyword_content_phrases_summary">Trefwoorden en zinnen te verbergen, gescheiden door nieuwe regels\n\nTrefwoorden kunnen kanaalnamen zijn of elke tekst getoond in videocategorie\n\nwoorden met hoofdletters in het midden moeten worden ingevoerd met het behuizing (bijvoorbeeld iPhone, TikTok, Lei)</string>
   <string name="revanced_hide_keyword_content_about_title">Over trefwoord filteren</string>
-  <string name="revanced_hide_keyword_content_about_summary">Home/Abonnement/Zoekresultaten worden gefilterd om inhoud te verbergen die overeenkomt met trefwoordzinnen\n\nBeperkingen\n• Sommige Shorts zijn mogelijk niet verborgen\n• Sommige UI-componenten zijn mogelijk niet verborgen\n• Zoeken naar een trefwoord levert mogelijk geen resultaten op</string>
+  <string name="revanced_hide_keyword_content_about_summary">Thuis/Abonnement/Zoekresultaten worden gefilterd om de inhoud te verbergen die overeenkomt met trefwoordzinnen\n\nBeperkingen\n• Kortingen kunnen niet worden verborgen met kanaalnaam\n• Sommige componenten van de UI kunnen niet verborgen zijn\n• Zoeken naar een sleutelwoord kan geen resultaten laten zien</string>
+  <string name="revanced_hide_keyword_content_about_whole_words_title">Koppel hele woorden</string>
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <string name="revanced_hide_keyword_content_about_whole_words_summary">Omkeren van een trefwoord/zin met dubbele aanhalingstekens zal voorkomen dat deel-matches van videotitels en kanaalnamen&lt;br&gt;&lt;br&gt;Bijvoorbeeld,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; verbergt de video: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;maar zal deze niet verbergen: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_keyword_toast_invalid_common">Ongeldig sleutelwoord. Kan niet gebruiken: \'%s\' als filter</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_keyword_toast_invalid_length">Ongeldig sleutelwoord. \'%1$s\' is minder dan %2$d tekens</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">Trefwoord \'%s\' verbergt alle video\'s</string>
+  <string name="revanced_hide_keyword_toast_invalid_common">Kan trefwoord niet gebruiken: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Voeg offertes toe om trefwoord te gebruiken: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_conflicting">Sleutelwoord bevat tegenstrijdige verklaringen: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_length">Trefwoord is te kort en vereist quotes: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">Trefwoord zal alle video\'s verbergen: %s</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Algemene advertenties verbergen</string>
@@ -614,12 +628,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">Verberg locatie label</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Locatie label is verborgen</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Locatie label wordt weergegeven</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Geluid opslaan naar afspeellijst knop verbergen</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Geluid opslaan in afspeellijst is verborgen</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Geluid opslaan in de afspeellijst wordt weergegeven</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Verberg bewaar muziek knop</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">Muziek opslaan is verborgen</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">Muziek opslaan wordt weergegeven</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Zoeksuggesties verbergen</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Zoeksuggesties zijn verborgen</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Zoeksuggesties worden getoond</string>
+  <string name="revanced_hide_shorts_stickers_title">Verberg stickers</string>
+  <string name="revanced_hide_shorts_stickers_summary_on">Stickers zijn verborgen</string>
+  <string name="revanced_hide_shorts_stickers_summary_off">Stickers worden getoond</string>
   <string name="revanced_hide_shorts_like_button_title">Verberg leuk-knop</string>
   <string name="revanced_hide_shorts_like_button_summary_on">Vind-ik-leuk-knop is verborgen</string>
   <string name="revanced_hide_shorts_like_button_summary_off">Vind-ik-leuk-knop wordt weergegeven</string>
@@ -680,7 +697,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_player_overlay_opacity_invalid_toast">Speler overlay transparantie moet tussen 0-100 liggen</string>
   </patch>
   <patch id="layout.returnyoutubedislike.ReturnYouTubeDislikeResourcePatch">
-  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Hidden</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">Dislikes tijdelijk niet beschikbaar (API time-out)</string>
   <string name="revanced_ryd_failure_connection_status_code">Niet beschikbaar (status %d)</string>
@@ -895,6 +911,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_stats_username_changed">Gebruikersnaam succesvol gewijzigd</string>
   <string name="revanced_sb_stats_reputation">Je reputatie is &lt;b&gt;%.2f&lt;/b&gt;</string>
   <string name="revanced_sb_stats_submissions">Je hebt &lt;b&gt;%s&lt;/b&gt; segmenten aangemaakt</string>
+  <string name="revanced_sb_stats_submissions_sum">Tik hier om je segmenten te bekijken</string>
   <string name="revanced_sb_stats_saved_zero">SponsorBlock scorebord</string>
   <string name="revanced_sb_stats_saved">Je hebt mensen gered van &lt;b&gt;%s&lt;/b&gt; segmenten</string>
   <string name="revanced_sb_stats_saved_sum_zero">Tik hier om de globale statistieken en de top bijdragers te zien</string>
@@ -1116,41 +1133,23 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_on">Slide om te zoeken is ingeschakeld</string>
   <string name="revanced_slide_to_seek_summary_off">Slide om te zoeken is niet ingeschakeld</string>
   </patch>
-  <patch id="misc.fix.playback.SpoofClientPatch">
-  <string name="revanced_spoof_client_screen_title">Ontwijk klant</string>
-  <string name="revanced_spoof_client_screen_summary">De client bederven om afspeelproblemen te voorkomen</string>
-  <string name="revanced_spoof_client_title">Ontwijk klant</string>
-  <string name="revanced_spoof_client_summary_on">Klant is vervalst</string>
-  <string name="revanced_spoof_client_summary_off">Client is niet vervalst\n\nVideo afspelen werkt mogelijk niet</string>
-  <string name="revanced_spoof_client_user_dialog_message">Het uitschakelen van deze instelling kan problemen met het afspelen van video veroorzaken.</string>
-  <string name="revanced_spoof_client_type_title">Spoed type klant</string>
-  <string name="revanced_spoof_client_ios_force_avc_title">Forceer iOS AVC (H.264)</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_on">iOS video codec is AVC</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_off">iOS video codec is AVC, VP9 of AV1</string>
-  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Het inschakelen hiervan kan de batterijduur verbeteren en het terugspringen corrigeren.\n\nAVC heeft een maximale resolutie van 1080p, en het afspelen van video\'s zal meer internetgegevens gebruiken dan VP9 of AV1.</string>
-  <string name="revanced_spoof_client_about_android_ios_title">iOS vervalste bijwerkingen</string>
-  <string name="revanced_spoof_client_about_android_ios_summary">• HDR wordt alleen ondersteund met AV1 codec\n• Bekijk geschiedenis werkt niet met een merkrekening</string>
-  <string name="revanced_spoof_client_about_android_vr_title">Android VR vervalste bijeffecten</string>
-  <string name="revanced_spoof_client_about_android_vr_summary">• Geen HDR video\n• Kinder video\'s spelen niet af\n• Gepauzeerde video\'s kunnen willekeurig hervatten\n• Zoekbalkminiaturen met slechte kwaliteit \n• Download knop is verborgen\n• Eindscherm kaarten zijn verborgen</string>
-  <string name="revanced_spoof_client_storyboard_timeout">Klant miniaturen niet beschikbaar (API timed out)</string>
-  <string name="revanced_spoof_client_storyboard_io_exception">Klant miniaturen tijdelijk niet beschikbaar: %s</string>
-  </patch>
-  <!-- This patch is no longer used, these strings are not in use, and these strings will be deleted in the future. -->
-  <patch id="misc.fix.playback.SpoofSignaturePatch">
-  <string name="revanced_spoof_signature_verification_screen_title">Handtekening nabootsen</string>
-  <string name="revanced_spoof_signature_verification_screen_summary">Handtekening nabootsen om afspeelproblemen te voorkomen</string>
-  <string name="revanced_spoof_signature_verification_enabled_title">Handtekening nabootsen</string>
-  <string name="revanced_spoof_signature_verification_enabled_summary_on">App signature gespoofed\n\nSide effecten omvatten:\n• Verbeterde bitrate is niet beschikbaar\n• Video\'s kunnen niet worden gedownload\n• Geen zoekbalk miniaturen voor betaalde video\'s</string>
-  <string name="revanced_spoof_signature_verification_enabled_summary_off">App handtekening niet vervalst door een\n\nVideo afspelen werkt mogelijk niet</string>
-  <string name="revanced_spoof_signature_verification_enabled_user_dialog_message">Als je deze instelling uitschakelt, ontstaan er problemen bij het afspelen van de video.</string>
-  <string name="revanced_spoof_signature_in_feed_enabled_title">Handtekening nabootsen in feed</string>
-  <string name="revanced_spoof_signature_in_feed_enabled_summary_on">App signature vervalste\n\nSide effecten omvatten:\n• Feed video\'s missen ondertitels\n• Automatisch afgespeelde feed video\'s verschijnen in je watch geschiedenis</string>
-  <string name="revanced_spoof_signature_in_feed_enabled_summary_off">App handtekening niet gespoofed voor feed video\'s\n\nFeed zullen minder dan 1 minuut afspelen voor het afspelen van problemen</string>
-  <string name="revanced_spoof_storyboard_title">Verhaalbord nabootsen</string>
-  <string name="revanced_spoof_storyboard_summary_on">Storyboard vervalst</string>
-  <string name="revanced_spoof_storyboard_summary_off">Storyboard niet vervalst\n\nSide effecten zijn:\n• Geen omgevingsmodus\n• Zoekbar miniaturen zijn verborgen</string>
-  <string name="revanced_spoof_storyboard_timeout">Verhaalbord tijdelijk niet beschikbaar (API timed out)</string>
-  <string name="revanced_spoof_storyboard_io_exception">Verhaalbord tijdelijk niet beschikbaar: %s</string>
+  <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Videostreams omzeilen</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Videostreams van de client bederven om afspeelproblemen te voorkomen</string>
+  <string name="revanced_spoof_video_streams_title">Videostreams omzeilen</string>
+  <string name="revanced_spoof_video_streams_summary_on">Videostreams zijn vervalst</string>
+  <string name="revanced_spoof_video_streams_summary_off">Videostreams zijn niet gespoofd\n\nVideo afspelen werkt mogelijk niet</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Het uitschakelen van deze instelling kan problemen met het afspelen van video veroorzaken.</string>
+  <string name="revanced_spoof_video_streams_client_title">Standaard client</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Forceer AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Videocodec is AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Videocodec is VP9 of AV1</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Je apparaat heeft geen VP9 hardware-decodering en deze instelling is altijd ingeschakeld wanneer \'Client spoofing\' is ingeschakeld</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Het inschakelen hiervan kan de batterijduur verbeteren en het terugspringen corrigeren.\n\nAVC heeft een maximale resolutie van 1080p, en het afspelen van video\'s zal meer internetgegevens gebruiken dan VP9 of AV1.</string>
+  <string name="revanced_spoof_video_streams_about_ios_title">iOS vervalste bijwerkingen</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Films of betaalde video\'s kunnen mogelijk niet afspelen\n• Livestreams beginnen vanaf het begin\n• Video\'s kunnen 1 seconde vroeg eindigen\n• Geen opus audio codec</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR vervalste bijeffecten</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Audio track menu ontbreekt\n• Stabiel volume is niet beschikbaar</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

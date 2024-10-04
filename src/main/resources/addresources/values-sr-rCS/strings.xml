@@ -32,17 +32,36 @@ This is because Crowdin requires temporarily flattening this file and removing t
 -->
 <resources>
   <app id="shared">
+  <patch id="misc.checks.BaseCheckEnvironmentPatch">
+  <string name="revanced_check_environment_failed_title">Provere nisu uspele</string>
+  <string name="revanced_check_environment_dialog_open_official_source_button">Otvori zvanični veb-sajt</string>
+  <string name="revanced_check_environment_dialog_ignore_button">Zanemari</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Izgleda da niste pečovali ovu aplikaciju.&lt;/h5&gt;&lt;br&gt;Ova aplikacija možda neće ispravno raditi, &lt;b&gt;može biti štetna ili čak opasna za korišćenje&lt;/b&gt;&lt;br&gt;&lt;br&gt;Ove provere podrazumevaju da je ova aplikacija unapred pečovana ili dobijena od nekog drugog:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Izričito se preporučuje da &lt;b&gt;deinstalirate ovu aplikaciju i sami je pečujete&lt;/b&gt; da biste bili sigurni da koristite proverenu i bezbednu aplikaciju.&lt;p&gt;&lt;br&gt;;Ako se zanemari, ovo upozorenje će biti prikazano samo dva puta.</string>
+  <string name="revanced_check_environment_not_same_patching_device">Pečovano na drugom uređaju</string>
+  <string name="revanced_check_environment_manager_not_expected_installer">Nije instalirano u ReVanced Manageru</string>
+  <string name="revanced_check_environment_not_near_patch_time">Pečovano pre više od 10 minuta</string>
+  <string name="revanced_check_environment_not_near_patch_time_days">Pečovano pre %s dana</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">Datum izrade APK-a je oštećen</string>
+  </patch>
   <patch id="misc.settings.BaseSettingsResourcePatch">
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Želite li da nastavite?</string>
   <string name="revanced_settings_reset">Resetuj</string>
-  <string name="revanced_settings_restart_title">Osveži i restartuj</string>
+  <string name="revanced_settings_restart_title">Osvežite i restartujte</string>
   <string name="revanced_settings_restart">Restartuj</string>
   <string name="revanced_settings_import">Uvoz</string>
   <string name="revanced_settings_import_copy">Kopiraj</string>
   <string name="revanced_settings_import_reset">Podešavanja ReVanceda su vraćena na podrazumevane vrednosti</string>
   <string name="revanced_settings_import_success">Uvezeno %d podešavanja</string>
   <string name="revanced_settings_import_failure_parse">Neuspešan uvoz: %s</string>
+  <string name="revanced_pref_import_export_title">Uvoz / Izvoz</string>
+  <string name="revanced_pref_import_export_summary">Uvoz / Izvoz podešavanja ReVanceda</string>
+  <!-- Settings about dialog. -->
+  <string name="revanced_settings_about_links_body">Koristite verziju &lt;i&gt;%s&lt;/i&gt; ReVanced pečeva</string>
+  <string name="revanced_settings_about_links_dev_header">Napomena</string>
+  <string name="revanced_settings_about_links_dev_body">Ova verzija je predizdanje i možda ćete imati neočekivane probleme</string>
+  <string name="revanced_settings_about_links_header">Zvanični linkovi</string>
+  <string name="revanced_settings_about_links_donate">Donacija</string>
   </patch>
   <patch id="misc.gms.BaseGmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -55,15 +74,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   </app>
   <app id="youtube">
-  <patch id="misc.settings.SettingsResourcePatch">
-  <string name="revanced_settings">ReVanced</string>
-  <string name="revanced_settings_about_links_body">Koristite verziju &lt;i&gt;%s&lt;/i&gt; ReVanced pečeva</string>
-  <string name="revanced_settings_about_links_dev_header">Napomena</string>
-  <string name="revanced_settings_about_links_dev_body">Ova verzija je predizdanje i možda ćete imati neočekivane probleme</string>
-  <string name="revanced_settings_about_links_header">Zvanični linkovi</string>
-  <string name="revanced_pref_import_export_title">Uvoz / Izvoz</string>
-  <string name="revanced_pref_import_export_summary">Uvoz / Izvoz podešavanja ReVanceda</string>
-  </patch>
   <patch id="misc.settings.SettingsPatch">
   <string name="revanced_settings_screen_00_about_title">O programu</string>
   <string name="revanced_settings_screen_01_ads_title">Oglasi</string>
@@ -94,50 +104,53 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_debug_toast_on_error_user_dialog_message">Isključivanje iskačućih obaveštenja o grešci sakriva sva obaveštenja o greškama u ReVancedu.\n\nNećete biti obavešteni ni o kakvim neočekivanim događajima.</string>
   </patch>
   <patch id="layout.hide.general.HideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Onemogući sjaj dugmadi „Sviđa mi se” / „Zaprati”</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Dugmad „Sviđa mi se” i „Zaprati” neće svetleti kada se pritisnu</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Dugmad „Sviđa mi se” i „Zaprati” će svetleti kada se pritisnu</string>
+  <string name="revanced_disable_like_subscribe_glow_title">Onemogući sjaj dugmadi „Sviđanje” / „Zaprati”</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">Dugmad „Sviđanje” i „Zaprati” neće svetleti kada se pritisnu</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">Dugmad „Sviđanje” i „Zaprati” će svetleti kada se pritisnu</string>
   <string name="revanced_hide_gray_separator_title">Sakrij sivi separator</string>
   <string name="revanced_hide_gray_separator_summary_on">Sivi separatori su skriveni</string>
   <string name="revanced_hide_gray_separator_summary_off">Sivi separatori su prikazani</string>
   <string name="revanced_hide_channel_watermark_title">Sakrij vodeni žig kanala</string>
-  <string name="revanced_hide_channel_watermark_summary_on">Vodeni žig je skriven</string>
-  <string name="revanced_hide_channel_watermark_summary_off">Vodeni žig je prikazan</string>
+  <string name="revanced_hide_channel_watermark_summary_on">Vodeni žig kanala je skriven</string>
+  <string name="revanced_hide_channel_watermark_summary_off">Vodeni žig kanala je prikazan</string>
   <string name="revanced_hide_horizontal_shelves_title">Sakrij horizontalne police</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">Police su skrivene, kao što su:\n• Važne vesti\n• Nastavite da gledate\n• Istražite još kanala\n• Kupovina\n• Gledajte ponovo</string>
-  <string name="revanced_hide_horizontal_shelves_summary_off">Police su prikazane</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">Horizontalne police su skrivene, kao što su:\n• Važne vesti\n• Nastavite da gledate\n• Istražite još kanala\n• Kupovina\n• Gledajte ponovo</string>
+  <string name="revanced_hide_horizontal_shelves_summary_off">Horizontalne police su prikazane</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
   <string name="revanced_hide_join_membership_button_title">Sakrij dugme „Učlani me”</string>
-  <string name="revanced_hide_join_membership_button_summary_on">Dugme je skriveno</string>
-  <string name="revanced_hide_join_membership_button_summary_off">Dugme je prikazano</string>
+  <string name="revanced_hide_join_membership_button_summary_on">Dugme „Učlani me” je skriveno</string>
+  <string name="revanced_hide_join_membership_button_summary_off">Dugme „Učlani me” je prikazano</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_for_you_shelf_title">Sakrij policu „Za vas” na stranici kanala</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">Polica je skrivena</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">Polica je prikazana</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">Polica „Za vas” na stranici kanala je skrivena</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">Polica „Za vas” na stranici kanala je prikazana</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Sakrij dugme „Obavesti me”</string>
-  <string name="revanced_hide_notify_me_button_summary_on">Dugme je skriveno</string>
-  <string name="revanced_hide_notify_me_button_summary_off">Dugme je prikazano</string>
+  <string name="revanced_hide_notify_me_button_summary_on">Dugme „Obavesti me” je skriveno</string>
+  <string name="revanced_hide_notify_me_button_summary_off">Dugme „Obavesti me” je prikazano</string>
   <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Sakrij preporuke „Drugi su takođe gledali”</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Preporuke su skrivene</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Preporuke su prikazane</string>
+  <string name="revanced_hide_search_result_recommendations_title">Sakrij preporuke „Drugi su takođe gledali ovaj video”</string>
+  <string name="revanced_hide_search_result_recommendations_summary_on">Preporuke „Drugi su takođe gledali ovaj video” su skrivene</string>
+  <string name="revanced_hide_search_result_recommendations_summary_off">Preporuke „Drugi su takođe gledali ovaj video” su prikazane</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Sakrij dugme „Prikaži još”</string>
-  <string name="revanced_hide_show_more_button_summary_on">Dugme je skriveno</string>
-  <string name="revanced_hide_show_more_button_summary_off">Dugme je prikazano</string>
+  <string name="revanced_hide_show_more_button_summary_on">Dugme „Prikaži još” je skriveno</string>
+  <string name="revanced_hide_show_more_button_summary_off">Dugme „Prikaži još” je prikazano</string>
   <string name="revanced_hide_timed_reactions_title">Sakrij vremenske reakcije</string>
   <string name="revanced_hide_timed_reactions_summary_on">Vremenske reakcije su skrivene</string>
   <string name="revanced_hide_timed_reactions_summary_off">Vremenske reakcije su prikazane</string>
-  <string name="revanced_hide_search_result_shelf_header_title">Sakrij zaglavlje police pri rezultatima pretrage</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">Zaglavlje police je skriveno</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">Zaglavlje police je prikazano</string>
+  <string name="revanced_hide_search_result_shelf_header_title">Sakrij zaglavlje police u rezultatima pretrage</string>
+  <string name="revanced_hide_search_result_shelf_header_summary_on">Zaglavlje police u rezultatima pretrage je skriveno</string>
+  <string name="revanced_hide_search_result_shelf_header_summary_off">Zaglavlje police u rezultatima pretrage je prikazano</string>
   <string name="revanced_hide_channel_guidelines_title">Sakrij smernice kanala</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Smernice kanala su skrivene</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Smernice kanala su prikazane</string>
+  <string name="revanced_hide_chips_shelf_title">Sakrij policu oznaka sličnih videa</string>
+  <string name="revanced_hide_chips_shelf_summary_on">Polica oznaka sličnih videa je skrivena</string>
+  <string name="revanced_hide_chips_shelf_summary_off">Polica oznaka sličnih videa je prikazana</string>
   <string name="revanced_hide_expandable_chip_title">Sakrij proširivi deo ispod videa</string>
   <string name="revanced_hide_expandable_chip_summary_on">Proširivi delovi su skriveni</string>
   <string name="revanced_hide_expandable_chip_summary_off">Proširivi delovi su prikazani</string>
@@ -165,15 +178,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_member_shelf_title">Sakrij policu članova kanala</string>
   <string name="revanced_hide_channel_member_shelf_summary_on">Polica članova kanala je skrivena</string>
   <string name="revanced_hide_channel_member_shelf_summary_off">Polica članova kanala je prikazana</string>
-  <string name="revanced_hide_emergency_box_title">Sakrij kutije za hitne slučajeve</string>
-  <string name="revanced_hide_emergency_box_summary_on">Kutije za hitne slučajeve su skrivene</string>
-  <string name="revanced_hide_emergency_box_summary_off">Kutije za hitne slučajeve su prikazane</string>
-  <string name="revanced_hide_info_panels_title">Sakrij info panele</string>
-  <string name="revanced_hide_info_panels_summary_on">Info paneli su skriveni</string>
-  <string name="revanced_hide_info_panels_summary_off">Info paneli su prikazani</string>
-  <string name="revanced_hide_medical_panels_title">Sakrij medicinske panele</string>
-  <string name="revanced_hide_medical_panels_summary_on">Medicinski paneli su skriveni</string>
-  <string name="revanced_hide_medical_panels_summary_off">Medicinski paneli su prikazani</string>
+  <string name="revanced_hide_emergency_box_title">Sakrij polja za hitne slučajeve</string>
+  <string name="revanced_hide_emergency_box_summary_on">Polja za hitne slučajeve su skrivena</string>
+  <string name="revanced_hide_emergency_box_summary_off">Polja za hitne slučajeve su prikazana</string>
+  <string name="revanced_hide_info_panels_title">Sakrij okna sa informacijama</string>
+  <string name="revanced_hide_info_panels_summary_on">Okna sa informacijama su skrivena</string>
+  <string name="revanced_hide_info_panels_summary_off">Okna sa informacijama su prikazana</string>
+  <string name="revanced_hide_medical_panels_title">Sakrij okna sa medicinskim informacijama</string>
+  <string name="revanced_hide_medical_panels_summary_on">Okna sa medicinskim informacijama su skrivena</string>
+  <string name="revanced_hide_medical_panels_summary_off">Okna sa medicinskim informacijama su prikazana</string>
   <string name="revanced_hide_channel_bar_title">Sakrij traku kanala</string>
   <string name="revanced_hide_channel_bar_summary_on">Traka kanala je skrivena</string>
   <string name="revanced_hide_channel_bar_summary_off">Traka kanala je prikazana</string>
@@ -181,14 +194,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playables_summary_on">Sala za igru je skrivena</string>
   <string name="revanced_hide_playables_summary_off">Sala za igru je prikazana</string>
   <string name="revanced_hide_quick_actions_title">Sakrij brze radnje u režimu celog ekrana</string>
-  <string name="revanced_hide_quick_actions_summary_on">Brze radnje su skrivene</string>
-  <string name="revanced_hide_quick_actions_summary_off">Brze radnje su prikazane</string>
+  <string name="revanced_hide_quick_actions_summary_on">Brze radnje u režimu celog ekrana su skrivene</string>
+  <string name="revanced_hide_quick_actions_summary_off">Brze radnje u režimu celog ekrana su prikazane</string>
   <string name="revanced_hide_related_videos_title">Sakrij srodne videe u brzim radnjama</string>
-  <string name="revanced_hide_related_videos_summary_on">Srodni videi su skriveni</string>
-  <string name="revanced_hide_related_videos_summary_off">Srodni videi su prikazani</string>
+  <string name="revanced_hide_related_videos_summary_on">Srodni videi u brzim radnjama su skriveni</string>
+  <string name="revanced_hide_related_videos_summary_off">Srodni videi u brzim radnjama su prikazani</string>
   <string name="revanced_hide_image_shelf_title">Sakrij policu sa slikama u rezultatima pretrage</string>
-  <string name="revanced_hide_image_shelf_summary_on">Polica sa slikama je skrivena</string>
-  <string name="revanced_hide_image_shelf_summary_off">Polica sa slikama je prikazana</string>
+  <string name="revanced_hide_image_shelf_summary_on">Polica sa slikama u rezultatima pretrage je skrivena</string>
+  <string name="revanced_hide_image_shelf_summary_off">Polica sa slikama u rezultatima pretrage je prikazana</string>
   <string name="revanced_hide_latest_posts_ads_title">Sakrij najnovije objave</string>
   <string name="revanced_hide_latest_posts_ads_summary_on">Najnovije objave su skrivene</string>
   <string name="revanced_hide_latest_posts_ads_summary_off">Najnovije objave su prikazane</string>
@@ -198,9 +211,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_artist_cards_title">Sakrij kartice izvođača</string>
   <string name="revanced_hide_artist_cards_summary_on">Kartice izvođača su skrivene</string>
   <string name="revanced_hide_artist_cards_summary_off">Kartice izvođača su prikazane</string>
-  <string name="revanced_hide_chips_shelf_title">Sakrij policu oznaka sličnih videa</string>
-  <string name="revanced_hide_chips_shelf_summary_on">Polica oznaka sličnih videa je skrivena</string>
-  <string name="revanced_hide_chips_shelf_summary_off">Polica oznaka sličnih videa je prikazana</string>
   <string name="revanced_hide_attributes_section_title">Sakrij odeljak sa atributima</string>
   <string name="revanced_hide_attributes_section_summary_on"> Odeljci „Istaknuta mesta”, „Igre” i „Muzika” su skriveni</string>
   <string name="revanced_hide_attributes_section_summary_off">Odeljci „Istaknuta mesta”, „Igre” i „Muzika” su prikazani</string>
@@ -210,9 +220,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_podcast_section_title">Sakrij odeljak „Istražite podkast”</string>
   <string name="revanced_hide_podcast_section_summary_on">Odeljak „Istražite podkast” je skriven</string>
   <string name="revanced_hide_podcast_section_summary_off">Odeljak „Istražite podkast” je prikazan</string>
-  <string name="revanced_hide_info_cards_section_title">Sakrij odeljak s info karticama</string>
-  <string name="revanced_hide_info_cards_section_summary_on">Odeljak s info karticama je skriven</string>
-  <string name="revanced_hide_info_cards_section_summary_off">Odeljak s info karticama je prikazan</string>
+  <string name="revanced_hide_info_cards_section_title">Sakrij odeljak za kartice sa informacijama</string>
+  <string name="revanced_hide_info_cards_section_summary_on">Odeljak za kartice sa informacijama je skriven</string>
+  <string name="revanced_hide_info_cards_section_summary_off">Odeljak za kartice sa informacijama je prikazan</string>
   <string name="revanced_hide_key_concepts_section_title">Sakrij odeljak „Ključni koncepti”</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Odeljak „Ključni koncepti” je skriven</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Odeljak „Ključni koncepti” je prikazan</string>
@@ -232,26 +242,30 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_custom_filter_toast_invalid_syntax">Nevažeći prilagođeni filter: %s</string>
   <string name="revanced_hide_keyword_content_screen_title">Sakrij sadržaj ključne reči</string>
   <string name="revanced_hide_keyword_content_screen_summary">Sakrijte videe iz rezultata pretrage i fida koristeći filter ključnih reči</string>
-  <string name="revanced_hide_keyword_content_home_title">Sakrij videe na početnoj prema ključnim rečima</string>
-  <string name="revanced_hide_keyword_content_home_summary_on">Videi na početnoj kartici su filtrirani prema ključnim rečima</string>
-  <string name="revanced_hide_keyword_content_home_summary_off">Videi na početnoj kartici nisu filtrirani prema ključnim rečima</string>
-  <string name="revanced_hide_keyword_content_subscriptions_title">Sakrij videe iz praćenja prema ključnim rečima</string>
-  <string name="revanced_hide_keyword_content_subscriptions_summary_on">Videi na kartici praćenja su filtrirani prema ključnim rečima</string>
-  <string name="revanced_hide_keyword_content_subscriptions_summary_off">Videi na kartici praćenja nisu filtrirani prema ključnim rečima</string>
+  <string name="revanced_hide_keyword_content_home_title">Sakrij videe na kartici „Početna” prema ključnim rečima</string>
+  <string name="revanced_hide_keyword_content_home_summary_on">Videi na kartici „Početna” su filtrirani prema ključnim rečima</string>
+  <string name="revanced_hide_keyword_content_home_summary_off">Videi na kartici „Početna” nisu filtrirani prema ključnim rečima</string>
+  <string name="revanced_hide_keyword_content_subscriptions_title">Sakrij videe na kartici „Praćenja” prema ključnim rečima</string>
+  <string name="revanced_hide_keyword_content_subscriptions_summary_on">Videi na kartici „Praćenja” su filtrirani prema ključnim rečima</string>
+  <string name="revanced_hide_keyword_content_subscriptions_summary_off">Videi na kartici „Praćenja” nisu filtrirani prema ključnim rečima</string>
   <string name="revanced_hide_keyword_content_search_title">Sakrij rezultate pretrage prema ključnim rečima</string>
   <string name="revanced_hide_keyword_content_search_summary_on">Rezultati pretrage su filtrirani prema ključnim rečima</string>
   <string name="revanced_hide_keyword_content_search_summary_off">Rezultati pretrage nisu filtrirani prema ključnim rečima</string>
   <string name="revanced_hide_keyword_content_phrases_title">Ključne reči sa sakrivanje</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
-  <string name="revanced_hide_keyword_content_phrases_summary">Ključne reči i fraze koje treba sakriti, odvojene novom redovima\n\nReči sa velikim slovima u sredini moraju se uneti sa velikim slovima (npr.: iPhone, TikTok, LeBlanc)</string>
+  <string name="revanced_hide_keyword_content_phrases_summary">Ključne reči i fraze koje treba sakriti, odvojene novim redovima\n\nKljučne reči mogu biti nazivi kanala ili bilo koji tekst prikazan u naslovima videa\n\nReči sa velikim slovima u sredini moraju se uneti velikim slovima (npr.: iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">O filtriranju prema ključnim rečima</string>
-  <string name="revanced_hide_keyword_content_about_summary">Početna//Praćenja/Rezultati pretrage se filtriraju da bi se sakrio sadržaj koji se podudara sa ključnim frazama\n\nOgraničenja\n• Neki Shorts videi možda neće biti sakriveni\n• Neke komponente korisničkog interfejsa možda neće biti sakrivene\n• Pretraživanje ključne reči možda neće pokazati rezultate</string>
+  <string name="revanced_hide_keyword_content_about_summary">Početna/Praćenja/Rezultati pretrage se filtriraju da bi se sakrio sadržaj koji se podudara sa ključnim frazama\n\nOgraničenja\n• Shorts videi se ne mogu sakriti prema nazivu kanala\n• Neke komponente korisničkog interfejsa možda neće biti sakrivene\n• Pretraživanje ključne reči možda neće pokazati rezultate</string>
+  <string name="revanced_hide_keyword_content_about_whole_words_title">Samo cele reči</string>
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <string name="revanced_hide_keyword_content_about_whole_words_summary">Obeležavanje ključne reči/fraze dvostrukim navodnicima će sprečiti delimična podudaranja naslova videa i naziva kanala&lt;br&gt;&lt;br&gt;Na primer,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; će sakriti video: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;ali neće sakriti: &lt;b&gt;What does fair use mean?&lt;br&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_keyword_toast_invalid_common">Nevažeća ključna reč. Nije moguće koristiti „%s”</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_keyword_toast_invalid_length">Nevažeća ključna reč. „%1$s” je kraće od %2$d znakova</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">Ključna reč „%s” će sakriti sve videe</string>
+  <string name="revanced_hide_keyword_toast_invalid_common">Nije moguće koristiti ključnu reč: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Dodajte navodnike da biste koristili ključnu reč: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_conflicting">Ključna reč ima konfliktne izjave: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_length">Ključna reč je prekratka i zahteva navodnike: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">Ključna reč će sakriti sve videe: %s</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Sakrij opšte oglase</string>
@@ -270,15 +284,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_self_sponsor_ads_summary_on">Samosponzorisane kartice su skrivene</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Samosponzorisane kartice su prikazane</string>
   <string name="revanced_hide_products_banner_title">Sakrij baner za gledanje proizvoda</string>
-  <string name="revanced_hide_products_banner_summary_on">Baner je skriven</string>
-  <string name="revanced_hide_products_banner_summary_off">Baner je prikazan</string>
+  <string name="revanced_hide_products_banner_summary_on">Baner za gledanje proizvoda je skriven</string>
+  <string name="revanced_hide_products_banner_summary_off">Baner za gledanje proizvoda je prikazan</string>
   <string name="revanced_hide_shopping_links_title">Sakrij linkove za kupovinu u opisu videa</string>
-  <string name="revanced_hide_shopping_links_summary_on">Linkovi za kupovinu su skriveni</string>
-  <string name="revanced_hide_shopping_links_summary_off">Linkovi za kupovinu su prikazani</string>
+  <string name="revanced_hide_shopping_links_summary_on">Linkovi za kupovinu u opisu videa su skriveni</string>
+  <string name="revanced_hide_shopping_links_summary_off">Linkovi za kupovinu u opisu videa su prikazani</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Sakrij dugme „Poseti prodavnicu” na stranicama kanala</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Dugme je skriveno</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Dugme je prikazano</string>
+  <string name="revanced_hide_visit_store_button_summary_on">Dugme „Poseti prodavnicu” na stranicama kanala je skriveno</string>
+  <string name="revanced_hide_visit_store_button_summary_off">Dugme „Poseti prodavnicu” na stranicama kanala je prikazano</string>
   <string name="revanced_hide_web_search_results_title">Sakrij rezultate veb-pretrage</string>
   <string name="revanced_hide_web_search_results_summary_on">Rezultati veb-pretrage su skriveni</string>
   <string name="revanced_hide_web_search_results_summary_off">Rezultati veb-pretrage su prikazani</string>
@@ -303,23 +317,23 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_share_copy_url_timestamp_success">Link sa vremenskom oznakom je kopiran</string>
   <string name="revanced_copy_video_url_title">Prikaži dugme za kopiranje linka videa</string>
   <string name="revanced_copy_video_url_summary_on">Dugme je prikazano. Dodirnite da biste kopirali link videa. Dodirnite i zadržite da biste kopirali link videa s vremenskom oznakom</string>
-  <string name="revanced_copy_video_url_summary_off">Dugme nije prikazano</string>
+  <string name="revanced_copy_video_url_summary_off">Dugme za kopiranje linka videa nije prikazano</string>
   <string name="revanced_copy_video_url_timestamp_title">Prikaži dugme za kopiranje linka videa sa vremenskom oznakom</string>
   <string name="revanced_copy_video_url_timestamp_summary_on">Dugme je prikazano. Dodirnite da biste kopirali link videa s vremenskom oznakom. Dodirnite i zadržite da biste kopirali link videa bez vremenske oznake</string>
-  <string name="revanced_copy_video_url_timestamp_summary_off">Dugme nije prikazano</string>
+  <string name="revanced_copy_video_url_timestamp_summary_off">Dugme za kopiranje linka videa sa vremenskom oznakom nije prikazano</string>
   </patch>
   <patch id="interaction.dialog.RemoveViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">Ukloni dijalog o diskreciji gledaoca</string>
-  <string name="revanced_remove_viewer_discretion_dialog_summary_on">Dijalog će biti uklonjen</string>
-  <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dijalog će biti prikazan</string>
+  <string name="revanced_remove_viewer_discretion_dialog_summary_on">Dijalog o diskreciji gledaoca će biti uklonjen</string>
+  <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dijalog o diskreciji gledaoca će biti prikazan</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Ovo ne zaobilazi starosno ograničenje. Samo ga automatski prihvata.</string>
   </patch>
   <patch id="interaction.downloads.DownloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Spoljna preuzimanja</string>
   <string name="revanced_external_downloader_screen_summary">Podešavanja za korišćenje spoljnog programa za preuzimanje</string>
   <string name="revanced_external_downloader_title">Prikaži dugme za spoljno preuzimanje</string>
-  <string name="revanced_external_downloader_summary_on">Dugme za preuzimanje je prikazano u plejeru</string>
-  <string name="revanced_external_downloader_summary_off">Dugme za preuzimanje nije prikazano u plejeru</string>
+  <string name="revanced_external_downloader_summary_on">Dugme za spoljno preuzimanje je prikazano u plejeru</string>
+  <string name="revanced_external_downloader_summary_off">Dugme za spoljno preuzimanje nije prikazano u plejeru</string>
   <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
   <string name="revanced_external_downloader_action_button_title">Zameni izvorno dugme „Preuzmi”</string>
   <string name="revanced_external_downloader_action_button_summary_on">Dugme „Preuzmi” otvara spoljni program za preuzimanje</string>
@@ -375,9 +389,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.buttons.action.HideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Dugmad radnji</string>
   <string name="revanced_hide_buttons_screen_summary">Sakrijte ili prikažite dugmad ispod videa</string>
-  <string name="revanced_hide_like_dislike_button_title">Sakrij dugmad „Sviđa mi se” i „Ne sviđa mi se”</string>
-  <string name="revanced_hide_like_dislike_button_summary_on">Dugmad „Sviđa mi se” i „Ne sviđa mi se” su skrivena</string>
-  <string name="revanced_hide_like_dislike_button_summary_off">Dugmad „Sviđa mi se” i „Ne sviđa mi se” su prikazana</string>
+  <string name="revanced_hide_like_dislike_button_title">Sakrij dugmad „Sviđanje” i „Nesviđanje”</string>
+  <string name="revanced_hide_like_dislike_button_summary_on">Dugmad „Sviđanje” i „Nesviđanje” su skrivena</string>
+  <string name="revanced_hide_like_dislike_button_summary_off">Dugmad „Sviđanje” i „Nesviđanje” su prikazana</string>
   <!-- 'Share' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_share_button_title">Sakrij dugme „Deli”</string>
   <string name="revanced_hide_share_button_summary_on">Dugme „Deli” je skriveno</string>
@@ -498,8 +512,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.buttons.player.hide.HidePlayerButtonsPatch">
   <string name="revanced_hide_player_buttons_title">Sakrij dugmad za prethodni i sledeći video</string>
-  <string name="revanced_hide_player_buttons_summary_on">Dugmad su skrivena</string>
-  <string name="revanced_hide_player_buttons_summary_off">Dugmad su prikazana</string>
+  <string name="revanced_hide_player_buttons_summary_on">Dugmad za prethodni i sledeći video su skrivena</string>
+  <string name="revanced_hide_player_buttons_summary_off">Dugmad za prethodni i sledeći video su prikazana</string>
   </patch>
   <patch id="layout.hide.albumcards.AlbumCardsResourcePatch">
   <string name="revanced_hide_album_cards_title">Sakrij kartice albuma</string>
@@ -529,9 +543,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Dugmad za vremensku oznaku i emodžije su prikazana</string>
   </patch>
   <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
-  <string name="revanced_hide_crowdfunding_box_title">Sakrij kutiju za kolektivno finansiranje</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">Kutija za kolektivno finansiranje je skrivena</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">Kutija za kolektivno finansiranje je prikazana</string>
+  <string name="revanced_hide_crowdfunding_box_title">Sakrij polje za kolektivno finansiranje</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">Polje za kolektivno finansiranje je skriveno</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">Polje za kolektivno finansiranje je prikazano</string>
   </patch>
   <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Sakrij kartice završnog ekrana</string>
@@ -562,9 +576,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Ambijentalni režim u režimu celog ekrana je omogućen</string>
   </patch>
   <patch id="layout.hide.infocards.HideInfocardsResourcePatch">
-  <string name="revanced_hide_info_cards_title">Sakrij info kartice</string>
-  <string name="revanced_hide_info_cards_summary_on">Info kartice su skrivene</string>
-  <string name="revanced_hide_info_cards_summary_off">Info kartice su prikazane</string>
+  <string name="revanced_hide_info_cards_title">Sakrij kartice sa informacijama</string>
+  <string name="revanced_hide_info_cards_summary_on">Kartice sa informacijama su skrivene</string>
+  <string name="revanced_hide_info_cards_summary_off">Kartice sa informacijama su prikazane</string>
   </patch>
   <patch id="layout.hide.rollingnumber.DisableRollingNumberAnimationPatch">
   <string name="revanced_disable_rolling_number_animations_title">Onemogući animacije brojeva</string>
@@ -597,11 +611,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_join_button_summary_off">Dugme „Učlani me” je prikazano</string>
   <!-- 'subscribe' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_subscribe_button_title">Sakrij dugme „Zaprati”</string>
-  <string name="revanced_hide_shorts_subscribe_button_summary_on">Dugme „Zaprati” je skriveno pri pauzi</string>
-  <string name="revanced_hide_shorts_subscribe_button_summary_off">Dugme „Zaprati” je prikazano pri pauzi</string>
+  <string name="revanced_hide_shorts_subscribe_button_summary_on">Dugme „Zaprati” je skriveno</string>
+  <string name="revanced_hide_shorts_subscribe_button_summary_off">Dugme „Zaprati” je prikazano</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_title">Sakrij dugmad u plejeru pri pauzi</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Dugmad su skrivena pri pauzi</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Dugmad su prikazana pri pauzi</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Dugmad u plejeru pri pauzi su skrivena</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Dugmad u plejeru pri pauzi su prikazana</string>
   <string name="revanced_hide_shorts_shop_button_title">Sakrij dugme „Kupovina”</string>
   <string name="revanced_hide_shorts_shop_button_summary_on">Dugme „Kupovina” je skriveno</string>
   <string name="revanced_hide_shorts_shop_button_summary_off">Dugme „Kupovina” je prikazano</string>
@@ -614,18 +628,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">Sakrij oznaku lokacije</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Oznaka lokacije je skrivena</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Oznaka lokacije je prikazana</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Sakrij dugme „Sačuvaj zvuk na plejlistu”</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Dugme „Sačuvaj zvuk na plejlistu” je skriveno</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Dugme „Sačuvaj zvuk na plejlistu” je prikazano</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Sakrij predloge za pretragu</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Predlozi za pretragu su skriveni</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Predlozi za pretragu su prikazani</string>
-  <string name="revanced_hide_shorts_like_button_title">Sakrij dugme „Sviđa mi se”</string>
-  <string name="revanced_hide_shorts_like_button_summary_on">Dugme „Sviđa mi se” je skriveno</string>
-  <string name="revanced_hide_shorts_like_button_summary_off">Dugme „Sviđa mi se” je prikazano</string>
-  <string name="revanced_hide_shorts_dislike_button_title">Sakrij dugme „Ne sviđa mi se”</string>
-  <string name="revanced_hide_shorts_dislike_button_summary_on">Dugme „Ne sviđa mi se” je skriveno</string>
-  <string name="revanced_hide_shorts_dislike_button_summary_off">Dugme „Ne sviđa mi se” je prikazano</string>
+  <string name="revanced_hide_shorts_like_button_title">Sakrij dugme „Sviđanje”</string>
+  <string name="revanced_hide_shorts_like_button_summary_on">Dugme „Sviđanje” je skriveno</string>
+  <string name="revanced_hide_shorts_like_button_summary_off">Dugme „Sviđanje” je prikazano</string>
+  <string name="revanced_hide_shorts_dislike_button_title">Sakrij dugme „Nesviđanje”</string>
+  <string name="revanced_hide_shorts_dislike_button_summary_on">Dugme „Nesviđanje” je skriveno</string>
+  <string name="revanced_hide_shorts_dislike_button_summary_off">Dugme „Nesviđanje” je prikazano</string>
   <string name="revanced_hide_shorts_comments_button_title">Sakrij dugme „Komentari”</string>
   <string name="revanced_hide_shorts_comments_button_summary_on">Dugme „Komentari” je skriveno</string>
   <string name="revanced_hide_shorts_comments_button_summary_off">Dugme „Komentari” je prikazano</string>
@@ -637,24 +648,24 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_share_button_title">Sakrij dugme „Deli”</string>
   <string name="revanced_hide_shorts_share_button_summary_on">Dugme „Deli” je skriveno</string>
   <string name="revanced_hide_shorts_share_button_summary_off">Dugme „Deli” je prikazano</string>
-  <string name="revanced_hide_shorts_info_panel_title">Sakrij info panel</string>
-  <string name="revanced_hide_shorts_info_panel_summary_on">Info panel je skriven</string>
-  <string name="revanced_hide_shorts_info_panel_summary_off">Info panel je prikazan</string>
+  <string name="revanced_hide_shorts_info_panel_title">Sakrij okno sa informacijama</string>
+  <string name="revanced_hide_shorts_info_panel_summary_on">Okno sa informacijama je skriveno</string>
+  <string name="revanced_hide_shorts_info_panel_summary_off">Okno sa informacijama je prikazano</string>
   <string name="revanced_hide_shorts_channel_bar_title">Sakrij traku kanala</string>
   <string name="revanced_hide_shorts_channel_bar_summary_on">Traka kanala je skrivena</string>
   <string name="revanced_hide_shorts_channel_bar_summary_off">Traka kanala je prikazana</string>
-  <string name="revanced_hide_shorts_video_title_title">Sakrij naslov videa</string>
+  <string name="revanced_hide_shorts_video_title_title">Sakrij naslov Shorts videa</string>
   <string name="revanced_hide_shorts_video_title_summary_on">Naslov Shorts videa je skriven</string>
   <string name="revanced_hide_shorts_video_title_summary_off">Naslov Shorts videa je prikazan</string>
   <string name="revanced_hide_shorts_sound_metadata_label_title">Sakrij oznaku metapodataka zvuka</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Oznaka metapodataka zvuka je skrivena</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Oznaka metapodataka zvuka je prikazana</string>
-  <string name="revanced_hide_shorts_full_video_link_label_title">Sakrij oznaku linka videa</string>
-  <string name="revanced_hide_shorts_full_video_link_label_summary_on">Oznaka linka videa je skrivena</string>
-  <string name="revanced_hide_shorts_full_video_link_label_summary_off">Oznaka linka videa je prikazana</string>
-  <string name="revanced_hide_shorts_sound_button_title">Sakrij dugme za zvuk</string>
-  <string name="revanced_hide_shorts_sound_button_summary_on">Dugme za zvuk je skriveno</string>
-  <string name="revanced_hide_shorts_sound_button_summary_off">Dugme za zvuk je prikazano</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">Sakrij oznaku linka Shorts videa</string>
+  <string name="revanced_hide_shorts_full_video_link_label_summary_on">Oznaka linka Shorts videa je skrivena</string>
+  <string name="revanced_hide_shorts_full_video_link_label_summary_off">Oznaka linka Shorts videa je prikazana</string>
+  <string name="revanced_hide_shorts_sound_button_title">Sakrij dugme „Zvuk”</string>
+  <string name="revanced_hide_shorts_sound_button_summary_on">Dugme „Zvuk” je skriveno</string>
+  <string name="revanced_hide_shorts_sound_button_summary_off">Dugme „Zvuk” je prikazano</string>
   <string name="revanced_hide_shorts_navigation_bar_title">Sakrij traku za navigaciju</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Traka za navigaciju je skrivena</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Traka za navigaciju je prikazana</string>
@@ -670,17 +681,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_timestamp_summary_off">Vremenska oznaka videa je prikazana</string>
   </patch>
   <patch id="layout.panels.popup.PlayerPopupPanelsPatch">
-  <string name="revanced_hide_player_popup_panels_title">Sakrij iskačuće panele plejera</string>
-  <string name="revanced_hide_player_popup_panels_summary_on">Iskačući paneli plejera su skriveni</string>
-  <string name="revanced_hide_player_popup_panels_summary_off">Iskačući paneli plejera su prikazani</string>
+  <string name="revanced_hide_player_popup_panels_title">Sakrij iskačuće table u plejeru</string>
+  <string name="revanced_hide_player_popup_panels_summary_on">Iskačuće table u plejeru su skrivene</string>
+  <string name="revanced_hide_player_popup_panels_summary_off">Iskačuće table u plejeru su prikazane</string>
   </patch>
   <patch id="layout.player.overlay.CustomPlayerOverlayOpacityResourcePatch">
-  <string name="revanced_player_overlay_opacity_title">Neprozirnost sloja plejera</string>
+  <string name="revanced_player_overlay_opacity_title">Neprozirnost preklopa plejera</string>
   <string name="revanced_player_overlay_opacity_summary">Vrednost neprozirnosti između 0-100, gde je 0 prozirno</string>
   <string name="revanced_player_overlay_opacity_invalid_toast">Prozirnost preklopa plejera mora biti između 0-100</string>
   </patch>
   <patch id="layout.returnyoutubedislike.ReturnYouTubeDislikeResourcePatch">
-  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Skriveno</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">Nesviđanja privremeno nisu dostupna (API istekao)</string>
   <string name="revanced_ryd_failure_connection_status_code">Nesviđanja nisu dostupna (status %d)</string>
@@ -698,9 +708,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_dislike_percentage_summary_on">Nesviđanja prikazana u procentima</string>
   <string name="revanced_ryd_dislike_percentage_summary_off">Nesviđana prikazana u brojevima</string>
   <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
-  <string name="revanced_ryd_compact_layout_title">Kompaktno dugme „Sviđa mi se”</string>
-  <string name="revanced_ryd_compact_layout_summary_on">Dugme „Sviđa mi se” stilizovano za minimalnu širinu</string>
-  <string name="revanced_ryd_compact_layout_summary_off">Dugme „Sviđa mi se” stilizovano za najbolji izgled</string>
+  <string name="revanced_ryd_compact_layout_title">Kompaktno dugme „Sviđanje”</string>
+  <string name="revanced_ryd_compact_layout_summary_on">Dugme „Sviđanje” stilizovano za minimalnu širinu</string>
+  <string name="revanced_ryd_compact_layout_summary_off">Dugme „Sviđanje” stilizovano za najbolji izgled</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Prikaži iskačuće obaveštenje ako API nije dostupan</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Iskačuće obaveštenje je prikazano, ako Return YouTube Dislike nije dostupan</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Iskačuće obaveštenje nije prikazano, ako Return YouTube Dislike nije dostupan</string>
@@ -877,7 +887,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">Vreme početka segmenta</string>
   <string name="revanced_sb_new_segment_time_end">Vreme kraja segmenta</string>
   <string name="revanced_sb_new_segment_confirm_title">Da li su vremena tačna?</string>
-  <string name="revanced_sb_new_segment_confirm_content">Segment je od\n\n%1$s\ndo\n%%2$s\n\n(%3$s)\n\nSpreman za podnošenje?</string>
+  <string name="revanced_sb_new_segment_confirm_content">Segment je od\n\n%1$s\ndo\n%2$s\n\n(%3$s)\n\nSpreman za podnošenje?</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Početak mora biti pre kraja</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Prvo označite dva mesta na vremenskoj traci</string>
   <string name="revanced_sb_new_segment_preview_segment_first">Pregledajte segment i uverite se da glatko preskače</string>
@@ -895,6 +905,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_stats_username_changed">Korisničko ime uspešno promenjeno</string>
   <string name="revanced_sb_stats_reputation">Vaša reputacija je &lt;b&gt;%.2f&lt;/b&gt;</string>
   <string name="revanced_sb_stats_submissions">Napravili ste &lt;b&gt;%s&lt;/b&gt; segmenata</string>
+  <string name="revanced_sb_stats_submissions_sum">Dodirnite ovde da biste videli svoje segmente</string>
   <string name="revanced_sb_stats_saved_zero">SponsorBlock rang-lista</string>
   <string name="revanced_sb_stats_saved">Sačuvali ste ljude od &lt;b&gt;%s&lt;/b&gt; segmenata</string>
   <string name="revanced_sb_stats_saved_sum_zero">Dodirnite ovde da biste videli globalnu statistiku i najbolje doprinosioce</string>
@@ -1011,7 +1022,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow i originalne sličice</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow i zahvati kadra</string>
   <string name="revanced_alt_thumbnail_options_entry_4">Zahvati kadra</string>
-  <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow pruža sličice za YouTube videe prikupljene od zajednice. Ove sličice su često relevantnije od onih koje pruža YouTube\n\n Ako je omogućeno, linkovi videa će biti poslati na API server i nikakvi drugi podaci se neće slati. Ako video nema DeArrow sličice, tada se prikazuju originalne sličice ili sličice zahvata kadra\n\nDodirnite ovde da biste saznali više o DeArrowu</string>
+  <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow pruža sličice za YouTube videe prikupljene od zajednice. Ove sličice su često relevantnije od onih koje pruža YouTube\n\nAko je omogućeno, linkovi videa će biti poslati na API server i nikakvi drugi podaci se neće slati. Ako video nema DeArrow sličice, tada se prikazuju originalne sličice ili sličice zahvata kadra\n\nDodirnite ovde da biste saznali više o DeArrowu</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Prikaži iskačuće obaveštenje ako API nije dostupan</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Iskačuće obaveštenje je prikazano, ako DeArrow nije dostupan</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Iskačuće obaveštenje nije prikazano, ako DeArrow nije dostupan</string>
@@ -1091,8 +1102,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="video.speed.button.PlaybackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Prikaži dugme dijaloga za brzinu</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Dugme je prikazano</string>
-  <string name="revanced_playback_speed_dialog_button_summary_off">Dugme nije prikazano</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Dugme dijaloga za brzinu je prikazano</string>
+  <string name="revanced_playback_speed_dialog_button_summary_off">Dugme dijaloga za brzinu nije prikazano</string>
   </patch>
   <patch id="video.speed.custom.CustomPlaybackSpeedPatch">
   <string name="revanced_custom_playback_speeds_title">Prilagođene brzine reprodukcije</string>
@@ -1117,41 +1128,23 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_on">Prevlačenje za premotavanje je omogućeno</string>
   <string name="revanced_slide_to_seek_summary_off">Prevlaćenje za premotavanje nije omogućeno</string>
   </patch>
-  <patch id="misc.fix.playback.SpoofClientPatch">
-  <string name="revanced_spoof_client_screen_title">Lažiran klijent</string>
-  <string name="revanced_spoof_client_screen_summary">Lažiranje klijenta da bi se sprečili problemi sa reprodukcijom</string>
-  <string name="revanced_spoof_client_title">Lažiran klijent</string>
-  <string name="revanced_spoof_client_summary_on">Klijent je lažiran</string>
-  <string name="revanced_spoof_client_summary_off">Klijent nije lažiran\n\nReprodukcija videa možda neće raditi</string>
-  <string name="revanced_spoof_client_user_dialog_message">Isključivanje ovog podešavanja možda će izazvati probleme sa reprodukcijom videa.</string>
-  <string name="revanced_spoof_client_type_title">Tip lažiranog klijenta</string>
-  <string name="revanced_spoof_client_ios_force_avc_title">Prisili iOS AVC (H.264)</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_on">iOS video kodek je AVC</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_off">iOS video kodek je AVC, VP9 ili AV1</string>
-  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Ako ovo omogućite, možda će se produžiti trajanje baterije i popraviti zastoj pri reprodukciji.\n\nAVC ima maksimalnu rezoluciju od 1080p, a reprodukcija videa će koristiti više internet podataka nego VP9 ili AV1.</string>
-  <string name="revanced_spoof_client_about_android_ios_title">Neželjeni efekti lažiranja na iOS</string>
-  <string name="revanced_spoof_client_about_android_ios_summary">• HDR je podržan samo kodekom AV1\n• Istorija gledanja ne radi sa nalogom brenda</string>
-  <string name="revanced_spoof_client_about_android_vr_title">Neželjeni efekti lažiranja na Android VR</string>
-  <string name="revanced_spoof_client_about_android_vr_summary">• Nema HDR videa\n• Dečji video snimci se ne reprodukuju\n• Pauzirani video snimci mogu nasumično da se nastavljaju\n• Sličice na traci za premotavanje Shorts videa lošeg kvaliteta\n• Dugme za radnju „Preuzmi“ je skriveno\n• Kartice završnog ekrana su skrivene</string>
-  <string name="revanced_spoof_client_storyboard_timeout">Sličice u lažiranom klijentu nisu dostupne (API istekao)</string>
-  <string name="revanced_spoof_client_storyboard_io_exception">Sličice u lažiranom klijentu privremeno nisu dostupne: %s</string>
-  </patch>
-  <!-- This patch is no longer used, these strings are not in use, and these strings will be deleted in the future. -->
-  <patch id="misc.fix.playback.SpoofSignaturePatch">
-  <string name="revanced_spoof_signature_verification_screen_title">Lažirani potpis aplikacije</string>
-  <string name="revanced_spoof_signature_verification_screen_summary">Lažiranje potpisa aplikacije da bi se sprečili problemi s reprodukcijom</string>
-  <string name="revanced_spoof_signature_verification_enabled_title">Lažirani potpis aplikacije</string>
-  <string name="revanced_spoof_signature_verification_enabled_summary_on">Potpis aplikacije je lažiran\n\nNeželjeni efekti obuhvataju:\n• Poboljšana brzina prenosa nije dostupna\n• Videi se ne mogu preuzimati\n• Nema sličica na traci za premotavanje za plaćene videe</string>
-  <string name="revanced_spoof_signature_verification_enabled_summary_off">Potpis aplikacije nije lažiran\n\nReprodukcija videa možda neće raditi</string>
-  <string name="revanced_spoof_signature_verification_enabled_user_dialog_message">Isključivanje ovog podešavanja može izazvati probleme s reprodukcijom videa.</string>
-  <string name="revanced_spoof_signature_in_feed_enabled_title">Lažirani potpis aplikacije u fidu</string>
-  <string name="revanced_spoof_signature_in_feed_enabled_summary_on">Potpis plikacije je lažiran\n\nNeželjeni efekti obuhvataju:\n• Videi u fidu nemaju titlove\n• Automatski pušteni videi u fidu će se pojaviti u istoriji gledanja</string>
-  <string name="revanced_spoof_signature_in_feed_enabled_summary_off">Potpis aplikacije nije lažiran za videe u fidu\n\nVidei u fidu će se pustiti na manje od 1 minuta pre nego što naiđu na probleme s reprodukcijom</string>
-  <string name="revanced_spoof_storyboard_title">Lažirani storibord</string>
-  <string name="revanced_spoof_storyboard_summary_on">Storibord je lažiran</string>
-  <string name="revanced_spoof_storyboard_summary_off">Storibord nije lažiran\n\nNeželjeni efekti uključuju:\n• Nema ambijentalnog režima\n• Sličice na traci za premotavanje su skrivene</string>
-  <string name="revanced_spoof_storyboard_timeout">Lažiranje storiborda privremeno nije dostupno (API je istekao)</string>
-  <string name="revanced_spoof_storyboard_io_exception">Lažiranje storiborda privremeno nije dostupno: %s</string>
+  <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Lažiran video strim</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Lažiranje klijenta video strimova da bi se sprečili problemi sa reprodukcijom</string>
+  <string name="revanced_spoof_video_streams_title">Lažirani video strimovi</string>
+  <string name="revanced_spoof_video_streams_summary_on">Video strimovi su lažirani</string>
+  <string name="revanced_spoof_video_streams_summary_off">Video strimovi nisu lažirani\n\nReprodukcija videa možda neće raditi</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Isključivanje ove opcije će možda izazvati probleme sa reprodukcijom videa.</string>
+  <string name="revanced_spoof_video_streams_client_title">Podrazumevani klijent</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Prisili AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodek je AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodek je VP9 ili AV1</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Vaš uređaj nema VP9 hardversko dekodiranje, i ova opcija je uvek uključena kada je omogućeno lažiranje klijenta</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Ako ovo omogućite, možda će se produžiti trajanje baterije i popraviti zastoj pri reprodukciji.\n\nAVC ima maksimalnu rezoluciju od 1080p, a reprodukcija videa će koristiti više internet podataka nego VP9 ili AV1.</string>
+  <string name="revanced_spoof_video_streams_about_ios_title">Neželjeni efekti lažiranja na iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmovi ili plaćeni videi se možda neće puštati\n• Strimovi uživo počinju od početka\n• Videi će se možda završiti 1 sekundu ranije\n• Nema audio kodeka opus</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_title">Neželjeni efekti lažiranja na Android VR</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Meni „Audio snimak” nedostaje\n• Opcija „Ujednačena jačina zvuka” nije dostupna</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

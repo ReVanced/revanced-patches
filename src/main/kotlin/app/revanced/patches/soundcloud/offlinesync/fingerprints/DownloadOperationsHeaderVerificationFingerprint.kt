@@ -15,7 +15,5 @@ internal object DownloadOperationsHeaderVerificationFingerprint : MethodFingerpr
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CONST_STRING
     ),
-    customFingerprint = { _, classDef ->
-        classDef.sourceFile == "DownloadOperations.kt"
-    }
+    strings = listOf("X-SC-Mime-Type", "X-SC-Preset", "X-SC-Quality")
 )

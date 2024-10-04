@@ -32,6 +32,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
 -->
 <resources>
   <app id="shared">
+  <patch id="misc.checks.BaseCheckEnvironmentPatch">
+  <string name="revanced_check_environment_failed_title">Kiểm tra thất bại</string>
+  <string name="revanced_check_environment_dialog_open_official_source_button">Mở trang web chính thức</string>
+  <string name="revanced_check_environment_dialog_ignore_button">Phớt lờ</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Ứng dụng này xem ra không được vá bởi bạn.&lt;/h5&gt;&lt;br&gt;Ứng dụng này có thể không hoạt động chính xác, &lt;b&gt;gây hại hoặc thậm chí nguy hiểm khi dùng&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Những lần kiểm tra này ngụ ý rằng ứng dụng được vá trước hoặc được nhận được từ ai khác;&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Cực kỳ khuyến nghị &lt;b&gt;gỡ cài đặt ứng này và tự vá&lt;/b&gt; để chắc chắn bạn dùng ứng dụng hợp lệ và an toàn.&lt;p&gt;&lt;br&gt;Nếu phớt lờ, cảnh báo này sẽ chỉ hiện hai lần.</string>
+  <string name="revanced_check_environment_not_same_patching_device">Đã vá trên một thiết bị khác</string>
+  <string name="revanced_check_environment_manager_not_expected_installer">Không được cài đặt bởi ReVanced Manager</string>
+  <string name="revanced_check_environment_not_near_patch_time">Đã vá hơn 10 phút trước</string>
+  <string name="revanced_check_environment_not_near_patch_time_days">Đã vá %s ngày trước</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">Ngày dựng APK bị hỏng</string>
+  </patch>
   <patch id="misc.settings.BaseSettingsResourcePatch">
   <string name="revanced_settings_confirm_user_dialog_title">Bạn có muốn tiếp tục không?</string>
   <string name="revanced_settings_reset">Đặt lại</string>
@@ -42,6 +53,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_import_reset">Khôi phục mặc định cài đặt ReVanced</string>
   <string name="revanced_settings_import_success">Đã nhập cài đặt %d</string>
   <string name="revanced_settings_import_failure_parse">Nhập thất bại: %s</string>
+  <string name="revanced_pref_import_export_title">Nhập / Xuất</string>
+  <string name="revanced_pref_import_export_summary">Nhập / Xuất cài đặt ReVanced</string>
+  <!-- Settings about dialog. -->
+  <string name="revanced_settings_about_links_body">Bạn đang dùng Bản vá ReVanced phiên bản &lt;i&gt;%s&lt;/i&gt;</string>
+  <string name="revanced_settings_about_links_dev_header">Lưu ý</string>
+  <string name="revanced_settings_about_links_dev_body">Đây là phiên bản tiền phát hành và bạn có thể gặp phải sự cố không mong muốn</string>
+  <string name="revanced_settings_about_links_header">Các liên kết chính thức</string>
+  <string name="revanced_settings_about_links_donate">Quyên góp</string>
   </patch>
   <patch id="misc.gms.BaseGmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -54,14 +73,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   </app>
   <app id="youtube">
-  <patch id="misc.settings.SettingsResourcePatch">
-  <string name="revanced_settings_about_links_body">Bạn đang dùng Bản vá ReVanced phiên bản &lt;i&gt;%s&lt;/i&gt;</string>
-  <string name="revanced_settings_about_links_dev_header">Lưu ý</string>
-  <string name="revanced_settings_about_links_dev_body">Đây là phiên bản tiền phát hành và bạn có thể gặp phải sự cố không mong muốn</string>
-  <string name="revanced_settings_about_links_header">Các liên kết chính thức</string>
-  <string name="revanced_pref_import_export_title">Nhập / Xuất</string>
-  <string name="revanced_pref_import_export_summary">Nhập / Xuất cài đặt ReVanced</string>
-  </patch>
   <patch id="misc.settings.SettingsPatch">
   <string name="revanced_settings_screen_00_about_title">Giới thiệu</string>
   <string name="revanced_settings_screen_01_ads_title">Quảng cáo</string>
@@ -136,6 +147,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_guidelines_title">Ẩn nguyên tắc của kênh</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Nguyên tắc của kênh được ẩn</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Nguyên tắc của kênh được hiện</string>
+  <string name="revanced_hide_chips_shelf_title">Ẩn kệ danh mục được đề xuất</string>
+  <string name="revanced_hide_chips_shelf_summary_on">Kệ danh mục được đề xuất được ẩn</string>
+  <string name="revanced_hide_chips_shelf_summary_off">Kệ danh mục được đề xuất được hiện</string>
   <string name="revanced_hide_expandable_chip_title">Ẩn bảng mở rộng dưới video</string>
   <string name="revanced_hide_expandable_chip_summary_on">Bảng mở rộng được ẩn</string>
   <string name="revanced_hide_expandable_chip_summary_off">Bảng mở rộng được hiện</string>
@@ -196,9 +210,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_artist_cards_title">Ẩn thẻ nghệ sĩ</string>
   <string name="revanced_hide_artist_cards_summary_on">Thẻ nghệ sĩ được ẩn</string>
   <string name="revanced_hide_artist_cards_summary_off">Thẻ nghệ sĩ được hiện</string>
-  <string name="revanced_hide_chips_shelf_title">Ẩn kệ danh mục được đề xuất</string>
-  <string name="revanced_hide_chips_shelf_summary_on">Kệ danh mục được đề xuất được ẩn</string>
-  <string name="revanced_hide_chips_shelf_summary_off">Kệ danh mục được đề xuất được hiện</string>
   <string name="revanced_hide_attributes_section_title">Ẩn phần thuộc tính</string>
   <string name="revanced_hide_attributes_section_summary_on">Phần \'Địa điểm nổi bật\', Trò chơi và Âm nhạc được ẩn</string>
   <string name="revanced_hide_attributes_section_summary_off">Phần \'Địa điểm nổi bật\', Trò chơi và Âm nhạc được hiện</string>
@@ -242,14 +253,18 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_content_phrases_title">Từ khóa để ẩn</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
-  <string name="revanced_hide_keyword_content_phrases_summary">Từ khóa và cụm từ để ẩn, ngăn cách bằng dòng mới\n\nTừ với các ký tự in hoa ở giữa phải được viết hoa đúng (vd: iPhone, TikTok, LeBlanc)</string>
+  <string name="revanced_hide_keyword_content_phrases_summary">Nhập từ hoặc cụm từ cần ẩn được phân cách bằng dòng.\n\nTừ khóa có thể là tên kênh hoặc bất kỳ văn bản nào hiển thị trong tiêu đề video.\n\nBộ lọc có phân biệt chữ hoa chữ thường, vì vậy bạn cần nhập chính xác định dạng để lọc (Ví dụ: iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">Giới thiệu về bộ lọc từ khóa</string>
-  <string name="revanced_hide_keyword_content_about_summary">Trang chính/Đăng ký/Kết quả tìm kiếm được lọc để ẩn nội dung khớp với cụm từ khóa\n\nGiới hạn\n• Một số Shorts có thể không được ẩn\n• Một số thành phần giao diện có thể không được ẩn\n• Tìm kiếm chứa từ khóa có thể không có kết quả</string>
+  <string name="revanced_hide_keyword_content_about_summary">Nội dung khớp với từ khoá bạn đã đặt sẽ bị ẩn trên thẻ Trang chủ/Kênh đăng ký và kết quả tìm kiếm.\n\nHạn chế:\n• Video Shorts không bị ẩn theo tên kênh.\n• Một số thành phần giao diện người dùng có thể không bị ẩn.\n• Tìm kiếm từ khoá có thể không cho kết quả nào</string>
+  <string name="revanced_hide_keyword_content_about_whole_words_title">Khớp toàn bộ từ</string>
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <string name="revanced_hide_keyword_content_about_whole_words_summary">Việc đặt từ/cụm từ cần lọc trong dấu ngoặc kép sẽ ngăn chặn các kết quả chỉ trùng một phần với tiêu đề video và tên kênh&lt;br&gt;&lt;br&gt;Ví dụ,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; sẽ ẩn video: &lt;b&gt;AI hoạt động ra sao?&lt;/b&gt;&lt;br&gt;nhưng sẽ không ẩn: &lt;b&gt;Hai lai nghĩa là gì?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_keyword_toast_invalid_common">Từ khóa không hợp lệ. Không thể dùng \'%s\'</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_keyword_toast_invalid_length">Từ khóa không hợp lệ. \'%1$s\' nhỏ hơn %2$d ký tự</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">Từ khóa \'%s\' sẽ ẩn toàn bộ video</string>
+  <string name="revanced_hide_keyword_toast_invalid_common">Không thể dùng từ khóa: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Hãy thêm dấu ngoặc kép để sử dụng từ khoá: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_conflicting">Từ khóa có các định nghĩa mâu thuẫn với nhau. %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_length">Từ khóa quá ngắn và cần phải có dấu ngoặc kép: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">Từ khóa sẽ ẩn tất cả video: %s</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Ẩn quảng cáo chung</string>
@@ -612,9 +627,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">Ẩn nhãn vị trí</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Nhãn vị trí được ẩn</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Nhãn vị trí được hiện</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Ẩn nút lưu âm thanh vào danh sách phát</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Lưu âm thanh vào danh sách phát được ẩn</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Lưu âm thanh vào danh sách phát được hiện</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Ẩn đề xuất tìm kiếm</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Đề xuất tìm kiếm được ẩn</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Đề xuất tìm kiếm được hiện</string>
@@ -678,7 +690,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_player_overlay_opacity_invalid_toast">Độ phủ mờ trình phát phải nằm giữa 0-100</string>
   </patch>
   <patch id="layout.returnyoutubedislike.ReturnYouTubeDislikeResourcePatch">
-  <string name="revanced_ryd_video_likes_hidden_by_video_owner">Ẩn</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">Lượt ko thích tạm thời ko khả dụng (API hết giờ)</string>
   <string name="revanced_ryd_failure_connection_status_code">Lượt không thích không khả dụng ( trạng thái %d)</string>
@@ -893,6 +904,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_stats_username_changed">Tên người dùng đã được thay đổi thành công</string>
   <string name="revanced_sb_stats_reputation">Danh tiếng của bạn là &lt;b&gt;%.2f&lt;/b&gt;</string>
   <string name="revanced_sb_stats_submissions">Bạn đã tạo &lt;b&gt;%s&lt;/b&gt; phân đoạn</string>
+  <string name="revanced_sb_stats_submissions_sum">Nhấn vào đây để xem các phân đoạn của bạn</string>
   <string name="revanced_sb_stats_saved_zero">Bảng xếp hạng SponsorBlock</string>
   <string name="revanced_sb_stats_saved">Bạn đã giúp mọi người bỏ qua &lt;b&gt;%s&lt;/b&gt; phân đoạn</string>
   <string name="revanced_sb_stats_saved_sum_zero">Nhấn vào đây để xem số liệu thống kê toàn cầu và những người đóng góp hàng đầu</string>
@@ -1114,27 +1126,23 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_on">Vuốt để tua được bật</string>
   <string name="revanced_slide_to_seek_summary_off">Vuốt để tua không được bật</string>
   </patch>
-  <patch id="misc.fix.playback.SpoofClientPatch">
-  <string name="revanced_spoof_client_screen_title">Giả mạo máy khách</string>
-  <string name="revanced_spoof_client_screen_summary">Giả mạo máy khách để ngăn ngừa sự cố khi phát nền</string>
-  <string name="revanced_spoof_client_title">Giả mạo máy khách</string>
-  <string name="revanced_spoof_client_summary_on">Máy khách đã được giả mạo</string>
-  <string name="revanced_spoof_client_summary_off">Máy khách chưa được giả mạo\n\nPhát nền video có thể không hoạt động</string>
-  <string name="revanced_spoof_client_user_dialog_message">Việc tắt cài đặt này có thể gây ra sự cố phát nền video.</string>
-  <string name="revanced_spoof_client_type_title">Kiểu giả mạo máy khách</string>
-  <string name="revanced_spoof_client_ios_force_avc_title">iOS AVC (H.264) ép buộc</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_on">Bộ giải mã video trên iOS là AVC</string>
-  <string name="revanced_spoof_client_ios_force_avc_summary_off">Bộ giải mã video trên iOS là AVC, VP9, hoặc AV1</string>
-  <string name="revanced_spoof_client_ios_force_avc_user_dialog_message">Bật chức năng này có thể tăng cường thời lượng pin và sửa lỗi phát lặp.\n\nAVC có độ phân giải tối đa 1080p, và video phát sẽ dùng nhiều dữ liệu mạng hơn VP9 hoặc AV1.</string>
-  <string name="revanced_spoof_client_about_android_ios_title">Tác dụng phụ của giả mạo iOS</string>
-  <string name="revanced_spoof_client_about_android_ios_summary">• HDR chỉ được hỗ trợ với bộ giải mã AV1\n• Lịch sử xem không hoạt động với tài khoản thương hiệu</string>
-  <string name="revanced_spoof_client_about_android_vr_title">Tác dụng phụ của giả mạo Android VR</string>
-  <string name="revanced_spoof_client_about_android_vr_summary">• Không có video HDR\n• Video dành cho trẻ em không phát lắp\n• Video đã tạm dừng có thể ngẫu nhiên phát tiếp\n• Hình thu nhỏ thanh tiến trình Shorts có chất lượng thấp\n• Nút hành động tải xuống luôn ẩn\n• Các thẻ màn hình kết thúc luôn ẩn</string>
-  <string name="revanced_spoof_client_storyboard_timeout">Hình thu nhỏ giả mạo máy khách không khả dụng (API hết hạn)</string>
-  <string name="revanced_spoof_client_storyboard_io_exception">Hình thu nhỏ giả mạo máy khách tạm thời không khả dụng: %s</string>
-  </patch>
-  <!-- This patch is no longer used, these strings are not in use, and these strings will be deleted in the future. -->
-  <patch id="misc.fix.playback.SpoofSignaturePatch">
+  <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Giả mạo luồng video</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Giả mạo luồng video máy khách để ngăn ngừa sự cố khi phát nền</string>
+  <string name="revanced_spoof_video_streams_title">Giả mạo luồng video</string>
+  <string name="revanced_spoof_video_streams_summary_on">Luồng video đã được giả mạo</string>
+  <string name="revanced_spoof_video_streams_summary_off">Luồng video chưa được giả mạo\n\nPhát nền video có thể không hoạt động</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Việc tắt cài đặt này có thể gây ra sự cố phát nền video.</string>
+  <string name="revanced_spoof_video_streams_client_title">Máy khách mặc định</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">AVC (H.264) ép buộc</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Bộ giải mã là AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Bộ giải mã là VP9 hoặc AV1</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Thiết bị của bạn không có phần cứng giải mã VP9, và thiết lập này luôn bật khi Giả mạo máy khách bật</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Bật chức năng này có thể tăng cường thời lượng pin và sửa lỗi phát lặp.\n\nAVC có độ phân giải tối đa 1080p, và video phát sẽ dùng nhiều dữ liệu mạng hơn VP9 hoặc AV1.</string>
+  <string name="revanced_spoof_video_streams_about_ios_title">Tác dụng phụ của giả mạo iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Phim hoặc video trả tiền có thể không phát được\n• Luồng phát trực tiếp có thể phát từ đầu\n• Video có thể kết thúc sớm trước 1 giây\n• Không có bộ giải mã âm thanh opus</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_title">Tác dụng phụ của giả mạo Android VR</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Trình đơn bản âm thanh bị mất\n• Âm lượng thích ứng không hữu dụng</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">

@@ -7,6 +7,7 @@ internal object CreateTrackingApiFingerprint : MethodFingerprint(
     returnType = "L",
     accessFlags = AccessFlags.PUBLIC.value,
     customFingerprint = { methodDef, classDef ->
-        classDef.sourceFile == "DefaultTrackingApiFactory.kt" && methodDef.name == "create"
+        methodDef.name == "create"
     },
+    strings = listOf("backend", "boogaloo")
 )

@@ -13,14 +13,13 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.tiktok.interaction.downloads.fingerprints.ACLCommonShareFingerprint
 import app.revanced.patches.tiktok.interaction.downloads.fingerprints.ACLCommonShareFingerprint2
 import app.revanced.patches.tiktok.interaction.downloads.fingerprints.ACLCommonShareFingerprint3
-import app.revanced.patches.tiktok.interaction.downloads.fingerprints.DownloadPathParentFingerprint
+import app.revanced.patches.tiktok.interaction.downloads.fingerprints.DownloadUriFingerprint
 import app.revanced.patches.tiktok.misc.integrations.IntegrationsPatch
 import app.revanced.patches.tiktok.misc.settings.SettingsPatch
 import app.revanced.patches.tiktok.misc.settings.fingerprints.SettingsStatusLoadFingerprint
 import app.revanced.util.exception
+import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
@@ -28,9 +27,9 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
     description = "Removes download restrictions and changes the default path to download to.",
     dependencies = [IntegrationsPatch::class, SettingsPatch::class],
     compatiblePackages = [
-        CompatiblePackage("com.ss.android.ugc.trill", ["32.5.3"]),
-        CompatiblePackage("com.zhiliaoapp.musically", ["32.5.3"])
-    ]
+        CompatiblePackage("com.ss.android.ugc.trill", ["36.5.4"]),
+        CompatiblePackage("com.zhiliaoapp.musically", ["36.5.4"]),
+    ],
 )
 @Suppress("unused")
 object DownloadsPatch : BytecodePatch(
@@ -38,9 +37,9 @@ object DownloadsPatch : BytecodePatch(
         ACLCommonShareFingerprint,
         ACLCommonShareFingerprint2,
         ACLCommonShareFingerprint3,
-        DownloadPathParentFingerprint,
-        SettingsStatusLoadFingerprint
-    )
+        DownloadUriFingerprint,
+        SettingsStatusLoadFingerprint,
+    ),
 ) {
     override fun execute(context: BytecodeContext) {
         fun MethodFingerprint.getMethod() = result?.mutableMethod ?: throw exception
@@ -52,7 +51,7 @@ object DownloadsPatch : BytecodePatch(
                     """
                         const/4 v0, 0x0
                         return v0
-                    """
+                    """,
                 )
             },
             ACLCommonShareFingerprint2 to {
@@ -61,7 +60,7 @@ object DownloadsPatch : BytecodePatch(
                     """
                         const/4 v0, 0x2
                         return v0
-                    """
+                    """,
                 )
             },
             // Download videos without watermark.
@@ -76,48 +75,40 @@ object DownloadsPatch : BytecodePatch(
                     return v0
                     :noremovewatermark
                     nop
-                """
+                """,
                 )
             },
             // Change the download path patch.
-            DownloadPathParentFingerprint to {
-                val targetIndex = indexOfFirstInstructionOrThrow { opcode == Opcode.INVOKE_STATIC }
-                val downloadUriMethod = context
-                    .toMethodWalker(this)
-                    .nextMethod(targetIndex, true)
-                    .getMethod() as MutableMethod
-
-                val firstIndex = downloadUriMethod.indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.INVOKE_DIRECT && ((this as Instruction35c).reference as MethodReference).name == "<init>"
+            DownloadUriFingerprint to {
+                val firstIndex = indexOfFirstInstructionOrThrow {
+                    getReference<MethodReference>()?.name == "<init>"
                 }
-                val secondIndex = downloadUriMethod.indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.INVOKE_STATIC && ((this as Instruction35c).reference as MethodReference).returnType.contains(
-                        "Uri"
-                    )
+                val secondIndex = indexOfFirstInstructionOrThrow {
+                    getReference<MethodReference>()?.returnType?.contains("Uri") == true
                 }
 
-                downloadUriMethod.addInstructions(
+                addInstructions(
                     secondIndex,
                     """
-                    invoke-static {}, Lapp/revanced/integrations/tiktok/download/DownloadsPatch;->getDownloadPath()Ljava/lang/String;
-                    move-result-object v0
-                """
+                        invoke-static {}, Lapp/revanced/integrations/tiktok/download/DownloadsPatch;->getDownloadPath()Ljava/lang/String;
+                        move-result-object v0
+                    """,
                 )
 
-                downloadUriMethod.addInstructions(
+                addInstructions(
                     firstIndex,
                     """
-                    invoke-static {}, Lapp/revanced/integrations/tiktok/download/DownloadsPatch;->getDownloadPath()Ljava/lang/String;
-                    move-result-object v0
-                """
+                        invoke-static {}, Lapp/revanced/integrations/tiktok/download/DownloadsPatch;->getDownloadPath()Ljava/lang/String;
+                        move-result-object v0
+                    """,
                 )
             },
             SettingsStatusLoadFingerprint to {
                 addInstruction(
                     0,
-                    "invoke-static {}, Lapp/revanced/integrations/tiktok/settings/SettingsStatus;->enableDownload()V"
+                    "invoke-static {}, Lapp/revanced/integrations/tiktok/settings/SettingsStatus;->enableDownload()V",
                 )
-            }
+            },
         ).forEach { (fingerprint, patch) ->
             fingerprint.getMethod().patch()
         }

@@ -32,6 +32,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
 -->
 <resources>
   <app id="shared">
+  <patch id="misc.checks.BaseCheckEnvironmentPatch">
+  </patch>
   <patch id="misc.settings.BaseSettingsResourcePatch">
   <string name="revanced_settings_confirm_user_dialog_title">আপনি কি এগিয়ে যেতে ইচ্ছুক?</string>
   <string name="revanced_settings_reset">আবার সেট করুন</string>
@@ -42,6 +44,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_import_reset">ReVanced সেটিং ডিফল্ট সেট করা হয়েছে</string>
   <string name="revanced_settings_import_success">%d সেটিং আমদানি হয়েছে</string>
   <string name="revanced_settings_import_failure_parse">আমদানি করা যায়নি: %s</string>
+  <string name="revanced_pref_import_export_title">আমদানি এবং রপ্তানি</string>
+  <string name="revanced_pref_import_export_summary">ReVanced সেটিং আমদানি বা রপ্তানি করুন</string>
+  <!-- Settings about dialog. -->
+  <string name="revanced_settings_about_links_body">আপনি ReVanced প্যাচ সংস্করণ &lt;i&gt;%s&lt;/i&gt; ব্যবহার করছেন</string>
+  <string name="revanced_settings_about_links_dev_header">দ্রষ্টব্য</string>
+  <string name="revanced_settings_about_links_dev_body">এই সংস্করণ একটি প্রাক-প্রকাশনা এবং এতে আপনি অনাকাঙ্খিত সমস্যার সম্মুখিন হতে পারেন</string>
+  <string name="revanced_settings_about_links_header">অফিশ্যাল লিংকসমূহ</string>
   </patch>
   <patch id="misc.gms.BaseGmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -54,14 +63,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   </app>
   <app id="youtube">
-  <patch id="misc.settings.SettingsResourcePatch">
-  <string name="revanced_settings_about_links_body">আপনি ReVanced প্যাচ সংস্করণ &lt;i&gt;%s&lt;/i&gt; ব্যবহার করছেন</string>
-  <string name="revanced_settings_about_links_dev_header">দ্রষ্টব্য</string>
-  <string name="revanced_settings_about_links_dev_body">এই সংস্করণ একটি প্রাক-প্রকাশনা এবং এতে আপনি অনাকাঙ্খিত সমস্যার সম্মুখিন হতে পারেন</string>
-  <string name="revanced_settings_about_links_header">অফিশ্যাল লিংকসমূহ</string>
-  <string name="revanced_pref_import_export_title">আমদানি এবং রপ্তানি</string>
-  <string name="revanced_pref_import_export_summary">ReVanced সেটিং আমদানি বা রপ্তানি করুন</string>
-  </patch>
   <patch id="misc.settings.SettingsPatch">
   <string name="revanced_settings_screen_00_about_title">সম্পর্কিত</string>
   <string name="revanced_settings_screen_01_ads_title">বিজ্ঞাপন</string>
@@ -136,6 +137,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_guidelines_title">চ্যানেল নির্দেশিকা লুকান</string>
   <string name="revanced_hide_channel_guidelines_summary_on">চ্যানেল নির্দেশিকা লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_channel_guidelines_summary_off">চ্যানেল নির্দেশিকা প্রদর্শিত হয়েছে</string>
+  <string name="revanced_hide_chips_shelf_title">চিপ শেলপ লুকান</string>
+  <string name="revanced_hide_chips_shelf_summary_on">চিপ শেলপ লুকিয়ে রয়েছে</string>
+  <string name="revanced_hide_chips_shelf_summary_off">চিপ শেলপ প্রদর্শিত হয়েছে</string>
   <string name="revanced_hide_expandable_chip_title">ভিডিওর নিচের সম্প্রসারণযোগ্য চিপস লুকান</string>
   <string name="revanced_hide_expandable_chip_summary_on">সম্প্রসারণযোগ্য চিপস লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_expandable_chip_summary_off">সম্প্রসারণযোগ্য চিপস প্রদর্শিত হয়েছে</string>
@@ -196,9 +200,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_artist_cards_title">আর্টিস্ট কার্ড লুকান</string>
   <string name="revanced_hide_artist_cards_summary_on">আর্টিস্ট কার্ড লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_artist_cards_summary_off">আর্টিস্ট কার্ড প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_chips_shelf_title">চিপ শেলপ লুকান</string>
-  <string name="revanced_hide_chips_shelf_summary_on">চিপ শেলপ লুকিয়ে রয়েছে</string>
-  <string name="revanced_hide_chips_shelf_summary_off">চিপ শেলপ প্রদর্শিত হয়েছে</string>
   <string name="revanced_hide_attributes_section_title">বৈশিষ্ট্য বিভাগ লুকান</string>
   <string name="revanced_hide_attributes_section_summary_on">\'বৈশিষ্ট্যযুক্ত স্থান\', গেম এবং সঙ্গীত বিভাগগুলি লুকানো আছে</string>
   <string name="revanced_hide_attributes_section_summary_off">\'বৈশিষ্ট্যযুক্ত স্থান\', গেম এবং সঙ্গীত বিভাগগুলি প্রদর্শিত হয়েছে</string>
@@ -232,13 +233,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_content_phrases_title">লুকানোর জন্য কীওয়ার্ড</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
-  <string name="revanced_hide_keyword_content_phrases_summary">লুকানোর জন্য কীওয়ার্ড এবং বাক্যাংশ, নতুন লাইনে পৃথক করা\n\nশব্দের মাঝে বড় হাতের অক্ষর থাকলে তা অবশ্যই সঠিক আবরণে লিখতে হবে (উদাহরণ: iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">কীওয়ার্ড ফিল্টারিং সম্পর্কে</string>
-  <string name="revanced_hide_keyword_content_about_summary">প্রধান পাতা/সাবস্ক্রিপশন/অনুসন্ধান ফলাফল গুলো কীওয়ার্ড বাক্যাংশের সাথে মিলিয়ে লুকানোর জন্য ফিল্টার করা হয়েছে\n\nসীমাবদ্ধতা\n• কিছু Shorts নাও লুকানো হতে পারে\n• কিছু ইউআই উপাদান নাও লুকানো হতে পারে\n• কোন কীওয়ার্ড সার্চ করলে কোন ফলাফল নাও দেখাতে পারে</string>
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_keyword_toast_invalid_common">অবৈধ কীওয়ার্ড ফিল্টার \'%s\' ব্যবহার করা যাবে না</string>
-  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_keyword_toast_invalid_length">ত্রুটিপূর্ণ কীওয়ার্ড। \'%1$s\' টি %2$d অক্ষর থেকে কম</string>
   </patch>
   <patch id="ad.general.HideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">সাধারণ বিজ্ঞাপন লুকান</string>
@@ -538,9 +535,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">অবস্থান লেবেল লুকান</string>
   <string name="revanced_hide_shorts_location_label_summary_on">অবস্থান লেবেল লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_shorts_location_label_summary_off">অবস্থান লেবেল প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">প্লেলিস্টে সাউন্ড সংরক্ষণ করুন বোতাম লুকান</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">প্লেলিস্টে সাউন্ড সংরক্ষণ করুন বোতাম লুকিয়ে রয়েছে</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">প্লেলিস্টে সাউন্ড সংরক্ষণ করুন বোতাম প্রদর্শিত হয়েছে</string>
   <string name="revanced_hide_shorts_search_suggestions_title">অনুসন্ধান পরামর্শগুলি লুকান</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">অনুসন্ধান পরামর্শগুলি লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">অনুসন্ধান পরামর্শগুলি প্রদর্শিত হয়েছে</string>
@@ -604,7 +598,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_player_overlay_opacity_invalid_toast">প্লেয়ার ওভারলে অস্বচ্ছতা অবশ্যই ০-১০০ এর মধ্যে হতে হবে</string>
   </patch>
   <patch id="layout.returnyoutubedislike.ReturnYouTubeDislikeResourcePatch">
-  <string name="revanced_ryd_video_likes_hidden_by_video_owner">লুকিয়ে রয়েছে</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">অপছন্দ সাময়িকভাবে উপলভ্য নয় (API সময় শেষ হয়েছে)</string>
   <string name="revanced_ryd_failure_connection_status_code">অপছন্দ উপলভ্য নয় (অবস্থা %d)</string>
@@ -1035,19 +1028,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_on">ভিডিওর নির্দিষ্ট অংশে যেতে টানুন সক্রিয় করা হয়েছে</string>
   <string name="revanced_slide_to_seek_summary_off">ভিডিওর নির্দিষ্ট অংশে যেতে টানুন সক্রিয় করা হয়নি</string>
   </patch>
-  <patch id="misc.fix.playback.SpoofClientPatch">
-  <string name="revanced_spoof_client_screen_title">ক্লায়েন্ট স্পুফ করুন</string>
-  <string name="revanced_spoof_client_screen_summary">প্লেব্যাক সমস্যা প্রতিরোধ করতে ক্লায়েন্ট স্পুফ করুন</string>
-  <string name="revanced_spoof_client_title">ক্লায়েন্ট স্পুফ করুন</string>
-  <string name="revanced_spoof_client_summary_on">ক্লায়েন্ট স্পুফ করা হয়েছে</string>
-  <string name="revanced_spoof_client_summary_off">ক্লায়েন্ট স্পুফ করা হয়নি\n\nভিডিও প্লেব্যাক ঠিকমতো কাজ নাও করতে পারে</string>
-  <string name="revanced_spoof_client_user_dialog_message">এই সেটিংটি বন্ধ করার ফলে ভিডিও প্লেব্যাক ত্রুটি হতে পারে।</string>
-  <string name="revanced_spoof_client_about_android_vr_summary">• কোনও HDR ভিডিও নেই\n• বাচ্চাদের ভিডিও প্লেব্যাক হয় না\n• বিরতি দেওয়া ভিডিওগুলি এলোমেলোভাবে আবার শুরু হতে পারে\n• নিম্নমানের শর্টস সিকবার থাম্বনেল\n• ডাউনলোড অ্যাকশন বোতাম সবসময় লুকানো থাকে\n• শেষ স্ক্রিন কার্ড সবসময় লুকানো থাকে</string>
-  <string name="revanced_spoof_client_storyboard_timeout">ক্লায়েন্ট স্পুফ থাম্বনেইল সাময়িকভাবে উপলভ্য নয় (API সময় শেষ হয়েছে)</string>
-  <string name="revanced_spoof_client_storyboard_io_exception">স্পুফ ক্লায়েন্ট থাম্বনেইল সাময়িকভাবে উপলভ্য নয়: %s</string>
-  </patch>
-  <!-- This patch is no longer used, these strings are not in use, and these strings will be deleted in the future. -->
-  <patch id="misc.fix.playback.SpoofSignaturePatch">
+  <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_user_dialog_message">এই সেটিংটি বন্ধ করার ফলে ভিডিও প্লেব্যাক ত্রুটি হতে পারে।</string>
   </patch>
   <!-- This patch is no longer used and these strings will soon be deleted. -->
   <patch id="video.hdrbrightness.HDRBrightnessPatch">
