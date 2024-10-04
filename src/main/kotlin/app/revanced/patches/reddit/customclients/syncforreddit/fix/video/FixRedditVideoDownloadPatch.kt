@@ -12,7 +12,7 @@ import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 
 @Patch(
-    name = "Fix Reddit video download",
+    name = "Fix video downloads",
     description = "Fixes a bug in Sync's MPD parser resulting in only the audio-track being saved",
     compatiblePackages = [
         CompatiblePackage("com.laurencedawson.reddit_sync"),
