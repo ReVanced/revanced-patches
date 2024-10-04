@@ -3,6 +3,8 @@ package app.revanced.util
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
@@ -64,6 +66,27 @@ fun MutableMethod.injectHideViewCall(
     insertIndex,
     "invoke-static { v$viewRegister }, $classDescriptor->$targetMethod(Landroid/view/View;)V",
 )
+
+/**
+ * Inserts instructions at a given index, using the existing control flow label at that index.
+ */
+internal fun MutableMethod.addInstructionsAtControlFlowLabel(
+    insertIndex: Int,
+    instructions: String,
+) {
+    // Duplicate original instruction and add to +1 index.
+    addInstruction(insertIndex + 1, getInstruction(insertIndex))
+
+    // Add patch code at same index as duplicated instruction,
+    // so it uses the original instruction control flow label.
+    addInstructions(insertIndex + 1, instructions)
+
+    // Remove original non duplicated instruction.
+    removeInstruction(insertIndex)
+
+    // Original instruction is now after the inserted patch instructions,
+    // and the original control flow label is on the first instruction of the patch code.
+}
 
 /**
  * Get the index of the first instruction with the id of the given resource name.

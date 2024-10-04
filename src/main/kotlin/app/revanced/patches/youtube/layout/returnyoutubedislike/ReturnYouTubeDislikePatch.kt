@@ -6,7 +6,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchException
@@ -36,16 +35,15 @@ import app.revanced.util.alsoResolve
 import app.revanced.util.exception
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.RegisterRangeInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import com.android.tools.smali.dexlib2.iface.reference.Reference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 @Patch(
@@ -112,7 +110,7 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
             DislikeFingerprint.toPatch(Vote.DISLIKE),
             RemoveLikeFingerprint.toPatch(Vote.REMOVE_LIKE)
         ).forEach { (fingerprint, vote) ->
-            fingerprint.result?.mutableMethod?.apply {
+            fingerprint.resultOrThrow().mutableMethod.apply {
                 addInstructions(
                     0,
                     """
@@ -120,7 +118,7 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                         invoke-static {v0}, $INTEGRATIONS_CLASS_DESCRIPTOR->sendVote(I)V
                     """
                 )
-            } ?: throw fingerprint.exception
+            }
         }
 
         // endregion
@@ -143,7 +141,6 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                 // Find the instruction for creating the text data object.
                 val textDataClassType = TextComponentDataFingerprint.resultOrThrow().classDef.type
 
-                val originalSmali : String
                 val insertIndex : Int
                 val tempRegister : Int
                 val charSequenceRegister : Int
@@ -153,15 +150,6 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                         opcode == Opcode.INVOKE_STATIC_RANGE &&
                                 getReference<MethodReference>()?.returnType == textDataClassType
                     }
-
-                    // Convert the original instruction to smali.
-                    // Would be handy if BuilderInstruction.toString() gave the smali, but it doesn't.
-                    // Maybe there's an easier way.
-                    val originalInstruction = getInstruction<RegisterRangeInstruction>(insertIndex)
-                    val originalStartRegister = originalInstruction.startRegister
-                    val originalEndRegister = originalStartRegister + originalInstruction.registerCount - 1
-                    val originalReference = originalInstruction.getReference<Reference>()
-                    originalSmali = "invoke-static/range { v$originalStartRegister .. v$originalEndRegister }, $originalReference"
 
                     tempRegister = getInstruction<OneRegisterInstruction>(insertIndex + 1).registerA
 
@@ -179,11 +167,6 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                                 getReference<TypeReference>()?.type == textDataClassType
                     }
 
-                    val originalInstruction = getInstruction<OneRegisterInstruction>(insertIndex)
-                    val originalRegister = originalInstruction.registerA
-                    val originalReference = originalInstruction.getReference<Reference>()
-                    originalSmali = "new-instance v$originalRegister, $originalReference"
-
                     tempRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                     charSequenceRegister = getInstruction<TwoRegisterInstruction>(
@@ -194,22 +177,15 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                     ).registerA
                 }
 
-                // Add original instruction to preserve control flow.
-                // Would be helpful if instructions could be added at a control label.
-                addInstructions(
-                    insertIndex + 1,
+                addInstructionsAtControlFlowLabel(insertIndex,
                     """
                         # Copy conversion context
                         move-object/from16 v$tempRegister, p0
                         iget-object v$tempRegister, v$tempRegister, $conversionContextField
                         invoke-static { v$tempRegister, v$charSequenceRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->onLithoTextLoaded(Ljava/lang/Object;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
                         move-result-object v$charSequenceRegister
-                        
-                        $originalSmali
                     """
                 )
-
-                removeInstruction(insertIndex)
             }
         }
 
@@ -217,7 +193,7 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
 
         // region Hook for non-litho Short videos.
 
-        ShortsTextViewFingerprint.result?.let {
+        ShortsTextViewFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
                 val insertIndex = it.scanResult.patternScanResult!!.endIndex + 1
 
@@ -258,7 +234,7 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                     """
                 )
             }
-        } ?: throw ShortsTextViewFingerprint.exception
+        }
 
         // endregion
 
@@ -293,16 +269,14 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
 
         // region Hook rolling numbers.
 
-        RollingNumberSetterFingerprint.result?.let {
+        RollingNumberSetterFingerprint.resultOrThrow().let {
             val dislikesIndex = it.scanResult.patternScanResult!!.endIndex
 
             it.mutableMethod.apply {
                 val insertIndex = 1
 
-                val charSequenceInstanceRegister =
-                    getInstruction<OneRegisterInstruction>(0).registerA
-                val charSequenceFieldReference =
-                    getInstruction<ReferenceInstruction>(dislikesIndex).reference
+                val charSequenceInstanceRegister = getInstruction<OneRegisterInstruction>(0).registerA
+                val charSequenceFieldReference = getInstruction<ReferenceInstruction>(dislikesIndex).reference
 
                 val registerCount = implementation!!.registerCount
 
@@ -320,7 +294,7 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                     """
                 )
             }
-        } ?: throw RollingNumberSetterFingerprint.exception
+        }
 
         // Rolling Number text views use the measured width of the raw string for layout.
         // Modify the measure text calculation to include the left drawable separator if needed.
@@ -344,8 +318,12 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
 
         // Additional text measurement method. Used if YouTube decides not to animate the likes count
         // and sometimes used for initial video load.
-        RollingNumberMeasureStaticLabelFingerprint.alsoResolve(context, RollingNumberMeasureStaticLabelParentFingerprint).let {
+        RollingNumberMeasureStaticLabelFingerprint.alsoResolve(
+            context,
+            RollingNumberMeasureStaticLabelParentFingerprint
+        ).let {
             val measureTextIndex = it.scanResult.patternScanResult!!.startIndex + 1
+
             it.mutableMethod.apply {
                 val freeRegister = getInstruction<TwoRegisterInstruction>(0).registerA
 
@@ -361,15 +339,14 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
 
         // The rolling number Span is missing styling since it's initially set as a String.
         // Modify the UI text view and use the styled like/dislike Span.
-        RollingNumberTextViewFingerprint.result?.let {
+        RollingNumberTextViewFingerprint.resultOrThrow().let {
             // Initial TextView is set in this method.
             val initiallyCreatedTextViewMethod = it.mutableMethod
 
             // Videos less than 24 hours after uploaded, like counts will be updated in real time.
             // Whenever like counts are updated, TextView is set in this method.
             val realTimeUpdateTextViewMethod =
-                RollingNumberTextViewAnimationUpdateFingerprint.result?.mutableMethod
-                    ?: throw RollingNumberTextViewAnimationUpdateFingerprint.exception
+                RollingNumberTextViewAnimationUpdateFingerprint.resultOrThrow().mutableMethod
 
             arrayOf(
                 initiallyCreatedTextViewMethod,
@@ -394,7 +371,7 @@ object ReturnYouTubeDislikePatch : BytecodePatch(
                     )
                 }
             }
-        } ?: throw RollingNumberTextViewFingerprint.exception
+        }
 
         // endregion
 

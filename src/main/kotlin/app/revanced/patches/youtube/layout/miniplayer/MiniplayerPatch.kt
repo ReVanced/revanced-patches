@@ -6,7 +6,6 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
@@ -30,6 +29,7 @@ import app.revanced.patches.youtube.layout.miniplayer.MiniplayerResourcePatch.sc
 import app.revanced.patches.youtube.layout.miniplayer.MiniplayerResourcePatch.ytOutlinePictureInPictureWhite24
 import app.revanced.patches.youtube.layout.miniplayer.MiniplayerResourcePatch.ytOutlineXWhite24
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniplayerDimensionsCalculatorParentFingerprint
+import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniplayerMinimumSizeFingerprint
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniplayerModernAddViewListenerFingerprint
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniplayerModernCloseButtonFingerprint
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniplayerModernConstructorFingerprint
@@ -42,13 +42,13 @@ import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniplayerMod
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniplayerOverrideFingerprint
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniplayerOverrideNoContextFingerprint
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniplayerResponseModelSizeCheckFingerprint
-import app.revanced.patches.youtube.layout.miniplayer.fingerprints.MiniplayerMinimumSizeFingerprint
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.YouTubePlayerOverlaysLayoutFingerprint
 import app.revanced.patches.youtube.layout.miniplayer.fingerprints.YouTubePlayerOverlaysLayoutFingerprint.YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME
 import app.revanced.patches.youtube.layout.tablet.fingerprints.GetFormFactorFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playservice.VersionCheckPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.alsoResolve
 import app.revanced.util.findOpcodeIndicesReversed
 import app.revanced.util.getReference
@@ -61,7 +61,6 @@ import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
@@ -483,17 +482,13 @@ object MiniplayerPatch : BytecodePatch(
      */
     private fun MutableMethod.insertModernMiniplayerTypeOverride(iPutIndex: Int) {
         val targetInstruction = getInstruction<TwoRegisterInstruction>(iPutIndex)
-        val targetReference = (targetInstruction as ReferenceInstruction).reference
 
-        addInstructions(
-            iPutIndex + 1, """
+        addInstructionsAtControlFlowLabel(
+            iPutIndex, """
                 invoke-static { v${targetInstruction.registerA} }, $INTEGRATIONS_CLASS_DESCRIPTOR->getModernMiniplayerOverrideType(I)I
                 move-result v${targetInstruction.registerA}
-                # Original instruction
-                iput v${targetInstruction.registerA}, v${targetInstruction.registerB}, $targetReference 
             """
         )
-        removeInstruction(iPutIndex)
     }
 
     private fun MutableMethod.hookInflatedView(
