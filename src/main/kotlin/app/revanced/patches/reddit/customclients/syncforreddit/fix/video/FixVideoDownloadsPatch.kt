@@ -34,6 +34,7 @@ object FixVideoDownloadsPatch : BytecodePatch(
         val constIdx = downloadMethod.indexOfFirstInstruction { opcode == Opcode.CONST_WIDE_32 } - 2
 
         downloadMethod.addInstructions(constIdx, """
+            new-instance v0, Lo8/h;
             iget-object v2, p1, Lcom/android/volley/NetworkResponse;->data:[B
             invoke-static { v2 }, $integrationsClassDescriptor->$getLinksMethod
             move-result-object v2
