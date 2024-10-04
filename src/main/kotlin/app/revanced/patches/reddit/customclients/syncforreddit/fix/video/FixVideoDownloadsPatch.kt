@@ -26,8 +26,8 @@ import com.android.tools.smali.dexlib2.Opcode
 object FixVideoDownloadsPatch : BytecodePatch(
     fingerprints = setOf(ParseRedditVideoNetworkResponseFingerprint),
 ) {
-    private const val integrationsClassDescriptor = "Lapp/revanced/integrations/syncforreddit/FixRedditVideoDownloadPatch;"
-    private const val getLinksMethod = "getLinks([B)[Ljava/lang/String;"
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/syncforreddit/FixRedditVideoDownloadPatch;"
+    private const val GET_LINKS_METHOD = "getLinks([B)[Ljava/lang/String;"
 
     override fun execute(context: BytecodeContext) {
         val downloadMethod = ParseRedditVideoNetworkResponseFingerprint.resultOrThrow().mutableMethod
@@ -36,7 +36,7 @@ object FixVideoDownloadsPatch : BytecodePatch(
         downloadMethod.addInstructions(constIdx, """
             new-instance v0, Lo8/h;
             iget-object v2, p1, Lcom/android/volley/NetworkResponse;->data:[B
-            invoke-static { v2 }, $integrationsClassDescriptor->$getLinksMethod
+            invoke-static { v2 }, $INTEGRATIONS_CLASS_DESCRIPTOR->$GET_LINKS_METHOD
             move-result-object v2
             
             # videoUrl at idx 0
