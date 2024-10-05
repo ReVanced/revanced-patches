@@ -689,6 +689,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_timestamp_summary_on">Timestamp is hidden</string>
             <string name="revanced_hide_timestamp_summary_off">Timestamp is shown</string>
         </patch>
+        <patch id="layout.hide.general.yoodles.HideYoodlesPatch">
+            <string name="revanced_hide_yoodles_title">Hide Yoodles (YouTube Doodles)</string>
+            <string name="revanced_hide_yoodles_summary_on">Search bar yoodles are hidden</string>
+            <string name="revanced_hide_yoodles_summary_off">Search bar yoodles will be periodically shown</string>
+        </patch>
         <patch id="layout.panels.popup.PlayerPopupPanelsPatch">
             <string name="revanced_hide_player_popup_panels_title">Hide player popup panels</string>
             <string name="revanced_hide_player_popup_panels_summary_on">Player popup panels are hidden</string>
