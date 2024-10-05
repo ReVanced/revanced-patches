@@ -254,9 +254,9 @@ object HideLayoutComponentsPatch : BytecodePatch(
                     """
                         invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideYoodles(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
                         move-result-object v$register
-                        if-eqz v$register, :enabled
+                        if-eqz v$register, :hide
                     """,
-                    ExternalLabel("enabled", getInstruction(insertIndex + 1)),
+                    ExternalLabel("hide", getInstruction(insertIndex + 1)),
                 )
             }
         }
