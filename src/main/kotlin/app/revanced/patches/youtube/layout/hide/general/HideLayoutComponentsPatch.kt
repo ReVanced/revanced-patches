@@ -240,8 +240,6 @@ object HideLayoutComponentsPatch : BytecodePatch(
 
         // region 'Yoodles'
 
-        println("method: " + YoodlesImageViewFingerprint.resultOrThrow().method)
-
         YoodlesImageViewFingerprint.resultOrThrow().mutableMethod.apply {
             findOpcodeIndicesReversed{
                 opcode == Opcode.INVOKE_VIRTUAL
