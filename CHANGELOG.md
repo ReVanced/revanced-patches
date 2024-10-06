@@ -1,3 +1,10 @@
+# [4.17.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.17.0-dev.3...v4.17.0-dev.4) (2024-10-06)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Adjust settings text ([#3745](https://github.com/ReVanced/revanced-patches/issues/3745)) ([13998bb](https://github.com/ReVanced/revanced-patches/commit/13998bbf95ac3cde8bf24754d60258d0ff9bc4f4))
+
 # [4.17.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.17.0-dev.2...v4.17.0-dev.3) (2024-10-06)
 
 
