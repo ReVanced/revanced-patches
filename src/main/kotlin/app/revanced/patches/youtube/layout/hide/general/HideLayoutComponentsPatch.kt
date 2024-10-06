@@ -18,13 +18,18 @@ import app.revanced.patches.youtube.layout.hide.general.fingerprints.HideShowMor
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ParseElementFromBufferFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.PlayerOverlayFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ShowWatermarkFingerprint
+import app.revanced.patches.youtube.layout.hide.general.fingerprints.YoodlesImageViewFingerprint
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.util.findOpcodeIndicesReversed
+import app.revanced.util.getReference
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Hide layout components",
@@ -70,7 +75,12 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 )
 @Suppress("unused")
 object HideLayoutComponentsPatch : BytecodePatch(
-    setOf(ParseElementFromBufferFingerprint, PlayerOverlayFingerprint, HideShowMoreButtonFingerprint),
+    setOf(
+        ParseElementFromBufferFingerprint,
+        PlayerOverlayFingerprint,
+        HideShowMoreButtonFingerprint,
+        YoodlesImageViewFingerprint,
+    ),
 ) {
     private const val LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/components/LayoutComponentsFilter;"
@@ -128,6 +138,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
             SwitchPreference("revanced_hide_search_result_recommendations"),
             SwitchPreference("revanced_hide_search_result_shelf_header"),
             SwitchPreference("revanced_hide_show_more_button"),
+            SwitchPreference("revanced_hide_yoodles"),
             PreferenceScreen(
                 key = "revanced_hide_keyword_content_screen",
                 sorting = Sorting.UNSORTED,
@@ -221,6 +232,29 @@ object HideLayoutComponentsPatch : BytecodePatch(
                     insertIndex,
                     "invoke-static { v$viewRegister }, " +
                         "$LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideShowMoreButton(Landroid/view/View;)V",
+                )
+            }
+        }
+
+        // endregion
+
+        // region 'Yoodles'
+
+        YoodlesImageViewFingerprint.resultOrThrow().mutableMethod.apply {
+            findOpcodeIndicesReversed{
+                opcode == Opcode.INVOKE_VIRTUAL
+                        && getReference<MethodReference>()?.name == "setImageDrawable"
+            }.forEach { insertIndex ->
+                val register = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
+
+                addInstructionsWithLabels(
+                    insertIndex,
+                    """
+                        invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideYoodles(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
+                        move-result-object v$register
+                        if-eqz v$register, :hide
+                    """,
+                    ExternalLabel("hide", getInstruction(insertIndex + 1)),
                 )
             }
         }
