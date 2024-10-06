@@ -382,14 +382,14 @@ public final class LayoutComponentsFilter extends Filter {
     }
 
 
-    private static final boolean HIDE_YOODLES_ENABLED = Settings.HIDE_YOODLES.get();
+    private static final boolean HIDE_DOODLES_ENABLED = Settings.HIDE_DOODLES.get();
 
     /**
      * Injection point.
      */
     @Nullable
     public static Drawable hideYoodles(Drawable animatedYoodle) {
-        if (HIDE_YOODLES_ENABLED) {
+        if (HIDE_DOODLES_ENABLED) {
             return null;
         }
 
