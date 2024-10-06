@@ -2,6 +2,7 @@ package app.revanced.integrations.youtube.patches.components;
 
 import static app.revanced.integrations.youtube.shared.NavigationBar.NavigationButton;
 
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.view.View;
 
@@ -378,6 +379,21 @@ public final class LayoutComponentsFilter extends Filter {
      */
     public static boolean showWatermark() {
         return !Settings.HIDE_VIDEO_CHANNEL_WATERMARK.get();
+    }
+
+
+    private static final boolean HIDE_YOODLES_ENABLED = Settings.HIDE_YOODLES.get();
+
+    /**
+     * Injection point.
+     */
+    @Nullable
+    public static Drawable hideYoodles(Drawable animatedYoodle) {
+        if (HIDE_YOODLES_ENABLED) {
+            return null;
+        }
+
+        return animatedYoodle;
     }
 
     private static final boolean HIDE_SHOW_MORE_BUTTON_ENABLED = Settings.HIDE_SHOW_MORE_BUTTON.get();
