@@ -11,7 +11,7 @@ import app.revanced.patches.facebook.ads.mainfeed.fingerprints.GraphQLStorySpons
 import app.revanced.util.resultOrThrow
 
 @Patch(
-    name = "Hide Sponsored stories",
+    name = "Hide Sponsored Stories",
     compatiblePackages = [CompatiblePackage("com.facebook.katana")]
 )
 @Suppress("unused")
@@ -25,19 +25,19 @@ object HideSponsoredStoriesPatch : BytecodePatch(setOf(GetStoryVisibilityFingerp
             // Check if the parameter type is GraphQLStory and if sponsoredDataModelGetter returns a non-null value.
             // If so, hide the story by setting the visibility to StoryVisibility.GONE.
             mutableMethod.addInstructionsWithLabels(
-	            scanResult.patternScanResult!!.startIndex,
-	            """
-	            	instance-of v0, p0, Lcom/facebook/graphql/model/GraphQLStory;
-	                if-eqz v0, :resume_normal
-	                invoke-virtual {p0}, Lcom/facebook/graphql/model/GraphQLStory;->${sponsoredDataModelGetter.method.name}()${sponsoredDataModelGetter.method.returnType}
-	                move-result-object v0 
-	                if-eqz v0, :resume_normal
-	                const-string v0, "GONE"
-	                return-object v0
-	                :resume_normal
-	                nop
-	            """
-			)
+                scanResult.patternScanResult!!.startIndex,
+                """
+                    instance-of v0, p0, Lcom/facebook/graphql/model/GraphQLStory;
+                    if-eqz v0, :resume_normal
+                    invoke-virtual {p0}, Lcom/facebook/graphql/model/GraphQLStory;->${sponsoredDataModelGetter.method.name}()${sponsoredDataModelGetter.method.returnType}
+                    move-result-object v0 
+                    if-eqz v0, :resume_normal
+                    const-string v0, "GONE"
+                    return-object v0
+                    :resume_normal
+                    nop
+                """
+            )
         } ?: throw GetStoryVisibilityFingerprint.exception
     }
 }
