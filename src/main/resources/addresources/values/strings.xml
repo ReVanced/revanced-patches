@@ -232,11 +232,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_description_components_screen_title">Video description</string>
             <string name="revanced_hide_description_components_screen_summary">Hide or show video description components</string>
 
-            <!-- Yes, YouTube gave this feature the goofy name of "Yoodles". https://logos.fandom.com/wiki/YouTube/Yoodles -->
-            <string name="revanced_hide_yoodles_title">Hide Yoodles (YouTube Doodles)</string>
-            <string name="revanced_hide_yoodles_summary_on">Search bar Yoodles are hidden</string>
-            <string name="revanced_hide_yoodles_summary_off">Search bar Yoodles will be periodically shown</string>
-            <string name="revanced_hide_yoodles_user_dialog_message">YouTube Yoodles show up a few days each year.\n\nIf a Yoodle is currently showing in your region and this hide setting is on, then the filter bar below the search bar will also be hidden.</string>
+            <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
+            <string name="revanced_hide_doodles_title">Hide YouTube Doodles</string>
+            <string name="revanced_hide_doodles_summary_on">Search bar Doodles are hidden</string>
+            <string name="revanced_hide_doodles_summary_off">Search bar Doodles will be periodically shown</string>
+            <string name="revanced_hide_doodles_user_dialog_message">YouTube Doodles show up a few days each year.\n\nIf a Doodle is currently showing in your region and this hide setting is on, then the filter bar below the search bar will also be hidden.</string>
 
             <string name="revanced_custom_filter_screen_title">Custom filter</string>
             <string name="revanced_custom_filter_screen_summary">Hide components using custom filters</string>
