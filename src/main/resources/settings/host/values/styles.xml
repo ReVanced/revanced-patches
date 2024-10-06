@@ -5,8 +5,7 @@
     'android:windowBackground' is the background color of the alert dialog.
         If not overridden, the background color of the parent theme 'android.R.style.ThemeOverlay_Material_Dialog' is used.
 
-    'R.attr.ytBaseBackground' is the background color in YouTube settings.
-        'R.color.yt_white1' color is used in light theme, and the 'R.color.yt_black3' color is used in dark theme.
+    'R.attr.ytRaisedBackground' is the background color of the YouTube alert dialog.
 
     'android:windowIsTranslucent' makes the dialog window transparent.
 
@@ -19,7 +18,7 @@
 -->
 <resources>
     <style name="revanced_edit_text_dialog_style" parent="@android:style/ThemeOverlay.Material.Dialog">
-        <item name="android:windowBackground">?ytBaseBackground</item>
+        <item name="android:windowBackground">?ytRaisedBackground</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:background">@android:color/transparent</item>
     </style>
