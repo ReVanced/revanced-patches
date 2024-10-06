@@ -356,7 +356,7 @@ fun Method.findOpcodeIndicesReversed(opcode: Opcode): List<Int> =
 fun Method.findOpcodeIndicesReversed(filter: Instruction.() -> Boolean): List<Int> {
     val indexes = implementation!!.instructions
         .withIndex()
-        .filter { (_, instruction) -> filter.invoke(instruction) }
+        .filter { (_, instruction) -> filter(instruction) }
         .map { (index, _) -> index }
         .reversed()
 

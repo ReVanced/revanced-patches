@@ -1,3 +1,10 @@
+# [4.17.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.17.0-dev.1...v4.17.0-dev.2) (2024-10-05)
+
+
+### Features
+
+* **Willhaben:** Add `Hide ads` patch ([#3740](https://github.com/ReVanced/revanced-patches/issues/3740)) ([1fe3a52](https://github.com/ReVanced/revanced-patches/commit/1fe3a523e99ccfe556d88800686e34ac6ed77b2c))
+
 # [4.17.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.16.1-dev.1...v4.17.0-dev.1) (2024-10-02)
 
 
