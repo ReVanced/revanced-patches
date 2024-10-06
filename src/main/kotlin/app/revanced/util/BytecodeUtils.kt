@@ -224,17 +224,24 @@ fun Method.indexOfFirstInstructionOrThrow(startIndex: Int = 0, predicate: Instru
 /**
  * @return The list of indices of the opcode in reverse order.
  */
-fun Method.findOpcodeIndicesReversed(opcode: Opcode): List<Int> {
+fun Method.findOpcodeIndicesReversed(opcode: Opcode): List<Int> =
+    findOpcodeIndicesReversed { this.opcode == opcode }
+
+/**
+ * @return The list of indices of the opcode in reverse order.
+ */
+fun Method.findOpcodeIndicesReversed(filter: Instruction.() -> Boolean): List<Int> {
     val indexes = implementation!!.instructions
         .withIndex()
-        .filter { (_, instruction) -> instruction.opcode == opcode }
+        .filter { (_, instruction) -> filter(instruction) }
         .map { (index, _) -> index }
         .reversed()
 
-    if (indexes.isEmpty()) throw PatchException("No ${opcode.name} instructions found in: $this")
+    if (indexes.isEmpty()) throw PatchException("No matching instructions found in: $this")
 
     return indexes
 }
+
 
 /**
  * Return the resolved method early.
