@@ -121,7 +121,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
             SwitchPreference("revanced_hide_search_result_recommendations"),
             SwitchPreference("revanced_hide_search_result_shelf_header"),
             SwitchPreference("revanced_hide_show_more_button"),
-            SwitchPreference("revanced_hide_yoodles"),
+            SwitchPreference("revanced_hide_doodles"),
             PreferenceScreen(
                 key = "revanced_hide_keyword_content_screen",
                 sorting = Sorting.UNSORTED,

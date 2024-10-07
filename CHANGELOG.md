@@ -1,3 +1,17 @@
+# [4.17.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.17.0-dev.3...v4.17.0-dev.4) (2024-10-06)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Adjust settings text ([#3745](https://github.com/ReVanced/revanced-patches/issues/3745)) ([13998bb](https://github.com/ReVanced/revanced-patches/commit/13998bbf95ac3cde8bf24754d60258d0ff9bc4f4))
+
+# [4.17.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.17.0-dev.2...v4.17.0-dev.3) (2024-10-06)
+
+
+### Features
+
+* **YouTube - Hide layout components:** Add option to hide Yoodles (YouTube Doodles) ([#3743](https://github.com/ReVanced/revanced-patches/issues/3743)) ([b8c8916](https://github.com/ReVanced/revanced-patches/commit/b8c89164cf3911ac3842df9b0d2ec42b52213505))
+
 # [4.17.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.17.0-dev.1...v4.17.0-dev.2) (2024-10-05)
 
 
