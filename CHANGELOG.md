@@ -1,3 +1,10 @@
+# [4.17.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v4.17.0-dev.4...v4.17.0-dev.5) (2024-10-07)
+
+
+### Features
+
+* **Backdrops - Pro unlock:** Support latest versions by removing version constraint ([a62b506](https://github.com/ReVanced/revanced-patches/commit/a62b50691c49d1ce529a7c9c4e49da0d0dd46df2))
+
 # [4.17.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.17.0-dev.3...v4.17.0-dev.4) (2024-10-06)
 
 
