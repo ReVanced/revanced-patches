@@ -11,16 +11,16 @@ import app.revanced.patches.facebook.ads.mainfeed.fingerprints.GraphQLStorySpons
 import app.revanced.util.resultOrThrow
 
 @Patch(
-    name = "Hide Sponsored Stories",
+    name = "Hide 'Sponsored Stories'",
     compatiblePackages = [CompatiblePackage("com.facebook.katana")]
 )
 @Suppress("unused")
-object HideSponsoredStoriesPatch : BytecodePatch(setOf(GetStoryVisibilityFingerprint, GraphQLStorySponsoredDataGetterFingerprint)) {
+object HideSponsoredStoriesPatch : BytecodePatch(
+    setOf(GetStoryVisibilityFingerprint, GraphQLStorySponsoredDataGetterFingerprint)
+) {
     override fun execute(context: BytecodeContext) {
         GetStoryVisibilityFingerprint.result?.apply {
-
-            // Get the sponsored data model getter.
-            val sponsoredDataModelGetter = GraphQLStorySponsoredDataGetterFingerprint.resultOrThrow()
+            val sponsoredDataModelGetterMethod = GraphQLStorySponsoredDataGetterFingerprint.resultOrThrow().method
 
             // Check if the parameter type is GraphQLStory and if sponsoredDataModelGetter returns a non-null value.
             // If so, hide the story by setting the visibility to StoryVisibility.GONE.
@@ -29,7 +29,7 @@ object HideSponsoredStoriesPatch : BytecodePatch(setOf(GetStoryVisibilityFingerp
                 """
                     instance-of v0, p0, Lcom/facebook/graphql/model/GraphQLStory;
                     if-eqz v0, :resume_normal
-                    invoke-virtual {p0}, Lcom/facebook/graphql/model/GraphQLStory;->${sponsoredDataModelGetter.method.name}()${sponsoredDataModelGetter.method.returnType}
+                    invoke-virtual {p0}, $sponsoredDataModelGetterMethod
                     move-result-object v0 
                     if-eqz v0, :resume_normal
                     const-string v0, "GONE"
