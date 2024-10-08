@@ -1490,6 +1490,12 @@ public final class app/revanced/patches/twitter/misc/hook/patch/recommendation/H
 	public static final field INSTANCE Lapp/revanced/patches/twitter/misc/hook/patch/recommendation/HideRecommendedUsersPatch;
 }
 
+public final class app/revanced/patches/twitter/misc/links/ChangeLinkSharingDomainPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/twitter/misc/links/ChangeLinkSharingDomainPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/twitter/misc/links/OpenLinksWithAppChooserPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/twitter/misc/links/OpenLinksWithAppChooserPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -1500,6 +1506,18 @@ public final class app/revanced/patches/twitter/misc/links/SanitizeSharingLinksP
 	public static final field INSTANCE Lapp/revanced/patches/twitter/misc/links/SanitizeSharingLinksPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/twitter/misc/links/fingerprints/LinkBuilderFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/twitter/misc/links/fingerprints/LinkBuilderFingerprint;
+}
+
+public final class app/revanced/patches/twitter/misc/links/fingerprints/LinkResourceGetterFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/twitter/misc/links/fingerprints/LinkResourceGetterFingerprint;
+}
+
+public final class app/revanced/patches/twitter/misc/links/fingerprints/LinkSharingDomainFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
+	public static final field INSTANCE Lapp/revanced/patches/twitter/misc/links/fingerprints/LinkSharingDomainFingerprint;
 }
 
 public final class app/revanced/patches/vsco/misc/pro/UnlockProPatch : app/revanced/patcher/patch/BytecodePatch {
