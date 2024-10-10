@@ -642,6 +642,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_shorts_use_template_button_title">Hide use template button</string>
             <string name="revanced_hide_shorts_use_template_button_summary_on">Use template button is hidden</string>
             <string name="revanced_hide_shorts_use_template_button_summary_off">Use template button is shown</string>
+            <string name="revanced_hide_shorts_upcoming_button_title">Hide upcoming button</string>
+            <string name="revanced_hide_shorts_upcoming_button_summary_on">Upcoming button is hidden</string>
+            <string name="revanced_hide_shorts_upcoming_button_summary_off">Upcoming button is shown</string>
+            <string name="revanced_hide_shorts_green_screen_button_title">Hide green screen button</string>
+            <string name="revanced_hide_shorts_green_screen_button_summary_on">Green screen button is hidden</string>
+            <string name="revanced_hide_shorts_green_screen_button_summary_off">Green screen button is shown</string>
             <string name="revanced_hide_shorts_search_suggestions_title">Hide search suggestions</string>
             <string name="revanced_hide_shorts_search_suggestions_summary_on">Search suggestions are hidden</string>
             <string name="revanced_hide_shorts_search_suggestions_summary_off">Search suggestions are shown</string>
