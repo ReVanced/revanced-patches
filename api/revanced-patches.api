@@ -1508,18 +1508,6 @@ public final class app/revanced/patches/twitter/misc/links/SanitizeSharingLinksP
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/twitter/misc/links/fingerprints/LinkBuilderFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/twitter/misc/links/fingerprints/LinkBuilderFingerprint;
-}
-
-public final class app/revanced/patches/twitter/misc/links/fingerprints/LinkResourceGetterFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/twitter/misc/links/fingerprints/LinkResourceGetterFingerprint;
-}
-
-public final class app/revanced/patches/twitter/misc/links/fingerprints/LinkSharingDomainFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/twitter/misc/links/fingerprints/LinkSharingDomainFingerprint;
-}
-
 public final class app/revanced/patches/vsco/misc/pro/UnlockProPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/vsco/misc/pro/UnlockProPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
