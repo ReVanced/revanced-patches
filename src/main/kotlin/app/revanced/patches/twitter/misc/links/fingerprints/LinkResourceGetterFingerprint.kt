@@ -5,8 +5,8 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
 // Gets Resource string for share link view available by pressing "Share via" button.
-object LinkResourceGetterFingerprint : MethodFingerprint(
+internal object LinkResourceGetterFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("Landroid/content/res/Resources;"),
-    strings = listOf("res", "res.getString(R.string.t", "hareUrl"),
+    strings = listOf("res.getString(R.string.t…lUsername, id.toString())"),
 )

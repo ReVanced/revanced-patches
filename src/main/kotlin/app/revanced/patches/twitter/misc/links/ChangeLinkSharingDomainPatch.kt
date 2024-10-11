@@ -5,7 +5,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.patch.options.PatchOption.PatchExtensions.stringPatchOption
@@ -14,11 +13,9 @@ import app.revanced.patches.twitter.misc.links.fingerprints.LinkResourceGetterFi
 import app.revanced.patches.twitter.misc.links.fingerprints.LinkSharingDomainFingerprint
 import app.revanced.util.exception
 import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
-import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
@@ -65,11 +62,6 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
             )
         } ?: throw LinkSharingDomainFingerprint.exception
 
-        fun Method.indexOfFirstOrThrow(errorMessage: String, predicate: Instruction.() -> Boolean) =
-            indexOfFirstInstruction(predicate).also {
-                if (it == -1) throw PatchException(errorMessage)
-            }
-
         // Replace the domain name when copying a link with "Copy link" button.
         LinkBuilderFingerprint.result?.let {
             it.mutableMethod.apply {
@@ -86,7 +78,7 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
 
         // Used in the Share via... dialog.
         LinkResourceGetterFingerprint.result?.mutableMethod?.apply {
-            val constWithParameterName = indexOfFirstOrThrow("Could not find constWithParameterName") {
+            val constWithParameterName = indexOfFirstInstructionOrThrow {
                 val reference = getReference<StringReference>()
                 opcode == Opcode.CONST_STRING &&
                         (reference?.string?.contains("id.toString()") == true)
