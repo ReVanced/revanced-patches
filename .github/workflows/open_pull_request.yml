@@ -20,13 +20,12 @@ jobs:
       - name: Open pull request
         uses: repo-sync/pull-request@v2
         with:
-          destination_branch: "main"
-          pr_title: "chore: ${{ env.MESSAGE }}"
+          destination_branch: main
+          pr_title: 'chore: ${{ env.MESSAGE }}'
           pr_body: |
             This pull request will ${{ env.MESSAGE }}.
 
             ## Before merging this PR
 
-            - [ ] Remember about https://github.com/revanced/revanced-integrations
             - [ ] Pull translations from Crowdin
           pr_draft: true
