@@ -1,3 +1,10 @@
+# [4.17.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.17.0-dev.5...v4.17.0-dev.6) (2024-10-14)
+
+
+### Features
+
+* **YouTube - Hide Shorts components:** Add option to hide `Use template`, `Upcoming`, `Green screen` buttons ([#3752](https://github.com/ReVanced/revanced-patches/issues/3752)) ([f71c406](https://github.com/ReVanced/revanced-patches/commit/f71c4068bc646d02954b59fac4756f1419c55dbe))
+
 # [4.17.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v4.17.0-dev.4...v4.17.0-dev.5) (2024-10-07)
 
 
