@@ -18,8 +18,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
         CompatiblePackage("com.laurencedawson.reddit_sync.pro"),
         CompatiblePackage("com.laurencedawson.reddit_sync.dev"),
     ],
-    requiresIntegrations = true,
-    use = true,
+    requiresIntegrations = true
 )
 @Suppress("unused")
 object FixVideoDownloadsPatch : BytecodePatch(
