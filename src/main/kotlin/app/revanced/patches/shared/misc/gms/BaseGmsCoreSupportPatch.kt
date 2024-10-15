@@ -249,7 +249,7 @@ abstract class BaseGmsCoreSupportPatch(
         /**
          * A list of all permissions.
          */
-        val PERMISSIONS = listOf(
+        val PERMISSIONS = setOf(
             // C2DM / GCM
             "com.google.android.c2dm.permission.RECEIVE",
             "com.google.android.c2dm.permission.SEND",
@@ -266,7 +266,7 @@ abstract class BaseGmsCoreSupportPatch(
         /**
          * All intent actions.
          */
-        val ACTIONS = listOf(
+        val ACTIONS = setOf(
             // location
             "com.google.android.gms.location.places.ui.PICK_PLACE",
             "com.google.android.gms.location.places.GeoDataApi",
@@ -345,7 +345,7 @@ abstract class BaseGmsCoreSupportPatch(
         /**
          * All content provider authorities.
          */
-        val AUTHORITIES = listOf(
+        val AUTHORITIES = setOf(
             // gsf
             "com.google.android.gsf.gservices",
             "com.google.settings",
