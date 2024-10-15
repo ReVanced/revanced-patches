@@ -1020,6 +1020,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_miniplayer_hide_rewind_forward_title">Hide skip forward and back buttons</string>
             <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Skip forward and back are hidden</string>
             <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Skip forward and back are shown</string>
+            <string name="revanced_miniplayer_rounded_corners_title">Use rounded corners</string>
+            <string name="revanced_miniplayer_rounded_corners_summary_on">Corners are rounded</string>
+            <string name="revanced_miniplayer_rounded_corners_summary_off">Corners are square</string>
             <string name="revanced_miniplayer_opacity_title">Overlay opacity</string>
             <string name="revanced_miniplayer_opacity_summary">Opacity value between 0-100, where 0 is transparent</string>
             <string name="revanced_miniplayer_opacity_invalid_toast">Miniplayer overlay opacity must be between 0-100</string>

@@ -17,5 +17,5 @@ internal object MiniplayerModernConstructorFingerprint : LiteralValueFingerprint
     const val INITIAL_SIZE_FEATURE_KEY_LITERAL = 45640023L
     const val ANIMATION_INTERPOLATION_FEATURE_KEY = 45647018L
     const val DROP_SHADOW_FEATURE_KEY = 45652223L
-    const val VIEW_OUTLINE_PROVIDER_FEATURE_KEY = 45652224L
+    const val ROUNDED_CORNERS = 45652224L
 }

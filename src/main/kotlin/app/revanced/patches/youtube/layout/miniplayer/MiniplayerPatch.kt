@@ -164,6 +164,10 @@ object MiniplayerPatch : BytecodePatch(
 
             preferences += SwitchPreference("revanced_miniplayer_hide_subtext")
 
+            if (VersionCheckPatch.is_19_36_or_greater) {
+                preferences += SwitchPreference("revanced_miniplayer_rounded_corners")
+            }
+
             if (VersionCheckPatch.is_19_26_or_greater) {
                 preferences += TextPreference("revanced_miniplayer_width_dip", inputType = InputType.NUMBER)
             }
@@ -306,8 +310,8 @@ object MiniplayerPatch : BytecodePatch(
             )
 
             MiniplayerModernConstructorFingerprint.insertLiteralValueBooleanOverride(
-                MiniplayerModernConstructorFingerprint.VIEW_OUTLINE_PROVIDER_FEATURE_KEY,
-                "setUseBackgroundViewOutlineProvider"
+                MiniplayerModernConstructorFingerprint.ROUNDED_CORNERS,
+                "setRoundedCorners"
             )
         }
 
