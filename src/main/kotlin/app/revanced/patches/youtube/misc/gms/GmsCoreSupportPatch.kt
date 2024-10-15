@@ -7,7 +7,6 @@ import app.revanced.patches.youtube.misc.fix.playback.SpoofVideoStreamsPatch
 import app.revanced.patches.youtube.misc.gms.Constants.REVANCED_YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.gms.Constants.YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.gms.GmsCoreSupportResourcePatch.gmsCoreVendorGroupIdOption
-import app.revanced.patches.youtube.misc.gms.fingerprints.CastDynamiteModuleV2Fingerprint
 import app.revanced.patches.youtube.misc.gms.fingerprints.PrimeMethodFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.shared.fingerprints.MainActivityOnCreateFingerprint
@@ -18,7 +17,6 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
     toPackageName = REVANCED_YOUTUBE_PACKAGE_NAME,
     primeMethodFingerprint = PrimeMethodFingerprint,
     earlyReturnFingerprints = setOf(
-        CastDynamiteModuleV2Fingerprint,
         CastContextFetchFingerprint,
     ),
     mainActivityOnCreateFingerprint = MainActivityOnCreateFingerprint,
@@ -41,7 +39,7 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
         ),
     ),
     fingerprints = setOf(
-        CastDynamiteModuleV2Fingerprint,
+
         CastContextFetchFingerprint,
         PrimeMethodFingerprint,
     ),
