@@ -1,20 +1,23 @@
 package app.revanced.patches.youtube.layout.buttons.player.hide
 
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.youtube.layout.buttons.player.hide.HidePlayerButtonsPatch.ParameterOffsets.HAS_NEXT
-import app.revanced.patches.youtube.layout.buttons.player.hide.HidePlayerButtonsPatch.ParameterOffsets.HAS_PREVIOUS
-import app.revanced.patches.youtube.layout.buttons.player.hide.fingerprints.PlayerControlsVisibilityModelFingerprint
+import app.revanced.patches.youtube.layout.buttons.player.hide.fingerprints.PlayerControlsPreviousButtonFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.util.exception
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction3rc
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
+import app.revanced.util.resultOrThrow
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Hide player buttons",
@@ -22,7 +25,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction3rc
     dependencies = [
         IntegrationsPatch::class,
         SettingsPatch::class,
-        AddResourcesPatch::class
+        AddResourcesPatch::class,
+        HidePlayerButtonsResourcePatch::class,
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -40,7 +44,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction3rc
 )
 @Suppress("unused")
 object HidePlayerButtonsPatch : BytecodePatch(
-    setOf(PlayerControlsVisibilityModelFingerprint)
+    setOf(PlayerControlsPreviousButtonFingerprint)
 ) {
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
@@ -49,29 +53,23 @@ object HidePlayerButtonsPatch : BytecodePatch(
             SwitchPreference("revanced_hide_player_buttons")
         )
 
-        PlayerControlsVisibilityModelFingerprint.result?.apply {
-            val callIndex = scanResult.patternScanResult!!.endIndex
-            val callInstruction = mutableMethod.getInstruction<Instruction3rc>(callIndex)
-
-            // overriding this parameter register hides the previous and next buttons
-            val hasNextParameterRegister = callInstruction.startRegister + HAS_NEXT
-            val hasPreviousParameterRegister = callInstruction.startRegister + HAS_PREVIOUS
-
-            mutableMethod.addInstructions(
-                callIndex,
-                """
-                    invoke-static { v$hasNextParameterRegister }, Lapp/revanced/integrations/youtube/patches/HidePlayerButtonsPatch;->previousOrNextButtonIsVisible(Z)Z
-                    move-result v$hasNextParameterRegister
-                    
-                    invoke-static { v$hasPreviousParameterRegister }, Lapp/revanced/integrations/youtube/patches/HidePlayerButtonsPatch;->previousOrNextButtonIsVisible(Z)Z
-                    move-result v$hasPreviousParameterRegister
-                """
+        PlayerControlsPreviousButtonFingerprint.resultOrThrow().mutableMethod.apply {
+            val resourceIndex = indexOfFirstWideLiteralInstructionValueOrThrow(
+                HidePlayerButtonsResourcePatch.playerControlPreviousButton
             )
-        } ?: throw PlayerControlsVisibilityModelFingerprint.exception
-    }
 
-    private object ParameterOffsets {
-        const val HAS_NEXT = 5
-        const val HAS_PREVIOUS = 6
+            val insertIndex = indexOfFirstInstructionOrThrow(resourceIndex) {
+                opcode == Opcode.INVOKE_STATIC
+                        && getReference<MethodReference>()?.parameterTypes?.firstOrNull() == "Landroid/view/View;"
+            }
+
+            val viewRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
+
+            addInstruction(
+                insertIndex,
+                "invoke-static { v$viewRegister }, Lapp/revanced/integrations/youtube/patches/HidePlayerButtonsPatch;" +
+                        "->hidePreviousNextButtons(Landroid/view/View;)V"
+            )
+        }
     }
 }
