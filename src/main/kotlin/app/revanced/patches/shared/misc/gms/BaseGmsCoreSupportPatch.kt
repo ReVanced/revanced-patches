@@ -11,7 +11,6 @@ import app.revanced.patches.all.misc.packagename.ChangePackageNamePatch
 import app.revanced.patches.shared.misc.gms.BaseGmsCoreSupportPatch.Constants.ACTIONS
 import app.revanced.patches.shared.misc.gms.BaseGmsCoreSupportPatch.Constants.AUTHORITIES
 import app.revanced.patches.shared.misc.gms.BaseGmsCoreSupportPatch.Constants.PERMISSIONS
-import app.revanced.patches.shared.misc.gms.fingerprints.CastDynamiteModuleFingerprint
 import app.revanced.patches.shared.misc.gms.fingerprints.GmsCoreSupportFingerprint
 import app.revanced.patches.shared.misc.gms.fingerprints.GmsCoreSupportFingerprint.GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME
 import app.revanced.patches.shared.misc.gms.fingerprints.GooglePlayUtilityFingerprint
@@ -69,7 +68,6 @@ abstract class BaseGmsCoreSupportPatch(
         GmsCoreSupportFingerprint,
         GooglePlayUtilityFingerprint,
         ServiceCheckFingerprint,
-        CastDynamiteModuleFingerprint,
         mainActivityOnCreateFingerprint,
     ) + fingerprints,
     requiresIntegrations = true,
@@ -104,10 +102,7 @@ abstract class BaseGmsCoreSupportPatch(
         // Return these methods early to prevent the app from crashing.
         earlyReturnFingerprints.returnEarly()
         ServiceCheckFingerprint.returnEarly()
-        // Not all apps have CastDynamiteModule, so we need to check if it's present.
-        if (CastDynamiteModuleFingerprint.result != null) {
-            CastDynamiteModuleFingerprint.returnEarly()
-        }
+
         // Google Play Utility is not present in all apps, so we need to check if it's present.
         if (GooglePlayUtilityFingerprint.result != null) {
             GooglePlayUtilityFingerprint.returnEarly()
