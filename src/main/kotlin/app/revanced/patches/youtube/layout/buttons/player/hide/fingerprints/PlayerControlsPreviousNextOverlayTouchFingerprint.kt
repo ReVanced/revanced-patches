@@ -6,15 +6,15 @@ import app.revanced.patches.youtube.layout.buttons.player.hide.HidePlayerButtons
 import app.revanced.util.containsWideLiteralInstructionValue
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal object PlayerControlsPreviousButtonFingerprint : MethodFingerprint(
+internal object PlayerControlsPreviousNextOverlayTouchFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "V",
     strings = listOf("1.0x"),
     customFingerprint = { methodDef, _ ->
         methodDef.containsWideLiteralInstructionValue(
-            HidePlayerButtonsResourcePatch.playerControlPreviousButton
+            HidePlayerButtonsResourcePatch.playerControlPreviousButtonTouchArea
         ) && methodDef.containsWideLiteralInstructionValue(
-            HidePlayerButtonsResourcePatch.playerControlNextButton
+            HidePlayerButtonsResourcePatch.playerControlNextButtonTouchArea
         )
     }
 )

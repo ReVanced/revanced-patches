@@ -7,18 +7,18 @@ import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
 
 @Patch(dependencies = [ResourceMappingPatch::class])
 internal object HidePlayerButtonsResourcePatch : ResourcePatch() {
-    var playerControlPreviousButton = -1L
-    var playerControlNextButton = -1L
+    var playerControlPreviousButtonTouchArea = -1L
+    var playerControlNextButtonTouchArea = -1L
 
     override fun execute(context: ResourceContext) {
-        playerControlPreviousButton = ResourceMappingPatch[
+        playerControlPreviousButtonTouchArea = ResourceMappingPatch[
             "id",
-            "player_control_previous_button"
+            "player_control_previous_button_touch_area"
         ]
 
-        playerControlNextButton = ResourceMappingPatch[
+        playerControlNextButtonTouchArea = ResourceMappingPatch[
             "id",
-            "player_control_next_button"
+            "player_control_next_button_touch_area"
         ]
     }
 }
