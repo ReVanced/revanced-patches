@@ -247,7 +247,7 @@ object MiniplayerPatch : BytecodePatch(
 
         if (VersionCheckPatch.is_19_25_or_greater) {
             MiniplayerModernConstructorFingerprint.insertLiteralValueBooleanOverride(
-                MiniplayerModernConstructorFingerprint.MODERN_MINIPLAYER_ENABLED_OLD_TARGETS_FEATURE_KEY_LITERAL,
+                MiniplayerModernConstructorFingerprint.MODERN_MINIPLAYER_ENABLED_OLD_TARGETS_FEATURE_KEY,
                 "getModernMiniplayerOverride"
             )
 
@@ -310,7 +310,7 @@ object MiniplayerPatch : BytecodePatch(
             )
 
             MiniplayerModernConstructorFingerprint.insertLiteralValueBooleanOverride(
-                MiniplayerModernConstructorFingerprint.ROUNDED_CORNERS,
+                MiniplayerModernConstructorFingerprint.ROUNDED_CORNERS_FEATURE_KEY,
                 "setRoundedCorners"
             )
         }
