@@ -840,6 +840,12 @@ public final class app/revanced/patches/reddit/customclients/syncforreddit/fix/u
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/reddit/customclients/syncforreddit/fix/video/FixVideoDownloadsPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/syncforreddit/fix/video/FixVideoDownloadsPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/reddit/customclients/syncforreddit/misc/integrations/IntegrationsPatch : app/revanced/patches/shared/misc/integrations/BaseIntegrationsPatch {
 	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/syncforreddit/misc/integrations/IntegrationsPatch;
 }
