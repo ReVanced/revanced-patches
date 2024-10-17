@@ -1,3 +1,10 @@
+# [4.17.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v4.17.0-dev.9...v4.17.0-dev.10) (2024-10-17)
+
+
+### Features
+
+* **Facebook:** Add `Hide sponsored stories` patch ([#3627](https://github.com/ReVanced/revanced-patches/issues/3627)) ([214c72b](https://github.com/ReVanced/revanced-patches/commit/214c72baeb7f87f21cd2ca34301ab11fa0ff1a4f))
+
 # [4.17.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v4.17.0-dev.8...v4.17.0-dev.9) (2024-10-17)
 
 
