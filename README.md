@@ -77,6 +77,7 @@ Some of the features the patches provide are:
 * 🚫 **Block ads**: Say goodbye to ads
 * ⭐ **Customize your app**: Personalize the appearance of apps with various layouts and themes
 * 🪄 **Add new features**: Extend the functionality of apps with lots of new features
+* 📡 **Protect your privacy**: Disable embedded trackers and privacy-invasive components
 * ⚙️ **Miscellaneous and general purpose**: Rename packages, enable debugging, disable screen capture restrictions,
   export activities, etc.
 * ✨ **And much more!**

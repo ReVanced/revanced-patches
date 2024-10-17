@@ -163,6 +163,18 @@ public final class app/revanced/patches/all/misc/versioncode/ChangeVersionCodePa
 	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
 }
 
+public final class app/revanced/patches/all/privacy/UniversalPrivacyPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/all/privacy/UniversalPrivacyPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
+public final class app/revanced/patches/all/privacy/UniversalResourcePrivacyPatch : app/revanced/patcher/patch/ResourcePatch {
+	public static final field INSTANCE Lapp/revanced/patches/all/privacy/UniversalResourcePrivacyPatch;
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public fun execute (Lapp/revanced/patcher/data/ResourceContext;)V
+}
+
 public final class app/revanced/patches/all/screencapture/removerestriction/RemoveCaptureRestrictionPatch : app/revanced/patches/all/misc/transformation/BaseTransformInstructionsPatch {
 	public static final field INSTANCE Lapp/revanced/patches/all/screencapture/removerestriction/RemoveCaptureRestrictionPatch;
 	public synthetic fun filterMap (Lcom/android/tools/smali/dexlib2/iface/ClassDef;Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/iface/instruction/Instruction;I)Ljava/lang/Object;
@@ -1163,6 +1175,11 @@ public final class app/revanced/patches/shared/misc/settings/preference/TextPref
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patches/shared/misc/settings/preference/InputType;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun getInputType ()Lapp/revanced/patches/shared/misc/settings/preference/InputType;
 	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
+}
+
+public final class app/revanced/patches/shared/resource/AndroidManifest {
+	public static final field INSTANCE Lapp/revanced/patches/shared/resource/AndroidManifest;
+	public final fun addMetadata (Lapp/revanced/patcher/data/ResourceContext;Ljava/lang/String;Ljava/lang/String;)V
 }
 
 public final class app/revanced/patches/solidexplorer2/functionality/filesize/RemoveFileSizeLimitPatch : app/revanced/patcher/patch/BytecodePatch {
