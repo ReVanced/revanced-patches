@@ -1,9 +1,9 @@
 package app.revanced.patches.facebook.ads.mainfeed
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.or
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
@@ -11,21 +11,21 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMu
 import app.revanced.patches.facebook.ads.mainfeed.fingerprints.BaseModelMapperFingerprint
 import app.revanced.patches.facebook.ads.mainfeed.fingerprints.GetSponsoredDataModelTemplateFingerprint
 import app.revanced.patches.facebook.ads.mainfeed.fingerprints.GetStoryVisibilityFingerprint
+import app.revanced.util.exception
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction31i
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
-import kotlin.math.abs
 
 @Patch(
     name = "Hide 'Sponsored Stories'",
-    compatiblePackages = [CompatiblePackage("com.facebook.katana")]
+    compatiblePackages = [CompatiblePackage("com.facebook.katana")],
 )
 @Suppress("unused")
 object HideSponsoredStoriesPatch : BytecodePatch(
-    setOf(GetStoryVisibilityFingerprint, GetSponsoredDataModelTemplateFingerprint, BaseModelMapperFingerprint)
+    setOf(GetStoryVisibilityFingerprint, GetSponsoredDataModelTemplateFingerprint, BaseModelMapperFingerprint),
 ) {
     private const val GRAPHQL_STORY_TYPE = "Lcom/facebook/graphql/model/GraphQLStory;"
 
@@ -37,23 +37,23 @@ object HideSponsoredStoriesPatch : BytecodePatch(
 
             // The "SponsoredDataModelTemplate" methods has the ids in its body to extract sponsored data
             // from GraphQL models, but targets the wrong derived type of "BaseModelWithTree". Since those ids
-            // could change in future version, We need to extract them and call the base implementation directly.
+            // could change in future version, we need to extract them and call the base implementation directly.
             val getSponsoredDataHelperMethod = ImmutableMethod(
                 classDef.type,
                 "getSponsoredData",
                 listOf(ImmutableMethodParameter(GRAPHQL_STORY_TYPE, null, null)),
                 baseModelWithTreeType,
-                AccessFlags.PRIVATE.value or AccessFlags.STATIC.value,
+                AccessFlags.PRIVATE or AccessFlags.STATIC,
                 null,
                 null,
-                MutableMethodImplementation(4)
+                MutableMethodImplementation(4),
             ).toMutable().apply {
                 // Extract the ids of the original method. These ids seem to correspond to model types for
                 // GraphQL data structure. They are then fed to a method of BaseModelWithTree that populate
                 // and cast the requested GraphQL subtype. The Ids are found in the two first "CONST" instructions.
                 val constInstructions = sponsoredDataModelTemplateMethod.implementation!!.instructions
-                        .filterIsInstance<Instruction31i>()
-                        .toList()
+                    .filterIsInstance<Instruction31i>()
+                    .toList()
                 val storyTypeId = constInstructions.elementAt(0).narrowLiteral
                 val sponsoredDataTypeId = constInstructions.elementAt(1).narrowLiteral
 
@@ -66,7 +66,7 @@ object HideSponsoredStoriesPatch : BytecodePatch(
                         move-result-object v0
                         check-cast v0, $baseModelWithTreeType
                         return-object v0
-                    """
+                    """,
                 )
             }
 
@@ -86,7 +86,7 @@ object HideSponsoredStoriesPatch : BytecodePatch(
                     return-object v0
                     :resume_normal
                     nop
-                """
+                """,
             )
         } ?: throw GetStoryVisibilityFingerprint.exception
     }
