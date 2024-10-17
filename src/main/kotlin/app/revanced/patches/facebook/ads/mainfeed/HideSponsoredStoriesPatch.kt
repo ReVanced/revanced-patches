@@ -60,8 +60,8 @@ object HideSponsoredStoriesPatch : BytecodePatch(
                 addInstructions(
                     """ 
                         const-class v2, $baseModelWithTreeType
-                        const v1, ${(if (storyTypeId < 0) "-" else "")}0x${abs(storyTypeId).toString(16)}
-                        const v0, ${(if (sponsoredDataTypeId < 0) "-" else "")}0x${(sponsoredDataTypeId).toString(16)}
+                        const v1, $storyTypeId
+                        const v0, $sponsoredDataTypeId
                         invoke-virtual {p0, v2, v1, v0}, $baseModelMapperMethod
                         move-result-object v0
                         check-cast v0, $baseModelWithTreeType
