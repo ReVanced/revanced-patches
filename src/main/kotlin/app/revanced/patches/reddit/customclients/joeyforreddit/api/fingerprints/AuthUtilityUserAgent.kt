@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-object AuthUtilityUserAgent : MethodFingerprint(
+internal object AuthUtilityUserAgent : MethodFingerprint(
     returnType = "Ljava/lang/String;",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     opcodes = listOf(Opcode.APUT_OBJECT),

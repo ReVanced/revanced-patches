@@ -20,16 +20,6 @@ abstract class BaseIntegrationsPatch(
     private val hooks: Set<IntegrationsFingerprint>,
 ) : BytecodePatch(hooks + setOf(ReVancedUtilsPatchesVersionFingerprint)) {
 
-    @Deprecated(
-        "Use the constructor without the integrationsDescriptor parameter",
-        ReplaceWith("BaseIntegrationsPatch(hooks)"),
-    )
-    @Suppress("UNUSED_PARAMETER")
-    constructor(
-        integrationsDescriptor: String,
-        hooks: Set<IntegrationsFingerprint>,
-    ) : this(hooks)
-
     override fun execute(context: BytecodeContext) {
         if (context.findClass(INTEGRATIONS_CLASS_DESCRIPTOR) == null) {
             throw PatchException(
@@ -106,29 +96,6 @@ abstract class BaseIntegrationsPatch(
         strings,
         customFingerprint,
     ) {
-        @Deprecated(
-            "Previous constructor that is missing the insert index." +
-                "Here only for binary compatibility, " +
-                "and this can be removed after the next major version update.",
-        )
-        constructor(
-            returnType: String? = null,
-            accessFlags: Int? = null,
-            parameters: Iterable<String>? = null,
-            opcodes: Iterable<Opcode?>? = null,
-            strings: Iterable<String>? = null,
-            customFingerprint: ((methodDef: Method, classDef: ClassDef) -> Boolean)? = null,
-            contextRegisterResolver: (Method) -> Int = object : IRegisterResolver {},
-        ) : this(
-            returnType,
-            accessFlags,
-            parameters,
-            opcodes,
-            strings,
-            customFingerprint,
-            object : IHookInsertIndexResolver {},
-            contextRegisterResolver,
-        )
 
         fun invoke(integrationsDescriptor: String) {
             result?.mutableMethod?.let { method ->

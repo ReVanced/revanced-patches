@@ -33,11 +33,3 @@ object PermanentShufflePatch : BytecodePatch(setOf(DisableShuffleFingerprint)) {
             ?: throw DisableShuffleFingerprint.exception
     }
 }
-
-@Deprecated("This patch class has been renamed to PermanentShufflePatch.")
-object PermanentShuffleTogglePatch : BytecodePatch(
-    dependencies = setOf(PermanentShufflePatch::class),
-) {
-    override fun execute(context: BytecodeContext) {
-    }
-}

@@ -6,7 +6,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.youtube.misc.playercontrols.fingerprints.ControlsOverlayVisibility
 import app.revanced.patches.youtube.misc.playercontrols.fingerprints.OverlayViewInflateFingerprint
 import app.revanced.patches.youtube.misc.playercontrols.fingerprints.PlayerBottomControlsInflateFingerprint
@@ -137,8 +136,4 @@ object PlayerControlsBytecodePatch : BytecodePatch(
             "invoke-static { p0 }, $descriptor->changeVisibilityImmediate(Z)V"
         )
     }
-
-
-    @Deprecated("Obsolete", replaceWith = ReplaceWith("initializeBottomControl"))
-    fun initializeControl(descriptor: String)= initializeBottomControl(descriptor)
 }

@@ -31,8 +31,3 @@ object EnableExclusiveAudioPlayback : BytecodePatch(
         } ?: throw AllowExclusiveAudioPlaybackFingerprint.exception
     }
 }
-
-@Deprecated("This patch class has been renamed to EnableExclusiveAudioPlayback.")
-object ExclusiveAudioPatch : BytecodePatch(emptySet()) {
-    override fun execute(context: BytecodeContext) = EnableExclusiveAudioPlayback.execute(context)
-}

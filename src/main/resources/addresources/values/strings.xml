@@ -716,7 +716,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_player_overlay_opacity_summary">Opacity value between 0-100, where 0 is transparent</string>
             <string name="revanced_player_overlay_opacity_invalid_toast">Player overlay opacity must be between 0-100</string>
         </patch>
-        <patch id="layout.returnyoutubedislike.ReturnYouTubeDislikeResourcePatch">
+        <patch id="layout.returnyoutubedislike.ReturnYouTubeDislikePatch">
             <string name="revanced_ryd_settings_title">Return YouTube Dislike</string>
             <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
             <string name="revanced_ryd_failure_connection_timeout">Dislikes temporarily not available (API timed out)</string>
@@ -1185,12 +1185,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_spoof_video_streams_about_ios_summary">• Movies or paid videos may not play\n• Livestreams start from the beginning\n• Videos may end 1 second early\n• No opus audio codec</string>
             <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR spoofing side effects</string>
             <string name="revanced_spoof_video_streams_about_android_vr_summary">• Audio track menu is missing\n• Stable volume is not available</string>
-        </patch>
-        <!-- This patch is no longer used and these strings will soon be deleted. -->
-        <patch id="video.hdrbrightness.HDRBrightnessPatch">
-            <string name="revanced_hdr_auto_brightness_title">Enable auto HDR brightness</string>
-            <string name="revanced_hdr_auto_brightness_summary_on">Auto HDR brightness is enabled</string>
-            <string name="revanced_hdr_auto_brightness_summary_off">Auto HDR brightness is disabled</string>
         </patch>
     </app>
     <app id="twitch">
