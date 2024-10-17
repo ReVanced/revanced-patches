@@ -1,3 +1,11 @@
+# [4.17.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v4.17.0-dev.6...v4.17.0-dev.7) (2024-10-17)
+
+
+### Bug Fixes
+
+* **Twitter - Unlock downloads:** Make it work with latest versions ([#3782](https://github.com/ReVanced/revanced-patches/issues/3782)) ([5189122](https://github.com/ReVanced/revanced-patches/commit/5189122006b0f72d5bfb50422021c3b0f3a9ae4a))
+* **YouTube - Spoof video streams:** Fix playback for Android VR by removing invalid body as well ([#3769](https://github.com/ReVanced/revanced-patches/issues/3769)) ([5150a15](https://github.com/ReVanced/revanced-patches/commit/5150a15ad4ca73a747f0a89f933db7f2d686ec2d))
+
 # [4.17.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.17.0-dev.5...v4.17.0-dev.6) (2024-10-14)
 
 
