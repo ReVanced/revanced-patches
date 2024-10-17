@@ -251,6 +251,11 @@ public final class app/revanced/patches/cieid/restrictions/root/BypassRootChecks
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/discord/misc/plugin/PluginLoaderPatch : app/revanced/patches/shared/misc/react/BaseReactPreloadScriptBootstrapperPatch {
+	public static final field INSTANCE Lapp/revanced/patches/discord/misc/plugin/PluginLoaderPatch;
+	public fun getIntegrationsClassDescriptor ()Ljava/lang/String;
+}
+
 public final class app/revanced/patches/duolingo/ad/DisableAdsPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/duolingo/ad/DisableAdsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
@@ -982,6 +987,14 @@ public final class app/revanced/patches/shared/misc/mapping/ResourceMappingPatch
 	public final fun getType ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
+}
+
+public abstract class app/revanced/patches/shared/misc/react/BaseReactPreloadScriptBootstrapperPatch : app/revanced/patcher/patch/BytecodePatch {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;ZLjava/util/Set;Lkotlin/Pair;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;ZLjava/util/Set;Lkotlin/Pair;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+	public abstract fun getIntegrationsClassDescriptor ()Ljava/lang/String;
 }
 
 public abstract class app/revanced/patches/shared/misc/settings/BaseSettingsResourcePatch : app/revanced/patcher/patch/ResourcePatch, java/io/Closeable, java/util/Set, kotlin/jvm/internal/markers/KMutableSet {
