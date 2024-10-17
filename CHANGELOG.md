@@ -1,3 +1,10 @@
+# [4.17.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v4.17.0-dev.7...v4.17.0-dev.8) (2024-10-17)
+
+
+### Features
+
+* **Twitter:** Add `Change link sharing domain` patch ([#3753](https://github.com/ReVanced/revanced-patches/issues/3753)) ([9269a07](https://github.com/ReVanced/revanced-patches/commit/9269a076b674ecdcf478bca842238f6e30869f44))
+
 # [4.17.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v4.17.0-dev.6...v4.17.0-dev.7) (2024-10-17)
 
 
