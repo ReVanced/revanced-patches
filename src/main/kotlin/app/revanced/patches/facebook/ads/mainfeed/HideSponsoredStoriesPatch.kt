@@ -52,10 +52,13 @@ object HideSponsoredStoriesPatch : BytecodePatch(
                 // GraphQL data structure. They are then fed to a method of BaseModelWithTree that populate
                 // and cast the requested GraphQL subtype. The Ids are found in the two first "CONST" instructions.
                 val constInstructions = sponsoredDataModelTemplateMethod.implementation!!.instructions
+                    .asSequence()
                     .filterIsInstance<Instruction31i>()
+                    .take(2)
                     .toList()
-                val storyTypeId = constInstructions.elementAt(0).narrowLiteral
-                val sponsoredDataTypeId = constInstructions.elementAt(1).narrowLiteral
+
+                val storyTypeId = constInstructions[0].narrowLiteral
+                val sponsoredDataTypeId = constInstructions[1].narrowLiteral
 
                 addInstructions(
                     """ 
