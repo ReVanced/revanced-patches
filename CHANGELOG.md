@@ -1,3 +1,10 @@
+# [4.17.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v4.17.0-dev.8...v4.17.0-dev.9) (2024-10-17)
+
+
+### Features
+
+* **Sync for Reddit:** Add `Fix video downloads` patch ([#3739](https://github.com/ReVanced/revanced-patches/issues/3739)) ([a47ee38](https://github.com/ReVanced/revanced-patches/commit/a47ee38b1cdd974a959008006ecaf58917addc60))
+
 # [4.17.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v4.17.0-dev.7...v4.17.0-dev.8) (2024-10-17)
 
 
