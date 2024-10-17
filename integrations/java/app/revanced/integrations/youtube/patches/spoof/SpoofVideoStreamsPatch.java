@@ -134,7 +134,7 @@ public class SpoofVideoStreamsPatch {
                     }
                 }
 
-                Logger.printDebug(() -> "Not overriding streaming data (video stream is null): "  + videoId);
+                Logger.printDebug(() -> "Not overriding streaming data (video stream is null): " + videoId);
             } catch (Exception ex) {
                 Logger.printException(() -> "getStreamingData failure", ex);
             }
@@ -154,13 +154,11 @@ public class SpoofVideoStreamsPatch {
                 final int methodPost = 2;
                 if (method == methodPost) {
                     String path = uri.getPath();
-                    String clientNameQueryKey = "c";
-                    final boolean iosClient = "IOS".equals(uri.getQueryParameter(clientNameQueryKey));
-                    if (iosClient && path != null && path.contains("videoplayback")) {
+                    if (path != null && path.contains("videoplayback")) {
                         return null;
                     }
                 }
-            }  catch (Exception ex) {
+            } catch (Exception ex) {
                 Logger.printException(() -> "removeVideoPlaybackPostBody failure", ex);
             }
         }
