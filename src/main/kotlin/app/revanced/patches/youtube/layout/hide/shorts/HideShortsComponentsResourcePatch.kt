@@ -29,6 +29,7 @@ object HideShortsComponentsResourcePatch : ResourcePatch() {
             // since this Setting menu currently uses the ordering used here.
 
             // Vertical row of buttons on right side of the screen.
+            SwitchPreference("revanced_hide_shorts_like_fountain"),
             SwitchPreference("revanced_hide_shorts_like_button"),
             SwitchPreference("revanced_hide_shorts_dislike_button"),
             SwitchPreference("revanced_hide_shorts_comments_button"),
@@ -41,6 +42,9 @@ object HideShortsComponentsResourcePatch : ResourcePatch() {
             SwitchPreference("revanced_hide_shorts_subscribe_button"),
             SwitchPreference("revanced_hide_shorts_paused_overlay_buttons"),
             SwitchPreference("revanced_hide_shorts_save_sound_button"),
+            SwitchPreference("revanced_hide_shorts_use_template_button"),
+            SwitchPreference("revanced_hide_shorts_upcoming_button"),
+            SwitchPreference("revanced_hide_shorts_green_screen_button"),
             SwitchPreference("revanced_hide_shorts_shop_button"),
             SwitchPreference("revanced_hide_shorts_tagged_products"),
             SwitchPreference("revanced_hide_shorts_stickers"),
@@ -59,7 +63,7 @@ object HideShortsComponentsResourcePatch : ResourcePatch() {
             context.xmlEditor["res/xml/main_shortcuts.xml"].use { editor ->
                 val shortsItem = editor.file.childNodes.findElementByAttributeValueOrThrow(
                     "android:shortcutId",
-                    "shorts-shortcut"
+                    "shorts-shortcut",
                 )
 
                 shortsItem.parentNode.removeChild(shortsItem)
@@ -70,7 +74,7 @@ object HideShortsComponentsResourcePatch : ResourcePatch() {
             context.xmlEditor["res/layout/appwidget_two_rows.xml"].use { editor ->
                 val shortsItem = editor.file.childNodes.findElementByAttributeValueOrThrow(
                     "android:id",
-                    "@id/button_shorts_container"
+                    "@id/button_shorts_container",
                 )
 
                 shortsItem.parentNode.removeChild(shortsItem)

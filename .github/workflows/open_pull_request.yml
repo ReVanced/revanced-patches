@@ -25,7 +25,8 @@ jobs:
           pr_body: |
             This pull request will ${{ env.MESSAGE }}.
 
-            ## Dependencies before merge
+            ## Before merging this PR
 
-            - [ ] https://github.com/revanced/revanced-integrations
+            - [ ] Remember about https://github.com/revanced/revanced-integrations
+            - [ ] Pull translations from Crowdin
           pr_draft: true

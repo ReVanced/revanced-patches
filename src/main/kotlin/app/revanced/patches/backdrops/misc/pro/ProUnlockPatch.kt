@@ -12,7 +12,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Patch(
     name = "Pro unlock",
-    compatiblePackages = [CompatiblePackage("com.backdrops.wallpapers", ["4.52"])]
+    compatiblePackages = [CompatiblePackage("com.backdrops.wallpapers")]
 )
 @Suppress("unused")
 object ProUnlockPatch : BytecodePatch(
