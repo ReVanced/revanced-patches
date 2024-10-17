@@ -10,11 +10,12 @@ import com.android.tools.smali.dexlib2.AccessFlags
  * Note: this fingerprint may or may not be needed, as
  * [RemoteEmbedFragmentFingerprint] might be set before this is called.
  */
+@Deprecated("Code was removed in target 19.39+")
 internal object EmbeddedPlayerFingerprint : IntegrationsFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     returnType = "L",
     parameters = listOf("L", "L", "Landroid/content/Context;"),
     strings = listOf("android.hardware.type.television"), // String is also found in other classes
-    // Integrations context is the third method parameter.
-    contextRegisterResolver = { it.implementation!!.registerCount - it.parameters.size + 2 }
+    contextRegisterResolver = { "p2" },
+    isOptional = true
 )

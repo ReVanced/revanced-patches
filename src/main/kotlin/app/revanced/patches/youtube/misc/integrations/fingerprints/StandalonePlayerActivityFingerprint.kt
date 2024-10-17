@@ -11,6 +11,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
  * but this may still be used by older apps:
  * https://developers.google.com/youtube/android/player
  */
+@Deprecated("Code was removed in target 19.39+")
 internal object StandalonePlayerActivityFingerprint : IntegrationsFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "V",
@@ -19,5 +20,6 @@ internal object StandalonePlayerActivityFingerprint : IntegrationsFingerprint(
         methodDef.definingClass == "Lcom/google/android/youtube/api/StandalonePlayerActivity;"
                 && methodDef.name == "onCreate"
     },
+    isOptional = true
     // Integrations context is the Activity itself.
 )
