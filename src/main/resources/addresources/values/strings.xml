@@ -1042,9 +1042,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_gradient_loading_screen_summary_off">Loading screen will have a solid background</string>
         </patch>
         <patch id="layout.theme.ThemeResourcePatch">
-            <string name="revanced_seekbar_cairo_title">Enable Cairo seekbar</string>
-            <string name="revanced_seekbar_cairo_summary_on">Cairo style seekbar is shown</string>
-            <string name="revanced_seekbar_cairo_summary_off">Original style seekbar is shown</string>
             <string name="revanced_seekbar_custom_color_title">Enable custom seekbar color</string>
             <string name="revanced_seekbar_custom_color_summary_on">Custom seekbar color is shown</string>
             <string name="revanced_seekbar_custom_color_summary_off">Original seekbar color is shown</string>

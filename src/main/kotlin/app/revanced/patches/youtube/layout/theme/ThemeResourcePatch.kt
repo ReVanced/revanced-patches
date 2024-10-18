@@ -29,12 +29,6 @@ internal object ThemeResourcePatch : ResourcePatch() {
     override fun execute(context: ResourceContext) {
         AddResourcesPatch(this::class)
 
-        if (VersionCheckPatch.is_19_23_or_greater) {
-            SettingsPatch.PreferenceScreen.SEEKBAR.addPreferences(
-                SwitchPreference("revanced_seekbar_cairo")
-            )
-        }
-
         SettingsPatch.PreferenceScreen.SEEKBAR.addPreferences(
             SwitchPreference("revanced_seekbar_custom_color"),
             TextPreference("revanced_seekbar_custom_color_value", inputType = InputType.TEXT_CAP_CHARACTERS),
