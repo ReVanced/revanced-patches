@@ -7,14 +7,19 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patches.youtube.layout.seekbar.fingerprints.CairoSeekbarConfigFingerprint
 import app.revanced.patches.youtube.layout.seekbar.fingerprints.PlayerSeekbarColorFingerprint
 import app.revanced.patches.youtube.layout.seekbar.fingerprints.SetSeekbarClickedColorFingerprint
 import app.revanced.patches.youtube.layout.seekbar.fingerprints.ShortsSeekbarColorFingerprint
 import app.revanced.patches.youtube.layout.theme.LithoColorHookPatch
 import app.revanced.patches.youtube.layout.theme.LithoColorHookPatch.lithoColorOverrideHook
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
+import app.revanced.patches.youtube.misc.playservice.VersionCheckPatch
 import app.revanced.util.exception
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
+import app.revanced.util.resultOrThrow
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
@@ -24,7 +29,12 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
     compatiblePackages = [CompatiblePackage("com.google.android.youtube")]
 )
 internal object SeekbarColorBytecodePatch : BytecodePatch(
-    setOf(PlayerSeekbarColorFingerprint, ShortsSeekbarColorFingerprint, SetSeekbarClickedColorFingerprint)
+    setOf(
+        PlayerSeekbarColorFingerprint,
+        ShortsSeekbarColorFingerprint,
+        SetSeekbarClickedColorFingerprint,
+        CairoSeekbarConfigFingerprint,
+    )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/theme/SeekbarColorPatch;"
 
@@ -32,12 +42,13 @@ internal object SeekbarColorBytecodePatch : BytecodePatch(
         fun MutableMethod.addColorChangeInstructions(resourceId: Long) {
             val registerIndex = indexOfFirstWideLiteralInstructionValueOrThrow(resourceId) + 2
             val colorRegister = getInstruction<OneRegisterInstruction>(registerIndex).registerA
+
             addInstructions(
                 registerIndex + 1,
                 """
-                        invoke-static { v$colorRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getVideoPlayerSeekbarColor(I)I
-                        move-result v$colorRegister
-                    """
+                    invoke-static { v$colorRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getVideoPlayerSeekbarColor(I)I
+                    move-result v$colorRegister
+                """
             )
         }
 
@@ -70,6 +81,24 @@ internal object SeekbarColorBytecodePatch : BytecodePatch(
                 }
             }
         } ?: throw SetSeekbarClickedColorFingerprint.exception
+
+        if (VersionCheckPatch.is_19_23_or_greater) {
+            CairoSeekbarConfigFingerprint.resultOrThrow().mutableMethod.apply {
+                val literalIndex = indexOfFirstWideLiteralInstructionValueOrThrow(
+                    CairoSeekbarConfigFingerprint.CAIRO_SEEKBAR_FEATURE_FLAG
+                )
+                val resultIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
+                val register = getInstruction<OneRegisterInstruction>(resultIndex).registerA
+
+                addInstructions(
+                    resultIndex + 1,
+                    """
+                        invoke-static { v$register }, $INTEGRATIONS_CLASS_DESCRIPTOR->cairoSeekbarEnabled(Z)Z
+                        move-result v$register
+                    """
+                )
+            }
+        }
 
         lithoColorOverrideHook(INTEGRATIONS_CLASS_DESCRIPTOR, "getLithoColor")
     }
