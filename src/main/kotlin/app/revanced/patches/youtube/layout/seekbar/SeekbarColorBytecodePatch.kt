@@ -7,7 +7,7 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.youtube.layout.seekbar.fingerprints.CairoSeekbarConfigFingerprint
+import app.revanced.patches.youtube.layout.seekbar.fingerprints.PlayerSeekbarGraidentConfigFingerprint
 import app.revanced.patches.youtube.layout.seekbar.fingerprints.PlayerSeekbarColorFingerprint
 import app.revanced.patches.youtube.layout.seekbar.fingerprints.SetSeekbarClickedColorFingerprint
 import app.revanced.patches.youtube.layout.seekbar.fingerprints.ShortsSeekbarColorFingerprint
@@ -33,7 +33,7 @@ internal object SeekbarColorBytecodePatch : BytecodePatch(
         PlayerSeekbarColorFingerprint,
         ShortsSeekbarColorFingerprint,
         SetSeekbarClickedColorFingerprint,
-        CairoSeekbarConfigFingerprint,
+        PlayerSeekbarGraidentConfigFingerprint,
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/theme/SeekbarColorPatch;"
@@ -83,9 +83,9 @@ internal object SeekbarColorBytecodePatch : BytecodePatch(
         } ?: throw SetSeekbarClickedColorFingerprint.exception
 
         if (VersionCheckPatch.is_19_23_or_greater) {
-            CairoSeekbarConfigFingerprint.resultOrThrow().mutableMethod.apply {
+            PlayerSeekbarGraidentConfigFingerprint.resultOrThrow().mutableMethod.apply {
                 val literalIndex = indexOfFirstWideLiteralInstructionValueOrThrow(
-                    CairoSeekbarConfigFingerprint.CAIRO_SEEKBAR_FEATURE_FLAG
+                    PlayerSeekbarGraidentConfigFingerprint.PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG
                 )
                 val resultIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
                 val register = getInstruction<OneRegisterInstruction>(resultIndex).registerA
@@ -93,7 +93,7 @@ internal object SeekbarColorBytecodePatch : BytecodePatch(
                 addInstructions(
                     resultIndex + 1,
                     """
-                        invoke-static { v$register }, $INTEGRATIONS_CLASS_DESCRIPTOR->cairoSeekbarEnabled(Z)Z
+                        invoke-static { v$register }, $INTEGRATIONS_CLASS_DESCRIPTOR->playerSeekbarGraidentEnabled(Z)Z
                         move-result v$register
                     """
                 )
