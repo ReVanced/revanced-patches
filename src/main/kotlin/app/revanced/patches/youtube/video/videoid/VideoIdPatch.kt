@@ -11,8 +11,6 @@ import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.video.playerresponse.PlayerResponseMethodHookPatch
 import app.revanced.patches.youtube.video.videoid.fingerprint.VideoIdBackgroundPlayFingerprint
 import app.revanced.patches.youtube.video.videoid.fingerprint.VideoIdFingerprint
-import app.revanced.patches.youtube.video.videoid.fingerprint.VideoIdParentFingerprint
-import app.revanced.util.alsoResolve
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.resultOrThrow
@@ -26,7 +24,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 )
 object VideoIdPatch : BytecodePatch(
     setOf(
-        VideoIdParentFingerprint,
+        VideoIdFingerprint,
         VideoIdBackgroundPlayFingerprint,
     )
 ) {
@@ -40,7 +38,7 @@ object VideoIdPatch : BytecodePatch(
 
     override fun execute(context: BytecodeContext) {
 
-        VideoIdFingerprint.alsoResolve(context, VideoIdParentFingerprint).mutableMethod.apply {
+        VideoIdFingerprint.resultOrThrow().mutableMethod.apply {
             videoIdMethod = this
             val index = indexOfPlayerResponseModelString()
             videoIdRegister = getInstruction<OneRegisterInstruction>(index + 1).registerA
