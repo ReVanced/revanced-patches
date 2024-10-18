@@ -11,8 +11,10 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.navigation.fingerprints.*
 import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
+import app.revanced.util.alsoResolve
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -64,9 +66,7 @@ object NavigationBarHookPatch : BytecodePatch(
             }
         }
 
-        InitializeButtonsFingerprint.apply {
-            resolve(context, PivotBarConstructorFingerprint.resultOrThrow().classDef)
-        }.resultOrThrow().mutableMethod.apply {
+        InitializeButtonsFingerprint.alsoResolve(context, PivotBarConstructorFingerprint).mutableMethod.apply {
             // Hook the current navigation bar enum value. Note, the 'You' tab does not have an enum value.
             val navigationEnumClassName = NavigationEnumFingerprint.resultOrThrow().mutableClass.type
             addHook(Hook.SET_LAST_APP_NAVIGATION_ENUM) {
@@ -121,7 +121,11 @@ object NavigationBarHookPatch : BytecodePatch(
         // Insert before the first ViewGroup method call after inflating,
         // so this works regardless which layout is used.
         ActionBarSearchResultsFingerprint.resultOrThrow().mutableMethod.apply {
-            val instructionIndex = indexOfFirstInstructionOrThrow {
+            val searchBarResourceId = indexOfFirstWideLiteralInstructionValueOrThrow(
+                NavigationBarHookResourcePatch.actionBarSearchResultsViewMicId
+            )
+
+            val instructionIndex = indexOfFirstInstructionOrThrow(searchBarResourceId) {
                 opcode == Opcode.INVOKE_VIRTUAL && getReference<MethodReference>()?.name == "setLayoutDirection"
             }
 

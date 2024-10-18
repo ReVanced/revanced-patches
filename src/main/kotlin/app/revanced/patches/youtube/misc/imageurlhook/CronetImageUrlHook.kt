@@ -97,9 +97,8 @@ object CronetImageUrlHook : BytecodePatch(
         // The URL is required for the failure callback hook, but the URL field is obfuscated.
         // Add a helper get method that returns the URL field.
         RequestFingerprint.resultOrThrow().apply {
-            // The url is the only string field that is set inside the constructor.
-            val urlFieldInstruction = mutableMethod.getInstructions().single {
-                if (it.opcode != Opcode.IPUT_OBJECT) return@single false
+            val urlFieldInstruction = mutableMethod.getInstructions().first {
+                if (it.opcode != Opcode.IPUT_OBJECT) return@first false
 
                 val reference = (it as ReferenceInstruction).reference as FieldReference
                 reference.type == "Ljava/lang/String;"

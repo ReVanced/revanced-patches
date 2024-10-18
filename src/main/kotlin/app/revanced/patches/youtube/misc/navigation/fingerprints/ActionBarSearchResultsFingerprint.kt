@@ -8,6 +8,5 @@ import com.android.tools.smali.dexlib2.AccessFlags
 internal object ActionBarSearchResultsFingerprint : LiteralValueFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "Landroid/view/View;",
-    parameters = listOf("Landroid/view/LayoutInflater;"),
     literalSupplier = { NavigationBarHookResourcePatch.actionBarSearchResultsViewMicId }
 )

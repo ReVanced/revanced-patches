@@ -18,6 +18,6 @@ internal object SetWordmarkHeaderFingerprint : MethodFingerprint(
         Opcode.IF_EQZ,
         Opcode.IGET_OBJECT,
         Opcode.CONST,
-        Opcode.INVOKE_STATIC,
+        null // invoke-static or invoke-virtual
     )
 )

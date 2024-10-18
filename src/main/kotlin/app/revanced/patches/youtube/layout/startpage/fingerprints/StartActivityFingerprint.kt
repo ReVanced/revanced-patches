@@ -2,6 +2,13 @@ package app.revanced.patches.youtube.layout.startpage.fingerprints
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
 
+/**
+ * Resolves using class found in [StartActivityParentFingerprint].
+ */
 object StartActivityFingerprint : MethodFingerprint(
-    parameters = listOf("Landroid/content/Intent;"),
+    returnType = "V",
+    parameters = listOf("Landroid/os/Bundle;"),
+    customFingerprint = { method, classDef ->
+        method.name == "onCreate"
+    }
 )

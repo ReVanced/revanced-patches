@@ -13,7 +13,7 @@ import app.revanced.patches.tiktok.shared.fingerprints.OnRenderFirstFrameFingerp
 import app.revanced.util.exception
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction22c
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Patch(
     name = "Remember clear display",
@@ -34,8 +34,8 @@ object RememberClearDisplayPatch : BytecodePatch(
         OnClearDisplayEventFingerprint.result?.mutableMethod?.let {
             // region Hook the "Clear display" configuration save event to remember the state of clear display.
 
-            val isEnabledIndex = it.indexOfFirstInstructionOrThrow { opcode == Opcode.IGET_BOOLEAN } + 1
-            val isEnabledRegister = it.getInstruction<Instruction22c>(isEnabledIndex - 1).registerA
+            val isEnabledIndex = it.indexOfFirstInstructionOrThrow(Opcode.IGET_BOOLEAN) + 1
+            val isEnabledRegister = it.getInstruction<TwoRegisterInstruction>(isEnabledIndex - 1).registerA
 
             it.addInstructions(
                 isEnabledIndex,

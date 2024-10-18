@@ -3,17 +3,22 @@ package app.revanced.patches.youtube.video.videoid
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playertype.PlayerTypeHookPatch
 import app.revanced.patches.youtube.video.playerresponse.PlayerResponseMethodHookPatch
+import app.revanced.patches.youtube.video.videoid.fingerprint.VideoIdBackgroundPlayFingerprint
 import app.revanced.patches.youtube.video.videoid.fingerprint.VideoIdFingerprint
-import app.revanced.patches.youtube.video.videoid.fingerprint.VideoIdFingerprintBackgroundPlay
-import app.revanced.util.exception
+import app.revanced.patches.youtube.video.videoid.fingerprint.VideoIdParentFingerprint
+import app.revanced.util.alsoResolve
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.resultOrThrow
+import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     description = "Hooks to detect when the video id changes",
@@ -21,8 +26,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 )
 object VideoIdPatch : BytecodePatch(
     setOf(
-        VideoIdFingerprint,
-        VideoIdFingerprintBackgroundPlay
+        VideoIdParentFingerprint,
+        VideoIdBackgroundPlayFingerprint,
     )
 ) {
     private var videoIdRegister = 0
@@ -35,34 +40,27 @@ object VideoIdPatch : BytecodePatch(
 
     override fun execute(context: BytecodeContext) {
 
-        /**
-         * Supplies the method and register index of the video id register.
-         *
-         * @param consumer Consumer that receives the method, insert index and video id register index.
-         */
-        fun MethodFingerprint.setFields(consumer: (MutableMethod, Int, Int) -> Unit) = result?.let { result ->
-            val videoIdRegisterIndex = result.scanResult.patternScanResult!!.endIndex
-
-            result.mutableMethod.let {
-                val videoIdRegister = it.getInstruction<OneRegisterInstruction>(videoIdRegisterIndex).registerA
-                val insertIndex = videoIdRegisterIndex + 1
-                consumer(it, insertIndex, videoIdRegister)
-
-            }
-        } ?: throw exception
-
-        VideoIdFingerprint.setFields { method, index, register ->
-            videoIdMethod = method
-            videoIdInsertIndex = index
-            videoIdRegister = register
+        VideoIdFingerprint.alsoResolve(context, VideoIdParentFingerprint).mutableMethod.apply {
+            videoIdMethod = this
+            val index = indexOfPlayerResponseModelString()
+            videoIdRegister = getInstruction<OneRegisterInstruction>(index + 1).registerA
+            videoIdInsertIndex = index + 2
         }
 
-        VideoIdFingerprintBackgroundPlay.setFields { method, insertIndex, videoIdRegister ->
-            backgroundPlaybackMethod = method
-            backgroundPlaybackInsertIndex = insertIndex
-            backgroundPlaybackVideoIdRegister = videoIdRegister
+        VideoIdBackgroundPlayFingerprint.resultOrThrow().mutableMethod.apply {
+            backgroundPlaybackMethod = this
+            val index = indexOfPlayerResponseModelString()
+            backgroundPlaybackVideoIdRegister = getInstruction<OneRegisterInstruction>(index + 1).registerA
+            backgroundPlaybackInsertIndex = index + 2
         }
     }
+
+    internal fun Method.indexOfPlayerResponseModelString() =
+        indexOfFirstInstruction {
+            val reference = getReference<MethodReference>()
+            reference?.definingClass == "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;" &&
+                    reference.returnType == "Ljava/lang/String;"
+        }
 
     /**
      * Hooks the new video id when the video changes.
