@@ -183,9 +183,9 @@ object VideoInformationPatch : BytecodePatch(
         targetClass.interfaces.add(INTEGRATIONS_PLAYER_INTERFACE)
 
         arrayOf(
-            seekToMethod to "seekTo",
-            seekToRelativeMethod to "seekToRelative"
-        ).forEach { (method, name) ->
+            Triple(seekToMethod, "seekTo", true),
+            Triple(seekToRelativeMethod, "seekToRelative", false)
+        ).forEach { (method, name, returnsBoolean) ->
             // Add interface method.
             // Get enum type for the seek helper method.
             val seekSourceEnumType = method.parameterTypes[1].toString()
@@ -194,22 +194,29 @@ object VideoInformationPatch : BytecodePatch(
                 targetClass.type,
                 name,
                 listOf(ImmutableMethodParameter("J", null, "time")),
-                "Z",
+                if (returnsBoolean) "Z" else "V",
                 AccessFlags.PUBLIC or AccessFlags.FINAL,
                 null, null,
                 MutableMethodImplementation(4)
             ).toMutable()
 
-            // Insert helper method instructions.
-            interfaceImplementation.addInstructions(
-                0,
-                """
+            var instructions = """
                     # first enum (field a) is SEEK_SOURCE_UNKNOWN
                     sget-object v0, $seekSourceEnumType->a:$seekSourceEnumType
                     invoke-virtual { p0, p1, p2, v0 }, $method
-                    move-result p1
-                    return p1
                 """
+
+            instructions += if (returnsBoolean) """
+                move-result p1
+                return p1                
+            """ else """
+                return-void                
+            """
+
+            // Insert helper method instructions.
+            interfaceImplementation.addInstructions(
+                0,
+                instructions
             )
 
             targetClass.methods.add(interfaceImplementation)

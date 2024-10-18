@@ -8,13 +8,23 @@ import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.layout.hide.shorts.HideShortsComponentsPatch.hideShortsAppShortcut
 import app.revanced.patches.youtube.layout.hide.shorts.HideShortsComponentsPatch.hideShortsWidget
+import app.revanced.patches.youtube.misc.playservice.VersionCheckPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.findElementByAttributeValueOrThrow
 
-@Patch(dependencies = [SettingsPatch::class, ResourceMappingPatch::class, AddResourcesPatch::class])
+@Patch(
+    dependencies = [
+        SettingsPatch::class,
+        ResourceMappingPatch::class,
+        AddResourcesPatch::class,
+        VersionCheckPatch::class
+    ]
+)
 object HideShortsComponentsResourcePatch : ResourcePatch() {
     internal var reelMultipleItemShelfId = -1L
     internal var reelPlayerRightCellButtonHeight = -1L
+    internal var bottomBarContainer = -1L
+    internal var reelPlayerRightPivotV2Size = -1L
 
     override fun execute(context: ResourceContext) {
         AddResourcesPatch(this::class)
@@ -86,14 +96,21 @@ object HideShortsComponentsResourcePatch : ResourcePatch() {
             "reel_player_right_cell_button_height",
         ]
 
-        // Resource not present in new versions of the app.
-        try {
-            ResourceMappingPatch[
+        bottomBarContainer = ResourceMappingPatch[
+                "id",
+                "bottom_bar_container"
+        ]
+
+        reelPlayerRightPivotV2Size = ResourceMappingPatch[
+            "dimen",
+            "reel_player_right_pivot_v2_size"
+        ]
+
+        if (!VersionCheckPatch.is_19_03_or_greater) {
+            reelMultipleItemShelfId = ResourceMappingPatch[
                 "dimen",
                 "reel_player_right_cell_button_height",
             ]
-        } catch (e: NoSuchElementException) {
-            return
-        }.also { reelPlayerRightCellButtonHeight = it }
+        }
     }
 }

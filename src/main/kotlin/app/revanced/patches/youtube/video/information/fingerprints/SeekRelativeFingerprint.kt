@@ -10,12 +10,10 @@ import com.android.tools.smali.dexlib2.Opcode
  */
 internal object SeekRelativeFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    returnType = "Z",
+    // returnType is boolean up to 19.39, and void with 19.39+
     parameters = listOf("J", "L"),
     opcodes = listOf(
         Opcode.ADD_LONG_2ADDR,
         Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT,
-        Opcode.RETURN
     )
 )

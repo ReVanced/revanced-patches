@@ -28,6 +28,7 @@ abstract class LiteralValueFingerprint(
     parameters = parameters,
     opcodes = opcodes,
     strings = strings,
+    // TODO: add a way for subclasses to also use their own custom fingerprint.
     customFingerprint = { methodDef, _ ->
         methodDef.containsWideLiteralInstructionValue(literalSupplier())
     }

@@ -108,11 +108,12 @@ object CustomPlaybackSpeedPatch : BytecodePatch(
         val limiterMethodImpl = limiterMethod.implementation!!
 
         val lowerLimitConst = 0.25f.toRawBits()
-        val upperLimitConst = 2.0f.toRawBits()
+        val upperLimitConst2x = 2.0f.toRawBits()
+        val upperLimitConst4x = 4.0f.toRawBits()
         val (limiterMinConstIndex, limiterMinConst) = limiterMethodImpl.instructions.withIndex()
             .first { (it.value as? NarrowLiteralInstruction)?.narrowLiteral == lowerLimitConst }
         val (limiterMaxConstIndex, limiterMaxConst) = limiterMethodImpl.instructions.withIndex()
-            .first { (it.value as? NarrowLiteralInstruction)?.narrowLiteral == upperLimitConst }
+            .first { (it.value as? NarrowLiteralInstruction)?.narrowLiteral in listOf(upperLimitConst2x, upperLimitConst4x) }
 
         val limiterMinConstDestination = (limiterMinConst as OneRegisterInstruction).registerA
         val limiterMaxConstDestination = (limiterMaxConst as OneRegisterInstruction).registerA

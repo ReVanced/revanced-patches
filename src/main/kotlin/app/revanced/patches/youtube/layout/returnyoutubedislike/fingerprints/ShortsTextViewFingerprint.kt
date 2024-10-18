@@ -15,18 +15,6 @@ internal object ShortsTextViewFingerprint : MethodFingerprint(
         null,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CHECK_CAST,
-        Opcode.SGET_OBJECT,     // insertion point, must be after constructor call to parent class
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT,
-        Opcode.CONST_4,
-        Opcode.IF_EQZ,
-        Opcode.CONST_4,
-        Opcode.IF_EQ,
-        Opcode.CONST_4,
-        Opcode.IF_EQ,
-        Opcode.RETURN_VOID,
-        Opcode.IGET_OBJECT,     // TextView field
-        Opcode.IGET_BOOLEAN,    // boolean field
+        Opcode.CHECK_CAST
     )
 )

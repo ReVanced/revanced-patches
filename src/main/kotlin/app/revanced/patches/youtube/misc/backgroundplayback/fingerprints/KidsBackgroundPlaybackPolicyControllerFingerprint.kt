@@ -17,13 +17,7 @@ internal object KidsBackgroundPlaybackPolicyControllerFingerprint : LiteralValue
         Opcode.IGET,
         Opcode.CONST_4,
         Opcode.IF_NE,
-        Opcode.IGET_OBJECT,
-        Opcode.SGET_OBJECT,
-        Opcode.IF_EQ,
-        Opcode.GOTO,
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.RETURN_VOID
+        Opcode.IGET_OBJECT
     ),
     literalSupplier = { 5 },
 )
