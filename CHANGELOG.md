@@ -1,3 +1,46 @@
+# [4.17.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v4.17.0-dev.9...v4.17.0-dev.10) (2024-10-17)
+
+
+### Features
+
+* **Facebook:** Add `Hide sponsored stories` patch ([#3627](https://github.com/ReVanced/revanced-patches/issues/3627)) ([214c72b](https://github.com/ReVanced/revanced-patches/commit/214c72baeb7f87f21cd2ca34301ab11fa0ff1a4f))
+
+# [4.17.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v4.17.0-dev.8...v4.17.0-dev.9) (2024-10-17)
+
+
+### Features
+
+* **Sync for Reddit:** Add `Fix video downloads` patch ([#3739](https://github.com/ReVanced/revanced-patches/issues/3739)) ([a47ee38](https://github.com/ReVanced/revanced-patches/commit/a47ee38b1cdd974a959008006ecaf58917addc60))
+
+# [4.17.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v4.17.0-dev.7...v4.17.0-dev.8) (2024-10-17)
+
+
+### Features
+
+* **Twitter:** Add `Change link sharing domain` patch ([#3753](https://github.com/ReVanced/revanced-patches/issues/3753)) ([9269a07](https://github.com/ReVanced/revanced-patches/commit/9269a076b674ecdcf478bca842238f6e30869f44))
+
+# [4.17.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v4.17.0-dev.6...v4.17.0-dev.7) (2024-10-17)
+
+
+### Bug Fixes
+
+* **Twitter - Unlock downloads:** Make it work with latest versions ([#3782](https://github.com/ReVanced/revanced-patches/issues/3782)) ([5189122](https://github.com/ReVanced/revanced-patches/commit/5189122006b0f72d5bfb50422021c3b0f3a9ae4a))
+* **YouTube - Spoof video streams:** Fix playback for Android VR by removing invalid body as well ([#3769](https://github.com/ReVanced/revanced-patches/issues/3769)) ([5150a15](https://github.com/ReVanced/revanced-patches/commit/5150a15ad4ca73a747f0a89f933db7f2d686ec2d))
+
+# [4.17.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.17.0-dev.5...v4.17.0-dev.6) (2024-10-14)
+
+
+### Features
+
+* **YouTube - Hide Shorts components:** Add option to hide `Use template`, `Upcoming`, `Green screen` buttons ([#3752](https://github.com/ReVanced/revanced-patches/issues/3752)) ([f71c406](https://github.com/ReVanced/revanced-patches/commit/f71c4068bc646d02954b59fac4756f1419c55dbe))
+
+# [4.17.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v4.17.0-dev.4...v4.17.0-dev.5) (2024-10-07)
+
+
+### Features
+
+* **Backdrops - Pro unlock:** Support latest versions by removing version constraint ([a62b506](https://github.com/ReVanced/revanced-patches/commit/a62b50691c49d1ce529a7c9c4e49da0d0dd46df2))
+
 # [4.17.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.17.0-dev.3...v4.17.0-dev.4) (2024-10-06)
 
 

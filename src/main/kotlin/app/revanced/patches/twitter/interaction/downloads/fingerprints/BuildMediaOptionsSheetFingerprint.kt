@@ -10,5 +10,5 @@ internal object BuildMediaOptionsSheetFingerprint : MethodFingerprint(
         Opcode.GOTO_16,
         Opcode.NEW_INSTANCE,
     ),
-    strings = listOf("resources.getString(R.string.post_video)"),
+    strings = listOf("mediaEntity", "media_options_sheet"),
 )

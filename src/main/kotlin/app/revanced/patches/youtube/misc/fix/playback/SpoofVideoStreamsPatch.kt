@@ -237,7 +237,9 @@ object SpoofVideoStreamsPatch : BytecodePatch(
         // endregion
 
         // region Remove /videoplayback request body to fix playback.
-        // This is needed when using iOS client as streaming data source.
+        // It is assumed, YouTube makes a request with a body tuned for Android.
+        // Requesting streams intended for other platforms with a body tuned for Android could be the cause of 400 errors.
+        // A proper fix may include modifying the request body to match the platforms expected body.
 
         BuildMediaDataSourceFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {
