@@ -17,7 +17,6 @@ import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
 import app.revanced.patches.youtube.misc.playservice.VersionCheckPatch
 import app.revanced.util.forEachLiteralValueInstruction
 import app.revanced.util.alsoResolve
-import app.revanced.util.exception
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstWideLiteralInstructionValue
@@ -61,6 +60,7 @@ object HideShortsComponentsPatch : BytecodePatch(
         CreateShortsButtonsFingerprint,
         ReelConstructorFingerprint,
         ShortsBottomBarContainerFingerprint,
+        LegacyRenderBottomNavigationBarParentFingerprint,
         RenderBottomNavigationBarParentFingerprint,
         SetPivotBarVisibilityParentFingerprint,
     ),
@@ -106,9 +106,9 @@ object HideShortsComponentsPatch : BytecodePatch(
         // region Hide the Shorts buttons in older versions of YouTube.
 
         // Some Shorts buttons are views, hide them by setting their visibility to GONE.
-        CreateShortsButtonsFingerprint.result?.let {
+        CreateShortsButtonsFingerprint.resultOrThrow().let {
             ShortsButtons.entries.forEach { button -> button.injectHideCall(it.mutableMethod) }
-        } ?: throw CreateShortsButtonsFingerprint.exception
+        }
 
         // endregion
 
@@ -117,7 +117,7 @@ object HideShortsComponentsPatch : BytecodePatch(
         LithoFilterPatch.addFilter(FILTER_CLASS_DESCRIPTOR)
 
         context.forEachLiteralValueInstruction(
-            HideShortsComponentsResourcePatch.reelPlayerRightPivotV2Size,
+            HideShortsComponentsResourcePatch.reelPlayerRightPivotV2Size
         ) { literalInstructionIndex ->
             val targetIndex = indexOfFirstInstructionOrThrow(literalInstructionIndex) {
                 getReference<MethodReference>()?.name == "getDimensionPixelSize"
@@ -132,13 +132,15 @@ object HideShortsComponentsPatch : BytecodePatch(
             )
         }
 
-
         // endregion
 
         // region Hide the navigation bar.
 
         // Hook to get the pivotBar view.
-        SetPivotBarVisibilityFingerprint.alsoResolve(context, SetPivotBarVisibilityParentFingerprint).let { result->
+        SetPivotBarVisibilityFingerprint.alsoResolve(
+            context,
+            SetPivotBarVisibilityParentFingerprint
+        ).let { result->
             result.mutableMethod.apply {
                 val insertIndex = result.scanResult.patternScanResult!!.endIndex
                 val viewRegister = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
@@ -151,7 +153,10 @@ object HideShortsComponentsPatch : BytecodePatch(
         // Hook to hide the shared navigation bar when the Shorts player is opened.
         RenderBottomNavigationBarFingerprint.alsoResolve(
             context,
-            RenderBottomNavigationBarParentFingerprint
+            if (VersionCheckPatch.is_19_41_or_greater)
+                RenderBottomNavigationBarParentFingerprint
+            else
+                LegacyRenderBottomNavigationBarParentFingerprint
         ).mutableMethod.addInstruction(
             0,
             "invoke-static { p1 }, $FILTER_CLASS_DESCRIPTOR->hideNavigationBar(Ljava/lang/String;)V"
