@@ -12,6 +12,7 @@ import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.shared.fingerprints.SeekbarFingerprint
 import app.revanced.patches.youtube.shared.fingerprints.SeekbarOnDrawFingerprint
+import app.revanced.util.alsoResolve
 
 @Patch(
     name = "Hide seekbar",
@@ -30,7 +31,7 @@ import app.revanced.patches.youtube.shared.fingerprints.SeekbarOnDrawFingerprint
                 "19.05.36",
                 "19.16.39",
                 "19.25.37",
-                "19.34.42",
+                // "19.34.42", // Hide seekbar in feed currently does not work with gradient seekbar.
             ]
         )
     ]
@@ -47,9 +48,10 @@ object HideSeekbarPatch : BytecodePatch(
             SwitchPreference("revanced_hide_seekbar_thumbnail")
         )
 
-        SeekbarFingerprint.result!!.let {
-            SeekbarOnDrawFingerprint.apply { resolve(context, it.mutableClass) }
-        }.result!!.mutableMethod.addInstructionsWithLabels(
+        SeekbarOnDrawFingerprint.alsoResolve(
+            context,
+            SeekbarFingerprint
+        ).mutableMethod.addInstructionsWithLabels(
             0,
             """
                 const/4 v0, 0x0
