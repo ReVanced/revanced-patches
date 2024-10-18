@@ -648,6 +648,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_shorts_green_screen_button_title">Hide green screen button</string>
             <string name="revanced_hide_shorts_green_screen_button_summary_on">Green screen button is hidden</string>
             <string name="revanced_hide_shorts_green_screen_button_summary_off">Green screen button is shown</string>
+            <string name="revanced_hide_shorts_hashtag_button_title">Hide hashtag button</string>
+            <string name="revanced_hide_shorts_hashtag_button_summary_on">Hashtag button is hidden</string>
+            <string name="revanced_hide_shorts_hashtag_button_summary_off">Hashtag button is shown</string>
             <string name="revanced_hide_shorts_search_suggestions_title">Hide search suggestions</string>
             <string name="revanced_hide_shorts_search_suggestions_summary_on">Search suggestions are hidden</string>
             <string name="revanced_hide_shorts_search_suggestions_summary_off">Search suggestions are shown</string>
