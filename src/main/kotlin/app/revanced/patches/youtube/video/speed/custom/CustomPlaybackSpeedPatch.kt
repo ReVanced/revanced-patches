@@ -62,6 +62,7 @@ object CustomPlaybackSpeedPatch : BytecodePatch(
             TextPreference("revanced_custom_playback_speeds", inputType = InputType.TEXT_MULTI_LINE)
         )
 
+        // Replace the speeds float array with custom speeds.
         SpeedArrayGeneratorFingerprint.resultOrThrow().mutableMethod.apply {
             val sizeCallIndex = indexOfFirstInstructionOrThrow {
                 getReference<MethodReference>()?.name == "size"
@@ -91,7 +92,7 @@ object CustomPlaybackSpeedPatch : BytecodePatch(
 
             val originalArrayFetchIndex = indexOfFirstInstructionOrThrow {
                 val reference = getReference<FieldReference>()
-                reference?.type == "[F" && reference.definingClass.contains("PlayerConfigModel")
+                reference?.type == "[F" && reference.definingClass.endsWith("/PlayerConfigModel;")
             }
             val originalArrayFetchDestination = getInstruction<OneRegisterInstruction>(
                 originalArrayFetchIndex
@@ -103,21 +104,18 @@ object CustomPlaybackSpeedPatch : BytecodePatch(
             )
         }
 
+        // Override the min/max speeds that can be used.
         SpeedLimiterFingerprint.resultOrThrow().mutableMethod.apply {
-            val lowerLimitConst = 0.25f.toRawBits()
-            val upperLimitConst2x = 2.0f.toRawBits()
-            val upperLimitConst4x = 4.0f.toRawBits()
-
             val limiterMinConstIndex = indexOfFirstWideLiteralInstructionValueOrThrow(
-                lowerLimitConst.toLong()
+                0.25f.toRawBits().toLong()
             )
             var limiterMaxConstIndex = indexOfFirstWideLiteralInstructionValue(
-                upperLimitConst2x.toLong()
+                2.0f.toRawBits().toLong()
             )
             // Newer targets have 4x max speed.
             if (limiterMaxConstIndex < 0) {
                 limiterMaxConstIndex = indexOfFirstWideLiteralInstructionValueOrThrow(
-                    upperLimitConst4x.toLong()
+                    4.0f.toRawBits().toLong()
                 )
             }
 
