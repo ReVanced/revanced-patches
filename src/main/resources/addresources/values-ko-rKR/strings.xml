@@ -645,6 +645,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_green_screen_button_title">그린 스크린 버튼 숨기기</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">그린 스크린 버튼이 숨겨집니다</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">그린 스크린 버튼이 표시됩니다</string>
+  <string name="revanced_hide_shorts_hashtag_button_title">해시 태그 숨기기</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_on">해시 태그가 숨겨집니다</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_off">해시 태그가 표시됩니다</string>
   <string name="revanced_hide_shorts_search_suggestions_title">검색 추천 숨기기</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">검색 추천이 숨겨집니다</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">검색 추천이 표시됩니다</string>
@@ -966,13 +969,20 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.startpage.ChangeStartPagePatch">
   <string name="revanced_change_start_page_title">앱 시작 페이지 변경하기</string>
   <string name="revanced_change_start_page_entry_default">SponsorBlock 활성화</string>
+  <string name="revanced_change_start_page_entry_browse">채널 둘러보기</string>
   <string name="revanced_change_start_page_entry_explore">플레이어에서 구간 투표 버튼을 표시합니다</string>
+  <string name="revanced_change_start_page_entry_gaming">게임</string>
   <string name="revanced_change_start_page_entry_history">일반적인 건너뛰기 버튼을 표시합니다</string>
   <string name="revanced_change_start_page_entry_library">나 (보관함)</string>
   <string name="revanced_change_start_page_entry_liked_videos">최소화된 건너뛰기 버튼을 표시합니다</string>
+  <string name="revanced_change_start_page_entry_live">실시간</string>
+  <string name="revanced_change_start_page_entry_movies">영화</string>
+  <string name="revanced_change_start_page_entry_music">음악</string>
   <string name="revanced_change_start_page_entry_search">외관</string>
+  <string name="revanced_change_start_page_entry_sports">스포츠</string>
   <string name="revanced_change_start_page_entry_subscriptions">투표 버튼 표시하기</string>
   <string name="revanced_change_start_page_entry_trending">자동으로 건너뛰기 버튼 숨기기</string>
+  <string name="revanced_change_start_page_entry_watch_later">나중에 볼 동영상</string>
   </patch>
   <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">앱을 시작할 때, Shorts 플레이어 비활성화하기</string>
@@ -995,7 +1005,20 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_entry_4">최신 스타일 1</string>
   <string name="revanced_miniplayer_type_entry_5">최신 스타일 2</string>
   <string name="revanced_miniplayer_type_entry_6">최신 스타일 3</string>
+  <string name="revanced_miniplayer_rounded_corners_title">둥근 모서리 활성화하기</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_on">모서리를 둥글게 활성화합니다</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_off">모서리를 각지게 활성화합니다</string>
+  <string name="revanced_miniplayer_double_tap_action_title">두 번 탭하고 핀치하여 크기 조정 활성화하기</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">두 번 누르기 동작 및 핀치하여 크기 조정을 활성화합니다\n\n• 두 번 눌러서 미니 플레이어 크기를 확대합니다\n• 다시 두 번 눌러서 원래 크기로 복원합니다</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_off">두 번 누르기 동작 및 핀치하여 크기 조정을 비활성화합니다</string>
+  <string name="revanced_miniplayer_drag_and_drop_title">드래그 &amp; 드롭 활성화하기</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">드래그 &amp; 드롭이 활성화합니다\n\n미니 플레이어를 화면의 어느 곳이든 드래그할 수 있습니다</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_off">드래그 &amp; 드롭을 비활성화합니다</string>
+  <string name="revanced_miniplayer_hide_expand_close_title">닫기 버튼 숨기기</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">닫기 버튼이 숨겨집니다</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">닫기 버튼이 표시됩니다</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_title">\'펼치기\' &amp; \'닫기\' 버튼 숨기기</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">버튼들이 숨겨집니다\n\n미니 플레이어를 펼치거나 닫을 수 있습니다</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">\'펼치기\' &amp; \'닫기\' 버튼이 표시됩니다</string>
   <string name="revanced_miniplayer_hide_subtext_title">서브텍스트 숨기기</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">서브텍스트가 숨겨집니다\n• 왼쪽 하단에서 표시되는 \'유료 광고 포함\'과 같은 라벨</string>
@@ -1003,6 +1026,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_hide_rewind_forward_title">\'되감기\' &amp; \'빨리 감기\' 버튼 숨기기</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">\'되감기\' &amp; \'빨리 감기\' 버튼이 숨겨집니다</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">\'되감기\' &amp; \'빨리 감기\' 버튼이 표시됩니다</string>
+  <string name="revanced_miniplayer_width_dip_title">크기 초기화하기</string>
+  <string name="revanced_miniplayer_width_dip_summary">화면 크기의 이니셜, 픽셀 단위을 초기화합니다</string>
+  <string name="revanced_miniplayer_width_dip_invalid_toast">픽셀 크기는 %1$s-%2$s 사이어야 합니다</string>
   <string name="revanced_miniplayer_opacity_title">미니 플레이어 오버레이 불투명도</string>
   <string name="revanced_miniplayer_opacity_summary">불투명도 값은 0-100 사이이며, 0은 투명입니다</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">미니 플레이어 오버레이 불투명도는 0-100 사이여야 합니다</string>
@@ -1018,6 +1044,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_summary_off">기본 재생바 색상을 활성화합니다</string>
   <string name="revanced_seekbar_custom_color_value_title">사용자 정의 재생바 색상 설정</string>
   <string name="revanced_seekbar_custom_color_value_summary">재생바 색상</string>
+  <string name="revanced_seekbar_custom_color_invalid">잘못된 재생바 색상값입니다</string>
   </patch>
   <patch id="layout.thumbnails.BypassImageRegionRestrictions">
   <string name="revanced_bypass_image_region_restrictions_title">이미지 표시 제한 국가 우회하기</string>
