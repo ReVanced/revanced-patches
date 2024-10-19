@@ -8,11 +8,11 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.youtube.layout.seekbar.fingerprints.PlayerSeekbarGraidentConfigFingerprint
+import app.revanced.patches.youtube.layout.seekbar.fingerprints.PlayerSeekbarGradientConfigFingerprint
 import app.revanced.patches.youtube.layout.seekbar.fingerprints.PlayerSeekbarColorFingerprint
 import app.revanced.patches.youtube.layout.seekbar.fingerprints.SetSeekbarClickedColorFingerprint
 import app.revanced.patches.youtube.layout.seekbar.fingerprints.ShortsSeekbarColorFingerprint
-import app.revanced.patches.youtube.layout.seekbar.fingerprints.LinearGradientFingerprint
+import app.revanced.patches.youtube.layout.seekbar.fingerprints.LithoLinearGradientFingerprint
 import app.revanced.patches.youtube.layout.theme.LithoColorHookPatch
 import app.revanced.patches.youtube.layout.theme.LithoColorHookPatch.lithoColorOverrideHook
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
@@ -35,8 +35,8 @@ internal object SeekbarColorBytecodePatch : BytecodePatch(
         PlayerSeekbarColorFingerprint,
         ShortsSeekbarColorFingerprint,
         SetSeekbarClickedColorFingerprint,
-        PlayerSeekbarGraidentConfigFingerprint,
-        LinearGradientFingerprint
+        PlayerSeekbarGradientConfigFingerprint,
+        LithoLinearGradientFingerprint
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/theme/SeekbarColorPatch;"
@@ -86,9 +86,9 @@ internal object SeekbarColorBytecodePatch : BytecodePatch(
         } ?: throw SetSeekbarClickedColorFingerprint.exception
 
         if (VersionCheckPatch.is_19_23_or_greater) {
-            PlayerSeekbarGraidentConfigFingerprint.resultOrThrow().mutableMethod.apply {
+            PlayerSeekbarGradientConfigFingerprint.resultOrThrow().mutableMethod.apply {
                 val literalIndex = indexOfFirstWideLiteralInstructionValueOrThrow(
-                    PlayerSeekbarGraidentConfigFingerprint.PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG
+                    PlayerSeekbarGradientConfigFingerprint.PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG
                 )
                 val resultIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
                 val register = getInstruction<OneRegisterInstruction>(resultIndex).registerA
@@ -102,7 +102,7 @@ internal object SeekbarColorBytecodePatch : BytecodePatch(
                 )
             }
 
-            LinearGradientFingerprint.resultOrThrow().mutableMethod.apply {
+            LithoLinearGradientFingerprint.resultOrThrow().mutableMethod.apply {
                 addInstruction(0, "invoke-static/range { p4 .. p5 },  " +
                         "$INTEGRATIONS_CLASS_DESCRIPTOR->setLinearGradient([I[F)V"
                 )
