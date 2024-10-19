@@ -19,6 +19,8 @@ internal object VideoIdBackgroundPlayFingerprint : MethodFingerprint(
         Opcode.MONITOR_EXIT,
         Opcode.RETURN_VOID
     ),
+    // The target snippet of code is buried in a huge switch block and the target method
+    // has been changed many times by YT which makes identifying it more difficult than usual.
     customFingerprint = { methodDef, classDef ->
         // Access flags changed in 19.36
         (methodDef.accessFlags == (AccessFlags.PUBLIC or AccessFlags.FINAL or AccessFlags.DECLARED_SYNCHRONIZED) ||
