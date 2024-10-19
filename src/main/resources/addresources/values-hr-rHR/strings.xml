@@ -181,7 +181,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   </patch>
   <patch id="layout.startpage.ChangeStartPagePatch">
-  <string name="revanced_change_start_page_entry_default">Zadano</string>
   </patch>
   <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
   </patch>
