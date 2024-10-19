@@ -33,10 +33,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
 <resources>
   <app id="shared">
   <patch id="misc.checks.BaseCheckEnvironmentPatch">
-  <string name="revanced_check_environment_failed_title">확인에 실패함</string>
+  <string name="revanced_check_environment_failed_title">환경 검사에 실패함</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">공식 홈페이지 열기</string>
   <string name="revanced_check_environment_dialog_ignore_button">닫기</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;이 앱은 사용자가 패치하지 않은 것 같습니다.&lt;/h5&gt;&lt;br&gt;이 앱은 제대로 작동하지 않을 수 있으며, &lt;b&gt;사용 시 해롭거나 심지어 위험할 수도 있습니다&lt;/b&gt;.&lt;br&gt;&lt;br&gt;이러한 확인은 이 앱이 사전에 패치되었거나 다른 사람으로부터 받은 것임을 의미합니다:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;검증되고 안전한 앱을 사용하고 있는지 확인하려면 &lt;b&gt;이 앱을 제거하고 직접 패치하는 것&lt;/b&gt;을 강력히 권장합니다.&lt;p&gt;&lt;br&gt;이 경고는 두 번만 표시됩니다.</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;이 앱은 사용자가 패치하지 않은 것 같습니다.&lt;/h5&gt;&lt;br&gt;이 앱은 제대로 작동하지 않을 수 있으며, &lt;b&gt;사용 시 해롭거나 심지어 위험할 수도 있습니다&lt;/b&gt;.&lt;br&gt;&lt;br&gt;이러한 검사는 이 앱이 사전에 패치되었거나 다른 사람으로부터 받은 것임을 의미합니다:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;검증되고 안전한 앱을 사용하고 있는지 확인하려면 &lt;b&gt;이 앱을 제거하고 직접 패치하는 것&lt;/b&gt;을 강력히 권장합니다.&lt;p&gt;&lt;br&gt;이 경고는 두 번만 표시됩니다.</string>
   <string name="revanced_check_environment_not_same_patching_device">다른 기기에서 패치됨</string>
   <string name="revanced_check_environment_manager_not_expected_installer">ReVanced Manager에 의해 설치되지 않음</string>
   <string name="revanced_check_environment_not_near_patch_time">10분 이상 전에 패치됨</string>
@@ -231,6 +231,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">스크립트 섹션이 표시됩니다</string>
   <string name="revanced_hide_description_components_screen_title">동영상 설명</string>
   <string name="revanced_hide_description_components_screen_summary">동영상 설명에서 구성요소를 숨기거나 표시할 수 있습니다</string>
+  <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
+  <string name="revanced_hide_doodles_title">YouTube Doodles 숨기기</string>
+  <string name="revanced_hide_doodles_summary_on">YouTube Doodles가 숨겨집니다\n• 이벤트성 YouTube 헤더</string>
+  <string name="revanced_hide_doodles_summary_off">YouTube Doodles가 표시됩니다\n• 이벤트성 YouTube 헤더</string>
+  <string name="revanced_hide_doodles_user_dialog_message">YouTube Doodles는 공휴일이나 기념일 등, 그날에 맞춘 디자인으로 변경되는 왼쪽 상단의 YouTube 헤더를 말합니다\n\n현재 거주하는 지역에서 YouTube Doodles가 표시되어 있는데 이 설정이 활성화되어 있는 경우에는 검색창 아래에 표시되는 카테고리 바도 숨겨집니다</string>
   <string name="revanced_custom_filter_screen_title">사용자 정의 필터</string>
   <string name="revanced_custom_filter_screen_summary">사용자 정의 필터를 사용하여 구성요소를 숨길 수 있습니다</string>
   <string name="revanced_custom_filter_title">사용자 정의 필터 활성화하기</string>
@@ -241,7 +246,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_custom_filter_strings_summary">필터링할 컴포넌트 패스 빌더 문자열을 줄바꿈으로 구분하여 설정합니다\n• 컴포넌트 패스 빌더 문자열은 숨겨질 레이아웃 구성요소를 식별하는 기술적인 이름입니다</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">잘못된 사용자 정의 필터 값입니다: %s</string>
   <string name="revanced_hide_keyword_content_screen_title">키워드 필터링</string>
-  <string name="revanced_hide_keyword_content_screen_summary">키워드 필터를 사용하여 검색 결과와 피드에서 동영상을 숨길 수 있습니다</string>
+  <string name="revanced_hide_keyword_content_screen_summary">키워드 필터를 사용하여 검색 결과 및 피드에서 동영상을 숨길 수 있습니다</string>
   <string name="revanced_hide_keyword_content_home_title">홈 탭에서 키워드 필터 활성화하기</string>
   <string name="revanced_hide_keyword_content_home_summary_on">홈 탭에서 키워드 필터를 활성화합니다</string>
   <string name="revanced_hide_keyword_content_home_summary_off">홈 탭에서 키워드 필터를 비활성화합니다</string>
@@ -628,15 +633,27 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">위치 라벨 숨기기</string>
   <string name="revanced_hide_shorts_location_label_summary_on">위치 라벨이 숨겨집니다</string>
   <string name="revanced_hide_shorts_location_label_summary_off">위치 라벨이 표시됩니다</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">음악 저장 버튼 숨기기</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">음악 저장 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">음악 저장 버튼이 표시됩니다</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">(재생목록에) 음악 저장 버튼 숨기기</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">(재생목록에) 음악 저장 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">(재생목록에) 음악 저장 버튼이 표시됩니다</string>
+  <string name="revanced_hide_shorts_use_template_button_title">탬플릿 사용 버튼 숨기기</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">탬플릿 사용 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">탬플릿 사용 버튼이 표시됩니다</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">예정 버튼 숨기기</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">(Premiere 또는 실시간) 예정 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">(Premiere 또는 실시간) 예정 버튼이 표시됩니다</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">그린 스크린 버튼 숨기기</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_on">그린 스크린 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_off">그린 스크린 버튼이 표시됩니다</string>
   <string name="revanced_hide_shorts_search_suggestions_title">검색 추천 숨기기</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">검색 추천이 숨겨집니다</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">검색 추천이 표시됩니다</string>
   <string name="revanced_hide_shorts_stickers_title">스티커 숨기기</string>
   <string name="revanced_hide_shorts_stickers_summary_on">스티커가 숨겨집니다</string>
   <string name="revanced_hide_shorts_stickers_summary_off">스티커가 표시됩니다</string>
+  <string name="revanced_hide_shorts_like_fountain_title">좋아요 상단 애니메이션 비활성화하기</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_on">좋아요 버튼 상단에 표시되는 애니메이션을 비활성화합니다</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_off">좋아요 버튼 상단에 표시되는 애니메이션을 활성화합니다</string>
   <string name="revanced_hide_shorts_like_button_title">좋아요 버튼 숨기기</string>
   <string name="revanced_hide_shorts_like_button_summary_on">좋아요 버튼이 숨겨집니다</string>
   <string name="revanced_hide_shorts_like_button_summary_off">좋아요 버튼이 표시됩니다</string>
@@ -942,26 +959,20 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_entry_1">18.33.40 - 시크릿 모드에서 Shorts RYD를 복원합니다</string>
   <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - 넓은 동영상 재생 속도 &amp; 화질 메뉴를 복원합니다</string>
-  <string name="revanced_spoof_app_version_target_entry_3">16.09.39 - 이전 보관함 탭을 복원합니다 (나 탭을 비활성화합니다)</string>
+  <string name="revanced_spoof_app_version_target_entry_3">16.09.39 - 이전 보관함 탭을 복원합니다 (내 페이지 탭을 비활성화합니다)</string>
   <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - 이전 재생목록 선반으로 복원합니다</string>
   <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - 이전 레이아웃으로 복원합니다</string>
   </patch>
   <patch id="layout.startpage.ChangeStartPagePatch">
-  <string name="revanced_start_page_title">앱 시작 페이지 변경하기</string>
-  <string name="revanced_start_page_entry_0">기본값</string>
-  <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_start_page_entry_1">홈</string>
-  <string name="revanced_start_page_entry_2">검색</string>
-  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the subscriptions tab. -->
-  <string name="revanced_start_page_entry_3">구독</string>
-  <string name="revanced_start_page_entry_4">탐색</string>
-  <string name="revanced_start_page_entry_5">Shorts</string>
-  <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
-  <string name="revanced_start_page_entry_6">내 페이지</string>
-  <string name="revanced_start_page_entry_7">좋아요 표시한 동영상</string>
-  <!-- 'History' should be translated using the same localized wording YouTube displays for the 'history' section in the 'You' tab. -->
-  <string name="revanced_start_page_entry_8">기록</string>
-  <string name="revanced_start_page_entry_9">인기 급상승</string>
+  <string name="revanced_change_start_page_title">앱 시작 페이지 변경하기</string>
+  <string name="revanced_change_start_page_entry_default">SponsorBlock 활성화</string>
+  <string name="revanced_change_start_page_entry_explore">플레이어에서 구간 투표 버튼을 표시합니다</string>
+  <string name="revanced_change_start_page_entry_history">일반적인 건너뛰기 버튼을 표시합니다</string>
+  <string name="revanced_change_start_page_entry_library">나 (보관함)</string>
+  <string name="revanced_change_start_page_entry_liked_videos">최소화된 건너뛰기 버튼을 표시합니다</string>
+  <string name="revanced_change_start_page_entry_search">외관</string>
+  <string name="revanced_change_start_page_entry_subscriptions">투표 버튼 표시하기</string>
+  <string name="revanced_change_start_page_entry_trending">자동으로 건너뛰기 버튼 숨기기</string>
   </patch>
   <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">앱을 시작할 때, Shorts 플레이어 비활성화하기</string>
@@ -977,16 +988,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.miniplayer.MiniplayerPatch">
   <string name="revanced_miniplayer_screen_title">미니 플레이어</string>
   <string name="revanced_miniplayer_screen_summary">앱 내에서 최소화된 플레이어의 스타일을 변경할 수 있습니다</string>
-  <string name="revanced_miniplayer_type_title">미니 플레이어 타입 설정</string>
+  <string name="revanced_miniplayer_type_title">미니 플레이어 유형 설정</string>
   <string name="revanced_miniplayer_type_entry_1">기기 기본값 사용</string>
   <string name="revanced_miniplayer_type_entry_2">폰</string>
   <string name="revanced_miniplayer_type_entry_3">태블릿</string>
   <string name="revanced_miniplayer_type_entry_4">최신 스타일 1</string>
   <string name="revanced_miniplayer_type_entry_5">최신 스타일 2</string>
   <string name="revanced_miniplayer_type_entry_6">최신 스타일 3</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">\'펼치기\' &amp; \'닫기\' 버튼 숨기기</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">\'펼치기\' &amp; \'닫기\' 버튼이 숨겨집니다\n• 스와이프하여 미니 플레이어를 펼치거나 닫을 수 있습니다</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">\'펼치기\' &amp; \'닫기\' 버튼이 표시됩니다</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_title">\'펼치기\' &amp; \'닫기\' 버튼 숨기기</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">\'펼치기\' &amp; \'닫기\' 버튼이 표시됩니다</string>
   <string name="revanced_miniplayer_hide_subtext_title">서브텍스트 숨기기</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">서브텍스트가 숨겨집니다\n• 왼쪽 하단에서 표시되는 \'유료 광고 포함\'과 같은 라벨</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">서브텍스트가 표시됩니다\n• 왼쪽 하단에서 표시되는 \'유료 광고 포함\'과 같은 라벨</string>
@@ -1008,7 +1018,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_summary_off">기본 재생바 색상을 활성화합니다</string>
   <string name="revanced_seekbar_custom_color_value_title">사용자 정의 재생바 색상 설정</string>
   <string name="revanced_seekbar_custom_color_value_summary">재생바 색상</string>
-  <string name="revanced_seekbar_custom_color_invalid">잘못된 재생바 색상 값이므로 기본값으로 초기화합니다</string>
   </patch>
   <patch id="layout.thumbnails.BypassImageRegionRestrictions">
   <string name="revanced_bypass_image_region_restrictions_title">이미지 표시 제한 국가 우회하기</string>

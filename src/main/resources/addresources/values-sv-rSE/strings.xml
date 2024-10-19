@@ -231,6 +231,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">Transkriptsektionen är synlig</string>
   <string name="revanced_hide_description_components_screen_title">Videobeskrivning</string>
   <string name="revanced_hide_description_components_screen_summary">Dölj eller visa videobeskrivningskomponenter</string>
+  <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
+  <string name="revanced_hide_doodles_title">Dölj YouTube Doodles</string>
+  <string name="revanced_hide_doodles_summary_on">Sökfältet Doodles är dolda</string>
+  <string name="revanced_hide_doodles_summary_off">Sökfältet Doodles visas</string>
+  <string name="revanced_hide_doodles_user_dialog_message">YouTube Doodles dyker upp några dagar varje år.\n\nOm en Doodle för närvarande visas i din region och denna gömma inställning är på, sedan filterfältet nedanför sökfältet kommer också att döljas.</string>
   <string name="revanced_custom_filter_screen_title">Anpassat filter</string>
   <string name="revanced_custom_filter_screen_summary">Dölj komponenter med anpassade filter</string>
   <string name="revanced_custom_filter_title">Aktivera anpassat filter</string>
@@ -629,14 +634,29 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_summary_on">Platsetiketten är dold</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Platsetikett är synlig</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Dölj spara musikknappen</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Spara musik är dold</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Spara musik visas</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">Spara musikknappen är dold</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">Spara musikknappen visas</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Dölj användning av mallknapp</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Använd mallknappen är dold</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Använd mallknappen visas</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">Dölj kommande knapp</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">Kommande knapp är dold</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">Kommande knapp visas</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">Dölj grön skärmknapp</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_on">Grön skärm-knappen är dold</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_off">Grön skärmknapp visas</string>
+  <string name="revanced_hide_shorts_hashtag_button_title">Dölj hashtag-knapp</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_on">Hashtag-knappen är dold</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_off">Hashtag-knappen visas</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Dölj sökförslag</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Sökförslag är dolda</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Sökförslag är synliga</string>
   <string name="revanced_hide_shorts_stickers_title">Dölj klistermärken</string>
   <string name="revanced_hide_shorts_stickers_summary_on">Klistermärken är dolda</string>
   <string name="revanced_hide_shorts_stickers_summary_off">Klistermärken visas</string>
+  <string name="revanced_hide_shorts_like_fountain_title">Dölj som fontän</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_on">Som knappen fontän animering är dold</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_off">Som knappen fontän animering visas</string>
   <string name="revanced_hide_shorts_like_button_title">Dölj knappen gilla</string>
   <string name="revanced_hide_shorts_like_button_summary_on">Knappen gilla är dold</string>
   <string name="revanced_hide_shorts_like_button_summary_off">Knappen gilla är synlig</string>
@@ -947,20 +967,22 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - Återställ gamla användargränssnitt</string>
   </patch>
   <patch id="layout.startpage.ChangeStartPagePatch">
-  <string name="revanced_start_page_title">Ställ in startsida</string>
-  <string name="revanced_start_page_entry_0">Standard</string>
-  <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_start_page_entry_1">Hem</string>
-  <string name="revanced_start_page_entry_2">Sök</string>
-  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the subscriptions tab. -->
-  <string name="revanced_start_page_entry_3">Prenumerationer</string>
-  <string name="revanced_start_page_entry_4">Utforska</string>
-  <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
-  <string name="revanced_start_page_entry_6">Du flik</string>
-  <string name="revanced_start_page_entry_7">Gillade videor</string>
-  <!-- 'History' should be translated using the same localized wording YouTube displays for the 'history' section in the 'You' tab. -->
-  <string name="revanced_start_page_entry_8">Historik</string>
-  <string name="revanced_start_page_entry_9">Trendande</string>
+  <string name="revanced_change_start_page_title">Ställ in startsida</string>
+  <string name="revanced_change_start_page_entry_default">Standard</string>
+  <string name="revanced_change_start_page_entry_browse">Bläddra bland kanaler</string>
+  <string name="revanced_change_start_page_entry_explore">Utforska</string>
+  <string name="revanced_change_start_page_entry_gaming">Spel</string>
+  <string name="revanced_change_start_page_entry_history">Historik</string>
+  <string name="revanced_change_start_page_entry_library">Bibliotek</string>
+  <string name="revanced_change_start_page_entry_liked_videos">Gillade videor</string>
+  <string name="revanced_change_start_page_entry_live">Live</string>
+  <string name="revanced_change_start_page_entry_movies">Filmer</string>
+  <string name="revanced_change_start_page_entry_music">Musik</string>
+  <string name="revanced_change_start_page_entry_search">Sök</string>
+  <string name="revanced_change_start_page_entry_sports">Sport</string>
+  <string name="revanced_change_start_page_entry_subscriptions">Prenumerationer</string>
+  <string name="revanced_change_start_page_entry_trending">Trendande</string>
+  <string name="revanced_change_start_page_entry_watch_later">Titta senare</string>
   </patch>
   <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Inaktivera återupptagande av Shorts spelare</string>
@@ -983,15 +1005,30 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
   <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Dölj expandera och stäng knappar</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Knappar är dolda\n(svep minispelare för att expandera eller stänga)</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Expandera och stäng knappar visas</string>
+  <string name="revanced_miniplayer_rounded_corners_title">Aktivera rundade hörn</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_on">Hörnen är rundade</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_off">Hörnen är kvadratiska</string>
+  <string name="revanced_miniplayer_double_tap_action_title">Aktivera dubbeltryck och nypa för att ändra storlek</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">Dubbeltryck på åtgärder och nypa för att ändra storlek är aktiverat\n\n• Dubbeltryck för att öka minispelarstorlek\n• Dubbeltryck igen för att återställa originalstorleken</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_off">Dubbeltryck åtgärd och nypa för att ändra storlek är inaktiverad</string>
+  <string name="revanced_miniplayer_drag_and_drop_title">Aktivera dra och släpp</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">Dra och släpp är aktiverat\n\nMiniplayer kan dras till valfritt hörn av skärmen</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_off">Dra och släpp är inaktiverat</string>
+  <string name="revanced_miniplayer_hide_expand_close_title">Dölj stängningsknappen</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">Stäng knappen är dold</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">Stäng knappen visas</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Dölj expandera och stäng knappar</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Knapparna är dolda\n\nSvep för att expandera eller stänga</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Expandera och stäng knappar visas</string>
   <string name="revanced_miniplayer_hide_subtext_title">Dölj undertexter</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Undertexter är dolda</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Undertexter visas</string>
   <string name="revanced_miniplayer_hide_rewind_forward_title">Dölj hoppa över framåt- och bakknapparna</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Hoppa framåt och tillbaka är dolda</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Hoppa framåt och tillbaka visas</string>
+  <string name="revanced_miniplayer_width_dip_title">Ursprunglig storlek</string>
+  <string name="revanced_miniplayer_width_dip_summary">Inledande på skärmstorlek, i pixlar</string>
+  <string name="revanced_miniplayer_width_dip_invalid_toast">Pixelstorlek måste vara mellan %1$s och %2$s</string>
   <string name="revanced_miniplayer_opacity_title">Överlager opacitet</string>
   <string name="revanced_miniplayer_opacity_summary">Opacitetsvärde mellan 0-100, där 0 är transparent</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Miniplayer overlay opacitet måste vara mellan 0-100</string>
@@ -1007,7 +1044,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_summary_off">Original sökfält färg visas</string>
   <string name="revanced_seekbar_custom_color_value_title">Anpassad sökfält färg</string>
   <string name="revanced_seekbar_custom_color_value_summary">Färgen på sökfältet</string>
-  <string name="revanced_seekbar_custom_color_invalid">Ogiltigt sökfältets färgvärde. Använder standardvärde.</string>
+  <string name="revanced_seekbar_custom_color_invalid">Ogiltigt sökfältets färgvärde</string>
   </patch>
   <patch id="layout.thumbnails.BypassImageRegionRestrictions">
   <string name="revanced_bypass_image_region_restrictions_title">Begränsningar för förbipassering av bildregionen</string>
