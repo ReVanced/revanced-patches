@@ -178,7 +178,8 @@ public final class LayoutComponentsFilter extends Filter {
 
         final var playables = new StringFilterGroup(
                 Settings.HIDE_PLAYABLES,
-                "horizontal_gaming_shelf.eml"
+                "horizontal_gaming_shelf.eml",
+                "mini_game_card.eml"
         );
 
         final var quickActions = new StringFilterGroup(
