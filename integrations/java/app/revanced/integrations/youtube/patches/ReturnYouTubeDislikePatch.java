@@ -699,10 +699,12 @@ public class ReturnYouTubeDislikePatch {
             if (!Settings.RYD_ENABLED.get()) {
                 return;
             }
+
             final boolean isNoneHiddenOrMinimized = PlayerType.getCurrent().isNoneHiddenOrMinimized();
             if (isNoneHiddenOrMinimized && !Settings.RYD_SHORTS.get()) {
                 return;
             }
+
             ReturnYouTubeDislike videoData = currentVideoData;
             if (videoData == null) {
                 Logger.printDebug(() -> "Cannot send vote, as current video data is null");
@@ -723,6 +725,7 @@ public class ReturnYouTubeDislikePatch {
                     return;
                 }
             }
+
             Logger.printException(() -> "Unknown vote type: " + vote);
         } catch (Exception ex) {
             Logger.printException(() -> "sendVote failure", ex);

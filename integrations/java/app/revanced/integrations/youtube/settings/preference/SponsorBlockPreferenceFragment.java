@@ -381,6 +381,8 @@ public class SponsorBlockPreferenceFragment extends PreferenceFragment {
 
         importExport = new EditTextPreference(context) {
             protected void onPrepareDialogBuilder(AlertDialog.Builder builder) {
+                Utils.setEditTextDialogTheme(builder);
+
                 builder.setNeutralButton(str("revanced_sb_settings_copy"), (dialog, which) -> {
                     Utils.setClipboard(getEditText().getText().toString());
                 });

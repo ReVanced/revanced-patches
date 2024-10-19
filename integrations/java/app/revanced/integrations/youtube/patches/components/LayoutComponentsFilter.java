@@ -423,7 +423,6 @@ public final class LayoutComponentsFilter extends Filter {
         // Check navigation button last.
         // Only filter if the library tab is not selected.
         // This check is important as the shelf layout is used for the library tab playlists.
-        NavigationButton selectedNavButton = NavigationButton.getSelectedNavigationButton();
-        return selectedNavButton != null && !selectedNavButton.isLibraryOrYouTab();
+        return NavigationButton.getSelectedNavigationButton() != NavigationButton.LIBRARY;
     }
 }

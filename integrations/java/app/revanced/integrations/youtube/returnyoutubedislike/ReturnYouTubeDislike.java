@@ -585,8 +585,13 @@ public class ReturnYouTubeDislike {
     public void sendVote(@NonNull Vote vote) {
         Utils.verifyOnMainThread();
         Objects.requireNonNull(vote);
+
         try {
-            if (isShort != PlayerType.getCurrent().isNoneOrHidden()) {
+            PlayerType currentType = PlayerType.getCurrent();
+            if (isShort != currentType.isNoneHiddenOrMinimized()) {
+                Logger.printDebug(() -> "Cannot vote for video: " + videoId
+                        + " as current player type does not match: " + currentType);
+
                 // Shorts was loaded with regular video present, then Shorts was closed.
                 // and then user voted on the now visible original video.
                 // Cannot send a vote, because this instance is for the wrong video.

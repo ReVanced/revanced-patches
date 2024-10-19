@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 
 import app.revanced.integrations.shared.Logger;
 import app.revanced.integrations.shared.Utils;
+import app.revanced.integrations.shared.settings.BaseSettings;
 import app.revanced.integrations.shared.settings.BooleanSetting;
 import app.revanced.integrations.shared.settings.Setting;
 
@@ -141,8 +142,13 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
             } else if (pref.hasKey()) {
                 String key = pref.getKey();
                 Setting<?> setting = Setting.getSettingFromPath(key);
+
                 if (setting != null) {
                     updatePreference(pref, setting, syncSettingValue, applySettingToPreference);
+                } else if (BaseSettings.DEBUG.get() && (pref instanceof SwitchPreference
+                        || pref instanceof EditTextPreference || pref instanceof ListPreference)) {
+                    // Probably a typo in the patches preference declaration.
+                    Logger.printException(() -> "Preference key has no setting: " + key);
                 }
             }
         }

@@ -1,5 +1,18 @@
 package app.revanced.integrations.youtube.settings;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+import static app.revanced.integrations.shared.settings.Setting.*;
+import static app.revanced.integrations.youtube.patches.ChangeStartPagePatch.StartPage;
+import static app.revanced.integrations.youtube.patches.MiniplayerPatch.MiniplayerHideExpandCloseAvailability;
+import static app.revanced.integrations.youtube.patches.MiniplayerPatch.MiniplayerType;
+import static app.revanced.integrations.youtube.patches.MiniplayerPatch.MiniplayerType.*;
+import static app.revanced.integrations.youtube.sponsorblock.objects.CategoryBehaviour.*;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 import app.revanced.integrations.shared.Logger;
 import app.revanced.integrations.shared.settings.*;
 import app.revanced.integrations.shared.settings.preference.SharedPrefCategory;
@@ -11,18 +24,6 @@ import app.revanced.integrations.youtube.patches.spoof.ClientType;
 import app.revanced.integrations.youtube.patches.spoof.SpoofAppVersionPatch;
 import app.revanced.integrations.youtube.patches.spoof.SpoofVideoStreamsPatch;
 import app.revanced.integrations.youtube.sponsorblock.SponsorBlockSettings;
-
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-
-import static app.revanced.integrations.shared.settings.Setting.*;
-import static app.revanced.integrations.youtube.patches.MiniplayerPatch.MiniplayerType;
-import static app.revanced.integrations.youtube.patches.MiniplayerPatch.MiniplayerType.MODERN_1;
-import static app.revanced.integrations.youtube.patches.MiniplayerPatch.MiniplayerType.MODERN_3;
-import static app.revanced.integrations.youtube.sponsorblock.objects.CategoryBehaviour.*;
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
 
 @SuppressWarnings("deprecation")
 public class Settings extends BaseSettings {
@@ -130,16 +131,21 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting DISABLE_LIKE_SUBSCRIBE_GLOW = new BooleanSetting("revanced_disable_like_subscribe_glow", FALSE);
     public static final BooleanSetting HIDE_AUTOPLAY_BUTTON = new BooleanSetting("revanced_hide_autoplay_button", TRUE, true);
     public static final BooleanSetting HIDE_CAST_BUTTON = new BooleanSetting("revanced_hide_cast_button", TRUE, true);
-    public static final BooleanSetting HIDE_PLAYER_BUTTONS = new BooleanSetting("revanced_hide_player_buttons", FALSE);
+    public static final BooleanSetting HIDE_PLAYER_BUTTONS = new BooleanSetting("revanced_hide_player_buttons", FALSE, true);
     public static final BooleanSetting COPY_VIDEO_URL = new BooleanSetting("revanced_copy_video_url", FALSE);
     public static final BooleanSetting COPY_VIDEO_URL_TIMESTAMP = new BooleanSetting("revanced_copy_video_url_timestamp", TRUE);
     public static final BooleanSetting PLAYBACK_SPEED_DIALOG_BUTTON = new BooleanSetting("revanced_playback_speed_dialog_button", FALSE);
 
     // Miniplayer
     public static final EnumSetting<MiniplayerType> MINIPLAYER_TYPE = new EnumSetting<>("revanced_miniplayer_type", MiniplayerType.ORIGINAL, true);
-    public static final BooleanSetting MINIPLAYER_HIDE_EXPAND_CLOSE = new BooleanSetting("revanced_miniplayer_hide_expand_close", FALSE, true, MINIPLAYER_TYPE.availability(MODERN_1, MODERN_3));
+    private static final Availability MINIPLAYER_ANY_MODERN = MINIPLAYER_TYPE.availability(MODERN_1, MODERN_2, MODERN_3, MODERN_4);
+    public static final BooleanSetting MINIPLAYER_DOUBLE_TAP_ACTION = new BooleanSetting("revanced_miniplayer_double_tap_action", TRUE, true, MINIPLAYER_ANY_MODERN);
+    public static final BooleanSetting MINIPLAYER_DRAG_AND_DROP = new BooleanSetting("revanced_miniplayer_drag_and_drop", TRUE, true, MINIPLAYER_ANY_MODERN);
+    public static final BooleanSetting MINIPLAYER_HIDE_EXPAND_CLOSE = new BooleanSetting("revanced_miniplayer_hide_expand_close", FALSE, true, new MiniplayerHideExpandCloseAvailability());
     public static final BooleanSetting MINIPLAYER_HIDE_SUBTEXT = new BooleanSetting("revanced_miniplayer_hide_subtext", FALSE, true, MINIPLAYER_TYPE.availability(MODERN_1, MODERN_3));
     public static final BooleanSetting MINIPLAYER_HIDE_REWIND_FORWARD = new BooleanSetting("revanced_miniplayer_hide_rewind_forward", FALSE, true, MINIPLAYER_TYPE.availability(MODERN_1));
+    public static final BooleanSetting MINIPLAYER_ROUNDED_CORNERS = new BooleanSetting("revanced_miniplayer_rounded_corners", TRUE, true, MINIPLAYER_ANY_MODERN);
+    public static final IntegerSetting MINIPLAYER_WIDTH_DIP = new IntegerSetting("revanced_miniplayer_width_dip", 192, true, MINIPLAYER_ANY_MODERN);
     public static final IntegerSetting MINIPLAYER_OPACITY = new IntegerSetting("revanced_miniplayer_opacity", 100, true, MINIPLAYER_TYPE.availability(MODERN_1));
 
     // External downloader
@@ -188,7 +194,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_VIDEO_QUALITY_MENU_FOOTER = new BooleanSetting("revanced_hide_video_quality_menu_footer", FALSE);
 
     // General layout
-    public static final StringSetting START_PAGE = new StringSetting("revanced_start_page", "");
+    public static final EnumSetting<StartPage> CHANGE_START_PAGE = new EnumSetting<>("revanced_change_start_page", StartPage.ORIGINAL, true);
     public static final BooleanSetting SPOOF_APP_VERSION = new BooleanSetting("revanced_spoof_app_version", FALSE, true, "revanced_spoof_app_version_user_dialog_message");
     public static final StringSetting SPOOF_APP_VERSION_TARGET = new StringSetting("revanced_spoof_app_version_target", "17.33.42", true, parent(SPOOF_APP_VERSION));
     public static final BooleanSetting TABLET_LAYOUT = new BooleanSetting("revanced_tablet_layout", FALSE, true, "revanced_tablet_layout_user_dialog_message");
@@ -239,12 +245,12 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_SHORTS_VIDEO_TITLE = new BooleanSetting("revanced_hide_shorts_video_title", FALSE);
     public static final BooleanSetting HIDE_SHORTS_SOUND_METADATA_LABEL = new BooleanSetting("revanced_hide_shorts_sound_metadata_label", FALSE);
     public static final BooleanSetting HIDE_SHORTS_FULL_VIDEO_LINK_LABEL = new BooleanSetting("revanced_hide_shorts_full_video_link_label", FALSE);
-    public static final BooleanSetting HIDE_SHORTS_NAVIGATION_BAR = new BooleanSetting("revanced_hide_shorts_navigation_bar", TRUE, true);
+    public static final BooleanSetting HIDE_SHORTS_NAVIGATION_BAR = new BooleanSetting("revanced_hide_shorts_navigation_bar", FALSE, true);
 
     // Seekbar
     public static final BooleanSetting DISABLE_PRECISE_SEEKING_GESTURE = new BooleanSetting("revanced_disable_precise_seeking_gesture", TRUE);
     public static final BooleanSetting SEEKBAR_TAPPING = new BooleanSetting("revanced_seekbar_tapping", TRUE);
-    public static final BooleanSetting SLIDE_TO_SEEK = new BooleanSetting("revanced_slide_to_seek", FALSE);
+    public static final BooleanSetting SLIDE_TO_SEEK = new BooleanSetting("revanced_slide_to_seek", FALSE, true);
     public static final BooleanSetting RESTORE_OLD_SEEKBAR_THUMBNAILS = new BooleanSetting("revanced_restore_old_seekbar_thumbnails", TRUE);
     public static final BooleanSetting HIDE_SEEKBAR = new BooleanSetting("revanced_hide_seekbar", FALSE, true);
     public static final BooleanSetting HIDE_SEEKBAR_THUMBNAIL = new BooleanSetting("revanced_hide_seekbar_thumbnail", FALSE);

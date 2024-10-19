@@ -4,19 +4,31 @@ import static app.revanced.integrations.shared.StringRef.str;
 
 import android.graphics.Color;
 
-import app.revanced.integrations.youtube.settings.Settings;
+import java.util.Arrays;
+
 import app.revanced.integrations.shared.Logger;
 import app.revanced.integrations.shared.Utils;
+import app.revanced.integrations.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
 public final class SeekbarColorPatch {
 
-    private static final boolean USE_SEEKBAR_CUSTOM_COLOR = Settings.SEEKBAR_CUSTOM_COLOR.get();
+    private static final boolean SEEKBAR_CUSTOM_COLOR_ENABLED = Settings.SEEKBAR_CUSTOM_COLOR.get();
 
     /**
      * Default color of the seekbar.
      */
     private static final int ORIGINAL_SEEKBAR_COLOR = 0xFFFF0000;
+
+    /**
+     * Default colors of the gradient seekbar.
+     */
+    private static final int[] ORIGINAL_SEEKBAR_GRADIENT_COLORS = { 0xFFFF0033, 0xFFFF2791 };
+
+    /**
+     * Default positions of the gradient seekbar.
+     */
+    private static final float[] ORIGINAL_SEEKBAR_GRADIENT_POSITIONS = { 0.8f, 1.0f };
 
     /**
      * Default YouTube seekbar color brightness.
@@ -40,7 +52,7 @@ public final class SeekbarColorPatch {
         Color.colorToHSV(ORIGINAL_SEEKBAR_COLOR, hsv);
         ORIGINAL_SEEKBAR_COLOR_BRIGHTNESS = hsv[2];
 
-        if (USE_SEEKBAR_CUSTOM_COLOR) {
+        if (SEEKBAR_CUSTOM_COLOR_ENABLED) {
             loadCustomSeekbarColor();
         }
     }
@@ -60,6 +72,14 @@ public final class SeekbarColorPatch {
         return seekbarColor;
     }
 
+    public static boolean playerSeekbarGradientEnabled(boolean original) {
+        if (original) {
+            Logger.printDebug(() -> "playerSeekbarGradientEnabled original: " + true);
+            if (SEEKBAR_CUSTOM_COLOR_ENABLED) return false;
+        }
+
+        return original;
+    }
 
     /**
      * Injection point.
@@ -74,9 +94,30 @@ public final class SeekbarColorPatch {
             if (Settings.HIDE_SEEKBAR_THUMBNAIL.get()) {
                 return 0x00000000;
             }
+
             return getSeekbarColorValue(ORIGINAL_SEEKBAR_COLOR);
         }
         return colorValue;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void setLinearGradient(int[] colors, float[] positions) {
+        if (SEEKBAR_CUSTOM_COLOR_ENABLED) {
+            // Most litho usage of linear gradients is hooked here,
+            // so must only change if the values are those for the seekbar.
+            if (Arrays.equals(ORIGINAL_SEEKBAR_GRADIENT_COLORS, colors)
+                    && Arrays.equals(ORIGINAL_SEEKBAR_GRADIENT_POSITIONS, positions)) {
+                Arrays.fill(colors, Settings.HIDE_SEEKBAR_THUMBNAIL.get()
+                        ? 0x00000000
+                        : seekbarColor);
+                return;
+            }
+
+            Logger.printDebug(() -> "Ignoring gradient colors: " + Arrays.toString(colors)
+                    + " positions: " + Arrays.toString(positions));
+        }
     }
 
     /**
@@ -85,6 +126,10 @@ public final class SeekbarColorPatch {
      * Overrides color when video player seekbar is clicked.
      */
     public static int getVideoPlayerSeekbarClickedColor(int colorValue) {
+        if (!SEEKBAR_CUSTOM_COLOR_ENABLED) {
+            return colorValue;
+        }
+
         return colorValue == ORIGINAL_SEEKBAR_COLOR
                 ? getSeekbarColorValue(ORIGINAL_SEEKBAR_COLOR)
                 : colorValue;
@@ -96,6 +141,10 @@ public final class SeekbarColorPatch {
      * Overrides color used for the video player seekbar.
      */
     public static int getVideoPlayerSeekbarColor(int originalColor) {
+        if (!SEEKBAR_CUSTOM_COLOR_ENABLED) {
+            return originalColor;
+        }
+
         return getSeekbarColorValue(originalColor);
     }
 
@@ -105,9 +154,10 @@ public final class SeekbarColorPatch {
      */
     private static int getSeekbarColorValue(int originalColor) {
         try {
-            if (!USE_SEEKBAR_CUSTOM_COLOR || originalColor == seekbarColor) {
+            if (!SEEKBAR_CUSTOM_COLOR_ENABLED || originalColor == seekbarColor) {
                 return originalColor; // nothing to do
             }
+
             final int alphaDifference = Color.alpha(originalColor) - Color.alpha(ORIGINAL_SEEKBAR_COLOR);
 
             // The seekbar uses the same color but different brightness for different situations.
@@ -131,11 +181,13 @@ public final class SeekbarColorPatch {
         }
     }
 
-    static int clamp(int value, int lower, int upper) {
+    /** @noinspection SameParameterValue */
+    private static int clamp(int value, int lower, int upper) {
         return Math.max(lower, Math.min(value, upper));
     }
 
-    static float clamp(float value, float lower, float upper) {
+    /** @noinspection SameParameterValue */
+    private static float clamp(float value, float lower, float upper) {
         return Math.max(lower, Math.min(value, upper));
     }
 }

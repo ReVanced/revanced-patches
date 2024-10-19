@@ -27,8 +27,8 @@ public class VotingButtonController {
     public static void initialize(View youtubeControlsLayout) {
         try {
             Logger.printDebug(() -> "initializing voting button");
-            ImageView imageView = Objects.requireNonNull(youtubeControlsLayout.findViewById(
-                    getResourceIdentifier("revanced_sb_voting_button", "id")));
+            ImageView imageView = Objects.requireNonNull(Utils.getChildViewByResourceName(
+                    youtubeControlsLayout, "revanced_sb_voting_button"));
             imageView.setVisibility(View.GONE);
             imageView.setOnClickListener(v -> SponsorBlockUtils.onVotingClicked(v.getContext()));
 

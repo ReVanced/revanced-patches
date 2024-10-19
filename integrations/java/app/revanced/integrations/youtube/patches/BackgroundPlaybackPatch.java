@@ -8,7 +8,9 @@ public class BackgroundPlaybackPatch {
     /**
      * Injection point.
      */
-    public static boolean playbackIsNotShort() {
+    public static boolean allowBackgroundPlayback(boolean original) {
+        if (original) return true;
+
         // Steps to verify most edge cases:
         // 1. Open a regular video
         // 2. Minimize app (PIP should appear)

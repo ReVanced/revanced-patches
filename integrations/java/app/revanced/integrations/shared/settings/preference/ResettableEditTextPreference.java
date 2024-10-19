@@ -7,6 +7,8 @@ import android.preference.EditTextPreference;
 import android.util.AttributeSet;
 import android.widget.Button;
 import android.widget.EditText;
+
+import app.revanced.integrations.shared.Utils;
 import app.revanced.integrations.shared.settings.Setting;
 import app.revanced.integrations.shared.Logger;
 
@@ -33,6 +35,8 @@ public class ResettableEditTextPreference extends EditTextPreference {
     @Override
     protected void onPrepareDialogBuilder(AlertDialog.Builder builder) {
         super.onPrepareDialogBuilder(builder);
+        Utils.setEditTextDialogTheme(builder);
+
         Setting<?> setting = Setting.getSettingFromPath(getKey());
         if (setting != null) {
             builder.setNeutralButton(str("revanced_settings_reset"), null);
