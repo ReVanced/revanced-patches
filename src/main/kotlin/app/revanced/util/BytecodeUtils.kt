@@ -131,6 +131,9 @@ fun Method.indexOfIdResourceOrThrow(resourceName: String): Int {
     return index
 }
 
+// TODO Rename these from 'FirstWideLiteralInstruction' to 'FirstLiteralInstruction',
+// since NarrowLiteralInstruction is a subclass of WideLiteralInstruction.
+
 /**
  * Find the index of the first wide literal instruction with the given value.
  *
