@@ -84,7 +84,6 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
             "com.google.android.youtube", [
                 "18.38.44",
                 "18.49.37",
-                "19.05.36",
                 // 19.14.43 // Incomplete code for modern miniplayers.
                 // 19.15.36 // Different code for handling subtitle texts and not worth supporting.
                 "19.16.39", // First with modern miniplayers.

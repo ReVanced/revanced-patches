@@ -25,7 +25,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
             "com.google.android.youtube", [
                 // 18.43 is the earliest target this patch works.
                 "18.49.37",
-                "19.05.36",
                 "19.16.39",
                 "19.25.37",
                 "19.34.42",
