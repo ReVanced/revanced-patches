@@ -44,12 +44,12 @@ internal object DisableCairoSettingsPatch : BytecodePatch(
             val literalIndex = indexOfFirstWideLiteralInstructionValueOrThrow(
                 CarioFragmentConfigFingerprint.CAIRO_CONFIG_LITERAL_VALUE
             )
-            val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
-            val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+            val resultIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
+            val register = getInstruction<OneRegisterInstruction>(resultIndex).registerA
 
             addInstruction(
-                targetIndex + 1,
-                "const/16 v$targetRegister, 0x0"
+                resultIndex + 1,
+                "const/16 v$register, 0x0"
             )
         }
     }
