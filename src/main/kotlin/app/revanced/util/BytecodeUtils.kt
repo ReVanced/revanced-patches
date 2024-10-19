@@ -69,6 +69,15 @@ fun MutableMethod.injectHideViewCall(
 
 /**
  * Inserts instructions at a given index, using the existing control flow label at that index.
+ *
+ * Effectively this changes the code from:
+ * :label
+ * (original code)
+ *
+ * Into:
+ * :label
+ * (patch code)
+ * (original code)
  */
 internal fun MutableMethod.addInstructionsAtControlFlowLabel(
     insertIndex: Int,
