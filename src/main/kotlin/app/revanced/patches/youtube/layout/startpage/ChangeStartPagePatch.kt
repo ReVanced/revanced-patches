@@ -58,7 +58,7 @@ object ChangeStartPagePatch : BytecodePatch(
             )
         )
 
-        // Hook broseId.
+        // Hook browseId.
         BrowseIdFingerprint.resultOrThrow().mutableMethod.apply {
             val browseIdIndex = indexOfFirstInstructionOrThrow {
                 getReference<StringReference>()?.string == "FEwhat_to_watch"
