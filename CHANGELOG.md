@@ -1,3 +1,16 @@
+# [4.17.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v4.17.0-dev.12...v4.17.0-dev.13) (2024-10-19)
+
+
+### Bug Fixes
+
+* **YouTube - GmsCoreSupport:** Add more replacements ([7f100d6](https://github.com/ReVanced/revanced-patches/commit/7f100d63c10fa0e0c77eaadf9a377747c592e7c1))
+* **YouTube - GmsCoreSupport:** Remove unclear patch changes ([f609a6f](https://github.com/ReVanced/revanced-patches/commit/f609a6f816cda9a7515ce42efd466690f1c48a1d))
+
+
+### Performance Improvements
+
+* **YouTube - GmsCore support:** Improve performance by using hashsets ([2c5d390](https://github.com/ReVanced/revanced-patches/commit/2c5d390fb1275dc3da5a3b912e221b7d594a1561))
+
 # [4.17.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v4.17.0-dev.11...v4.17.0-dev.12) (2024-10-19)
 
 
