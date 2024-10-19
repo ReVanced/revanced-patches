@@ -16,7 +16,6 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.resultOrThrow
-import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
@@ -62,8 +61,7 @@ object ChangeStartPagePatch : BytecodePatch(
         // Hook broseId.
         BrowseIdFingerprint.resultOrThrow().mutableMethod.apply {
             val browseIdIndex = indexOfFirstInstructionOrThrow {
-                opcode == Opcode.CONST_STRING &&
-                        getReference<StringReference>()?.string == "FEwhat_to_watch"
+                getReference<StringReference>()?.string == "FEwhat_to_watch"
             }
             val browseIdRegister = getInstruction<OneRegisterInstruction>(browseIdIndex).registerA
 
