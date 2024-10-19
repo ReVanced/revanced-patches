@@ -3,6 +3,7 @@ package app.revanced.util
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
@@ -69,6 +70,7 @@ fun MutableMethod.injectHideViewCall(
 
 /**
  * Inserts instructions at a given index, using the existing control flow label at that index.
+ * Inserted instructions can have it's own control flow labels as well.
  *
  * Effectively this changes the code from:
  * :label
@@ -88,7 +90,7 @@ internal fun MutableMethod.addInstructionsAtControlFlowLabel(
 
     // Add patch code at same index as duplicated instruction,
     // so it uses the original instruction control flow label.
-    addInstructions(insertIndex + 1, instructions)
+    addInstructionsWithLabels(insertIndex + 1, instructions)
 
     // Remove original non duplicated instruction.
     removeInstruction(insertIndex)
