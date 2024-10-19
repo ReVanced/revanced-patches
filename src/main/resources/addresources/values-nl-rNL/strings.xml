@@ -231,6 +231,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">Transcriptsectie wordt weergegeven</string>
   <string name="revanced_hide_description_components_screen_title">Video beschrijving</string>
   <string name="revanced_hide_description_components_screen_summary">Verberg of toon video beschrijving componenten</string>
+  <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
+  <string name="revanced_hide_doodles_title">Youtube Doodles verbergen</string>
+  <string name="revanced_hide_doodles_summary_on">Zoekbalk Doodsen zijn verborgen</string>
+  <string name="revanced_hide_doodles_summary_off">Zoekbalk Doodles worden weergegeven</string>
+  <string name="revanced_hide_doodles_user_dialog_message">YouTube Doodles verschijnen een paar dagen per jaar.\n\nAls een Doodle momenteel zichtbaar is in jouw regio en deze instelling is ingeschakeld dan wordt de filterbalk onder de zoekbalk ook verborgen.</string>
   <string name="revanced_custom_filter_screen_title">Aangepast filter</string>
   <string name="revanced_custom_filter_screen_summary">Componenten met aangepaste filters verbergen</string>
   <string name="revanced_custom_filter_title">Aangepaste filter inschakelen</string>
@@ -629,14 +634,29 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_summary_on">Locatie label is verborgen</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Locatie label wordt weergegeven</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Verberg bewaar muziek knop</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Muziek opslaan is verborgen</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Muziek opslaan wordt weergegeven</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">Muziekknop opslaan is verborgen</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">Muziekknop wordt weergegeven</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Verberg gebruik sjabloonknop</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Gebruik sjabloonknop is verborgen</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Gebruik sjabloonknop wordt weergegeven</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">Aankomende knop verbergen</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">Aankomende knop is verborgen</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">Aankomende knop wordt weergegeven</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">Verberg groene schermknop</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_on">Groene schermknop is verborgen</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_off">Groene schermknop wordt weergegeven</string>
+  <string name="revanced_hide_shorts_hashtag_button_title">hashtag knop verbergen</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_on">Hashtag knop is verborgen</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_off">Hashtag knop wordt weergegeven</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Zoeksuggesties verbergen</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Zoeksuggesties zijn verborgen</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Zoeksuggesties worden getoond</string>
   <string name="revanced_hide_shorts_stickers_title">Verberg stickers</string>
   <string name="revanced_hide_shorts_stickers_summary_on">Stickers zijn verborgen</string>
   <string name="revanced_hide_shorts_stickers_summary_off">Stickers worden getoond</string>
+  <string name="revanced_hide_shorts_like_fountain_title">Verbergen als fontein</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_on">Like knop fontein animatie is verborgen</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_off">De vind-ik-leuk-knop animatie wordt weergegeven</string>
   <string name="revanced_hide_shorts_like_button_title">Verberg leuk-knop</string>
   <string name="revanced_hide_shorts_like_button_summary_on">Vind-ik-leuk-knop is verborgen</string>
   <string name="revanced_hide_shorts_like_button_summary_off">Vind-ik-leuk-knop wordt weergegeven</string>
@@ -947,20 +967,22 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - Herstel oude UI lay-out</string>
   </patch>
   <patch id="layout.startpage.ChangeStartPagePatch">
-  <string name="revanced_start_page_title">Startpagina instellen</string>
-  <string name="revanced_start_page_entry_0">Standaard</string>
-  <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_start_page_entry_1">Startpagina</string>
-  <string name="revanced_start_page_entry_2">Zoeken</string>
-  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the subscriptions tab. -->
-  <string name="revanced_start_page_entry_3">Abonnementen</string>
-  <string name="revanced_start_page_entry_4">Verken</string>
-  <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
-  <string name="revanced_start_page_entry_6">Uw tabblad</string>
-  <string name="revanced_start_page_entry_7">Video\'s leuk vinden</string>
-  <!-- 'History' should be translated using the same localized wording YouTube displays for the 'history' section in the 'You' tab. -->
-  <string name="revanced_start_page_entry_8">Geschiedenis</string>
-  <string name="revanced_start_page_entry_9">Populair</string>
+  <string name="revanced_change_start_page_title">Startpagina instellen</string>
+  <string name="revanced_change_start_page_entry_default">Standaard</string>
+  <string name="revanced_change_start_page_entry_browse">Kanalen doorzoeken</string>
+  <string name="revanced_change_start_page_entry_explore">Verken</string>
+  <string name="revanced_change_start_page_entry_gaming">Gaming</string>
+  <string name="revanced_change_start_page_entry_history">Geschiedenis</string>
+  <string name="revanced_change_start_page_entry_library">Bibliotheek</string>
+  <string name="revanced_change_start_page_entry_liked_videos">Video\'s leuk vinden</string>
+  <string name="revanced_change_start_page_entry_live">Zichtbaar</string>
+  <string name="revanced_change_start_page_entry_movies">Films</string>
+  <string name="revanced_change_start_page_entry_music">Muziek</string>
+  <string name="revanced_change_start_page_entry_search">Zoeken</string>
+  <string name="revanced_change_start_page_entry_sports">Sport</string>
+  <string name="revanced_change_start_page_entry_subscriptions">Abonnementen</string>
+  <string name="revanced_change_start_page_entry_trending">Populair</string>
+  <string name="revanced_change_start_page_entry_watch_later">Later bekijken</string>
   </patch>
   <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Schakel het hervatten van Shorts-speler uit</string>
@@ -983,15 +1005,30 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_entry_4">Moderne 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderne 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderne 3</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Verberg knoppen voor uitvouwen en sluiten</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Knoppen zijn verborgen\n(swipe miniplayer om uit te breiden of te sluiten)</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Uitvouwen en sluiten knoppen worden weergegeven</string>
+  <string name="revanced_miniplayer_rounded_corners_title">Schakel afgeronde hoeken in</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_on">Hoeken zijn afgerond</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_off">Hoeken zijn vierkant</string>
+  <string name="revanced_miniplayer_double_tap_action_title">Dubbeltikken en knijpen om formaat aan te passen inschakelen</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">Dubbeltikken op actie en knijp om de grootte te wijzigen is ingeschakeld\n\n• Dubbel tikken om de miniplayer grootte te verhogen\n• Dubbel tikken om de originele grootte te herstellen</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_off">Dubbeltikken op actie en knijpen om formaat aan te passen is uitgeschakeld</string>
+  <string name="revanced_miniplayer_drag_and_drop_title">Schakel slepen en neerzetten in</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">Slepen en neerzetten is ingeschakeld\n\nMiniplayer kan naar elke hoek van het scherm worden gesleept</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_off">Slepen en neerzetten is uitgeschakeld</string>
+  <string name="revanced_miniplayer_hide_expand_close_title">Verberg sluit knop</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">Sluitknop is verborgen</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">Sluitknop wordt weergegeven</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Verberg knoppen voor uitvouwen en sluiten</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Knoppen zijn verborgen\n\nVeeg om uit te breiden of te sluiten</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Uitvouwen en sluiten knoppen worden weergegeven</string>
   <string name="revanced_miniplayer_hide_subtext_title">Verberg subteksten</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Subteksten zijn verborgen</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Subteksten worden getoond</string>
   <string name="revanced_miniplayer_hide_rewind_forward_title">Voor- en achterkant knoppen verbergen</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Vooruit en achterkant zijn verborgen</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Spring vooruit en achterkant worden weergegeven</string>
+  <string name="revanced_miniplayer_width_dip_title">Initiële grootte</string>
+  <string name="revanced_miniplayer_width_dip_summary">Initiële grootte van het scherm, in pixels</string>
+  <string name="revanced_miniplayer_width_dip_invalid_toast">Pixel grootte moet liggen tussen %1$s en %2$s</string>
   <string name="revanced_miniplayer_opacity_title">Dekking van de overlay</string>
   <string name="revanced_miniplayer_opacity_summary">Transparantiewaarde tussen 0-100, waarbij 0 transparant is</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Minispeler overlay transparantie moet tussen de 0-100 zijn</string>
@@ -1007,7 +1044,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_summary_off">Oorspronkelijke Zoekbalk kleur wordt weergegeven</string>
   <string name="revanced_seekbar_custom_color_value_title">Aangepaste zoekbalk kleur</string>
   <string name="revanced_seekbar_custom_color_value_summary">De kleur van de zoekbalk</string>
-  <string name="revanced_seekbar_custom_color_invalid">Ongeldige zoekbalk kleurwaarde. Standaardwaarde wordt gebruikt.</string>
+  <string name="revanced_seekbar_custom_color_invalid">Ongeldige zoekbalk kleurwaarde</string>
   </patch>
   <patch id="layout.thumbnails.BypassImageRegionRestrictions">
   <string name="revanced_bypass_image_region_restrictions_title">Bypass afbeelding regio beperkingen</string>

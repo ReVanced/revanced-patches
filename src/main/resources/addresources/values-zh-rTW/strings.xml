@@ -80,7 +80,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_03_feed_title">動態消息</string>
   <string name="revanced_settings_screen_04_player_title">播放器</string>
   <string name="revanced_settings_screen_05_general_title">通用版面</string>
-  <string name="revanced_settings_screen_07_seekbar_title">拖拽欄</string>
+  <string name="revanced_settings_screen_07_seekbar_title">進度列</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">滑動控制</string>
   <string name="revanced_settings_screen_11_misc_title">其他</string>
   <string name="revanced_settings_screen_12_video_title">影片</string>
@@ -121,9 +121,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_join_membership_button_summary_on">已隱藏按鈕</string>
   <string name="revanced_hide_join_membership_button_summary_off">已顯示按鈕</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">在頻道頁面中隱藏「為你推薦」櫃</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">已隱藏櫃子</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">已顯示櫃子</string>
+  <string name="revanced_hide_for_you_shelf_title">在頻道頁面中隱藏「為你推薦」匣</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">已隱藏「為你推薦」匣</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">已顯示「為你推薦」匣</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">隱藏「通知我」按鈕</string>
@@ -141,15 +141,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_timed_reactions_title">隱藏直播即時反應</string>
   <string name="revanced_hide_timed_reactions_summary_on">已隱藏直播即時反應</string>
   <string name="revanced_hide_timed_reactions_summary_off">已顯示直播即時反應</string>
-  <string name="revanced_hide_search_result_shelf_header_title">隱藏搜尋結果標頭櫃</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">已隱藏標頭櫃</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">已顯示標頭櫃</string>
+  <string name="revanced_hide_search_result_shelf_header_title">隱藏位於搜尋結果中的 [標頭匣]</string>
+  <string name="revanced_hide_search_result_shelf_header_summary_on">已隱藏 [標頭匣]</string>
+  <string name="revanced_hide_search_result_shelf_header_summary_off">已顯示 [標頭匣]</string>
   <string name="revanced_hide_channel_guidelines_title">隱藏頻道規範</string>
   <string name="revanced_hide_channel_guidelines_summary_on">已隱藏頻道規範</string>
   <string name="revanced_hide_channel_guidelines_summary_off">已顯示頻道規範</string>
-  <string name="revanced_hide_chips_shelf_title">隱藏章節櫃</string>
-  <string name="revanced_hide_chips_shelf_summary_on">已隱藏章節櫃</string>
-  <string name="revanced_hide_chips_shelf_summary_off">已顯示章節櫃</string>
+  <string name="revanced_hide_chips_shelf_title">隱藏 [章節匣]</string>
+  <string name="revanced_hide_chips_shelf_summary_on">已隱藏 [章節匣]</string>
+  <string name="revanced_hide_chips_shelf_summary_off">已顯示 [章節匣]</string>
   <string name="revanced_hide_expandable_chip_title">隱藏影片下方的章節選擇欄</string>
   <string name="revanced_hide_expandable_chip_summary_on">已隱藏影片下方的章節選擇欄</string>
   <string name="revanced_hide_expandable_chip_summary_off">已顯示影片下方的章節選擇欄</string>
@@ -174,9 +174,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_subscribers_community_guidelines_title">隱藏訂閱者《社群規範》</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_on">已隱藏《訂閱者社群規範》</string>
   <string name="revanced_hide_subscribers_community_guidelines_summary_off">已顯示《訂閱者社群規範》</string>
-  <string name="revanced_hide_channel_member_shelf_title">隱藏頻道會員櫃</string>
-  <string name="revanced_hide_channel_member_shelf_summary_on">已隱藏頻道會員櫃</string>
-  <string name="revanced_hide_channel_member_shelf_summary_off">已顯示頻道會員櫃</string>
+  <string name="revanced_hide_channel_member_shelf_title">隱藏 [頻道會員匣]</string>
+  <string name="revanced_hide_channel_member_shelf_summary_on">已隱藏 [頻道會員匣]</string>
+  <string name="revanced_hide_channel_member_shelf_summary_off">已顯示 [頻道會員匣]</string>
   <string name="revanced_hide_emergency_box_title">隱藏影片警告提醒</string>
   <string name="revanced_hide_emergency_box_summary_on">已隱藏影片警告提醒</string>
   <string name="revanced_hide_emergency_box_summary_off">已顯示影片警告提醒</string>
@@ -198,9 +198,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_related_videos_title">隱藏快捷功能欄相關影片</string>
   <string name="revanced_hide_related_videos_summary_on">已隱藏相關影片</string>
   <string name="revanced_hide_related_videos_summary_off">已顯示相關影片</string>
-  <string name="revanced_hide_image_shelf_title">在搜尋結果中隱藏圖片櫃</string>
-  <string name="revanced_hide_image_shelf_summary_on">已隱藏圖片櫃</string>
-  <string name="revanced_hide_image_shelf_summary_off">已顯示圖片櫃</string>
+  <string name="revanced_hide_image_shelf_title">在搜尋結果中隱藏 [圖片匣]</string>
+  <string name="revanced_hide_image_shelf_summary_on">已隱藏 [圖片匣]</string>
+  <string name="revanced_hide_image_shelf_summary_off">已顯示 [圖片匣]</string>
   <string name="revanced_hide_latest_posts_ads_title">隱藏最新貼文</string>
   <string name="revanced_hide_latest_posts_ads_summary_on">已隱藏最新貼文</string>
   <string name="revanced_hide_latest_posts_ads_summary_off">已顯示最新貼文</string>
@@ -230,6 +230,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">已顯示字幕記錄區</string>
   <string name="revanced_hide_description_components_screen_title">影片描述欄</string>
   <string name="revanced_hide_description_components_screen_summary">隱藏或顯示影片描述欄內容</string>
+  <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
+  <string name="revanced_hide_doodles_title">隱藏 YouTube Doodles</string>
+  <string name="revanced_hide_doodles_summary_on">已隱藏位於搜尋欄的 Doodles </string>
+  <string name="revanced_hide_doodles_summary_off">已顯示位於搜尋欄的 Doodles </string>
+  <string name="revanced_hide_doodles_user_dialog_message">YouTube Doodles 會在一年裡不定期顯現。\n\n如果您的 Doodles 目前正在您的地區中提供，且本設定為啟用，則位於搜尋攔下方的篩選器也會隱藏。</string>
   <string name="revanced_custom_filter_screen_title">自訂篩選器</string>
   <string name="revanced_custom_filter_screen_summary">使用自訂篩選器隱藏欄位</string>
   <string name="revanced_custom_filter_title">啟用自訂篩選器</string>
@@ -347,9 +352,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_precise_seeking_gesture_summary_off">已啟用手勢</string>
   </patch>
   <patch id="interaction.seekbar.EnableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">啟用進度條點擊</string>
-  <string name="revanced_seekbar_tapping_summary_on">已啟用進度條點擊</string>
-  <string name="revanced_seekbar_tapping_summary_off">已停用進度條點擊</string>
+  <string name="revanced_seekbar_tapping_title">啟用進度列點擊</string>
+  <string name="revanced_seekbar_tapping_summary_on">已啟用進度列點擊</string>
+  <string name="revanced_seekbar_tapping_summary_off">已停用進度列點擊</string>
   </patch>
   <patch id="interaction.swipecontrols.SwipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">啟用亮度手勢</string>
@@ -585,12 +590,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_rolling_number_animations_summary_off">動畫滾動數字</string>
   </patch>
   <patch id="layout.hide.seekbar.HideSeekbarPatch">
-  <string name="revanced_hide_seekbar_title">隱藏影片播放器進度條</string>
-  <string name="revanced_hide_seekbar_summary_on">已隱藏影片播放器進度條</string>
-  <string name="revanced_hide_seekbar_summary_off">已顯示影片播放器進度條</string>
-  <string name="revanced_hide_seekbar_thumbnail_title">在縮圖中隱藏進度條</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_on">已隱藏縮圖進度條</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_off">已顯示縮圖進度條</string>
+  <string name="revanced_hide_seekbar_title">隱藏影片播放器進度列</string>
+  <string name="revanced_hide_seekbar_summary_on">已隱藏影片播放器進度列</string>
+  <string name="revanced_hide_seekbar_summary_off">已顯示影片播放器進度列</string>
+  <string name="revanced_hide_seekbar_thumbnail_title">在縮圖中隱藏進度列</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">已隱藏縮圖進度列</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_off">已顯示縮圖進度列</string>
   </patch>
   <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -630,12 +635,24 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_save_sound_button_title">隱藏 [儲存音樂] 按鈕</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">已隱藏 [儲存音樂] 按鈕</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">已顯示 [顯示音樂] 按鈕</string>
+  <string name="revanced_hide_shorts_use_template_button_title">隱藏 [使用範本] 按鈕</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">已隱藏 [使用範本] 按鈕</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">已顯示 [使用範本] 按鈕</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">隱藏 [即將到來] 按鈕</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">已隱藏 [即將到來] 按鈕</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">已顯示 [即將到來] 按鈕</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">隱藏 [綠色畫面] 按鈕</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_on">已隱藏 [綠色畫面] 按鈕</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_off">已顯示 [綠色畫面] 按鈕</string>
   <string name="revanced_hide_shorts_search_suggestions_title">隱藏搜尋建議</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">已隱藏搜尋建議</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">已顯示搜尋建議</string>
   <string name="revanced_hide_shorts_stickers_title">隱藏「Stickers」</string>
   <string name="revanced_hide_shorts_stickers_summary_on">已隱藏「Stickers」</string>
   <string name="revanced_hide_shorts_stickers_summary_off">已顯示「Stickers」</string>
+  <string name="revanced_hide_shorts_like_fountain_title">隱藏 [喜歡] 按鈕的動畫</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_on">已隱藏 [喜歡] 按鈕的動畫</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_off">已顯示 [喜歡] 按鈕的動畫</string>
   <string name="revanced_hide_shorts_like_button_title">隱藏「喜歡」按鈕</string>
   <string name="revanced_hide_shorts_like_button_summary_on">已隱藏「喜歡」按鈕</string>
   <string name="revanced_hide_shorts_like_button_summary_off">已顯示「喜歡」按鈕</string>
@@ -745,9 +762,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_wide_searchbar_summary_off">已停用寬搜尋列</string>
   </patch>
   <patch id="layout.seekbar.RestoreOldSeekbarThumbnailsPatch">
-  <string name="revanced_restore_old_seekbar_thumbnails_title">還原舊版進度條縮圖</string>
-  <string name="revanced_restore_old_seekbar_thumbnails_summary_on">進度條縮圖將出現在進度條上</string>
-  <string name="revanced_restore_old_seekbar_thumbnails_summary_off">進度條縮圖將出現在全螢幕畫面</string>
+  <string name="revanced_restore_old_seekbar_thumbnails_title">還原舊版進度列縮圖</string>
+  <string name="revanced_restore_old_seekbar_thumbnails_summary_on">進度列縮圖將出現在進度列上</string>
+  <string name="revanced_restore_old_seekbar_thumbnails_summary_off">進度列縮圖將出現在全螢幕畫面</string>
   </patch>
   <patch id="layout.sponsorblock.SponsorBlockResourcePatch">
   <string name="revanced_sb_enable_sb">啟用 SponsorBlock</string>
@@ -862,7 +879,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_skip_automatically">自動跳過</string>
   <string name="revanced_sb_skip_automatically_once">自動跳過一次</string>
   <string name="revanced_sb_skip_showbutton">顯示跳過按鈕</string>
-  <string name="revanced_sb_skip_seekbaronly">在進度條顯示</string>
+  <string name="revanced_sb_skip_seekbaronly">在進度列顯示</string>
   <string name="revanced_sb_skip_ignore">停用</string>
   <string name="revanced_sb_submit_failed_invalid">無法提交片段：%s</string>
   <string name="revanced_sb_submit_failed_timeout">SponsorBlock 暫時離線</string>
@@ -942,24 +959,18 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_1">18.33.40 - 在 Shorts 無痕模式中還原 RYD</string>
   <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - 還原寬影片速度 &amp; 畫質選單</string>
   <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - 還原庫標籤</string>
-  <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - 還原舊版播放清單櫃</string>
+  <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - 還原舊版播放清單匣</string>
   <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - 還原舊版 UI 介面</string>
   </patch>
   <patch id="layout.startpage.ChangeStartPagePatch">
-  <string name="revanced_start_page_title">設定啟動頁面</string>
-  <string name="revanced_start_page_entry_0">預設</string>
-  <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_start_page_entry_1">首頁</string>
-  <string name="revanced_start_page_entry_2">搜尋</string>
-  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the subscriptions tab. -->
-  <string name="revanced_start_page_entry_3">訂閱</string>
-  <string name="revanced_start_page_entry_4">探索</string>
-  <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
-  <string name="revanced_start_page_entry_6">個人中心</string>
-  <string name="revanced_start_page_entry_7">喜歡的影片</string>
-  <!-- 'History' should be translated using the same localized wording YouTube displays for the 'history' section in the 'You' tab. -->
-  <string name="revanced_start_page_entry_8">歷史記錄</string>
-  <string name="revanced_start_page_entry_9">發燒影片</string>
+  <string name="revanced_change_start_page_title">設定啟動頁面</string>
+  <string name="revanced_change_start_page_entry_default">預設</string>
+  <string name="revanced_change_start_page_entry_explore">探索</string>
+  <string name="revanced_change_start_page_entry_history">歷史記錄</string>
+  <string name="revanced_change_start_page_entry_liked_videos">喜歡的影片</string>
+  <string name="revanced_change_start_page_entry_search">搜尋</string>
+  <string name="revanced_change_start_page_entry_subscriptions">訂閱</string>
+  <string name="revanced_change_start_page_entry_trending">發燒影片</string>
   </patch>
   <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">停用自動復原 Shorts 播放器</string>
@@ -982,9 +993,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_entry_4">現代樣式 1</string>
   <string name="revanced_miniplayer_type_entry_5">現代樣式 2</string>
   <string name="revanced_miniplayer_type_entry_6">現代樣式 3</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">隱藏擴展和關閉按鈕</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">已隱藏按鈕\n（滑動迷你播放器以擴展或關閉）</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">已顯示擴展和關閉按鈕</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_title">隱藏擴展和關閉按鈕</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">已顯示擴展和關閉按鈕</string>
   <string name="revanced_miniplayer_hide_subtext_title">隱藏副標</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">副標已隱藏</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">副標已顯示</string>
@@ -1001,12 +1011,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_gradient_loading_screen_summary_off">載入畫面將有純色背景</string>
   </patch>
   <patch id="layout.theme.ThemeResourcePatch">
-  <string name="revanced_seekbar_custom_color_title">啟用自訂進度條顏色</string>
-  <string name="revanced_seekbar_custom_color_summary_on">已顯示自訂進度條顏色</string>
-  <string name="revanced_seekbar_custom_color_summary_off">已顯示原版進度條顏色</string>
-  <string name="revanced_seekbar_custom_color_value_title">自訂進度條顏色</string>
-  <string name="revanced_seekbar_custom_color_value_summary">進度條顏色</string>
-  <string name="revanced_seekbar_custom_color_invalid">無效的進度條顏色。已重設為預設值。</string>
+  <string name="revanced_seekbar_custom_color_title">啟用自訂進度列顏色</string>
+  <string name="revanced_seekbar_custom_color_summary_on">已顯示自訂進度列顏色</string>
+  <string name="revanced_seekbar_custom_color_summary_off">已顯示原版進度列顏色</string>
+  <string name="revanced_seekbar_custom_color_value_title">自訂進度列顏色</string>
+  <string name="revanced_seekbar_custom_color_value_summary">進度列顏色</string>
   </patch>
   <patch id="layout.thumbnails.BypassImageRegionRestrictions">
   <string name="revanced_bypass_image_region_restrictions_title">繞過圖片區域限制</string>

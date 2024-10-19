@@ -36,7 +36,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_check_environment_failed_title">Yoxlamalar uğursuz oldu</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Xidməti veb saytı aç</string>
   <string name="revanced_check_environment_dialog_ignore_button">Yan keç</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Bu tətbiq sizin tərəfinizdən yamaqlanmayıb.&lt;/h5&gt;&lt;br&gt;Bu tətbiq düzgün işləməyə bilər, &lt;b&gt;istifadə etmək zərərli və ya hətta təhlükəli ola bilər&lt;/b&gt;.&lt;br&gt;&lt;br&gt;&lt;br&gt;Bu yoxlamalar bu tətbiqin əvvəldən yamaqlandığını və ya başqasından əldə edildiyini göstərir:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt; &lt;br&gt;onu silməyiniz və özünüz yamaqlamağınız tövsiyə olunur. &lt;/b&gt;təsdiqlənmiş və təhlükəsiz tətbiq istifadə etdiyinizə əmin olmaq üçün. &lt;p&gt;&lt;br&gt; İnkar edilməzsə, bu xəbərdarlıq yalnız iki dəfə göstəriləcək.</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Bu tətbiq sizin tərəfinizdən yamaqlanmayıb.&lt;/h5&gt;&lt;br&gt;Bu tətbiq düzgün işləməyə bilər, &lt;b&gt;istifadə etmək zərərli və ya hətta təhlükəli ola bilər&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Bu yoxlamalar bu tətbiqin əvvəldən yamaqlandığını və ya başqasından əldə edildiyini göstərir:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt; &lt;br&gt;onu silməyiniz və özünüz yamaqlamağınız tövsiyə olunur. &lt;/b&gt;təsdiqlənmiş və təhlükəsiz tətbiq istifadə etdiyinizə əmin olmaq üçün. &lt;p&gt;&lt;br&gt; İnkar edilməzsə, bu xəbərdarlıq yalnız iki dəfə göstəriləcək.</string>
   <string name="revanced_check_environment_not_same_patching_device">Fərqli cihazda yamaqlanıb</string>
   <string name="revanced_check_environment_manager_not_expected_installer">ReVanced Manager tərəfindən quraşdırılmayıb</string>
   <string name="revanced_check_environment_not_near_patch_time">10 dəqiqədən çox əvvəl yamaqlanıb</string>
@@ -230,6 +230,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">Transkripsiya bölməsi göstərilir</string>
   <string name="revanced_hide_description_components_screen_title">Video açıqlaması</string>
   <string name="revanced_hide_description_components_screen_summary">Video açıqlaması elementlərini gizlət və ya göstər</string>
+  <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
+  <string name="revanced_hide_doodles_title">YouTube Doodle-ları gizlət</string>
+  <string name="revanced_hide_doodles_summary_on">Axtarış çubuğu Doodle-ları gizlidir</string>
+  <string name="revanced_hide_doodles_summary_off">Axtarış çubuğu Doodle-ları göstərilir</string>
+  <string name="revanced_hide_doodles_user_dialog_message">YouTube Doodle-lar hər il bir neçə gün göstərilir.\n\nDoodle hazırda bölgənizdə görünür və bu gizlətmə seçimi aktivdirsə, axtarış çubuğu altındakı filtr paneli də gizlədiləcək.</string>
   <string name="revanced_custom_filter_screen_title">Şəxsi filtr</string>
   <string name="revanced_custom_filter_screen_summary">Fərdi filtrlər ilə elementləri gizlət</string>
   <string name="revanced_custom_filter_title">Fərdi filtri aktivləşdir</string>
@@ -438,8 +443,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_cast_button_summary_off">Yayım düyməsi göstərilir</string>
   </patch>
   <patch id="layout.buttons.navigation.NavigationButtonsPatch">
-  <string name="revanced_navigation_buttons_screen_title">Naviqasiya düymələri</string>
-  <string name="revanced_navigation_buttons_screen_summary">Naviqasiya çubuğundakı düymələri gizlət və ya dəyişdir</string>
+  <string name="revanced_navigation_buttons_screen_title">Fəaliyyət düymələri</string>
+  <string name="revanced_navigation_buttons_screen_summary">Fəaliyyət çubuğundakı düymələri gizlət və ya dəyiş</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
   <string name="revanced_hide_home_button_title">\"Ev\"i gizlət</string>
   <string name="revanced_hide_home_button_summary_on">Əsas səhifə düyməsi gizlidir</string>
@@ -460,7 +465,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_switch_create_with_notifications_button_title">\"Yarat\"ı \"Bildirişlər\" ilə dəyişdir</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">Yarat düyməsi Bildirişlər düyməsi ilə dəyişdirilir\n\nQeyd: Bunu aktivləşdirmə video reklamları da məcburən gizlədir</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">\"Yarat\" düyməsi, \"Bildirişlər\" düyməsi ilə dəyişdirilmir</string>
-  <string name="revanced_hide_navigation_button_labels_title">Naviqasiya düymə etiketlərini gizlət</string>
+  <string name="revanced_hide_navigation_button_labels_title">Fəaliyyət düymə etiketlərini gizlət</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Etiketlər gizlidir</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Etiketlər göstərilir</string>
   </patch>
@@ -628,14 +633,26 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_summary_on">Məkan etiketi gizlidir</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Məkan etiketi göstərilir</string>
   <string name="revanced_hide_shorts_save_sound_button_title">\"Musiqini saxla\" düyməsini gizlət</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">\"Musiqini saxla\" gizlidir</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">\"Musiqini saxla\" göstərilir</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">\"Musiqini saxla\" düyməsi gizlidir</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">\"Musiqini saxla\" düyməsi göstərilir</string>
+  <string name="revanced_hide_shorts_use_template_button_title">\"Şablonu istifadə et\" düyməsini gizlət</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">\"Şablonu istifadə et\" düyməsi gizlidir</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">\"Şablonu istifadə et\" düyməsi göstərilir</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">\"Yaxınlaşan\" düyməsini gizlət</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">\"Yaxınlaşan\" düyməsi gizlidir</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">\"Yaxınlaşan\" düyməsi göstərilir</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">\"Yaşıl ekran\" düyməsini gizlət</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_on">\"Yaşıl ekran\" düyməsi gizlidir</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_off">\"Yaşıl ekran\" düyməsi göstərilir</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Axtarış təkliflərini gizlət</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Axtarış təklifləri gizlədilib</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Axtarış təklifləri göstərilir</string>
   <string name="revanced_hide_shorts_stickers_title">Stikerləri gizlət</string>
   <string name="revanced_hide_shorts_stickers_summary_on">Stikerlər gizlidir</string>
   <string name="revanced_hide_shorts_stickers_summary_off">Stikerlər göstərilir</string>
+  <string name="revanced_hide_shorts_like_fountain_title">Bəyən fəvvarəsini gizlət</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_on">\"Bəyən\" fəvvarə animasiyası gizlidir</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_off">\"Bəyən\" fəvvarə animasiyası göstərilir</string>
   <string name="revanced_hide_shorts_like_button_title">\"Bəyən\" düyməsini gizlət</string>
   <string name="revanced_hide_shorts_like_button_summary_on">Bəyənmə düyməsi gizlidir</string>
   <string name="revanced_hide_shorts_like_button_summary_off">Bəyənmə düyməsi göstərilir</string>
@@ -671,9 +688,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_sound_button_title">Səs düyməsini gizlət</string>
   <string name="revanced_hide_shorts_sound_button_summary_on">Səs düyməsi gizlidir</string>
   <string name="revanced_hide_shorts_sound_button_summary_off">Səs düyməsi göstərilir</string>
-  <string name="revanced_hide_shorts_navigation_bar_title">Naviqasiya çubuğunu gizlət</string>
-  <string name="revanced_hide_shorts_navigation_bar_summary_on">Naviqasiya çubuğu gizlidir</string>
-  <string name="revanced_hide_shorts_navigation_bar_summary_off">Naviqasiya çubuğu göstərilir</string>
+  <string name="revanced_hide_shorts_navigation_bar_title">Fəaliyyət çubuğunu gizlət</string>
+  <string name="revanced_hide_shorts_navigation_bar_summary_on">Fəaliyyət çubuğu gizlidir</string>
+  <string name="revanced_hide_shorts_navigation_bar_summary_off">Fəaliyyət çubuğu göstərilir</string>
   </patch>
   <patch id="layout.hide.suggestedvideoendscreen.DisableSuggestedVideoEndScreenResourcePatch">
   <string name="revanced_disable_suggested_video_end_screen_title">Təklif edilən video bitiş ekranın ləğv et</string>
@@ -946,20 +963,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - Köhnə UI tərtibatını bərpa et</string>
   </patch>
   <patch id="layout.startpage.ChangeStartPagePatch">
-  <string name="revanced_start_page_title">Başlanğıc səhifəsini tənzimlə</string>
-  <string name="revanced_start_page_entry_0">İlkin</string>
-  <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_start_page_entry_1">Ev</string>
-  <string name="revanced_start_page_entry_2">Axtar</string>
-  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the subscriptions tab. -->
-  <string name="revanced_start_page_entry_3">Abunəliklər</string>
-  <string name="revanced_start_page_entry_4">Kəşf et</string>
-  <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
-  <string name="revanced_start_page_entry_6">\"Siz\" paneli</string>
-  <string name="revanced_start_page_entry_7">Bəyənilən videolar</string>
-  <!-- 'History' should be translated using the same localized wording YouTube displays for the 'history' section in the 'You' tab. -->
-  <string name="revanced_start_page_entry_8">Tarixçə</string>
-  <string name="revanced_start_page_entry_9">Trenddə olan</string>
+  <string name="revanced_change_start_page_title">Başlanğıc səhifəsini tənzimlə</string>
+  <string name="revanced_change_start_page_entry_default">İlkin</string>
+  <string name="revanced_change_start_page_entry_explore">Kəşf et</string>
+  <string name="revanced_change_start_page_entry_history">Tarixçə</string>
+  <string name="revanced_change_start_page_entry_library">Kitabxana</string>
+  <string name="revanced_change_start_page_entry_liked_videos">Bəyənilən videolar</string>
+  <string name="revanced_change_start_page_entry_search">Axtar</string>
+  <string name="revanced_change_start_page_entry_subscriptions">Abunəliklər</string>
+  <string name="revanced_change_start_page_entry_trending">Trenddə olan</string>
   </patch>
   <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Shorts oynadıcı başladıcını bağla</string>
@@ -982,9 +994,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_entry_4">Müasir 1</string>
   <string name="revanced_miniplayer_type_entry_5">Müasir 2</string>
   <string name="revanced_miniplayer_type_entry_6">Müasir 3</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Genişləndir və bağla düymələrini gizlət</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Gizlidir\n(genişləndirmək və ya bağlamaq üçün kiçik oynadıcını sürüşdür)</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Genişləndirmə və bağlama düymələri göstərilir</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Genişləndir və bağla düymələrini gizlət</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Genişləndirmə və bağlama düymələri göstərilir</string>
   <string name="revanced_miniplayer_hide_subtext_title">Alt mətnləri gizlət</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Alt mətnlər gizlədilir</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Alt mətnlər göstərilir</string>
@@ -1006,7 +1017,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_summary_off">Orijinal axtarma çubuğu rəngi göstərilir</string>
   <string name="revanced_seekbar_custom_color_value_title">Fərdi axtarma çubuğu rəngi</string>
   <string name="revanced_seekbar_custom_color_value_summary">Axtarma çubuğu rəngi</string>
-  <string name="revanced_seekbar_custom_color_invalid">Etibarsız axtarış çubuğu rəng dəyəri. İlkin dəyər işlədilir.</string>
+  <string name="revanced_seekbar_custom_color_invalid">Yararsız zaman çubuğu rəng dəyəri</string>
   </patch>
   <patch id="layout.thumbnails.BypassImageRegionRestrictions">
   <string name="revanced_bypass_image_region_restrictions_title">Təsvir bölgə məhdudiyyətlərini ötür</string>

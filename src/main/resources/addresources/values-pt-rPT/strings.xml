@@ -229,6 +229,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">Secção de transcrição exibida</string>
   <string name="revanced_hide_description_components_screen_title">Descrição do vídeo</string>
   <string name="revanced_hide_description_components_screen_summary">Esconder ou mostrar componentes de descrição do vídeo</string>
+  <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
+  <string name="revanced_hide_doodles_title">Ocultar Doodles do YouTube</string>
+  <string name="revanced_hide_doodles_summary_on">Doodles da barra de pesquisa estão escondidos</string>
+  <string name="revanced_hide_doodles_summary_off">Doodles são mostrados na barra de pesquisa</string>
+  <string name="revanced_hide_doodles_user_dialog_message">O YouTube Doodles aparece alguns dias todos os anos.\n\nSe um Doodle está atualmente sendo exibido na sua região e esta configuração de ocultar está ativada, então a barra de filtro abaixo da barra de pesquisa também será ocultada.</string>
   <string name="revanced_custom_filter_screen_title">Filtro personalizado</string>
   <string name="revanced_custom_filter_screen_summary">Esconder componentes usando filtros personalizados</string>
   <string name="revanced_custom_filter_title">Ativar filtro personalizado</string>
@@ -626,14 +631,29 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_summary_on">Rótulo de localização está oculto</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Rótulo de localização é mostrado</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Ocultar botão salvar música</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Salvar música está oculta</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Salvar música é mostrado</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">O botão salvar música está oculto</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">O botão salvar música é mostrado</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Ocultar usar o botão do modelo</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Usar o botão modelo está oculto</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Usar botão do modelo é mostrado</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">Esconder o botão do próximo</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">O botão \"vir\" está oculto</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">O próximo botão será exibido</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">Ocultar botão de tela verde</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_on">O botão de tela verde está oculto</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_off">Botão de tela verde é mostrado</string>
+  <string name="revanced_hide_shorts_hashtag_button_title">Ocultar botão de hashtag</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_on">O botão Hashtag está oculto</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_off">Botão Hashtag é mostrado</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Ocultar sugestões de busca</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Sugestões de pesquisa estão ocultas</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Sugestões de pesquisa são mostradas</string>
   <string name="revanced_hide_shorts_stickers_title">Ocultar stickers</string>
   <string name="revanced_hide_shorts_stickers_summary_on">Adesivos estão ocultos</string>
   <string name="revanced_hide_shorts_stickers_summary_off">Stickers são mostrados</string>
+  <string name="revanced_hide_shorts_like_fountain_title">Ocultar como a fonte</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_on">A animação da fonte do botão curtir está oculta</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_off">Animação de botão fonte é mostrada</string>
   <string name="revanced_hide_shorts_like_button_title">Esconder botão \"curtir\"</string>
   <string name="revanced_hide_shorts_like_button_summary_on">O botão curtir está escondido</string>
   <string name="revanced_hide_shorts_like_button_summary_off">O botão curtir está visível</string>
@@ -944,20 +964,22 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - Restaurar layout de interface antiga</string>
   </patch>
   <patch id="layout.startpage.ChangeStartPagePatch">
-  <string name="revanced_start_page_title">Definir página inicial</string>
-  <string name="revanced_start_page_entry_0">Padrão</string>
-  <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_start_page_entry_1">Residencial</string>
-  <string name="revanced_start_page_entry_2">Pesquisa</string>
-  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the subscriptions tab. -->
-  <string name="revanced_start_page_entry_3">Inscrições</string>
-  <string name="revanced_start_page_entry_4">Explorar</string>
-  <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
-  <string name="revanced_start_page_entry_6">Aba você</string>
-  <string name="revanced_start_page_entry_7">Vídeos curtidos</string>
-  <!-- 'History' should be translated using the same localized wording YouTube displays for the 'history' section in the 'You' tab. -->
-  <string name="revanced_start_page_entry_8">Histórico</string>
-  <string name="revanced_start_page_entry_9">Tendências</string>
+  <string name="revanced_change_start_page_title">Definir página inicial</string>
+  <string name="revanced_change_start_page_entry_default">Padrão</string>
+  <string name="revanced_change_start_page_entry_browse">Procurar canais</string>
+  <string name="revanced_change_start_page_entry_explore">Explorar</string>
+  <string name="revanced_change_start_page_entry_gaming">Jogos</string>
+  <string name="revanced_change_start_page_entry_history">Histórico</string>
+  <string name="revanced_change_start_page_entry_library">Biblioteca</string>
+  <string name="revanced_change_start_page_entry_liked_videos">Vídeos curtidos</string>
+  <string name="revanced_change_start_page_entry_live">Publicado</string>
+  <string name="revanced_change_start_page_entry_movies">Filmes</string>
+  <string name="revanced_change_start_page_entry_music">Música</string>
+  <string name="revanced_change_start_page_entry_search">Pesquisa</string>
+  <string name="revanced_change_start_page_entry_sports">Esportes</string>
+  <string name="revanced_change_start_page_entry_subscriptions">Inscrições</string>
+  <string name="revanced_change_start_page_entry_trending">Tendências</string>
+  <string name="revanced_change_start_page_entry_watch_later">Assistir depois</string>
   </patch>
   <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Desativar modo retomada do player</string>
@@ -980,15 +1002,30 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_entry_4">Moderno 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderno 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderno 3</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Ocultar botões de expansão e fechamento</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Os botões são ocultos\n(swipe miniplayer para expandir ou fechar)</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Botões de expansão e fechamento são mostrados</string>
+  <string name="revanced_miniplayer_rounded_corners_title">Ativar cantos arredondados</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_on">Bordas são arredondadas</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_off">Os cantos estão quadrados</string>
+  <string name="revanced_miniplayer_double_tap_action_title">Ativar toque duplo e pinch para redimensionar</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">Ação toque duplo e aperte para redimensionar está ativado\n\n• Toque duas vezes para aumentar o tamanho do miniplayer\n• Toque duas vezes novamente para restaurar o tamanho original</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_off">Ação de toque duplo e pinçar para redimensionar está desativado</string>
+  <string name="revanced_miniplayer_drag_and_drop_title">Ativar arrastar e soltar</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">Arrastar e soltar é habilitado\n\nMiniplayer pode ser arrastado para qualquer canto da tela</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_off">Arrastar e soltar está desativado</string>
+  <string name="revanced_miniplayer_hide_expand_close_title">Ocultar botão fechar</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">O botão fechar está oculto</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">Botão fechar é mostrado</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Ocultar botões de expansão e fechamento</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Botões são ocultos\n\nDeslize para expandir ou fechar</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Botões de expansão e fechamento são mostrados</string>
   <string name="revanced_miniplayer_hide_subtext_title">Ocultar subtextos</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Subtextos estão ocultos</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Subtextos são exibidos</string>
   <string name="revanced_miniplayer_hide_rewind_forward_title">Ocultar botões pular para frente e para trás</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Pular para frente e para trás estão escondidos</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Pular para frente e para trás são mostrados</string>
+  <string name="revanced_miniplayer_width_dip_title">Tamanho inicial</string>
+  <string name="revanced_miniplayer_width_dip_summary">Inicial sobre o tamanho da tela, em pixels</string>
+  <string name="revanced_miniplayer_width_dip_invalid_toast">O tamanho do pixel deve estar entre %1$s e %2$s</string>
   <string name="revanced_miniplayer_opacity_title">Opacidade da sobreposição</string>
   <string name="revanced_miniplayer_opacity_summary">Valor de opacidade entre 0-100, onde 0 é transparente</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Opacidade da sobreposição de minijogador deve estar entre 0-100</string>
@@ -1004,7 +1041,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_summary_off">Cor original da barra de busca é visível</string>
   <string name="revanced_seekbar_custom_color_value_title">Cor personalizada da barra de busca</string>
   <string name="revanced_seekbar_custom_color_value_summary">A cor da barra de busca</string>
-  <string name="revanced_seekbar_custom_color_invalid">Valor de cor inválido da barra. Usando o valor padrão.</string>
+  <string name="revanced_seekbar_custom_color_invalid">Valor de cor de seekbar inválido</string>
   </patch>
   <patch id="layout.thumbnails.BypassImageRegionRestrictions">
   <string name="revanced_bypass_image_region_restrictions_title">Ignorar restrições de região de imagem</string>
