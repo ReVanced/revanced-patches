@@ -230,6 +230,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">يتم عرض قسم النص</string>
   <string name="revanced_hide_description_components_screen_title">وصف الفيديو</string>
   <string name="revanced_hide_description_components_screen_summary">إخفاء أو عرض مكونات وصف الفيديو</string>
+  <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
+  <string name="revanced_hide_doodles_title">إخفاء رسومات YouTube</string>
+  <string name="revanced_hide_doodles_summary_on">تم إخفاء رسومات شريط البحث</string>
+  <string name="revanced_hide_doodles_summary_off">يتم عرض رسومات شريط البحث</string>
+  <string name="revanced_hide_doodles_user_dialog_message">تظهر رسومات  YouTube Doodles لعدة أيام كل عام.\n\nإذا كانت الرسومات تظهر حاليًا في منطقتك وإعداد الإخفاء هذا قيد التشغيل، سيتم أيضًا إخفاء شريط الفلتر أسفل شريط البحث.</string>
   <string name="revanced_custom_filter_screen_title">فلتر مخصص</string>
   <string name="revanced_custom_filter_screen_summary">إخفاء المكونات باستخدام فلاتر مخصصة</string>
   <string name="revanced_custom_filter_title">تمكين الفلتر المخصص</string>
@@ -628,14 +633,29 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_summary_on">تم إخفاء تسمية الموقع</string>
   <string name="revanced_hide_shorts_location_label_summary_off">يتم عرض تسمية الموقع</string>
   <string name="revanced_hide_shorts_save_sound_button_title">إخفاء زر حفظ الموسيقى</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">تم إخفاء حفظ الموسيقى</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">يتم عرض حفظ الموسيقى</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">تم إخفاء زر حفظ الموسيقى</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">يتم عرض زر حفظ الموسيقى</string>
+  <string name="revanced_hide_shorts_use_template_button_title">إخفاء زر استخدام القالب</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">تم إخفاء زر استخدام القالب</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">يتم عرض زر استخدام القالب</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">إخفاء زر القادم</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">تم إخفاء زر القادم</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">يتم عرض زر القادم</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">إخفاء زر الشاشة الخضراء</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_on">تم إخفاء زر الشاشة الخضراء</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_off">يتم عرض زر الشاشة الخضراء</string>
+  <string name="revanced_hide_shorts_hashtag_button_title">إخفاء زر Hashg</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_on">زر علامة هاشج مخفي</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_off">يتم عرض زر الوسم</string>
   <string name="revanced_hide_shorts_search_suggestions_title">إخفاء اقتراحات البحث</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">تم إخفاء اقتراحات البحث</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">يتم عرض اقتراحات البحث</string>
   <string name="revanced_hide_shorts_stickers_title">إخفاء الملصقات</string>
   <string name="revanced_hide_shorts_stickers_summary_on">تم إخفاء الملصقات</string>
   <string name="revanced_hide_shorts_stickers_summary_off">يتم عرض الملصقات</string>
+  <string name="revanced_hide_shorts_like_fountain_title">إخفاء نافورة أعجبني</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_on">تم إخفاء تأثير النافورة لـزر أعجبني</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_off">يتم عرض تأثير النافورة لـزر أعجبني</string>
   <string name="revanced_hide_shorts_like_button_title">إخفاء زر أعجبني</string>
   <string name="revanced_hide_shorts_like_button_summary_on">تم إخفاء زر أعجبني</string>
   <string name="revanced_hide_shorts_like_button_summary_off">يتم عرض زر أعجبني</string>
@@ -946,20 +966,22 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - استعادة تصميم واجهة المستخدم القديم</string>
   </patch>
   <patch id="layout.startpage.ChangeStartPagePatch">
-  <string name="revanced_start_page_title">تعيين صفحة البداية</string>
-  <string name="revanced_start_page_entry_0">إفتراضي</string>
-  <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_start_page_entry_1">الصفحة الرئيسية</string>
-  <string name="revanced_start_page_entry_2">البحث</string>
-  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the subscriptions tab. -->
-  <string name="revanced_start_page_entry_3">الاشتراكات</string>
-  <string name="revanced_start_page_entry_4">استكشف</string>
-  <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
-  <string name="revanced_start_page_entry_6">علامة التبويب أنت</string>
-  <string name="revanced_start_page_entry_7">الفيديوهات التي أعجبتني</string>
-  <!-- 'History' should be translated using the same localized wording YouTube displays for the 'history' section in the 'You' tab. -->
-  <string name="revanced_start_page_entry_8">السّجل</string>
-  <string name="revanced_start_page_entry_9">المحتوى الرائج</string>
+  <string name="revanced_change_start_page_title">تعيين صفحة البداية</string>
+  <string name="revanced_change_start_page_entry_default">الافتراضي</string>
+  <string name="revanced_change_start_page_entry_browse">تصفح القنوات</string>
+  <string name="revanced_change_start_page_entry_explore">استكشف</string>
+  <string name="revanced_change_start_page_entry_gaming">ألعاب</string>
+  <string name="revanced_change_start_page_entry_history">السّجل</string>
+  <string name="revanced_change_start_page_entry_library">المكتبة</string>
+  <string name="revanced_change_start_page_entry_liked_videos">الفيديوهات التي أعجبتني</string>
+  <string name="revanced_change_start_page_entry_live">مباشر</string>
+  <string name="revanced_change_start_page_entry_movies">أفلام</string>
+  <string name="revanced_change_start_page_entry_music">الموسيقى</string>
+  <string name="revanced_change_start_page_entry_search">البحث</string>
+  <string name="revanced_change_start_page_entry_sports">الرياضة</string>
+  <string name="revanced_change_start_page_entry_subscriptions">الاشتراكات</string>
+  <string name="revanced_change_start_page_entry_trending">المحتوى الرائج</string>
+  <string name="revanced_change_start_page_entry_watch_later">شاهد لاحقاً</string>
   </patch>
   <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">تعطيل استئناف مشغل Shorts</string>
@@ -982,15 +1004,30 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_entry_4">حديث 1</string>
   <string name="revanced_miniplayer_type_entry_5">حديث 2</string>
   <string name="revanced_miniplayer_type_entry_6">حديث 3</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">إخفاء أزرار التوسيع والإغلاق</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">تم إخفاء الأزرار\n(مرر المشغل المصغر للتوسع أو الإغلاق)</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">يتم عرض أزرار التوسيع والإغلاق</string>
+  <string name="revanced_miniplayer_rounded_corners_title">تمكين زوايا مستديرة</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_on">يتم تدوير الزوايا</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_off">الزوايا مربعة</string>
+  <string name="revanced_miniplayer_double_tap_action_title">تمكين النقر المزدوج و الدبوس لتغيير الحجم</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">تم تمكين إجراء الضغط المزدوج والدبوس لتغيير الحجم\n\n• النقر المزدوج لزيادة حجم اللاعب الصغير\n• النقر المزدوج مرة أخرى لاستعادة الحجم الأصلي</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_off">إجراء النقر المزدوج والدبوس لتغيير الحجم معطل</string>
+  <string name="revanced_miniplayer_drag_and_drop_title">تمكين السحب والإفلات</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">السحب والإسقاط مفعلان\n\nيمكن سحب اللاعب الصغير إلى أي زاوية من الشاشة</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_off">تم تعطيل السحب والإسقاط</string>
+  <string name="revanced_miniplayer_hide_expand_close_title">إخفاء زر الإغلاق</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">زر الإغلاق مخفي</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">يتم عرض زر الإغلاق</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_title">إخفاء أزرار التوسيع والإغلاق</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">الأزرار مخفية\n\nمرر للتوسع أو الإغلاق</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">تظهر أزرار التمديد والإغلاق</string>
   <string name="revanced_miniplayer_hide_subtext_title">إخفاء النصوص الفرعية</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">تم إخفاء النصوص الفرعية</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">يتم عرض النصوص الفرعية</string>
   <string name="revanced_miniplayer_hide_rewind_forward_title">إخفاء أزرار التخطي للأمام والخلف</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">تم إخفاء تخطي للأمام والخلف</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">يتم عرض تخطي للأمام والخلف</string>
+  <string name="revanced_miniplayer_width_dip_title">الحجم الأولي</string>
+  <string name="revanced_miniplayer_width_dip_summary">المبدئي على حجم الشاشة، بالبكسل</string>
+  <string name="revanced_miniplayer_width_dip_invalid_toast">حجم البكسل يجب أن يكون بين %1$s و %2$s</string>
   <string name="revanced_miniplayer_opacity_title">شفافية الواجهة</string>
   <string name="revanced_miniplayer_opacity_summary">قيمة الشفافية بين 0-100، حيث يكون 0 شفاف</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">شفافية واجهة المشغل المصغر يجب أن تكون بين 0-100</string>
@@ -1006,7 +1043,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_summary_off">يتم عرض لون شريط تقدم الفيديو الاصلي</string>
   <string name="revanced_seekbar_custom_color_value_title">لون شريط تقدم الفيديو المخصص</string>
   <string name="revanced_seekbar_custom_color_value_summary">لون شريط التقدم</string>
-  <string name="revanced_seekbar_custom_color_invalid">لون الشريط غير صالح. استخدام القيمة الافتراضية.</string>
+  <string name="revanced_seekbar_custom_color_invalid">لون شريط التقدم غير صالح</string>
   </patch>
   <patch id="layout.thumbnails.BypassImageRegionRestrictions">
   <string name="revanced_bypass_image_region_restrictions_title">تجاوز قيود منطقة الصورة</string>
