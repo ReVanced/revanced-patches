@@ -1850,10 +1850,6 @@ public final class app/revanced/patches/youtube/layout/startpage/ChangeStartPage
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
-public final class app/revanced/patches/youtube/layout/startpage/fingerprints/StartActivityFingerprint : app/revanced/patcher/fingerprint/MethodFingerprint {
-	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/startpage/fingerprints/StartActivityFingerprint;
-}
-
 public final class app/revanced/patches/youtube/layout/startupshortsreset/DisableResumingShortsOnStartupPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/startupshortsreset/DisableResumingShortsOnStartupPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
