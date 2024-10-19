@@ -3,6 +3,9 @@ package app.revanced.util
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
@@ -15,7 +18,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.reference.Reference
 import com.android.tools.smali.dexlib2.util.MethodUtil
-import org.stringtemplate.v4.compiler.Bytecode.instructions
 
 fun MethodFingerprint.resultOrThrow() = result ?: throw exception
 
@@ -67,6 +69,37 @@ fun MutableMethod.injectHideViewCall(
 )
 
 /**
+ * Inserts instructions at a given index, using the existing control flow label at that index.
+ * Inserted instructions can have it's own control flow labels as well.
+ *
+ * Effectively this changes the code from:
+ * :label
+ * (original code)
+ *
+ * Into:
+ * :label
+ * (patch code)
+ * (original code)
+ */
+internal fun MutableMethod.addInstructionsAtControlFlowLabel(
+    insertIndex: Int,
+    instructions: String,
+) {
+    // Duplicate original instruction and add to +1 index.
+    addInstruction(insertIndex + 1, getInstruction(insertIndex))
+
+    // Add patch code at same index as duplicated instruction,
+    // so it uses the original instruction control flow label.
+    addInstructionsWithLabels(insertIndex + 1, instructions)
+
+    // Remove original non duplicated instruction.
+    removeInstruction(insertIndex)
+
+    // Original instruction is now after the inserted patch instructions,
+    // and the original control flow label is on the first instruction of the patch code.
+}
+
+/**
  * Get the index of the first instruction with the id of the given resource name.
  *
  * Requires [ResourceMappingPatch] as a dependency.
@@ -97,6 +130,9 @@ fun Method.indexOfIdResourceOrThrow(resourceName: String): Int {
 
     return index
 }
+
+// TODO Rename these from 'FirstWideLiteralInstruction' to 'FirstLiteralInstruction',
+// since NarrowLiteralInstruction is a subclass of WideLiteralInstruction.
 
 /**
  * Find the index of the first wide literal instruction with the given value.
@@ -190,6 +226,23 @@ inline fun <reified T : Reference> Instruction.getReference() = (this as? Refere
 fun Method.indexOfFirstInstruction(predicate: Instruction.() -> Boolean) = indexOfFirstInstruction(0, predicate)
 
 /**
+ * @return The index of the first opcode specified, or -1 if not found.
+ * @see indexOfFirstInstructionOrThrow
+ */
+fun Method.indexOfFirstInstruction(targetOpcode: Opcode): Int =
+    indexOfFirstInstruction(0, targetOpcode)
+
+/**
+ * @param startIndex Optional starting index to start searching from.
+ * @return The index of the first opcode specified, or -1 if not found.
+ * @see indexOfFirstInstructionOrThrow
+ */
+fun Method.indexOfFirstInstruction(startIndex: Int = 0, targetOpcode: Opcode): Int =
+    indexOfFirstInstruction(startIndex) {
+        opcode == targetOpcode
+    }
+
+/**
  * Get the index of the first [Instruction] that matches the predicate, starting from [startIndex].
  *
  * @param startIndex Optional starting index to start searching from.
@@ -197,7 +250,11 @@ fun Method.indexOfFirstInstruction(predicate: Instruction.() -> Boolean) = index
  * @see indexOfFirstInstructionOrThrow
  */
 fun Method.indexOfFirstInstruction(startIndex: Int = 0, predicate: Instruction.() -> Boolean): Int {
-    val index = this.implementation!!.instructions.drop(startIndex).indexOfFirst(predicate)
+    var instructions = this.implementation!!.instructions
+    if (startIndex != 0) {
+        instructions = instructions.drop(startIndex)
+    }
+    val index = instructions.indexOfFirst(predicate)
 
     return if (index >= 0) {
         startIndex + index
@@ -205,6 +262,24 @@ fun Method.indexOfFirstInstruction(startIndex: Int = 0, predicate: Instruction.(
         -1
     }
 }
+
+/**
+ * @return The index of the first opcode specified
+ * @throws PatchException
+ * @see indexOfFirstInstruction
+ */
+fun Method.indexOfFirstInstructionOrThrow(targetOpcode: Opcode): Int =
+    indexOfFirstInstructionOrThrow(0, targetOpcode)
+
+/**
+ * @return The index of the first opcode specified, starting from the index specified.
+ * @throws PatchException
+ * @see indexOfFirstInstruction
+ */
+fun Method.indexOfFirstInstructionOrThrow(startIndex: Int = 0, targetOpcode: Opcode): Int =
+    indexOfFirstInstructionOrThrow(startIndex) {
+        opcode == targetOpcode
+    }
 
 /**
  * Get the index of the first [Instruction] that matches the predicate, starting from [startIndex].
@@ -218,6 +293,68 @@ fun Method.indexOfFirstInstructionOrThrow(startIndex: Int = 0, predicate: Instru
     if (index < 0) {
         throw PatchException("Could not find instruction index")
     }
+
+    return index
+}
+
+/**
+ * Get the index of matching instruction,
+ * starting from and [startIndex] and searching down.
+ *
+ * @param startIndex Optional starting index to search down from. Searching includes the start index.
+ * @return -1 if the instruction is not found.
+ * @see indexOfFirstInstructionReversedOrThrow
+ */
+fun Method.indexOfFirstInstructionReversed(startIndex: Int? = null, targetOpcode: Opcode): Int =
+    indexOfFirstInstructionReversed(startIndex) {
+        opcode == targetOpcode
+    }
+
+/**
+ * Get the index of matching instruction,
+ * starting from and [startIndex] and searching down.
+ *
+ * @param startIndex Optional starting index to search down from. Searching includes the start index.
+ * @return -1 if the instruction is not found.
+ * @see indexOfFirstInstructionReversedOrThrow
+ */
+fun Method.indexOfFirstInstructionReversed(startIndex: Int? = null, predicate: Instruction.() -> Boolean): Int {
+    var instructions = this.implementation!!.instructions
+    if (startIndex != null) {
+        instructions = instructions.take(startIndex + 1)
+    }
+
+    return instructions.indexOfLast(predicate)
+}
+
+/**
+ * Get the index of matching instruction,
+ * starting from and [startIndex] and searching down.
+ *
+ * @param startIndex Optional starting index to search down from. Searching includes the start index.
+ * @return -1 if the instruction is not found.
+ * @see indexOfFirstInstructionReversed
+ */
+fun Method.indexOfFirstInstructionReversedOrThrow(startIndex: Int? = null, targetOpcode: Opcode): Int =
+    indexOfFirstInstructionReversedOrThrow(startIndex) {
+        opcode == targetOpcode
+    }
+
+/**
+ * Get the index of matching instruction,
+ * starting from and [startIndex] and searching down.
+ *
+ * @param startIndex Optional starting index to search down from. Searching includes the start index.
+ * @return -1 if the instruction is not found.
+ * @see indexOfFirstInstructionReversed
+ */
+fun Method.indexOfFirstInstructionReversedOrThrow(startIndex: Int? = null, predicate: Instruction.() -> Boolean): Int {
+    val index = indexOfFirstInstructionReversed(startIndex, predicate)
+
+    if (index < 0) {
+        throw PatchException("Could not find instruction index")
+    }
+
     return index
 }
 
@@ -242,6 +379,26 @@ fun Method.findOpcodeIndicesReversed(filter: Instruction.() -> Boolean): List<In
     return indexes
 }
 
+/**
+ * Called for _all_ instructions with the given literal value.
+ */
+fun BytecodeContext.forEachLiteralValueInstruction(
+    literal: Long,
+    block: MutableMethod.(literalInstructionIndex: Int) -> Unit,
+) {
+    classes.forEach { classDef ->
+        classDef.methods.forEach { method ->
+            method.implementation?.instructions?.forEachIndexed { index, instruction ->
+                if (instruction.opcode == Opcode.CONST &&
+                    (instruction as WideLiteralInstruction).wideLiteral == literal
+                ) {
+                    val mutableMethod = proxy(classDef).mutableClass.findMutableMethodOf(method)
+                    block.invoke(mutableMethod, index)
+                }
+            }
+        }
+    }
+}
 
 /**
  * Return the resolved method early.

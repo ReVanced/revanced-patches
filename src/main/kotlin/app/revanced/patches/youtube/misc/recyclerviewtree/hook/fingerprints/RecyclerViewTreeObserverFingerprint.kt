@@ -9,12 +9,11 @@ internal object RecyclerViewTreeObserverFingerprint : MethodFingerprint(
     returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     opcodes = listOf(
+        Opcode.CHECK_CAST,
         Opcode.NEW_INSTANCE,
         Opcode.INVOKE_DIRECT,
         Opcode.INVOKE_VIRTUAL,
-        Opcode.NEW_INSTANCE,
-        Opcode.INVOKE_DIRECT,
-        Opcode.IPUT_OBJECT
+        Opcode.NEW_INSTANCE
     ),
     strings = listOf("LithoRVSLCBinder")
 )
