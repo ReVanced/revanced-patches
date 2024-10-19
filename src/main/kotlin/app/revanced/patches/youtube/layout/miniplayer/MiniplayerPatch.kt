@@ -101,9 +101,9 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
                 // 19.29.42 // All modern players are broken and ignore tapping the miniplayer video.
                 // 19.30.39 // Modern 3 is less broken when double tap expand is enabled, but cannot swipe to expand when double tap is off.
                 // 19.31.36 // All Modern 1 buttons are missing. Unusable.
-                // 19.32.36 // Works without issues.
-                // 19.33.35 // Works without issues.
-                "19.34.42", // Works without issues.
+                // 19.32.36 // 19.32+ and beyond all work without issues.
+                // 19.33.35
+                "19.34.42",
             ]
         )
     ]
@@ -140,6 +140,7 @@ object MiniplayerPatch : BytecodePatch(
                 entriesKey = "revanced_miniplayer_type_19_16_entries",
                 entryValuesKey = "revanced_miniplayer_type_19_16_entry_values"
             )
+
             if (VersionCheckPatch.is_19_25_or_greater) {
                 if (!VersionCheckPatch.is_19_29_or_greater) {
                     preferences += SwitchPreference("revanced_miniplayer_double_tap_action")
@@ -147,25 +148,27 @@ object MiniplayerPatch : BytecodePatch(
                 preferences += SwitchPreference("revanced_miniplayer_drag_and_drop")
             }
 
-            preferences += SwitchPreference(
-                key = "revanced_miniplayer_hide_expand_close",
-                summaryOnKey =
+            if (VersionCheckPatch.is_19_36_or_greater) {
+                preferences += SwitchPreference("revanced_miniplayer_rounded_corners")
+            }
+
+            preferences +=
                 if (VersionCheckPatch.is_19_26_or_greater) {
-                    "revanced_miniplayer_hide_expand_close_summary_on"
+                    SwitchPreference("revanced_miniplayer_hide_expand_close")
                 } else {
-                    "revanced_miniplayer_hide_expand_close_legacy_summary_on"
+                    SwitchPreference(
+                        key = "revanced_miniplayer_hide_expand_close",
+                        titleKey = "revanced_miniplayer_hide_expand_close_legacy_title",
+                        summaryOnKey = "revanced_miniplayer_hide_expand_close_legacy_summary_on",
+                        summaryOffKey = "revanced_miniplayer_hide_expand_close_legacy_summary_off",
+                    )
                 }
-            )
 
             if (!VersionCheckPatch.is_19_26_or_greater) {
                 preferences += SwitchPreference("revanced_miniplayer_hide_rewind_forward")
             }
 
             preferences += SwitchPreference("revanced_miniplayer_hide_subtext")
-
-            if (VersionCheckPatch.is_19_36_or_greater) {
-                preferences += SwitchPreference("revanced_miniplayer_rounded_corners")
-            }
 
             if (VersionCheckPatch.is_19_26_or_greater) {
                 preferences += TextPreference("revanced_miniplayer_width_dip", inputType = InputType.NUMBER)
