@@ -71,8 +71,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 @Patch(
     name = "Miniplayer",
     description = "Adds options to change the in app minimized player. " +
-            "Patching target 19.16+ adds modern miniplayers. " +
-            "19.25 has drag and drop, and is the last version that can swipe to expand modern miniplayers.",
+            "Patching target 19.16+ adds modern miniplayers.",
     dependencies = [
         IntegrationsPatch::class,
         SettingsPatch::class,
@@ -126,6 +125,7 @@ object MiniplayerPatch : BytecodePatch(
         AddResourcesPatch(this::class)
 
         val preferences = mutableSetOf<BasePreference>()
+
         if (!VersionCheckPatch.is_19_16_or_greater) {
             preferences += ListPreference(
                 "revanced_miniplayer_type",
@@ -152,6 +152,8 @@ object MiniplayerPatch : BytecodePatch(
                 preferences += SwitchPreference("revanced_miniplayer_rounded_corners")
             }
 
+            preferences += SwitchPreference("revanced_miniplayer_hide_subtext")
+
             preferences +=
                 if (VersionCheckPatch.is_19_26_or_greater) {
                     SwitchPreference("revanced_miniplayer_hide_expand_close")
@@ -167,8 +169,6 @@ object MiniplayerPatch : BytecodePatch(
             if (!VersionCheckPatch.is_19_26_or_greater) {
                 preferences += SwitchPreference("revanced_miniplayer_hide_rewind_forward")
             }
-
-            preferences += SwitchPreference("revanced_miniplayer_hide_subtext")
 
             if (VersionCheckPatch.is_19_26_or_greater) {
                 preferences += TextPreference("revanced_miniplayer_width_dip", inputType = InputType.NUMBER)
@@ -217,7 +217,7 @@ object MiniplayerPatch : BytecodePatch(
         }
 
         if (!VersionCheckPatch.is_19_16_or_greater) {
-            // Return here, as patch below is only intended for new versions of the app.
+            // Return here, as patch below is only for the current versions of the app.
             return
         }
 
