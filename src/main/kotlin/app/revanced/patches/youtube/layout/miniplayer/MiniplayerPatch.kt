@@ -137,8 +137,6 @@ object MiniplayerPatch : BytecodePatch(
             preferences += ListPreference(
                 "revanced_miniplayer_type",
                 summaryKey = null,
-                entriesKey = "revanced_miniplayer_type_19_16_entries",
-                entryValuesKey = "revanced_miniplayer_type_19_16_entry_values"
             )
 
             if (VersionCheckPatch.is_19_25_or_greater) {
