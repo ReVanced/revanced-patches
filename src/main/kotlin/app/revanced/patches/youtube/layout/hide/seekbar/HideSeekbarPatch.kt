@@ -31,7 +31,7 @@ import app.revanced.util.alsoResolve
                 "19.05.36",
                 "19.16.39",
                 "19.25.37",
-                // "19.34.42", // Hide seekbar in feed currently does not work with gradient seekbar.
+                "19.34.42",
             ]
         )
     ]

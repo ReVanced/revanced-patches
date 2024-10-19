@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.layout.seekbar
 
 import app.revanced.patcher.data.BytecodeContext
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
@@ -11,6 +12,7 @@ import app.revanced.patches.youtube.layout.seekbar.fingerprints.PlayerSeekbarGra
 import app.revanced.patches.youtube.layout.seekbar.fingerprints.PlayerSeekbarColorFingerprint
 import app.revanced.patches.youtube.layout.seekbar.fingerprints.SetSeekbarClickedColorFingerprint
 import app.revanced.patches.youtube.layout.seekbar.fingerprints.ShortsSeekbarColorFingerprint
+import app.revanced.patches.youtube.layout.seekbar.fingerprints.LinearGradientFingerprint
 import app.revanced.patches.youtube.layout.theme.LithoColorHookPatch
 import app.revanced.patches.youtube.layout.theme.LithoColorHookPatch.lithoColorOverrideHook
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
@@ -34,6 +36,7 @@ internal object SeekbarColorBytecodePatch : BytecodePatch(
         ShortsSeekbarColorFingerprint,
         SetSeekbarClickedColorFingerprint,
         PlayerSeekbarGraidentConfigFingerprint,
+        LinearGradientFingerprint
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/theme/SeekbarColorPatch;"
@@ -96,6 +99,12 @@ internal object SeekbarColorBytecodePatch : BytecodePatch(
                         invoke-static { v$register }, $INTEGRATIONS_CLASS_DESCRIPTOR->playerSeekbarGradientEnabled(Z)Z
                         move-result v$register
                     """
+                )
+            }
+
+            LinearGradientFingerprint.resultOrThrow().mutableMethod.apply {
+                addInstruction(0, "invoke-static/range { p4 .. p5 },  " +
+                        "$INTEGRATIONS_CLASS_DESCRIPTOR->setLinearGradient([I[F)V"
                 )
             }
         }
