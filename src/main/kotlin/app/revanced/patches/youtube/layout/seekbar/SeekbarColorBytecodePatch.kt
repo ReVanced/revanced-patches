@@ -93,7 +93,7 @@ internal object SeekbarColorBytecodePatch : BytecodePatch(
                 addInstructions(
                     resultIndex + 1,
                     """
-                        invoke-static { v$register }, $INTEGRATIONS_CLASS_DESCRIPTOR->playerSeekbarGraidentEnabled(Z)Z
+                        invoke-static { v$register }, $INTEGRATIONS_CLASS_DESCRIPTOR->playerSeekbarGradientEnabled(Z)Z
                         move-result v$register
                     """
                 )
