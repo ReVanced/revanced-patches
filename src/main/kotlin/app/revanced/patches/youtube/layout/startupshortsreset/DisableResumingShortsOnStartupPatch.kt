@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.layout.startupshortsreset
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
@@ -15,12 +14,11 @@ import app.revanced.patches.youtube.layout.startupshortsreset.fingerprints.UserW
 import app.revanced.patches.youtube.layout.startupshortsreset.fingerprints.UserWasInShortsFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
-import app.revanced.util.exception
+import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
@@ -70,10 +68,10 @@ object DisableResumingShortsOnStartupPatch : BytecodePatch(
                 .nextMethod(walkerIndex, true)
                 .getMethod() as MutableMethod
 
-            // This method will only be called for the user being A/B tested.
             // Presumably a method that processes the ProtoDataStore value (boolean) for the 'user_was_in_shorts' key.
             walkerMethod.addInstructionsWithLabels(
-                0, """
+                0,
+                """
                     invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->disableResumingStartupShortsPlayer()Z
                     move-result v0
                     if-eqz v0, :show
@@ -85,30 +83,25 @@ object DisableResumingShortsOnStartupPatch : BytecodePatch(
             )
         }
 
-        UserWasInShortsFingerprint.result?.mutableMethod?.apply {
+        UserWasInShortsFingerprint.resultOrThrow().mutableMethod.apply {
             val listenableInstructionIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_INTERFACE &&
                         getReference<MethodReference>()?.definingClass == "Lcom/google/common/util/concurrent/ListenableFuture;" &&
                         getReference<MethodReference>()?.name == "isDone"
             }
-            val originalInstructionRegister = getInstruction<FiveRegisterInstruction>(listenableInstructionIndex).registerC
             val freeRegister = getInstruction<OneRegisterInstruction>(listenableInstructionIndex + 1).registerA
 
-            // Replace original instruction to preserve control flow label.
-            replaceInstruction(
+            addInstructionsAtControlFlowLabel(
                 listenableInstructionIndex,
-                "invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->disableResumingStartupShortsPlayer()Z"
-            )
-            addInstructionsWithLabels(
-                listenableInstructionIndex + 1,
                 """
+                    invoke-static { }, $INTEGRATIONS_CLASS_DESCRIPTOR->disableResumingStartupShortsPlayer()Z
                     move-result v$freeRegister
                     if-eqz v$freeRegister, :show_startup_shorts_player
                     return-void
                     :show_startup_shorts_player
-                    invoke-interface {v$originalInstructionRegister}, Lcom/google/common/util/concurrent/ListenableFuture;->isDone()Z
+                    nop
                 """
             )
-        } ?: throw UserWasInShortsFingerprint.exception
+        }
     }
 }
