@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    'android.R.style.ThemeOverlay_Material_Dialog' is a theme added in Android 6.0+.
+
+    'android:windowBackground' is the background color of the alert dialog.
+        If not overridden, the background color of the parent theme 'android.R.style.ThemeOverlay_Material_Dialog' is used.
+
+    'R.attr.ytRaisedBackground' is the background color of the YouTube alert dialog.
+
+    'android:windowIsTranslucent' makes the dialog window transparent.
+
+    'android:background' needs to be transparent for the 'contextual action bar' to be displayed properly.
+
+    Referenced documentation and framework source code:
+        https://android.googlesource.com/platform/frameworks/base/+/android-6.0.1_r81/core/res/res/values/themes_material.xml#1142
+        https://developer.android.com/reference/android/R.style#ThemeOverlay_Material_Dialog
+        https://developer.android.com/about/versions/marshmallow/android-6.0-changes#behavior-text-selection
+-->
+<resources>
+    <style name="revanced_edit_text_dialog_style" parent="@android:style/ThemeOverlay.Material.Dialog">
+        <item name="android:windowBackground">?ytRaisedBackground</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+</resources>

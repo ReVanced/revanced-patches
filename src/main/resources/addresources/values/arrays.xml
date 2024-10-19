@@ -29,7 +29,7 @@
             </string-array>
         </patch>
         <patch id="layout.miniplayer.MiniplayerPatch">
-            <string-array name="revanced_miniplayer_type_19_15_entries">
+            <string-array name="revanced_miniplayer_type_entries">
                 <item>@string/revanced_miniplayer_type_entry_1</item>
                 <item>@string/revanced_miniplayer_type_entry_2</item>
                 <item>@string/revanced_miniplayer_type_entry_3</item>
@@ -37,7 +37,7 @@
                 <item>@string/revanced_miniplayer_type_entry_5</item>
                 <item>@string/revanced_miniplayer_type_entry_6</item>
             </string-array>
-            <string-array name="revanced_miniplayer_type_19_15_entry_values">
+            <string-array name="revanced_miniplayer_type_entry_values">
                 <!-- Enum names from Integrations. -->
                 <item>ORIGINAL</item>
                 <item>PHONE</item>
@@ -58,30 +58,44 @@
             </string-array>
         </patch>
         <patch id="layout.startpage.ChangeStartPagePatch">
-            <string-array name="revanced_start_page_entries">
-                <item>@string/revanced_start_page_entry_0</item>
-                <item>@string/revanced_start_page_entry_1</item>
-                <item>@string/revanced_start_page_entry_2</item>
-                <item>@string/revanced_start_page_entry_3</item>
-                <item>@string/revanced_start_page_entry_4</item>
-                <item>@string/revanced_start_page_entry_5</item>
-                <item>@string/revanced_start_page_entry_6</item>
-                <item>@string/revanced_start_page_entry_7</item>
-                <item>@string/revanced_start_page_entry_8</item>
-                <item>@string/revanced_start_page_entry_9</item>
+            <string-array name="revanced_change_start_page_entries">
+                <item>@string/revanced_change_start_page_entry_default</item>
+                <item>@string/revanced_change_start_page_entry_search</item>
+                <item>Shorts</item> <!-- Non translatable name. -->
+                <item>@string/revanced_change_start_page_entry_subscriptions</item>
+                <item>@string/revanced_change_start_page_entry_explore</item>
+                <item>@string/revanced_change_start_page_entry_library</item>
+                <item>@string/revanced_change_start_page_entry_liked_videos</item>
+                <item>@string/revanced_change_start_page_entry_watch_later</item>
+                <item>@string/revanced_change_start_page_entry_history</item>
+                <item>@string/revanced_change_start_page_entry_trending</item>
+                <item>@string/revanced_change_start_page_entry_gaming</item>
+                <item>@string/revanced_change_start_page_entry_live</item>
+                <item>@string/revanced_change_start_page_entry_music</item>
+                <item>@string/revanced_change_start_page_entry_movies</item>
+                <item>@string/revanced_change_start_page_entry_sports</item>
+                <item>@string/revanced_change_start_page_entry_browse</item>
             </string-array>
-            <string-array name="revanced_start_page_entry_values">
-                <item/>
-                <item>MAIN</item>
-                <item>open.search</item>
-                <item>open.subscriptions</item>
-                <item>open.explore</item>
-                <item>open.shorts</item>
-                <item>www.youtube.com/feed/library</item>
-                <!-- Liked videos -->
-                <item>www.youtube.com/playlist?list=LL</item>
-                <item>www.youtube.com/feed/history</item>
-                <item>www.youtube.com/feed/trending</item>
+            <string-array name="revanced_change_start_page_entry_values">
+                <!-- Enum names from Integrations -->
+                <item>ORIGINAL</item>
+                <!-- Intent Action -->
+                <item>SEARCH</item>
+                <item>SHORTS</item>
+                <!-- Browser Id -->
+                <item>SUBSCRIPTIONS</item>
+                <item>EXPLORE</item>
+                <item>LIBRARY</item>
+                <item>LIKED_VIDEO</item>
+                <item>WATCH_LATER</item>
+                <item>HISTORY</item>
+                <item>TRENDING</item>
+                <item>GAMING</item>
+                <item>LIVE</item>
+                <item>MUSIC</item>
+                <item>MOVIE</item>
+                <item>SPORTS</item>
+                <item>BROWSE</item>
             </string-array>
         </patch>
         <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
