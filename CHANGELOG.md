@@ -1,3 +1,10 @@
+# [4.17.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v4.17.0-dev.11...v4.17.0-dev.12) (2024-10-19)
+
+
+### Features
+
+* **YouTube - Hide Shorts components:** Hide `Hashtag` button ([#3787](https://github.com/ReVanced/revanced-patches/issues/3787)) ([828a634](https://github.com/ReVanced/revanced-patches/commit/828a634667c4005a90f3e469ad2c5d69387f0760))
+
 # [4.17.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v4.17.0-dev.10...v4.17.0-dev.11) (2024-10-19)
 
 
