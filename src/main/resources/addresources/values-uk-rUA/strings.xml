@@ -1011,14 +1011,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_double_tap_action_summary_on">Подвійне натискання та зміну розміру щипком увімкнено\n\n• Двічі торкніться, щоб збільшити розмір мініплеєра\n• Двічі торкніться ще раз, щоб відновити початковий розмір</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Подвійне натискання та зміну розміру щипком вимкнуто</string>
   <string name="revanced_miniplayer_drag_and_drop_title">Увімкнути перетягування</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">Перетягніть увімкнену\n\nМінімальний плеєр можна перетягнути у будь-який кут екрану</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">Перетягування увімкнено\n\nМініплеєр можна перетягнути в будь-який кут екрану</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">Перетягування вимкнуто</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Приховати кнопку закриття</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Кнопка закриття прихована</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Кнопка закриття відображається</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Приховати кнопки розгортання та закриття</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Кнопки приховані\n\nПроведіть щоб розгорнути або закрити</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Розгорнути і закрити кнопки показано</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">Кнопку закриття мініплеєру приховано</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">Кнопка закриття мініплеєру показується</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Кнопки розгортання та закриття</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Кнопки розгортання та закриття приховано\n\nПроведіть по мініплеєру, щоб розгорнути чи закрити</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Кнопки розгортання та закриття показуються</string>
   <string name="revanced_miniplayer_hide_subtext_title">Приховати підтексти</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Підтексти в мініплеєрі приховано</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Підтексти в мініплеєрі показуються</string>
@@ -1026,7 +1026,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Кнопки перемотування вперед та назад в мініплеєрі приховано</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Кнопки перемотування вперед та назад в мініплеєрі показуються</string>
   <string name="revanced_miniplayer_width_dip_title">Початковий розмір</string>
-  <string name="revanced_miniplayer_width_dip_summary">Початковий розмір екрану в пікселях</string>
+  <string name="revanced_miniplayer_width_dip_summary">Початковий розмір мініплеєра на екрані, в пікселях</string>
   <string name="revanced_miniplayer_width_dip_invalid_toast">Розмір у пікселях повинен бути від %1$s до %2$s</string>
   <string name="revanced_miniplayer_opacity_title">Затемнення мініплеєра</string>
   <string name="revanced_miniplayer_opacity_summary">Значення затемнення при натисканні на мініплеєр в межах 0-100, де 0 це прозоро</string>
@@ -1043,7 +1043,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_summary_off">Показується оригінальний колір панелі прогресу відтворення</string>
   <string name="revanced_seekbar_custom_color_value_title">Користувацький колір панелі прогресу</string>
   <string name="revanced_seekbar_custom_color_value_summary">Редагувати колір панелі прогресу відтворення</string>
-  <string name="revanced_seekbar_custom_color_invalid">Недійсне значення кольору панелі прогресу відтворення</string>
+  <string name="revanced_seekbar_custom_color_invalid">Недійсне значення кольору панелі прогресу</string>
   </patch>
   <patch id="layout.thumbnails.BypassImageRegionRestrictions">
   <string name="revanced_bypass_image_region_restrictions_title">Змінити хост зображень</string>
