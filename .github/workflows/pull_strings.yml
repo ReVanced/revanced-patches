@@ -10,6 +10,7 @@ jobs:
     name: Pull strings
     permissions:
       contents: write
+      pull-requests: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
