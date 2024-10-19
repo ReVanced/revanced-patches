@@ -4,9 +4,10 @@ import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patches.youtube.layout.startupshortsreset.fingerprints.UserWasInShortsConfigFingerprint.indexOfOptionalInstruction
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
-import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
+import com.android.tools.smali.dexlib2.util.MethodUtil
 
 /**
  * 18.15.40+
@@ -18,12 +19,17 @@ internal object UserWasInShortsConfigFingerprint : MethodFingerprint(
         indexOfOptionalInstruction(methodDef) >= 0
     }
 ) {
+    private val optionalOfMethodReference = ImmutableMethodReference(
+        "Lj${'$'}/util/Optional;",
+        "of",
+        listOf("Ljava/lang/Object;"),
+        "Lj${'$'}/util/Optional;",
+    )
+
     fun indexOfOptionalInstruction(methodDef: Method) =
         methodDef.indexOfFirstInstruction {
-            val reference = getReference<MethodReference>()
-            opcode == Opcode.INVOKE_STATIC &&
-                    reference?.definingClass == "Lj${'$'}/util/Optional;" &&
-                    reference.name == "of" &&
-                    reference.returnType == "Lj${'$'}/util/Optional;"
+            val reference = getReference<MethodReference>() ?: return@indexOfFirstInstruction false
+
+            MethodUtil.methodSignaturesMatch(reference, optionalOfMethodReference)
         }
 }
