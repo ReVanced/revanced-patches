@@ -193,6 +193,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_MORE_INFO_MENU = new BooleanSetting("revanced_hide_player_flyout_more_info", TRUE);
     public static final BooleanSetting HIDE_LOCK_SCREEN_MENU = new BooleanSetting("revanced_hide_player_flyout_lock_screen", FALSE);
     public static final BooleanSetting HIDE_AUDIO_TRACK_MENU = new BooleanSetting("revanced_hide_player_flyout_audio_track", FALSE);
+    public static final BooleanSetting HIDE_PLAYER_FLYOUT_MENU_SLEEP_TIMER = new BooleanSetting("revanced_hide_player_flyout_sleep_timer", FALSE);
     public static final BooleanSetting HIDE_WATCH_IN_VR_MENU = new BooleanSetting("revanced_hide_player_flyout_watch_in_vr", TRUE);
     public static final BooleanSetting HIDE_VIDEO_QUALITY_MENU_FOOTER = new BooleanSetting("revanced_hide_video_quality_menu_footer", FALSE);
 

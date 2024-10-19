@@ -513,6 +513,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_player_flyout_additional_settings_title">Hide Additional settings</string>
             <string name="revanced_hide_player_flyout_additional_settings_summary_on">Additional settings menu is hidden</string>
             <string name="revanced_hide_player_flyout_additional_settings_summary_off">Additional settings menu is shown</string>
+            <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
+            <string name="revanced_hide_player_flyout_sleep_timer_title">Hide Sleep timer</string>
+            <string name="revanced_hide_player_flyout_sleep_timer_summary_on">Sleep timer menu is hidden</string>
+            <string name="revanced_hide_player_flyout_sleep_timer_summary_off">Sleep timer menu is shown</string>
             <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
             <string name="revanced_hide_player_flyout_loop_video_title">Hide Loop video</string>
             <string name="revanced_hide_player_flyout_loop_video_summary_on">Loop video menu is hidden</string>
