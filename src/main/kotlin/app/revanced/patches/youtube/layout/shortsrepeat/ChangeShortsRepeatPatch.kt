@@ -13,6 +13,7 @@ import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.youtube.layout.shortsrepeat.fingerprints.ReelEnumConstructorFingerprint
 import app.revanced.patches.youtube.layout.shortsrepeat.fingerprints.ReelPlaybackRepeatFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
+import app.revanced.patches.youtube.misc.playservice.VersionCheckPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.shared.fingerprints.MainActivityOnCreateFingerprint
 import app.revanced.util.findOpcodeIndicesReversed
@@ -30,6 +31,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
         IntegrationsPatch::class,
         SettingsPatch::class,
         ResourceMappingPatch::class,
+        VersionCheckPatch::class,
     ],
     compatiblePackages = [
         CompatiblePackage(
@@ -61,15 +63,20 @@ object ChangeShortsRepeatPatch : BytecodePatch(
             ListPreference(
                 key = "revanced_shorts_repeat_behavior",
                 summaryKey = null,
-            ),
-            ListPreference(
-                key = "revanced_shorts_background_repeat_behavior",
-                titleKey = "revanced_shorts_background_repeat_behavior_title",
-                summaryKey = null,
-                entriesKey = "revanced_shorts_repeat_behavior_entries",
-                entryValuesKey = "revanced_shorts_repeat_behavior_entry_values"
             )
         )
+
+        if (VersionCheckPatch.is_19_35_or_greater) {
+            SettingsPatch.PreferenceScreen.SHORTS.addPreferences(
+                ListPreference(
+                    key = "revanced_shorts_background_repeat_behavior",
+                    titleKey = "revanced_shorts_background_repeat_behavior_title",
+                    summaryKey = null,
+                    entriesKey = "revanced_shorts_repeat_behavior_entries",
+                    entryValuesKey = "revanced_shorts_repeat_behavior_entry_values"
+                )
+            )
+        }
 
         // Main activity is used to check if app is in pip mode.
         MainActivityOnCreateFingerprint.resultOrThrow().mutableMethod.addInstructions(
