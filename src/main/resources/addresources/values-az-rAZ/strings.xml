@@ -644,6 +644,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_green_screen_button_title">\"Yaşıl ekran\" düyməsini gizlət</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">\"Yaşıl ekran\" düyməsi gizlidir</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">\"Yaşıl ekran\" düyməsi göstərilir</string>
+  <string name="revanced_hide_shorts_hashtag_button_title">Hashtag düyməsini gizlət</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_on">Hashtag düyməsi gizlidir</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_off">Hashtag düyməsi göstərilir</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Axtarış təkliflərini gizlət</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Axtarış təklifləri gizlədilib</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Axtarış təklifləri göstərilir</string>
@@ -965,13 +968,20 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.startpage.ChangeStartPagePatch">
   <string name="revanced_change_start_page_title">Başlanğıc səhifəsini tənzimlə</string>
   <string name="revanced_change_start_page_entry_default">İlkin</string>
+  <string name="revanced_change_start_page_entry_browse">Kəşf edilən kanallar</string>
   <string name="revanced_change_start_page_entry_explore">Kəşf et</string>
+  <string name="revanced_change_start_page_entry_gaming">Oyun</string>
   <string name="revanced_change_start_page_entry_history">Tarixçə</string>
   <string name="revanced_change_start_page_entry_library">Kitabxana</string>
   <string name="revanced_change_start_page_entry_liked_videos">Bəyənilən videolar</string>
-  <string name="revanced_change_start_page_entry_search">Axtar</string>
+  <string name="revanced_change_start_page_entry_live">Canlı</string>
+  <string name="revanced_change_start_page_entry_movies">Filmlər</string>
+  <string name="revanced_change_start_page_entry_music">Musiqi</string>
+  <string name="revanced_change_start_page_entry_search">Axtarış</string>
+  <string name="revanced_change_start_page_entry_sports">İdman</string>
   <string name="revanced_change_start_page_entry_subscriptions">Abunəliklər</string>
   <string name="revanced_change_start_page_entry_trending">Trenddə olan</string>
+  <string name="revanced_change_start_page_entry_watch_later">Sonra izlə</string>
   </patch>
   <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Shorts oynadıcı başladıcını bağla</string>
@@ -994,7 +1004,20 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_entry_4">Müasir 1</string>
   <string name="revanced_miniplayer_type_entry_5">Müasir 2</string>
   <string name="revanced_miniplayer_type_entry_6">Müasir 3</string>
+  <string name="revanced_miniplayer_rounded_corners_title">Dairəvi küncləri aktivləşdir</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_on">Künclər dövrələnir</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_off">Künclər kvadratdır</string>
+  <string name="revanced_miniplayer_double_tap_action_title">Ölçüsünü dəyişmək üçün iki dəfə toxun və çimdiklə</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">İki dəfə kliklə fəaliyyəti və ölçüsünü dəyişmək üçün çimdiklə, aktivdir\n\n• Kiçik oynadıcı ölçüsün artırmaq üçün iki dəfə toxunun\n• Əsl ölçüsün bərpa etmək üçün təkrar iki dəfə toxun</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_off">Ölçüsün dəyişmək üçün cüt kliklə və çimdiklə bağlıdır</string>
+  <string name="revanced_miniplayer_drag_and_drop_title">Çəkmə və buraxma funksiyasın aktivləşdir</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">Çəkmə və buraxma aktivdir\n\nMinipleyeri ekranın istənilən küncünə çəkmək olar</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_off">Çəkmə və buraxma bağlıdır</string>
+  <string name="revanced_miniplayer_hide_expand_close_title">Bağlama düyməsin gizlət</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">Bağlama düyməsi gizlidir</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">Bağlama düyməsi göstərilir</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_title">Genişləndir və bağla düymələrini gizlət</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Düymələr gizlədilib\n\nGenişləndirmək və ya bağlamaq üçün sürüşdür</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Genişləndirmə və bağlama düymələri göstərilir</string>
   <string name="revanced_miniplayer_hide_subtext_title">Alt mətnləri gizlət</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Alt mətnlər gizlədilir</string>
@@ -1002,6 +1025,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_hide_rewind_forward_title">İrəli və geri ötür düymələrini gizlət</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">İrəli və geri ötürücülər gizlidir</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">İrəli və geri ötürücülər göstərilir</string>
+  <string name="revanced_miniplayer_width_dip_title">İlkin ölçü</string>
+  <string name="revanced_miniplayer_width_dip_summary">Ekran ölçüsündə, piksellərdə ilkin ölçü</string>
+  <string name="revanced_miniplayer_width_dip_invalid_toast">Piksel ölçüsü %1$s və %2$s arası olmalıdır</string>
   <string name="revanced_miniplayer_opacity_title">Örtük qeyri-şəffaflığı</string>
   <string name="revanced_miniplayer_opacity_summary">0-100 arasında qeyri-şəffaflıq dəyəri, burada 0 şəffafdır</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Kiçik Oynadıcı örtük qeyri-şəffaflığı 0-100 arası olmalıdır</string>
@@ -1017,7 +1043,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_summary_off">Orijinal axtarma çubuğu rəngi göstərilir</string>
   <string name="revanced_seekbar_custom_color_value_title">Fərdi axtarma çubuğu rəngi</string>
   <string name="revanced_seekbar_custom_color_value_summary">Axtarma çubuğu rəngi</string>
-  <string name="revanced_seekbar_custom_color_invalid">Yararsız zaman çubuğu rəng dəyəri</string>
+  <string name="revanced_seekbar_custom_color_invalid">Etibarsız axtarış çubuğu rəng dəyəri</string>
   </patch>
   <patch id="layout.thumbnails.BypassImageRegionRestrictions">
   <string name="revanced_bypass_image_region_restrictions_title">Təsvir bölgə məhdudiyyətlərini ötür</string>

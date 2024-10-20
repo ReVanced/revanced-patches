@@ -645,6 +645,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_green_screen_button_title">Sakrij dugme „Green Screen”</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Dugme „Green Screen” je skriveno</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Dugme „Green Screen” je prikazano</string>
+  <string name="revanced_hide_shorts_hashtag_button_title">Sakrij dugme heš-oznake</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_on">Dugme heš-oznake je skriveno</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_off">Dugme heš-oznake je prikazano</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Sakrij predloge za pretragu</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Predlozi za pretragu su skriveni</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Predlozi za pretragu su prikazani</string>
@@ -710,8 +713,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.player.overlay.CustomPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Neprozirnost preklopa plejera</string>
-  <string name="revanced_player_overlay_opacity_summary">Vrednost neprozirnosti između 0-100, gde je 0 prozirno</string>
-  <string name="revanced_player_overlay_opacity_invalid_toast">Prozirnost preklopa plejera mora biti između 0-100</string>
+  <string name="revanced_player_overlay_opacity_summary">Vrednost neprozirnosti između 0 i 100, gde je 0 prozirno</string>
+  <string name="revanced_player_overlay_opacity_invalid_toast">Neprozirnost preklopa plejera mora biti između 0 i 100</string>
   </patch>
   <patch id="layout.returnyoutubedislike.ReturnYouTubeDislikeResourcePatch">
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
@@ -966,13 +969,20 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.startpage.ChangeStartPagePatch">
   <string name="revanced_change_start_page_title">Podešavanje početne stranice</string>
   <string name="revanced_change_start_page_entry_default">Podrazumevana</string>
+  <string name="revanced_change_start_page_entry_browse">Pretraga kanala</string>
   <string name="revanced_change_start_page_entry_explore">Istraži</string>
+  <string name="revanced_change_start_page_entry_gaming">Video igre</string>
   <string name="revanced_change_start_page_entry_history">Istorija</string>
   <string name="revanced_change_start_page_entry_library">Zbirka</string>
   <string name="revanced_change_start_page_entry_liked_videos">Lajkovani videi</string>
+  <string name="revanced_change_start_page_entry_live">Uživo</string>
+  <string name="revanced_change_start_page_entry_movies">Filmovi</string>
+  <string name="revanced_change_start_page_entry_music">Muzika</string>
   <string name="revanced_change_start_page_entry_search">Pretraga</string>
+  <string name="revanced_change_start_page_entry_sports">Sport</string>
   <string name="revanced_change_start_page_entry_subscriptions">Praćenja</string>
   <string name="revanced_change_start_page_entry_trending">U trendu</string>
+  <string name="revanced_change_start_page_entry_watch_later">Gledaj kasnije</string>
   </patch>
   <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Onemogući nastavak reprodukcije Shorts plejera</string>
@@ -995,16 +1005,33 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_entry_4">Moderan 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderan 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderan 3</string>
+  <string name="revanced_miniplayer_rounded_corners_title">Omogući zaobljene uglove</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_on">Uglovi su zaobljeni</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_off">Uglovi nisu zaobljeni</string>
+  <string name="revanced_miniplayer_double_tap_action_title">Omogući dvostruki dodir i štipanje za promenu veličine</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">Radnja dvostrukog dodira i štipanja za promenu veličine je omogućena\n\n• Dvaput dodirnite da biste povećali veličinu mini-plejera\n• Dvaput dodirnite ponovo da biste vratili originalnu veličinu</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_off">Radnja dvostrukog dodira i štipanja za promenu veličine je onemogućena</string>
+  <string name="revanced_miniplayer_drag_and_drop_title">Omogući prevlačenje i otpuštanje</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">Prevlačenje i otpuštanje je omogućeno\n\nMini-plejer može da se prevuče u bilo koji ugao ekrana</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_off">Prevlačenje i otpuštanje je onemogućeno</string>
+  <string name="revanced_miniplayer_hide_expand_close_title">Sakrij dugme za zatvaranje</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">Dugme za zatvaranje je skriveno</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">Dugme za zatvaranje je prikazano</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_title">Sakrij dugmad za proširivanje i zatvaranje</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Dugmad su skrivena\n\nPrevucite da biste proširili ili zatvorili</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Dugmad za proširivanje i zatvaranje su prikazana</string>
   <string name="revanced_miniplayer_hide_subtext_title">Sakrij podtekstove</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Podtekstovi su skriveni</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Podtekstovi su prikazani</string>
   <string name="revanced_miniplayer_hide_rewind_forward_title">Sakrij dugmad za premotavanje unapred i unazad</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Dugmad za premotavanje unapred i unazad su skrivena</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Dugmad za premotavanje unapred i unazad su prikazana</string>
-  <string name="revanced_miniplayer_opacity_title">Prozirnost preklopa</string>
-  <string name="revanced_miniplayer_opacity_summary">Vrednost neprozirnosti između 0-100, gde je 0 prozirno</string>
-  <string name="revanced_miniplayer_opacity_invalid_toast">Prozirnost preklopa mini-plejera mora biti između 0-100</string>
+  <string name="revanced_miniplayer_width_dip_title">Početna veličina</string>
+  <string name="revanced_miniplayer_width_dip_summary">Početna veličina ekrana, u pikselima</string>
+  <string name="revanced_miniplayer_width_dip_invalid_toast">Veličina piksela mora biti između %1$s i %2$s</string>
+  <string name="revanced_miniplayer_opacity_title">Neprozirnost preklopa</string>
+  <string name="revanced_miniplayer_opacity_summary">Vrednost neprozirnosti između 0 i 100, gde je 0 prozirno</string>
+  <string name="revanced_miniplayer_opacity_invalid_toast">Neprozirnost preklopa mini-plejera mora biti između 0 i 100</string>
   </patch>
   <patch id="layout.theme.ThemeBytecodePatch">
   <string name="revanced_gradient_loading_screen_title">Omogući ekran učitavanja s gradijentom</string>
