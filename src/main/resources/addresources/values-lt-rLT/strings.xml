@@ -149,6 +149,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <!-- 'subscribe' should be translated using the same localized wording YouTube displays for the button. -->
+  <string name="revanced_hide_shorts_hashtag_button_title">Slėpti saitažodžio mygtuką</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_on">Paslėptas saitažodžio mygtukas</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_off">Rodomas saitažodžio mygtukas</string>
   <!-- 'remix' should be translated using the same localized wording YouTube displays for the button. -->
   <!-- 'share' should be translated using the same localized wording YouTube displays for the button. -->
   </patch>

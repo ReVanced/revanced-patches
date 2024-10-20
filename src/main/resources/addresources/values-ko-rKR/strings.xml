@@ -384,7 +384,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_swipe_overlay_background_alpha_title">오버레이 투명도</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">오버레이 투명도 값을 지정할 수 있습니다 (0–255)</string>
   <string name="revanced_swipe_threshold_title">스와이프 한계치</string>
-  <string name="revanced_swipe_threshold_summary">제스처 인식을 위해 얼마나 스와이프를 해야 할지를 설정할 수 있으며, 원하지 않은 제스처 인식을 방지할 수 있습니다</string>
+  <string name="revanced_swipe_threshold_summary">제스처 인식을 위해 얼마나 스와이프를 해야 할지를 지정할 수 있으며, 원하지 않은 제스처 인식을 방지할 수 있습니다</string>
   </patch>
   <patch id="layout.autocaptions.AutoCaptionsPatch">
   <string name="revanced_auto_captions_title">자동 자막 비활성화하기</string>
@@ -645,9 +645,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_green_screen_button_title">그린 스크린 버튼 숨기기</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">그린 스크린 버튼이 숨겨집니다</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">그린 스크린 버튼이 표시됩니다</string>
-  <string name="revanced_hide_shorts_hashtag_button_title">해시 태그 숨기기</string>
-  <string name="revanced_hide_shorts_hashtag_button_summary_on">해시 태그가 숨겨집니다</string>
-  <string name="revanced_hide_shorts_hashtag_button_summary_off">해시 태그가 표시됩니다</string>
+  <string name="revanced_hide_shorts_hashtag_button_title">해시태그 버튼 숨기기</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_on">해시태그 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_off">해시태그 벼튼이 표시됩니다</string>
   <string name="revanced_hide_shorts_search_suggestions_title">검색 추천 숨기기</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">검색 추천이 숨겨집니다</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">검색 추천이 표시됩니다</string>
@@ -1008,7 +1008,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_rounded_corners_title">둥근 모서리 활성화하기</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">모서리를 둥글게 활성화합니다</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">모서리를 각지게 활성화합니다</string>
-  <string name="revanced_miniplayer_double_tap_action_title">두 번 탭하고 핀치하여 크기 조정 활성화하기</string>
+  <string name="revanced_miniplayer_double_tap_action_title">두 번 누르기 및 핀치하여 크기 조정 활성화하기</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">두 번 누르기 동작 및 핀치하여 크기 조정을 활성화합니다\n\n• 두 번 눌러서 미니 플레이어 크기를 확대합니다\n• 다시 두 번 눌러서 원래 크기로 복원합니다</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">두 번 누르기 동작 및 핀치하여 크기 조정을 비활성화합니다</string>
   <string name="revanced_miniplayer_drag_and_drop_title">드래그 &amp; 드롭 활성화하기</string>
@@ -1018,7 +1018,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_hide_expand_close_summary_on">닫기 버튼이 숨겨집니다</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">닫기 버튼이 표시됩니다</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_title">\'펼치기\' &amp; \'닫기\' 버튼 숨기기</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">버튼들이 숨겨집니다\n\n미니 플레이어를 펼치거나 닫을 수 있습니다</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">버튼들이 숨겨집니다\n\n스와이프하여 미니 플레이어를 펼치거나 닫을 수 있습니다</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">\'펼치기\' &amp; \'닫기\' 버튼이 표시됩니다</string>
   <string name="revanced_miniplayer_hide_subtext_title">서브텍스트 숨기기</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">서브텍스트가 숨겨집니다\n• 왼쪽 하단에서 표시되는 \'유료 광고 포함\'과 같은 라벨</string>
@@ -1026,8 +1026,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_hide_rewind_forward_title">\'되감기\' &amp; \'빨리 감기\' 버튼 숨기기</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">\'되감기\' &amp; \'빨리 감기\' 버튼이 숨겨집니다</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">\'되감기\' &amp; \'빨리 감기\' 버튼이 표시됩니다</string>
-  <string name="revanced_miniplayer_width_dip_title">크기 초기화하기</string>
-  <string name="revanced_miniplayer_width_dip_summary">화면 크기의 이니셜, 픽셀 단위을 초기화합니다</string>
+  <string name="revanced_miniplayer_width_dip_title">화면 크기 초기값</string>
+  <string name="revanced_miniplayer_width_dip_summary">화면 크기 초기값을 지정할 수 있습니다 (픽셀)</string>
   <string name="revanced_miniplayer_width_dip_invalid_toast">픽셀 크기는 %1$s-%2$s 사이어야 합니다</string>
   <string name="revanced_miniplayer_opacity_title">미니 플레이어 오버레이 불투명도</string>
   <string name="revanced_miniplayer_opacity_summary">불투명도 값은 0-100 사이이며, 0은 투명입니다</string>
