@@ -98,17 +98,6 @@
                 <item>BROWSE</item>
             </string-array>
         </patch>
-        <patch id="layout.shortsrepeat.ChangeShortsRepeatPatch">
-            <string-array name="revanced_shorts_repeat_behavior_entries">
-                <item>@string/revanced_shorts_repeat_behavior_entry_1</item>
-                <item>@string/revanced_shorts_repeat_behavior_entry_2</item>
-            </string-array>
-            <string-array name="revanced_shorts_repeat_behavior_entry_values">
-                <!-- Enum names from Integrations -->
-                <item>REPEAT</item>
-                <item>SINGLE_PLAY</item>
-            </string-array>
-        </patch>
         <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
             <string-array name="revanced_alt_thumbnail_options_entries">
                 <item>@string/revanced_alt_thumbnail_options_entry_1</item>

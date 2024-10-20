@@ -997,11 +997,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts player will not resume on app startup</string>
             <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts player will resume on app startup</string>
         </patch>
-        <patch id="layout.shortsrepeat.ChangeShortsRepeatPatch">
-            <string name="revanced_shorts_repeat_behavior_title">Shorts repeat behavior</string>
-            <string name="revanced_shorts_repeat_behavior_entry_1">Repeat</string>
-            <string name="revanced_shorts_repeat_behavior_entry_2">Autoplay</string>
-            <string name="revanced_shorts_background_repeat_behavior_title">Shorts repeat background behavior</string>
+        <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
+            <string name="revanced_shorts_autoplay_title">Shorts autoplay</string>
+            <string name="revanced_shorts_autoplay_summary_on">Shorts will repeat</string>
+            <string name="revanced_shorts_autoplay_summary_off">Shorts will autoplay</string>
+            <string name="revanced_shorts_autoplay_background_title">Shorts background autoplay</string>
+            <string name="revanced_shorts_autoplay_background_summary_on">Background Shorts will repeat</string>
+            <string name="revanced_shorts_autoplay_background_summary_off">Background Shorts will autoplay</string>
         </patch>
         <patch id="layout.tablet.EnableTabletLayoutPatch">
             <string name="revanced_tablet_layout_title">Enable tablet layout</string>

@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.shortsrepeat.fingerprints
+package app.revanced.patches.youtube.layout.shortsautoplay.fingerprints
 
 import app.revanced.patcher.fingerprint.MethodFingerprint
 

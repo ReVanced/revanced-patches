@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.shortsrepeat
+package app.revanced.patches.youtube.layout.shortsautoplay
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -9,9 +9,9 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch.invoke
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
-import app.revanced.patches.shared.misc.settings.preference.ListPreference
-import app.revanced.patches.youtube.layout.shortsrepeat.fingerprints.ReelEnumConstructorFingerprint
-import app.revanced.patches.youtube.layout.shortsrepeat.fingerprints.ReelPlaybackRepeatFingerprint
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.patches.youtube.layout.shortsautoplay.fingerprints.ReelEnumConstructorFingerprint
+import app.revanced.patches.youtube.layout.shortsautoplay.fingerprints.ReelPlaybackRepeatFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playservice.VersionCheckPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
@@ -25,8 +25,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
-    name = "Change Shorts repeat",
-    description = "Adds options to play Shorts once, repeat, or autoplay the next Short.",
+    name = "Shorts autoplay",
+    description = "Adds options to automatically play the next Short.",
     dependencies = [
         IntegrationsPatch::class,
         SettingsPatch::class,
@@ -46,7 +46,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
     ],
 )
 @Suppress("unused")
-object ChangeShortsRepeatPatch : BytecodePatch(
+object ShortsAutoplayPatch : BytecodePatch(
     setOf(
         MainActivityOnCreateFingerprint,
         ReelEnumConstructorFingerprint,
@@ -54,27 +54,18 @@ object ChangeShortsRepeatPatch : BytecodePatch(
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/youtube/patches/ChangeShortsRepeatPatch;"
+        "Lapp/revanced/integrations/youtube/patches/ShortsAutoplayPatch;"
 
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.SHORTS.addPreferences(
-            ListPreference(
-                key = "revanced_shorts_repeat_behavior",
-                summaryKey = null,
-            )
+            SwitchPreference("revanced_shorts_autoplay")
         )
 
         if (VersionCheckPatch.is_19_34_or_greater) {
             SettingsPatch.PreferenceScreen.SHORTS.addPreferences(
-                ListPreference(
-                    key = "revanced_shorts_background_repeat_behavior",
-                    titleKey = "revanced_shorts_background_repeat_behavior_title",
-                    summaryKey = null,
-                    entriesKey = "revanced_shorts_repeat_behavior_entries",
-                    entryValuesKey = "revanced_shorts_repeat_behavior_entry_values"
-                )
+                SwitchPreference("revanced_shorts_autoplay_background")
             )
         }
 
