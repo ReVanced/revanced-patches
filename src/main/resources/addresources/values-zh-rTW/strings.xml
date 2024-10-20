@@ -963,14 +963,22 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - 還原舊版 UI 介面</string>
   </patch>
   <patch id="layout.startpage.ChangeStartPagePatch">
-  <string name="revanced_change_start_page_title">設定啟動頁面</string>
+  <string name="revanced_change_start_page_title">設定起始頁面</string>
   <string name="revanced_change_start_page_entry_default">預設</string>
+  <string name="revanced_change_start_page_entry_browse">瀏覽頻道</string>
   <string name="revanced_change_start_page_entry_explore">探索</string>
+  <string name="revanced_change_start_page_entry_gaming">遊戲</string>
   <string name="revanced_change_start_page_entry_history">歷史記錄</string>
+  <string name="revanced_change_start_page_entry_library">媒體庫</string>
   <string name="revanced_change_start_page_entry_liked_videos">喜歡的影片</string>
+  <string name="revanced_change_start_page_entry_live">直播</string>
+  <string name="revanced_change_start_page_entry_movies">電影</string>
+  <string name="revanced_change_start_page_entry_music">音樂</string>
   <string name="revanced_change_start_page_entry_search">搜尋</string>
+  <string name="revanced_change_start_page_entry_sports">運動</string>
   <string name="revanced_change_start_page_entry_subscriptions">訂閱</string>
   <string name="revanced_change_start_page_entry_trending">發燒影片</string>
+  <string name="revanced_change_start_page_entry_watch_later">稍後觀看</string>
   </patch>
   <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">停用自動復原 Shorts 播放器</string>
@@ -993,14 +1001,31 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_entry_4">現代樣式 1</string>
   <string name="revanced_miniplayer_type_entry_5">現代樣式 2</string>
   <string name="revanced_miniplayer_type_entry_6">現代樣式 3</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">隱藏擴展和關閉按鈕</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">已顯示擴展和關閉按鈕</string>
+  <string name="revanced_miniplayer_rounded_corners_title">啟用圓角角落</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_on">已設定角落為圓角</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_off">已設定角落為方形</string>
+  <string name="revanced_miniplayer_double_tap_action_title">啟用輕觸兩下和縮放手勢以調整大小</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">已啟用輕觸兩下和縮放手勢以調整大小。\n\n•
+輕觸兩下以放大迷你播放器的大小\n• 再次輕觸兩下以復原至原始大小</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_off">已停用輕觸兩下和縮放手勢以調整大小</string>
+  <string name="revanced_miniplayer_drag_and_drop_title">啟用拖曳</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">已啟用拖曳\n\n現在迷你播放器可以拖曳至螢幕的任何角落</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_off">已停用拖曳</string>
+  <string name="revanced_miniplayer_hide_expand_close_title">隱藏 [關閉] 按鈕</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">已隱藏 [關閉] 按鈕</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">已顯示 [關閉] 按鈕</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_title">隱藏 [展開] 和 [關閉] 按鈕</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">已隱藏按鈕\n\n撥動以 [展開] 或 [關閉]</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">已顯示 [展開] 和 [關閉] 按鈕</string>
   <string name="revanced_miniplayer_hide_subtext_title">隱藏副標</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">副標已隱藏</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">副標已顯示</string>
   <string name="revanced_miniplayer_hide_rewind_forward_title">隱藏快轉和倒帶按鈕</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">已隱藏快轉和倒帶按鈕</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">已顯示快轉和倒帶按鈕</string>
+  <string name="revanced_miniplayer_width_dip_title">初始大小</string>
+  <string name="revanced_miniplayer_width_dip_summary">螢幕初始大小 (像素)</string>
+  <string name="revanced_miniplayer_width_dip_invalid_toast">像素大小必須介於 %1$s 和 %2$s 之間</string>
   <string name="revanced_miniplayer_opacity_title">覆蓋層不透明度</string>
   <string name="revanced_miniplayer_opacity_summary">不透明度值介於 0-100 之間，0 為透明</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">迷你播放器覆蓋層的不透明度必須在 0-100 之間</string>
@@ -1016,6 +1041,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_summary_off">已顯示原版進度列顏色</string>
   <string name="revanced_seekbar_custom_color_value_title">自訂進度列顏色</string>
   <string name="revanced_seekbar_custom_color_value_summary">進度列顏色</string>
+  <string name="revanced_seekbar_custom_color_invalid">滑動桿色彩值無效</string>
   </patch>
   <patch id="layout.thumbnails.BypassImageRegionRestrictions">
   <string name="revanced_bypass_image_region_restrictions_title">繞過圖片區域限制</string>
