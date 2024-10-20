@@ -602,6 +602,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_seekbar_thumbnail_summary_off">Thumbnail seekbar is shown</string>
         </patch>
         <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
+            <string name="revanced_shorts_player_screen_title">Shorts player</string>
+            <string name="revanced_shorts_player_screen_summary">Hide or show components in the Shorts player</string>
             <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
             <string name="revanced_hide_shorts_home_title">Hide Shorts in home feed</string>
             <string name="revanced_hide_shorts_home_summary_on">Shorts in home feed are hidden</string>
@@ -999,11 +1001,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
         </patch>
         <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
             <string name="revanced_shorts_autoplay_title">Shorts autoplay</string>
-            <string name="revanced_shorts_autoplay_summary_on">Shorts will repeat</string>
-            <string name="revanced_shorts_autoplay_summary_off">Shorts will autoplay</string>
-            <string name="revanced_shorts_autoplay_background_title">Shorts background autoplay</string>
-            <string name="revanced_shorts_autoplay_background_summary_on">Background Shorts will repeat</string>
-            <string name="revanced_shorts_autoplay_background_summary_off">Background Shorts will autoplay</string>
+            <string name="revanced_shorts_autoplay_summary_on">Shorts will autoplay</string>
+            <string name="revanced_shorts_autoplay_summary_off">Shorts will repeat</string>
+            <string name="revanced_shorts_autoplay_background_title">Shorts autoplay background</string>
+            <string name="revanced_shorts_autoplay_background_summary_on">Shorts background play will autoplay</string>
+            <string name="revanced_shorts_autoplay_background_summary_off">Shorts background play will repeat</string>
         </patch>
         <patch id="layout.tablet.EnableTabletLayoutPatch">
             <string name="revanced_tablet_layout_title">Enable tablet layout</string>
