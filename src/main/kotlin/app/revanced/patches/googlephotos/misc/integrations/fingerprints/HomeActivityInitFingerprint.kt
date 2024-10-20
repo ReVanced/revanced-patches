@@ -27,7 +27,7 @@ internal object HomeActivityInitFingerprint : IntegrationsFingerprint(
     contextRegisterResolver = { method ->
         val moveResultInstruction = method.implementation!!.instructions.elementAt(getApplicationContextIndex + 1)
             as OneRegisterInstruction
-        moveResultInstruction.registerA
+        "v${moveResultInstruction.registerA}"
     },
     customFingerprint = { methodDef, classDef ->
         methodDef.name == "onCreate" && classDef.endsWith("/HomeActivity;")
