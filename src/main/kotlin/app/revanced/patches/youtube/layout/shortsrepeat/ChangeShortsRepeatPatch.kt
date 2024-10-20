@@ -111,6 +111,7 @@ object ChangeShortsRepeatPatch : BytecodePatch(
                 val reference = getReference<MethodReference>()
                 reference?.definingClass == reelEnumClass
                         && reference.parameterTypes.firstOrNull() == "I"
+                        && reference.returnType == reelEnumClass
             }.forEach { index ->
                 val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
 
