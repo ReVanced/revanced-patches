@@ -53,6 +53,12 @@ public class StreamingDataRequest {
         }
     }
 
+    private static final String[] REQUEST_HEADER_KEYS = {
+            "Authorization", // Available only to logged in users.
+            "X-GOOG-API-FORMAT-VERSION",
+            "X-Goog-Visitor-Id"
+    };
+
     /**
      * TCP connection and HTTP read timeout.
      */
@@ -112,10 +118,12 @@ public class StreamingDataRequest {
             connection.setConnectTimeout(HTTP_TIMEOUT_MILLISECONDS);
             connection.setReadTimeout(HTTP_TIMEOUT_MILLISECONDS);
 
-            String authHeader = playerHeaders.get("Authorization");
-            String visitorId = playerHeaders.get("X-Goog-Visitor-Id");
-            connection.setRequestProperty("Authorization", authHeader);
-            connection.setRequestProperty("X-Goog-Visitor-Id", visitorId);
+            for (String key : REQUEST_HEADER_KEYS) {
+                String value = playerHeaders.get(key);
+                if (value != null) {
+                    connection.setRequestProperty(key, value);
+                }
+            }
 
             String innerTubeBody = String.format(PlayerRoutes.createInnertubeBody(clientType), videoId);
             byte[] requestBody = innerTubeBody.getBytes(StandardCharsets.UTF_8);

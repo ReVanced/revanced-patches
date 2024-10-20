@@ -66,6 +66,8 @@ public class ImportExportPreference extends EditTextPreference implements Prefer
     @Override
     protected void onPrepareDialogBuilder(AlertDialog.Builder builder) {
         try {
+            Utils.setEditTextDialogTheme(builder);
+
             // Show the user the settings in JSON format.
             builder.setNeutralButton(str("revanced_settings_import_copy"), (dialog, which) -> {
                 Utils.setClipboard(getEditText().getText().toString());

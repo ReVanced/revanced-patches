@@ -9,6 +9,11 @@ import androidx.annotation.Nullable;
 
 import com.google.android.libraries.youtube.rendering.ui.pivotbar.PivotBar;
 
+import java.lang.ref.WeakReference;
+import java.util.Arrays;
+import java.util.List;
+
+import app.revanced.integrations.shared.Logger;
 import app.revanced.integrations.shared.Utils;
 import app.revanced.integrations.youtube.settings.Settings;
 import app.revanced.integrations.youtube.shared.NavigationBar;
@@ -16,13 +21,25 @@ import app.revanced.integrations.youtube.shared.PlayerType;
 
 @SuppressWarnings("unused")
 public final class ShortsFilter extends Filter {
-    public static PivotBar pivotBar; // Set by patch.
-
+    public static final Boolean HIDE_SHORTS_NAVIGATION_BAR = Settings.HIDE_SHORTS_NAVIGATION_BAR.get();
     private final static String REEL_CHANNEL_BAR_PATH = "reel_channel_bar.eml";
+
     /**
      * For paid promotion label and subscribe button that appears in the channel bar.
      */
     private final static String REEL_METAPANEL_PATH = "reel_metapanel.eml";
+
+    /**
+     * Tags that appears when opening the Shorts player.
+     */
+    private static final List<String> REEL_WATCH_FRAGMENT_INIT_PLAYBACK = Arrays.asList("r_fs", "r_ts");
+
+    /**
+     * Vertical padding between the bottom of the screen and the seekbar, when the Shorts navigation bar is hidden.
+     */
+    public static final int HIDDEN_NAVIGATION_BAR_VERTICAL_HEIGHT = 100;
+
+    private static WeakReference<PivotBar> pivotBarRef = new WeakReference<>(null);
 
     private final StringFilterGroup shortsCompactFeedVideoPath;
     private final ByteArrayFilterGroup shortsCompactFeedVideoBuffer;
@@ -33,7 +50,7 @@ public final class ShortsFilter extends Filter {
     private final StringFilterGroup shelfHeader;
 
     private final StringFilterGroup suggestedAction;
-    private final ByteArrayFilterGroupList suggestedActionsGroupList =  new ByteArrayFilterGroupList();
+    private final ByteArrayFilterGroupList suggestedActionsGroupList = new ByteArrayFilterGroupList();
 
     private final StringFilterGroup actionBar;
     private final ByteArrayFilterGroupList videoActionButtonGroupList = new ByteArrayFilterGroupList();
@@ -117,6 +134,11 @@ public final class ShortsFilter extends Filter {
                 "stickers_layer.eml"
         );
 
+        StringFilterGroup likeFountain = new StringFilterGroup(
+                Settings.HIDE_SHORTS_LIKE_FOUNTAIN,
+                "like_fountain.eml"
+        );
+
         joinButton = new StringFilterGroup(
                 Settings.HIDE_SHORTS_JOIN_BUTTON,
                 "sponsor_button"
@@ -145,7 +167,7 @@ public final class ShortsFilter extends Filter {
         addPathCallbacks(
                 shortsCompactFeedVideoPath, suggestedAction, actionBar, joinButton, subscribeButton,
                 paidPromotionButton, pausedOverlayButtons, channelBar, fullVideoLinkLabel, videoTitle,
-                reelSoundMetadata, soundButton, infoPanel, stickers
+                reelSoundMetadata, soundButton, infoPanel, stickers, likeFountain
         );
 
         //
@@ -213,8 +235,34 @@ public final class ShortsFilter extends Filter {
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_SUPER_THANKS_BUTTON,
                         "yt_outline_dollar_sign_heart_"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_SHORTS_USE_TEMPLATE_BUTTON,
+                        "yt_outline_template_add_"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_SHORTS_UPCOMING_BUTTON,
+                        "yt_outline_bell_"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_SHORTS_GREEN_SCREEN_BUTTON,
+                        "greenscreen_temp"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_SHORTS_HASHTAG_BUTTON,
+                        "yt_outline_hashtag_"
                 )
         );
+    }
+
+    private boolean isEverySuggestedActionFilterEnabled() {
+        for (ByteArrayFilterGroup group : suggestedActionsGroupList) {
+            if (!group.isEnabled()) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     @Override
@@ -224,9 +272,7 @@ public final class ShortsFilter extends Filter {
             if (matchedGroup == subscribeButton || matchedGroup == joinButton || matchedGroup == paidPromotionButton) {
                 // Selectively filter to avoid false positive filtering of other subscribe/join buttons.
                 if (path.startsWith(REEL_CHANNEL_BAR_PATH) || path.startsWith(REEL_METAPANEL_PATH)) {
-                    return super.isFiltered(
-                            identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex
-                    );
+                    return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
                 }
                 return false;
             }
@@ -241,19 +287,21 @@ public final class ShortsFilter extends Filter {
             // Video action buttons (like, dislike, comment, share, remix) have the same path.
             if (matchedGroup == actionBar) {
                 if (videoActionButtonGroupList.check(protobufBufferArray).isFiltered()) {
-                    return super.isFiltered(
-                            identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex
-                    );
+                    return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
                 }
                 return false;
             }
 
             if (matchedGroup == suggestedAction) {
-                // Suggested actions can be at the start or in the middle of a path.
+                // Skip searching the buffer if all suggested actions are set to hidden.
+                // This has a secondary effect of hiding all new un-identified actions
+                // under the assumption that the user wants all actions hidden.
+                if (isEverySuggestedActionFilterEnabled()) {
+                    return super.isFiltered(path, identifier, protobufBufferArray, matchedGroup, contentType, contentIndex);
+                }
+
                 if (suggestedActionsGroupList.check(protobufBufferArray).isFiltered()) {
-                    return super.isFiltered(
-                            identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex
-                    );
+                    return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
                 }
                 return false;
             }
@@ -326,6 +374,14 @@ public final class ShortsFilter extends Filter {
         }
     }
 
+    public static int getSoundButtonSize(int original) {
+        if (Settings.HIDE_SHORTS_SOUND_BUTTON.get()) {
+            return 0;
+        }
+
+        return original;
+    }
+
     // region Hide the buttons in older versions of YouTube. New versions use Litho.
 
     public static void hideLikeButton(final View likeButtonView) {
@@ -357,17 +413,30 @@ public final class ShortsFilter extends Filter {
 
     // endregion
 
-    public static void hideNavigationBar() {
-        if (!Settings.HIDE_SHORTS_NAVIGATION_BAR.get()) return;
-        if (pivotBar == null) return;
-
-        pivotBar.setVisibility(View.GONE);
+    public static void setNavigationBar(PivotBar view) {
+        Logger.printDebug(() -> "Setting navigation bar");
+        pivotBarRef = new WeakReference<>(view);
     }
 
-    public static View hideNavigationBar(final View navigationBarView) {
-        if (Settings.HIDE_SHORTS_NAVIGATION_BAR.get())
-            return null; // Hides the navigation bar.
+    public static void hideNavigationBar(String tag) {
+        if (HIDE_SHORTS_NAVIGATION_BAR) {
+            if (REEL_WATCH_FRAGMENT_INIT_PLAYBACK.contains(tag)) {
+                var pivotBar = pivotBarRef.get();
+                if (pivotBar == null) return;
 
-        return navigationBarView;
+                Logger.printDebug(() -> "Hiding navbar by setting to GONE");
+                pivotBar.setVisibility(View.GONE);
+            } else {
+                Logger.printDebug(() -> "Ignoring tag: " + tag);
+            }
+        }
+    }
+
+    public static int getNavigationBarHeight(int original) {
+        if (HIDE_SHORTS_NAVIGATION_BAR) {
+            return HIDDEN_NAVIGATION_BAR_VERTICAL_HEIGHT;
+        }
+
+        return original;
     }
 }

@@ -21,6 +21,7 @@ import java.util.Objects;
 import app.revanced.integrations.shared.Logger;
 import app.revanced.integrations.shared.Utils;
 
+@SuppressWarnings("deprecation")
 public class SegmentCategoryListPreference extends ListPreference {
     private final SegmentCategory category;
     private EditText mEditText;
@@ -45,6 +46,8 @@ public class SegmentCategoryListPreference extends ListPreference {
     @Override
     protected void onPrepareDialogBuilder(AlertDialog.Builder builder) {
         try {
+            Utils.setEditTextDialogTheme(builder);
+
             Context context = builder.getContext();
             TableLayout table = new TableLayout(context);
             table.setOrientation(LinearLayout.HORIZONTAL);

@@ -18,7 +18,7 @@ public final class VideoInformation {
     public interface PlaybackController {
         // Methods are added to YT classes during patching.
         boolean seekTo(long videoTime);
-        boolean seekToRelative(long videoTimeOffset);
+        void seekToRelative(long videoTimeOffset);
     }
 
     private static final float DEFAULT_YOUTUBE_PLAYBACK_SPEED = 1.0f;
@@ -229,21 +229,19 @@ public final class VideoInformation {
     /**
      * Seeks a relative amount.  Should always be used over {@link #seekTo(long)}
      * when the desired seek time is an offset of the current time.
-     *
-     * @noinspection UnusedReturnValue
      */
-    public static boolean seekToRelative(long seekTime) {
+    public static void seekToRelative(long seekTime) {
         Utils.verifyOnMainThread();
         try {
             Logger.printDebug(() -> "Seeking relative to: " + seekTime);
 
-            // Try regular playback controller first, and it will not succeed if casting.
+            // 19.39+ does not have a boolean return type for relative seek.
+            // But can call both methods and it works correctly for both situations.
             PlaybackController controller = playerControllerRef.get();
             if (controller == null) {
                 Logger.printDebug(() -> "Cannot seek relative as player controller is null");
             } else {
-                if (controller.seekToRelative(seekTime)) return true;
-                Logger.printDebug(() -> "seekToRelative did not succeeded. Trying MXD.");
+                controller.seekToRelative(seekTime);
             }
 
             // Adjust the fine adjustment function so it's at least 1 second before/after.
@@ -258,13 +256,11 @@ public final class VideoInformation {
             controller = mdxPlayerDirectorRef.get();
             if (controller == null) {
                 Logger.printDebug(() -> "Cannot seek relative as MXD player controller is null");
-                return false;
+            } else {
+                controller.seekToRelative(adjustedSeekTime);
             }
-
-            return controller.seekToRelative(adjustedSeekTime);
         } catch (Exception ex) {
             Logger.printException(() -> "Failed to seek relative", ex);
-            return false;
         }
     }
 

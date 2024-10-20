@@ -44,7 +44,7 @@ public class Requester {
             String line;
             while ((line = reader.readLine()) != null) {
                 jsonBuilder.append(line);
-                jsonBuilder.append("\n");
+                jsonBuilder.append('\n');
             }
             return jsonBuilder.toString();
         }
