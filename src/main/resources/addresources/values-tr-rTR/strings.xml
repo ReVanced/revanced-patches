@@ -230,6 +230,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">Transkript kısmı gösteriliyor</string>
   <string name="revanced_hide_description_components_screen_title">Video açıklaması</string>
   <string name="revanced_hide_description_components_screen_summary">Video açıklamasındaki öğeleri gizle veya göster</string>
+  <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
+  <string name="revanced_hide_doodles_title">YouTube Doodle\'larını gizle</string>
+  <string name="revanced_hide_doodles_summary_on">Arama çubuğu Doodle\'ları gizli</string>
+  <string name="revanced_hide_doodles_summary_off">Arama çubuğu Doodle\'ları görünür</string>
+  <string name="revanced_hide_doodles_user_dialog_message">YouTube Doodle\'ları her yıl birkaç gün görünür.\n\nEğer bölgenizde bir Doodle görünüyorsa ve bu gizleme seçeneği açıksa, arama çubuğunun altındaki filtre barı da gizlenecektir.</string>
   <string name="revanced_custom_filter_screen_title">Özel filtre</string>
   <string name="revanced_custom_filter_screen_summary">Özel filtre ile öğeleri gizle</string>
   <string name="revanced_custom_filter_title">Özel filtreyi etkinleştir</string>
@@ -630,12 +635,24 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_save_sound_button_title">Müziği kaydet düğmesini gizle</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Müziği kaydet düğmesi gizli</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Müziği kaydet düğmesi görünür</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Şablonu kullan düğmesini gizle</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Şablonu kullan düğmesi gizli</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Şablonu kullan düğmesi görünür</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">\"Gelecek\" düğmesini gizle</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">\"Gelecek\" düğmesi gizli</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">\"Gelecek\" düğmesi görünür</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">Yeşil ekran düğmesini gizle</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_on">Yeşil ekran düğmesi gizli</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_off">Yeşil ekran düğmesi görünür</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Arama önerilerini gizle</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Arama önerileri gizleniyor </string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Arama önerileri gösteriliyor </string>
   <string name="revanced_hide_shorts_stickers_title">Çıkartmaları gizle</string>
   <string name="revanced_hide_shorts_stickers_summary_on">Çıkartmalar gizli</string>
   <string name="revanced_hide_shorts_stickers_summary_off">Çıkartmalar görünür</string>
+  <string name="revanced_hide_shorts_like_fountain_title">Beğeni çeşmesini gizle</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_on">Beğeni düğmesi çeşme animasyonu gizli</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_off">Beğeni düğmesi çeşme animasyonu görünür</string>
   <string name="revanced_hide_shorts_like_button_title">\"Beğen\" butonunu gizle</string>
   <string name="revanced_hide_shorts_like_button_summary_on">\"Beğen\" butonu gizleniyor</string>
   <string name="revanced_hide_shorts_like_button_summary_off">\"Beğen\" butonu gösteriliyor</string>
@@ -946,20 +963,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - Eski arayüzü geri getir</string>
   </patch>
   <patch id="layout.startpage.ChangeStartPagePatch">
-  <string name="revanced_start_page_title">Başlangıç sayfasını seç</string>
-  <string name="revanced_start_page_entry_0">Varsayılan</string>
-  <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_start_page_entry_1">Ana Sayfa</string>
-  <string name="revanced_start_page_entry_2">Arama</string>
-  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the subscriptions tab. -->
-  <string name="revanced_start_page_entry_3">Abonelikler</string>
-  <string name="revanced_start_page_entry_4">Keşfet</string>
-  <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
-  <string name="revanced_start_page_entry_6">Siz sekmesi</string>
-  <string name="revanced_start_page_entry_7">Beğenilen videolar</string>
-  <!-- 'History' should be translated using the same localized wording YouTube displays for the 'history' section in the 'You' tab. -->
-  <string name="revanced_start_page_entry_8">Geçmiş</string>
-  <string name="revanced_start_page_entry_9">Trendler</string>
+  <string name="revanced_change_start_page_title">Başlangıç sayfasını seç</string>
+  <string name="revanced_change_start_page_entry_default">Varsayılan</string>
+  <string name="revanced_change_start_page_entry_explore">Keşfet</string>
+  <string name="revanced_change_start_page_entry_history">Geçmiş</string>
+  <string name="revanced_change_start_page_entry_library">Kitaplık</string>
+  <string name="revanced_change_start_page_entry_liked_videos">Beğenilen videolar</string>
+  <string name="revanced_change_start_page_entry_search">Arama</string>
+  <string name="revanced_change_start_page_entry_subscriptions">Abonelikler</string>
+  <string name="revanced_change_start_page_entry_trending">Trendler</string>
   </patch>
   <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Shorts oynatıcıya devam edilmesini devre dışı bırak</string>
@@ -982,9 +994,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
   <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Büyüt ve kapat düğmelerini gizle</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Düğmeler gizli\n(büyütmek veya kapatmak için mini oynatıcıyı sürükleyin)</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Büyüt ve kapat düğmeleri görünür</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Büyüt ve kapat düğmelerini gizle</string>
   <string name="revanced_miniplayer_hide_subtext_title">Alt metinleri gizle</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Alt metinler gizli</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Alt metinler görünür</string>
@@ -1006,7 +1016,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_summary_off">Orijinal zaman çubuğu rengi gösteriliyor</string>
   <string name="revanced_seekbar_custom_color_value_title">Özel zaman çubuğu rengi</string>
   <string name="revanced_seekbar_custom_color_value_summary">Zaman çubuğunun rengi</string>
-  <string name="revanced_seekbar_custom_color_invalid">Geçersiz renk değeri. Varsayılana sıfırlanıyor.</string>
+  <string name="revanced_seekbar_custom_color_invalid">Geçersiz zaman çubuğu renk değeri</string>
   </patch>
   <patch id="layout.thumbnails.BypassImageRegionRestrictions">
   <string name="revanced_bypass_image_region_restrictions_title">Resimlerin bölge kısıtlamalarını atla</string>

@@ -117,7 +117,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_horizontal_shelves_summary_off">Горизонтальні полиці показуються</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
-  <string name="revanced_hide_join_membership_button_title">Приховати кнопку \"Спонсорувати\"</string>
+  <string name="revanced_hide_join_membership_button_title">Приховати \"Спонсорувати\"</string>
   <string name="revanced_hide_join_membership_button_summary_on">Кнопку \"Спонсорувати\" приховано</string>
   <string name="revanced_hide_join_membership_button_summary_off">Кнопка \"Спонсорувати\" показується</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
@@ -126,7 +126,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_for_you_shelf_summary_off">Полиця \"Для вас\" на сторінці каналу показується</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
-  <string name="revanced_hide_notify_me_button_title">Приховати кнопку \"Сповістити\"</string>
+  <string name="revanced_hide_notify_me_button_title">Приховати \"Сповістити\"</string>
   <string name="revanced_hide_notify_me_button_summary_on">Кнопку \"Сповістити\" приховано</string>
   <string name="revanced_hide_notify_me_button_summary_off">Кнопка \"Сповістити\" показується</string>
   <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
@@ -135,7 +135,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_search_result_recommendations_summary_off">Рекомендації \"Люди також дивилися\" показуються</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
-  <string name="revanced_hide_show_more_button_title">Приховати кнопку \"Показати більше\"</string>
+  <string name="revanced_hide_show_more_button_title">Приховати \"Показати більше\"</string>
   <string name="revanced_hide_show_more_button_summary_on">Кнопку \"Показати більше\" приховано</string>
   <string name="revanced_hide_show_more_button_summary_off">Кнопка \"Показати більше\" показується</string>
   <string name="revanced_hide_timed_reactions_title">Приховати тимчасові реакції</string>
@@ -230,6 +230,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">Секція \"Текст відео\" показується</string>
   <string name="revanced_hide_description_components_screen_title">Опис відео</string>
   <string name="revanced_hide_description_components_screen_summary">Приховати або показувати компоненти опису відео</string>
+  <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
+  <string name="revanced_hide_doodles_title">Приховати YouTube Doodles</string>
+  <string name="revanced_hide_doodles_summary_on">Doodles у пошуковій панелі приховано</string>
+  <string name="revanced_hide_doodles_summary_off">Doodles у пошуковій панелі показуються</string>
+  <string name="revanced_hide_doodles_user_dialog_message">YouTube Doodles з’являються декілька днів на рік.\n\nЯкщо Doodle наразі відображається у Вашому регіоні й це налаштування приховування увімкнено, то панель фільтрів під панеллю пошуку також буде приховано.</string>
   <string name="revanced_custom_filter_screen_title">Користувацький фільтр</string>
   <string name="revanced_custom_filter_screen_summary">Приховати компоненти за допомогою користувацьких фільтрів</string>
   <string name="revanced_custom_filter_title">Увімкнути користувацький фільтр</string>
@@ -289,7 +294,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shopping_links_summary_on">Посилання на покупки в описі відео приховано</string>
   <string name="revanced_hide_shopping_links_summary_off">Посилання на покупки в описі відео показуються</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Приховати кнопку \"Відвідати магазин\"</string>
+  <string name="revanced_hide_visit_store_button_title">Приховати \"Відвідати магазин\"</string>
   <string name="revanced_hide_visit_store_button_summary_on">Кнопку \"Відвідати магазин\" на сторінках каналів приховано</string>
   <string name="revanced_hide_visit_store_button_summary_off">Кнопка \"Відвідати магазин\" на сторінках каналів показується</string>
   <string name="revanced_hide_web_search_results_title">Приховати результати вебпошуку</string>
@@ -422,18 +427,18 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playlist_button_summary_off">Кнопка \"Зберегти\" показується</string>
   </patch>
   <patch id="layout.buttons.autoplay.HideAutoplayButtonPatch">
-  <string name="revanced_hide_autoplay_button_title">Приховати кнопку \"Автовідтворення\"</string>
+  <string name="revanced_hide_autoplay_button_title">Приховати \"Автовідтворення\"</string>
   <string name="revanced_hide_autoplay_button_summary_on">Кнопку \"Автовідтворення\" у відеоплеєрі приховано</string>
   <string name="revanced_hide_autoplay_button_summary_off">Кнопка \"Автовідтворення\" у відеоплеєрі показується</string>
   </patch>
   <patch id="layout.buttons.captions.HideCaptionsButtonPatch">
   <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">Приховати кнопку \"Субтитри\"</string>
+  <string name="revanced_hide_captions_button_title">Приховати \"Субтитри\"</string>
   <string name="revanced_hide_captions_button_summary_on">Кнопку \"Субтитри\" у відеоплеєрі приховано</string>
   <string name="revanced_hide_captions_button_summary_off">Кнопка \"Субтитри\" у відеоплеєрі показується</string>
   </patch>
   <patch id="layout.buttons.cast.HideCastButtonPatch">
-  <string name="revanced_hide_cast_button_title">Приховати кнопку \"Трансляція\"</string>
+  <string name="revanced_hide_cast_button_title">Приховати \"Трансляція\"</string>
   <string name="revanced_hide_cast_button_summary_on">Кнопку \"Трансляція\" у відеоплеєрі приховано</string>
   <string name="revanced_hide_cast_button_summary_off">Кнопка \"Трансляція\" у відеоплеєрі показується</string>
   </patch>
@@ -534,7 +539,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_preview_comment_title">Приховати прев\'ю коментар</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Прев\'ю коментар в секції коментарів приховано</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Прев\'ю коментар в секції коментарів показується</string>
-  <string name="revanced_hide_comments_thanks_button_title">Приховати кнопку \"Дякую\"</string>
+  <string name="revanced_hide_comments_thanks_button_title">Приховати \"Дякую\"</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Кнопку \"Дякую\" приховано</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Кнопка \"Дякую\" показується</string>
   <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Приховати мітку часу та емодзі</string>
@@ -605,11 +610,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_search_summary_on">Shorts у результатах пошуку приховано</string>
   <string name="revanced_hide_shorts_search_summary_off">Shorts у результатах пошуку показуються</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_join_button_title">Приховати кнопку \"Спонсорувати\"</string>
+  <string name="revanced_hide_shorts_join_button_title">Приховати \"Спонсорувати\"</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Кнопку \"Спонсорувати\" приховано</string>
   <string name="revanced_hide_shorts_join_button_summary_off">Кнопка \"Спонсорувати\" показується</string>
   <!-- 'subscribe' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_subscribe_button_title">Приховати кнопку \"Підписатися\"</string>
+  <string name="revanced_hide_shorts_subscribe_button_title">Приховати \"Підписатися\"</string>
   <string name="revanced_hide_shorts_subscribe_button_summary_on">Кнопку \"Підписатися\" приховано</string>
   <string name="revanced_hide_shorts_subscribe_button_summary_off">Кнопка \"Підписатися\" показується</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_title">Приховати кнопки на паузі</string>
@@ -630,12 +635,27 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_save_sound_button_title">Приховати \"Зберегти музику\"</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Кнопку \"Зберегти музику\" приховано</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Кнопка \"Зберегти музику\" показується</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Приховати \"Використати шаблон\"</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Кнопку \"Використати шаблон\" приховано</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Кнопка \"Використати шаблон\" показується</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">Приховати \"Запланована прем\'єра\"</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">Кнопки \"Запланована прем\'єра\" та \"Незабаром прямий ефір\" приховано</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">Кнопки \"Запланована прем\'єра\" та \"Незабаром прямий ефір\" показуються</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">Приховати \"Зелений екран\"</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_on">Кнопку \"Зелений екран\" приховано</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_off">Кнопка \"Зелений екран\" показується</string>
+  <string name="revanced_hide_shorts_hashtag_button_title">Приховати кнопку хештегу</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_on">Кнопку хештегу приховано</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_off">Кнопка хештегу показується</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Приховати пропозиції пошуку</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Пропозиції пошуку приховано</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Пропозиції пошуку показуються</string>
   <string name="revanced_hide_shorts_stickers_title">Приховати стікери</string>
   <string name="revanced_hide_shorts_stickers_summary_on">Стікери приховано</string>
   <string name="revanced_hide_shorts_stickers_summary_off">Стікери показуються</string>
+  <string name="revanced_hide_shorts_like_fountain_title">Приховати анімацію фонтану</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_on">Анімацію фонтану біля кнопки \"Подобається\" приховано</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_off">Анімація фонтану біля кнопки \"Подобається\" показується</string>
   <string name="revanced_hide_shorts_like_button_title">Приховати \"Подобається\"</string>
   <string name="revanced_hide_shorts_like_button_summary_on">Кнопку \"Подобається\" приховано</string>
   <string name="revanced_hide_shorts_like_button_summary_off">Кнопка \"Подобається\" показується</string>
@@ -668,7 +688,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_full_video_link_label_title">Приховати посилання на повне відео</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_on">Мітка посилання на повне відео приховано</string>
   <string name="revanced_hide_shorts_full_video_link_label_summary_off">Мітка посилання на повне відео показується</string>
-  <string name="revanced_hide_shorts_sound_button_title">Приховати кнопку \"Зі звуком\"</string>
+  <string name="revanced_hide_shorts_sound_button_title">Приховати \"Зі звуком\"</string>
   <string name="revanced_hide_shorts_sound_button_summary_on">Кнопку \"Зі звуком\" приховано</string>
   <string name="revanced_hide_shorts_sound_button_summary_off">Кнопка \"Зі звуком\" показується</string>
   <string name="revanced_hide_shorts_navigation_bar_title">Приховати панель навігації</string>
@@ -946,20 +966,22 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - Відновлення старого інтерфейсу</string>
   </patch>
   <patch id="layout.startpage.ChangeStartPagePatch">
-  <string name="revanced_start_page_title">Встановити початкову сторінку</string>
-  <string name="revanced_start_page_entry_0">За замовчуванням</string>
-  <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_start_page_entry_1">Головна</string>
-  <string name="revanced_start_page_entry_2">Пошук</string>
-  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the subscriptions tab. -->
-  <string name="revanced_start_page_entry_3">Підписки</string>
-  <string name="revanced_start_page_entry_4">Що нового</string>
-  <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
-  <string name="revanced_start_page_entry_6">Вкладка \"Ви\"</string>
-  <string name="revanced_start_page_entry_7">Відео, які сподобалися</string>
-  <!-- 'History' should be translated using the same localized wording YouTube displays for the 'history' section in the 'You' tab. -->
-  <string name="revanced_start_page_entry_8">Історія</string>
-  <string name="revanced_start_page_entry_9">Популярне</string>
+  <string name="revanced_change_start_page_title">Початкова сторінка</string>
+  <string name="revanced_change_start_page_entry_default">За замовчуванням</string>
+  <string name="revanced_change_start_page_entry_browse">Усі підписки</string>
+  <string name="revanced_change_start_page_entry_explore">Навігатор</string>
+  <string name="revanced_change_start_page_entry_gaming">Ігри</string>
+  <string name="revanced_change_start_page_entry_history">Історія</string>
+  <string name="revanced_change_start_page_entry_library">Бібліотека</string>
+  <string name="revanced_change_start_page_entry_liked_videos">Відео, які сподобалися</string>
+  <string name="revanced_change_start_page_entry_live">Прямі трансляції</string>
+  <string name="revanced_change_start_page_entry_movies">Фільми</string>
+  <string name="revanced_change_start_page_entry_music">Музика</string>
+  <string name="revanced_change_start_page_entry_search">Пошук на YouTube</string>
+  <string name="revanced_change_start_page_entry_sports">Спорт</string>
+  <string name="revanced_change_start_page_entry_subscriptions">Підписки</string>
+  <string name="revanced_change_start_page_entry_trending">Популярне</string>
+  <string name="revanced_change_start_page_entry_watch_later">Переглянути пізніше</string>
   </patch>
   <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Вимкнути плеєр Shorts при запуску</string>
@@ -982,15 +1004,30 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_entry_4">Новітній 1</string>
   <string name="revanced_miniplayer_type_entry_5">Новітній 2</string>
   <string name="revanced_miniplayer_type_entry_6">Новітній 3</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Приховати кнопки розгортання та закриття</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Кнопки розгортання та закриття в мініплеєрі приховано\n(проведіть по мініплеєру, щоб розгорнути чи закрити)</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Кнопки розгортання та закриття в мініплеєрі показуються</string>
+  <string name="revanced_miniplayer_rounded_corners_title">Увімкнути закруглені кути</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_on">Кути закруглені</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_off">Кути квадратні</string>
+  <string name="revanced_miniplayer_double_tap_action_title">Подвійне натискання та зміна розміру щипком</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">Подвійне натискання та зміну розміру щипком увімкнено\n\n• Двічі торкніться, щоб збільшити розмір мініплеєра\n• Двічі торкніться ще раз, щоб відновити початковий розмір</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_off">Подвійне натискання та зміну розміру щипком вимкнуто</string>
+  <string name="revanced_miniplayer_drag_and_drop_title">Увімкнути перетягування</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">Перетягування увімкнено\n\nМініплеєр можна перетягнути в будь-який кут екрану</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_off">Перетягування вимкнуто</string>
+  <string name="revanced_miniplayer_hide_expand_close_title">Приховати кнопку закриття</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">Кнопку закриття мініплеєру приховано</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">Кнопка закриття мініплеєру показується</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Кнопки розгортання та закриття</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Кнопки розгортання та закриття приховано\n\nПроведіть по мініплеєру, щоб розгорнути чи закрити</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Кнопки розгортання та закриття показуються</string>
   <string name="revanced_miniplayer_hide_subtext_title">Приховати підтексти</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Підтексти в мініплеєрі приховано</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Підтексти в мініплеєрі показуються</string>
   <string name="revanced_miniplayer_hide_rewind_forward_title">Приховати кнопки перемотування</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Кнопки перемотування вперед та назад в мініплеєрі приховано</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Кнопки перемотування вперед та назад в мініплеєрі показуються</string>
+  <string name="revanced_miniplayer_width_dip_title">Початковий розмір</string>
+  <string name="revanced_miniplayer_width_dip_summary">Початковий розмір мініплеєра на екрані, в пікселях</string>
+  <string name="revanced_miniplayer_width_dip_invalid_toast">Розмір у пікселях повинен бути від %1$s до %2$s</string>
   <string name="revanced_miniplayer_opacity_title">Затемнення мініплеєра</string>
   <string name="revanced_miniplayer_opacity_summary">Значення затемнення при натисканні на мініплеєр в межах 0-100, де 0 це прозоро</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Значення затемнення мініплеєра має бути в межах 0-100</string>
@@ -1006,7 +1043,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_summary_off">Показується оригінальний колір панелі прогресу відтворення</string>
   <string name="revanced_seekbar_custom_color_value_title">Користувацький колір панелі прогресу</string>
   <string name="revanced_seekbar_custom_color_value_summary">Редагувати колір панелі прогресу відтворення</string>
-  <string name="revanced_seekbar_custom_color_invalid">Недійсне значення кольору панелі прогресу відтворення. Скинуто до значення за умовчанням.</string>
+  <string name="revanced_seekbar_custom_color_invalid">Недійсне значення кольору панелі прогресу</string>
   </patch>
   <patch id="layout.thumbnails.BypassImageRegionRestrictions">
   <string name="revanced_bypass_image_region_restrictions_title">Змінити хост зображень</string>

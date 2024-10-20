@@ -3,7 +3,6 @@ package app.revanced.patches.music.misc.gms
 import app.revanced.patches.music.misc.gms.Constants.MUSIC_PACKAGE_NAME
 import app.revanced.patches.music.misc.gms.Constants.REVANCED_MUSIC_PACKAGE_NAME
 import app.revanced.patches.music.misc.gms.GmsCoreSupportResourcePatch.gmsCoreVendorGroupIdOption
-import app.revanced.patches.music.misc.gms.fingerprints.CastDynamiteModuleV2Fingerprint
 import app.revanced.patches.music.misc.gms.fingerprints.MusicActivityOnCreateFingerprint
 import app.revanced.patches.music.misc.gms.fingerprints.PrimeMethodFingerprint
 import app.revanced.patches.music.misc.integrations.IntegrationsPatch
@@ -16,7 +15,6 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
     toPackageName = REVANCED_MUSIC_PACKAGE_NAME,
     primeMethodFingerprint = PrimeMethodFingerprint,
     earlyReturnFingerprints = setOf(
-        CastDynamiteModuleV2Fingerprint,
         CastContextFetchFingerprint,
     ),
     mainActivityOnCreateFingerprint = MusicActivityOnCreateFingerprint,
@@ -26,7 +24,6 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
         CompatiblePackage("com.google.android.apps.youtube.music"),
     ),
     fingerprints = setOf(
-        CastDynamiteModuleV2Fingerprint,
         CastContextFetchFingerprint,
         PrimeMethodFingerprint,
     ),

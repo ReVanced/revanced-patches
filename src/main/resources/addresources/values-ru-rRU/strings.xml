@@ -231,6 +231,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">Раздел расшифровки в описании видео отображен</string>
   <string name="revanced_hide_description_components_screen_title">Описание видео</string>
   <string name="revanced_hide_description_components_screen_summary">Скрыть или отобразить компоненты описания видео</string>
+  <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
+  <string name="revanced_hide_doodles_title">YouTube Doodles</string>
+  <string name="revanced_hide_doodles_summary_on">Doodles на панели поиска скрыты</string>
+  <string name="revanced_hide_doodles_summary_off">Doodles на панели поиска отображены</string>
+  <string name="revanced_hide_doodles_user_dialog_message">YouTube Doodles появляются несколько дней в году.\n\nЕсли в Вашем регионе в настоящее время показывается Doodle, и этот параметр скрытия включен, то панель фильтров под панелью поиска будет также скрыта.</string>
   <string name="revanced_custom_filter_screen_title">Пользовательский фильтр</string>
   <string name="revanced_custom_filter_screen_summary">Скрыть компоненты с помощью пользовательских фильтров</string>
   <string name="revanced_custom_filter_title">Пользовательский фильтр</string>
@@ -628,15 +633,30 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">Метка местоположения</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Метка местоположения в Shorts скрыта</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Метка местоположения в Shorts отображена</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Кнопка сохранения музыки</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Кнопка сохранения музыки скрыта</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Кнопка сохранения музыки отображена</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Кнопка \"Сохранить музыку\"</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">Кнопка \"Сохранить музыку\" скрыта</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">Кнопка \"Сохранить музыку\" отображена</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Кнопка \"Использовать шаблон\"</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Кнопка \"Использовать шаблон\" скрыта</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Кнопка \"Использовать шаблон\" отображена</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">Кнопка \"Предстоящие события\"</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">Кнопка \"Предстоящие события\" скрыта</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">Кнопка \"Предстоящие события\" отображена</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">Кнопка \"Зеленый экран\"</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_on">Кнопка \"Зеленый экран\" скрыта</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_off">Кнопка \"Зеленый экран\" отображена</string>
+  <string name="revanced_hide_shorts_hashtag_button_title">Скрыть хэштег</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_on">Кнопка хэштега скрыта</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_off">Отображена кнопка хештега</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Поисковые подсказки</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Поисковые подсказки скрыты</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Поисковые подсказки отображены</string>
   <string name="revanced_hide_shorts_stickers_title">Стикеры</string>
   <string name="revanced_hide_shorts_stickers_summary_on">Стикеры скрыты</string>
   <string name="revanced_hide_shorts_stickers_summary_off">Стикеры отображены</string>
+  <string name="revanced_hide_shorts_like_fountain_title">Анимация кнопки \"Лайк\"</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_on">Анимация кнопки \"Лайк\" скрыта</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_off">Анимация кнопки \"Лайк\" отображена</string>
   <string name="revanced_hide_shorts_like_button_title">Кнопка \"Лайк\"</string>
   <string name="revanced_hide_shorts_like_button_summary_on">Кнопка \"Лайк\" в Shorts скрыта</string>
   <string name="revanced_hide_shorts_like_button_summary_off">Кнопка \"Лайк\" в Shorts отображена</string>
@@ -947,20 +967,22 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - Восстановление старого стиля пользовательского интерфейса</string>
   </patch>
   <patch id="layout.startpage.ChangeStartPagePatch">
-  <string name="revanced_start_page_title">Начальная страница</string>
-  <string name="revanced_start_page_entry_0">По умолчанию</string>
-  <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_start_page_entry_1">Главная</string>
-  <string name="revanced_start_page_entry_2">Поиск</string>
-  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the subscriptions tab. -->
-  <string name="revanced_start_page_entry_3">Подписки</string>
-  <string name="revanced_start_page_entry_4">Навигатор</string>
-  <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
-  <string name="revanced_start_page_entry_6">Вкладка \"Вы\"</string>
-  <string name="revanced_start_page_entry_7">Понравившиеся видео</string>
-  <!-- 'History' should be translated using the same localized wording YouTube displays for the 'history' section in the 'You' tab. -->
-  <string name="revanced_start_page_entry_8">История</string>
-  <string name="revanced_start_page_entry_9">Популярные</string>
+  <string name="revanced_change_start_page_title">Начальная страница</string>
+  <string name="revanced_change_start_page_entry_default">По умолчанию</string>
+  <string name="revanced_change_start_page_entry_browse">Просмотр каналов</string>
+  <string name="revanced_change_start_page_entry_explore">Навигатор</string>
+  <string name="revanced_change_start_page_entry_gaming">Играть</string>
+  <string name="revanced_change_start_page_entry_history">История</string>
+  <string name="revanced_change_start_page_entry_library">Библиотека</string>
+  <string name="revanced_change_start_page_entry_liked_videos">Понравившиеся видео</string>
+  <string name="revanced_change_start_page_entry_live">Онлайн</string>
+  <string name="revanced_change_start_page_entry_movies">Фильмы</string>
+  <string name="revanced_change_start_page_entry_music">Музыка</string>
+  <string name="revanced_change_start_page_entry_search">Поиск</string>
+  <string name="revanced_change_start_page_entry_sports">Спорт</string>
+  <string name="revanced_change_start_page_entry_subscriptions">Подписки</string>
+  <string name="revanced_change_start_page_entry_trending">Популярные</string>
+  <string name="revanced_change_start_page_entry_watch_later">Смотреть позже</string>
   </patch>
   <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Возобновление плеера Shorts</string>
@@ -983,15 +1005,30 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_entry_4">Современный 1</string>
   <string name="revanced_miniplayer_type_entry_5">Современный 2</string>
   <string name="revanced_miniplayer_type_entry_6">Современный 3</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Кнопки \"Развернуть\" и \"Закрыть\"</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Кнопки \"Развернуть\" и \"Закрыть\" скрыты\n(разворачивание или сворачивание мини-плеера выполняются жестом)</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Кнопки \"Развернуть\" и \"Закрыть\" отображены</string>
+  <string name="revanced_miniplayer_rounded_corners_title">Включить закругленные углы</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_on">Углы закруглены</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_off">Углы квадратны</string>
+  <string name="revanced_miniplayer_double_tap_action_title">Включить двойное нажатие и закрепление для изменения размера</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">Действие двойного нажатия и устройство для изменения размера включено\n\n• Двойное нажатие для увеличения размера мини-плеера\n• Двойное нажатие еще раз для восстановления исходного размера</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_off">Действие двойного нажатия и закрепление для изменения размера отключены</string>
+  <string name="revanced_miniplayer_drag_and_drop_title">Включить перетаскивание</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">Перетаскивание включено\n\nМини-плеер можно перетащить в любой угол экрана</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_off">Перетаскивание отключено</string>
+  <string name="revanced_miniplayer_hide_expand_close_title">Скрыть кнопку закрытия</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">Кнопка закрытия скрыта</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">Кнопка закрытия отображается</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Кнопки \"Развернуть\" и \"Закрыть\"</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Кнопки скрыты\n\nдля разворачивания или закрытия</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Показывать кнопки разворачивания и закрытия</string>
   <string name="revanced_miniplayer_hide_subtext_title">Скрыть подтексты</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Субтексты скрыты</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Подтексты показаны</string>
   <string name="revanced_miniplayer_hide_rewind_forward_title">Кнопки перемотки</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Кнопки перемотки вперед и назад скрыты</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Кнопки перемотки вперед и назад отображены</string>
+  <string name="revanced_miniplayer_width_dip_title">Начальный размер</string>
+  <string name="revanced_miniplayer_width_dip_summary">Начальный размер экрана в пикселях</string>
+  <string name="revanced_miniplayer_width_dip_invalid_toast">Размер пикселя должен быть между %1$s и %2$s</string>
   <string name="revanced_miniplayer_opacity_title">Непрозрачность оверлея мини-плеера</string>
   <string name="revanced_miniplayer_opacity_summary">Значение непрозрачности в пределах 0-100, где 0 - это прозрачно</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Непрозрачность оверлея мини-плеера должна быть от 0 до 100</string>
@@ -1007,7 +1044,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_summary_off">Оригинальный цвет прогресса воспроизведения отображен</string>
   <string name="revanced_seekbar_custom_color_value_title">Пользовательский цвет</string>
   <string name="revanced_seekbar_custom_color_value_summary">Редактировать цвет прогресса воспроизведения</string>
-  <string name="revanced_seekbar_custom_color_invalid">Недопустимое значение цвета</string>
+  <string name="revanced_seekbar_custom_color_invalid">Неверное значение цвета прогресса воспроизведения</string>
   </patch>
   <patch id="layout.thumbnails.BypassImageRegionRestrictions">
   <string name="revanced_bypass_image_region_restrictions_title">Обход ограничений региона</string>
