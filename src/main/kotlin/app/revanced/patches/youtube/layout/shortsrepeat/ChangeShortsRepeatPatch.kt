@@ -66,7 +66,7 @@ object ChangeShortsRepeatPatch : BytecodePatch(
             )
         )
 
-        if (VersionCheckPatch.is_19_35_or_greater) {
+        if (VersionCheckPatch.is_19_34_or_greater) {
             SettingsPatch.PreferenceScreen.SHORTS.addPreferences(
                 ListPreference(
                     key = "revanced_shorts_background_repeat_behavior",
