@@ -1832,6 +1832,12 @@ public final class app/revanced/patches/youtube/layout/seekbar/RestoreOldSeekbar
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/youtube/layout/shortsrepeat/ChangeShortsRepeatPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/shortsrepeat/ChangeShortsRepeatPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/youtube/layout/sponsorblock/SponsorBlockBytecodePatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/sponsorblock/SponsorBlockBytecodePatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
