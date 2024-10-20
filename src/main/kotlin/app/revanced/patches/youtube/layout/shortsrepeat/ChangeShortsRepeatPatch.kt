@@ -118,7 +118,7 @@ object ChangeShortsRepeatPatch : BytecodePatch(
                 addInstructions(
                     index + 2,
                     """
-                        invoke-static {v$register}, $INTEGRATIONS_CLASS_DESCRIPTOR->changeShortsRepeatState(Ljava/lang/Enum;)Ljava/lang/Enum;
+                        invoke-static {v$register}, $INTEGRATIONS_CLASS_DESCRIPTOR->changeShortsRepeatBehavior(Ljava/lang/Enum;)Ljava/lang/Enum;
                         move-result-object v$register
                     """
                 )

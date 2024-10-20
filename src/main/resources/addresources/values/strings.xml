@@ -999,10 +999,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
         </patch>
         <patch id="layout.shortsrepeat.ChangeShortsRepeatPatch">
             <string name="revanced_shorts_repeat_behavior_title">Shorts repeat behavior</string>
-            <string name="revanced_shorts_repeat_behavior_entry_1">Default</string>
-            <string name="revanced_shorts_repeat_behavior_entry_2">Repeat</string>
-            <string name="revanced_shorts_repeat_behavior_entry_3">Autoplay</string>
-            <string name="revanced_shorts_repeat_behavior_entry_4">Pause</string>
+            <string name="revanced_shorts_repeat_behavior_entry_1">Repeat</string>
+            <string name="revanced_shorts_repeat_behavior_entry_2">Autoplay</string>
+            <string name="revanced_shorts_repeat_behavior_entry_3">Pause</string>
             <string name="revanced_shorts_background_repeat_behavior_title">Shorts repeat background behavior</string>
         </patch>
         <patch id="layout.tablet.EnableTabletLayoutPatch">

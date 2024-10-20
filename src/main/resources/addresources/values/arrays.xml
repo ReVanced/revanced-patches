@@ -103,11 +103,9 @@
                 <item>@string/revanced_shorts_repeat_behavior_entry_1</item>
                 <item>@string/revanced_shorts_repeat_behavior_entry_2</item>
                 <item>@string/revanced_shorts_repeat_behavior_entry_3</item>
-                <item>@string/revanced_shorts_repeat_behavior_entry_4</item>
             </string-array>
             <string-array name="revanced_shorts_repeat_behavior_entry_values">
                 <!-- Enum names from Integrations -->
-                <item>UNKNOWN</item>
                 <item>REPEAT</item>
                 <item>SINGLE_PLAY</item>
                 <item>END_SCREEN</item>
