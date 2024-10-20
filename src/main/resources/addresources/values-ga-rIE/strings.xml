@@ -230,6 +230,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">Taispeántar alt an tras-scríbhinn</string>
   <string name="revanced_hide_description_components_screen_title">Cur síos físeán</string>
   <string name="revanced_hide_description_components_screen_summary">Folaigh nó taispeáint comhpháirteanna tuairisc</string>
+  <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
+  <string name="revanced_hide_doodles_title">Folaigh YouTube Doodles</string>
+  <string name="revanced_hide_doodles_summary_on">Barra cuardaigh Tá Doodles i bhfolach</string>
+  <string name="revanced_hide_doodles_summary_off">Barra cuardaigh Taispeántar Doodles</string>
+  <string name="revanced_hide_doodles_user_dialog_message">Taispeántar Doodles YouTube cúpla lá gach bliain.\n\nMá tá Doodle á thaispeáint i do réigiún faoi láthair agus an socrú folaithe seo ar siúl, ansin beidh an barra scagaire faoin mbarra cuardaigh i bhfolach freisin.</string>
   <string name="revanced_custom_filter_screen_title">Scagaire saincheaptha</string>
   <string name="revanced_custom_filter_screen_summary">Folaigh comhpháirteanna ag baint úsáide as</string>
   <string name="revanced_custom_filter_title">Cumasaigh scagaire saincheaptha</string>
@@ -627,9 +632,27 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">Folaigh lipéad suímh</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Tá lipéad suímh i bhfolach</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Taispeántar lipéad suímh</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Folaigh an cnaipe Sábháil ceoil</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">Tá an cnaipe Sábháil ceoil i bhfolach</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">Taispeántar an cnaipe Sábháil ceoil</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Folaigh an cnaipe teimpléid úsáide</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Tá cnaipe teimpléad Úsáid i bhfolach</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Taispeántar an cnaipe teimpléad a úsáid</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">Folaigh an cnaipe atá le teacht</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">Tá cnaipe atá le teacht i bhfolach</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">Taispeántar an cnaipe atá le teacht</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">Folaigh an cnaipe scáileán glas</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_on">Tá cnaipe an scáileáin glas i bhfolach</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_off">Taispeántar cnaipe an scáileáin glas</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Folaigh moltaí cuardaigh</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Tá moltaí cuardaigh i bhfolach</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Taispeántar moltaí cuardaigh</string>
+  <string name="revanced_hide_shorts_stickers_title">Folaigh greamáin</string>
+  <string name="revanced_hide_shorts_stickers_summary_on">Tá greamáin i bhfolach</string>
+  <string name="revanced_hide_shorts_stickers_summary_off">Taispeántar greamáin</string>
+  <string name="revanced_hide_shorts_like_fountain_title">Folaigh cosúil le tobair</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_on">Cosúil le beochan tobair cnaipe i bhfolach</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_off">Taispeántar beochan tobair cnaipe cosúil le cnaipe</string>
   <string name="revanced_hide_shorts_like_button_title">Folaigh cosúil le cnaipe</string>
   <string name="revanced_hide_shorts_like_button_summary_on">Tá an cnaipe Cosúil i bhfolach</string>
   <string name="revanced_hide_shorts_like_button_summary_off">Taispeántar an cnaipe Cosúil</string>
@@ -940,20 +963,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - Athchóirigh sean leagan amach Chomhéadain</string>
   </patch>
   <patch id="layout.startpage.ChangeStartPagePatch">
-  <string name="revanced_start_page_title">Socraigh leathanach tosaigh</string>
-  <string name="revanced_start_page_entry_0">Réamhshocraithe</string>
-  <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_start_page_entry_1">Baile</string>
-  <string name="revanced_start_page_entry_2">Cuardaigh</string>
-  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the subscriptions tab. -->
-  <string name="revanced_start_page_entry_3">Síntiúis</string>
-  <string name="revanced_start_page_entry_4">Déan iniúchadh</string>
-  <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
-  <string name="revanced_start_page_entry_6">Tú cluaisín</string>
-  <string name="revanced_start_page_entry_7">Físeáin a thaitin</string>
-  <!-- 'History' should be translated using the same localized wording YouTube displays for the 'history' section in the 'You' tab. -->
-  <string name="revanced_start_page_entry_8">Stair</string>
-  <string name="revanced_start_page_entry_9">Ag treocht</string>
+  <string name="revanced_change_start_page_title">Socraigh leathanach tosaigh</string>
+  <string name="revanced_change_start_page_entry_default">Réamhshocraithe</string>
+  <string name="revanced_change_start_page_entry_explore">Déan iniúchadh</string>
+  <string name="revanced_change_start_page_entry_history">Stair</string>
+  <string name="revanced_change_start_page_entry_liked_videos">Físeáin a thaitin</string>
+  <string name="revanced_change_start_page_entry_search">Cuardaigh</string>
+  <string name="revanced_change_start_page_entry_subscriptions">Síntiúis</string>
+  <string name="revanced_change_start_page_entry_trending">Ag treocht</string>
   </patch>
   <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Díchumasaigh an t-imreoir Shorts atá ag tosú arís</string>
@@ -976,9 +993,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_entry_4">Nua-aimseartha 1</string>
   <string name="revanced_miniplayer_type_entry_5">Nua-Aimseartha 2</string>
   <string name="revanced_miniplayer_type_entry_6">Nua-aimseartha 3</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Folaigh cnaipí leathnú agus dún</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Tá cnaipí i bhfolach\n(sleamhnaigh miniplayer chun leathnú nó dúnadh)</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Taispeántar cnaipí leathnaigh agus dún</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Folaigh cnaipí leathnú agus dún</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Taispeántar cnaipí leathnaigh agus dún</string>
   <string name="revanced_miniplayer_hide_subtext_title">Folaigh fothéacsanna</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Tá fothéacsanna i bhfolach</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Taispeántar fothéacsanna</string>
@@ -1000,7 +1016,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_summary_off">Taispeántar dath barr cuardaigh bunaidh</string>
   <string name="revanced_seekbar_custom_color_value_title">Dath barra cuardaigh saincheaptha</string>
   <string name="revanced_seekbar_custom_color_value_summary">Dath an bharra cuardaigh</string>
-  <string name="revanced_seekbar_custom_color_invalid">Luach dath barra cuardaigh neamhbhailí. Ag úsáid luach réamhshocraithe.</string>
   </patch>
   <patch id="layout.thumbnails.BypassImageRegionRestrictions">
   <string name="revanced_bypass_image_region_restrictions_title">Seachbhóthar srianta réigiún íomhá</string>

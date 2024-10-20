@@ -231,6 +231,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">Transkriptio-osio näytetään</string>
   <string name="revanced_hide_description_components_screen_title">Videon kuvaus</string>
   <string name="revanced_hide_description_components_screen_summary">Piilota tai näytä videon kuvauskomponentteja</string>
+  <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
+  <string name="revanced_hide_doodles_title">Piilota YouTube-ovet</string>
+  <string name="revanced_hide_doodles_summary_on">Hakupalkki Doodles on piilotettu</string>
+  <string name="revanced_hide_doodles_summary_off">Hakupalkki Doodles näytetään</string>
+  <string name="revanced_hide_doodles_user_dialog_message">YouTube Doodles esiintyy muutaman päivän joka vuosi.\n\nJos Doodle näyttää tällä hetkellä alueellasi ja tämä piilon asetus on päällä, sitten myös hakupalkin alla oleva suodatinpalkki piilotetaan.</string>
   <string name="revanced_custom_filter_screen_title">Mukautettu suodatin</string>
   <string name="revanced_custom_filter_screen_summary">Piilota komponentteja mukautetuilla suodattimilla</string>
   <string name="revanced_custom_filter_title">Käytä mukautettua suodatinta</string>
@@ -629,14 +634,29 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_summary_on">Sijaintitieto on piilotettu</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Sijaintitieto näytetään</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Piilota musiikin tallennus painike</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Tallenna musiikki on piilotettu</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Tallenna musiikki näytetään</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">Tallenna musiikki-painike on piilotettu</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">Tallenna musiikkipainike näytetään</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Piilota käytä mallinappia</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Käytä malli-painiketta on piilotettu</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Käytä malli-painiketta näytetään</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">Piilota tuleva painike</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">Tuleva painike on piilotettu</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">Tuleva painike näytetään</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">Piilota vihreän näytön painike</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_on">Vihreä näyttöpainike on piilotettu</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_off">Vihreä näyttöpainike näytetään</string>
+  <string name="revanced_hide_shorts_hashtag_button_title">Piilota aihetunnistepainike</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_on">Hashtag painike on piilotettu</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_off">Hashtag painike näytetään</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Piilota hakuehdotukset</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Hakuehdotukset on piilotettu</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Hakuehdotukset näytetään</string>
   <string name="revanced_hide_shorts_stickers_title">Piilota tarrat</string>
   <string name="revanced_hide_shorts_stickers_summary_on">Tarrat on piilotettu</string>
   <string name="revanced_hide_shorts_stickers_summary_off">Tarrat näytetään</string>
+  <string name="revanced_hide_shorts_like_fountain_title">Piilota kuin suihkulähde</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_on">Kuten painikkeen lähteen animaatio on piilotettu</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_off">Kuten painikkeen lähteen animaatio näytetään</string>
   <string name="revanced_hide_shorts_like_button_title">Piilota tykkää-painike</string>
   <string name="revanced_hide_shorts_like_button_summary_on">Tykkä-painike on piilotettu</string>
   <string name="revanced_hide_shorts_like_button_summary_off">Tykkää-painike näytetään</string>
@@ -947,21 +967,22 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - Palauta vanha käyttöliittymäasettelu</string>
   </patch>
   <patch id="layout.startpage.ChangeStartPagePatch">
-  <string name="revanced_start_page_title">Aseta aloitussivu</string>
-  <string name="revanced_start_page_entry_0">Oletus</string>
-  <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_start_page_entry_1">Koti</string>
-  <string name="revanced_start_page_entry_2">Haku</string>
-  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the subscriptions tab. -->
-  <string name="revanced_start_page_entry_3">Tilaukset</string>
-  <string name="revanced_start_page_entry_4">Tutustu</string>
-  <string name="revanced_start_page_entry_5">Shortsit</string>
-  <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
-  <string name="revanced_start_page_entry_6">Sinä-välilehti</string>
-  <string name="revanced_start_page_entry_7">Tykätyt videot</string>
-  <!-- 'History' should be translated using the same localized wording YouTube displays for the 'history' section in the 'You' tab. -->
-  <string name="revanced_start_page_entry_8">Historia</string>
-  <string name="revanced_start_page_entry_9">Nousussa</string>
+  <string name="revanced_change_start_page_title">Aseta aloitussivu</string>
+  <string name="revanced_change_start_page_entry_default">Oletus</string>
+  <string name="revanced_change_start_page_entry_browse">Selaa kanavia</string>
+  <string name="revanced_change_start_page_entry_explore">Tutustu</string>
+  <string name="revanced_change_start_page_entry_gaming">Pelaaminen</string>
+  <string name="revanced_change_start_page_entry_history">Historia</string>
+  <string name="revanced_change_start_page_entry_library">Kirjasto</string>
+  <string name="revanced_change_start_page_entry_liked_videos">Tykätyt videot</string>
+  <string name="revanced_change_start_page_entry_live">Suora</string>
+  <string name="revanced_change_start_page_entry_movies">Elokuvat</string>
+  <string name="revanced_change_start_page_entry_music">Musiikki</string>
+  <string name="revanced_change_start_page_entry_search">Haku</string>
+  <string name="revanced_change_start_page_entry_sports">Urheilu</string>
+  <string name="revanced_change_start_page_entry_subscriptions">Tilaukset</string>
+  <string name="revanced_change_start_page_entry_trending">Nousussa</string>
+  <string name="revanced_change_start_page_entry_watch_later">Katso myöhemmin</string>
   </patch>
   <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Poista Shorts-soittimen jatkaminen käytöstä</string>
@@ -984,15 +1005,30 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_entry_4">Moderni 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderni 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderni 3</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Piilota laajenna- ja sulje-painikkeet</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Painikkeet on piilotettu\n(laajenna tai sulje minisoitin pyyhkäisemällä)</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Laajenna- ja sulje-painikkeet näytetään</string>
+  <string name="revanced_miniplayer_rounded_corners_title">Ota pyöristetyt kulmat käyttöön</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_on">Kulmat on pyöristetty</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_off">Kulmat ovat neliöitä</string>
+  <string name="revanced_miniplayer_double_tap_action_title">Ota kaksoisnapautus käyttöön ja purista kokoa</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">Kaksoisnapautuksen toiminto ja nollaus koon muuttamiseksi on käytössä\n\n• Lisää minipelaajan kokoa\n• Kaksoisnapautus uudelleen palauttaaksesi alkuperäisen koon</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_off">Kaksoisnapautuksen toiminto ja ponnahdusikkunan koon muuttaminen on poistettu käytöstä</string>
+  <string name="revanced_miniplayer_drag_and_drop_title">Ota käyttöön vedä ja pudota</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">Vedä ja pudota on käytössä\n\nMiniplayer voidaan vetää mihin tahansa ruudun kulmaan</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_off">Vedä ja pudotus pois käytöstä</string>
+  <string name="revanced_miniplayer_hide_expand_close_title">Piilota sulje painike</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">Sulje painike on piilotettu</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">Sulje painike näytetään</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Piilota laajenna- ja sulje-painikkeet</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Painikkeet ovat piilossa\n\nPyyhkäise laajentaaksesi tai sulkeaksesi</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Laajenna- ja sulje-painikkeet näytetään</string>
   <string name="revanced_miniplayer_hide_subtext_title">Piilota alatekstit</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Alatekstit on piilotettu</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Alatekstit näytetään</string>
   <string name="revanced_miniplayer_hide_rewind_forward_title">Piilota ohita etu- ja takapainikkeet</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Ohita eteenpäin ja takaisin on piilotettu</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Ohita eteenpäin ja takaisin näytetään</string>
+  <string name="revanced_miniplayer_width_dip_title">Alkukoko</string>
+  <string name="revanced_miniplayer_width_dip_summary">Alkuperäinen näytön koossa, pikseleinä</string>
+  <string name="revanced_miniplayer_width_dip_invalid_toast">Pikselin koon on oltava välillä %1$s ja %2$s</string>
   <string name="revanced_miniplayer_opacity_title">Peittokuvan läpinäkyvyys</string>
   <string name="revanced_miniplayer_opacity_summary">Läpinäkyvyysarvo välillä 0–100, jossa 0 on läpinäkyvä</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Miniplayer peittokuvan läpinäkyvyyden on oltava välillä 0-100</string>
@@ -1008,7 +1044,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_summary_off">Alkuperäinen liukusäätimen väri näytetään</string>
   <string name="revanced_seekbar_custom_color_value_title">Mukautettu liukusäätimen väri</string>
   <string name="revanced_seekbar_custom_color_value_summary">Liukusäätimen väri</string>
-  <string name="revanced_seekbar_custom_color_invalid">Virheellinen liukusäätimen väri. Käytetään oletusta.</string>
+  <string name="revanced_seekbar_custom_color_invalid">Virheellinen seekbarin värin arvo</string>
   </patch>
   <patch id="layout.thumbnails.BypassImageRegionRestrictions">
   <string name="revanced_bypass_image_region_restrictions_title">Ohita kuvan alueen rajoitukset</string>

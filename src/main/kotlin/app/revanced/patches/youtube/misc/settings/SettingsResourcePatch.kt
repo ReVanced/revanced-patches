@@ -1,14 +1,15 @@
 package app.revanced.patches.youtube.misc.settings
 
 import app.revanced.patcher.data.ResourceContext
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
 import app.revanced.patches.shared.misc.settings.BaseSettingsResourcePatch
 import app.revanced.patches.shared.misc.settings.preference.IntentPreference
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
-import org.w3c.dom.Element
+import app.revanced.util.copyXmlNode
+import app.revanced.util.findElementByAttributeValueOrThrow
+import app.revanced.util.inputStreamFromBundledResource
 
 object SettingsResourcePatch : BaseSettingsResourcePatch(
     IntentPreference(
@@ -37,53 +38,57 @@ object SettingsResourcePatch : BaseSettingsResourcePatch(
             context.copyResources("settings", resourceGroup)
         }
 
+        // Copy style properties used to fix over-sized copy menu that appear in EditTextPreference.
+        // For a full explanation of how this fixes the issue, see the comments in this style file
+        // and the comments in the integrations code.
+        val targetResource = "values/styles.xml"
+        inputStreamFromBundledResource(
+            "settings/host",
+            targetResource
+        )!!.let { inputStream ->
+            "resources".copyXmlNode(
+                context.xmlEditor[inputStream],
+                context.xmlEditor["res/${targetResource}"]
+            ).close()
+        }
+
         // Remove horizontal divider from the settings Preferences
         // To better match the appearance of the stock YouTube settings.
         context.xmlEditor["res/values/styles.xml"].use { editor ->
-            val resourcesNode = editor.file.getElementsByTagName("resources").item(0) as Element
+            val document = editor.file
 
-            for (i in 0 until resourcesNode.childNodes.length) {
-                val node = resourcesNode.childNodes.item(i) as? Element ?: continue
-                val name = node.getAttribute("name")
-                if (name == "Theme.YouTube.Settings" || name == "Theme.YouTube.Settings.Dark") {
-                    val listDividerNode = editor.file.createElement("item")
-                    listDividerNode.setAttribute("name", "android:listDivider")
-                    listDividerNode.appendChild(editor.file.createTextNode("@null"))
-                    node.appendChild(listDividerNode)
-                }
+            arrayOf(
+                "Theme.YouTube.Settings",
+                "Theme.YouTube.Settings.Dark"
+            ).forEach { value ->
+                val listDividerNode = document.createElement("item")
+                listDividerNode.setAttribute("name", "android:listDivider")
+                listDividerNode.appendChild(document.createTextNode("@null"))
+
+                document.childNodes.findElementByAttributeValueOrThrow(
+                    "name", value
+                ).appendChild(listDividerNode)
             }
         }
 
         // Modify the manifest and add a data intent filter to the LicenseActivity.
         // Some devices freak out if undeclared data is passed to an intent,
         // and this change appears to fix the issue.
-        var modifiedIntent = false
         context.xmlEditor["AndroidManifest.xml"].use { editor ->
             val document = editor.file
-            // A xml regular-expression would probably work better than this manual searching.
-            val manifestNodes = document.getElementsByTagName("manifest").item(0).childNodes
-            for (i in 0..manifestNodes.length) {
-                val node = manifestNodes.item(i)
-                if (node != null && node.nodeName == "application") {
-                    val applicationNodes = node.childNodes
-                    for (j in 0..applicationNodes.length) {
-                        val applicationChild = applicationNodes.item(j)
-                        if (applicationChild is Element && applicationChild.nodeName == "activity" &&
-                            applicationChild.getAttribute("android:name") == "com.google.android.libraries.social.licenses.LicenseActivity"
-                        ) {
-                            val intentFilter = document.createElement("intent-filter")
-                            val mimeType = document.createElement("data")
-                            mimeType.setAttribute("android:mimeType", "text/plain")
-                            intentFilter.appendChild(mimeType)
-                            applicationChild.appendChild(intentFilter)
-                            modifiedIntent = true
-                            break
-                        }
-                    }
-                }
-            }
-        }
 
-        if (!modifiedIntent) throw PatchException("Could not modify activity intent")
+            val licenseElement = document.childNodes.findElementByAttributeValueOrThrow(
+                "android:name",
+                "com.google.android.libraries.social.licenses.LicenseActivity"
+            )
+
+            val mimeType = document.createElement("data")
+            mimeType.setAttribute("android:mimeType", "text/plain")
+
+            val intentFilter = document.createElement("intent-filter")
+            intentFilter.appendChild(mimeType)
+
+            licenseElement.appendChild(intentFilter)
+        }
     }
 }

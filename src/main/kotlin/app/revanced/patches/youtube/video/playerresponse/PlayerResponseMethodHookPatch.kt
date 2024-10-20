@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.video.playerresponse
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -8,21 +7,29 @@ import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
+import app.revanced.patches.youtube.misc.playservice.VersionCheckPatch
 import app.revanced.patches.youtube.video.playerresponse.fingerprint.PlayerParameterBuilderFingerprint
+import app.revanced.patches.youtube.video.playerresponse.fingerprint.PlayerParameterBuilderLegacyFingerprint
+import app.revanced.util.resultOrThrow
 import java.io.Closeable
 
 @Patch(
-    dependencies = [IntegrationsPatch::class],
+    dependencies = [IntegrationsPatch::class, VersionCheckPatch::class],
 )
 object PlayerResponseMethodHookPatch :
-    BytecodePatch(setOf(PlayerParameterBuilderFingerprint)),
+    BytecodePatch(
+        setOf(
+            PlayerParameterBuilderFingerprint,
+            PlayerParameterBuilderLegacyFingerprint
+        )
+    ),
     Closeable,
     MutableSet<PlayerResponseMethodHookPatch.Hook> by mutableSetOf() {
 
     // Parameter numbers of the patched method.
     private const val PARAMETER_VIDEO_ID = 1
     private const val PARAMETER_PROTO_BUFFER = 3
-    private const val PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING = 11
+    private var PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING = -1
 
     // Registers used to pass the parameters to integrations.
     private var playerResponseMethodCopyRegisters = false
@@ -34,8 +41,13 @@ object PlayerResponseMethodHookPatch :
     private var numberOfInstructionsAdded = 0
 
     override fun execute(context: BytecodeContext) {
-        playerResponseMethod = PlayerParameterBuilderFingerprint.result?.mutableMethod
-            ?: throw PlayerParameterBuilderFingerprint.exception
+        if (VersionCheckPatch.is_19_23_or_greater) {
+            playerResponseMethod = PlayerParameterBuilderFingerprint.resultOrThrow().mutableMethod
+            PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING = 12
+        } else {
+            playerResponseMethod = PlayerParameterBuilderLegacyFingerprint.resultOrThrow().mutableMethod
+            PARAMETER_IS_SHORT_AND_OPENING_OR_PLAYING = 11
+        }
 
         // On some app targets the method has too many registers pushing the parameters past v15.
         // If needed, move the parameters to 4-bit registers so they can be passed to integrations.

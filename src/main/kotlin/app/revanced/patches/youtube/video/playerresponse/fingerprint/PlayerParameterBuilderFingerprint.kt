@@ -4,6 +4,9 @@ import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
+/**
+ * For targets 19.25 and later.
+ */
 internal object PlayerParameterBuilderFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     returnType = "L",
@@ -14,6 +17,7 @@ internal object PlayerParameterBuilderFingerprint : MethodFingerprint(
         "Ljava/lang/String;",
         "I",
         "I",
+        "L", // 19.25+ parameter
         "Ljava/util/Set;",
         "Ljava/lang/String;",
         "Ljava/lang/String;",
@@ -21,5 +25,6 @@ internal object PlayerParameterBuilderFingerprint : MethodFingerprint(
         "Z", // Appears to indicate if the video id is being opened or is currently playing.
         "Z",
         "Z"
-    )
+    ),
+    strings = listOf("psps")
 )

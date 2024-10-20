@@ -9,8 +9,6 @@ internal object TextComponentDataFingerprint : MethodFingerprint(
     parameters = listOf("L", "L"),
     strings = listOf("text"),
     customFingerprint = { _, classDef ->
-        val fields = classDef.fields
-        fields.find { it.type == "Ljava/util/BitSet;" } != null &&
-        fields.find { it.type == "[Ljava/lang/String;" } != null
+        classDef.fields.find { it.type == "Ljava/util/BitSet;" } != null
     }
 )

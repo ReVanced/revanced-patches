@@ -229,6 +229,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">文字起こしセクションは表示されます</string>
   <string name="revanced_hide_description_components_screen_title">概要欄</string>
   <string name="revanced_hide_description_components_screen_summary">概要欄のコンポーネントを非表示または表示</string>
+  <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
+  <string name="revanced_hide_doodles_title">YouTubeのDoodlesを隠す</string>
+  <string name="revanced_hide_doodles_summary_on">検索バーの落書きは非表示です</string>
+  <string name="revanced_hide_doodles_summary_off">検索バーの落書きが表示されます</string>
+  <string name="revanced_hide_doodles_user_dialog_message">YouTubeの落書きは毎年数日を表示します。\n\n現在お住まいの地域で落書きが表示されており、この非表示設定がオンの場合。 検索バーの下のフィルターバーも非表示になります。</string>
   <string name="revanced_custom_filter_screen_title">カスタムフィルター</string>
   <string name="revanced_custom_filter_screen_summary">カスタムフィルタを使用してコンポーネントを隠す</string>
   <string name="revanced_custom_filter_title">カスタムフィルタを有効にする</string>
@@ -625,14 +630,29 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_summary_on">ロケーションラベルは非表示です</string>
   <string name="revanced_hide_shorts_location_label_summary_off">位置情報ラベルが表示されます</string>
   <string name="revanced_hide_shorts_save_sound_button_title">保存ボタンを隠す</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">音楽を非表示にする</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">音楽を保存します。</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">音楽を保存ボタンを非表示にします</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">音楽を保存ボタンが表示されます</string>
+  <string name="revanced_hide_shorts_use_template_button_title">使用するテンプレートボタンを隠す</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">テンプレートボタンを非表示にする</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Use template button is showed</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">今後のボタンを隠す</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">今後のボタンは表示されません</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">今後のボタンが表示されます</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">緑色の画面ボタンを隠す</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_on">緑色の画面ボタンは非表示です</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_off">緑色の画面ボタンを表示する</string>
+  <string name="revanced_hide_shorts_hashtag_button_title">ハッシュタグボタンを隠す</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_on">ハッシュタグボタンは非表示です</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_off">ハッシュタグボタンが表示されます</string>
   <string name="revanced_hide_shorts_search_suggestions_title">検索候補を非表示</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">検索候補が非表示になります</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">検索候補が表示されます</string>
   <string name="revanced_hide_shorts_stickers_title">ステッカーを隠す</string>
   <string name="revanced_hide_shorts_stickers_summary_on">ステッカーを非表示</string>
   <string name="revanced_hide_shorts_stickers_summary_off">ステッカーを表示</string>
+  <string name="revanced_hide_shorts_like_fountain_title">噴水のように隠す</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_on">ボタン噴水のアニメーションが非表示になります</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_off">ボタン噴水のようなアニメーションが表示されます</string>
   <string name="revanced_hide_shorts_like_button_title">「いいね」ボタンを隠す</string>
   <string name="revanced_hide_shorts_like_button_summary_on">Like button is hidden</string>
   <string name="revanced_hide_shorts_like_button_summary_off">いいねボタンが表示されます</string>
@@ -943,20 +963,22 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - 古いUIレイアウトを復元</string>
   </patch>
   <patch id="layout.startpage.ChangeStartPagePatch">
-  <string name="revanced_start_page_title">開始ページを設定</string>
-  <string name="revanced_start_page_entry_0">既定</string>
-  <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_start_page_entry_1">ホーム</string>
-  <string name="revanced_start_page_entry_2">検索</string>
-  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the subscriptions tab. -->
-  <string name="revanced_start_page_entry_3">サブスクリプション</string>
-  <string name="revanced_start_page_entry_4">探索</string>
-  <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
-  <string name="revanced_start_page_entry_6">マイページ</string>
-  <string name="revanced_start_page_entry_7">高評価した動画</string>
-  <!-- 'History' should be translated using the same localized wording YouTube displays for the 'history' section in the 'You' tab. -->
-  <string name="revanced_start_page_entry_8">履歴</string>
-  <string name="revanced_start_page_entry_9">トレンド</string>
+  <string name="revanced_change_start_page_title">開始ページを設定</string>
+  <string name="revanced_change_start_page_entry_default">既定</string>
+  <string name="revanced_change_start_page_entry_browse">チャンネルを参照</string>
+  <string name="revanced_change_start_page_entry_explore">探索</string>
+  <string name="revanced_change_start_page_entry_gaming">ゲーム</string>
+  <string name="revanced_change_start_page_entry_history">履歴</string>
+  <string name="revanced_change_start_page_entry_library">ライブラリ</string>
+  <string name="revanced_change_start_page_entry_liked_videos">高評価した動画</string>
+  <string name="revanced_change_start_page_entry_live">ライブ</string>
+  <string name="revanced_change_start_page_entry_movies">映画</string>
+  <string name="revanced_change_start_page_entry_music">音楽</string>
+  <string name="revanced_change_start_page_entry_search">検索</string>
+  <string name="revanced_change_start_page_entry_sports">スポーツ</string>
+  <string name="revanced_change_start_page_entry_subscriptions">サブスクリプション</string>
+  <string name="revanced_change_start_page_entry_trending">トレンド</string>
+  <string name="revanced_change_start_page_entry_watch_later">後で見る</string>
   </patch>
   <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Shorts プレイヤーの再開を無効にする</string>
@@ -979,15 +1001,28 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_entry_4">モダン 1</string>
   <string name="revanced_miniplayer_type_entry_5">モダン 2</string>
   <string name="revanced_miniplayer_type_entry_6">モダン 3</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">展開と閉じるボタンを非表示</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">拡大/縮小のボタンを非表示にします\n(ミニプレーヤーをスワイプして拡大/縮小できます) </string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">展開と閉じる ボタンが表示されます</string>
+  <string name="revanced_miniplayer_rounded_corners_title">角の丸みを有効にする</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_on">角が丸くなっています</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_off">角が正方形です</string>
+  <string name="revanced_miniplayer_double_tap_action_title">ダブルタップとピンチでサイズ変更を有効にする</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_off">ダブルタップでピンチでサイズを変更できません</string>
+  <string name="revanced_miniplayer_drag_and_drop_title">ドラッグ＆ドロップを有効にする</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">ドラッグ＆ドロップが有効です\n\nミニプレーヤーは画面の隅にドラッグできます</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_off">ドラッグ＆ドロップは無効です</string>
+  <string name="revanced_miniplayer_hide_expand_close_title">閉じるボタンを隠す</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">閉じるボタンは非表示です</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">閉じるボタンが表示されます</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_title">展開と閉じるボタンを非表示</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">展開と閉じる ボタンが表示されます</string>
   <string name="revanced_miniplayer_hide_subtext_title">サブテキストを非表示</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">サブテキストは非表示です</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">サブテキストを表示します</string>
   <string name="revanced_miniplayer_hide_rewind_forward_title">スキップと戻るボタンを隠す</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">スキップとバックが非表示になります</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">スキップとバックが表示されます</string>
+  <string name="revanced_miniplayer_width_dip_title">初期サイズ</string>
+  <string name="revanced_miniplayer_width_dip_summary">最初の画面サイズ（ピクセル）</string>
+  <string name="revanced_miniplayer_width_dip_invalid_toast">ピクセルサイズは %1$s と %2$sの間でなければなりません</string>
   <string name="revanced_miniplayer_opacity_title">オーバーレイの不透明度</string>
   <string name="revanced_miniplayer_opacity_summary">透明度の値は 0〜100 の範囲で、0 が透明です</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">ミニプレーヤーオーバーレイの不透明度は0-100の間でなければなりません</string>
@@ -1003,7 +1038,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_summary_off">元のシークバーの色が表示されます</string>
   <string name="revanced_seekbar_custom_color_value_title">カスタムシークバーの色</string>
   <string name="revanced_seekbar_custom_color_value_summary">シークバーの色</string>
-  <string name="revanced_seekbar_custom_color_invalid">シークバーの色の値が無効です。デフォルト値を使用してください。</string>
+  <string name="revanced_seekbar_custom_color_invalid">無効なシークバーの色の値</string>
   </patch>
   <patch id="layout.thumbnails.BypassImageRegionRestrictions">
   <string name="revanced_bypass_image_region_restrictions_title">画像表示の地域制限をバイパスする</string>

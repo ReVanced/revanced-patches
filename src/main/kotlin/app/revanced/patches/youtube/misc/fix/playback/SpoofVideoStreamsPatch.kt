@@ -49,29 +49,11 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
         CompatiblePackage(
             "com.google.android.youtube",
             [
-                "18.37.36",
                 "18.38.44",
-                "18.43.45",
-                "18.44.41",
-                "18.45.43",
-                "18.48.39",
                 "18.49.37",
-                "19.01.34",
-                "19.02.39",
-                "19.03.36",
-                "19.04.38",
-                "19.05.36",
-                "19.06.39",
-                "19.07.40",
-                "19.08.36",
-                "19.09.38",
-                "19.10.39",
-                "19.11.43",
-                "19.12.41",
-                "19.13.37",
-                "19.14.43",
-                "19.15.36",
                 "19.16.39",
+                "19.25.37",
+                "19.34.42",
             ],
         ),
     ],
@@ -254,7 +236,9 @@ object SpoofVideoStreamsPatch : BytecodePatch(
         // endregion
 
         // region Remove /videoplayback request body to fix playback.
-        // This is needed when using iOS client as streaming data source.
+        // It is assumed, YouTube makes a request with a body tuned for Android.
+        // Requesting streams intended for other platforms with a body tuned for Android could be the cause of 400 errors.
+        // A proper fix may include modifying the request body to match the platforms expected body.
 
         BuildMediaDataSourceFingerprint.resultOrThrow().let {
             it.mutableMethod.apply {

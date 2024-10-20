@@ -18,13 +18,19 @@ import app.revanced.patches.youtube.layout.hide.general.fingerprints.HideShowMor
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ParseElementFromBufferFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.PlayerOverlayFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ShowWatermarkFingerprint
+import app.revanced.patches.youtube.layout.hide.general.fingerprints.YoodlesImageViewFingerprint
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.util.findOpcodeIndicesReversed
+import app.revanced.util.getReference
+import app.revanced.util.alsoResolve
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Hide layout components",
@@ -40,37 +46,23 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
         CompatiblePackage(
             "com.google.android.youtube",
             [
-                "18.32.39",
-                "18.37.36",
                 "18.38.44",
-                "18.43.45",
-                "18.44.41",
-                "18.45.43",
-                "18.48.39",
                 "18.49.37",
-                "19.01.34",
-                "19.02.39",
-                "19.03.36",
-                "19.04.38",
-                "19.05.36",
-                "19.06.39",
-                "19.07.40",
-                "19.08.36",
-                "19.09.38",
-                "19.10.39",
-                "19.11.43",
-                "19.12.41",
-                "19.13.37",
-                "19.14.43",
-                "19.15.36",
                 "19.16.39",
+                "19.25.37",
+                "19.34.42",
             ],
         ),
     ],
 )
 @Suppress("unused")
 object HideLayoutComponentsPatch : BytecodePatch(
-    setOf(ParseElementFromBufferFingerprint, PlayerOverlayFingerprint, HideShowMoreButtonFingerprint),
+    setOf(
+        ParseElementFromBufferFingerprint,
+        PlayerOverlayFingerprint,
+        HideShowMoreButtonFingerprint,
+        YoodlesImageViewFingerprint,
+    ),
 ) {
     private const val LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/components/LayoutComponentsFilter;"
@@ -128,6 +120,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
             SwitchPreference("revanced_hide_search_result_recommendations"),
             SwitchPreference("revanced_hide_search_result_shelf_header"),
             SwitchPreference("revanced_hide_show_more_button"),
+            SwitchPreference("revanced_hide_doodles"),
             PreferenceScreen(
                 key = "revanced_hide_keyword_content_screen",
                 sorting = Sorting.UNSORTED,
@@ -191,9 +184,10 @@ object HideLayoutComponentsPatch : BytecodePatch(
 
         // region Watermark (legacy code for old versions of YouTube)
 
-        ShowWatermarkFingerprint.also {
-            it.resolve(context, PlayerOverlayFingerprint.resultOrThrow().classDef)
-        }.resultOrThrow().mutableMethod.apply {
+        ShowWatermarkFingerprint.alsoResolve(
+            context,
+            PlayerOverlayFingerprint
+        ).mutableMethod.apply {
             val index = implementation!!.instructions.size - 5
 
             removeInstruction(index)
@@ -221,6 +215,29 @@ object HideLayoutComponentsPatch : BytecodePatch(
                     insertIndex,
                     "invoke-static { v$viewRegister }, " +
                         "$LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideShowMoreButton(Landroid/view/View;)V",
+                )
+            }
+        }
+
+        // endregion
+
+        // region 'Yoodles'
+
+        YoodlesImageViewFingerprint.resultOrThrow().mutableMethod.apply {
+            findOpcodeIndicesReversed{
+                opcode == Opcode.INVOKE_VIRTUAL
+                        && getReference<MethodReference>()?.name == "setImageDrawable"
+            }.forEach { insertIndex ->
+                val register = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
+
+                addInstructionsWithLabels(
+                    insertIndex,
+                    """
+                        invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideYoodles(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
+                        move-result-object v$register
+                        if-eqz v$register, :hide
+                    """,
+                    ExternalLabel("hide", getInstruction(insertIndex + 1)),
                 )
             }
         }

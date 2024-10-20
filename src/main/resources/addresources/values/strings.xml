@@ -231,6 +231,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_transcript_section_summary_off">Transcript section is shown</string>
             <string name="revanced_hide_description_components_screen_title">Video description</string>
             <string name="revanced_hide_description_components_screen_summary">Hide or show video description components</string>
+
+            <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
+            <string name="revanced_hide_doodles_title">Hide YouTube Doodles</string>
+            <string name="revanced_hide_doodles_summary_on">Search bar Doodles are hidden</string>
+            <string name="revanced_hide_doodles_summary_off">Search bar Doodles are shown</string>
+            <string name="revanced_hide_doodles_user_dialog_message">YouTube Doodles show up a few days each year.\n\nIf a Doodle is currently showing in your region and this hide setting is on, then the filter bar below the search bar will also be hidden.</string>
+
             <string name="revanced_custom_filter_screen_title">Custom filter</string>
             <string name="revanced_custom_filter_screen_summary">Hide components using custom filters</string>
             <string name="revanced_custom_filter_title">Enable custom filter</string>
@@ -240,6 +247,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
             <string name="revanced_custom_filter_strings_summary">List of component path builder strings to filter separated by new line</string>
             <string name="revanced_custom_filter_toast_invalid_syntax">Invalid custom filter: %s</string>
+
             <string name="revanced_hide_keyword_content_screen_title">Hide keyword content</string>
             <string name="revanced_hide_keyword_content_screen_summary">Hide search and feed videos using keyword filters</string>
             <string name="revanced_hide_keyword_content_home_title">Hide home videos by keywords</string>
@@ -629,14 +637,29 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_shorts_location_label_summary_on">Location label is hidden</string>
             <string name="revanced_hide_shorts_location_label_summary_off">Location label is shown</string>
             <string name="revanced_hide_shorts_save_sound_button_title">Hide save music button</string>
-            <string name="revanced_hide_shorts_save_sound_button_summary_on">Save music is hidden</string>
-            <string name="revanced_hide_shorts_save_sound_button_summary_off">Save music is shown</string>
+            <string name="revanced_hide_shorts_save_sound_button_summary_on">Save music button is hidden</string>
+            <string name="revanced_hide_shorts_save_sound_button_summary_off">Save music button is shown</string>
+            <string name="revanced_hide_shorts_use_template_button_title">Hide use template button</string>
+            <string name="revanced_hide_shorts_use_template_button_summary_on">Use template button is hidden</string>
+            <string name="revanced_hide_shorts_use_template_button_summary_off">Use template button is shown</string>
+            <string name="revanced_hide_shorts_upcoming_button_title">Hide upcoming button</string>
+            <string name="revanced_hide_shorts_upcoming_button_summary_on">Upcoming button is hidden</string>
+            <string name="revanced_hide_shorts_upcoming_button_summary_off">Upcoming button is shown</string>
+            <string name="revanced_hide_shorts_green_screen_button_title">Hide green screen button</string>
+            <string name="revanced_hide_shorts_green_screen_button_summary_on">Green screen button is hidden</string>
+            <string name="revanced_hide_shorts_green_screen_button_summary_off">Green screen button is shown</string>
+            <string name="revanced_hide_shorts_hashtag_button_title">Hide hashtag button</string>
+            <string name="revanced_hide_shorts_hashtag_button_summary_on">Hashtag button is hidden</string>
+            <string name="revanced_hide_shorts_hashtag_button_summary_off">Hashtag button is shown</string>
             <string name="revanced_hide_shorts_search_suggestions_title">Hide search suggestions</string>
             <string name="revanced_hide_shorts_search_suggestions_summary_on">Search suggestions are hidden</string>
             <string name="revanced_hide_shorts_search_suggestions_summary_off">Search suggestions are shown</string>
             <string name="revanced_hide_shorts_stickers_title">Hide stickers</string>
             <string name="revanced_hide_shorts_stickers_summary_on">Stickers are hidden</string>
             <string name="revanced_hide_shorts_stickers_summary_off">Stickers are shown</string>
+            <string name="revanced_hide_shorts_like_fountain_title">Hide like fountain</string>
+            <string name="revanced_hide_shorts_like_fountain_summary_on">Like button fountain animation is hidden</string>
+            <string name="revanced_hide_shorts_like_fountain_summary_off">Like button fountain animation is shown</string>
             <string name="revanced_hide_shorts_like_button_title">Hide like button</string>
             <string name="revanced_hide_shorts_like_button_summary_on">Like button is hidden</string>
             <string name="revanced_hide_shorts_like_button_summary_off">Like button is shown</string>
@@ -952,21 +975,22 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - Restore old UI layout</string>
         </patch>
         <patch id="layout.startpage.ChangeStartPagePatch">
-            <string name="revanced_start_page_title">Set start page</string>
-            <string name="revanced_start_page_entry_0">Default</string>
-            <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
-            <string name="revanced_start_page_entry_1">Home</string>
-            <string name="revanced_start_page_entry_2">Search</string>
-            <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the subscriptions tab. -->
-            <string name="revanced_start_page_entry_3">Subscriptions</string>
-            <string name="revanced_start_page_entry_4">Explore</string>
-            <string name="revanced_start_page_entry_5">Shorts</string>
-            <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
-            <string name="revanced_start_page_entry_6">You tab</string>
-            <string name="revanced_start_page_entry_7">Liked videos</string>
-            <!-- 'History' should be translated using the same localized wording YouTube displays for the 'history' section in the 'You' tab. -->
-            <string name="revanced_start_page_entry_8">History</string>
-            <string name="revanced_start_page_entry_9">Trending</string>
+            <string name="revanced_change_start_page_title">Set start page</string>
+            <string name="revanced_change_start_page_entry_default">Default</string>
+            <string name="revanced_change_start_page_entry_browse">Browse channels</string>
+            <string name="revanced_change_start_page_entry_explore">Explore</string>
+            <string name="revanced_change_start_page_entry_gaming">Gaming</string>
+            <string name="revanced_change_start_page_entry_history">History</string>
+            <string name="revanced_change_start_page_entry_library">Library</string>
+            <string name="revanced_change_start_page_entry_liked_videos">Liked videos</string>
+            <string name="revanced_change_start_page_entry_live">Live</string>
+            <string name="revanced_change_start_page_entry_movies">Movies</string>
+            <string name="revanced_change_start_page_entry_music">Music</string>
+            <string name="revanced_change_start_page_entry_search">Search</string>
+            <string name="revanced_change_start_page_entry_sports">Sports</string>
+            <string name="revanced_change_start_page_entry_subscriptions">Subscriptions</string>
+            <string name="revanced_change_start_page_entry_trending">Trending</string>
+            <string name="revanced_change_start_page_entry_watch_later">Watch later</string>
         </patch>
         <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
             <string name="revanced_disable_resuming_shorts_player_title">Disable resuming Shorts player</string>
@@ -989,15 +1013,30 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
             <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
             <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
-            <string name="revanced_miniplayer_hide_expand_close_title">Hide expand and close buttons</string>
-            <string name="revanced_miniplayer_hide_expand_close_summary_on">Buttons are hidden\n(swipe miniplayer to expand or close)</string>
-            <string name="revanced_miniplayer_hide_expand_close_summary_off">Expand and close buttons are shown</string>
+            <string name="revanced_miniplayer_rounded_corners_title">Enable rounded corners</string>
+            <string name="revanced_miniplayer_rounded_corners_summary_on">Corners are rounded</string>
+            <string name="revanced_miniplayer_rounded_corners_summary_off">Corners are square</string>
+            <string name="revanced_miniplayer_double_tap_action_title">Enable double-tap and pinch to resize</string>
+            <string name="revanced_miniplayer_double_tap_action_summary_on">Double-tap action and pinch to resize is enabled\n\n• Double tap to increase miniplayer size\n• Double tap again to restore original size</string>
+            <string name="revanced_miniplayer_double_tap_action_summary_off">Double-tap action and pinch to resize is disabled</string>
+            <string name="revanced_miniplayer_drag_and_drop_title">Enable drag and drop</string>
+            <string name="revanced_miniplayer_drag_and_drop_summary_on">Drag and drop is enabled\n\nMiniplayer can be dragged to any corner of the screen</string>
+            <string name="revanced_miniplayer_drag_and_drop_summary_off">Drag and drop is disabled</string>
+            <string name="revanced_miniplayer_hide_expand_close_title">Hide close button</string>
+            <string name="revanced_miniplayer_hide_expand_close_summary_on">Close button is hidden</string>
+            <string name="revanced_miniplayer_hide_expand_close_summary_off">Close button is shown</string>
+            <string name="revanced_miniplayer_hide_expand_close_legacy_title">Hide expand and close buttons</string>
+            <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Buttons are hidden\n\nSwipe to expand or close</string>
+            <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Expand and close buttons are shown</string>
             <string name="revanced_miniplayer_hide_subtext_title">Hide subtexts</string>
             <string name="revanced_miniplayer_hide_subtext_summary_on">Subtexts are hidden</string>
             <string name="revanced_miniplayer_hide_subtext_summary_off">Subtexts are shown</string>
             <string name="revanced_miniplayer_hide_rewind_forward_title">Hide skip forward and back buttons</string>
             <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Skip forward and back are hidden</string>
             <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Skip forward and back are shown</string>
+            <string name="revanced_miniplayer_width_dip_title">Initial size</string>
+            <string name="revanced_miniplayer_width_dip_summary">Initial on screen size, in pixels</string>
+            <string name="revanced_miniplayer_width_dip_invalid_toast">Pixel size must be between %1$s and %2$s</string>
             <string name="revanced_miniplayer_opacity_title">Overlay opacity</string>
             <string name="revanced_miniplayer_opacity_summary">Opacity value between 0-100, where 0 is transparent</string>
             <string name="revanced_miniplayer_opacity_invalid_toast">Miniplayer overlay opacity must be between 0-100</string>
@@ -1013,7 +1052,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_seekbar_custom_color_summary_off">Original seekbar color is shown</string>
             <string name="revanced_seekbar_custom_color_value_title">Custom seekbar color</string>
             <string name="revanced_seekbar_custom_color_value_summary">The color of the seekbar</string>
-            <string name="revanced_seekbar_custom_color_invalid">Invalid seekbar color value. Using default value.</string>
+            <string name="revanced_seekbar_custom_color_invalid">Invalid seekbar color value</string>
         </patch>
         <patch id="layout.thumbnails.BypassImageRegionRestrictions">
             <string name="revanced_bypass_image_region_restrictions_title">Bypass image region restrictions</string>
