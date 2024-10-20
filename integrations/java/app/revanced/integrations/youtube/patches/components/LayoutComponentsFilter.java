@@ -84,6 +84,7 @@ public final class LayoutComponentsFilter extends Filter {
                 "text_post_root.eml",
                 "images_post_root.eml",
                 "images_post_slim.eml",
+                "images_post_root_slim.eml",
                 "text_post_root_slim.eml",
                 "post_base_wrapper_slim.eml"
         );
