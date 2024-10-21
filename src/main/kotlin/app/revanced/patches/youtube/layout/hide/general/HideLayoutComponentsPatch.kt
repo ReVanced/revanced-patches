@@ -108,6 +108,8 @@ object HideLayoutComponentsPatch : BytecodePatch(
             SwitchPreference("revanced_hide_artist_cards"),
             SwitchPreference("revanced_hide_community_posts"),
             SwitchPreference("revanced_hide_compact_banner"),
+            SwitchPreference("revanced_hide_chips_shelf"),
+            SwitchPreference("revanced_hide_expandable_chip"),
             SwitchPreference("revanced_hide_feed_survey"),
             SwitchPreference("revanced_hide_for_you_shelf"),
             SwitchPreference("revanced_hide_horizontal_shelves"),
@@ -137,8 +139,6 @@ object HideLayoutComponentsPatch : BytecodePatch(
         )
 
         SettingsPatch.PreferenceScreen.GENERAL_LAYOUT.addPreferences(
-            SwitchPreference("revanced_hide_chips_shelf"),
-            SwitchPreference("revanced_hide_expandable_chip"),
             SwitchPreference("revanced_hide_gray_separator"),
             PreferenceScreen(
                 key = "revanced_custom_filter_screen",
