@@ -1,3 +1,15 @@
+# [4.18.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.17.0...v4.18.0-dev.1) (2024-10-21)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Move hide chips settings to Feed menu ([1ed677f](https://github.com/ReVanced/revanced-patches/commit/1ed677f7b8ba561b2bb173dcaf5d6123c22179c4))
+
+
+### Features
+
+* **YouTube:** Add `Shorts autoplay` patch ([#3794](https://github.com/ReVanced/revanced-patches/issues/3794)) ([96b5aed](https://github.com/ReVanced/revanced-patches/commit/96b5aede482f7a69d6df17864a2e17568b0da880))
+
 # [4.17.0](https://github.com/ReVanced/revanced-patches/compare/v4.16.0...v4.17.0) (2024-10-20)
 
 
