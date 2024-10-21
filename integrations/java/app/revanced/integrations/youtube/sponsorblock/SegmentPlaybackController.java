@@ -662,10 +662,7 @@ public class SegmentPlaybackController {
      */
     @SuppressWarnings("unused")
     public static void setSponsorBarThickness(int thickness) {
-        if (sponsorBarThickness != thickness) {
-            Logger.printDebug(() -> "setSponsorBarThickness: " + thickness);
-            sponsorBarThickness = thickness;
-        }
+        sponsorBarThickness = thickness;
     }
 
     /**

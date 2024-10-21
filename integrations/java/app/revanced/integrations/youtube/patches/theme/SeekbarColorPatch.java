@@ -73,10 +73,7 @@ public final class SeekbarColorPatch {
     }
 
     public static boolean playerSeekbarGradientEnabled(boolean original) {
-        if (original) {
-            Logger.printDebug(() -> "playerSeekbarGradientEnabled original: " + true);
-            if (SEEKBAR_CUSTOM_COLOR_ENABLED) return false;
-        }
+        if (SEEKBAR_CUSTOM_COLOR_ENABLED) return false;
 
         return original;
     }
