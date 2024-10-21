@@ -82,7 +82,7 @@ object ShortsAutoplayPatch : BytecodePatch(
             reelEnumClass = it.classDef.type
 
             it.mutableMethod.apply {
-                val insertIndex = indexOfFirstInstructionOrThrow(Opcode.RETURN_VOID)
+                val insertIndex = it.scanResult.patternScanResult!!.startIndex
 
                 addInstructions(
                     insertIndex,
