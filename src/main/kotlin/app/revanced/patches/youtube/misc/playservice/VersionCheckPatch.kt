@@ -20,6 +20,7 @@ internal object VersionCheckPatch : ResourcePatch() {
     var is_19_29_or_greater by Delegates.notNull<Boolean>()
     var is_19_32_or_greater by Delegates.notNull<Boolean>()
     var is_19_33_or_greater by Delegates.notNull<Boolean>()
+    var is_19_34_or_greater by Delegates.notNull<Boolean>()
     var is_19_36_or_greater by Delegates.notNull<Boolean>()
     var is_19_41_or_greater by Delegates.notNull<Boolean>()
 
@@ -46,6 +47,7 @@ internal object VersionCheckPatch : ResourcePatch() {
         is_19_29_or_greater = 243005000 <= playStoreServicesVersion
         is_19_32_or_greater = 243199000 <= playStoreServicesVersion
         is_19_33_or_greater = 243405000 <= playStoreServicesVersion
+        is_19_34_or_greater = 243499000 <= playStoreServicesVersion
         is_19_36_or_greater = 243705000 <= playStoreServicesVersion
         is_19_41_or_greater = 244305000 <= playStoreServicesVersion
     }
