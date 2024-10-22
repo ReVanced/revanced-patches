@@ -5,7 +5,6 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
-import app.revanced.patches.youtube.layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
@@ -20,6 +19,10 @@ internal object HideLayoutComponentsResourcePatch : ResourcePatch() {
     var albumCardId: Long = -1
     var crowdfundingBoxId: Long = -1
     var youTubeLogo = -1L
+
+    var filterBarHeightId = -1L
+    var relatedChipCloudMarginId = -1L
+    var barContainerHeightId = -1L
 
     override fun execute(context: ResourceContext) {
         expandButtonDownId = ResourceMappingPatch[
@@ -40,6 +43,21 @@ internal object HideLayoutComponentsResourcePatch : ResourcePatch() {
         youTubeLogo = ResourceMappingPatch[
             "id",
             "youtube_logo"
+        ]
+
+        relatedChipCloudMarginId = ResourceMappingPatch[
+            "layout",
+            "related_chip_cloud_reduced_margins"
+        ]
+
+        filterBarHeightId = ResourceMappingPatch[
+            "dimen",
+            "filter_bar_height"
+        ]
+
+        barContainerHeightId = ResourceMappingPatch[
+            "dimen",
+            "bar_container_height"
         ]
     }
 }

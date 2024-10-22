@@ -238,6 +238,18 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_description_components_screen_title">Video description</string>
             <string name="revanced_hide_description_components_screen_summary">Hide or show video description components</string>
 
+            <string name="revanced_hide_filter_bar_screen_title">Filter bar</string>
+            <string name="revanced_hide_filter_bar_screen_summary">Hide or show the filter bar in the feed, search, and related videos</string>
+            <string name="revanced_hide_filter_bar_feed_in_feed_title">Hide in feed</string>
+            <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Hidden in feed</string>
+            <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Shown in feed</string>
+            <string name="revanced_hide_filter_bar_feed_in_search_title">Hide in search</string>
+            <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Hidden in search</string>
+            <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Shown in search</string>
+            <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Hide in related videos</string>
+            <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Hidden in related videos</string>
+            <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Shown in related videos</string>
+
             <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
             <string name="revanced_hide_doodles_title">Hide YouTube Doodles</string>
             <string name="revanced_hide_doodles_summary_on">Search bar Doodles are hidden</string>
@@ -555,19 +567,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_endscreen_cards_title">Hide end screen cards</string>
             <string name="revanced_hide_endscreen_cards_summary_on">End screen cards are hidden</string>
             <string name="revanced_hide_endscreen_cards_summary_off">End screen cards are shown</string>
-        </patch>
-        <patch id="layout.hide.filterbar.HideFilterBarResourcePatch">
-            <string name="revanced_hide_filter_bar_screen_title">Filter bar</string>
-            <string name="revanced_hide_filter_bar_screen_summary">Hide or show the filter bar in the feed, search, and related videos</string>
-            <string name="revanced_hide_filter_bar_feed_in_feed_title">Hide in feed</string>
-            <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Hidden in feed</string>
-            <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Shown in feed</string>
-            <string name="revanced_hide_filter_bar_feed_in_search_title">Hide in search</string>
-            <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Hidden in search</string>
-            <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Shown in search</string>
-            <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Hide in related videos</string>
-            <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Hidden in related videos</string>
-            <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Shown in related videos</string>
         </patch>
         <patch id="layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch">
             <string name="revanced_hide_floating_microphone_button_title">Hide floating microphone button</string>

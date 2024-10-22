@@ -7,6 +7,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
@@ -16,9 +17,12 @@ import app.revanced.patches.shared.misc.settings.preference.*
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.AlbumCardsFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.CrowdfundingBoxFingerprint
+import app.revanced.patches.youtube.layout.hide.general.fingerprints.FilterBarHeightFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.HideShowMoreButtonFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ParseElementFromBufferFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.PlayerOverlayFingerprint
+import app.revanced.patches.youtube.layout.hide.general.fingerprints.RelatedChipCloudFingerprint
+import app.revanced.patches.youtube.layout.hide.general.fingerprints.SearchResultsChipBarFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ShowWatermarkFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.YoodlesImageViewFingerprint
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
@@ -66,6 +70,9 @@ object HideLayoutComponentsPatch : BytecodePatch(
         AlbumCardsFingerprint,
         CrowdfundingBoxFingerprint,
         YoodlesImageViewFingerprint,
+        RelatedChipCloudFingerprint,
+        SearchResultsChipBarFingerprint,
+        FilterBarHeightFingerprint
     ),
 ) {
     private const val LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR =
@@ -140,6 +147,14 @@ object HideLayoutComponentsPatch : BytecodePatch(
                     NonInteractivePreference(key = "revanced_hide_keyword_content_about_whole_words",
                         tag = "app.revanced.integrations.youtube.settings.preference.HtmlPreference")
                 )
+            ),
+            PreferenceScreen(
+                key = "revanced_hide_filter_bar_screen",
+                preferences = setOf(
+                    SwitchPreference("revanced_hide_filter_bar_feed_in_feed"),
+                    SwitchPreference("revanced_hide_filter_bar_feed_in_search"),
+                    SwitchPreference("revanced_hide_filter_bar_feed_in_related_videos"),
+                ),
             )
         )
 
@@ -281,5 +296,50 @@ object HideLayoutComponentsPatch : BytecodePatch(
         }
 
         // endregion
+
+        // region hide filter bar
+
+        FilterBarHeightFingerprint.patch<TwoRegisterInstruction> { register ->
+            """
+                invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideInFeed(I)I
+                move-result v$register
+            """
+        }
+
+        SearchResultsChipBarFingerprint.patch<OneRegisterInstruction>(-1, -2) { register ->
+            """
+                invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideInSearch(I)I
+                move-result v$register
+            """
+        }
+
+        RelatedChipCloudFingerprint.patch<OneRegisterInstruction>(1) { register ->
+        "invoke-static { v$register }, " +
+                    "$LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideInRelatedVideos(Landroid/view/View;)V"
+        }
+    }
+
+    /**
+     * Patch a [MethodFingerprint] with a given [instructions].
+     *
+     * @param RegisterInstruction The type of instruction to get the register from.
+     * @param insertIndexOffset The offset to add to the end index of the [MethodFingerprint].
+     * @param hookRegisterOffset The offset to add to the register of the hook.
+     * @param instructions The instructions to add with the register as a parameter.
+     */
+    private fun <RegisterInstruction : OneRegisterInstruction> MethodFingerprint.patch(
+        insertIndexOffset: Int = 0,
+        hookRegisterOffset: Int = 0,
+        instructions: (Int) -> String
+    ) = resultOrThrow().let {
+        it.mutableMethod.apply {
+            val endIndex = it.scanResult.patternScanResult!!.endIndex
+
+            val insertIndex = endIndex + insertIndexOffset
+            val register =
+                getInstruction<RegisterInstruction>(endIndex + hookRegisterOffset).registerA
+
+            addInstructions(insertIndex, instructions(register))
+        }
     }
 }
