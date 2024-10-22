@@ -24,6 +24,8 @@ internal object HideLayoutComponentsResourcePatch : ResourcePatch() {
     var relatedChipCloudMarginId = -1L
     var barContainerHeightId = -1L
 
+    var fabButtonId: Long = -1
+
     override fun execute(context: ResourceContext) {
         expandButtonDownId = ResourceMappingPatch[
             "layout",
@@ -58,6 +60,11 @@ internal object HideLayoutComponentsResourcePatch : ResourcePatch() {
         barContainerHeightId = ResourceMappingPatch[
             "dimen",
             "bar_container_height"
+        ]
+
+        fabButtonId = ResourceMappingPatch[
+            "id",
+            "fab"
         ]
     }
 }

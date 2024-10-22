@@ -23,6 +23,7 @@ import app.revanced.patches.youtube.layout.hide.general.fingerprints.ParseElemen
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.PlayerOverlayFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.RelatedChipCloudFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.SearchResultsChipBarFingerprint
+import app.revanced.patches.youtube.layout.hide.general.fingerprints.ShowFloatingMicrophoneButtonFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ShowWatermarkFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.YoodlesImageViewFingerprint
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
@@ -72,6 +73,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
         YoodlesImageViewFingerprint,
         RelatedChipCloudFingerprint,
         SearchResultsChipBarFingerprint,
+        ShowFloatingMicrophoneButtonFingerprint,
         FilterBarHeightFingerprint
     ),
 ) {
@@ -123,6 +125,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
             SwitchPreference("revanced_hide_chips_shelf"),
             SwitchPreference("revanced_hide_expandable_chip"),
             SwitchPreference("revanced_hide_feed_survey"),
+            SwitchPreference("revanced_hide_floating_microphone_button"),
             SwitchPreference("revanced_hide_for_you_shelf"),
             SwitchPreference("revanced_hide_horizontal_shelves"),
             SwitchPreference("revanced_hide_image_shelf"),
@@ -268,6 +271,25 @@ object HideLayoutComponentsPatch : BytecodePatch(
                     insertIndex,
                     "invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR" +
                             "->hideAlbumCard(Landroid/view/View;)V"
+                )
+            }
+        }
+
+        // endregion
+
+        // region hide floating microphone
+
+        ShowFloatingMicrophoneButtonFingerprint.resultOrThrow().let { result ->
+            with(result.mutableMethod) {
+                val startIndex = result.scanResult.patternScanResult!!.startIndex
+                val register = getInstruction<TwoRegisterInstruction>(startIndex).registerA
+
+                addInstructions(
+                    startIndex + 1,
+                    """
+                        invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideFloatingMicrophoneButton(Z)Z
+                        move-result v$register
+                        """
                 )
             }
         }
