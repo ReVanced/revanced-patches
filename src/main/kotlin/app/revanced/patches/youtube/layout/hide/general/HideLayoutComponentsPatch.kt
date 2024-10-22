@@ -15,6 +15,7 @@ import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.*
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.AlbumCardsFingerprint
+import app.revanced.patches.youtube.layout.hide.general.fingerprints.CrowdfundingBoxFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.HideShowMoreButtonFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ParseElementFromBufferFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.PlayerOverlayFingerprint
@@ -63,6 +64,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
         PlayerOverlayFingerprint,
         HideShowMoreButtonFingerprint,
         AlbumCardsFingerprint,
+        CrowdfundingBoxFingerprint,
         YoodlesImageViewFingerprint,
     ),
 ) {
@@ -219,6 +221,21 @@ object HideLayoutComponentsPatch : BytecodePatch(
                     "invoke-static { v$viewRegister }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR" +
                             "->hideShowMoreButton(Landroid/view/View;)V",
                 )
+            }
+        }
+
+        // endregion
+
+        // region crowd funding box
+        CrowdfundingBoxFingerprint.resultOrThrow().let {
+            it.mutableMethod.apply {
+                val insertIndex = it.scanResult.patternScanResult!!.endIndex
+                val objectRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
+
+                addInstruction(
+                    insertIndex,
+                    "invoke-static {v$objectRegister}, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR" +
+                        "->hideCrowdfundingBox(Landroid/view/View;)V")
             }
         }
 

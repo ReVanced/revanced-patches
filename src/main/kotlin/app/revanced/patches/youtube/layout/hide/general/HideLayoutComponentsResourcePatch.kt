@@ -5,6 +5,7 @@ import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
+import app.revanced.patches.youtube.layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 
 @Patch(
@@ -17,6 +18,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 internal object HideLayoutComponentsResourcePatch : ResourcePatch() {
     var expandButtonDownId: Long = -1
     var albumCardId: Long = -1
+    var crowdfundingBoxId: Long = -1
     var youTubeLogo = -1L
 
     override fun execute(context: ResourceContext) {
@@ -28,6 +30,11 @@ internal object HideLayoutComponentsResourcePatch : ResourcePatch() {
         albumCardId = ResourceMappingPatch[
             "layout",
             "album_card"
+        ]
+
+        crowdfundingBoxId = ResourceMappingPatch[
+            "layout",
+            "donation_companion",
         ]
 
         youTubeLogo = ResourceMappingPatch[
