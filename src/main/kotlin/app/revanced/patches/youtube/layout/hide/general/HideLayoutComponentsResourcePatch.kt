@@ -15,14 +15,19 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
     ],
 )
 internal object HideLayoutComponentsResourcePatch : ResourcePatch() {
-    internal var expandButtonDownId: Long = -1
-
+    var expandButtonDownId: Long = -1
+    var albumCardId: Long = -1
     var youTubeLogo = -1L
 
     override fun execute(context: ResourceContext) {
         expandButtonDownId = ResourceMappingPatch[
             "layout",
             "expand_button_down",
+        ]
+
+        albumCardId = ResourceMappingPatch[
+            "layout",
+            "album_card"
         ]
 
         youTubeLogo = ResourceMappingPatch[

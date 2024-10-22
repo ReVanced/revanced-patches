@@ -14,6 +14,7 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.*
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
+import app.revanced.patches.youtube.layout.hide.general.fingerprints.AlbumCardsFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.HideShowMoreButtonFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ParseElementFromBufferFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.PlayerOverlayFingerprint
@@ -22,9 +23,9 @@ import app.revanced.patches.youtube.layout.hide.general.fingerprints.YoodlesImag
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.util.alsoResolve
 import app.revanced.util.findOpcodeIndicesReversed
 import app.revanced.util.getReference
-import app.revanced.util.alsoResolve
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -61,6 +62,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
         ParseElementFromBufferFingerprint,
         PlayerOverlayFingerprint,
         HideShowMoreButtonFingerprint,
+        AlbumCardsFingerprint,
         YoodlesImageViewFingerprint,
     ),
 ) {
@@ -105,6 +107,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
         )
 
         SettingsPatch.PreferenceScreen.FEED.addPreferences(
+            SwitchPreference("revanced_hide_album_cards"),
             SwitchPreference("revanced_hide_artist_cards"),
             SwitchPreference("revanced_hide_community_posts"),
             SwitchPreference("revanced_hide_compact_banner"),
@@ -213,8 +216,26 @@ object HideLayoutComponentsPatch : BytecodePatch(
                 val insertIndex = moveRegisterIndex + 1
                 addInstruction(
                     insertIndex,
-                    "invoke-static { v$viewRegister }, " +
-                        "$LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideShowMoreButton(Landroid/view/View;)V",
+                    "invoke-static { v$viewRegister }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR" +
+                            "->hideShowMoreButton(Landroid/view/View;)V",
+                )
+            }
+        }
+
+        // endregion
+
+        // region hide album cards
+
+        AlbumCardsFingerprint.resultOrThrow().let {
+            it.mutableMethod.apply {
+                val checkCastAnchorIndex = it.scanResult.patternScanResult!!.endIndex
+                val insertIndex = checkCastAnchorIndex + 1
+                val register = getInstruction<OneRegisterInstruction>(checkCastAnchorIndex).registerA
+
+                addInstruction(
+                    insertIndex,
+                    "invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR" +
+                            "->hideAlbumCard(Landroid/view/View;)V"
                 )
             }
         }
