@@ -1,3 +1,11 @@
+# [4.18.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.18.0-dev.2...v4.18.0-dev.3) (2024-10-22)
+
+
+### Features
+
+* **YouTube:** Merge multiple layout patches into `Hide Layout Components` ([#3799](https://github.com/ReVanced/revanced-patches/issues/3799)) ([bbcb57a](https://github.com/ReVanced/revanced-patches/commit/bbcb57a32dfc8f031886f98b1b9701285105c579))
+* **YouTube:** Merge multiple player overlay patches into `Hide player overlay buttons` ([#3800](https://github.com/ReVanced/revanced-patches/issues/3800)) ([4ba0300](https://github.com/ReVanced/revanced-patches/commit/4ba0300590dd988bdcaa0761c4e606c1d7f86ce5))
+
 # [4.18.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.18.0-dev.1...v4.18.0-dev.2) (2024-10-22)
 
 
