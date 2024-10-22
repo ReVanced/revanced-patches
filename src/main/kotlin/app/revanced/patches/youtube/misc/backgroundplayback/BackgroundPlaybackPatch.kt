@@ -64,7 +64,7 @@ object BackgroundPlaybackPatch : BytecodePatch(
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.SHORTS.addPreferences(
-            SwitchPreference("revanced_shorts_background_playback")
+            SwitchPreference("revanced_shorts_disable_background_playback")
         )
 
         arrayOf(
