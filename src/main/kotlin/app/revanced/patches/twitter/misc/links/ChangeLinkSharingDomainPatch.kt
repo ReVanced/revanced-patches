@@ -12,15 +12,16 @@ import app.revanced.patches.twitter.misc.links.fingerprints.LinkBuilderFingerpri
 import app.revanced.patches.twitter.misc.links.fingerprints.LinkResourceGetterFingerprint
 import app.revanced.patches.twitter.misc.links.fingerprints.LinkSharingDomainFingerprint
 import app.revanced.util.exception
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
-import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 @Patch(
     name = "Change link sharing domain",
     description = "Replaces the domain name of Twitter links when sharing them.",
+    dependencies = [
+        ChangeLinkSharingDomainResourcePatch::class,
+    ],
     compatiblePackages = [CompatiblePackage("com.twitter.android")],
 )
 @Suppress("unused")
@@ -75,12 +76,11 @@ object ChangeLinkSharingDomainPatch : BytecodePatch(
 
         // Used in the Share via... dialog.
         LinkResourceGetterFingerprint.result?.mutableMethod?.apply {
-            val constWithParameterName = indexOfFirstInstructionOrThrow {
-                getReference<StringReference>()?.string?.contains("id.toString()") == true
-            }
+            val templateIdConstIndex =
+                indexOfFirstWideLiteralInstructionValueOrThrow(ChangeLinkSharingDomainResourcePatch.tweetShareLinkTemplateId)
 
-            // Format the link with the new domain name register (2 instructions above the const-string).
-            val formatLinkCallIndex = constWithParameterName - 2
+            // Format the link with the new domain name register (1 instruction below the const).
+            val formatLinkCallIndex = templateIdConstIndex + 1
             val formatLinkCall = getInstruction<Instruction35c>(formatLinkCallIndex)
 
             // Replace the original method call with the new method call.
