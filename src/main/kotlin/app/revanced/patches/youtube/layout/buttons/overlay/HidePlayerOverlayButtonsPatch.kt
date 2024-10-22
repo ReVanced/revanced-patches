@@ -29,7 +29,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     name = "Hide player overlay buttons",
-    description = "Adds options to hide the player cast button, autoplay button, caption button, next/previous buttons",
+    description = "Adds options to hide the player cast, autoplay, caption button and next/ previous buttons.",
     dependencies = [
         IntegrationsPatch::class,
         SettingsPatch::class,
