@@ -49,7 +49,7 @@ object HidePlayerOverlayButtonsPatch : BytecodePatch(
 ) {
 
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/youtube/patches/HidePlayerButtonsPatch;"
+        "Lapp/revanced/integrations/youtube/patches/HidePlayerOverlayButtonsPatch;"
 
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
