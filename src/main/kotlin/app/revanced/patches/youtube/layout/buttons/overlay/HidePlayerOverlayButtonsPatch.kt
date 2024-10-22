@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.buttons.player
+package app.revanced.patches.youtube.layout.buttons.overlay
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
@@ -12,8 +12,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.youtube.layout.buttons.autoplay.HideAutoplayButtonPatch
-import app.revanced.patches.youtube.layout.buttons.player.fingerprints.PlayerControlsPreviousNextOverlayTouchFingerprint
+import app.revanced.patches.youtube.layout.buttons.overlay.fingerprints.PlayerControlsPreviousNextOverlayTouchFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.shared.fingerprints.LayoutConstructorFingerprint
@@ -68,6 +67,7 @@ object HidePlayerOverlayButtonsPatch : BytecodePatch(
         SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
             SwitchPreference("revanced_hide_player_buttons"),
             SwitchPreference("revanced_hide_cast_button"),
+            SwitchPreference("revanced_hide_captions_button"),
             SwitchPreference("revanced_hide_autoplay_button"),
         )
 

@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.buttons.player
+package app.revanced.patches.youtube.layout.buttons.overlay
 
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch

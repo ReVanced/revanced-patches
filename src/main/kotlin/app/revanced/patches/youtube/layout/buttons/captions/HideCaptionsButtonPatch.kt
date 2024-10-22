@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.layout.buttons.captions
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patches.youtube.layout.buttons.player.HidePlayerOverlayButtonsPatch
+import app.revanced.patches.youtube.layout.buttons.overlay.HidePlayerOverlayButtonsPatch
 
 @Suppress("unused")
 @Deprecated("This patch has been merged into HidePlayerOverlayButtonsPatch.")

@@ -1,8 +1,8 @@
-package app.revanced.patches.youtube.layout.buttons.player.fingerprints
+package app.revanced.patches.youtube.layout.buttons.overlay.fingerprints
 
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.MethodFingerprint
-import app.revanced.patches.youtube.layout.buttons.player.HidePlayerOverlayButtonsResourcePatch
+import app.revanced.patches.youtube.layout.buttons.overlay.HidePlayerOverlayButtonsResourcePatch
 import app.revanced.util.containsWideLiteralInstructionValue
 import com.android.tools.smali.dexlib2.AccessFlags
 
