@@ -7,6 +7,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
+import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
@@ -14,17 +15,23 @@ import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.*
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreen.Sorting
+import app.revanced.patches.youtube.layout.hide.general.fingerprints.AlbumCardsFingerprint
+import app.revanced.patches.youtube.layout.hide.general.fingerprints.CrowdfundingBoxFingerprint
+import app.revanced.patches.youtube.layout.hide.general.fingerprints.FilterBarHeightFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.HideShowMoreButtonFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ParseElementFromBufferFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.PlayerOverlayFingerprint
+import app.revanced.patches.youtube.layout.hide.general.fingerprints.RelatedChipCloudFingerprint
+import app.revanced.patches.youtube.layout.hide.general.fingerprints.SearchResultsChipBarFingerprint
+import app.revanced.patches.youtube.layout.hide.general.fingerprints.ShowFloatingMicrophoneButtonFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.ShowWatermarkFingerprint
 import app.revanced.patches.youtube.layout.hide.general.fingerprints.YoodlesImageViewFingerprint
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.NavigationBarHookPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.util.alsoResolve
 import app.revanced.util.findOpcodeIndicesReversed
 import app.revanced.util.getReference
-import app.revanced.util.alsoResolve
 import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -61,13 +68,21 @@ object HideLayoutComponentsPatch : BytecodePatch(
         ParseElementFromBufferFingerprint,
         PlayerOverlayFingerprint,
         HideShowMoreButtonFingerprint,
+        AlbumCardsFingerprint,
+        CrowdfundingBoxFingerprint,
         YoodlesImageViewFingerprint,
+        RelatedChipCloudFingerprint,
+        SearchResultsChipBarFingerprint,
+        ShowFloatingMicrophoneButtonFingerprint,
+        FilterBarHeightFingerprint
     ),
 ) {
     private const val LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR =
         "Lapp/revanced/integrations/youtube/patches/components/LayoutComponentsFilter;"
     private const val DESCRIPTION_COMPONENTS_FILTER_CLASS_NAME =
         "Lapp/revanced/integrations/youtube/patches/components/DescriptionComponentsFilter;"
+    private const val COMMENTS_FILTER_CLASS_NAME =
+        "Lapp/revanced/integrations/youtube/patches/components/CommentsFilter;"
     private const val CUSTOM_FILTER_CLASS_NAME =
         "Lapp/revanced/integrations/youtube/patches/components/CustomFilter;"
     private const val KEYWORD_FILTER_CLASS_NAME =
@@ -77,11 +92,6 @@ object HideLayoutComponentsPatch : BytecodePatch(
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_hide_channel_bar"),
-            SwitchPreference("revanced_hide_channel_guidelines"),
-            SwitchPreference("revanced_hide_channel_member_shelf"),
-            SwitchPreference("revanced_hide_channel_watermark"),
-            SwitchPreference("revanced_hide_community_guidelines"),
             PreferenceScreen(
                 key = "revanced_hide_description_components_screen",
                 preferences = setOf(
@@ -93,6 +103,23 @@ object HideLayoutComponentsPatch : BytecodePatch(
                     SwitchPreference("revanced_hide_transcript_section"),
                 ),
             ),
+            PreferenceScreen(
+                "revanced_comments_screen",
+                preferences = setOf(
+                    SwitchPreference("revanced_hide_comments_by_members_header"),
+                    SwitchPreference("revanced_hide_comments_section"),
+                    SwitchPreference("revanced_hide_comments_create_a_short_button"),
+                    SwitchPreference("revanced_hide_comments_preview_comment"),
+                    SwitchPreference("revanced_hide_comments_thanks_button"),
+                    SwitchPreference("revanced_hide_comments_timestamp_and_emoji_buttons")
+                ),
+                sorting = PreferenceScreen.Sorting.UNSORTED
+            ),
+            SwitchPreference("revanced_hide_channel_bar"),
+            SwitchPreference("revanced_hide_channel_guidelines"),
+            SwitchPreference("revanced_hide_channel_member_shelf"),
+            SwitchPreference("revanced_hide_channel_watermark"),
+            SwitchPreference("revanced_hide_community_guidelines"),
             SwitchPreference("revanced_hide_emergency_box"),
             SwitchPreference("revanced_hide_info_panels"),
             SwitchPreference("revanced_hide_join_membership_button"),
@@ -105,24 +132,6 @@ object HideLayoutComponentsPatch : BytecodePatch(
         )
 
         SettingsPatch.PreferenceScreen.FEED.addPreferences(
-            SwitchPreference("revanced_hide_artist_cards"),
-            SwitchPreference("revanced_hide_community_posts"),
-            SwitchPreference("revanced_hide_compact_banner"),
-            SwitchPreference("revanced_hide_chips_shelf"),
-            SwitchPreference("revanced_hide_expandable_chip"),
-            SwitchPreference("revanced_hide_feed_survey"),
-            SwitchPreference("revanced_hide_for_you_shelf"),
-            SwitchPreference("revanced_hide_horizontal_shelves"),
-            SwitchPreference("revanced_hide_image_shelf"),
-            SwitchPreference("revanced_hide_latest_posts_ads"),
-            SwitchPreference("revanced_hide_mix_playlists"),
-            SwitchPreference("revanced_hide_movies_section"),
-            SwitchPreference("revanced_hide_notify_me_button"),
-            SwitchPreference("revanced_hide_playables"),
-            SwitchPreference("revanced_hide_search_result_recommendations"),
-            SwitchPreference("revanced_hide_search_result_shelf_header"),
-            SwitchPreference("revanced_hide_show_more_button"),
-            SwitchPreference("revanced_hide_doodles"),
             PreferenceScreen(
                 key = "revanced_hide_keyword_content_screen",
                 sorting = Sorting.UNSORTED,
@@ -135,7 +144,36 @@ object HideLayoutComponentsPatch : BytecodePatch(
                     NonInteractivePreference(key = "revanced_hide_keyword_content_about_whole_words",
                         tag = "app.revanced.integrations.youtube.settings.preference.HtmlPreference")
                 )
-            )
+            ),
+            PreferenceScreen(
+                key = "revanced_hide_filter_bar_screen",
+                preferences = setOf(
+                    SwitchPreference("revanced_hide_filter_bar_feed_in_feed"),
+                    SwitchPreference("revanced_hide_filter_bar_feed_in_search"),
+                    SwitchPreference("revanced_hide_filter_bar_feed_in_related_videos"),
+                ),
+            ),
+            SwitchPreference("revanced_hide_album_cards"),
+            SwitchPreference("revanced_hide_artist_cards"),
+            SwitchPreference("revanced_hide_community_posts"),
+            SwitchPreference("revanced_hide_compact_banner"),
+            SwitchPreference("revanced_hide_crowdfunding_box"),
+            SwitchPreference("revanced_hide_chips_shelf"),
+            SwitchPreference("revanced_hide_expandable_chip"),
+            SwitchPreference("revanced_hide_feed_survey"),
+            SwitchPreference("revanced_hide_floating_microphone_button"),
+            SwitchPreference("revanced_hide_for_you_shelf"),
+            SwitchPreference("revanced_hide_horizontal_shelves"),
+            SwitchPreference("revanced_hide_image_shelf"),
+            SwitchPreference("revanced_hide_latest_posts_ads"),
+            SwitchPreference("revanced_hide_mix_playlists"),
+            SwitchPreference("revanced_hide_movies_section"),
+            SwitchPreference("revanced_hide_notify_me_button"),
+            SwitchPreference("revanced_hide_playables"),
+            SwitchPreference("revanced_hide_search_result_recommendations"),
+            SwitchPreference("revanced_hide_search_result_shelf_header"),
+            SwitchPreference("revanced_hide_show_more_button"),
+            SwitchPreference("revanced_hide_doodles"),
         )
 
         SettingsPatch.PreferenceScreen.GENERAL_LAYOUT.addPreferences(
@@ -153,6 +191,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
 
         LithoFilterPatch.addFilter(LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR)
         LithoFilterPatch.addFilter(DESCRIPTION_COMPONENTS_FILTER_CLASS_NAME)
+        LithoFilterPatch.addFilter(COMMENTS_FILTER_CLASS_NAME)
         LithoFilterPatch.addFilter(KEYWORD_FILTER_CLASS_NAME)
         LithoFilterPatch.addFilter(CUSTOM_FILTER_CLASS_NAME)
 
@@ -213,8 +252,60 @@ object HideLayoutComponentsPatch : BytecodePatch(
                 val insertIndex = moveRegisterIndex + 1
                 addInstruction(
                     insertIndex,
-                    "invoke-static { v$viewRegister }, " +
-                        "$LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideShowMoreButton(Landroid/view/View;)V",
+                    "invoke-static { v$viewRegister }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR" +
+                            "->hideShowMoreButton(Landroid/view/View;)V",
+                )
+            }
+        }
+
+        // endregion
+
+        // region crowd funding box
+        CrowdfundingBoxFingerprint.resultOrThrow().let {
+            it.mutableMethod.apply {
+                val insertIndex = it.scanResult.patternScanResult!!.endIndex
+                val objectRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
+
+                addInstruction(
+                    insertIndex,
+                    "invoke-static {v$objectRegister}, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR" +
+                        "->hideCrowdfundingBox(Landroid/view/View;)V")
+            }
+        }
+
+        // endregion
+
+        // region hide album cards
+
+        AlbumCardsFingerprint.resultOrThrow().let {
+            it.mutableMethod.apply {
+                val checkCastAnchorIndex = it.scanResult.patternScanResult!!.endIndex
+                val insertIndex = checkCastAnchorIndex + 1
+                val register = getInstruction<OneRegisterInstruction>(checkCastAnchorIndex).registerA
+
+                addInstruction(
+                    insertIndex,
+                    "invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR" +
+                            "->hideAlbumCard(Landroid/view/View;)V"
+                )
+            }
+        }
+
+        // endregion
+
+        // region hide floating microphone
+
+        ShowFloatingMicrophoneButtonFingerprint.resultOrThrow().let { result ->
+            with(result.mutableMethod) {
+                val startIndex = result.scanResult.patternScanResult!!.startIndex
+                val register = getInstruction<TwoRegisterInstruction>(startIndex).registerA
+
+                addInstructions(
+                    startIndex + 1,
+                    """
+                        invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideFloatingMicrophoneButton(Z)Z
+                        move-result v$register
+                    """
                 )
             }
         }
@@ -243,5 +334,50 @@ object HideLayoutComponentsPatch : BytecodePatch(
         }
 
         // endregion
+
+        // region hide filter bar
+
+        FilterBarHeightFingerprint.patch<TwoRegisterInstruction> { register ->
+            """
+                invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideInFeed(I)I
+                move-result v$register
+            """
+        }
+
+        SearchResultsChipBarFingerprint.patch<OneRegisterInstruction>(-1, -2) { register ->
+            """
+                invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideInSearch(I)I
+                move-result v$register
+            """
+        }
+
+        RelatedChipCloudFingerprint.patch<OneRegisterInstruction>(1) { register ->
+        "invoke-static { v$register }, " +
+                    "$LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideInRelatedVideos(Landroid/view/View;)V"
+        }
+    }
+
+    /**
+     * Patch a [MethodFingerprint] with a given [instructions].
+     *
+     * @param RegisterInstruction The type of instruction to get the register from.
+     * @param insertIndexOffset The offset to add to the end index of the [MethodFingerprint].
+     * @param hookRegisterOffset The offset to add to the register of the hook.
+     * @param instructions The instructions to add with the register as a parameter.
+     */
+    private fun <RegisterInstruction : OneRegisterInstruction> MethodFingerprint.patch(
+        insertIndexOffset: Int = 0,
+        hookRegisterOffset: Int = 0,
+        instructions: (Int) -> String
+    ) = resultOrThrow().let {
+        it.mutableMethod.apply {
+            val endIndex = it.scanResult.patternScanResult!!.endIndex
+
+            val insertIndex = endIndex + insertIndexOffset
+            val register =
+                getInstruction<RegisterInstruction>(endIndex + hookRegisterOffset).registerA
+
+            addInstructions(insertIndex, instructions(register))
+        }
     }
 }

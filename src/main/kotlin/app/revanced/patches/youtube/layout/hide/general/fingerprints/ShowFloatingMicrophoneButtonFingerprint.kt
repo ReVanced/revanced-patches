@@ -1,7 +1,7 @@
-package app.revanced.patches.youtube.layout.hide.floatingmicrophone.fingerprints
+package app.revanced.patches.youtube.layout.hide.general.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patches.youtube.layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch
+import app.revanced.patches.youtube.layout.hide.general.HideLayoutComponentsResourcePatch
 import app.revanced.util.patch.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -15,5 +15,5 @@ internal object ShowFloatingMicrophoneButtonFingerprint : LiteralValueFingerprin
         Opcode.IF_EQZ,
         Opcode.RETURN_VOID
     ),
-    literalSupplier = { HideFloatingMicrophoneButtonResourcePatch.fabButtonId }
+    literalSupplier = { HideLayoutComponentsResourcePatch.fabButtonId }
 )

@@ -107,6 +107,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_disable_like_subscribe_glow_title">Disable like / subscribe button glow</string>
             <string name="revanced_disable_like_subscribe_glow_summary_on">Like and subscribe button will not glow when mentioned</string>
             <string name="revanced_disable_like_subscribe_glow_summary_off">Like and subscribe button will glow when mentioned</string>
+            <string name="revanced_hide_album_cards_title">Hide album cards</string>
+            <string name="revanced_hide_album_cards_summary_on">Album cards are hidden</string>
+            <string name="revanced_hide_album_cards_summary_off">Album cards are shown</string>
+            <string name="revanced_hide_crowdfunding_box_title">Hide crowdfunding box</string>
+            <string name="revanced_hide_crowdfunding_box_summary_on">Crowdfunding box is hidden</string>
+            <string name="revanced_hide_crowdfunding_box_summary_off">Crowdfunding box is shown</string>
+            <string name="revanced_hide_floating_microphone_button_title">Hide floating microphone button</string>
+            <string name="revanced_hide_floating_microphone_button_summary_on">Microphone button hidden</string>
+            <string name="revanced_hide_floating_microphone_button_summary_off">Microphone button shown</string>
             <string name="revanced_hide_gray_separator_title">Hide gray separator</string>
             <string name="revanced_hide_gray_separator_summary_on">Gray separators are hidden</string>
             <string name="revanced_hide_gray_separator_summary_off">Gray separators are shown</string>
@@ -231,6 +240,39 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_transcript_section_summary_off">Transcript section is shown</string>
             <string name="revanced_hide_description_components_screen_title">Video description</string>
             <string name="revanced_hide_description_components_screen_summary">Hide or show video description components</string>
+
+            <string name="revanced_hide_filter_bar_screen_title">Filter bar</string>
+            <string name="revanced_hide_filter_bar_screen_summary">Hide or show the filter bar in the feed, search, and related videos</string>
+            <string name="revanced_hide_filter_bar_feed_in_feed_title">Hide in feed</string>
+            <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Hidden in feed</string>
+            <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Shown in feed</string>
+            <string name="revanced_hide_filter_bar_feed_in_search_title">Hide in search</string>
+            <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Hidden in search</string>
+            <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Shown in search</string>
+            <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Hide in related videos</string>
+            <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Hidden in related videos</string>
+            <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Shown in related videos</string>
+
+            <string name="revanced_comments_screen_title">Comments</string>
+            <string name="revanced_comments_screen_summary">Hide or show comments section components</string>
+            <string name="revanced_hide_comments_by_members_header_title">Hide \'Comments by members\' header</string>
+            <string name="revanced_hide_comments_by_members_header_summary_on">\'Comments by members\' header is hidden</string>
+            <string name="revanced_hide_comments_by_members_header_summary_off">\'Comments by members\' header is shown</string>
+            <string name="revanced_hide_comments_section_title">Hide comments section</string>
+            <string name="revanced_hide_comments_section_summary_on">Comments section is hidden</string>
+            <string name="revanced_hide_comments_section_summary_off">Comments section is shown</string>
+            <string name="revanced_hide_comments_create_a_short_button_title">Hide \'Create a Short\' button</string>
+            <string name="revanced_hide_comments_create_a_short_button_summary_on">\'Create a Short\' button is hidden</string>
+            <string name="revanced_hide_comments_create_a_short_button_summary_off">\'Create a Short\' button is shown</string>
+            <string name="revanced_hide_comments_preview_comment_title">Hide preview comment</string>
+            <string name="revanced_hide_comments_preview_comment_summary_on">Preview comment is hidden</string>
+            <string name="revanced_hide_comments_preview_comment_summary_off">Preview comment is shown</string>
+            <string name="revanced_hide_comments_thanks_button_title">Hide thanks button</string>
+            <string name="revanced_hide_comments_thanks_button_summary_on">Thanks button is hidden</string>
+            <string name="revanced_hide_comments_thanks_button_summary_off">Thanks button is shown</string>
+            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Hide timestamp and emoji buttons</string>
+            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Timestamp and emoji buttons are hidden</string>
+            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Timestamp and emoji buttons are shown</string>
 
             <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
             <string name="revanced_hide_doodles_title">Hide YouTube Doodles</string>
@@ -523,60 +565,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_player_buttons_summary_on">Buttons are hidden</string>
             <string name="revanced_hide_player_buttons_summary_off">Buttons are shown</string>
         </patch>
-        <patch id="layout.hide.albumcards.AlbumCardsResourcePatch">
-            <string name="revanced_hide_album_cards_title">Hide album cards</string>
-            <string name="revanced_hide_album_cards_summary_on">Album cards are hidden</string>
-            <string name="revanced_hide_album_cards_summary_off">Album cards are shown</string>
-        </patch>
-        <patch id="layout.hide.comments.CommentsPatch">
-            <string name="revanced_comments_screen_title">Comments</string>
-            <string name="revanced_comments_screen_summary">Hide or show comments section components</string>
-            <string name="revanced_hide_comments_by_members_header_title">Hide \'Comments by members\' header</string>
-            <string name="revanced_hide_comments_by_members_header_summary_on">\'Comments by members\' header is hidden</string>
-            <string name="revanced_hide_comments_by_members_header_summary_off">\'Comments by members\' header is shown</string>
-            <string name="revanced_hide_comments_section_title">Hide comments section</string>
-            <string name="revanced_hide_comments_section_summary_on">Comments section is hidden</string>
-            <string name="revanced_hide_comments_section_summary_off">Comments section is shown</string>
-            <string name="revanced_hide_comments_create_a_short_button_title">Hide \'Create a Short\' button</string>
-            <string name="revanced_hide_comments_create_a_short_button_summary_on">\'Create a Short\' button is hidden</string>
-            <string name="revanced_hide_comments_create_a_short_button_summary_off">\'Create a Short\' button is shown</string>
-            <string name="revanced_hide_comments_preview_comment_title">Hide preview comment</string>
-            <string name="revanced_hide_comments_preview_comment_summary_on">Preview comment is hidden</string>
-            <string name="revanced_hide_comments_preview_comment_summary_off">Preview comment is shown</string>
-            <string name="revanced_hide_comments_thanks_button_title">Hide thanks button</string>
-            <string name="revanced_hide_comments_thanks_button_summary_on">Thanks button is hidden</string>
-            <string name="revanced_hide_comments_thanks_button_summary_off">Thanks button is shown</string>
-            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Hide timestamp and emoji buttons</string>
-            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Timestamp and emoji buttons are hidden</string>
-            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Timestamp and emoji buttons are shown</string>
-        </patch>
-        <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
-            <string name="revanced_hide_crowdfunding_box_title">Hide crowdfunding box</string>
-            <string name="revanced_hide_crowdfunding_box_summary_on">Crowdfunding box is hidden</string>
-            <string name="revanced_hide_crowdfunding_box_summary_off">Crowdfunding box is shown</string>
-        </patch>
         <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
             <string name="revanced_hide_endscreen_cards_title">Hide end screen cards</string>
             <string name="revanced_hide_endscreen_cards_summary_on">End screen cards are hidden</string>
             <string name="revanced_hide_endscreen_cards_summary_off">End screen cards are shown</string>
-        </patch>
-        <patch id="layout.hide.filterbar.HideFilterBarResourcePatch">
-            <string name="revanced_hide_filter_bar_screen_title">Filter bar</string>
-            <string name="revanced_hide_filter_bar_screen_summary">Hide or show the filter bar in the feed, search, and related videos</string>
-            <string name="revanced_hide_filter_bar_feed_in_feed_title">Hide in feed</string>
-            <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Hidden in feed</string>
-            <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Shown in feed</string>
-            <string name="revanced_hide_filter_bar_feed_in_search_title">Hide in search</string>
-            <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Hidden in search</string>
-            <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Shown in search</string>
-            <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Hide in related videos</string>
-            <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Hidden in related videos</string>
-            <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Shown in related videos</string>
-        </patch>
-        <patch id="layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch">
-            <string name="revanced_hide_floating_microphone_button_title">Hide floating microphone button</string>
-            <string name="revanced_hide_floating_microphone_button_summary_on">Microphone button hidden</string>
-            <string name="revanced_hide_floating_microphone_button_summary_off">Microphone button shown</string>
         </patch>
         <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
             <string name="revanced_disable_fullscreen_ambient_mode_title">Disable ambient mode in fullscreen</string>
