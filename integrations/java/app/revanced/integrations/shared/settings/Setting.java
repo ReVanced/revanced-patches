@@ -208,6 +208,8 @@ public abstract class Setting<T> {
      * Migrate a setting value if the path is renamed but otherwise the old and new settings are identical.
      */
     public static <T> void migrateOldSettingToNew(@NonNull Setting<T> oldSetting, @NonNull Setting<T> newSetting) {
+        if (oldSetting == newSetting) throw new IllegalArgumentException();
+
         if (!oldSetting.isSetToDefault()) {
             Logger.printInfo(() -> "Migrating old setting value: " + oldSetting + " into replacement setting: " + newSetting);
             newSetting.save(oldSetting.value);

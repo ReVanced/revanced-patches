@@ -1,15 +1,40 @@
 package app.revanced.integrations.youtube.patches;
 
 import android.view.View;
+import android.widget.ImageView;
 
 import app.revanced.integrations.shared.Logger;
 import app.revanced.integrations.shared.Utils;
 import app.revanced.integrations.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
-public final class HidePlayerButtonsPatch {
+public final class HidePlayerOverlayButtonsPatch {
 
-    private static final boolean HIDE_PLAYER_BUTTONS_ENABLED = Settings.HIDE_PLAYER_BUTTONS.get();
+    private static final boolean HIDE_AUTOPLAY_BUTTON_ENABLED = Settings.HIDE_AUTOPLAY_BUTTON.get();
+
+    /**
+     * Injection point.
+     */
+    public static boolean hideAutoPlayButton() {
+        return HIDE_AUTOPLAY_BUTTON_ENABLED;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static int getCastButtonOverrideV2(int original) {
+        return Settings.HIDE_CAST_BUTTON.get() ? View.GONE : original;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void hideCaptionsButton(ImageView imageView) {
+        imageView.setVisibility(Settings.HIDE_CAPTIONS_BUTTON.get() ? ImageView.GONE : ImageView.VISIBLE);
+    }
+
+    private static final boolean HIDE_PLAYER_PREVIOUS_NEXT_BUTTONS_ENABLED
+            = Settings.HIDE_PLAYER_PREVIOUS_NEXT_BUTTONS.get();
 
     private static final int PLAYER_CONTROL_PREVIOUS_BUTTON_TOUCH_AREA_ID =
             Utils.getResourceIdentifier("player_control_previous_button_touch_area", "id");
@@ -21,7 +46,7 @@ public final class HidePlayerButtonsPatch {
      * Injection point.
      */
     public static void hidePreviousNextButtons(View parentView) {
-        if (!HIDE_PLAYER_BUTTONS_ENABLED) {
+        if (!HIDE_PLAYER_PREVIOUS_NEXT_BUTTONS_ENABLED) {
             return;
         }
 
