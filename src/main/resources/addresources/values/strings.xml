@@ -107,6 +107,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_disable_like_subscribe_glow_title">Disable like / subscribe button glow</string>
             <string name="revanced_disable_like_subscribe_glow_summary_on">Like and subscribe button will not glow when mentioned</string>
             <string name="revanced_disable_like_subscribe_glow_summary_off">Like and subscribe button will glow when mentioned</string>
+            <string name="revanced_hide_album_cards_title">Hide album cards</string>
+            <string name="revanced_hide_album_cards_summary_on">Album cards are hidden</string>
+            <string name="revanced_hide_album_cards_summary_off">Album cards are shown</string>
             <string name="revanced_hide_gray_separator_title">Hide gray separator</string>
             <string name="revanced_hide_gray_separator_summary_on">Gray separators are hidden</string>
             <string name="revanced_hide_gray_separator_summary_off">Gray separators are shown</string>
@@ -522,11 +525,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_player_buttons_title">Hide previous &amp; next video buttons</string>
             <string name="revanced_hide_player_buttons_summary_on">Buttons are hidden</string>
             <string name="revanced_hide_player_buttons_summary_off">Buttons are shown</string>
-        </patch>
-        <patch id="layout.hide.albumcards.AlbumCardsResourcePatch">
-            <string name="revanced_hide_album_cards_title">Hide album cards</string>
-            <string name="revanced_hide_album_cards_summary_on">Album cards are hidden</string>
-            <string name="revanced_hide_album_cards_summary_off">Album cards are shown</string>
         </patch>
         <patch id="layout.hide.comments.CommentsPatch">
             <string name="revanced_comments_screen_title">Comments</string>
