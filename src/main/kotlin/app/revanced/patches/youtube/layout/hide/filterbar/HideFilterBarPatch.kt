@@ -1,90 +1,12 @@
 package app.revanced.patches.youtube.layout.hide.filterbar
 
-import app.revanced.util.exception
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.fingerprint.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.annotation.CompatiblePackage
-import app.revanced.patcher.patch.annotation.Patch
-import app.revanced.patches.youtube.layout.hide.filterbar.fingerprints.FilterBarHeightFingerprint
-import app.revanced.patches.youtube.layout.hide.filterbar.fingerprints.RelatedChipCloudFingerprint
-import app.revanced.patches.youtube.layout.hide.filterbar.fingerprints.SearchResultsChipBarFingerprint
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import app.revanced.patches.youtube.layout.hide.general.HideLayoutComponentsPatch
 
-@Patch(
-    name = "Hide filter bar",
-    description = "Adds options to hide the category bar at the top of video feeds.",
-    dependencies = [HideFilterBarResourcePatch::class],
-    compatiblePackages = [
-        CompatiblePackage(
-            "com.google.android.youtube",
-            [
-                "18.38.44",
-                "18.49.37",
-                "19.16.39",
-                "19.25.37",
-                "19.34.42",
-            ]
-        )
-    ]
-)
-@Suppress("unused")
+@Deprecated("This patch class has been merged into HideLayoutComponentsPatch.")
 object HideFilterBarPatch : BytecodePatch(
-    setOf(
-        RelatedChipCloudFingerprint,
-        SearchResultsChipBarFingerprint,
-        FilterBarHeightFingerprint
-    )
+    dependencies = setOf(HideLayoutComponentsPatch::class)
 ) {
-    private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/youtube/patches/HideFilterBarPatch;"
-
-    override fun execute(context: BytecodeContext) {
-        FilterBarHeightFingerprint.patch<TwoRegisterInstruction> { register ->
-            """
-                invoke-static { v$register }, $INTEGRATIONS_CLASS_DESCRIPTOR->hideInFeed(I)I
-                move-result v$register
-            """
-        }
-
-        RelatedChipCloudFingerprint.patch<OneRegisterInstruction>(1) { register ->
-            "invoke-static { v$register }, " +
-                    "$INTEGRATIONS_CLASS_DESCRIPTOR->hideInRelatedVideos(Landroid/view/View;)V"
-        }
-
-        SearchResultsChipBarFingerprint.patch<OneRegisterInstruction>(-1, -2) { register ->
-            """
-                invoke-static { v$register }, $INTEGRATIONS_CLASS_DESCRIPTOR->hideInSearch(I)I
-                move-result v$register
-            """
-        }
-    }
-
-    /**
-     * Patch a [MethodFingerprint] with a given [instructions].
-     *
-     * @param RegisterInstruction The type of instruction to get the register from.
-     * @param insertIndexOffset The offset to add to the end index of the [MethodFingerprint].
-     * @param hookRegisterOffset The offset to add to the register of the hook.
-     * @param instructions The instructions to add with the register as a parameter.
-     */
-    private fun <RegisterInstruction : OneRegisterInstruction> MethodFingerprint.patch(
-        insertIndexOffset: Int = 0,
-        hookRegisterOffset: Int = 0,
-        instructions: (Int) -> String
-    ) =
-        result?.let {
-            it.mutableMethod.apply {
-                val endIndex = it.scanResult.patternScanResult!!.endIndex
-
-                val insertIndex = endIndex + insertIndexOffset
-                val register =
-                    getInstruction<RegisterInstruction>(endIndex + hookRegisterOffset).registerA
-
-                addInstructions(insertIndex, instructions(register))
-            }
-        } ?: throw exception
+    override fun execute(context: BytecodeContext) {}
 }

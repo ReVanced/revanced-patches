@@ -1,7 +1,7 @@
-package app.revanced.patches.youtube.layout.hide.albumcards.fingerprints
+package app.revanced.patches.youtube.layout.hide.general.fingerprints
 
 import app.revanced.patcher.extensions.or
-import app.revanced.patches.youtube.layout.hide.albumcards.AlbumCardsResourcePatch
+import app.revanced.patches.youtube.layout.hide.general.HideLayoutComponentsResourcePatch
 import app.revanced.util.patch.LiteralValueFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -16,5 +16,5 @@ internal object AlbumCardsFingerprint : LiteralValueFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CHECK_CAST,
     ),
-    literalSupplier = { AlbumCardsResourcePatch.albumCardId }
+    literalSupplier = { HideLayoutComponentsResourcePatch.albumCardId }
 )
