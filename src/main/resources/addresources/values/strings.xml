@@ -472,22 +472,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_playlist_button_summary_on">Save to playlist button is hidden</string>
             <string name="revanced_hide_playlist_button_summary_off">Save to playlist button is shown</string>
         </patch>
-        <patch id="layout.buttons.autoplay.HideAutoplayButtonPatch">
-            <string name="revanced_hide_autoplay_button_title">Hide autoplay button</string>
-            <string name="revanced_hide_autoplay_button_summary_on">Autoplay button is hidden</string>
-            <string name="revanced_hide_autoplay_button_summary_off">Autoplay button is shown</string>
-        </patch>
-        <patch id="layout.buttons.captions.HideCaptionsButtonPatch">
-            <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-            <string name="revanced_hide_captions_button_title">Hide captions button</string>
-            <string name="revanced_hide_captions_button_summary_on">Captions button is hidden</string>
-            <string name="revanced_hide_captions_button_summary_off">Captions button is shown</string>
-        </patch>
-        <patch id="layout.buttons.cast.HideCastButtonPatch">
-            <string name="revanced_hide_cast_button_title">Hide cast button</string>
-            <string name="revanced_hide_cast_button_summary_on">Cast button is hidden</string>
-            <string name="revanced_hide_cast_button_summary_off">Cast button is shown</string>
-        </patch>
         <patch id="layout.buttons.navigation.NavigationButtonsPatch">
             <string name="revanced_navigation_buttons_screen_title">Navigation buttons</string>
             <string name="revanced_navigation_buttons_screen_summary">Hide or change buttons in the navigation bar</string>
@@ -560,10 +544,20 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Watch in VR menu is hidden</string>
             <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Watch in VR menu is shown</string>
         </patch>
-        <patch id="layout.buttons.player.hide.HidePlayerButtonsPatch">
-            <string name="revanced_hide_player_buttons_title">Hide previous &amp; next video buttons</string>
-            <string name="revanced_hide_player_buttons_summary_on">Buttons are hidden</string>
-            <string name="revanced_hide_player_buttons_summary_off">Buttons are shown</string>
+        <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
+            <string name="revanced_hide_player_previous_next_buttons_title">Hide previous &amp; next video buttons</string>
+            <string name="revanced_hide_player_previous_next_buttons_summary_on">Buttons are hidden</string>
+            <string name="revanced_hide_player_previous_next_buttons_summary_off">Buttons are shown</string>
+            <string name="revanced_hide_cast_button_title">Hide cast button</string>
+            <string name="revanced_hide_cast_button_summary_on">Cast button is hidden</string>
+            <string name="revanced_hide_cast_button_summary_off">Cast button is shown</string>
+            <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
+            <string name="revanced_hide_captions_button_title">Hide captions button</string>
+            <string name="revanced_hide_captions_button_summary_on">Captions button is hidden</string>
+            <string name="revanced_hide_captions_button_summary_off">Captions button is shown</string>
+            <string name="revanced_hide_autoplay_button_title">Hide autoplay button</string>
+            <string name="revanced_hide_autoplay_button_summary_on">Autoplay button is hidden</string>
+            <string name="revanced_hide_autoplay_button_summary_off">Autoplay button is shown</string>
         </patch>
         <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
             <string name="revanced_hide_endscreen_cards_title">Hide end screen cards</string>

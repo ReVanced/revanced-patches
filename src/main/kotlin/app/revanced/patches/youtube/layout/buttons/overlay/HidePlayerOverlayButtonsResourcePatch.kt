@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.buttons.player.hide
+package app.revanced.patches.youtube.layout.buttons.overlay
 
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
@@ -6,7 +6,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.shared.misc.mapping.ResourceMappingPatch
 
 @Patch(dependencies = [ResourceMappingPatch::class])
-internal object HidePlayerButtonsResourcePatch : ResourcePatch() {
+internal object HidePlayerOverlayButtonsResourcePatch : ResourcePatch() {
     var playerControlPreviousButtonTouchArea = -1L
     var playerControlNextButtonTouchArea = -1L
 
