@@ -6,12 +6,12 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.patches.youtube.layout.buttons.overlay.fingerprints.MediaRouteButtonFingerprint
 import app.revanced.patches.youtube.layout.buttons.overlay.fingerprints.PlayerControlsPreviousNextOverlayTouchFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
@@ -53,6 +53,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 object HidePlayerOverlayButtonsPatch : BytecodePatch(
     setOf(
         PlayerControlsPreviousNextOverlayTouchFingerprint,
+        MediaRouteButtonFingerprint,
         SubtitleButtonControllerFingerprint,
         LayoutConstructorFingerprint
     )
@@ -96,18 +97,13 @@ object HidePlayerOverlayButtonsPatch : BytecodePatch(
 
         // region hide cast button
 
-        val buttonClass = context.findClass("MediaRouteButton")
-            ?: throw PatchException("MediaRouteButton class not found.")
-
-        buttonClass.mutableClass.methods.find { it.name == "setVisibility" }?.apply {
-            addInstructions(
-                0,
-                """
-                    invoke-static { p1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->getCastButtonOverrideV2(I)I
-                    move-result p1
-                """,
-            )
-        } ?: throw PatchException("setVisibility method not found.")
+        MediaRouteButtonFingerprint.resultOrThrow().mutableMethod.addInstructions(
+            0,
+            """
+                invoke-static { p1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->getCastButtonOverrideV2(I)I
+                move-result p1
+            """
+        )
 
         // endregion
 
