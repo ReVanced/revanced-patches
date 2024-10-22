@@ -122,6 +122,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
             SwitchPreference("revanced_hide_artist_cards"),
             SwitchPreference("revanced_hide_community_posts"),
             SwitchPreference("revanced_hide_compact_banner"),
+            SwitchPreference("revanced_hide_crowdfunding_box"),
             SwitchPreference("revanced_hide_chips_shelf"),
             SwitchPreference("revanced_hide_expandable_chip"),
             SwitchPreference("revanced_hide_feed_survey"),
