@@ -10,7 +10,6 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.youtube.layout.buttons.captions.HideCaptionsButtonPatch
 import app.revanced.patches.youtube.layout.buttons.player.fingerprints.PlayerControlsPreviousNextOverlayTouchFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
@@ -60,7 +59,9 @@ object HidePlayerOverlayButtonsPatch : BytecodePatch(
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_hide_player_buttons")
+            SwitchPreference("revanced_hide_player_buttons"),
+            SwitchPreference("revanced_hide_cast_button"),
+            SwitchPreference("revanced_hide_autoplay_button"),
         )
 
         // region hide player next/previous button
