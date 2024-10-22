@@ -2,8 +2,10 @@ package app.revanced.patches.youtube.layout.buttons.player
 
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
@@ -45,12 +47,18 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 object HidePlayerOverlayButtonsPatch : BytecodePatch(
     setOf(PlayerControlsPreviousNextOverlayTouchFingerprint)
 ) {
+
+    private const val INTEGRATIONS_CLASS_DESCRIPTOR =
+        "Lapp/revanced/integrations/youtube/patches/HidePlayerButtonsPatch;"
+
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
             SwitchPreference("revanced_hide_player_buttons")
         )
+
+        // region hide player next/previous button
 
         PlayerControlsPreviousNextOverlayTouchFingerprint.resultOrThrow().mutableMethod.apply {
             val resourceIndex = indexOfFirstWideLiteralInstructionValueOrThrow(
@@ -66,9 +74,29 @@ object HidePlayerOverlayButtonsPatch : BytecodePatch(
 
             addInstruction(
                 insertIndex,
-                "invoke-static { v$viewRegister }, Lapp/revanced/integrations/youtube/patches/HidePlayerButtonsPatch;" +
+                "invoke-static { v$viewRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR" +
                         "->hidePreviousNextButtons(Landroid/view/View;)V"
             )
         }
+
+        // endregion
+
+        // region hide cast button
+
+        val buttonClass = context.findClass("MediaRouteButton")
+            ?: throw PatchException("MediaRouteButton class not found.")
+
+        buttonClass.mutableClass.methods.find { it.name == "setVisibility" }?.apply {
+            addInstructions(
+                0,
+                """
+                    invoke-static { p1 }, $INTEGRATIONS_CLASS_DESCRIPTOR->getCastButtonOverrideV2(I)I
+                    move-result p1
+                """,
+            )
+        } ?: throw PatchException("setVisibility method not found.")
+
+
+        // endregion
     }
 }
