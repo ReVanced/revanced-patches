@@ -503,9 +503,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Watch in VR menu is shown</string>
         </patch>
         <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
-            <string name="revanced_hide_player_buttons_title">Hide previous &amp; next video buttons</string>
-            <string name="revanced_hide_player_buttons_summary_on">Buttons are hidden</string>
-            <string name="revanced_hide_player_buttons_summary_off">Buttons are shown</string>
+            <string name="revanced_hide_player_previous_next_buttons_title">Hide previous &amp; next video buttons</string>
+            <string name="revanced_hide_player_previous_next_buttons_summary_on">Buttons are hidden</string>
+            <string name="revanced_hide_player_previous_next_buttons_summary_off">Buttons are shown</string>
             <string name="revanced_hide_cast_button_title">Hide cast button</string>
             <string name="revanced_hide_cast_button_summary_on">Cast button is hidden</string>
             <string name="revanced_hide_cast_button_summary_off">Cast button is shown</string>

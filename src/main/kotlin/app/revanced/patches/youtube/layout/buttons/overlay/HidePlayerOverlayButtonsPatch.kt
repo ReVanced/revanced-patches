@@ -65,7 +65,7 @@ object HidePlayerOverlayButtonsPatch : BytecodePatch(
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_hide_player_buttons"),
+            SwitchPreference("revanced_hide_player_previous_next_buttons"),
             SwitchPreference("revanced_hide_cast_button"),
             SwitchPreference("revanced_hide_captions_button"),
             SwitchPreference("revanced_hide_autoplay_button"),
