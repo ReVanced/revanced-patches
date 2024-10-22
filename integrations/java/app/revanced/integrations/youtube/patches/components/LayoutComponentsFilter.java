@@ -383,6 +383,51 @@ public final class LayoutComponentsFilter extends Filter {
         return !Settings.HIDE_VIDEO_CHANNEL_WATERMARK.get();
     }
 
+    /**
+     * Injection point.
+     */
+    public static void hideAlbumCard(View view) {
+        Utils.hideViewBy0dpUnderCondition(Settings.HIDE_ALBUM_CARDS, view);
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void hideCrowdfundingBox(View view) {
+        Utils.hideViewBy0dpUnderCondition(Settings.HIDE_CROWDFUNDING_BOX, view);
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean hideFloatingMicrophoneButton(final boolean original) {
+        return original || Settings.HIDE_FLOATING_MICROPHONE_BUTTON.get();
+    }
+
+    /**
+     * Injection point.
+     */
+    public static int hideInFeed(final int height) {
+        return Settings.HIDE_FILTER_BAR_FEED_IN_FEED.get()
+                ? 0
+                : height;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static int hideInSearch(int height) {
+        return Settings.HIDE_FILTER_BAR_FEED_IN_SEARCH.get()
+                ? 0
+                : height;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void hideInRelatedVideos(View chipView) {
+        Utils.hideViewBy0dpUnderCondition(Settings.HIDE_FILTER_BAR_FEED_IN_RELATED_VIDEOS, chipView);
+    }
 
     private static final boolean HIDE_DOODLES_ENABLED = Settings.HIDE_DOODLES.get();
 
