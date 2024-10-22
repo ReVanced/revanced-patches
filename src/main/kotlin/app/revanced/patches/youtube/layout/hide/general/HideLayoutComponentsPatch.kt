@@ -81,6 +81,8 @@ object HideLayoutComponentsPatch : BytecodePatch(
         "Lapp/revanced/integrations/youtube/patches/components/LayoutComponentsFilter;"
     private const val DESCRIPTION_COMPONENTS_FILTER_CLASS_NAME =
         "Lapp/revanced/integrations/youtube/patches/components/DescriptionComponentsFilter;"
+    private const val COMMENTS_FILTER_CLASS_NAME =
+        "Lapp/revanced/integrations/youtube/patches/components/CommentsFilter;"
     private const val CUSTOM_FILTER_CLASS_NAME =
         "Lapp/revanced/integrations/youtube/patches/components/CustomFilter;"
     private const val KEYWORD_FILTER_CLASS_NAME =
@@ -90,11 +92,6 @@ object HideLayoutComponentsPatch : BytecodePatch(
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_hide_channel_bar"),
-            SwitchPreference("revanced_hide_channel_guidelines"),
-            SwitchPreference("revanced_hide_channel_member_shelf"),
-            SwitchPreference("revanced_hide_channel_watermark"),
-            SwitchPreference("revanced_hide_community_guidelines"),
             PreferenceScreen(
                 key = "revanced_hide_description_components_screen",
                 preferences = setOf(
@@ -106,6 +103,23 @@ object HideLayoutComponentsPatch : BytecodePatch(
                     SwitchPreference("revanced_hide_transcript_section"),
                 ),
             ),
+            PreferenceScreen(
+                "revanced_comments_screen",
+                preferences = setOf(
+                    SwitchPreference("revanced_hide_comments_by_members_header"),
+                    SwitchPreference("revanced_hide_comments_section"),
+                    SwitchPreference("revanced_hide_comments_create_a_short_button"),
+                    SwitchPreference("revanced_hide_comments_preview_comment"),
+                    SwitchPreference("revanced_hide_comments_thanks_button"),
+                    SwitchPreference("revanced_hide_comments_timestamp_and_emoji_buttons")
+                ),
+                sorting = PreferenceScreen.Sorting.UNSORTED
+            ),
+            SwitchPreference("revanced_hide_channel_bar"),
+            SwitchPreference("revanced_hide_channel_guidelines"),
+            SwitchPreference("revanced_hide_channel_member_shelf"),
+            SwitchPreference("revanced_hide_channel_watermark"),
+            SwitchPreference("revanced_hide_community_guidelines"),
             SwitchPreference("revanced_hide_emergency_box"),
             SwitchPreference("revanced_hide_info_panels"),
             SwitchPreference("revanced_hide_join_membership_button"),
@@ -118,6 +132,27 @@ object HideLayoutComponentsPatch : BytecodePatch(
         )
 
         SettingsPatch.PreferenceScreen.FEED.addPreferences(
+            PreferenceScreen(
+                key = "revanced_hide_keyword_content_screen",
+                sorting = Sorting.UNSORTED,
+                preferences = setOf(
+                    SwitchPreference("revanced_hide_keyword_content_home"),
+                    SwitchPreference("revanced_hide_keyword_content_subscriptions"),
+                    SwitchPreference("revanced_hide_keyword_content_search"),
+                    TextPreference("revanced_hide_keyword_content_phrases", inputType = InputType.TEXT_MULTI_LINE),
+                    NonInteractivePreference("revanced_hide_keyword_content_about"),
+                    NonInteractivePreference(key = "revanced_hide_keyword_content_about_whole_words",
+                        tag = "app.revanced.integrations.youtube.settings.preference.HtmlPreference")
+                )
+            ),
+            PreferenceScreen(
+                key = "revanced_hide_filter_bar_screen",
+                preferences = setOf(
+                    SwitchPreference("revanced_hide_filter_bar_feed_in_feed"),
+                    SwitchPreference("revanced_hide_filter_bar_feed_in_search"),
+                    SwitchPreference("revanced_hide_filter_bar_feed_in_related_videos"),
+                ),
+            ),
             SwitchPreference("revanced_hide_album_cards"),
             SwitchPreference("revanced_hide_artist_cards"),
             SwitchPreference("revanced_hide_community_posts"),
@@ -139,27 +174,6 @@ object HideLayoutComponentsPatch : BytecodePatch(
             SwitchPreference("revanced_hide_search_result_shelf_header"),
             SwitchPreference("revanced_hide_show_more_button"),
             SwitchPreference("revanced_hide_doodles"),
-            PreferenceScreen(
-                key = "revanced_hide_keyword_content_screen",
-                sorting = Sorting.UNSORTED,
-                preferences = setOf(
-                    SwitchPreference("revanced_hide_keyword_content_home"),
-                    SwitchPreference("revanced_hide_keyword_content_subscriptions"),
-                    SwitchPreference("revanced_hide_keyword_content_search"),
-                    TextPreference("revanced_hide_keyword_content_phrases", inputType = InputType.TEXT_MULTI_LINE),
-                    NonInteractivePreference("revanced_hide_keyword_content_about"),
-                    NonInteractivePreference(key = "revanced_hide_keyword_content_about_whole_words",
-                        tag = "app.revanced.integrations.youtube.settings.preference.HtmlPreference")
-                )
-            ),
-            PreferenceScreen(
-                key = "revanced_hide_filter_bar_screen",
-                preferences = setOf(
-                    SwitchPreference("revanced_hide_filter_bar_feed_in_feed"),
-                    SwitchPreference("revanced_hide_filter_bar_feed_in_search"),
-                    SwitchPreference("revanced_hide_filter_bar_feed_in_related_videos"),
-                ),
-            )
         )
 
         SettingsPatch.PreferenceScreen.GENERAL_LAYOUT.addPreferences(
@@ -177,6 +191,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
 
         LithoFilterPatch.addFilter(LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR)
         LithoFilterPatch.addFilter(DESCRIPTION_COMPONENTS_FILTER_CLASS_NAME)
+        LithoFilterPatch.addFilter(COMMENTS_FILTER_CLASS_NAME)
         LithoFilterPatch.addFilter(KEYWORD_FILTER_CLASS_NAME)
         LithoFilterPatch.addFilter(CUSTOM_FILTER_CLASS_NAME)
 
@@ -290,7 +305,7 @@ object HideLayoutComponentsPatch : BytecodePatch(
                     """
                         invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideFloatingMicrophoneButton(Z)Z
                         move-result v$register
-                        """
+                    """
                 )
             }
         }
