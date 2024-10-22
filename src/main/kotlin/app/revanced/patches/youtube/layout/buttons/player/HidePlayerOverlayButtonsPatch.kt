@@ -10,9 +10,11 @@ import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.patches.youtube.layout.buttons.captions.HideCaptionsButtonPatch
 import app.revanced.patches.youtube.layout.buttons.player.fingerprints.PlayerControlsPreviousNextOverlayTouchFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.patches.youtube.shared.fingerprints.SubtitleButtonControllerFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
@@ -45,7 +47,10 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 )
 @Suppress("unused")
 object HidePlayerOverlayButtonsPatch : BytecodePatch(
-    setOf(PlayerControlsPreviousNextOverlayTouchFingerprint)
+    setOf(
+        PlayerControlsPreviousNextOverlayTouchFingerprint,
+        SubtitleButtonControllerFingerprint
+    )
 ) {
 
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
@@ -96,6 +101,19 @@ object HidePlayerOverlayButtonsPatch : BytecodePatch(
             )
         } ?: throw PatchException("setVisibility method not found.")
 
+        // endregion
+
+        // region hide captions button
+
+        SubtitleButtonControllerFingerprint.resultOrThrow().mutableMethod.apply {
+            // Due to previously applied patches, scanResult index cannot be used in this context
+            val insertIndex = indexOfFirstInstructionOrThrow(Opcode.IGET_BOOLEAN) + 1
+
+            addInstruction(
+                insertIndex,
+                "invoke-static {v0}, $INTEGRATIONS_CLASS_DESCRIPTOR->hideCaptionsButton(Landroid/widget/ImageView;)V"
+            )
+        }
 
         // endregion
     }
