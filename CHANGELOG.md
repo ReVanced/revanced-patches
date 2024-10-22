@@ -1,3 +1,10 @@
+# [4.18.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.18.0-dev.1...v4.18.0-dev.2) (2024-10-22)
+
+
+### Bug Fixes
+
+* **Twitter - Change link sharing domain:** Support latest app version ([#3786](https://github.com/ReVanced/revanced-patches/issues/3786)) ([b54592c](https://github.com/ReVanced/revanced-patches/commit/b54592cf9c5d859e1af2f02e8e6aaad7d47ab760))
+
 # [4.18.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.17.0...v4.18.0-dev.1) (2024-10-21)
 
 
