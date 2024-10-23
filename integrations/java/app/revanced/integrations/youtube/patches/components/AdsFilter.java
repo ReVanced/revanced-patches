@@ -24,6 +24,9 @@ public final class AdsFilter extends Filter {
 
     private final StringTrieSearch exceptions = new StringTrieSearch();
 
+    private final StringFilterGroup playerShoppingShelf;
+    private final ByteArrayFilterGroup playerShoppingShelfBuffer;
+
     private final StringFilterGroup channelProfile;
     private final ByteArrayFilterGroup visitStoreButton;
 
@@ -110,6 +113,16 @@ public final class AdsFilter extends Filter {
                 "channel_profile.eml"
         );
 
+        playerShoppingShelf = new StringFilterGroup(
+                null,
+                "horizontal_shelf.eml"
+        );
+
+        playerShoppingShelfBuffer = new ByteArrayFilterGroup(
+                Settings.HIDE_PLAYER_STORE_SHELF,
+                "shopping_item_card_list.eml"
+        );
+
         visitStoreButton = new ByteArrayFilterGroup(
                 Settings.HIDE_VISIT_STORE_BUTTON,
                 "header_store_button"
@@ -140,6 +153,7 @@ public final class AdsFilter extends Filter {
                 channelProfile,
                 webLinkPanel,
                 shoppingLinks,
+                playerShoppingShelf,
                 movieAds
         );
     }
@@ -147,6 +161,13 @@ public final class AdsFilter extends Filter {
     @Override
     boolean isFiltered(@Nullable String identifier, String path, byte[] protobufBufferArray,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+        if (matchedGroup == playerShoppingShelf) {
+            if (contentIndex == 0 && playerShoppingShelfBuffer.check(protobufBufferArray).isFiltered()) {
+                return super.isFiltered(identifier, path, protobufBufferArray, matchedGroup, contentType, contentIndex);
+            }
+            return false;
+        }
+
         if (exceptions.matches(path))
             return false;
 
