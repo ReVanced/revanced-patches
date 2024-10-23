@@ -107,6 +107,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">Wyłącz polubienie/subskrybuj podświetlenie przycisków</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Przycisk polubienia i subskrybuj nie pojawi się po wzmiance</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Przycisk polubienia i subskrybuj się po wzmiance</string>
+  <string name="revanced_hide_album_cards_title">Ukryj karty albumu</string>
+  <string name="revanced_hide_album_cards_summary_on">Karty albumów są ukryte</string>
+  <string name="revanced_hide_album_cards_summary_off">Karty albumów są wyświetlane</string>
+  <string name="revanced_hide_crowdfunding_box_title">Ukryj program finansowania społecznościowego</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">Crowdfunding box jest ukryty</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">Pokazywany jest program Crowdfunding</string>
+  <string name="revanced_hide_floating_microphone_button_title">Ukryj pływający przycisk mikrofonu</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">Przycisk mikrofonu ukryty</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">Przycisk mikrofonu pokazany</string>
   <string name="revanced_hide_gray_separator_title">Szare separatory</string>
   <string name="revanced_hide_gray_separator_summary_on">Ukryte</string>
   <string name="revanced_hide_gray_separator_summary_off">Widoczne</string>
@@ -231,6 +240,37 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">Sekcja transkryptu jest wyświetlana</string>
   <string name="revanced_hide_description_components_screen_title">Opis wideo</string>
   <string name="revanced_hide_description_components_screen_summary">Ukryj lub pokaż elementy opisu wideo</string>
+  <string name="revanced_hide_filter_bar_screen_title">Pasek filtra</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Ukryj lub pokaż pasek filtrów w kanale, wyszukiwaniu i powiązanych filmach</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Ukryj w kanale</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Ukryte w kanale</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Pokazane w kanale</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Ukryj w wyszukiwaniu</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Ukryte w wyszukiwaniu</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Pokaż w wyszukiwarce</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Ukryj w powiązanych filmach</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Ukryte w powiązanych filmach</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Wyświetlane w powiązanych filmach</string>
+  <string name="revanced_comments_screen_title">Komentarze</string>
+  <string name="revanced_comments_screen_summary">Ukryj lub pokaż składniki sekcji komentarzy</string>
+  <string name="revanced_hide_comments_by_members_header_title">Ukryj nagłówek \'Komentarze wg użytkowników\'</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">Nagłówek \'Komentarze użytkowników\' jest ukryty</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">Wyświetlony jest nagłówek \'Komentarze użytkowników\'</string>
+  <string name="revanced_hide_comments_section_title">Ukryj sekcję komentarzy</string>
+  <string name="revanced_hide_comments_section_summary_on">Sekcja komentarzy jest ukryta</string>
+  <string name="revanced_hide_comments_section_summary_off">Sekcja komentarzy jest wyświetlana</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">Ukryj przycisk \'Utwórz krótki\'</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">Przycisk \'Utwórz krótki\' jest ukryty</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">Przycisk \'Utwórz krótki\' jest pokazany</string>
+  <string name="revanced_hide_comments_preview_comment_title">Ukryj podgląd komentarza</string>
+  <string name="revanced_hide_comments_preview_comment_summary_on">Podgląd komentarza jest ukryty</string>
+  <string name="revanced_hide_comments_preview_comment_summary_off">Podgląd komentarza jest wyświetlany</string>
+  <string name="revanced_hide_comments_thanks_button_title">Ukryj przycisk podziękowania</string>
+  <string name="revanced_hide_comments_thanks_button_summary_on">Przycisk podziękowania jest ukryty</string>
+  <string name="revanced_hide_comments_thanks_button_summary_off">Przycisk podziękowania jest pokazany</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Ukryj znaczniki czasu i przyciski emoji</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Przyciski znacznika czasu i emoji są ukryte</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Wyświetlane są przyciski znacznika czasu i emoji</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Ukryj Doodles YouTube</string>
   <string name="revanced_hide_doodles_summary_on">Pasek wyszukiwania jest ukryty</string>
@@ -427,22 +467,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playlist_button_summary_on">Zapisz do przycisku playlisty jest ukryty</string>
   <string name="revanced_hide_playlist_button_summary_off">Pokaż przycisk Zapisz do playlisty</string>
   </patch>
-  <patch id="layout.buttons.autoplay.HideAutoplayButtonPatch">
-  <string name="revanced_hide_autoplay_button_title">Ukryj przycisk automatycznego odtwarzania</string>
-  <string name="revanced_hide_autoplay_button_summary_on">Przycisk automatycznego odtwarzania jest ukryty</string>
-  <string name="revanced_hide_autoplay_button_summary_off">Przycisk automatycznego odtwarzania jest wyświetlany</string>
-  </patch>
-  <patch id="layout.buttons.captions.HideCaptionsButtonPatch">
-  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">Przycisk ukrycia podpisów</string>
-  <string name="revanced_hide_captions_button_summary_on">Przycisk podpisów jest ukryty</string>
-  <string name="revanced_hide_captions_button_summary_off">Przycisk podpisów jest pokazany</string>
-  </patch>
-  <patch id="layout.buttons.cast.HideCastButtonPatch">
-  <string name="revanced_hide_cast_button_title">Ukryj przycisk Cofania</string>
-  <string name="revanced_hide_cast_button_summary_on">Przycisk Przesyłaj jest ukryty</string>
-  <string name="revanced_hide_cast_button_summary_off">Przycisk Przesyłaj jest widoczny</string>
-  </patch>
   <patch id="layout.buttons.navigation.NavigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Navigation buttons</string>
   <string name="revanced_navigation_buttons_screen_summary">Ukryj lub zmień przyciski na pasku nawigacji</string>
@@ -515,65 +539,25 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Obejrzyj menu VR jest ukryte</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Obejrzyj w menu VR</string>
   </patch>
-  <patch id="layout.buttons.player.hide.HidePlayerButtonsPatch">
-  <string name="revanced_hide_player_buttons_title">Ukryj poprzednie przyciski &amp; następnego filmu</string>
-  <string name="revanced_hide_player_buttons_summary_on">Przyciski są ukryte</string>
-  <string name="revanced_hide_player_buttons_summary_off">Przyciski są wyświetlane</string>
-  </patch>
-  <patch id="layout.hide.albumcards.AlbumCardsResourcePatch">
-  <string name="revanced_hide_album_cards_title">Ukryj karty albumu</string>
-  <string name="revanced_hide_album_cards_summary_on">Karty albumów są ukryte</string>
-  <string name="revanced_hide_album_cards_summary_off">Karty albumów są wyświetlane</string>
-  </patch>
-  <patch id="layout.hide.comments.CommentsPatch">
-  <string name="revanced_comments_screen_title">Komentarze</string>
-  <string name="revanced_comments_screen_summary">Ukryj lub pokaż składniki sekcji komentarzy</string>
-  <string name="revanced_hide_comments_by_members_header_title">Ukryj nagłówek \'Komentarze wg użytkowników\'</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">Nagłówek \'Komentarze użytkowników\' jest ukryty</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">Wyświetlony jest nagłówek \'Komentarze użytkowników\'</string>
-  <string name="revanced_hide_comments_section_title">Ukryj sekcję komentarzy</string>
-  <string name="revanced_hide_comments_section_summary_on">Sekcja komentarzy jest ukryta</string>
-  <string name="revanced_hide_comments_section_summary_off">Sekcja komentarzy jest wyświetlana</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">Ukryj przycisk \'Utwórz krótki\'</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">Przycisk \'Utwórz krótki\' jest ukryty</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">Przycisk \'Utwórz krótki\' jest pokazany</string>
-  <string name="revanced_hide_comments_preview_comment_title">Ukryj podgląd komentarza</string>
-  <string name="revanced_hide_comments_preview_comment_summary_on">Podgląd komentarza jest ukryty</string>
-  <string name="revanced_hide_comments_preview_comment_summary_off">Podgląd komentarza jest wyświetlany</string>
-  <string name="revanced_hide_comments_thanks_button_title">Ukryj przycisk podziękowania</string>
-  <string name="revanced_hide_comments_thanks_button_summary_on">Przycisk podziękowania jest ukryty</string>
-  <string name="revanced_hide_comments_thanks_button_summary_off">Przycisk podziękowania jest pokazany</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Ukryj znaczniki czasu i przyciski emoji</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Przyciski znacznika czasu i emoji są ukryte</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Wyświetlane są przyciski znacznika czasu i emoji</string>
-  </patch>
-  <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
-  <string name="revanced_hide_crowdfunding_box_title">Ukryj program finansowania społecznościowego</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">Crowdfunding box jest ukryty</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">Pokazywany jest program Crowdfunding</string>
+  <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
+  <string name="revanced_hide_player_previous_next_buttons_title">Ukryj poprzednie przyciski &amp; następnego filmu</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">Przyciski są ukryte</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">Przyciski są wyświetlane</string>
+  <string name="revanced_hide_cast_button_title">Ukryj przycisk Cofania</string>
+  <string name="revanced_hide_cast_button_summary_on">Przycisk Przesyłaj jest ukryty</string>
+  <string name="revanced_hide_cast_button_summary_off">Przycisk Przesyłaj jest widoczny</string>
+  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
+  <string name="revanced_hide_captions_button_title">Przycisk ukrycia podpisów</string>
+  <string name="revanced_hide_captions_button_summary_on">Przycisk podpisów jest ukryty</string>
+  <string name="revanced_hide_captions_button_summary_off">Przycisk podpisów jest pokazany</string>
+  <string name="revanced_hide_autoplay_button_title">Ukryj przycisk automatycznego odtwarzania</string>
+  <string name="revanced_hide_autoplay_button_summary_on">Przycisk automatycznego odtwarzania jest ukryty</string>
+  <string name="revanced_hide_autoplay_button_summary_off">Przycisk automatycznego odtwarzania jest wyświetlany</string>
   </patch>
   <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Ukryj karty ekranu końcowego</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Karty ekranu końcowego są ukryte</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Karty ekranu końcowego są wyświetlane</string>
-  </patch>
-  <patch id="layout.hide.filterbar.HideFilterBarResourcePatch">
-  <string name="revanced_hide_filter_bar_screen_title">Pasek filtra</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Ukryj lub pokaż pasek filtrów w kanale, wyszukiwaniu i powiązanych filmach</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Ukryj w kanale</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Ukryte w kanale</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Pokazane w kanale</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Ukryj w wyszukiwaniu</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Ukryte w wyszukiwaniu</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Pokaż w wyszukiwarce</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Ukryj w powiązanych filmach</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Ukryte w powiązanych filmach</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Wyświetlane w powiązanych filmach</string>
-  </patch>
-  <patch id="layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch">
-  <string name="revanced_hide_floating_microphone_button_title">Ukryj pływający przycisk mikrofonu</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">Przycisk mikrofonu ukryty</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">Przycisk mikrofonu pokazany</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">Wyłącz tryb otoczenia na pełnym ekranie</string>
@@ -987,6 +971,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_resuming_shorts_player_title">Wyłącz wznawianie odtwarzacza Shorts</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Odtwarzacz Shorts nie będzie wznawiany przy starcie aplikacji</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Odtwarzacz Shorts zostanie wznowiony przy starcie aplikacji</string>
+  </patch>
+  <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
   </patch>
   <patch id="layout.tablet.EnableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Włącz układ tabletu</string>

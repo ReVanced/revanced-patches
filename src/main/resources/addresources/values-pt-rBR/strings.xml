@@ -107,6 +107,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">Desativar brilho do botão de Inscrever-se / Curtir</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">O botão de curtir e de inscrever-se não vai brilhar quando clicado</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">O botão de curtir e de inscrever-se vai brilhar quando clicado</string>
+  <string name="revanced_hide_album_cards_title">Ocultar cartões de álbum</string>
+  <string name="revanced_hide_album_cards_summary_on">Cartões de álbum estão ocultos</string>
+  <string name="revanced_hide_album_cards_summary_off">Cartões de álbum não estão ocultos</string>
+  <string name="revanced_hide_crowdfunding_box_title">Ocultar caixa de financiamento coletivo</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">Caixa de financiamento coletivo está oculta</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">Caixa de financiamento coletivo não está oculta</string>
+  <string name="revanced_hide_floating_microphone_button_title">Ocultar botão de microfone flutuante</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">Botão microfone está oculto</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">Botão microfone não está oculto</string>
   <string name="revanced_hide_gray_separator_title">Ocultar separador cinza</string>
   <string name="revanced_hide_gray_separator_summary_on">Os separadores cinza está oculto</string>
   <string name="revanced_hide_gray_separator_summary_off">Separador cinza não está oculto</string>
@@ -231,6 +240,37 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">Seção de transcrição não está oculta</string>
   <string name="revanced_hide_description_components_screen_title">Descrição do vídeo</string>
   <string name="revanced_hide_description_components_screen_summary">Ocultar ou mostrar componentes de descrição do vídeo</string>
+  <string name="revanced_hide_filter_bar_screen_title">Barra de filtro</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Ocultar ou mostrar a barra de filtro na tela inicial, pesquisa e vídeos relacionados</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Ocultar na tela inicial</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Está oculto na tela inicial</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Não está oculto na tela inicial</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Ocultar na pesquisa</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Está oculto na busca</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Não está oculto na busca</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Ocultar nos vídeos relacionados</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Está oculto nos vídeos relacionados</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Não está oculto nos vídeos relacionados</string>
+  <string name="revanced_comments_screen_title">Comentários</string>
+  <string name="revanced_comments_screen_summary">Ocultar ou mostrar componentes da seção de comentários</string>
+  <string name="revanced_hide_comments_by_members_header_title">Ocultar cabeçalho \'Comentários por membros\'</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">O cabeçalho \'Comentários dos membros\' está oculto</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">O cabeçalho \'Comentários dos membros\' é exibido</string>
+  <string name="revanced_hide_comments_section_title">Ocultar seção de comentários</string>
+  <string name="revanced_hide_comments_section_summary_on">Seção de comentários está oculta</string>
+  <string name="revanced_hide_comments_section_summary_off">Seção de comentários exibida</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">Ocultar botão \'Criar um Short\'</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">O botão \'Criar um Short\' está oculto</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">O botão \'Criar um Short\' é exibido</string>
+  <string name="revanced_hide_comments_preview_comment_title">Ocultar prévia de comentário</string>
+  <string name="revanced_hide_comments_preview_comment_summary_on">Prévia de comentário está oculta</string>
+  <string name="revanced_hide_comments_preview_comment_summary_off">Prévia de comentário não está oculta</string>
+  <string name="revanced_hide_comments_thanks_button_title">Ocultar botão valeu</string>
+  <string name="revanced_hide_comments_thanks_button_summary_on">Botão valeu está oculto</string>
+  <string name="revanced_hide_comments_thanks_button_summary_off">Botão valeu não está oculto</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Ocultar botões de tempo e emoji</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Os botões de cronograma e emoji estão ocultos</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Botões de tempo e emoji são mostrados</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_custom_filter_screen_title">Filtro personalizado</string>
   <string name="revanced_custom_filter_screen_summary">Ocultar componentes usando filtros personalizados</string>
@@ -423,22 +463,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playlist_button_summary_on">Botão salvar na playlist está oculto</string>
   <string name="revanced_hide_playlist_button_summary_off">Botão salvar na playlist não está oculto</string>
   </patch>
-  <patch id="layout.buttons.autoplay.HideAutoplayButtonPatch">
-  <string name="revanced_hide_autoplay_button_title">Ocultar botão de reprodução automática</string>
-  <string name="revanced_hide_autoplay_button_summary_on">Botão de reprodução automática está oculto</string>
-  <string name="revanced_hide_autoplay_button_summary_off">Botão de reprodução automática não está oculto</string>
-  </patch>
-  <patch id="layout.buttons.captions.HideCaptionsButtonPatch">
-  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">Ocultar botão legendas</string>
-  <string name="revanced_hide_captions_button_summary_on">Botão legendas está oculto</string>
-  <string name="revanced_hide_captions_button_summary_off">Botão legendas não está oculto</string>
-  </patch>
-  <patch id="layout.buttons.cast.HideCastButtonPatch">
-  <string name="revanced_hide_cast_button_title">Ocultar botão de transmitir</string>
-  <string name="revanced_hide_cast_button_summary_on">Botão transmitir está oculto</string>
-  <string name="revanced_hide_cast_button_summary_off">Botão transmitir não está oculto</string>
-  </patch>
   <patch id="layout.buttons.navigation.NavigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Botões de navegação</string>
   <string name="revanced_navigation_buttons_screen_summary">Ocultar ou alterar botões na barra de navegação</string>
@@ -511,65 +535,23 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menu assistir no VR está oculto</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Menu assistir no VR não está oculto</string>
   </patch>
-  <patch id="layout.buttons.player.hide.HidePlayerButtonsPatch">
-  <string name="revanced_hide_player_buttons_title">Ocultar botões anterior &amp; próxima vídeo</string>
-  <string name="revanced_hide_player_buttons_summary_on">Botões estão ocultos</string>
-  <string name="revanced_hide_player_buttons_summary_off">Botões não estão ocultos</string>
-  </patch>
-  <patch id="layout.hide.albumcards.AlbumCardsResourcePatch">
-  <string name="revanced_hide_album_cards_title">Ocultar cartões de álbum</string>
-  <string name="revanced_hide_album_cards_summary_on">Cartões de álbum estão ocultos</string>
-  <string name="revanced_hide_album_cards_summary_off">Cartões de álbum não estão ocultos</string>
-  </patch>
-  <patch id="layout.hide.comments.CommentsPatch">
-  <string name="revanced_comments_screen_title">Comentários</string>
-  <string name="revanced_comments_screen_summary">Ocultar ou mostrar componentes da seção de comentários</string>
-  <string name="revanced_hide_comments_by_members_header_title">Ocultar cabeçalho \'Comentários por membros\'</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">O cabeçalho \'Comentários dos membros\' está oculto</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">O cabeçalho \'Comentários dos membros\' é exibido</string>
-  <string name="revanced_hide_comments_section_title">Ocultar seção de comentários</string>
-  <string name="revanced_hide_comments_section_summary_on">Seção de comentários está oculta</string>
-  <string name="revanced_hide_comments_section_summary_off">Seção de comentários exibida</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">Ocultar botão \'Criar um Short\'</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">O botão \'Criar um Short\' está oculto</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">O botão \'Criar um Short\' é exibido</string>
-  <string name="revanced_hide_comments_preview_comment_title">Ocultar prévia de comentário</string>
-  <string name="revanced_hide_comments_preview_comment_summary_on">Prévia de comentário está oculta</string>
-  <string name="revanced_hide_comments_preview_comment_summary_off">Prévia de comentário não está oculta</string>
-  <string name="revanced_hide_comments_thanks_button_title">Ocultar botão valeu</string>
-  <string name="revanced_hide_comments_thanks_button_summary_on">Botão valeu está oculto</string>
-  <string name="revanced_hide_comments_thanks_button_summary_off">Botão valeu não está oculto</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Ocultar botões de tempo e emoji</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Os botões de cronograma e emoji estão ocultos</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Botões de tempo e emoji são mostrados</string>
-  </patch>
-  <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
-  <string name="revanced_hide_crowdfunding_box_title">Ocultar caixa de financiamento coletivo</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">Caixa de financiamento coletivo está oculta</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">Caixa de financiamento coletivo não está oculta</string>
+  <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
+  <string name="revanced_hide_player_previous_next_buttons_title">Ocultar botões anterior &amp; próxima vídeo</string>
+  <string name="revanced_hide_cast_button_title">Ocultar botão de transmitir</string>
+  <string name="revanced_hide_cast_button_summary_on">Botão transmitir está oculto</string>
+  <string name="revanced_hide_cast_button_summary_off">Botão transmitir não está oculto</string>
+  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
+  <string name="revanced_hide_captions_button_title">Ocultar botão legendas</string>
+  <string name="revanced_hide_captions_button_summary_on">Botão legendas está oculto</string>
+  <string name="revanced_hide_captions_button_summary_off">Botão legendas não está oculto</string>
+  <string name="revanced_hide_autoplay_button_title">Ocultar botão de reprodução automática</string>
+  <string name="revanced_hide_autoplay_button_summary_on">Botão de reprodução automática está oculto</string>
+  <string name="revanced_hide_autoplay_button_summary_off">Botão de reprodução automática não está oculto</string>
   </patch>
   <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Ocultar cartões de tela final</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Cartões de tela final estão ocultos</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Cartões de tela final não estão ocultos</string>
-  </patch>
-  <patch id="layout.hide.filterbar.HideFilterBarResourcePatch">
-  <string name="revanced_hide_filter_bar_screen_title">Barra de filtro</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Ocultar ou mostrar a barra de filtro na tela inicial, pesquisa e vídeos relacionados</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Ocultar na tela inicial</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Está oculto na tela inicial</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Não está oculto na tela inicial</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Ocultar na pesquisa</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Está oculto na busca</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Não está oculto na busca</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Ocultar nos vídeos relacionados</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Está oculto nos vídeos relacionados</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Não está oculto nos vídeos relacionados</string>
-  </patch>
-  <patch id="layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch">
-  <string name="revanced_hide_floating_microphone_button_title">Ocultar botão de microfone flutuante</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">Botão microfone está oculto</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">Botão microfone não está oculto</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">Desativar o modo ambiente em tela cheia</string>
@@ -962,6 +944,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_resuming_shorts_player_title">Desativar continuar a reproduzir Shorts</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts não irá continuar reproduzindo ao iniciar o aplicativo</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts irá continuar reproduzindo ao iniciar o aplicativo</string>
+  </patch>
+  <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
   </patch>
   <patch id="layout.tablet.EnableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Ativar layout de tablet</string>

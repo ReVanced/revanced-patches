@@ -106,6 +106,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">Απενεργοποίηση λάμψης των κουμπιών «Μου αρέσει» και «Εγγραφή»</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Τα κουμπιά «Μου αρέσει» και «Εγγραφή» δεν θα λάμπουν όταν αναφέρονται</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Τα κουμπιά «Μου αρέσει» και «Εγγραφή» θα λάμπουν όταν αναφέρονται</string>
+  <string name="revanced_hide_album_cards_title">Κάρτες άλμπουμ</string>
+  <string name="revanced_hide_album_cards_summary_on">Κρυμμένες</string>
+  <string name="revanced_hide_album_cards_summary_off">Εμφανίζονται</string>
+  <string name="revanced_hide_crowdfunding_box_title">Πλαίσιο δωρεών</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">Κρυμμένο</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_floating_microphone_button_title">Αιωρούμενο κουμπί μικροφώνου</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">Κρυμμένο</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_gray_separator_title">Γκρι διαχωριστικά</string>
   <string name="revanced_hide_gray_separator_summary_on">Κρυμμένα</string>
   <string name="revanced_hide_gray_separator_summary_off">Εμφανίζονται</string>
@@ -230,6 +239,37 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_description_components_screen_title">Περιγραφή βίντεο</string>
   <string name="revanced_hide_description_components_screen_summary">Απόκρυψη ή εμφάνιση στοιχείων περιγραφής βίντεο</string>
+  <string name="revanced_hide_filter_bar_screen_title">Γραμμή φίλτρων</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Απόκρυψη η εμφάνιση της γραμμής φίλτρων στη ροή, αναζήτηση και τα σχετικά βίντεο</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Απόκρυψη στη ροή</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Κρυμμένη</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Απόκρυψη στα αποτελέσματα αναζήτησης</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Κρυμμένη</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Απόκρυψη στα σχετικά βίντεο</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Κρυμμένη</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Εμφανίζεται</string>
+  <string name="revanced_comments_screen_title">Σχόλια</string>
+  <string name="revanced_comments_screen_summary">Απόκρυψη ή εμφάνιση στοιχείων στα σχόλια</string>
+  <string name="revanced_hide_comments_by_members_header_title">Ετικέτα «Σχόλια από μέλη»</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">Κρυμμένη</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_comments_section_title">Ενότητα σχολίων</string>
+  <string name="revanced_hide_comments_section_summary_on">Κρυμμένη</string>
+  <string name="revanced_hide_comments_section_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">Κουμπί «Δημιουργία Short»</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">Κρυμμένο</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_comments_preview_comment_title">Προεπισκόπηση σχολίου</string>
+  <string name="revanced_hide_comments_preview_comment_summary_on">Κρυμμένη</string>
+  <string name="revanced_hide_comments_preview_comment_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_comments_thanks_button_title">Κουμπί «Σας ευχαριστούμε»</string>
+  <string name="revanced_hide_comments_thanks_button_summary_on">Κρυμμένο</string>
+  <string name="revanced_hide_comments_thanks_button_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Κουμπιά χρονοσήμανσης και emoji</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Κρυμμένα</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Εμφανίζονται</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Κρυμμένα</string>
@@ -426,22 +466,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playlist_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_playlist_button_summary_off">Εμφανίζεται</string>
   </patch>
-  <patch id="layout.buttons.autoplay.HideAutoplayButtonPatch">
-  <string name="revanced_hide_autoplay_button_title">Κουμπί αυτόματης αναπαραγωγής</string>
-  <string name="revanced_hide_autoplay_button_summary_on">Κρυμμένο</string>
-  <string name="revanced_hide_autoplay_button_summary_off">Εμφανίζεται</string>
-  </patch>
-  <patch id="layout.buttons.captions.HideCaptionsButtonPatch">
-  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">Κουμπί υποτίτλων</string>
-  <string name="revanced_hide_captions_button_summary_on">Κρυμμένο</string>
-  <string name="revanced_hide_captions_button_summary_off">Εμφανίζεται</string>
-  </patch>
-  <patch id="layout.buttons.cast.HideCastButtonPatch">
-  <string name="revanced_hide_cast_button_title">Κουμπί μετάδοσης</string>
-  <string name="revanced_hide_cast_button_summary_on">Κρυμμένο</string>
-  <string name="revanced_hide_cast_button_summary_off">Εμφανίζεται</string>
-  </patch>
   <patch id="layout.buttons.navigation.NavigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Κουμπιά γραμμής πλοήγησης</string>
   <string name="revanced_navigation_buttons_screen_summary">Απόκρυψη ή αλλαγή κουμπιών στη γραμμή πλοήγησης</string>
@@ -514,65 +538,25 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Εμφανίζεται</string>
   </patch>
-  <patch id="layout.buttons.player.hide.HidePlayerButtonsPatch">
-  <string name="revanced_hide_player_buttons_title">Κουμπιά προηγούμενου &amp; επόμενου βίντεο</string>
-  <string name="revanced_hide_player_buttons_summary_on">Κρυμμένα</string>
-  <string name="revanced_hide_player_buttons_summary_off">Εμφανίζονται</string>
-  </patch>
-  <patch id="layout.hide.albumcards.AlbumCardsResourcePatch">
-  <string name="revanced_hide_album_cards_title">Κάρτες άλμπουμ</string>
-  <string name="revanced_hide_album_cards_summary_on">Κρυμμένες</string>
-  <string name="revanced_hide_album_cards_summary_off">Εμφανίζονται</string>
-  </patch>
-  <patch id="layout.hide.comments.CommentsPatch">
-  <string name="revanced_comments_screen_title">Σχόλια</string>
-  <string name="revanced_comments_screen_summary">Απόκρυψη ή εμφάνιση στοιχείων στα σχόλια</string>
-  <string name="revanced_hide_comments_by_members_header_title">Ετικέτα «Σχόλια από μέλη»</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">Κρυμμένη</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">Εμφανίζεται</string>
-  <string name="revanced_hide_comments_section_title">Ενότητα σχολίων</string>
-  <string name="revanced_hide_comments_section_summary_on">Κρυμμένη</string>
-  <string name="revanced_hide_comments_section_summary_off">Εμφανίζεται</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">Κουμπί «Δημιουργία Short»</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">Κρυμμένο</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">Εμφανίζεται</string>
-  <string name="revanced_hide_comments_preview_comment_title">Προεπισκόπηση σχολίου</string>
-  <string name="revanced_hide_comments_preview_comment_summary_on">Κρυμμένη</string>
-  <string name="revanced_hide_comments_preview_comment_summary_off">Εμφανίζεται</string>
-  <string name="revanced_hide_comments_thanks_button_title">Κουμπί «Σας ευχαριστούμε»</string>
-  <string name="revanced_hide_comments_thanks_button_summary_on">Κρυμμένο</string>
-  <string name="revanced_hide_comments_thanks_button_summary_off">Εμφανίζεται</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Κουμπιά χρονοσήμανσης και emoji</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Κρυμμένα</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Εμφανίζονται</string>
-  </patch>
-  <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
-  <string name="revanced_hide_crowdfunding_box_title">Πλαίσιο δωρεών</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">Κρυμμένο</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">Εμφανίζεται</string>
+  <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
+  <string name="revanced_hide_player_previous_next_buttons_title">Κουμπιά προηγούμενου &amp; επόμενου βίντεο</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">Κρυμμένα</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">Εμφανίζονται</string>
+  <string name="revanced_hide_cast_button_title">Κουμπί μετάδοσης</string>
+  <string name="revanced_hide_cast_button_summary_on">Κρυμμένο</string>
+  <string name="revanced_hide_cast_button_summary_off">Εμφανίζεται</string>
+  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
+  <string name="revanced_hide_captions_button_title">Κουμπί υποτίτλων</string>
+  <string name="revanced_hide_captions_button_summary_on">Κρυμμένο</string>
+  <string name="revanced_hide_captions_button_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_autoplay_button_title">Κουμπί αυτόματης αναπαραγωγής</string>
+  <string name="revanced_hide_autoplay_button_summary_on">Κρυμμένο</string>
+  <string name="revanced_hide_autoplay_button_summary_off">Εμφανίζεται</string>
   </patch>
   <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Κάρτες τελικής οθόνης</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Εμφανίζονται</string>
-  </patch>
-  <patch id="layout.hide.filterbar.HideFilterBarResourcePatch">
-  <string name="revanced_hide_filter_bar_screen_title">Γραμμή φίλτρων</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Απόκρυψη η εμφάνιση της γραμμής φίλτρων στη ροή, αναζήτηση και τα σχετικά βίντεο</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Απόκρυψη στη ροή</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Κρυμμένη</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Εμφανίζεται</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Απόκρυψη στα αποτελέσματα αναζήτησης</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Κρυμμένη</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Εμφανίζεται</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Απόκρυψη στα σχετικά βίντεο</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Κρυμμένη</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Εμφανίζεται</string>
-  </patch>
-  <patch id="layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch">
-  <string name="revanced_hide_floating_microphone_button_title">Αιωρούμενο κουμπί μικροφώνου</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">Κρυμμένο</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">Εμφανίζεται</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">Απενεργοποίηση λειτουργίας περιβάλλοντος σε πλήρη οθόνη</string>
@@ -598,6 +582,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Εμφανίζεται</string>
   </patch>
   <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
+  <string name="revanced_shorts_player_screen_title">Οθόνη αναπαραγωγής Shorts</string>
+  <string name="revanced_shorts_player_screen_summary">Απόκρυψη ή εμφάνιση στοιχείων στην οθόνη αναπαραγωγής Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Shorts στην αρχική σελίδα</string>
   <string name="revanced_hide_shorts_home_summary_on">Κρυμμένα</string>
@@ -966,7 +952,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - Επαναφορά της παλιάς εμφάνισης UI</string>
   </patch>
   <patch id="layout.startpage.ChangeStartPagePatch">
-  <string name="revanced_change_start_page_title">Αλλαγή της αρχικής σελίδας</string>
+  <string name="revanced_change_start_page_title">Ορισμός αρχικής σελίδας</string>
   <string name="revanced_change_start_page_entry_default">Προεπιλογή</string>
   <string name="revanced_change_start_page_entry_browse">Περιήγηση καναλιών</string>
   <string name="revanced_change_start_page_entry_explore">Εξερεύνηση</string>
@@ -987,6 +973,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_resuming_shorts_player_title">Απενεργοποίηση συνέχισης των Shorts</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Η αναπαραγωγή Shorts δε θα συνεχίζεται κατά την εκκίνηση της εφαρμογής</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Η αναπαραγωγή Shorts θα συνεχίζεται κατά την εκκίνηση της εφαρμογής</string>
+  </patch>
+  <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
+  <string name="revanced_shorts_autoplay_title">Αυτόματη αναπαραγωγή Shorts</string>
+  <string name="revanced_shorts_autoplay_summary_on">Τα επόμενα Shorts θα αναπαράγονται αυτόματα</string>
+  <string name="revanced_shorts_autoplay_summary_off">Τα Shorts θα επαναλαμβάνονται</string>
+  <string name="revanced_shorts_autoplay_background_title">Αυτόματη αναπαραγωγή Shorts παρασκηνίου</string>
+  <string name="revanced_shorts_autoplay_background_summary_on">Τα επόμενα Shorts θα αναπαράγονται αυτόματα στο παρασκήνιο</string>
+  <string name="revanced_shorts_autoplay_background_summary_off">Τα Shorts στο παρασκήνιο θα επαναλαμβάνονται</string>
   </patch>
   <patch id="layout.tablet.EnableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Λειτουργία διεπαφής τάμπλετ</string>

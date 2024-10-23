@@ -106,6 +106,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">Deaktiviere das Like / Abonnieren Button aufleuchten</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">\"Gefällt mir\" und \"Abonnieren\"-Button wird nicht aufleuchten, wenn er erwähnt wird</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">\"Gefällt mir\" und \"Abonnieren\"-Button wird aufleuchten, wenn er erwähnt wird</string>
+  <string name="revanced_hide_album_cards_title">Albumkarten ausblenden</string>
+  <string name="revanced_hide_album_cards_summary_on">Albumkarten sind ausgeblendet</string>
+  <string name="revanced_hide_album_cards_summary_off">Albumkarten werden angezeigt</string>
+  <string name="revanced_hide_crowdfunding_box_title">Crowdfunding Box ausblenden</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">Crowdfunding-Box ist ausgeblendet</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">Crowdfunding-Box wird angezeigt</string>
+  <string name="revanced_hide_floating_microphone_button_title">Schwebende Mikrofon-Taste ausblenden</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">Mikrofon-Button ausgeblendet</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">Mikrofon-Taste angezeigt</string>
   <string name="revanced_hide_gray_separator_title">Verstecke graue Separatoren</string>
   <string name="revanced_hide_gray_separator_summary_on">Graue Separatoren sind ausgeblendet</string>
   <string name="revanced_hide_gray_separator_summary_off">Graue Trennzeichen werden angezeigt</string>
@@ -230,6 +239,37 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">Sektion Transkripte wird angezeigt</string>
   <string name="revanced_hide_description_components_screen_title">Videobeschreibung</string>
   <string name="revanced_hide_description_components_screen_summary">Komponenten der Videobeschreibung ausblenden oder anzeigen</string>
+  <string name="revanced_hide_filter_bar_screen_title">Filterleiste</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Verstecke oder zeige die Filterleiste im Feed, in der Suche und verwandten Videos</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Im Feed ausblenden</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Versteckt im Feed</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Im Feed angezeigt</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">In der Suche ausblenden</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Versteckt in der Suche</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">In der Suche angezeigt</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">In verwandten Videos ausblenden</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Versteckt in verwandten Videos</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">In verwandten Videos angezeigt</string>
+  <string name="revanced_comments_screen_title">Kommentare</string>
+  <string name="revanced_comments_screen_summary">Komponenten der Kommentar-Sektion ausblenden oder anzeigen</string>
+  <string name="revanced_hide_comments_by_members_header_title">\'Kommentare von Mitglieder\' im Kopfbereich ausblenden</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">\'Kommentare von Mitglieder\' Header ist ausgeblendet</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">\'Kommentare von Mitgliedern\' wird angezeigt</string>
+  <string name="revanced_hide_comments_section_title">Kommentarbereich ausblenden</string>
+  <string name="revanced_hide_comments_section_summary_on">Kommentarbereich ist ausgeblendet</string>
+  <string name="revanced_hide_comments_section_summary_off">Kommentarbereich wird angezeigt</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">\'Verknüpfung erstellen\'-Button ausblenden</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">\'Verknüpfung erstellen\' Button ist ausgeblendet</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">Schaltfläche \"Verknüpfung erstellen\" wird angezeigt</string>
+  <string name="revanced_hide_comments_preview_comment_title">Vorschaukommentar ausblenden</string>
+  <string name="revanced_hide_comments_preview_comment_summary_on">Vorschaukommentar ist ausgeblendet</string>
+  <string name="revanced_hide_comments_preview_comment_summary_off">Vorschau des Kommentars wird angezeigt</string>
+  <string name="revanced_hide_comments_thanks_button_title">Dankeschön ausblenden</string>
+  <string name="revanced_hide_comments_thanks_button_summary_on">Dankeschön-Taste ist ausgeblendet</string>
+  <string name="revanced_hide_comments_thanks_button_summary_off">Dankeschön Button wird angezeigt</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Zeitstempel und Emoji-Tasten ausblenden</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Zeitstempel und Emoji-Tasten sind ausgeblendet</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Zeitstempel und Emoji-Tasten werden angezeigt</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">YouTube Doodles ausblenden</string>
   <string name="revanced_hide_doodles_summary_on">Suchleiste Doodles sind versteckt</string>
@@ -426,22 +466,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playlist_button_summary_on">In Wiedergabeliste speichern Button ist ausgeblendet</string>
   <string name="revanced_hide_playlist_button_summary_off">In Wiedergabeliste speichern wird angezeigt</string>
   </patch>
-  <patch id="layout.buttons.autoplay.HideAutoplayButtonPatch">
-  <string name="revanced_hide_autoplay_button_title">Verstecke Autoplay-Schaltfläche</string>
-  <string name="revanced_hide_autoplay_button_summary_on">Autoplay Button ist ausgeblendet</string>
-  <string name="revanced_hide_autoplay_button_summary_off">Autoplay Button wird angezeigt</string>
-  </patch>
-  <patch id="layout.buttons.captions.HideCaptionsButtonPatch">
-  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">Beschriftungstaste ausblenden</string>
-  <string name="revanced_hide_captions_button_summary_on">Beschriftungs-Button ist ausgeblendet</string>
-  <string name="revanced_hide_captions_button_summary_off">Schaltfläche für Untertitel wird angezeigt</string>
-  </patch>
-  <patch id="layout.buttons.cast.HideCastButtonPatch">
-  <string name="revanced_hide_cast_button_title">Cast-Button ausblenden</string>
-  <string name="revanced_hide_cast_button_summary_on">Der Cast button ist ausgeblendet</string>
-  <string name="revanced_hide_cast_button_summary_off">Der Cast button wird angezeigt</string>
-  </patch>
   <patch id="layout.buttons.navigation.NavigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Navigation buttons</string>
   <string name="revanced_navigation_buttons_screen_summary">Verstecke oder ändere Schaltflächen in der Navigationsleiste</string>
@@ -514,65 +538,25 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Im VR-Menü beobachten ist ausgeblendet</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Im VR-Menü beobachten wird angezeigt</string>
   </patch>
-  <patch id="layout.buttons.player.hide.HidePlayerButtonsPatch">
-  <string name="revanced_hide_player_buttons_title">Vorherige &amp; Nächste Video-Tasten ausblenden</string>
-  <string name="revanced_hide_player_buttons_summary_on">Buttons sind ausgeblendet</string>
-  <string name="revanced_hide_player_buttons_summary_off">Tasten werden angezeigt</string>
-  </patch>
-  <patch id="layout.hide.albumcards.AlbumCardsResourcePatch">
-  <string name="revanced_hide_album_cards_title">Albumkarten ausblenden</string>
-  <string name="revanced_hide_album_cards_summary_on">Albumkarten sind ausgeblendet</string>
-  <string name="revanced_hide_album_cards_summary_off">Albumkarten werden angezeigt</string>
-  </patch>
-  <patch id="layout.hide.comments.CommentsPatch">
-  <string name="revanced_comments_screen_title">Kommentare</string>
-  <string name="revanced_comments_screen_summary">Komponenten der Kommentar-Sektion ausblenden oder anzeigen</string>
-  <string name="revanced_hide_comments_by_members_header_title">\'Kommentare von Mitglieder\' im Kopfbereich ausblenden</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">\'Kommentare von Mitglieder\' Header ist ausgeblendet</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">\'Kommentare von Mitgliedern\' wird angezeigt</string>
-  <string name="revanced_hide_comments_section_title">Kommentarbereich ausblenden</string>
-  <string name="revanced_hide_comments_section_summary_on">Kommentarbereich ist ausgeblendet</string>
-  <string name="revanced_hide_comments_section_summary_off">Kommentarbereich wird angezeigt</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">\'Verknüpfung erstellen\'-Button ausblenden</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">\'Verknüpfung erstellen\' Button ist ausgeblendet</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">Schaltfläche \"Verknüpfung erstellen\" wird angezeigt</string>
-  <string name="revanced_hide_comments_preview_comment_title">Vorschaukommentar ausblenden</string>
-  <string name="revanced_hide_comments_preview_comment_summary_on">Vorschaukommentar ist ausgeblendet</string>
-  <string name="revanced_hide_comments_preview_comment_summary_off">Vorschau des Kommentars wird angezeigt</string>
-  <string name="revanced_hide_comments_thanks_button_title">Dankeschön ausblenden</string>
-  <string name="revanced_hide_comments_thanks_button_summary_on">Dankeschön-Taste ist ausgeblendet</string>
-  <string name="revanced_hide_comments_thanks_button_summary_off">Dankeschön Button wird angezeigt</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Zeitstempel und Emoji-Tasten ausblenden</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Zeitstempel und Emoji-Tasten sind ausgeblendet</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Zeitstempel und Emoji-Tasten werden angezeigt</string>
-  </patch>
-  <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
-  <string name="revanced_hide_crowdfunding_box_title">Crowdfunding Box ausblenden</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">Crowdfunding-Box ist ausgeblendet</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">Crowdfunding-Box wird angezeigt</string>
+  <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
+  <string name="revanced_hide_player_previous_next_buttons_title">Vorherige &amp; Nächste Video-Tasten ausblenden</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">Buttons sind ausgeblendet</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">Tasten werden angezeigt</string>
+  <string name="revanced_hide_cast_button_title">Cast-Button ausblenden</string>
+  <string name="revanced_hide_cast_button_summary_on">Der Cast button ist ausgeblendet</string>
+  <string name="revanced_hide_cast_button_summary_off">Der Cast button wird angezeigt</string>
+  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
+  <string name="revanced_hide_captions_button_title">Beschriftungstaste ausblenden</string>
+  <string name="revanced_hide_captions_button_summary_on">Beschriftungs-Button ist ausgeblendet</string>
+  <string name="revanced_hide_captions_button_summary_off">Schaltfläche für Untertitel wird angezeigt</string>
+  <string name="revanced_hide_autoplay_button_title">Verstecke Autoplay-Schaltfläche</string>
+  <string name="revanced_hide_autoplay_button_summary_on">Autoplay Button ist ausgeblendet</string>
+  <string name="revanced_hide_autoplay_button_summary_off">Autoplay Button wird angezeigt</string>
   </patch>
   <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Endkarte ausblenden</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Endbildschirmkarten sind ausgeblendet</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Endbildschirmkarten werden angezeigt</string>
-  </patch>
-  <patch id="layout.hide.filterbar.HideFilterBarResourcePatch">
-  <string name="revanced_hide_filter_bar_screen_title">Filterleiste</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Verstecke oder zeige die Filterleiste im Feed, in der Suche und verwandten Videos</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Im Feed ausblenden</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Versteckt im Feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Im Feed angezeigt</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">In der Suche ausblenden</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Versteckt in der Suche</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">In der Suche angezeigt</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">In verwandten Videos ausblenden</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Versteckt in verwandten Videos</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">In verwandten Videos angezeigt</string>
-  </patch>
-  <patch id="layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch">
-  <string name="revanced_hide_floating_microphone_button_title">Schwebende Mikrofon-Taste ausblenden</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">Mikrofon-Button ausgeblendet</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">Mikrofon-Taste angezeigt</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">Ambient-Modus im Vollbildmodus deaktivieren</string>
@@ -598,6 +582,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Miniaturansicht-Suchleiste wird angezeigt</string>
   </patch>
   <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
+  <string name="revanced_shorts_player_screen_title">Shorts Spieler</string>
+  <string name="revanced_shorts_player_screen_summary">Komponenten im Shorts Spieler ausblenden oder anzeigen</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Shorts im Home Feed ausblenden</string>
   <string name="revanced_hide_shorts_home_summary_on">Shorts im Home Feed sind ausgeblendet</string>
@@ -987,6 +973,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_resuming_shorts_player_title">Fortsetzen des Shorts Players deaktivieren</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Der Shorts Player wird beim Start der App nicht fortgesetzt</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts-Player wird beim Start der App fortgesetzt</string>
+  </patch>
+  <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
+  <string name="revanced_shorts_autoplay_title">Autoplay Shorts</string>
+  <string name="revanced_shorts_autoplay_summary_on">Shorts werden autoplay</string>
+  <string name="revanced_shorts_autoplay_summary_off">Shorts wiederholen</string>
+  <string name="revanced_shorts_autoplay_background_title">Autoplay Shorts Hintergrund spielen</string>
+  <string name="revanced_shorts_autoplay_background_summary_on">Shorts-Hintergrund spielen wird automatisch abgespielt</string>
+  <string name="revanced_shorts_autoplay_background_summary_off">Shorts-Hintergrundwiedergabe wiederholt sich</string>
   </patch>
   <patch id="layout.tablet.EnableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Tablet Layout aktivieren</string>

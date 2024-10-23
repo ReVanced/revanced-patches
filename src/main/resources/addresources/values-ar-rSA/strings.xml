@@ -106,6 +106,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">تعطيل توهج زر أعجبني / اشتراك</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">لن يتوهج زر أعجبني واشتراك عند ذكره</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">أعجبني واشتراك سوف يتوهج عند الإشارة</string>
+  <string name="revanced_hide_album_cards_title">إخفاء بطاقات الألبوم</string>
+  <string name="revanced_hide_album_cards_summary_on">تم إخفاء بطاقات الألبوم</string>
+  <string name="revanced_hide_album_cards_summary_off">يتم عرض بطاقات الألبوم</string>
+  <string name="revanced_hide_crowdfunding_box_title">إخفاء مربع التمويل الجماعي</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">تم إخفاء مربع التمويل الجماعي</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">يتم عرض مربع التمويل الجماعي</string>
+  <string name="revanced_hide_floating_microphone_button_title">إخفاء زر الميكروفون العائم</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">تم إخفاء زر الميكروفون</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">يتم عرض زر الميكروفون</string>
   <string name="revanced_hide_gray_separator_title">إخفاء الفاصل الرمادي</string>
   <string name="revanced_hide_gray_separator_summary_on">تم إخفاء الفواصل الرمادية</string>
   <string name="revanced_hide_gray_separator_summary_off">يتم عرض الفواصل الرمادية</string>
@@ -230,6 +239,37 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">يتم عرض قسم النص</string>
   <string name="revanced_hide_description_components_screen_title">وصف الفيديو</string>
   <string name="revanced_hide_description_components_screen_summary">إخفاء أو عرض مكونات وصف الفيديو</string>
+  <string name="revanced_hide_filter_bar_screen_title">شريط التصفية</string>
+  <string name="revanced_hide_filter_bar_screen_summary">إخفاء شريط التصفية أو عرضه في الموجز والبحث ومقاطع الفيديو ذات الصلة</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">إخفاء في الموجز</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">مخفي في الموجز</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">يعرض في الموجز</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">إخفاء في البحث</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">مخفي في البحث</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">يعرض في البحث</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">إخفاء في الفيديوهات ذات الصلة</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">مخفي في الفيديوهات ذات الصلة</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">يعرض في الفيديوهات ذات الصلة</string>
+  <string name="revanced_comments_screen_title">التعليقات</string>
+  <string name="revanced_comments_screen_summary">إخفاء أو عرض مكونات قسم التعليقات</string>
+  <string name="revanced_hide_comments_by_members_header_title">إخفاء رأس \'تعليقات الأعضاء\'</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">تم إخفاء رأس \'تعليقات الأعضاء\'</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">يتم عرض رأس \'تعليقات الأعضاء\'</string>
+  <string name="revanced_hide_comments_section_title">إخفاء قسم التعليقات</string>
+  <string name="revanced_hide_comments_section_summary_on">تم إخفاء قسم التعليقات</string>
+  <string name="revanced_hide_comments_section_summary_off">يتم عرض قسم التعليقات</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">إخفاء زر \'إنشاء مقطع Short\'</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">تم إخفاء زر \'إنشاء Short\'</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">يتم عرض زر \'إنشاء Short\'</string>
+  <string name="revanced_hide_comments_preview_comment_title">إخفاء تعليق المعاينة</string>
+  <string name="revanced_hide_comments_preview_comment_summary_on">تم إخفاء تعليق المعاينة</string>
+  <string name="revanced_hide_comments_preview_comment_summary_off">يتم عرض تعليق المعاينة</string>
+  <string name="revanced_hide_comments_thanks_button_title">إخفاء زر شكرًا</string>
+  <string name="revanced_hide_comments_thanks_button_summary_on">تم إخفاء زر شكرًا</string>
+  <string name="revanced_hide_comments_thanks_button_summary_off">يتم عرض زر شكرًا</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">إخفاء أزرار الطابع الزمني والرموز التعبيرية</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">تم إخفاء أزرار الطابع الزمني والرموز التعبيرية</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">يتم عرض أزرار الطابع الزمني والرموز التعبيرية</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">إخفاء رسومات YouTube</string>
   <string name="revanced_hide_doodles_summary_on">تم إخفاء رسومات شريط البحث</string>
@@ -426,22 +466,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playlist_button_summary_on">تم إخفاء زر الحفظ في قائمة التشغيل</string>
   <string name="revanced_hide_playlist_button_summary_off">يتم عرض زر الحفظ في قائمة التشغيل</string>
   </patch>
-  <patch id="layout.buttons.autoplay.HideAutoplayButtonPatch">
-  <string name="revanced_hide_autoplay_button_title">إخفاء زر التشغيل التلقائي</string>
-  <string name="revanced_hide_autoplay_button_summary_on">تم إخفاء زر التشغيل التلقائي</string>
-  <string name="revanced_hide_autoplay_button_summary_off">يتم عرض زر التشغيل التلقائي</string>
-  </patch>
-  <patch id="layout.buttons.captions.HideCaptionsButtonPatch">
-  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">إخفاء زر التَرْجَمَة</string>
-  <string name="revanced_hide_captions_button_summary_on">تم إخفاء زر التَرْجَمَة</string>
-  <string name="revanced_hide_captions_button_summary_off">يتم عرض زر التَرْجَمَة</string>
-  </patch>
-  <patch id="layout.buttons.cast.HideCastButtonPatch">
-  <string name="revanced_hide_cast_button_title">إخفاء زر البث</string>
-  <string name="revanced_hide_cast_button_summary_on">تم إخفاء زر البث</string>
-  <string name="revanced_hide_cast_button_summary_off">يتم عرض زر البث</string>
-  </patch>
   <patch id="layout.buttons.navigation.NavigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">أزرار التنقل</string>
   <string name="revanced_navigation_buttons_screen_summary">إخفاء أو تغيير الأزرار في شريط التنقل</string>
@@ -514,65 +538,25 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">تم إخفاء قائمة المشاهدة في الوضع الافتراضي</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">يتم عرض قائمة المشاهدة في الوضع الافتراضي</string>
   </patch>
-  <patch id="layout.buttons.player.hide.HidePlayerButtonsPatch">
-  <string name="revanced_hide_player_buttons_title">إخفاء أزرار الفيديو السابق &amp; التالي</string>
-  <string name="revanced_hide_player_buttons_summary_on">تم إخفاء الأزرار</string>
-  <string name="revanced_hide_player_buttons_summary_off">يتم عرض الأزرار</string>
-  </patch>
-  <patch id="layout.hide.albumcards.AlbumCardsResourcePatch">
-  <string name="revanced_hide_album_cards_title">إخفاء بطاقات الألبوم</string>
-  <string name="revanced_hide_album_cards_summary_on">تم إخفاء بطاقات الألبوم</string>
-  <string name="revanced_hide_album_cards_summary_off">يتم عرض بطاقات الألبوم</string>
-  </patch>
-  <patch id="layout.hide.comments.CommentsPatch">
-  <string name="revanced_comments_screen_title">التعليقات</string>
-  <string name="revanced_comments_screen_summary">إخفاء أو عرض مكونات قسم التعليقات</string>
-  <string name="revanced_hide_comments_by_members_header_title">إخفاء رأس \'تعليقات الأعضاء\'</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">تم إخفاء رأس \'تعليقات الأعضاء\'</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">يتم عرض رأس \'تعليقات الأعضاء\'</string>
-  <string name="revanced_hide_comments_section_title">إخفاء قسم التعليقات</string>
-  <string name="revanced_hide_comments_section_summary_on">تم إخفاء قسم التعليقات</string>
-  <string name="revanced_hide_comments_section_summary_off">يتم عرض قسم التعليقات</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">إخفاء زر \'إنشاء مقطع Short\'</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">تم إخفاء زر \'إنشاء Short\'</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">يتم عرض زر \'إنشاء Short\'</string>
-  <string name="revanced_hide_comments_preview_comment_title">إخفاء تعليق المعاينة</string>
-  <string name="revanced_hide_comments_preview_comment_summary_on">تم إخفاء تعليق المعاينة</string>
-  <string name="revanced_hide_comments_preview_comment_summary_off">يتم عرض تعليق المعاينة</string>
-  <string name="revanced_hide_comments_thanks_button_title">إخفاء زر شكرًا</string>
-  <string name="revanced_hide_comments_thanks_button_summary_on">تم إخفاء زر شكرًا</string>
-  <string name="revanced_hide_comments_thanks_button_summary_off">يتم عرض زر شكرًا</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">إخفاء أزرار الطابع الزمني والرموز التعبيرية</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">تم إخفاء أزرار الطابع الزمني والرموز التعبيرية</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">يتم عرض أزرار الطابع الزمني والرموز التعبيرية</string>
-  </patch>
-  <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
-  <string name="revanced_hide_crowdfunding_box_title">إخفاء مربع التمويل الجماعي</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">تم إخفاء مربع التمويل الجماعي</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">يتم عرض مربع التمويل الجماعي</string>
+  <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
+  <string name="revanced_hide_player_previous_next_buttons_title">إخفاء أزرار الفيديو السابق &amp; التالي</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">تم إخفاء الأزرار</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">يتم عرض الأزرار</string>
+  <string name="revanced_hide_cast_button_title">إخفاء زر البث</string>
+  <string name="revanced_hide_cast_button_summary_on">تم إخفاء زر البث</string>
+  <string name="revanced_hide_cast_button_summary_off">يتم عرض زر البث</string>
+  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
+  <string name="revanced_hide_captions_button_title">إخفاء زر التَرْجَمَة</string>
+  <string name="revanced_hide_captions_button_summary_on">تم إخفاء زر التَرْجَمَة</string>
+  <string name="revanced_hide_captions_button_summary_off">يتم عرض زر التَرْجَمَة</string>
+  <string name="revanced_hide_autoplay_button_title">إخفاء زر التشغيل التلقائي</string>
+  <string name="revanced_hide_autoplay_button_summary_on">تم إخفاء زر التشغيل التلقائي</string>
+  <string name="revanced_hide_autoplay_button_summary_off">يتم عرض زر التشغيل التلقائي</string>
   </patch>
   <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">إخفاء بطاقات شاشة النهاية</string>
   <string name="revanced_hide_endscreen_cards_summary_on">تم إخفاء بطاقات شاشة النهاية</string>
   <string name="revanced_hide_endscreen_cards_summary_off">يتم عرض بطاقات شاشة النهاية</string>
-  </patch>
-  <patch id="layout.hide.filterbar.HideFilterBarResourcePatch">
-  <string name="revanced_hide_filter_bar_screen_title">شريط التصفية</string>
-  <string name="revanced_hide_filter_bar_screen_summary">إخفاء شريط التصفية أو عرضه في الموجز والبحث ومقاطع الفيديو ذات الصلة</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">إخفاء في الموجز</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">مخفي في الموجز</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">يعرض في الموجز</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">إخفاء في البحث</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">مخفي في البحث</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">يعرض في البحث</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">إخفاء في الفيديوهات ذات الصلة</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">مخفي في الفيديوهات ذات الصلة</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">يعرض في الفيديوهات ذات الصلة</string>
-  </patch>
-  <patch id="layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch">
-  <string name="revanced_hide_floating_microphone_button_title">إخفاء زر الميكروفون العائم</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">تم إخفاء زر الميكروفون</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">يتم عرض زر الميكروفون</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">تعطيل وضع الإضاءة السينمائية في ملء الشاشة</string>
@@ -598,6 +582,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_seekbar_thumbnail_summary_off">يتم عرض مصغرة شريط التقدم</string>
   </patch>
   <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
+  <string name="revanced_shorts_player_screen_title">مشغل Shorts</string>
+  <string name="revanced_shorts_player_screen_summary">إخفاء أو عرض المكونات في مشغل Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">إخفاء Shorts في موجز الصفحة الرئيسية</string>
   <string name="revanced_hide_shorts_home_summary_on">تم إخفاء Shorts في موجز الصفحة الرئيسية</string>
@@ -987,6 +973,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_resuming_shorts_player_title">تعطيل استئناف مشغل Shorts</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">لن يتم استئناف تشغيل مشغل Shorts عند بدء تشغيل التطبيق</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">سيتم استئناف تشغيل مشغل Shorts عند بدء تشغيل التطبيق</string>
+  </patch>
+  <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
+  <string name="revanced_shorts_autoplay_title">التشغيل التلقائي لفيديوهات Shorts</string>
+  <string name="revanced_shorts_autoplay_summary_on">سيتم تشغيل فيديوهات Shorts تلقائيًا</string>
+  <string name="revanced_shorts_autoplay_summary_off">سيتم تكرار فيديوهات Shorts</string>
+  <string name="revanced_shorts_autoplay_background_title">تشغيل فيديوهات Shorts تلقائيًا في الخلفية</string>
+  <string name="revanced_shorts_autoplay_background_summary_on">سيتم تشغيل فيديوهات Shorts تلقائيًا في الخلفية</string>
+  <string name="revanced_shorts_autoplay_background_summary_off">سيتم تكرار فيديوهات Shorts في الخلفية</string>
   </patch>
   <patch id="layout.tablet.EnableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">تمكين تصميم الجهاز اللوحي</string>

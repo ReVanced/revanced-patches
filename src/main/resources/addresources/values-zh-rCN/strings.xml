@@ -105,6 +105,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">禁用点赞 / 订阅按钮动效</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">点赞和订阅按钮点击时无动效</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">点赞和订阅按钮点击时有动效</string>
+  <string name="revanced_hide_album_cards_title">隐藏相册卡</string>
+  <string name="revanced_hide_album_cards_summary_on">相册已隐藏</string>
+  <string name="revanced_hide_album_cards_summary_off">显示相册卡</string>
+  <string name="revanced_hide_crowdfunding_box_title">隐藏众筹框</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">聚合供资框已隐藏</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">显示集资框</string>
+  <string name="revanced_hide_floating_microphone_button_title">隐藏浮动麦克风</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">麦克风按钮隐藏</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">麦克风按钮显示</string>
   <string name="revanced_hide_gray_separator_title">隐藏灰色分隔符</string>
   <string name="revanced_hide_gray_separator_summary_on">灰色分隔符已隐藏</string>
   <string name="revanced_hide_gray_separator_summary_off">灰色分隔符已显示</string>
@@ -229,6 +238,37 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">显示字幕部分</string>
   <string name="revanced_hide_description_components_screen_title">视频描述</string>
   <string name="revanced_hide_description_components_screen_summary">隐藏或显示视频描述组件</string>
+  <string name="revanced_hide_filter_bar_screen_title">过滤栏</string>
+  <string name="revanced_hide_filter_bar_screen_summary">在新闻源、搜索和相关视频中隐藏或显示过滤栏</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">在新闻源中隐藏</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">在订阅中隐藏</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">在订阅源中显示</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">在搜索中隐藏</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">在搜索中隐藏</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">在搜索中显示</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">隐藏相关视频</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">在相关视频中隐藏</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">显示在相关视频</string>
+  <string name="revanced_comments_screen_title">评论</string>
+  <string name="revanced_comments_screen_summary">隐藏或显示评论部分组件</string>
+  <string name="revanced_hide_comments_by_members_header_title">隐藏会员头部的评论</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">会员头的评论已隐藏</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">成员标题的评论已显示</string>
+  <string name="revanced_hide_comments_section_title">隐藏评论部分</string>
+  <string name="revanced_hide_comments_section_summary_on">评论部分已隐藏</string>
+  <string name="revanced_hide_comments_section_summary_off">评论部分已显示</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">隐藏“创建 Short按钮</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">“创建 Short 按钮被隐藏</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">显示“创建 Short”按钮</string>
+  <string name="revanced_hide_comments_preview_comment_title">隐藏预览评论</string>
+  <string name="revanced_hide_comments_preview_comment_summary_on">预览已隐藏</string>
+  <string name="revanced_hide_comments_preview_comment_summary_off">显示预览评论</string>
+  <string name="revanced_hide_comments_thanks_button_title">隐藏感谢按钮</string>
+  <string name="revanced_hide_comments_thanks_button_summary_on">感谢按钮已隐藏</string>
+  <string name="revanced_hide_comments_thanks_button_summary_off">已显示感谢按钮</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">隐藏时间戳和表情按钮</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">隐藏时间戳和表情按钮</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">显示时间戳和表情按钮</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">隐藏 YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">搜索栏门框已隐藏</string>
@@ -425,22 +465,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playlist_button_summary_on">保存到播放列表按钮隐藏</string>
   <string name="revanced_hide_playlist_button_summary_off">显示播放列表按钮</string>
   </patch>
-  <patch id="layout.buttons.autoplay.HideAutoplayButtonPatch">
-  <string name="revanced_hide_autoplay_button_title">隐藏自动播放按钮</string>
-  <string name="revanced_hide_autoplay_button_summary_on">自动播放按钮已隐藏</string>
-  <string name="revanced_hide_autoplay_button_summary_off">显示自动播放按钮</string>
-  </patch>
-  <patch id="layout.buttons.captions.HideCaptionsButtonPatch">
-  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">隐藏标题按钮</string>
-  <string name="revanced_hide_captions_button_summary_on">字幕按钮已隐藏</string>
-  <string name="revanced_hide_captions_button_summary_off">显示字幕按钮</string>
-  </patch>
-  <patch id="layout.buttons.cast.HideCastButtonPatch">
-  <string name="revanced_hide_cast_button_title">隐藏投射按钮</string>
-  <string name="revanced_hide_cast_button_summary_on">已隐藏投屏按钮</string>
-  <string name="revanced_hide_cast_button_summary_off">已显示投屏按钮</string>
-  </patch>
   <patch id="layout.buttons.navigation.NavigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Navigation buttons</string>
   <string name="revanced_navigation_buttons_screen_summary">隐藏或更改导航栏中的按钮</string>
@@ -513,65 +537,25 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">在 VR 菜单中观看是隐藏的</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">在VR菜单中查看</string>
   </patch>
-  <patch id="layout.buttons.player.hide.HidePlayerButtonsPatch">
-  <string name="revanced_hide_player_buttons_title">隐藏之前的 &amp; 下一个视频按钮</string>
-  <string name="revanced_hide_player_buttons_summary_on">按钮被隐藏</string>
-  <string name="revanced_hide_player_buttons_summary_off">显示按钮</string>
-  </patch>
-  <patch id="layout.hide.albumcards.AlbumCardsResourcePatch">
-  <string name="revanced_hide_album_cards_title">隐藏相册卡</string>
-  <string name="revanced_hide_album_cards_summary_on">相册已隐藏</string>
-  <string name="revanced_hide_album_cards_summary_off">显示相册卡</string>
-  </patch>
-  <patch id="layout.hide.comments.CommentsPatch">
-  <string name="revanced_comments_screen_title">评论</string>
-  <string name="revanced_comments_screen_summary">隐藏或显示评论部分组件</string>
-  <string name="revanced_hide_comments_by_members_header_title">隐藏会员头部的评论</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">会员头的评论已隐藏</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">成员标题的评论已显示</string>
-  <string name="revanced_hide_comments_section_title">隐藏评论部分</string>
-  <string name="revanced_hide_comments_section_summary_on">评论部分已隐藏</string>
-  <string name="revanced_hide_comments_section_summary_off">评论部分已显示</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">隐藏“创建 Short按钮</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">“创建 Short 按钮被隐藏</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">显示“创建 Short”按钮</string>
-  <string name="revanced_hide_comments_preview_comment_title">隐藏预览评论</string>
-  <string name="revanced_hide_comments_preview_comment_summary_on">预览已隐藏</string>
-  <string name="revanced_hide_comments_preview_comment_summary_off">显示预览评论</string>
-  <string name="revanced_hide_comments_thanks_button_title">隐藏感谢按钮</string>
-  <string name="revanced_hide_comments_thanks_button_summary_on">感谢按钮已隐藏</string>
-  <string name="revanced_hide_comments_thanks_button_summary_off">已显示感谢按钮</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">隐藏时间戳和表情按钮</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">隐藏时间戳和表情按钮</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">显示时间戳和表情按钮</string>
-  </patch>
-  <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
-  <string name="revanced_hide_crowdfunding_box_title">隐藏众筹框</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">聚合供资框已隐藏</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">显示集资框</string>
+  <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
+  <string name="revanced_hide_player_previous_next_buttons_title">隐藏之前的 &amp; 下一个视频按钮</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">按钮被隐藏</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">显示按钮</string>
+  <string name="revanced_hide_cast_button_title">隐藏投射按钮</string>
+  <string name="revanced_hide_cast_button_summary_on">已隐藏投屏按钮</string>
+  <string name="revanced_hide_cast_button_summary_off">已显示投屏按钮</string>
+  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
+  <string name="revanced_hide_captions_button_title">隐藏标题按钮</string>
+  <string name="revanced_hide_captions_button_summary_on">字幕按钮已隐藏</string>
+  <string name="revanced_hide_captions_button_summary_off">显示字幕按钮</string>
+  <string name="revanced_hide_autoplay_button_title">隐藏自动播放按钮</string>
+  <string name="revanced_hide_autoplay_button_summary_on">自动播放按钮已隐藏</string>
+  <string name="revanced_hide_autoplay_button_summary_off">显示自动播放按钮</string>
   </patch>
   <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">隐藏结束屏幕卡片</string>
   <string name="revanced_hide_endscreen_cards_summary_on">结束屏幕卡已隐藏</string>
   <string name="revanced_hide_endscreen_cards_summary_off">显示结束屏卡</string>
-  </patch>
-  <patch id="layout.hide.filterbar.HideFilterBarResourcePatch">
-  <string name="revanced_hide_filter_bar_screen_title">过滤栏</string>
-  <string name="revanced_hide_filter_bar_screen_summary">在新闻源、搜索和相关视频中隐藏或显示过滤栏</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">在新闻源中隐藏</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">在订阅中隐藏</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">在订阅源中显示</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">在搜索中隐藏</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">在搜索中隐藏</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">在搜索中显示</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">隐藏相关视频</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">在相关视频中隐藏</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">显示在相关视频</string>
-  </patch>
-  <patch id="layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch">
-  <string name="revanced_hide_floating_microphone_button_title">隐藏浮动麦克风</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">麦克风按钮隐藏</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">麦克风按钮显示</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">全屏禁用环境模式</string>
@@ -985,6 +969,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_resuming_shorts_player_title">禁用恢复快捷播放器</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">应用启动时短暂播放器将不会恢复</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">应用启动时短暂播放器将恢复</string>
+  </patch>
+  <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
   </patch>
   <patch id="layout.tablet.EnableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">启用平板电脑布局</string>
