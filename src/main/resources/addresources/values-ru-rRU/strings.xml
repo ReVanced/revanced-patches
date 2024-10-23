@@ -107,6 +107,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">Подсветка кнопок</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Кнопки \"Лайк\" и \"Подписаться\" не будут подсвечиваться при упоминании</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Кнопки \"Лайк\" и \"Подписаться\" будут подсвечиваться при упоминании</string>
+  <string name="revanced_hide_player_store_shelf_title">Секция покупок в плеере</string>
+  <string name="revanced_hide_player_store_shelf_summary_on">Секция покупок в плеере скрыта</string>
+  <string name="revanced_hide_player_store_shelf_summary_off">Секция покупок в плеере отображена</string>
   <string name="revanced_hide_album_cards_title">Карточки альбомов</string>
   <string name="revanced_hide_album_cards_summary_on">Карточки альбомов под описанием артистов скрыты</string>
   <string name="revanced_hide_album_cards_summary_off">Карточки альбомов под описанием артистов отображены</string>
@@ -541,7 +544,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_player_previous_next_buttons_title">Кнопки переключения видео</string>
-  <string name="revanced_hide_player_previous_next_buttons_summary_on">Кнопки скрыты</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">Кнопки предыдущего и следующего видео скрыты</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Кнопки предыдущего и следующего видео отображены</string>
   <string name="revanced_hide_cast_button_title">Кнопка \"Трансляция\"</string>
   <string name="revanced_hide_cast_button_summary_on">Кнопка \"Трансляция\" в плеере скрыта</string>

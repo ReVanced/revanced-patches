@@ -105,6 +105,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">禁用点赞 / 订阅按钮动效</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">点赞和订阅按钮点击时无动效</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">点赞和订阅按钮点击时有动效</string>
+  <string name="revanced_hide_player_store_shelf_title">隐藏玩家购物架</string>
+  <string name="revanced_hide_player_store_shelf_summary_on">购物架已隐藏</string>
+  <string name="revanced_hide_player_store_shelf_summary_off">购物架已显示</string>
   <string name="revanced_hide_album_cards_title">隐藏相册卡</string>
   <string name="revanced_hide_album_cards_summary_on">相册已隐藏</string>
   <string name="revanced_hide_album_cards_summary_off">显示相册卡</string>
