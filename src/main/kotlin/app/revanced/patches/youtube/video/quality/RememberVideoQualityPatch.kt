@@ -13,8 +13,8 @@ import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.patches.youtube.shared.fingerprints.NewVideoQualityChangedFingerprint
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
-import app.revanced.patches.youtube.video.quality.fingerprints.NewVideoQualityChangedFingerprint
 import app.revanced.patches.youtube.video.quality.fingerprints.SetQualityByIndexMethodClassFieldReferenceFingerprint
 import app.revanced.patches.youtube.video.quality.fingerprints.VideoQualityItemOnClickParentFingerprint
 import app.revanced.patches.youtube.video.quality.fingerprints.VideoQualitySetterFingerprint
