@@ -1,3 +1,10 @@
+# [4.18.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.18.0-dev.3...v4.18.0-dev.4) (2024-10-23)
+
+
+### Features
+
+* **YouTube - Hide layout components:** Hide player shopping shelf ([#3804](https://github.com/ReVanced/revanced-patches/issues/3804)) ([1952f3b](https://github.com/ReVanced/revanced-patches/commit/1952f3b3c4bca08ed0f6e5b1117e0a6c51f00ed2))
+
 # [4.18.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.18.0-dev.2...v4.18.0-dev.3) (2024-10-22)
 
 
