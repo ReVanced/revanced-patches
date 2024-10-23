@@ -105,6 +105,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">高評価 / チャンネル登録ボタンのアニメーションを無効にする</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">「高評価」と「チャンネル登録」ボタンのアニメーションは無効です</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">「高評価」と「チャンネル登録」ボタンのアニメーションは有効です</string>
+  <string name="revanced_hide_album_cards_title">アルバムカードを隠す</string>
+  <string name="revanced_hide_album_cards_summary_on">アルバムカードは非表示です</string>
+  <string name="revanced_hide_album_cards_summary_off">アルバムカードは表示されます</string>
+  <string name="revanced_hide_crowdfunding_box_title">クラウドファンディングボックスを非表示</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">クラウドファンディングボックスは非表示です</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">クラウドファンディングボックスは表示されます</string>
+  <string name="revanced_hide_floating_microphone_button_title">音声入力のフローティングボタンを非表示</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">マイクボタンは非表示です</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">マイクボタンは表示されます</string>
   <string name="revanced_hide_gray_separator_title">灰色のセパレータを非表示</string>
   <string name="revanced_hide_gray_separator_summary_on">灰色のセパレータは非表示です</string>
   <string name="revanced_hide_gray_separator_summary_off">灰色のセパレータは表示されます</string>
@@ -229,6 +238,37 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">文字起こしセクションは表示されます</string>
   <string name="revanced_hide_description_components_screen_title">概要欄</string>
   <string name="revanced_hide_description_components_screen_summary">概要欄のコンポーネントを非表示または表示</string>
+  <string name="revanced_hide_filter_bar_screen_title">フィルタバー</string>
+  <string name="revanced_hide_filter_bar_screen_summary">フィード、検索、および関連する動画のフィルターバーを非表示または表示</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">フィードで非表示</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">フィードで非表示です</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">フィードでは表示されます</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">検索時に隠す</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">検索で非表示です</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">検索で表示されます</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">関連動画で非表示</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">関連動画で非表示です</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">関連動画で表示されます</string>
+  <string name="revanced_comments_screen_title">コメント</string>
+  <string name="revanced_comments_screen_summary">コメントセクションのコンポーネントを非表示または表示</string>
+  <string name="revanced_hide_comments_by_members_header_title">「メンバーによるコメント」ヘッダーを非表示</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">「メンバーによるコメント」ヘッダーは非表示です</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">「メンバーによるコメント」ヘッダーは表示されています</string>
+  <string name="revanced_hide_comments_section_title">コメントセクションを非表示</string>
+  <string name="revanced_hide_comments_section_summary_on">コメントセクションは非表示です</string>
+  <string name="revanced_hide_comments_section_summary_off">コメントセクションは表示されます</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">「Shortsを作成」ボタンを非表示</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">「Shortsを作成」ボタンは非表示です</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">「Shorsを作成」ボタンは表示されます</string>
+  <string name="revanced_hide_comments_preview_comment_title">コメントのプレビューを非表示</string>
+  <string name="revanced_hide_comments_preview_comment_summary_on">コメントのプレビューは非表示です</string>
+  <string name="revanced_hide_comments_preview_comment_summary_off">コメントのプレビューは表示されます</string>
+  <string name="revanced_hide_comments_thanks_button_title">Thanks ボタンを非表示</string>
+  <string name="revanced_hide_comments_thanks_button_summary_on">「Thanks」ボタンは非表示です</string>
+  <string name="revanced_hide_comments_thanks_button_summary_off">「Thanks」ボタンは表示されます</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">タイムスタンプと絵文字ボタンを隠す</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">タイムスタンプと絵文字ボタンは非表示です</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">タイムスタンプと絵文字ボタンは表示されます</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">YouTubeのDoodlesを隠す</string>
   <string name="revanced_hide_doodles_summary_on">検索バーの落書きは非表示です</string>
@@ -423,22 +463,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playlist_button_summary_on">プレイリストに保存ボタンは非表示です</string>
   <string name="revanced_hide_playlist_button_summary_off">プレイリストに保存ボタンは表示されます</string>
   </patch>
-  <patch id="layout.buttons.autoplay.HideAutoplayButtonPatch">
-  <string name="revanced_hide_autoplay_button_title">自動再生ボタンを隠す</string>
-  <string name="revanced_hide_autoplay_button_summary_on">自動再生ボタンは非表示です</string>
-  <string name="revanced_hide_autoplay_button_summary_off">自動再生ボタンは表示されます</string>
-  </patch>
-  <patch id="layout.buttons.captions.HideCaptionsButtonPatch">
-  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">字幕ボタンを隠す</string>
-  <string name="revanced_hide_captions_button_summary_on">字幕ボタンは非表示です</string>
-  <string name="revanced_hide_captions_button_summary_off">字幕ボタンが表示されます</string>
-  </patch>
-  <patch id="layout.buttons.cast.HideCastButtonPatch">
-  <string name="revanced_hide_cast_button_title">キャストボタンを隠す</string>
-  <string name="revanced_hide_cast_button_summary_on">キャスト ボタンは非表示です</string>
-  <string name="revanced_hide_cast_button_summary_off">キャスト ボタンは表示されます</string>
-  </patch>
   <patch id="layout.buttons.navigation.NavigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">ナビゲーションボタン</string>
   <string name="revanced_navigation_buttons_screen_summary">ナビゲーションバーのボタンを非表示または変更</string>
@@ -511,65 +535,25 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VRで見るメニューは非表示です</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">VR で見るメニューは表示されます</string>
   </patch>
-  <patch id="layout.buttons.player.hide.HidePlayerButtonsPatch">
-  <string name="revanced_hide_player_buttons_title">前の動画に戻る/次の動画に進むボタンを非表示</string>
-  <string name="revanced_hide_player_buttons_summary_on">ボタンは非表示です</string>
-  <string name="revanced_hide_player_buttons_summary_off">ボタンは表示されます</string>
-  </patch>
-  <patch id="layout.hide.albumcards.AlbumCardsResourcePatch">
-  <string name="revanced_hide_album_cards_title">アルバムカードを隠す</string>
-  <string name="revanced_hide_album_cards_summary_on">アルバムカードは非表示です</string>
-  <string name="revanced_hide_album_cards_summary_off">アルバムカードは表示されます</string>
-  </patch>
-  <patch id="layout.hide.comments.CommentsPatch">
-  <string name="revanced_comments_screen_title">コメント</string>
-  <string name="revanced_comments_screen_summary">コメントセクションのコンポーネントを非表示または表示</string>
-  <string name="revanced_hide_comments_by_members_header_title">「メンバーによるコメント」ヘッダーを非表示</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">「メンバーによるコメント」ヘッダーは非表示です</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">「メンバーによるコメント」ヘッダーは表示されています</string>
-  <string name="revanced_hide_comments_section_title">コメントセクションを非表示</string>
-  <string name="revanced_hide_comments_section_summary_on">コメントセクションは非表示です</string>
-  <string name="revanced_hide_comments_section_summary_off">コメントセクションは表示されます</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">「Shortsを作成」ボタンを非表示</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">「Shortsを作成」ボタンは非表示です</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">「Shorsを作成」ボタンは表示されます</string>
-  <string name="revanced_hide_comments_preview_comment_title">コメントのプレビューを非表示</string>
-  <string name="revanced_hide_comments_preview_comment_summary_on">コメントのプレビューは非表示です</string>
-  <string name="revanced_hide_comments_preview_comment_summary_off">コメントのプレビューは表示されます</string>
-  <string name="revanced_hide_comments_thanks_button_title">Thanks ボタンを非表示</string>
-  <string name="revanced_hide_comments_thanks_button_summary_on">「Thanks」ボタンは非表示です</string>
-  <string name="revanced_hide_comments_thanks_button_summary_off">「Thanks」ボタンは表示されます</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">タイムスタンプと絵文字ボタンを隠す</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">タイムスタンプと絵文字ボタンは非表示です</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">タイムスタンプと絵文字ボタンは表示されます</string>
-  </patch>
-  <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
-  <string name="revanced_hide_crowdfunding_box_title">クラウドファンディングボックスを非表示</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">クラウドファンディングボックスは非表示です</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">クラウドファンディングボックスは表示されます</string>
+  <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
+  <string name="revanced_hide_player_previous_next_buttons_title">前の動画に戻る/次の動画に進むボタンを非表示</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">ボタンは非表示です</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">ボタンは表示されます</string>
+  <string name="revanced_hide_cast_button_title">キャストボタンを隠す</string>
+  <string name="revanced_hide_cast_button_summary_on">キャスト ボタンは非表示です</string>
+  <string name="revanced_hide_cast_button_summary_off">キャスト ボタンは表示されます</string>
+  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
+  <string name="revanced_hide_captions_button_title">字幕ボタンを隠す</string>
+  <string name="revanced_hide_captions_button_summary_on">字幕ボタンは非表示です</string>
+  <string name="revanced_hide_captions_button_summary_off">字幕ボタンが表示されます</string>
+  <string name="revanced_hide_autoplay_button_title">自動再生ボタンを隠す</string>
+  <string name="revanced_hide_autoplay_button_summary_on">自動再生ボタンは非表示です</string>
+  <string name="revanced_hide_autoplay_button_summary_off">自動再生ボタンは表示されます</string>
   </patch>
   <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">終了画面のカードを非表示にする</string>
   <string name="revanced_hide_endscreen_cards_summary_on">終了画面のカードは非表示です</string>
   <string name="revanced_hide_endscreen_cards_summary_off">終了画面のカードは表示されます</string>
-  </patch>
-  <patch id="layout.hide.filterbar.HideFilterBarResourcePatch">
-  <string name="revanced_hide_filter_bar_screen_title">フィルタバー</string>
-  <string name="revanced_hide_filter_bar_screen_summary">フィード、検索、および関連する動画のフィルターバーを非表示または表示</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">フィードで非表示</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">フィードで非表示です</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">フィードでは表示されます</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">検索時に隠す</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">検索で非表示です</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">検索で表示されます</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">関連動画で非表示</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">関連動画で非表示です</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">関連動画で表示されます</string>
-  </patch>
-  <patch id="layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch">
-  <string name="revanced_hide_floating_microphone_button_title">音声入力のフローティングボタンを非表示</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">マイクボタンは非表示です</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">マイクボタンは表示されます</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">全画面表示でアンビエントモードを無効にする</string>
@@ -595,6 +579,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_seekbar_thumbnail_summary_off">サムネイルシークバーが表示されます</string>
   </patch>
   <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
+  <string name="revanced_shorts_player_screen_title">Shortsプレイヤー</string>
+  <string name="revanced_shorts_player_screen_summary">Shorts プレーヤーのコンポーネントを非表示または表示</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">ホームフィードにショートパンツを隠す</string>
   <string name="revanced_hide_shorts_home_summary_on">ホームフィード内のショートパンツが表示されません</string>
@@ -984,6 +970,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_resuming_shorts_player_title">Shorts プレイヤーの再開を無効にする</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts プレイヤーはアプリの起動時に再開しません</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts プレイヤーはアプリの起動時に再開します</string>
+  </patch>
+  <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
   </patch>
   <patch id="layout.tablet.EnableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">タブレットのレイアウトを有効にする</string>

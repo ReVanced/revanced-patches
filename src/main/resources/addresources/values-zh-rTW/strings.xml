@@ -36,7 +36,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_check_environment_failed_title">檢查失敗</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">開啟官方網站</string>
   <string name="revanced_check_environment_dialog_ignore_button">忽略</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;此應用程式似乎並非由您修補。&lt;/h5&gt;&lt;br&gt;該應用程式可能無法正常運作，&lt;b&gt;可能有害甚至存在危險。&lt;/b&gt;&lt;br&gt;&lt;br&gt;這些檢查表明該應用程式是預先修補的或來自其他來源：&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;強烈建議&lt;b&gt;解除安裝此應用程式並自行修補&lt;/b&gt;，以確保您使用的是經過驗證且安全的應用程式。&lt;p&gt;&lt;br&gt;如果忽略，此警告僅會顯示兩次。</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;這個應用程式似乎並非由您修補。&lt;/h5&gt;&lt;br&gt;這個應用程式可能無法正常運作，&lt;b&gt;可能有害甚至存在危險。&lt;/b&gt;&lt;br&gt;&lt;br&gt;這些檢查表明該應用程式是預先修補的或來自其他來源：&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;強烈建議&lt;b&gt;解除安裝此應用程式並自行修補&lt;/b&gt;，以確保您使用的是經過驗證且安全的應用程式。&lt;p&gt;&lt;br&gt;如果忽略，此警告僅會顯示兩次。</string>
   <string name="revanced_check_environment_not_same_patching_device">在其他裝置上修補</string>
   <string name="revanced_check_environment_manager_not_expected_installer">未由 ReVanced Manager 安裝</string>
   <string name="revanced_check_environment_not_near_patch_time">修補時間超過 10 分鐘</string>
@@ -106,6 +106,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">停用「喜歡」和「訂閱」按鈕的發光效果</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">提及時，「喜歡」和「訂閱」按鈕不會發光</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">提及時，「喜歡」和「訂閱」按鈕會發光</string>
+  <string name="revanced_hide_album_cards_title">隱藏專輯卡</string>
+  <string name="revanced_hide_album_cards_summary_on">已隱藏專輯卡</string>
+  <string name="revanced_hide_album_cards_summary_off">已顯示專輯卡</string>
+  <string name="revanced_hide_crowdfunding_box_title">隱藏群眾募資</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">已隱藏群眾募資</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">已顯示群眾募資</string>
+  <string name="revanced_hide_floating_microphone_button_title">隱藏語音辨識按鈕</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">已隱藏語音辨識按鈕</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">已顯示語音辨識按鈕</string>
   <string name="revanced_hide_gray_separator_title">隱藏灰色分隔線</string>
   <string name="revanced_hide_gray_separator_summary_on">已隱藏灰色分隔線</string>
   <string name="revanced_hide_gray_separator_summary_off">已顯示灰色分隔線</string>
@@ -230,6 +239,37 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">已顯示字幕記錄區</string>
   <string name="revanced_hide_description_components_screen_title">影片描述欄</string>
   <string name="revanced_hide_description_components_screen_summary">隱藏或顯示影片描述欄內容</string>
+  <string name="revanced_hide_filter_bar_screen_title">篩選列</string>
+  <string name="revanced_hide_filter_bar_screen_summary">隱藏或顯示動態消息、搜尋、相關影片篩選列</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">在動態消息中隱藏</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">在動態消息中隱藏</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">在動態消息中顯示</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">在搜尋中隱藏</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">在搜尋中隱藏</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">在搜尋中顯示</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">隱藏相關影片</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">在相關影片中隱藏</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">在相關影片中顯示</string>
+  <string name="revanced_comments_screen_title">留言區</string>
+  <string name="revanced_comments_screen_summary">隱藏或顯示影片留言區內容</string>
+  <string name="revanced_hide_comments_by_members_header_title">隱藏「會員留言」標題</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">已隱藏「會員留言」標題</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">已顯示「會員留言」標題</string>
+  <string name="revanced_hide_comments_section_title">隱藏留言區</string>
+  <string name="revanced_hide_comments_section_summary_on">已隱藏留言區塊</string>
+  <string name="revanced_hide_comments_section_summary_off">已顯示留言區塊</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">隱藏「建立 Short」按鈕</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">已隱藏「建立 Short」按鈕</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">已顯示「建立 Short」按鈕</string>
+  <string name="revanced_hide_comments_preview_comment_title">隱藏留言預覽</string>
+  <string name="revanced_hide_comments_preview_comment_summary_on">已隱藏留言預覽</string>
+  <string name="revanced_hide_comments_preview_comment_summary_off">已顯示留言預覽</string>
+  <string name="revanced_hide_comments_thanks_button_title">隱藏超級感謝按鈕</string>
+  <string name="revanced_hide_comments_thanks_button_summary_on">已隱藏超級感謝按鈕</string>
+  <string name="revanced_hide_comments_thanks_button_summary_off">已顯示超級感謝按鈕</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">隱藏時間戳記和表情按鈕</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">已隱藏時間戳記和表情符號按鈕</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">已顯示時間戳記和表情符號按鈕</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">隱藏 YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">已隱藏位於搜尋欄的 Doodles </string>
@@ -426,22 +466,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playlist_button_summary_on">已隱藏儲存到播放列表</string>
   <string name="revanced_hide_playlist_button_summary_off">已顯示儲存到播放列表</string>
   </patch>
-  <patch id="layout.buttons.autoplay.HideAutoplayButtonPatch">
-  <string name="revanced_hide_autoplay_button_title">隱藏自動播放按鈕</string>
-  <string name="revanced_hide_autoplay_button_summary_on">已隱藏自動播放按鈕</string>
-  <string name="revanced_hide_autoplay_button_summary_off">已顯示自動播放按鈕</string>
-  </patch>
-  <patch id="layout.buttons.captions.HideCaptionsButtonPatch">
-  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">隱藏字幕按鈕</string>
-  <string name="revanced_hide_captions_button_summary_on">已隱藏字幕按鈕</string>
-  <string name="revanced_hide_captions_button_summary_off">已顯示字幕按鈕</string>
-  </patch>
-  <patch id="layout.buttons.cast.HideCastButtonPatch">
-  <string name="revanced_hide_cast_button_title">隱藏投放按鈕</string>
-  <string name="revanced_hide_cast_button_summary_on">已隱藏投放按鈕</string>
-  <string name="revanced_hide_cast_button_summary_off">已顯示投放按鈕</string>
-  </patch>
   <patch id="layout.buttons.navigation.NavigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">導覽列按鈕</string>
   <string name="revanced_navigation_buttons_screen_summary">隱藏或變更導覽區按鈕</string>
@@ -514,65 +538,25 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">已隱藏在 VR 觀看</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">已顯示在 VR 觀看</string>
   </patch>
-  <patch id="layout.buttons.player.hide.HidePlayerButtonsPatch">
-  <string name="revanced_hide_player_buttons_title">隱藏上一部和下一部影片按紐</string>
-  <string name="revanced_hide_player_buttons_summary_on">已隱藏按鈕</string>
-  <string name="revanced_hide_player_buttons_summary_off">已顯示按鈕</string>
-  </patch>
-  <patch id="layout.hide.albumcards.AlbumCardsResourcePatch">
-  <string name="revanced_hide_album_cards_title">隱藏專輯卡</string>
-  <string name="revanced_hide_album_cards_summary_on">已隱藏專輯卡</string>
-  <string name="revanced_hide_album_cards_summary_off">已顯示專輯卡</string>
-  </patch>
-  <patch id="layout.hide.comments.CommentsPatch">
-  <string name="revanced_comments_screen_title">留言區</string>
-  <string name="revanced_comments_screen_summary">隱藏或顯示影片留言區內容</string>
-  <string name="revanced_hide_comments_by_members_header_title">隱藏「會員留言」標題</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">已隱藏「會員留言」標題</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">已顯示「會員留言」標題</string>
-  <string name="revanced_hide_comments_section_title">隱藏留言區</string>
-  <string name="revanced_hide_comments_section_summary_on">已隱藏留言區塊</string>
-  <string name="revanced_hide_comments_section_summary_off">已顯示留言區塊</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">隱藏「建立 Short」按鈕</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">已隱藏「建立 Short」按鈕</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">已顯示「建立 Short」按鈕</string>
-  <string name="revanced_hide_comments_preview_comment_title">隱藏留言預覽</string>
-  <string name="revanced_hide_comments_preview_comment_summary_on">已隱藏留言預覽</string>
-  <string name="revanced_hide_comments_preview_comment_summary_off">已顯示留言預覽</string>
-  <string name="revanced_hide_comments_thanks_button_title">隱藏超級感謝按鈕</string>
-  <string name="revanced_hide_comments_thanks_button_summary_on">已隱藏超級感謝按鈕</string>
-  <string name="revanced_hide_comments_thanks_button_summary_off">已顯示超級感謝按鈕</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">隱藏時間戳記和表情按鈕</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">已隱藏時間戳記和表情符號按鈕</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">已顯示時間戳記和表情符號按鈕</string>
-  </patch>
-  <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
-  <string name="revanced_hide_crowdfunding_box_title">隱藏群眾募資</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">已隱藏群眾募資</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">已顯示群眾募資</string>
+  <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
+  <string name="revanced_hide_player_previous_next_buttons_title">隱藏上一部和下一部影片按紐</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">已隱藏按鈕</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">已顯示按鈕</string>
+  <string name="revanced_hide_cast_button_title">隱藏投放按鈕</string>
+  <string name="revanced_hide_cast_button_summary_on">已隱藏投放按鈕</string>
+  <string name="revanced_hide_cast_button_summary_off">已顯示投放按鈕</string>
+  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
+  <string name="revanced_hide_captions_button_title">隱藏字幕按鈕</string>
+  <string name="revanced_hide_captions_button_summary_on">已隱藏字幕按鈕</string>
+  <string name="revanced_hide_captions_button_summary_off">已顯示字幕按鈕</string>
+  <string name="revanced_hide_autoplay_button_title">隱藏自動播放按鈕</string>
+  <string name="revanced_hide_autoplay_button_summary_on">已隱藏自動播放按鈕</string>
+  <string name="revanced_hide_autoplay_button_summary_off">已顯示自動播放按鈕</string>
   </patch>
   <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">隱藏片尾資訊卡</string>
   <string name="revanced_hide_endscreen_cards_summary_on">已隱藏片尾資訊卡</string>
   <string name="revanced_hide_endscreen_cards_summary_off">已顯示片尾資訊卡</string>
-  </patch>
-  <patch id="layout.hide.filterbar.HideFilterBarResourcePatch">
-  <string name="revanced_hide_filter_bar_screen_title">篩選列</string>
-  <string name="revanced_hide_filter_bar_screen_summary">隱藏或顯示動態消息、搜尋、相關影片篩選列</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">在動態消息中隱藏</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">在動態消息中隱藏</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">在動態消息中顯示</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">在搜尋中隱藏</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">在搜尋中隱藏</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">在搜尋中顯示</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">隱藏相關影片</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">在相關影片中隱藏</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">在相關影片中顯示</string>
-  </patch>
-  <patch id="layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch">
-  <string name="revanced_hide_floating_microphone_button_title">隱藏語音辨識按鈕</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">已隱藏語音辨識按鈕</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">已顯示語音辨識按鈕</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">在全螢幕狀態下停用微光效果</string>
@@ -598,6 +582,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_seekbar_thumbnail_summary_off">已顯示縮圖進度列</string>
   </patch>
   <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
+  <string name="revanced_shorts_player_screen_title">Shorts 播放器</string>
+  <string name="revanced_shorts_player_screen_summary">隱藏或顯示 Shorts 播放器的元件</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">隱藏 Shorts 首頁動態消息</string>
   <string name="revanced_hide_shorts_home_summary_on">已在首頁動態影片中隱藏 Shorts</string>
@@ -644,6 +630,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_green_screen_button_title">隱藏 [綠色畫面] 按鈕</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">已隱藏 [綠色畫面] 按鈕</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">已顯示 [綠色畫面] 按鈕</string>
+  <string name="revanced_hide_shorts_hashtag_button_title">隱藏主題標籤按鈕</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_on">主題標籤按鈕已隱藏</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_off">主題標籤按鈕已顯示</string>
   <string name="revanced_hide_shorts_search_suggestions_title">隱藏搜尋建議</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">已隱藏搜尋建議</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">已顯示搜尋建議</string>
@@ -984,6 +973,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_resuming_shorts_player_title">停用自動復原 Shorts 播放器</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts 播放器將不會在應用程式啟動後復原</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts 播放器將會在應用程式啟動後復原</string>
+  </patch>
+  <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
+  <string name="revanced_shorts_autoplay_title">自動播放 Shorts</string>
+  <string name="revanced_shorts_autoplay_summary_on">Shorts 將自動播放</string>
+  <string name="revanced_shorts_autoplay_summary_off">Shorts 將重複播放</string>
+  <string name="revanced_shorts_autoplay_background_title">在背景自動播放 Shorts</string>
+  <string name="revanced_shorts_autoplay_background_summary_on">Shorts 將在背景自動播放</string>
+  <string name="revanced_shorts_autoplay_background_summary_off">Shorts 將在背景重複播放</string>
   </patch>
   <patch id="layout.tablet.EnableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">啟用平板介面</string>

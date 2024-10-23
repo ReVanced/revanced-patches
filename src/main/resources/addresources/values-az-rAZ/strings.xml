@@ -106,6 +106,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">Bəyən/abunə ol düymə parıltısın söndür</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">\"Bəyən və abunə ol\" düyməsin klikləyəndə parıldamayacaq</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">\"Bəyən və abunə ol\" düyməsinə klikləyəndə parlayacaq</string>
+  <string name="revanced_hide_album_cards_title">Albom kartlarını gizlət</string>
+  <string name="revanced_hide_album_cards_summary_on">Albom kartları gizlidir</string>
+  <string name="revanced_hide_album_cards_summary_off">Albom kartları göstərilir</string>
+  <string name="revanced_hide_crowdfunding_box_title">İanə qutusunu gizlət</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">İanə qutusu gizlidir</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">İanə qutusu göstərilir</string>
+  <string name="revanced_hide_floating_microphone_button_title">Üzən mikrofon düyməsini gizlət</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">Mikrofon düyməsi gizlidir</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">Mikrofon düyməsi göstərilir</string>
   <string name="revanced_hide_gray_separator_title">Boz ayırıcını gizlət</string>
   <string name="revanced_hide_gray_separator_summary_on">Boz ayırıcılar gizlidir</string>
   <string name="revanced_hide_gray_separator_summary_off">Boz ayırıcılar göstərilir</string>
@@ -230,6 +239,37 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">Transkripsiya bölməsi göstərilir</string>
   <string name="revanced_hide_description_components_screen_title">Video açıqlaması</string>
   <string name="revanced_hide_description_components_screen_summary">Video açıqlaması elementlərini gizlət və ya göstər</string>
+  <string name="revanced_hide_filter_bar_screen_title">Filtr çubuğu</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Axında, axtarışda və əlaqəli videolardakı filtr çubuğunu gizlət və ya göstər</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Axında gizlət</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Axında gizlidir</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Axında göstərilir</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Axtarışda gizlət</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Axtarışda gizlidir</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Axtarışda görünür</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Əlaqəli videolarda gizlət</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Əlaqəli videolarda gizlidir</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Əlaqəli videolarda görünür</string>
+  <string name="revanced_comments_screen_title">Şərhlər</string>
+  <string name="revanced_comments_screen_summary">Şərhlər bölməsi elementlərin gizlət və ya göstər</string>
+  <string name="revanced_hide_comments_by_members_header_title">\'Üzvlərin şərhləri\' başlığını gizlət</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">\"Üzvlərin şərhləri\" başlığı gizlədilib</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">\"Üzvlərin şərhləri\" başlığı göstərilir</string>
+  <string name="revanced_hide_comments_section_title">Şərhlər bölməsini gizlət</string>
+  <string name="revanced_hide_comments_section_summary_on">Şərhlər bölməsi gizlidir</string>
+  <string name="revanced_hide_comments_section_summary_off">Şərhlər bölməsi göstərilir</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">\"Shorts Yarat\" düyməsini gizlət</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">\"Shorts yarat\" düyməsi gizlidir</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">\"Shorts yarat\" düyməsi göstərilir</string>
+  <string name="revanced_hide_comments_preview_comment_title">Önbaxış şərhin gizlət</string>
+  <string name="revanced_hide_comments_preview_comment_summary_on">Önbaxış şərhi gizlədilib</string>
+  <string name="revanced_hide_comments_preview_comment_summary_off">Önbaxış şərhi göstərilir</string>
+  <string name="revanced_hide_comments_thanks_button_title">Təşəkkürlər düyməsini gizlət</string>
+  <string name="revanced_hide_comments_thanks_button_summary_on">Təşəkkür düyməsi gizlidir</string>
+  <string name="revanced_hide_comments_thanks_button_summary_off">Təşəkkür düyməsi göstərilir</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Vaxt möhürü və emoji düymələrin gizlə</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Vaxt möhürü və emoji düymələri gizlədilib</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Vaxt möhürü və emoji düymələri göstərilir</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">YouTube Doodle-ları gizlət</string>
   <string name="revanced_hide_doodles_summary_on">Axtarış çubuğu Doodle-ları gizlidir</string>
@@ -426,22 +466,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playlist_button_summary_on">Pleylistdə saxla düyməsi gizlidir</string>
   <string name="revanced_hide_playlist_button_summary_off">Pleylistdə saxla düyməsi göstərilir</string>
   </patch>
-  <patch id="layout.buttons.autoplay.HideAutoplayButtonPatch">
-  <string name="revanced_hide_autoplay_button_title">Avto-oynatma düyməsini gizlət</string>
-  <string name="revanced_hide_autoplay_button_summary_on">Avtomatik oynatma düyməsi gizlidir</string>
-  <string name="revanced_hide_autoplay_button_summary_off">Avtomatik oynatma düyməsi göstərilir</string>
-  </patch>
-  <patch id="layout.buttons.captions.HideCaptionsButtonPatch">
-  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">Titrlər düyməsini gizlət</string>
-  <string name="revanced_hide_captions_button_summary_on">Titrlər düyməsi gizlidir</string>
-  <string name="revanced_hide_captions_button_summary_off">Titrlər düyməsi göstərilir</string>
-  </patch>
-  <patch id="layout.buttons.cast.HideCastButtonPatch">
-  <string name="revanced_hide_cast_button_title">Yayımla düyməsini gizlət</string>
-  <string name="revanced_hide_cast_button_summary_on">Yayım düyməsi gizlidir</string>
-  <string name="revanced_hide_cast_button_summary_off">Yayım düyməsi göstərilir</string>
-  </patch>
   <patch id="layout.buttons.navigation.NavigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Fəaliyyət düymələri</string>
   <string name="revanced_navigation_buttons_screen_summary">Fəaliyyət çubuğundakı düymələri gizlət və ya dəyiş</string>
@@ -514,65 +538,25 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VR menyusunda izləmə gizlidir</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">VR menyusunda izləmə göstərilir</string>
   </patch>
-  <patch id="layout.buttons.player.hide.HidePlayerButtonsPatch">
-  <string name="revanced_hide_player_buttons_title">Əvvəlki/növbəti video düymələrin gizlə</string>
-  <string name="revanced_hide_player_buttons_summary_on">Düymələr gizlidir</string>
-  <string name="revanced_hide_player_buttons_summary_off">Düymələr göstərilir</string>
-  </patch>
-  <patch id="layout.hide.albumcards.AlbumCardsResourcePatch">
-  <string name="revanced_hide_album_cards_title">Albom kartlarını gizlət</string>
-  <string name="revanced_hide_album_cards_summary_on">Albom kartları gizlidir</string>
-  <string name="revanced_hide_album_cards_summary_off">Albom kartları göstərilir</string>
-  </patch>
-  <patch id="layout.hide.comments.CommentsPatch">
-  <string name="revanced_comments_screen_title">Şərhlər</string>
-  <string name="revanced_comments_screen_summary">Şərhlər bölməsi elementlərin gizlət və ya göstər</string>
-  <string name="revanced_hide_comments_by_members_header_title">\'Üzvlərin şərhləri\' başlığını gizlət</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">\"Üzvlərin şərhləri\" başlığı gizlədilib</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">\"Üzvlərin şərhləri\" başlığı göstərilir</string>
-  <string name="revanced_hide_comments_section_title">Şərhlər bölməsini gizlət</string>
-  <string name="revanced_hide_comments_section_summary_on">Şərhlər bölməsi gizlidir</string>
-  <string name="revanced_hide_comments_section_summary_off">Şərhlər bölməsi göstərilir</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">\"Shorts Yarat\" düyməsini gizlət</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">\"Shorts yarat\" düyməsi gizlidir</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">\"Shorts yarat\" düyməsi göstərilir</string>
-  <string name="revanced_hide_comments_preview_comment_title">Önbaxış şərhin gizlət</string>
-  <string name="revanced_hide_comments_preview_comment_summary_on">Önbaxış şərhi gizlədilib</string>
-  <string name="revanced_hide_comments_preview_comment_summary_off">Önbaxış şərhi göstərilir</string>
-  <string name="revanced_hide_comments_thanks_button_title">Təşəkkürlər düyməsini gizlət</string>
-  <string name="revanced_hide_comments_thanks_button_summary_on">Təşəkkür düyməsi gizlidir</string>
-  <string name="revanced_hide_comments_thanks_button_summary_off">Təşəkkür düyməsi göstərilir</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Vaxt möhürü və emoji düymələrin gizlə</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Vaxt möhürü və emoji düymələri gizlədilib</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Vaxt möhürü və emoji düymələri göstərilir</string>
-  </patch>
-  <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
-  <string name="revanced_hide_crowdfunding_box_title">İanə qutusunu gizlət</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">İanə qutusu gizlidir</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">İanə qutusu göstərilir</string>
+  <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
+  <string name="revanced_hide_player_previous_next_buttons_title">Əvvəlki/növbəti video düymələrin gizlə</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">Düymələr gizlidir</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">Düymələr göstərilir</string>
+  <string name="revanced_hide_cast_button_title">Yayımla düyməsini gizlət</string>
+  <string name="revanced_hide_cast_button_summary_on">Yayım düyməsi gizlidir</string>
+  <string name="revanced_hide_cast_button_summary_off">Yayım düyməsi göstərilir</string>
+  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
+  <string name="revanced_hide_captions_button_title">Titrlər düyməsini gizlət</string>
+  <string name="revanced_hide_captions_button_summary_on">Titrlər düyməsi gizlidir</string>
+  <string name="revanced_hide_captions_button_summary_off">Titrlər düyməsi göstərilir</string>
+  <string name="revanced_hide_autoplay_button_title">Avto-oynatma düyməsini gizlət</string>
+  <string name="revanced_hide_autoplay_button_summary_on">Avtomatik oynatma düyməsi gizlidir</string>
+  <string name="revanced_hide_autoplay_button_summary_off">Avtomatik oynatma düyməsi göstərilir</string>
   </patch>
   <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Son ekran kartlarını gizlət</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Son ekran kartları gizlidir</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Son ekran kartları göstərilir</string>
-  </patch>
-  <patch id="layout.hide.filterbar.HideFilterBarResourcePatch">
-  <string name="revanced_hide_filter_bar_screen_title">Filtr çubuğu</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Axında, axtarışda və əlaqəli videolardakı filtr çubuğunu gizlət və ya göstər</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Axında gizlət</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Axında gizlidir</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Axında göstərilir</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Axtarışda gizlət</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Axtarışda gizlidir</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Axtarışda görünür</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Əlaqəli videolarda gizlət</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Əlaqəli videolarda gizlidir</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Əlaqəli videolarda görünür</string>
-  </patch>
-  <patch id="layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch">
-  <string name="revanced_hide_floating_microphone_button_title">Üzən mikrofon düyməsini gizlət</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">Mikrofon düyməsi gizlidir</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">Mikrofon düyməsi göstərilir</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">Tam ekranda ambient rejimin bağla</string>
@@ -598,6 +582,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Miniatür axtarış çubuğu göstərilir</string>
   </patch>
   <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
+  <string name="revanced_shorts_player_screen_title">Shorts oynadıcı</string>
+  <string name="revanced_shorts_player_screen_summary">Shorts oynadıcıda hissəcikləri gizlət və ya göstər</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Ev axınında \"Shorts\"u gizlət</string>
   <string name="revanced_hide_shorts_home_summary_on">Ev axınındakı Shorts gizlidir</string>
@@ -644,9 +630,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_green_screen_button_title">\"Yaşıl ekran\" düyməsini gizlət</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">\"Yaşıl ekran\" düyməsi gizlidir</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">\"Yaşıl ekran\" düyməsi göstərilir</string>
-  <string name="revanced_hide_shorts_hashtag_button_title">Hashtag düyməsini gizlət</string>
-  <string name="revanced_hide_shorts_hashtag_button_summary_on">Hashtag düyməsi gizlidir</string>
-  <string name="revanced_hide_shorts_hashtag_button_summary_off">Hashtag düyməsi göstərilir</string>
+  <string name="revanced_hide_shorts_hashtag_button_title">Mövzu etiketi düyməsini gizlət</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_on">Mövzu etiketi düyməsi gizlidir</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_off">Mövzu etiketi düyməsi göstərilir</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Axtarış təkliflərini gizlət</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Axtarış təklifləri gizlədilib</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Axtarış təklifləri göstərilir</string>
@@ -968,7 +954,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.startpage.ChangeStartPagePatch">
   <string name="revanced_change_start_page_title">Başlanğıc səhifəsini tənzimlə</string>
   <string name="revanced_change_start_page_entry_default">İlkin</string>
-  <string name="revanced_change_start_page_entry_browse">Kəşf edilən kanallar</string>
+  <string name="revanced_change_start_page_entry_browse">Kanallara nəzər yetir</string>
   <string name="revanced_change_start_page_entry_explore">Kəşf et</string>
   <string name="revanced_change_start_page_entry_gaming">Oyun</string>
   <string name="revanced_change_start_page_entry_history">Tarixçə</string>
@@ -977,16 +963,24 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_change_start_page_entry_live">Canlı</string>
   <string name="revanced_change_start_page_entry_movies">Filmlər</string>
   <string name="revanced_change_start_page_entry_music">Musiqi</string>
-  <string name="revanced_change_start_page_entry_search">Axtarış</string>
+  <string name="revanced_change_start_page_entry_search">Axtar</string>
   <string name="revanced_change_start_page_entry_sports">İdman</string>
   <string name="revanced_change_start_page_entry_subscriptions">Abunəliklər</string>
-  <string name="revanced_change_start_page_entry_trending">Trenddə olan</string>
+  <string name="revanced_change_start_page_entry_trending">Trendlər</string>
   <string name="revanced_change_start_page_entry_watch_later">Sonra izlə</string>
   </patch>
   <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Shorts oynadıcı başladıcını bağla</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Tətbiq açılanda Shorts oynadıcı davam etməyəcək</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Tətbiq açılanda Shorts oynadıcı davam edəcək</string>
+  </patch>
+  <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
+  <string name="revanced_shorts_autoplay_title">Shorts-ları avto-oynatma</string>
+  <string name="revanced_shorts_autoplay_summary_on">Shorts-lar avto-oynadılacaq</string>
+  <string name="revanced_shorts_autoplay_summary_off">Shorts-lar təkrarlanacaq</string>
+  <string name="revanced_shorts_autoplay_background_title">Shorts-ları arxa planda avto-oynat</string>
+  <string name="revanced_shorts_autoplay_background_summary_on">Shorts-lar arxa planda avto-oynadılacaq</string>
+  <string name="revanced_shorts_autoplay_background_summary_off">Shorts-lar arxa planda təkrarlanacaq</string>
   </patch>
   <patch id="layout.tablet.EnableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Planşet tərtibatını aktiv et</string>
@@ -1005,20 +999,20 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_entry_5">Müasir 2</string>
   <string name="revanced_miniplayer_type_entry_6">Müasir 3</string>
   <string name="revanced_miniplayer_rounded_corners_title">Dairəvi küncləri aktivləşdir</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Künclər dövrələnir</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_on">Künclər dairəvidir</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Künclər kvadratdır</string>
-  <string name="revanced_miniplayer_double_tap_action_title">Ölçüsünü dəyişmək üçün iki dəfə toxun və çimdiklə</string>
-  <string name="revanced_miniplayer_double_tap_action_summary_on">İki dəfə kliklə fəaliyyəti və ölçüsünü dəyişmək üçün çimdiklə, aktivdir\n\n• Kiçik oynadıcı ölçüsün artırmaq üçün iki dəfə toxunun\n• Əsl ölçüsün bərpa etmək üçün təkrar iki dəfə toxun</string>
-  <string name="revanced_miniplayer_double_tap_action_summary_off">Ölçüsün dəyişmək üçün cüt kliklə və çimdiklə bağlıdır</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Çəkmə və buraxma funksiyasın aktivləşdir</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">Çəkmə və buraxma aktivdir\n\nMinipleyeri ekranın istənilən küncünə çəkmək olar</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Çəkmə və buraxma bağlıdır</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Bağlama düyməsin gizlət</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Bağlama düyməsi gizlidir</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Bağlama düyməsi göstərilir</string>
+  <string name="revanced_miniplayer_double_tap_action_title">Ölçüsünü dəyişmək üçün cüt toxunmanı və çimdikləməni aktivləşdir</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">Ölçüsünü dəyişdirmək üçün cüt toxunma fəaliyyəti və çimdikləmə aktivləşdirildi\n\n• Mini oynadıcı ölçüsün artırmaq üçün cüt toxunun\n• Orijinal ölçünü bərpa etmək üçün təkrar cüt toxun</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_off">Ölçüsünü dəyişdirmək üçün cüt toxunma fəaliyyəti və çimdikləmə yoxdur</string>
+  <string name="revanced_miniplayer_drag_and_drop_title">\"Sürüklə və burax\"ı aktivləşdir</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">\"Sürüklə və burax\" aktivdir\n\nMini oynadıcı, ekranın istənilən küncünə sürüklənə bilər</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_off">\"Sürüklə və burax\" aktiv deyil</string>
+  <string name="revanced_miniplayer_hide_expand_close_title">\"Bağla\" düyməsini gizlət</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">\"Bağla\" düyməsi gizlidir</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">\"Bağla\" düyməsi göstərilir</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_title">Genişləndir və bağla düymələrini gizlət</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Düymələr gizlədilib\n\nGenişləndirmək və ya bağlamaq üçün sürüşdür</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Genişləndirmə və bağlama düymələri göstərilir</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Genişləndir və bağla düymələri göstərilir</string>
   <string name="revanced_miniplayer_hide_subtext_title">Alt mətnləri gizlət</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Alt mətnlər gizlədilir</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Alt mətnlər göstərilir</string>
@@ -1026,8 +1020,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">İrəli və geri ötürücülər gizlidir</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">İrəli və geri ötürücülər göstərilir</string>
   <string name="revanced_miniplayer_width_dip_title">İlkin ölçü</string>
-  <string name="revanced_miniplayer_width_dip_summary">Ekran ölçüsündə, piksellərdə ilkin ölçü</string>
-  <string name="revanced_miniplayer_width_dip_invalid_toast">Piksel ölçüsü %1$s və %2$s arası olmalıdır</string>
+  <string name="revanced_miniplayer_width_dip_summary">Piksel olaraq ekranda ilkin ölçü</string>
+  <string name="revanced_miniplayer_width_dip_invalid_toast">Piksel ölçüsü, %1$s - %2$s arası olmalıdır</string>
   <string name="revanced_miniplayer_opacity_title">Örtük qeyri-şəffaflığı</string>
   <string name="revanced_miniplayer_opacity_summary">0-100 arasında qeyri-şəffaflıq dəyəri, burada 0 şəffafdır</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Kiçik Oynadıcı örtük qeyri-şəffaflığı 0-100 arası olmalıdır</string>

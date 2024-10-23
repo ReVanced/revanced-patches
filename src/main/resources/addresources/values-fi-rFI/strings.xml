@@ -57,7 +57,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_pref_import_export_title">Tuonti/vienti</string>
   <string name="revanced_pref_import_export_summary">Tuo/vie ReVanced-asetukset</string>
   <!-- Settings about dialog. -->
-  <string name="revanced_settings_about_links_body">Käytät ReVanced Patches versiota &lt;i&gt;%s&lt;/i&gt;</string>
+  <string name="revanced_settings_about_links_body">Käytät ReVanced Patchesin versiota &lt;i&gt;%s&lt;/i&gt;</string>
   <string name="revanced_settings_about_links_dev_header">Huomautus</string>
   <string name="revanced_settings_about_links_dev_body">Tämä versio on ennakkojulkaisuversio, joten voit kokea odottamattomia ongelmia</string>
   <string name="revanced_settings_about_links_header">Viralliset linkit</string>
@@ -107,6 +107,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">Poista tykkää-/tilaa-painikkeiden hehku käytöstä</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Tykkää- ja tilaa-painikkeet eivät hehku, kun ne mainitaan</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Tykkää- ja tilaa-painikkeet hehkuvat, kun ne mainitaan</string>
+  <string name="revanced_hide_album_cards_title">Piilota albumikortit</string>
+  <string name="revanced_hide_album_cards_summary_on">Albumikortit on piilotettu</string>
+  <string name="revanced_hide_album_cards_summary_off">Albumikortit näytetään</string>
+  <string name="revanced_hide_crowdfunding_box_title">Piilota joukkorahoituslaatikko</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">Joukkorahoituslaatikko on piilotettu</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">Joukkorahoituslaatikko näytetään</string>
+  <string name="revanced_hide_floating_microphone_button_title">Piilota kelluva mikrofonipainike</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">Mikrofonipainike piilotettu</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">Mikrofonipainike näytetään</string>
   <string name="revanced_hide_gray_separator_title">Piilota harmaa erotin</string>
   <string name="revanced_hide_gray_separator_summary_on">Harmaat erottimet on piilotettu</string>
   <string name="revanced_hide_gray_separator_summary_off">Harmaat erottimet näytetään</string>
@@ -214,7 +223,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_attributes_section_title">Piilota attribuutit osio</string>
   <string name="revanced_hide_attributes_section_summary_on">\'Paikat\', Pelit ja Musiikki -osiot on piilotettu</string>
   <string name="revanced_hide_attributes_section_summary_off">\'Paikat\', Pelit ja Musiikki -osiot näytetään</string>
-  <string name="revanced_hide_chapters_section_title">Piilota Osat-osio</string>
+  <string name="revanced_hide_chapters_section_title">Piilota Videon osat -osio</string>
   <string name="revanced_hide_chapters_section_summary_on">Osat-osio on piilotettu</string>
   <string name="revanced_hide_chapters_section_summary_off">Osat-osio näytetään</string>
   <string name="revanced_hide_podcast_section_title">Piilota \'Tutki podcastia\' -osio</string>
@@ -231,11 +240,42 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">Transkriptio-osio näytetään</string>
   <string name="revanced_hide_description_components_screen_title">Videon kuvaus</string>
   <string name="revanced_hide_description_components_screen_summary">Piilota tai näytä videon kuvauskomponentteja</string>
+  <string name="revanced_hide_filter_bar_screen_title">Suodatuspalkki</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Piilota tai näytä suodatinpalkki syötteessä, haussa ja liittyvissä videoissa</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Piilota syötteessä</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Piilotettu syötteessä</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Näytetään syötteessä</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Piilota haussa</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Piilotettu haussa</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Näytetään haussa</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Piilota liittyvissä videoissa</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Piilotettu liittyvissä videoissa</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Näytetään liittyvissä videoissa</string>
+  <string name="revanced_comments_screen_title">Kommentit</string>
+  <string name="revanced_comments_screen_summary">Piilota tai näytä kommenttiosion komponentteja</string>
+  <string name="revanced_hide_comments_by_members_header_title">Piilota \"Jäsenten kommentit\" -ylätunniste</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">\"Jäsenten kommentit\" -ylätunniste on piilotettu</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">\"Jäsenten kommentit\"-ylätunniste näytetään</string>
+  <string name="revanced_hide_comments_section_title">Piilota kommenttiosio</string>
+  <string name="revanced_hide_comments_section_summary_on">Kommenttiosio on piilotettu</string>
+  <string name="revanced_hide_comments_section_summary_off">Kommenttiosio näytetään</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">Piilota \"Luo Shorts-video\" -painike</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">\"Luo Shorts-video\" -painike on piilotettu</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">\"Luo Shorts-video\" -painike näytetään</string>
+  <string name="revanced_hide_comments_preview_comment_title">Piilota kommentin esikatselu</string>
+  <string name="revanced_hide_comments_preview_comment_summary_on">Kommentin esikatselu on piilotettu</string>
+  <string name="revanced_hide_comments_preview_comment_summary_off">Kommentin esikatselu näytetään</string>
+  <string name="revanced_hide_comments_thanks_button_title">Piilota kiitos-painike</string>
+  <string name="revanced_hide_comments_thanks_button_summary_on">Kiitos-painike on piilotettu</string>
+  <string name="revanced_hide_comments_thanks_button_summary_off">Kiitos-painike näytetään</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Piilota aikaleima- ja emoji-painikkeet</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Aikaleima- ja emoji-painikkeet on piilotettu</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Aikaleima- ja emoji-painikkeet näytetään</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
-  <string name="revanced_hide_doodles_title">Piilota YouTube-ovet</string>
-  <string name="revanced_hide_doodles_summary_on">Hakupalkki Doodles on piilotettu</string>
-  <string name="revanced_hide_doodles_summary_off">Hakupalkki Doodles näytetään</string>
-  <string name="revanced_hide_doodles_user_dialog_message">YouTube Doodles esiintyy muutaman päivän joka vuosi.\n\nJos Doodle näyttää tällä hetkellä alueellasi ja tämä piilon asetus on päällä, sitten myös hakupalkin alla oleva suodatinpalkki piilotetaan.</string>
+  <string name="revanced_hide_doodles_title">Piilota YouTube Doodlet</string>
+  <string name="revanced_hide_doodles_summary_on">Hakupalkin Doodlet on piilotettu</string>
+  <string name="revanced_hide_doodles_summary_off">Hakupalkin Doodlet näytetään</string>
+  <string name="revanced_hide_doodles_user_dialog_message">YouTube Doodlet näkyvät muutamana päivänä vuodessa.\n\nJos Doodle näkyy tällä hetkellä alueellasi ja tämä piilotusasetus on käytössä, myös hakupalkin alla oleva suodatinpalkki piilotetaan.</string>
   <string name="revanced_custom_filter_screen_title">Mukautettu suodatin</string>
   <string name="revanced_custom_filter_screen_summary">Piilota komponentteja mukautetuilla suodattimilla</string>
   <string name="revanced_custom_filter_title">Käytä mukautettua suodatinta</string>
@@ -427,22 +467,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playlist_button_summary_on">Tallenna soittolistalle -painike on piilotettu</string>
   <string name="revanced_hide_playlist_button_summary_off">Tallenna soittolistalle -painike näytetään</string>
   </patch>
-  <patch id="layout.buttons.autoplay.HideAutoplayButtonPatch">
-  <string name="revanced_hide_autoplay_button_title">Piilota automaattisen toiston -painike</string>
-  <string name="revanced_hide_autoplay_button_summary_on">Automaattinen toisto -painike on piilotettu</string>
-  <string name="revanced_hide_autoplay_button_summary_off">Automaattinen toisto -painike näytetään</string>
-  </patch>
-  <patch id="layout.buttons.captions.HideCaptionsButtonPatch">
-  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">Piilota tekstitykset-painike</string>
-  <string name="revanced_hide_captions_button_summary_on">Tekstitykset-painike on piilotettu</string>
-  <string name="revanced_hide_captions_button_summary_off">Tekstitykset-painike näytetään</string>
-  </patch>
-  <patch id="layout.buttons.cast.HideCastButtonPatch">
-  <string name="revanced_hide_cast_button_title">Piilota cast-painike</string>
-  <string name="revanced_hide_cast_button_summary_on">Cast-painike on piilotettu</string>
-  <string name="revanced_hide_cast_button_summary_off">Cast-painike näytetään</string>
-  </patch>
   <patch id="layout.buttons.navigation.NavigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Navigointipainikkeet</string>
   <string name="revanced_navigation_buttons_screen_summary">Piilota tai muuta navigointipalkin painikkeita</string>
@@ -515,65 +539,25 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Katso VR-tilassa -valinta on piilotettu</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Katso VR-tilassa -valinta näytetään</string>
   </patch>
-  <patch id="layout.buttons.player.hide.HidePlayerButtonsPatch">
-  <string name="revanced_hide_player_buttons_title">Piilota edellinen- ja seuraava video -painikkeet</string>
-  <string name="revanced_hide_player_buttons_summary_on">Painikkeet on piilotettu</string>
-  <string name="revanced_hide_player_buttons_summary_off">Painikkeet näytetään</string>
-  </patch>
-  <patch id="layout.hide.albumcards.AlbumCardsResourcePatch">
-  <string name="revanced_hide_album_cards_title">Piilota albumikortit</string>
-  <string name="revanced_hide_album_cards_summary_on">Albumikortit on piilotettu</string>
-  <string name="revanced_hide_album_cards_summary_off">Albumikortit näytetään</string>
-  </patch>
-  <patch id="layout.hide.comments.CommentsPatch">
-  <string name="revanced_comments_screen_title">Kommentit</string>
-  <string name="revanced_comments_screen_summary">Piilota tai näytä kommenttiosion komponentteja</string>
-  <string name="revanced_hide_comments_by_members_header_title">Piilota \"Jäsenten kommentit\" -ylätunniste</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">\"Jäsenten kommentit\" -ylätunniste on piilotettu</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">\"Jäsenten kommentit\"-ylätunniste näytetään</string>
-  <string name="revanced_hide_comments_section_title">Piilota kommenttiosio</string>
-  <string name="revanced_hide_comments_section_summary_on">Kommenttiosio on piilotettu</string>
-  <string name="revanced_hide_comments_section_summary_off">Kommenttiosio näytetään</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">Piilota \"Luo Shorts-video\" -painike</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">\"Luo Shorts-video\" -painike on piilotettu</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">\"Luo Shorts-video\" -painike näytetään</string>
-  <string name="revanced_hide_comments_preview_comment_title">Piilota kommentin esikatselu</string>
-  <string name="revanced_hide_comments_preview_comment_summary_on">Kommentin esikatselu on piilotettu</string>
-  <string name="revanced_hide_comments_preview_comment_summary_off">Kommentin esikatselu näytetään</string>
-  <string name="revanced_hide_comments_thanks_button_title">Piilota kiitos-painike</string>
-  <string name="revanced_hide_comments_thanks_button_summary_on">Kiitos-painike on piilotettu</string>
-  <string name="revanced_hide_comments_thanks_button_summary_off">Kiitos-painike näytetään</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Piilota aikaleima- ja emoji-painikkeet</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Aikaleima- ja emoji-painikkeet on piilotettu</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Aikaleima- ja emoji-painikkeet näytetään</string>
-  </patch>
-  <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
-  <string name="revanced_hide_crowdfunding_box_title">Piilota joukkorahoituslaatikko</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">Joukkorahoituslaatikko on piilotettu</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">Joukkorahoituslaatikko näytetään</string>
+  <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
+  <string name="revanced_hide_player_previous_next_buttons_title">Piilota edellinen- ja seuraava video -painikkeet</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">Painikkeet on piilotettu</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">Painikkeet näytetään</string>
+  <string name="revanced_hide_cast_button_title">Piilota cast-painike</string>
+  <string name="revanced_hide_cast_button_summary_on">Cast-painike on piilotettu</string>
+  <string name="revanced_hide_cast_button_summary_off">Cast-painike näytetään</string>
+  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
+  <string name="revanced_hide_captions_button_title">Piilota tekstitykset-painike</string>
+  <string name="revanced_hide_captions_button_summary_on">Tekstitykset-painike on piilotettu</string>
+  <string name="revanced_hide_captions_button_summary_off">Tekstitykset-painike näytetään</string>
+  <string name="revanced_hide_autoplay_button_title">Piilota automaattisen toiston -painike</string>
+  <string name="revanced_hide_autoplay_button_summary_on">Automaattinen toisto -painike on piilotettu</string>
+  <string name="revanced_hide_autoplay_button_summary_off">Automaattinen toisto -painike näytetään</string>
   </patch>
   <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Piilota loppunäytön kortit</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Loppunäytön kortit on piilotettu</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Loppunäytön kortit näytetään</string>
-  </patch>
-  <patch id="layout.hide.filterbar.HideFilterBarResourcePatch">
-  <string name="revanced_hide_filter_bar_screen_title">Suodatuspalkki</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Piilota tai näytä suodatinpalkki syötteessä, haussa ja liittyvissä videoissa</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Piilota syötteessä</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Piilotettu syötteessä</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Näytetään syötteessä</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Piilota haussa</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Piilotettu haussa</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Näytetään haussa</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Piilota liittyvissä videoissa</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Piilotettu liittyvissä videoissa</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Näytetään liittyvissä videoissa</string>
-  </patch>
-  <patch id="layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch">
-  <string name="revanced_hide_floating_microphone_button_title">Piilota kelluva mikrofonipainike</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">Mikrofonipainike piilotettu</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">Mikrofonipainike näytetään</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">Poista elokuvatila käytöstä kokoruututilassa</string>
@@ -599,6 +583,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Pikkukuvan liukusäädin näytetään</string>
   </patch>
   <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
+  <string name="revanced_shorts_player_screen_title">Shorts-soitin</string>
+  <string name="revanced_shorts_player_screen_summary">Piilota tai näytä Shorts-soittimen osia</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Piilota Shortsit koti-syötteessä</string>
   <string name="revanced_hide_shorts_home_summary_on">Shortsit on piilotettu koti-syötteessä</string>
@@ -633,7 +619,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">Piilota sijaintitieto</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Sijaintitieto on piilotettu</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Sijaintitieto näytetään</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Piilota musiikin tallennus painike</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Piilota musiikin tallennuspainike</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Tallenna musiikki-painike on piilotettu</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Tallenna musiikkipainike näytetään</string>
   <string name="revanced_hide_shorts_use_template_button_title">Piilota käytä mallinappia</string>
@@ -989,6 +975,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts-soitin ei jatku sovelluksen käynnistyessä</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts-soitin jatkuu sovelluksen käynnistyessä</string>
   </patch>
+  <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
+  <string name="revanced_shorts_autoplay_title">Shortsien automaattinen toisto</string>
+  <string name="revanced_shorts_autoplay_summary_on">Shortsit toistetaan automaattisesti</string>
+  <string name="revanced_shorts_autoplay_summary_off">Shortsit toistuvat uudelleen</string>
+  <string name="revanced_shorts_autoplay_background_title">Toista Shortsit automaattisesti taustalla</string>
+  <string name="revanced_shorts_autoplay_background_summary_on">Shortsit toistetaan automaattisesti myös taustalla</string>
+  <string name="revanced_shorts_autoplay_background_summary_off">Shorsit toistetaan uudelleen myös taustatoiston aikana</string>
+  </patch>
   <patch id="layout.tablet.EnableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Ota tablettiasettelu käyttöön</string>
   <string name="revanced_tablet_layout_summary_on">Tablettiasettelu on käytössä</string>
@@ -1023,7 +1017,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_hide_subtext_title">Piilota alatekstit</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Alatekstit on piilotettu</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Alatekstit näytetään</string>
-  <string name="revanced_miniplayer_hide_rewind_forward_title">Piilota ohita etu- ja takapainikkeet</string>
+  <string name="revanced_miniplayer_hide_rewind_forward_title">Piilota eteenpäin- ja taaksepäin-painikkeet</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Ohita eteenpäin ja takaisin on piilotettu</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Ohita eteenpäin ja takaisin näytetään</string>
   <string name="revanced_miniplayer_width_dip_title">Alkukoko</string>
@@ -1049,6 +1043,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.thumbnails.BypassImageRegionRestrictions">
   <string name="revanced_bypass_image_region_restrictions_title">Ohita kuvan alueen rajoitukset</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Käyttämällä kuvan isäntä yt4.ggpht.com</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">Käytetään alkuperistä kuvapalvelua\n\nTämän käyttöönotto voi korjata joillakin alueilla estetyt puuttuvat kuvat</string>
   </patch>
   <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -1072,7 +1067,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_alt_thumbnail_stills_about_title">Videon kuvakaappaukset</string>
   <string name="revanced_alt_thumbnail_stills_about_summary">Kuvakaappaukset otetaan kunkin videon alusta/keskeltä/lopusta. Nämä kuvat on sisäänrakennettu YouTubeen, eikä ulkoista API:a käytetä</string>
   <string name="revanced_alt_thumbnail_stills_fast_title">Käytä nopeita kuvakaappauksia</string>
-  <string name="revanced_alt_thumbnail_stills_fast_summary_on">Käytetään keskilaatuisia kuvakaappauksia. Pikkukuvat latautuvat nopeammin, mutta suorilla lähetyksillä, julkaisemattomilla tai hyvin vanhoilla videoilla saattaa näkyä tyhjiä pikkukuvia</string>
+  <string name="revanced_alt_thumbnail_stills_fast_summary_on">Käytetään keskilaatuisia kuvakaappauksia. Pikkukuvat latautuvat nopeammin, mutta suoratoistoilla, julkaisemattomilla tai hyvin vanhoilla videoilla saattaa näkyä tyhjiä pikkukuvia</string>
   <string name="revanced_alt_thumbnail_stills_fast_summary_off">Käytetään korkealaatuisia kuvakaappauksia</string>
   <string name="revanced_alt_thumbnail_stills_time_title">Videon aika, josta kuvakaappaukset otetaan</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_1">Videon alku</string>
@@ -1170,13 +1165,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_off">Kelaus liu\'uttamalla ei ole käytössä</string>
   </patch>
   <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">Naamioi videovirrat</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Naamioi asiakkaan videovirrat toisto-ongelmien estämiseksi</string>
-  <string name="revanced_spoof_video_streams_title">Naamioi videovirrat</string>
-  <string name="revanced_spoof_video_streams_summary_on">Videovirrat naamioidaan</string>
-  <string name="revanced_spoof_video_streams_summary_off">Videovirtoja ei naamioida\n\nViden toisto ei ehkä toimi</string>
+  <string name="revanced_spoof_video_streams_screen_title">Naamioi videostriimit</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Naamioi asiakasohjelman videostriimit toisto-ongelmien estämiseksi</string>
+  <string name="revanced_spoof_video_streams_title">Naamioi videostriimit</string>
+  <string name="revanced_spoof_video_streams_summary_on">Videostriimit naamioidaan</string>
+  <string name="revanced_spoof_video_streams_summary_off">Videostriimejä ei naamioida\n\nViden toisto ei ehkä toimi</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Tämän asetuksen poistaminen käytöstä voi aiheuttaa ongelmia videotoistossa.</string>
-  <string name="revanced_spoof_video_streams_client_title">Oletusasiakas</string>
+  <string name="revanced_spoof_video_streams_client_title">Oletusasiakasohjelma</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Pakota AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Videokoodekki on AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Videokoodekki on VP9 tai AV1</string>

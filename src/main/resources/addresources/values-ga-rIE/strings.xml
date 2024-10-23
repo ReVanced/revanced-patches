@@ -106,6 +106,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">Díchumasaigh cosúil/liostáil chnaipe glow</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Ní ghlacfaidh an cnaipe Like agus Liostáil nuair a luaitear</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Taispeánfaidh an cnaipe Like agus Liostáil nuair a luait</string>
+  <string name="revanced_hide_album_cards_title">Folaigh cártaí albam</string>
+  <string name="revanced_hide_album_cards_summary_on">Tá cártaí albam i bhfolach</string>
+  <string name="revanced_hide_album_cards_summary_off">Taispeántar cártaí albam</string>
+  <string name="revanced_hide_crowdfunding_box_title">Folaigh bosca slua-mhaoiniú</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">Tá bosca crowdfunding i bhfolach</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">Taispeántar bosca slua-mhaoiniú</string>
+  <string name="revanced_hide_floating_microphone_button_title">Cnaipe micreafón ar snámh</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">Cnaipe micreafón folach</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">Taispeántar an cnaipe micreafón</string>
   <string name="revanced_hide_gray_separator_title">Folaigh deighilteoir liath</string>
   <string name="revanced_hide_gray_separator_summary_on">Tá deighilteoirí liath i bhfolach</string>
   <string name="revanced_hide_gray_separator_summary_off">Taispeántar deighilteoirí liath</string>
@@ -230,6 +239,37 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">Taispeántar alt an tras-scríbhinn</string>
   <string name="revanced_hide_description_components_screen_title">Cur síos físeán</string>
   <string name="revanced_hide_description_components_screen_summary">Folaigh nó taispeáint comhpháirteanna tuairisc</string>
+  <string name="revanced_hide_filter_bar_screen_title">Barra scagaire</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Folaigh nó taispeáin an barra scagaire sna físeáin beatha, cuardaigh agus gaolmhara</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Folaigh i mbeatha</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">I bhfolach i mbeatha</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Taispeántar i mbeatha</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Folaigh i gcuardach</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">I bhfolach i gcuardach</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Taispeántar i gcuardach</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Folaigh i bhfíseáin gaolmhara</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">I bhfolach i bhfíseáin ghaolmhara</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Taispeántar i bhfíseáin ghaolmhara</string>
+  <string name="revanced_comments_screen_title">Tuairimí</string>
+  <string name="revanced_comments_screen_summary">Folaigh nó taispeáin comhpháirteanna na rannóige tuairimí</string>
+  <string name="revanced_hide_comments_by_members_header_title">Folaigh ceanntásc \'Tuairimí ag baill \'</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">Tá ceanntásc \'Tuairimí ag comhaltaí \'i bhfolach</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">Taispeántar ceanntásc \'Tuairimí ag comhaltaí\'</string>
+  <string name="revanced_hide_comments_section_title">Folaigh roinn tuairimí</string>
+  <string name="revanced_hide_comments_section_summary_on">Tá an chuid tuairimí i bhfolach</string>
+  <string name="revanced_hide_comments_section_summary_off">Taispeántar an chuid tuairimí</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">Folaigh cnaipe \'Cruthaigh gearr\'</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">Tá cnaipe \'Cruthaigh gearr\' i bhfolach</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">Taispeántar cnaipe \'Cruthaigh gearr\'</string>
+  <string name="revanced_hide_comments_preview_comment_title">Folaigh trácht réamhamharc</string>
+  <string name="revanced_hide_comments_preview_comment_summary_on">Tá trácht réamhamhar i bhfolach</string>
+  <string name="revanced_hide_comments_preview_comment_summary_off">Taispeántar trácht réamhamharc</string>
+  <string name="revanced_hide_comments_thanks_button_title">Folaigh cnaipe buíochas</string>
+  <string name="revanced_hide_comments_thanks_button_summary_on">Tá cnaipe buíochas i bhfolach</string>
+  <string name="revanced_hide_comments_thanks_button_summary_off">Taispeántar cnaipe buíochas</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Folaigh cnaipí ama agus emoji</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Tá cnaipí ama agus emoji i bhfolach</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Taispeántar cnaipí ama agus emoji</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Folaigh YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Barra cuardaigh Tá Doodles i bhfolach</string>
@@ -426,22 +466,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playlist_button_summary_on">Tá cnaipe Sábháil go seinmliosta i bhfolach</string>
   <string name="revanced_hide_playlist_button_summary_off">Taispeántar cnaipe Sábháil go seinmliosta</string>
   </patch>
-  <patch id="layout.buttons.autoplay.HideAutoplayButtonPatch">
-  <string name="revanced_hide_autoplay_button_title">Folaigh cnaipe autoplay</string>
-  <string name="revanced_hide_autoplay_button_summary_on">Tá cnaipe Autoplay i bhfolach</string>
-  <string name="revanced_hide_autoplay_button_summary_off">Taispeántar cnaipe Autoplay</string>
-  </patch>
-  <patch id="layout.buttons.captions.HideCaptionsButtonPatch">
-  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">Folaigh cnaipe fotheidil</string>
-  <string name="revanced_hide_captions_button_summary_on">Tá cnaipe fotheidil i bhfolach</string>
-  <string name="revanced_hide_captions_button_summary_off">Taispeántar cnaipe fotheidil</string>
-  </patch>
-  <patch id="layout.buttons.cast.HideCastButtonPatch">
-  <string name="revanced_hide_cast_button_title">Folaigh cnaipe teilgthe</string>
-  <string name="revanced_hide_cast_button_summary_on">Tá cnaipe teilgthe i bhfolach</string>
-  <string name="revanced_hide_cast_button_summary_off">Taispeántar cnaipe teilgthe</string>
-  </patch>
   <patch id="layout.buttons.navigation.NavigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Cnaipí nascleanúna</string>
   <string name="revanced_navigation_buttons_screen_summary">Folaigh nó athraigh cnaipí sa bharra nascleanúna</string>
@@ -514,65 +538,25 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Tá faire i roghchlár VR i bhfolach</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Taispeántar an faire sa roghchlár VR</string>
   </patch>
-  <patch id="layout.buttons.player.hide.HidePlayerButtonsPatch">
-  <string name="revanced_hide_player_buttons_title">Folaigh &amp; cnaipí físeáin seo chugainn</string>
-  <string name="revanced_hide_player_buttons_summary_on">Tá cnaipí i bhfolach</string>
-  <string name="revanced_hide_player_buttons_summary_off">Taispeántar cnaipí</string>
-  </patch>
-  <patch id="layout.hide.albumcards.AlbumCardsResourcePatch">
-  <string name="revanced_hide_album_cards_title">Folaigh cártaí albam</string>
-  <string name="revanced_hide_album_cards_summary_on">Tá cártaí albam i bhfolach</string>
-  <string name="revanced_hide_album_cards_summary_off">Taispeántar cártaí albam</string>
-  </patch>
-  <patch id="layout.hide.comments.CommentsPatch">
-  <string name="revanced_comments_screen_title">Tuairimí</string>
-  <string name="revanced_comments_screen_summary">Folaigh nó taispeáin comhpháirteanna na rannóige tuairimí</string>
-  <string name="revanced_hide_comments_by_members_header_title">Folaigh ceanntásc \'Tuairimí ag baill \'</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">Tá ceanntásc \'Tuairimí ag comhaltaí \'i bhfolach</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">Taispeántar ceanntásc \'Tuairimí ag comhaltaí\'</string>
-  <string name="revanced_hide_comments_section_title">Folaigh roinn tuairimí</string>
-  <string name="revanced_hide_comments_section_summary_on">Tá an chuid tuairimí i bhfolach</string>
-  <string name="revanced_hide_comments_section_summary_off">Taispeántar an chuid tuairimí</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">Folaigh cnaipe \'Cruthaigh gearr\'</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">Tá cnaipe \'Cruthaigh gearr\' i bhfolach</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">Taispeántar cnaipe \'Cruthaigh gearr\'</string>
-  <string name="revanced_hide_comments_preview_comment_title">Folaigh trácht réamhamharc</string>
-  <string name="revanced_hide_comments_preview_comment_summary_on">Tá trácht réamhamhar i bhfolach</string>
-  <string name="revanced_hide_comments_preview_comment_summary_off">Taispeántar trácht réamhamharc</string>
-  <string name="revanced_hide_comments_thanks_button_title">Folaigh cnaipe buíochas</string>
-  <string name="revanced_hide_comments_thanks_button_summary_on">Tá cnaipe buíochas i bhfolach</string>
-  <string name="revanced_hide_comments_thanks_button_summary_off">Taispeántar cnaipe buíochas</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Folaigh cnaipí ama agus emoji</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Tá cnaipí ama agus emoji i bhfolach</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Taispeántar cnaipí ama agus emoji</string>
-  </patch>
-  <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
-  <string name="revanced_hide_crowdfunding_box_title">Folaigh bosca slua-mhaoiniú</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">Tá bosca crowdfunding i bhfolach</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">Taispeántar bosca slua-mhaoiniú</string>
+  <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
+  <string name="revanced_hide_player_previous_next_buttons_title">Folaigh &amp; cnaipí físeáin seo chugainn</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">Tá cnaipí i bhfolach</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">Taispeántar cnaipí</string>
+  <string name="revanced_hide_cast_button_title">Folaigh cnaipe teilgthe</string>
+  <string name="revanced_hide_cast_button_summary_on">Tá cnaipe teilgthe i bhfolach</string>
+  <string name="revanced_hide_cast_button_summary_off">Taispeántar cnaipe teilgthe</string>
+  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
+  <string name="revanced_hide_captions_button_title">Folaigh cnaipe fotheidil</string>
+  <string name="revanced_hide_captions_button_summary_on">Tá cnaipe fotheidil i bhfolach</string>
+  <string name="revanced_hide_captions_button_summary_off">Taispeántar cnaipe fotheidil</string>
+  <string name="revanced_hide_autoplay_button_title">Folaigh cnaipe autoplay</string>
+  <string name="revanced_hide_autoplay_button_summary_on">Tá cnaipe Autoplay i bhfolach</string>
+  <string name="revanced_hide_autoplay_button_summary_off">Taispeántar cnaipe Autoplay</string>
   </patch>
   <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Folaigh cártaí scáileáin deireadh</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Tá cártaí scáileáin deiridh i bhfolach</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Taispeántar cártaí scáileáin deireadh</string>
-  </patch>
-  <patch id="layout.hide.filterbar.HideFilterBarResourcePatch">
-  <string name="revanced_hide_filter_bar_screen_title">Barra scagaire</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Folaigh nó taispeáin an barra scagaire sna físeáin beatha, cuardaigh agus gaolmhara</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Folaigh i mbeatha</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">I bhfolach i mbeatha</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Taispeántar i mbeatha</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Folaigh i gcuardach</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">I bhfolach i gcuardach</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Taispeántar i gcuardach</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Folaigh i bhfíseáin gaolmhara</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">I bhfolach i bhfíseáin ghaolmhara</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Taispeántar i bhfíseáin ghaolmhara</string>
-  </patch>
-  <patch id="layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch">
-  <string name="revanced_hide_floating_microphone_button_title">Cnaipe micreafón ar snámh</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">Cnaipe micreafón folach</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">Taispeántar an cnaipe micreafón</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">Díchumasaigh modh comhthimpeallach sa scáile</string>
@@ -598,6 +582,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Taispeántar barra cuardaigh mionsamhail</string>
   </patch>
   <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
+  <string name="revanced_shorts_player_screen_title">Shorts seinnteoir</string>
+  <string name="revanced_shorts_player_screen_summary">Folaigh nó taispeáin comhpháirteanna san seinnteoir Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Folaigh Shorts i mbeatha baile</string>
   <string name="revanced_hide_shorts_home_summary_on">Tá shorts i mbeatha baile i bhfolach</string>
@@ -644,6 +630,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_green_screen_button_title">Folaigh an cnaipe scáileán glas</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Tá cnaipe an scáileáin glas i bhfolach</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Taispeántar cnaipe an scáileáin glas</string>
+  <string name="revanced_hide_shorts_hashtag_button_title">Folaigh an cnaipe hashtag</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_on">Tá cnaipe hashtag i bhfolach</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_off">Taispeántar an cnaipe hashtag</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Folaigh moltaí cuardaigh</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Tá moltaí cuardaigh i bhfolach</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Taispeántar moltaí cuardaigh</string>
@@ -965,17 +954,33 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.startpage.ChangeStartPagePatch">
   <string name="revanced_change_start_page_title">Socraigh leathanach tosaigh</string>
   <string name="revanced_change_start_page_entry_default">Réamhshocraithe</string>
+  <string name="revanced_change_start_page_entry_browse">Brabhsáil cainéil</string>
   <string name="revanced_change_start_page_entry_explore">Déan iniúchadh</string>
+  <string name="revanced_change_start_page_entry_gaming">Cluichíocht</string>
   <string name="revanced_change_start_page_entry_history">Stair</string>
+  <string name="revanced_change_start_page_entry_library">Leabharlann</string>
   <string name="revanced_change_start_page_entry_liked_videos">Físeáin a thaitin</string>
+  <string name="revanced_change_start_page_entry_live">Beo</string>
+  <string name="revanced_change_start_page_entry_movies">Scannáin</string>
+  <string name="revanced_change_start_page_entry_music">Ceol</string>
   <string name="revanced_change_start_page_entry_search">Cuardaigh</string>
+  <string name="revanced_change_start_page_entry_sports">Spóirt</string>
   <string name="revanced_change_start_page_entry_subscriptions">Síntiúis</string>
   <string name="revanced_change_start_page_entry_trending">Ag treocht</string>
+  <string name="revanced_change_start_page_entry_watch_later">Féach ar níos déanaí</string>
   </patch>
   <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Díchumasaigh an t-imreoir Shorts atá ag tosú arís</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Ní thosóidh an t-imreoir shorts ar thosú an aip</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Athosóidh an t-imreoir Shorts ar thosú an aip</string>
+  </patch>
+  <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
+  <string name="revanced_shorts_autoplay_title">Shorts Autoplay</string>
+  <string name="revanced_shorts_autoplay_summary_on">Seinnfidh Shorts go huathoibríoch</string>
+  <string name="revanced_shorts_autoplay_summary_off">Déanfaidh shorts arís</string>
+  <string name="revanced_shorts_autoplay_background_title">Cluiche Cúlra Shorts Autoplay</string>
+  <string name="revanced_shorts_autoplay_background_summary_on">Déanfar súgradh cúlra Shorts go huathoibríoch</string>
+  <string name="revanced_shorts_autoplay_background_summary_off">Athdhéanfar súgradh cúlra Shorts</string>
   </patch>
   <patch id="layout.tablet.EnableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Cumasaigh leagan amach na táibléad</string>
@@ -993,7 +998,20 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_entry_4">Nua-aimseartha 1</string>
   <string name="revanced_miniplayer_type_entry_5">Nua-Aimseartha 2</string>
   <string name="revanced_miniplayer_type_entry_6">Nua-aimseartha 3</string>
+  <string name="revanced_miniplayer_rounded_corners_title">Cumasaigh coirnéil chothromú</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_on">Déantar coirnéil a shlánú</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_off">Tá coirnéil cearnach</string>
+  <string name="revanced_miniplayer_double_tap_action_title">Cumasaigh sconna dúbailte agus pinch chun méid a athrú</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">Tá gníomh tapáil faoi dhó agus pinch chun méid a athrú cumasaithe\n\n• Tapáil faoi dhó chun méid mion-imreora a mhéadú\n• Tapáil faoi dhó arís chun an bunmhéid a aischur</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_off">Díchumasaíodh gníomh tapáil faoi dhó agus pinch chun méid a athrú</string>
+  <string name="revanced_miniplayer_drag_and_drop_title">Cumasaigh tarraing agus scaoil</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">Cumasaítear tarraing agus scaoil\n\nIs féidir mion-imreoir a tharraingt go cúinne ar bith den scáileán</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_off">Tá tarraing agus scaoil díchumasaithe</string>
+  <string name="revanced_miniplayer_hide_expand_close_title">Folaigh cnaipe dúnta</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">Tá an cnaipe dúnta i bhfolach</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">Taispeántar an cnaipe dúnta</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_title">Folaigh cnaipí leathnú agus dún</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Tá cnaipí i bhfolach\n\nSwipe chun leathnú nó dúnadh</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Taispeántar cnaipí leathnaigh agus dún</string>
   <string name="revanced_miniplayer_hide_subtext_title">Folaigh fothéacsanna</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Tá fothéacsanna i bhfolach</string>
@@ -1001,6 +1019,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_hide_rewind_forward_title">Folaigh cnaipí scipeáil ar aghaidh agus ar ais</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Tá scipeanna ar aghaidh agus ar ais i bhfolach</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Taispeántar scipeáil ar aghaidh agus ar ais</string>
+  <string name="revanced_miniplayer_width_dip_title">Méid tosaigh</string>
+  <string name="revanced_miniplayer_width_dip_summary">Tosaigh ar mhéid an scáileáin, i bpicteilíní</string>
+  <string name="revanced_miniplayer_width_dip_invalid_toast">Caithfidh méid picteilíní a bheith idir %1$s agus %2$s</string>
   <string name="revanced_miniplayer_opacity_title">Trédhearcacht forleagan</string>
   <string name="revanced_miniplayer_opacity_summary">Luach trédhearcachta idir 0-100, áit a bhfuil 0 trédhearcach</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Caithfidh trédhearcacht forleagtha mionaimreora a bheith idir 0-100</string>
@@ -1016,6 +1037,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_summary_off">Taispeántar dath barr cuardaigh bunaidh</string>
   <string name="revanced_seekbar_custom_color_value_title">Dath barra cuardaigh saincheaptha</string>
   <string name="revanced_seekbar_custom_color_value_summary">Dath an bharra cuardaigh</string>
+  <string name="revanced_seekbar_custom_color_invalid">Luach datha barra cuardaigh neamhbhailí</string>
   </patch>
   <patch id="layout.thumbnails.BypassImageRegionRestrictions">
   <string name="revanced_bypass_image_region_restrictions_title">Seachbhóthar srianta réigiún íomhá</string>

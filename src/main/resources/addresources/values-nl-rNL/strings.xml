@@ -107,6 +107,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">Uitschakelen like- / abonneer-knop gloed</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">De knop \'like\' en \'abonneren\' zal niet gloeien wanneer deze genoemd wordt</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">\'Like en abonneren\' knop zal gloeien wanneer genoemd</string>
+  <string name="revanced_hide_album_cards_title">Verberg albumkaarten</string>
+  <string name="revanced_hide_album_cards_summary_on">Albumkaarten zijn verborgen</string>
+  <string name="revanced_hide_album_cards_summary_off">Albumkaarten worden weergegeven</string>
+  <string name="revanced_hide_crowdfunding_box_title">Crowdfunding box verbergen</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">Crowdfunding box is verborgen</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">Crowdfunding box wordt getoond</string>
+  <string name="revanced_hide_floating_microphone_button_title">Zwevende microfoon knop verbergen</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">Microfoon knop verborgen</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">Microfoon knop weergegeven</string>
   <string name="revanced_hide_gray_separator_title">Grijze scheidingsbalken verbergen</string>
   <string name="revanced_hide_gray_separator_summary_on">Grijze scheidingsbalken zijn verborgen</string>
   <string name="revanced_hide_gray_separator_summary_off">Grijze scheidingsbalken worden weergegeven</string>
@@ -231,6 +240,37 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">Transcriptsectie wordt weergegeven</string>
   <string name="revanced_hide_description_components_screen_title">Video beschrijving</string>
   <string name="revanced_hide_description_components_screen_summary">Verberg of toon video beschrijving componenten</string>
+  <string name="revanced_hide_filter_bar_screen_title">Filter balk</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Verberg of toon de filterbalk in de feed, zoeken, en gerelateerde video\'s</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Verberg in feed</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Verborgen in feed</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Zichtbaar in feed</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Verbergen in zoekopdracht</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Verborgen in zoekopdracht</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Weergegeven in zoekopdracht</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Verbergen in gerelateerde video\'s</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Verborgen in gerelateerde video\'s</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Weergegeven in gerelateerde video\'s</string>
+  <string name="revanced_comments_screen_title">Opmerkingen</string>
+  <string name="revanced_comments_screen_summary">Opmerkingen sectie onderdelen verbergen of weergeven</string>
+  <string name="revanced_hide_comments_by_members_header_title">Verberg de titel \'Opmerkingen van leden\'</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">De header \'Reacties door leden\' is verborgen</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">De header \'Reacties door leden\' wordt getoond</string>
+  <string name="revanced_hide_comments_section_title">Reacties sectie verbergen</string>
+  <string name="revanced_hide_comments_section_summary_on">Reacties sectie is verborgen</string>
+  <string name="revanced_hide_comments_section_summary_off">Reacties sectie wordt weergegeven</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">\'Maak een kort\' knop verbergen</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">\'Maak een kort\' knop is verborgen</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">De \'Maak een korting\' knop wordt weergegeven</string>
+  <string name="revanced_hide_comments_preview_comment_title">Verberg commentaar op voorbeeld</string>
+  <string name="revanced_hide_comments_preview_comment_summary_on">Voorbeeldcommentaar is verborgen</string>
+  <string name="revanced_hide_comments_preview_comment_summary_off">Voorbeeld commentaar wordt weergegeven</string>
+  <string name="revanced_hide_comments_thanks_button_title">Knop voor dank(en) verbergen</string>
+  <string name="revanced_hide_comments_thanks_button_summary_on">Bedankt knop is verborgen</string>
+  <string name="revanced_hide_comments_thanks_button_summary_off">Bedankt knop wordt weergegeven</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Verberg tijdstempel en emoji-knoppen</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Tijdstempel en emoji knoppen zijn verborgen</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Tijdstempel en emoji-knoppen worden getoond</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Youtube Doodles verbergen</string>
   <string name="revanced_hide_doodles_summary_on">Zoekbalk Doodsen zijn verborgen</string>
@@ -427,22 +467,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playlist_button_summary_on">Opslaan naar afspeellijst knop is verborgen</string>
   <string name="revanced_hide_playlist_button_summary_off">Opslaan naar afspeellijst knop wordt weergegeven</string>
   </patch>
-  <patch id="layout.buttons.autoplay.HideAutoplayButtonPatch">
-  <string name="revanced_hide_autoplay_button_title">Knop voor automatisch afspelen verbergen</string>
-  <string name="revanced_hide_autoplay_button_summary_on">Automatisch afspelen knop is verborgen</string>
-  <string name="revanced_hide_autoplay_button_summary_off">Automatisch afspelen knop wordt weergegeven</string>
-  </patch>
-  <patch id="layout.buttons.captions.HideCaptionsButtonPatch">
-  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">Knop voor onderschriften verbergen</string>
-  <string name="revanced_hide_captions_button_summary_on">Knop voor bijschriften is verborgen</string>
-  <string name="revanced_hide_captions_button_summary_off">Knop voor bijschriften wordt weergegeven</string>
-  </patch>
-  <patch id="layout.buttons.cast.HideCastButtonPatch">
-  <string name="revanced_hide_cast_button_title">Verberg cast knop</string>
-  <string name="revanced_hide_cast_button_summary_on">Cast knop is verborgen</string>
-  <string name="revanced_hide_cast_button_summary_off">Cast knop wordt weergegeven</string>
-  </patch>
   <patch id="layout.buttons.navigation.NavigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Navigation buttons</string>
   <string name="revanced_navigation_buttons_screen_summary">Verberg of wijzig knoppen in de navigatiebalk</string>
@@ -515,65 +539,25 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Bekijk in het VR-menu is verborgen</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Bekijk in het VR-menu</string>
   </patch>
-  <patch id="layout.buttons.player.hide.HidePlayerButtonsPatch">
-  <string name="revanced_hide_player_buttons_title">Vorige &amp; volgende video knoppen verbergen</string>
-  <string name="revanced_hide_player_buttons_summary_on">Knoppen zijn verborgen</string>
-  <string name="revanced_hide_player_buttons_summary_off">Knoppen worden weergegeven</string>
-  </patch>
-  <patch id="layout.hide.albumcards.AlbumCardsResourcePatch">
-  <string name="revanced_hide_album_cards_title">Verberg albumkaarten</string>
-  <string name="revanced_hide_album_cards_summary_on">Albumkaarten zijn verborgen</string>
-  <string name="revanced_hide_album_cards_summary_off">Albumkaarten worden weergegeven</string>
-  </patch>
-  <patch id="layout.hide.comments.CommentsPatch">
-  <string name="revanced_comments_screen_title">Opmerkingen</string>
-  <string name="revanced_comments_screen_summary">Opmerkingen sectie onderdelen verbergen of weergeven</string>
-  <string name="revanced_hide_comments_by_members_header_title">Verberg de titel \'Opmerkingen van leden\'</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">De header \'Reacties door leden\' is verborgen</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">De header \'Reacties door leden\' wordt getoond</string>
-  <string name="revanced_hide_comments_section_title">Reacties sectie verbergen</string>
-  <string name="revanced_hide_comments_section_summary_on">Reacties sectie is verborgen</string>
-  <string name="revanced_hide_comments_section_summary_off">Reacties sectie wordt weergegeven</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">\'Maak een kort\' knop verbergen</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">\'Maak een kort\' knop is verborgen</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">De \'Maak een korting\' knop wordt weergegeven</string>
-  <string name="revanced_hide_comments_preview_comment_title">Verberg commentaar op voorbeeld</string>
-  <string name="revanced_hide_comments_preview_comment_summary_on">Voorbeeldcommentaar is verborgen</string>
-  <string name="revanced_hide_comments_preview_comment_summary_off">Voorbeeld commentaar wordt weergegeven</string>
-  <string name="revanced_hide_comments_thanks_button_title">Knop voor dank(en) verbergen</string>
-  <string name="revanced_hide_comments_thanks_button_summary_on">Bedankt knop is verborgen</string>
-  <string name="revanced_hide_comments_thanks_button_summary_off">Bedankt knop wordt weergegeven</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Verberg tijdstempel en emoji-knoppen</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Tijdstempel en emoji knoppen zijn verborgen</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Tijdstempel en emoji-knoppen worden getoond</string>
-  </patch>
-  <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
-  <string name="revanced_hide_crowdfunding_box_title">Crowdfunding box verbergen</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">Crowdfunding box is verborgen</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">Crowdfunding box wordt getoond</string>
+  <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
+  <string name="revanced_hide_player_previous_next_buttons_title">Vorige &amp; volgende video knoppen verbergen</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">Knoppen zijn verborgen</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">Knoppen worden weergegeven</string>
+  <string name="revanced_hide_cast_button_title">Verberg cast knop</string>
+  <string name="revanced_hide_cast_button_summary_on">Cast knop is verborgen</string>
+  <string name="revanced_hide_cast_button_summary_off">Cast knop wordt weergegeven</string>
+  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
+  <string name="revanced_hide_captions_button_title">Knop voor onderschriften verbergen</string>
+  <string name="revanced_hide_captions_button_summary_on">Knop voor bijschriften is verborgen</string>
+  <string name="revanced_hide_captions_button_summary_off">Knop voor bijschriften wordt weergegeven</string>
+  <string name="revanced_hide_autoplay_button_title">Knop voor automatisch afspelen verbergen</string>
+  <string name="revanced_hide_autoplay_button_summary_on">Automatisch afspelen knop is verborgen</string>
+  <string name="revanced_hide_autoplay_button_summary_off">Automatisch afspelen knop wordt weergegeven</string>
   </patch>
   <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Verberg eindschermkaarten</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Eindscherm kaarten zijn verborgen</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Eindschermkaarten worden weergegeven</string>
-  </patch>
-  <patch id="layout.hide.filterbar.HideFilterBarResourcePatch">
-  <string name="revanced_hide_filter_bar_screen_title">Filter balk</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Verberg of toon de filterbalk in de feed, zoeken, en gerelateerde video\'s</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Verberg in feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Verborgen in feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Zichtbaar in feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Verbergen in zoekopdracht</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Verborgen in zoekopdracht</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Weergegeven in zoekopdracht</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Verbergen in gerelateerde video\'s</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Verborgen in gerelateerde video\'s</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Weergegeven in gerelateerde video\'s</string>
-  </patch>
-  <patch id="layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch">
-  <string name="revanced_hide_floating_microphone_button_title">Zwevende microfoon knop verbergen</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">Microfoon knop verborgen</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">Microfoon knop weergegeven</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">Schakel omgevingsmodus uit in volledig scherm</string>
@@ -988,6 +972,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_resuming_shorts_player_title">Schakel het hervatten van Shorts-speler uit</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts-speler wordt niet hervat bij het opstarten van de app</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts-speler wordt hervat bij het opstarten van de app</string>
+  </patch>
+  <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
   </patch>
   <patch id="layout.tablet.EnableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Tablet lay-out inschakelen</string>

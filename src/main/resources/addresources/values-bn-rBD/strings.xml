@@ -105,6 +105,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">পছন্দ / সদস্যতা বোতামের উজ্জ্বলতা নিষ্ক্রিয় করুন</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">পছন্দ এবং সদস্যতা বোতাম যখন উল্লেখ করা হবে উজ্জ্বলতা দিবে না</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">পছন্দ এবং সদস্যতা বোতাম যখন উল্লেখ করা হবে উজ্জ্বলতা দিবে</string>
+  <string name="revanced_hide_album_cards_title">অ্যালবাম কার্ড লুকান</string>
+  <string name="revanced_hide_album_cards_summary_on">অ্যালবাম কার্ড লুকিয়ে রয়েছে</string>
+  <string name="revanced_hide_album_cards_summary_off">অ্যালবাম কার্ড প্রদর্শিত হয়েছে</string>
+  <string name="revanced_hide_crowdfunding_box_title">গণ-অর্থায়ন বাক্স লুকান</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">গণ-অর্থায়ন বাক্স লুকিয়ে রয়েছে</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">গণ-অর্থায়ন বাক্স প্রদর্শিত হয়েছে</string>
+  <string name="revanced_hide_floating_microphone_button_title">ভাসমান মাইক্রোফোন বোতাম লুকান</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">মাইক্রোফোন বোতাম লুকিয়ে রয়েছে</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">মাইক্রোফোন বোতাম প্রদর্শিত হয়েছে</string>
   <string name="revanced_hide_gray_separator_title">ধূসর বিভাজক লুকান</string>
   <string name="revanced_hide_gray_separator_summary_on">ধূসর বিভাজক লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_gray_separator_summary_off">ধূসর বিভাজক প্রদর্শিত হয়েছে</string>
@@ -222,6 +231,37 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">ট্রান্সস্ক্রিপ্ট বিভাগ প্রদর্শিত হয়েছে</string>
   <string name="revanced_hide_description_components_screen_title">ভিডিওর বিবরণ</string>
   <string name="revanced_hide_description_components_screen_summary">ভিডিও বিবরণ এর উপাদান লুকান বা প্রদর্শন করুন</string>
+  <string name="revanced_hide_filter_bar_screen_title">ফিল্টার বার</string>
+  <string name="revanced_hide_filter_bar_screen_summary">ফিড, অনুসন্ধান এবং সম্পর্কিত ভিডিওতে ফিল্টার বার লুকান বা প্রদর্শন করুন</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">ফিডে লুকান</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">ফিডে লুকিয়ে রয়েছে</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">ফিডে প্রদর্শিত হয়েছে</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">অনুসন্ধানে লুকান</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">অনুসন্ধানে লুকিয়ে রয়েছে</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">অনুসন্ধানে প্রদর্শিত হয়েছে</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">সম্পর্কিত ভিডিওতে লুকান</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">সম্পর্কিত ভিডিওতে লুকিয়ে রয়েছে</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">সম্পর্কিত ভিডিওতে প্রদর্শিত হয়েছে</string>
+  <string name="revanced_comments_screen_title">মন্তব্য</string>
+  <string name="revanced_comments_screen_summary">মন্তব্য বিভাগের উপাদানগুলি লুকান বা দেখান৷</string>
+  <string name="revanced_hide_comments_by_members_header_title">\'মেম্বারদের মন্তব্য\' হেডার লুকান</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">\'মেম্বারদের মন্তব্য\' হেডার লুকিয়ে রয়েছে</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">\'মেম্বারদের মন্তব্য\' হেডার প্রদর্শিত হয়েছে</string>
+  <string name="revanced_hide_comments_section_title">মন্তব্য বিভাগ লুকান</string>
+  <string name="revanced_hide_comments_section_summary_on">মন্তব্য বিভাগ লুকিয়ে রয়েছে</string>
+  <string name="revanced_hide_comments_section_summary_off">মন্তব্য বিভাগ প্রদর্শিত হয়েছে</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">\'Short তৈরি করুন\' বোতাম লুকান</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">\'Short তৈরি করুন\' বোতাম লুকিয়ে রয়েছে</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">\'Short তৈরি করুন\' বোতাম প্রদর্শিত হয়েছে</string>
+  <string name="revanced_hide_comments_preview_comment_title">মন্তব্যের পূর্বরূপ লুকান</string>
+  <string name="revanced_hide_comments_preview_comment_summary_on">মন্তব্যের পূর্বরূপ লুকিয়ে রয়েছে</string>
+  <string name="revanced_hide_comments_preview_comment_summary_off">মন্তব্যের পূর্বরূপ প্রদর্শিত হয়েছে</string>
+  <string name="revanced_hide_comments_thanks_button_title">ধন্যবাদ বোতাম লুকান</string>
+  <string name="revanced_hide_comments_thanks_button_summary_on">ধন্যবাদ বোতাম লুকিয়ে রয়েছে</string>
+  <string name="revanced_hide_comments_thanks_button_summary_off">ধন্যবাদ বোতাম প্রদর্শিত হয়েছে</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">টাইমস্ট্যাম্প ও ইমোজি বোতাম লুকান</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">টাইমস্ট্যাম্প ও ইমোজি বোতাম লুকিয়ে রয়েছে</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">টাইমস্ট্যাম্প ও ইমোজি বোতাম প্রদর্শিত হয়েছে</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_custom_filter_screen_title">কাস্টম ফিল্টার</string>
   <string name="revanced_custom_filter_screen_summary">কাস্টম ফিল্টার ব্যবহার করে বিভিন্ন উপাদান লুকান</string>
@@ -382,16 +422,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_clip_button_summary_off">ক্লিপ বোতাম প্রদর্শিত হয়েছে</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   </patch>
-  <patch id="layout.buttons.autoplay.HideAutoplayButtonPatch">
-  </patch>
-  <patch id="layout.buttons.captions.HideCaptionsButtonPatch">
-  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  </patch>
-  <patch id="layout.buttons.cast.HideCastButtonPatch">
-  <string name="revanced_hide_cast_button_title">কাস্ট বাটন লুকান</string>
-  <string name="revanced_hide_cast_button_summary_on">কাস্ট বাটন লুকিয়ে রয়েছে</string>
-  <string name="revanced_hide_cast_button_summary_off">কাস্ট বাটন প্রদর্শিত হয়েছে</string>
-  </patch>
   <patch id="layout.buttons.navigation.NavigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">নেভিগেশন বোতাম</string>
   <string name="revanced_navigation_buttons_screen_summary">নেভিগেশন বারে বোতাম লুকান বা পরিবর্তন করুন</string>
@@ -464,65 +494,19 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">ভিআর মেনুতে দেখুন লুকানো আছে</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">ভিআর মেনুতে দেখুন দেখানো হয়েছে</string>
   </patch>
-  <patch id="layout.buttons.player.hide.HidePlayerButtonsPatch">
-  <string name="revanced_hide_player_buttons_title">পূর্ববর্তী লুকান &amp; পরবর্তী ভিডিও বোতাম</string>
-  <string name="revanced_hide_player_buttons_summary_on">বোতাম লুকানো হয়</string>
-  <string name="revanced_hide_player_buttons_summary_off">বোতাম দেখানো হয়</string>
-  </patch>
-  <patch id="layout.hide.albumcards.AlbumCardsResourcePatch">
-  <string name="revanced_hide_album_cards_title">অ্যালবাম কার্ড লুকান</string>
-  <string name="revanced_hide_album_cards_summary_on">অ্যালবাম কার্ড লুকিয়ে রয়েছে</string>
-  <string name="revanced_hide_album_cards_summary_off">অ্যালবাম কার্ড প্রদর্শিত হয়েছে</string>
-  </patch>
-  <patch id="layout.hide.comments.CommentsPatch">
-  <string name="revanced_comments_screen_title">মন্তব্য</string>
-  <string name="revanced_comments_screen_summary">মন্তব্য বিভাগের উপাদানগুলি লুকান বা দেখান৷</string>
-  <string name="revanced_hide_comments_by_members_header_title">\'মেম্বারদের মন্তব্য\' হেডার লুকান</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">\'মেম্বারদের মন্তব্য\' হেডার লুকিয়ে রয়েছে</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">\'মেম্বারদের মন্তব্য\' হেডার প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_comments_section_title">মন্তব্য বিভাগ লুকান</string>
-  <string name="revanced_hide_comments_section_summary_on">মন্তব্য বিভাগ লুকিয়ে রয়েছে</string>
-  <string name="revanced_hide_comments_section_summary_off">মন্তব্য বিভাগ প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">\'Short তৈরি করুন\' বোতাম লুকান</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">\'Short তৈরি করুন\' বোতাম লুকিয়ে রয়েছে</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">\'Short তৈরি করুন\' বোতাম প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_comments_preview_comment_title">মন্তব্যের পূর্বরূপ লুকান</string>
-  <string name="revanced_hide_comments_preview_comment_summary_on">মন্তব্যের পূর্বরূপ লুকিয়ে রয়েছে</string>
-  <string name="revanced_hide_comments_preview_comment_summary_off">মন্তব্যের পূর্বরূপ প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_comments_thanks_button_title">ধন্যবাদ বোতাম লুকান</string>
-  <string name="revanced_hide_comments_thanks_button_summary_on">ধন্যবাদ বোতাম লুকিয়ে রয়েছে</string>
-  <string name="revanced_hide_comments_thanks_button_summary_off">ধন্যবাদ বোতাম প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">টাইমস্ট্যাম্প ও ইমোজি বোতাম লুকান</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">টাইমস্ট্যাম্প ও ইমোজি বোতাম লুকিয়ে রয়েছে</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">টাইমস্ট্যাম্প ও ইমোজি বোতাম প্রদর্শিত হয়েছে</string>
-  </patch>
-  <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
-  <string name="revanced_hide_crowdfunding_box_title">গণ-অর্থায়ন বাক্স লুকান</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">গণ-অর্থায়ন বাক্স লুকিয়ে রয়েছে</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">গণ-অর্থায়ন বাক্স প্রদর্শিত হয়েছে</string>
+  <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
+  <string name="revanced_hide_player_previous_next_buttons_title">পূর্ববর্তী লুকান &amp; পরবর্তী ভিডিও বোতাম</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">বোতাম লুকানো হয়</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">বোতাম দেখানো হয়</string>
+  <string name="revanced_hide_cast_button_title">কাস্ট বাটন লুকান</string>
+  <string name="revanced_hide_cast_button_summary_on">কাস্ট বাটন লুকিয়ে রয়েছে</string>
+  <string name="revanced_hide_cast_button_summary_off">কাস্ট বাটন প্রদর্শিত হয়েছে</string>
+  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
   </patch>
   <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">শেষ স্ক্রীন কার্ড লুকান</string>
   <string name="revanced_hide_endscreen_cards_summary_on">শেষ স্ক্রীন কার্ড লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_endscreen_cards_summary_off">শেষ স্ক্রীন কার্ড প্রদর্শিত হয়েছে</string>
-  </patch>
-  <patch id="layout.hide.filterbar.HideFilterBarResourcePatch">
-  <string name="revanced_hide_filter_bar_screen_title">ফিল্টার বার</string>
-  <string name="revanced_hide_filter_bar_screen_summary">ফিড, অনুসন্ধান এবং সম্পর্কিত ভিডিওতে ফিল্টার বার লুকান বা প্রদর্শন করুন</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">ফিডে লুকান</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">ফিডে লুকিয়ে রয়েছে</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">ফিডে প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">অনুসন্ধানে লুকান</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">অনুসন্ধানে লুকিয়ে রয়েছে</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">অনুসন্ধানে প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">সম্পর্কিত ভিডিওতে লুকান</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">সম্পর্কিত ভিডিওতে লুকিয়ে রয়েছে</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">সম্পর্কিত ভিডিওতে প্রদর্শিত হয়েছে</string>
-  </patch>
-  <patch id="layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch">
-  <string name="revanced_hide_floating_microphone_button_title">ভাসমান মাইক্রোফোন বোতাম লুকান</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">মাইক্রোফোন বোতাম লুকিয়ে রয়েছে</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">মাইক্রোফোন বোতাম প্রদর্শিত হয়েছে</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">পূর্ণ স্ক্রীনে অ্যাম্বিয়েন্ট মোড নিষ্ক্রিয় করুন</string>
@@ -912,6 +896,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_resuming_shorts_player_title">Shorts প্লেয়ার আবার চালানো নিষ্ক্রিয় করুন</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">অ্যাপের শুরুতে Shorts প্লেয়ার আবার চলবে না</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">অ্যাপের শুরুতে Shorts প্লেয়ার আবার চলবে</string>
+  </patch>
+  <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
   </patch>
   <patch id="layout.tablet.EnableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">ট্যাবলেট লেআউট সক্রিয় করুন</string>

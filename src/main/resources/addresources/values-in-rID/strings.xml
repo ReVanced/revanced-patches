@@ -106,6 +106,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">Nonaktifkan kilau tombol suka / langganan</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Tombol suka dan langganan tidak akan berkilau saat ditekan</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Tombol suka dan langganan akan berkilau saat ditekan</string>
+  <string name="revanced_hide_album_cards_title">Sembunyikan kartu album</string>
+  <string name="revanced_hide_album_cards_summary_on">Kartu album disembunyikan</string>
+  <string name="revanced_hide_album_cards_summary_off">Kartu album ditampilkan</string>
+  <string name="revanced_hide_crowdfunding_box_title">Sembunyikan kotak penggalangan dana</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">Kotak penggalangan dana disembunyikan</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">Kotak penggalangan dana ditampilkan</string>
+  <string name="revanced_hide_floating_microphone_button_title">Sembunyikan tombol mikrofon mengambang</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">Tombol mikrofon disembunyikan</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">Tombol mikrofon ditampilkan</string>
   <string name="revanced_hide_gray_separator_title">Sembunyikan pemisah abu-abu</string>
   <string name="revanced_hide_gray_separator_summary_on">Pemisah abu-abu disembunyikan</string>
   <string name="revanced_hide_gray_separator_summary_off">Pemisah abu-abu ditampilkan</string>
@@ -230,6 +239,37 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">Bagian transkrip sudah ditampilkan</string>
   <string name="revanced_hide_description_components_screen_title">Keterangan video</string>
   <string name="revanced_hide_description_components_screen_summary">Sembunyi/tampilkan komponen keterangan video</string>
+  <string name="revanced_hide_filter_bar_screen_title">Bilah saring</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Sembunyikan atau tampilkan bilah filter di feed, pencarian, dan video terkait</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Sembunyikan di feed</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Sembunyikan di feed</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Tampilkan di feed</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Sembunyikan di pencarian</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Disembunyikan di pencarian</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Ditampilkan di pencarian</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Sembunyikan di video terkait</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Disembunyikan di video terkait</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Ditampilkan di video terkait</string>
+  <string name="revanced_comments_screen_title">Komentar</string>
+  <string name="revanced_comments_screen_summary">Sembunyikan atau tampilkan komponen bagian komentar</string>
+  <string name="revanced_hide_comments_by_members_header_title">Sembunyikan Header \'Komentar oleh anggota\'</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">Header \'Komentar oleh anggota\' disembunyikan</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">Header \'Komentar oleh anggota\' disembunyikan</string>
+  <string name="revanced_hide_comments_section_title">Sembunyikan bagian komentar</string>
+  <string name="revanced_hide_comments_section_summary_on">Bagian komentar disembunyikan</string>
+  <string name="revanced_hide_comments_section_summary_off">Bagian komentar ditampilkan</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">Sembunyikan tombol \"Buat Short\"</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">Tombol \'Buat Short\' disembunyikan</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">Tombol \'Buat Short\' ditampilkan</string>
+  <string name="revanced_hide_comments_preview_comment_title">Sembunyikan komentar pratinjau</string>
+  <string name="revanced_hide_comments_preview_comment_summary_on">Komentar pratinjau disembunyikan</string>
+  <string name="revanced_hide_comments_preview_comment_summary_off">Komentar pratinjau ditampilkan</string>
+  <string name="revanced_hide_comments_thanks_button_title">Sembunyikan \'terima kasih\'</string>
+  <string name="revanced_hide_comments_thanks_button_summary_on">Tombol terima kasih disembunyikan</string>
+  <string name="revanced_hide_comments_thanks_button_summary_off">Tombol terima kasih ditampilkan</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Sembunyikan timestamp dan tombol emoji</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Tombol timestamp dan emoji disembunyikan</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Tombol timestamp dan emoji ditampilkan</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Sembunyikan YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Bilah pencarian Doodle disembunyikan</string>
@@ -426,22 +466,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playlist_button_summary_on">Tombol Simpan ke daftar putar disembunyikan</string>
   <string name="revanced_hide_playlist_button_summary_off">Tombol Simpan ke daftar putar ditampilkan</string>
   </patch>
-  <patch id="layout.buttons.autoplay.HideAutoplayButtonPatch">
-  <string name="revanced_hide_autoplay_button_title">Sembunyikan tombol putar otomatis</string>
-  <string name="revanced_hide_autoplay_button_summary_on">Tombol putar otomatis disembunyikan</string>
-  <string name="revanced_hide_autoplay_button_summary_off">Tombol putar otomatis ditampilkan</string>
-  </patch>
-  <patch id="layout.buttons.captions.HideCaptionsButtonPatch">
-  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">Sembunyikan tombol teks</string>
-  <string name="revanced_hide_captions_button_summary_on">Tombol teks disembunyikan</string>
-  <string name="revanced_hide_captions_button_summary_off">Tombol teks ditampilkan</string>
-  </patch>
-  <patch id="layout.buttons.cast.HideCastButtonPatch">
-  <string name="revanced_hide_cast_button_title">Sembunyikan tombol transmisi</string>
-  <string name="revanced_hide_cast_button_summary_on">Tombol membagikan layar disembunyikan</string>
-  <string name="revanced_hide_cast_button_summary_off">Tombol membagikan layar ditampilkan</string>
-  </patch>
   <patch id="layout.buttons.navigation.NavigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Tombol navigasi</string>
   <string name="revanced_navigation_buttons_screen_summary">Sembunyikan atau ganti tombol di bilah navigasi</string>
@@ -514,65 +538,25 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menu tonton di VR disembunyikan</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Menu tonton di VR ditampilkan</string>
   </patch>
-  <patch id="layout.buttons.player.hide.HidePlayerButtonsPatch">
-  <string name="revanced_hide_player_buttons_title">Sembunyikan tombol sebelumnya &amp; berikutnya</string>
-  <string name="revanced_hide_player_buttons_summary_on">Tombol disembunyikan</string>
-  <string name="revanced_hide_player_buttons_summary_off">Tombol ditampilkan</string>
-  </patch>
-  <patch id="layout.hide.albumcards.AlbumCardsResourcePatch">
-  <string name="revanced_hide_album_cards_title">Sembunyikan kartu album</string>
-  <string name="revanced_hide_album_cards_summary_on">Kartu album disembunyikan</string>
-  <string name="revanced_hide_album_cards_summary_off">Kartu album ditampilkan</string>
-  </patch>
-  <patch id="layout.hide.comments.CommentsPatch">
-  <string name="revanced_comments_screen_title">Komentar</string>
-  <string name="revanced_comments_screen_summary">Sembunyikan atau tampilkan komponen bagian komentar</string>
-  <string name="revanced_hide_comments_by_members_header_title">Sembunyikan Header \'Komentar oleh anggota\'</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">Header \'Komentar oleh anggota\' disembunyikan</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">Header \'Komentar oleh anggota\' disembunyikan</string>
-  <string name="revanced_hide_comments_section_title">Sembunyikan bagian komentar</string>
-  <string name="revanced_hide_comments_section_summary_on">Bagian komentar disembunyikan</string>
-  <string name="revanced_hide_comments_section_summary_off">Bagian komentar ditampilkan</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">Sembunyikan tombol \"Buat Short\"</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">Tombol \'Buat Short\' disembunyikan</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">Tombol \'Buat Short\' ditampilkan</string>
-  <string name="revanced_hide_comments_preview_comment_title">Sembunyikan komentar pratinjau</string>
-  <string name="revanced_hide_comments_preview_comment_summary_on">Komentar pratinjau disembunyikan</string>
-  <string name="revanced_hide_comments_preview_comment_summary_off">Komentar pratinjau ditampilkan</string>
-  <string name="revanced_hide_comments_thanks_button_title">Sembunyikan \'terima kasih\'</string>
-  <string name="revanced_hide_comments_thanks_button_summary_on">Tombol terima kasih disembunyikan</string>
-  <string name="revanced_hide_comments_thanks_button_summary_off">Tombol terima kasih ditampilkan</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Sembunyikan timestamp dan tombol emoji</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Tombol timestamp dan emoji disembunyikan</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Tombol timestamp dan emoji ditampilkan</string>
-  </patch>
-  <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
-  <string name="revanced_hide_crowdfunding_box_title">Sembunyikan kotak penggalangan dana</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">Kotak penggalangan dana disembunyikan</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">Kotak penggalangan dana ditampilkan</string>
+  <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
+  <string name="revanced_hide_player_previous_next_buttons_title">Sembunyikan tombol sebelumnya &amp; berikutnya</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">Tombol disembunyikan</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">Tombol ditampilkan</string>
+  <string name="revanced_hide_cast_button_title">Sembunyikan tombol transmisi</string>
+  <string name="revanced_hide_cast_button_summary_on">Tombol membagikan layar disembunyikan</string>
+  <string name="revanced_hide_cast_button_summary_off">Tombol membagikan layar ditampilkan</string>
+  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
+  <string name="revanced_hide_captions_button_title">Sembunyikan tombol teks</string>
+  <string name="revanced_hide_captions_button_summary_on">Tombol teks disembunyikan</string>
+  <string name="revanced_hide_captions_button_summary_off">Tombol teks ditampilkan</string>
+  <string name="revanced_hide_autoplay_button_title">Sembunyikan tombol putar otomatis</string>
+  <string name="revanced_hide_autoplay_button_summary_on">Tombol putar otomatis disembunyikan</string>
+  <string name="revanced_hide_autoplay_button_summary_off">Tombol putar otomatis ditampilkan</string>
   </patch>
   <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Sembunyikan kartu layar akhir</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Kartu layar akhir disembunyikan</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Kartu layar akhir ditampilkan</string>
-  </patch>
-  <patch id="layout.hide.filterbar.HideFilterBarResourcePatch">
-  <string name="revanced_hide_filter_bar_screen_title">Bilah saring</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Sembunyikan atau tampilkan bilah filter di feed, pencarian, dan video terkait</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Sembunyikan di feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Sembunyikan di feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Tampilkan di feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Sembunyikan di pencarian</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Disembunyikan di pencarian</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Ditampilkan di pencarian</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Sembunyikan di video terkait</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Disembunyikan di video terkait</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Ditampilkan di video terkait</string>
-  </patch>
-  <patch id="layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch">
-  <string name="revanced_hide_floating_microphone_button_title">Sembunyikan tombol mikrofon mengambang</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">Tombol mikrofon disembunyikan</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">Tombol mikrofon ditampilkan</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">Nonaktifkan mode ambien di layar penuh</string>
@@ -598,6 +582,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Seekbar thumbnail ditampilkan</string>
   </patch>
   <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
+  <string name="revanced_shorts_player_screen_title">Pemutar Short</string>
+  <string name="revanced_shorts_player_screen_summary">Sembunyikan atau tampilkan komponen di pemutar Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Sembunyikan Shorts di feed beranda</string>
   <string name="revanced_hide_shorts_home_summary_on">Shorts di feed beranda disembunyikan</string>
@@ -644,6 +630,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_green_screen_button_title">Sembunyikan tombol layar hijau</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Tombol layar hijau disembunyikan</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Tombol layar hijau ditampilkan</string>
+  <string name="revanced_hide_shorts_hashtag_button_title">Sembunyikan tombol tagar</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_on">Tombol tagar disembunyikan</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_off">Tombol tagar ditampilkan</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Sembunyikan saran penelusuran</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Saran penelusuran disembunyikan</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Saran penelusuran ditampilkan</string>
@@ -965,17 +954,33 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.startpage.ChangeStartPagePatch">
   <string name="revanced_change_start_page_title">Tetapkan halaman awal</string>
   <string name="revanced_change_start_page_entry_default">Bawaan</string>
+  <string name="revanced_change_start_page_entry_browse">Jelajahi saluran</string>
   <string name="revanced_change_start_page_entry_explore">Jelajahi</string>
+  <string name="revanced_change_start_page_entry_gaming">Permainan</string>
   <string name="revanced_change_start_page_entry_history">Riwayat</string>
+  <string name="revanced_change_start_page_entry_library">Pustaka</string>
   <string name="revanced_change_start_page_entry_liked_videos">Video yang disukai</string>
+  <string name="revanced_change_start_page_entry_live">Siaran langsunng</string>
+  <string name="revanced_change_start_page_entry_movies">Film</string>
+  <string name="revanced_change_start_page_entry_music">Musik</string>
   <string name="revanced_change_start_page_entry_search">Pencarian</string>
+  <string name="revanced_change_start_page_entry_sports">Olahraga</string>
   <string name="revanced_change_start_page_entry_subscriptions">Langganan</string>
   <string name="revanced_change_start_page_entry_trending">Sedang tren</string>
+  <string name="revanced_change_start_page_entry_watch_later">Tonton nanti</string>
   </patch>
   <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Matikan melanjutkan pemutar video Shorts</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Pemutaran Shorts tidak akan dilanjutkan saat aplikasi dimulai</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Pemutaran Shorts akan dilanjutkan saat aplikasi dimulai</string>
+  </patch>
+  <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
+  <string name="revanced_shorts_autoplay_title">Putar otomatis Shorts</string>
+  <string name="revanced_shorts_autoplay_summary_on">Shorts akan diputar otomatis</string>
+  <string name="revanced_shorts_autoplay_summary_off">Shorts akan diulangi</string>
+  <string name="revanced_shorts_autoplay_background_title">Putar otomatis Shorts di latar belakang</string>
+  <string name="revanced_shorts_autoplay_background_summary_on">Pemutaran latar belakang Shorts akan diputar otomatis</string>
+  <string name="revanced_shorts_autoplay_background_summary_off">Pemutaran latar belakang Shorts akan diulangi</string>
   </patch>
   <patch id="layout.tablet.EnableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Aktifkan tata letak tablet</string>
@@ -993,7 +998,20 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
   <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
+  <string name="revanced_miniplayer_rounded_corners_title">Aktifkan sudut membulat</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_on">Sudutnya membulat</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_off">Sudutnya persegi</string>
+  <string name="revanced_miniplayer_double_tap_action_title">Aktifkan ketuk dua kali dan cubit untuk mengubah ukuran</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">Tindakan ketuk dua kali dan cubit untuk mengubah ukuran diaktifkan\n\n• Ketuk dua kali untuk menambah ukuran miniplayer\n• Ketuk dua kali lagi untuk mengembalikan ukuran asli</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_off">Tindakan ketuk dua kali dan cubit untuk mengubah ukuran dinonaktifkan</string>
+  <string name="revanced_miniplayer_drag_and_drop_title">Aktifkan seret dan lepas</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">Seret dan lepas diaktifkan\n\nMiniplayer dapat diseret ke sudut mana pun di layar</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_off">Seret dan lepas dinonaktifkan</string>
+  <string name="revanced_miniplayer_hide_expand_close_title">Sembunyikan tombol tutup</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">Tombol tutup disembunyikan</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">Tombol tutup ditampilkan</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_title">Sembunyikan perbesar dan tutup</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Tombol disembunyikan\n\nGeser untuk memperluas atau menutup</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Tombol bentang dan tutup ditampilkan</string>
   <string name="revanced_miniplayer_hide_subtext_title">Sembunyikan subteks</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Subteks disembunyikan</string>
@@ -1001,6 +1019,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_hide_rewind_forward_title">Sembunyikan percepat dan kembali</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Kembali dan percepat disembunyikan</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Kembali dan percepat ditampilkan</string>
+  <string name="revanced_miniplayer_width_dip_title">Ukuran awal</string>
+  <string name="revanced_miniplayer_width_dip_summary">Awal pada ukuran layar, dalam piksel</string>
+  <string name="revanced_miniplayer_width_dip_invalid_toast">Ukuran piksel harus antara %1$s dan %2$s</string>
   <string name="revanced_miniplayer_opacity_title">Kelegapan hamparan</string>
   <string name="revanced_miniplayer_opacity_summary">Nilai opasitas antara 0-100, di mana 0 adalah transparan</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Opasiti overlay miniplayer harus antara 0-100</string>
@@ -1016,6 +1037,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_summary_off">Warna bilah pencarian asli ditampilkan</string>
   <string name="revanced_seekbar_custom_color_value_title">Warna seekbar kustom</string>
   <string name="revanced_seekbar_custom_color_value_summary">Warna dari seekbar</string>
+  <string name="revanced_seekbar_custom_color_invalid">Nilai warna seekbar tidak sah</string>
   </patch>
   <patch id="layout.thumbnails.BypassImageRegionRestrictions">
   <string name="revanced_bypass_image_region_restrictions_title">Abaikan pembatasan wilayah gambar</string>
@@ -1033,19 +1055,19 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_alt_thumbnail_search_title">Hasil pencarian</string>
   <string name="revanced_alt_thumbnail_options_entry_1">Thumbnail asli</string>
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Thumbnail asli</string>
-  <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Gambar diam</string>
+  <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Tangkapan diam</string>
   <string name="revanced_alt_thumbnail_options_entry_4">Tangkapan diam</string>
-  <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow menyediakan thumbnail yang dibuat oleh banyak orang untuk video YouTube. Thumbnail ini seringkali lebih relevan daripada yang disediakan oleh YouTube\n\nJika dinyalakan, URL video akan dikirim ke server API dan tidak ada data lain yang dikirim. Jika video tidak memiliki thumbnail DeArrow, maka rekaman asli atau gambar diam akan ditampilkan\n\nKetuk di sini untuk mempelajari lebih lanjut tentang DeArrow</string>
+  <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow menyediakan thumbnail yang dibuat oleh banyak orang untuk video YouTube. Thumbnail-thumbnail ini seringkali lebih relevan daripada yang disediakan oleh YouTube\n\nJika dinyalakan, URL video akan dikirim ke server API dan tidak ada data lain yang dikirim. Jika video tidak memiliki thumbnail DeArrow, maka gambar asli atau tangkapan diam akan ditampilkan\n\nKetuk di sini untuk mempelajari lebih lanjut tentang DeArrow</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Tampilkan pemberitahuan halus jika API tidak tersedia</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Pemberitahuan halus ditampilkan jika DeArrow tidak tersedia</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Pemberitahuan halus tidak ditampilkan jika DeArrow tidak tersedia</string>
   <string name="revanced_alt_thumbnail_dearrow_api_url_title">Titik akhir API DeArrow</string>
   <string name="revanced_alt_thumbnail_dearrow_api_url_summary">URL titik akhir cache thumbnail DeArrow</string>
   <string name="revanced_alt_thumbnail_stills_about_title">Tangkapan video diam</string>
-  <string name="revanced_alt_thumbnail_stills_about_summary">Tangkapan gambar diam diambil dari awal/tengah/akhir setiap video. Gambar-gambar ini dibuat di YouTube dan tidak ada API eksternal yang digunakan</string>
+  <string name="revanced_alt_thumbnail_stills_about_summary">Tangkapan diam diambil dari awal/tengah/akhir setiap video. Gambar-gambar ini dibuat di YouTube dan tidak ada API eksternal yang digunakan</string>
   <string name="revanced_alt_thumbnail_stills_fast_title">Gunakan tangkapan diam cepat</string>
-  <string name="revanced_alt_thumbnail_stills_fast_summary_on">Menggunakan tangkapan kualitas sedang. Gambar mini akan dimuat lebih cepat, tetapi siaran langsung, video yang belum dirilis, atau video yang sangat lama mungkin menampilkan gambar mini kosong</string>
-  <string name="revanced_alt_thumbnail_stills_fast_summary_off">Menggunakan gambar diam berkualitas tinggi</string>
+  <string name="revanced_alt_thumbnail_stills_fast_summary_on">Menggunakan tangkapan diam kualitas sedang. Thumbnail akan dimuat lebih cepat, tetapi siaran langsung, video yang belum dirilis, atau video yang sangat lama mungkin menampilkan thumbnail kosong</string>
+  <string name="revanced_alt_thumbnail_stills_fast_summary_off">Menggunakan tangkapan diam berkualitas tinggi</string>
   <string name="revanced_alt_thumbnail_stills_time_title">Lama waktu menangkap layar video</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_1">Awal video</string>
   <string name="revanced_alt_thumbnail_stills_time_entry_2">Pertengahan video</string>

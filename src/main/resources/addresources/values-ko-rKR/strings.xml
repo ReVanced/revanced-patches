@@ -96,8 +96,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_debug_protobuffer_summary_on">디버그 로그에 프로토콜 버퍼를 포함합니다</string>
   <string name="revanced_debug_protobuffer_summary_off">디버그 로그에 프로토콜 버퍼를 포함하지 않습니다</string>
   <string name="revanced_debug_stacktrace_title">로그 스택 트레이스</string>
-  <string name="revanced_debug_stacktrace_summary_on">디버그 로그에 로그 스택 트레이스을 포함합니다</string>
-  <string name="revanced_debug_stacktrace_summary_off">디버그 로그에 로그 스택 트레이스을 포함하지 않습니다</string>
+  <string name="revanced_debug_stacktrace_summary_on">디버그 로그에 로그 스택 트레이스를 포함합니다</string>
+  <string name="revanced_debug_stacktrace_summary_off">디버그 로그에 로그 스택 트레이스를 포함하지 않습니다</string>
   <string name="revanced_debug_toast_on_error_title">ReVanced 오류 팝업 메시지 표시하기</string>
   <string name="revanced_debug_toast_on_error_summary_on">오류가 발생하면 팝업 메시지를 표시합니다</string>
   <string name="revanced_debug_toast_on_error_summary_off">오류가 발생하면 팝업 메시지를 표시하지 않습니다</string>
@@ -107,6 +107,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">빛나는 \'좋아요\' / \'구독\' 버튼 비활성화하기</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">동영상에서 \'Like (좋아요)\' 또는 \'Subscribe (구독)\' 버튼이 언급되었을 때, 해당 버튼에 빛나는 애니메이션을 적용하지 않습니다\n• 일부 언어는 아직 지원되지 않습니다</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">동영상에서 \'Like (좋아요)\' 또는 \'Subscribe (구독)\' 버튼이 언급되었을 때, 해당 버튼에 빛나는 애니메이션을 적용합니다\n• 일부 언어는 아직 지원되지 않습니다</string>
+  <string name="revanced_hide_album_cards_title">음악 앨범 카드 숨기기</string>
+  <string name="revanced_hide_album_cards_summary_on">검색 결과에서 음악 앨범 카드가 숨겨집니다</string>
+  <string name="revanced_hide_album_cards_summary_off">검색 결과에서 음악 앨범 카드가 표시됩니다</string>
+  <string name="revanced_hide_crowdfunding_box_title">크라우드 펀딩 박스 숨기기</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">플레이어 하단에서 크라우드 펀딩 박스가 숨겨집니다</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">플레이어 하단에서 크라우드 펀딩 박스가 표시됩니다</string>
+  <string name="revanced_hide_floating_microphone_button_title">플로팅 마이크 버튼 숨기기</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">플로팅 마이크 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">플로팅 마이크 버튼이 표시됩니다</string>
   <string name="revanced_hide_gray_separator_title">회색 구분선 숨기기</string>
   <string name="revanced_hide_gray_separator_summary_on">동영상들 사이에서 회색 구분선이 숨겨집니다</string>
   <string name="revanced_hide_gray_separator_summary_off">동영상들 사이에서 회색 구분선이 표시됩니다</string>
@@ -231,6 +240,37 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">스크립트 섹션이 표시됩니다</string>
   <string name="revanced_hide_description_components_screen_title">동영상 설명</string>
   <string name="revanced_hide_description_components_screen_summary">동영상 설명에서 구성요소를 숨기거나 표시할 수 있습니다</string>
+  <string name="revanced_hide_filter_bar_screen_title">카테고리 바</string>
+  <string name="revanced_hide_filter_bar_screen_summary">피드, 검색 결과, 관련 동영상에서 카테고리 바를 숨기거나 표시할 수 있습니다</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">피드에서 카테고리 바 숨기기</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">피드에서 카테고리 바가 숨겨집니다</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">피드에서 카테고리 바가 표시됩니다</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">검색 결과에서 카테고리 바 숨기기</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">검색 결과에서 카테고리 바가 숨겨집니다</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">검색 결과에서 카테고리 바가 표시됩니다</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">관련 동영상에서 카테고리 바 숨기기</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">플레이어 하단에 있는 관련 동영상에서 카테고리 바가 숨겨집니다</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">플레이어 하단에 있는 관련 동영상에서 카테고리 바가 표시됩니다</string>
+  <string name="revanced_comments_screen_title">댓글</string>
+  <string name="revanced_comments_screen_summary">댓글 섹션에서 구성요소가 숨기거나 표시할 수 있습니다</string>
+  <string name="revanced_hide_comments_by_members_header_title">\'회원별 댓글\' 헤더 숨기기</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">\'회원별 댓글\' 헤더가 숨겨집니다</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">\'회원별 댓글\' 헤더가 표시됩니다</string>
+  <string name="revanced_hide_comments_section_title">댓글 섹션 숨기기</string>
+  <string name="revanced_hide_comments_section_summary_on">댓글 섹션이 숨겨집니다</string>
+  <string name="revanced_hide_comments_section_summary_off">댓글 섹션이 표시됩니다</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">\'Shorts 만들기\' 버튼 숨기기</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">\'Shorts 만들기\' 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">\'Shorts 만들기\' 버튼이 표시됩니다</string>
+  <string name="revanced_hide_comments_preview_comment_title">댓글 미리보기 숨기기</string>
+  <string name="revanced_hide_comments_preview_comment_summary_on">댓글 미리보기가 숨겨집니다</string>
+  <string name="revanced_hide_comments_preview_comment_summary_off">댓글 미리보기가 표시됩니다</string>
+  <string name="revanced_hide_comments_thanks_button_title">Thanks 버튼 숨기기</string>
+  <string name="revanced_hide_comments_thanks_button_summary_on">Thanks 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_comments_thanks_button_summary_off">Thanks 버튼이 표시됩니다</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">타임스탬프 &amp; 이모지 버튼 숨기기</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">타임스탬프 &amp; 이모지 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">타임스탬프 &amp; 이모지 버튼이 표시됩니다</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">YouTube Doodles 숨기기</string>
   <string name="revanced_hide_doodles_summary_on">YouTube Doodles가 숨겨집니다\n• 이벤트성 YouTube 헤더</string>
@@ -301,9 +341,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_web_search_results_title">웹 검색 결과 숨기기</string>
   <string name="revanced_hide_web_search_results_summary_on">웹 검색 결과가 숨겨집니다</string>
   <string name="revanced_hide_web_search_results_summary_off">웹 검색 결과가 표시됩니다</string>
-  <string name="revanced_hide_merchandise_banners_title">태그된 제품 선반 숨기기</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">태그된 제품 선반이 숨겨집니다</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">태그된 제품 선반이 표시됩니다</string>
+  <string name="revanced_hide_merchandise_banners_title">제품 쇼핑 선반 숨기기</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">제품 쇼핑 선반이 숨겨집니다</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">제품 쇼핑 선반이 표시됩니다</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">\'전체 화면 광고 숨기기\'는 구형 기기에서만 사용할 수 있습니다</string>
   </patch>
@@ -427,22 +467,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playlist_button_summary_on">(재생목록에) 저장 버튼이 숨겨집니다</string>
   <string name="revanced_hide_playlist_button_summary_off">(재생목록에) 저장 버튼이 표시됩니다</string>
   </patch>
-  <patch id="layout.buttons.autoplay.HideAutoplayButtonPatch">
-  <string name="revanced_hide_autoplay_button_title">자동재생 버튼 숨기기</string>
-  <string name="revanced_hide_autoplay_button_summary_on">자동재생 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_autoplay_button_summary_off">자동재생 버튼이 표시됩니다</string>
-  </patch>
-  <patch id="layout.buttons.captions.HideCaptionsButtonPatch">
-  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">자막 버튼 숨기기</string>
-  <string name="revanced_hide_captions_button_summary_on">자막 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_captions_button_summary_off">자막 버튼이 표시됩니다</string>
-  </patch>
-  <patch id="layout.buttons.cast.HideCastButtonPatch">
-  <string name="revanced_hide_cast_button_title">크롬캐스트 버튼 숨기기</string>
-  <string name="revanced_hide_cast_button_summary_on">크롬캐스트 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_cast_button_summary_off">크롬캐스트 버튼이 표시됩니다</string>
-  </patch>
   <patch id="layout.buttons.navigation.NavigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">하단바 버튼</string>
   <string name="revanced_navigation_buttons_screen_summary">하단바에서 버튼을 숨기거나 변경할 수 있습니다</string>
@@ -515,65 +539,25 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VR로 보기 메뉴가 숨겨집니다</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">VR로 보기 메뉴가 표시됩니다</string>
   </patch>
-  <patch id="layout.buttons.player.hide.HidePlayerButtonsPatch">
-  <string name="revanced_hide_player_buttons_title">이전 &amp; 다음 동영상 버튼 숨기기</string>
-  <string name="revanced_hide_player_buttons_summary_on">이전 &amp; 다음 동영상 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_player_buttons_summary_off">이전 &amp; 다음 동영상 버튼이 표시됩니다</string>
-  </patch>
-  <patch id="layout.hide.albumcards.AlbumCardsResourcePatch">
-  <string name="revanced_hide_album_cards_title">음악 앨범 카드 숨기기</string>
-  <string name="revanced_hide_album_cards_summary_on">검색 결과에서 음악 앨범 카드가 숨겨집니다</string>
-  <string name="revanced_hide_album_cards_summary_off">검색 결과에서 음악 앨범 카드가 표시됩니다</string>
-  </patch>
-  <patch id="layout.hide.comments.CommentsPatch">
-  <string name="revanced_comments_screen_title">댓글</string>
-  <string name="revanced_comments_screen_summary">댓글 섹션에서 구성요소가 숨기거나 표시할 수 있습니다</string>
-  <string name="revanced_hide_comments_by_members_header_title">\'회원별 댓글\' 헤더 숨기기</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">\'회원별 댓글\' 헤더가 숨겨집니다</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">\'회원별 댓글\' 헤더가 표시됩니다</string>
-  <string name="revanced_hide_comments_section_title">댓글 섹션 숨기기</string>
-  <string name="revanced_hide_comments_section_summary_on">댓글 섹션이 숨겨집니다</string>
-  <string name="revanced_hide_comments_section_summary_off">댓글 섹션이 표시됩니다</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">\'Shorts 만들기\' 버튼 숨기기</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">\'Shorts 만들기\' 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">\'Shorts 만들기\' 버튼이 표시됩니다</string>
-  <string name="revanced_hide_comments_preview_comment_title">댓글 미리보기 숨기기</string>
-  <string name="revanced_hide_comments_preview_comment_summary_on">댓글 미리보기가 숨겨집니다</string>
-  <string name="revanced_hide_comments_preview_comment_summary_off">댓글 미리보기가 표시됩니다</string>
-  <string name="revanced_hide_comments_thanks_button_title">Thanks 버튼 숨기기</string>
-  <string name="revanced_hide_comments_thanks_button_summary_on">Thanks 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_comments_thanks_button_summary_off">Thanks 버튼이 표시됩니다</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">타임스탬프 &amp; 이모지 버튼 숨기기</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">타임스탬프 &amp; 이모지 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">타임스탬프 &amp; 이모지 버튼이 표시됩니다</string>
-  </patch>
-  <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
-  <string name="revanced_hide_crowdfunding_box_title">크라우드 펀딩 박스 숨기기</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">플레이어 하단에서 크라우드 펀딩 박스가 숨겨집니다</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">플레이어 하단에서 크라우드 펀딩 박스가 표시됩니다</string>
+  <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
+  <string name="revanced_hide_player_previous_next_buttons_title">이전 &amp; 다음 동영상 버튼 숨기기</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">이전 &amp; 다음 동영상 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">이전 &amp; 다음 동영상 버튼이 표시됩니다</string>
+  <string name="revanced_hide_cast_button_title">크롬캐스트 버튼 숨기기</string>
+  <string name="revanced_hide_cast_button_summary_on">크롬캐스트 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_cast_button_summary_off">크롬캐스트 버튼이 표시됩니다</string>
+  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
+  <string name="revanced_hide_captions_button_title">자막 버튼 숨기기</string>
+  <string name="revanced_hide_captions_button_summary_on">자막 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_captions_button_summary_off">자막 버튼이 표시됩니다</string>
+  <string name="revanced_hide_autoplay_button_title">자동재생 버튼 숨기기</string>
+  <string name="revanced_hide_autoplay_button_summary_on">자동재생 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_autoplay_button_summary_off">자동재생 버튼이 표시됩니다</string>
   </patch>
   <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">최종 화면 카드 숨기기</string>
   <string name="revanced_hide_endscreen_cards_summary_on">최종 화면 카드가 숨겨집니다</string>
   <string name="revanced_hide_endscreen_cards_summary_off">최종 화면 카드가 표시됩니다</string>
-  </patch>
-  <patch id="layout.hide.filterbar.HideFilterBarResourcePatch">
-  <string name="revanced_hide_filter_bar_screen_title">카테고리 바</string>
-  <string name="revanced_hide_filter_bar_screen_summary">피드, 검색 결과, 관련 동영상에서 카테고리 바를 숨기거나 표시할 수 있습니다</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">피드에서 카테고리 바 숨기기</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">피드에서 카테고리 바가 숨겨집니다</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">피드에서 카테고리 바가 표시됩니다</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">검색 결과에서 카테고리 바 숨기기</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">검색 결과에서 카테고리 바가 숨겨집니다</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">검색 결과에서 카테고리 바가 표시됩니다</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">관련 동영상에서 카테고리 바 숨기기</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">플레이어 하단에 있는 관련 동영상에서 카테고리 바가 숨겨집니다</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">플레이어 하단에 있는 관련 동영상에서 카테고리 바가 표시됩니다</string>
-  </patch>
-  <patch id="layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch">
-  <string name="revanced_hide_floating_microphone_button_title">플로팅 마이크 버튼 숨기기</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">플로팅 마이크 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">플로팅 마이크 버튼이 표시됩니다</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">전체 화면에서 앰비언트 모드 비활성화하기</string>
@@ -599,6 +583,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_seekbar_thumbnail_summary_off">썸네일 재생바가 표시됩니다</string>
   </patch>
   <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
+  <string name="revanced_shorts_player_screen_title">Shorts 플레이어</string>
+  <string name="revanced_shorts_player_screen_summary">Shorts 플레이어에서 구성요소를 숨기거나 표시할 수 있습니다</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">홈 피드에서 Shorts 선반 숨기기</string>
   <string name="revanced_hide_shorts_home_summary_on">홈 피드에서 Shorts 선반이 숨겨집니다</string>
@@ -968,26 +954,34 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.startpage.ChangeStartPagePatch">
   <string name="revanced_change_start_page_title">앱 시작 페이지 변경하기</string>
-  <string name="revanced_change_start_page_entry_default">SponsorBlock 활성화</string>
+  <string name="revanced_change_start_page_entry_default">홈 (기본값)</string>
   <string name="revanced_change_start_page_entry_browse">채널 둘러보기</string>
-  <string name="revanced_change_start_page_entry_explore">플레이어에서 구간 투표 버튼을 표시합니다</string>
+  <string name="revanced_change_start_page_entry_explore">탐색</string>
   <string name="revanced_change_start_page_entry_gaming">게임</string>
-  <string name="revanced_change_start_page_entry_history">일반적인 건너뛰기 버튼을 표시합니다</string>
-  <string name="revanced_change_start_page_entry_library">나 (보관함)</string>
-  <string name="revanced_change_start_page_entry_liked_videos">최소화된 건너뛰기 버튼을 표시합니다</string>
+  <string name="revanced_change_start_page_entry_history">기록</string>
+  <string name="revanced_change_start_page_entry_library">내 페이지</string>
+  <string name="revanced_change_start_page_entry_liked_videos">좋아요 표시한 동영상</string>
   <string name="revanced_change_start_page_entry_live">실시간</string>
   <string name="revanced_change_start_page_entry_movies">영화</string>
   <string name="revanced_change_start_page_entry_music">음악</string>
-  <string name="revanced_change_start_page_entry_search">외관</string>
+  <string name="revanced_change_start_page_entry_search">검색</string>
   <string name="revanced_change_start_page_entry_sports">스포츠</string>
-  <string name="revanced_change_start_page_entry_subscriptions">투표 버튼 표시하기</string>
-  <string name="revanced_change_start_page_entry_trending">자동으로 건너뛰기 버튼 숨기기</string>
+  <string name="revanced_change_start_page_entry_subscriptions">구독</string>
+  <string name="revanced_change_start_page_entry_trending">인기 급상승</string>
   <string name="revanced_change_start_page_entry_watch_later">나중에 볼 동영상</string>
   </patch>
   <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">앱을 시작할 때, Shorts 플레이어 비활성화하기</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">앱을 시작할 때, Shorts 플레이어를 다시 실행하지 않습니다</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">앱을 시작할 때, Shorts 플레이어를 다시 실행합니다</string>
+  </patch>
+  <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
+  <string name="revanced_shorts_autoplay_title">Shorts 자동재생</string>
+  <string name="revanced_shorts_autoplay_summary_on">Shorts 동영상이 자동재생됩니다</string>
+  <string name="revanced_shorts_autoplay_summary_off">Shorts 동영상이 반복재생됩니다</string>
+  <string name="revanced_shorts_autoplay_background_title">Shorts 자동 백그라운드 제생</string>
+  <string name="revanced_shorts_autoplay_background_summary_on">Shorts 동영상 백그라운드 재생이 자동재생됩니다</string>
+  <string name="revanced_shorts_autoplay_background_summary_off">Shorts 동영상 백그라운드 재생이 반복재생됩니다</string>
   </patch>
   <patch id="layout.tablet.EnableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">태블릿 레이아웃 활성화하기</string>
@@ -1012,17 +1006,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_double_tap_action_summary_on">두 번 누르기 동작 및 핀치하여 크기 조정을 활성화합니다\n\n• 두 번 눌러서 미니 플레이어 크기를 확대합니다\n• 다시 두 번 눌러서 원래 크기로 복원합니다</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">두 번 누르기 동작 및 핀치하여 크기 조정을 비활성화합니다</string>
   <string name="revanced_miniplayer_drag_and_drop_title">드래그 &amp; 드롭 활성화하기</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">드래그 &amp; 드롭이 활성화합니다\n\n미니 플레이어를 화면의 어느 곳이든 드래그할 수 있습니다</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">드래그 &amp; 드롭을 활성화합니다\n\n• 미니 플레이어를 화면의 어느 곳이든 드래그할 수 있습니다</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">드래그 &amp; 드롭을 비활성화합니다</string>
   <string name="revanced_miniplayer_hide_expand_close_title">닫기 버튼 숨기기</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">닫기 버튼이 숨겨집니다</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">닫기 버튼이 표시됩니다</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_title">\'펼치기\' &amp; \'닫기\' 버튼 숨기기</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">버튼들이 숨겨집니다\n\n스와이프하여 미니 플레이어를 펼치거나 닫을 수 있습니다</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">\'펼치기\' &amp; \'닫기\' 버튼이 숨겨집니다\n\n• 스와이프하여 미니 플레이어를 펼치거나 닫을 수 있습니다</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">\'펼치기\' &amp; \'닫기\' 버튼이 표시됩니다</string>
   <string name="revanced_miniplayer_hide_subtext_title">서브텍스트 숨기기</string>
-  <string name="revanced_miniplayer_hide_subtext_summary_on">서브텍스트가 숨겨집니다\n• 왼쪽 하단에서 표시되는 \'유료 광고 포함\'과 같은 라벨</string>
-  <string name="revanced_miniplayer_hide_subtext_summary_off">서브텍스트가 표시됩니다\n• 왼쪽 하단에서 표시되는 \'유료 광고 포함\'과 같은 라벨</string>
+  <string name="revanced_miniplayer_hide_subtext_summary_on">서브텍스트가 숨겨집니다\n\n• 왼쪽 하단에서 표시되는 \'유료 광고 포함\'과 같은 라벨</string>
+  <string name="revanced_miniplayer_hide_subtext_summary_off">서브텍스트가 표시됩니다\n\n• 왼쪽 하단에서 표시되는 \'유료 광고 포함\'과 같은 라벨</string>
   <string name="revanced_miniplayer_hide_rewind_forward_title">\'되감기\' &amp; \'빨리 감기\' 버튼 숨기기</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">\'되감기\' &amp; \'빨리 감기\' 버튼이 숨겨집니다</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">\'되감기\' &amp; \'빨리 감기\' 버튼이 표시됩니다</string>

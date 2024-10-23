@@ -93,6 +93,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">I-disable ang glow ng like / subscribe button</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Hindi magliliwanag ang like and subscribe button kapag nabanggit</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Ang like and subscribe button ay magliliwanag kapag nabanggit</string>
+  <string name="revanced_hide_album_cards_title">Itago ang mga album card</string>
+  <string name="revanced_hide_album_cards_summary_on">Nakatago ang mga card ng album</string>
+  <string name="revanced_hide_album_cards_summary_off">Ipinapakita ang mga album card</string>
+  <string name="revanced_hide_crowdfunding_box_title">Itago ang crowdfunding box</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">Nakatago ang crowdfunding box</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">Ipinapakita ang kahon ng crowdfunding</string>
+  <string name="revanced_hide_floating_microphone_button_title">Itago ang lumulutang na pindutan ng mikropono</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">Nakatago ang button ng mikropono</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">Ipinapakita ang pindutan ng mikropono</string>
   <string name="revanced_hide_gray_separator_title">Itago ang gray na separator</string>
   <string name="revanced_hide_gray_separator_summary_on">Nakatago ang mga gray na separator</string>
   <string name="revanced_hide_gray_separator_summary_off">Ipinapakita ang mga gray na separator</string>
@@ -214,6 +223,36 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">Ipinapakita ang seksyon ng transcript</string>
   <string name="revanced_hide_description_components_screen_title">Paglalarawan ng video</string>
   <string name="revanced_hide_description_components_screen_summary">Itago o ipakita ang mga bahagi ng paglalarawan ng video</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Itago o ipakita ang filter bar sa feed, paghahanap, at mga kaugnay na video</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Itago sa feed</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Nakatago sa feed</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Ipinapakita sa feed</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Itago sa paghahanap</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Nakatago sa paghahanap</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Ipinapakita sa paghahanap</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Itago sa mga kaugnay na video</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Nakatago sa mga kaugnay na video</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Ipinapakita sa mga kaugnay na video</string>
+  <string name="revanced_comments_screen_title">Mga komento</string>
+  <string name="revanced_comments_screen_summary">Itago o ipakita ang mga bahagi ng seksyon ng komento</string>
+  <string name="revanced_hide_comments_by_members_header_title">Itago ang header ng \"Mga komento ng mga miyembro\"</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">Nakatago ang header ng \"Mga komento ng mga miyembro\"</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">Ipinapakita ang header ng \"Mga komento ng mga miyembro\"</string>
+  <string name="revanced_hide_comments_section_title">Itago ang seksyon ng mga komento</string>
+  <string name="revanced_hide_comments_section_summary_on">Nakatago ang seksyon ng mga komento</string>
+  <string name="revanced_hide_comments_section_summary_off">Ipinapakita ang seksyon ng mga komento</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">Itago ang pindutang \"Gumawa ng Maikling\"</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">Nakatago ang pindutang \"Gumawa ng Maikling\"</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">Ipinapakita ang pindutang \"Gumawa ng Maikling\"</string>
+  <string name="revanced_hide_comments_preview_comment_title">Itago ang preview na komento</string>
+  <string name="revanced_hide_comments_preview_comment_summary_on">Nakatago ang preview ng komento</string>
+  <string name="revanced_hide_comments_preview_comment_summary_off">Ang pag-preview ng komento ay ipinapakita</string>
+  <string name="revanced_hide_comments_thanks_button_title">Itago ang pindutan ng pasasalamat</string>
+  <string name="revanced_hide_comments_thanks_button_summary_on">Nakatago ang buton ng salamat</string>
+  <string name="revanced_hide_comments_thanks_button_summary_off">Ang pindutan ng salamat ay ipinapakita</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Itago ang mga pindutan ng timestamp at emoji</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Nakatago ang mga pindutan ng timestamp at emoji</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Ipinapakita ang mga pindutan ng timestamp at emoji</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_custom_filter_screen_title">Custom na filter</string>
   <string name="revanced_custom_filter_screen_summary">Itago ang mga bahagi gamit ang mga custom na filter</string>
@@ -396,22 +435,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playlist_button_summary_on">Nakatago ang button na I-save sa playlist</string>
   <string name="revanced_hide_playlist_button_summary_off">I-save sa playlist button ay ipinapakita</string>
   </patch>
-  <patch id="layout.buttons.autoplay.HideAutoplayButtonPatch">
-  <string name="revanced_hide_autoplay_button_title">Itago ang autoplay na button</string>
-  <string name="revanced_hide_autoplay_button_summary_on">Nakatago ang autoplay button</string>
-  <string name="revanced_hide_autoplay_button_summary_off">Ang autoplay na button ay ipinapakita</string>
-  </patch>
-  <patch id="layout.buttons.captions.HideCaptionsButtonPatch">
-  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">Button na itago ang mga caption</string>
-  <string name="revanced_hide_captions_button_summary_on">Nakatago ang button ng mga caption</string>
-  <string name="revanced_hide_captions_button_summary_off">Ang pindutan ng mga caption ay ipinapakita</string>
-  </patch>
-  <patch id="layout.buttons.cast.HideCastButtonPatch">
-  <string name="revanced_hide_cast_button_title">Itago ang cast button</string>
-  <string name="revanced_hide_cast_button_summary_on">Nakatago ang pindutan sa cast</string>
-  <string name="revanced_hide_cast_button_summary_off">Nakikita ang cast button</string>
-  </patch>
   <patch id="layout.buttons.navigation.NavigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Mga pindutan ng nabigasyon</string>
   <string name="revanced_navigation_buttons_screen_summary">Itago o baguhin ang mga button sa navigation bar</string>
@@ -484,64 +507,25 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Nakatago ang panonood sa VR menu</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Ang panonood sa VR menu ay ipinapakita</string>
   </patch>
-  <patch id="layout.buttons.player.hide.HidePlayerButtonsPatch">
-  <string name="revanced_hide_player_buttons_title">Itago ang nakaraang &amp; susunod na mga pindutan ng video</string>
-  <string name="revanced_hide_player_buttons_summary_on">Nakatago ang mga pindutan</string>
-  <string name="revanced_hide_player_buttons_summary_off">Ang mga pindutan ay ipinapakita</string>
-  </patch>
-  <patch id="layout.hide.albumcards.AlbumCardsResourcePatch">
-  <string name="revanced_hide_album_cards_title">Itago ang mga album card</string>
-  <string name="revanced_hide_album_cards_summary_on">Nakatago ang mga card ng album</string>
-  <string name="revanced_hide_album_cards_summary_off">Ipinapakita ang mga album card</string>
-  </patch>
-  <patch id="layout.hide.comments.CommentsPatch">
-  <string name="revanced_comments_screen_title">Mga komento</string>
-  <string name="revanced_comments_screen_summary">Itago o ipakita ang mga bahagi ng seksyon ng komento</string>
-  <string name="revanced_hide_comments_by_members_header_title">Itago ang header ng \"Mga komento ng mga miyembro\"</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">Nakatago ang header ng \"Mga komento ng mga miyembro\"</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">Ipinapakita ang header ng \"Mga komento ng mga miyembro\"</string>
-  <string name="revanced_hide_comments_section_title">Itago ang seksyon ng mga komento</string>
-  <string name="revanced_hide_comments_section_summary_on">Nakatago ang seksyon ng mga komento</string>
-  <string name="revanced_hide_comments_section_summary_off">Ipinapakita ang seksyon ng mga komento</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">Itago ang pindutang \"Gumawa ng Maikling\"</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">Nakatago ang pindutang \"Gumawa ng Maikling\"</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">Ipinapakita ang pindutang \"Gumawa ng Maikling\"</string>
-  <string name="revanced_hide_comments_preview_comment_title">Itago ang preview na komento</string>
-  <string name="revanced_hide_comments_preview_comment_summary_on">Nakatago ang preview ng komento</string>
-  <string name="revanced_hide_comments_preview_comment_summary_off">Ang pag-preview ng komento ay ipinapakita</string>
-  <string name="revanced_hide_comments_thanks_button_title">Itago ang pindutan ng pasasalamat</string>
-  <string name="revanced_hide_comments_thanks_button_summary_on">Nakatago ang buton ng salamat</string>
-  <string name="revanced_hide_comments_thanks_button_summary_off">Ang pindutan ng salamat ay ipinapakita</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Itago ang mga pindutan ng timestamp at emoji</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Nakatago ang mga pindutan ng timestamp at emoji</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Ipinapakita ang mga pindutan ng timestamp at emoji</string>
-  </patch>
-  <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
-  <string name="revanced_hide_crowdfunding_box_title">Itago ang crowdfunding box</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">Nakatago ang crowdfunding box</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">Ipinapakita ang kahon ng crowdfunding</string>
+  <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
+  <string name="revanced_hide_player_previous_next_buttons_title">Itago ang nakaraang &amp; susunod na mga pindutan ng video</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">Nakatago ang mga pindutan</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">Ang mga pindutan ay ipinapakita</string>
+  <string name="revanced_hide_cast_button_title">Itago ang cast button</string>
+  <string name="revanced_hide_cast_button_summary_on">Nakatago ang pindutan sa cast</string>
+  <string name="revanced_hide_cast_button_summary_off">Nakikita ang cast button</string>
+  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
+  <string name="revanced_hide_captions_button_title">Button na itago ang mga caption</string>
+  <string name="revanced_hide_captions_button_summary_on">Nakatago ang button ng mga caption</string>
+  <string name="revanced_hide_captions_button_summary_off">Ang pindutan ng mga caption ay ipinapakita</string>
+  <string name="revanced_hide_autoplay_button_title">Itago ang autoplay na button</string>
+  <string name="revanced_hide_autoplay_button_summary_on">Nakatago ang autoplay button</string>
+  <string name="revanced_hide_autoplay_button_summary_off">Ang autoplay na button ay ipinapakita</string>
   </patch>
   <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Itago ang mga end screen card</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Nakatago ang mga end screen card</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Ipinapakita ang mga end screen card</string>
-  </patch>
-  <patch id="layout.hide.filterbar.HideFilterBarResourcePatch">
-  <string name="revanced_hide_filter_bar_screen_summary">Itago o ipakita ang filter bar sa feed, paghahanap, at mga kaugnay na video</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Itago sa feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Nakatago sa feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Ipinapakita sa feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Itago sa paghahanap</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Nakatago sa paghahanap</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Ipinapakita sa paghahanap</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Itago sa mga kaugnay na video</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Nakatago sa mga kaugnay na video</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Ipinapakita sa mga kaugnay na video</string>
-  </patch>
-  <patch id="layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch">
-  <string name="revanced_hide_floating_microphone_button_title">Itago ang lumulutang na pindutan ng mikropono</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">Nakatago ang button ng mikropono</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">Ipinapakita ang pindutan ng mikropono</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">I-disable ang ambient mode sa fullscreen</string>
@@ -916,6 +900,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_resuming_shorts_player_title">Huwag paganahin ang pagpapatuloy na manlalaro ng Shorts</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Hindi magpapatuloy ang shorts player sa pagsisimula ng app</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Magpapatuloy ang manlalaro ng shorts sa pagsisimula ng app</string>
+  </patch>
+  <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
   </patch>
   <patch id="layout.tablet.EnableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Paganahin ang layout ng tablet</string>
