@@ -91,10 +91,6 @@ object HideLayoutComponentsPatch : BytecodePatch(
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
-        SettingsPatch.PreferenceScreen.ADS.addPreferences(
-            SwitchPreference("revanced_hide_player_store_shelf"),
-        )
-
         SettingsPatch.PreferenceScreen.PLAYER.addPreferences(
             PreferenceScreen(
                 key = "revanced_hide_description_components_screen",
