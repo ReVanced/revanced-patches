@@ -251,7 +251,7 @@ public final class LayoutComponentsFilter extends Filter {
         );
 
         horizontalShelves = new StringFilterGroup(
-                Settings.HIDE_HORIZONTAL_SHELVES,
+                null, // Multiple settings use this filter.
                 "horizontal_video_shelf.eml",
                 "horizontal_shelf.eml",
                 "horizontal_shelf_inline.eml",
@@ -458,11 +458,18 @@ public final class LayoutComponentsFilter extends Filter {
     }
 
     private static boolean hideShelves() {
-        // If the player is opened while library is selected,
-        // then filter any recommendations below the player.
-        if (PlayerType.getCurrent().isMaximizedOrFullscreen()
-                // Or if the search is active while library is selected, then also filter.
-                || NavigationBar.isSearchBarActive()) {
+        // Video player can show a horizontal shopping shelf below the video.
+        // It appears this is the only shelf that can appear in the player,
+        // and no shelves are shown in the recommendations under the video.
+         if (PlayerType.getCurrent().isMaximizedOrFullscreen()) {
+            return Settings.HIDE_PLAYER_STORE_SHELF.get();
+        }
+
+        if (!Settings.HIDE_HORIZONTAL_SHELVES.get()) {
+            return false;
+        }
+
+        if (NavigationBar.isSearchBarActive()) {
             return true;
         }
 

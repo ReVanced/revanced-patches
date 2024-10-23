@@ -106,7 +106,7 @@ public class Utils {
     }
 
     /**
-     * Hide a view by setting its layout height and width to 1dp.
+     * Hide a view by setting its layout height and width to 0dp.
      *
      * @param condition The setting to check for hiding the view.
      * @param view      The view to hide.
