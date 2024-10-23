@@ -106,6 +106,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">Вимкнути відблиск кнопок \"Подобається\" / \"Підписатися\"</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Кнопки \"Подобається\" та \"Підписатися\" не відблискуватимуть при згадуванні</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Кнопки \"Подобається\" та \"Підписатися\" відблискуватимуть при згадуванні</string>
+  <string name="revanced_hide_player_store_shelf_title">Приховати панель покупок</string>
+  <string name="revanced_hide_player_store_shelf_summary_on">Покупка прихована</string>
+  <string name="revanced_hide_player_store_shelf_summary_off">Відображення покубка</string>
   <string name="revanced_hide_album_cards_title">Приховати картки альбому</string>
   <string name="revanced_hide_album_cards_summary_on">Картки альбому приховано</string>
   <string name="revanced_hide_album_cards_summary_off">Картки альбому показуються</string>

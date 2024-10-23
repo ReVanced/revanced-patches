@@ -106,6 +106,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">Desactivar el brillo del botón de like / suscripción</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">El botón de \"Me gusta\" y \"Suscribir\" no brillará cuando se mencione</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">El botón de \"Me gusta\" y \"Suscribir\" brillará cuando se mencione</string>
+  <string name="revanced_hide_player_store_shelf_title">Ocultar estampilla de compra del jugador</string>
+  <string name="revanced_hide_player_store_shelf_summary_on">El armazón de compras está oculto</string>
+  <string name="revanced_hide_player_store_shelf_summary_off">Se muestra el shelf de la compra</string>
   <string name="revanced_hide_album_cards_title">Ocultar álbumes</string>
   <string name="revanced_hide_album_cards_summary_on">Las tarjetas de álbum están ocultas</string>
   <string name="revanced_hide_album_cards_summary_off">Se muestran las tarjetas de álbum</string>

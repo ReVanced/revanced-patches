@@ -107,6 +107,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">Deaktivér som / abonnér knap glow</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Ligesom og abonnér knap vil ikke gløde når nævnt</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Ligesom og abonnér knappen vil gløde, når nævnt</string>
+  <string name="revanced_hide_player_store_shelf_title">Skjul spillerens indkøbshylde</string>
+  <string name="revanced_hide_player_store_shelf_summary_on">Shopping hylde er skjult</string>
+  <string name="revanced_hide_player_store_shelf_summary_off">Shopping hylde er vist</string>
   <string name="revanced_hide_album_cards_title">Skjul albumkort</string>
   <string name="revanced_hide_album_cards_summary_on">Albumkort er skjult</string>
   <string name="revanced_hide_album_cards_summary_off">Albumkort vises</string>

@@ -107,6 +107,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">Désactiver la lueur des boutons \"J\'aime\" / \"Je n\'aime pas\"</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Les boutons \"J\'aime\" et \"Je n\'aime pas\" ne s\'illuminerons pas lorsqu\'ils sont mentionné</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Les boutons \"J\'aime\" et \"Je n\'aime pas\" s\'illuminerons lorsqu\'ils sont mentionné</string>
+  <string name="revanced_hide_player_store_shelf_title">Masquer l\'étagère d\'achat du joueur</string>
+  <string name="revanced_hide_player_store_shelf_summary_on">L\'étagère d\'achat est cachée</string>
+  <string name="revanced_hide_player_store_shelf_summary_off">L\'étagère d\'achat est affichée</string>
   <string name="revanced_hide_album_cards_title">Cacher les cartes d\'album</string>
   <string name="revanced_hide_album_cards_summary_on">Les cartes d\'album sont cachées</string>
   <string name="revanced_hide_album_cards_summary_off">Les cartes de l\'album sont affichées</string>
