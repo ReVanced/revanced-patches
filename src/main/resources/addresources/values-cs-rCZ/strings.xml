@@ -107,6 +107,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">Zakázat záři tlačítka jako / odebírat</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Tlačítko se mi líbí a odebírá, pokud je zmíněno</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Tlačítko se mi líbí a odebírá, když je zmíněno</string>
+  <string name="revanced_hide_album_cards_title">Skrýt alba</string>
+  <string name="revanced_hide_album_cards_summary_on">Album karty jsou skryty</string>
+  <string name="revanced_hide_album_cards_summary_off">Alba karty jsou zobrazeny</string>
+  <string name="revanced_hide_crowdfunding_box_title">Skrýt box crowdfunding</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">Crowdfunding box je skrytý</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">Zobrazí se Crowdfunding box</string>
+  <string name="revanced_hide_floating_microphone_button_title">Skrýt plovoucí tlačítko mikrofonu</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">Tlačítko mikrofonu skryté</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">Zobrazené tlačítko mikrofonu</string>
   <string name="revanced_hide_gray_separator_title">Skrýt šedý oddělovač</string>
   <string name="revanced_hide_gray_separator_summary_on">Šedé oddělovače jsou skryty</string>
   <string name="revanced_hide_gray_separator_summary_off">Šedé oddělovače jsou viditelné</string>
@@ -231,6 +240,37 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">Je zobrazena sekce přepisu</string>
   <string name="revanced_hide_description_components_screen_title">Popis videa</string>
   <string name="revanced_hide_description_components_screen_summary">Skrýt nebo zobrazit komponenty popisu videa</string>
+  <string name="revanced_hide_filter_bar_screen_title">Filtrovat lištu</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Skrýt nebo zobrazit filtrovací lištu ve kanálu, vyhledávání a souvisejících videích</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Skrýt v kanálu</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Skryté v krmivu</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Zobrazeno v kanálu</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Skrýt ve vyhledávání</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Skryté ve vyhledávání</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Zobrazeno ve vyhledávání</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Skrýt v souvisejících videích</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Skrytá v souvisejících videích</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Zobrazeno v souvisejících videích</string>
+  <string name="revanced_comments_screen_title">Komentáře</string>
+  <string name="revanced_comments_screen_summary">Skrýt nebo zobrazit komponenty sekce komentářů</string>
+  <string name="revanced_hide_comments_by_members_header_title">Skrýt \'Komentáře podle záhlaví členů</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">Komentáře členů jsou skryté</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">\'Komentáře členů\' jsou zobrazeny</string>
+  <string name="revanced_hide_comments_section_title">Skrýt sekci komentáře</string>
+  <string name="revanced_hide_comments_section_summary_on">Sekce komentářů je skrytá</string>
+  <string name="revanced_hide_comments_section_summary_off">Část Komentáře je zobrazena</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">Skrýt tlačítko \'Vytvořit krátký\'</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">Tlačítko \"Vytvořit krátký\" je skryté</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">Zobrazí se tlačítko \'Vytvořit krátké\'</string>
+  <string name="revanced_hide_comments_preview_comment_title">Skrýt náhled komentáře</string>
+  <string name="revanced_hide_comments_preview_comment_summary_on">Náhled komentáře je skrytý</string>
+  <string name="revanced_hide_comments_preview_comment_summary_off">Náhled komentáře je zobrazen</string>
+  <string name="revanced_hide_comments_thanks_button_title">Skrýt poděkování</string>
+  <string name="revanced_hide_comments_thanks_button_summary_on">Tlačítko poděkování je skryté</string>
+  <string name="revanced_hide_comments_thanks_button_summary_off">Tlačítko poděkování je zobrazeno</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Skrýt časové razítko a tlačítka emoji</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Časové razítko a tlačítka emoji jsou skrytá</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Časové razítko a tlačítka emoji jsou zobrazena</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Skrýt YouTube Dveody</string>
   <string name="revanced_hide_doodles_summary_on">Vyhledávací lišty jsou skryté Doodles</string>
@@ -427,22 +467,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playlist_button_summary_on">Tlačítko Uložit do playlistu je skryté</string>
   <string name="revanced_hide_playlist_button_summary_off">Je zobrazeno tlačítko Uložit do playlistu</string>
   </patch>
-  <patch id="layout.buttons.autoplay.HideAutoplayButtonPatch">
-  <string name="revanced_hide_autoplay_button_title">Skrýt tlačítko automatického přehrávání</string>
-  <string name="revanced_hide_autoplay_button_summary_on">Tlačítko automatického přehrávání je skryté</string>
-  <string name="revanced_hide_autoplay_button_summary_off">Tlačítko automatického přehrávání je zobrazeno</string>
-  </patch>
-  <patch id="layout.buttons.captions.HideCaptionsButtonPatch">
-  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">Skrýt tlačítko titulků</string>
-  <string name="revanced_hide_captions_button_summary_on">Tlačítko titulek je skryté</string>
-  <string name="revanced_hide_captions_button_summary_off">Tlačítko s titulky je zobrazeno</string>
-  </patch>
-  <patch id="layout.buttons.cast.HideCastButtonPatch">
-  <string name="revanced_hide_cast_button_title">Skrýt tlačítko pro přehrávání</string>
-  <string name="revanced_hide_cast_button_summary_on">Tlačítko vysílání je skryté</string>
-  <string name="revanced_hide_cast_button_summary_off">Tlačítko vysílání je viditelné</string>
-  </patch>
   <patch id="layout.buttons.navigation.NavigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Navigation buttons</string>
   <string name="revanced_navigation_buttons_screen_summary">Skrýt nebo změnit tlačítka v navigačním panelu</string>
@@ -515,65 +539,25 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Sledování v nabídce VR je skryté</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Zobrazeno sledování v nabídce VR</string>
   </patch>
-  <patch id="layout.buttons.player.hide.HidePlayerButtonsPatch">
-  <string name="revanced_hide_player_buttons_title">Skrýt předchozí &amp; další video tlačítka</string>
-  <string name="revanced_hide_player_buttons_summary_on">Tlačítka jsou skryta</string>
-  <string name="revanced_hide_player_buttons_summary_off">Tlačítka jsou zobrazena</string>
-  </patch>
-  <patch id="layout.hide.albumcards.AlbumCardsResourcePatch">
-  <string name="revanced_hide_album_cards_title">Skrýt alba</string>
-  <string name="revanced_hide_album_cards_summary_on">Album karty jsou skryty</string>
-  <string name="revanced_hide_album_cards_summary_off">Alba karty jsou zobrazeny</string>
-  </patch>
-  <patch id="layout.hide.comments.CommentsPatch">
-  <string name="revanced_comments_screen_title">Komentáře</string>
-  <string name="revanced_comments_screen_summary">Skrýt nebo zobrazit komponenty sekce komentářů</string>
-  <string name="revanced_hide_comments_by_members_header_title">Skrýt \'Komentáře podle záhlaví členů</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">Komentáře členů jsou skryté</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">\'Komentáře členů\' jsou zobrazeny</string>
-  <string name="revanced_hide_comments_section_title">Skrýt sekci komentáře</string>
-  <string name="revanced_hide_comments_section_summary_on">Sekce komentářů je skrytá</string>
-  <string name="revanced_hide_comments_section_summary_off">Část Komentáře je zobrazena</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">Skrýt tlačítko \'Vytvořit krátký\'</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">Tlačítko \"Vytvořit krátký\" je skryté</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">Zobrazí se tlačítko \'Vytvořit krátké\'</string>
-  <string name="revanced_hide_comments_preview_comment_title">Skrýt náhled komentáře</string>
-  <string name="revanced_hide_comments_preview_comment_summary_on">Náhled komentáře je skrytý</string>
-  <string name="revanced_hide_comments_preview_comment_summary_off">Náhled komentáře je zobrazen</string>
-  <string name="revanced_hide_comments_thanks_button_title">Skrýt poděkování</string>
-  <string name="revanced_hide_comments_thanks_button_summary_on">Tlačítko poděkování je skryté</string>
-  <string name="revanced_hide_comments_thanks_button_summary_off">Tlačítko poděkování je zobrazeno</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Skrýt časové razítko a tlačítka emoji</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Časové razítko a tlačítka emoji jsou skrytá</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Časové razítko a tlačítka emoji jsou zobrazena</string>
-  </patch>
-  <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
-  <string name="revanced_hide_crowdfunding_box_title">Skrýt box crowdfunding</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">Crowdfunding box je skrytý</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">Zobrazí se Crowdfunding box</string>
+  <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
+  <string name="revanced_hide_player_previous_next_buttons_title">Skrýt předchozí &amp; další video tlačítka</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">Tlačítka jsou skryta</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">Tlačítka jsou zobrazena</string>
+  <string name="revanced_hide_cast_button_title">Skrýt tlačítko pro přehrávání</string>
+  <string name="revanced_hide_cast_button_summary_on">Tlačítko vysílání je skryté</string>
+  <string name="revanced_hide_cast_button_summary_off">Tlačítko vysílání je viditelné</string>
+  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
+  <string name="revanced_hide_captions_button_title">Skrýt tlačítko titulků</string>
+  <string name="revanced_hide_captions_button_summary_on">Tlačítko titulek je skryté</string>
+  <string name="revanced_hide_captions_button_summary_off">Tlačítko s titulky je zobrazeno</string>
+  <string name="revanced_hide_autoplay_button_title">Skrýt tlačítko automatického přehrávání</string>
+  <string name="revanced_hide_autoplay_button_summary_on">Tlačítko automatického přehrávání je skryté</string>
+  <string name="revanced_hide_autoplay_button_summary_off">Tlačítko automatického přehrávání je zobrazeno</string>
   </patch>
   <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Skrýt karty na konci obrazovky</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Karty na konci obrazovky jsou skryty</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Karty na konci obrazovky jsou zobrazeny</string>
-  </patch>
-  <patch id="layout.hide.filterbar.HideFilterBarResourcePatch">
-  <string name="revanced_hide_filter_bar_screen_title">Filtrovat lištu</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Skrýt nebo zobrazit filtrovací lištu ve kanálu, vyhledávání a souvisejících videích</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Skrýt v kanálu</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Skryté v krmivu</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Zobrazeno v kanálu</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Skrýt ve vyhledávání</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Skryté ve vyhledávání</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Zobrazeno ve vyhledávání</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Skrýt v souvisejících videích</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Skrytá v souvisejících videích</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Zobrazeno v souvisejících videích</string>
-  </patch>
-  <patch id="layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch">
-  <string name="revanced_hide_floating_microphone_button_title">Skrýt plovoucí tlačítko mikrofonu</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">Tlačítko mikrofonu skryté</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">Zobrazené tlačítko mikrofonu</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">Zakázat ambientní režim v režimu celé obrazovky</string>
@@ -988,6 +972,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_resuming_shorts_player_title">Zakázat obnovení krátkého přehrávače</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Krátký přehrávač nebude pokračovat při spuštění aplikace</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Krátký přehrávač bude pokračovat při spuštění aplikace</string>
+  </patch>
+  <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
   </patch>
   <patch id="layout.tablet.EnableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Povolit rozložení tabletu</string>

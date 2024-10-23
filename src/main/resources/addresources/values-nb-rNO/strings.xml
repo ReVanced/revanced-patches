@@ -106,6 +106,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">Deaktiver \'liker\' / abonnér på glød</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Som og abonner-knappen vil ikke glød når den nevnes</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Som og abbonér vil glød når det nevnes</string>
+  <string name="revanced_hide_album_cards_title">Skjul albumkort</string>
+  <string name="revanced_hide_album_cards_summary_on">Albumkort er skjult</string>
+  <string name="revanced_hide_album_cards_summary_off">Albumkort vises</string>
+  <string name="revanced_hide_crowdfunding_box_title">Skjul crowdfunding boks</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">Crowdfunding box er skjult</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">Det er vist dekningsboks</string>
+  <string name="revanced_hide_floating_microphone_button_title">Skjul flytende mikrofonknapp</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">Mikrofonknappen er skjult</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">Mikrofon knapp vist</string>
   <string name="revanced_hide_gray_separator_title">Skjul grå skilletegn</string>
   <string name="revanced_hide_gray_separator_summary_on">Grå skilletegn er skjult</string>
   <string name="revanced_hide_gray_separator_summary_off">Grå skilletegn vises</string>
@@ -227,6 +236,37 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">Transskripsjonsseksjonen vises</string>
   <string name="revanced_hide_description_components_screen_title">Beskrivelse av videoen</string>
   <string name="revanced_hide_description_components_screen_summary">Skjul eller vis video-beskrivelse komponenter</string>
+  <string name="revanced_hide_filter_bar_screen_title">Filtrer bar</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Skjul eller vis filterlinjen i matingen, søk og relaterte videoer</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Skjul i feed</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Skjult i feed</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Vist i feed</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Skjul i søk</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Skjult i søk</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Vist i søk</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Skjul i relaterte videoer</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Skjult i relaterte videoer</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Vises i relaterte videoer</string>
+  <string name="revanced_comments_screen_title">Kommentarer</string>
+  <string name="revanced_comments_screen_summary">Skjul eller vis kommentar-deler komponenter</string>
+  <string name="revanced_hide_comments_by_members_header_title">Skjul \'Kommentarer etter medlemmer\' topptekst</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">\'Kommentarer av medlemmer\' topptekst er skjult</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">\'Kommentarer etter medlemmer\' topptekst er vist</string>
+  <string name="revanced_hide_comments_section_title">Skjul kommentarfeltet</string>
+  <string name="revanced_hide_comments_section_summary_on">Kommentarer seksjonen er skjult</string>
+  <string name="revanced_hide_comments_section_summary_off">Kommentarer er vist</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">Skjul \"Lag en kort\"-knapp</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">\'Opprett en kort\' knapp er skjult</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">\'Opprett en kort\' knapp vises</string>
+  <string name="revanced_hide_comments_preview_comment_title">Skjul forhåndsvisningskommentar</string>
+  <string name="revanced_hide_comments_preview_comment_summary_on">Forhåndsvisningskommentaren er skjult</string>
+  <string name="revanced_hide_comments_preview_comment_summary_off">Forhåndsvisningskommentar vises</string>
+  <string name="revanced_hide_comments_thanks_button_title">Skjul takks-knappen</string>
+  <string name="revanced_hide_comments_thanks_button_summary_on">Tusen takk er skjult</string>
+  <string name="revanced_hide_comments_thanks_button_summary_off">Tusen takk vises</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Skjul knapper for tidsstempel og emoji</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Tidsstempel og emoji-knapper er skjult</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Det vises tidsstempel og emoji-knapper</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Skjul YouTube dører</string>
   <string name="revanced_hide_doodles_summary_on">Søk i barnerøvinger er skjult</string>
@@ -422,22 +462,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playlist_button_summary_on">Lagre i spilleliste-knappen er skjult</string>
   <string name="revanced_hide_playlist_button_summary_off">Lagre i spilleliste-knappen vises</string>
   </patch>
-  <patch id="layout.buttons.autoplay.HideAutoplayButtonPatch">
-  <string name="revanced_hide_autoplay_button_title">Skjul automatisk avspillingsknapp</string>
-  <string name="revanced_hide_autoplay_button_summary_on">Autospill-knappen er skjult</string>
-  <string name="revanced_hide_autoplay_button_summary_off">Autospill-knappen vises</string>
-  </patch>
-  <patch id="layout.buttons.captions.HideCaptionsButtonPatch">
-  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">Skjul undertekst-knappen</string>
-  <string name="revanced_hide_captions_button_summary_on">Tekstknappen er skjult</string>
-  <string name="revanced_hide_captions_button_summary_off">Tekst-knappen vises</string>
-  </patch>
-  <patch id="layout.buttons.cast.HideCastButtonPatch">
-  <string name="revanced_hide_cast_button_title">Skjul kast knapp</string>
-  <string name="revanced_hide_cast_button_summary_on">Støp-knappen er skjult</string>
-  <string name="revanced_hide_cast_button_summary_off">Oversiktsknappen er vist</string>
-  </patch>
   <patch id="layout.buttons.navigation.NavigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Navigation buttons</string>
   <string name="revanced_navigation_buttons_screen_summary">Skjul eller endre knapper i navigasjonslinjen</string>
@@ -510,65 +534,25 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Se i VR-menyen er skjult</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Se i VR-meny for å vise</string>
   </patch>
-  <patch id="layout.buttons.player.hide.HidePlayerButtonsPatch">
-  <string name="revanced_hide_player_buttons_title">Skjul forrige &amp; neste videoknapper</string>
-  <string name="revanced_hide_player_buttons_summary_on">Knappene er skjult</string>
-  <string name="revanced_hide_player_buttons_summary_off">Det vises knapper</string>
-  </patch>
-  <patch id="layout.hide.albumcards.AlbumCardsResourcePatch">
-  <string name="revanced_hide_album_cards_title">Skjul albumkort</string>
-  <string name="revanced_hide_album_cards_summary_on">Albumkort er skjult</string>
-  <string name="revanced_hide_album_cards_summary_off">Albumkort vises</string>
-  </patch>
-  <patch id="layout.hide.comments.CommentsPatch">
-  <string name="revanced_comments_screen_title">Kommentarer</string>
-  <string name="revanced_comments_screen_summary">Skjul eller vis kommentar-deler komponenter</string>
-  <string name="revanced_hide_comments_by_members_header_title">Skjul \'Kommentarer etter medlemmer\' topptekst</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">\'Kommentarer av medlemmer\' topptekst er skjult</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">\'Kommentarer etter medlemmer\' topptekst er vist</string>
-  <string name="revanced_hide_comments_section_title">Skjul kommentarfeltet</string>
-  <string name="revanced_hide_comments_section_summary_on">Kommentarer seksjonen er skjult</string>
-  <string name="revanced_hide_comments_section_summary_off">Kommentarer er vist</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">Skjul \"Lag en kort\"-knapp</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">\'Opprett en kort\' knapp er skjult</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">\'Opprett en kort\' knapp vises</string>
-  <string name="revanced_hide_comments_preview_comment_title">Skjul forhåndsvisningskommentar</string>
-  <string name="revanced_hide_comments_preview_comment_summary_on">Forhåndsvisningskommentaren er skjult</string>
-  <string name="revanced_hide_comments_preview_comment_summary_off">Forhåndsvisningskommentar vises</string>
-  <string name="revanced_hide_comments_thanks_button_title">Skjul takks-knappen</string>
-  <string name="revanced_hide_comments_thanks_button_summary_on">Tusen takk er skjult</string>
-  <string name="revanced_hide_comments_thanks_button_summary_off">Tusen takk vises</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Skjul knapper for tidsstempel og emoji</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Tidsstempel og emoji-knapper er skjult</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Det vises tidsstempel og emoji-knapper</string>
-  </patch>
-  <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
-  <string name="revanced_hide_crowdfunding_box_title">Skjul crowdfunding boks</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">Crowdfunding box er skjult</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">Det er vist dekningsboks</string>
+  <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
+  <string name="revanced_hide_player_previous_next_buttons_title">Skjul forrige &amp; neste videoknapper</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">Knappene er skjult</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">Det vises knapper</string>
+  <string name="revanced_hide_cast_button_title">Skjul kast knapp</string>
+  <string name="revanced_hide_cast_button_summary_on">Støp-knappen er skjult</string>
+  <string name="revanced_hide_cast_button_summary_off">Oversiktsknappen er vist</string>
+  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
+  <string name="revanced_hide_captions_button_title">Skjul undertekst-knappen</string>
+  <string name="revanced_hide_captions_button_summary_on">Tekstknappen er skjult</string>
+  <string name="revanced_hide_captions_button_summary_off">Tekst-knappen vises</string>
+  <string name="revanced_hide_autoplay_button_title">Skjul automatisk avspillingsknapp</string>
+  <string name="revanced_hide_autoplay_button_summary_on">Autospill-knappen er skjult</string>
+  <string name="revanced_hide_autoplay_button_summary_off">Autospill-knappen vises</string>
   </patch>
   <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Skjul avsluttende skjerm-kort</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Sluttskjerm kort er skjult</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Sluttskjerm vises</string>
-  </patch>
-  <patch id="layout.hide.filterbar.HideFilterBarResourcePatch">
-  <string name="revanced_hide_filter_bar_screen_title">Filtrer bar</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Skjul eller vis filterlinjen i matingen, søk og relaterte videoer</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Skjul i feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Skjult i feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Vist i feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Skjul i søk</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Skjult i søk</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Vist i søk</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Skjul i relaterte videoer</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Skjult i relaterte videoer</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Vises i relaterte videoer</string>
-  </patch>
-  <patch id="layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch">
-  <string name="revanced_hide_floating_microphone_button_title">Skjul flytende mikrofonknapp</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">Mikrofonknappen er skjult</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">Mikrofon knapp vist</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">Deaktiver omgivelsesmodus i fullskjerm</string>
@@ -975,6 +959,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_resuming_shorts_player_title">Deaktiver gjenopptakelse av Shorts spiller</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts spiller vil ikke gjenoppta ved oppstart av app</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts spiller vil gjenoppta ved oppstart av app</string>
+  </patch>
+  <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
   </patch>
   <patch id="layout.tablet.EnableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Aktiver oppsett for nettbrett</string>

@@ -107,6 +107,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">Inaktivera gilla- / prenumerationsknapp glow</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Gilla och prenumerera knappen kommer inte att lysa när det nämns</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Gilla och prenumerera knappen lyser när det nämns</string>
+  <string name="revanced_hide_album_cards_title">Dölj albumkort</string>
+  <string name="revanced_hide_album_cards_summary_on">Skivkorten är dolda</string>
+  <string name="revanced_hide_album_cards_summary_off">Albumkort är synliga</string>
+  <string name="revanced_hide_crowdfunding_box_title">Dölj crowdfunding-rutan</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">Crowdfunding-rutan är dold</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">Crowdfunding-rutan är synlig</string>
+  <string name="revanced_hide_floating_microphone_button_title">Dölj flytande mikrofonknapp</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">Mikrofon knapp dold</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">Mikrofonknappen är synlig</string>
   <string name="revanced_hide_gray_separator_title">Dölj den gråa avgränsaren</string>
   <string name="revanced_hide_gray_separator_summary_on">De gråa separatorerna är dolda</string>
   <string name="revanced_hide_gray_separator_summary_off">De gråa separatorerna är synliga</string>
@@ -231,6 +240,37 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">Transkriptsektionen är synlig</string>
   <string name="revanced_hide_description_components_screen_title">Videobeskrivning</string>
   <string name="revanced_hide_description_components_screen_summary">Dölj eller visa videobeskrivningskomponenter</string>
+  <string name="revanced_hide_filter_bar_screen_title">Filterfält</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Dölj eller visa filterfältet i flödet, sök och relaterade videor</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Dölj i flöde</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Dold i flödet</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Visas i flöde</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Dölj i sökningen</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Dold i sökningen</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Visas i sök</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Dölj i relaterade videor</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Dold i relaterade videor</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Visas i relaterade videor</string>
+  <string name="revanced_comments_screen_title">Kommentarer</string>
+  <string name="revanced_comments_screen_summary">Dölj eller visa kommentarskomponenter</string>
+  <string name="revanced_hide_comments_by_members_header_title">Dölj \'Kommentarer från medlemmar\' header</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">\'Kommentarer från medlemmar\' huvudet är dolt</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">\'Kommentarer från medlemmar\' header visas</string>
+  <string name="revanced_hide_comments_section_title">Dölj kommentarsfältet</string>
+  <string name="revanced_hide_comments_section_summary_on">Sektionen för kommentarer är dold</string>
+  <string name="revanced_hide_comments_section_summary_off">Sektionen för kommentarer visas</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">Dölj knappen \'Skapa en kort\'</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">\'Skapa en kort\' knappen är dold</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">Knappen \'Skapa en kort\' visas</string>
+  <string name="revanced_hide_comments_preview_comment_title">Dölj förhandsgranskningskommentar</string>
+  <string name="revanced_hide_comments_preview_comment_summary_on">Förhandsgranska kommentaren är dold</string>
+  <string name="revanced_hide_comments_preview_comment_summary_off">Förhandsgranska kommentar är synlig</string>
+  <string name="revanced_hide_comments_thanks_button_title">Dölj tack-knappen</string>
+  <string name="revanced_hide_comments_thanks_button_summary_on">Tack-knappen är dold</string>
+  <string name="revanced_hide_comments_thanks_button_summary_off">Tackknappen är synlig</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Dölj tidsstämplar och emoji-knappar</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Tidsstämpel och emoji-knappar är dolda</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Knappar för tidsstämpel och emoji visas</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Dölj YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Sökfältet Doodles är dolda</string>
@@ -427,22 +467,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playlist_button_summary_on">Spara till spellistan knappen är dold</string>
   <string name="revanced_hide_playlist_button_summary_off">Knappen spara till spellista är synlig</string>
   </patch>
-  <patch id="layout.buttons.autoplay.HideAutoplayButtonPatch">
-  <string name="revanced_hide_autoplay_button_title">Dölj knappen för automatisk uppspelning</string>
-  <string name="revanced_hide_autoplay_button_summary_on">Knappen för automatisk uppspelning är dold</string>
-  <string name="revanced_hide_autoplay_button_summary_off">Knappen för automatisk uppspelning är synlig</string>
-  </patch>
-  <patch id="layout.buttons.captions.HideCaptionsButtonPatch">
-  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">Dölj bildtextknapp</string>
-  <string name="revanced_hide_captions_button_summary_on">Bildtext-knappen är dold</string>
-  <string name="revanced_hide_captions_button_summary_off">Bildtextsknappen är synlig</string>
-  </patch>
-  <patch id="layout.buttons.cast.HideCastButtonPatch">
-  <string name="revanced_hide_cast_button_title">Dölj cast-knapp</string>
-  <string name="revanced_hide_cast_button_summary_on">Cast-knappen är dold</string>
-  <string name="revanced_hide_cast_button_summary_off">Cast-knappen är synlig</string>
-  </patch>
   <patch id="layout.buttons.navigation.NavigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Navigeringsknappar</string>
   <string name="revanced_navigation_buttons_screen_summary">Dölj eller ändra knappar i navigeringsfältet</string>
@@ -515,65 +539,25 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Titta i VR-menyn är dold</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Titta i VR-menyn är synlig</string>
   </patch>
-  <patch id="layout.buttons.player.hide.HidePlayerButtonsPatch">
-  <string name="revanced_hide_player_buttons_title">Dölj tidigare &amp; nästa videoknappar</string>
-  <string name="revanced_hide_player_buttons_summary_on">Knappar är dolda</string>
-  <string name="revanced_hide_player_buttons_summary_off">Knappar är synliga</string>
-  </patch>
-  <patch id="layout.hide.albumcards.AlbumCardsResourcePatch">
-  <string name="revanced_hide_album_cards_title">Dölj albumkort</string>
-  <string name="revanced_hide_album_cards_summary_on">Skivkorten är dolda</string>
-  <string name="revanced_hide_album_cards_summary_off">Albumkort är synliga</string>
-  </patch>
-  <patch id="layout.hide.comments.CommentsPatch">
-  <string name="revanced_comments_screen_title">Kommentarer</string>
-  <string name="revanced_comments_screen_summary">Dölj eller visa kommentarskomponenter</string>
-  <string name="revanced_hide_comments_by_members_header_title">Dölj \'Kommentarer från medlemmar\' header</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">\'Kommentarer från medlemmar\' huvudet är dolt</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">\'Kommentarer från medlemmar\' header visas</string>
-  <string name="revanced_hide_comments_section_title">Dölj kommentarsfältet</string>
-  <string name="revanced_hide_comments_section_summary_on">Sektionen för kommentarer är dold</string>
-  <string name="revanced_hide_comments_section_summary_off">Sektionen för kommentarer visas</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">Dölj knappen \'Skapa en kort\'</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">\'Skapa en kort\' knappen är dold</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">Knappen \'Skapa en kort\' visas</string>
-  <string name="revanced_hide_comments_preview_comment_title">Dölj förhandsgranskningskommentar</string>
-  <string name="revanced_hide_comments_preview_comment_summary_on">Förhandsgranska kommentaren är dold</string>
-  <string name="revanced_hide_comments_preview_comment_summary_off">Förhandsgranska kommentar är synlig</string>
-  <string name="revanced_hide_comments_thanks_button_title">Dölj tack-knappen</string>
-  <string name="revanced_hide_comments_thanks_button_summary_on">Tack-knappen är dold</string>
-  <string name="revanced_hide_comments_thanks_button_summary_off">Tackknappen är synlig</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Dölj tidsstämplar och emoji-knappar</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Tidsstämpel och emoji-knappar är dolda</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Knappar för tidsstämpel och emoji visas</string>
-  </patch>
-  <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
-  <string name="revanced_hide_crowdfunding_box_title">Dölj crowdfunding-rutan</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">Crowdfunding-rutan är dold</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">Crowdfunding-rutan är synlig</string>
+  <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
+  <string name="revanced_hide_player_previous_next_buttons_title">Dölj tidigare &amp; nästa videoknappar</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">Knappar är dolda</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">Knappar är synliga</string>
+  <string name="revanced_hide_cast_button_title">Dölj cast-knapp</string>
+  <string name="revanced_hide_cast_button_summary_on">Cast-knappen är dold</string>
+  <string name="revanced_hide_cast_button_summary_off">Cast-knappen är synlig</string>
+  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
+  <string name="revanced_hide_captions_button_title">Dölj bildtextknapp</string>
+  <string name="revanced_hide_captions_button_summary_on">Bildtext-knappen är dold</string>
+  <string name="revanced_hide_captions_button_summary_off">Bildtextsknappen är synlig</string>
+  <string name="revanced_hide_autoplay_button_title">Dölj knappen för automatisk uppspelning</string>
+  <string name="revanced_hide_autoplay_button_summary_on">Knappen för automatisk uppspelning är dold</string>
+  <string name="revanced_hide_autoplay_button_summary_off">Knappen för automatisk uppspelning är synlig</string>
   </patch>
   <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Dölj slutskärmskort</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Slutskärmskort är dolda</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Slutskärmskort är synliga</string>
-  </patch>
-  <patch id="layout.hide.filterbar.HideFilterBarResourcePatch">
-  <string name="revanced_hide_filter_bar_screen_title">Filterfält</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Dölj eller visa filterfältet i flödet, sök och relaterade videor</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Dölj i flöde</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Dold i flödet</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Visas i flöde</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Dölj i sökningen</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Dold i sökningen</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Visas i sök</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Dölj i relaterade videor</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Dold i relaterade videor</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Visas i relaterade videor</string>
-  </patch>
-  <patch id="layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch">
-  <string name="revanced_hide_floating_microphone_button_title">Dölj flytande mikrofonknapp</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">Mikrofon knapp dold</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">Mikrofonknappen är synlig</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">Inaktivera omgivningsläge i helskärm</string>
@@ -599,6 +583,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Miniatyrens sökfält är synlig</string>
   </patch>
   <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
+  <string name="revanced_shorts_player_screen_title">Shorts spelare</string>
+  <string name="revanced_shorts_player_screen_summary">Dölj eller visa komponenter i Shorts spelaren</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Dölj Shorts i hemmatningsflödet</string>
   <string name="revanced_hide_shorts_home_summary_on">Shorts i hemmatningsflödet är dolda</string>
@@ -988,6 +974,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_resuming_shorts_player_title">Inaktivera återupptagande av Shorts spelare</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts spelare kommer inte att återupptas vid appstart</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts spelare kommer att återupptas vid appstart</string>
+  </patch>
+  <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
+  <string name="revanced_shorts_autoplay_title">Autoplay Shorts</string>
+  <string name="revanced_shorts_autoplay_summary_on">Shorts kommer automatiskt spela upp</string>
+  <string name="revanced_shorts_autoplay_summary_off">Shorts kommer att upprepas</string>
+  <string name="revanced_shorts_autoplay_background_title">Autoplay Shorts bakgrund spela</string>
+  <string name="revanced_shorts_autoplay_background_summary_on">Shorts bakgrundsuppspelning kommer automatiskt spela</string>
+  <string name="revanced_shorts_autoplay_background_summary_off">Shorts bakgrundsuppspelning upprepas</string>
   </patch>
   <patch id="layout.tablet.EnableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Aktivera surfplattans layout</string>

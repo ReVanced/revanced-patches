@@ -106,6 +106,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">Nút thích / đăng ký tỏa sáng</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Nút thích và đăng ký sẽ không tỏa sáng khi được nhắc đến</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Nút thích và đăng ký sẽ tỏa sáng khi được nhắc đến</string>
+  <string name="revanced_hide_album_cards_title">Ẩn các thẻ album</string>
+  <string name="revanced_hide_album_cards_summary_on">Các thẻ album được ẩn</string>
+  <string name="revanced_hide_album_cards_summary_off">Các thẻ album được hiện</string>
+  <string name="revanced_hide_crowdfunding_box_title">Ẩn hộp chiến dịch gây quỹ</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">Hộp chiến dịch gây quỹ được ẩn</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">Hộp chiến dịch gây quỹ được hiện</string>
+  <string name="revanced_hide_floating_microphone_button_title">Ẩn nút micrô nổi</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">Nút micrô được ẩn</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">Nút micrô được hiện</string>
   <string name="revanced_hide_gray_separator_title">Ẩn dải phân cách màu xám</string>
   <string name="revanced_hide_gray_separator_summary_on">Dải phân cách màu xám được ẩn</string>
   <string name="revanced_hide_gray_separator_summary_off">Dải phân cách màu xám được hiện</string>
@@ -230,6 +239,37 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">Phần bản chép lời được hiện</string>
   <string name="revanced_hide_description_components_screen_title">Mô tả video</string>
   <string name="revanced_hide_description_components_screen_summary">Ẩn hoặc hiện các thành phần mô tả video</string>
+  <string name="revanced_hide_filter_bar_screen_title">Thanh bộ lọc</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Ẩn hoặc hiện thanh bộ lọc trong bảng tin, tìm kiếm và video liên quan</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Ẩn trong bảng tin</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Đã ẩn trong bảng tin</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Đã hiện trong bảng tin</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Ẩn tròn tìm kiếm</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Đã ẩn trong tìm kiếm</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Đã hiện trong tìm kiếm</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Ẩn trong video liên quan</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Đã ẩn trong video liên quan</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Đã hiện trong video liên quan</string>
+  <string name="revanced_comments_screen_title">Bình luận</string>
+  <string name="revanced_comments_screen_summary">Ẩn hoặc hiện các thành phần bình luận</string>
+  <string name="revanced_hide_comments_by_members_header_title">Ẩn tiêu đề \'Bình luận bởi hội viên\'</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">Tiêu đề \'Bình luận bởi hội viên\' được ẩn</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">Tiêu đề \'Bình luận bởi hội viên\' được hiện</string>
+  <string name="revanced_hide_comments_section_title">Ẩn phần bình luận</string>
+  <string name="revanced_hide_comments_section_summary_on">Phần Bình luận được ẩn</string>
+  <string name="revanced_hide_comments_section_summary_off">Phần Bình luận được hiện</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">Ẩn nút \'Tạo video ngắn\'</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">Nút \'Tạo video ngắn\' được ẩn</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">Nút \'Tạo video ngắn\' được hiện</string>
+  <string name="revanced_hide_comments_preview_comment_title">Ẩn xem trước bình luận</string>
+  <string name="revanced_hide_comments_preview_comment_summary_on">Xem trước bình luận được ẩn</string>
+  <string name="revanced_hide_comments_preview_comment_summary_off">Xem trước bình luận được hiện</string>
+  <string name="revanced_hide_comments_thanks_button_title">Ẩn nút cảm ơn</string>
+  <string name="revanced_hide_comments_thanks_button_summary_on">Nút cảm ơn được ẩn</string>
+  <string name="revanced_hide_comments_thanks_button_summary_off">Nút cảm ơn được hiện</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Ẩn mốc thời gian và các nút biểu tượng cảm xúc</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Mốc thời gian và các nút biểu tượng cảm xúc được ẩn</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Mốc thời gian và các nút biểu tượng cảm xúc được hiện</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_custom_filter_screen_title">Bộ lọc tùy chỉnh</string>
   <string name="revanced_custom_filter_screen_summary">Ẩn các thành phần dùng bộ lọc tùy chỉnh</string>
@@ -422,22 +462,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playlist_button_summary_on">Nút lưu vào danh sách phát được ẩn</string>
   <string name="revanced_hide_playlist_button_summary_off">Nút lưu vào danh sách phát được hiện</string>
   </patch>
-  <patch id="layout.buttons.autoplay.HideAutoplayButtonPatch">
-  <string name="revanced_hide_autoplay_button_title">Ẩn nút tự động phát</string>
-  <string name="revanced_hide_autoplay_button_summary_on">Nút tự động phát được ẩn</string>
-  <string name="revanced_hide_autoplay_button_summary_off">Nút tự động phát được hiện</string>
-  </patch>
-  <patch id="layout.buttons.captions.HideCaptionsButtonPatch">
-  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">Ẩn nút phụ đề</string>
-  <string name="revanced_hide_captions_button_summary_on">Nút phụ đề được ẩn</string>
-  <string name="revanced_hide_captions_button_summary_off">Nút phụ đề được hiện</string>
-  </patch>
-  <patch id="layout.buttons.cast.HideCastButtonPatch">
-  <string name="revanced_hide_cast_button_title">Ẩn nút truyền</string>
-  <string name="revanced_hide_cast_button_summary_on">Nút Truyền được ẩn</string>
-  <string name="revanced_hide_cast_button_summary_off">Nút Truyền được hiển thị</string>
-  </patch>
   <patch id="layout.buttons.navigation.NavigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Các nút điều hướng</string>
   <string name="revanced_navigation_buttons_screen_summary">Ẩn hoặc hiện các nút ở thanh điều hướng</string>
@@ -510,65 +534,25 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Trình đơn xem trong thực tế ảo được ẩn</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Trình đơn xem trong thực tế ảo được hiện</string>
   </patch>
-  <patch id="layout.buttons.player.hide.HidePlayerButtonsPatch">
-  <string name="revanced_hide_player_buttons_title">Ẩn các nút video trước đó &amp; tiếp theo</string>
-  <string name="revanced_hide_player_buttons_summary_on">Các nút được ẩn</string>
-  <string name="revanced_hide_player_buttons_summary_off">Các nút được hiện</string>
-  </patch>
-  <patch id="layout.hide.albumcards.AlbumCardsResourcePatch">
-  <string name="revanced_hide_album_cards_title">Ẩn các thẻ album</string>
-  <string name="revanced_hide_album_cards_summary_on">Các thẻ album được ẩn</string>
-  <string name="revanced_hide_album_cards_summary_off">Các thẻ album được hiện</string>
-  </patch>
-  <patch id="layout.hide.comments.CommentsPatch">
-  <string name="revanced_comments_screen_title">Bình luận</string>
-  <string name="revanced_comments_screen_summary">Ẩn hoặc hiện các thành phần bình luận</string>
-  <string name="revanced_hide_comments_by_members_header_title">Ẩn tiêu đề \'Bình luận bởi hội viên\'</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">Tiêu đề \'Bình luận bởi hội viên\' được ẩn</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">Tiêu đề \'Bình luận bởi hội viên\' được hiện</string>
-  <string name="revanced_hide_comments_section_title">Ẩn phần bình luận</string>
-  <string name="revanced_hide_comments_section_summary_on">Phần Bình luận được ẩn</string>
-  <string name="revanced_hide_comments_section_summary_off">Phần Bình luận được hiện</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">Ẩn nút \'Tạo video ngắn\'</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">Nút \'Tạo video ngắn\' được ẩn</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">Nút \'Tạo video ngắn\' được hiện</string>
-  <string name="revanced_hide_comments_preview_comment_title">Ẩn xem trước bình luận</string>
-  <string name="revanced_hide_comments_preview_comment_summary_on">Xem trước bình luận được ẩn</string>
-  <string name="revanced_hide_comments_preview_comment_summary_off">Xem trước bình luận được hiện</string>
-  <string name="revanced_hide_comments_thanks_button_title">Ẩn nút cảm ơn</string>
-  <string name="revanced_hide_comments_thanks_button_summary_on">Nút cảm ơn được ẩn</string>
-  <string name="revanced_hide_comments_thanks_button_summary_off">Nút cảm ơn được hiện</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Ẩn mốc thời gian và các nút biểu tượng cảm xúc</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Mốc thời gian và các nút biểu tượng cảm xúc được ẩn</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Mốc thời gian và các nút biểu tượng cảm xúc được hiện</string>
-  </patch>
-  <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
-  <string name="revanced_hide_crowdfunding_box_title">Ẩn hộp chiến dịch gây quỹ</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">Hộp chiến dịch gây quỹ được ẩn</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">Hộp chiến dịch gây quỹ được hiện</string>
+  <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
+  <string name="revanced_hide_player_previous_next_buttons_title">Ẩn các nút video trước đó &amp; tiếp theo</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">Các nút được ẩn</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">Các nút được hiện</string>
+  <string name="revanced_hide_cast_button_title">Ẩn nút truyền</string>
+  <string name="revanced_hide_cast_button_summary_on">Nút Truyền được ẩn</string>
+  <string name="revanced_hide_cast_button_summary_off">Nút Truyền được hiển thị</string>
+  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
+  <string name="revanced_hide_captions_button_title">Ẩn nút phụ đề</string>
+  <string name="revanced_hide_captions_button_summary_on">Nút phụ đề được ẩn</string>
+  <string name="revanced_hide_captions_button_summary_off">Nút phụ đề được hiện</string>
+  <string name="revanced_hide_autoplay_button_title">Ẩn nút tự động phát</string>
+  <string name="revanced_hide_autoplay_button_summary_on">Nút tự động phát được ẩn</string>
+  <string name="revanced_hide_autoplay_button_summary_off">Nút tự động phát được hiện</string>
   </patch>
   <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Ẩn thẻ kết thúc màn hình</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Thẻ kết thúc màn hình được ẩn</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Thẻ kết thúc màn hình được hiện</string>
-  </patch>
-  <patch id="layout.hide.filterbar.HideFilterBarResourcePatch">
-  <string name="revanced_hide_filter_bar_screen_title">Thanh bộ lọc</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Ẩn hoặc hiện thanh bộ lọc trong bảng tin, tìm kiếm và video liên quan</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Ẩn trong bảng tin</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Đã ẩn trong bảng tin</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Đã hiện trong bảng tin</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Ẩn tròn tìm kiếm</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Đã ẩn trong tìm kiếm</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Đã hiện trong tìm kiếm</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Ẩn trong video liên quan</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Đã ẩn trong video liên quan</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Đã hiện trong video liên quan</string>
-  </patch>
-  <patch id="layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch">
-  <string name="revanced_hide_floating_microphone_button_title">Ẩn nút micrô nổi</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">Nút micrô được ẩn</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">Nút micrô được hiện</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">Tắt chế độ môi trường trong toàn màn hình</string>
@@ -961,6 +945,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_resuming_shorts_player_title">Tắt tiếp tục trình phát Shorts</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Trinh phát Shorts sẽ không tiếp tục khi ứng dụng khởi chạy</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Trinh phát Shorts sẽ tiếp tục khi ứng dụng khởi chạy</string>
+  </patch>
+  <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
   </patch>
   <patch id="layout.tablet.EnableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Bật bố cục máy tính bảng</string>

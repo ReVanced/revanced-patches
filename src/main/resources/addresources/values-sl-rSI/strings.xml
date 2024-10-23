@@ -102,13 +102,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   </patch>
-  <patch id="layout.buttons.autoplay.HideAutoplayButtonPatch">
-  </patch>
-  <patch id="layout.buttons.captions.HideCaptionsButtonPatch">
-  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  </patch>
-  <patch id="layout.buttons.cast.HideCastButtonPatch">
-  </patch>
   <patch id="layout.buttons.navigation.NavigationButtonsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
   <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
@@ -129,19 +122,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   </patch>
-  <patch id="layout.buttons.player.hide.HidePlayerButtonsPatch">
-  </patch>
-  <patch id="layout.hide.albumcards.AlbumCardsResourcePatch">
-  </patch>
-  <patch id="layout.hide.comments.CommentsPatch">
-  </patch>
-  <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
+  <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
+  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
   </patch>
   <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
-  </patch>
-  <patch id="layout.hide.filterbar.HideFilterBarResourcePatch">
-  </patch>
-  <patch id="layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch">
   </patch>
   <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
   </patch>
@@ -196,6 +180,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_change_start_page_entry_default">Privzeto</string>
   </patch>
   <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
+  </patch>
+  <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
   </patch>
   <patch id="layout.tablet.EnableTabletLayoutPatch">
   </patch>

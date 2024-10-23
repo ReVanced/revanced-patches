@@ -107,6 +107,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">Подсветка кнопок</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Кнопки \"Лайк\" и \"Подписаться\" не будут подсвечиваться при упоминании</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Кнопки \"Лайк\" и \"Подписаться\" будут подсвечиваться при упоминании</string>
+  <string name="revanced_hide_album_cards_title">Карточки альбомов</string>
+  <string name="revanced_hide_album_cards_summary_on">Карточки альбомов под описанием артистов скрыты</string>
+  <string name="revanced_hide_album_cards_summary_off">Карточки альбомов под описанием артистов отображены</string>
+  <string name="revanced_hide_crowdfunding_box_title">Колонка \"Коллективный сбор\"</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">Колонка \"Коллективный сбор\" между плеером и описанием видео скрыта</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">Колонка \"Коллективный сбор\" между плеером и описанием видео отображена</string>
+  <string name="revanced_hide_floating_microphone_button_title">Плавающая кнопка микрофона</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">Плавающая кнопка микрофона в поиске скрыта</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">Плавающая кнопка микрофона в поиске отображена</string>
   <string name="revanced_hide_gray_separator_title">Серые разделители</string>
   <string name="revanced_hide_gray_separator_summary_on">Серые разделители в ленте между видео и публикациями сообщества скрыты</string>
   <string name="revanced_hide_gray_separator_summary_off">Серые разделители в ленте между видео и публикациями сообщества отображены</string>
@@ -231,6 +240,37 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">Раздел расшифровки в описании видео отображен</string>
   <string name="revanced_hide_description_components_screen_title">Описание видео</string>
   <string name="revanced_hide_description_components_screen_summary">Скрыть или отобразить компоненты описания видео</string>
+  <string name="revanced_hide_filter_bar_screen_title">Панель фильтров</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Скрыть или отобразить панель фильтров в ленте, поиске и похожих видео</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Панель фильтров в ленте</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Панель фильтров в ленте скрыта</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Панель фильтров в ленте отображена</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Панель фильтров в поиске</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Панель фильтров в поиске скрыта</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Панель фильтров в поиске отображена</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Панель фильтров в похожих видео</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Панель фильтров в похожих видео скрыта</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Панель фильтров в похожих видео отображена</string>
+  <string name="revanced_comments_screen_title">Комментарии</string>
+  <string name="revanced_comments_screen_summary">Скрыть или отобразить компоненты раздела комментариев</string>
+  <string name="revanced_hide_comments_by_members_header_title">Заголовок \"Комментарии спонсоров\"</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">Заголовок \"Комментарии спонсоров\" скрыт</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">Заголовок \"Комментарии спонсоров\" отображен</string>
+  <string name="revanced_hide_comments_section_title">Раздел комментариев</string>
+  <string name="revanced_hide_comments_section_summary_on">Раздел комментариев под плеером скрыт</string>
+  <string name="revanced_hide_comments_section_summary_off">Раздел комментариев под плеером отображен</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">Кнопка \"Создать Short\"</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">Кнопка \"Создать Short\" скрыта</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">Кнопка \"Создать Short\" отображена</string>
+  <string name="revanced_hide_comments_preview_comment_title">Предпросмотр комментария</string>
+  <string name="revanced_hide_comments_preview_comment_summary_on">Предпросмотр комментария под плеером скрыт</string>
+  <string name="revanced_hide_comments_preview_comment_summary_off">Предпросмотр комментария под плеером отображен</string>
+  <string name="revanced_hide_comments_thanks_button_title">Кнопка \"Спасибо\"</string>
+  <string name="revanced_hide_comments_thanks_button_summary_on">Кнопка \"Спасибо\" скрыта</string>
+  <string name="revanced_hide_comments_thanks_button_summary_off">Кнопка \"Спасибо\" отображена</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Метка времени и кнопки эмодзи</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Метка времени и кнопки эмодзи в разделе комментариев скрыты</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Метка времени и кнопки эмодзи в разделе комментариев отображены</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Doodles на панели поиска скрыты</string>
@@ -427,22 +467,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playlist_button_summary_on">Кнопка \"Сохранить в плейлист\" под плеером скрыта</string>
   <string name="revanced_hide_playlist_button_summary_off">Кнопка \"Сохранить в плейлист\" под плеером отображена</string>
   </patch>
-  <patch id="layout.buttons.autoplay.HideAutoplayButtonPatch">
-  <string name="revanced_hide_autoplay_button_title">Кнопка \"Автовоспроизведение\"</string>
-  <string name="revanced_hide_autoplay_button_summary_on">Кнопка \"Автовоспроизведение\" в плеере скрыта</string>
-  <string name="revanced_hide_autoplay_button_summary_off">Кнопка \"Автовоспроизведение\" в плеере отображена</string>
-  </patch>
-  <patch id="layout.buttons.captions.HideCaptionsButtonPatch">
-  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">Кнопка \"Субтитры\"</string>
-  <string name="revanced_hide_captions_button_summary_on">Кнопка \"Субтитры\" в плеере скрыта</string>
-  <string name="revanced_hide_captions_button_summary_off">Кнопка \"Субтитры\" в плеере отображена</string>
-  </patch>
-  <patch id="layout.buttons.cast.HideCastButtonPatch">
-  <string name="revanced_hide_cast_button_title">Кнопка \"Трансляция\"</string>
-  <string name="revanced_hide_cast_button_summary_on">Кнопка \"Трансляция\" в плеере скрыта</string>
-  <string name="revanced_hide_cast_button_summary_off">Кнопка \"Трансляция\" в плеере отображена</string>
-  </patch>
   <patch id="layout.buttons.navigation.NavigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Кнопки навигации</string>
   <string name="revanced_navigation_buttons_screen_summary">Скрыть или изменить кнопки в панели навигации</string>
@@ -515,65 +539,25 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Пункт \"Смотреть в VR-режиме\" в выдвижном меню плеера скрыт</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Пункт \"Смотреть в VR-режиме\" в выдвижном меню плеера отображен</string>
   </patch>
-  <patch id="layout.buttons.player.hide.HidePlayerButtonsPatch">
-  <string name="revanced_hide_player_buttons_title">Кнопки переключения видео</string>
-  <string name="revanced_hide_player_buttons_summary_on">Кнопки предыдущего и следующего видео скрыты</string>
-  <string name="revanced_hide_player_buttons_summary_off">Кнопки предыдущего и следующего видео отображены</string>
-  </patch>
-  <patch id="layout.hide.albumcards.AlbumCardsResourcePatch">
-  <string name="revanced_hide_album_cards_title">Карточки альбомов</string>
-  <string name="revanced_hide_album_cards_summary_on">Карточки альбомов под описанием артистов скрыты</string>
-  <string name="revanced_hide_album_cards_summary_off">Карточки альбомов под описанием артистов отображены</string>
-  </patch>
-  <patch id="layout.hide.comments.CommentsPatch">
-  <string name="revanced_comments_screen_title">Комментарии</string>
-  <string name="revanced_comments_screen_summary">Скрыть или отобразить компоненты раздела комментариев</string>
-  <string name="revanced_hide_comments_by_members_header_title">Заголовок \"Комментарии спонсоров\"</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">Заголовок \"Комментарии спонсоров\" скрыт</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">Заголовок \"Комментарии спонсоров\" отображен</string>
-  <string name="revanced_hide_comments_section_title">Раздел комментариев</string>
-  <string name="revanced_hide_comments_section_summary_on">Раздел комментариев под плеером скрыт</string>
-  <string name="revanced_hide_comments_section_summary_off">Раздел комментариев под плеером отображен</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">Кнопка \"Создать Short\"</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">Кнопка \"Создать Short\" скрыта</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">Кнопка \"Создать Short\" отображена</string>
-  <string name="revanced_hide_comments_preview_comment_title">Предпросмотр комментария</string>
-  <string name="revanced_hide_comments_preview_comment_summary_on">Предпросмотр комментария под плеером скрыт</string>
-  <string name="revanced_hide_comments_preview_comment_summary_off">Предпросмотр комментария под плеером отображен</string>
-  <string name="revanced_hide_comments_thanks_button_title">Кнопка \"Спасибо\"</string>
-  <string name="revanced_hide_comments_thanks_button_summary_on">Кнопка \"Спасибо\" скрыта</string>
-  <string name="revanced_hide_comments_thanks_button_summary_off">Кнопка \"Спасибо\" отображена</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Метка времени и кнопки эмодзи</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Метка времени и кнопки эмодзи в разделе комментариев скрыты</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Метка времени и кнопки эмодзи в разделе комментариев отображены</string>
-  </patch>
-  <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
-  <string name="revanced_hide_crowdfunding_box_title">Колонка \"Коллективный сбор\"</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">Колонка \"Коллективный сбор\" между плеером и описанием видео скрыта</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">Колонка \"Коллективный сбор\" между плеером и описанием видео отображена</string>
+  <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
+  <string name="revanced_hide_player_previous_next_buttons_title">Кнопки переключения видео</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">Кнопки скрыты</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">Кнопки предыдущего и следующего видео отображены</string>
+  <string name="revanced_hide_cast_button_title">Кнопка \"Трансляция\"</string>
+  <string name="revanced_hide_cast_button_summary_on">Кнопка \"Трансляция\" в плеере скрыта</string>
+  <string name="revanced_hide_cast_button_summary_off">Кнопка \"Трансляция\" в плеере отображена</string>
+  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
+  <string name="revanced_hide_captions_button_title">Кнопка \"Субтитры\"</string>
+  <string name="revanced_hide_captions_button_summary_on">Кнопка \"Субтитры\" в плеере скрыта</string>
+  <string name="revanced_hide_captions_button_summary_off">Кнопка \"Субтитры\" в плеере отображена</string>
+  <string name="revanced_hide_autoplay_button_title">Кнопка \"Автовоспроизведение\"</string>
+  <string name="revanced_hide_autoplay_button_summary_on">Кнопка \"Автовоспроизведение\" в плеере скрыта</string>
+  <string name="revanced_hide_autoplay_button_summary_off">Кнопка \"Автовоспроизведение\" в плеере отображена</string>
   </patch>
   <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Заставки следущих видео</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Заставки следующих видео в конце просмотра скрыты</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Заставки следующих видео в конце просмотра отображены</string>
-  </patch>
-  <patch id="layout.hide.filterbar.HideFilterBarResourcePatch">
-  <string name="revanced_hide_filter_bar_screen_title">Панель фильтров</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Скрыть или отобразить панель фильтров в ленте, поиске и похожих видео</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Панель фильтров в ленте</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Панель фильтров в ленте скрыта</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Панель фильтров в ленте отображена</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Панель фильтров в поиске</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Панель фильтров в поиске скрыта</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Панель фильтров в поиске отображена</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Панель фильтров в похожих видео</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Панель фильтров в похожих видео скрыта</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Панель фильтров в похожих видео отображена</string>
-  </patch>
-  <patch id="layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch">
-  <string name="revanced_hide_floating_microphone_button_title">Плавающая кнопка микрофона</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">Плавающая кнопка микрофона в поиске скрыта</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">Плавающая кнопка микрофона в поиске отображена</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">Фоновая подсветка</string>
@@ -599,6 +583,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Миниатюры прогресса воспроизведения отображены</string>
   </patch>
   <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
+  <string name="revanced_shorts_player_screen_title">Плеер Shorts</string>
+  <string name="revanced_shorts_player_screen_summary">Скрыть или отобразить компоненты в плеере Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Shorts в ленте \"Главной\"</string>
   <string name="revanced_hide_shorts_home_summary_on">Shorts в ленте \"Главной\" скрыты</string>
@@ -645,9 +631,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_green_screen_button_title">Кнопка \"Зеленый экран\"</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Кнопка \"Зеленый экран\" скрыта</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Кнопка \"Зеленый экран\" отображена</string>
-  <string name="revanced_hide_shorts_hashtag_button_title">Скрыть хэштег</string>
+  <string name="revanced_hide_shorts_hashtag_button_title">Кнопка хэштега</string>
   <string name="revanced_hide_shorts_hashtag_button_summary_on">Кнопка хэштега скрыта</string>
-  <string name="revanced_hide_shorts_hashtag_button_summary_off">Отображена кнопка хештега</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_off">Кнопка хэштега отображена</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Поисковые подсказки</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Поисковые подсказки скрыты</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Поисковые подсказки отображены</string>
@@ -971,11 +957,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_change_start_page_entry_default">По умолчанию</string>
   <string name="revanced_change_start_page_entry_browse">Просмотр каналов</string>
   <string name="revanced_change_start_page_entry_explore">Навигатор</string>
-  <string name="revanced_change_start_page_entry_gaming">Играть</string>
-  <string name="revanced_change_start_page_entry_history">История</string>
+  <string name="revanced_change_start_page_entry_gaming">Игры</string>
+  <string name="revanced_change_start_page_entry_history">История просмотров</string>
   <string name="revanced_change_start_page_entry_library">Библиотека</string>
   <string name="revanced_change_start_page_entry_liked_videos">Понравившиеся видео</string>
-  <string name="revanced_change_start_page_entry_live">Онлайн</string>
+  <string name="revanced_change_start_page_entry_live">В эфире</string>
   <string name="revanced_change_start_page_entry_movies">Фильмы</string>
   <string name="revanced_change_start_page_entry_music">Музыка</string>
   <string name="revanced_change_start_page_entry_search">Поиск</string>
@@ -988,6 +974,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_resuming_shorts_player_title">Возобновление плеера Shorts</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Возобновление плеера Shorts при запуске приложения отключено</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Возобновление плеера Shorts при запуске приложения включено</string>
+  </patch>
+  <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
+  <string name="revanced_shorts_autoplay_title">Автопроигрывание Shorts</string>
+  <string name="revanced_shorts_autoplay_summary_on">Shorts будут автоматически воспроизводиться одно за другим</string>
+  <string name="revanced_shorts_autoplay_summary_off">Shorts будут повторяться</string>
+  <string name="revanced_shorts_autoplay_background_title">Автопроигрывание Shorts в фоне</string>
+  <string name="revanced_shorts_autoplay_background_summary_on">Shorts будут автоматически воспроизводиться одно за другим в фоновом режиме</string>
+  <string name="revanced_shorts_autoplay_background_summary_off">Shorts будут повторяться в фоновом режиме</string>
   </patch>
   <patch id="layout.tablet.EnableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Планшетный интерфейс</string>
@@ -1005,21 +999,21 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_entry_4">Современный 1</string>
   <string name="revanced_miniplayer_type_entry_5">Современный 2</string>
   <string name="revanced_miniplayer_type_entry_6">Современный 3</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Включить закругленные углы</string>
+  <string name="revanced_miniplayer_rounded_corners_title">Закругленные углы</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Углы закруглены</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Углы квадратны</string>
-  <string name="revanced_miniplayer_double_tap_action_title">Включить двойное нажатие и закрепление для изменения размера</string>
-  <string name="revanced_miniplayer_double_tap_action_summary_on">Действие двойного нажатия и устройство для изменения размера включено\n\n• Двойное нажатие для увеличения размера мини-плеера\n• Двойное нажатие еще раз для восстановления исходного размера</string>
-  <string name="revanced_miniplayer_double_tap_action_summary_off">Действие двойного нажатия и закрепление для изменения размера отключены</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Включить перетаскивание</string>
+  <string name="revanced_miniplayer_double_tap_action_title">Двойное нажатие и щипок для изменения размера</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">Двойное нажатие и щипок для изменения размера включено\n\n• Двойное нажатие для увеличения размера мини-плеера\n• Двойное нажатие еще раз для восстановления исходного размера</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_off">Двойное нажатие и щипок для изменения размера отключены</string>
+  <string name="revanced_miniplayer_drag_and_drop_title">Перетаскивание</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">Перетаскивание включено\n\nМини-плеер можно перетащить в любой угол экрана</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">Перетаскивание отключено</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Скрыть кнопку закрытия</string>
+  <string name="revanced_miniplayer_hide_expand_close_title">Кнопка закрытия</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">Кнопка закрытия скрыта</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Кнопка закрытия отображается</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">Кнопка закрытия отображена</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_title">Кнопки \"Развернуть\" и \"Закрыть\"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Кнопки скрыты\n\nдля разворачивания или закрытия</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Показывать кнопки разворачивания и закрытия</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Кнопки скрыты\n\nПроведите по мини-плееру для разворачивания или закрытия</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Кнопки разворачивания и закрытия отображены</string>
   <string name="revanced_miniplayer_hide_subtext_title">Скрыть подтексты</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Субтексты скрыты</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Подтексты показаны</string>
@@ -1027,8 +1021,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Кнопки перемотки вперед и назад скрыты</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Кнопки перемотки вперед и назад отображены</string>
   <string name="revanced_miniplayer_width_dip_title">Начальный размер</string>
-  <string name="revanced_miniplayer_width_dip_summary">Начальный размер экрана в пикселях</string>
-  <string name="revanced_miniplayer_width_dip_invalid_toast">Размер пикселя должен быть между %1$s и %2$s</string>
+  <string name="revanced_miniplayer_width_dip_summary">Начальный размер на экране, в пикселях</string>
+  <string name="revanced_miniplayer_width_dip_invalid_toast">Размер в пикселях должен быть между %1$s и %2$s</string>
   <string name="revanced_miniplayer_opacity_title">Непрозрачность оверлея мини-плеера</string>
   <string name="revanced_miniplayer_opacity_summary">Значение непрозрачности в пределах 0-100, где 0 - это прозрачно</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Непрозрачность оверлея мини-плеера должна быть от 0 до 100</string>

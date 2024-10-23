@@ -106,6 +106,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">Dezactivează ca / abonare strălucire buton</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Butonul Îmi place și abonare nu va străluci când este menționat</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Butonul de like-uri și abonare va străluci când este menționat</string>
+  <string name="revanced_hide_album_cards_title">Ascundeți cardurile de album</string>
+  <string name="revanced_hide_album_cards_summary_on">Cardurile de album sunt ascunse</string>
+  <string name="revanced_hide_album_cards_summary_off">Cardurile de album sunt afișate</string>
+  <string name="revanced_hide_crowdfunding_box_title">Ascunde caseta de crowdfunding</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">Caseta multifinanțare este ascunsă</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">Cutia multifinanțare este afișată</string>
+  <string name="revanced_hide_floating_microphone_button_title">Ascunde butonul de microfon plutitor</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">Butonul microfon ascuns</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">Butonul Microfon afișat</string>
   <string name="revanced_hide_gray_separator_title">Ascunde separatorul gri</string>
   <string name="revanced_hide_gray_separator_summary_on">Separatoarele gri sunt ascunse</string>
   <string name="revanced_hide_gray_separator_summary_off">Se afișează separatoarele gri</string>
@@ -230,6 +239,37 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">Secțiunea de Transcriere este afișată</string>
   <string name="revanced_hide_description_components_screen_title">Descriere video</string>
   <string name="revanced_hide_description_components_screen_summary">Ascunde sau afișează componentele descrierii video</string>
+  <string name="revanced_hide_filter_bar_screen_title">Bară de filtrare</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Ascunde sau afișează bara de filtrare în flux, căutare și videoclipuri asociate</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Ascunde în feed</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Ascuns în feed</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Afișat în feed</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Ascunde în căutare</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Ascuns în căutare</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Afișat în căutare</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Ascunde în videoclipurile asociate</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Ascuns în videoclipuri conexe</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Afișat în videoclipuri conexe</string>
+  <string name="revanced_comments_screen_title">Comentarii</string>
+  <string name="revanced_comments_screen_summary">Ascunde sau afișează componentele secțiunii comentarii</string>
+  <string name="revanced_hide_comments_by_members_header_title">Ascunde \'Comentarii după antetul membrilor</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">\'Comentarii de la antetul membrilor este ascuns</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">\'Comentarii de la antetul membrilor este afișat</string>
+  <string name="revanced_hide_comments_section_title">Ascunde secțiunea comentarii</string>
+  <string name="revanced_hide_comments_section_summary_on">Secţiunea de comentarii este ascunsă</string>
+  <string name="revanced_hide_comments_section_summary_off">Secțiunea comentariilor este afișată</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">Ascunde butonul \'Creare Short\'</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">Butonul \'Crează un Short\' este ascuns</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">Butonul \'Crează un Short\' este afișat</string>
+  <string name="revanced_hide_comments_preview_comment_title">Ascunde previzualizarea comentariului</string>
+  <string name="revanced_hide_comments_preview_comment_summary_on">Previzualizarea comentariului este ascunsă</string>
+  <string name="revanced_hide_comments_preview_comment_summary_off">Previzualizarea comentariului este afișată</string>
+  <string name="revanced_hide_comments_thanks_button_title">Ascunde butonul de mulțumire</string>
+  <string name="revanced_hide_comments_thanks_button_summary_on">Butonul de multumire este ascuns</string>
+  <string name="revanced_hide_comments_thanks_button_summary_off">Butonul de multumire este afisat</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Ascunde butoanele timestamp și emoji</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Butoanele de timp și emoji sunt ascunse</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Butoanele de timp și emoji sunt afișate</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Ascunde Doodle-urile YouTube</string>
   <string name="revanced_hide_doodles_summary_on">Doodles bară de căutare sunt ascunse</string>
@@ -426,22 +466,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playlist_button_summary_on">Butonul Salvare în lista de redare este ascuns</string>
   <string name="revanced_hide_playlist_button_summary_off">Butonul Salvare în lista de redare este afișat</string>
   </patch>
-  <patch id="layout.buttons.autoplay.HideAutoplayButtonPatch">
-  <string name="revanced_hide_autoplay_button_title">Ascunde butonul de redare automată</string>
-  <string name="revanced_hide_autoplay_button_summary_on">Butonul Autoplay este ascuns</string>
-  <string name="revanced_hide_autoplay_button_summary_off">Butonul Auto-redare este afișat</string>
-  </patch>
-  <patch id="layout.buttons.captions.HideCaptionsButtonPatch">
-  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">Ascunde butonul de legendă</string>
-  <string name="revanced_hide_captions_button_summary_on">Butonul subtitrari este ascuns</string>
-  <string name="revanced_hide_captions_button_summary_off">Se afișează butonul de subtitrări</string>
-  </patch>
-  <patch id="layout.buttons.cast.HideCastButtonPatch">
-  <string name="revanced_hide_cast_button_title">Ascunde butonul de redare</string>
-  <string name="revanced_hide_cast_button_summary_on">Butonul de distribuție este ascuns</string>
-  <string name="revanced_hide_cast_button_summary_off">Butonul de execuție este afișat</string>
-  </patch>
   <patch id="layout.buttons.navigation.NavigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Navigation buttons</string>
   <string name="revanced_navigation_buttons_screen_summary">Ascunde sau modifică butoanele din bara de navigare</string>
@@ -514,65 +538,25 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Vizionarea în meniul VR este ascunsă</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Vizionați în meniul VR este afișat</string>
   </patch>
-  <patch id="layout.buttons.player.hide.HidePlayerButtonsPatch">
-  <string name="revanced_hide_player_buttons_title">Ascunde butoanele anterioare &amp; următorul video</string>
-  <string name="revanced_hide_player_buttons_summary_on">Butoanele sunt ascunse</string>
-  <string name="revanced_hide_player_buttons_summary_off">Butoanele sunt afișate</string>
-  </patch>
-  <patch id="layout.hide.albumcards.AlbumCardsResourcePatch">
-  <string name="revanced_hide_album_cards_title">Ascundeți cardurile de album</string>
-  <string name="revanced_hide_album_cards_summary_on">Cardurile de album sunt ascunse</string>
-  <string name="revanced_hide_album_cards_summary_off">Cardurile de album sunt afișate</string>
-  </patch>
-  <patch id="layout.hide.comments.CommentsPatch">
-  <string name="revanced_comments_screen_title">Comentarii</string>
-  <string name="revanced_comments_screen_summary">Ascunde sau afișează componentele secțiunii comentarii</string>
-  <string name="revanced_hide_comments_by_members_header_title">Ascunde \'Comentarii după antetul membrilor</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">\'Comentarii de la antetul membrilor este ascuns</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">\'Comentarii de la antetul membrilor este afișat</string>
-  <string name="revanced_hide_comments_section_title">Ascunde secțiunea comentarii</string>
-  <string name="revanced_hide_comments_section_summary_on">Secţiunea de comentarii este ascunsă</string>
-  <string name="revanced_hide_comments_section_summary_off">Secțiunea comentariilor este afișată</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">Ascunde butonul \'Creare Short\'</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">Butonul \'Crează un Short\' este ascuns</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">Butonul \'Crează un Short\' este afișat</string>
-  <string name="revanced_hide_comments_preview_comment_title">Ascunde previzualizarea comentariului</string>
-  <string name="revanced_hide_comments_preview_comment_summary_on">Previzualizarea comentariului este ascunsă</string>
-  <string name="revanced_hide_comments_preview_comment_summary_off">Previzualizarea comentariului este afișată</string>
-  <string name="revanced_hide_comments_thanks_button_title">Ascunde butonul de mulțumire</string>
-  <string name="revanced_hide_comments_thanks_button_summary_on">Butonul de multumire este ascuns</string>
-  <string name="revanced_hide_comments_thanks_button_summary_off">Butonul de multumire este afisat</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Ascunde butoanele timestamp și emoji</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Butoanele de timp și emoji sunt ascunse</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Butoanele de timp și emoji sunt afișate</string>
-  </patch>
-  <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
-  <string name="revanced_hide_crowdfunding_box_title">Ascunde caseta de crowdfunding</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">Caseta multifinanțare este ascunsă</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">Cutia multifinanțare este afișată</string>
+  <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
+  <string name="revanced_hide_player_previous_next_buttons_title">Ascunde butoanele anterioare &amp; următorul video</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">Butoanele sunt ascunse</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">Butoanele sunt afișate</string>
+  <string name="revanced_hide_cast_button_title">Ascunde butonul de redare</string>
+  <string name="revanced_hide_cast_button_summary_on">Butonul de distribuție este ascuns</string>
+  <string name="revanced_hide_cast_button_summary_off">Butonul de execuție este afișat</string>
+  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
+  <string name="revanced_hide_captions_button_title">Ascunde butonul de legendă</string>
+  <string name="revanced_hide_captions_button_summary_on">Butonul subtitrari este ascuns</string>
+  <string name="revanced_hide_captions_button_summary_off">Se afișează butonul de subtitrări</string>
+  <string name="revanced_hide_autoplay_button_title">Ascunde butonul de redare automată</string>
+  <string name="revanced_hide_autoplay_button_summary_on">Butonul Autoplay este ascuns</string>
+  <string name="revanced_hide_autoplay_button_summary_off">Butonul Auto-redare este afișat</string>
   </patch>
   <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Ascunde cardurile ecranului final</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Cardurile de pe ecranul de închidere sunt ascunse</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Cardurile de închidere ecran sunt afișate</string>
-  </patch>
-  <patch id="layout.hide.filterbar.HideFilterBarResourcePatch">
-  <string name="revanced_hide_filter_bar_screen_title">Bară de filtrare</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Ascunde sau afișează bara de filtrare în flux, căutare și videoclipuri asociate</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Ascunde în feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Ascuns în feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Afișat în feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Ascunde în căutare</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Ascuns în căutare</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Afișat în căutare</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Ascunde în videoclipurile asociate</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Ascuns în videoclipuri conexe</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Afișat în videoclipuri conexe</string>
-  </patch>
-  <patch id="layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch">
-  <string name="revanced_hide_floating_microphone_button_title">Ascunde butonul de microfon plutitor</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">Butonul microfon ascuns</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">Butonul Microfon afișat</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">Dezactivează modul ambiental pe tot ecranul</string>
@@ -987,6 +971,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_resuming_shorts_player_title">Dezactivează reluarea Jucător de scurtături</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Scurtătura jucătorului nu va fi reluată la pornirea aplicației</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Scurtătura va fi reluată la pornirea aplicației</string>
+  </patch>
+  <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
   </patch>
   <patch id="layout.tablet.EnableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Activează aspectul tabletei</string>
