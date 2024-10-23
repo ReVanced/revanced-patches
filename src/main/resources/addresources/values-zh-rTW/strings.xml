@@ -106,6 +106,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">停用「喜歡」和「訂閱」按鈕的發光效果</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">提及時，「喜歡」和「訂閱」按鈕不會發光</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">提及時，「喜歡」和「訂閱」按鈕會發光</string>
+  <string name="revanced_hide_player_store_shelf_title">隱藏播放器 [購物匣]</string>
+  <string name="revanced_hide_player_store_shelf_summary_on">已隱藏 [購物匣]</string>
+  <string name="revanced_hide_player_store_shelf_summary_off">已顯示 [購物匣]</string>
   <string name="revanced_hide_album_cards_title">隱藏專輯卡</string>
   <string name="revanced_hide_album_cards_summary_on">已隱藏專輯卡</string>
   <string name="revanced_hide_album_cards_summary_off">已顯示專輯卡</string>
