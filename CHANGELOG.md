@@ -1,3 +1,10 @@
+# [4.18.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v4.18.0-dev.4...v4.18.0-dev.5) (2024-10-23)
+
+
+### Features
+
+* **YouTube:** Hide player shopping shelf in playlists ([#3806](https://github.com/ReVanced/revanced-patches/issues/3806)) ([a553a13](https://github.com/ReVanced/revanced-patches/commit/a553a13c0326ef2fff7f785fed592d553a7963ce))
+
 # [4.18.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.18.0-dev.3...v4.18.0-dev.4) (2024-10-23)
 
 
