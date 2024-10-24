@@ -85,6 +85,8 @@ public final class ShortsFilter extends Filter {
         shortsCompactFeedVideoPath = new StringFilterGroup(null,
                 // Shorts that appear in the feed/search when the device is using tablet layout.
                 "compact_video.eml",
+                // 'video_lockup_with_attachment.eml' is shown instead of 'compact_video.eml' for some users
+                "video_lockup_with_attachment.eml",
                 // Search results that appear in a horizontal shelf.
                 "video_card.eml");
 
