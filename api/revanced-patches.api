@@ -1832,6 +1832,12 @@ public final class app/revanced/patches/youtube/layout/searchbar/WideSearchbarPa
 	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
 }
 
+public final class app/revanced/patches/youtube/layout/seekbar/FullscreenSeekbarThumbnailsPatch : app/revanced/patcher/patch/BytecodePatch {
+	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/seekbar/FullscreenSeekbarThumbnailsPatch;
+	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
+	public synthetic fun execute (Lapp/revanced/patcher/data/Context;)V
+}
+
 public final class app/revanced/patches/youtube/layout/seekbar/RestoreOldSeekbarThumbnailsPatch : app/revanced/patcher/patch/BytecodePatch {
 	public static final field INSTANCE Lapp/revanced/patches/youtube/layout/seekbar/RestoreOldSeekbarThumbnailsPatch;
 	public fun execute (Lapp/revanced/patcher/data/BytecodeContext;)V
