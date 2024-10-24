@@ -82,6 +82,7 @@ public final class AdsFilter extends Filter {
                 "text_image_button_layout",
                 "primetime_promo",
                 "product_details",
+                "composite_concurrent_carousel_layout",
                 "carousel_headered_layout",
                 "full_width_portrait_image_layout",
                 "brand_video_shelf"
