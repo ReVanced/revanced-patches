@@ -4,7 +4,6 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstructions
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotation.CompatiblePackage
 import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
@@ -14,6 +13,7 @@ import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.playservice.VersionCheckPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.exception
+import java.util.logging.Logger
 
 @Patch(
     name = "Restore old seekbar thumbnails",
@@ -39,8 +39,8 @@ object RestoreOldSeekbarThumbnailsPatch : BytecodePatch(
 
     override fun execute(context: BytecodeContext) {
         if (VersionCheckPatch.is_19_17_or_greater) {
-            // Give a more informative error, if the user has turned off version checks.
-            throw PatchException("'Restore old seekbar thumbnails' cannot be patched to any version after 19.16.39")
+            // If the user turned off version checks then give feedback but don't throw an exception.
+            return Logger.getLogger(this::class.java.name).severe("'Restore old seekbar thumbnails' cannot be patched to any version after 19.16.39")
         }
 
         AddResourcesPatch(this::class)
