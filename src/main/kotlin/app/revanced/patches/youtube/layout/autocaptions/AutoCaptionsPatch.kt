@@ -9,10 +9,10 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.layout.autocaptions.fingerprints.StartVideoInformerFingerprint
-import app.revanced.patches.youtube.layout.autocaptions.fingerprints.SubtitleButtonControllerFingerprint
 import app.revanced.patches.youtube.layout.autocaptions.fingerprints.SubtitleTrackFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
+import app.revanced.patches.youtube.shared.fingerprints.SubtitleButtonControllerFingerprint
 import app.revanced.util.exception
 
 

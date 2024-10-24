@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.misc.gms
 
 import app.revanced.patches.shared.fingerprints.CastContextFetchFingerprint
 import app.revanced.patches.shared.misc.gms.BaseGmsCoreSupportPatch
-import app.revanced.patches.youtube.layout.buttons.cast.HideCastButtonPatch
+import app.revanced.patches.youtube.layout.buttons.overlay.HidePlayerOverlayButtonsPatch
 import app.revanced.patches.youtube.misc.fix.playback.SpoofVideoStreamsPatch
 import app.revanced.patches.youtube.misc.gms.Constants.REVANCED_YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.gms.Constants.YOUTUBE_PACKAGE_NAME
@@ -22,7 +22,7 @@ object GmsCoreSupportPatch : BaseGmsCoreSupportPatch(
     mainActivityOnCreateFingerprint = MainActivityOnCreateFingerprint,
     integrationsPatchDependency = IntegrationsPatch::class,
     dependencies = setOf(
-        HideCastButtonPatch::class,
+        HidePlayerOverlayButtonsPatch::class, // Hide non functional cast button.
         SpoofVideoStreamsPatch::class,
     ),
     gmsCoreSupportResourcePatch = GmsCoreSupportResourcePatch,

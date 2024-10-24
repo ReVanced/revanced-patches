@@ -106,6 +106,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">Деактивирайте подсветката на бутона Харесвам /Абонамент</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Бутоните „Харесвам“ и „Абониране“ няма да светят, когато бъдат натиснати</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Бутоните „Харесвам“ и „Абониране“ ще светят, когато бъдат натиснати</string>
+  <string name="revanced_hide_album_cards_title">\"Карти на албумите\"</string>
+  <string name="revanced_hide_album_cards_summary_on">Албумните карти са скрити</string>
+  <string name="revanced_hide_album_cards_summary_off">Албумните карти се показват</string>
+  <string name="revanced_hide_crowdfunding_box_title">Дарителска кутия</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">Кутията за дарения е скрита</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">Кутията за дарения се показва</string>
+  <string name="revanced_hide_floating_microphone_button_title">Плаващ бутон за микрофона</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">Бутонът на микрофона е скрит</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">Показан е бутон на микрофона</string>
   <string name="revanced_hide_gray_separator_title">Скриване на сивия разделител</string>
   <string name="revanced_hide_gray_separator_summary_on">Сивите разделители са скрити</string>
   <string name="revanced_hide_gray_separator_summary_off">Сивите разделители са показани</string>
@@ -230,6 +239,37 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">Разделът за транскрипция е показан</string>
   <string name="revanced_hide_description_components_screen_title">Описание на видеото</string>
   <string name="revanced_hide_description_components_screen_summary">Скриване или показване на компонентите за описание на видеоклиповете</string>
+  <string name="revanced_hide_filter_bar_screen_title">Лента с филтри</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Скриване или показване на лентата с категории в емисията, резултатите от търсенето и свързаните видеоклипове</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Скриване на горната лента с категории в емисията</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Скрита</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Показва се</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Филтъри на търсене</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Панелът с филтъри на търсене е скрит</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Панелът с филтъри на търсене се показва</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Скриване в сродни видеоклипове</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Скриване в сродни видеоклипове</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Показано в сродни видеоклипове</string>
+  <string name="revanced_comments_screen_title">Коментари</string>
+  <string name="revanced_comments_screen_summary">Скриване или показване на секцията за коментари</string>
+  <string name="revanced_hide_comments_by_members_header_title">Скриване на „Коментари, направени от членове“</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">„Коментари от членове“ са скрити</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">„Коментари от членове“ се показват</string>
+  <string name="revanced_hide_comments_section_title">Скриване на секцията с коментари</string>
+  <string name="revanced_hide_comments_section_summary_on">Секцията с коментари е скрита</string>
+  <string name="revanced_hide_comments_section_summary_off">Секцията с коментари се показва</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">Бутон за създаване на Shorts</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">Бутон за създаване на Shorts е скрит</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">Бутон за създаване на Shorts се показва</string>
+  <string name="revanced_hide_comments_preview_comment_title">Преглед на коментари</string>
+  <string name="revanced_hide_comments_preview_comment_summary_on">Прегледа на коментари е скрит</string>
+  <string name="revanced_hide_comments_preview_comment_summary_off">Прегледа на коментари се показва</string>
+  <string name="revanced_hide_comments_thanks_button_title">Бутон за благодарност</string>
+  <string name="revanced_hide_comments_thanks_button_summary_on">Бутона за благодарност е скрит</string>
+  <string name="revanced_hide_comments_thanks_button_summary_off">Бутона за благодарност се показва</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Бутони в лентата на прогреса и емотикони</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Бутоните са скрити</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Бутоните се показват</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Doodles в лентата за търсене са скрити</string>
@@ -426,22 +466,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playlist_button_summary_on">Бутонът за Запазване в плейлиста е скрит</string>
   <string name="revanced_hide_playlist_button_summary_off">Бутонът за Запазване в плейлиста се показва</string>
   </patch>
-  <patch id="layout.buttons.autoplay.HideAutoplayButtonPatch">
-  <string name="revanced_hide_autoplay_button_title">Бутона за авт. изпълнение</string>
-  <string name="revanced_hide_autoplay_button_summary_on">Бутона за авт. изпълнение е скрит</string>
-  <string name="revanced_hide_autoplay_button_summary_off">Бутона за авт. изпълнение се показва</string>
-  </patch>
-  <patch id="layout.buttons.captions.HideCaptionsButtonPatch">
-  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">Бутона за Субтитри</string>
-  <string name="revanced_hide_captions_button_summary_on">Бутона за субтити е скрит</string>
-  <string name="revanced_hide_captions_button_summary_off">Бутона за субтити се показва</string>
-  </patch>
-  <patch id="layout.buttons.cast.HideCastButtonPatch">
-  <string name="revanced_hide_cast_button_title">Бутон за предаване на Тв</string>
-  <string name="revanced_hide_cast_button_summary_on">Бутонът за предаване е скрит</string>
-  <string name="revanced_hide_cast_button_summary_off">Бутонът за предаване се показва</string>
-  </patch>
   <patch id="layout.buttons.navigation.NavigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Бутони за навигация</string>
   <string name="revanced_navigation_buttons_screen_summary">Скриване или промяна на бутоните в лентата за навигация</string>
@@ -514,65 +538,25 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Менюто за гледане в VR е скрито</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Менюто за гледане в VR се показва</string>
   </patch>
-  <patch id="layout.buttons.player.hide.HidePlayerButtonsPatch">
-  <string name="revanced_hide_player_buttons_title">Бутони за Предишно &amp; Следващо видео</string>
-  <string name="revanced_hide_player_buttons_summary_on">Бутоните са скрити</string>
-  <string name="revanced_hide_player_buttons_summary_off">Бутоните се показват</string>
-  </patch>
-  <patch id="layout.hide.albumcards.AlbumCardsResourcePatch">
-  <string name="revanced_hide_album_cards_title">\"Карти на албумите\"</string>
-  <string name="revanced_hide_album_cards_summary_on">Албумните карти са скрити</string>
-  <string name="revanced_hide_album_cards_summary_off">Албумните карти се показват</string>
-  </patch>
-  <patch id="layout.hide.comments.CommentsPatch">
-  <string name="revanced_comments_screen_title">Коментари</string>
-  <string name="revanced_comments_screen_summary">Скриване или показване на секцията за коментари</string>
-  <string name="revanced_hide_comments_by_members_header_title">Скриване на „Коментари, направени от членове“</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">„Коментари от членове“ са скрити</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">„Коментари от членове“ се показват</string>
-  <string name="revanced_hide_comments_section_title">Скриване на секцията с коментари</string>
-  <string name="revanced_hide_comments_section_summary_on">Секцията с коментари е скрита</string>
-  <string name="revanced_hide_comments_section_summary_off">Секцията с коментари се показва</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">Бутон за създаване на Shorts</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">Бутон за създаване на Shorts е скрит</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">Бутон за създаване на Shorts се показва</string>
-  <string name="revanced_hide_comments_preview_comment_title">Преглед на коментари</string>
-  <string name="revanced_hide_comments_preview_comment_summary_on">Прегледа на коментари е скрит</string>
-  <string name="revanced_hide_comments_preview_comment_summary_off">Прегледа на коментари се показва</string>
-  <string name="revanced_hide_comments_thanks_button_title">Бутон за благодарност</string>
-  <string name="revanced_hide_comments_thanks_button_summary_on">Бутона за благодарност е скрит</string>
-  <string name="revanced_hide_comments_thanks_button_summary_off">Бутона за благодарност се показва</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Бутони в лентата на прогреса и емотикони</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Бутоните са скрити</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Бутоните се показват</string>
-  </patch>
-  <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
-  <string name="revanced_hide_crowdfunding_box_title">Дарителска кутия</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">Кутията за дарения е скрита</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">Кутията за дарения се показва</string>
+  <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
+  <string name="revanced_hide_player_previous_next_buttons_title">Бутони за Предишно &amp; Следващо видео</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">Бутоните са скрити</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">Бутоните се показват</string>
+  <string name="revanced_hide_cast_button_title">Бутон за предаване на Тв</string>
+  <string name="revanced_hide_cast_button_summary_on">Бутонът за предаване е скрит</string>
+  <string name="revanced_hide_cast_button_summary_off">Бутонът за предаване се показва</string>
+  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
+  <string name="revanced_hide_captions_button_title">Бутона за Субтитри</string>
+  <string name="revanced_hide_captions_button_summary_on">Бутона за субтити е скрит</string>
+  <string name="revanced_hide_captions_button_summary_off">Бутона за субтити се показва</string>
+  <string name="revanced_hide_autoplay_button_title">Бутона за авт. изпълнение</string>
+  <string name="revanced_hide_autoplay_button_summary_on">Бутона за авт. изпълнение е скрит</string>
+  <string name="revanced_hide_autoplay_button_summary_off">Бутона за авт. изпълнение се показва</string>
   </patch>
   <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Скриване на препоръките в края</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Препоръките в края са скрити</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Препоръките в края се показват</string>
-  </patch>
-  <patch id="layout.hide.filterbar.HideFilterBarResourcePatch">
-  <string name="revanced_hide_filter_bar_screen_title">Лента с филтри</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Скриване или показване на лентата с категории в емисията, резултатите от търсенето и свързаните видеоклипове</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Скриване на горната лента с категории в емисията</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Скрита</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Показва се</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Филтъри на търсене</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Панелът с филтъри на търсене е скрит</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Панелът с филтъри на търсене се показва</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Скриване в сродни видеоклипове</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Скриване в сродни видеоклипове</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Показано в сродни видеоклипове</string>
-  </patch>
-  <patch id="layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch">
-  <string name="revanced_hide_floating_microphone_button_title">Плаващ бутон за микрофона</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">Бутонът на микрофона е скрит</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">Показан е бутон на микрофона</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">Деактивирайте подсветка около видеото на цял екран</string>
@@ -976,6 +960,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_resuming_shorts_player_title">Скриване на Shorts плейъра при стартиране</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts плейъра при стартиране на приложението е скрит</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts плейъра при стартиране на приложението се показва</string>
+  </patch>
+  <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
   </patch>
   <patch id="layout.tablet.EnableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Включи режим за таблет</string>

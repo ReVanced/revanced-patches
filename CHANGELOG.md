@@ -1,3 +1,51 @@
+# [4.18.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.18.0-dev.5...v4.18.0-dev.6) (2024-10-24)
+
+
+### Bug Fixes
+
+* **YouTube - Playback speed:** Remember playback speed with new speed menu ([#3810](https://github.com/ReVanced/revanced-patches/issues/3810)) ([c3a5e14](https://github.com/ReVanced/revanced-patches/commit/c3a5e14a0a24973a0f9956845c9e0f99c1301d42))
+
+# [4.18.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v4.18.0-dev.4...v4.18.0-dev.5) (2024-10-23)
+
+
+### Features
+
+* **YouTube:** Hide player shopping shelf in playlists ([#3806](https://github.com/ReVanced/revanced-patches/issues/3806)) ([a553a13](https://github.com/ReVanced/revanced-patches/commit/a553a13c0326ef2fff7f785fed592d553a7963ce))
+
+# [4.18.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v4.18.0-dev.3...v4.18.0-dev.4) (2024-10-23)
+
+
+### Features
+
+* **YouTube - Hide layout components:** Hide player shopping shelf ([#3804](https://github.com/ReVanced/revanced-patches/issues/3804)) ([1952f3b](https://github.com/ReVanced/revanced-patches/commit/1952f3b3c4bca08ed0f6e5b1117e0a6c51f00ed2))
+
+# [4.18.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v4.18.0-dev.2...v4.18.0-dev.3) (2024-10-22)
+
+
+### Features
+
+* **YouTube:** Merge multiple layout patches into `Hide Layout Components` ([#3799](https://github.com/ReVanced/revanced-patches/issues/3799)) ([bbcb57a](https://github.com/ReVanced/revanced-patches/commit/bbcb57a32dfc8f031886f98b1b9701285105c579))
+* **YouTube:** Merge multiple player overlay patches into `Hide player overlay buttons` ([#3800](https://github.com/ReVanced/revanced-patches/issues/3800)) ([4ba0300](https://github.com/ReVanced/revanced-patches/commit/4ba0300590dd988bdcaa0761c4e606c1d7f86ce5))
+
+# [4.18.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v4.18.0-dev.1...v4.18.0-dev.2) (2024-10-22)
+
+
+### Bug Fixes
+
+* **Twitter - Change link sharing domain:** Support latest app version ([#3786](https://github.com/ReVanced/revanced-patches/issues/3786)) ([b54592c](https://github.com/ReVanced/revanced-patches/commit/b54592cf9c5d859e1af2f02e8e6aaad7d47ab760))
+
+# [4.18.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.17.0...v4.18.0-dev.1) (2024-10-21)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Move hide chips settings to Feed menu ([1ed677f](https://github.com/ReVanced/revanced-patches/commit/1ed677f7b8ba561b2bb173dcaf5d6123c22179c4))
+
+
+### Features
+
+* **YouTube:** Add `Shorts autoplay` patch ([#3794](https://github.com/ReVanced/revanced-patches/issues/3794)) ([96b5aed](https://github.com/ReVanced/revanced-patches/commit/96b5aede482f7a69d6df17864a2e17568b0da880))
+
 # [4.17.0](https://github.com/ReVanced/revanced-patches/compare/v4.16.0...v4.17.0) (2024-10-20)
 
 

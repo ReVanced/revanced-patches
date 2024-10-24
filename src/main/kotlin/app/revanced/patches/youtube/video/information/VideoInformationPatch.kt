@@ -11,11 +11,12 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
+import app.revanced.patches.youtube.shared.fingerprints.NewVideoQualityChangedFingerprint
 import app.revanced.patches.youtube.video.information.fingerprints.*
 import app.revanced.patches.youtube.video.playerresponse.PlayerResponseMethodHookPatch
+import app.revanced.patches.youtube.video.quality.fingerprints.PlaybackSpeedMenuSpeedChangedFingerprint
 import app.revanced.patches.youtube.video.videoid.VideoIdPatch
 import app.revanced.util.alsoResolve
-import app.revanced.util.exception
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.resultOrThrow
@@ -23,15 +24,15 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.BuilderInstruction
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
+import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import com.android.tools.smali.dexlib2.util.MethodUtil
-import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Patch(
     description = "Hooks YouTube to get information about the current playing video.",
@@ -43,7 +44,8 @@ object VideoInformationPatch : BytecodePatch(
         MdxPlayerDirectorSetVideoStageFingerprint,
         CreateVideoPlayerSeekbarFingerprint,
         PlayerControllerSetTimeReferenceFingerprint,
-        OnPlaybackSpeedItemClickFingerprint
+        OnPlaybackSpeedItemClickFingerprint,
+        NewVideoQualityChangedFingerprint
     )
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR = "Lapp/revanced/integrations/youtube/patches/VideoInformation;"
@@ -60,6 +62,12 @@ object VideoInformationPatch : BytecodePatch(
     private lateinit var timeMethod: MutableMethod
     private var timeInitInsertIndex = 2
 
+    // Old speed menu, where speeds are entries in a list.  Method is also used by the player speed button.
+    private lateinit var legacySpeedSelectionInsertMethod: MutableMethod
+    private var legacySpeedSelectionInsertIndex = -1
+    private var legacySpeedSelectionValueRegister = -1
+
+    // New speed menu, with preset buttons and 0.05x fine adjustments buttons.
     private lateinit var speedSelectionInsertMethod: MutableMethod
     private var speedSelectionInsertIndex = -1
     private var speedSelectionValueRegister = -1
@@ -158,13 +166,13 @@ object VideoInformationPatch : BytecodePatch(
         /*
          * Hook the user playback speed selection
          */
-        OnPlaybackSpeedItemClickFingerprint.result?.mutableMethod?.apply {
-            speedSelectionInsertMethod = this
+        OnPlaybackSpeedItemClickFingerprint.resultOrThrow().mutableMethod.apply {
+            legacySpeedSelectionInsertMethod = this
             val speedSelectionMethodInstructions = this.implementation!!.instructions
             val speedSelectionValueInstructionIndex = speedSelectionMethodInstructions.indexOfFirst {
                 it.opcode == Opcode.IGET
             }
-            speedSelectionValueRegister =
+            legacySpeedSelectionValueRegister =
                 getInstruction<TwoRegisterInstruction>(speedSelectionValueInstructionIndex).registerA
             setPlaybackSpeedClassFieldReference =
                 getInstruction<ReferenceInstruction>(speedSelectionValueInstructionIndex + 1).reference.toString()
@@ -172,8 +180,19 @@ object VideoInformationPatch : BytecodePatch(
                 getInstruction<ReferenceInstruction>(speedSelectionValueInstructionIndex + 2).reference.toString()
             setPlaybackSpeedContainerClassFieldReference =
                 getReference(speedSelectionMethodInstructions, -1, Opcode.IF_EQZ)
-            speedSelectionInsertIndex = speedSelectionValueInstructionIndex + 1
-        } ?: throw OnPlaybackSpeedItemClickFingerprint.exception
+            legacySpeedSelectionInsertIndex = speedSelectionValueInstructionIndex + 1
+        }
+
+        // New playback speed menu.
+        PlaybackSpeedMenuSpeedChangedFingerprint.alsoResolve(
+            context,
+            NewVideoQualityChangedFingerprint
+        ).mutableMethod.apply {
+            val index = indexOfFirstInstructionOrThrow(Opcode.IGET)
+            speedSelectionInsertMethod = this
+            speedSelectionInsertIndex = index + 1
+            speedSelectionValueRegister = getInstruction<TwoRegisterInstruction>(index).registerA
+        }
 
         userSelectedPlaybackSpeedHook(INTEGRATIONS_CLASS_DESCRIPTOR, "userSelectedPlaybackSpeed")
     }
@@ -278,9 +297,15 @@ object VideoInformationPatch : BytecodePatch(
     /**
      * Hook the video speed selected by the user.
      */
-    internal fun userSelectedPlaybackSpeedHook(targetMethodClass: String, targetMethodName: String) =
+    internal fun userSelectedPlaybackSpeedHook(targetMethodClass: String, targetMethodName: String) {
+        legacySpeedSelectionInsertMethod.addInstruction(
+            legacySpeedSelectionInsertIndex++,
+            "invoke-static { v$legacySpeedSelectionValueRegister }, $targetMethodClass->$targetMethodName(F)V"
+        )
+
         speedSelectionInsertMethod.addInstruction(
             speedSelectionInsertIndex++,
-            "invoke-static {v$speedSelectionValueRegister}, $targetMethodClass->$targetMethodName(F)V"
+            "invoke-static { v$speedSelectionValueRegister }, $targetMethodClass->$targetMethodName(F)V"
         )
+    }
 }

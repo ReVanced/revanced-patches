@@ -106,6 +106,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">Like / feliratkozás gomb ragyogásának kikapcsolása</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Like / feliratkozás gomb nem fog ragyogni mikor megemlítik</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Like / feliratkozás gomb ragyogni fog mikor megemlítik</string>
+  <string name="revanced_hide_album_cards_title">Album kártyák elrejtése</string>
+  <string name="revanced_hide_album_cards_summary_on">Az album kártyák el vannak rejtve</string>
+  <string name="revanced_hide_album_cards_summary_off">Az album kártyák láthatóak</string>
+  <string name="revanced_hide_crowdfunding_box_title">Közösségi finanszírozási doboz elrejtése</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">A közösségi finanszírozási doboz el van rejtve</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">A közösségi finanszírozási doboz megjelenik</string>
+  <string name="revanced_hide_floating_microphone_button_title">Lebegő mikrofon gomb elrejtése</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">A mikrofon gomb elrejtve</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">A mikrofon gomb látható</string>
   <string name="revanced_hide_gray_separator_title">Szürke elválasztó elrejtése</string>
   <string name="revanced_hide_gray_separator_summary_on">A szürke elválasztók el vannak rejtve</string>
   <string name="revanced_hide_gray_separator_summary_off">A szürke elválasztók láthatóak</string>
@@ -230,6 +239,37 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_transcript_section_summary_off">Az átirat rész megjelenik</string>
   <string name="revanced_hide_description_components_screen_title">Videóleírás</string>
   <string name="revanced_hide_description_components_screen_summary">A videóleírás komponenseinek elrejtése vagy megjelenítése</string>
+  <string name="revanced_hide_filter_bar_screen_title">Szűrősáv</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Szűrősáv elrejtése vagy megjelenítése a feedekben, a keresésben és a kapcsolódó videók között</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Elrejtés a feedekben</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Elrejtve a feedekben</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Megjelenítés a feedekben</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Elrejtés a keresésben</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Elrejtve a keresésben</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Megjelenik a keresésben</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Elrejtés a kapcsolódó videók között</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Elrejtve a kapcsolódó videók között</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Megjelenik a kapcsolódó videók között</string>
+  <string name="revanced_comments_screen_title">Megjegyzések</string>
+  <string name="revanced_comments_screen_summary">Megjegyzések rész elrejtése vagy megjelenítése</string>
+  <string name="revanced_hide_comments_by_members_header_title">A „Tagok megjegyzései” fejléc elrejtése</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">A „tagok megjegyzései” fejléc el van rejtve</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">Megjelenik a „Tagok megjegyzései” fejléc</string>
+  <string name="revanced_hide_comments_section_title">A megjegyzések szekció elrejtése</string>
+  <string name="revanced_hide_comments_section_summary_on">A megjegyzések szakasz el van rejtve</string>
+  <string name="revanced_hide_comments_section_summary_off">Megjelenik a megjegyzések rész</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">A „Rövid létrehozása” gomb elrejtése</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">A „Short létrehozása” gomb el van rejtve</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">Megjelenik a „Short létrehozása” gomb</string>
+  <string name="revanced_hide_comments_preview_comment_title">Megjegyzés előnézet elrejtése</string>
+  <string name="revanced_hide_comments_preview_comment_summary_on">A megjegyzés előnézet el van rejtve</string>
+  <string name="revanced_hide_comments_preview_comment_summary_off">A megjegyzés előnézet megjelenik</string>
+  <string name="revanced_hide_comments_thanks_button_title">Köszönet gomb elrejtése</string>
+  <string name="revanced_hide_comments_thanks_button_summary_on">A köszönet gomb el van rejtve</string>
+  <string name="revanced_hide_comments_thanks_button_summary_off">A köszönet gomb látható</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Időbélyeg és az emoji gombok elrejtése</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Az időbélyeg és az emoji gombok el vannak rejtve</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Megjelennek az időbélyeg és az emoji gombok</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">YouTube Doodles elrejtése</string>
   <string name="revanced_hide_doodles_summary_on">A Doodles Keresősáv el van rejtve</string>
@@ -426,22 +466,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playlist_button_summary_on">A mentés gomb el van rejtve</string>
   <string name="revanced_hide_playlist_button_summary_off">A mentés gomb látható</string>
   </patch>
-  <patch id="layout.buttons.autoplay.HideAutoplayButtonPatch">
-  <string name="revanced_hide_autoplay_button_title">Automatikus lejátszás gomb elrejtése</string>
-  <string name="revanced_hide_autoplay_button_summary_on">Az automatikus lejátszás gomb el van rejtve</string>
-  <string name="revanced_hide_autoplay_button_summary_off">Az automatikus lejátszás gomb látható</string>
-  </patch>
-  <patch id="layout.buttons.captions.HideCaptionsButtonPatch">
-  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">Feliratok gomb elrejtése</string>
-  <string name="revanced_hide_captions_button_summary_on">A feliratok gomb el van rejtve</string>
-  <string name="revanced_hide_captions_button_summary_off">A feliratok gomb látható</string>
-  </patch>
-  <patch id="layout.buttons.cast.HideCastButtonPatch">
-  <string name="revanced_hide_cast_button_title">Átküldés gomb elrejtése</string>
-  <string name="revanced_hide_cast_button_summary_on">Az átküldés gomb rejtve van</string>
-  <string name="revanced_hide_cast_button_summary_off">Az átküldés gomb látható</string>
-  </patch>
   <patch id="layout.buttons.navigation.NavigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Navigációs gombok</string>
   <string name="revanced_navigation_buttons_screen_summary">Gombok elrejtése vagy módosítása a navigációs sávon</string>
@@ -514,65 +538,25 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">A megtekintés VR-módban menü el van rejtve</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">A „Megtekintés VR-módban” menü megjelenik</string>
   </patch>
-  <patch id="layout.buttons.player.hide.HidePlayerButtonsPatch">
-  <string name="revanced_hide_player_buttons_title">Az előző és következő videó gombok elrejtése</string>
-  <string name="revanced_hide_player_buttons_summary_on">A gombok elrejtve</string>
-  <string name="revanced_hide_player_buttons_summary_off">A gombok megjelennek</string>
-  </patch>
-  <patch id="layout.hide.albumcards.AlbumCardsResourcePatch">
-  <string name="revanced_hide_album_cards_title">Album kártyák elrejtése</string>
-  <string name="revanced_hide_album_cards_summary_on">Az album kártyák el vannak rejtve</string>
-  <string name="revanced_hide_album_cards_summary_off">Az album kártyák láthatóak</string>
-  </patch>
-  <patch id="layout.hide.comments.CommentsPatch">
-  <string name="revanced_comments_screen_title">Megjegyzések</string>
-  <string name="revanced_comments_screen_summary">Megjegyzések rész elrejtése vagy megjelenítése</string>
-  <string name="revanced_hide_comments_by_members_header_title">A „Tagok megjegyzései” fejléc elrejtése</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">A „tagok megjegyzései” fejléc el van rejtve</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">Megjelenik a „Tagok megjegyzései” fejléc</string>
-  <string name="revanced_hide_comments_section_title">A megjegyzések szekció elrejtése</string>
-  <string name="revanced_hide_comments_section_summary_on">A megjegyzések szakasz el van rejtve</string>
-  <string name="revanced_hide_comments_section_summary_off">Megjelenik a megjegyzések rész</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">A „Rövid létrehozása” gomb elrejtése</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">A „Short létrehozása” gomb el van rejtve</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">Megjelenik a „Short létrehozása” gomb</string>
-  <string name="revanced_hide_comments_preview_comment_title">Megjegyzés előnézet elrejtése</string>
-  <string name="revanced_hide_comments_preview_comment_summary_on">A megjegyzés előnézet el van rejtve</string>
-  <string name="revanced_hide_comments_preview_comment_summary_off">A megjegyzés előnézet megjelenik</string>
-  <string name="revanced_hide_comments_thanks_button_title">Köszönet gomb elrejtése</string>
-  <string name="revanced_hide_comments_thanks_button_summary_on">A köszönet gomb el van rejtve</string>
-  <string name="revanced_hide_comments_thanks_button_summary_off">A köszönet gomb látható</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Időbélyeg és az emoji gombok elrejtése</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Az időbélyeg és az emoji gombok el vannak rejtve</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Megjelennek az időbélyeg és az emoji gombok</string>
-  </patch>
-  <patch id="layout.hide.crowdfundingbox.CrowdfundingBoxResourcePatch">
-  <string name="revanced_hide_crowdfunding_box_title">Közösségi finanszírozási doboz elrejtése</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">A közösségi finanszírozási doboz el van rejtve</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">A közösségi finanszírozási doboz megjelenik</string>
+  <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
+  <string name="revanced_hide_player_previous_next_buttons_title">Az előző és következő videó gombok elrejtése</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">A gombok elrejtve</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">A gombok megjelennek</string>
+  <string name="revanced_hide_cast_button_title">Átküldés gomb elrejtése</string>
+  <string name="revanced_hide_cast_button_summary_on">Az átküldés gomb rejtve van</string>
+  <string name="revanced_hide_cast_button_summary_off">Az átküldés gomb látható</string>
+  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
+  <string name="revanced_hide_captions_button_title">Feliratok gomb elrejtése</string>
+  <string name="revanced_hide_captions_button_summary_on">A feliratok gomb el van rejtve</string>
+  <string name="revanced_hide_captions_button_summary_off">A feliratok gomb látható</string>
+  <string name="revanced_hide_autoplay_button_title">Automatikus lejátszás gomb elrejtése</string>
+  <string name="revanced_hide_autoplay_button_summary_on">Az automatikus lejátszás gomb el van rejtve</string>
+  <string name="revanced_hide_autoplay_button_summary_off">Az automatikus lejátszás gomb látható</string>
   </patch>
   <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Záróképernyő kártyák elrejtése</string>
   <string name="revanced_hide_endscreen_cards_summary_on">A záróképernyő kártyák el vannak rejtve</string>
   <string name="revanced_hide_endscreen_cards_summary_off">A záróképernyő kártyák megjelennek</string>
-  </patch>
-  <patch id="layout.hide.filterbar.HideFilterBarResourcePatch">
-  <string name="revanced_hide_filter_bar_screen_title">Szűrősáv</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Szűrősáv elrejtése vagy megjelenítése a feedekben, a keresésben és a kapcsolódó videók között</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Elrejtés a feedekben</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Elrejtve a feedekben</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Megjelenítés a feedekben</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Elrejtés a keresésben</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Elrejtve a keresésben</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Megjelenik a keresésben</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Elrejtés a kapcsolódó videók között</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Elrejtve a kapcsolódó videók között</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Megjelenik a kapcsolódó videók között</string>
-  </patch>
-  <patch id="layout.hide.floatingmicrophone.HideFloatingMicrophoneButtonResourcePatch">
-  <string name="revanced_hide_floating_microphone_button_title">Lebegő mikrofon gomb elrejtése</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">A mikrofon gomb elrejtve</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">A mikrofon gomb látható</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">Mozifilmes világítás letiltása teljes képernyős módban</string>
@@ -598,6 +582,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_seekbar_thumbnail_summary_off">A minilejátszó folyamatsávja megjelenik</string>
   </patch>
   <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
+  <string name="revanced_shorts_player_screen_title">Shorts lejátszó</string>
+  <string name="revanced_shorts_player_screen_summary">Összetevők elrejtése vagy megjelenítése a Shorts lejátszóban</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Shorts elrejtése a Kezdőlap feedben</string>
   <string name="revanced_hide_shorts_home_summary_on">A Shortsok elrejtve a Kezdőlap feedben</string>
@@ -987,6 +973,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_resuming_shorts_player_title">A Shorts lejátszás folytatásának kikapcsolása</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">A Shorts lejátszás nem indul el az alkalmazás indításakor</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">A Shorts lejátszás folytatódik az alkalmazás indításakor</string>
+  </patch>
+  <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
+  <string name="revanced_shorts_autoplay_title">Shorts automatikus lejátszása</string>
+  <string name="revanced_shorts_autoplay_summary_on">Shorts automatikusan elindul</string>
+  <string name="revanced_shorts_autoplay_summary_off">Shorts ismétlődik</string>
+  <string name="revanced_shorts_autoplay_background_title">Shorts automatikus lejátszása a háttérben</string>
+  <string name="revanced_shorts_autoplay_background_summary_on">Shorts automatikusan elindul a háttérben</string>
+  <string name="revanced_shorts_autoplay_background_summary_off">Shorts háttérben történő lejátszása megismétlődik</string>
   </patch>
   <patch id="layout.tablet.EnableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Táblagépes elrendezés engedélyezése</string>
