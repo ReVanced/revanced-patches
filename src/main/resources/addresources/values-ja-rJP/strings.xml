@@ -105,9 +105,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">高評価 / チャンネル登録ボタンのアニメーションを無効にする</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">「高評価」と「チャンネル登録」ボタンのアニメーションは無効です</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">「高評価」と「チャンネル登録」ボタンのアニメーションは有効です</string>
-  <string name="revanced_hide_player_store_shelf_title">プレイヤーのショッピング棚を非表示</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">ショッピング棚は非表示です</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">ショッピング棚が表示されます</string>
   <string name="revanced_hide_album_cards_title">アルバムカードを隠す</string>
   <string name="revanced_hide_album_cards_summary_on">アルバムカードは非表示です</string>
   <string name="revanced_hide_album_cards_summary_off">アルバムカードは表示されます</string>
@@ -330,6 +327,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_products_banner_title">商品を見るためのバナーを隠す</string>
   <string name="revanced_hide_products_banner_summary_on">バナーは非表示です</string>
   <string name="revanced_hide_products_banner_summary_off">バナーは表示されます</string>
+  <string name="revanced_hide_player_store_shelf_title">プレイヤーのショッピング棚を非表示</string>
+  <string name="revanced_hide_player_store_shelf_summary_on">ショッピング棚は非表示です</string>
+  <string name="revanced_hide_player_store_shelf_summary_off">ショッピング棚が表示されます</string>
   <string name="revanced_hide_shopping_links_title">ビデオの説明内のショッピングリンクを非表示</string>
   <string name="revanced_hide_shopping_links_summary_on">ショッピングのリンクは非表示です</string>
   <string name="revanced_hide_shopping_links_summary_off">ショッピングのリンクは表示されます</string>

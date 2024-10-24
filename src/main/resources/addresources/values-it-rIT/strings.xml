@@ -106,9 +106,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">Disabilita il bagliore del pulsante di / sottoscrizione</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Come e il pulsante di sottoscrizione non brillerà quando menzionato</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Come e il pulsante di sottoscrizione brillerà quando menzionato</string>
-  <string name="revanced_hide_player_store_shelf_title">Nascondi lo scaffale dello shopping</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">Lo scaffale è nascosto</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">Lo scaffale è mostrato</string>
   <string name="revanced_hide_album_cards_title">Nascondi schede album</string>
   <string name="revanced_hide_album_cards_summary_on">Le schede degli album sono nascoste</string>
   <string name="revanced_hide_album_cards_summary_off">Le schede degli album sono mostrate</string>
@@ -333,6 +330,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_products_banner_title">Nascondi banner per visualizzare i prodotti</string>
   <string name="revanced_hide_products_banner_summary_on">Banner nascosto</string>
   <string name="revanced_hide_products_banner_summary_off">Banner mostrato</string>
+  <string name="revanced_hide_player_store_shelf_title">Nascondi lo scaffale dello shopping</string>
+  <string name="revanced_hide_player_store_shelf_summary_on">Lo scaffale è nascosto</string>
+  <string name="revanced_hide_player_store_shelf_summary_off">Lo scaffale è mostrato</string>
   <string name="revanced_hide_shopping_links_title">Nascondi link agli acquisti nella descrizione del video</string>
   <string name="revanced_hide_shopping_links_summary_on">I link commerciali sono nascosti</string>
   <string name="revanced_hide_shopping_links_summary_off">I collegamenti commerciali sono mostrati</string>

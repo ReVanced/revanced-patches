@@ -331,6 +331,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_products_banner_title">제품 보기 배너 숨기기</string>
   <string name="revanced_hide_products_banner_summary_on">플레이어에서 제품 보기 배너가 숨겨집니다</string>
   <string name="revanced_hide_products_banner_summary_off">플레이어에서 제품 보기 배너가 표시됩니다</string>
+  <string name="revanced_hide_player_store_shelf_title">판매자 쇼핑 선반 숨기기</string>
+  <string name="revanced_hide_player_store_shelf_summary_on">판매자 쇼핑 선반이 숨겨집니다</string>
+  <string name="revanced_hide_player_store_shelf_summary_off">판매자 쇼핑 선반이 표시됩니다</string>
   <string name="revanced_hide_shopping_links_title">동영상 설명에서 쇼핑 링크 숨기기</string>
   <string name="revanced_hide_shopping_links_summary_on">쇼핑 링크가 숨겨집니다</string>
   <string name="revanced_hide_shopping_links_summary_off">쇼핑 링크가 표시됩니다</string>
@@ -341,9 +344,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_web_search_results_title">웹 검색 결과 숨기기</string>
   <string name="revanced_hide_web_search_results_summary_on">웹 검색 결과가 숨겨집니다</string>
   <string name="revanced_hide_web_search_results_summary_off">웹 검색 결과가 표시됩니다</string>
-  <string name="revanced_hide_merchandise_banners_title">제품 쇼핑 선반 숨기기</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">제품 쇼핑 선반이 숨겨집니다</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">제품 쇼핑 선반이 표시됩니다</string>
+  <string name="revanced_hide_merchandise_banners_title">매장 쇼핑 선반 숨기기</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">매장 쇼핑 선반이 숨겨집니다</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">매장 쇼핑 선반이 표시됩니다</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">\'전체 화면 광고 숨기기\'는 구형 기기에서만 사용할 수 있습니다</string>
   </patch>

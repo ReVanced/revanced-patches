@@ -106,9 +106,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">Dezactivează ca / abonare strălucire buton</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Butonul Îmi place și abonare nu va străluci când este menționat</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Butonul de like-uri și abonare va străluci când este menționat</string>
-  <string name="revanced_hide_player_store_shelf_title">Ascunde raftul jucătorului</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">Platforma de cumpărături este ascunsă</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">Platforma de cumpărături este afișată</string>
   <string name="revanced_hide_album_cards_title">Ascundeți cardurile de album</string>
   <string name="revanced_hide_album_cards_summary_on">Cardurile de album sunt ascunse</string>
   <string name="revanced_hide_album_cards_summary_off">Cardurile de album sunt afișate</string>
@@ -333,6 +330,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_products_banner_title">Ascunde banner-ul pentru a vizualiza produsele</string>
   <string name="revanced_hide_products_banner_summary_on">Banner-ul este ascuns</string>
   <string name="revanced_hide_products_banner_summary_off">Banner-ul este afișat</string>
+  <string name="revanced_hide_player_store_shelf_title">Ascunde raftul jucătorului</string>
+  <string name="revanced_hide_player_store_shelf_summary_on">Platforma de cumpărături este ascunsă</string>
+  <string name="revanced_hide_player_store_shelf_summary_off">Platforma de cumpărături este afișată</string>
   <string name="revanced_hide_shopping_links_title">Ascunde link-urile de cumpărături în descrierea video</string>
   <string name="revanced_hide_shopping_links_summary_on">Linkurile de cumpărături sunt ascunse</string>
   <string name="revanced_hide_shopping_links_summary_off">Linkurile de cumpărături sunt afișate</string>
