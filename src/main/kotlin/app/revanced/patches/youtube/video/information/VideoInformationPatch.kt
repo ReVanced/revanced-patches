@@ -62,12 +62,12 @@ object VideoInformationPatch : BytecodePatch(
     private lateinit var timeMethod: MutableMethod
     private var timeInitInsertIndex = 2
 
-    // 1.0 speed menu, where speeds are entries in a list.
+    // Old speed menu, where speeds are entries in a list.  Method is also used by the player speed button.
     private lateinit var legacySpeedSelectionInsertMethod: MutableMethod
     private var legacySpeedSelectionInsertIndex = -1
     private var legacySpeedSelectionValueRegister = -1
 
-    // 2.0 speed menu, with preset buttons and 0.05x fine adjustments buttons.
+    // New speed menu, with preset buttons and 0.05x fine adjustments buttons.
     private lateinit var speedSelectionInsertMethod: MutableMethod
     private var speedSelectionInsertIndex = -1
     private var speedSelectionValueRegister = -1
