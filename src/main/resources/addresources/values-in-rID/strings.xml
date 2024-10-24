@@ -77,7 +77,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_00_about_title">Tentang</string>
   <string name="revanced_settings_screen_01_ads_title">Iklan</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Thumbnail alternatif</string>
-  <string name="revanced_settings_screen_03_feed_title">Feed</string>
+  <string name="revanced_settings_screen_03_feed_title">Umpan</string>
   <string name="revanced_settings_screen_04_player_title">Pemutar</string>
   <string name="revanced_settings_screen_05_general_title">Layout umum</string>
   <string name="revanced_settings_screen_07_seekbar_title">Seekbar</string>
@@ -106,9 +106,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">Nonaktifkan kilau tombol suka / langganan</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Tombol suka dan langganan tidak akan berkilau saat ditekan</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Tombol suka dan langganan akan berkilau saat ditekan</string>
-  <string name="revanced_hide_player_store_shelf_title">Sembunyikan rak belanja pemutar</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">Rak belanja disembunyikan</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">Rak belanja ditampilkan</string>
   <string name="revanced_hide_album_cards_title">Sembunyikan kartu album</string>
   <string name="revanced_hide_album_cards_summary_on">Kartu album disembunyikan</string>
   <string name="revanced_hide_album_cards_summary_off">Kartu album ditampilkan</string>
@@ -147,7 +144,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_search_result_recommendations_summary_off">Anjuran ditampilkan</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
-  <string name="revanced_hide_show_more_button_title">Sembunyikan \'Tampilkan Lebih\'</string>
+  <string name="revanced_hide_show_more_button_title">Sembunyikan tombol \'Tampilkan selengkapnya\'</string>
   <string name="revanced_hide_show_more_button_summary_on">Tombol disembunyikan</string>
   <string name="revanced_hide_show_more_button_summary_off">Tombol ditampilkan</string>
   <string name="revanced_hide_timed_reactions_title">Sembunyikan waktu reaksi</string>
@@ -243,10 +240,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_description_components_screen_title">Keterangan video</string>
   <string name="revanced_hide_description_components_screen_summary">Sembunyi/tampilkan komponen keterangan video</string>
   <string name="revanced_hide_filter_bar_screen_title">Bilah saring</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Sembunyikan atau tampilkan bilah filter di feed, pencarian, dan video terkait</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Sembunyikan di feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Sembunyikan di feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Tampilkan di feed</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Sembunyikan atau tampilkan bilah filter di bagian umpan, pencarian, dan video terkait</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Sembunyikan di bagian umpan</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Disembunyikan di bagian umpan</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Tampilkan di bagian umpan</string>
   <string name="revanced_hide_filter_bar_feed_in_search_title">Sembunyikan di pencarian</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Disembunyikan di pencarian</string>
   <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Ditampilkan di pencarian</string>
@@ -333,6 +330,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_products_banner_title">Sembunyikan banner untuk melihat produk</string>
   <string name="revanced_hide_products_banner_summary_on">Banner disembunyikan</string>
   <string name="revanced_hide_products_banner_summary_off">Banner ditampilkan</string>
+  <string name="revanced_hide_player_store_shelf_title">Sembunyikan rak belanja pemutar</string>
+  <string name="revanced_hide_player_store_shelf_summary_on">Rak belanja disembunyikan</string>
+  <string name="revanced_hide_player_store_shelf_summary_off">Rak belanja ditampilkan</string>
   <string name="revanced_hide_shopping_links_title">Sembunyikan tautan belanja dalam deskripsi video</string>
   <string name="revanced_hide_shopping_links_summary_on">Tautan belanja disembunyikan</string>
   <string name="revanced_hide_shopping_links_summary_off">Tautan belanja ditampilkan</string>
@@ -454,8 +454,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_remix_button_summary_off">Tombol remix ditampilkan</string>
   <!-- 'Download' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_download_button_title">Sembunyikan Unduhan</string>
-  <string name="revanced_hide_download_button_summary_on">Tombol download disembunyikan</string>
-  <string name="revanced_hide_download_button_summary_off">Tombol download ditampilkan</string>
+  <string name="revanced_hide_download_button_summary_on">Tombol unduh disembunyikan</string>
+  <string name="revanced_hide_download_button_summary_off">Tombol unduh ditampilkan</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_thanks_button_title">Sembunyikan Terima kasih</string>
   <string name="revanced_hide_thanks_button_summary_on">Tombol terima kasih disembunyikan</string>
@@ -527,7 +527,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
   <string name="revanced_hide_player_flyout_more_info_title">Sembunyikan Info lanjut</string>
   <string name="revanced_hide_player_flyout_more_info_summary_on">Menu info lanjut disembunyikan</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Menu info lanjut ditampilkan</string>
+  <string name="revanced_hide_player_flyout_more_info_summary_off">Menu info selengkapnya ditampilkan</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Sembunyikan Kunci layar</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Menu kunci layar disembunyikan</string>
@@ -588,13 +588,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_shorts_player_screen_title">Pemutar Short</string>
   <string name="revanced_shorts_player_screen_summary">Sembunyikan atau tampilkan komponen di pemutar Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_hide_shorts_home_title">Sembunyikan Shorts di feed beranda</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts di feed beranda disembunyikan</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shorts di feed beranda ditampilkan</string>
+  <string name="revanced_hide_shorts_home_title">Sembunyikan Shorts di umpan beranda</string>
+  <string name="revanced_hide_shorts_home_summary_on">Shorts di umpan beranda disembunyikan</string>
+  <string name="revanced_hide_shorts_home_summary_off">Shorts di umpan beranda ditampilkan</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
-  <string name="revanced_hide_shorts_subscriptions_title">Sembunyikan Shorts di feed subscription</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts di feed subscription disembunyikan</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts di feed subscription ditampilkan</string>
+  <string name="revanced_hide_shorts_subscriptions_title">Sembunyikan Shorts di umpan langganan</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts di umpan langganan disembunyikan</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts di umpan langganan ditampilkan</string>
   <string name="revanced_hide_shorts_search_title">Sembunyikan Shorts di hasil pencarian</string>
   <string name="revanced_hide_shorts_search_summary_on">Shorts di hasil pencarian disembunyikan</string>
   <string name="revanced_hide_shorts_search_summary_off">Shorts di hasil pencarian ditampilkan</string>
@@ -937,7 +937,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_reset_color">Reset warna</string>
   <string name="revanced_sb_reset">Setel ulang</string>
   <string name="revanced_sb_about">Tentang</string>
-  <string name="revanced_sb_about_api_sum">Data yang disediakan API SponsorBlock. Tekan di sini untuk mempelajari lebih lanjut dan melihat hasil download untuk platform lain</string>
+  <string name="revanced_sb_about_api_sum">Data yang disediakan API SponsorBlock. Tekan di sini untuk mempelajari lebih lanjut dan melihat hasil pengunduhan untuk platform lain</string>
   </patch>
   <patch id="layout.spoofappversion.SpoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Palsukan versi app</string>

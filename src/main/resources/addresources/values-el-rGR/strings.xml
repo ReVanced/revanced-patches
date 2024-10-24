@@ -106,9 +106,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">Απενεργοποίηση λάμψης των κουμπιών «Μου αρέσει» και «Εγγραφή»</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Τα κουμπιά «Μου αρέσει» και «Εγγραφή» δεν θα λάμπουν όταν αναφέρονται</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Τα κουμπιά «Μου αρέσει» και «Εγγραφή» θα λάμπουν όταν αναφέρονται</string>
-  <string name="revanced_hide_player_store_shelf_title">Απόκρυψη ράφι αγορών παίχτη</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">Το ράφι αγορών είναι κρυμμένο</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">Το ράφι αγορών εμφανίζεται</string>
   <string name="revanced_hide_album_cards_title">Κάρτες άλμπουμ</string>
   <string name="revanced_hide_album_cards_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_album_cards_summary_off">Εμφανίζονται</string>
@@ -333,6 +330,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_products_banner_title">Διαφημίσεις προβολής προϊόντων</string>
   <string name="revanced_hide_products_banner_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_products_banner_summary_off">Εμφανίζονται</string>
+  <string name="revanced_hide_player_store_shelf_title">Ενότητα αγορών οθόνης αναπαραγωγής</string>
+  <string name="revanced_hide_player_store_shelf_summary_on">Κρυμμένη</string>
+  <string name="revanced_hide_player_store_shelf_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_shopping_links_title">Σύνδεσμοι αγορών στην περιγραφή βίντεο</string>
   <string name="revanced_hide_shopping_links_summary_on">Κρυμμένοι</string>
   <string name="revanced_hide_shopping_links_summary_off">Εμφανίζονται</string>
@@ -981,7 +981,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_shorts_autoplay_title">Αυτόματη αναπαραγωγή Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Τα επόμενα Shorts θα αναπαράγονται αυτόματα</string>
   <string name="revanced_shorts_autoplay_summary_off">Τα Shorts θα επαναλαμβάνονται</string>
-  <string name="revanced_shorts_autoplay_background_title">Αυτόματη αναπαραγωγή Shorts παρασκηνίου</string>
+  <string name="revanced_shorts_autoplay_background_title">Αυτόματη αναπαραγωγή Shorts στο παρασκήνιο</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Τα επόμενα Shorts θα αναπαράγονται αυτόματα στο παρασκήνιο</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Τα Shorts στο παρασκήνιο θα επαναλαμβάνονται</string>
   </patch>
