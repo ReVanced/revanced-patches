@@ -330,6 +330,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_products_banner_title">Məhsullara baxma etiketin gizlət</string>
   <string name="revanced_hide_products_banner_summary_on">Etiket gizlədilib</string>
   <string name="revanced_hide_products_banner_summary_off">Etiket göstərilir</string>
+  <string name="revanced_hide_player_store_shelf_title">Oynadıcı alış-veriş rəfini gizlət</string>
+  <string name="revanced_hide_player_store_shelf_summary_on">Alış-veriş rəfi gizlidir</string>
+  <string name="revanced_hide_player_store_shelf_summary_off">Alış-veriş rəfi göstərilir</string>
   <string name="revanced_hide_shopping_links_title">Video açıqlama alış-veriş linklər gizlə</string>
   <string name="revanced_hide_shopping_links_summary_on">Alış-veriş bağlantıları gizlədilir</string>
   <string name="revanced_hide_shopping_links_summary_off">Alış-veriş bağlantıları göstərilir</string>
@@ -539,7 +542,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">VR menyusunda izləmə göstərilir</string>
   </patch>
   <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Əvvəlki/növbəti video düymələrin gizlə</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Əvvəlki/növbəti video düymələrin gizlət</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Düymələr gizlidir</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Düymələr göstərilir</string>
   <string name="revanced_hide_cast_button_title">Yayımla düyməsini gizlət</string>

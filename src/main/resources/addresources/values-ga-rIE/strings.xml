@@ -330,6 +330,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_products_banner_title">Folaigh meirge chun táirgí a fheiceáil</string>
   <string name="revanced_hide_products_banner_summary_on">Tá bratach i bhfolach</string>
   <string name="revanced_hide_products_banner_summary_off">Taispeántar an bhratach</string>
+  <string name="revanced_hide_player_store_shelf_title">Folaigh seilf siopadóireachta an t-imreoir</string>
+  <string name="revanced_hide_player_store_shelf_summary_on">Tá seilf siopadóireachta i bhfolach</string>
+  <string name="revanced_hide_player_store_shelf_summary_off">Taispeántar seilf siopadóireachta</string>
   <string name="revanced_hide_shopping_links_title">Folaigh naisc siopadóireachta sa chur síos físeáin</string>
   <string name="revanced_hide_shopping_links_summary_on">Tá naisc siopadóireachta i bhfolach</string>
   <string name="revanced_hide_shopping_links_summary_off">Taispeántar naisc siopadóireachta</string>

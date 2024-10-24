@@ -331,6 +331,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_products_banner_title">Sakrij baner za gledanje proizvoda</string>
   <string name="revanced_hide_products_banner_summary_on">Baner za gledanje proizvoda je skriven</string>
   <string name="revanced_hide_products_banner_summary_off">Baner za gledanje proizvoda je prikazan</string>
+  <string name="revanced_hide_player_store_shelf_title">Sakrij policu „Kupovina” u plejeru</string>
+  <string name="revanced_hide_player_store_shelf_summary_on">Polica „Kupovina” u plejeru je skrivena</string>
+  <string name="revanced_hide_player_store_shelf_summary_off">Polica „Kupovina” u plejeru je prikazana</string>
   <string name="revanced_hide_shopping_links_title">Sakrij linkove za kupovinu u opisu videa</string>
   <string name="revanced_hide_shopping_links_summary_on">Linkovi za kupovinu u opisu videa su skriveni</string>
   <string name="revanced_hide_shopping_links_summary_off">Linkovi za kupovinu u opisu videa su prikazani</string>
@@ -583,6 +586,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Traka za premotavanje na sličici videa je prikazana</string>
   </patch>
   <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
+  <string name="revanced_shorts_player_screen_title">Shorts plejer</string>
+  <string name="revanced_shorts_player_screen_summary">Sakrijte ili prikažite komponente u Shorts plejeru</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Sakrij Shorts videe u fidu „Početna”</string>
   <string name="revanced_hide_shorts_home_summary_on">Shorts videi u fidu „Početna” su skriveni</string>
@@ -974,6 +979,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts plejer će nastaviti reprodukciju pri pokretanju aplikacije</string>
   </patch>
   <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
+  <string name="revanced_shorts_autoplay_title">Autoplej Shorts videa</string>
+  <string name="revanced_shorts_autoplay_summary_on">Shorts videi će se automatski puštati</string>
+  <string name="revanced_shorts_autoplay_summary_off">Shorts videi će se ponavljati</string>
+  <string name="revanced_shorts_autoplay_background_title">Autoplej Shorts videa u pozadini</string>
+  <string name="revanced_shorts_autoplay_background_summary_on">Shorts videi će se automatski puštati u pozadini</string>
+  <string name="revanced_shorts_autoplay_background_summary_off">Shorts videi će se ponavljati u pozadini</string>
   </patch>
   <patch id="layout.tablet.EnableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Omogući korisnički interfejs tableta</string>

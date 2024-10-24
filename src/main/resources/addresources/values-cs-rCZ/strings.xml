@@ -107,9 +107,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">Zakázat záři tlačítka jako / odebírat</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Tlačítko se mi líbí a odebírá, pokud je zmíněno</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Tlačítko se mi líbí a odebírá, když je zmíněno</string>
-  <string name="revanced_hide_player_store_shelf_title">Skrýt nákupní šelf hráče</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">Nákupní polička je skrytá</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">Nákupní polička je zobrazena</string>
   <string name="revanced_hide_album_cards_title">Skrýt alba</string>
   <string name="revanced_hide_album_cards_summary_on">Album karty jsou skryty</string>
   <string name="revanced_hide_album_cards_summary_off">Alba karty jsou zobrazeny</string>
@@ -334,6 +331,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_products_banner_title">Skrýt banner pro zobrazení produktů</string>
   <string name="revanced_hide_products_banner_summary_on">Banner je skrytý</string>
   <string name="revanced_hide_products_banner_summary_off">Banner je zobrazen</string>
+  <string name="revanced_hide_player_store_shelf_title">Skrýt nákupní šelf hráče</string>
+  <string name="revanced_hide_player_store_shelf_summary_on">Nákupní polička je skrytá</string>
+  <string name="revanced_hide_player_store_shelf_summary_off">Nákupní polička je zobrazena</string>
   <string name="revanced_hide_shopping_links_title">Skrýt nákupní odkazy v popisu videa</string>
   <string name="revanced_hide_shopping_links_summary_on">Nákupní odkazy jsou skryté</string>
   <string name="revanced_hide_shopping_links_summary_off">Nákupní odkazy jsou zobrazeny</string>

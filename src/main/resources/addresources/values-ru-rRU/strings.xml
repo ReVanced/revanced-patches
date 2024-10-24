@@ -107,9 +107,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_like_subscribe_glow_title">Подсветка кнопок</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Кнопки \"Лайк\" и \"Подписаться\" не будут подсвечиваться при упоминании</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Кнопки \"Лайк\" и \"Подписаться\" будут подсвечиваться при упоминании</string>
-  <string name="revanced_hide_player_store_shelf_title">Секция покупок в плеере</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">Секция покупок в плеере скрыта</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">Секция покупок в плеере отображена</string>
   <string name="revanced_hide_album_cards_title">Карточки альбомов</string>
   <string name="revanced_hide_album_cards_summary_on">Карточки альбомов под описанием артистов скрыты</string>
   <string name="revanced_hide_album_cards_summary_off">Карточки альбомов под описанием артистов отображены</string>
@@ -334,6 +331,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_products_banner_title">Баннеры просмотра товаров</string>
   <string name="revanced_hide_products_banner_summary_on">Баннеры просмотра товаров в плеере скрыты</string>
   <string name="revanced_hide_products_banner_summary_off">Баннеры просмотра товаров в плеере отображены</string>
+  <string name="revanced_hide_player_store_shelf_title">Секция покупок в плеере</string>
+  <string name="revanced_hide_player_store_shelf_summary_on">Секция покупок в плеере скрыта</string>
+  <string name="revanced_hide_player_store_shelf_summary_off">Секция покупок в плеере отображена</string>
   <string name="revanced_hide_shopping_links_title">Ссылки на товары</string>
   <string name="revanced_hide_shopping_links_summary_on">Ссылки на товары в описании видео скрыты</string>
   <string name="revanced_hide_shopping_links_summary_off">Ссылки на товары в описании видео отображены</string>
