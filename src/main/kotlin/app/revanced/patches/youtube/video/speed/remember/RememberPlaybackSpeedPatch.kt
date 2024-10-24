@@ -14,7 +14,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.patches.youtube.video.information.VideoInformationPatch
 import app.revanced.patches.youtube.video.speed.custom.CustomPlaybackSpeedPatch
 import app.revanced.patches.youtube.video.speed.remember.fingerprint.InitializePlaybackSpeedValuesFingerprint
-import app.revanced.util.exception
+import app.revanced.util.resultOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 @Patch(
@@ -54,7 +54,7 @@ object RememberPlaybackSpeedPatch : BytecodePatch(
         /*
          * Hook the code that is called when the playback speeds are initialized, and sets the playback speed
          */
-        InitializePlaybackSpeedValuesFingerprint.result?.apply {
+        InitializePlaybackSpeedValuesFingerprint.resultOrThrow().apply {
             // Infer everything necessary for calling the method setPlaybackSpeed().
             val onItemClickListenerClassFieldReference =
                 mutableMethod.getInstruction<ReferenceInstruction>(0).reference
@@ -67,7 +67,7 @@ object RememberPlaybackSpeedPatch : BytecodePatch(
                     move-result v0
                     
                     # Check if the playback speed is not 1.0x.
-                    const/high16 v1, 0x3f800000  # 1.0f
+                    const/high16 v1, 1.0f
                     cmpg-float v1, v0, v1
                     if-eqz v1, :do_not_override
     
@@ -82,9 +82,9 @@ object RememberPlaybackSpeedPatch : BytecodePatch(
                     
                     # Invoke setPlaybackSpeed on that class.
                     invoke-virtual {v2, v0}, ${VideoInformationPatch.setPlaybackSpeedMethodReference}
-                """.trimIndent(),
+                """,
                 ExternalLabel("do_not_override", mutableMethod.getInstruction(0))
             )
-        } ?: throw InitializePlaybackSpeedValuesFingerprint.exception
+        }
     }
 }
