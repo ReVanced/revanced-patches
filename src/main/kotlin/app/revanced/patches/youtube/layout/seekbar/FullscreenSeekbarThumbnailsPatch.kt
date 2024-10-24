@@ -9,13 +9,14 @@ import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.layout.seekbar.fingerprints.FullscreenSeekbarThumbnailsQualityFingerprint
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
+import app.revanced.patches.youtube.misc.playservice.VersionCheckPatch
 import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.resultOrThrow
 
 @Patch(
     name = "Fullscreen seekbar thumbnails",
     description = "Adds an option to use high quality fullscreen seekbar thumbnails.",
-    dependencies = [IntegrationsPatch::class, AddResourcesPatch::class],
+    dependencies = [IntegrationsPatch::class, AddResourcesPatch::class, VersionCheckPatch::class],
     compatiblePackages = [
         CompatiblePackage(
             "com.google.android.youtube", [
@@ -39,7 +40,13 @@ object FullscreenSeekbarThumbnailsPatch : BytecodePatch(
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.SEEKBAR.addPreferences(
-            SwitchPreference("revanced_seekbar_fullscreen_high_quality")
+            if (!VersionCheckPatch.is_19_17_or_greater) {
+                SwitchPreference( key = "revanced_seekbar_fullscreen_high_quality",
+                    summaryOnKey = "revanced_seekbar_fullscreen_high_quality_legacy_summary_on",
+                    summaryOffKey = "revanced_seekbar_fullscreen_high_quality_legacy_summary_on")
+            } else {
+                SwitchPreference("revanced_seekbar_fullscreen_high_quality")
+            }
         )
 
         FullscreenSeekbarThumbnailsQualityFingerprint.resultOrThrow().mutableMethod.addInstructions(
