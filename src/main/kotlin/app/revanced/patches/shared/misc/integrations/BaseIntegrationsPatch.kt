@@ -20,16 +20,6 @@ abstract class BaseIntegrationsPatch(
     private val hooks: Set<IntegrationsFingerprint>,
 ) : BytecodePatch(hooks + setOf(ReVancedUtilsPatchesVersionFingerprint)) {
 
-    @Deprecated(
-        "Use the constructor without the integrationsDescriptor parameter",
-        ReplaceWith("BaseIntegrationsPatch(hooks)"),
-    )
-    @Suppress("UNUSED_PARAMETER")
-    constructor(
-        integrationsDescriptor: String,
-        hooks: Set<IntegrationsFingerprint>,
-    ) : this(hooks)
-
     override fun execute(context: BytecodeContext) {
         if (context.findClass(INTEGRATIONS_CLASS_DESCRIPTOR) == null) {
             throw PatchException(
@@ -87,6 +77,7 @@ abstract class BaseIntegrationsPatch(
      * [MethodFingerprint] for integrations.
      *
      * @param contextRegisterResolver A [IRegisterResolver] to get the register.
+     * @param isOptional If true, then if this fingerprint fails to resolve it will be ignored.
      * @see MethodFingerprint
      */
     abstract class IntegrationsFingerprint(
@@ -96,8 +87,9 @@ abstract class BaseIntegrationsPatch(
         opcodes: Iterable<Opcode?>? = null,
         strings: Iterable<String>? = null,
         customFingerprint: ((methodDef: Method, classDef: ClassDef) -> Boolean)? = null,
+        private val isOptional: Boolean = false,
         private val insertIndexResolver: ((Method) -> Int) = object : IHookInsertIndexResolver {},
-        private val contextRegisterResolver: (Method) -> Int = object : IRegisterResolver {},
+        private val contextRegisterResolver: (Method) -> String = object : IRegisterResolver {},
     ) : MethodFingerprint(
         returnType,
         accessFlags,
@@ -106,38 +98,17 @@ abstract class BaseIntegrationsPatch(
         strings,
         customFingerprint,
     ) {
-        @Deprecated(
-            "Previous constructor that is missing the insert index." +
-                "Here only for binary compatibility, " +
-                "and this can be removed after the next major version update.",
-        )
-        constructor(
-            returnType: String? = null,
-            accessFlags: Int? = null,
-            parameters: Iterable<String>? = null,
-            opcodes: Iterable<Opcode?>? = null,
-            strings: Iterable<String>? = null,
-            customFingerprint: ((methodDef: Method, classDef: ClassDef) -> Boolean)? = null,
-            contextRegisterResolver: (Method) -> Int = object : IRegisterResolver {},
-        ) : this(
-            returnType,
-            accessFlags,
-            parameters,
-            opcodes,
-            strings,
-            customFingerprint,
-            object : IHookInsertIndexResolver {},
-            contextRegisterResolver,
-        )
 
         fun invoke(integrationsDescriptor: String) {
+            if (result == null && isOptional) return
+
             result?.mutableMethod?.let { method ->
                 val insertIndex = insertIndexResolver(method)
                 val contextRegister = contextRegisterResolver(method)
 
                 method.addInstruction(
                     insertIndex,
-                    "invoke-static/range { v$contextRegister .. v$contextRegister }, " +
+                    "invoke-static/range { $contextRegister .. $contextRegister }, " +
                         "$integrationsDescriptor->setContext(Landroid/content/Context;)V",
                 )
             } ?: throw this.exception
@@ -147,8 +118,8 @@ abstract class BaseIntegrationsPatch(
             override operator fun invoke(method: Method) = 0
         }
 
-        interface IRegisterResolver : (Method) -> Int {
-            override operator fun invoke(method: Method) = method.implementation!!.registerCount - 1
+        interface IRegisterResolver : (Method) -> String {
+            override operator fun invoke(method: Method) = "p0"
         }
     }
 
