@@ -14,7 +14,7 @@ import app.revanced.patches.youtube.misc.settings.SettingsPatch
 import app.revanced.util.resultOrThrow
 
 @Patch(
-    name = "Fullscreen seekbar thumbnails",
+    name = "Seekbar thumbnails",
     description = "Adds an option to use high quality fullscreen seekbar thumbnails.",
     dependencies = [IntegrationsPatch::class, AddResourcesPatch::class, VersionCheckPatch::class],
     compatiblePackages = [
@@ -30,22 +30,24 @@ import app.revanced.util.resultOrThrow
     ]
 )
 @Suppress("unused")
-object FullscreenSeekbarThumbnailsPatch : BytecodePatch(
+object SeekbarThumbnailsPatch : BytecodePatch(
     setOf(FullscreenSeekbarThumbnailsQualityFingerprint)
 ) {
     private const val INTEGRATIONS_CLASS_DESCRIPTOR =
-        "Lapp/revanced/integrations/youtube/patches/FullscreenSeekbarThumbnailsPatch;"
+        "Lapp/revanced/integrations/youtube/patches/SeekbarThumbnailsPatch;"
 
     override fun execute(context: BytecodeContext) {
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.SEEKBAR.addPreferences(
             if (!VersionCheckPatch.is_19_17_or_greater) {
-                SwitchPreference( key = "revanced_seekbar_fullscreen_high_quality",
-                    summaryOnKey = "revanced_seekbar_fullscreen_high_quality_legacy_summary_on",
-                    summaryOffKey = "revanced_seekbar_fullscreen_high_quality_legacy_summary_on")
+                SwitchPreference(
+                    key = "revanced_seekbar_thumbnails_high_quality",
+                    summaryOnKey = "revanced_seekbar_thumbnails_high_quality_legacy_summary_on",
+                    summaryOffKey = "revanced_seekbar_thumbnails_high_quality_legacy_summary_on"
+                )
             } else {
-                SwitchPreference("revanced_seekbar_fullscreen_high_quality")
+                SwitchPreference("revanced_seekbar_thumbnails_high_quality")
             }
         )
 
