@@ -14,7 +14,7 @@ import app.revanced.util.resultOrThrow
 
 @Patch(
     name = "Fullscreen seekbar thumbnails",
-    description = "Adds an option use high quality fullscreen seekbar thumbnails.",
+    description = "Adds an option to use high quality fullscreen seekbar thumbnails.",
     dependencies = [IntegrationsPatch::class, AddResourcesPatch::class],
     compatiblePackages = [
         CompatiblePackage(
