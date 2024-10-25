@@ -12,6 +12,7 @@ import app.revanced.patcher.patch.annotation.Patch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patches.all.misc.resources.AddResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.InputType
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.misc.integrations.IntegrationsPatch
 import app.revanced.patches.youtube.misc.litho.filter.LithoFilterPatch
@@ -59,10 +60,9 @@ object CustomPlaybackSpeedPatch : BytecodePatch(
         AddResourcesPatch(this::class)
 
         SettingsPatch.PreferenceScreen.VIDEO.addPreferences(
+            SwitchPreference("revanced_custom_speed_menu"),
             TextPreference("revanced_custom_playback_speeds", inputType = InputType.TEXT_MULTI_LINE)
         )
-
-        // TODO: add a setting to restore old speed menu
 
         // Replace the speeds float array with custom speeds.
         SpeedArrayGeneratorFingerprint.resultOrThrow().mutableMethod.apply {
