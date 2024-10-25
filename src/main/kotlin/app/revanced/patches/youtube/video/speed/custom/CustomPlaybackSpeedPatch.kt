@@ -62,6 +62,8 @@ object CustomPlaybackSpeedPatch : BytecodePatch(
             TextPreference("revanced_custom_playback_speeds", inputType = InputType.TEXT_MULTI_LINE)
         )
 
+        // TODO: add a setting to restore old speed menu
+
         // Replace the speeds float array with custom speeds.
         SpeedArrayGeneratorFingerprint.resultOrThrow().mutableMethod.apply {
             val sizeCallIndex = indexOfFirstInstructionOrThrow {
