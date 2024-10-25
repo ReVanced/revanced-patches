@@ -130,7 +130,7 @@ object CustomPlaybackSpeedPatch : BytecodePatch(
             )
             replaceInstruction(
                 limiterMaxConstIndex,
-                "const/high16 v$limiterMaxConstDestination, 10.0f"
+                "const/high16 v$limiterMaxConstDestination, 8.0f"
             )
         }
 
