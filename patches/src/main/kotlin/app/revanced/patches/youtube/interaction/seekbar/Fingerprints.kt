@@ -117,3 +117,10 @@ internal val slideToSeekFingerprint = fingerprint {
     )
     literal { 67108864 }
 }
+
+internal val fullscreenSeekbarThumbnailsQualityFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Z")
+    parameters()
+    literal { 45399684L }
+}

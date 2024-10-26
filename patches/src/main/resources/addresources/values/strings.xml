@@ -762,7 +762,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_wide_searchbar_summary_on">Wide search bar is enabled</string>
             <string name="revanced_wide_searchbar_summary_off">Wide search bar is disabled</string>
         </patch>
-        <patch id="layout.seekbar.SeekbarThumbnailsPatch">
+        <patch id="layout.seekbar.seekbarThumbnailsPatch">
             <string name="revanced_seekbar_thumbnails_high_quality_title">Enable high quality thumbnails</string>
             <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Seekbar thumbnails are high quality</string>
             <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Seekbar thumbnails are medium quality</string>
