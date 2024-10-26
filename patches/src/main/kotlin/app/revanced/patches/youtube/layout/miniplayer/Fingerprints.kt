@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.layout.miniplayer
 
 import app.revanced.patcher.fingerprint
-import app.revanced.util.containsWideLiteralInstructionValue
+import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -110,9 +110,9 @@ internal val miniplayerModernViewParentFingerprint = fingerprint {
 internal val miniplayerMinimumSizeFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     custom { method, _ ->
-        method.containsWideLiteralInstructionValue(192) &&
-            method.containsWideLiteralInstructionValue(128) &&
-            method.containsWideLiteralInstructionValue(miniplayerMaxSize)
+        method.containsLiteralInstruction(192) &&
+            method.containsLiteralInstruction(128) &&
+            method.containsLiteralInstruction(miniplayerMaxSize)
     }
 }
 

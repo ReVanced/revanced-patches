@@ -31,7 +31,6 @@ private val playbackSpeedButtonResourcePatch = resourcePatch {
 private const val SPEED_BUTTON_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/videoplayer/PlaybackSpeedDialogButton;"
 
-@Suppress("unused")
 val playbackSpeedButtonPatch = bytecodePatch(
     description = "Adds the option to display playback speed dialog button in the video player.",
 ) {

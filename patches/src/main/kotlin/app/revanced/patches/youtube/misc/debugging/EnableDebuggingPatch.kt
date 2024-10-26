@@ -10,6 +10,7 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 
+@Suppress("unused")
 val enableDebuggingPatch = resourcePatch(
     name = "Enable debugging",
     description = "Adds options for debugging.",

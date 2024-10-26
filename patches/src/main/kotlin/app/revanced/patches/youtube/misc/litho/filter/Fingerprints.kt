@@ -12,13 +12,6 @@ internal val componentContextParserFingerprint = fingerprint {
     strings("Component was not found %s because it was removed due to duplicate converter bindings.")
 }
 
-internal val emptyComponentBuilderFingerprint = fingerprint {
-    opcodes(
-        Opcode.INVOKE_INTERFACE,
-        Opcode.INVOKE_STATIC_RANGE,
-    )
-}
-
 internal val lithoFilterFingerprint = fingerprint {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     returns("V")

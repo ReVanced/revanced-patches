@@ -4,7 +4,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
-import org.stringtemplate.v4.compiler.Bytecode.instructions
 
 @Suppress("unused")
 val permanentRepeatPatch = bytecodePatch(

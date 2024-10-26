@@ -1,18 +1,14 @@
 package app.revanced.patches.youtube.layout.returnyoutubedislike
 
 import app.revanced.patcher.Match
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.mapping.get
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.IntentPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
@@ -36,35 +32,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
-import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
-
-internal var oldUIDislikeId = -1L
-    private set
-
-private val returnYouTubeDislikeResourcePatch = resourcePatch {
-    dependsOn(
-        settingsPatch,
-        addResourcesPatch,
-    )
-
-    execute {
-        addResources("youtube", "layout.returnyoutubedislike.returnYouTubeDislikeResourcePatch")
-
-        addSettingPreference(
-            IntentPreference(
-                key = "revanced_settings_screen_09",
-                titleKey = "revanced_ryd_settings_title",
-                summaryKey = null,
-                intent = newIntent("revanced_ryd_settings_intent"),
-            ),
-        )
-
-        oldUIDislikeId = resourceMappings[
-            "id",
-            "dislike_button",
-        ]
-    }
-}
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/ReturnYouTubeDislikePatch;"
@@ -78,10 +45,11 @@ val returnYouTubeDislikePatch = bytecodePatch(
     description = "Adds an option to show the dislike count of videos with Return YouTube Dislike.",
 ) {
     dependsOn(
+        settingsPatch,
         sharedExtensionPatch,
+        addResourcesPatch,
         lithoFilterPatch,
         videoIdPatch,
-        returnYouTubeDislikeResourcePatch,
         playerTypeHookPatch,
         versionCheckPatch,
     )
@@ -99,7 +67,6 @@ val returnYouTubeDislikePatch = bytecodePatch(
     val textComponentConstructorMatch by textComponentConstructorFingerprint()
     val textComponentDataMatch by textComponentDataFingerprint()
     val shortsTextViewMatch by shortsTextViewFingerprint()
-    val dislikesOldLayoutTextViewMatch by dislikesOldLayoutTextViewFingerprint()
     val likeMatch by likeFingerprint()
     val dislikeMatch by dislikeFingerprint()
     val removeLikeMatch by removeLikeFingerprint()
@@ -110,6 +77,17 @@ val returnYouTubeDislikePatch = bytecodePatch(
     val rollingNumberTextViewAnimationUpdateMatch by rollingNumberTextViewAnimationUpdateFingerprint()
 
     execute { context ->
+        addResources("youtube", "layout.returnyoutubedislike.returnYouTubeDislikePatch")
+
+        addSettingPreference(
+            IntentPreference(
+                key = "revanced_settings_screen_09",
+                titleKey = "revanced_ryd_settings_title",
+                summaryKey = null,
+                intent = newIntent("revanced_ryd_settings_intent"),
+            ),
+        )
+
         // region Inject newVideoLoaded event handler to update dislikes when a new video is loaded.
 
         hookVideoId("$EXTENSION_CLASS_DESCRIPTOR->newVideoLoaded(Ljava/lang/String;)V")
@@ -257,23 +235,6 @@ val returnYouTubeDislikePatch = bytecodePatch(
 
         // Player response video id is needed to search for the video ids in Shorts litho components.
         hookPlayerResponseVideoId("$FILTER_CLASS_DESCRIPTOR->newPlayerResponseVideoId(Ljava/lang/String;Z)V")
-
-        // endregion
-
-        // region Hook old UI layout dislikes, for the older app spoofs used with spoof-app-version.
-
-        dislikesOldLayoutTextViewMatch.mutableMethod.apply {
-            val startIndex = dislikesOldLayoutTextViewMatch.patternMatch!!.startIndex
-
-            val resourceIdentifierRegister = getInstruction<OneRegisterInstruction>(startIndex).registerA
-            val textViewRegister = getInstruction<OneRegisterInstruction>(startIndex + 4).registerA
-
-            addInstruction(
-                startIndex + 4,
-                "invoke-static {v$resourceIdentifierRegister, v$textViewRegister}, " +
-                    "$EXTENSION_CLASS_DESCRIPTOR->setOldUILayoutDislikes(ILandroid/widget/TextView;)V",
-            )
-        }
 
         // endregion
 

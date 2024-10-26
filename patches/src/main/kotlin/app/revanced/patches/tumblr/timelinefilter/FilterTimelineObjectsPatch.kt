@@ -18,7 +18,6 @@ import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
 @Suppress("KDocUnresolvedReference")
 lateinit var addTimelineObjectTypeFilter: (typeName: String) -> Unit
 
-@Suppress("unused")
 val filterTimelineObjectsPatch = bytecodePatch(
     description = "Filter timeline objects.",
 ) {

@@ -41,7 +41,6 @@ internal const val EXTENSION_NAVIGATION_BUTTON_DESCRIPTOR =
 
 lateinit var hookNavigationButtonCreated: (String) -> Unit
 
-@Suppress("unused")
 val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navigation or search bar.") {
     dependsOn(
         sharedExtensionPatch,
@@ -127,7 +126,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
         // Insert before the first ViewGroup method call after inflating,
         // so this works regardless which layout is used.
         actionBarSearchResultsMatch.mutableMethod.apply {
-            val searchBarResourceId = indexOfFirstWideLiteralInstructionValueOrThrow(
+            val searchBarResourceId = indexOfFirstLiteralInstructionOrThrow(
                 actionBarSearchResultsViewMicId,
             )
 
@@ -158,6 +157,5 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
 private enum class Hook(val methodName: String, val parameters: String) {
     SET_LAST_APP_NAVIGATION_ENUM("setLastAppNavigationEnum", "Ljava/lang/Enum;"),
     NAVIGATION_TAB_LOADED("navigationTabLoaded", "Landroid/view/View;"),
-    NAVIGATION_IMAGE_RESOURCE_TAB_LOADED("navigationImageResourceTabLoaded", "Landroid/view/View;"),
-    SEARCH_BAR_RESULTS_VIEW_LOADED("searchBarResultsViewLoaded", "Landroid/view/View;"),
+    NAVIGATION_IMAGE_RESOURCE_TAB_LOADED("navigationImageResourceTabLoaded", "Landroid/view/View;")
 }

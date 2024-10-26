@@ -14,7 +14,7 @@ internal val jsonHookPatchFingerprint = fingerprint {
 
 internal val jsonInputStreamFingerprint = fingerprint {
     custom { method, _ ->
-        if (method.parameterTypes.size == 0) {
+        if (method.parameterTypes.isEmpty()) {
             false
         } else {
             method.parameterTypes.first() == "Ljava/io/InputStream;"

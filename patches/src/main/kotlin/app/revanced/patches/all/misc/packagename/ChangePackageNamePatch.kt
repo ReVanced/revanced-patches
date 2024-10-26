@@ -1,7 +1,6 @@
 package app.revanced.patches.all.misc.packagename
 
 import app.revanced.patcher.patch.Option
-import app.revanced.patcher.patch.OptionException
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
 import org.w3c.dom.Element
@@ -26,7 +25,6 @@ fun setOrGetFallbackPackageName(fallbackPackageName: String): String {
     }
 }
 
-@Suppress("unused")
 val changePackageNamePatch = resourcePatch(
     name = "Change package name",
     description = "Appends \".revanced\" to the package name by default. Changing the package name of the app can lead to unexpected issues.",

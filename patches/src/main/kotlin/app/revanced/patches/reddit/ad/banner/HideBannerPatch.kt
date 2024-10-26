@@ -5,7 +5,6 @@ import app.revanced.patcher.patch.resourcePatch
 // Note that for now, this patch and anything using it will only work on
 // Reddit 2024.17.0 or older. Newer versions will crash during patching.
 // See https://github.com/ReVanced/revanced-patches/issues/3099
-@Suppress("unused")
 val hideBannerPatch = resourcePatch(
     description = "Hides banner ads from comments on subreddits.",
 ) {

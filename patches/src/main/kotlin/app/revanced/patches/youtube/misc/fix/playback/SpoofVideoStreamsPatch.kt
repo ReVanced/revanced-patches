@@ -31,7 +31,6 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/spoof/SpoofVideoStreamsPatch;"
 
-@Suppress("unused")
 val spoofVideoStreamsPatch = bytecodePatch(
     name = "Spoof video streams",
     description = "Spoofs the client video streams to allow video playback.",

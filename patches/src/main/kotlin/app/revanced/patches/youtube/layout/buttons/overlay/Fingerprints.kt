@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.layout.buttons.overlay
 
 import app.revanced.patcher.fingerprint
-import app.revanced.util.containsWideLiteralInstructionValue
+import app.revanced.util.containsLiteralInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val playerControlsPreviousNextOverlayTouchFingerprint = fingerprint {
@@ -9,8 +9,8 @@ internal val playerControlsPreviousNextOverlayTouchFingerprint = fingerprint {
     returns("V")
     strings("1.0x")
     custom { methodDef, _ ->
-        methodDef.containsWideLiteralInstructionValue(playerControlPreviousButtonTouchArea) &&
-            methodDef.containsWideLiteralInstructionValue(playerControlNextButtonTouchArea)
+        methodDef.containsLiteralInstruction(playerControlPreviousButtonTouchArea) &&
+            methodDef.containsLiteralInstruction(playerControlNextButtonTouchArea)
     }
 }
 

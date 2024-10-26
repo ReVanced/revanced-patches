@@ -22,7 +22,7 @@ import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.applyMatch
-import app.revanced.util.findOpcodeIndicesReversed
+import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
@@ -30,7 +30,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
 
 var expandButtonDownId = -1L
     private set
@@ -368,7 +367,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
         // region 'Yoodles'
 
         yoodlesImageViewMatch.mutableMethod.apply {
-            findOpcodeIndicesReversed {
+            findInstructionIndicesReversedOrThrow {
                 getReference<MethodReference>()?.name == "setImageDrawable"
             }.forEach { insertIndex ->
                 val register = getInstruction<FiveRegisterInstruction>(insertIndex).registerD

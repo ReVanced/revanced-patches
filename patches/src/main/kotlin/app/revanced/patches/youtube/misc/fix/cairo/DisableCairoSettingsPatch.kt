@@ -7,10 +7,9 @@ import app.revanced.patches.youtube.misc.backgroundplayback.backgroundPlaybackPa
 import app.revanced.patches.youtube.misc.playservice.is_19_04_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
+import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
 
 internal val disableCairoSettingsPatch = bytecodePatch(
     description = "Disables Cairo Fragment from being used.",
@@ -37,7 +36,7 @@ internal val disableCairoSettingsPatch = bytecodePatch(
          * <a href="https://github.com/qnblackcat/uYouPlus/issues/1468">uYouPlus#1468</a>.
          */
         cairoFragmentConfigMatch.mutableMethod.apply {
-            val literalIndex = indexOfFirstWideLiteralInstructionValueOrThrow(
+            val literalIndex = indexOfFirstLiteralInstructionOrThrow(
                 CAIRO_CONFIG_LITERAL_VALUE,
             )
 
