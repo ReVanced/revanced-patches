@@ -127,7 +127,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
         // Insert before the first ViewGroup method call after inflating,
         // so this works regardless which layout is used.
         actionBarSearchResultsMatch.mutableMethod.apply {
-            val searchBarResourceId = indexOfFirstWideLiteralInstructionValueOrThrow(
+            val searchBarResourceId = indexOfFirstLiteralInstructionOrThrow(
                 actionBarSearchResultsViewMicId,
             )
 

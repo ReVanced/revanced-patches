@@ -20,8 +20,8 @@ import app.revanced.patches.youtube.shared.layoutConstructorFingerprint
 import app.revanced.patches.youtube.shared.subtitleButtonControllerFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
-import app.revanced.util.indexOfIdResourceOrThrow
+import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
+import app.revanced.util.indexOfFirstResourceIdOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -84,7 +84,7 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
         // region Hide player next/previous button.
 
         playerControlsPreviousNextOverlayTouchMatch.mutableMethod.apply {
-            val resourceIndex = indexOfFirstWideLiteralInstructionValueOrThrow(playerControlPreviousButtonTouchArea)
+            val resourceIndex = indexOfFirstLiteralInstructionOrThrow(playerControlPreviousButtonTouchArea)
 
             val insertIndex = indexOfFirstInstructionOrThrow(resourceIndex) {
                 opcode == Opcode.INVOKE_STATIC &&
@@ -131,7 +131,7 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
         // region Hide autoplay button.
 
         layoutConstructorMatch.mutableMethod.apply {
-            val constIndex = indexOfIdResourceOrThrow("autonav_toggle")
+            val constIndex = indexOfFirstResourceIdOrThrow("autonav_toggle")
             val constRegister = getInstruction<OneRegisterInstruction>(constIndex).registerA
 
             // Add a conditional branch around the code that inflates and adds the auto-repeat button.

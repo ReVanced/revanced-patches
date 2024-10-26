@@ -106,18 +106,18 @@ internal fun MutableMethod.addInstructionsAtControlFlowLabel(
 }
 
 /**
- * Get the index of the first instruction with the id of the given resource name.
+ * Get the index of the first instruction with the id of the given resource id name.
  *
  * Requires [resourceMappingPatch] as a dependency.
  *
  * @param resourceName the name of the resource to find the id for.
  * @return the index of the first instruction with the id of the given resource name, or -1 if not found.
  * @throws PatchException if the resource cannot be found.
- * @see [indexOfIdResourceOrThrow], [indexOfFirstWideLiteralInstructionValueReversed]
+ * @see [indexOfFirstResourceIdOrThrow], [indexOfFirstLiteralInstructionReversed]
  */
-fun Method.indexOfIdResource(resourceName: String): Int {
+fun Method.indexOfFirstResourceId(resourceName: String): Int {
     val resourceId = resourceMappings["id", resourceName]
-    return indexOfFirstWideLiteralInstructionValue(resourceId)
+    return indexOfFirstLiteralInstruction(resourceId)
 }
 
 /**
@@ -126,10 +126,10 @@ fun Method.indexOfIdResource(resourceName: String): Int {
  * Requires [resourceMappingPatch] as a dependency.
  *
  * @throws [PatchException] if the resource is not found, or the method does not contain the resource id literal value.
- * @see [indexOfIdResource], [indexOfFirstWideLiteralInstructionValueReversedOrThrow]
+ * @see [indexOfFirstResourceId], [indexOfFirstLiteralInstructionReversedOrThrow]
  */
-fun Method.indexOfIdResourceOrThrow(resourceName: String): Int {
-    val index = indexOfIdResource(resourceName)
+fun Method.indexOfFirstResourceIdOrThrow(resourceName: String): Int {
+    val index = indexOfFirstResourceId(resourceName)
     if (index < 0) {
         throw PatchException("Found resource id for: '$resourceName' but method does not contain the id: $this")
     }
@@ -137,40 +137,37 @@ fun Method.indexOfIdResourceOrThrow(resourceName: String): Int {
     return index
 }
 
-// TODO Rename these from 'FirstWideLiteralInstruction' to 'FirstLiteralInstruction',
-// since NarrowLiteralInstruction is a subclass of WideLiteralInstruction.
-
 /**
- * Find the index of the first wide literal instruction with the given value.
+ * Find the index of the first literal instruction with the given value.
  *
  * @return the first literal instruction with the value, or -1 if not found.
- * @see indexOfFirstWideLiteralInstructionValueOrThrow
+ * @see indexOfFirstLiteralInstructionOrThrow
  */
-fun Method.indexOfFirstWideLiteralInstructionValue(literal: Long) = implementation?.let {
+fun Method.indexOfFirstLiteralInstruction(literal: Long) = implementation?.let {
     it.instructions.indexOfFirst { instruction ->
         (instruction as? WideLiteralInstruction)?.wideLiteral == literal
     }
 } ?: -1
 
 /**
- * Find the index of the first wide literal instruction with the given value,
+ * Find the index of the first literal instruction with the given value,
  * or throw an exception if not found.
  *
  * @return the first literal instruction with the value, or throws [PatchException] if not found.
  */
-fun Method.indexOfFirstWideLiteralInstructionValueOrThrow(literal: Long): Int {
-    val index = indexOfFirstWideLiteralInstructionValue(literal)
+fun Method.indexOfFirstLiteralInstructionOrThrow(literal: Long): Int {
+    val index = indexOfFirstLiteralInstruction(literal)
     if (index < 0) throw PatchException("Could not find literal value: $literal")
     return index
 }
 
 /**
- * Find the index of the last wide literal instruction with the given value.
+ * Find the index of the last literal instruction with the given value.
  *
  * @return the last literal instruction with the value, or -1 if not found.
- * @see indexOfFirstWideLiteralInstructionValueOrThrow
+ * @see indexOfFirstLiteralInstructionOrThrow
  */
-fun Method.indexOfFirstWideLiteralInstructionValueReversed(literal: Long) = implementation?.let {
+fun Method.indexOfFirstLiteralInstructionReversed(literal: Long) = implementation?.let {
     it.instructions.indexOfLast { instruction ->
         (instruction as? WideLiteralInstruction)?.wideLiteral == literal
     }
@@ -182,8 +179,8 @@ fun Method.indexOfFirstWideLiteralInstructionValueReversed(literal: Long) = impl
  *
  * @return the last literal instruction with the value, or throws [PatchException] if not found.
  */
-fun Method.indexOfFirstWideLiteralInstructionValueReversedOrThrow(literal: Long): Int {
-    val index = indexOfFirstWideLiteralInstructionValueReversed(literal)
+fun Method.indexOfFirstLiteralInstructionReversedOrThrow(literal: Long): Int {
+    val index = indexOfFirstLiteralInstructionReversed(literal)
     if (index < 0) throw PatchException("Could not find literal value: $literal")
     return index
 }
@@ -193,8 +190,8 @@ fun Method.indexOfFirstWideLiteralInstructionValueReversedOrThrow(literal: Long)
  *
  * @return if the method contains a literal with the given value.
  */
-fun Method.containsWideLiteralInstructionValue(literal: Long) =
-    indexOfFirstWideLiteralInstructionValue(literal) >= 0
+fun Method.containsLiteralInstruction(literal: Long) =
+    indexOfFirstLiteralInstruction(literal) >= 0
 
 /**
  * Traverse the class hierarchy starting from the given root class.
@@ -220,7 +217,8 @@ fun BytecodePatchContext.traverseClassHierarchy(targetClass: MutableClass, callb
  * if the [Instruction] is not a [ReferenceInstruction] or the [Reference] is not of type [T].
  * @see ReferenceInstruction
  */
-inline fun <reified T : Reference> Instruction.getReference() = (this as? ReferenceInstruction)?.reference as? T
+inline fun <reified T : Reference> Instruction.getReference() =
+    (this as? ReferenceInstruction)?.reference as? T
 
 /**
  * @return The index of the first opcode specified, or -1 if not found.
@@ -246,12 +244,12 @@ fun Method.indexOfFirstInstruction(startIndex: Int = 0, targetOpcode: Opcode): I
  * @return -1 if the instruction is not found.
  * @see indexOfFirstInstructionOrThrow
  */
-fun Method.indexOfFirstInstruction(startIndex: Int = 0, predicate: Instruction.() -> Boolean): Int {
+fun Method.indexOfFirstInstruction(startIndex: Int = 0, filter: Instruction.() -> Boolean): Int {
     var instructions = this.implementation!!.instructions
     if (startIndex != 0) {
         instructions = instructions.drop(startIndex)
     }
-    val index = instructions.indexOfFirst(predicate)
+    val index = instructions.indexOfFirst(filter)
 
     return if (index >= 0) {
         startIndex + index
@@ -285,8 +283,8 @@ fun Method.indexOfFirstInstructionOrThrow(startIndex: Int = 0, targetOpcode: Opc
  * @throws PatchException
  * @see indexOfFirstInstruction
  */
-fun Method.indexOfFirstInstructionOrThrow(startIndex: Int = 0, predicate: Instruction.() -> Boolean): Int {
-    val index = indexOfFirstInstruction(startIndex, predicate)
+fun Method.indexOfFirstInstructionOrThrow(startIndex: Int = 0, filter: Instruction.() -> Boolean): Int {
+    val index = indexOfFirstInstruction(startIndex, filter)
     if (index < 0) {
         throw PatchException("Could not find instruction index")
     }
@@ -315,13 +313,13 @@ fun Method.indexOfFirstInstructionReversed(startIndex: Int? = null, targetOpcode
  * @return -1 if the instruction is not found.
  * @see indexOfFirstInstructionReversedOrThrow
  */
-fun Method.indexOfFirstInstructionReversed(startIndex: Int? = null, predicate: Instruction.() -> Boolean): Int {
+fun Method.indexOfFirstInstructionReversed(startIndex: Int? = null, filter: Instruction.() -> Boolean): Int {
     var instructions = this.implementation!!.instructions
     if (startIndex != null) {
         instructions = instructions.take(startIndex + 1)
     }
 
-    return instructions.indexOfLast(predicate)
+    return instructions.indexOfLast(filter)
 }
 
 /**
@@ -345,8 +343,8 @@ fun Method.indexOfFirstInstructionReversedOrThrow(startIndex: Int? = null, targe
  * @return -1 if the instruction is not found.
  * @see indexOfFirstInstructionReversed
  */
-fun Method.indexOfFirstInstructionReversedOrThrow(startIndex: Int? = null, predicate: Instruction.() -> Boolean): Int {
-    val index = indexOfFirstInstructionReversed(startIndex, predicate)
+fun Method.indexOfFirstInstructionReversedOrThrow(startIndex: Int? = null, filter: Instruction.() -> Boolean): Int {
+    val index = indexOfFirstInstructionReversed(startIndex, filter)
 
     if (index < 0) {
         throw PatchException("Could not find instruction index")
@@ -356,24 +354,46 @@ fun Method.indexOfFirstInstructionReversedOrThrow(startIndex: Int? = null, predi
 }
 
 /**
- * @return The list of indices of the opcode in reverse order.
+ * @return An immutable list of indices of the instructions in reverse order.
+ *  _Returns an empty list if no indices are found_
+ *  @see findInstructionIndicesReversedOrThrow
  */
-fun Method.findOpcodeIndicesReversed(opcode: Opcode): List<Int> =
-    findOpcodeIndicesReversed { this.opcode == opcode }
-
-/**
- * @return The list of indices of the opcode in reverse order.
- */
-fun Method.findOpcodeIndicesReversed(filter: Instruction.() -> Boolean): List<Int> {
-    val indexes = instructions
+fun Method.findInstructionIndicesReversed(filter: Instruction.() -> Boolean): List<Int> {
+    return instructions
         .withIndex()
         .filter { (_, instruction) -> filter(instruction) }
         .map { (index, _) -> index }
-        .reversed() // TODO: Use asReversed here to avoid creating a new list.
+        .asReversed()
+}
 
+/**
+ * @return An immutable list of indices of the instructions in reverse order.
+ * @throws PatchException if no matching indices are found.
+ */
+fun Method.findInstructionIndicesReversedOrThrow(filter: Instruction.() -> Boolean): List<Int> {
+    val indexes = findInstructionIndicesReversed(filter)
     if (indexes.isEmpty()) throw PatchException("No matching instructions found in: $this")
 
     return indexes
+}
+
+/**
+ * @return An immutable list of indices of the opcode in reverse order.
+ *  _Returns an empty list if no indices are found_
+ * @see findInstructionIndicesReversedOrThrow
+ */
+fun Method.findInstructionIndicesReversed(opcode: Opcode): List<Int> =
+    findInstructionIndicesReversed { this.opcode == opcode }
+
+/**
+ * @return An immutable list of indices of the opcode in reverse order.
+ * @throws PatchException if no matching indices are found.
+ */
+fun Method.findInstructionIndicesReversedOrThrow(opcode: Opcode): List<Int> {
+    val instructions = findInstructionIndicesReversed(opcode)
+    if (instructions.isEmpty()) throw PatchException("Could not find opcode: $opcode in: $this")
+
+    return instructions
 }
 
 /**
@@ -400,26 +420,31 @@ fun BytecodePatchContext.forEachLiteralValueInstruction(
 /**
  * Return the matched method early.
  */
-fun Fingerprint.returnEarly(bool: Boolean = false) {
-    val const = if (bool) "0x1" else "0x0"
-    match?.let { match ->
-        val stringInstructions = when (match.method.returnType.first()) {
-            'L' ->
-                """
-                    const/4 v0, $const
-                    return-object v0
-                """
-            'V' -> "return-void"
-            'I', 'Z' ->
-                """
-                    const/4 v0, $const
-                    return v0
-                """
-            else -> throw Exception("This case should never happen.")
-        }
+fun Fingerprint.returnEarly(bool: Boolean = false) =
+    matchOrThrow.mutableMethod. returnEarly(bool)
 
-        match.mutableMethod.addInstructions(0, stringInstructions)
-    } ?: throw exception
+/**
+ * Return the method early.
+ */
+fun MutableMethod.returnEarly(bool: Boolean = false) {
+    val const = if (bool) "0x1" else "0x0"
+
+    val stringInstructions = when (returnType.first()) {
+        'L' ->
+            """
+                const/4 v0, $const
+                return-object v0
+            """
+        'V' -> "return-void"
+        'I', 'Z' ->
+            """
+                const/4 v0, $const
+                return v0
+            """
+        else -> throw Exception("This case should never happen.")
+    }
+
+    addInstructions(0, stringInstructions)
 }
 
 /**
@@ -443,6 +468,6 @@ fun Fingerprint.applyMatch(context: BytecodePatchContext, parentMatch: Match) =
 // TODO: add a way for subclasses to also use their own custom fingerprint.
 fun FingerprintBuilder.literal(literalSupplier: () -> Long) {
     custom { method, _ ->
-        method.containsWideLiteralInstructionValue(literalSupplier())
+        method.containsLiteralInstruction(literalSupplier())
     }
 }

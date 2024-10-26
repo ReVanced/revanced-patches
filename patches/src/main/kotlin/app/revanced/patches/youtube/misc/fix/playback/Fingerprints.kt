@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.misc.fix.playback
 
 import app.revanced.patcher.fingerprint
-import app.revanced.util.containsWideLiteralInstructionValue
+import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.literal
@@ -92,7 +92,7 @@ internal val createPlayerRequestBodyWithModelFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters()
     custom { method, _ ->
-        method.containsWideLiteralInstructionValue(1073741824) && indexOfBuildModelInstruction(method) >= 0
+        method.containsLiteralInstruction(1073741824) && indexOfBuildModelInstruction(method) >= 0
     }
 }
 
@@ -158,7 +158,7 @@ internal val createPlayerRequestBodyWithVersionReleaseFingerprint = fingerprint 
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters()
     custom { method, _ ->
-        method.containsWideLiteralInstructionValue(1073741824) && indexOfBuildVersionReleaseInstruction(method) >= 0
+        method.containsLiteralInstruction(1073741824) && indexOfBuildVersionReleaseInstruction(method) >= 0
     }
 }
 

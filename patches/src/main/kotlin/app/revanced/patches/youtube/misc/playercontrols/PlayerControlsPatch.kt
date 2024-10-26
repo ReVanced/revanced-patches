@@ -252,7 +252,7 @@ val playerControlsPatch = bytecodePatch(
         // Hook the fullscreen close button.  Used to fix visibility
         // when seeking and other situations.
         overlayViewInflateMatch.mutableMethod.apply {
-            val resourceIndex = indexOfFirstWideLiteralInstructionValueReversedOrThrow(fullscreenButton)
+            val resourceIndex = indexOfFirstLiteralInstructionReversedOrThrow(fullscreenButton)
 
             val index = indexOfFirstInstructionOrThrow(resourceIndex) {
                 opcode == Opcode.CHECK_CAST &&
