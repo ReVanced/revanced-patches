@@ -1,7 +1,5 @@
 package app.revanced.patches.youtube.misc.backgroundplayback
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
@@ -20,6 +18,7 @@ import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
+import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -94,11 +93,6 @@ val backgroundPlaybackPatch = bytecodePatch(
             }
         }
 
-        val overrideBackgroundPlaybackSettingsInstructions = """
-            const/4 v0, 0x1
-            return v0
-        """
-
         // Enable background playback option in YouTube settings
         backgroundPlaybackSettingsMatch.mutableMethod.apply {
             val booleanCalls = instructions.withIndex().filter {
@@ -108,20 +102,13 @@ val backgroundPlaybackPatch = bytecodePatch(
             val settingsBooleanIndex = booleanCalls.elementAt(1).index
             val settingsBooleanMethod = context.navigate(this).at(settingsBooleanIndex).mutable()
 
-            settingsBooleanMethod.addInstructions(0, overrideBackgroundPlaybackSettingsInstructions)
+            settingsBooleanMethod.returnEarly(true)
         }
 
         // Force allowing background play for Shorts.
-        shortsBackgroundPlaybackFeatureFlagMatch.mutableMethod.addInstructions(
-            0,
-            overrideBackgroundPlaybackSettingsInstructions
-        )
-
+        shortsBackgroundPlaybackFeatureFlagMatch.mutableMethod.returnEarly(true)
 
         // Force allowing background play for videos labeled for kids.
-        kidsBackgroundPlaybackPolicyControllerMatch.mutableMethod.addInstruction(
-            0,
-            "return-void",
-        )
+        kidsBackgroundPlaybackPolicyControllerMatch.mutableMethod.returnEarly()
     }
 }
