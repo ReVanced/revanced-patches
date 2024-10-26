@@ -223,18 +223,6 @@ fun BytecodePatchContext.traverseClassHierarchy(targetClass: MutableClass, callb
 inline fun <reified T : Reference> Instruction.getReference() = (this as? ReferenceInstruction)?.reference as? T
 
 /**
- * Get the index of the first [Instruction] that matches the predicate.
- *
- * @param predicate The predicate to match.
- * @return The index of the first [Instruction] that matches the predicate.
- */
-// TODO: delete this on next major release, the overloaded method with an optional start index serves the same purposes.
-// Method is deprecated, but annotation is commented out otherwise during compilation usage of the replacement is
-// incorrectly flagged as deprecated.
-// @Deprecated("Use the overloaded method with an optional start index.", ReplaceWith("indexOfFirstInstruction(predicate)"))
-fun Method.indexOfFirstInstruction(predicate: Instruction.() -> Boolean) = indexOfFirstInstruction(0, predicate)
-
-/**
  * @return The index of the first opcode specified, or -1 if not found.
  * @see indexOfFirstInstructionOrThrow
  */
@@ -438,14 +426,6 @@ fun Fingerprint.returnEarly(bool: Boolean = false) {
  * Return the matched methods early.
  */
 fun Iterable<Fingerprint>.returnEarly(bool: Boolean = false) = forEach { fingerprint ->
-    fingerprint.returnEarly(bool)
-}
-
-/**
- * Return the matched methods early.
- */
-@Deprecated("Use the Iterable version")
-fun List<Fingerprint>.returnEarly(bool: Boolean = false) = forEach { fingerprint ->
     fingerprint.returnEarly(bool)
 }
 
