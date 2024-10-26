@@ -1196,6 +1196,10 @@ public final class app/revanced/patches/youtube/layout/seekbar/SeekbarColorPatch
 	public static final fun getSeekbarColorPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/layout/seekbar/SeekbarThumbnailsPatchKt {
+	public static final fun getSeekbarThumbnailsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/layout/shortsautoplay/ShortsAutoplayPatchKt {
 	public static final fun getShortsAutoplayPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
