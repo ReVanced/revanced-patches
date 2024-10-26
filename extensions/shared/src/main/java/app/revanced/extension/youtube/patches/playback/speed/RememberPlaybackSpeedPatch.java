@@ -30,17 +30,31 @@ public final class RememberPlaybackSpeedPatch {
      */
     public static void userSelectedPlaybackSpeed(float playbackSpeed) {
         if (Settings.REMEMBER_PLAYBACK_SPEED_LAST_SELECTED.get()) {
-            Settings.PLAYBACK_SPEED_DEFAULT.save(playbackSpeed);
+            // With the 0.05x menu, if the speed is set by integrations to higher than 2.0x
+            // then the menu will allow increasing without bounds but the max speed is
+            // still capped to under 8.0x.
+            playbackSpeed = Math.min(playbackSpeed, CustomPlaybackSpeedPatch.MAXIMUM_PLAYBACK_SPEED - 0.05f);
 
             // Prevent toast spamming if using the 0.05x adjustments.
             // Show exactly one toast after the user stops interacting with the speed menu.
             final long now = System.currentTimeMillis();
             lastTimeSpeedChanged = now;
 
+            final float finalPlaybackSpeed = playbackSpeed;
             Utils.runOnMainThreadDelayed(() -> {
-                if (lastTimeSpeedChanged == now) {
-                    Utils.showToastLong(str("revanced_remember_playback_speed_toast", (playbackSpeed + "x")));
-                } // else, the user made additional speed adjustments and this call is outdated.
+                if (lastTimeSpeedChanged != now) {
+                    // The user made additional speed adjustments and this call is outdated.
+                    return;
+                }
+
+                if (Settings.PLAYBACK_SPEED_DEFAULT.get() == finalPlaybackSpeed) {
+                    // User changed to a different speed and immediately changed back.
+                    // Or the user is going past 8.0x in the glitched out 0.05x menu.
+                    return;
+                }
+                Settings.PLAYBACK_SPEED_DEFAULT.save(finalPlaybackSpeed);
+
+                Utils.showToastLong(str("revanced_remember_playback_speed_toast", (finalPlaybackSpeed + "x")));
             }, TOAST_DELAY_MILLISECONDS);
         }
     }
