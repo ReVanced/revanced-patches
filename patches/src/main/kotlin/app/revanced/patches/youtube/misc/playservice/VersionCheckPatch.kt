@@ -36,7 +36,6 @@ var is_19_41_or_greater = false
 var is_19_43_or_greater = false
     private set
 
-@Suppress("unused")
 val versionCheckPatch = resourcePatch(
     description = "Uses the Play Store service version to find the major/minor version of the YouTube target app.",
 ) {

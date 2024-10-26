@@ -5,7 +5,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
-@Suppress("unused")
 val verticalScrollPatch = bytecodePatch(
     description = "Fixes issues with refreshing the feed when the first component is of type EmptyComponent.",
 ) {

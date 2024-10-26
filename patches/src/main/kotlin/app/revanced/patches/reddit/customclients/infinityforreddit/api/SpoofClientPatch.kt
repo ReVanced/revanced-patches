@@ -7,7 +7,6 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodImplementation
 
-@Suppress("unused")
 val spoofClientPatch = spoofClientPatch(redirectUri = "infinity://localhost") { clientIdOption ->
     compatibleWith("ml.docilealligator.infinityforreddit")
 

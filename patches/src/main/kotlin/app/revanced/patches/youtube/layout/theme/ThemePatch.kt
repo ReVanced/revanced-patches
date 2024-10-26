@@ -17,7 +17,7 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.forEachChildElement
-import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
+import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import org.w3c.dom.Element
 
@@ -214,7 +214,7 @@ val themePatch = bytecodePatch(
 
         useGradientLoadingScreenMatch.mutableMethod.apply {
 
-            val isEnabledIndex = indexOfFirstWideLiteralInstructionValueOrThrow(GRADIENT_LOADING_SCREEN_AB_CONSTANT) + 3
+            val isEnabledIndex = indexOfFirstLiteralInstructionOrThrow(GRADIENT_LOADING_SCREEN_AB_CONSTANT) + 3
             val isEnabledRegister = getInstruction<OneRegisterInstruction>(isEnabledIndex - 1).registerA
 
             addInstructions(

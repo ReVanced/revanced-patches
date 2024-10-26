@@ -9,7 +9,7 @@ import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
-import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
+import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 
@@ -80,7 +80,7 @@ val changeLinkSharingDomainPatch = bytecodePatch(
 
         // Used in the Share via... dialog.
         linkResourceGetterMatch.mutableMethod.apply {
-            val templateIdConstIndex = indexOfFirstWideLiteralInstructionValueOrThrow(tweetShareLinkTemplateId)
+            val templateIdConstIndex = indexOfFirstLiteralInstructionOrThrow(tweetShareLinkTemplateId)
 
             // Format the link with the new domain name register (1 instruction below the const).
             val formatLinkCallIndex = templateIdConstIndex + 1

@@ -5,7 +5,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
 import app.revanced.patches.reddit.customclients.joeyforreddit.detection.piracy.disablePiracyDetectionPatch
 import app.revanced.patches.reddit.customclients.spoofClientPatch
 
-@Suppress("unused")
 val spoofClientPatch = spoofClientPatch(redirectUri = "https://127.0.0.1:65023/authorize_callback") { clientIdOption ->
     dependsOn(disablePiracyDetectionPatch)
 

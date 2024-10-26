@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.layout.seekbar
 
 import app.revanced.patcher.fingerprint
-import app.revanced.util.containsWideLiteralInstructionValue
+import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -16,8 +16,8 @@ internal val fullscreenSeekbarThumbnailsFingerprint = fingerprint {
 internal val playerSeekbarColorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     custom { method, _ ->
-        method.containsWideLiteralInstructionValue(inlineTimeBarColorizedBarPlayedColorDarkId) &&
-            method.containsWideLiteralInstructionValue(inlineTimeBarPlayedNotHighlightedColorId)
+        method.containsLiteralInstruction(inlineTimeBarColorizedBarPlayedColorDarkId) &&
+            method.containsLiteralInstruction(inlineTimeBarPlayedNotHighlightedColorId)
     }
 }
 

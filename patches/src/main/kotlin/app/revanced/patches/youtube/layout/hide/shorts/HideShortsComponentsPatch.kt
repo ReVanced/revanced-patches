@@ -286,7 +286,7 @@ val hideShortsComponentsPatch = bytecodePatch(
 
         // Hide the bottom bar container of the Shorts player.
         shortsBottomBarContainerMatch.mutableMethod.apply {
-            val resourceIndex = indexOfFirstWideLiteralInstructionValue(bottomBarContainer)
+            val resourceIndex = indexOfFirstLiteralInstruction(bottomBarContainer)
 
             val targetIndex = indexOfFirstInstructionOrThrow(resourceIndex) {
                 getReference<MethodReference>()?.name == "getHeight"
@@ -316,7 +316,7 @@ private enum class ShortsButtons(private val resourceName: String, private val m
     ;
 
     fun injectHideCall(method: MutableMethod) {
-        val referencedIndex = method.indexOfIdResourceOrThrow(resourceName)
+        val referencedIndex = method.indexOfFirstResourceIdOrThrow(resourceName)
 
         val setIdIndex = method.indexOfFirstInstructionOrThrow(referencedIndex) {
             opcode == Opcode.INVOKE_VIRTUAL && getReference<MethodReference>()?.name == "setId"

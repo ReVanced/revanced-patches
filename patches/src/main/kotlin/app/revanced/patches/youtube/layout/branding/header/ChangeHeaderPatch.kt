@@ -115,7 +115,7 @@ val changeHeaderPatch = resourcePatch(
 
             // For each source folder, copy the files to the target resource directories.
             sourceFolders.forEach { dpiSourceFolder ->
-                val targetDpiFolder = context.get("res").resolve(dpiSourceFolder.name)
+                val targetDpiFolder = context["res"].resolve(dpiSourceFolder.name)
                 if (!targetDpiFolder.exists()) return@forEach
 
                 val imgSourceFiles = dpiSourceFolder.listFiles { file -> file.isFile }!!

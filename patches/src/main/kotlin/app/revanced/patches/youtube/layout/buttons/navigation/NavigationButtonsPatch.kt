@@ -23,7 +23,6 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 internal const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/NavigationButtonsPatch;"
 
-@Suppress("unused")
 val navigationButtonsPatch = bytecodePatch(
     name = "Navigation buttons",
     description = "Adds options to hide and change navigation buttons (such as the Shorts button).",
