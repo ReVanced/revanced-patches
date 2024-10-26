@@ -15,6 +15,7 @@ import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.InputType
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
@@ -71,6 +72,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         addResources("youtube", "video.speed.custom.customPlaybackSpeedPatch")
 
         PreferenceScreen.VIDEO.addPreferences(
+            SwitchPreference("revanced_custom_speed_menu"),
             TextPreference("revanced_custom_playback_speeds", inputType = InputType.TEXT_MULTI_LINE),
         )
 
