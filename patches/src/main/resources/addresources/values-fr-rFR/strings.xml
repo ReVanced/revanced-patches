@@ -32,7 +32,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
 -->
 <resources>
   <app id="shared">
-  <patch id="misc.checks.BaseCheckEnvironmentPatch">
+  <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Les vérifications ont échoué</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Ouvrir le site web officiel</string>
   <string name="revanced_check_environment_dialog_ignore_button">Ignorer</string>
@@ -43,7 +43,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_check_environment_not_near_patch_time_days">Patché il y as %s jours</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">La date de compilation de l\'APK est corrompue</string>
   </patch>
-  <patch id="misc.settings.BaseSettingsResourcePatch">
+  <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Souhaitez-vous continuer ?</string>
   <string name="revanced_settings_reset">Réinitialiser</string>
@@ -63,7 +63,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_header">Liens officiels</string>
   <string name="revanced_settings_about_links_donate">Faire un don</string>
   </patch>
-  <patch id="misc.gms.BaseGmsCoreSupportResourcePatch">
+  <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore n\'est pas installé. Veuillez l’installer.</string>
   <string name="gms_core_dialog_title">Action requise </string>
@@ -74,7 +74,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   </app>
   <app id="youtube">
-  <patch id="misc.settings.SettingsPatch">
+  <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">À propos</string>
   <string name="revanced_settings_screen_01_ads_title">Publicités</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Miniatures alternatives</string>
@@ -86,7 +86,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_11_misc_title">Divers</string>
   <string name="revanced_settings_screen_12_video_title">Vidéo</string>
   </patch>
-  <patch id="misc.debugging.DebuggingPatch">
+  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <string name="revanced_shorts_disable_background_playback_title">Désactiver la lecture en arrière-plan Shorts</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">La lecture en arrière-plan de Shorts est désactivée</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">La lecture en arrière-plan des Shorts est activée</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Débogage</string>
   <string name="revanced_debug_screen_summary">Activer ou désactiver les options de débogage</string>
   <string name="revanced_debug_title">Journal de débogage</string>
@@ -103,7 +108,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_debug_toast_on_error_summary_off">Toast non affiché si une erreur se produit</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">Désactiver les toasts d\'erreur masque toutes les notifications d\'erreur ReVanced\n\nVous ne serez pas notifié des événements inattendus.</string>
   </patch>
-  <patch id="layout.hide.general.HideLayoutComponentsPatch">
+  <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_disable_like_subscribe_glow_title">Désactiver la lueur des boutons \"J\'aime\" / \"Je n\'aime pas\"</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Les boutons \"J\'aime\" et \"Je n\'aime pas\" ne s\'illuminerons pas lorsqu\'ils sont mentionné</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Les boutons \"J\'aime\" et \"Je n\'aime pas\" s\'illuminerons lorsqu\'ils sont mentionné</string>
@@ -312,7 +317,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_toast_invalid_length">Le mot-clé est trop court et nécessite des guillemets : %s</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Ce mot-clé va masquer toutes les vidéos : %s</string>
   </patch>
-  <patch id="ad.general.HideAdsResourcePatch">
+  <patch id="ad.general.hideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Masquer les publicités générales</string>
   <string name="revanced_hide_general_ads_summary_on">Les publicités générales sont masquées</string>
   <string name="revanced_hide_general_ads_summary_off">Les publicités générales sont affichées</string>
@@ -350,17 +355,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Masquer les publicités en plein écran ne fonctionne qu\'avec les appareils plus anciens</string>
   </patch>
-  <patch id="ad.getpremium.HideGetPremiumPatch">
+  <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">Masquer les publicités pour YouTube Premium </string>
   <string name="revanced_hide_get_premium_summary_on">Les publicités pour YouTube Premium sous le lecteur vidéo sont masquées</string>
   <string name="revanced_hide_get_premium_summary_off">Les publicités pour YouTube Premium sous le lecteur vidéo sont affichées</string>
   </patch>
-  <patch id="ad.video.VideoAdsPatch">
+  <patch id="ad.video.videoAdsPatch">
   <string name="revanced_hide_video_ads_title">Masquer les publicités vidéo</string>
   <string name="revanced_hide_video_ads_summary_on">Les publicités vidéo sont masquées</string>
   <string name="revanced_hide_video_ads_summary_off">Les publicités vidéo sont affichées</string>
   </patch>
-  <patch id="interaction.copyvideourl.CopyVideoUrlResourcePatch">
+  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
   <string name="revanced_share_copy_url_success">URL copié dans le presse-papier</string>
   <string name="revanced_share_copy_url_timestamp_success">URL avec horodatage copié</string>
   <string name="revanced_copy_video_url_title">Afficher un bouton \"Copier le lien de la vidéo\"</string>
@@ -370,13 +375,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_copy_video_url_timestamp_summary_on">Le bouton est affiché. Appuyez pour copier le lien de la vidéo avec horodatage. Appuyez longuement pour copier la vidéo sans horodatage</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Le bouton n\'est pas affiché</string>
   </patch>
-  <patch id="interaction.dialog.RemoveViewerDiscretionDialogPatch">
+  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">Supprimer le message \'Confirmer votre âge\'</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">Le message sera supprimé</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Le message sera affiché</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Cela ne contourne pas la restriction d\'âge, mais le confirme automatiquement.</string>
   </patch>
-  <patch id="interaction.downloads.DownloadsResourcePatch">
+  <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Téléchargeur externe</string>
   <string name="revanced_external_downloader_screen_summary">Paramètres d\'utilisation du téléchargeur externe</string>
   <string name="revanced_external_downloader_title">Afficher le bouton de téléchargement externe</string>
@@ -390,17 +395,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_external_downloader_name_summary">Nom du paquet de l\'appli de téléchargement externe installée, telle que NewPipe ou Seal</string>
   <string name="revanced_external_downloader_not_installed_warning">%s n\'est pas installé. Veuillez l\'installer.</string>
   </patch>
-  <patch id="interaction.seekbar.DisablePreciseSeekingGesturePatch">
+  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Désactiver le geste de recherche précise</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_on">Les gestes sont désactivés</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Les gestes sont activés</string>
   </patch>
-  <patch id="interaction.seekbar.EnableSeekbarTappingPatch">
+  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
   <string name="revanced_seekbar_tapping_title">Activer l\'appui sur la barre de progression</string>
   <string name="revanced_seekbar_tapping_summary_on">L\'appui sur la barre de progression est activé</string>
   <string name="revanced_seekbar_tapping_summary_off">L\'appui sur la barre de progression est désactivé</string>
   </patch>
-  <patch id="interaction.swipecontrols.SwipeControlsResourcePatch">
+  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Activer les gestes pour la luminosité</string>
   <string name="revanced_swipe_brightness_summary_on">Les gestes de contrôle de la luminosité sont activés</string>
   <string name="revanced_swipe_brightness_summary_off">Les gestes de contrôle de la luminosité sont désactivés</string>
@@ -429,12 +434,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_swipe_threshold_title">Intensité des gestes</string>
   <string name="revanced_swipe_threshold_summary">L\'intensité du mouvement à effectuer pour que les gestes se produise</string>
   </patch>
-  <patch id="layout.autocaptions.AutoCaptionsPatch">
+  <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Désactiver les sous-titres automatiques</string>
   <string name="revanced_auto_captions_summary_on">Les sous-titres automatiques sont désactivés</string>
   <string name="revanced_auto_captions_summary_off">Les sous-titres automatiques sont activés</string>
   </patch>
-  <patch id="layout.buttons.action.HideButtonsPatch">
+  <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Boutons d\'action</string>
   <string name="revanced_hide_buttons_screen_summary">Masque ou affiche les boutons sous les vidéos</string>
   <string name="revanced_hide_like_dislike_button_title">Masquer les \'J\'aime\' et \'Je n\'aime pas\'</string>
@@ -470,7 +475,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playlist_button_summary_on">Le bouton \'Enregistrer dans la playlist\' est masqué</string>
   <string name="revanced_hide_playlist_button_summary_off">Le bouton \'Enregistrer dans la playlist\' est affiché</string>
   </patch>
-  <patch id="layout.buttons.navigation.NavigationButtonsPatch">
+  <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Boutons de navigation</string>
   <string name="revanced_navigation_buttons_screen_summary">Masquer ou modifier les boutons dans la barre de navigation</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -497,7 +502,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_navigation_button_labels_summary_on">Les noms sont masqués</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Les noms sont affichés</string>
   </patch>
-  <patch id="layout.hide.player.flyoutmenupanel.HidePlayerFlyoutMenuPatch">
+  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Menu déroulant</string>
   <string name="revanced_hide_player_flyout_summary">Masquer ou afficher les éléments du menu déroulant du lecteur</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -508,6 +513,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_additional_settings_title">Masquer les paramètres supplémentaires</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_on">Le menu des paramètres supplémentaires est masqué</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_off">Le menu des paramètres supplémentaires est affiché</string>
+  <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_sleep_timer_title">Masquer la minuterie de sommeil</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_on">Le menu de la minuterie est caché</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_off">Le menu de la minuterie est affiché</string>
   <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_loop_video_title">Masquer la vidéo en boucle</string>
   <string name="revanced_hide_player_flyout_loop_video_summary_on">Le menu vidéo en boucle est masqué</string>
@@ -542,7 +551,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Le menu Regarder en VR est masqué</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Le menu Regarder en VR est affiché</string>
   </patch>
-  <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
+  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_player_previous_next_buttons_title">Masquer les boutons de la vidéo précédente &amp; suivants</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Les boutons sont cachés</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Les boutons sont affichés</string>
@@ -557,27 +566,27 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_autoplay_button_summary_on">Le bouton \"Lecture automatique\" est masqué</string>
   <string name="revanced_hide_autoplay_button_summary_off">Le bouton \"Lecture automatique\" est affiché</string>
   </patch>
-  <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Masquer les cartes de fin d\'écran</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Les cartes de fin d\'écran sont masquées</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Les cartes de fin d\'écran sont affichées</string>
   </patch>
-  <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
+  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">Désactiver le mode ambiant en plein écran</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Mode Veille désactivé</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Mode Veille activé</string>
   </patch>
-  <patch id="layout.hide.infocards.HideInfocardsResourcePatch">
+  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
   <string name="revanced_hide_info_cards_title">Cacher les infos</string>
   <string name="revanced_hide_info_cards_summary_on">Les fiches info sont masquées</string>
   <string name="revanced_hide_info_cards_summary_off">Les fiches info sont affichées</string>
   </patch>
-  <patch id="layout.hide.rollingnumber.DisableRollingNumberAnimationPatch">
+  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
   <string name="revanced_disable_rolling_number_animations_title">Désactiver les animations des numéros roulants</string>
   <string name="revanced_disable_rolling_number_animations_summary_on">Les numéros roulants ne sont pas animés</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">Les numéros roulants sont animés</string>
   </patch>
-  <patch id="layout.hide.seekbar.HideSeekbarPatch">
+  <patch id="layout.hide.seekbar.hideSeekbarPatch">
   <string name="revanced_hide_seekbar_title">Cacher la barre de recherche dans le lecteur vidéo</string>
   <string name="revanced_hide_seekbar_summary_on">La barre de recherche du lecteur vidéo est masquée</string>
   <string name="revanced_hide_seekbar_summary_off">La barre de recherche du lecteur vidéo est affichée</string>
@@ -585,7 +594,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_seekbar_thumbnail_summary_on">La barre de recherche des miniatures est masquée</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">La barre de recherche des miniatures est affichée</string>
   </patch>
-  <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
+  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Joueur Shorts</string>
   <string name="revanced_shorts_player_screen_summary">Cacher ou afficher les composants dans le joueur Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -685,27 +694,27 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_navigation_bar_summary_on">La barre de navigation est cachée</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">La barre de navigation est affichée</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.DisableSuggestedVideoEndScreenResourcePatch">
+  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
   <string name="revanced_disable_suggested_video_end_screen_title">Désactiver l\'écran de fin de la vidéo suggérée</string>
   <string name="revanced_disable_suggested_video_end_screen_summary_on">Les vidéos suggérées seront désactivées</string>
   <string name="revanced_disable_suggested_video_end_screen_summary_off">Les vidéos suggérées seront affichées</string>
   </patch>
-  <patch id="layout.hide.time.HideTimestampPatch">
+  <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Masquer l\'horodatage de la vidéo</string>
   <string name="revanced_hide_timestamp_summary_on">L\'horodatage est caché</string>
   <string name="revanced_hide_timestamp_summary_off">L\'horodatage est affiché</string>
   </patch>
-  <patch id="layout.panels.popup.PlayerPopupPanelsPatch">
+  <patch id="layout.panels.popup.playerPopupPanelsPatch">
   <string name="revanced_hide_player_popup_panels_title">Masquer les fenêtres pop-up du joueur</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Les fenêtres pop-up sont masquées</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Les fenêtres pop-up sont affichées</string>
   </patch>
-  <patch id="layout.player.overlay.CustomPlayerOverlayOpacityResourcePatch">
+  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Opacité de l\'overlay du joueur</string>
   <string name="revanced_player_overlay_opacity_summary">Valeur d\'opacité entre 0 et 100, où 0 est transparent</string>
   <string name="revanced_player_overlay_opacity_invalid_toast">L\'opacité de l\'overlay du joueur doit être comprise entre 0 et 100</string>
   </patch>
-  <patch id="layout.returnyoutubedislike.ReturnYouTubeDislikeResourcePatch">
+  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">API des dislikes temporairement indisponible</string>
   <string name="revanced_ryd_failure_connection_status_code">N\'aime pas disponible (statut %d)</string>
@@ -749,17 +758,24 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Limite de débit du client rencontrée %d fois</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d millisecondes</string>
   </patch>
-  <patch id="layout.searchbar.WideSearchbarPatch">
+  <patch id="layout.searchbar.wideSearchbarPatch">
   <string name="revanced_wide_searchbar_title">Activer la barre de recherche large</string>
   <string name="revanced_wide_searchbar_summary_on">La barre de recherche large est activée</string>
   <string name="revanced_wide_searchbar_summary_off">La barre de recherche large est désactivée</string>
   </patch>
-  <patch id="layout.seekbar.RestoreOldSeekbarThumbnailsPatch">
+  <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_title">Activer les vignettes de haute qualité</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Les vignettes de la barre de recherche sont de haute qualité</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Les vignettes de la barre de recherche sont de qualité moyenne</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Les vignettes de la barre de recherche plein écran sont de haute qualité</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Les vignettes de barre de recherche plein écran ont une qualité moyenne</string>
+  </patch>
+  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
   <string name="revanced_restore_old_seekbar_thumbnails_title">Restaurer les anciennes miniatures de la barre de recherche</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Les vignettes de la barre de recherche apparaîtront au-dessus de la barre de recherche</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Les vignettes de la barre de recherche apparaîtront en plein écran</string>
   </patch>
-  <patch id="layout.sponsorblock.SponsorBlockResourcePatch">
+  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
   <string name="revanced_sb_enable_sb">Activer SponsorBlock</string>
   <string name="revanced_sb_enable_sb_sum">SponsorBlock est un système axé sur la foule pour sauter des parties ennuyeuses de vidéos YouTube</string>
   <string name="revanced_sb_appearance_category">Apparence</string>
@@ -940,7 +956,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_about">À propos</string>
   <string name="revanced_sb_about_api_sum">Les données sont fournies par l\'API SponsorBlock. Appuyez ici pour en savoir plus et voir les téléchargements pour d\'autres plates-formes</string>
   </patch>
-  <patch id="layout.spoofappversion.SpoofAppVersionPatch">
+  <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Spoof version de l\'application</string>
   <string name="revanced_spoof_app_version_summary_on">Version falsifiée</string>
   <string name="revanced_spoof_app_version_summary_off">Version non falsifiée</string>
@@ -955,7 +971,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Restaurer l\'ancienne tablette de la liste de lecture</string>
   <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - Restaurer l\'ancienne mise en page de l\'interface</string>
   </patch>
-  <patch id="layout.startpage.ChangeStartPagePatch">
+  <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Définir la page de démarrage</string>
   <string name="revanced_change_start_page_entry_default">Par défaut</string>
   <string name="revanced_change_start_page_entry_browse">Parcourir les chaînes</string>
@@ -973,12 +989,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_change_start_page_entry_trending">Tendance</string>
   <string name="revanced_change_start_page_entry_watch_later">Regarder plus tard</string>
   </patch>
-  <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
+  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Désactiver la reprise du joueur Shorts</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Le lecteur court ne reprendra pas au démarrage de l\'application</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Le lecteur court reprendra au démarrage de l\'application</string>
   </patch>
-  <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
+  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Jouer les Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Les Shorts joueront automatiquement</string>
   <string name="revanced_shorts_autoplay_summary_off">Les Shorts se répéteront</string>
@@ -986,13 +1002,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_shorts_autoplay_background_summary_on">La lecture en arrière-plan des Shorts sera automatique</string>
   <string name="revanced_shorts_autoplay_background_summary_off">La lecture en arrière-plan des Shorts se répétera</string>
   </patch>
-  <patch id="layout.tablet.EnableTabletLayoutPatch">
+  <patch id="layout.tablet.enableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Activer la disposition de la tablette</string>
   <string name="revanced_tablet_layout_summary_on">Mise en page de la tablette est activée</string>
   <string name="revanced_tablet_layout_summary_off">La disposition de la tablette est désactivée</string>
   <string name="revanced_tablet_layout_user_dialog_message">Les messages de la communauté n\'apparaissent pas sur la disposition de la tablette</string>
   </patch>
-  <patch id="layout.miniplayer.MiniplayerPatch">
+  <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Lecteur réduit</string>
   <string name="revanced_miniplayer_screen_summary">Changer le style du lecteur réduit dans l\'application</string>
   <string name="revanced_miniplayer_type_title">Type de Miniplayer</string>
@@ -1030,12 +1046,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_opacity_summary">Valeur d\'opacité entre 0 et 100, où 0 est transparent</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">L\'opacité de l\'overlay du Miniplayer doit être comprise entre 0 et 100</string>
   </patch>
-  <patch id="layout.theme.ThemeBytecodePatch">
+  <patch id="layout.theme.themePatch">
   <string name="revanced_gradient_loading_screen_title">Activer l\'écran de chargement du dégradé</string>
   <string name="revanced_gradient_loading_screen_summary_on">L\'écran de chargement aura un fond de dégradé</string>
   <string name="revanced_gradient_loading_screen_summary_off">L\'écran de chargement aura un fond solide</string>
   </patch>
-  <patch id="layout.theme.ThemeResourcePatch">
+  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Activer la couleur personnalisée de la barre de recherche</string>
   <string name="revanced_seekbar_custom_color_summary_on">La couleur personnalisée de la barre de recherche est affichée</string>
   <string name="revanced_seekbar_custom_color_summary_off">La couleur originale de la barre de recherche est affichée</string>
@@ -1043,12 +1059,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_value_summary">La couleur de la barre de recherche</string>
   <string name="revanced_seekbar_custom_color_invalid">Valeur de couleur de la barre de recherche invalide</string>
   </patch>
-  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Ignorer les restrictions de région de l\'image</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Utiliser l\'hôte d\'image yt4.ggpht.com</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">Utiliser l\'hôte d\'image original\n\nActiver ceci peut corriger les images manquantes qui sont bloquées dans certaines régions</string>
   </patch>
-  <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
+  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Onglet d\'accueil</string>
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
@@ -1080,7 +1096,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_alt_thumbnail_dearrow_error">DeArrow temporairement indisponible (code : %s)</string>
   <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow est temporairement indisponible</string>
   </patch>
-  <patch id="misc.announcements.AnnouncementsPatch">
+  <patch id="misc.announcements.announcementsPatch">
   <string name="revanced_announcements_title">Afficher les annonces ReVanced</string>
   <string name="revanced_announcements_summary_on">Les annonces sont affichées au démarrage</string>
   <string name="revanced_announcements_summary_off">Les annonces ne sont pas affichées au démarrage</string>
@@ -1088,47 +1104,47 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_announcements_connection_failed">Échec de la connexion au fournisseur d\'annonces</string>
   <string name="revanced_announcements_dialog_dismiss">Ignorer</string>
   </patch>
-  <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
   <string name="revanced_check_watch_history_domain_name_dialog_title">Avertissement</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Votre historique de surveillance n\'est pas enregistré.&lt;br&gt;&lt;br&gt;Ceci est probablement dû à un bloqueur de publicités DNS ou à un proxy réseau.&lt;br&gt;&lt;br&gt;Pour résoudre ce problème, mettez sur la liste blanche &lt;b&gt;s.youtube.com&lt;/b&gt; ou désactivez tous les bloqueurs DNS et proxies.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ne plus afficher</string>
   </patch>
-  <patch id="misc.autorepeat.AutoRepeatPatch">
+  <patch id="misc.autorepeat.autoRepeatPatch">
   <string name="revanced_auto_repeat_title">Activer la répétition automatique</string>
   <string name="revanced_auto_repeat_summary_on">La répétition automatique est activée</string>
   <string name="revanced_auto_repeat_summary_off">La répétition automatique est désactivée</string>
   </patch>
-  <patch id="misc.dimensions.spoof.SpoofDeviceDimensionsPatch">
+  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Falsifier les dimensions de l\'appareil</string>
   <string name="revanced_spoof_device_dimensions_summary_on">Les dimensions de l\'appareil ont falsifié\n\ndes qualités vidéo plus élevées peuvent être débloquées mais vous risquez de rencontrer des difficultés de lecture vidéo, une mauvaise autonomie de la batterie et des effets secondaires inconnus</string>
   <string name="revanced_spoof_device_dimensions_summary_off">Les dimensions de l\'appareil n\'ont pas étées falsifiées\n\nL\'activation de cette option peut débloquer des qualités vidéo plus élevées</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">L\'activation de cette option peut causer des problèmes de lecture vidéo, une dégradation de la durée de vie de la batterie et des effets secondaires inconnus.</string>
   </patch>
-  <patch id="misc.gms.GmsCoreSupportResourcePatch">
+  <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">Paramètres GmsCore</string>
   <string name="microg_settings_summary">Paramètres pour GmsCore</string>
   </patch>
-  <patch id="misc.links.BypassURLRedirectsPatch">
+  <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Outrepasser les redirections d\'URL</string>
   <string name="revanced_bypass_url_redirects_summary_on">Les redirections d\'URL sont contournées</string>
   <string name="revanced_bypass_url_redirects_summary_off">Les redirections d\'URL ne sont pas contournées</string>
   </patch>
-  <patch id="misc.links.OpenLinksExternallyPatch">
+  <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Ouvrir les liens dans le navigateur</string>
   <string name="revanced_external_browser_summary_on">Ouverture des liens externes</string>
   <string name="revanced_external_browser_summary_off">Ouverture des liens dans l\'application</string>
   </patch>
-  <patch id="misc.privacy.RemoveTrackingQueryParameterPatch">
+  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Supprimer le paramètre de requête de suivi</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Le paramètre de requête de suivi est supprimé des liens</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Le paramètre de requête de suivi n\'est pas supprimé des liens</string>
   </patch>
-  <patch id="misc.zoomhaptics.ZoomHapticsPatch">
+  <patch id="misc.zoomhaptics.zoomHapticsPatch">
   <string name="revanced_disable_zoom_haptics_title">Désactiver le zoom haptique</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Haptics sont désactivés</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Haptics sont activés</string>
   </patch>
-  <patch id="video.quality.RememberVideoQualityPatch">
+  <patch id="video.quality.rememberVideoQualityPatch">
   <string name="revanced_video_quality_default_entry_1">Qualité automatique</string>
   <string name="revanced_remember_video_quality_last_selected_title">Mémoriser les changements de qualité vidéo</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Les changements de qualité s\'appliquent à toutes les vidéos</string>
@@ -1139,35 +1155,38 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_remember_video_quality_wifi">wi-fi</string>
   <string name="revanced_remember_video_quality_toast">La qualité %1$s par défaut a été changée en : %2$s</string>
   </patch>
-  <patch id="video.speed.button.PlaybackSpeedButtonPatch">
+  <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Afficher le bouton de la boîte de dialogue Vitesse</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Le bouton est affiché</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Le bouton n\'est pas affiché</string>
   </patch>
-  <patch id="video.speed.custom.CustomPlaybackSpeedPatch">
+  <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <string name="revanced_custom_speed_menu_title">Menu de vitesse de lecture personnalisé</string>
+  <string name="revanced_custom_speed_menu_summary_on">Le menu de vitesse personnalisé est affiché</string>
+  <string name="revanced_custom_speed_menu_summary_off">Le menu de vitesse personnalisé n\'est pas affiché</string>
   <string name="revanced_custom_playback_speeds_title">Vitesse de lecture personnalisée</string>
-  <string name="revanced_custom_playback_speeds_summary">Ajouter ou modifier les vitesses de lecture disponibles</string>
+  <string name="revanced_custom_playback_speeds_summary">Ajouter ou modifier les vitesses de lecture personnalisées</string>
   <string name="revanced_custom_playback_speeds_invalid">Les vitesses personnalisées doivent être inférieures à %s. Utiliser les valeurs par défaut.</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Vitesses de lecture personnalisées invalides. Utilisation des valeurs par défaut.</string>
   </patch>
-  <patch id="video.speed.remember.RememberPlaybackSpeedPatch">
+  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Se souvenir des changements de vitesse de lecture</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Les changements de vitesse de lecture s\'appliquent à toutes les vidéos</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Les changements de vitesse de lecture ne s\'appliquent qu\'à la vidéo actuelle</string>
   <string name="revanced_playback_speed_default_title">Vitesse de lecture par défaut</string>
   <string name="revanced_remember_playback_speed_toast">Vitesse par défaut changée en : %s</string>
   </patch>
-  <patch id="video.videoqualitymenu.RestoreOldVideoQualityMenuResourcePatch">
+  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
   <string name="revanced_restore_old_video_quality_menu_title">Restaurer l\'ancien menu qualité vidéo</string>
   <string name="revanced_restore_old_video_quality_menu_summary_on">L\'ancien menu de qualité vidéo est affiché</string>
   <string name="revanced_restore_old_video_quality_menu_summary_off">L\'ancien menu de qualité vidéo n\'est pas affiché</string>
   </patch>
-  <patch id="interaction.seekbar.EnableSlideToSeekPatch">
+  <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Activer la diapositive pour rechercher</string>
   <string name="revanced_slide_to_seek_summary_on">Glisser pour chercher est activé</string>
   <string name="revanced_slide_to_seek_summary_off">Glisser à chercher n\'est pas activé</string>
   </patch>
-  <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_screen_title">Falsifier les flux vidéo</string>
   <string name="revanced_spoof_video_streams_screen_summary">Falsifier les flux vidéo du client pour éviter les problèmes de lecture</string>
   <string name="revanced_spoof_video_streams_title">Falsifier les flux vidéo</string>
@@ -1185,20 +1204,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_about_android_vr_title">Effets secondaires de l\'usurpation VR Android</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">• Le menu de la piste audio manque\n• Le volume stable n\'est pas disponible</string>
   </patch>
-  <!-- This patch is no longer used and these strings will soon be deleted. -->
-  <patch id="video.hdrbrightness.HDRBrightnessPatch">
-  <string name="revanced_hdr_auto_brightness_title">Activer la luminosité automatique du HDR</string>
-  <string name="revanced_hdr_auto_brightness_summary_on">Luminosité HDR automatique activée</string>
-  <string name="revanced_hdr_auto_brightness_summary_off">Luminosité HDR automatique désactivée</string>
-  </patch>
   </app>
   <app id="twitch">
-  <patch id="ad.audio.AudioAdsPatch">
+  <patch id="ad.audio.audioAdsPatch">
   <string name="revanced_block_audio_ads_title">Bloquer les publicités audio</string>
   <string name="revanced_block_audio_ads_summary_on">Les publicités audio sont bloquées</string>
   <string name="revanced_block_audio_ads_summary_off">Les publicités audio sont débloquées</string>
   </patch>
-  <patch id="ad.embedded.EmbeddedAdsPatch">
+  <patch id="ad.embedded.embeddedAdsPatch">
   <string name="revanced_embedded_ads_service_unavailable">%s n\'est pas disponible. Les publicités peuvent s\'afficher. Essayez de passer à un autre service de blocage de publicités dans les paramètres.</string>
   <string name="revanced_embedded_ads_service_failed">Le serveur %s a renvoyé une erreur. Les publicités peuvent s\'afficher. Essayez de passer à un autre service de blocage de publicités dans les paramètres.</string>
   <string name="revanced_block_embedded_ads_title">Bloquer les publicités vidéo intégrées</string>
@@ -1206,30 +1219,30 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_block_embedded_ads_entry_2">Proxy lumineux</string>
   <string name="revanced_block_embedded_ads_entry_3">Proxy PurpleAdBlock</string>
   </patch>
-  <patch id="ad.video.VideoAdsPatch">
+  <patch id="ad.video.videoAdsPatch">
   <string name="revanced_block_video_ads_title">Bloquer les publicités vidéo</string>
   <string name="revanced_block_video_ads_summary_on">Les publicités vidéo sont bloquées</string>
   <string name="revanced_block_video_ads_summary_off">Les publicités vidéo sont débloquées</string>
   </patch>
-  <patch id="chat.antidelete.ShowDeletedMessagesPatch">
+  <patch id="chat.antidelete.showDeletedMessagesPatch">
   <string name="revanced_deleted_msg">message supprimé</string>
   <string name="revanced_show_deleted_messages_title">Afficher les messages supprimés</string>
   <string name="revanced_show_deleted_messages_entry_1">Ne pas afficher les messages supprimés</string>
   <string name="revanced_show_deleted_messages_entry_2">Masquer les messages supprimés derrière un spoiler</string>
   <string name="revanced_show_deleted_messages_entry_3">Afficher les messages supprimés sous forme de texte croisé</string>
   </patch>
-  <patch id="chat.autoclaim.AutoClaimChannelPointsPatch">
+  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
   <string name="revanced_auto_claim_channel_points_title">Réclamer automatiquement les points de la chaîne</string>
   <string name="revanced_auto_claim_channel_points_summary_on">Les points de la chaîne sont automatiquement réclamés</string>
   <string name="revanced_auto_claim_channel_points_summary_off">Les points de la chaîne ne sont pas réclamés automatiquement</string>
   </patch>
-  <patch id="debug.DebugModePatch">
+  <patch id="debug.debugModePatch">
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   <string name="revanced_twitch_debug_mode_title">Activer le mode débogage Twitch</string>
   <string name="revanced_twitch_debug_mode_summary_on">Le mode débogage Twitch est activé (non recommandé)</string>
   <string name="revanced_twitch_debug_mode_summary_off">Le mode débogage Twitch est désactivé</string>
   </patch>
-  <patch id="misc.settings.SettingsPatch">
+  <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">Réglages ReVanced</string>
   <string name="revanced_ads_screen_title">Publicités</string>
   <string name="revanced_ads_screen_summary">Paramètres de blocage des publicités</string>

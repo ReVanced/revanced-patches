@@ -32,7 +32,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
 -->
 <resources>
   <app id="shared">
-  <patch id="misc.checks.BaseCheckEnvironmentPatch">
+  <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Проверката е неуспешна</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Отворете официалния уебсайт</string>
   <string name="revanced_check_environment_dialog_ignore_button">Пропусни</string>
@@ -43,7 +43,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_check_environment_not_near_patch_time_days">Коригирано преди %s дни</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Датата на компилация на APK е повредена</string>
   </patch>
-  <patch id="misc.settings.BaseSettingsResourcePatch">
+  <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_confirm_user_dialog_title">Искате ли да продължите?</string>
   <string name="revanced_settings_reset">Нулиране</string>
   <string name="revanced_settings_restart_title">Рестартирай и опресни</string>
@@ -62,7 +62,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_header">Официални линкове</string>
   <string name="revanced_settings_about_links_donate">Дарение</string>
   </patch>
-  <patch id="misc.gms.BaseGmsCoreSupportResourcePatch">
+  <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">GmsCore не е инсталиран. Инсталирайте го.</string>
   <string name="gms_core_dialog_title">Нужно е действие</string>
@@ -73,7 +73,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   </app>
   <app id="youtube">
-  <patch id="misc.settings.SettingsPatch">
+  <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">Относно</string>
   <string name="revanced_settings_screen_01_ads_title">Реклами</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Алтернативни миниатюри</string>
@@ -85,7 +85,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_11_misc_title">Разни</string>
   <string name="revanced_settings_screen_12_video_title">Видео</string>
   </patch>
-  <patch id="misc.debugging.DebuggingPatch">
+  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Отстраняване на грешки</string>
   <string name="revanced_debug_screen_summary">Активиране или деактивиране на отстраняването на грешки</string>
   <string name="revanced_debug_title">Дневник на отстраняването на грешки</string>
@@ -102,7 +104,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_debug_toast_on_error_summary_off">Системно съобщение няма да бъде показано, ако се появи грешка</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">Ако изключите системните съобщения, ще скриете всички уведомления за ReVanced грешки. \n\nНяма да бъдете уведомени, ако настъпят неочаквани събития.</string>
   </patch>
-  <patch id="layout.hide.general.HideLayoutComponentsPatch">
+  <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_disable_like_subscribe_glow_title">Деактивирайте подсветката на бутона Харесвам /Абонамент</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Бутоните „Харесвам“ и „Абониране“ няма да светят, когато бъдат натиснати</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Бутоните „Харесвам“ и „Абониране“ ще светят, когато бъдат натиснати</string>
@@ -311,7 +313,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_toast_invalid_length">Ключовата дума е твърде кратка и изисква кавички: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Всички видеа с ключовата дума ще бъдат скрити: %s</string>
   </patch>
-  <patch id="ad.general.HideAdsResourcePatch">
+  <patch id="ad.general.hideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Скриване на общите реклами</string>
   <string name="revanced_hide_general_ads_summary_on">Общите реклами са скрити</string>
   <string name="revanced_hide_general_ads_summary_off">Общите реклами са показани</string>
@@ -346,17 +348,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Скр. на реклами на цял екран, за по-стари устройства</string>
   </patch>
-  <patch id="ad.getpremium.HideGetPremiumPatch">
+  <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">Скриване на YouTube Premium промоции</string>
   <string name="revanced_hide_get_premium_summary_on">YouTube Premium промоциите под видео плейъра са скрити</string>
   <string name="revanced_hide_get_premium_summary_off">YouTube Premium промоциите под видео плейъра са показани</string>
   </patch>
-  <patch id="ad.video.VideoAdsPatch">
+  <patch id="ad.video.videoAdsPatch">
   <string name="revanced_hide_video_ads_title">Скриване на видео рекламите</string>
   <string name="revanced_hide_video_ads_summary_on">Видео рекламите са скрити</string>
   <string name="revanced_hide_video_ads_summary_off">Видео рекламите са показани</string>
   </patch>
-  <patch id="interaction.copyvideourl.CopyVideoUrlResourcePatch">
+  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
   <string name="revanced_share_copy_url_success">URL адресът е копиран в клипборда</string>
   <string name="revanced_share_copy_url_timestamp_success">URL адресът с времеви отпечатък е копиран</string>
   <string name="revanced_copy_video_url_title">Показване на бутона за копиране на URL адреса на видеоклипа</string>
@@ -366,13 +368,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_copy_video_url_timestamp_summary_on">Показан е бутон. Докоснете, за да копирате URL адреса на видеоклипа с клеймо за време. Докоснете и задръжте, за да копирате видеоклип без клеймо за време</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Бутонът не е показан</string>
   </patch>
-  <patch id="interaction.dialog.RemoveViewerDiscretionDialogPatch">
+  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">Скриване на прозореца за възрастово ограничение</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">Диалоговият прозорец ще бъде премахнат</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Диалоговият прозорец ще бъде показан</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Тази функция не заобикаля възрастовото ограничение. Тя просто приема възрастовата граница автоматично.</string>
   </patch>
-  <patch id="interaction.downloads.DownloadsResourcePatch">
+  <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Външни изтегляния</string>
   <string name="revanced_external_downloader_screen_summary">Настройки за използване на външно приложение за изтегляне</string>
   <string name="revanced_external_downloader_title">Показване на бутона за изтегляне чрез външно приложение</string>
@@ -386,17 +388,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_external_downloader_name_summary">Име на пакета на приложението за изтегляне, като NewPipe или Seal</string>
   <string name="revanced_external_downloader_not_installed_warning">%s не е инсталиран. Инсталирайте го.</string>
   </patch>
-  <patch id="interaction.seekbar.DisablePreciseSeekingGesturePatch">
+  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Деактивиране на жеста за точно търсене</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_on">Жестът е деактивиран</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Жестът е активиран</string>
   </patch>
-  <patch id="interaction.seekbar.EnableSeekbarTappingPatch">
+  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
   <string name="revanced_seekbar_tapping_title">Активиране на докосването на лентата за време</string>
   <string name="revanced_seekbar_tapping_summary_on">Докосването на лентата за време е включено</string>
   <string name="revanced_seekbar_tapping_summary_off">Докосването на лентата за време е изключено</string>
   </patch>
-  <patch id="interaction.swipecontrols.SwipeControlsResourcePatch">
+  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Задаване на яркост чрез плъзгане</string>
   <string name="revanced_swipe_brightness_summary_on">Задаването на яркост чрез плъзгане е включено</string>
   <string name="revanced_swipe_brightness_summary_off">Задаването на яркост чрез плъзгане е изключено</string>
@@ -425,12 +427,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_swipe_threshold_title">Праг на величината на плъзгане</string>
   <string name="revanced_swipe_threshold_summary">Праг преди да се осъществи плъзгането</string>
   </patch>
-  <patch id="layout.autocaptions.AutoCaptionsPatch">
+  <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Автоматични Субтитри</string>
   <string name="revanced_auto_captions_summary_on">Автоматичните Субтитри са деактивирани</string>
   <string name="revanced_auto_captions_summary_off">Автоматичните Субтитри са активирани</string>
   </patch>
-  <patch id="layout.buttons.action.HideButtonsPatch">
+  <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Бутони за действия</string>
   <string name="revanced_hide_buttons_screen_summary">Скриване или показване на бутони под видеото</string>
   <string name="revanced_hide_like_dislike_button_title">Бутони \"Харесвам\" и \"Не харесвам\"</string>
@@ -466,7 +468,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playlist_button_summary_on">Бутонът за Запазване в плейлиста е скрит</string>
   <string name="revanced_hide_playlist_button_summary_off">Бутонът за Запазване в плейлиста се показва</string>
   </patch>
-  <patch id="layout.buttons.navigation.NavigationButtonsPatch">
+  <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Бутони за навигация</string>
   <string name="revanced_navigation_buttons_screen_summary">Скриване или промяна на бутоните в лентата за навигация</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -493,7 +495,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_navigation_button_labels_summary_on">Етикетите са скрити</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Етикетите се показват</string>
   </patch>
-  <patch id="layout.hide.player.flyoutmenupanel.HidePlayerFlyoutMenuPatch">
+  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Падащо меню</string>
   <string name="revanced_hide_player_flyout_summary">Скриване или показване на елементи от падащото меню на плейъра</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -504,6 +506,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_additional_settings_title">Меню \"Допълнителни настройки\"</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_on">Допълнителните настройки са скрити</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_off">Допълнителните настройки се показват</string>
+  <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
   <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_loop_video_title">\"Повторно възпроизвеждане\"</string>
   <string name="revanced_hide_player_flyout_loop_video_summary_on">Менюто за повторение е скрито</string>
@@ -538,7 +541,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Менюто за гледане в VR е скрито</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Менюто за гледане в VR се показва</string>
   </patch>
-  <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
+  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_player_previous_next_buttons_title">Бутони за Предишно &amp; Следващо видео</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Бутоните са скрити</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Бутоните се показват</string>
@@ -553,27 +556,27 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_autoplay_button_summary_on">Бутона за авт. изпълнение е скрит</string>
   <string name="revanced_hide_autoplay_button_summary_off">Бутона за авт. изпълнение се показва</string>
   </patch>
-  <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Скриване на препоръките в края</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Препоръките в края са скрити</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Препоръките в края се показват</string>
   </patch>
-  <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
+  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">Деактивирайте подсветка около видеото на цял екран</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Подсветката в режим на цял екран е деактивирана</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Подсветката в режим на цял екран е активирана</string>
   </patch>
-  <patch id="layout.hide.infocards.HideInfocardsResourcePatch">
+  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
   <string name="revanced_hide_info_cards_title">Скриване на инфо. карти</string>
   <string name="revanced_hide_info_cards_summary_on">Информационните карти са скрити</string>
   <string name="revanced_hide_info_cards_summary_off">Информационните карти се показват</string>
   </patch>
-  <patch id="layout.hide.rollingnumber.DisableRollingNumberAnimationPatch">
+  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
   <string name="revanced_disable_rolling_number_animations_title">Анимация на числа в реално време</string>
   <string name="revanced_disable_rolling_number_animations_summary_on">Анимацията е деактивирана</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">Анимацията е активирана</string>
   </patch>
-  <patch id="layout.hide.seekbar.HideSeekbarPatch">
+  <patch id="layout.hide.seekbar.hideSeekbarPatch">
   <string name="revanced_hide_seekbar_title">Скриване на лента за време на плейъра</string>
   <string name="revanced_hide_seekbar_summary_on">Лентата за време на плейъра е скрита</string>
   <string name="revanced_hide_seekbar_summary_off">Лентата за време на плейъра се показва</string>
@@ -581,7 +584,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_seekbar_thumbnail_summary_on">Лентата за време при миниатюрите е скрита</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Лентата за време при миниатюрите се показва</string>
   </patch>
-  <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
+  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Скриване на Shorts в началната лента</string>
   <string name="revanced_hide_shorts_home_summary_on">Shorts в началната лента са скрити</string>
@@ -676,27 +679,27 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Навигационната лента е скрита</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Навигационната лента се показва</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.DisableSuggestedVideoEndScreenResourcePatch">
+  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
   <string name="revanced_disable_suggested_video_end_screen_title">Препоръчани видеоклипове в края</string>
   <string name="revanced_disable_suggested_video_end_screen_summary_on">Препоръчаните видеоклипове в края са скрити</string>
   <string name="revanced_disable_suggested_video_end_screen_summary_off">Препоръчаните видеоклипове в края се показват</string>
   </patch>
-  <patch id="layout.hide.time.HideTimestampPatch">
+  <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Скриване на клеймото за време на видеоклипа</string>
   <string name="revanced_hide_timestamp_summary_on">Скрито</string>
   <string name="revanced_hide_timestamp_summary_off">Показва се</string>
   </patch>
-  <patch id="layout.panels.popup.PlayerPopupPanelsPatch">
+  <patch id="layout.panels.popup.playerPopupPanelsPatch">
   <string name="revanced_hide_player_popup_panels_title">Изскачащи панели на плейъра</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Изскачащите панели на плейъра са скрити</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Изскачащите панели на плейъра се показват</string>
   </patch>
-  <patch id="layout.player.overlay.CustomPlayerOverlayOpacityResourcePatch">
+  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Прозрачност на настройките в Плеара</string>
   <string name="revanced_player_overlay_opacity_summary">Стойност на прозрачност между 0-100, където 0 е прозрачно</string>
   <string name="revanced_player_overlay_opacity_invalid_toast">Прозрачността на менюто на плейъра трябва да бъде между 0-100</string>
   </patch>
-  <patch id="layout.returnyoutubedislike.ReturnYouTubeDislikeResourcePatch">
+  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">Нехаресванията временно не са налични (API timed out)</string>
   <string name="revanced_ryd_failure_connection_status_code">Нехаресванията не са налични (status %d)</string>
@@ -740,17 +743,19 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Открити са ограничения на скоростта на клиента на Api %d пъти</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d милисекунди</string>
   </patch>
-  <patch id="layout.searchbar.WideSearchbarPatch">
+  <patch id="layout.searchbar.wideSearchbarPatch">
   <string name="revanced_wide_searchbar_title">Широка лента за търсене</string>
   <string name="revanced_wide_searchbar_summary_on">Широката лента за търсене е включена</string>
   <string name="revanced_wide_searchbar_summary_off">Широката лента за търсене е изключена</string>
   </patch>
-  <patch id="layout.seekbar.RestoreOldSeekbarThumbnailsPatch">
+  <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  </patch>
+  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
   <string name="revanced_restore_old_seekbar_thumbnails_title">Стари миниатюри на времевата линия</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Над лентата за възпроизвеждане се появяват миниатюри</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Миниатюрите се показват в режим на цял екран</string>
   </patch>
-  <patch id="layout.sponsorblock.SponsorBlockResourcePatch">
+  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
   <string name="revanced_sb_enable_sb">Включване на SponsorBlock</string>
   <string name="revanced_sb_enable_sb_sum">SponsorBlock е система за прескачане на досадни части и реклами от видеоклиповете в YouTube</string>
   <string name="revanced_sb_appearance_category">Облик</string>
@@ -931,7 +936,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_about">Относно</string>
   <string name="revanced_sb_about_api_sum">Данните са предоставени от SponsorBlock API. Докоснете тук за повече информация и изтеглияния</string>
   </patch>
-  <patch id="layout.spoofappversion.SpoofAppVersionPatch">
+  <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Подлъгване за версията на приложението</string>
   <string name="revanced_spoof_app_version_summary_on">Подправена версия</string>
   <string name="revanced_spoof_app_version_summary_off">Не подправена версия</string>
@@ -946,7 +951,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Връщане на секцията с плейлиста към стария стил</string>
   <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - Възстановява стария изглед</string>
   </patch>
-  <patch id="layout.startpage.ChangeStartPagePatch">
+  <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Задай начална страница</string>
   <string name="revanced_change_start_page_entry_default">По подразбиране</string>
   <string name="revanced_change_start_page_entry_explore">Разгледайте</string>
@@ -956,20 +961,20 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_change_start_page_entry_subscriptions">Абонаменти</string>
   <string name="revanced_change_start_page_entry_trending">Популярни</string>
   </patch>
-  <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
+  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Скриване на Shorts плейъра при стартиране</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts плейъра при стартиране на приложението е скрит</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts плейъра при стартиране на приложението се показва</string>
   </patch>
-  <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
+  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   </patch>
-  <patch id="layout.tablet.EnableTabletLayoutPatch">
+  <patch id="layout.tablet.enableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Включи режим за таблет</string>
   <string name="revanced_tablet_layout_summary_on">Режим за таблет е вкл.</string>
   <string name="revanced_tablet_layout_summary_off">Режим за таблет е изкл.</string>
   <string name="revanced_tablet_layout_user_dialog_message">Публикациите в общността не се показват на оформления за таблет</string>
   </patch>
-  <patch id="layout.miniplayer.MiniplayerPatch">
+  <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Минимизиран екран за възпроизвеждане</string>
   <string name="revanced_miniplayer_screen_summary">Променете стила на минимизирания екран за възпроизвеждане</string>
   <string name="revanced_miniplayer_type_title">Минимизиран тип екран за гледане</string>
@@ -991,24 +996,24 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_opacity_summary">Стойност на прозрачност между 0-100, където 0 е прозрачно</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Прозрачността на менюто трябва да бъде между 0-100</string>
   </patch>
-  <patch id="layout.theme.ThemeBytecodePatch">
+  <patch id="layout.theme.themePatch">
   <string name="revanced_gradient_loading_screen_title">Фон на екрана при зареждане на видео</string>
   <string name="revanced_gradient_loading_screen_summary_on">Екранът за зареждане ще има градиентен фон</string>
   <string name="revanced_gradient_loading_screen_summary_off">Екранът за зареждане ще има плътен фон</string>
   </patch>
-  <patch id="layout.theme.ThemeResourcePatch">
+  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Промяна на цвета на индикатора за време</string>
   <string name="revanced_seekbar_custom_color_summary_on">Показва се персонализиран цвят на лентата за напредък</string>
   <string name="revanced_seekbar_custom_color_summary_off">Показва се оригиналния цвят на лентата за напредък</string>
   <string name="revanced_seekbar_custom_color_value_title">Персонализиран цвят на лентата за напредък</string>
   <string name="revanced_seekbar_custom_color_value_summary">Цветове на лентата за напредък</string>
   </patch>
-  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Прескочете забраната за зареждане на изображение</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Домейнът yt4.ggpht.com се използва за зареждане на изображения</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">Оригиналният домейн се използва за зареждане на изображения\n\nАктивирането на тази настройка може да коригира зареждането на изображения, които са блокирани в някои региони</string>
   </patch>
-  <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
+  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Раздел Начало</string>
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
@@ -1040,7 +1045,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_alt_thumbnail_dearrow_error">DeArrow временно не е наличен. (код на състоянието: %s)</string>
   <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow временно не е наличен</string>
   </patch>
-  <patch id="misc.announcements.AnnouncementsPatch">
+  <patch id="misc.announcements.announcementsPatch">
   <string name="revanced_announcements_title">Показване на ReVanced съобщения</string>
   <string name="revanced_announcements_summary_on">Съобщенията се показват при стартиране</string>
   <string name="revanced_announcements_summary_off">Съобщенията не се показват при стартиране</string>
@@ -1048,47 +1053,47 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_announcements_connection_failed">Неуспешно свързване с доставчик на съобщения</string>
   <string name="revanced_announcements_dialog_dismiss">Отхвърли</string>
   </patch>
-  <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
   <string name="revanced_check_watch_history_domain_name_dialog_title">Предупреждение</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Историята ви на гледане не се запазва.&lt;br&gt;&lt;br&gt;Това най-вероятно е причинено от DNS блокиращ реклами или мрежов прокси.&lt;br&gt;&lt;br&gt;За да коригирате това, поставете &lt;b&gt;s.youtube в белия списък.com&lt;/b&gt; или изключете всички DNS блокери и проксита.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Не показвай отново</string>
   </patch>
-  <patch id="misc.autorepeat.AutoRepeatPatch">
+  <patch id="misc.autorepeat.autoRepeatPatch">
   <string name="revanced_auto_repeat_title">Автоматично повтаряне на текущия видеоклип</string>
   <string name="revanced_auto_repeat_summary_on">Включено автоматично повтаряне на текущия видеоклип</string>
   <string name="revanced_auto_repeat_summary_off">Изключено автоматично повтаряне на текущия видеоклип</string>
   </patch>
-  <patch id="misc.dimensions.spoof.SpoofDeviceDimensionsPatch">
+  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Лъжливи параметри на устройството</string>
   <string name="revanced_spoof_device_dimensions_summary_on">Подправената резолюция на устройството\n\nМоже да се отключи по-високо качество на видеото, но може да изпитате засичане при възпроизвеждане на видео, по-лош живот на батерията и неизвестни странични ефекти</string>
   <string name="revanced_spoof_device_dimensions_summary_off">Резолюцията на устройството не е подправена\n\nАктивирането на това не може да отключи по-високо качество на видеото</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Разрешаването на това може да причини прекъсване на възпроизвеждането на видео, влошен живот на батерията и неизвестни странични ефекти.</string>
   </patch>
-  <patch id="misc.gms.GmsCoreSupportResourcePatch">
+  <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">GmsCore Настройки</string>
   <string name="microg_settings_summary">Настройки на GmsCore</string>
   </patch>
-  <patch id="misc.links.BypassURLRedirectsPatch">
+  <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Заобикаляне на URL пренасочване</string>
   <string name="revanced_bypass_url_redirects_summary_on">URL пренасочванията се заобикалят</string>
   <string name="revanced_bypass_url_redirects_summary_off">URL пренасочванията не се заобикалят</string>
   </patch>
-  <patch id="misc.links.OpenLinksExternallyPatch">
+  <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Отваряне на връзки в браузъра</string>
   <string name="revanced_external_browser_summary_on">Отваряне на външни връзки</string>
   <string name="revanced_external_browser_summary_off">Отваряне на връзки в приложението</string>
   </patch>
-  <patch id="misc.privacy.RemoveTrackingQueryParameterPatch">
+  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Премахнете параметъра на заявката за проследяване</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Параметърът на заявката за проследяване е премахнат от връзките</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Параметърът на заявката за проследяване не е премахнат от връзките</string>
   </patch>
-  <patch id="misc.zoomhaptics.ZoomHapticsPatch">
+  <patch id="misc.zoomhaptics.zoomHapticsPatch">
   <string name="revanced_disable_zoom_haptics_title">Деактивиране на вибрация при мащабиране</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Вибрациите са деактивирани</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Вибрациите са активирани</string>
   </patch>
-  <patch id="video.quality.RememberVideoQualityPatch">
+  <patch id="video.quality.rememberVideoQualityPatch">
   <string name="revanced_video_quality_default_entry_1">Автоматично качество</string>
   <string name="revanced_remember_video_quality_last_selected_title">Запомни промените в качеството на видеото</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Промените в качеството се отнасят за всички видеоклипове</string>
@@ -1099,35 +1104,34 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_remember_video_quality_wifi">wi-fi</string>
   <string name="revanced_remember_video_quality_toast">Променено стандартно %1$s качество на: %2$s</string>
   </patch>
-  <patch id="video.speed.button.PlaybackSpeedButtonPatch">
+  <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Показване бутон за скорост</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Бутонът е показан</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Бутонът не е показан</string>
   </patch>
-  <patch id="video.speed.custom.CustomPlaybackSpeedPatch">
+  <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_playback_speeds_title">Персонализирани скорости на възпроизвеждане</string>
-  <string name="revanced_custom_playback_speeds_summary">Добавете или променете наличните скорости на възпроизвеждане</string>
   <string name="revanced_custom_playback_speeds_invalid">Персоналната скорост трябва да е по-малка от %s. Използване на стойности по подразбиране.</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Невалидни персонализирани скорости на възпроизвеждане. Използване на стойности по подразбиране.</string>
   </patch>
-  <patch id="video.speed.remember.RememberPlaybackSpeedPatch">
+  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Запомни промените в скоростта на възпроизвеждане</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Промените в скоростта на възпроизвеждане се отнасят за всички видеоклипове</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Промените в скоростта на възпроизвеждане се отнасят само за текущия видеоклип</string>
   <string name="revanced_playback_speed_default_title">Скорост на възпроизвеждане по подразбиране</string>
   <string name="revanced_remember_playback_speed_toast">Скоростта по подразбиране е променена на: %s</string>
   </patch>
-  <patch id="video.videoqualitymenu.RestoreOldVideoQualityMenuResourcePatch">
+  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
   <string name="revanced_restore_old_video_quality_menu_title">Възстановете старото меню за качество на видеото</string>
   <string name="revanced_restore_old_video_quality_menu_summary_on">Показва се старото меню за видео качество</string>
   <string name="revanced_restore_old_video_quality_menu_summary_off">Старото меню за видео качество е скрито</string>
   </patch>
-  <patch id="interaction.seekbar.EnableSlideToSeekPatch">
+  <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Активиране на слайд за превъртане</string>
   <string name="revanced_slide_to_seek_summary_on">Слайд за превъртане е активиран</string>
   <string name="revanced_slide_to_seek_summary_off">Слайд за превъртане е деактивиран</string>
   </patch>
-  <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_screen_title">Подправяне на видео потоци</string>
   <string name="revanced_spoof_video_streams_screen_summary">Подправете клиентските видео потоци, за да предотвратите проблеми с възпроизвеждането</string>
   <string name="revanced_spoof_video_streams_title">Подправяне на видео потоци</string>
@@ -1145,17 +1149,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_about_android_vr_title">Странични ефекти от подправяне на Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">• Липсва менюто за избор аудио\n• Не е налична стабилна сила на звука</string>
   </patch>
-  <!-- This patch is no longer used and these strings will soon be deleted. -->
-  <patch id="video.hdrbrightness.HDRBrightnessPatch">
-  </patch>
   </app>
   <app id="twitch">
-  <patch id="ad.audio.AudioAdsPatch">
+  <patch id="ad.audio.audioAdsPatch">
   <string name="revanced_block_audio_ads_title">Аудио реклами</string>
   <string name="revanced_block_audio_ads_summary_on">Аудио рекламата е блокирана</string>
   <string name="revanced_block_audio_ads_summary_off">Аудио рекламата е разблокирана</string>
   </patch>
-  <patch id="ad.embedded.EmbeddedAdsPatch">
+  <patch id="ad.embedded.embeddedAdsPatch">
   <string name="revanced_embedded_ads_service_unavailable">%s е недостъпен. Може да се показват реклами. Опитайте друга услуга за блокиране на реклами.</string>
   <string name="revanced_embedded_ads_service_failed">%s сървърът върна грешка. Може да се показват реклами. Опитайте да превключите друга услуга за блокиране на реклами.</string>
   <string name="revanced_block_embedded_ads_title">Блокиране на вградени видеореклами</string>
@@ -1163,30 +1164,30 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_block_embedded_ads_entry_2">Luminous прокси</string>
   <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock прокси</string>
   </patch>
-  <patch id="ad.video.VideoAdsPatch">
+  <patch id="ad.video.videoAdsPatch">
   <string name="revanced_block_video_ads_title">Видео реклами</string>
   <string name="revanced_block_video_ads_summary_on">Видео рекламата е блокирана</string>
   <string name="revanced_block_video_ads_summary_off">Видео рекламата е разблокирана</string>
   </patch>
-  <patch id="chat.antidelete.ShowDeletedMessagesPatch">
+  <patch id="chat.antidelete.showDeletedMessagesPatch">
   <string name="revanced_deleted_msg">съобщението е изтрито</string>
   <string name="revanced_show_deleted_messages_title">Покажи изтритите съобщения</string>
   <string name="revanced_show_deleted_messages_entry_1">Не показвай изтритите съобщения</string>
   <string name="revanced_show_deleted_messages_entry_2">Скрийте изтритите съобщения зад спойлер</string>
   <string name="revanced_show_deleted_messages_entry_3">Показване на изтритите съобщения като зачеркнат текст</string>
   </patch>
-  <patch id="chat.autoclaim.AutoClaimChannelPointsPatch">
+  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
   <string name="revanced_auto_claim_channel_points_title">Автоматично изискване на Channel Points</string>
   <string name="revanced_auto_claim_channel_points_summary_on">Автоматично изискване на Channel Points</string>
   <string name="revanced_auto_claim_channel_points_summary_off">Channel Points в канала не се изискват автоматично</string>
   </patch>
-  <patch id="debug.DebugModePatch">
+  <patch id="debug.debugModePatch">
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   <string name="revanced_twitch_debug_mode_title">Активирайте режима за отстраняване на грешки в Twitch</string>
   <string name="revanced_twitch_debug_mode_summary_on">Режимът за отстраняване на грешки в Twitch е активиран (не се препоръчва)</string>
   <string name="revanced_twitch_debug_mode_summary_off">Режимът за отстраняване на грешки в Twitch е деактивиран</string>
   </patch>
-  <patch id="misc.settings.SettingsPatch">
+  <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">Настройки на ReVanced</string>
   <string name="revanced_ads_screen_title">Реклами</string>
   <string name="revanced_ads_screen_summary">Настройки за блокиране на реклами</string>
