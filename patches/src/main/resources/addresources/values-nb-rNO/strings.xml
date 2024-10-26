@@ -32,7 +32,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
 -->
 <resources>
   <app id="shared">
-  <patch id="misc.checks.BaseCheckEnvironmentPatch">
+  <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Sjekker mislyktes</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Åpne offisiell nettside</string>
   <string name="revanced_check_environment_dialog_ignore_button">Ignorer</string>
@@ -43,7 +43,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_check_environment_not_near_patch_time_days">Patched %s dager siden</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK byggedato er skadet</string>
   </patch>
-  <patch id="misc.settings.BaseSettingsResourcePatch">
+  <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Ønsker du å fortsette?</string>
   <string name="revanced_settings_restart_title">Oppdater og start på nytt</string>
@@ -62,7 +62,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_header">Offisielle lenker</string>
   <string name="revanced_settings_about_links_donate">Doner</string>
   </patch>
-  <patch id="misc.gms.BaseGmsCoreSupportResourcePatch">
+  <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore er ikke installert. Installer den.</string>
   <string name="gms_core_dialog_title">Handling nødvendig</string>
@@ -73,7 +73,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   </app>
   <app id="youtube">
-  <patch id="misc.settings.SettingsPatch">
+  <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">Om</string>
   <string name="revanced_settings_screen_01_ads_title">Reklame</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternative miniatyrbilder</string>
@@ -85,7 +85,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_11_misc_title">Diverse</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
   </patch>
-  <patch id="misc.debugging.DebuggingPatch">
+  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <string name="revanced_shorts_disable_background_playback_title">Deaktiver Shorts bakgrunn spill</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Kortere bakgrunnsspilling er deaktivert</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Kortere bakgrunnsspilling er aktivert</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Feilsøking</string>
   <string name="revanced_debug_screen_summary">Aktivere eller deaktivere feilsøkingsalternativer</string>
   <string name="revanced_debug_title">Feilsøk logging</string>
@@ -102,7 +107,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_debug_toast_on_error_summary_off">Toast ikke vist ved feil</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">Slår av feil i altfor å skjule alle ReVanced feilmeldinger.\n\nDu vil ikke bli varslet om noen uventede hendelser.</string>
   </patch>
-  <patch id="layout.hide.general.HideLayoutComponentsPatch">
+  <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_disable_like_subscribe_glow_title">Deaktiver \'liker\' / abonnér på glød</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Som og abonner-knappen vil ikke glød når den nevnes</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Som og abbonér vil glød når det nevnes</string>
@@ -308,7 +313,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_toast_invalid_length">Nøkkelordet er for kort og krever atferd: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Søkeord vil skjule alle videoer: %s</string>
   </patch>
-  <patch id="ad.general.HideAdsResourcePatch">
+  <patch id="ad.general.hideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Skjul generelle annonser</string>
   <string name="revanced_hide_general_ads_summary_on">Generelle annonser er skjult</string>
   <string name="revanced_hide_general_ads_summary_off">Generelle annonser er vist</string>
@@ -346,17 +351,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Skjul fullskjermsannonser bare som fungerer med eldre enheter</string>
   </patch>
-  <patch id="ad.getpremium.HideGetPremiumPatch">
+  <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">Skjul YouTube Premium kampanjer</string>
   <string name="revanced_hide_get_premium_summary_on">YouTube Premium kampanjer under videospiller er skjult</string>
   <string name="revanced_hide_get_premium_summary_off">YouTube Premium kampanjer under videospiller er vist</string>
   </patch>
-  <patch id="ad.video.VideoAdsPatch">
+  <patch id="ad.video.videoAdsPatch">
   <string name="revanced_hide_video_ads_title">Skjul video annonser</string>
   <string name="revanced_hide_video_ads_summary_on">Videoannonser er skjult</string>
   <string name="revanced_hide_video_ads_summary_off">Videoannonser vises</string>
   </patch>
-  <patch id="interaction.copyvideourl.CopyVideoUrlResourcePatch">
+  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
   <string name="revanced_share_copy_url_success">URL kopiert til utklippstavlen</string>
   <string name="revanced_share_copy_url_timestamp_success">URL med tidsstempel kopiert</string>
   <string name="revanced_copy_video_url_title">Vis knapp for \"Kopier video-URL\"</string>
@@ -366,13 +371,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_copy_video_url_timestamp_summary_on">Knappen er vist. Trykk for å kopiere videoURL med tidsstempel. Trykk og hold for å kopiere video uten tidsstempel</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Knappen vises ikke</string>
   </patch>
-  <patch id="interaction.dialog.RemoveViewerDiscretionDialogPatch">
+  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">Fjern dialogboksen for viserdiskresjon</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">Dialogvindu vil bli fjernet</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialogvindu vil bli vist</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Dette forbigår ikke aldersbegrensningen. Det godtar bare den automatisk.</string>
   </patch>
-  <patch id="interaction.downloads.DownloadsResourcePatch">
+  <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Eksterne nedlastinger</string>
   <string name="revanced_external_downloader_screen_summary">Innstillinger for å bruke ekstern nedlasting</string>
   <string name="revanced_external_downloader_title">Vis ekstern nedlastingsknapp</string>
@@ -386,17 +391,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_external_downloader_name_summary">Pakkenavn på din installerte eksterne nedlastingsapp, slik som NewPipe eller Seal</string>
   <string name="revanced_external_downloader_not_installed_warning">%s er ikke installert. Installer den.</string>
   </patch>
-  <patch id="interaction.seekbar.DisablePreciseSeekingGesturePatch">
+  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Deaktivere presis søkefelt</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_on">Bevegelse er deaktivert</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Gest er aktivert</string>
   </patch>
-  <patch id="interaction.seekbar.EnableSeekbarTappingPatch">
+  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
   <string name="revanced_seekbar_tapping_title">Aktiver søkerklikk</string>
   <string name="revanced_seekbar_tapping_summary_on">Seekbar tapping er aktivert</string>
   <string name="revanced_seekbar_tapping_summary_off">Seekbar kartlegging er deaktivert</string>
   </patch>
-  <patch id="interaction.swipecontrols.SwipeControlsResourcePatch">
+  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Aktiver lysstyrkebevegelser</string>
   <string name="revanced_swipe_brightness_summary_on">Lysstyrke swipe er aktivert</string>
   <string name="revanced_swipe_brightness_summary_off">Lysstyrke swipe er deaktivert</string>
@@ -425,12 +430,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_swipe_threshold_title">Sveip størrelse terskel</string>
   <string name="revanced_swipe_threshold_summary">Mengden terskel du må bruke</string>
   </patch>
-  <patch id="layout.autocaptions.AutoCaptionsPatch">
+  <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Deaktiver bildetekst</string>
   <string name="revanced_auto_captions_summary_on">Automatisk bildetekst er deaktivert</string>
   <string name="revanced_auto_captions_summary_off">Automatisk bildetekst er aktivert</string>
   </patch>
-  <patch id="layout.buttons.action.HideButtonsPatch">
+  <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Handlingsknapper</string>
   <string name="revanced_hide_buttons_screen_summary">Skjul eller vis knapper under videoer</string>
   <string name="revanced_hide_like_dislike_button_title">Skjul \'Like and Disliker\'</string>
@@ -465,7 +470,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playlist_button_summary_on">Lagre i spilleliste-knappen er skjult</string>
   <string name="revanced_hide_playlist_button_summary_off">Lagre i spilleliste-knappen vises</string>
   </patch>
-  <patch id="layout.buttons.navigation.NavigationButtonsPatch">
+  <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Navigation buttons</string>
   <string name="revanced_navigation_buttons_screen_summary">Skjul eller endre knapper i navigasjonslinjen</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -492,7 +497,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_navigation_button_labels_summary_on">Etiketter er skjult</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Etiketter er vist</string>
   </patch>
-  <patch id="layout.hide.player.flyoutmenupanel.HidePlayerFlyoutMenuPatch">
+  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Flyout menu</string>
   <string name="revanced_hide_player_flyout_summary">Skjul eller vis spillere flukte menyelementer</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -503,6 +508,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_additional_settings_title">Skjul tilleggsinnstillinger</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_on">Ytterlige innstillingsmeny er skjult</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_off">Flere innstillingsmeny er vist</string>
+  <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_sleep_timer_title">Skjul sovtidtaker</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_on">Dvale-tidtakermenyen er skjult</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_off">Sleep Timer meny er vist</string>
   <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_loop_video_title">Skjul video på løkke</string>
   <string name="revanced_hide_player_flyout_loop_video_summary_on">Video-menyen en loop er skjult</string>
@@ -537,7 +546,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Se i VR-menyen er skjult</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Se i VR-meny for å vise</string>
   </patch>
-  <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
+  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_player_previous_next_buttons_title">Skjul forrige &amp; neste videoknapper</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Knappene er skjult</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Det vises knapper</string>
@@ -552,27 +561,27 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_autoplay_button_summary_on">Autospill-knappen er skjult</string>
   <string name="revanced_hide_autoplay_button_summary_off">Autospill-knappen vises</string>
   </patch>
-  <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Skjul avsluttende skjerm-kort</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Sluttskjerm kort er skjult</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Sluttskjerm vises</string>
   </patch>
-  <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
+  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">Deaktiver omgivelsesmodus i fullskjerm</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Ambient modus deaktivert</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Ambient modus aktivert</string>
   </patch>
-  <patch id="layout.hide.infocards.HideInfocardsResourcePatch">
+  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
   <string name="revanced_hide_info_cards_title">Skjul informasjonskort</string>
   <string name="revanced_hide_info_cards_summary_on">Informasjonskort er skjult</string>
   <string name="revanced_hide_info_cards_summary_off">Informasjonskort vises</string>
   </patch>
-  <patch id="layout.hide.rollingnumber.DisableRollingNumberAnimationPatch">
+  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
   <string name="revanced_disable_rolling_number_animations_title">Deaktiver animasjoner i rullende tall</string>
   <string name="revanced_disable_rolling_number_animations_summary_on">Rullende nummer er ikke animert</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">Rullende nummer er animert</string>
   </patch>
-  <patch id="layout.hide.seekbar.HideSeekbarPatch">
+  <patch id="layout.hide.seekbar.hideSeekbarPatch">
   <string name="revanced_hide_seekbar_title">Skjul søkefelt i videospiller</string>
   <string name="revanced_hide_seekbar_summary_on">Videospillers søkefelt er skjult</string>
   <string name="revanced_hide_seekbar_summary_off">Vises Videospiller-søkefelt</string>
@@ -580,7 +589,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_seekbar_thumbnail_summary_on">Miniatyrbilde søkefeltet er skjult</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Miniatyrbilde søkefelt vises</string>
   </patch>
-  <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
+  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Skjul Shorts i hjemmefeeden</string>
   <string name="revanced_hide_shorts_home_summary_on">Shorts i hjemmefeed er skjult</string>
@@ -678,27 +687,27 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Navigasjonslinjen er skjult</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Navigasjonslinjen vises</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.DisableSuggestedVideoEndScreenResourcePatch">
+  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
   <string name="revanced_disable_suggested_video_end_screen_title">Deaktiver foreslått videoslutskjerm</string>
   <string name="revanced_disable_suggested_video_end_screen_summary_on">Foreslåtte videoer blir deaktivert</string>
   <string name="revanced_disable_suggested_video_end_screen_summary_off">Foreslåtte videoer vises</string>
   </patch>
-  <patch id="layout.hide.time.HideTimestampPatch">
+  <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Skjul video tidsstempel</string>
   <string name="revanced_hide_timestamp_summary_on">Tidsstempel er skjult</string>
   <string name="revanced_hide_timestamp_summary_off">Tidsstempel vises</string>
   </patch>
-  <patch id="layout.panels.popup.PlayerPopupPanelsPatch">
+  <patch id="layout.panels.popup.playerPopupPanelsPatch">
   <string name="revanced_hide_player_popup_panels_title">Skjul spiller popup-panel</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Spillerens popup-paneler er skjult</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Spillerpopup-paneler vises</string>
   </patch>
-  <patch id="layout.player.overlay.CustomPlayerOverlayOpacityResourcePatch">
+  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Spiller overlegg ugjennomsiktighet</string>
   <string name="revanced_player_overlay_opacity_summary">Gjennomsiktighet mellom 0-100, der 0 er gjennomsiktig</string>
   <string name="revanced_player_overlay_opacity_invalid_toast">Spiller overlegg opasitet må være mellom 0-100</string>
   </patch>
-  <patch id="layout.returnyoutubedislike.ReturnYouTubeDislikeResourcePatch">
+  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_generic">Misliker ikke tilgjengelig (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
@@ -739,17 +748,25 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Klientrate grense oppdaget %d ganger</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d millisekunder</string>
   </patch>
-  <patch id="layout.searchbar.WideSearchbarPatch">
+  <patch id="layout.searchbar.wideSearchbarPatch">
   <string name="revanced_wide_searchbar_title">Aktiver bredt søkefelt</string>
   <string name="revanced_wide_searchbar_summary_on">Bred søkefeltet er aktivert</string>
   <string name="revanced_wide_searchbar_summary_off">Bred søkefeltet er deaktivert</string>
   </patch>
-  <patch id="layout.seekbar.RestoreOldSeekbarThumbnailsPatch">
+  <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_title">Aktiver miniatyrbilder av høy kvalitet</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Seekbar miniatyrbilder er av høy kvalitet</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Seekbar miniatyrbilder er middels høy kvalitet</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Fullskjerm søkbar miniatyrbilder er høy kvalitet</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Fullskjerm søkbar miniatyrbilder er middels kvalitet</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Dette vil gjenopprette miniatyrbilder til strømminger som ikke har miniatyrbilder.\n\nInternett-databruk kan være høyere, og søkbar miniatyrbilder vil ha litt forsinkelse før seriing.\n\nfungerer best med en veldig rask internettforbindelse.</string>
+  </patch>
+  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
   <string name="revanced_restore_old_seekbar_thumbnails_title">Gjenopprett gamle miniatyrbilder for søkefelt</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Seekbar miniatyrbilder vil vises over søkefeltet</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Seekbar miniatyrbilder vil vises i fullskjerm</string>
   </patch>
-  <patch id="layout.sponsorblock.SponsorBlockResourcePatch">
+  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
   <string name="revanced_sb_enable_sb">Aktiver SponsorBlock</string>
   <string name="revanced_sb_enable_sb_sum">SponsorBlock er et crowsourced system for å hoppe over irriterende deler av YouTube-videoer</string>
   <string name="revanced_sb_appearance_category">Utseende</string>
@@ -925,7 +942,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_about">Om</string>
   <string name="revanced_sb_about_api_sum">Data leveres av SponsorBlock API. Trykk her for å lære mer og se nedlastinger for andre plattformer</string>
   </patch>
-  <patch id="layout.spoofappversion.SpoofAppVersionPatch">
+  <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Spoof app versjon</string>
   <string name="revanced_spoof_app_version_summary_on">Versjon skremt</string>
   <string name="revanced_spoof_app_version_summary_off">Versjon ikke skremt</string>
@@ -940,7 +957,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Gjenopprett gammel spilleliste</string>
   <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - Gjenopprett gammelt UI oppsett</string>
   </patch>
-  <patch id="layout.startpage.ChangeStartPagePatch">
+  <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Angi startside</string>
   <string name="revanced_change_start_page_entry_default">Standard</string>
   <string name="revanced_change_start_page_entry_browse">Bla gjennom kanaler</string>
@@ -958,20 +975,20 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_change_start_page_entry_trending">Populært</string>
   <string name="revanced_change_start_page_entry_watch_later">Se senere</string>
   </patch>
-  <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
+  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Deaktiver gjenopptakelse av Shorts spiller</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts spiller vil ikke gjenoppta ved oppstart av app</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts spiller vil gjenoppta ved oppstart av app</string>
   </patch>
-  <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
+  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   </patch>
-  <patch id="layout.tablet.EnableTabletLayoutPatch">
+  <patch id="layout.tablet.enableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Aktiver oppsett for nettbrett</string>
   <string name="revanced_tablet_layout_summary_on">Nettbrettets oppsett er aktivert</string>
   <string name="revanced_tablet_layout_summary_off">Nettbrett-oppsett er deaktivert</string>
   <string name="revanced_tablet_layout_user_dialog_message">Samfunnsinnlegg dukker ikke opp på nettbrett-oppsett</string>
   </patch>
-  <patch id="layout.miniplayer.MiniplayerPatch">
+  <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Smittespiller</string>
   <string name="revanced_miniplayer_screen_summary">Endre stil på appen til den minimerte spilleren</string>
   <string name="revanced_miniplayer_type_title">Type Minispiller</string>
@@ -1007,12 +1024,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_opacity_summary">Gjennomsiktighet mellom 0-100, der 0 er gjennomsiktig</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Minispiller overlegg opasitet må være mellom 0-100</string>
   </patch>
-  <patch id="layout.theme.ThemeBytecodePatch">
+  <patch id="layout.theme.themePatch">
   <string name="revanced_gradient_loading_screen_title">Aktiver gradient lastingsskjerm</string>
   <string name="revanced_gradient_loading_screen_summary_on">Lasting av skjerm vil ha en gradert bakgrunn</string>
   <string name="revanced_gradient_loading_screen_summary_off">Lasting av skjerm har en solid bakgrunn</string>
   </patch>
-  <patch id="layout.theme.ThemeResourcePatch">
+  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Aktiver egendefinert søkelinje-farge</string>
   <string name="revanced_seekbar_custom_color_summary_on">Tilpasset søkelinjefarge vises</string>
   <string name="revanced_seekbar_custom_color_summary_off">Opprinnelig søkelinjens farge vises</string>
@@ -1020,11 +1037,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_value_summary">Farge på søkefeltet</string>
   <string name="revanced_seekbar_custom_color_invalid">Ugyldig søkelinjens fargeverdi</string>
   </patch>
-  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Forbigå bilde-restriksjoner</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Bruk bildesvertyt4.ggpht.com</string>
   </patch>
-  <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
+  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Hjem fane</string>
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
@@ -1056,7 +1073,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_alt_thumbnail_dearrow_error">Pil er midlertidig ikke tilgjengelig (statuskode: %s)</string>
   <string name="revanced_alt_thumbnail_dearrow_error_generic">Pil midlertidig ikke tilgjengelig</string>
   </patch>
-  <patch id="misc.announcements.AnnouncementsPatch">
+  <patch id="misc.announcements.announcementsPatch">
   <string name="revanced_announcements_title">Vis rehabiliterte kunngjøringer</string>
   <string name="revanced_announcements_summary_on">Kunngjøringer er vist ved oppstart</string>
   <string name="revanced_announcements_summary_off">Kunngjøringer er ikke vist ved oppstart</string>
@@ -1064,47 +1081,47 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_announcements_connection_failed">Kan ikke koble til kunngjøringstjenesten</string>
   <string name="revanced_announcements_dialog_dismiss">Avvis</string>
   </patch>
-  <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
   <string name="revanced_check_watch_history_domain_name_dialog_title">Advarsel</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Overvåkningshistorikken din lagres.&lt;br&gt;&lt;br&gt;Dette er mest sannsynlig forårsaket av en DNS-annonseblokkering eller nettverksproxy.&lt;br&gt;&lt;br&gt;For å fikse dette, hviteliste &lt;b&gt;s.youtube.com&lt;/b&gt; eller slå av alle DNS-blokkere og proxyer.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ikke vis dette igjen</string>
   </patch>
-  <patch id="misc.autorepeat.AutoRepeatPatch">
+  <patch id="misc.autorepeat.autoRepeatPatch">
   <string name="revanced_auto_repeat_title">Aktiver automatisk gjenta</string>
   <string name="revanced_auto_repeat_summary_on">Auto-Repetering er aktivert</string>
   <string name="revanced_auto_repeat_summary_off">Auto-Repetering er deaktivert</string>
   </patch>
-  <patch id="misc.dimensions.spoof.SpoofDeviceDimensionsPatch">
+  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Utforming av enheten</string>
   <string name="revanced_spoof_device_dimensions_summary_on">Enhetens dimensjoner skremt\n\nHøyere videokvaliteter kan låses opp, men du kan oppleve videospillingsstilling, forverret batterilevetid og ukjente bivirkninger</string>
   <string name="revanced_spoof_device_dimensions_summary_off">Enhetdimensjonene ikke spoofed\n\nAktivering av dette kan låse opp høyere videokvaliteter</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Aktivering av dette kan forårsake utsettelse av videospilling, dårligere batteritid og ukjente bivirkninger.</string>
   </patch>
-  <patch id="misc.gms.GmsCoreSupportResourcePatch">
+  <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">GmsCore Innstillinger</string>
   <string name="microg_settings_summary">Innstillinger for GmsCore</string>
   </patch>
-  <patch id="misc.links.BypassURLRedirectsPatch">
+  <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Omgå for omdirigeringer</string>
   <string name="revanced_bypass_url_redirects_summary_on">Omadressering av URL-adresser skjer forbipassert</string>
   <string name="revanced_bypass_url_redirects_summary_off">URL-omdirigeringer blir ikke omgått</string>
   </patch>
-  <patch id="misc.links.OpenLinksExternallyPatch">
+  <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Åpne linker i nettleser</string>
   <string name="revanced_external_browser_summary_on">Åpne koblinger eksternt</string>
   <string name="revanced_external_browser_summary_off">Åpner lenker i appen</string>
   </patch>
-  <patch id="misc.privacy.RemoveTrackingQueryParameterPatch">
+  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Fjern sporingsspørringens parameter</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Spores parameteren for spørring fjernes fra linker</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Spores parameteren for spørring fjernes ikke fra lenker</string>
   </patch>
-  <patch id="misc.zoomhaptics.ZoomHapticsPatch">
+  <patch id="misc.zoomhaptics.zoomHapticsPatch">
   <string name="revanced_disable_zoom_haptics_title">Deaktiver zoom-haptics</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Hapetikk er deaktivert</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Hapetikk er aktivert</string>
   </patch>
-  <patch id="video.quality.RememberVideoQualityPatch">
+  <patch id="video.quality.rememberVideoQualityPatch">
   <string name="revanced_video_quality_default_entry_1">Automatisk kvalitet</string>
   <string name="revanced_remember_video_quality_last_selected_title">Husk endringer i videokvalitet</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Kvalitetsendringer gjelder for alle videoer</string>
@@ -1115,35 +1132,38 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Endret standard %1$s kvalitet til: %2$s</string>
   </patch>
-  <patch id="video.speed.button.PlaybackSpeedButtonPatch">
+  <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Vis hastighetsdialogknapp</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Knappen vises</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Knappen vises ikke</string>
   </patch>
-  <patch id="video.speed.custom.CustomPlaybackSpeedPatch">
+  <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <string name="revanced_custom_speed_menu_title">Egendefinert avspillingshastighetsmeny</string>
+  <string name="revanced_custom_speed_menu_summary_on">Egendefinert hastighetsmeny vises</string>
+  <string name="revanced_custom_speed_menu_summary_off">Egendefinert hastighetsmeny vises ikke</string>
   <string name="revanced_custom_playback_speeds_title">Egendefinert avspillingshastighet</string>
-  <string name="revanced_custom_playback_speeds_summary">Legg til eller endre tilgjengelige avspillingshastigheter</string>
+  <string name="revanced_custom_playback_speeds_summary">Legg til eller endre egendefinert avspillingshastighet</string>
   <string name="revanced_custom_playback_speeds_invalid">Tilpassede hastigheter må være mindre enn %s. Bruker standardverdier.</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Ugyldige tilpassede avspillingshastigheter. Bruker standardverdier.</string>
   </patch>
-  <patch id="video.speed.remember.RememberPlaybackSpeedPatch">
+  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Husk endringer i avspillingshastighet</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Avspillingshastighet endringer gjelder for alle videoer</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Hastighetsendringer for avspilling gjelder kun for gjeldende video</string>
   <string name="revanced_playback_speed_default_title">Standard avspillingshastighet</string>
   <string name="revanced_remember_playback_speed_toast">Endret standard hastighet til: %s</string>
   </patch>
-  <patch id="video.videoqualitymenu.RestoreOldVideoQualityMenuResourcePatch">
+  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
   <string name="revanced_restore_old_video_quality_menu_title">Gjenopprett gammel video kvalitet meny</string>
   <string name="revanced_restore_old_video_quality_menu_summary_on">Gammel video kvalitet meny er vist</string>
   <string name="revanced_restore_old_video_quality_menu_summary_off">Gammel video kvalitet meny er ikke vist</string>
   </patch>
-  <patch id="interaction.seekbar.EnableSlideToSeekPatch">
+  <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Aktiver lysbilde for å søke</string>
   <string name="revanced_slide_to_seek_summary_on">Slide for å søke er aktivert</string>
   <string name="revanced_slide_to_seek_summary_off">Slide for å søke er ikke aktivert</string>
   </patch>
-  <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_screen_title">Spoof video strømmer</string>
   <string name="revanced_spoof_video_streams_screen_summary">Forkort klientens videostrømmer for å forhindre avspillingsproblemer</string>
   <string name="revanced_spoof_video_streams_title">Spoof video strømmer</string>
@@ -1161,20 +1181,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR opplever bivirkninger</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">• Lydspormeny mangler\n• Stabil volum er ikke tilgjengelig</string>
   </patch>
-  <!-- This patch is no longer used and these strings will soon be deleted. -->
-  <patch id="video.hdrbrightness.HDRBrightnessPatch">
-  <string name="revanced_hdr_auto_brightness_title">Aktiver automatisk HDR lysstyrke</string>
-  <string name="revanced_hdr_auto_brightness_summary_on">Automatisk HDR lysstyrke er aktivert</string>
-  <string name="revanced_hdr_auto_brightness_summary_off">Automatisk HDR lysstyrke er deaktivert</string>
-  </patch>
   </app>
   <app id="twitch">
-  <patch id="ad.audio.AudioAdsPatch">
+  <patch id="ad.audio.audioAdsPatch">
   <string name="revanced_block_audio_ads_title">Blokker lydannonser</string>
   <string name="revanced_block_audio_ads_summary_on">Lydannonser er blokkert</string>
   <string name="revanced_block_audio_ads_summary_off">Lydannonser er ikke blokkert</string>
   </patch>
-  <patch id="ad.embedded.EmbeddedAdsPatch">
+  <patch id="ad.embedded.embeddedAdsPatch">
   <string name="revanced_embedded_ads_service_unavailable">%s er utilgjengelig. Annonser kan vise. Prøv å bytte til en annen annonseblokkerings tjeneste i innstillingene.</string>
   <string name="revanced_embedded_ads_service_failed">%s -serveren returnerte en feil. Annonser kan vise. Prøv å bytte til en annen annonseblokkerings tjeneste i innstillingene.</string>
   <string name="revanced_block_embedded_ads_title">Blokker innebygde videoannonser</string>
@@ -1182,30 +1196,30 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_block_embedded_ads_entry_2">Lysrør proxy</string>
   <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock proxy</string>
   </patch>
-  <patch id="ad.video.VideoAdsPatch">
+  <patch id="ad.video.videoAdsPatch">
   <string name="revanced_block_video_ads_title">Blokker video annonser</string>
   <string name="revanced_block_video_ads_summary_on">Videoannonser er blokkert</string>
   <string name="revanced_block_video_ads_summary_off">Videoannonser er ublokkert</string>
   </patch>
-  <patch id="chat.antidelete.ShowDeletedMessagesPatch">
+  <patch id="chat.antidelete.showDeletedMessagesPatch">
   <string name="revanced_deleted_msg">melding slettet</string>
   <string name="revanced_show_deleted_messages_title">Vis slettede meldinger</string>
   <string name="revanced_show_deleted_messages_entry_1">Ikke vis slettede meldinger</string>
   <string name="revanced_show_deleted_messages_entry_2">Skjul slettede meldinger bak en spoiler</string>
   <string name="revanced_show_deleted_messages_entry_3">Vis slettede meldinger som utfylt tekst</string>
   </patch>
-  <patch id="chat.autoclaim.AutoClaimChannelPointsPatch">
+  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
   <string name="revanced_auto_claim_channel_points_title">Krev automatisk kanalpoeng</string>
   <string name="revanced_auto_claim_channel_points_summary_on">Kanalpoeng blir hentet automatisk</string>
   <string name="revanced_auto_claim_channel_points_summary_off">Kanalpoeng blir ikke hentet automatisk</string>
   </patch>
-  <patch id="debug.DebugModePatch">
+  <patch id="debug.debugModePatch">
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   <string name="revanced_twitch_debug_mode_title">Aktiver Twitch feilsøkingsmodus</string>
   <string name="revanced_twitch_debug_mode_summary_on">Twitch debug modus er aktivert (ikke anbefalt)</string>
   <string name="revanced_twitch_debug_mode_summary_off">Twitch debug modus er deaktivert</string>
   </patch>
-  <patch id="misc.settings.SettingsPatch">
+  <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">Forbedret innstillinger</string>
   <string name="revanced_ads_screen_title">Reklame</string>
   <string name="revanced_ads_screen_summary">Innstillinger for annonseblokkering</string>
