@@ -137,7 +137,7 @@ public final class MiniplayerPatch {
             MiniplayerType type = Settings.MINIPLAYER_TYPE.get();
             return (!IS_19_20_OR_GREATER && (type == MODERN_1 || type == MODERN_3))
                     || (!IS_19_26_OR_GREATER && type == MODERN_1
-                        && !Settings.MINIPLAYER_DOUBLE_TAP_ACTION.get() && !Settings.MINIPLAYER_DRAG_AND_DROP.get())
+                    && !Settings.MINIPLAYER_DOUBLE_TAP_ACTION.get() && !Settings.MINIPLAYER_DRAG_AND_DROP.get())
                     || (IS_19_29_OR_GREATER && type == MODERN_3);
         }
     }
@@ -196,8 +196,6 @@ public final class MiniplayerPatch {
      * Injection point.
      */
     public static boolean getModernFeatureFlagsActiveOverride(boolean original) {
-        if (original) Logger.printDebug(() -> "getModernFeatureFlagsActiveOverride original: " + original);
-
         if (CURRENT_TYPE == ORIGINAL) {
             return original;
         }
@@ -209,8 +207,6 @@ public final class MiniplayerPatch {
      * Injection point.
      */
     public static boolean enableMiniplayerDoubleTapAction(boolean original) {
-        if (original) Logger.printDebug(() -> "enableMiniplayerDoubleTapAction original: " + true);
-
         if (CURRENT_TYPE == ORIGINAL) {
             return original;
         }
@@ -222,8 +218,6 @@ public final class MiniplayerPatch {
      * Injection point.
      */
     public static boolean enableMiniplayerDragAndDrop(boolean original) {
-        if (original) Logger.printDebug(() -> "enableMiniplayerDragAndDrop original: " + true);
-
         if (CURRENT_TYPE == ORIGINAL) {
             return original;
         }
@@ -236,8 +230,6 @@ public final class MiniplayerPatch {
      * Injection point.
      */
     public static boolean setRoundedCorners(boolean original) {
-        if (original) Logger.printDebug(() -> "setRoundedCorners original: " + true);
-
         if (CURRENT_TYPE.isModern()) {
             return MINIPLAYER_ROUNDED_CORNERS_ENABLED;
         }
@@ -271,8 +263,6 @@ public final class MiniplayerPatch {
      * Injection point.
      */
     public static boolean setDropShadow(boolean original) {
-        if (original) Logger.printDebug(() -> "setViewElevation original: " + true);
-
         return original;
     }
 
