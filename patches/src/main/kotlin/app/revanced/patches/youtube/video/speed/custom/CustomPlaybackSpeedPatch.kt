@@ -121,7 +121,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
             val limiterMaxConstDestination = getInstruction<OneRegisterInstruction>(limiterMaxConstIndex).registerA
 
             replaceInstruction(limiterMinConstIndex, "const/high16 v$limiterMinConstDestination, 0.0f")
-            replaceInstruction(limiterMaxConstIndex, "const/high16 v$limiterMaxConstDestination, 10.0f")
+            replaceInstruction(limiterMaxConstIndex, "const/high16 v$limiterMaxConstDestination, 8.0f")
         }
 
         // Add a static INSTANCE field to the class.
