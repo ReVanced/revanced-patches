@@ -17,7 +17,7 @@ import app.revanced.extension.shared.settings.Setting;
 
 import static app.revanced.extension.shared.StringRef.str;
 
-@SuppressWarnings({"unused", "deprecation"})
+@SuppressWarnings("deprecation")
 public abstract class AbstractPreferenceFragment extends PreferenceFragment {
     /**
      * Indicates that if a preference changes,
@@ -80,10 +80,12 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
      */
     protected void initialize() {
         final var identifier = Utils.getResourceIdentifier("revanced_prefs", "xml");
-
         if (identifier == 0) return;
         addPreferencesFromResource(identifier);
-        Utils.sortPreferenceGroups(getPreferenceScreen());
+
+        PreferenceScreen screen = getPreferenceScreen();
+        Utils.sortPreferenceGroups(screen);
+        Utils.setPreferenceTitlesToMultiLineIfNeeded(screen);
     }
 
     private void showSettingUserDialogConfirmation(SwitchPreference switchPref, BooleanSetting setting) {
