@@ -3,7 +3,6 @@ package app.revanced.patches.warnwetter.misc.firebasegetcert
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 
-@Suppress("unused")
 val firebaseGetCertPatch = bytecodePatch(
     description = "Spoofs the X-Android-Cert header.",
 ) {

@@ -32,7 +32,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.*
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
-import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
 
 private val sponsorBlockResourcePatch = resourcePatch {
     dependsOn(

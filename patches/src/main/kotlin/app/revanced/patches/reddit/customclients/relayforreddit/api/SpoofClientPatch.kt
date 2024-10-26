@@ -9,7 +9,6 @@ import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction10t
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21t
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
-@Suppress("unused")
 val spoofClientPatch = spoofClientPatch(redirectUri = "dbrady://relay") {
     compatibleWith(
         "free.reddit.news",

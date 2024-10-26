@@ -9,7 +9,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/PlayerTypeHookPatch;"
 
-@Suppress("unused")
 val playerTypeHookPatch = bytecodePatch(
     description = "Hook to get the current player type and video playback state.",
 ) {

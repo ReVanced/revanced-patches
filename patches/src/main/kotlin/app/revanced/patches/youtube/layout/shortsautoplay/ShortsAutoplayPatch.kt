@@ -12,7 +12,7 @@ import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
-import app.revanced.util.findOpcodeIndicesReversed
+import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -82,7 +82,7 @@ val shortsAutoplayPatch = bytecodePatch(
 
         reelPlaybackRepeatMatch.mutableMethod.apply {
             // The behavior enums are looked up from an ordinal value to an enum type.
-            findOpcodeIndicesReversed {
+            findInstructionIndicesReversedOrThrow {
                 val reference = getReference<MethodReference>()
                 reference?.definingClass == reelEnumClass &&
                     reference.parameterTypes.firstOrNull() == "I" &&

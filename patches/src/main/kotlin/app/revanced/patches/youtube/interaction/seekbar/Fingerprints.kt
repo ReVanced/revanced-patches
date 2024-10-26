@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.interaction.seekbar
 
 import app.revanced.patcher.fingerprint
-import app.revanced.util.containsWideLiteralInstructionValue
+import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -101,7 +101,7 @@ internal val seekbarTappingFingerprint = fingerprint {
         Opcode.INVOKE_VIRTUAL,
     )
     custom { method, _ ->
-        method.containsWideLiteralInstructionValue(Integer.MAX_VALUE.toLong())
+        method.containsLiteralInstruction(Integer.MAX_VALUE.toLong())
     }
 }
 

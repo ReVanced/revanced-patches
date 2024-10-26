@@ -19,7 +19,6 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 internal lateinit var addFeatureFlagOverride: (name: String, value: String) -> Unit
     private set
 
-@Suppress("unused")
 val overrideFeatureFlagsPatch = bytecodePatch(
     description = "Forcibly set the value of A/B testing features of your choice.",
 ) {

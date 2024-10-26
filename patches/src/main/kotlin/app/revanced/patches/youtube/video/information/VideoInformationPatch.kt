@@ -32,7 +32,6 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import com.android.tools.smali.dexlib2.util.MethodUtil
-import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/VideoInformation;"
 private const val EXTENSION_PLAYER_INTERFACE = "Lapp/revanced/extension/youtube/patches/VideoInformation${'$'}PlaybackController;"
@@ -171,20 +170,21 @@ val videoInformationPatch = bytecodePatch(
          * Hook the user playback speed selection
          */
         onPlaybackSpeedItemClickMatch.mutableMethod.apply {
-            speedSelectionInsertMethod = this
-            val speedSelectionMethodInstructions = this.implementation!!.instructions
+            val speedSelectionMethodInstructions = implementation!!.instructions
             val speedSelectionValueInstructionIndex = speedSelectionMethodInstructions.indexOfFirst {
                 it.opcode == Opcode.IGET
             }
+            legacySpeedSelectionInsertMethod = this
+            legacySpeedSelectionInsertIndex = speedSelectionValueInstructionIndex + 1
             legacySpeedSelectionValueRegister =
                 getInstruction<TwoRegisterInstruction>(speedSelectionValueInstructionIndex).registerA
+
             setPlaybackSpeedClassFieldReference =
                 getInstruction<ReferenceInstruction>(speedSelectionValueInstructionIndex + 1).reference.toString()
             setPlaybackSpeedMethodReference =
                 getInstruction<ReferenceInstruction>(speedSelectionValueInstructionIndex + 2).reference.toString()
             setPlaybackSpeedContainerClassFieldReference =
                 getReference(speedSelectionMethodInstructions, -1, Opcode.IF_EQZ)
-            legacySpeedSelectionInsertIndex = speedSelectionValueInstructionIndex + 1
         }
 
         // Handle new playback speed menu.

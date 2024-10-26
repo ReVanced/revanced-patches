@@ -1,7 +1,6 @@
 package app.revanced.patches.youtube.layout.returnyoutubedislike
 
 import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -20,21 +19,6 @@ internal val conversionContextFingerprint = fingerprint {
 internal val dislikeFingerprint = fingerprint {
     returns("V")
     strings("like/dislike")
-}
-
-internal val dislikesOldLayoutTextViewFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("L")
-    opcodes(
-        Opcode.CONST, // resource identifier register
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.IGET_OBJECT,
-        Opcode.IF_NEZ, // textview register
-        Opcode.GOTO,
-    )
-    literal { oldUIDislikeId }
 }
 
 internal val likeFingerprint = fingerprint {
@@ -109,10 +93,8 @@ internal val rollingNumberTextViewFingerprint = fingerprint {
         Opcode.RETURN_VOID,
     )
     custom { _, classDef ->
-        classDef.superclass ==
-            "Landroid/support/v7/widget/AppCompatTextView;" ||
-            classDef.superclass ==
-            "Lcom/google/android/libraries/youtube/rendering/ui/spec/typography/YouTubeAppCompatTextView;"
+        classDef.superclass == "Landroid/support/v7/widget/AppCompatTextView;" || classDef.superclass ==
+                "Lcom/google/android/libraries/youtube/rendering/ui/spec/typography/YouTubeAppCompatTextView;"
     }
 }
 
