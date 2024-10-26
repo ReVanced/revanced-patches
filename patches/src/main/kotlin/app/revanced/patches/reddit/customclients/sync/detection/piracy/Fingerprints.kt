@@ -22,6 +22,6 @@ internal val piracyDetectionFingerprint = fingerprint {
             val reference = (it as ReferenceInstruction).reference
 
             reference.toString() == "Lcom/github/javiersantos/piracychecker/PiracyChecker;"
-        } ?: false
+        } == true
     }
 }

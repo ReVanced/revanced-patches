@@ -21,7 +21,6 @@ import app.revanced.util.applyMatch
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
 
 internal var drawerResourceId = -1L
     private set

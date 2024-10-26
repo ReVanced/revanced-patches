@@ -203,6 +203,6 @@ internal object PreferenceScreen : BasePreferenceScreen() {
     }
 
     override fun commit(screen: app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference) {
-        preferences += screen
+        addSettingPreference(screen)
     }
 }

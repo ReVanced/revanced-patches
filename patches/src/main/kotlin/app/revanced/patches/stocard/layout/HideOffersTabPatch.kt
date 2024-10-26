@@ -15,7 +15,7 @@ val hideOffersTabPatch = resourcePatch(
             document.getNode("menu").apply {
                 removeChild(
                     childElementsSequence().first {
-                        it.attributes.getNamedItem("android:id")?.nodeValue?.contains("offer") ?: false
+                        it.attributes.getNamedItem("android:id")?.nodeValue?.contains("offer") == true
                     },
                 )
             }
