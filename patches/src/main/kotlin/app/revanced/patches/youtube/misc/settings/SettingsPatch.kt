@@ -239,7 +239,6 @@ object PreferenceScreen : BasePreferenceScreen() {
     val SHORTS = Screen(
         key = "revanced_settings_screen_06_shorts",
         summaryKey = null,
-        sorting = Sorting.UNSORTED,
     )
 
     // Don't sort, because title sorting scatters the custom color preferences.
