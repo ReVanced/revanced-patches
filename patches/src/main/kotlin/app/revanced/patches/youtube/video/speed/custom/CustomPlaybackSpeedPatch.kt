@@ -15,6 +15,7 @@ import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.InputType
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
@@ -71,6 +72,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         addResources("youtube", "video.speed.custom.customPlaybackSpeedPatch")
 
         PreferenceScreen.VIDEO.addPreferences(
+            SwitchPreference("revanced_custom_speed_menu"),
             TextPreference("revanced_custom_playback_speeds", inputType = InputType.TEXT_MULTI_LINE),
         )
 
@@ -108,18 +110,18 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
 
         // Override the min/max speeds that can be used.
         speedLimiterMatch.mutableMethod.apply {
-            val limiterMinConstIndex = indexOfFirstLiteralInstructionOrThrow(0.25f.toRawBits().toLong())
-            var limiterMaxConstIndex = indexOfFirstLiteralInstruction(2.0f.toRawBits().toLong())
+            val limitMinIndex = indexOfFirstLiteralInstructionOrThrow(0.25f.toRawBits().toLong())
+            var limitMaxIndex = indexOfFirstLiteralInstruction(2.0f.toRawBits().toLong())
             // Newer targets have 4x max speed.
-            if (limiterMaxConstIndex < 0) {
-                limiterMaxConstIndex = indexOfFirstLiteralInstructionOrThrow(4.0f.toRawBits().toLong())
+            if (limitMaxIndex < 0) {
+                limitMaxIndex = indexOfFirstLiteralInstructionOrThrow(4.0f.toRawBits().toLong())
             }
 
-            val limiterMinConstDestination = getInstruction<OneRegisterInstruction>(limiterMinConstIndex).registerA
-            val limiterMaxConstDestination = getInstruction<OneRegisterInstruction>(limiterMaxConstIndex).registerA
+            val limitMinRegister = getInstruction<OneRegisterInstruction>(limitMinIndex).registerA
+            val limitMaxRegister = getInstruction<OneRegisterInstruction>(limitMaxIndex).registerA
 
-            replaceInstruction(limiterMinConstIndex, "const/high16 v$limiterMinConstDestination, 0.0f")
-            replaceInstruction(limiterMaxConstIndex, "const/high16 v$limiterMaxConstDestination, 10.0f")
+            replaceInstruction(limitMinIndex, "const/high16 v$limitMinRegister, 0.0f")
+            replaceInstruction(limitMaxIndex, "const/high16 v$limitMaxRegister, 8.0f")
         }
 
         // Add a static INSTANCE field to the class.
