@@ -155,7 +155,6 @@ public final class LithoFilterPatch {
             // Potentially the buffer may have been null or never set up until now.
             // Use an empty buffer so the litho id/path filters still work correctly.
             if (protobufBuffer == null) {
-                Logger.printDebug(() -> "Proto buffer is null, using an empty buffer array");
                 bufferArray = EMPTY_BYTE_ARRAY;
             } else if (!protobufBuffer.hasArray()) {
                 Logger.printDebug(() -> "Proto buffer does not have an array, using an empty buffer array");
