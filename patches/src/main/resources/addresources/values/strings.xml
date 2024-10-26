@@ -710,7 +710,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_player_overlay_opacity_summary">Opacity value between 0-100, where 0 is transparent</string>
             <string name="revanced_player_overlay_opacity_invalid_toast">Player overlay opacity must be between 0-100</string>
         </patch>
-        <patch id="layout.returnyoutubedislike.returnYouTubeDislikeResourcePatch">
+        <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
             <string name="revanced_ryd_settings_title">Return YouTube Dislike</string>
             <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
             <string name="revanced_ryd_failure_connection_timeout">Dislikes temporarily not available (API timed out)</string>
@@ -761,6 +761,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_wide_searchbar_title">Enable wide search bar</string>
             <string name="revanced_wide_searchbar_summary_on">Wide search bar is enabled</string>
             <string name="revanced_wide_searchbar_summary_off">Wide search bar is disabled</string>
+        </patch>
+        <patch id="layout.seekbar.seekbarThumbnailsPatch">
+            <string name="revanced_seekbar_thumbnails_high_quality_title">Enable high quality thumbnails</string>
+            <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Seekbar thumbnails are high quality</string>
+            <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Seekbar thumbnails are medium quality</string>
+            <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Fullscreen seekbar thumbnails are high quality</string>
+            <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Fullscreen seekbar thumbnails are medium quality</string>
+            <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">This will restore thumbnails to livestreams that do not have seekbar thumbnails.\n\nInternet data usage may be higher, and seekbar thumbnails will have a slight delay before showing.\n\nThis feature works best with a very fast internet connection.</string>
         </patch>
         <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
             <string name="revanced_restore_old_seekbar_thumbnails_title">Restore old seekbar thumbnails</string>

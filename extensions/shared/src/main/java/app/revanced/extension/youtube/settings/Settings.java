@@ -9,10 +9,6 @@ import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerT
 import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerType.*;
 import static app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour.*;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.settings.*;
 import app.revanced.extension.shared.settings.preference.SharedPrefCategory;
@@ -38,9 +34,6 @@ public class Settings extends BaseSettings {
     public static final FloatSetting PLAYBACK_SPEED_DEFAULT = new FloatSetting("revanced_playback_speed_default", 1.0f);
     public static final StringSetting CUSTOM_PLAYBACK_SPEEDS = new StringSetting("revanced_custom_playback_speeds",
             "0.25\n0.5\n0.75\n0.9\n0.95\n1.0\n1.05\n1.1\n1.25\n1.5\n1.75\n2.0\n3.0\n4.0\n5.0", true);
-
-    @Deprecated // Patch is obsolete and no longer works with 19.09+
-    public static final BooleanSetting HDR_AUTO_BRIGHTNESS = new BooleanSetting("revanced_hdr_auto_brightness", TRUE);
 
     // Ads
     public static final BooleanSetting HIDE_FULLSCREEN_ADS = new BooleanSetting("revanced_hide_fullscreen_ads", TRUE);
@@ -95,7 +88,6 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_COMMUNITY_POSTS = new BooleanSetting("revanced_hide_community_posts", FALSE);
     public static final BooleanSetting HIDE_COMPACT_BANNER = new BooleanSetting("revanced_hide_compact_banner", TRUE);
     public static final BooleanSetting HIDE_CROWDFUNDING_BOX = new BooleanSetting("revanced_hide_crowdfunding_box", FALSE, true);
-    @Deprecated public static final BooleanSetting HIDE_EMAIL_ADDRESS = new BooleanSetting("revanced_hide_email_address", FALSE);
     public static final BooleanSetting HIDE_EMERGENCY_BOX = new BooleanSetting("revanced_hide_emergency_box", TRUE);
     public static final BooleanSetting HIDE_ENDSCREEN_CARDS = new BooleanSetting("revanced_hide_endscreen_cards", FALSE);
     public static final BooleanSetting HIDE_FEED_SURVEY = new BooleanSetting("revanced_hide_feed_survey", TRUE);
@@ -110,7 +102,6 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_IMAGE_SHELF = new BooleanSetting("revanced_hide_image_shelf", TRUE);
     public static final BooleanSetting HIDE_INFO_CARDS = new BooleanSetting("revanced_hide_info_cards", FALSE);
     public static final BooleanSetting HIDE_JOIN_MEMBERSHIP_BUTTON = new BooleanSetting("revanced_hide_join_membership_button", TRUE);
-    @Deprecated public static final BooleanSetting HIDE_LOAD_MORE_BUTTON = new BooleanSetting("revanced_hide_load_more_button", TRUE);
     public static final BooleanSetting HIDE_SHOW_MORE_BUTTON = new BooleanSetting("revanced_hide_show_more_button", TRUE, true);
     public static final BooleanSetting HIDE_MEDICAL_PANELS = new BooleanSetting("revanced_hide_medical_panels", TRUE);
     public static final BooleanSetting HIDE_MIX_PLAYLISTS = new BooleanSetting("revanced_hide_mix_playlists", TRUE);
@@ -261,6 +252,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting SEEKBAR_TAPPING = new BooleanSetting("revanced_seekbar_tapping", TRUE);
     public static final BooleanSetting SLIDE_TO_SEEK = new BooleanSetting("revanced_slide_to_seek", FALSE, true);
     public static final BooleanSetting RESTORE_OLD_SEEKBAR_THUMBNAILS = new BooleanSetting("revanced_restore_old_seekbar_thumbnails", TRUE);
+    public static final BooleanSetting SEEKBAR_THUMBNAILS_HIGH_QUALITY = new BooleanSetting("revanced_seekbar_thumbnails_high_quality", FALSE, true, "revanced_seekbar_thumbnails_high_quality_dialog_message");
     public static final BooleanSetting HIDE_SEEKBAR = new BooleanSetting("revanced_hide_seekbar", FALSE, true);
     public static final BooleanSetting HIDE_SEEKBAR_THUMBNAIL = new BooleanSetting("revanced_hide_seekbar_thumbnail", FALSE);
     public static final BooleanSetting SEEKBAR_CUSTOM_COLOR = new BooleanSetting("revanced_seekbar_custom_color", FALSE, true);
@@ -279,8 +271,6 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting SPOOF_VIDEO_STREAMS_IOS_FORCE_AVC = new BooleanSetting("revanced_spoof_video_streams_ios_force_avc", FALSE, true,
             "revanced_spoof_video_streams_ios_force_avc_user_dialog_message", new SpoofVideoStreamsPatch.ForceiOSAVCAvailability());
     public static final EnumSetting<ClientType> SPOOF_VIDEO_STREAMS_CLIENT_TYPE = new EnumSetting<>("revanced_spoof_video_streams_client", ClientType.ANDROID_VR, true, parent(SPOOF_VIDEO_STREAMS));
-    @Deprecated
-    public static final StringSetting DEPRECATED_ANNOUNCEMENT_LAST_HASH = new StringSetting("revanced_announcement_last_hash", "");
     public static final IntegerSetting ANNOUNCEMENT_LAST_ID = new IntegerSetting("revanced_announcement_last_id", -1);
     public static final BooleanSetting CHECK_WATCH_HISTORY_DOMAIN_NAME = new BooleanSetting("revanced_check_watch_history_domain_name", TRUE, false, false);
     public static final BooleanSetting REMOVE_TRACKING_QUERY_PARAMETER = new BooleanSetting("revanced_remove_tracking_query_parameter", TRUE);
@@ -292,14 +282,6 @@ public class Settings extends BaseSettings {
      * The buffer contains select user data, including the client ip address and information that could identify the end user.
      */
     public static final BooleanSetting DEBUG_PROTOBUFFER = new BooleanSetting("revanced_debug_protobuffer", FALSE, parent(BaseSettings.DEBUG));
-
-    // Old deprecated signature spoofing
-    @Deprecated public static final BooleanSetting SPOOF_SIGNATURE = new BooleanSetting("revanced_spoof_signature_verification_enabled", TRUE, true, false,
-            "revanced_spoof_signature_verification_enabled_user_dialog_message", null);
-    @Deprecated public static final BooleanSetting SPOOF_SIGNATURE_IN_FEED = new BooleanSetting("revanced_spoof_signature_in_feed_enabled", FALSE, false, false, null,
-            parent(SPOOF_SIGNATURE));
-    @Deprecated public static final BooleanSetting SPOOF_STORYBOARD_RENDERER = new BooleanSetting("revanced_spoof_storyboard", TRUE, true, false, null,
-            parent(SPOOF_SIGNATURE));
 
     // Swipe controls
     public static final BooleanSetting SWIPE_BRIGHTNESS = new BooleanSetting("revanced_swipe_brightness", TRUE);
@@ -334,7 +316,6 @@ public class Settings extends BaseSettings {
      * Do not use directly, instead use {@link SponsorBlockSettings}
      */
     public static final StringSetting SB_PRIVATE_USER_ID = new StringSetting("sb_private_user_id_Do_Not_Share", "");
-    @Deprecated
     public static final StringSetting DEPRECATED_SB_UUID_OLD_MIGRATION_SETTING = new StringSetting("uuid", ""); // Delete sometime in 2024
     public static final IntegerSetting SB_CREATE_NEW_SEGMENT_STEP = new IntegerSetting("sb_create_new_segment_step", 150, parent(SB_ENABLED));
     public static final BooleanSetting SB_VOTING_BUTTON = new BooleanSetting("sb_voting_button", FALSE, parent(SB_ENABLED));
@@ -378,71 +359,21 @@ public class Settings extends BaseSettings {
     static {
         // region Migration
 
-        // Migrate settings from old Preference categories into replacement "revanced_prefs" category.
-        // This region must run before all other migration code.
-
-        // The YT and RYD migration portion of this can be removed anytime,
-        // but the SB migration should remain until late 2024 or early 2025
-        // because it migrates the SB private user id which cannot be recovered if lost.
-
-        // Categories were previously saved without a 'sb_' key prefix, so they need an additional adjustment.
-        Set<Setting<?>> sbCategories = new HashSet<>(Arrays.asList(
-                SB_CATEGORY_SPONSOR,
-                SB_CATEGORY_SPONSOR_COLOR,
-                SB_CATEGORY_SELF_PROMO,
-                SB_CATEGORY_SELF_PROMO_COLOR,
-                SB_CATEGORY_INTERACTION,
-                SB_CATEGORY_INTERACTION_COLOR,
-                SB_CATEGORY_HIGHLIGHT,
-                SB_CATEGORY_HIGHLIGHT_COLOR,
-                SB_CATEGORY_INTRO,
-                SB_CATEGORY_INTRO_COLOR,
-                SB_CATEGORY_OUTRO,
-                SB_CATEGORY_OUTRO_COLOR,
-                SB_CATEGORY_PREVIEW,
-                SB_CATEGORY_PREVIEW_COLOR,
-                SB_CATEGORY_FILLER,
-                SB_CATEGORY_FILLER_COLOR,
-                SB_CATEGORY_MUSIC_OFFTOPIC,
-                SB_CATEGORY_MUSIC_OFFTOPIC_COLOR,
-                SB_CATEGORY_UNSUBMITTED,
-                SB_CATEGORY_UNSUBMITTED_COLOR));
-
-        SharedPrefCategory ytPrefs = new SharedPrefCategory("youtube");
-        SharedPrefCategory rydPrefs = new SharedPrefCategory("ryd");
-        SharedPrefCategory sbPrefs = new SharedPrefCategory("sponsor-block");
-        for (Setting<?> setting : Setting.allLoadedSettings()) {
-            String key = setting.key;
-            if (setting.key.startsWith("sb_")) {
-                if (sbCategories.contains(setting)) {
-                    key = key.substring(3); // Remove the "sb_" prefix, as old categories are saved without it.
-                }
-                migrateFromOldPreferences(sbPrefs, setting, key);
-            } else if (setting.key.startsWith("ryd_")) {
-                migrateFromOldPreferences(rydPrefs, setting, key);
-            } else {
-                migrateFromOldPreferences(ytPrefs, setting, key);
-            }
-        }
-
-
-        // Do _not_ delete this SB private user id migration property until sometime in 2024.
+        // Do _not_ delete this SB private user id migration property until sometime in early 2025.
         // This is the only setting that cannot be reconfigured if lost,
         // and more time should be given for users who rarely upgrade.
-        migrateOldSettingToNew(DEPRECATED_SB_UUID_OLD_MIGRATION_SETTING, SB_PRIVATE_USER_ID);
+        SharedPrefCategory sbPrefs = new SharedPrefCategory("sponsor-block");
+        // Remove the "sb_" prefix, as old settings are saved without it.
+        String key = DEPRECATED_SB_UUID_OLD_MIGRATION_SETTING.key.substring(3);
+        migrateFromOldPreferences(sbPrefs, DEPRECATED_SB_UUID_OLD_MIGRATION_SETTING, key);
 
+        migrateOldSettingToNew(DEPRECATED_SB_UUID_OLD_MIGRATION_SETTING, SB_PRIVATE_USER_ID);
 
         // Old spoof versions that no longer work reliably.
         if (SpoofAppVersionPatch.isSpoofingToLessThan("17.33.00")) {
             Logger.printInfo(() -> "Resetting spoof app version target");
             Settings.SPOOF_APP_VERSION_TARGET.resetToDefault();
         }
-
-
-        // Remove any previously saved announcement consumer (a random generated string).
-        Setting.preferences.removeKey("revanced_announcement_consumer");
-
-        migrateOldSettingToNew(HIDE_LOAD_MORE_BUTTON, HIDE_SHOW_MORE_BUTTON);
 
         migrateOldSettingToNew(HIDE_PLAYER_BUTTONS, HIDE_PLAYER_PREVIOUS_NEXT_BUTTONS);
 

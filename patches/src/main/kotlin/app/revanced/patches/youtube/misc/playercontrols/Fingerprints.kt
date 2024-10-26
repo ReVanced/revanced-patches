@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.misc.playercontrols
 
 import app.revanced.patcher.fingerprint
-import app.revanced.util.containsWideLiteralInstructionValue
+import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 
@@ -33,8 +33,8 @@ internal val overlayViewInflateFingerprint = fingerprint {
     returns("V")
     parameters("Landroid/view/View;")
     custom { methodDef, _ ->
-        methodDef.containsWideLiteralInstructionValue(fullscreenButton) &&
-            methodDef.containsWideLiteralInstructionValue(heatseekerViewstub)
+        methodDef.containsLiteralInstruction(fullscreenButton) &&
+            methodDef.containsLiteralInstruction(heatseekerViewstub)
     }
 }
 

@@ -83,7 +83,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
 
             replaceInstruction(sizeCallIndex + 1, "const/4 v$sizeCallResultRegister, 0x0")
 
-            val arrayLengthConstIndex = indexOfFirstWideLiteralInstructionValueOrThrow(7)
+            val arrayLengthConstIndex = indexOfFirstLiteralInstructionOrThrow(7)
             val arrayLengthConstDestination = getInstruction<OneRegisterInstruction>(arrayLengthConstIndex).registerA
             val playbackSpeedsArrayType = "$EXTENSION_CLASS_DESCRIPTOR->customPlaybackSpeeds:[F"
 
@@ -110,11 +110,11 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
 
         // Override the min/max speeds that can be used.
         speedLimiterMatch.mutableMethod.apply {
-            val limitMinIndex = indexOfFirstWideLiteralInstructionValueOrThrow(0.25f.toRawBits().toLong())
-            var limitMaxIndex = indexOfFirstWideLiteralInstructionValue(2.0f.toRawBits().toLong())
+            val limitMinIndex = indexOfFirstLiteralInstructionOrThrow(0.25f.toRawBits().toLong())
+            var limitMaxIndex = indexOfFirstLiteralInstruction(2.0f.toRawBits().toLong())
             // Newer targets have 4x max speed.
             if (limitMaxIndex < 0) {
-                limitMaxIndex = indexOfFirstWideLiteralInstructionValueOrThrow(4.0f.toRawBits().toLong())
+                limitMaxIndex = indexOfFirstLiteralInstructionOrThrow(4.0f.toRawBits().toLong())
             }
 
             val limitMinRegister = getInstruction<OneRegisterInstruction>(limitMinIndex).registerA

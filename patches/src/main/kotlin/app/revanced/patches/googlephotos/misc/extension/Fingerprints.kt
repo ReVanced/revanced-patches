@@ -20,7 +20,7 @@ internal val homeActivityInitHook = extensionHook(
     contextRegisterResolver = { method ->
         val moveResultInstruction = method.implementation!!.instructions.elementAt(getApplicationContextIndex + 1)
             as OneRegisterInstruction
-        moveResultInstruction.registerA
+        "v${moveResultInstruction.registerA}"
     },
 ) {
     opcodes(

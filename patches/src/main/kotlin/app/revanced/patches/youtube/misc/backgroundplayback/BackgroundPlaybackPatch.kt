@@ -14,7 +14,7 @@ import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.addInstructionsAtControlFlowLabel
-import app.revanced.util.findOpcodeIndicesReversed
+import app.revanced.util.findInstructionIndicesReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -34,7 +34,6 @@ private val backgroundPlaybackResourcePatch = resourcePatch {
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/BackgroundPlaybackPatch;"
 
-@Suppress("unused")
 val backgroundPlaybackPatch = bytecodePatch(
     name = "Remove background playback restrictions",
     description = "Removes restrictions on background playback, including playing kids videos in the background.",
@@ -63,7 +62,7 @@ val backgroundPlaybackPatch = bytecodePatch(
 
     execute { context ->
         backgroundPlaybackManagerMatch.mutableMethod.apply {
-            findOpcodeIndicesReversed(Opcode.RETURN).forEach { index ->
+            findInstructionIndicesReversedOrThrow(Opcode.RETURN).forEach { index ->
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
 
                 addInstructionsAtControlFlowLabel(

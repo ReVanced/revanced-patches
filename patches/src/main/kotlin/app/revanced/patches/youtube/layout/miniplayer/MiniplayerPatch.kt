@@ -250,7 +250,7 @@ val miniplayerPatch = bytecodePatch(
             )
         }
 
-        fun Method.findReturnIndicesReversed() = findOpcodeIndicesReversed(Opcode.RETURN)
+        fun Method.findReturnIndicesReversed() = findInstructionIndicesReversedOrThrow(Opcode.RETURN)
 
         /**
          * Adds an override to force legacy tablet miniplayer to be used or not used.
@@ -271,7 +271,7 @@ val miniplayerPatch = bytecodePatch(
             extensionMethod: String,
         ) {
             mutableMethod.apply {
-                val literalIndex = indexOfFirstWideLiteralInstructionValueOrThrow(literal)
+                val literalIndex = indexOfFirstLiteralInstructionOrThrow(literal)
                 val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
 
                 insertBooleanOverride(targetIndex + 1, extensionMethod)
@@ -283,7 +283,7 @@ val miniplayerPatch = bytecodePatch(
             extensionMethod: String,
         ) {
             mutableMethod.apply {
-                val literalIndex = indexOfFirstWideLiteralInstructionValueOrThrow(literal)
+                val literalIndex = indexOfFirstLiteralInstructionOrThrow(literal)
                 val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.DOUBLE_TO_FLOAT)
                 val register = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
@@ -318,7 +318,7 @@ val miniplayerPatch = bytecodePatch(
             extensionMethodName: String,
         ) {
             val imageViewIndex = indexOfFirstInstructionOrThrow(
-                indexOfFirstWideLiteralInstructionValueOrThrow(literalValue),
+                indexOfFirstLiteralInstructionOrThrow(literalValue),
             ) {
                 opcode == Opcode.CHECK_CAST && getReference<TypeReference>()?.type == hookedClassType
             }
@@ -401,7 +401,7 @@ val miniplayerPatch = bytecodePatch(
 
         if (is_19_26_or_greater) {
             miniplayerModernConstructorMatch.mutableMethod.apply {
-                val literalIndex = indexOfFirstWideLiteralInstructionValueOrThrow(
+                val literalIndex = indexOfFirstLiteralInstructionOrThrow(
                     INITIAL_SIZE_FEATURE_KEY_LITERAL,
                 )
                 val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.LONG_TO_INT)
@@ -465,7 +465,7 @@ val miniplayerPatch = bytecodePatch(
                     ytOutlinePictureInPictureWhite24 to ytOutlineXWhite24,
                     ytOutlineXWhite24 to ytOutlinePictureInPictureWhite24,
                 ).forEach { (originalResource, replacementResource) ->
-                    val imageResourceIndex = indexOfFirstWideLiteralInstructionValueOrThrow(originalResource)
+                    val imageResourceIndex = indexOfFirstLiteralInstructionOrThrow(originalResource)
                     val register = getInstruction<OneRegisterInstruction>(imageResourceIndex).registerA
 
                     replaceInstruction(imageResourceIndex, "const v$register, $replacementResource")

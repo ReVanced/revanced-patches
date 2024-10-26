@@ -14,7 +14,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 internal const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/HideGetPremiumPatch;"
 
-@Suppress("unused")
 val hideGetPremiumPatch = bytecodePatch(
     description = "Hides YouTube Premium signup promotions under the video player.",
 ) {

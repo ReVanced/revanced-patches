@@ -7,7 +7,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.util.exception
+import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.iface.Method
 import java.net.URLDecoder
 import java.util.jar.JarFile
@@ -77,24 +77,24 @@ fun sharedExtensionPatch(
 class ExtensionHook internal constructor(
     val fingerprint: Fingerprint,
     private val insertIndexResolver: ((Method) -> Int),
-    private val contextRegisterResolver: (Method) -> Int,
+    private val contextRegisterResolver: (Method) -> String,
 ) {
     operator fun invoke(extensionClassDescriptor: String) {
-        fingerprint.match?.mutableMethod?.let { method ->
+        fingerprint.matchOrThrow.mutableMethod.let { method ->
             val insertIndex = insertIndexResolver(method)
             val contextRegister = contextRegisterResolver(method)
 
             method.addInstruction(
                 insertIndex,
-                "invoke-static/range { v$contextRegister .. v$contextRegister }, " +
+                "invoke-static/range { $contextRegister .. $contextRegister }, " +
                     "$extensionClassDescriptor->setContext(Landroid/content/Context;)V",
             )
-        } ?: throw fingerprint.exception
+        }
     }
 }
 
 fun extensionHook(
     insertIndexResolver: ((Method) -> Int) = { 0 },
-    contextRegisterResolver: (Method) -> Int = { it.implementation!!.registerCount - 1 },
+    contextRegisterResolver: (Method) -> String = { "p0" },
     fingerprintBuilderBlock: FingerprintBuilder.() -> Unit,
 ) = ExtensionHook(fingerprint(block = fingerprintBuilderBlock), insertIndexResolver, contextRegisterResolver)
