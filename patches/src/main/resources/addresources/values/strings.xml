@@ -86,6 +86,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_settings_screen_11_misc_title">Misc</string>
             <string name="revanced_settings_screen_12_video_title">Video</string>
         </patch>
+        <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+            <string name="revanced_shorts_disable_background_playback_title">Disable Shorts background play</string>
+            <string name="revanced_shorts_disable_background_playback_summary_on">Shorts background play is disabled</string>
+            <string name="revanced_shorts_disable_background_playback_summary_off">Shorts background play is enabled</string>
+        </patch>
         <patch id="misc.debugging.enableDebuggingPatch">
             <string name="revanced_debug_screen_title">Debugging</string>
             <string name="revanced_debug_screen_summary">Enable or disable debugging options</string>
