@@ -72,6 +72,10 @@ public class PlayerFlyoutMenuItemsFilter extends Filter {
                         "yt_outline_person_radar"
                 ),
                 new ByteArrayFilterGroup(
+                        Settings.HIDE_PLAYER_FLYOUT_MENU_SLEEP_TIMER,
+                        "yt_outline_moon_z_"
+                ),
+                new ByteArrayFilterGroup(
                         Settings.HIDE_WATCH_IN_VR_MENU,
                         "yt_outline_vr"
                 )
