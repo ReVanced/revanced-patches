@@ -17,11 +17,10 @@ import app.revanced.patches.youtube.misc.playservice.is_19_23_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstWideLiteralInstructionValueOrThrow
+import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
-import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
 import org.w3c.dom.Element
 
 internal var reelTimeBarPlayedColorId = -1L
@@ -89,7 +88,7 @@ val seekbarColorPatch = bytecodePatch(
 
     execute { context ->
         fun MutableMethod.addColorChangeInstructions(resourceId: Long) {
-            val registerIndex = indexOfFirstWideLiteralInstructionValueOrThrow(resourceId) + 2
+            val registerIndex = indexOfFirstLiteralInstructionOrThrow(resourceId) + 2
             val colorRegister = getInstruction<OneRegisterInstruction>(registerIndex).registerA
             addInstructions(
                 registerIndex + 1,
@@ -127,7 +126,7 @@ val seekbarColorPatch = bytecodePatch(
 
         if (is_19_23_or_greater) {
             playerSeekbarGradientConfigMatch.mutableMethod.apply {
-                val literalIndex = indexOfFirstWideLiteralInstructionValueOrThrow(PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG)
+                val literalIndex = indexOfFirstLiteralInstructionOrThrow(PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG)
                 val resultIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
                 val register = getInstruction<OneRegisterInstruction>(resultIndex).registerA
 

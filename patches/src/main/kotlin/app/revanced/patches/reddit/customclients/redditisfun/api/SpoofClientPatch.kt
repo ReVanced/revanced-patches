@@ -10,7 +10,6 @@ import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
-@Suppress("unused")
 val spoofClientPatch = spoofClientPatch(redirectUri = "redditisfun://auth") { clientIdOption ->
     compatibleWith(
         "com.andrewshu.android.reddit",

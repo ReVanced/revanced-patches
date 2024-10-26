@@ -5,7 +5,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.matchOrThrow
 
-@Suppress("unused")
 internal val fixBackToExitGesturePatch = bytecodePatch(
     description = "Fixes the swipe back to exit gesture.",
 ) {

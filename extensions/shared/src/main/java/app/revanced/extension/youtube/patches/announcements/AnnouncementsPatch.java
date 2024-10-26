@@ -1,29 +1,29 @@
 package app.revanced.extension.youtube.patches.announcements;
 
+import static android.text.Html.FROM_HTML_MODE_COMPACT;
+import static app.revanced.extension.shared.StringRef.str;
+import static app.revanced.extension.youtube.patches.announcements.requests.AnnouncementsRoutes.GET_LATEST_ANNOUNCEMENT;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.os.Build;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.widget.TextView;
+
 import androidx.annotation.RequiresApi;
+
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.util.Locale;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.patches.announcements.requests.AnnouncementsRoutes;
 import app.revanced.extension.youtube.requests.Requester;
 import app.revanced.extension.youtube.settings.Settings;
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.util.Locale;
-
-import static android.text.Html.FROM_HTML_MODE_COMPACT;
-import static app.revanced.extension.shared.StringRef.str;
-import static app.revanced.extension.youtube.patches.announcements.requests.AnnouncementsRoutes.GET_LATEST_ANNOUNCEMENT;
 
 @SuppressWarnings("unused")
 public final class AnnouncementsPatch {
@@ -56,14 +56,11 @@ public final class AnnouncementsPatch {
                         return;
                     }
                 } catch (IOException ex) {
-                    final var message = "Failed connecting to announcements provider";
-
-                    Logger.printException(() -> message, ex);
+                    Logger.printException(() -> "Could not connect to announcements provider", ex);
                     return;
                 }
 
                 var jsonString = Requester.parseStringAndDisconnect(connection);
-
 
                 // Parse the announcement. Fall-back to raw string if it fails.
                 int id = Settings.ANNOUNCEMENT_LAST_ID.defaultValue;
@@ -83,22 +80,6 @@ public final class AnnouncementsPatch {
 
                     title = "Announcement";
                     message = jsonString;
-                }
-
-                // TODO: Remove this migration code after a few months.
-                if (!Settings.DEPRECATED_ANNOUNCEMENT_LAST_HASH.isSetToDefault()){
-                    final byte[] hashBytes = MessageDigest
-                            .getInstance("SHA-256")
-                            .digest(jsonString.getBytes(StandardCharsets.UTF_8));
-
-                    final var hash = java.util.Base64.getEncoder().encodeToString(hashBytes);
-
-                    // Migrate to saving the id instead of the hash.
-                    if (hash.equals(Settings.DEPRECATED_ANNOUNCEMENT_LAST_HASH.get())) {
-                        Settings.ANNOUNCEMENT_LAST_ID.save(id);
-                    }
-
-                    Settings.DEPRECATED_ANNOUNCEMENT_LAST_HASH.resetToDefault();
                 }
 
                 // Do not show the announcement, if the last announcement id is the same as the current one.

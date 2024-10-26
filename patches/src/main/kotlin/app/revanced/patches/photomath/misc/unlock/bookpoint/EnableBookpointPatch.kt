@@ -3,7 +3,6 @@ package app.revanced.patches.photomath.misc.unlock.bookpoint
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
 import app.revanced.patcher.patch.bytecodePatch
 
-@Suppress("unused")
 val enableBookpointPatch = bytecodePatch(
     description = "Enables textbook access",
 ) {

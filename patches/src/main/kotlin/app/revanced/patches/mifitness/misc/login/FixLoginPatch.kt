@@ -3,7 +3,6 @@ package app.revanced.patches.mifitness.misc.login
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
 
-@Suppress("unused")
 val fixLoginPatch = bytecodePatch(
     name = "Fix login",
     description = "Fixes login for uncertified Mi Fitness app",

@@ -4,7 +4,6 @@ import app.revanced.patches.all.misc.build.BuildInfo
 import app.revanced.patches.all.misc.build.baseSpoofBuildInfoPatch
 
 // Spoof build info to Google Pixel XL.
-@Suppress("unused")
 val spoofBuildInfoPatch = baseSpoofBuildInfoPatch {
     BuildInfo(
         brand = "google",

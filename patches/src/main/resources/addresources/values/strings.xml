@@ -715,7 +715,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_player_overlay_opacity_summary">Opacity value between 0-100, where 0 is transparent</string>
             <string name="revanced_player_overlay_opacity_invalid_toast">Player overlay opacity must be between 0-100</string>
         </patch>
-        <patch id="layout.returnyoutubedislike.returnYouTubeDislikeResourcePatch">
+        <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
             <string name="revanced_ryd_settings_title">Return YouTube Dislike</string>
             <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
             <string name="revanced_ryd_failure_connection_timeout">Dislikes temporarily not available (API timed out)</string>
