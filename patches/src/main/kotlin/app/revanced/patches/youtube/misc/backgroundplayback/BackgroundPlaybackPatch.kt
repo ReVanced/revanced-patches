@@ -6,25 +6,29 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
+import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.findOpcodeIndicesReversed
+import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal var prefBackgroundAndOfflineCategoryId = -1L
     private set
 
 private val backgroundPlaybackResourcePatch = resourcePatch {
-    dependsOn(resourceMappingPatch)
+    dependsOn(resourceMappingPatch, addResourcesPatch)
 
     execute {
         prefBackgroundAndOfflineCategoryId = resourceMappings["string", "pref_background_and_offline_category"]
@@ -59,40 +63,61 @@ val backgroundPlaybackPatch = bytecodePatch(
 
     val backgroundPlaybackManagerMatch by backgroundPlaybackManagerFingerprint()
     val backgroundPlaybackSettingsMatch by backgroundPlaybackSettingsFingerprint()
+
+    val shortsBackgroundPlaybackFeatureFlagMatch by shortsBackgroundPlaybackFeatureFlagFingerprint()
+    val backgroundPlaybackManagerShortsMatch by backgroundPlaybackManagerShortsFingerprint()
+
     val kidsBackgroundPlaybackPolicyControllerMatch by kidsBackgroundPlaybackPolicyControllerFingerprint()
 
     execute { context ->
-        backgroundPlaybackManagerMatch.mutableMethod.apply {
-            findOpcodeIndicesReversed(Opcode.RETURN).forEach { index ->
-                val register = getInstruction<OneRegisterInstruction>(index).registerA
+        addResources("youtube", "misc.backgroundplayback.backgroundPlaybackPatch")
 
-                addInstructionsAtControlFlowLabel(
-                    index,
-                    """
-                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->allowBackgroundPlayback(Z)Z
-                        move-result v$register 
-                    """,
-                )
+        PreferenceScreen.SHORTS.addPreferences(
+            SwitchPreference("revanced_shorts_disable_background_playback")
+        )
+
+        arrayOf(
+            backgroundPlaybackManagerMatch to "isBackgroundPlaybackAllowed",
+            backgroundPlaybackManagerShortsMatch to "isBackgroundShortsPlaybackAllowed"
+        ).forEach { (match, integrationsMethod) ->
+            match.mutableMethod.apply {
+                findOpcodeIndicesReversed(Opcode.RETURN).forEach { index ->
+                    val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                    addInstructionsAtControlFlowLabel(
+                        index,
+                        """
+                            invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->$integrationsMethod(Z)Z
+                            move-result v$register 
+                        """
+                    )
+                }
             }
         }
 
+        val overrideBackgroundPlaybackSettingsInstructions = """
+            const/4 v0, 0x1
+            return v0
+        """
+
         // Enable background playback option in YouTube settings
         backgroundPlaybackSettingsMatch.mutableMethod.apply {
-            val booleanCalls = instructions.withIndex()
-                .filter { ((it.value as? ReferenceInstruction)?.reference as? MethodReference)?.returnType == "Z" }
+            val booleanCalls = instructions.withIndex().filter {
+                it.value.getReference<MethodReference>()?.returnType == "Z"
+            }
 
             val settingsBooleanIndex = booleanCalls.elementAt(1).index
             val settingsBooleanMethod = context.navigate(this).at(settingsBooleanIndex).mutable()
 
-            settingsBooleanMethod.addInstructions(
-                0,
-                """
-                    invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->overrideBackgroundPlaybackAvailable()Z
-                    move-result v0
-                    return v0
-                """,
-            )
+            settingsBooleanMethod.addInstructions(0, overrideBackgroundPlaybackSettingsInstructions)
         }
+
+        // Force allowing background play for Shorts.
+        shortsBackgroundPlaybackFeatureFlagMatch.mutableMethod.addInstructions(
+            0,
+            overrideBackgroundPlaybackSettingsInstructions
+        )
+
 
         // Force allowing background play for videos labeled for kids.
         kidsBackgroundPlaybackPolicyControllerMatch.mutableMethod.addInstruction(
