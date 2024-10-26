@@ -1,3 +1,10 @@
+# [4.18.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.18.0-dev.5...v4.18.0-dev.6) (2024-10-24)
+
+
+### Bug Fixes
+
+* **YouTube - Playback speed:** Remember playback speed with new speed menu ([#3810](https://github.com/ReVanced/revanced-patches/issues/3810)) ([c3a5e14](https://github.com/ReVanced/revanced-patches/commit/c3a5e14a0a24973a0f9956845c9e0f99c1301d42))
+
 # [4.18.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v4.18.0-dev.4...v4.18.0-dev.5) (2024-10-23)
 
 
