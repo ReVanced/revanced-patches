@@ -32,9 +32,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
 -->
 <resources>
   <app id="shared">
-  <patch id="misc.checks.BaseCheckEnvironmentPatch">
+  <patch id="misc.checks.checkEnvironmentPatch">
   </patch>
-  <patch id="misc.settings.BaseSettingsResourcePatch">
+  <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_confirm_user_dialog_title">Вы хочаце працягнуць?</string>
   <string name="revanced_settings_reset">Скінуць</string>
   <string name="revanced_settings_restart_title">Абнавіце і перазагрузіце</string>
@@ -52,7 +52,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_body">Гэтая версія з\"яўляецца папярэдняй версіяй, і вы можаце сутыкнуцца з непрадбачанымі праблемамі</string>
   <string name="revanced_settings_about_links_header">Афіцыйныя спасылкі</string>
   </patch>
-  <patch id="misc.gms.BaseGmsCoreSupportResourcePatch">
+  <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore не ўсталяваны. Усталюйце яго.</string>
   <string name="gms_core_dialog_title">Патрабуецца дзеянне</string>
@@ -63,7 +63,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   </app>
   <app id="youtube">
-  <patch id="misc.settings.SettingsPatch">
+  <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">Пра праграму</string>
   <string name="revanced_settings_screen_01_ads_title">Аб\"явы</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Альтэрнатыўныя мініяцюры</string>
@@ -75,7 +75,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_11_misc_title">Рознае</string>
   <string name="revanced_settings_screen_12_video_title">Відэа</string>
   </patch>
-  <patch id="misc.debugging.DebuggingPatch">
+  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Адладка</string>
   <string name="revanced_debug_screen_summary">Уключыць або выключыць параметры адладкі</string>
   <string name="revanced_debug_title">Запіс адладкі</string>
@@ -92,7 +94,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_debug_toast_on_error_summary_off">Тост не паказваецца, калі ўзнікае памылка</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">Адключэнне апавяшчэнняў пра памылкі схавае ўсе апавяшчэнні аб памылках ReVanced.\n\nВы не будзеце атрымліваць апавяшчэнні аб непрадбачаных падзеях.</string>
   </patch>
-  <patch id="layout.hide.general.HideLayoutComponentsPatch">
+  <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_disable_like_subscribe_glow_title">Адключыць свячэнне кнопкі \"Падабаецца\" / \"Падпісацца\".</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Кнопка \"Падабаецца\" і \"Падпісацца\" не будуць свяціцца пры згадванні</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Кнопка \"Падабаецца\" і \"Падпісацца\" будуць свяціцца пры згадванні</string>
@@ -288,7 +290,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   </patch>
-  <patch id="ad.general.HideAdsResourcePatch">
+  <patch id="ad.general.hideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Схаваць агульную рэкламу</string>
   <string name="revanced_hide_general_ads_summary_on">Агульныя аб\"явы схаваныя</string>
   <string name="revanced_hide_general_ads_summary_off">Паказваюцца агульныя аб\"явы</string>
@@ -323,17 +325,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Схаваць поўнаэкранную рэкламу працуе толькі са старымі прыладамі</string>
   </patch>
-  <patch id="ad.getpremium.HideGetPremiumPatch">
+  <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">Схаваць акцыі YouTube Premium</string>
   <string name="revanced_hide_get_premium_summary_on">Акцыі YouTube Premium пад відэаплэерам схаваны</string>
   <string name="revanced_hide_get_premium_summary_off">Пад відэаплэерам паказваюцца акцыі YouTube Premium</string>
   </patch>
-  <patch id="ad.video.VideoAdsPatch">
+  <patch id="ad.video.videoAdsPatch">
   <string name="revanced_hide_video_ads_title">Схаваць відэарэкламу</string>
   <string name="revanced_hide_video_ads_summary_on">Відэарэклама схаваная</string>
   <string name="revanced_hide_video_ads_summary_off">Паказваецца відэарэклама</string>
   </patch>
-  <patch id="interaction.copyvideourl.CopyVideoUrlResourcePatch">
+  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
   <string name="revanced_share_copy_url_success">URL скапіраваны ў буфер абмену</string>
   <string name="revanced_share_copy_url_timestamp_success">URL-адрас з пазнакай часу скапіраваны</string>
   <string name="revanced_copy_video_url_title">Паказаць кнопку скапіравання URL відэа</string>
@@ -343,13 +345,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_copy_video_url_timestamp_summary_on">Паказана кнопка. Націсніце, каб скапіяваць URL відэа з пазнакай часу. Націсніце і ўтрымлівайце, каб скапіяваць відэа без пазнакі часу</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Кнопка не паказваецца</string>
   </patch>
-  <patch id="interaction.dialog.RemoveViewerDiscretionDialogPatch">
+  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">Выдаліць дыялогавае акно права прагляду</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">Дыялог будзе выдалены</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Будзе паказана дыялогавае акно</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Гэта не абыходзіць узроставае абмежаванне. Ён проста прымае гэта аўтаматычна.</string>
   </patch>
-  <patch id="interaction.downloads.DownloadsResourcePatch">
+  <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Знешнія загрузкі</string>
   <string name="revanced_external_downloader_screen_summary">Налады для выкарыстання вонкавага загрузніка</string>
   <string name="revanced_external_downloader_title">Паказаць знешнюю кнопку загрузкі</string>
@@ -363,17 +365,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_external_downloader_name_summary">Імя пакета ўсталяванай знешняй праграмы загрузкі, напрыклад NewPipe або Seal</string>
   <string name="revanced_external_downloader_not_installed_warning">%s не ўсталяваны. Калі ласка, усталюйце яго.</string>
   </patch>
-  <patch id="interaction.seekbar.DisablePreciseSeekingGesturePatch">
+  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Адключыць жэст дакладнага пошуку</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_on">Жэст адключаны</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Жэст уключаны</string>
   </patch>
-  <patch id="interaction.seekbar.EnableSeekbarTappingPatch">
+  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
   <string name="revanced_seekbar_tapping_title">Уключыць націск на панэлі пошуку</string>
   <string name="revanced_seekbar_tapping_summary_on">Націск панэлі пошуку ўключаны</string>
   <string name="revanced_seekbar_tapping_summary_off">Націск панэлі пошуку адключаны</string>
   </patch>
-  <patch id="interaction.swipecontrols.SwipeControlsResourcePatch">
+  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Уключыць жэст яркасці</string>
   <string name="revanced_swipe_brightness_summary_on">Правядзенне па яркасці ўключана</string>
   <string name="revanced_swipe_brightness_summary_off">Правядзенне пальцам па яркасці адключана</string>
@@ -402,12 +404,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_swipe_threshold_title">Парог велічыні пальцам</string>
   <string name="revanced_swipe_threshold_summary">Велічыня парогавага значэння для правядзення пальцам</string>
   </patch>
-  <patch id="layout.autocaptions.AutoCaptionsPatch">
+  <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Адключыць аўтаматычныя цітры</string>
   <string name="revanced_auto_captions_summary_on">Аўтаматычныя цітры адключаны</string>
   <string name="revanced_auto_captions_summary_off">Аўтаматычныя цітры ўключаны</string>
   </patch>
-  <patch id="layout.buttons.action.HideButtonsPatch">
+  <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Кнопкі дзеянняў</string>
   <string name="revanced_hide_buttons_screen_summary">Схаваць або паказаць кнопкі пад відэа</string>
   <string name="revanced_hide_like_dislike_button_title">Схаваць \"Падабаецца\" і \"Не падабаецца\".</string>
@@ -443,7 +445,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playlist_button_summary_on">Кнопка \"Захаваць у спіс прайгравання\" схавана</string>
   <string name="revanced_hide_playlist_button_summary_off">Паказана кнопка \"Захаваць у спіс прайгравання\".</string>
   </patch>
-  <patch id="layout.buttons.navigation.NavigationButtonsPatch">
+  <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Кнопкі навігацыі</string>
   <string name="revanced_navigation_buttons_screen_summary">Схаваць або змяніць кнопкі на панэлі навігацыі</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -470,7 +472,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_navigation_button_labels_summary_on">Цэтлікі схаваныя</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Этыкеткі паказаны</string>
   </patch>
-  <patch id="layout.hide.player.flyoutmenupanel.HidePlayerFlyoutMenuPatch">
+  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Выпадаючае меню</string>
   <string name="revanced_hide_player_flyout_summary">Схаваць або паказаць элементы ўсплываючага меню гульца</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -481,6 +483,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_additional_settings_title">Схаваць дадатковыя налады</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_on">Меню дадатковых налад схавана</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_off">Адлюструецца меню дадатковых налад</string>
+  <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
   <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_loop_video_title">Схаваць цыкл відэа</string>
   <string name="revanced_hide_player_flyout_loop_video_summary_on">Меню цыклічнага відэа схавана</string>
@@ -515,7 +518,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Меню прагляду ў VR схавана</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Паказана меню \"Глядзець у VR\".</string>
   </patch>
-  <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
+  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_player_previous_next_buttons_title">Схаваць папярэдні &amp; кнопкі наступнага відэа</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Кнопкі схаваныя</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Паказваюцца кнопкі</string>
@@ -530,27 +533,27 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_autoplay_button_summary_on">Кнопка аўтазапуску схавана</string>
   <string name="revanced_hide_autoplay_button_summary_off">Паказана кнопка аўтазапуску</string>
   </patch>
-  <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Схаваць карткі канцавога экрана</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Карткі канцавога экрана схаваны</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Паказваюцца карткі канцавога экрана</string>
   </patch>
-  <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
+  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">Адключыць актыўны рэжым у поўнаэкранным рэжыме</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Навакольны рэжым адключаны</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Неактыўны рэжым уключаны</string>
   </patch>
-  <patch id="layout.hide.infocards.HideInfocardsResourcePatch">
+  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
   <string name="revanced_hide_info_cards_title">Схаваць інфармацыйныя карткі</string>
   <string name="revanced_hide_info_cards_summary_on">Інфармацыйныя карткі схаваны</string>
   <string name="revanced_hide_info_cards_summary_off">Паказваюцца інфармацыйныя карткі</string>
   </patch>
-  <patch id="layout.hide.rollingnumber.DisableRollingNumberAnimationPatch">
+  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
   <string name="revanced_disable_rolling_number_animations_title">Адключыць анімацыю рухомых лікаў</string>
   <string name="revanced_disable_rolling_number_animations_summary_on">Лічбы без анімацыі</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">Пракатныя лічбы аніміраваныя</string>
   </patch>
-  <patch id="layout.hide.seekbar.HideSeekbarPatch">
+  <patch id="layout.hide.seekbar.hideSeekbarPatch">
   <string name="revanced_hide_seekbar_title">Схаваць панэль пошуку ў відэаплэеры</string>
   <string name="revanced_hide_seekbar_summary_on">Панэль пошуку відэаплэера схавана</string>
   <string name="revanced_hide_seekbar_summary_off">Адлюстроўваецца панэль пошуку відэаплэера</string>
@@ -558,7 +561,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_seekbar_thumbnail_summary_on">Панэль пошуку эскізаў схавана</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Адлюстроўваецца панэль пошуку эскізаў</string>
   </patch>
-  <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
+  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Схаваць шорты ў хатняй стужцы</string>
   <string name="revanced_hide_shorts_home_summary_on">Шорты ў хатняй карме схаваныя</string>
@@ -635,27 +638,27 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Панэль навігацыі схавана</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Паказана панэль навігацыі</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.DisableSuggestedVideoEndScreenResourcePatch">
+  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
   <string name="revanced_disable_suggested_video_end_screen_title">Адключыць канчатковы экран прапанаванага відэа</string>
   <string name="revanced_disable_suggested_video_end_screen_summary_on">Прапанаваныя відэа будуць адключаны</string>
   <string name="revanced_disable_suggested_video_end_screen_summary_off">Будуць паказаны прапанаваныя відэа</string>
   </patch>
-  <patch id="layout.hide.time.HideTimestampPatch">
+  <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Схаваць метку часу відэа</string>
   <string name="revanced_hide_timestamp_summary_on">Метка часу схавана</string>
   <string name="revanced_hide_timestamp_summary_off">Адлюстроўваецца метка часу</string>
   </patch>
-  <patch id="layout.panels.popup.PlayerPopupPanelsPatch">
+  <patch id="layout.panels.popup.playerPopupPanelsPatch">
   <string name="revanced_hide_player_popup_panels_title">Схаваць усплывальныя панэлі прайгравальніка</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Усплывальныя панэлі прайгравальніка схаваныя</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Паказваюцца ўсплывальныя панэлі прайгравальніка</string>
   </patch>
-  <patch id="layout.player.overlay.CustomPlayerOverlayOpacityResourcePatch">
+  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Непразрыстасць накладання прайгравальніка</string>
   <string name="revanced_player_overlay_opacity_summary">Значэнне непразрыстасці паміж 0-100, дзе 0 - празрысты</string>
   <string name="revanced_player_overlay_opacity_invalid_toast">Непразрыстасць накладання прайгравальніка павінна быць паміж 0-100</string>
   </patch>
-  <patch id="layout.returnyoutubedislike.ReturnYouTubeDislikeResourcePatch">
+  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">Адзнакі \"Не падабаецца\" часова недаступныя (час чакання API скончыўся)</string>
   <string name="revanced_ryd_failure_connection_status_code">Дызлайкі недаступныя (статус %d)</string>
@@ -699,17 +702,19 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Ліміт кліенцкай хуткасці сустракаецца %d разоў</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d мілісекунд</string>
   </patch>
-  <patch id="layout.searchbar.WideSearchbarPatch">
+  <patch id="layout.searchbar.wideSearchbarPatch">
   <string name="revanced_wide_searchbar_title">Уключыць шырокую панэль пошуку</string>
   <string name="revanced_wide_searchbar_summary_on">Уключана шырокая панэль пошуку</string>
   <string name="revanced_wide_searchbar_summary_off">Шырокая панэль пошуку адключана</string>
   </patch>
-  <patch id="layout.seekbar.RestoreOldSeekbarThumbnailsPatch">
+  <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  </patch>
+  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
   <string name="revanced_restore_old_seekbar_thumbnails_title">Аднавіць старыя мініяцюры панэлі пошуку</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Эскізы панэлі пошуку з\"явяцца над панэллю пошуку</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Мініяцюры панэлі пошуку з\"явяцца ў поўнаэкранным рэжыме</string>
   </patch>
-  <patch id="layout.sponsorblock.SponsorBlockResourcePatch">
+  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
   <string name="revanced_sb_enable_sb">Уключыць SponsorBlock</string>
   <string name="revanced_sb_enable_sb_sum">SponsorBlock - гэта краўдсорсінгавая сістэма для пропуску раздражняльных частак відэа YouTube</string>
   <string name="revanced_sb_appearance_category">Паглядзіце</string>
@@ -888,7 +893,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_about">Пра праграму</string>
   <string name="revanced_sb_about_api_sum">Дадзеныя прадастаўляюцца API SponsorBlock. Націсніце тут, каб даведацца больш і паглядзець спампоўкі для іншых платформаў</string>
   </patch>
-  <patch id="layout.spoofappversion.SpoofAppVersionPatch">
+  <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Версія праграмы Spoof</string>
   <string name="revanced_spoof_app_version_summary_on">Версія падробленая</string>
   <string name="revanced_spoof_app_version_summary_off">Версія не падробленая</string>
@@ -903,7 +908,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Аднаўленне старой паліцы плэйлістоў</string>
   <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - Аднавіць стары макет інтэрфейсу</string>
   </patch>
-  <patch id="layout.startpage.ChangeStartPagePatch">
+  <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Усталяваць стартавую старонку</string>
   <string name="revanced_change_start_page_entry_default">Па змаўчанні</string>
   <string name="revanced_change_start_page_entry_explore">Дасьледуйце</string>
@@ -913,20 +918,20 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_change_start_page_entry_subscriptions">Падпіскі</string>
   <string name="revanced_change_start_page_entry_trending">У трэндзе</string>
   </patch>
-  <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
+  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Адключыць аднаўленне прайгравання Shorts</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Прайгравальнік Shorts не аднаўляецца пры запуску праграмы</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Прайгравальнік Shorts адновіцца пры запуску праграмы</string>
   </patch>
-  <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
+  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   </patch>
-  <patch id="layout.tablet.EnableTabletLayoutPatch">
+  <patch id="layout.tablet.enableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Уключыць макет планшэта</string>
   <string name="revanced_tablet_layout_summary_on">Макет планшэта ўключаны</string>
   <string name="revanced_tablet_layout_summary_off">Макет планшэта адключаны</string>
   <string name="revanced_tablet_layout_user_dialog_message">Паведамленні ў супольнасці не адлюстроўваюцца на планшэце</string>
   </patch>
-  <patch id="layout.miniplayer.MiniplayerPatch">
+  <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Міні-плэер</string>
   <string name="revanced_miniplayer_screen_summary">Змяніце стыль мінімізаванага плэера ў праграме</string>
   <string name="revanced_miniplayer_type_title">Тып мініплэера</string>
@@ -948,24 +953,24 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_opacity_summary">Значэнне непразрыстасці паміж 0-100, дзе 0 - празрысты</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Непразрыстасць накладання міні-плэера павінна быць ад 0 да 100</string>
   </patch>
-  <patch id="layout.theme.ThemeBytecodePatch">
+  <patch id="layout.theme.themePatch">
   <string name="revanced_gradient_loading_screen_title">Уключыць градыентны экран загрузкі</string>
   <string name="revanced_gradient_loading_screen_summary_on">Экран загрузкі будзе мець градыентны фон</string>
   <string name="revanced_gradient_loading_screen_summary_off">Экран загрузкі будзе мець суцэльны фон</string>
   </patch>
-  <patch id="layout.theme.ThemeResourcePatch">
+  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Уключыць уласны колер панэлі пошуку</string>
   <string name="revanced_seekbar_custom_color_summary_on">Паказваецца карыстальніцкі колер панэлі пошуку</string>
   <string name="revanced_seekbar_custom_color_summary_off">Паказаны зыходны колер панэлі пошуку</string>
   <string name="revanced_seekbar_custom_color_value_title">Карыстальніцкі колер панэлі пошуку</string>
   <string name="revanced_seekbar_custom_color_value_summary">Колер панэлі пошуку</string>
   </patch>
-  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Абыход абмежаванняў рэгіёну</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Выкарыстанне хаста відарысаў yt4.ggpht.com</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">Выкарыстанне арыгінальнага хаста відарысаў\n\nУключэнне гэтай опцыі можа выправіць адсутнічаючыя відарысы, якія заблакіраваныя ў некаторых рэгіёнах</string>
   </patch>
-  <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
+  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Галоўная ўкладка</string>
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
@@ -997,7 +1002,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_alt_thumbnail_dearrow_error">DeArrow часова недаступны (код стану: %s)</string>
   <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow часова недаступны</string>
   </patch>
-  <patch id="misc.announcements.AnnouncementsPatch">
+  <patch id="misc.announcements.announcementsPatch">
   <string name="revanced_announcements_title">Паказаць аб\"явы ReVanced</string>
   <string name="revanced_announcements_summary_on">Аб\"явы паказваюцца пры запуску</string>
   <string name="revanced_announcements_summary_off">Аб\"явы не паказваюцца пры запуску</string>
@@ -1005,46 +1010,46 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_announcements_connection_failed">Не ўдалося падключыцца да пастаўшчыка аб\"яў</string>
   <string name="revanced_announcements_dialog_dismiss">расслабіцца</string>
   </patch>
-  <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
   <string name="revanced_check_watch_history_domain_name_dialog_title">Увага</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Больш не паказваць</string>
   </patch>
-  <patch id="misc.autorepeat.AutoRepeatPatch">
+  <patch id="misc.autorepeat.autoRepeatPatch">
   <string name="revanced_auto_repeat_title">Уключыць аўтаматычны паўтор</string>
   <string name="revanced_auto_repeat_summary_on">Аўтаматычны паўтор уключаны</string>
   <string name="revanced_auto_repeat_summary_off">Аўтаматычны паўтор адключаны</string>
   </patch>
-  <patch id="misc.dimensions.spoof.SpoofDeviceDimensionsPatch">
+  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Памеры падманнага прылады</string>
   <string name="revanced_spoof_device_dimensions_summary_on">Памеры прылады падробленыя\n\nМожа быць разблакіравана больш высокая якасць відэа, але вы можаце сутыкнуцца з затрымкамі пры прайграванні, пагаршэннем часу аўтаномнай працы і невядомымі пабочнымі эфектамі</string>
   <string name="revanced_spoof_device_dimensions_summary_off">Памеры прылады не падробленыя\n\nУключэнне гэтага можа разблакіраваць больш высокую якасць відэа</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Уключэнне гэтага можа прывесці да прыпынкаў прайгравання відэа, пагаршэння тэрміну службы батарэі і невядомых пабочных эфектаў.</string>
   </patch>
-  <patch id="misc.gms.GmsCoreSupportResourcePatch">
+  <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">Налады GmsCore</string>
   <string name="microg_settings_summary">Налады для GmsCore</string>
   </patch>
-  <patch id="misc.links.BypassURLRedirectsPatch">
+  <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Абыход URL-перанакіраванняў</string>
   <string name="revanced_bypass_url_redirects_summary_on">Перанакіраванне URL абыходзіць</string>
   <string name="revanced_bypass_url_redirects_summary_off">URL-перанакіраванні не абыходзяць</string>
   </patch>
-  <patch id="misc.links.OpenLinksExternallyPatch">
+  <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Адкрываць спасылкі ў браўзеры</string>
   <string name="revanced_external_browser_summary_on">Адкрыццё спасылак звонку</string>
   <string name="revanced_external_browser_summary_off">Адкрыццё спасылак у праграме</string>
   </patch>
-  <patch id="misc.privacy.RemoveTrackingQueryParameterPatch">
+  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Выдаліць параметр запыту адсочвання</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Параметр запыту адсочвання выдалены са спасылак</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Параметр адсочвання запыту не выдаляецца са спасылак</string>
   </patch>
-  <patch id="misc.zoomhaptics.ZoomHapticsPatch">
+  <patch id="misc.zoomhaptics.zoomHapticsPatch">
   <string name="revanced_disable_zoom_haptics_title">Адключыць тактыльны эфект маштабавання</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Тактыльныя функцыі адключаны</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Тактыльныя сігналы ўключаны</string>
   </patch>
-  <patch id="video.quality.RememberVideoQualityPatch">
+  <patch id="video.quality.rememberVideoQualityPatch">
   <string name="revanced_video_quality_default_entry_1">Аўтаматычнае якасць</string>
   <string name="revanced_remember_video_quality_last_selected_title">Запомніце змены якасці відэа</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Змены якасці распаўсюджваюцца на ўсе відэа</string>
@@ -1055,48 +1060,44 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">Стандартная якасць %1$s зменена на: %2$s</string>
   </patch>
-  <patch id="video.speed.button.PlaybackSpeedButtonPatch">
+  <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Паказаць дыялогавую кнопку хуткасці</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Паказана кнопка</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Кнопка не паказваецца</string>
   </patch>
-  <patch id="video.speed.custom.CustomPlaybackSpeedPatch">
+  <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_playback_speeds_title">Карыстальніцкія хуткасці прайгравання</string>
-  <string name="revanced_custom_playback_speeds_summary">Дадайце або зменіце даступныя хуткасці прайгравання</string>
   <string name="revanced_custom_playback_speeds_invalid">Карыстальніцкія хуткасці павінны быць менш за %s. Выкарыстанне значэнняў па змаўчанні.</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Няправільныя карыстальніцкія хуткасці прайгравання. Выкарыстанне значэнняў па змаўчанні.</string>
   </patch>
-  <patch id="video.speed.remember.RememberPlaybackSpeedPatch">
+  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Запомніце змены хуткасці прайгравання</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Змяненні хуткасці прайгравання прымяняюцца да ўсіх відэа</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Змены хуткасці прайгравання прымяняюцца толькі да бягучага відэа</string>
   <string name="revanced_playback_speed_default_title">Стандартная хуткасць прайгравання</string>
   <string name="revanced_remember_playback_speed_toast">Хуткасць па змаўчанні зменена на: %s</string>
   </patch>
-  <patch id="video.videoqualitymenu.RestoreOldVideoQualityMenuResourcePatch">
+  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
   <string name="revanced_restore_old_video_quality_menu_title">Аднавіць старое меню якасці відэа</string>
   <string name="revanced_restore_old_video_quality_menu_summary_on">Паказана старое меню якасці відэа</string>
   <string name="revanced_restore_old_video_quality_menu_summary_off">Старое меню якасці відэа не паказваецца</string>
   </patch>
-  <patch id="interaction.seekbar.EnableSlideToSeekPatch">
+  <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Уключыць слайд для пошуку</string>
   <string name="revanced_slide_to_seek_summary_on">Слайд для пошуку ўключаны</string>
   <string name="revanced_slide_to_seek_summary_off">Слайд для пошуку не ўключаны</string>
   </patch>
-  <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_user_dialog_message">Адключэнне гэтай налады можа выклікаць праблемы з прайграваннем відэа.</string>
-  </patch>
-  <!-- This patch is no longer used and these strings will soon be deleted. -->
-  <patch id="video.hdrbrightness.HDRBrightnessPatch">
   </patch>
   </app>
   <app id="twitch">
-  <patch id="ad.audio.AudioAdsPatch">
+  <patch id="ad.audio.audioAdsPatch">
   <string name="revanced_block_audio_ads_title">Блакіраваць аўдыярэкламу</string>
   <string name="revanced_block_audio_ads_summary_on">Аўдыярэклама заблакіравана</string>
   <string name="revanced_block_audio_ads_summary_off">Аўдыёрэклама разблакіравана</string>
   </patch>
-  <patch id="ad.embedded.EmbeddedAdsPatch">
+  <patch id="ad.embedded.embeddedAdsPatch">
   <string name="revanced_embedded_ads_service_unavailable">%s недаступны. Рэклама можа паказвацца. Паспрабуйце пераключыцца на іншую службу блакіроўкі рэкламы ў наладах.</string>
   <string name="revanced_embedded_ads_service_failed">Сервер %s вярнуў памылку. Рэклама можа паказвацца. Паспрабуйце пераключыцца на іншую службу блакіроўкі рэкламы ў наладах.</string>
   <string name="revanced_block_embedded_ads_title">Блакіраваць убудаваную відэарэкламу</string>
@@ -1104,30 +1105,30 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_block_embedded_ads_entry_2">Светлавы проксі</string>
   <string name="revanced_block_embedded_ads_entry_3">Проксі PurpleAdBlock</string>
   </patch>
-  <patch id="ad.video.VideoAdsPatch">
+  <patch id="ad.video.videoAdsPatch">
   <string name="revanced_block_video_ads_title">Блакіраваць відэарэкламу</string>
   <string name="revanced_block_video_ads_summary_on">Відэарэклама заблакіравана</string>
   <string name="revanced_block_video_ads_summary_off">Відэарэклама разблакіравана</string>
   </patch>
-  <patch id="chat.antidelete.ShowDeletedMessagesPatch">
+  <patch id="chat.antidelete.showDeletedMessagesPatch">
   <string name="revanced_deleted_msg">паведамленне выдалена</string>
   <string name="revanced_show_deleted_messages_title">Паказаць выдаленыя паведамленні</string>
   <string name="revanced_show_deleted_messages_entry_1">Не паказваць выдаленыя паведамленні</string>
   <string name="revanced_show_deleted_messages_entry_2">Схаваць выдаленыя паведамленні за спойлерам</string>
   <string name="revanced_show_deleted_messages_entry_3">Паказаць выдаленыя паведамленні ў выглядзе закрэсленага тэксту</string>
   </patch>
-  <patch id="chat.autoclaim.AutoClaimChannelPointsPatch">
+  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
   <string name="revanced_auto_claim_channel_points_title">Аўтаматычна патрабаваць балы канала</string>
   <string name="revanced_auto_claim_channel_points_summary_on">Канальныя балы зарабляюцца аўтаматычна</string>
   <string name="revanced_auto_claim_channel_points_summary_off">Ачкі канала не запытваюцца аўтаматычна</string>
   </patch>
-  <patch id="debug.DebugModePatch">
+  <patch id="debug.debugModePatch">
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   <string name="revanced_twitch_debug_mode_title">Уключыце рэжым адладкі Twitch</string>
   <string name="revanced_twitch_debug_mode_summary_on">Рэжым адладкі Twitch уключаны (не рэкамендуецца)</string>
   <string name="revanced_twitch_debug_mode_summary_off">Рэжым адладкі Twitch адключаны</string>
   </patch>
-  <patch id="misc.settings.SettingsPatch">
+  <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">Налады ReVanced</string>
   <string name="revanced_ads_screen_title">Аб\"явы</string>
   <string name="revanced_ads_screen_summary">Налады блакіроўкі рэкламы</string>

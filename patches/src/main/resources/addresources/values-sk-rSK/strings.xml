@@ -32,9 +32,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
 -->
 <resources>
   <app id="shared">
-  <patch id="misc.checks.BaseCheckEnvironmentPatch">
+  <patch id="misc.checks.checkEnvironmentPatch">
   </patch>
-  <patch id="misc.settings.BaseSettingsResourcePatch">
+  <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_confirm_user_dialog_title">Chcete pokračovať?</string>
   <string name="revanced_settings_reset">Resetovať</string>
   <string name="revanced_settings_restart_title">Obnovte a reštartujte</string>
@@ -52,7 +52,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_body">Táto verzia je predbežná a môžu sa vyskytnúť neočakávané problémy</string>
   <string name="revanced_settings_about_links_header">Oficiálne odkazy</string>
   </patch>
-  <patch id="misc.gms.BaseGmsCoreSupportResourcePatch">
+  <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore nie je nainštalovaný. Nainštalujte ho.</string>
   <string name="gms_core_dialog_title">Potrebná akcia</string>
@@ -63,7 +63,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   </app>
   <app id="youtube">
-  <patch id="misc.settings.SettingsPatch">
+  <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">Informácie</string>
   <string name="revanced_settings_screen_01_ads_title">Reklamy</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternatívne miniatúry</string>
@@ -72,7 +72,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_07_seekbar_title">Panel vyhľadávania</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Ovládanie potiahnutím</string>
   </patch>
-  <patch id="misc.debugging.DebuggingPatch">
+  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Ladenie</string>
   <string name="revanced_debug_screen_summary">Povoliť alebo zakázať možnosti ladenia</string>
   <string name="revanced_debug_title">Debug logovanie</string>
@@ -89,7 +91,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_debug_toast_on_error_summary_off">Toast sa nezobrazuje, ak sa vyskytne chyba</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">Vypnutím chybových toastov skryjete všetky chybové upozornenia ReVanced.\n\nNebudete upozornení na žiadne neočakávané udalosti.</string>
   </patch>
-  <patch id="layout.hide.general.HideLayoutComponentsPatch">
+  <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_disable_like_subscribe_glow_title">Zakázať podsvietenie tlačidla Páči sa mi/Prihlásiť sa na odber</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">Tlačidlo Páči sa mi a Prihlásiť sa pri zmienke nebude svietiť</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">Pri zmienke sa rozsvieti tlačidlo Páči sa mi a Prihlásiť sa na odber</string>
@@ -282,7 +284,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   </patch>
-  <patch id="ad.general.HideAdsResourcePatch">
+  <patch id="ad.general.hideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Skryť všeobecné reklamy</string>
   <string name="revanced_hide_general_ads_summary_on">Všeobecné reklamy sú skryté</string>
   <string name="revanced_hide_general_ads_summary_off">Zobrazujú sa všeobecné reklamy</string>
@@ -317,17 +319,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Skryť reklamy na celú obrazovku funguje iba na starších zariadeniach</string>
   </patch>
-  <patch id="ad.getpremium.HideGetPremiumPatch">
+  <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">Skryť promá YouTube Premium</string>
   <string name="revanced_hide_get_premium_summary_on">Promá YouTube Premium pod prehrávačom videa sú skryté</string>
   <string name="revanced_hide_get_premium_summary_off">Promá YouTube Premium sa zobrazujú pod prehrávačom videa</string>
   </patch>
-  <patch id="ad.video.VideoAdsPatch">
+  <patch id="ad.video.videoAdsPatch">
   <string name="revanced_hide_video_ads_title">Skryť videoreklamy</string>
   <string name="revanced_hide_video_ads_summary_on">Videoreklamy sú skryté</string>
   <string name="revanced_hide_video_ads_summary_off">Zobrazujú sa videoreklamy</string>
   </patch>
-  <patch id="interaction.copyvideourl.CopyVideoUrlResourcePatch">
+  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
   <string name="revanced_share_copy_url_success">Adresa URL bola skopírovaná do schránky</string>
   <string name="revanced_share_copy_url_timestamp_success">Adresa URL s časovou pečiatkou bola skopírovaná</string>
   <string name="revanced_copy_video_url_title">Zobraziť tlačidlo skopírovať adresu URL videa</string>
@@ -337,13 +339,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_copy_video_url_timestamp_summary_on">Tlačidlo je zobrazené. Klepnutím skopírujete webovú adresu videa s časovou pečiatkou. Klepnutím a podržaním skopírujete video bez časovej pečiatky</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Tlačidlo nie je zobrazené</string>
   </patch>
-  <patch id="interaction.dialog.RemoveViewerDiscretionDialogPatch">
+  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">Odstrániť dialógové okno uváženia prehliadača</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">Dialóg bude odstránený</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Zobrazí sa dialógové okno</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Neobchádza sa tým ani vekové obmedzenie. Len to automaticky akceptuje.</string>
   </patch>
-  <patch id="interaction.downloads.DownloadsResourcePatch">
+  <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Externé sťahovanie</string>
   <string name="revanced_external_downloader_screen_summary">Nastavenia pre používanie externého sťahovača</string>
   <string name="revanced_external_downloader_title">Zobraziť externé tlačidlo sťahovania</string>
@@ -357,17 +359,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_external_downloader_name_summary">Názov balíka nainštalovanej externej aplikácie na sťahovanie, napríklad NewPipe alebo Seal</string>
   <string name="revanced_external_downloader_not_installed_warning">%s nie je nainštalovaný. Nainštalujte si ho.</string>
   </patch>
-  <patch id="interaction.seekbar.DisablePreciseSeekingGesturePatch">
+  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Zakázať gesto presného vyhľadávania</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_on">Gesto je zakázané</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Gesto je povolené</string>
   </patch>
-  <patch id="interaction.seekbar.EnableSeekbarTappingPatch">
+  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
   <string name="revanced_seekbar_tapping_title">Povoliť klepanie na panel vyhľadávania</string>
   <string name="revanced_seekbar_tapping_summary_on">Ťuknutie na panel vyhľadávania je povolené</string>
   <string name="revanced_seekbar_tapping_summary_off">Ťuknutie na panel vyhľadávania je zakázané</string>
   </patch>
-  <patch id="interaction.swipecontrols.SwipeControlsResourcePatch">
+  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Povoliť gesto jasu</string>
   <string name="revanced_swipe_brightness_summary_on">Potiahnutie jasu je povolené</string>
   <string name="revanced_swipe_brightness_summary_off">Potiahnutie prstom po jase je vypnuté</string>
@@ -395,12 +397,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_swipe_threshold_title">Prahová hodnota potiahnutia</string>
   <string name="revanced_swipe_threshold_summary">Hodnota prahu, ktorý sa má vykonať potiahnutím prstom</string>
   </patch>
-  <patch id="layout.autocaptions.AutoCaptionsPatch">
+  <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Zakázať automatické titulky</string>
   <string name="revanced_auto_captions_summary_on">Automatické titulky sú vypnuté</string>
   <string name="revanced_auto_captions_summary_off">Automatické titulky sú povolené</string>
   </patch>
-  <patch id="layout.buttons.action.HideButtonsPatch">
+  <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Akčné tlačidlá</string>
   <string name="revanced_hide_buttons_screen_summary">Skryť alebo zobraziť tlačidlá pod videami</string>
   <string name="revanced_hide_like_dislike_button_title">Skryť Páči sa mi a Nepáči sa mi</string>
@@ -436,7 +438,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playlist_button_summary_on">Tlačidlo Uložiť do zoznamu skladieb je skryté</string>
   <string name="revanced_hide_playlist_button_summary_off">Zobrazí sa tlačidlo Uložiť do zoznamu skladieb</string>
   </patch>
-  <patch id="layout.buttons.navigation.NavigationButtonsPatch">
+  <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Navigačné tlačidlá</string>
   <string name="revanced_navigation_buttons_screen_summary">Skryť alebo zmeniť tlačidlá na navigačnom paneli</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -463,7 +465,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_navigation_button_labels_summary_on">Štítky sú skryté</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Zobrazia sa štítky</string>
   </patch>
-  <patch id="layout.hide.player.flyoutmenupanel.HidePlayerFlyoutMenuPatch">
+  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Rozbaľovacie menu</string>
   <string name="revanced_hide_player_flyout_summary">Skryť alebo zobraziť položky rozbaľovacej ponuky prehrávača</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -474,6 +476,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_additional_settings_title">Skryť ďalšie nastavenia</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_on">Ponuka ďalších nastavení je skrytá</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_off">Zobrazí sa ponuka ďalších nastavení</string>
+  <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
   <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_loop_video_title">Skryť video slučky</string>
   <string name="revanced_hide_player_flyout_loop_video_summary_on">Ponuka slučkového videa je skrytá</string>
@@ -508,7 +511,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Sledovanie v ponuke VR je skryté</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Zobrazí sa ponuka Sledovať vo VR</string>
   </patch>
-  <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
+  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_player_previous_next_buttons_title">Skryť predchádzajúce &amp; tlačidlá ďalšieho videa</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Tlačidlá sú skryté</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Zobrazia sa tlačidlá</string>
@@ -523,27 +526,27 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_autoplay_button_summary_on">Tlačidlo automatického prehrávania je skryté</string>
   <string name="revanced_hide_autoplay_button_summary_off">Zobrazí sa tlačidlo automatického prehrávania</string>
   </patch>
-  <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Skryť karty záverečnej obrazovky</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Karty záverečnej obrazovky sú skryté</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Zobrazia sa karty záverečnej obrazovky</string>
   </patch>
-  <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
+  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">Zakázať ambientný režim na celej obrazovke</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Ambientný režim je vypnutý</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Ambientný režim je povolený</string>
   </patch>
-  <patch id="layout.hide.infocards.HideInfocardsResourcePatch">
+  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
   <string name="revanced_hide_info_cards_title">Skryť informačné karty</string>
   <string name="revanced_hide_info_cards_summary_on">Informačné karty sú skryté</string>
   <string name="revanced_hide_info_cards_summary_off">Informačné karty sú zobrazené</string>
   </patch>
-  <patch id="layout.hide.rollingnumber.DisableRollingNumberAnimationPatch">
+  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
   <string name="revanced_disable_rolling_number_animations_title">Zakázať animácie pohyblivých čísel</string>
   <string name="revanced_disable_rolling_number_animations_summary_on">Pohyblivé čísla nie sú animované</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">Pohyblivé čísla sú animované</string>
   </patch>
-  <patch id="layout.hide.seekbar.HideSeekbarPatch">
+  <patch id="layout.hide.seekbar.hideSeekbarPatch">
   <string name="revanced_hide_seekbar_title">Skryť panel vyhľadávania v prehrávači videa</string>
   <string name="revanced_hide_seekbar_summary_on">Vyhľadávací panel prehrávača videa je skrytý</string>
   <string name="revanced_hide_seekbar_summary_off">Zobrazí sa vyhľadávací panel prehrávača videa</string>
@@ -551,7 +554,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_seekbar_thumbnail_summary_on">Panel vyhľadávania miniatúr je skrytý</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Zobrazí sa panel vyhľadávania miniatúr</string>
   </patch>
-  <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
+  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Skryť Shorts v domácom informačnom kanáli</string>
   <string name="revanced_hide_shorts_home_summary_on">Shorts v domácom feede sú skryté</string>
@@ -628,27 +631,27 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Navigačný panel je skrytý</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Zobrazí sa navigačná lišta</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.DisableSuggestedVideoEndScreenResourcePatch">
+  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
   <string name="revanced_disable_suggested_video_end_screen_title">Zakázať záverečnú obrazovku navrhovaného videa</string>
   <string name="revanced_disable_suggested_video_end_screen_summary_on">Navrhované videá budú zakázané</string>
   <string name="revanced_disable_suggested_video_end_screen_summary_off">Zobrazia sa navrhované videá</string>
   </patch>
-  <patch id="layout.hide.time.HideTimestampPatch">
+  <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Skryť časovú pečiatku videa</string>
   <string name="revanced_hide_timestamp_summary_on">Časová pečiatka je skrytá</string>
   <string name="revanced_hide_timestamp_summary_off">Zobrazí sa časová pečiatka</string>
   </patch>
-  <patch id="layout.panels.popup.PlayerPopupPanelsPatch">
+  <patch id="layout.panels.popup.playerPopupPanelsPatch">
   <string name="revanced_hide_player_popup_panels_title">Skryť vyskakovacie panely prehrávača</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Vyskakovacie panely prehrávača sú skryté</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Zobrazia sa vyskakovacie panely prehrávača</string>
   </patch>
-  <patch id="layout.player.overlay.CustomPlayerOverlayOpacityResourcePatch">
+  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Nepriehľadnosť prekrytia prehrávača</string>
   <string name="revanced_player_overlay_opacity_summary">Hodnota nepriehľadnosti medzi 0-100, kde 0 je transparentné</string>
   <string name="revanced_player_overlay_opacity_invalid_toast">Nepriehľadnosť prekrytia hráča musí byť medzi 0-100</string>
   </patch>
-  <patch id="layout.returnyoutubedislike.ReturnYouTubeDislikeResourcePatch">
+  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">Nepáči sa mi dočasne nedostupné (rozhranie API vypršalo)</string>
   <string name="revanced_ryd_failure_connection_status_code">Nepáči sa mi nie sú k dispozícii (stav %d)</string>
@@ -692,17 +695,19 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Limit klientskej sadzby bol zaznamenaný %d-krát</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d milisekúnd</string>
   </patch>
-  <patch id="layout.searchbar.WideSearchbarPatch">
+  <patch id="layout.searchbar.wideSearchbarPatch">
   <string name="revanced_wide_searchbar_title">Povoliť široký panel vyhľadávania</string>
   <string name="revanced_wide_searchbar_summary_on">Široký panel vyhľadávania je povolený</string>
   <string name="revanced_wide_searchbar_summary_off">Široký panel vyhľadávania je vypnutý</string>
   </patch>
-  <patch id="layout.seekbar.RestoreOldSeekbarThumbnailsPatch">
+  <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  </patch>
+  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
   <string name="revanced_restore_old_seekbar_thumbnails_title">Obnovte staré miniatúry vyhľadávacieho panela</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Miniatúry panela vyhľadávania sa zobrazia nad panelom vyhľadávania</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Miniatúry panela vyhľadávania sa zobrazia na celej obrazovke</string>
   </patch>
-  <patch id="layout.sponsorblock.SponsorBlockResourcePatch">
+  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
   <string name="revanced_sb_enable_sb">Zapnúť SponsorBlock</string>
   <string name="revanced_sb_enable_sb_sum">SponsorBlock je davový systém na preskakovanie nepríjemných častí videí YouTube</string>
   <string name="revanced_sb_appearance_category">Vzhľad</string>
@@ -880,7 +885,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_about">Informácie</string>
   <string name="revanced_sb_about_api_sum">Údaje poskytuje SponsorBlock API. Klepnutím sem sa dozviete viac a zobrazíte súbory na stiahnutie pre iné platformy</string>
   </patch>
-  <patch id="layout.spoofappversion.SpoofAppVersionPatch">
+  <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Verzia aplikácie Spoof</string>
   <string name="revanced_spoof_app_version_summary_on">Verzia sfalšovaná</string>
   <string name="revanced_spoof_app_version_summary_off">Verzia nie je sfalšovaná</string>
@@ -895,7 +900,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Obnovte starú poličku so zoznamom skladieb</string>
   <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - Obnovte staré rozloženie používateľského rozhrania</string>
   </patch>
-  <patch id="layout.startpage.ChangeStartPagePatch">
+  <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Nastaviť úvodnú stránku</string>
   <string name="revanced_change_start_page_entry_default">Predvolené</string>
   <string name="revanced_change_start_page_entry_explore">Preskúmajte</string>
@@ -905,20 +910,20 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_change_start_page_entry_subscriptions">Predplatné</string>
   <string name="revanced_change_start_page_entry_trending">Trendy</string>
   </patch>
-  <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
+  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Zakázať obnovenie prehrávača Shorts</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Prehrávač Shorts videí sa pri spustení aplikácie neobnoví</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Prehrávač Shorts videí sa obnoví pri spustení aplikácie</string>
   </patch>
-  <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
+  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   </patch>
-  <patch id="layout.tablet.EnableTabletLayoutPatch">
+  <patch id="layout.tablet.enableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Povoliť rozloženie tabletu</string>
   <string name="revanced_tablet_layout_summary_on">Rozloženie tabletu je povolené</string>
   <string name="revanced_tablet_layout_summary_off">Rozloženie tabletu je zakázané</string>
   <string name="revanced_tablet_layout_user_dialog_message">Príspevky komunity sa nezobrazujú v rozložení tabletu</string>
   </patch>
-  <patch id="layout.miniplayer.MiniplayerPatch">
+  <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Miniprehrávač</string>
   <string name="revanced_miniplayer_screen_summary">Zmeňte štýl minimalizovaného prehrávača v aplikácii</string>
   <string name="revanced_miniplayer_type_title">Typ miniprehrávača</string>
@@ -939,21 +944,21 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_opacity_summary">Hodnota nepriehľadnosti medzi 0-100, kde 0 je transparentné</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Nepriehľadnosť prekrytia miniprehrávača musí byť medzi 0-100</string>
   </patch>
-  <patch id="layout.theme.ThemeBytecodePatch">
+  <patch id="layout.theme.themePatch">
   <string name="revanced_gradient_loading_screen_title">Povoliť obrazovku načítania gradientu</string>
   <string name="revanced_gradient_loading_screen_summary_on">Načítavacia obrazovka bude mať pozadie s prechodom</string>
   <string name="revanced_gradient_loading_screen_summary_off">Načítavacia obrazovka bude mať pevné pozadie</string>
   </patch>
-  <patch id="layout.theme.ThemeResourcePatch">
+  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Povoliť vlastnú farbu vyhľadávacieho panela</string>
   <string name="revanced_seekbar_custom_color_summary_on">Zobrazí sa vlastná farba panela vyhľadávania</string>
   <string name="revanced_seekbar_custom_color_summary_off">Zobrazí sa pôvodná farba vyhľadávacieho panela</string>
   <string name="revanced_seekbar_custom_color_value_title">Vlastná farba vyhľadávacieho panela</string>
   <string name="revanced_seekbar_custom_color_value_summary">Farba vyhľadávacieho panela</string>
   </patch>
-  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   </patch>
-  <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
+  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Karta Domov</string>
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
@@ -985,7 +990,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_alt_thumbnail_dearrow_error">DeArrow dočasne nedostupný (stavový kód: %s)</string>
   <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow dočasne nedostupný</string>
   </patch>
-  <patch id="misc.announcements.AnnouncementsPatch">
+  <patch id="misc.announcements.announcementsPatch">
   <string name="revanced_announcements_title">Zobraziť oznámenia ReVanced</string>
   <string name="revanced_announcements_summary_on">Oznámenia sa zobrazujú pri spustení</string>
   <string name="revanced_announcements_summary_off">Oznámenia sa pri spustení nezobrazujú</string>
@@ -993,46 +998,46 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_announcements_connection_failed">Nepodarilo sa pripojiť k poskytovateľovi oznámení</string>
   <string name="revanced_announcements_dialog_dismiss">Odmietnuť</string>
   </patch>
-  <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
   <string name="revanced_check_watch_history_domain_name_dialog_title">Upozornenie</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Neukazuj znovu</string>
   </patch>
-  <patch id="misc.autorepeat.AutoRepeatPatch">
+  <patch id="misc.autorepeat.autoRepeatPatch">
   <string name="revanced_auto_repeat_title">Povoliť automatické opakovanie</string>
   <string name="revanced_auto_repeat_summary_on">Automatické opakovanie je povolené</string>
   <string name="revanced_auto_repeat_summary_off">Automatické opakovanie je zakázané</string>
   </patch>
-  <patch id="misc.dimensions.spoof.SpoofDeviceDimensionsPatch">
+  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Rozmery spoof zariadenia</string>
   <string name="revanced_spoof_device_dimensions_summary_on">Sfalšované rozmery zariadenia\n\nMôžu byť odomknuté vyššie kvality videa, ale môžete zaznamenať zasekávanie prehrávania videa, horšiu výdrž batérie a neznáme vedľajšie účinky</string>
   <string name="revanced_spoof_device_dimensions_summary_off">Rozmery zariadenia nie sú sfalšované\n\nAk to povolíte, môžete odomknúť vyššiu kvalitu videa</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Povolenie môže spôsobiť zasekávanie prehrávania videa, horšiu výdrž batérie a neznáme vedľajšie účinky.</string>
   </patch>
-  <patch id="misc.gms.GmsCoreSupportResourcePatch">
+  <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">Nastavenia GmsCore</string>
   <string name="microg_settings_summary">Nastavenia pre GmsCore</string>
   </patch>
-  <patch id="misc.links.BypassURLRedirectsPatch">
+  <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Obíďte presmerovania adries URL</string>
   <string name="revanced_bypass_url_redirects_summary_on">Presmerovania URL sú obchádzané</string>
   <string name="revanced_bypass_url_redirects_summary_off">Presmerovania URL nie sú obchádzané</string>
   </patch>
-  <patch id="misc.links.OpenLinksExternallyPatch">
+  <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Otvoriť odkazy v prehliadači</string>
   <string name="revanced_external_browser_summary_on">Otváranie odkazov externe</string>
   <string name="revanced_external_browser_summary_off">Otváranie odkazov v aplikácii</string>
   </patch>
-  <patch id="misc.privacy.RemoveTrackingQueryParameterPatch">
+  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">Odstráňte parameter dopytu sledovania</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">Parameter dopytu sledovania je odstránený z odkazov</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Parameter dopytu sledovania nie je odstránený z odkazov</string>
   </patch>
-  <patch id="misc.zoomhaptics.ZoomHapticsPatch">
+  <patch id="misc.zoomhaptics.zoomHapticsPatch">
   <string name="revanced_disable_zoom_haptics_title">Zakázať haptiku priblíženia</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Haptika je vypnutá</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Haptika je povolená</string>
   </patch>
-  <patch id="video.quality.RememberVideoQualityPatch">
+  <patch id="video.quality.rememberVideoQualityPatch">
   <string name="revanced_video_quality_default_entry_1">Automatická kvalita</string>
   <string name="revanced_remember_video_quality_last_selected_title">Pamätajte na zmeny kvality videa</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Zmeny kvality sa vzťahujú na všetky videá</string>
@@ -1042,48 +1047,44 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_remember_video_quality_mobile">mobilné</string>
   <string name="revanced_remember_video_quality_toast">Predvolená kvalita %1$s bola zmenená na: %2$s</string>
   </patch>
-  <patch id="video.speed.button.PlaybackSpeedButtonPatch">
+  <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Zobraziť dialógové tlačidlo rýchlosti</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Tlačidlo je zobrazené</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Tlačidlo nie je zobrazené</string>
   </patch>
-  <patch id="video.speed.custom.CustomPlaybackSpeedPatch">
+  <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_playback_speeds_title">Vlastné rýchlosti prehrávania</string>
-  <string name="revanced_custom_playback_speeds_summary">Pridajte alebo zmeňte dostupné rýchlosti prehrávania</string>
   <string name="revanced_custom_playback_speeds_invalid">Vlastné rýchlosti musia byť nižšie ako %s. Použitie predvolených hodnôt.</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Neplatné vlastné rýchlosti prehrávania. Použitie predvolených hodnôt.</string>
   </patch>
-  <patch id="video.speed.remember.RememberPlaybackSpeedPatch">
+  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Pamätajte na zmeny rýchlosti prehrávania</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Zmeny rýchlosti prehrávania sa vzťahujú na všetky videá</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Zmeny rýchlosti prehrávania sa vzťahujú len na aktuálne video</string>
   <string name="revanced_playback_speed_default_title">Predvolená rýchlosť prehrávania</string>
   <string name="revanced_remember_playback_speed_toast">Predvolená rýchlosť bola zmenená na: %s</string>
   </patch>
-  <patch id="video.videoqualitymenu.RestoreOldVideoQualityMenuResourcePatch">
+  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
   <string name="revanced_restore_old_video_quality_menu_title">Obnovte starú ponuku kvality videa</string>
   <string name="revanced_restore_old_video_quality_menu_summary_on">Zobrazí sa stará ponuka kvality videa</string>
   <string name="revanced_restore_old_video_quality_menu_summary_off">Stará ponuka kvality videa sa nezobrazuje</string>
   </patch>
-  <patch id="interaction.seekbar.EnableSlideToSeekPatch">
+  <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Povoliť vyhľadávanie snímkou</string>
   <string name="revanced_slide_to_seek_summary_on">Slide to search je zapnuté</string>
   <string name="revanced_slide_to_seek_summary_off">Nie je povolené posúvanie</string>
   </patch>
-  <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_user_dialog_message">Vypnutie tohto nastavenia môže spôsobiť problémy s prehrávaním videa.</string>
-  </patch>
-  <!-- This patch is no longer used and these strings will soon be deleted. -->
-  <patch id="video.hdrbrightness.HDRBrightnessPatch">
   </patch>
   </app>
   <app id="twitch">
-  <patch id="ad.audio.AudioAdsPatch">
+  <patch id="ad.audio.audioAdsPatch">
   <string name="revanced_block_audio_ads_title">Blokovať zvukové reklamy</string>
   <string name="revanced_block_audio_ads_summary_on">Zvukové reklamy sú zablokované</string>
   <string name="revanced_block_audio_ads_summary_off">Zvukové reklamy sú odblokované</string>
   </patch>
-  <patch id="ad.embedded.EmbeddedAdsPatch">
+  <patch id="ad.embedded.embeddedAdsPatch">
   <string name="revanced_embedded_ads_service_unavailable">%s nie je k dispozícii. Môžu sa zobrazovať reklamy. Skúste v nastaveniach prejsť na inú službu blokovania reklám.</string>
   <string name="revanced_embedded_ads_service_failed">%s server vrátil chybu. Môžu sa zobrazovať reklamy. Skúste v nastaveniach prejsť na inú službu blokovania reklám.</string>
   <string name="revanced_block_embedded_ads_title">Blokovať vložené videoreklamy</string>
@@ -1091,30 +1092,30 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_block_embedded_ads_entry_2">Svetelný proxy</string>
   <string name="revanced_block_embedded_ads_entry_3">Proxy PurpleAdBlock</string>
   </patch>
-  <patch id="ad.video.VideoAdsPatch">
+  <patch id="ad.video.videoAdsPatch">
   <string name="revanced_block_video_ads_title">Blokovať videoreklamy</string>
   <string name="revanced_block_video_ads_summary_on">Videoreklamy sú zablokované</string>
   <string name="revanced_block_video_ads_summary_off">Videoreklamy sú odblokované</string>
   </patch>
-  <patch id="chat.antidelete.ShowDeletedMessagesPatch">
+  <patch id="chat.antidelete.showDeletedMessagesPatch">
   <string name="revanced_deleted_msg">správa vymazaná</string>
   <string name="revanced_show_deleted_messages_title">Zobraziť odstránené správy</string>
   <string name="revanced_show_deleted_messages_entry_1">Nezobrazovať odstránené správy</string>
   <string name="revanced_show_deleted_messages_entry_2">Skryť odstránené správy za spojler</string>
   <string name="revanced_show_deleted_messages_entry_3">Zobraziť odstránené správy ako preškrtnutý text</string>
   </patch>
-  <patch id="chat.autoclaim.AutoClaimChannelPointsPatch">
+  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
   <string name="revanced_auto_claim_channel_points_title">Automaticky nárokovať body kanála</string>
   <string name="revanced_auto_claim_channel_points_summary_on">Kanálové body sa získavajú automaticky</string>
   <string name="revanced_auto_claim_channel_points_summary_off">Kanálové body sa nenárokujú automaticky</string>
   </patch>
-  <patch id="debug.DebugModePatch">
+  <patch id="debug.debugModePatch">
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   <string name="revanced_twitch_debug_mode_title">Povoliť režim ladenia Twitch</string>
   <string name="revanced_twitch_debug_mode_summary_on">Režim ladenia Twitch je povolený (neodporúča sa)</string>
   <string name="revanced_twitch_debug_mode_summary_off">Režim ladenia Twitch je zakázaný</string>
   </patch>
-  <patch id="misc.settings.SettingsPatch">
+  <patch id="misc.settings.settingsPatch">
   <string name="revanced_ads_screen_title">Reklamy</string>
   <string name="revanced_ads_screen_summary">Nastavenia blokovania reklám</string>
   <string name="revanced_chat_screen_summary">Nastavenia chatu</string>

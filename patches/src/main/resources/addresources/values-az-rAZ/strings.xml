@@ -32,7 +32,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
 -->
 <resources>
   <app id="shared">
-  <patch id="misc.checks.BaseCheckEnvironmentPatch">
+  <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Yoxlamalar uğursuz oldu</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Xidməti veb saytı aç</string>
   <string name="revanced_check_environment_dialog_ignore_button">Yan keç</string>
@@ -43,7 +43,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_check_environment_not_near_patch_time_days">%s gün əvvəl yamaqlanıb</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK quruluş tarixi pozulub</string>
   </patch>
-  <patch id="misc.settings.BaseSettingsResourcePatch">
+  <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_confirm_user_dialog_title">Davam etmək istəyirsiniz?</string>
   <string name="revanced_settings_reset">Sıfırla</string>
   <string name="revanced_settings_restart_title">Yenilə və yenidən başlat</string>
@@ -62,7 +62,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_header">Rəsmi bağlantılar</string>
   <string name="revanced_settings_about_links_donate">İanə ver</string>
   </patch>
-  <patch id="misc.gms.BaseGmsCoreSupportResourcePatch">
+  <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore quraşdırılmayıb. Bunu quraşdır.</string>
   <string name="gms_core_dialog_title">Fəaliyyət lazımdır</string>
@@ -73,7 +73,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   </app>
   <app id="youtube">
-  <patch id="misc.settings.SettingsPatch">
+  <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">Haqqında</string>
   <string name="revanced_settings_screen_01_ads_title">Reklamlar</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Seçmə miniatürlər</string>
@@ -85,7 +85,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_11_misc_title">Müxtəlif</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
   </patch>
-  <patch id="misc.debugging.DebuggingPatch">
+  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Sazlama</string>
   <string name="revanced_debug_screen_summary">Sazlama seçimlərini aktiv/qeyri-aktiv et</string>
   <string name="revanced_debug_title">Sazlama jurnalı</string>
@@ -102,7 +104,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_debug_toast_on_error_summary_off">Xəta baş verərsə bildiriş göstərmə</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">Ani bildirişləri söndürəndə, bütün ReVanced xəta bildirişləri gizlənir.\n\nGözlənilməz hallardan xəbərdar olmayacaqsınız.</string>
   </patch>
-  <patch id="layout.hide.general.HideLayoutComponentsPatch">
+  <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_disable_like_subscribe_glow_title">Bəyən/abunə ol düymə parıltısın söndür</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">\"Bəyən və abunə ol\" düyməsin klikləyəndə parıldamayacaq</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">\"Bəyən və abunə ol\" düyməsinə klikləyəndə parlayacaq</string>
@@ -311,7 +313,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_toast_invalid_length">Açar söz çox qısadır və istinad tələb edir: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Açar söz, bütün videoları gizlədəcək: %s</string>
   </patch>
-  <patch id="ad.general.HideAdsResourcePatch">
+  <patch id="ad.general.hideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Ümumi reklamları gizlət</string>
   <string name="revanced_hide_general_ads_summary_on">Ümumi reklamlar gizlidir</string>
   <string name="revanced_hide_general_ads_summary_off">Ümumi reklamlar göstərilir</string>
@@ -349,17 +351,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Tam ekran reklamları gizlətmə yalnız köhnə cihazlarda işləyir</string>
   </patch>
-  <patch id="ad.getpremium.HideGetPremiumPatch">
+  <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">YouTube Premium reklamlarını gizlət</string>
   <string name="revanced_hide_get_premium_summary_on">Video oynadıcı altında YouTube Premium elanları gizlidir</string>
   <string name="revanced_hide_get_premium_summary_off">Video oynadıcı altındakı YouTube Premium elanları göstərilir</string>
   </patch>
-  <patch id="ad.video.VideoAdsPatch">
+  <patch id="ad.video.videoAdsPatch">
   <string name="revanced_hide_video_ads_title">Video reklamlarını gizlət</string>
   <string name="revanced_hide_video_ads_summary_on">Video reklamlar gizlədilir</string>
   <string name="revanced_hide_video_ads_summary_off">Video reklamlar göstərilir</string>
   </patch>
-  <patch id="interaction.copyvideourl.CopyVideoUrlResourcePatch">
+  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
   <string name="revanced_share_copy_url_success">URL buferə köçürüldü</string>
   <string name="revanced_share_copy_url_timestamp_success">Vaxt möhürlü URL köçürüldü</string>
   <string name="revanced_copy_video_url_title">Video URL-i köçürmə düyməsin göstər</string>
@@ -369,13 +371,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_copy_video_url_timestamp_summary_on">Düymə göstərilir. Vaxt möhürlü video URL-sini köçürtmək üçün toxunun. Vaxt möhürü olmadan köçürtmək üçün basılı tutun</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">Düymə göstərilmir</string>
   </patch>
-  <patch id="interaction.dialog.RemoveViewerDiscretionDialogPatch">
+  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">İzləyici mülahizə dialoqun sil</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">Dialoq silindi</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialoq göstərilir</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Bu, yaş məhdudiyyətini ötürmür. Sadəcə avtomatik qəbul edir.</string>
   </patch>
-  <patch id="interaction.downloads.DownloadsResourcePatch">
+  <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Xarici yükləmələr</string>
   <string name="revanced_external_downloader_screen_summary">Xarici yükləyici istifadəsi üçün tənzimləmələr</string>
   <string name="revanced_external_downloader_title">Xarici yükləmə düyməsini göstər</string>
@@ -389,17 +391,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_external_downloader_name_summary">NewPipe və ya Seal kimi quraşdırılmış xarici yükləmə tətbiqinizin paket adı</string>
   <string name="revanced_external_downloader_not_installed_warning">%s quraşdırılmayıb. Lütfən, bunu quraşdır.</string>
   </patch>
-  <patch id="interaction.seekbar.DisablePreciseSeekingGesturePatch">
+  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Dəqiq axtarış jestini qeyri-aktiv edin</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_on">Jest qeyri-aktiv edilib</string>
   <string name="revanced_disable_precise_seeking_gesture_summary_off">Jest aktivləşdirilib</string>
   </patch>
-  <patch id="interaction.seekbar.EnableSeekbarTappingPatch">
+  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
   <string name="revanced_seekbar_tapping_title">Axtarış çubuğuna toxunmanı aktivləşdir</string>
   <string name="revanced_seekbar_tapping_summary_on">Axtarış çubuğuna toxunma aktivdir</string>
   <string name="revanced_seekbar_tapping_summary_off">Axtarış çubuğuna toxunma qeyri-aktiv edilib</string>
   </patch>
-  <patch id="interaction.swipecontrols.SwipeControlsResourcePatch">
+  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Parlaqlıq jestini aktivləşdir</string>
   <string name="revanced_swipe_brightness_summary_on">Parlaqlıq sürüşdürməsi aktivləşdirilir</string>
   <string name="revanced_swipe_brightness_summary_off">Parlaqlıq sürüşdürmə qeyri-aktivdir</string>
@@ -428,12 +430,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_swipe_threshold_title">Sürüşdürmə böyüklük həddi</string>
   <string name="revanced_swipe_threshold_summary">Sürüşdürmənin icra edilməsi üçün son dəyər</string>
   </patch>
-  <patch id="layout.autocaptions.AutoCaptionsPatch">
+  <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">Avtomatik titrləri qeyri-aktiv et</string>
   <string name="revanced_auto_captions_summary_on">Avtomatik titrlər qeyri-aktivdir</string>
   <string name="revanced_auto_captions_summary_off">Avtomatik titrlər aktivləşdirilir</string>
   </patch>
-  <patch id="layout.buttons.action.HideButtonsPatch">
+  <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">Fəaliyyət düymələri</string>
   <string name="revanced_hide_buttons_screen_summary">Videonun altındakı düymələri gizlət və ya göstər</string>
   <string name="revanced_hide_like_dislike_button_title">\"Bəyənmə\" və \"Bəyənməmə\"ni gizlət</string>
@@ -469,7 +471,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playlist_button_summary_on">Pleylistdə saxla düyməsi gizlidir</string>
   <string name="revanced_hide_playlist_button_summary_off">Pleylistdə saxla düyməsi göstərilir</string>
   </patch>
-  <patch id="layout.buttons.navigation.NavigationButtonsPatch">
+  <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">Fəaliyyət düymələri</string>
   <string name="revanced_navigation_buttons_screen_summary">Fəaliyyət çubuğundakı düymələri gizlət və ya dəyiş</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
@@ -496,7 +498,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_navigation_button_labels_summary_on">Etiketlər gizlidir</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Etiketlər göstərilir</string>
   </patch>
-  <patch id="layout.hide.player.flyoutmenupanel.HidePlayerFlyoutMenuPatch">
+  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Açılan menyu</string>
   <string name="revanced_hide_player_flyout_summary">Oynadıcı açılan menyu elementlərini gizlət və ya göstər</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -507,6 +509,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_additional_settings_title">Əlavə ayarları gizlət</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_on">Əlavə ayarlar menyusu gizlidir</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_off">Əlavə ayarlar menyusu göstərilir</string>
+  <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
   <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_loop_video_title">Videonu təkrarlanı gizlət</string>
   <string name="revanced_hide_player_flyout_loop_video_summary_on">Təkrarlama video menyusu gizlidir</string>
@@ -541,7 +544,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VR menyusunda izləmə gizlidir</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">VR menyusunda izləmə göstərilir</string>
   </patch>
-  <patch id="layout.buttons.overlay.HidePlayerOverlayButtonsPatch">
+  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_player_previous_next_buttons_title">Əvvəlki/növbəti video düymələrin gizlət</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Düymələr gizlidir</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Düymələr göstərilir</string>
@@ -556,27 +559,27 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_autoplay_button_summary_on">Avtomatik oynatma düyməsi gizlidir</string>
   <string name="revanced_hide_autoplay_button_summary_off">Avtomatik oynatma düyməsi göstərilir</string>
   </patch>
-  <patch id="layout.hide.endscreencards.HideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Son ekran kartlarını gizlət</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Son ekran kartları gizlidir</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Son ekran kartları göstərilir</string>
   </patch>
-  <patch id="layout.hide.fullscreenambientmode.DisableFullscreenAmbientModePatch">
+  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
   <string name="revanced_disable_fullscreen_ambient_mode_title">Tam ekranda ambient rejimin bağla</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Ambient rejimi qeyri-aktiv edilib</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Ambient rejimi aktivləşdirildi</string>
   </patch>
-  <patch id="layout.hide.infocards.HideInfocardsResourcePatch">
+  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
   <string name="revanced_hide_info_cards_title">Məlumat kartlarını gizlət</string>
   <string name="revanced_hide_info_cards_summary_on">Məlumat kartları gizlidir</string>
   <string name="revanced_hide_info_cards_summary_off">Məlumat kartları göstərilir</string>
   </patch>
-  <patch id="layout.hide.rollingnumber.DisableRollingNumberAnimationPatch">
+  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
   <string name="revanced_disable_rolling_number_animations_title">Sürüşən rəqəm animasiyaların söndür</string>
   <string name="revanced_disable_rolling_number_animations_summary_on">Sürüşən say animasiyası bağlıdır</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">Sürüşən say animasiyası açıqdır</string>
   </patch>
-  <patch id="layout.hide.seekbar.HideSeekbarPatch">
+  <patch id="layout.hide.seekbar.hideSeekbarPatch">
   <string name="revanced_hide_seekbar_title">Video oynadıcıda axtarış çubuğun gizlə</string>
   <string name="revanced_hide_seekbar_summary_on">Video oynadıcı axtarış çubuğu gizlidir</string>
   <string name="revanced_hide_seekbar_summary_off">Video oynadıcı axtarış çubuğu göstərilir</string>
@@ -584,7 +587,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_seekbar_thumbnail_summary_on">Miniatür axtarış çubuğu gizlədilib</string>
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Miniatür axtarış çubuğu göstərilir</string>
   </patch>
-  <patch id="layout.hide.shorts.HideShortsComponentsResourcePatch">
+  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Shorts oynadıcı</string>
   <string name="revanced_shorts_player_screen_summary">Shorts oynadıcıda hissəcikləri gizlət və ya göstər</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -684,27 +687,27 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Fəaliyyət çubuğu gizlidir</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Fəaliyyət çubuğu göstərilir</string>
   </patch>
-  <patch id="layout.hide.suggestedvideoendscreen.DisableSuggestedVideoEndScreenResourcePatch">
+  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
   <string name="revanced_disable_suggested_video_end_screen_title">Təklif edilən video bitiş ekranın ləğv et</string>
   <string name="revanced_disable_suggested_video_end_screen_summary_on">Təklif olunan videolar qeyri-aktiv ediləcək</string>
   <string name="revanced_disable_suggested_video_end_screen_summary_off">Təklif olunan videolar göstəriləcək</string>
   </patch>
-  <patch id="layout.hide.time.HideTimestampPatch">
+  <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Video vaxt möhürünü gizlət</string>
   <string name="revanced_hide_timestamp_summary_on">Vaxt möhürü gizlidir</string>
   <string name="revanced_hide_timestamp_summary_off">Vaxt möhürü göstərilir</string>
   </patch>
-  <patch id="layout.panels.popup.PlayerPopupPanelsPatch">
+  <patch id="layout.panels.popup.playerPopupPanelsPatch">
   <string name="revanced_hide_player_popup_panels_title">Oynadıcı açılan pəncərə panellərin gizlə</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Oynadıcı açılan pəncərə panelləri gizlidir</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Oynadıcı açılan pəncərə panelləri göstərilir</string>
   </patch>
-  <patch id="layout.player.overlay.CustomPlayerOverlayOpacityResourcePatch">
+  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Oynadıcı örtüyünün qeyri-şəffaflığı</string>
   <string name="revanced_player_overlay_opacity_summary">0-100 arasında qeyri-şəffaflıq dəyəri, burada 0 şəffafdır</string>
   <string name="revanced_player_overlay_opacity_invalid_toast">Oynadıcı örtüyünün qeyri-şəffaflığı 0-100 arası olmalıdır</string>
   </patch>
-  <patch id="layout.returnyoutubedislike.ReturnYouTubeDislikeResourcePatch">
+  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">\"Bəyənməmə\" müvəqqəti əlçatmazdır(API vaxtı bitdi)</string>
   <string name="revanced_ryd_failure_connection_status_code">Bəyənməmə əlçatmazdır (status %d)</string>
@@ -748,17 +751,19 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Qəbuledici sürət limiti %d dəfə baş verdi</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d millisaniyə</string>
   </patch>
-  <patch id="layout.searchbar.WideSearchbarPatch">
+  <patch id="layout.searchbar.wideSearchbarPatch">
   <string name="revanced_wide_searchbar_title">Geniş axtarış çubuğunu aktivləşdir</string>
   <string name="revanced_wide_searchbar_summary_on">Geniş axtarış çubuğu aktivləşdirilir</string>
   <string name="revanced_wide_searchbar_summary_off">Geniş axtarış çubuğu qeyri-aktivdir</string>
   </patch>
-  <patch id="layout.seekbar.RestoreOldSeekbarThumbnailsPatch">
+  <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  </patch>
+  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
   <string name="revanced_restore_old_seekbar_thumbnails_title">Köhnə axtarış çubuğu miniatürlərin al</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Axtarış çubuğu miniatürləri axtarış çubuğu üstündə görünəcək</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Axtarış çubuğu miniatürləri tam ekranda görünəcək</string>
   </patch>
-  <patch id="layout.sponsorblock.SponsorBlockResourcePatch">
+  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
   <string name="revanced_sb_enable_sb">\"SponsorBlock\"u aktivləşdir</string>
   <string name="revanced_sb_enable_sb_sum">SponsorBlock, YouTube videolarının lazımsız hissələrini ötürmək üçün kütlə mənbəli sistemdir</string>
   <string name="revanced_sb_appearance_category">Görünüş</string>
@@ -939,7 +944,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_about">Haqqında</string>
   <string name="revanced_sb_about_api_sum">Məlumat SponsorBlock API tərəfindən təqdim edilir. Daha ətraflı öyrənmək və digər platformalar üzrə yükləmələrə baxmaq üçün bura toxunun</string>
   </patch>
-  <patch id="layout.spoofappversion.SpoofAppVersionPatch">
+  <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Tətbiq versiyasını saxtalaşdır</string>
   <string name="revanced_spoof_app_version_summary_on">Versiya saxtalaşdırıldı</string>
   <string name="revanced_spoof_app_version_summary_off">Versiya saxtalaşdırılmadı</string>
@@ -954,7 +959,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Köhnə pleylist bölməsin bərpa et</string>
   <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - Köhnə UI tərtibatını bərpa et</string>
   </patch>
-  <patch id="layout.startpage.ChangeStartPagePatch">
+  <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Başlanğıc səhifəsini tənzimlə</string>
   <string name="revanced_change_start_page_entry_default">İlkin</string>
   <string name="revanced_change_start_page_entry_browse">Kanallara nəzər yetir</string>
@@ -972,12 +977,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_change_start_page_entry_trending">Trendlər</string>
   <string name="revanced_change_start_page_entry_watch_later">Sonra izlə</string>
   </patch>
-  <patch id="layout.startupshortsreset.DisableResumingShortsOnStartupPatch">
+  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Shorts oynadıcı başladıcını bağla</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Tətbiq açılanda Shorts oynadıcı davam etməyəcək</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Tətbiq açılanda Shorts oynadıcı davam edəcək</string>
   </patch>
-  <patch id="layout.shortsautoplay.ShortsAutoplayPatch">
+  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Shorts-ları avto-oynatma</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts-lar avto-oynadılacaq</string>
   <string name="revanced_shorts_autoplay_summary_off">Shorts-lar təkrarlanacaq</string>
@@ -985,13 +990,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_shorts_autoplay_background_summary_on">Shorts-lar arxa planda avto-oynadılacaq</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Shorts-lar arxa planda təkrarlanacaq</string>
   </patch>
-  <patch id="layout.tablet.EnableTabletLayoutPatch">
+  <patch id="layout.tablet.enableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Planşet tərtibatını aktiv et</string>
   <string name="revanced_tablet_layout_summary_on">Planşet tərtibatı aktiv edilib</string>
   <string name="revanced_tablet_layout_summary_off">Planşet tərtibatı qeyri-aktivdir</string>
   <string name="revanced_tablet_layout_user_dialog_message">İcma elanları planşet tərtibatında göstərilmir</string>
   </patch>
-  <patch id="layout.miniplayer.MiniplayerPatch">
+  <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Kiçik oynadıcı</string>
   <string name="revanced_miniplayer_screen_summary">Tətbiqdə kiçildilən oynadıcı üslubunu dəyişdir</string>
   <string name="revanced_miniplayer_type_title">Kiçik oynadıcı növü</string>
@@ -1029,12 +1034,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_opacity_summary">0-100 arasında qeyri-şəffaflıq dəyəri, burada 0 şəffafdır</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Kiçik Oynadıcı örtük qeyri-şəffaflığı 0-100 arası olmalıdır</string>
   </patch>
-  <patch id="layout.theme.ThemeBytecodePatch">
+  <patch id="layout.theme.themePatch">
   <string name="revanced_gradient_loading_screen_title">Rəngbərəng yükləmə ekranını aktivləşdir</string>
   <string name="revanced_gradient_loading_screen_summary_on">Yükləmə ekranı, rəngbərəng arxa plana malik olacaq</string>
   <string name="revanced_gradient_loading_screen_summary_off">Yükləmə ekranı, vahid arxa plana malik olacaq</string>
   </patch>
-  <patch id="layout.theme.ThemeResourcePatch">
+  <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Fərdi axtarma çubuğu rəngini aktivləşdir</string>
   <string name="revanced_seekbar_custom_color_summary_on">Fərdi axtarma çubuğu rəngi göstərilir</string>
   <string name="revanced_seekbar_custom_color_summary_off">Orijinal axtarma çubuğu rəngi göstərilir</string>
@@ -1042,12 +1047,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_value_summary">Axtarma çubuğu rəngi</string>
   <string name="revanced_seekbar_custom_color_invalid">Etibarsız axtarış çubuğu rəng dəyəri</string>
   </patch>
-  <patch id="layout.thumbnails.BypassImageRegionRestrictions">
+  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Təsvir bölgə məhdudiyyətlərini ötür</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">yt4.ggpht.com təsvir host-u istifadə edilir</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">Orijinal təsvir host-u istifadə edilir\n\nBunu aktivləşdirmə, bəzi bölgələrdə əngəllənən, ağ təsvirləri düzəldə bilər</string>
   </patch>
-  <patch id="layout.thumbnails.AlternativeThumbnailsPatch">
+  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_alt_thumbnail_home_title">Ev paneli</string>
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
@@ -1079,7 +1084,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_alt_thumbnail_dearrow_error">DeArrow müvəqqəti əlçatan deyil (status kodu: %s)</string>
   <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow müvəqqəti olaraq əlçatan deyil</string>
   </patch>
-  <patch id="misc.announcements.AnnouncementsPatch">
+  <patch id="misc.announcements.announcementsPatch">
   <string name="revanced_announcements_title">ReVanced elanlarını göstər</string>
   <string name="revanced_announcements_summary_on">Elanlar açılışda göstərilir</string>
   <string name="revanced_announcements_summary_off">Elanlar açılışda göstərilmir</string>
@@ -1087,47 +1092,47 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_announcements_connection_failed">Elan provayderinə bağlanmaq olmadı</string>
   <string name="revanced_announcements_dialog_dismiss">Ləğv et</string>
   </patch>
-  <patch id="misc.dns.CheckWatchHistoryDomainNameResolutionPatch">
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
   <string name="revanced_check_watch_history_domain_name_dialog_title">Xәbәrdarlıq</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Baxış tarixçəniz saxlanmır.&lt;br&gt;&lt;br&gt;Bu çox güman ki, DNS reklam bloklayıcı və ya şəbəkə proksisinə görədir.&lt;br&gt;&lt;br&gt;.Bunu düzəltmək üçün s.youtube.com-u&lt;/b&gt; &lt;b&gt;ağ siyahıya salın və ya bütün DNS bloklayıcıları və proksiləri bağlayın.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Təkrar göstərmə</string>
   </patch>
-  <patch id="misc.autorepeat.AutoRepeatPatch">
+  <patch id="misc.autorepeat.autoRepeatPatch">
   <string name="revanced_auto_repeat_title">Avto-təkrarlamanı aktivləşdir</string>
   <string name="revanced_auto_repeat_summary_on">Avtomatik təkrar aktivləşdirilib</string>
   <string name="revanced_auto_repeat_summary_off">Avtomatik təkrarlama qeyri-aktiv edilib</string>
   </patch>
-  <patch id="misc.dimensions.spoof.SpoofDeviceDimensionsPatch">
+  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Cihaz ölçülərini saxtalaşdır</string>
   <string name="revanced_spoof_device_dimensions_summary_on">Cihaz ölçüləri saxtalaşdı\n\nDaha yüksək video keyfiyyətləri göstərilə bilər, ancaq video oynatma donmaları, daha pis batareya istismarı və bilinməyən yan təsirləri görə bilərsiniz</string>
   <string name="revanced_spoof_device_dimensions_summary_off">Cihaz ölçüləri saxtalaşmır\n\nBunu aktivləşdirmə, daha yüksək video keyfiyyətlərinin olmasın təmin edə bilir</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Bunu aktivləşdirmə, video oynatma donmalarına, daha pis batareya istismarına və bilinməyən yan təsirlərə səbəb ola bilər.</string>
   </patch>
-  <patch id="misc.gms.GmsCoreSupportResourcePatch">
+  <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">GmsCore Tənzimləmələri</string>
   <string name="microg_settings_summary">GmsCore üçün Tənzimləmələr</string>
   </patch>
-  <patch id="misc.links.BypassURLRedirectsPatch">
+  <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">URL yönləndirmələrini ötür</string>
   <string name="revanced_bypass_url_redirects_summary_on">URL yönləndirmələri ötürülür</string>
   <string name="revanced_bypass_url_redirects_summary_off">URL yönləndirmələri ötürülmür</string>
   </patch>
-  <patch id="misc.links.OpenLinksExternallyPatch">
+  <patch id="misc.links.openLinksExternallyPatch">
   <string name="revanced_external_browser_title">Bağlantıları brauzerdə aç</string>
   <string name="revanced_external_browser_summary_on">Bağlantılar xarici brauzerdə açılır</string>
   <string name="revanced_external_browser_summary_off">Bağlantılar tətbiqdə açılır</string>
   </patch>
-  <patch id="misc.privacy.RemoveTrackingQueryParameterPatch">
+  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">İzləmə sorğusu faktorun sil</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">İzləmə sorğusu faktoru bağlantılardan silinir</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">İzləmə sorğusu faktoru bağlantılardan silinmir</string>
   </patch>
-  <patch id="misc.zoomhaptics.ZoomHapticsPatch">
+  <patch id="misc.zoomhaptics.zoomHapticsPatch">
   <string name="revanced_disable_zoom_haptics_title">Yaxınlaşdırma əks-əlaqəsini bağla</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Toxunuş əks-əlaqəsi bağlandı</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Toxunuş əks-əlaqəsi aktivdir</string>
   </patch>
-  <patch id="video.quality.RememberVideoQualityPatch">
+  <patch id="video.quality.rememberVideoQualityPatch">
   <string name="revanced_video_quality_default_entry_1">Avtomatik keyfiyyət</string>
   <string name="revanced_remember_video_quality_last_selected_title">Video keyfiyyəti dəyişikliklərini xatırla</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Keyfiyyət dəyişiklikləri bütün videolara tətbiq edilir</string>
@@ -1138,35 +1143,34 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_remember_video_quality_wifi">wi-fi</string>
   <string name="revanced_remember_video_quality_toast">İlkin %1$s keyfiyyəti %2$s kimi dəyişdi</string>
   </patch>
-  <patch id="video.speed.button.PlaybackSpeedButtonPatch">
+  <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Sürət dialoq düyməsini göstər</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Düymə göstərilir</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Düymə göstərilmir</string>
   </patch>
-  <patch id="video.speed.custom.CustomPlaybackSpeedPatch">
+  <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_playback_speeds_title">Fərdi oynatma sürəti</string>
-  <string name="revanced_custom_playback_speeds_summary">Mövcud oynatma sürəti əlavə et və ya dəyişdir</string>
   <string name="revanced_custom_playback_speeds_invalid">Fərdi sürətlər %s-dən az olmalıdır.  Standart dəyərlər istifadəsi.</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Etibarsız oynatma sürətləri. Standartlar istifadədədir.</string>
   </patch>
-  <patch id="video.speed.remember.RememberPlaybackSpeedPatch">
+  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Oynatma sürəti dəyişikliklərin xatırla</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">Oynatma sürəti dəyişiklikləri bütün videolara aiddir</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">Oynatma sürəti dəyişiklikləri yalnız cari videoya aiddir</string>
   <string name="revanced_playback_speed_default_title">İlkin oynatma sürəti</string>
   <string name="revanced_remember_playback_speed_toast">İlkin sürət %s kimi dəyişdirildi</string>
   </patch>
-  <patch id="video.videoqualitymenu.RestoreOldVideoQualityMenuResourcePatch">
+  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
   <string name="revanced_restore_old_video_quality_menu_title">Köhnə video keyfiyyət menusun qaytar</string>
   <string name="revanced_restore_old_video_quality_menu_summary_on">Köhnə video keyfiyyət menyusu göstərilir</string>
   <string name="revanced_restore_old_video_quality_menu_summary_off">Köhnə video keyfiyyət menyusu göstərmir</string>
   </patch>
-  <patch id="interaction.seekbar.EnableSlideToSeekPatch">
+  <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Axtarmaq üçün sürüşdürməni aktiv et</string>
   <string name="revanced_slide_to_seek_summary_on">Axtarmaq üçün sürüşdürmə aktivdir</string>
   <string name="revanced_slide_to_seek_summary_off">Axtarmaq üçün sürüşdürmə aktiv deyil</string>
   </patch>
-  <patch id="misc.fix.playback.SpoofVideoStreamsPatch">
+  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_screen_title">Video yayımları saxtalaşdır</string>
   <string name="revanced_spoof_video_streams_screen_summary">Oynatma problemlərin önləmək üçün qəbuledici video yayımların saxtalaşdır</string>
   <string name="revanced_spoof_video_streams_title">Video yayımları saxtalaşdır</string>
@@ -1184,17 +1188,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR saxtakarlığı yan təsirləri</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">• Səs axını menyusu əskikdir\n• Stabil səs səviyyəsi əlçatan deyil</string>
   </patch>
-  <!-- This patch is no longer used and these strings will soon be deleted. -->
-  <patch id="video.hdrbrightness.HDRBrightnessPatch">
-  </patch>
   </app>
   <app id="twitch">
-  <patch id="ad.audio.AudioAdsPatch">
+  <patch id="ad.audio.audioAdsPatch">
   <string name="revanced_block_audio_ads_title">Səsli reklamları əngəllə</string>
   <string name="revanced_block_audio_ads_summary_on">Səsli reklamlar bloklanıb</string>
   <string name="revanced_block_audio_ads_summary_off">Səsli reklamlar bloklanmayıb</string>
   </patch>
-  <patch id="ad.embedded.EmbeddedAdsPatch">
+  <patch id="ad.embedded.embeddedAdsPatch">
   <string name="revanced_embedded_ads_service_unavailable">%s əlçatmazdır. Reklamlar görünə bilər. Seçimlərdə başqa reklam bloku xidmətinə keçirməyə cəhd et.</string>
   <string name="revanced_embedded_ads_service_failed">%s serveri xəta sorğusu verdi. Reklam görünə bilər. Seçimlərdə başqa reklam bloku xidmətinə keçir.</string>
   <string name="revanced_block_embedded_ads_title">Yerləşdirilən video reklamlarını əngəllə</string>
@@ -1202,30 +1203,30 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_block_embedded_ads_entry_2">Dəqiq proksi</string>
   <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock proksi</string>
   </patch>
-  <patch id="ad.video.VideoAdsPatch">
+  <patch id="ad.video.videoAdsPatch">
   <string name="revanced_block_video_ads_title">Video reklamları əngəllə</string>
   <string name="revanced_block_video_ads_summary_on">Video reklamlar bloklanıb</string>
   <string name="revanced_block_video_ads_summary_off">Video reklamlar bloklanmır</string>
   </patch>
-  <patch id="chat.antidelete.ShowDeletedMessagesPatch">
+  <patch id="chat.antidelete.showDeletedMessagesPatch">
   <string name="revanced_deleted_msg">mesaj silindi</string>
   <string name="revanced_show_deleted_messages_title">Silinən mesajları göstər</string>
   <string name="revanced_show_deleted_messages_entry_1">Silinən mesajlar göstərilməsin</string>
   <string name="revanced_show_deleted_messages_entry_2">Silinmiş mesajları boz panel arxasında gizlət</string>
   <string name="revanced_show_deleted_messages_entry_3">Silinən mesajları qaralanmış mətn kimi göstər</string>
   </patch>
-  <patch id="chat.autoclaim.AutoClaimChannelPointsPatch">
+  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
   <string name="revanced_auto_claim_channel_points_title">Kanal Xallarını avtomatik təsdiqlə</string>
   <string name="revanced_auto_claim_channel_points_summary_on">Kanal Xalları avtomatik olaraq təsdiqlənir</string>
   <string name="revanced_auto_claim_channel_points_summary_off">Kanal Xalları avtomatik olaraq təsdiqlənmir</string>
   </patch>
-  <patch id="debug.DebugModePatch">
+  <patch id="debug.debugModePatch">
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   <string name="revanced_twitch_debug_mode_title">Twitch sazlama rejimini aktivləşdir</string>
   <string name="revanced_twitch_debug_mode_summary_on">Twitch sazlama rejimi aktivdir (tövsiyə edilmir)</string>
   <string name="revanced_twitch_debug_mode_summary_off">Twitch sazlama rejimi qeyri-aktiv edilib</string>
   </patch>
-  <patch id="misc.settings.SettingsPatch">
+  <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">ReVanced Tənzimləmələri</string>
   <string name="revanced_ads_screen_title">Reklamlar</string>
   <string name="revanced_ads_screen_summary">Reklam əngəlləmə tənzimləmələri</string>
