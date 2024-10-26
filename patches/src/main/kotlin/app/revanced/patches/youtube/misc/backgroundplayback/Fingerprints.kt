@@ -70,3 +70,17 @@ internal val kidsBackgroundPlaybackPolicyControllerFingerprint = fingerprint {
     )
     literal { 5 }
 }
+
+internal val backgroundPlaybackManagerShortsFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    returns("Z")
+    parameters("L")
+    literal { 151635310 }
+}
+
+internal val shortsBackgroundPlaybackFeatureFlagFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Z")
+    parameters()
+    literal { 45415425 }
+}
