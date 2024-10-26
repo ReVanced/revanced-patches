@@ -11,7 +11,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import java.util.*
 
-@Suppress("unused")
 val spoofClientPatch = spoofClientPatch(
     redirectUri = "http://redditsync/auth",
 ) { clientIdOption ->

@@ -34,7 +34,6 @@ private val backgroundPlaybackResourcePatch = resourcePatch {
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/BackgroundPlaybackPatch;"
 
-@Suppress("unused")
 val backgroundPlaybackPatch = bytecodePatch(
     name = "Remove background playback restrictions",
     description = "Removes restrictions on background playback, including playing kids videos in the background.",

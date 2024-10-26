@@ -3,7 +3,6 @@ package app.revanced.patches.reddit.customclients.sync.detection.piracy
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
 
-@Suppress("unused")
 val disablePiracyDetectionPatch = bytecodePatch(
     description = "Disables detection of modified versions.",
 ) {

@@ -41,7 +41,6 @@ internal const val EXTENSION_NAVIGATION_BUTTON_DESCRIPTOR =
 
 lateinit var hookNavigationButtonCreated: (String) -> Unit
 
-@Suppress("unused")
 val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navigation or search bar.") {
     dependsOn(
         sharedExtensionPatch,

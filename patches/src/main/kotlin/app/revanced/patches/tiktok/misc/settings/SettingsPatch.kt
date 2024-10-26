@@ -14,7 +14,6 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 internal const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/tiktok/settings/AdPersonalizationActivityHook;"
 
-@Suppress("unused")
 val settingsPatch = bytecodePatch(
     name = "Settings",
     description = "Adds ReVanced settings to TikTok.",

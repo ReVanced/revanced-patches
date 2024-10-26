@@ -3,7 +3,6 @@ package app.revanced.patches.memegenerator.detection.license
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
 import app.revanced.patcher.patch.bytecodePatch
 
-@Suppress("unused")
 val licenseValidationPatch = bytecodePatch(
     description = "Disables Firebase license validation.",
 ) {

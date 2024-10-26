@@ -44,7 +44,6 @@ private val hidePlayerOverlayButtonsResourcePatch = resourcePatch {
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/HidePlayerOverlayButtonsPatch;"
 
-@Suppress("unused")
 val hidePlayerOverlayButtonsPatch = bytecodePatch(
     name = "Hide player overlay buttons",
     description = "Adds options to hide the player cast, autoplay, caption button and next/ previous buttons.",
