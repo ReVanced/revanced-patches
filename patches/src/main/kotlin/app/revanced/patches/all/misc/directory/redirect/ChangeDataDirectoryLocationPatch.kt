@@ -1,4 +1,4 @@
-package app.revanced.patches.all.misc.directory
+package app.revanced.patches.all.misc.directory.redirect
 
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
