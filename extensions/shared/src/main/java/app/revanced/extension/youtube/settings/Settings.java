@@ -258,7 +258,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_SEEKBAR = new BooleanSetting("revanced_hide_seekbar", FALSE, true);
     public static final BooleanSetting HIDE_SEEKBAR_THUMBNAIL = new BooleanSetting("revanced_hide_seekbar_thumbnail", FALSE);
     public static final BooleanSetting SEEKBAR_CUSTOM_COLOR = new BooleanSetting("revanced_seekbar_custom_color", FALSE, true);
-    public static final StringSetting SEEKBAR_CUSTOM_COLOR_VALUE = new StringSetting("revanced_seekbar_custom_color_value", "#FF0000", true, parent(SEEKBAR_CUSTOM_COLOR));
+    public static final StringSetting SEEKBAR_CUSTOM_COLOR_VALUE = new StringSetting("revanced_seekbar_custom_color_value", "#FF0033", true, parent(SEEKBAR_CUSTOM_COLOR));
 
     // Misc
     public static final BooleanSetting AUTO_CAPTIONS = new BooleanSetting("revanced_auto_captions", FALSE);
