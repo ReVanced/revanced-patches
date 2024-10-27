@@ -87,6 +87,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_12_video_title">Video</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <string name="revanced_shorts_disable_background_playback_title">Onemogući autoplej Shorts videa u pozadini</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Puštanje Shorts videa u pozadini je onemogućeno</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Puštanje Shorts videa u pozadini je omogućeno</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Otklanjanje grešaka</string>
@@ -165,9 +168,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_expandable_chip_title">Sakrij proširivi deo ispod videa</string>
   <string name="revanced_hide_expandable_chip_summary_on">Proširivi delovi su skriveni</string>
   <string name="revanced_hide_expandable_chip_summary_off">Proširivi delovi su prikazani</string>
-  <string name="revanced_hide_video_quality_menu_footer_title">Sakrij podnožje menija kvaliteta videa</string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_on">Podnožje menija kvaliteta videa je skriveno</string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_off">Podnožje menija kvaliteta videa je prikazano</string>
   <string name="revanced_hide_community_posts_title">Sakrij objave zajednice</string>
   <string name="revanced_hide_community_posts_summary_on">Objave zajednice su skrivene</string>
   <string name="revanced_hide_community_posts_summary_off">Objave zajednice su prikazane</string>
@@ -511,6 +511,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_additional_settings_summary_on">Meni „Dodatna podešavanja” je skriven</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_off">Meni „Dodatna podešavanja” je prikazan</string>
   <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_sleep_timer_title">Sakrij tajmer za spavanje</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_on">Meni tajmera za spavanje je skriven</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_off">Meni tajmera za spavanje je prikazan</string>
   <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_loop_video_title">Sakrij dugme „Ponavljaj video”</string>
   <string name="revanced_hide_player_flyout_loop_video_summary_on">Dugme „Ponavljaj video” je skriveno</string>
@@ -519,6 +522,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_ambient_mode_title">Sakrij dugme „Ambijentalni režim”</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_on">Dugme „Ambijentalni režim” je skriveno</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_off">Dugme „Ambijentalni režim” je prikazano</string>
+  <string name="revanced_hide_player_flyout_stable_volume_title">Sakrij dugme „Ujednačena jačina zvuka”</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_off">Dugme „Ujednačena jačina zvuka” je prikazano</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_on">Dugme „Ujednačena jačina zvuka” je skriveno</string>
   <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_help_title">Sakrij dugme „Pomoć i povratne informacije”</string>
   <string name="revanced_hide_player_flyout_help_summary_on">Dugme „Pomoć i povratne informacije” je skriveno</string>
@@ -544,6 +550,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Sakrij dugme „Gledaj u VR”</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Dugme „Gledaj u VR” je skriveno</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Dugme „Gledaj u VR” je prikazano</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_title">Sakrij podnožje menija kvaliteta videa</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Podnožje menija kvaliteta videa je skriveno</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Podnožje menija kvaliteta videa je prikazano</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_player_previous_next_buttons_title">Sakrij dugmad za prethodni i sledeći video</string>
@@ -758,6 +767,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_wide_searchbar_summary_off">Široka traka za pretragu je onemogućena</string>
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_title">Omogući visokokvalitetne sličice</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Sličice na traci za premotavanje su visokog kvaliteta</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Sličice na traci za premotavanje su srednjeg kvaliteta</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Sličice na traci za premotavanje u režimu celog ekrana su visokog kvaliteta</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Sličice na traci za premotavanje u režimu celog ekrana su srednjeg kvaliteta</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Ovo će vratiti sličice u strimove uživo koji nemaju sličice na traci za premotavanje.\n\nPotrošnja interneta može biti veća, a sličice na traci za premotavanje će imati malo kašnjenje pre nego što se prikažu.\n\nOva funkcija najbolje funkcioniše sa veoma brzom internet vezom.</string>
   </patch>
   <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
   <string name="revanced_restore_old_seekbar_thumbnails_title">Vrati stare sličice na traci za premotavanje</string>
@@ -958,7 +973,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - Vraća širok meni za brzinu i kvalitet videa</string>
   <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - Vraća karticu zbirke</string>
   <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Vraća staru policu plejliste</string>
-  <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - Vraća stari izgled korisničkog interfejsa</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Podešavanje početne stranice</string>
@@ -1150,7 +1164,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_playback_speed_dialog_button_summary_off">Dugme dijaloga za brzinu nije prikazano</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <string name="revanced_custom_speed_menu_title">Meni prilagođene brzine reprodukcije</string>
+  <string name="revanced_custom_speed_menu_summary_on">Meni prilagođene brzine reprodukcije je prikazan</string>
+  <string name="revanced_custom_speed_menu_summary_off">Meni prilagođene brzine reprodukcije nije prikazan</string>
   <string name="revanced_custom_playback_speeds_title">Prilagođene brzine reprodukcije</string>
+  <string name="revanced_custom_playback_speeds_summary">Dodajte ili promenite prilagođene brzine reprodukcije</string>
   <string name="revanced_custom_playback_speeds_invalid">Prilagođene brzine reprodukcije moraju biti manje od %s. Korišćenje podrazumevanih vrednosti.</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Nevažeće prilagođene brzine reprodukcije. Korišćenje podrazumevanih vrednosti.</string>
   </patch>

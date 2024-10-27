@@ -86,9 +86,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_12_video_title">Відео</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
-  <string name="revanced_shorts_disable_background_playback_title">Вимкнути фонову гру коротких повідомлень</string>
-  <string name="revanced_shorts_disable_background_playback_summary_on">Коротке тло вимкнено</string>
-  <string name="revanced_shorts_disable_background_playback_summary_off">Коротке тло увімкнено</string>
+  <string name="revanced_shorts_disable_background_playback_title">Вимкнути фонове відтворення Shorts</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Фонове відтворення Shorts вимкнуто</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Фонове відтворення Shorts увімкнено</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Налагодження</string>
@@ -167,9 +167,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_expandable_chip_title">Приховати розширювану фішку</string>
   <string name="revanced_hide_expandable_chip_summary_on">Розширювані фішки під відео приховано</string>
   <string name="revanced_hide_expandable_chip_summary_off">Розширювані фішки під відео показуються</string>
-  <string name="revanced_hide_video_quality_menu_footer_title">Приховати колонтитул меню якості відео</string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_on">Нижній колонтитул меню якості відео приховано</string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_off">Нижній колонтитул меню якості відео показується</string>
   <string name="revanced_hide_community_posts_title">Приховати публікації спільноти</string>
   <string name="revanced_hide_community_posts_summary_on">Публікації спільноти приховано</string>
   <string name="revanced_hide_community_posts_summary_off">Публікації спільноти показуються</string>
@@ -513,9 +510,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_additional_settings_summary_on">Пункт меню \"Додаткові налаштування\" приховано</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_off">Пункт меню \"Додаткові налаштування\" показується</string>
   <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_sleep_timer_title">Сховати таймер сну</string>
-  <string name="revanced_hide_player_flyout_sleep_timer_summary_on">Меню таймера сну приховано</string>
-  <string name="revanced_hide_player_flyout_sleep_timer_summary_off">Відображати меню таймера сну</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_title">Приховати \"Таймер сну\"</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_on">Пункт меню \"Таймер сну\" приховано</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_off">Пункт меню \"Таймер сну\" показується</string>
   <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_loop_video_title">Приховати \"Повторювати відео\"</string>
   <string name="revanced_hide_player_flyout_loop_video_summary_on">Пункт меню \"Повторювати відео\" приховано</string>
@@ -524,6 +521,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_ambient_mode_title">Приховати \"Кінематографічне освітлення\"</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_on">Пункт меню \"Кінематографічне освітлення\" приховано</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_off">Пункт меню \"Кінематографічне освітлення\" показується</string>
+  <string name="revanced_hide_player_flyout_stable_volume_title">Приховати \"Стабілізувати гучність\"</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_off">Пункт меню \"Стабілізувати гучність\" показується</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_on">Пункт меню \"Стабілізувати гучність\" приховано</string>
   <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_help_title">Приховати \"Довідка й відгуки\"</string>
   <string name="revanced_hide_player_flyout_help_summary_on">Пункт меню \"Довідка й відгуки\" приховано</string>
@@ -549,6 +549,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Приховати \"Дивитись у VR\"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Пункт меню \"Дивитись у VR\" приховано</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Пункт меню \"Дивитись у VR\" показується</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_title">Приховати колонтитул меню якості відео</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Нижній колонтитул меню якості відео приховано</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Нижній колонтитул меню якості відео показується</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_player_previous_next_buttons_title">Приховати кнопки попереднє та наступне</string>
@@ -763,12 +766,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_wide_searchbar_summary_off">Широку панель пошуку вимкнуто</string>
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
-  <string name="revanced_seekbar_thumbnails_high_quality_title">Увімкнути високоякісні мініатюри</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Відображення мініатюр панелі навігації високої якості</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Мініатюри панелі перемотки в середньому рівні</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Повноекранні мініатюри перемотки</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Повноекранні мініатюри панелі переглядів є середньою якістю</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Це відновить мініатюри для тварин, які не мають мініатюр на панелі керування.\n\nВикористання даних в Інтернеті може бути вищим, а мініатюри в цьому режимі будуть мати невелику затримку перед відображенням.\n\nЦя функція найкраще працює з дуже швидким підключенням до Інтернету.</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_title">Увімкнути мініатюри високої якості</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Мініатюри панелі прогресу під час перемотування мають високу якість</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Мініатюри панелі прогресу під час перемотування мають середню якість</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Повноекранні мініатюри під час перемотування мають високу якість</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Повноекранні мініатюри під час перемотування мають середню якість</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Це відновить мініатюри для прямих трансляцій, у яких немає мініатюр під час перемотування.\n\nВикористання Інтернет-даних може бути вищим, а мініатюри під час перемотування матимуть невелику затримку.\n\nЦя функція найкраще працює з дуже швидким підключенням до Інтернету.</string>
   </patch>
   <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
   <string name="revanced_restore_old_seekbar_thumbnails_title">Відновити старі мініатюри</string>
@@ -969,7 +972,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - Відновлення розширеного меню швидкості та якості відео</string>
   <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - Відновлення вкладки Бібліотека</string>
   <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Відновлення старого інтерфейсу плейлиста</string>
-  <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - Відновлення старого інтерфейсу</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Початкова сторінка</string>
@@ -1149,8 +1151,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_remember_video_quality_last_selected_title">Запам\'ятовувати зміни якості відео</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Зміни якості застосовуються до всіх відео</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Зміни якості застосовуються лише до поточного відео</string>
-  <string name="revanced_video_quality_default_wifi_title">Якість відео в Wi-Fi мережі</string>
-  <string name="revanced_video_quality_default_mobile_title">Якість відео в мобільній мережі</string>
+  <string name="revanced_video_quality_default_wifi_title">Стандартна якість відео в Wi-Fi мережі</string>
+  <string name="revanced_video_quality_default_mobile_title">Стандартна якість відео в мобільній мережі</string>
   <string name="revanced_remember_video_quality_mobile">в моб. мережі</string>
   <string name="revanced_remember_video_quality_wifi">в Wi-Fi мережі</string>
   <string name="revanced_remember_video_quality_toast">Якість %1$s змінено на %2$s</string>
@@ -1161,11 +1163,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_playback_speed_dialog_button_summary_off">Кнопка швидкості відтворення не показується в плеєрі</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
-  <string name="revanced_custom_speed_menu_title">Користувацьке меню швидкості відтворення</string>
-  <string name="revanced_custom_speed_menu_summary_on">Користувацьке меню швидкості показано</string>
-  <string name="revanced_custom_speed_menu_summary_off">Користувацьке меню швидкості не відображається</string>
+  <string name="revanced_custom_speed_menu_title">Користувацьке меню швидкості</string>
+  <string name="revanced_custom_speed_menu_summary_on">Користувацьке меню швидкості відтворення показується</string>
+  <string name="revanced_custom_speed_menu_summary_off">Користувацьке меню швидкості відтворення не показується</string>
   <string name="revanced_custom_playback_speeds_title">Користувацькі швидкості відтворення</string>
-  <string name="revanced_custom_playback_speeds_summary">Додавання або зміна користувальницьких швидкості відтворення</string>
+  <string name="revanced_custom_playback_speeds_summary">Додавання або зміна користувацьких швидкостей відтворення</string>
   <string name="revanced_custom_playback_speeds_invalid">Користувацькі швидкості повинні бути менше ніж %s Використовуються значення за замовчуванням.</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Неправильні користувацькі швидкості відтворення. Використовуються значення за замовчуванням.</string>
   </patch>

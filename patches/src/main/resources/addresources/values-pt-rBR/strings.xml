@@ -165,9 +165,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_expandable_chip_title">Ocultar cartão expansível em vídeos</string>
   <string name="revanced_hide_expandable_chip_summary_on">Cartão expansível está oculto</string>
   <string name="revanced_hide_expandable_chip_summary_off">Cartão expansível não está oculto</string>
-  <string name="revanced_hide_video_quality_menu_footer_title">Ocultar rodapé do menu de qualidade de vídeo</string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_on">Rodapé do menu de qualidade de vídeo está oculto</string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_off">Rodapé do menu de qualidade de vídeo não está ocultos</string>
   <string name="revanced_hide_community_posts_title">Ocultar publicações da comunidade</string>
   <string name="revanced_hide_community_posts_summary_on">Publicações da comunidade está oculto</string>
   <string name="revanced_hide_community_posts_summary_off">Publicações da comunidade não está oculto</string>
@@ -537,6 +534,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Ocultar Assistir no VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menu assistir no VR está oculto</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Menu assistir no VR não está oculto</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_title">Ocultar rodapé do menu de qualidade de vídeo</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Rodapé do menu de qualidade de vídeo não está ocultos</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_player_previous_next_buttons_title">Ocultar botões anterior &amp; próxima vídeo</string>
@@ -933,7 +932,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - Restaurar a velocidade de vídeo ampla &amp; menu de qualidade</string>
   <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - Restaurar aba biblioteca</string>
   <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Restaurar prateleira de lista de reprodução antiga</string>
-  <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - Restaurar layout antigo da interface</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Definir página inicial</string>

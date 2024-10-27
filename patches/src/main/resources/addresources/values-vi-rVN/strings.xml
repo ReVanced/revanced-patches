@@ -164,9 +164,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_expandable_chip_title">Ẩn bảng mở rộng dưới video</string>
   <string name="revanced_hide_expandable_chip_summary_on">Bảng mở rộng được ẩn</string>
   <string name="revanced_hide_expandable_chip_summary_off">Bảng mở rộng được hiện</string>
-  <string name="revanced_hide_video_quality_menu_footer_title">Ẩn ghi chú cuối mục chất lượng video</string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_on">Ghi chú cuối mục chất lượng video được ẩn</string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_off">Ghi chú cuối mục Chất lượng video đã được hiển thị</string>
   <string name="revanced_hide_community_posts_title">Ẩn bài đăng cộng đồng</string>
   <string name="revanced_hide_community_posts_summary_on">Bài đăng cộng đồng được ẩn</string>
   <string name="revanced_hide_community_posts_summary_off">Bài đăng cộng đồng được hiện</string>
@@ -536,6 +533,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Ẩn Xem trong thực tế ảo</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Trình đơn xem trong thực tế ảo được ẩn</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Trình đơn xem trong thực tế ảo được hiện</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_title">Ẩn ghi chú cuối mục chất lượng video</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_player_previous_next_buttons_title">Ẩn các nút video trước đó &amp; tiếp theo</string>
@@ -934,7 +932,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - Khôi phục trình đơn tốc độ &amp; chất lượng cho video rộng</string>
   <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - Khôi phục thẻ thư viện</string>
   <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Khôi phục kệ danh sách phát cũ</string>
-  <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - Khôi phục bố cục giao diện cũ</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Đặt trang bắt đầu</string>

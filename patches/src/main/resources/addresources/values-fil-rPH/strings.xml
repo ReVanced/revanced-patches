@@ -151,9 +151,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_expandable_chip_title">Itago ang napapalawak na chip sa ilalim ng mga video</string>
   <string name="revanced_hide_expandable_chip_summary_on">Nakatago ang mga napapalawak na chip</string>
   <string name="revanced_hide_expandable_chip_summary_off">Ipinapakita ang mga napapalawak na chip</string>
-  <string name="revanced_hide_video_quality_menu_footer_title">Itago ang footer ng menu ng kalidad ng video</string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_on">Nakatago ang footer ng menu ng kalidad ng video</string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_off">Ang footer ng menu ng kalidad ng video ay ipinapakita</string>
   <string name="revanced_hide_community_posts_title">Itago ang mga post sa komunidad</string>
   <string name="revanced_hide_community_posts_summary_on">Nakatago ang mga post sa komunidad</string>
   <string name="revanced_hide_community_posts_summary_off">Ipinapakita ang mga post sa komunidad</string>
@@ -509,6 +506,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Itago ang Panoorin sa VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Nakatago ang panonood sa VR menu</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Ang panonood sa VR menu ay ipinapakita</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_title">Itago ang footer ng menu ng kalidad ng video</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Nakatago ang footer ng menu ng kalidad ng video</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Ang footer ng menu ng kalidad ng video ay ipinapakita</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_player_previous_next_buttons_title">Itago ang nakaraang &amp; susunod na mga pindutan ng video</string>
@@ -890,7 +890,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - Ibalik ang malawak na bilis ng video &amp; kalidad na menu</string>
   <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - Ibalik ang tab ng library</string>
   <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Ibalik ang lumang istante ng playlist</string>
-  <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - Ibalik ang lumang layout ng UI</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Itakda ang panimulang pahina</string>
