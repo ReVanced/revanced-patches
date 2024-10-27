@@ -168,9 +168,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_expandable_chip_title">Hide expandable chip under videos</string>
             <string name="revanced_hide_expandable_chip_summary_on">Expandable chips are hidden</string>
             <string name="revanced_hide_expandable_chip_summary_off">Expandable chips are shown</string>
-            <string name="revanced_hide_video_quality_menu_footer_title">Hide video quality menu footer</string>
-            <string name="revanced_hide_video_quality_menu_footer_summary_on">Video quality menu footer is hidden</string>
-            <string name="revanced_hide_video_quality_menu_footer_summary_off">Video quality menu footer is shown</string>
             <string name="revanced_hide_community_posts_title">Hide community posts</string>
             <string name="revanced_hide_community_posts_summary_on">Community posts are hidden</string>
             <string name="revanced_hide_community_posts_summary_off">Community posts are shown</string>
@@ -555,6 +552,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_player_flyout_watch_in_vr_title">Hide Watch in VR</string>
             <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Watch in VR menu is hidden</string>
             <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Watch in VR menu is shown</string>
+            <string name="revanced_hide_video_quality_menu_footer_title">Hide video quality menu footer</string>
+            <string name="revanced_hide_video_quality_menu_footer_summary_on">Video quality menu footer is hidden</string>
+            <string name="revanced_hide_video_quality_menu_footer_summary_off">Video quality menu footer is shown</string>
         </patch>
         <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
             <string name="revanced_hide_player_previous_next_buttons_title">Hide previous &amp; next video buttons</string>
