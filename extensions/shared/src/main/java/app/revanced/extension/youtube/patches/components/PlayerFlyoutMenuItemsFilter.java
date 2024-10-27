@@ -20,12 +20,12 @@ public class PlayerFlyoutMenuItemsFilter extends Filter {
     public PlayerFlyoutMenuItemsFilter() {
         exception = new ByteArrayFilterGroup(
                 // Whitelist Quality menu item when "Hide Additional settings menu" is enabled
-                Settings.HIDE_ADDITIONAL_SETTINGS_MENU,
+                Settings.HIDE_PLAYER_FLYOUT_ADDITIONAL_SETTINGS,
                 "quality_sheet"
         );
 
         videoQualityMenuFooter = new StringFilterGroup(
-                Settings.HIDE_VIDEO_QUALITY_MENU_FOOTER,
+                Settings.HIDE_PLAYER_FLYOUT_VIDEO_QUALITY_FOOTER,
                 "quality_sheet_footer"
         );
 
@@ -36,47 +36,51 @@ public class PlayerFlyoutMenuItemsFilter extends Filter {
 
         flyoutFilterGroupList.addAll(
                 new ByteArrayFilterGroup(
-                        Settings.HIDE_CAPTIONS_MENU,
+                        Settings.HIDE_PLAYER_FLYOUT_CAPTIONS,
                         "closed_caption"
                 ),
                 new ByteArrayFilterGroup(
-                        Settings.HIDE_ADDITIONAL_SETTINGS_MENU,
+                        Settings.HIDE_PLAYER_FLYOUT_ADDITIONAL_SETTINGS,
                         "yt_outline_gear"
                 ),
                 new ByteArrayFilterGroup(
-                        Settings.HIDE_LOOP_VIDEO_MENU,
+                        Settings.HIDE_PLAYER_FLYOUT_LOOP_VIDEO,
                         "yt_outline_arrow_repeat_1_"
                 ),
                 new ByteArrayFilterGroup(
-                        Settings.HIDE_AMBIENT_MODE_MENU,
+                        Settings.HIDE_PLAYER_FLYOUT_AMBIENT_MODE,
                         "yt_outline_screen_light"
                 ),
                 new ByteArrayFilterGroup(
-                        Settings.HIDE_HELP_MENU,
+                        Settings.HIDE_PLAYER_FLYOUT_STABLE_VOLUME,
+                        "volume_stable"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_PLAYER_FLYOUT_HELP,
                         "yt_outline_question_circle"
                 ),
                 new ByteArrayFilterGroup(
-                        Settings.HIDE_MORE_INFO_MENU,
+                        Settings.HIDE_PLAYER_FLYOUT_MORE_INFO,
                         "yt_outline_info_circle"
                 ),
                 new ByteArrayFilterGroup(
-                        Settings.HIDE_LOCK_SCREEN_MENU,
+                        Settings.HIDE_PLAYER_FLYOUT_LOCK_SCREEN,
                         "yt_outline_lock"
                 ),
                 new ByteArrayFilterGroup(
-                        Settings.HIDE_SPEED_MENU,
+                        Settings.HIDE_PLAYER_FLYOUT_SPEED,
                         "yt_outline_play_arrow_half_circle"
                 ),
                 new ByteArrayFilterGroup(
-                        Settings.HIDE_AUDIO_TRACK_MENU,
+                        Settings.HIDE_PLAYER_FLYOUT_AUDIO_TRACK,
                         "yt_outline_person_radar"
                 ),
                 new ByteArrayFilterGroup(
-                        Settings.HIDE_PLAYER_FLYOUT_MENU_SLEEP_TIMER,
+                        Settings.HIDE_PLAYER_FLYOUT_SLEEP_TIMER,
                         "yt_outline_moon_z_"
                 ),
                 new ByteArrayFilterGroup(
-                        Settings.HIDE_WATCH_IN_VR_MENU,
+                        Settings.HIDE_PLAYER_FLYOUT_WATCH_IN_VR,
                         "yt_outline_vr"
                 )
         );
