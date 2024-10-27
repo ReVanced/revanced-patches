@@ -151,9 +151,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_expandable_chip_title">Skryť rozšíriteľný čip pod videami</string>
   <string name="revanced_hide_expandable_chip_summary_on">Rozšíriteľné čipy sú skryté</string>
   <string name="revanced_hide_expandable_chip_summary_off">Zobrazujú sa rozšíriteľné čipy</string>
-  <string name="revanced_hide_video_quality_menu_footer_title">Skryť pätu ponuky kvality videa</string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_on">Päta ponuky kvality videa je skrytá</string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_off">Zobrazí sa päta ponuky kvality videa</string>
   <string name="revanced_hide_community_posts_title">Skryť príspevky komunity</string>
   <string name="revanced_hide_community_posts_summary_on">Príspevky komunity sú skryté</string>
   <string name="revanced_hide_community_posts_summary_off">Zobrazujú sa príspevky komunity</string>
@@ -510,6 +507,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Skryť hodinky vo VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Sledovanie v ponuke VR je skryté</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Zobrazí sa ponuka Sledovať vo VR</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_title">Skryť pätu ponuky kvality videa</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Päta ponuky kvality videa je skrytá</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Zobrazí sa päta ponuky kvality videa</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_player_previous_next_buttons_title">Skryť predchádzajúce &amp; tlačidlá ďalšieho videa</string>
@@ -898,7 +898,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - Obnovenie rýchlosti širokouhlého videa &amp; kvalitné menu</string>
   <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - Záložka Obnoviť knižnicu</string>
   <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Obnovte starú poličku so zoznamom skladieb</string>
-  <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - Obnovte staré rozloženie používateľského rozhrania</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Nastaviť úvodnú stránku</string>

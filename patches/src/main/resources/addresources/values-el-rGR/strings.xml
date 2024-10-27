@@ -86,9 +86,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_12_video_title">Βίντεο</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
-  <string name="revanced_shorts_disable_background_playback_title">Απενεργοποίηση αναπαραγωγής φόντου σορτς</string>
-  <string name="revanced_shorts_disable_background_playback_summary_on">Αναπαραγωγή φόντου σορτς είναι απενεργοποιημένη</string>
-  <string name="revanced_shorts_disable_background_playback_summary_off">Ενεργοποίηση αναπαραγωγής φόντου σορτς</string>
+  <string name="revanced_shorts_disable_background_playback_title">Απενεργοποίηση αναπαραγωγής παρασκηνίου για τα Shorts</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Η αναπαραγωγή παρασκηνίου είναι απενεργοποιημένη για τα Shorts</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Η αναπαραγωγή παρασκηνίου είναι ενεργοποιημένη για τα Shorts</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Εντοπισμός σφαλμάτων</string>
@@ -167,9 +167,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_expandable_chip_title">Επεκτάσιμα πλαίσια κάτω από τα βίντεο</string>
   <string name="revanced_hide_expandable_chip_summary_on">Κρυμμένα</string>
   <string name="revanced_hide_expandable_chip_summary_off">Εμφανίζονται</string>
-  <string name="revanced_hide_video_quality_menu_footer_title">Οδηγίες του μενού ποιότητας βίντεο</string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_on">Κρυμμένες</string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_off">Εμφανίζονται</string>
   <string name="revanced_hide_community_posts_title">Δημοσιεύσεις κοινότητας</string>
   <string name="revanced_hide_community_posts_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_community_posts_summary_off">Εμφανίζονται</string>
@@ -513,9 +510,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_additional_settings_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_off">Εμφανίζεται</string>
   <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_sleep_timer_title">Απόκρυψη χρονομέτρου ύπνου</string>
-  <string name="revanced_hide_player_flyout_sleep_timer_summary_on">Το μενού χρονοδιακόπτη ύπνου είναι κρυμμένο</string>
-  <string name="revanced_hide_player_flyout_sleep_timer_summary_off">Το μενού χρονοδιακόπτη ύπνου εμφανίζεται</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_title">Μενού «Χρονόμετρο ύπνου»</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_on">Κρυμμένο</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_off">Εμφανίζεται</string>
   <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_loop_video_title">Μενού «Επανάληψη βίντεο»</string>
   <string name="revanced_hide_player_flyout_loop_video_summary_on">Κρυμμένο</string>
@@ -524,6 +521,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_ambient_mode_title">Μενού «Λειτουργία περιβάλλοντος»</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_player_flyout_stable_volume_title">Μενού «Σταθερή ένταση»</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_on">Κρυμμένο</string>
   <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_help_title">Μενού «Βοήθεια &amp; σχόλια»</string>
   <string name="revanced_hide_player_flyout_help_summary_on">Κρυμμένο</string>
@@ -549,6 +549,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Μενού «Προβολή σε VR»</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_title">Οδηγίες του μενού ποιότητας βίντεο</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Κρυμμένες</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Εμφανίζονται</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_player_previous_next_buttons_title">Κουμπιά προηγούμενου &amp; επόμενου βίντεο</string>
@@ -763,12 +766,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_wide_searchbar_summary_off">Η ευρεία γραμμή αναζήτησης είναι απενεργοποιημένη</string>
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
-  <string name="revanced_seekbar_thumbnails_high_quality_title">Ενεργοποίηση μικρογραφιών υψηλής ποιότητας</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Οι μικρογραφίες της γραμμής αναζήτησης είναι υψηλής ποιότητας</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Οι μικρογραφίες της γραμμής αναζήτησης είναι μέσης ποιότητας</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Οι μικρογραφίες της γραμμής αναζήτησης πλήρους οθόνης είναι υψηλής ποιότητας</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Οι μικρογραφίες της γραμμής αναζήτησης πλήρους οθόνης είναι μέσης ποιότητας</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Αυτό θα αποκαταστήσει τις μικρογραφίες στα livestreams που δεν έχουν μικρογραφίες στη γραμμή αναζήτησης.\n\nη χρήση δεδομένων Internet μπορεί να είναι υψηλότερη και η αναζήτηση μικρογραφιών θα έχει μια μικρή καθυστέρηση πριν την εμφάνιση.\n\nΑυτή η λειτουργία λειτουργεί καλύτερα με μια πολύ γρήγορη σύνδεση στο διαδίκτυο.</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_title">Μικρογραφίες υψηλής ποιότητας</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Οι μικρογραφίες της γραμμής προόδου είναι υψηλής ποιότητας</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Οι μικρογραφίες της γραμμής προόδου είναι μέτριας ποιότητας</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Οι μικρογραφίες πλήρους οθόνης της γραμμής προόδου είναι υψηλής ποιότητας</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Οι μικρογραφίες πλήρους οθόνης της γραμμής προόδου είναι μέτριας ποιότητας</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Αυτό θα επαναφέρει τις μικρογραφίες σε ζωντανές μεταδόσεις που δεν έχουν μικρογραφίες γραμμής προόδου.\n\nΗ χρήση δεδομένων internet ενδέχεται να είναι υψηλότερη, και οι μικρογραφίες της γραμμής προόδου θα έχουν μια μικρή καθυστέρηση πριν εμφανιστούν.\n\nΑυτή η ρύθμιση λειτουργεί καλύτερα με γρήγορη σύνδεση internet.</string>
   </patch>
   <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
   <string name="revanced_restore_old_seekbar_thumbnails_title">Παλιές μικρογραφίες γραμμής προόδου</string>
@@ -969,7 +972,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - Επαναφορά ευρέος μενού ταχύτητας &amp; ποιότητας βίντεο</string>
   <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - Επαναφορά της καρτέλας βιβλιοθήκης</string>
   <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Επαναφορά ενότητας λίστας αναπαραγωγής παλιού στυλ</string>
-  <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - Επαναφορά της παλιάς εμφάνισης UI</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Ορισμός αρχικής σελίδας</string>
@@ -1156,16 +1158,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_remember_video_quality_toast">Η προεπιλεγμένη ποιότητα %1$s άλλαξε σε: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
-  <string name="revanced_playback_speed_dialog_button_title">Κουμπί αλλαγής ταχύτητας βίντεο</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Εμφανίζεται</string>
+  <string name="revanced_playback_speed_dialog_button_title">Εμφάνιση κουμπιού αλλαγής ταχύτητας</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Το κουμπί εμφανίζεται</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Κρυμμένο</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
-  <string name="revanced_custom_speed_menu_title">Προσαρμοσμένο μενού ταχύτητας αναπαραγωγής</string>
-  <string name="revanced_custom_speed_menu_summary_on">Εμφανίζεται προσαρμοσμένο μενού ταχύτητας</string>
-  <string name="revanced_custom_speed_menu_summary_off">Το προσαρμοσμένο μενού ταχύτητας δεν εμφανίζεται</string>
+  <string name="revanced_custom_speed_menu_title">Μενού προσαρμοσμένης ταχύτητας αναπαραγωγής</string>
+  <string name="revanced_custom_speed_menu_summary_on">Το μενού προσαρμοσμένης ταχύτητας αναπαραγωγής εμφανίζεται</string>
+  <string name="revanced_custom_speed_menu_summary_off">Το μενού προσαρμοσμένης ταχύτητας αναπαραγωγής δεν εμφανίζεται</string>
   <string name="revanced_custom_playback_speeds_title">Προσαρμοσμένες ταχύτητες αναπαραγωγής</string>
-  <string name="revanced_custom_playback_speeds_summary">Προσθήκη ή αλλαγή των προσαρμοσμένων ταχυτήτων αναπαραγωγής</string>
+  <string name="revanced_custom_playback_speeds_summary">Προσθέστε ή αλλάξτε τις προσαρμοσμένες ταχύτητες αναπαραγωγής</string>
   <string name="revanced_custom_playback_speeds_invalid">Οι ταχύτητες πρέπει να είναι μικρότερες από %sx. Επαναφορά...</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Μη έγκυρες ταχύτητες αναπαραγωγής. Επαναφορά...</string>
   </patch>
