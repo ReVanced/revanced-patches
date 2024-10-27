@@ -168,9 +168,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_expandable_chip_title">Skrýt rozšiřitelný čip pod videem</string>
   <string name="revanced_hide_expandable_chip_summary_on">Rozšiřitelné čipy jsou skryty</string>
   <string name="revanced_hide_expandable_chip_summary_off">Jsou zobrazeny rozšiřitelné čipy</string>
-  <string name="revanced_hide_video_quality_menu_footer_title">Skrýt zápatí menu kvality videa</string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_on">Zápatí nabídky video kvality je skryté</string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_off">Zápatí nabídky video kvality je zobrazeno</string>
   <string name="revanced_hide_community_posts_title">Skrýt příspěvky komunity</string>
   <string name="revanced_hide_community_posts_summary_on">Komunitní příspěvky jsou skryty</string>
   <string name="revanced_hide_community_posts_summary_off">Komunitní příspěvky jsou zobrazeny</string>
@@ -525,6 +522,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_ambient_mode_title">Skrýt ambientní režim</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_on">Nabídka ambientního režimu je skrytá</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_off">Zobrazení nabídky v režimu ambientního nastavení</string>
+  <string name="revanced_hide_player_flyout_stable_volume_title">Skrýt stabilní hlasitost</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_off">Zobrazí se stabilní hlasitost menu</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_on">Stálá hlasitost menu je skrytá</string>
   <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_help_title">Skrýt nápovědu &amp; zpětnou vazbu</string>
   <string name="revanced_hide_player_flyout_help_summary_on">Nápověda &amp; Nabídka zpětné vazby je skryta</string>
@@ -550,6 +550,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Skrýt sledování ve VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Sledování v nabídce VR je skryté</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Zobrazeno sledování v nabídce VR</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_title">Skrýt zápatí menu kvality videa</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Zápatí nabídky video kvality je skryté</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Zápatí nabídky video kvality je zobrazeno</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_player_previous_next_buttons_title">Skrýt předchozí &amp; další video tlačítka</string>
@@ -970,7 +973,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - Obnovení široké rychlosti videa &amp; kvalitní menu</string>
   <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - Obnovení záložky knihovny</string>
   <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Obnovit starou skladbu</string>
-  <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - Obnovit staré rozložení UI</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Nastavit úvodní stránku</string>

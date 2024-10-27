@@ -168,9 +168,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_expandable_chip_title">Piilota laajennettava osio videoiden alle</string>
   <string name="revanced_hide_expandable_chip_summary_on">Laajennettavat osiot on piilotettu</string>
   <string name="revanced_hide_expandable_chip_summary_off">Laajennettavat osiot näytetään</string>
-  <string name="revanced_hide_video_quality_menu_footer_title">Piilota videolaatuvalikon alatunniste</string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_on">Videolaatuvalikon alatunniste on piilotettu</string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_off">Videolaatuvalikon alatunniste näytetään</string>
   <string name="revanced_hide_community_posts_title">Piilota yhteisöpostaukset</string>
   <string name="revanced_hide_community_posts_summary_on">Yhteisöpostaukset on piilotettu</string>
   <string name="revanced_hide_community_posts_summary_off">Yhteisöpostaukset näytetään</string>
@@ -525,6 +522,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_ambient_mode_title">Piilota Elokuvatila</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_on">Elokuvatila-valinta on piilotettu</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_off">Elokuvatila-valinta näytetään</string>
+  <string name="revanced_hide_player_flyout_stable_volume_title">Piilota vakaa äänenvoimakkuus</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_off">Vakaan äänenvoimakkuuden valikko näytetään</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_on">Vakaan taltion valikko on piilotettu</string>
   <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_help_title">Piilota Ohjeet ja palaute</string>
   <string name="revanced_hide_player_flyout_help_summary_on">Ohjeet ja palaute -valinta on piilotettu</string>
@@ -550,6 +550,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Piilota Katso VR-tilassa</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Katso VR-tilassa -valinta on piilotettu</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Katso VR-tilassa -valinta näytetään</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_title">Piilota videolaatuvalikon alatunniste</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Videolaatuvalikon alatunniste on piilotettu</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Videolaatuvalikon alatunniste näytetään</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_player_previous_next_buttons_title">Piilota edellinen- ja seuraava video -painikkeet</string>
@@ -970,7 +973,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - Palauta laaja videonopeus- ja laatuvalikko</string>
   <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - Palauta kirjasto-välilehti</string>
   <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Palauta vanha soittolistahylly</string>
-  <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - Palauta vanha käyttöliittymäasettelu</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Aseta aloitussivu</string>
