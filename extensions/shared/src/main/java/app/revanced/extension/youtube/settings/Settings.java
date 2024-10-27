@@ -178,19 +178,21 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_PLAYLIST_BUTTON = new BooleanSetting("revanced_hide_playlist_button", FALSE);
 
     // Player flyout menu items
-    public static final BooleanSetting HIDE_CAPTIONS_MENU = new BooleanSetting("revanced_hide_player_flyout_captions", FALSE);
-    public static final BooleanSetting HIDE_ADDITIONAL_SETTINGS_MENU = new BooleanSetting("revanced_hide_player_flyout_additional_settings", FALSE);
-    public static final BooleanSetting HIDE_LOOP_VIDEO_MENU = new BooleanSetting("revanced_hide_player_flyout_loop_video", FALSE);
-    public static final BooleanSetting HIDE_AMBIENT_MODE_MENU = new BooleanSetting("revanced_hide_player_flyout_ambient_mode", FALSE);
-    public static final BooleanSetting HIDE_HELP_MENU = new BooleanSetting("revanced_hide_player_flyout_help", TRUE);
-    public static final BooleanSetting HIDE_SPEED_MENU = new BooleanSetting("revanced_hide_player_flyout_speed", FALSE);
-    public static final BooleanSetting HIDE_MORE_INFO_MENU = new BooleanSetting("revanced_hide_player_flyout_more_info", TRUE);
-    public static final BooleanSetting HIDE_LOCK_SCREEN_MENU = new BooleanSetting("revanced_hide_player_flyout_lock_screen", FALSE);
-    public static final BooleanSetting HIDE_AUDIO_TRACK_MENU = new BooleanSetting("revanced_hide_player_flyout_audio_track", FALSE);
-    public static final BooleanSetting HIDE_PLAYER_FLYOUT_MENU_SLEEP_TIMER = new BooleanSetting("revanced_hide_player_flyout_sleep_timer", FALSE);
-    public static final BooleanSetting HIDE_PLAYER_FLYOUT_MENU_STABLE_VOLUME = new BooleanSetting("revanced_hide_player_flyout_stable_volume", FALSE);
-    public static final BooleanSetting HIDE_WATCH_IN_VR_MENU = new BooleanSetting("revanced_hide_player_flyout_watch_in_vr", TRUE);
-    public static final BooleanSetting HIDE_VIDEO_QUALITY_MENU_FOOTER = new BooleanSetting("revanced_hide_video_quality_menu_footer", FALSE);
+    public static final BooleanSetting HIDE_PLAYER_FLYOUT_CAPTIONS = new BooleanSetting("revanced_hide_player_flyout_captions", FALSE);
+    public static final BooleanSetting HIDE_PLAYER_FLYOUT_ADDITIONAL_SETTINGS = new BooleanSetting("revanced_hide_player_flyout_additional_settings", FALSE);
+    public static final BooleanSetting HIDE_PLAYER_FLYOUT_LOOP_VIDEO = new BooleanSetting("revanced_hide_player_flyout_loop_video", FALSE);
+    public static final BooleanSetting HIDE_PLAYER_FLYOUT_AMBIENT_MODE = new BooleanSetting("revanced_hide_player_flyout_ambient_mode", FALSE);
+    public static final BooleanSetting HIDE_PLAYER_FLYOUT_HELP = new BooleanSetting("revanced_hide_player_flyout_help", TRUE);
+    public static final BooleanSetting HIDE_PLAYER_FLYOUT_SPEED = new BooleanSetting("revanced_hide_player_flyout_speed", FALSE);
+    public static final BooleanSetting HIDE_PLAYER_FLYOUT_MORE_INFO = new BooleanSetting("revanced_hide_player_flyout_more_info", TRUE);
+    public static final BooleanSetting HIDE_PLAYER_FLYOUT_LOCK_SCREEN = new BooleanSetting("revanced_hide_player_flyout_lock_screen", FALSE);
+    public static final BooleanSetting HIDE_PLAYER_FLYOUT_AUDIO_TRACK = new BooleanSetting("revanced_hide_player_flyout_audio_track", FALSE);
+    public static final BooleanSetting HIDE_PLAYER_FLYOUT_SLEEP_TIMER = new BooleanSetting("revanced_hide_player_flyout_sleep_timer", FALSE);
+    public static final BooleanSetting HIDE_PLAYER_FLYOUT_STABLE_VOLUME = new BooleanSetting("revanced_hide_player_flyout_stable_volume", FALSE);
+    public static final BooleanSetting HIDE_PLAYER_FLYOUT_WATCH_IN_VR = new BooleanSetting("revanced_hide_player_flyout_watch_in_vr", TRUE);
+    @Deprecated
+    private static final BooleanSetting DEPRECATED_HIDE_PLAYER_FLYOUT_VIDEO_QUALITY_FOOTER = new BooleanSetting("revanced_hide_video_quality_menu_footer", FALSE);
+    public static final BooleanSetting HIDE_PLAYER_FLYOUT_VIDEO_QUALITY_FOOTER = new BooleanSetting("revanced_hide_player_flyout_video_quality_footer", FALSE);
 
     // General layout
     public static final EnumSetting<StartPage> CHANGE_START_PAGE = new EnumSetting<>("revanced_change_start_page", StartPage.ORIGINAL, true);
@@ -379,6 +381,8 @@ public class Settings extends BaseSettings {
         }
 
         migrateOldSettingToNew(HIDE_PLAYER_BUTTONS, HIDE_PLAYER_PREVIOUS_NEXT_BUTTONS);
+
+        migrateOldSettingToNew(DEPRECATED_HIDE_PLAYER_FLYOUT_VIDEO_QUALITY_FOOTER, HIDE_PLAYER_FLYOUT_VIDEO_QUALITY_FOOTER);
 
         // endregion
     }
