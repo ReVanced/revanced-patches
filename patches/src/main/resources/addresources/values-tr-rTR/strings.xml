@@ -86,6 +86,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_12_video_title">Video</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <string name="revanced_shorts_disable_background_playback_title">Shorts\'un arka planda oynatılmasını devre dışı bırak</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Shorts\'un arka planda oynatılması devre dışı</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Shorts\'un arka planda oynatılması etkin</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Debugging</string>
@@ -164,9 +167,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_expandable_chip_title">Videoların altındaki genişletilebilir çentiği gizle</string>
   <string name="revanced_hide_expandable_chip_summary_on">Genişletilebilir çentikler gizleniyor</string>
   <string name="revanced_hide_expandable_chip_summary_off">Genişletilebilir çentikler gösteriliyor</string>
-  <string name="revanced_hide_video_quality_menu_footer_title">Video kalite menüsü alt bilgisini gizle</string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_on">Video kalite menüsü alt bilgisi gizleniyor </string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_off">Video kalite menüsü alt bilgisi gösteriliyor</string>
   <string name="revanced_hide_community_posts_title">Topluluk gönderilerini gizle</string>
   <string name="revanced_hide_community_posts_summary_on">Topluluk gönderileri gizleniyor </string>
   <string name="revanced_hide_community_posts_summary_off">Topluluk gönderileri gösteriliyor</string>
@@ -332,6 +332,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_products_banner_title">Ürünleri görme afişini gizle</string>
   <string name="revanced_hide_products_banner_summary_on">Afiş gizleniyor</string>
   <string name="revanced_hide_products_banner_summary_off">Afiş gösteriliyor</string>
+  <string name="revanced_hide_player_store_shelf_title">Oynatıcı alışveriş rafını gizle</string>
+  <string name="revanced_hide_player_store_shelf_summary_on">Alışveriş rafı gizli</string>
+  <string name="revanced_hide_player_store_shelf_summary_off">Alışveriş rafı görünür</string>
   <string name="revanced_hide_shopping_links_title">Video açıklamasındaki alışveriş bağlantılarını gizle</string>
   <string name="revanced_hide_shopping_links_summary_on">Alışveriş bağlantıları gizleniyor </string>
   <string name="revanced_hide_shopping_links_summary_off">Alışveriş bağlantıları gösteriliyor </string>
@@ -507,6 +510,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_additional_settings_summary_on">\"Ek ayarlar\" butonu gizleniyor </string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_off">\"Ek ayarlar\" butonu gösteriliyor </string>
   <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_sleep_timer_title">Uyku zamanlayıcısını gizle</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_on">Uyku zamanlayıcısı menüsü gizli</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_off">Uyku zamanlayıcısı menüsü görünür</string>
   <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_loop_video_title">\"Videoyu döngüye al\" butonunu gizle</string>
   <string name="revanced_hide_player_flyout_loop_video_summary_on">\"Videoyu döngüye al\" butonu gizleniyor </string>
@@ -515,6 +521,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_ambient_mode_title">\"Ambiyans modu\" butonunu gizle</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_on">\"Ambiyans modu\" butonu gizleniyor</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_off">\"Ambiyans modu\" butonu gösteriliyor </string>
+  <string name="revanced_hide_player_flyout_stable_volume_title">Sabit sesi gizle</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_off">Sabit ses menüsü görünür</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_on">Sabit ses menüsü gizli</string>
   <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_help_title">\"Yardım ve geri bildirim\" butonunu gizle</string>
   <string name="revanced_hide_player_flyout_help_summary_on">\"Yardım ve geri bildirim\" butonu gizleniyor</string>
@@ -540,6 +549,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_title">\"VR modunda izle\" butonunu gizle</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">\"VR modunda izle\" butonu gizleniyor </string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">\"VR modunda izle\" butonu gösteriliyor </string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_title">Video kalite menüsü alt bilgisini gizle</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Video kalite menüsü alt bilgisi gizli</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Video kalite menüsü alt bilgisi görünür</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_player_previous_next_buttons_title">Önceki ve Sonraki video butonlarını gizle</string>
@@ -585,6 +597,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Video kapak fotoğraflarındaki zaman çubuğu gösteriliyor</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <string name="revanced_shorts_player_screen_title">Shorts oynatıcı</string>
+  <string name="revanced_shorts_player_screen_summary">Shorts oynatıcısındaki bileşenleri gizleyin veya gösterin</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Ana Sayfa sekmesinde Shorts videolarını gizle</string>
   <string name="revanced_hide_shorts_home_summary_on">Ana Sayfa sekmesinde Shorts videoları gizleniyor</string>
@@ -631,6 +645,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_green_screen_button_title">Yeşil ekran düğmesini gizle</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Yeşil ekran düğmesi gizli</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Yeşil ekran düğmesi görünür</string>
+  <string name="revanced_hide_shorts_hashtag_button_title">Hashtag düğmesini gizle</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_on">Hashtag düğmesi gizli</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_off">Hashtag düğmesi görünür</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Arama önerilerini gizle</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Arama önerileri gizleniyor </string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Arama önerileri gösteriliyor </string>
@@ -749,6 +766,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_wide_searchbar_summary_off">Geniş arama çubuğu devre dışı</string>
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_title">Yüksek kalite küçük resimleri etkinleştir</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Zaman çubuğu küçük resimleri yüksek kalitede</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Zaman çubuğu küçük resimleri orta kalitede</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Tam ekran zaman çubuğu küçük resimleri yüksek kalitede</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Tam ekran zaman çubuğu küçük resimleri orta kalitede</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Bu, zaman çubuğu küçük resimleri olmayan canlı yayınlar için küçük resimleri geri getirecektir.\n\nİnternet veri kullanımı daha yüksek olabilir ve zaman çubuğu küçük resimleri gözükmeden önce küçük bir gecikme olabilir.\n\nBu özellik çok hızlı bir internet bağlantısında en iyi şekilde çalışır.</string>
   </patch>
   <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
   <string name="revanced_restore_old_seekbar_thumbnails_title">Eski zaman çubuğu küçük resimlerini geri getir</string>
@@ -949,18 +972,24 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - Geniş video hızı &amp; kalite menüsünü geri getir</string>
   <string name="revanced_spoof_app_version_target_entry_3">18.08.39 - Kitaplık sekmesini geri getir</string>
   <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Eski oynatma listesi rafını geri getir</string>
-  <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - Eski arayüzü geri getir</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Başlangıç sayfasını seç</string>
   <string name="revanced_change_start_page_entry_default">Varsayılan</string>
+  <string name="revanced_change_start_page_entry_browse">Kanallara göz at</string>
   <string name="revanced_change_start_page_entry_explore">Keşfet</string>
+  <string name="revanced_change_start_page_entry_gaming">Oyun</string>
   <string name="revanced_change_start_page_entry_history">Geçmiş</string>
   <string name="revanced_change_start_page_entry_library">Kitaplık</string>
   <string name="revanced_change_start_page_entry_liked_videos">Beğenilen videolar</string>
+  <string name="revanced_change_start_page_entry_live">Canlı yayın</string>
+  <string name="revanced_change_start_page_entry_movies">Filmler</string>
+  <string name="revanced_change_start_page_entry_music">Müzik</string>
   <string name="revanced_change_start_page_entry_search">Arama</string>
+  <string name="revanced_change_start_page_entry_sports">Spor</string>
   <string name="revanced_change_start_page_entry_subscriptions">Abonelikler</string>
   <string name="revanced_change_start_page_entry_trending">Trendler</string>
+  <string name="revanced_change_start_page_entry_watch_later">Daha sonra izle</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Shorts oynatıcıya devam edilmesini devre dışı bırak</string>
@@ -968,6 +997,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts oynatıcı açılışta devam edecek</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <string name="revanced_shorts_autoplay_title">Shorts\'u otomatik oynat</string>
+  <string name="revanced_shorts_autoplay_summary_on">Sıradaki Shorts videosu otomatik olarak oynatılacak</string>
+  <string name="revanced_shorts_autoplay_summary_off">Aynı Shorts videosu sürekli döngü yapacak</string>
+  <string name="revanced_shorts_autoplay_background_title">Arka planda Shorts\'u otomatik oynat</string>
+  <string name="revanced_shorts_autoplay_background_summary_on">Shorts arka planda otomatik oynatılacak</string>
+  <string name="revanced_shorts_autoplay_background_summary_off">Shorts arka planda döngüde olacak</string>
   </patch>
   <patch id="layout.tablet.enableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Tablet düzenini etkinleştir</string>
@@ -985,13 +1020,30 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
   <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
+  <string name="revanced_miniplayer_rounded_corners_title">Yuvarlatılmış köşeleri etkinleştir</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_on">Köşeler yuvarlatılmış</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_off">Köşeler kare şeklinde</string>
+  <string name="revanced_miniplayer_double_tap_action_title">Boyutlandırmak için çift dokunmayı ve sıkıştırmayı etkinleştir</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">Boyutlandırmak için çift dokunma ve sıkıştırma etkin\n\n•Mini oynatıcıyı büyütmek için çift dokunun\n• Orijinal boyuta dönmek için tekrar çift dokunun</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_off">Boyutlandırmak için çift dokunma ve sıkıştırma devre dışı</string>
+  <string name="revanced_miniplayer_drag_and_drop_title">Sürükleyip bırakmayı etkinleştir</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">Sürükleyip bırakma etkin\n\nMini oynatıcı ekranın herhangi bir köşesine sürüklenebilir</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_off">Sürükleyip bırakma devre dışı</string>
+  <string name="revanced_miniplayer_hide_expand_close_title">Kapatma düğmesini gizle</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">Kapatma düğmesi gizli</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">Kapatma düğmesi görünür</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_title">Büyüt ve kapat düğmelerini gizle</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Düğmeler gizli\n\nBüyütmek veya kapatmak için kaydırın</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Büyütme ve kapatma düğmeleri görünür</string>
   <string name="revanced_miniplayer_hide_subtext_title">Alt metinleri gizle</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Alt metinler gizli</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Alt metinler görünür</string>
   <string name="revanced_miniplayer_hide_rewind_forward_title">İleri/geri atlama düğmelerini gizle</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">İleri/geri atlama düğmeleri gizli</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">İleri/geri atlama düğmeleri görünür</string>
+  <string name="revanced_miniplayer_width_dip_title">Başlangıç boyutu</string>
+  <string name="revanced_miniplayer_width_dip_summary">Başlangıçtaki boyut, piksel cinsinden</string>
+  <string name="revanced_miniplayer_width_dip_invalid_toast">Piksel boyutu %1$s ve %2$s arasında olmalıdır</string>
   <string name="revanced_miniplayer_opacity_title">Katman şeffaflığı</string>
   <string name="revanced_miniplayer_opacity_summary">0-100 arasında opaklık değeri, 0 şeffaftır</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Katman şeffaflığı 0-100 arasında olmalıdır</string>
@@ -1111,7 +1163,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_playback_speed_dialog_button_summary_off">Buton gösterilmiyor</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <string name="revanced_custom_speed_menu_title">Özel oynatma hızı menüsü</string>
+  <string name="revanced_custom_speed_menu_summary_on">Özel oynatma hızı menüsü görünür</string>
+  <string name="revanced_custom_speed_menu_summary_off">Özel oynatma hızı menüsü görünmez</string>
   <string name="revanced_custom_playback_speeds_title">Özel oynatma hızları</string>
+  <string name="revanced_custom_playback_speeds_summary">Özel oynatma hızları ekle veya değiştir</string>
   <string name="revanced_custom_playback_speeds_invalid">Özel hızlar %s\'dan az olmalıdır. Varsayılanlar kullanılıyor.</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Geçersiz özel oynatma hızları. Varsayılanlar seçildi.</string>
   </patch>
