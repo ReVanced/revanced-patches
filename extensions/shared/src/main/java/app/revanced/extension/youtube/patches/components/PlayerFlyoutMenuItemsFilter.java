@@ -52,6 +52,10 @@ public class PlayerFlyoutMenuItemsFilter extends Filter {
                         "yt_outline_screen_light"
                 ),
                 new ByteArrayFilterGroup(
+                        Settings.HIDE_PLAYER_FLYOUT_MENU_STABLE_VOLUME,
+                        "volume_stable"
+                ),
+                new ByteArrayFilterGroup(
                         Settings.HIDE_HELP_MENU,
                         "yt_outline_question_circle"
                 ),
