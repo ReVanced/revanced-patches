@@ -8,7 +8,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 val verticalScrollPatch = bytecodePatch(
     description = "Fixes issues with refreshing the feed when the first component is of type EmptyComponent.",
 ) {
-    val canScrollVerticallyMatch by canScrollVerticallyFingerprint()
 
     execute {
         canScrollVerticallyMatch.mutableMethod.apply {

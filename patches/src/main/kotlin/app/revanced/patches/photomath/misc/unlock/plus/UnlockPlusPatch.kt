@@ -13,8 +13,6 @@ val unlockPlusPatch = bytecodePatch(
 
     compatibleWith("com.microblink.photomath"("8.37.0"))
 
-    val isPlusUnlockedMatch by isPlusUnlockedFingerprint()
-
     execute {
         isPlusUnlockedMatch.mutableMethod.addInstructions(
             0,

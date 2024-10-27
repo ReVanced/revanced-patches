@@ -35,8 +35,6 @@ val restoreOldSeekbarThumbnailsPatch = bytecodePatch(
         ),
     )
 
-    val fullscreenSeekbarThumbnailsMatch by fullscreenSeekbarThumbnailsFingerprint()
-
     execute {
         if (is_19_17_or_greater) {
             return@execute Logger.getLogger(this::class.java.name).severe("'Restore old seekbar thumbnails' cannot be patched to any version after 19.16.39")

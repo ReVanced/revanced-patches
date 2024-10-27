@@ -79,17 +79,15 @@ fun gmsCoreSupportPatch(
 
     val gmsCoreVendorGroupId by gmsCoreVendorGroupIdOption
 
-    val gmsCoreSupportMatch by gmsCoreSupportFingerprint()
-    val mainActivityOnCreateMatch by mainActivityOnCreateFingerprint()
     primeMethodFingerprint?.invoke()
     googlePlayUtilityFingerprint()
     serviceCheckFingerprint()
     earlyReturnFingerprints.forEach { it() }
 
-    execute { context ->
-        fun transformStringReferences(transform: (str: String) -> String?) = context.classes.forEach {
+    execute {
+        fun transformStringReferences(transform: (str: String) -> String?) = classes.forEach {
             val mutableClass by lazy {
-                context.proxy(it).mutableClass
+                proxy(it).mutableClass
             }
 
             it.methods.forEach classLoop@{ method ->
@@ -535,7 +533,7 @@ fun gmsCoreSupportResourcePatch(
 
     val gmsCoreVendorGroupId by gmsCoreVendorGroupIdOption
 
-    execute { context ->
+    execute {
         addResources("shared", "misc.gms.gmsCoreSupportResourcePatch")
 
         /**
@@ -551,7 +549,7 @@ fun gmsCoreSupportResourcePatch(
                 appendChild(child)
             }
 
-            context.document["AndroidManifest.xml"].use { document ->
+            document("AndroidManifest.xml").use { document ->
                 val applicationNode =
                     document
                         .getElementsByTagName("application")
@@ -593,7 +591,7 @@ fun gmsCoreSupportResourcePatch(
                 "</queries>" to "<package android:name=\"$gmsCoreVendorGroupId.android.gms\"/></queries>",
             )
 
-            val manifest = context["AndroidManifest.xml"]
+            val manifest = get("AndroidManifest.xml")
             manifest.writeText(
                 transformations.entries.fold(manifest.readText()) { acc, (from, to) ->
                     acc.replace(

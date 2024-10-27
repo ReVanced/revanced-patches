@@ -66,10 +66,7 @@ val hideInfoCardsPatch = bytecodePatch(
         ),
     )
 
-    val infocardsIncognitoParentMatch by infocardsIncognitoParentFingerprint()
-    val infocardsMethodCallMatch by infocardsMethodCallFingerprint()
-
-    execute { context ->
+    execute {
         infocardsIncognitoFingerprint.applyMatch(context, infocardsIncognitoParentMatch).mutableMethod.apply {
             val invokeInstructionIndex = implementation!!.instructions.indexOfFirst {
                 it.opcode.ordinal == Opcode.INVOKE_VIRTUAL.ordinal &&

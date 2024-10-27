@@ -9,6 +9,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.reddit.misc.extension.sharedExtensionPatch
 import java.io.Closeable
 import java.io.InvalidClassException
+import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 /**
  * The [JsonHookPatchHook] of the [jsonHookPatch].
@@ -28,15 +29,13 @@ val jsonHookPatch = bytecodePatch(
 ) {
     dependsOn(sharedExtensionPatch)
 
-    val loganSquareMatch by loganSquareFingerprint()
-
-    execute { context ->
+    execute {
         jsonHookPatchFingerprint.apply {
             // Make sure the extension is present.
-            val jsonHookPatch = context.classBy { classDef -> classDef.type == JSON_HOOK_PATCH_CLASS_DESCRIPTOR }
+            val jsonHookPatch = classBy { classDef -> classDef.type == JSON_HOOK_PATCH_CLASS_DESCRIPTOR }
                 ?: throw PatchException("Could not find the extension.")
 
-            if (!match(context, jsonHookPatch.immutableClass)) {
+            if (match(jsonHookPatch.immutableClass) != null) {
                 throw PatchException("Unexpected extension.")
             }
         }.let { jsonHooks = JsonHookPatchHook(it) }
@@ -48,7 +47,7 @@ val jsonHookPatch = bytecodePatch(
             .firstOrNull { it.name == "JSON_FACTORY" }
             ?.type
             .let { type ->
-                context.classBy { it.type == type }?.mutableClass
+                classBy { it.type == type }?.mutableClass
             } ?: throw PatchException("Could not find required class.")
 
         // Hook the methods first parameter.
@@ -83,7 +82,7 @@ class JsonHook(context: BytecodePatchContext, internal val descriptor: String) {
     internal var added = false
 
     init {
-        context.classBy { it.type == descriptor }?.let {
+        classBy { it.type == descriptor }?.let {
             it.mutableClass.also { classDef ->
                 if (
                     classDef.superclass != JSON_HOOK_CLASS_DESCRIPTOR ||

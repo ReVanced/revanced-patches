@@ -25,8 +25,8 @@ val changeVersionCodePatch = resourcePatch(
         required = true,
     ) { versionCode -> versionCode!! >= 1 }
 
-    execute { context ->
-        context.document["AndroidManifest.xml"].use { document ->
+    execute {
+        document("AndroidManifest.xml").use { document ->
             val manifestElement = document.getNode("manifest") as Element
             manifestElement.setAttribute("android:versionCode", "$versionCode")
         }

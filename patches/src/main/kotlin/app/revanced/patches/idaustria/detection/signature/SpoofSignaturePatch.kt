@@ -10,8 +10,6 @@ val spoofSignaturePatch = bytecodePatch(
 ) {
     compatibleWith("at.gv.oe.app")
 
-    val spoofSignatureMatch by spoofSignatureFingerprint()
-
     execute {
         val expectedSignature =
             "OpenSSLRSAPublicKey{modulus=ac3e6fd6050aa7e0d6010ae58190404cd89a56935b44f6fee" +

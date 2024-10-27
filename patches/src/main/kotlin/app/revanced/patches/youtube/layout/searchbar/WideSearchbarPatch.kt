@@ -38,10 +38,7 @@ val wideSearchbarPatch = bytecodePatch(
         ),
     )
 
-    val setWordmarkHeaderMatch by setWordmarkHeaderFingerprint()
-    val createSearchSuggestionsMatch by createSearchSuggestionsFingerprint()
-
-    execute { context ->
+    execute {
         addResources("youtube", "layout.searchbar.wideSearchbarPatch")
 
         PreferenceScreen.FEED.addPreferences(

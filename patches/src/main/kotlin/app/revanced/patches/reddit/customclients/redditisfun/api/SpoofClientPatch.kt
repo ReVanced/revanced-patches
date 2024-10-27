@@ -16,10 +16,6 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "redditisfun://auth") { cl
         "com.andrewshu.android.redditdonation",
     )
 
-    val buildAuthorizationStringMatch by buildAuthorizationStringFingerprint()
-    val basicAuthorizationMatch by basicAuthorizationFingerprint()
-    val getUserAgentMatch by getUserAgentFingerprint()
-
     val clientId by clientIdOption
 
     execute {

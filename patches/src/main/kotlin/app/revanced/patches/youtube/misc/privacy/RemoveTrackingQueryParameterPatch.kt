@@ -38,10 +38,6 @@ val removeTrackingQueryParameterPatch = bytecodePatch(
         ),
     )
 
-    val youTubeShareSheetMatch by youtubeShareSheetFingerprint()
-    val systemShareSheetMatch by systemShareSheetFingerprint()
-    val copyTextMatch by copyTextFingerprint()
-
     execute {
         addResources("youtube", "misc.privacy.removeTrackingQueryParameterPatch")
 

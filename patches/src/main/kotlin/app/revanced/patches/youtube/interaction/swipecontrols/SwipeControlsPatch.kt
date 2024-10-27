@@ -12,7 +12,6 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.mainActivityFingerprint
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
 import app.revanced.util.transformMethods
@@ -26,7 +25,7 @@ private val swipeControlsResourcePatch = resourcePatch {
         addResourcesPatch,
     )
 
-    execute { context ->
+    execute {
         addResources("youtube", "interaction.swipecontrols.swipeControlsResourcePatch")
 
         PreferenceScreen.SWIPE_CONTROLS.addPreferences(
@@ -76,10 +75,7 @@ val swipeControlsPatch = bytecodePatch(
         ),
     )
 
-    val mainActivityMatch by mainActivityFingerprint()
-    val swipeControlsHostActivityMatch by swipeControlsHostActivityFingerprint()
-
-    execute { context ->
+    execute {
         val wrapperClass = swipeControlsHostActivityMatch.mutableClass
         val targetClass = mainActivityMatch.mutableClass
 

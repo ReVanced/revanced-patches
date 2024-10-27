@@ -63,10 +63,10 @@ val changeHeaderPatch = resourcePatch(
         required = true,
     )
 
-    execute { context ->
+    execute {
         // The directories to copy the header to.
         val targetResourceDirectories = targetResourceDirectoryNames.keys.mapNotNull {
-            context["res"].resolve(it).takeIf(File::exists)
+            get("res").resolve(it).takeIf(File::exists)
         }
         // The files to replace in the target directories.
         val targetResourceFiles = targetResourceDirectoryNames.keys.map { directoryName ->
@@ -115,7 +115,7 @@ val changeHeaderPatch = resourcePatch(
 
             // For each source folder, copy the files to the target resource directories.
             sourceFolders.forEach { dpiSourceFolder ->
-                val targetDpiFolder = context["res"].resolve(dpiSourceFolder.name)
+                val targetDpiFolder = get("res").resolve(dpiSourceFolder.name)
                 if (!targetDpiFolder.exists()) return@forEach
 
                 val imgSourceFiles = dpiSourceFolder.listFiles { file -> file.isFile }!!

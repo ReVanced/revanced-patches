@@ -30,8 +30,6 @@ val spoofAndroidDeviceIdPatch = bytecodePatch(
         ),
     )
 
-    val getAndroidIDMatch by getAndroidIdFingerprint()
-
     val androidDeviceId by stringOption(
         key = "android-device-id",
         default = "0011223344556677",

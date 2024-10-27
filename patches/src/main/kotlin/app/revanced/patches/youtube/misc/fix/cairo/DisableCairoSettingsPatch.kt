@@ -16,8 +16,6 @@ internal val disableCairoSettingsPatch = bytecodePatch(
 ) {
     dependsOn(versionCheckPatch)
 
-    val cairoFragmentConfigMatch by cairoFragmentConfigFingerprint()
-
     execute {
         if (!is_19_04_or_greater) {
             return@execute

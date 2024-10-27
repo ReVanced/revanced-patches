@@ -23,8 +23,6 @@ val fixVideoDownloadsPatch = bytecodePatch(
         "com.laurencedawson.reddit_sync.dev",
     )
 
-    val parseRedditVideoNetworkResponseMatch by parseRedditVideoNetworkResponseFingerprint()
-
     execute {
         val scanResult = parseRedditVideoNetworkResponseMatch.patternMatch!!
         val newInstanceIndex = scanResult.startIndex

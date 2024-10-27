@@ -4,24 +4,17 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
-import baseModelMapperFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction31i
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
-import getSponsoredDataModelTemplateFingerprint
-import getStoryVisibilityFingerprint
 
 @Suppress("unused")
 val hideSponsoredStoriesPatch = bytecodePatch(
     name = "Hide 'Sponsored Stories'",
 ) {
     compatibleWith("com.facebook.katana")
-
-    val getStoryVisibilityMatch by getStoryVisibilityFingerprint()
-    val getSponsoredDataModelTemplateMatch by getSponsoredDataModelTemplateFingerprint()
-    val baseModelMapperMatch by baseModelMapperFingerprint()
 
     execute {
         val sponsoredDataModelTemplateMethod = getSponsoredDataModelTemplateMatch.method
@@ -75,16 +68,16 @@ val hideSponsoredStoriesPatch = bytecodePatch(
         getStoryVisibilityMatch.mutableMethod.addInstructionsWithLabels(
             getStoryVisibilityMatch.patternMatch!!.startIndex,
             """
-                    instance-of v0, p0, $graphQlStoryClassDescriptor
-                    if-eqz v0, :resume_normal
-                    invoke-static {p0}, $getSponsoredDataHelperMethod
-                    move-result-object v0 
-                    if-eqz v0, :resume_normal
-                    const-string v0, "GONE"
-                    return-object v0
-                    :resume_normal
-                    nop
-                """,
+                instance-of v0, p0, $graphQlStoryClassDescriptor
+                if-eqz v0, :resume_normal
+                invoke-static {p0}, $getSponsoredDataHelperMethod
+                move-result-object v0 
+                if-eqz v0, :resume_normal
+                const-string v0, "GONE"
+                return-object v0
+                :resume_normal
+                nop
+            """,
         )
     }
 }

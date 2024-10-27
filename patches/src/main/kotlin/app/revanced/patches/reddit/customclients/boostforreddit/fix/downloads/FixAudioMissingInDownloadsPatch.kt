@@ -12,8 +12,6 @@ val fixAudioMissingInDownloadsPatch = bytecodePatch(
 ) {
     compatibleWith("com.rubenmayayo.reddit")
 
-    val downloadAudioMatch by downloadAudioFingerprint()
-
     execute {
         val endpointReplacements = mapOf(
             "/DASH_audio.mp4" to "/DASH_AUDIO_128.mp4",

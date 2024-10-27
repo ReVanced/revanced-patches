@@ -55,11 +55,6 @@ val settingsPatch = bytecodePatch(
         ),
     )
 
-    val settingsActivityOnCreateMatch by settingsActivityOnCreateFingerprint()
-    val settingsMenuItemEnumMatch by settingsMenuItemEnumFingerprint()
-    val menuGroupsUpdatedMatch by menuGroupsUpdatedFingerprint()
-    val menuGroupsOnClickMatch by menuGroupsOnClickFingerprint()
-
     execute {
         addResources("twitch", "misc.settings.settingsPatch")
 

@@ -38,9 +38,6 @@ val changeStartPagePatch = bytecodePatch(
         ),
     )
 
-    val browseIdMatch by browseIdFingerprint()
-    val intentActionMatch by intentActionFingerprint()
-
     execute { _ ->
         addResources("youtube", "layout.startpage.changeStartPagePatch")
 

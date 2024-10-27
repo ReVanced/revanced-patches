@@ -15,13 +15,6 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "dbrady://relay") {
         "reddit.news",
     )
 
-    val loginActivityClientIdMatch by loginActivityClientIdFingerprint()
-    val getLoggedInBearerTokenMatch by getLoggedInBearerTokenFingerprint()
-    val getLoggedOutBearerTokenMatch by getLoggedOutBearerTokenFingerprint()
-    val getRefreshTokenMatch by getRefreshTokenFingerprint()
-    val setRemoteConfigMatch by setRemoteConfigFingerprint()
-    val redditCheckDisableAPIMatch by redditCheckDisableAPIFingerprint()
-
     val clientId by it
 
     execute {

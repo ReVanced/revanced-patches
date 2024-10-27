@@ -7,7 +7,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tiktok.misc.extension.sharedExtensionPatch
 import app.revanced.patches.tiktok.misc.settings.settingsPatch
-import app.revanced.patches.tiktok.misc.settings.settingsStatusLoadFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -27,13 +26,7 @@ val downloadsPatch = bytecodePatch(
         "com.zhiliaoapp.musically"("36.5.4"),
     )
 
-    val aclCommonShareMatch by aclCommonShareFingerprint()
-    val aclCommonShare2Match by aclCommonShare2Fingerprint()
-    val aclCommonShare3Match by aclCommonShare3Fingerprint()
-    val downloadUriMatch by downloadUriFingerprint()
-    val settingsStatusLoadMatch by settingsStatusLoadFingerprint()
-
-    execute { context ->
+    execute {
         aclCommonShareMatch.mutableMethod.replaceInstructions(
             0,
             """

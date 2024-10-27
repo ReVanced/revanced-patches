@@ -5,7 +5,6 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.youtube.interaction.seekbar.fullscreenSeekbarThumbnailsQualityFingerprint
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_17_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
@@ -32,10 +31,8 @@ val seekbarThumbnailsPatch = bytecodePatch(
             "19.16.39",
             "19.25.37",
             "19.34.42",
-        )
+        ),
     )
-
-    val fullscreenSeekbarThumbnailsQualityMatch by fullscreenSeekbarThumbnailsQualityFingerprint()
 
     execute {
         addResources("youtube", "layout.seekbar.seekbarThumbnailsPatch")
@@ -45,11 +42,11 @@ val seekbarThumbnailsPatch = bytecodePatch(
                 SwitchPreference(
                     key = "revanced_seekbar_thumbnails_high_quality",
                     summaryOnKey = "revanced_seekbar_thumbnails_high_quality_legacy_summary_on",
-                    summaryOffKey = "revanced_seekbar_thumbnails_high_quality_legacy_summary_on"
+                    summaryOffKey = "revanced_seekbar_thumbnails_high_quality_legacy_summary_on",
                 )
             } else {
                 SwitchPreference("revanced_seekbar_thumbnails_high_quality")
-            }
+            },
         )
 
         fullscreenSeekbarThumbnailsQualityMatch.mutableMethod.addInstructions(
@@ -58,7 +55,7 @@ val seekbarThumbnailsPatch = bytecodePatch(
                 invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->useHighQualityFullscreenThumbnails()Z
                 move-result v0
                 return v0
-            """
+            """,
         )
     }
 }

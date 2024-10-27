@@ -35,10 +35,6 @@ fun checkEnvironmentPatch(
         addResourcesPatch,
     )
 
-    val patchInfoMatch by patchInfoFingerprint()
-    val patchInfoBuildMatch by patchInfoBuildFingerprint()
-    val mainActivityOnCreateMatch by mainActivityOnCreateFingerprint()
-
     execute {
         addResources("shared", "misc.checks.checkEnvironmentPatch")
 

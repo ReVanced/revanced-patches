@@ -10,8 +10,8 @@ val removeBroadcastsRestrictionPatch = resourcePatch(
 ) {
     compatibleWith("eu.faircode.netguard")
 
-    execute { context ->
-        context.document["AndroidManifest.xml"].use { document ->
+    execute {
+        document("AndroidManifest.xml").use { document ->
             val applicationNode =
                 document
                     .getElementsByTagName("application")

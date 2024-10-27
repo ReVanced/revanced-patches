@@ -22,8 +22,6 @@ val embeddedAdsPatch = bytecodePatch(
 
     compatibleWith("tv.twitch.android.app"("15.4.1", "16.1.0", "16.9.1"))
 
-    val createUsherClientMatch by createsUsherClientFingerprint()
-
     execute {
         addResources("twitch", "ad.embedded.embeddedAdsPatch")
 

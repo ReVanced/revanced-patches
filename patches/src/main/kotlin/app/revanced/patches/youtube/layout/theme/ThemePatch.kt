@@ -81,7 +81,7 @@ val themePatch = bytecodePatch(
                 addResourcesPatch,
             )
 
-            execute { context ->
+            execute {
                 addResources("youtube", "layout.theme.themeResourcePatch")
 
                 PreferenceScreen.SEEKBAR.addPreferences(
@@ -90,7 +90,7 @@ val themePatch = bytecodePatch(
                 )
 
                 // Edit theme colors via resources.
-                context.document["res/values/colors.xml"].use { document ->
+                document("res/values/colors.xml").use { document ->
 
                     val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
 
@@ -118,7 +118,7 @@ val themePatch = bytecodePatch(
                     colorName: String,
                     colorValue: String,
                 ) {
-                    context.document[resourceFile].use { document ->
+                    document(resourceFile).use { document ->
 
                         val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
 
@@ -153,7 +153,7 @@ val themePatch = bytecodePatch(
                         )
 
                     splashScreenResourceFiles.forEach editSplashScreen@{ resourceFile ->
-                        context.document[resourceFile].use { document ->
+                        document(resourceFile).use { document ->
                             document.getElementsByTagName("layer-list").item(0).forEachChildElement { node ->
                                 if (node.hasAttribute("android:drawable")) {
                                     node.setAttribute("android:drawable", "@color/$splashBackgroundColor")
@@ -169,7 +169,7 @@ val themePatch = bytecodePatch(
                     // In earlier versions of the app this is white and makes no sense for dark mode.
                     // This is only required for 19.32 and greater, but is applied to all targets.
                     // Only dark mode needs this fix as light mode correctly uses the custom color.
-                    context.document["res/values-night/styles.xml"].use { document ->
+                    document("res/values-night/styles.xml").use { document ->
                         // Create a night mode specific override for the splash screen background.
                         val style = document.createElement("style")
                         style.setAttribute("name", "Theme.YouTube.Home")
@@ -200,10 +200,6 @@ val themePatch = bytecodePatch(
             "19.34.42",
         ),
     )
-
-    val useGradientLoadingScreenMatch by useGradientLoadingScreenFingerprint()
-    val themeHelperLightColorMatch by themeHelperLightColorFingerprint()
-    val themeHelperDarkColorMatch by themeHelperDarkColorFingerprint()
 
     execute {
         addResources("youtube", "layout.theme.themePatch")

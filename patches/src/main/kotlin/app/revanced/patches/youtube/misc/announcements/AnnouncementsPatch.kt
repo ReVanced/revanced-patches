@@ -7,7 +7,6 @@ import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/announcements/AnnouncementsPatch;"
@@ -23,8 +22,6 @@ val announcementsPatch = bytecodePatch(
     )
 
     compatibleWith("com.google.android.youtube")
-
-    val mainActivityOnCreateMatch by mainActivityOnCreateFingerprint()
 
     execute {
         addResources("youtube", "misc.announcements.announcementsPatch")

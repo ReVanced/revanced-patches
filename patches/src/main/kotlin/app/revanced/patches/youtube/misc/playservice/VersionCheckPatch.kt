@@ -39,10 +39,10 @@ var is_19_43_or_greater = false
 val versionCheckPatch = resourcePatch(
     description = "Uses the Play Store service version to find the major/minor version of the YouTube target app.",
 ) {
-    execute { context ->
+    execute {
         // The app version is missing from the decompiled manifest,
         // so instead use the Google Play services version and compare against specific releases.
-        val playStoreServicesVersion = context.document["res/values/integers.xml"].use { document ->
+        val playStoreServicesVersion = document("res/values/integers.xml").use { document ->
             document.documentElement.childNodes.findElementByAttributeValueOrThrow(
                 "name",
                 "google_play_services_version",

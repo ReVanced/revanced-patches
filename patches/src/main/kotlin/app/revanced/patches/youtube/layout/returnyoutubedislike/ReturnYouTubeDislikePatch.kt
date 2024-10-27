@@ -19,7 +19,6 @@ import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.addSettingPreference
 import app.revanced.patches.youtube.misc.settings.newIntent
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.rollingNumberTextViewAnimationUpdateFingerprint
 import app.revanced.patches.youtube.video.videoid.hookPlayerResponseVideoId
 import app.revanced.patches.youtube.video.videoid.hookVideoId
 import app.revanced.patches.youtube.video.videoid.videoIdPatch
@@ -63,20 +62,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
         ),
     )
 
-    val conversionContextMatch by conversionContextFingerprint()
-    val textComponentConstructorMatch by textComponentConstructorFingerprint()
-    val textComponentDataMatch by textComponentDataFingerprint()
-    val shortsTextViewMatch by shortsTextViewFingerprint()
-    val likeMatch by likeFingerprint()
-    val dislikeMatch by dislikeFingerprint()
-    val removeLikeMatch by removeLikeFingerprint()
-    val rollingNumberSetterMatch by rollingNumberSetterFingerprint()
-    val rollingNumberMeasureStaticLabelParentMatch by rollingNumberMeasureStaticLabelParentFingerprint()
-    val rollingNumberMeasureAnimatedTextMatch by rollingNumberMeasureAnimatedTextFingerprint()
-    val rollingNumberTextViewMatch by rollingNumberTextViewFingerprint()
-    val rollingNumberTextViewAnimationUpdateMatch by rollingNumberTextViewAnimationUpdateFingerprint()
-
-    execute { context ->
+    execute {
         addResources("youtube", "layout.returnyoutubedislike.returnYouTubeDislikePatch")
 
         addSettingPreference(

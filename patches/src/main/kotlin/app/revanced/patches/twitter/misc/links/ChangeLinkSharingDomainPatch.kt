@@ -51,10 +51,6 @@ val changeLinkSharingDomainPatch = bytecodePatch(
         required = true,
     )
 
-    val linkSharingDomainMatch by linkSharingDomainFingerprint()
-    val linkBuilderMatch by linkBuilderFingerprint()
-    val linkResourceGetterMatch by linkResourceGetterFingerprint()
-
     execute {
         val replacementIndex =
             linkSharingDomainMatch.stringMatches!!.first().index

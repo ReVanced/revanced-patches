@@ -14,9 +14,6 @@ val playerTypeHookPatch = bytecodePatch(
 ) {
     dependsOn(sharedExtensionPatch)
 
-    val playerTypeMatch by playerTypeFingerprint()
-    val videoStateMatch by videoStateFingerprint()
-
     execute {
         playerTypeMatch.mutableMethod.addInstruction(
             0,

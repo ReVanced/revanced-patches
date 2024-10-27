@@ -10,8 +10,8 @@ import org.w3c.dom.Element
 private val removeCaptureRestrictionResourcePatch = resourcePatch(
     description = "Sets allowAudioPlaybackCapture in manifest to true.",
 ) {
-    execute { context ->
-        context.document["AndroidManifest.xml"].use { document ->
+    execute {
+        document("AndroidManifest.xml").use { document ->
             // Get the application node.
             val applicationNode =
                 document

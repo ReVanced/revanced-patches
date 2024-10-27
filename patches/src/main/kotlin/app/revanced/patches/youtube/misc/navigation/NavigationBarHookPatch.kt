@@ -48,16 +48,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
         playerTypeHookPatch, // Required to detect the search bar in all situations.
     )
 
-    val pivotBarConstructorMatch by pivotBarConstructorFingerprint()
-    val navigationEnumMatch by navigationEnumFingerprint()
-    val pivotBarButtonsCreateDrawableViewMatch by pivotBarButtonsCreateDrawableViewFingerprint()
-    val pivotBarButtonsCreateResourceViewMatch by pivotBarButtonsCreateResourceViewFingerprint()
-    val pivotBarButtonsViewSetSelectedMatch by pivotBarButtonsViewSetSelectedFingerprint()
-    val navigationBarHookCallbackMatch by navigationBarHookCallbackFingerprint()
-    val mainActivityOnBackPressedMatch by mainActivityOnBackPressedFingerprint()
-    val actionBarSearchResultsMatch by actionBarSearchResultsFingerprint()
-
-    execute { context ->
+    execute {
         fun MutableMethod.addHook(hook: Hook, insertPredicate: Instruction.() -> Boolean) {
             val filtered = instructions.filter(insertPredicate)
             if (filtered.isEmpty()) throw PatchException("Could not find insert indexes")
@@ -157,5 +148,5 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
 private enum class Hook(val methodName: String, val parameters: String) {
     SET_LAST_APP_NAVIGATION_ENUM("setLastAppNavigationEnum", "Ljava/lang/Enum;"),
     NAVIGATION_TAB_LOADED("navigationTabLoaded", "Landroid/view/View;"),
-    NAVIGATION_IMAGE_RESOURCE_TAB_LOADED("navigationImageResourceTabLoaded", "Landroid/view/View;")
+    NAVIGATION_IMAGE_RESOURCE_TAB_LOADED("navigationImageResourceTabLoaded", "Landroid/view/View;"),
 }

@@ -16,8 +16,6 @@ val removeGooglePlayIntegrityCheckPatch = bytecodePatch(
 ) {
     compatibleWith("com.swisssign.swissid.mobile")
 
-    val checkIntegrityMatch by checkIntegrityFingerprint()
-
     execute {
         checkIntegrityMatch.mutableMethod.addInstructions(
             0,

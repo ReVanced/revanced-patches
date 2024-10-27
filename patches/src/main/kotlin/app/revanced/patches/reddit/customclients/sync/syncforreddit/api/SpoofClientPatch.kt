@@ -22,13 +22,9 @@ val spoofClientPatch = spoofClientPatch(
         "com.laurencedawson.reddit_sync.dev",
     )
 
-    val imgurImageAPIMatch by imgurImageAPIFingerprint()
-    val getAuthorizationStringMatch by getAuthorizationStringFingerprint()
-    val getUserAgentMatch by getUserAgentFingerprint()
-
     val clientId by clientIdOption
 
-    execute { context ->
+    execute {
         // region Patch client id.
 
         getBearerTokenFingerprint.apply {

@@ -12,8 +12,6 @@ val enableCustomTabsPatch = bytecodePatch(
 ) {
     compatibleWith("com.google.android.apps.magazines")
 
-    val launchCustomTabMatch by launchCustomTabFingerprint()
-
     execute {
         launchCustomTabMatch.mutableMethod.apply {
             val checkIndex = launchCustomTabMatch.patternMatch!!.endIndex + 1

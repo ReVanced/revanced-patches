@@ -25,22 +25,17 @@ val settingsPatch = bytecodePatch(
         "com.zhiliaoapp.musically"("36.5.4"),
     )
 
-    val adPersonalizationActivityOnCreateMatch by adPersonalizationActivityOnCreateFingerprint()
-    val addSettingsEntryMatch by addSettingsEntryFingerprint()
-    val settingsEntryMatch by settingsEntryFingerprint()
-    val settingsEntryInfoMatch by settingsEntryInfoFingerprint()
-
     execute {
         val initializeSettingsMethodDescriptor =
             "$EXTENSION_CLASS_DESCRIPTOR->initialize(" +
-                    "Lcom/bytedance/ies/ugc/aweme/commercialize/compliance/personalization/AdPersonalizationActivity;" +
-                    ")Z"
+                "Lcom/bytedance/ies/ugc/aweme/commercialize/compliance/personalization/AdPersonalizationActivity;" +
+                ")Z"
 
         val createSettingsEntryMethodDescriptor =
             "$EXTENSION_CLASS_DESCRIPTOR->createSettingsEntry(" +
-                    "Ljava/lang/String;" +
-                    "Ljava/lang/String;" +
-                    ")Ljava/lang/Object;"
+                "Ljava/lang/String;" +
+                "Ljava/lang/String;" +
+                ")Ljava/lang/Object;"
 
         fun String.toClassName(): String = substring(1, this.length - 1).replace("/", ".")
 

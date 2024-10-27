@@ -12,8 +12,8 @@ val dynamicColorPatch = resourcePatch(
 ) {
     compatibleWith("com.twitter.android")
 
-    execute { context ->
-        val resDirectory = context["res"]
+    execute {
+        val resDirectory = get("res")
         if (!resDirectory.isDirectory) throw PatchException("The res folder can not be found.")
 
         val valuesV31Directory = resDirectory.resolve("values-v31")
@@ -32,7 +32,7 @@ val dynamicColorPatch = resourcePatch(
             }
         }
 
-        context.document["res/values-v31/colors.xml"].use { document ->
+        document("res/values-v31/colors.xml").use { document ->
 
             mapOf(
                 "ps__twitter_blue" to "@color/twitter_blue",
@@ -53,7 +53,7 @@ val dynamicColorPatch = resourcePatch(
             }
         }
 
-        context.document["res/values-night-v31/colors.xml"].use { document ->
+        document("res/values-night-v31/colors.xml").use { document ->
             mapOf(
                 "twitter_blue" to "@android:color/system_accent1_200",
                 "twitter_blue_fill_pressed" to "@android:color/system_accent1_300",

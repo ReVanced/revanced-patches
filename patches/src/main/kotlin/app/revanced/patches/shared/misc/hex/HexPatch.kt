@@ -10,10 +10,10 @@ import kotlin.math.max
 // Without the function, the replacements would be evaluated at the time of patch creation.
 // This isn't possible because the delegated property is not accessible at that time.
 fun hexPatch(replacementsSupplier: () -> Set<Replacement>) = rawResourcePatch {
-    execute { context ->
+    execute {
         replacementsSupplier().groupBy { it.targetFilePath }.forEach { (targetFilePath, replacements) ->
             val targetFile = try {
-                context[targetFilePath, true]
+                get(targetFilePath, true)
             } catch (e: Exception) {
                 throw PatchException("Could not find target file: $targetFilePath")
             }

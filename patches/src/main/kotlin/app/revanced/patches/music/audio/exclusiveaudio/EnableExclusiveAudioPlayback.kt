@@ -10,8 +10,6 @@ val enableExclusiveAudioPlaybackPatch = bytecodePatch(
 ) {
     compatibleWith("com.google.android.apps.youtube.music")
 
-    val allowExclusiveAudioPlaybackMatch by allowExclusiveAudioPlaybackFingerprint()
-
     execute {
         allowExclusiveAudioPlaybackMatch.mutableMethod.apply {
             addInstructions(

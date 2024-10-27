@@ -6,17 +6,12 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.soundcloud.shared.featureConstructorFingerprint
 
 @Suppress("unused")
 val hideAdsPatch = bytecodePatch(
     name = "Hide ads",
 ) {
     compatibleWith("com.soundcloud.android")
-
-    val featureConstructorMatch by featureConstructorFingerprint()
-    val userConsumerPlanConstructorMatch by userConsumerPlanConstructorFingerprint()
-    val interceptMatch by interceptFingerprint()
 
     execute {
         // Enable a preset feature to disable audio ads by modifying the JSON server response.

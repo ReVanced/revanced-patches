@@ -14,6 +14,6 @@ fun hookPatch(
     compatibleWith("com.twitter.android")
 
     execute {
-        jsonHooks.addHook(JsonHook(it, hookClassDescriptor))
+        jsonHooks.addHook(JsonHook(this, hookClassDescriptor))
     }
 }

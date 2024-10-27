@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.misc.dns
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
-import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/CheckWatchHistoryDomainNameResolutionPatch;"
@@ -22,8 +21,6 @@ val checkWatchHistoryDomainNameResolutionPatch = bytecodePatch(
             "19.34.42",
         ),
     )
-
-    val mainActivityOnCreateMatch by mainActivityOnCreateFingerprint()
 
     execute {
         addResources("youtube", "misc.dns.checkWatchHistoryDomainNameResolutionPatch")

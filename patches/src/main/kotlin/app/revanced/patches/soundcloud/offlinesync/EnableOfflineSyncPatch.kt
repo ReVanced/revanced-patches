@@ -7,7 +7,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.soundcloud.shared.featureConstructorFingerprint
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -18,10 +17,6 @@ val enableOfflineSync = bytecodePatch(
     name = "Enable offline sync",
 ) {
     compatibleWith("com.soundcloud.android")
-
-    val featureConstructorMatch by featureConstructorFingerprint()
-    val downloadOperationsURLBuilderMatch by downloadOperationsURLBuilderFingerprint()
-    val downloadOperationsHeaderVerificationMatch by downloadOperationsHeaderVerificationFingerprint()
 
     execute {
         // Enable the feature to allow offline track syncing by modifying the JSON server response.

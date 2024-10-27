@@ -82,9 +82,6 @@ val restoreOldVideoQualityMenuPatch = bytecodePatch(
         ),
     )
 
-    val videoQualityMenuViewInflateMatch by videoQualityMenuViewInflateFingerprint()
-    val videoQualityMenuOptionsMatch by videoQualityMenuOptionsFingerprint()
-
     execute {
         // region Patch for the old type of the video quality menu.
         // Used for regular videos when spoofing to old app version,

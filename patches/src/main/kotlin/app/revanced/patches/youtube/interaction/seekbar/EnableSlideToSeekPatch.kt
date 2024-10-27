@@ -44,11 +44,6 @@ val enableSlideToSeekPatch = bytecodePatch(
         ),
     )
 
-    val slideToSeekMatch by slideToSeekFingerprint()
-    val disableFastForwardLegacyMatch by disableFastForwardLegacyFingerprint()
-    val disableFastForwardGestureMatch by disableFastForwardGestureFingerprint()
-    val disableFastForwardNoticeMatch by disableFastForwardNoticeFingerprint()
-
     execute {
         addResources("youtube", "interaction.seekbar.enableSlideToSeekPatch")
 

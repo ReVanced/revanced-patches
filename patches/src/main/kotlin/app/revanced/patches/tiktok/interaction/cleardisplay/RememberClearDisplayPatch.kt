@@ -5,7 +5,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.tiktok.shared.onRenderFirstFrameFingerprint
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -19,9 +18,6 @@ val rememberClearDisplayPatch = bytecodePatch(
         "com.ss.android.ugc.trill"("36.5.4"),
         "com.zhiliaoapp.musically"("36.5.4"),
     )
-
-    val onClearDisplayEventMatch by onClearDisplayEventFingerprint()
-    val onRenderFirstFrameMatch by onRenderFirstFrameFingerprint()
 
     execute {
         onClearDisplayEventMatch.mutableMethod.let {

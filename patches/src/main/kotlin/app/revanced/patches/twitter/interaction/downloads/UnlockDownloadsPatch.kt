@@ -19,10 +19,6 @@ val unlockDownloadsPatch = bytecodePatch(
 ) {
     compatibleWith("com.twitter.android")
 
-    val constructMediaOptionsSheetMatch by constructMediaOptionsSheetFingerprint()
-    val showDownloadVideoUpsellBottomSheetMatch by showDownloadVideoUpsellBottomSheetFingerprint()
-    val buildMediaOptionsSheetMatch by buildMediaOptionsSheetFingerprint()
-
     fun Match.patch(getRegisterAndIndex: Match.() -> Pair<Int, Int>) {
         val (index, register) = getRegisterAndIndex()
         mutableMethod.addInstruction(index, "const/4 v$register, 0x1")

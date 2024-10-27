@@ -11,8 +11,6 @@ val disableAdsPatch = bytecodePatch(
 ) {
     compatibleWith("com.duolingo")
 
-    val initializeMonetizationDebugSettingsMatch by initializeMonetizationDebugSettingsFingerprint()
-
     execute {
         // Couple approaches to remove ads exist:
         //

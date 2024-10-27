@@ -21,6 +21,12 @@ dependencies {
     compileOnly(project(":patches:stub"))
 }
 
+kotlin {
+    compilerOptions {
+        freeCompilerArgs = listOf("-Xcontext-receivers")
+    }
+}
+
 publishing {
     repositories {
         maven {

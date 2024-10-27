@@ -5,7 +5,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tiktok.misc.extension.sharedExtensionPatch
 import app.revanced.patches.tiktok.misc.settings.settingsPatch
-import app.revanced.patches.tiktok.misc.settings.settingsStatusLoadFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -24,9 +23,6 @@ val feedFilterPatch = bytecodePatch(
         "com.ss.android.ugc.trill"("36.5.4"),
         "com.zhiliaoapp.musically"("36.5.4"),
     )
-
-    val feedApiServiceLIZMatch by feedApiServiceLIZFingerprint()
-    val settingsStatusLoadMatch by settingsStatusLoadFingerprint()
 
     execute {
         feedApiServiceLIZMatch.mutableMethod.apply {

@@ -41,7 +41,7 @@ private val sponsorBlockResourcePatch = resourcePatch {
         playerControlsPatch,
     )
 
-    execute { context ->
+    execute {
         addResources("youtube", "layout.sponsorblock.sponsorBlockResourcePatch")
 
         addSettingPreference(
@@ -120,12 +120,7 @@ val sponsorBlockPatch = bytecodePatch(
         ),
     )
 
-    val seekbarMatch by seekbarFingerprint()
-    val appendTimeMatch by appendTimeFingerprint()
-    val layoutConstructorMatch by layoutConstructorFingerprint()
-    val autoRepeatParentMatch by autoRepeatParentFingerprint()
-
-    execute { context ->
+    execute {
         // Hook the video time methods.
         videoTimeHook(
             EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR,
@@ -218,7 +213,7 @@ val sponsorBlockPatch = bytecodePatch(
 
             // replace the "replaceMeWith*" strings
             context
-                .proxy(context.classes.first { it.type.endsWith("SegmentPlaybackController;") })
+                .proxy(classes.first { it.type.endsWith("SegmentPlaybackController;") })
                 .mutableClass
                 .methods
                 .find { it.name == "setSponsorBarRect" }

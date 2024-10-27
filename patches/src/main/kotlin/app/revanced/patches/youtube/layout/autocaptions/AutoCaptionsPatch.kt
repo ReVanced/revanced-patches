@@ -8,7 +8,6 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.subtitleButtonControllerFingerprint
 
 @Suppress("unused")
 val autoCaptionsPatch = bytecodePatch(
@@ -30,10 +29,6 @@ val autoCaptionsPatch = bytecodePatch(
             "19.34.42",
         ),
     )
-
-    val startVideoInformerMatch by startVideoInformerFingerprint()
-    val subtitleButtonControllerMatch by subtitleButtonControllerFingerprint()
-    val subtitleTrackMatch by subtitleTrackFingerprint()
 
     execute {
         addResources("youtube", "layout.autocaptions.autoCaptionsPatch")

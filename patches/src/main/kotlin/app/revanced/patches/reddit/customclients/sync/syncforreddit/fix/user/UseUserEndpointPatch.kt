@@ -20,13 +20,6 @@ val useUserEndpointPatch = bytecodePatch(
         "com.laurencedawson.reddit_sync.dev",
     )
 
-    val oAuthFriendRequestMatch by oAuthFriendRequestFingerprint()
-    val oAuthSubredditInfoRequestConstructorMatch by oAuthSubredditInfoRequestConstructorFingerprint()
-    val oAuthSubredditInfoRequestHelperMatch by oAuthSubredditInfoRequestHelperFingerprint()
-    val oAuthUnfriendRequestMatch by oAuthUnfriendRequestFingerprint()
-    val oAuthUserIdRequestMatch by oAuthUserIdRequestFingerprint()
-    val oAuthUserInfoRequestMatch by oAuthUserInfoRequestFingerprint()
-
     execute {
         arrayOf(
             oAuthFriendRequestMatch,

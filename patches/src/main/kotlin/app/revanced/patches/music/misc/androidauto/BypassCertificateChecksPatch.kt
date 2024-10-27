@@ -10,8 +10,6 @@ val bypassCertificateChecksPatch = bytecodePatch(
 ) {
     compatibleWith("com.google.android.apps.youtube.music")
 
-    val checkCertificateMatch by checkCertificateFingerprint()
-
     execute {
         checkCertificateMatch.mutableMethod.addInstructions(
             0,

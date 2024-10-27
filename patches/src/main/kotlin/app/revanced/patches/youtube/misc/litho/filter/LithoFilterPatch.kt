@@ -36,12 +36,6 @@ val lithoFilterPatch = bytecodePatch(
         versionCheckPatch,
     )
 
-    val componentContextParserMatch by componentContextParserFingerprint()
-    val lithoFilterMatch by lithoFilterFingerprint()
-    val protobufBufferReferenceMatch by protobufBufferReferenceFingerprint()
-    val readComponentIdentifierMatch by readComponentIdentifierFingerprint()
-    val emptyComponentMatch by emptyComponentFingerprint()
-
     var filterCount = 0
 
     /**
@@ -95,7 +89,7 @@ val lithoFilterPatch = bytecodePatch(
      *    }
      * }
      */
-    execute { context ->
+    execute {
         // Remove dummy filter from extenion static field
         // and add the filters included during patching.
         lithoFilterMatch.mutableMethod.apply {
@@ -131,7 +125,7 @@ val lithoFilterPatch = bytecodePatch(
             AccessFlags.STATIC.isSet(method.accessFlags)
         }
         // Only one field.
-        val emptyComponentField = context.classBy { classDef ->
+        val emptyComponentField = classBy { classDef ->
             builderMethodDescriptor.returnType == classDef.type
         }!!.immutableClass.fields.single()
 

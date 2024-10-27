@@ -35,8 +35,6 @@ val enableTabletLayoutPatch = bytecodePatch(
         ),
     )
 
-    val getFormFactorMatch by getFormFactorFingerprint()
-
     execute {
         addResources("youtube", "layout.tablet.enableTabletLayoutPatch")
 

@@ -12,7 +12,6 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.newVideoQualityChangedFingerprint
 import app.revanced.patches.youtube.video.information.onCreateHook
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.applyMatch
@@ -45,11 +44,7 @@ val rememberVideoQualityPatch = bytecodePatch(
         ),
     )
 
-    val videoQualitySetterMatch by videoQualitySetterFingerprint()
-    val videoQualityItemOnClickParentMatch by videoQualityItemOnClickParentFingerprint()
-    val newVideoQualityChangedMatch by newVideoQualityChangedFingerprint()
-
-    execute { context ->
+    execute {
         addResources("youtube", "video.quality.rememberVideoQualityPatch")
 
         PreferenceScreen.VIDEO.addPreferences(
@@ -93,7 +88,7 @@ val rememberVideoQualityPatch = bytecodePatch(
             val setQualityByIndexMethodClassFieldReference =
                 getSetQualityByIndexMethodClassFieldReference as FieldReference
 
-            val setQualityByIndexMethodClass = context.classes
+            val setQualityByIndexMethodClass = classes
                 .find { classDef -> classDef.type == setQualityByIndexMethodClassFieldReference.type }!!
 
             // Get the name of the setQualityByIndex method.

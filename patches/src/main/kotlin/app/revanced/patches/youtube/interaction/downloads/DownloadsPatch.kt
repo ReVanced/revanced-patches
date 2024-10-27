@@ -14,7 +14,6 @@ import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.misc.playercontrols.*
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.mainActivityFingerprint
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
@@ -26,7 +25,7 @@ private val downloadsResourcePatch = resourcePatch {
         addResourcesPatch,
     )
 
-    execute { context ->
+    execute {
         addResources("youtube", "interaction.downloads.downloadsResourcePatch")
 
         PreferenceScreen.PLAYER.addPreferences(
@@ -75,9 +74,6 @@ val downloadsPatch = bytecodePatch(
             "19.34.42",
         ),
     )
-
-    val offlineVideoEndpointMatch by offlineVideoEndpointFingerprint()
-    val mainActivityMatch by mainActivityFingerprint()
 
     execute {
         initializeBottomControl(BUTTON_DESCRIPTOR)

@@ -10,8 +10,6 @@ val disableTypingIndicatorPatch = bytecodePatch(
 ) {
     compatibleWith("com.facebook.orca")
 
-    val sendTypingIndicatorMatch by sendTypingIndicatorFingerprint()
-
     execute {
         sendTypingIndicatorMatch.mutableMethod.replaceInstruction(0, "return-void")
     }

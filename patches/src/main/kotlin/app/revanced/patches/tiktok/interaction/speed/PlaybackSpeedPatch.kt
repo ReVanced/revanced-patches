@@ -4,8 +4,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.tiktok.shared.getEnterFromFingerprint
-import app.revanced.patches.tiktok.shared.onRenderFirstFrameFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction11x
@@ -21,11 +19,6 @@ val playbackSpeedPatch = bytecodePatch(
         "com.ss.android.ugc.trill"("36.5.4"),
         "com.zhiliaoapp.musically"("36.5.4"),
     )
-
-    val getSpeedMatch by getSpeedFingerprint()
-    val onRenderFirstFrameMatch by onRenderFirstFrameFingerprint()
-    val setSpeedMatch by setSpeedFingerprint()
-    val getEnterFromMatch by getEnterFromFingerprint()
 
     execute {
         setSpeedMatch.let { onVideoSwiped ->

@@ -170,15 +170,7 @@ val miniplayerPatch = bytecodePatch(
         ),
     )
 
-    val miniplayerDimensionsCalculatorParentMatch by miniplayerDimensionsCalculatorParentFingerprint()
-    val miniplayerResponseModelSizeCheckMatch by miniplayerResponseModelSizeCheckFingerprint()
-    val miniplayerOverrideMatch by miniplayerOverrideFingerprint()
-    val miniplayerModernConstructorMatch by miniplayerModernConstructorFingerprint()
-    val miniplayerModernViewParentMatch by miniplayerModernViewParentFingerprint()
-    val miniplayerMinimumSizeMatch by miniplayerMinimumSizeFingerprint()
-    val playerOverlaysLayoutMatch by playerOverlaysLayoutFingerprint()
-
-    execute { context ->
+    execute {
         addResources("youtube", "layout.miniplayer.miniplayerPatch")
 
         val preferences = mutableSetOf<BasePreference>()

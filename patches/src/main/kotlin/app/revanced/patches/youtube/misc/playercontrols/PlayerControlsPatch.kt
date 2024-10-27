@@ -58,7 +58,7 @@ val playerControlsResourcePatch = resourcePatch {
 
     lateinit var bottomTargetDocument: Document
 
-    execute { context ->
+    execute {
         val targetResourceName = "youtube_controls_bottom_ui_container.xml"
 
         bottomUiContainerResourceId = resourceMappings["id", "bottom_ui_container_stub"]
@@ -66,7 +66,7 @@ val playerControlsResourcePatch = resourcePatch {
         heatseekerViewstub = resourceMappings["id", "heatseeker_viewstub"]
         fullscreenButton = resourceMappings["id", "fullscreen_button"]
 
-        bottomTargetDocument = context.document["res/layout/$targetResourceName"]
+        bottomTargetDocument = document("res/layout/$targetResourceName")
 
         val bottomTargetElement: Node = bottomTargetDocument.getElementsByTagName(
             "android.support.constraint.ConstraintLayout",
@@ -84,13 +84,13 @@ val playerControlsResourcePatch = resourcePatch {
             val resourceFileName = "host/layout/youtube_controls_layout.xml"
             val hostingResourceStream = inputStreamFromBundledResource(
                 resourceDirectoryName,
-                resourceFileName
+                resourceFileName,
             ) ?: throw PatchException("Could not find $resourceFileName")
 
-            val document = context.document["res/layout/youtube_controls_layout.xml"]
+            val document = document("res/layout/youtube_controls_layout.xml")
 
             "RelativeLayout".copyXmlNode(
-                context.document[hostingResourceStream],
+                document(hostingResourceStream),
                 document,
             ).use {
                 val element = document.childNodes.findElementByAttributeValueOrThrow(
@@ -110,7 +110,7 @@ val playerControlsResourcePatch = resourcePatch {
             val resourceFileName = "host/layout/youtube_controls_bottom_ui_container.xml"
             val sourceDocument = context.document[
                 inputStreamFromBundledResource(resourceDirectoryName, resourceFileName)
-                    ?: throw PatchException("Could not find $resourceFileName")
+                    ?: throw PatchException("Could not find $resourceFileName"),
             ]
 
             val sourceElements = sourceDocument.getElementsByTagName(
@@ -213,12 +213,7 @@ val playerControlsPatch = bytecodePatch(
 ) {
     dependsOn(playerControlsResourcePatch)
 
-    val playerBottomControlsInflateMatch by playerBottomControlsInflateFingerprint()
-    val playerTopControlsInflateMatch by playerTopControlsInflateFingerprint()
-    val overlayViewInflateMatch by overlayViewInflateFingerprint()
-    val playerControlsExtensionHookMatch by playerControlsExtensionHookFingerprint()
-
-    execute { context ->
+    execute {
         fun MutableMethod.indexOfFirstViewInflateOrThrow() =
             indexOfFirstInstructionOrThrow {
                 val reference = getReference<MethodReference>()

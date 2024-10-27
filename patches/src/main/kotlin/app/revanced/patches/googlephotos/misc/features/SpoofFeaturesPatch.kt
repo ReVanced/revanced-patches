@@ -54,8 +54,6 @@ val spoofFeaturesPatch = bytecodePatch(
         required = true,
     )
 
-    val initializeFeaturesEnumMatch by initializeFeaturesEnumFingerprint()
-
     execute {
         @Suppress("NAME_SHADOWING")
         val featuresToEnable = featuresToEnable!!.toSet()

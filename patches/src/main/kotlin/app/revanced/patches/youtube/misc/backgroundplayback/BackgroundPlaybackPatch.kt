@@ -59,24 +59,16 @@ val backgroundPlaybackPatch = bytecodePatch(
         ),
     )
 
-    val backgroundPlaybackManagerMatch by backgroundPlaybackManagerFingerprint()
-    val backgroundPlaybackSettingsMatch by backgroundPlaybackSettingsFingerprint()
-
-    val shortsBackgroundPlaybackFeatureFlagMatch by shortsBackgroundPlaybackFeatureFlagFingerprint()
-    val backgroundPlaybackManagerShortsMatch by backgroundPlaybackManagerShortsFingerprint()
-
-    val kidsBackgroundPlaybackPolicyControllerMatch by kidsBackgroundPlaybackPolicyControllerFingerprint()
-
-    execute { context ->
+    execute {
         addResources("youtube", "misc.backgroundplayback.backgroundPlaybackPatch")
 
         PreferenceScreen.SHORTS.addPreferences(
-            SwitchPreference("revanced_shorts_disable_background_playback")
+            SwitchPreference("revanced_shorts_disable_background_playback"),
         )
 
         arrayOf(
             backgroundPlaybackManagerMatch to "isBackgroundPlaybackAllowed",
-            backgroundPlaybackManagerShortsMatch to "isBackgroundShortsPlaybackAllowed"
+            backgroundPlaybackManagerShortsMatch to "isBackgroundShortsPlaybackAllowed",
         ).forEach { (match, integrationsMethod) ->
             match.mutableMethod.apply {
                 findInstructionIndicesReversedOrThrow(Opcode.RETURN).forEach { index ->
@@ -87,7 +79,7 @@ val backgroundPlaybackPatch = bytecodePatch(
                         """
                             invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->$integrationsMethod(Z)Z
                             move-result v$register 
-                        """
+                        """,
                     )
                 }
             }

@@ -30,6 +30,9 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
+import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
+import org.stringtemplate.v4.compiler.Bytecode.instructions
+import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 var speedUnavailableId = -1L
     internal set
@@ -63,12 +66,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         addResourcesPatch,
     )
 
-    val speedArrayGeneratorMatch by speedArrayGeneratorFingerprint()
-    val speedLimiterMatch by speedLimiterFingerprint()
-    val getOldPlaybackSpeedsMatch by getOldPlaybackSpeedsFingerprint()
-    val showOldPlaybackSpeedMenuExtensionMatch by showOldPlaybackSpeedMenuExtensionFingerprint()
-
-    execute { context ->
+    execute {
         addResources("youtube", "video.speed.custom.customPlaybackSpeedPatch")
 
         PreferenceScreen.VIDEO.addPreferences(
@@ -77,7 +75,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         )
 
         // Replace the speeds float array with custom speeds.
-        speedArrayGeneratorMatch.mutableMethod.apply {
+        speedArrayGeneratorFingerprint.matchOrThrow.method.apply {
             val sizeCallIndex = indexOfFirstInstructionOrThrow { getReference<MethodReference>()?.name == "size" }
             val sizeCallResultRegister = getInstruction<OneRegisterInstruction>(sizeCallIndex + 1).registerA
 
@@ -109,7 +107,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         }
 
         // Override the min/max speeds that can be used.
-        speedLimiterMatch.mutableMethod.apply {
+        speedLimiterFingerprint.matchOrThrow.method.apply {
             val limitMinIndex = indexOfFirstLiteralInstructionOrThrow(0.25f.toRawBits().toLong())
             var limitMaxIndex = indexOfFirstLiteralInstruction(2.0f.toRawBits().toLong())
             // Newer targets have 4x max speed.

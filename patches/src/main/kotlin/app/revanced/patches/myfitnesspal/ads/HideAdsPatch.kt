@@ -10,9 +10,6 @@ val hideAdsPatch = bytecodePatch(
 ) {
     compatibleWith("com.myfitnesspal.android")
 
-    val isPremiumUseCaseImplMatch by isPremiumUseCaseImplFingerprint()
-    val mainActivityNavigateToNativePremiumUpsellMatch by mainActivityNavigateToNativePremiumUpsellFingerprint()
-
     execute {
         // Overwrite the premium status specifically for ads.
         isPremiumUseCaseImplMatch.mutableMethod.replaceInstructions(

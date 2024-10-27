@@ -11,7 +11,6 @@ import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -39,10 +38,6 @@ val shortsAutoplayPatch = bytecodePatch(
             "19.34.42",
         ),
     )
-
-    val mainActivityOnCreateMatch by mainActivityOnCreateFingerprint()
-    val reelEnumConstructorMatch by reelEnumConstructorFingerprint()
-    val reelPlaybackRepeatMatch by reelPlaybackRepeatFingerprint()
 
     execute {
         addResources("youtube", "layout.shortsautoplay.shortsAutoplayPatch")

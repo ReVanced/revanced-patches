@@ -9,8 +9,6 @@ val unlockSubscriptionPatch = bytecodePatch(
 ) {
     compatibleWith("com.strava")
 
-    val getSubscribedMatch by getSubscribedFingerprint()
-
     execute {
         getSubscribedMatch.mutableMethod.replaceInstruction(
             getSubscribedMatch.patternMatch!!.startIndex,

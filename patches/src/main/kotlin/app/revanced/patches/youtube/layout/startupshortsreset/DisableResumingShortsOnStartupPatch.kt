@@ -40,10 +40,7 @@ val disableResumingShortsOnStartupPatch = bytecodePatch(
         ),
     )
 
-    val userWasInShortsConfigMatch by userWasInShortsConfigFingerprint()
-    val userWasInShortsMatch by userWasInShortsFingerprint()
-
-    execute { context ->
+    execute {
         addResources("youtube", "layout.startupshortsreset.disableResumingShortsOnStartupPatch")
 
         PreferenceScreen.SHORTS.addPreferences(
@@ -57,7 +54,7 @@ val disableResumingShortsOnStartupPatch = bytecodePatch(
                 opcode == Opcode.INVOKE_VIRTUAL &&
                     reference?.returnType == "Z" &&
                     reference.definingClass != "Lj${'$'}/util/Optional;" &&
-                        reference.parameterTypes.isEmpty()
+                    reference.parameterTypes.isEmpty()
             }
 
             // Presumably a method that processes the ProtoDataStore value (boolean) for the 'user_was_in_shorts' key.

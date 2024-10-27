@@ -12,8 +12,6 @@ val openLinksWithAppChooserPatch = bytecodePatch(
 ) {
     compatibleWith("com.twitter.android"("10.48.0-release.0"))
 
-    val openLinkMatch by openLinkFingerprint()
-
     execute {
         val methodReference =
             "Lapp/revanced/extension/twitter/patches/links/OpenLinksWithAppChooserPatch;->" +

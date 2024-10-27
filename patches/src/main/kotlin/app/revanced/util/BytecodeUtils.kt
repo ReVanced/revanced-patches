@@ -2,7 +2,6 @@ package app.revanced.util
 
 import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.FingerprintBuilder
-import app.revanced.patcher.Match
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -24,6 +23,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.reference.Reference
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
+context(BytecodePatchContext)
 val Fingerprint.matchOrThrow
     get() = match ?: throw exception
 
@@ -358,13 +358,11 @@ fun Method.indexOfFirstInstructionReversedOrThrow(startIndex: Int? = null, filte
  *  _Returns an empty list if no indices are found_
  *  @see findInstructionIndicesReversedOrThrow
  */
-fun Method.findInstructionIndicesReversed(filter: Instruction.() -> Boolean): List<Int> {
-    return instructions
-        .withIndex()
-        .filter { (_, instruction) -> filter(instruction) }
-        .map { (index, _) -> index }
-        .asReversed()
-}
+fun Method.findInstructionIndicesReversed(filter: Instruction.() -> Boolean): List<Int> = instructions
+    .withIndex()
+    .filter { (_, instruction) -> filter(instruction) }
+    .map { (index, _) -> index }
+    .asReversed()
 
 /**
  * @return An immutable list of indices of the instructions in reverse order.
@@ -420,8 +418,10 @@ fun BytecodePatchContext.forEachLiteralValueInstruction(
 /**
  * Return the matched method early.
  */
-fun Fingerprint.returnEarly(bool: Boolean = false) =
-    matchOrThrow.mutableMethod. returnEarly(bool)
+context(BytecodePatchContext)
+fun Fingerprint.returnEarly(
+    bool: Boolean = false,
+) = matchOrThrow.method.returnEarly(bool)
 
 /**
  * Return the method early.
@@ -450,15 +450,12 @@ fun MutableMethod.returnEarly(bool: Boolean = false) {
 /**
  * Return the matched methods early.
  */
-fun Iterable<Fingerprint>.returnEarly(bool: Boolean = false) = forEach { fingerprint ->
+context(BytecodePatchContext)
+fun Iterable<Fingerprint>.returnEarly(
+    bool: Boolean = false,
+) = forEach { fingerprint ->
     fingerprint.returnEarly(bool)
 }
-
-/**
- * Matches this fingerprint using the classDef of a parent fingerprint match.
- */
-fun Fingerprint.applyMatch(context: BytecodePatchContext, parentMatch: Match) =
-    apply { match(context, parentMatch.classDef) }.matchOrThrow
 
 /**
  * Set the custom condition for this fingerprint to check for a literal value.

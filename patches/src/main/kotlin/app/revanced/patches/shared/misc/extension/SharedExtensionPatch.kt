@@ -19,11 +19,10 @@ fun sharedExtensionPatch(
 ) = bytecodePatch {
     extendWith("extensions/shared.rve")
 
-    val revancedUtilsPatchesVersionMatch by revancedUtilsPatchesVersionFingerprint()
     hooks.forEach { it.fingerprint() }
 
-    execute { context ->
-        if (context.classBy { EXTENSION_CLASS_DESCRIPTOR in it.type } == null) {
+    execute {
+        if (classBy { EXTENSION_CLASS_DESCRIPTOR in it.type } == null) {
             throw PatchException(
                 "Shared extension has not been merged yet. This patch can not succeed without merging it.",
             )

@@ -9,8 +9,6 @@ val unlockProPatch = bytecodePatch(
 ) {
     compatibleWith("com.awedea.nyx")
 
-    val checkProMatch by checkProFingerprint()
-
     execute {
         checkProMatch.mutableMethod.addInstructions(
             0,

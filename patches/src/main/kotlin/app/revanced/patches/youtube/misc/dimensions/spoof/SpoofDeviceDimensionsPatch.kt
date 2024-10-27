@@ -33,8 +33,6 @@ val spoofDeviceDimensionsPatch = bytecodePatch(
         ),
     )
 
-    val deviceDimensionsModelToStringMatch by deviceDimensionsModelToStringFingerprint()
-
     execute {
         addResources("youtube", "misc.dimensions.spoof.spoofDeviceDimensionsPatch")
 

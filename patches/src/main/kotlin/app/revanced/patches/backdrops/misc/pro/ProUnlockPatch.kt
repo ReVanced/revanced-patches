@@ -11,8 +11,6 @@ val proUnlockPatch = bytecodePatch(
 ) {
     compatibleWith("com.backdrops.wallpapers")
 
-    val proUnlockMatch by proUnlockFingerprint()
-
     execute {
         val registerIndex = proUnlockMatch.patternMatch!!.endIndex - 1
 

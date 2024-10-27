@@ -51,13 +51,6 @@ val spoofVideoStreamsPatch = bytecodePatch(
         userAgentClientSpoofPatch,
     )
 
-    val buildInitPlaybackRequestMatch by buildInitPlaybackRequestFingerprint()
-    val buildPlayerRequestURIMatch by buildPlayerRequestURIFingerprint()
-    val createStreamingDataMatch by createStreamingDataFingerprint()
-    val buildMediaDataSourceMatch by buildMediaDataSourceFingerprint()
-    val buildRequestMatch by buildRequestFingerprint()
-    val protobufClassParseByteBufferMatch by protobufClassParseByteBufferFingerprint()
-
     execute {
         addResources("youtube", "misc.fix.playback.spoofVideoStreamsPatch")
 

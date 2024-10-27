@@ -8,7 +8,6 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
-import app.revanced.patches.youtube.shared.newVideoQualityChangedFingerprint
 import app.revanced.patches.youtube.video.playerresponse.Hook
 import app.revanced.patches.youtube.video.playerresponse.addPlayerResponseMethodHook
 import app.revanced.patches.youtube.video.playerresponse.playerResponseMethodHookPatch
@@ -74,14 +73,7 @@ val videoInformationPatch = bytecodePatch(
         playerResponseMethodHookPatch,
     )
 
-    val playerInitMatch by playerInitFingerprint()
-    val mdxPlayerDirectorSetVideoStageMatch by mdxPlayerDirectorSetVideoStageFingerprint()
-    val createVideoPlayerSeekbarMatch by createVideoPlayerSeekbarFingerprint()
-    val playerControllerSetTimeReferenceMatch by playerControllerSetTimeReferenceFingerprint()
-    val onPlaybackSpeedItemClickMatch by onPlaybackSpeedItemClickFingerprint()
-    val newVideoQualityChangedMatch by newVideoQualityChangedFingerprint()
-
-    execute { context ->
+    execute {
         playerInitMethod = playerInitMatch.mutableClass.methods.first { MethodUtil.isConstructor(it) }
 
         // Find the location of the first invoke-direct call and extract the register storing the 'this' object reference.

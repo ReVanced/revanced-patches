@@ -47,7 +47,7 @@ private val settingsResourcePatch = resourcePatch {
         ),
     )
 
-    execute { context ->
+    execute {
         // Used for a fingerprint from SettingsPatch.
         appearanceStringId = resourceMappings["string", "app_theme_appearance_dark"]
 
@@ -66,14 +66,14 @@ private val settingsResourcePatch = resourcePatch {
             targetResource,
         )!!.let { inputStream ->
             "resources".copyXmlNode(
-                context.document[inputStream],
-                context.document["res/$targetResource"],
+                document(inputStream),
+                document("res/$targetResource"),
             ).close()
         }
 
         // Remove horizontal divider from the settings Preferences
         // To better match the appearance of the stock YouTube settings.
-        context.document["res/values/styles.xml"].use { document ->
+        document("res/values/styles.xml").use { document ->
 
             arrayOf(
                 "Theme.YouTube.Settings",
@@ -93,7 +93,7 @@ private val settingsResourcePatch = resourcePatch {
         // Modify the manifest and add a data intent filter to the LicenseActivity.
         // Some devices freak out if undeclared data is passed to an intent,
         // and this change appears to fix the issue.
-        context.document["AndroidManifest.xml"].use { document ->
+        document("AndroidManifest.xml").use { document ->
 
             val licenseElement = document.childNodes.findElementByAttributeValueOrThrow(
                 "android:name",
@@ -123,9 +123,6 @@ val settingsPatch = bytecodePatch(
         // so for now this is a dependent of this patch.
         checkEnvironmentPatch,
     )
-
-    val setThemeMatch by setThemeFingerprint()
-    val licenseActivityOnCreateMatch by licenseActivityOnCreateFingerprint()
 
     val extensionPackage = "app/revanced/extension/youtube"
     val activityHookClassDescriptor = "L$extensionPackage/settings/LicenseActivityHook;"

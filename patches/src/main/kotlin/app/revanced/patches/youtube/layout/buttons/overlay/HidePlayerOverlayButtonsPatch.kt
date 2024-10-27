@@ -16,8 +16,6 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.layoutConstructorFingerprint
-import app.revanced.patches.youtube.shared.subtitleButtonControllerFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
@@ -64,11 +62,6 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
             "19.34.42",
         ),
     )
-
-    val playerControlsPreviousNextOverlayTouchMatch by playerControlsPreviousNextOverlayTouchFingerprint()
-    val mediaRouteButtonMatch by mediaRouteButtonFingerprint()
-    val subtitleButtonControllerMatch by subtitleButtonControllerFingerprint()
-    val layoutConstructorMatch by layoutConstructorFingerprint()
 
     execute {
         addResources("youtube", "layout.buttons.overlay.hidePlayerOverlayButtonsPatch")

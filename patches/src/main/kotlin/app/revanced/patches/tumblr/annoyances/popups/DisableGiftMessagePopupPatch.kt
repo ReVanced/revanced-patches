@@ -2,6 +2,7 @@ package app.revanced.patches.tumblr.annoyances.popups
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val disableGiftMessagePopupPatch = bytecodePatch(
@@ -10,9 +11,7 @@ val disableGiftMessagePopupPatch = bytecodePatch(
 ) {
     compatibleWith("com.tumblr")
 
-    val showGiftMessagePopupMatch by showGiftMessagePopupFingerprint()
-
     execute {
-        showGiftMessagePopupMatch.mutableMethod.addInstructions(0, "return-void")
+        showGiftMessagePopupFingerprint.matchOrThrow.method.addInstructions(0, "return-void")
     }
 }

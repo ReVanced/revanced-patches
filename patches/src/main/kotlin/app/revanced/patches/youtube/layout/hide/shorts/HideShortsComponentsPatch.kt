@@ -61,7 +61,7 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
         versionCheckPatch,
     )
 
-    execute { context ->
+    execute {
         val hideShortsAppShortcut by hideShortsAppShortcutOption
         val hideShortsWidget by hideShortsWidgetOption
 
@@ -118,7 +118,7 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
         )
 
         // Verify the file has the expected node, even if the patch option is off.
-        context.document["res/xml/main_shortcuts.xml"].use { document ->
+        document("res/xml/main_shortcuts.xml").use { document ->
             val shortsItem = document.childNodes.findElementByAttributeValueOrThrow(
                 "android:shortcutId",
                 "shorts-shortcut",
@@ -129,7 +129,7 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
             }
         }
 
-        context.document["res/layout/appwidget_two_rows.xml"].use { document ->
+        document("res/layout/appwidget_two_rows.xml").use { document ->
             val shortsItem = document.childNodes.findElementByAttributeValueOrThrow(
                 "android:id",
                 "@id/button_shorts_container",
@@ -193,14 +193,9 @@ val hideShortsComponentsPatch = bytecodePatch(
     hideShortsAppShortcutOption()
     hideShortsWidgetOption()
 
-    val createShortsButtonsMatch by createShortsButtonsFingerprint()
-    val shortsBottomBarContainerMatch by shortsBottomBarContainerFingerprint()
-    val legacyRenderBottomNavigationBarParentMatch by legacyRenderBottomNavigationBarParentFingerprint()
-    val renderBottomNavigationBarParentMatch by renderBottomNavigationBarParentFingerprint()
-    val setPivotBarVisibilityParentMatch by setPivotBarVisibilityParentFingerprint()
     reelConstructorFingerprint()
 
-    execute { context ->
+    execute {
         // region Hide the Shorts shelf.
 
         // This patch point is not present in 19.03.x and greater.

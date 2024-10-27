@@ -96,10 +96,7 @@ val videoIdPatch = bytecodePatch(
         playerResponseMethodHookPatch,
     )
 
-    val videoIdParentMatch by videoIdParentFingerprint()
-    val videoIdBackgroundPlayMatch by videoIdBackgroundPlayFingerprint()
-
-    execute { context ->
+    execute {
         videoIdFingerprint.applyMatch(context, videoIdParentMatch).mutableMethod.apply {
             videoIdMethod = this
             val index = indexOfPlayerResponseModelString()

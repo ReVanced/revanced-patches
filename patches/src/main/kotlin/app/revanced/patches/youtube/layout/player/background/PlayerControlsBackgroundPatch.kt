@@ -20,8 +20,8 @@ val playerControlsBackgroundPatch = resourcePatch(
         ),
     )
 
-    execute { context ->
-        context.document["res/drawable/player_button_circle_background.xml"].use { document ->
+    execute {
+        document("res/drawable/player_button_circle_background.xml").use { document ->
 
             document.doRecursively node@{ node ->
                 if (node !is Element) return@node

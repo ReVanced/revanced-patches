@@ -32,8 +32,6 @@ val videoAdsPatch = bytecodePatch(
         ),
     )
 
-    val loadVideoAdsMatch by loadVideoAdsFingerprint()
-
     execute {
         addResources("youtube", "ad.video.videoAdsPatch")
 

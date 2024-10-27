@@ -131,18 +131,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
         ),
     )
 
-    val parseElementFromBufferMatch by parseElementFromBufferFingerprint()
-    val playerOverlayMatch by playerOverlayFingerprint()
-    val hideShowMoreButtonMatch by hideShowMoreButtonFingerprint()
-    val albumCardsMatch by albumCardsFingerprint()
-    val crowdfundingBoxMatch by crowdfundingBoxFingerprint()
-    val yoodlesImageViewMatch by yoodlesImageViewFingerprint()
-    val relatedChipCloudMatch by relatedChipCloudFingerprint()
-    val searchResultsChipBarMatch by searchResultsChipBarFingerprint()
-    val showFloatingMicrophoneButtonMatch by showFloatingMicrophoneButtonFingerprint()
-    val filterBarHeightMatch by filterBarHeightFingerprint()
-
-    execute { context ->
+    execute {
         addResources("youtube", "layout.hide.general.hideLayoutComponentsPatch")
 
         PreferenceScreen.PLAYER.addPreferences(

@@ -11,9 +11,6 @@ val backgroundPlaybackPatch = bytecodePatch(
 ) {
     compatibleWith("com.google.android.apps.youtube.music")
 
-    val kidsBackgroundPlaybackPolicyControllerMatch by kidsBackgroundPlaybackPolicyControllerFingerprint()
-    val backgroundPlaybackDisableMatch by backgroundPlaybackDisableFingerprint()
-
     execute {
         kidsBackgroundPlaybackPolicyControllerMatch.mutableMethod.addInstruction(
             0,

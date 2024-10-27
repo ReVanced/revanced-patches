@@ -37,7 +37,7 @@ private val seekbarColorResourcePatch = resourcePatch {
         versionCheckPatch,
     )
 
-    execute { context ->
+    execute {
         reelTimeBarPlayedColorId = resourceMappings[
             "color",
             "reel_time_bar_played_color",
@@ -52,7 +52,7 @@ private val seekbarColorResourcePatch = resourcePatch {
         ]
 
         // Edit the resume playback drawable and replace the progress bar with a custom drawable
-        context.document["res/drawable/resume_playback_progressbar_drawable.xml"].use { document ->
+        document("res/drawable/resume_playback_progressbar_drawable.xml").use { document ->
 
             val layerList = document.getElementsByTagName("layer-list").item(0) as Element
             val progressNode = layerList.getElementsByTagName("item").item(1) as Element
@@ -80,13 +80,7 @@ val seekbarColorPatch = bytecodePatch(
         seekbarColorResourcePatch,
     )
 
-    val playerSeekbarColorMatch by playerSeekbarColorFingerprint()
-    val shortsSeekbarColorMatch by shortsSeekbarColorFingerprint()
-    val setSeekbarClickedColorMatch by setSeekbarClickedColorFingerprint()
-    val playerSeekbarGradientConfigMatch by playerSeekbarGradientConfigFingerprint()
-    val lithoLinearGradientMatch by lithoLinearGradientFingerprint()
-
-    execute { context ->
+    execute {
         fun MutableMethod.addColorChangeInstructions(resourceId: Long) {
             val registerIndex = indexOfFirstLiteralInstructionOrThrow(resourceId) + 2
             val colorRegister = getInstruction<OneRegisterInstruction>(registerIndex).registerA

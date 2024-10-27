@@ -23,10 +23,6 @@ val filterTimelineObjectsPatch = bytecodePatch(
 ) {
     dependsOn(sharedExtensionPatch)
 
-    val timelineConstructorMatch by timelineConstructorFingerprint()
-    val timelineFilterExtensionMatch by timelineFilterExtensionFingerprint()
-    val postsResponseConstructorMatch by postsResponseConstructorFingerprint()
-
     execute {
         val filterInsertIndex = timelineFilterExtensionMatch.patternMatch!!.startIndex
 
