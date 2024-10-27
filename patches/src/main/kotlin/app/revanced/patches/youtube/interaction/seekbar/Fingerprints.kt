@@ -63,7 +63,10 @@ internal val disableFastForwardNoticeFingerprint = fingerprint {
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
     )
-    strings("Failed to easy seek haptics vibrate")
+    strings("search_landing_cache_key", "batterymanager")
+    custom { method, _ ->
+        method.name == "run"
+    }
 }
 
 internal val onTouchEventHandlerFingerprint = fingerprint(fuzzyPatternScanThreshold = 3) {
@@ -107,7 +110,7 @@ internal val seekbarTappingFingerprint = fingerprint {
 
 internal val slideToSeekFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
-    returns("Z")
+    returns("V")
     parameters("Landroid/view/View;", "F")
     opcodes(
         Opcode.INVOKE_VIRTUAL,
