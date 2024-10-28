@@ -1,10 +1,12 @@
 package app.revanced.patches.youtube.interaction.seekbar
 
 import app.revanced.patcher.fingerprint
-import app.revanced.util.containsLiteralInstruction
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 internal val swipingUpGestureParentFingerprint = fingerprint {
     returns("Z")
@@ -63,13 +65,16 @@ internal val disableFastForwardNoticeFingerprint = fingerprint {
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
     )
-    strings("search_landing_cache_key", "batterymanager")
     custom { method, _ ->
-        method.name == "run"
+        method.name == "run" && method.indexOfFirstInstruction {
+            // In later targets the code is found in different methods with different strings.
+            val string = getReference<StringReference>()?.string
+            string == "Failed to easy seek haptics vibrate." || string == "search_landing_cache_key"
+        } >= 0
     }
 }
 
-internal val onTouchEventHandlerFingerprint = fingerprint(fuzzyPatternScanThreshold = 3) {
+internal val onTouchEventHandlerFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.PUBLIC)
     returns("Z")
     parameters("L")
@@ -103,9 +108,7 @@ internal val seekbarTappingFingerprint = fingerprint {
         Opcode.RETURN,
         Opcode.INVOKE_VIRTUAL,
     )
-    custom { method, _ ->
-        method.containsLiteralInstruction(Integer.MAX_VALUE.toLong())
-    }
+    literal { Integer.MAX_VALUE.toLong() }
 }
 
 internal val slideToSeekFingerprint = fingerprint {

@@ -21,7 +21,7 @@ import app.revanced.extension.youtube.shared.PlayerType;
 
 @SuppressWarnings("unused")
 public final class ShortsFilter extends Filter {
-    public static final Boolean HIDE_SHORTS_NAVIGATION_BAR = Settings.HIDE_SHORTS_NAVIGATION_BAR.get();
+    private static final boolean HIDE_SHORTS_NAVIGATION_BAR = Settings.HIDE_SHORTS_NAVIGATION_BAR.get();
     private final static String REEL_CHANNEL_BAR_PATH = "reel_channel_bar.eml";
 
     /**
