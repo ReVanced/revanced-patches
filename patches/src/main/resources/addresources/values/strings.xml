@@ -121,9 +121,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_floating_microphone_button_title">Hide floating microphone button</string>
             <string name="revanced_hide_floating_microphone_button_summary_on">Microphone button hidden</string>
             <string name="revanced_hide_floating_microphone_button_summary_off">Microphone button shown</string>
-            <string name="revanced_hide_gray_separator_title">Hide gray separator</string>
-            <string name="revanced_hide_gray_separator_summary_on">Gray separators are hidden</string>
-            <string name="revanced_hide_gray_separator_summary_off">Gray separators are shown</string>
             <string name="revanced_hide_channel_watermark_title">Hide channel watermark</string>
             <string name="revanced_hide_channel_watermark_summary_on">Watermark is hidden</string>
             <string name="revanced_hide_channel_watermark_summary_off">Watermark is shown</string>
