@@ -38,7 +38,6 @@ val enableSlideToSeekPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "18.38.44",
             "18.49.37",
             "19.16.39",
             "19.25.37",
@@ -116,9 +115,9 @@ val enableSlideToSeekPatch = bytecodePatch(
                     addInstructions(
                         insertIndex,
                         """
-                        invoke-static { v$targetRegister }, $EXTENSION_METHOD_DESCRIPTOR
-                        move-result v$targetRegister
-                    """
+                            invoke-static { v$targetRegister }, $EXTENSION_METHOD_DESCRIPTOR
+                            move-result v$targetRegister
+                        """
                     )
                 }
             }
