@@ -61,18 +61,12 @@ public final class LayoutComponentsFilter extends Filter {
 
         // Identifiers.
 
-        final var graySeparator = new StringFilterGroup(
-                Settings.HIDE_GRAY_SEPARATOR,
-                "cell_divider" // layout residue (gray line above the buttoned ad),
-        );
-
         final var chipsShelf = new StringFilterGroup(
                 Settings.HIDE_CHIPS_SHELF,
                 "chips_shelf"
         );
 
         addIdentifierCallbacks(
-                graySeparator,
                 chipsShelf
         );
 

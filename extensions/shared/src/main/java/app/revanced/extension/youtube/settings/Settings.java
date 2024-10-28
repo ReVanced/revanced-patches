@@ -96,7 +96,6 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_FILTER_BAR_FEED_IN_SEARCH = new BooleanSetting("revanced_hide_filter_bar_feed_in_search", FALSE, true);
     public static final BooleanSetting HIDE_FLOATING_MICROPHONE_BUTTON = new BooleanSetting("revanced_hide_floating_microphone_button", TRUE, true);
     public static final BooleanSetting HIDE_FULLSCREEN_PANELS = new BooleanSetting("revanced_hide_fullscreen_panels", TRUE, true);
-    public static final BooleanSetting HIDE_GRAY_SEPARATOR = new BooleanSetting("revanced_hide_gray_separator", TRUE);
     public static final BooleanSetting HIDE_HIDE_CHANNEL_GUIDELINES = new BooleanSetting("revanced_hide_channel_guidelines", TRUE);
     public static final BooleanSetting HIDE_HIDE_INFO_PANELS = new BooleanSetting("revanced_hide_info_panels", TRUE);
     public static final BooleanSetting HIDE_IMAGE_SHELF = new BooleanSetting("revanced_hide_image_shelf", TRUE);
