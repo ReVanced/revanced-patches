@@ -12,7 +12,7 @@ import app.revanced.util.exception
 @Patch(
     name = "Hide ads",
     description = "Hides most of the ads across the app.",
-    compatiblePackages = [CompatiblePackage("com.myfitnesspal.android"), "24.14.2"]
+    compatiblePackages = [CompatiblePackage("com.myfitnesspal.android", ["24.14.2"])]
 )
 @Suppress("unused")
 object HideAdsPatch : BytecodePatch(
