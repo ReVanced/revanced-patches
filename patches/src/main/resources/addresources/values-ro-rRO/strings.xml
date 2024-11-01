@@ -86,9 +86,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_12_video_title">Video</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
-  <string name="revanced_shorts_disable_background_playback_title">Dezactivează redare în fundal scurtătură</string>
-  <string name="revanced_shorts_disable_background_playback_summary_on">Redarea scurtă a fundalului este dezactivată</string>
-  <string name="revanced_shorts_disable_background_playback_summary_off">Redarea scurtă de fundal este activată</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Depanare</string>
@@ -120,9 +117,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">Ascunde butonul de microfon plutitor</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Butonul microfon ascuns</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Butonul Microfon afișat</string>
-  <string name="revanced_hide_gray_separator_title">Ascunde separatorul gri</string>
-  <string name="revanced_hide_gray_separator_summary_on">Separatoarele gri sunt ascunse</string>
-  <string name="revanced_hide_gray_separator_summary_off">Se afișează separatoarele gri</string>
   <string name="revanced_hide_channel_watermark_title">Ascunde watermark canal</string>
   <string name="revanced_hide_channel_watermark_summary_on">Marcajul este ascuns</string>
   <string name="revanced_hide_channel_watermark_summary_off">Se afișează filigran</string>

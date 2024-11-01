@@ -116,9 +116,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">ভাসমান মাইক্রোফোন বোতাম লুকান</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">মাইক্রোফোন বোতাম লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">মাইক্রোফোন বোতাম প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_gray_separator_title">ধূসর বিভাজক লুকান</string>
-  <string name="revanced_hide_gray_separator_summary_on">ধূসর বিভাজক লুকিয়ে রয়েছে</string>
-  <string name="revanced_hide_gray_separator_summary_off">ধূসর বিভাজক প্রদর্শিত হয়েছে</string>
   <string name="revanced_hide_channel_watermark_title">চ্যানেল জলছাপ লুকান</string>
   <string name="revanced_hide_channel_watermark_summary_on">জলছাপ লুকানো আছে</string>
   <string name="revanced_hide_channel_watermark_summary_off">জলছাপ দেখানো আছে</string>

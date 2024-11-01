@@ -104,9 +104,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">Itago ang lumulutang na pindutan ng mikropono</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Nakatago ang button ng mikropono</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Ipinapakita ang pindutan ng mikropono</string>
-  <string name="revanced_hide_gray_separator_title">Itago ang gray na separator</string>
-  <string name="revanced_hide_gray_separator_summary_on">Nakatago ang mga gray na separator</string>
-  <string name="revanced_hide_gray_separator_summary_off">Ipinapakita ang mga gray na separator</string>
   <string name="revanced_hide_channel_watermark_title">Itago ang watermark ng channel</string>
   <string name="revanced_hide_channel_watermark_summary_on">Nakatago ang watermark</string>
   <string name="revanced_hide_channel_watermark_summary_off">Ipinapakita ang watermark</string>

@@ -36,16 +36,24 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_reset">איפוס</string>
+  <string name="revanced_settings_restart">הפעלה מחדש</string>
+  <string name="revanced_settings_import">ייבוא</string>
+  <string name="revanced_settings_import_copy">העתק</string>
+  <string name="revanced_settings_import_reset">הגדרות ReVanced אופסו לברירת המחדל</string>
+  <string name="revanced_pref_import_export_title">יבוא/ ייצוא</string>
+  <string name="revanced_pref_import_export_summary">יבוא/ ייצוא הגדרות ReVanced</string>
   <!-- Settings about dialog. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="gms_core_dialog_continue_text">המשך</string>
   </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">אודות</string>
   <string name="revanced_settings_screen_11_misc_title">שונות</string>
+  <string name="revanced_settings_screen_12_video_title">וידאו</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   </patch>
@@ -88,6 +96,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">אוטומטי</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   </patch>
@@ -256,6 +265,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
   <string name="revanced_check_watch_history_domain_name_dialog_title">אזהרה</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">אל תציג שוב</string>
   </patch>
   <patch id="misc.autorepeat.autoRepeatPatch">
   </patch>
@@ -302,6 +312,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   </patch>
   <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings">הגדרות ReVanced</string>
   <string name="revanced_misc_screen_title">שונות</string>
   </patch>
   </app>

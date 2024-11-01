@@ -120,9 +120,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">Alttaki mikrofon butonunu gizle</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Alttaki mikrofon butonu gizleniyor </string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Alttaki mikrofon butonu gösteriliyor </string>
-  <string name="revanced_hide_gray_separator_title">Gri ayırıcıları gizle</string>
-  <string name="revanced_hide_gray_separator_summary_on">Gri ayırıcılar gizleniyor</string>
-  <string name="revanced_hide_gray_separator_summary_off">Gri ayırıcılar gösteriliyor</string>
   <string name="revanced_hide_channel_watermark_title">Kanal filigranını gizle</string>
   <string name="revanced_hide_channel_watermark_summary_on">Filigran gizleniyor</string>
   <string name="revanced_hide_channel_watermark_summary_off">Filigran gösteriliyor</string>

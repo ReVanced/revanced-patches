@@ -117,9 +117,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">Ẩn nút micrô nổi</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Nút micrô được ẩn</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Nút micrô được hiện</string>
-  <string name="revanced_hide_gray_separator_title">Ẩn dải phân cách màu xám</string>
-  <string name="revanced_hide_gray_separator_summary_on">Dải phân cách màu xám được ẩn</string>
-  <string name="revanced_hide_gray_separator_summary_off">Dải phân cách màu xám được hiện</string>
   <string name="revanced_hide_channel_watermark_title">Ẩn hình mờ của kênh</string>
   <string name="revanced_hide_channel_watermark_summary_on">Hình mờ được ẩn</string>
   <string name="revanced_hide_channel_watermark_summary_off">Hình mờ được hiện</string>

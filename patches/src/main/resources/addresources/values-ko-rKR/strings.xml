@@ -121,9 +121,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">플로팅 마이크 버튼 숨기기</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">플로팅 마이크 버튼이 숨겨집니다</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">플로팅 마이크 버튼이 표시됩니다</string>
-  <string name="revanced_hide_gray_separator_title">회색 구분선 숨기기</string>
-  <string name="revanced_hide_gray_separator_summary_on">동영상들 사이에서 회색 구분선이 숨겨집니다</string>
-  <string name="revanced_hide_gray_separator_summary_off">동영상들 사이에서 회색 구분선이 표시됩니다</string>
   <string name="revanced_hide_channel_watermark_title">동영상 하단에서 채널 워터마크 숨기기</string>
   <string name="revanced_hide_channel_watermark_summary_on">워터마크가 숨겨집니다</string>
   <string name="revanced_hide_channel_watermark_summary_off">워터마크가 표시됩니다</string>
@@ -334,8 +331,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_products_banner_summary_on">플레이어에서 제품 보기 배너가 숨겨집니다</string>
   <string name="revanced_hide_products_banner_summary_off">플레이어에서 제품 보기 배너가 표시됩니다</string>
   <string name="revanced_hide_player_store_shelf_title">판매자 쇼핑 선반 숨기기</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">판매자 쇼핑 선반이 숨겨집니다</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">판매자 쇼핑 선반이 표시됩니다</string>
+  <string name="revanced_hide_player_store_shelf_summary_on">판매자 쇼핑 선반이 숨겨집니다\n• 판매자(크리에이터명) 선반</string>
+  <string name="revanced_hide_player_store_shelf_summary_off">판매자 쇼핑 선반이 표시됩니다\n• 판매자(크리에이터명) 선반</string>
   <string name="revanced_hide_shopping_links_title">동영상 설명에서 쇼핑 링크 숨기기</string>
   <string name="revanced_hide_shopping_links_summary_on">쇼핑 링크가 숨겨집니다</string>
   <string name="revanced_hide_shopping_links_summary_off">쇼핑 링크가 표시됩니다</string>
@@ -347,8 +344,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_web_search_results_summary_on">웹 검색 결과가 숨겨집니다</string>
   <string name="revanced_hide_web_search_results_summary_off">웹 검색 결과가 표시됩니다</string>
   <string name="revanced_hide_merchandise_banners_title">매장 쇼핑 선반 숨기기</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">매장 쇼핑 선반이 숨겨집니다</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">매장 쇼핑 선반이 표시됩니다</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">매장 쇼핑 선반이 숨겨집니다\n• 크리에이터명 매장 쇼핑 선반</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">매장 쇼핑 선반이 표시됩니다\n• 크리에이터명 매장 쇼핑 선반</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">\'전체 화면 광고 숨기기\'는 구형 기기에서만 사용할 수 있습니다</string>
   </patch>
@@ -772,7 +769,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">재생바 썸네일이 일반 화질입니다</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">전체 화면 재생바 썸네일이 고화질입니다</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">전체 화면 재생바 썸네일이 일반화질입니다</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">이 설정을 활성화하면 재생바 썸네일이 없는 실시간 스트림에서 썸네일이 복원됩니다\n\n인터넷 데이터가 더 많이 사용될 수 있으며, 재생바 썸네일이 표시되기 전에 약간의 지연이 발생합니다\n\n이 설정은 인터넷 연결이 매우 좋을 때 가장 잘 작동합니다</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">이 설정을 활성화하면 재생바 썸네일이 없는 실시간 스트림에서 썸네일이 복원됩니다\n\n재생바 썸네일이 표시되기 전에 약간의 지연이 발생하고, 더 많은 모바일 데이터가 사용되오니 주의하세요\n\n이 설정은 인터넷 연결이 매우 좋을 때 가장 잘 작동합니다</string>
   </patch>
   <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
   <string name="revanced_restore_old_seekbar_thumbnails_title">이전 재생바 썸네일 복원하기</string>
@@ -999,10 +996,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Shorts 자동재생</string>
-  <string name="revanced_shorts_autoplay_summary_on">Shorts 동영상이 자동재생됩니다</string>
+  <string name="revanced_shorts_autoplay_summary_on">Shorts 동영상이 자동넘김됩니다</string>
   <string name="revanced_shorts_autoplay_summary_off">Shorts 동영상이 반복재생됩니다</string>
-  <string name="revanced_shorts_autoplay_background_title">Shorts 자동 백그라운드 제생</string>
-  <string name="revanced_shorts_autoplay_background_summary_on">Shorts 동영상 백그라운드 재생이 자동재생됩니다</string>
+  <string name="revanced_shorts_autoplay_background_title">Shorts 자동 백그라운드 재생</string>
+  <string name="revanced_shorts_autoplay_background_summary_on">Shorts 동영상 백그라운드 재생이 자동넘김됩니다</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Shorts 동영상 백그라운드 재생이 반복재생됩니다</string>
   </patch>
   <patch id="layout.tablet.enableTabletLayoutPatch">
@@ -1201,7 +1198,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">동영상 코덱을 AVC (H.264)로 활성화합니다\n\n• 일부 VP9 코덱 동영상에서 제거되었던 화질 값들이 표시될 수 있습니다.\n• 최대 화질 값이 1080p이므로 초고화질 동영상을 재생할 수 없습니다.\n• HDR 동영상을 재생할 수 없습니다</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">동영상 코덱을 VP9 또는 AV1으로 활성화합니다\n\n• 예전에 업로드된 동영상을 재생했는데 VP9 코덱 응답을 받았을 경우, 일부 화질 값들이 제거되어 360p와 1080p(Premium 기능)만 선택할 수 있거나 화질 메뉴를 선택할 수 없을 수 있습니다</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">이 기기는 VP9 하드웨어 디코딩을 지원하지 않습니다. 그러므로 \'클라이언트 변경하기\'가 활성화된 경우에는 이 설정은 항상 켜져 있습니다</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">이 설정을 활성화하면 배터리 수명이 향상되고 재생 끊김 현상이 해결될 수 있습니다\n\nAVC의 최대 화질 값은 1080p이며 동영상을 재생하면 VP9 또는 AV1보다 더 많은 데이터가 사용됩니다</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">이 설정을 활성화하면 배터리 수명이 향상되고 재생 끊김 현상이 해결될 수 있습니다\n\nAVC의 최대 화질 값은 1080p이며 동영상을 재생하면 VP9 또는 AV1보다 더 많은 모바일 데이터가 사용되오니 주의하세요.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">\'iOS로 변경\'의 알려진 문제점</string>
   <string name="revanced_spoof_video_streams_about_ios_summary">• 영화 또는 회원 전용 동영상과 같은 유료 동영상이 재생되지 않을 수 있습니다\n• 되감기가 가능한 실시간 스트림이 라이브 중인 시점이 아닌 처음부터 재생될 수 있습니다\n• 동영상이 1초 일찍 종료될 수 있습니다\n• OPUS 오디오 코덱이 지원되지 않습니다</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">\'Android VR로 변경\'의 알려진 문제점</string>

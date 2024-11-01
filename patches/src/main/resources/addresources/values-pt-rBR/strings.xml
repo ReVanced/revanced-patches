@@ -87,6 +87,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_12_video_title">Vídeo</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <string name="revanced_shorts_disable_background_playback_title">Desativar reprodução de fundo dos Shorts</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Reprodução de fundo dos Shorts está desativada</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Reprodução de fundo dos Shorts está ativada</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Depuração</string>
@@ -118,9 +121,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">Ocultar botão de microfone flutuante</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Botão microfone está oculto</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Botão microfone não está oculto</string>
-  <string name="revanced_hide_gray_separator_title">Ocultar separador cinza</string>
-  <string name="revanced_hide_gray_separator_summary_on">Os separadores cinza está oculto</string>
-  <string name="revanced_hide_gray_separator_summary_off">Separador cinza não está oculto</string>
   <string name="revanced_hide_channel_watermark_title">Ocultar marca d\'água do canal</string>
   <string name="revanced_hide_channel_watermark_summary_on">Marca d\'água está oculta</string>
   <string name="revanced_hide_channel_watermark_summary_off">Marca d\'água não está oculta</string>
@@ -271,6 +271,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Os botões de cronograma e emoji estão ocultos</string>
   <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Botões de tempo e emoji são mostrados</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
+  <string name="revanced_hide_doodles_title">Ocultar Doodles do YouTube</string>
+  <string name="revanced_hide_doodles_summary_on">Doodles na barra de pesquisa estão ocultos</string>
+  <string name="revanced_hide_doodles_summary_off">Doodles na barra de pesquisa estão ativos</string>
+  <string name="revanced_hide_doodles_user_dialog_message">Doodles do YouTube aparecem alguns dias por ano.\n\nSe um Doodle estiver ativo em sua região e esta configuração de ocultação estiver ativada, a barra de filtros abaixo da barra de pesquisa também será oculta.</string>
   <string name="revanced_custom_filter_screen_title">Filtro personalizado</string>
   <string name="revanced_custom_filter_screen_summary">Ocultar componentes usando filtros personalizados</string>
   <string name="revanced_custom_filter_title">Ativar filtro personalizado</string>
@@ -326,6 +330,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_products_banner_title">Ocultar banner ver os produtos</string>
   <string name="revanced_hide_products_banner_summary_on">Banner está oculto</string>
   <string name="revanced_hide_products_banner_summary_off">Banner não está oculto</string>
+  <string name="revanced_hide_player_store_shelf_title">Ocultar painel de compras do reprodutor</string>
+  <string name="revanced_hide_player_store_shelf_summary_on">O painel de compras está oculto</string>
+  <string name="revanced_hide_player_store_shelf_summary_off">O painel de compras será exibido</string>
   <string name="revanced_hide_shopping_links_title">Ocultar links de compras na descrição do vídeo</string>
   <string name="revanced_hide_shopping_links_summary_on">Links de compras estão ocultos</string>
   <string name="revanced_hide_shopping_links_summary_off">Links de compras não estão ocultos</string>
@@ -501,6 +508,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_additional_settings_summary_on">Menu de configurações adicionais está oculto</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_off">Menu de configurações adicionais não está oculto</string>
   <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_sleep_timer_title">Ocultar Timer de suspensão</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_on">O menu Timer de suspensão está oculto</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_off">O menu Timer de suspensão será exibido</string>
   <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_loop_video_title">Ocultar Vídeo em Loop</string>
   <string name="revanced_hide_player_flyout_loop_video_summary_on">Menu de vídeo em loop está oculto</string>
@@ -509,6 +519,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_ambient_mode_title">Ocultar Modo ambiente</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_on">Menu do modo ambiente está oculto</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_off">Menu do modo ambiente não está oculto</string>
+  <string name="revanced_hide_player_flyout_stable_volume_title">Ocultar Volume estável</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_off">O menu de Volume estável será exibido</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_on">O menu de Volume estável está oculto</string>
   <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_help_title">Ocultar Ajuda &amp; Feedback</string>
   <string name="revanced_hide_player_flyout_help_summary_on">Menu ajuda &amp; opinião está oculto</string>
@@ -535,10 +548,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menu assistir no VR está oculto</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Menu assistir no VR não está oculto</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Ocultar rodapé do menu de qualidade de vídeo</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">O rodapé do menu de qualidade de vídeo está oculto</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Rodapé do menu de qualidade de vídeo não está ocultos</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_player_previous_next_buttons_title">Ocultar botões anterior &amp; próxima vídeo</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">Os botões estão ocultos</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">Os botões serão exibidos</string>
   <string name="revanced_hide_cast_button_title">Ocultar botão de transmitir</string>
   <string name="revanced_hide_cast_button_summary_on">Botão transmitir está oculto</string>
   <string name="revanced_hide_cast_button_summary_off">Botão transmitir não está oculto</string>
@@ -579,6 +595,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Barra de busca nas miniaturas não estão oculta</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <string name="revanced_shorts_player_screen_title">Reprodutor do Shorts</string>
+  <string name="revanced_shorts_player_screen_summary">Ocultar ou mostrar componentes no reprodutor de Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Ocultar Shorts na tela inicial</string>
   <string name="revanced_hide_shorts_home_summary_on">Os Shorts no feed inicial estão ocultos</string>
@@ -614,6 +632,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_summary_on">Rótulo de localização está oculto</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Rótulo de localização é mostrado</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Ocultar o botão de salvar música</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">O botão Salvar música está oculto</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">O botão Salvar música será exibido</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Ocultar botão Usar template</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">O botão Usar template está oculto</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">O botão Usar template será exibido</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Ocultar sugestões de busca</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Sugestões de pesquisa estão ocultas</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Sugestões de pesquisa são mostradas</string>

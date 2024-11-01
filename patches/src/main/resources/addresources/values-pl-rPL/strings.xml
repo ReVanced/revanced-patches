@@ -87,9 +87,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_12_video_title">Wideo</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
-  <string name="revanced_shorts_disable_background_playback_title">Wyłącz odtwarzanie w tle skrótów</string>
-  <string name="revanced_shorts_disable_background_playback_summary_on">Odtwarzanie w tle skrótów jest wyłączone</string>
-  <string name="revanced_shorts_disable_background_playback_summary_off">Odtwarzanie w tle skrótów jest włączone</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Debugowanie</string>
@@ -121,9 +118,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">Ukryj pływający przycisk mikrofonu</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Przycisk mikrofonu ukryty</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Przycisk mikrofonu pokazany</string>
-  <string name="revanced_hide_gray_separator_title">Szare separatory</string>
-  <string name="revanced_hide_gray_separator_summary_on">Ukryte</string>
-  <string name="revanced_hide_gray_separator_summary_off">Widoczne</string>
   <string name="revanced_hide_channel_watermark_title">Znaki wodne kanałów</string>
   <string name="revanced_hide_channel_watermark_summary_on">Ukryte</string>
   <string name="revanced_hide_channel_watermark_summary_off">Widoczne</string>

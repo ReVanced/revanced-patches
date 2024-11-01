@@ -87,9 +87,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_12_video_title">Video</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
-  <string name="revanced_shorts_disable_background_playback_title">Poista Shortsin taustatoisto käytöstä</string>
-  <string name="revanced_shorts_disable_background_playback_summary_on">Shortsien taustasoitto pois käytöstä</string>
-  <string name="revanced_shorts_disable_background_playback_summary_off">Shortsien taustasoitto on käytössä</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Vianetsintä</string>
@@ -121,9 +118,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">Piilota kelluva mikrofonipainike</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Mikrofonipainike piilotettu</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Mikrofonipainike näytetään</string>
-  <string name="revanced_hide_gray_separator_title">Piilota harmaa erotin</string>
-  <string name="revanced_hide_gray_separator_summary_on">Harmaat erottimet on piilotettu</string>
-  <string name="revanced_hide_gray_separator_summary_off">Harmaat erottimet näytetään</string>
   <string name="revanced_hide_channel_watermark_title">Piilota kanavan vesileima</string>
   <string name="revanced_hide_channel_watermark_summary_on">Vesileima on piilotettu</string>
   <string name="revanced_hide_channel_watermark_summary_off">Vesileima näytetään</string>

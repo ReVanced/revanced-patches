@@ -104,9 +104,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">Skryť plávajúce tlačidlo mikrofónu</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Tlačidlo mikrofónu je skryté</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Zobrazené tlačidlo mikrofónu</string>
-  <string name="revanced_hide_gray_separator_title">Skryť sivý oddeľovač</string>
-  <string name="revanced_hide_gray_separator_summary_on">Sivé oddeľovače sú skryté</string>
-  <string name="revanced_hide_gray_separator_summary_off">Sú zobrazené sivé oddeľovače</string>
   <string name="revanced_hide_channel_watermark_title">Skryť vodoznak kanála</string>
   <string name="revanced_hide_channel_watermark_summary_on">Vodoznak je skrytý</string>
   <string name="revanced_hide_channel_watermark_summary_off">Zobrazí sa vodoznak</string>

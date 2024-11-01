@@ -121,9 +121,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">Masquer le bouton de microphone flottant</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Bouton du microphone masqué</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Bouton du microphone affiché</string>
-  <string name="revanced_hide_gray_separator_title">Masquer les séparateurs gris</string>
-  <string name="revanced_hide_gray_separator_summary_on">Les séparateurs gris sont masqués</string>
-  <string name="revanced_hide_gray_separator_summary_off">Les séparateurs gris sont affichés</string>
   <string name="revanced_hide_channel_watermark_title">Masquer le filigrane de chaine</string>
   <string name="revanced_hide_channel_watermark_summary_on">Le filigrane est masqué</string>
   <string name="revanced_hide_channel_watermark_summary_off">Le filigrane est affiché</string>

@@ -85,9 +85,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_12_video_title">Vídeo</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
-  <string name="revanced_shorts_disable_background_playback_title">Desativar Reprodução de fundo curta</string>
-  <string name="revanced_shorts_disable_background_playback_summary_on">Reprodução de fundo curta está desativada</string>
-  <string name="revanced_shorts_disable_background_playback_summary_off">Reprodução de fundo curta está ativada</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Depuração</string>
@@ -119,9 +116,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">Esconder o botão do microfone flutuante</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Botão do microfone escondido</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Botão do microfone visível</string>
-  <string name="revanced_hide_gray_separator_title">Esconder separador cinza</string>
-  <string name="revanced_hide_gray_separator_summary_on">Os separadores cinzentos estão escondidos</string>
-  <string name="revanced_hide_gray_separator_summary_off">Separadores cinzas são visíveis</string>
   <string name="revanced_hide_channel_watermark_title">Esconder a Marca D\'Água do canal</string>
   <string name="revanced_hide_channel_watermark_summary_on">A marca d\'água está escondida</string>
   <string name="revanced_hide_channel_watermark_summary_off">A marca d\'água está visível</string>
