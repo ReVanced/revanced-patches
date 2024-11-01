@@ -36,9 +36,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_check_environment_failed_title">Перевірка не вдалася</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Відкрити офіційний сайт</string>
   <string name="revanced_check_environment_dialog_ignore_button">Ігнорувати</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Схоже, що цей застосунок був пропатчений не Вами.&lt;/h5&gt;&lt;br&gt;Цей застосунок може працювати не належним чином, &lt;b&gt;бути шкідливим або навіть небезпечним&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Ці перевірки означають, що цей застосунок був попередньо пропатчений та отриманий від когось іншого:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Наполегливо рекомендується &lt;b&gt;видалити цей застосунок та пропатчити його самостійно,&lt;/b&gt; щоб переконатися, що ви використовуєте перевірений та безпечний застосунок.&lt;p&gt;&lt;br&gt;Якщо це попередження проігнорувати, воно буде показано лише двічі.</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Схоже, що цей застосунок був пропатчений не Вами.&lt;/h5&gt;&lt;br&gt;Він може працювати не належним чином, &lt;b&gt;бути шкідливим або навіть небезпечним&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Ці перевірки означають, що цей застосунок був пропатчений та отриманий від когось іншого:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Наполегливо рекомендується &lt;b&gt;видалити цей застосунок та пропатчити його самостійно,&lt;/b&gt; щоб переконатися, що Ви використовуєте перевірений та безпечний застосунок.&lt;p&gt;&lt;br&gt;Якщо це попередження проігнорувати, воно буде показано лише двічі.</string>
   <string name="revanced_check_environment_not_same_patching_device">Пропатчено на іншому пристрої</string>
-  <string name="revanced_check_environment_manager_not_expected_installer">Не встановлено через ReVanced Manager</string>
+  <string name="revanced_check_environment_manager_not_expected_installer">Встановлено не через ReVanced Manager</string>
   <string name="revanced_check_environment_not_near_patch_time">Пропатчено більше 10 хвилин тому</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Пропатчено %s дні(в) тому</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Дата збірки APK пошкоджена</string>
@@ -120,9 +120,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">Приховати кнопку мікрофона</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Плаваючу кнопку мікрофона приховано</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Плаваюча кнопка мікрофона показується</string>
-  <string name="revanced_hide_gray_separator_title">Приховати сірі роздільники</string>
-  <string name="revanced_hide_gray_separator_summary_on">Сірі роздільники між елементами інтерфейсу приховано</string>
-  <string name="revanced_hide_gray_separator_summary_off">Сірі роздільники між елементами інтерфейсу показуються</string>
   <string name="revanced_hide_channel_watermark_title">Приховати водяний знак каналу</string>
   <string name="revanced_hide_channel_watermark_summary_on">Водяний знак у нижній частині відеоплеєра приховано</string>
   <string name="revanced_hide_channel_watermark_summary_off">Водяний знак у нижній частині відеоплеєра показується</string>
@@ -1163,7 +1160,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_playback_speed_dialog_button_summary_off">Кнопка швидкості відтворення не показується в плеєрі</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
-  <string name="revanced_custom_speed_menu_title">Користувацьке меню швидкості</string>
+  <string name="revanced_custom_speed_menu_title">Користувацьке меню швидкості відтворення</string>
   <string name="revanced_custom_speed_menu_summary_on">Користувацьке меню швидкості відтворення показується</string>
   <string name="revanced_custom_speed_menu_summary_off">Користувацьке меню швидкості відтворення не показується</string>
   <string name="revanced_custom_playback_speeds_title">Користувацькі швидкості відтворення</string>

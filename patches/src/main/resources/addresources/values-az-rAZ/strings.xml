@@ -87,7 +87,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Shorts arxa plan oynatmasın bağla</string>
-  <string name="revanced_shorts_disable_background_playback_summary_on">Shorts arxa plan oynatma bağlıdır</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Shorts arxa plan oynatma qapalıdır</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Shorts arxa plan oynatma aktivdir</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
@@ -120,9 +120,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">Üzən mikrofon düyməsini gizlət</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Mikrofon düyməsi gizlidir</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Mikrofon düyməsi göstərilir</string>
-  <string name="revanced_hide_gray_separator_title">Boz ayırıcını gizlət</string>
-  <string name="revanced_hide_gray_separator_summary_on">Boz ayırıcılar gizlidir</string>
-  <string name="revanced_hide_gray_separator_summary_off">Boz ayırıcılar göstərilir</string>
   <string name="revanced_hide_channel_watermark_title">Kanal filiqranını gizlət</string>
   <string name="revanced_hide_channel_watermark_summary_on">Su nişanı gizlidir</string>
   <string name="revanced_hide_channel_watermark_summary_off">Su nişanı göstərilir</string>
@@ -510,7 +507,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_additional_settings_summary_on">Əlavə ayarlar menyusu gizlidir</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_off">Əlavə ayarlar menyusu göstərilir</string>
   <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_sleep_timer_title">Yuxu planlayıcını gizlət</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_title">Yuxu taymerini gizlət</string>
   <string name="revanced_hide_player_flyout_sleep_timer_summary_on">Yuxu taymeri menyusu gizlidir</string>
   <string name="revanced_hide_player_flyout_sleep_timer_summary_off">Yuxu taymeri menyusu göstərilir</string>
   <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -549,9 +546,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_title">\"VR-da İzləni\" gizlət</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VR menyusunda izləmə gizlidir</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">VR menyusunda izləmə göstərilir</string>
-  <string name="revanced_hide_player_flyout_video_quality_footer_title">Video keyfiyyət menyu alt yazısın gizlə</string>
-  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Video keyfiyyəti menyusu alt yazısı gizlidir</string>
-  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Video keyfiyyət menyusu alt yazısı göstərilir</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_title">Video keyfiyyət menyusu alt məlumatını gizlət</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Video keyfiyyət menyusu alt məlumatı gizlidir</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Video keyfiyyət menyusu alt məlumatı göstərilir</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_player_previous_next_buttons_title">Əvvəlki/növbəti video düymələrin gizlət</string>
@@ -1167,7 +1164,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_custom_speed_menu_summary_on">Fərdi sürət menyusu göstərilir</string>
   <string name="revanced_custom_speed_menu_summary_off">Fərdi sürət menyusu göstərilmir</string>
   <string name="revanced_custom_playback_speeds_title">Fərdi oynatma sürəti</string>
-  <string name="revanced_custom_playback_speeds_summary">Fərdi oynatma sürətlərini əlavə et və ya dəyişdir</string>
+  <string name="revanced_custom_playback_speeds_summary">Fərdi oynatma sürətlərini əlavə et və ya dəyiş</string>
   <string name="revanced_custom_playback_speeds_invalid">Fərdi sürətlər %s-dən az olmalıdır.  Standart dəyərlər istifadəsi.</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Etibarsız oynatma sürətləri. Standartlar istifadədədir.</string>
   </patch>

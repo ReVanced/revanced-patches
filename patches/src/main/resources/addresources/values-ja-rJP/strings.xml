@@ -85,9 +85,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_12_video_title">動画</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
-  <string name="revanced_shorts_disable_background_playback_title">ショートバックグラウンド再生を無効にする</string>
-  <string name="revanced_shorts_disable_background_playback_summary_on">ショートバックグラウンド再生は無効です</string>
-  <string name="revanced_shorts_disable_background_playback_summary_off">ショートバックグラウンド再生は有効です</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Shorts のバックグラウンド再生は無効になっています</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Shorts のバックグラウンド再生は有効になっています</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">デバッグ</string>
@@ -119,9 +118,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">音声入力のフローティングボタンを非表示</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">マイクボタンは非表示です</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">マイクボタンは表示されます</string>
-  <string name="revanced_hide_gray_separator_title">灰色のセパレータを非表示</string>
-  <string name="revanced_hide_gray_separator_summary_on">灰色のセパレータは非表示です</string>
-  <string name="revanced_hide_gray_separator_summary_off">灰色のセパレータは表示されます</string>
   <string name="revanced_hide_channel_watermark_title">チャンネルの透かしを非表示</string>
   <string name="revanced_hide_channel_watermark_summary_on">透かしは非表示です</string>
   <string name="revanced_hide_channel_watermark_summary_off">透かしは表示されます</string>
@@ -993,6 +989,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts プレイヤーはアプリの起動時に再開します</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <string name="revanced_shorts_autoplay_summary_on">Shorts は自動再生されます</string>
+  <string name="revanced_shorts_autoplay_summary_off">Shorts は繰り返し再生されます</string>
   </patch>
   <patch id="layout.tablet.enableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">タブレットのレイアウトを有効にする</string>
@@ -1181,6 +1179,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_screen_summary">再生の問題を防ぐために、クライアントのビデオストリームを偽装します</string>
   <string name="revanced_spoof_video_streams_title">動画ストリームを偽装する</string>
   <string name="revanced_spoof_video_streams_summary_on">ビデオストリームはなりすましています</string>
+  <string name="revanced_spoof_video_streams_summary_off">クライアントは偽装されていません\n\n動画を再生できない可能性があります</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">この設定をオフにすると、ビデオ再生の問題が発生する可能性があります。</string>
   <string name="revanced_spoof_video_streams_client_title">デフォルトのクライアント</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">強制AVC (H.264)</string>
@@ -1189,7 +1188,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">お使いのデバイスにはVP9ハードウェアデコードがありません。この設定はクライアントのスプーフィングが有効になっているときに常に有効になります</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">これを有効にするとバッテリー寿命と再生の途切れが改善する可能性があります。\n\nAVCの最大解像度は1080pで、ビデオ再生はVP9やAV1よりも多くの通信量を使用します。</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOSのクライアント偽装での副作用</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• 映画や有料動画は再生できない場合があります\n•ライブは最初から再生されます\n• 動画が 1 秒早く終了する場合があります\n• Opus オーディオは使用できません。</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android-VR クライアント偽装の副作用</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">•「音声トラック」メニューは表示されません\n•「一定音量」は使用できません</string>
   </patch>
   </app>
   <app id="twitch">

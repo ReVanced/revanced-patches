@@ -121,9 +121,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">Sakrij plutajuće dugme mikrofona</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Plutajuće dugme mikrofona je skriveno</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Plutajuće dugme mikrofona je prikazano</string>
-  <string name="revanced_hide_gray_separator_title">Sakrij sive razdelnike</string>
-  <string name="revanced_hide_gray_separator_summary_on">Sivi razdelnici su skriveni</string>
-  <string name="revanced_hide_gray_separator_summary_off">Sivi razdelnici su prikazani</string>
   <string name="revanced_hide_channel_watermark_title">Sakrij vodeni žig kanala</string>
   <string name="revanced_hide_channel_watermark_summary_on">Vodeni žig kanala je skriven</string>
   <string name="revanced_hide_channel_watermark_summary_off">Vodeni žig kanala je prikazan</string>
