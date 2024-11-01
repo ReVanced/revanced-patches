@@ -87,13 +87,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Nonaktifkan pemutaran Shorts di latar belakang</string>
-  <string name="revanced_shorts_disable_background_playback_summary_on">Pemutaran shorts di latar belakang dinonaktifkan</string>
-  <string name="revanced_shorts_disable_background_playback_summary_off">Pemutaran shorts di latar belakang diaktifkan</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Pemutaran Shorts di latar belakang dinonaktifkan</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Pemutaran Shorts di latar belakang diaktifkan</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Debugging</string>
   <string name="revanced_debug_screen_summary">Mengaktifkan atau menonaktifkan pilihan debugging</string>
-  <string name="revanced_debug_title">Catatan debug</string>
+  <string name="revanced_debug_title">Pencatatan debug</string>
   <string name="revanced_debug_summary_on">Log debug diaktifkan</string>
   <string name="revanced_debug_summary_off">Log debug dinonaktifkan</string>
   <string name="revanced_debug_protobuffer_title">Buffer protokol log</string>
@@ -120,18 +120,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">Sembunyikan tombol mikrofon mengambang</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Tombol mikrofon disembunyikan</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Tombol mikrofon ditampilkan</string>
-  <string name="revanced_hide_gray_separator_title">Sembunyikan pemisah abu-abu</string>
-  <string name="revanced_hide_gray_separator_summary_on">Pemisah abu-abu disembunyikan</string>
-  <string name="revanced_hide_gray_separator_summary_off">Pemisah abu-abu ditampilkan</string>
   <string name="revanced_hide_channel_watermark_title">Sembunyikan tanda air saluran</string>
   <string name="revanced_hide_channel_watermark_summary_on">Tanda air disembunyikan</string>
   <string name="revanced_hide_channel_watermark_summary_off">Tanda air ditampilkan</string>
-  <string name="revanced_hide_horizontal_shelves_title">Sembunyikan rak mendatar</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">Rak disembunyikan seperti:\n• Berita terkini\n• Lanjut menonton\n• Jelajahi saluran lainnya\n• Belanja\n• Tonton lagi</string>
-  <string name="revanced_hide_horizontal_shelves_summary_off">Rak ditampilkan</string>
+  <string name="revanced_hide_horizontal_shelves_title">Sembunyikan rak-rak mendatar</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">Rak-rak yang disembunyikan seperti:\n• Berita terkini\n• Lanjut menonton\n• Jelajahi saluran lainnya\n• Belanja\n• Tonton lagi</string>
+  <string name="revanced_hide_horizontal_shelves_summary_off">Rak-rak ditampilkan</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
-  <string name="revanced_hide_join_membership_button_title">Sembunyikan \'Gabung\'</string>
+  <string name="revanced_hide_join_membership_button_title">Sembunyikan tombol \'Gabung\'</string>
   <string name="revanced_hide_join_membership_button_summary_on">Tombol disembunyikan</string>
   <string name="revanced_hide_join_membership_button_summary_off">Tombol ditampilkan</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
@@ -735,11 +732,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_dislike_percentage_summary_off">Dislike ditampilkan sebagai angka</string>
   <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
   <string name="revanced_ryd_compact_layout_title">Tombol suka ringkas</string>
-  <string name="revanced_ryd_compact_layout_summary_on">Tombol like ditata untuk lebar minimum</string>
-  <string name="revanced_ryd_compact_layout_summary_off">Tombol like ditata untuk penampilan terbaik</string>
+  <string name="revanced_ryd_compact_layout_summary_on">Tombol suka ditata untuk lebar minimum</string>
+  <string name="revanced_ryd_compact_layout_summary_off">Tombol suka ditata untuk tampilan terbaik</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Tampilkan dialog jika API tidak tersedia</string>
-  <string name="revanced_ryd_toast_on_connection_error_summary_on">Dialog ditampilkan jika Return Youtube Dislike tidak tersedia</string>
-  <string name="revanced_ryd_toast_on_connection_error_summary_off">Dialog tidak ditampilkan jika Return Youtube Dislike tidak tersedia</string>
+  <string name="revanced_ryd_toast_on_connection_error_summary_on">Pesan timbul tidak ditampilkan jika Return YouTube Dislike tidak tersedia</string>
+  <string name="revanced_ryd_toast_on_connection_error_summary_off">Pesan timbul tidak ditampilkan jika Return YouTube Dislike tidak tersedia</string>
   <string name="revanced_ryd_about">Tentang</string>
   <string name="revanced_ryd_attribution_summary">Data disediakan oleh API Return YouTube Dislike. Tekan di sini untuk mempelajari lebih lanjut</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
@@ -836,7 +833,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_settings_import_successful">Pengaturan berhasil diimpor</string>
   <string name="revanced_sb_settings_import_failed">Gagal mengimpor: %s</string>
   <string name="revanced_sb_settings_export_failed">Gagal mengekspor: %s</string>
-  <string name="revanced_sb_settings_revanced_export_user_id_warning">Setelan Anda berisi ID user SponsorBlock pribadi.\n\nID user Anda seperti sebuah password yang sebaiknya tidak boleh dibagikan.\n</string>
+  <string name="revanced_sb_settings_revanced_export_user_id_warning">Setelan Anda berisi ID pengguna SponsorBlock pribadi.\n\nID pengguna Anda seperti sebuah password dan sebaiknya jangan pernah dibagikan.\n</string>
   <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">Jangan tampilkan lagi</string>
   <string name="revanced_sb_diff_segments">Ubah perilaku segmen</string>
   <string name="revanced_sb_segments_sponsor">Sponsor</string>
@@ -844,7 +841,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_segments_selfpromo">Tidak Dibayar/Promosi Diri Sendiri</string>
   <string name="revanced_sb_segments_selfpromo_sum">Serupa dengan \'Sponsor\' namun untuk yang tidak bebayar atau promosi diri. Ini termasuk bagian tentang merchandise, donasi, atau informasi mengenai mitra kolaborasi</string>
   <string name="revanced_sb_segments_interaction">Pengingat Interaksi (Berlangganan)</string>
-  <string name="revanced_sb_segments_interaction_sum">Pengingat singkat untuk like, subscribe, atau follow di tengah konten. Jika pengingat berdurasi panjang atau mengenai sesuatu yang spesifik, sebaiknya termasuk kategori promosi diri</string>
+  <string name="revanced_sb_segments_interaction_sum">Pengingat singkat untuk suka, berlangganan, atau ikuti di tengah konten. Jika berdurasi panjang atau mengenai sesuatu yang spesifik, sebaiknya termasuk kategori promosi diri sendiri</string>
   <string name="revanced_sb_segments_highlight">Sorotan</string>
   <string name="revanced_sb_segments_highlight_sum">Bagian video yang paling dilihat oleh orang</string>
   <string name="revanced_sb_segments_intro">Jeda/Animasi Intro</string>

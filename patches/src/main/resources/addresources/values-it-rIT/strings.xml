@@ -87,8 +87,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Disabilita riproduzione sfondo Shorts</string>
-  <string name="revanced_shorts_disable_background_playback_summary_on">La riproduzione in background dei pantaloncini è disabilitata</string>
-  <string name="revanced_shorts_disable_background_playback_summary_off">Riproduzione in background dei pantaloncini abilitata</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Debugging</string>
@@ -120,9 +118,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">Nascondi il pulsante del microfono fluttuante</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Pulsante microfono nascosto</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Pulsante microfono mostrato</string>
-  <string name="revanced_hide_gray_separator_title">Nascondi il separatore grigio</string>
-  <string name="revanced_hide_gray_separator_summary_on">I separatori grigi sono nascosti</string>
-  <string name="revanced_hide_gray_separator_summary_off">I separatori grigi sono visibili</string>
   <string name="revanced_hide_channel_watermark_title">Nascondi la filigrana del canale</string>
   <string name="revanced_hide_channel_watermark_summary_on">Filigrana nascosta</string>
   <string name="revanced_hide_channel_watermark_summary_off">Filigrana visibile</string>

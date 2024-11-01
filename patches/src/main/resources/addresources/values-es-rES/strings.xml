@@ -86,9 +86,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_12_video_title">Video</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
-  <string name="revanced_shorts_disable_background_playback_title">Desactivar reproducción en segundo plano</string>
-  <string name="revanced_shorts_disable_background_playback_summary_on">Reproducción de fondo corta deshabilitada</string>
-  <string name="revanced_shorts_disable_background_playback_summary_off">Reproducción de fondo corta está habilitada</string>
+  <string name="revanced_shorts_disable_background_playback_title">Desactivar la reproducción en segundo plano de Shorts</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">La reproducción de Shorts en segundo plano está desactivada</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">La reproducción de Shorts en segundo plano está activada</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Depuración</string>
@@ -120,9 +120,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">Ocultar botón de micrófono flotante</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Botón de micrófono oculto</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Botón del micrófono mostrado</string>
-  <string name="revanced_hide_gray_separator_title">Ocultar separador gris</string>
-  <string name="revanced_hide_gray_separator_summary_on">Los separadores de grises están ocultos</string>
-  <string name="revanced_hide_gray_separator_summary_off">Se muestran los separadores grises</string>
   <string name="revanced_hide_channel_watermark_title">Ocultar marca de agua del canal</string>
   <string name="revanced_hide_channel_watermark_summary_on">Marca de agua oculta</string>
   <string name="revanced_hide_channel_watermark_summary_off">Marca de agua mostrada</string>
@@ -771,6 +768,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Las miniuñas Seekbar son de calidad media</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Las miniaturas de la barra de búsqueda a pantalla completa son de alta calidad</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Las miniaturas de la barra de búsqueda a pantalla completa son de calidad media</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Esto restaurará las miniaturas de las transmisiones en directo que no tengan miniaturas en la barra de progreso\n\nEl uso de datos de Internet puede ser mayor, y las miniaturas de la barra de progreso tendrán un ligero retraso antes de mostrarse.\n\nEsta característica funciona mejor con una conexión a Internet muy rápida.</string>
   </patch>
   <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
   <string name="revanced_restore_old_seekbar_thumbnails_title">Restaurar antiguas miniaturas de la barra de búsqueda</string>

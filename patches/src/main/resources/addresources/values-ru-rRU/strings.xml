@@ -36,9 +36,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_check_environment_failed_title">Проверка не удалась</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Открыть официальный сайт</string>
   <string name="revanced_check_environment_dialog_ignore_button">Пропустить</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Похоже, что это приложение пропатчено не вами.&lt;/h5&gt;&lt;br&gt;Это приложение может работать неправильно, &lt;b&gt;быть вредным или даже опасным для использования&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Эти проверки предполагают, что это приложение предварительно пропатчено или получено от кого-то другого:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Настоятельно рекомендуется &lt;b&gt;удалить это приложение и пропатчить его самостоятельно,&lt;/b&gt; чтобы быть уверенным, что вы используете проверенное и безопасное приложение.&lt;p&gt;&lt;br&gt;Если проигнорировать это предупреждение, то оно будет показано только дважды.</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Похоже, что это приложение пропатчено не вами.&lt;/h5&gt;&lt;br&gt;Оно может работать неправильно, &lt;b&gt;быть вредным или даже опасным.&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Эти проверки предполагают, что это приложение пропатчено или получено от кого-то другого:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Настоятельно рекомендуется &lt;b&gt;удалить это приложение и пропатчить его самостоятельно,&lt;/b&gt; чтобы быть уверенным, что вы используете проверенное и безопасное приложение.&lt;p&gt;&lt;br&gt;Если нажать \"Пропустить\", то это предупреждение будет показано только дважды.</string>
   <string name="revanced_check_environment_not_same_patching_device">Пропатчено на другом устройстве</string>
-  <string name="revanced_check_environment_manager_not_expected_installer">Не установлено с помощью ReVanced Manager</string>
+  <string name="revanced_check_environment_manager_not_expected_installer">Установлено не через ReVanced Manager</string>
   <string name="revanced_check_environment_not_near_patch_time">Пропатчено более 10 минут назад</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Пропатчено %s дней назад</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Дата сборки APK повреждена</string>
@@ -87,9 +87,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_12_video_title">Видео</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
-  <string name="revanced_shorts_disable_background_playback_title">Отключить фоновое воспроизведение шортов</string>
-  <string name="revanced_shorts_disable_background_playback_summary_on">Ярлыки в фоновом режиме отключены</string>
-  <string name="revanced_shorts_disable_background_playback_summary_off">Включить фоновое воспроизведение шортов</string>
+  <string name="revanced_shorts_disable_background_playback_title">Фоновое воспроизведение Shorts</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Фоновое воспроизведение Shorts отключено</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Фоновое воспроизведение Shorts включено</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Отладка</string>
@@ -121,9 +121,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">Плавающая кнопка микрофона</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Плавающая кнопка микрофона в поиске скрыта</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Плавающая кнопка микрофона в поиске отображена</string>
-  <string name="revanced_hide_gray_separator_title">Серые разделители</string>
-  <string name="revanced_hide_gray_separator_summary_on">Серые разделители в ленте между видео и публикациями сообщества скрыты</string>
-  <string name="revanced_hide_gray_separator_summary_off">Серые разделители в ленте между видео и публикациями сообщества отображены</string>
   <string name="revanced_hide_channel_watermark_title">Водяной знак канала</string>
   <string name="revanced_hide_channel_watermark_summary_on">Водяной знак канала в плеере скрыт</string>
   <string name="revanced_hide_channel_watermark_summary_off">Водяной знак канала в плеере отображен</string>
@@ -319,7 +316,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_general_ads_summary_on">Реклама общего формата скрыта</string>
   <string name="revanced_hide_general_ads_summary_off">Реклама общего формата отображена</string>
   <string name="revanced_hide_fullscreen_ads_title">Полноэкранная реклама</string>
-  <string name="revanced_hide_fullscreen_ads_summary_on">Полноэкранная реклама при запуске приложения скрыта\n\nДанная функция доступна только для старых устройств</string>
+  <string name="revanced_hide_fullscreen_ads_summary_on">Полноэкранная реклама при запуске приложения скрыта\n\nДанная опция доступна только для старых устройств</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Полноэкранная реклама при запуске приложения отображена</string>
   <string name="revanced_hide_buttoned_ads_title">Видеообъявления</string>
   <string name="revanced_hide_buttoned_ads_summary_on">Видеообъявления скрыты</string>
@@ -376,7 +373,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_remove_viewer_discretion_dialog_title">Окно о нежелательном контенте</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">Диалоговое окно о нежелательном контенте скрыто</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Диалоговое окно о нежелательном контенте отображено</string>
-  <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Данная функция не обходит возрастное ограничение. Она просто принимает возрастное ограничение автоматически.</string>
+  <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Данная опция не обходит возрастное ограничение. Она только принимает возрастное ограничение автоматически.</string>
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">Внешний загрузчик</string>
@@ -493,7 +490,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_subscriptions_button_summary_off">Кнопка \"Подписки\" в панели навигации отображена</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Инверсия \"Создать\" и \"Уведомления\"</string>
-  <string name="revanced_switch_create_with_notifications_button_summary_on">Кнопки \"Создать\" и \"Уведомления\" заменены местами\n\nПримечание: включение этой опции также принудительно скрывает видеорекламу</string>
+  <string name="revanced_switch_create_with_notifications_button_summary_on">Кнопки \"Создать\" и \"Уведомления\" заменены местами\n\nПримечание: активация данной опции также принудительно скрывает видеорекламу</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Кнопки \"Создать\" и \"Уведомления\" не заменены местами</string>
   <string name="revanced_hide_navigation_button_labels_title">Подписи кнопок навигации</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Подписи кнопок навигации скрыты</string>
@@ -511,9 +508,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_additional_settings_summary_on">Пункт \"Дополнительные настройки\" в выдвижном меню плеера скрыт</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_off">Пункт \"Дополнительные настройки\" в выдвижном меню плеера отображен</string>
   <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_sleep_timer_title">Скрыть таймер сна</string>
-  <string name="revanced_hide_player_flyout_sleep_timer_summary_on">Меню таймера сна скрыто</string>
-  <string name="revanced_hide_player_flyout_sleep_timer_summary_off">Показывать меню таймера сна</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_title">Пункт \"Таймер сна\"</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_on">Пункт \"Таймер сна\" в выдвижном меню плеера скрыт</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_off">Пункт \"Таймер сна\" в выдвижном меню плеера отображен</string>
   <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_loop_video_title">Пункт \"Повтор воспроизведения\"</string>
   <string name="revanced_hide_player_flyout_loop_video_summary_on">Пункт \"Повтор воспроизведения\" в выдвижном меню плеера скрыт</string>
@@ -522,9 +519,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_ambient_mode_title">Пункт \"Фоновая подсветка\"</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_on">Пункт \"Фоновая подсветка\" в выдвижном меню плеера скрыт</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_off">Пункт \"Фоновая подсветка\" в выдвижном меню плеера отображен</string>
-  <string name="revanced_hide_player_flyout_stable_volume_title">Скрыть стабильный уровень громкости</string>
-  <string name="revanced_hide_player_flyout_stable_volume_summary_off">Отображается меню стабильности громкости</string>
-  <string name="revanced_hide_player_flyout_stable_volume_summary_on">Меню стабильной громкости скрыто</string>
+  <string name="revanced_hide_player_flyout_stable_volume_title">Пункт \"Постоянный уровень громкости\"</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_off">Пункт \"Постоянный уровень громкости\" в выдвижном меню плеера отображен</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_on">Пункт \"Постоянный уровень громкости\" в выдвижном меню плеера скрыт</string>
   <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_help_title">Пункт \"Справка и отзывы\"</string>
   <string name="revanced_hide_player_flyout_help_summary_on">Пункт \"Справка и отзывы\" в выдвижном меню плеера скрыт</string>
@@ -550,9 +547,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Пункт \"Смотреть в VR-режиме\"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Пункт \"Смотреть в VR-режиме\" в выдвижном меню плеера скрыт</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Пункт \"Смотреть в VR-режиме\" в выдвижном меню плеера отображен</string>
-  <string name="revanced_hide_player_flyout_video_quality_footer_title">Меню качества видео</string>
-  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Меню качества видео в выдвижном меню плеера скрыто</string>
-  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Меню качества видео в выдвижном меню плеера отображено</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_title">Колонтитул меню качества видео</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Колонтитул меню качества видео скрыт</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Колонтитул меню качества видео отображен</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_player_previous_next_buttons_title">Кнопки переключения видео</string>
@@ -767,12 +764,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_wide_searchbar_summary_off">Широкая панель поиска отключена</string>
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
-  <string name="revanced_seekbar_thumbnails_high_quality_title">Включить высококачественные миниатюры</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Искать эскизы высокого качества</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Искать эскизы среднего качества</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Высокое качество эскизов на полноэкранном экране</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Полноэкранные эскизы среднего качества</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Это действие восстановит эскизы для жителей, у которых нет эскизов в панели просмотра.\n\nИспользование данных в Интернете может быть выше, и миниатюры в строке поиска будут иметь небольшую задержку перед отображением.\n\nЭта функция работает лучше всего с очень быстрым интернет-соединением.</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_title">Миниатюры высокого качества</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Миниатюры прогресса воспроизведения высокого качества</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Миниатюры прогресса воспроизведения среднего качества</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Полноэкранные миниатюры прогресса воспроизведения высокого качества</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Полноэкранные миниатюры прогресса воспроизведения среднего качества</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Это действие восстановит миниатюры для прямых трансляций, у которых нет миниатюр прогресса воспроизведения.\n\nИспользование интернет-данных может быть выше, а миниатюры прогресса воспроизведения будут отображаться с небольшой задержкой.\n\nЭта опция работает лучше всего с очень быстрым интернет-соединением.</string>
   </patch>
   <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
   <string name="revanced_restore_old_seekbar_thumbnails_title">Восстановление старых миниатюр</string>
@@ -1065,7 +1062,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Обход ограничений региона</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Использование хоста изображений yt4.ggpht.com</string>
-  <string name="revanced_bypass_image_region_restrictions_summary_off">Использование оригинального хоста изображений\n\nВключение этой опции может исправить недостающие изображения, которые заблокированы в некоторых регионах </string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">Использование оригинального хоста изображений\n\nАктивация данной опции может исправить недостающие изображения, которые заблокированы в некоторых регионах </string>
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -1165,10 +1162,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Пользовательское меню скорости воспроизведения</string>
-  <string name="revanced_custom_speed_menu_summary_on">Меню пользовательской скорости показано</string>
-  <string name="revanced_custom_speed_menu_summary_off">Пользовательское меню скорости не показано</string>
+  <string name="revanced_custom_speed_menu_summary_on">Пользовательское меню скорости воспроизведения отображено</string>
+  <string name="revanced_custom_speed_menu_summary_off">Пользовательское меню скорости воспроизведения скрыто</string>
   <string name="revanced_custom_playback_speeds_title">Скорости воспроизведения</string>
-  <string name="revanced_custom_playback_speeds_summary">Добавить или изменить скорость воспроизведения</string>
+  <string name="revanced_custom_playback_speeds_summary">Добавить или изменить пользовательские скорости воспроизведения</string>
   <string name="revanced_custom_playback_speeds_invalid">Пользовательские скорости должны быть меньше, чем %s. Использование значений по умолчанию.</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Недопустимая пользовательская скорость воспроизведения. Использование значений по умолчанию.</string>
   </patch>
@@ -1200,8 +1197,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Принудительно AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Видеокодек AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Видеокодек VP9 или AV1</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">На вашем устройстве нет аппаратного декодирования VP9, и эта настройка всегда включена при активной подмене клиента</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Включение данной настройки может улучшить время работы батареи и исправить задержки воспроизведения.\n\nAVC имеет максимальное разрешение 1080p, воспроизведение видео будет использовать больше интернет данных в сравнении с VP9 или AV1.</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">На вашем устройстве нет аппаратного декодирования VP9, и эта настройка всегда активна при включенной подмене клиента</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Активация данной опции может улучшить время работы батареи и исправить задержки воспроизведения.\n\nAVC имеет максимальное разрешение 1080p, воспроизведение видео будет использовать больше интернет данных в сравнении с VP9 или AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Побочные эффекты подмены на iOS</string>
   <string name="revanced_spoof_video_streams_about_ios_summary">• Фильмы или платные видео могут не воспроизводиться\n• Прямые трансляции начинаются с самого начала\n• Видео может закончиться на 1 секунду раньше\n• Отсутствует аудиокодек opus</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Побочные эффекты подмены на Android VR</string>

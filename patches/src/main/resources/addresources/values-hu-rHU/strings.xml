@@ -117,9 +117,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">Lebegő mikrofon gomb elrejtése</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">A mikrofon gomb elrejtve</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">A mikrofon gomb látható</string>
-  <string name="revanced_hide_gray_separator_title">Szürke elválasztó elrejtése</string>
-  <string name="revanced_hide_gray_separator_summary_on">A szürke elválasztók el vannak rejtve</string>
-  <string name="revanced_hide_gray_separator_summary_off">A szürke elválasztók láthatóak</string>
   <string name="revanced_hide_channel_watermark_title">Csatorna vízjel elrejtése</string>
   <string name="revanced_hide_channel_watermark_summary_on">A vízjel el van rejtve</string>
   <string name="revanced_hide_channel_watermark_summary_off">Vízjel látható</string>

@@ -121,9 +121,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">Dölj flytande mikrofonknapp</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Mikrofon knapp dold</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Mikrofonknappen är synlig</string>
-  <string name="revanced_hide_gray_separator_title">Dölj den gråa avgränsaren</string>
-  <string name="revanced_hide_gray_separator_summary_on">De gråa separatorerna är dolda</string>
-  <string name="revanced_hide_gray_separator_summary_off">De gråa separatorerna är synliga</string>
   <string name="revanced_hide_channel_watermark_title">Dölj kanalens vattenstämpel</string>
   <string name="revanced_hide_channel_watermark_summary_on">Vattenstämpeln är dold</string>
   <string name="revanced_hide_channel_watermark_summary_off">Vattenstämpeln är synlig</string>

@@ -120,9 +120,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">Αιωρούμενο κουμπί μικροφώνου</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Εμφανίζεται</string>
-  <string name="revanced_hide_gray_separator_title">Γκρι διαχωριστικά</string>
-  <string name="revanced_hide_gray_separator_summary_on">Κρυμμένα</string>
-  <string name="revanced_hide_gray_separator_summary_off">Εμφανίζονται</string>
   <string name="revanced_hide_channel_watermark_title">Υδατογράφημα καναλιού</string>
   <string name="revanced_hide_channel_watermark_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_channel_watermark_summary_off">Εμφανίζεται</string>
@@ -1160,7 +1157,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Εμφάνιση κουμπιού αλλαγής ταχύτητας</string>
   <string name="revanced_playback_speed_dialog_button_summary_on">Το κουμπί εμφανίζεται</string>
-  <string name="revanced_playback_speed_dialog_button_summary_off">Κρυμμένο</string>
+  <string name="revanced_playback_speed_dialog_button_summary_off">Το κουμπί δεν εμφανίζεται</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Μενού προσαρμοσμένης ταχύτητας αναπαραγωγής</string>

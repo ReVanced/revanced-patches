@@ -85,9 +85,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_12_video_title">视频</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
-  <string name="revanced_shorts_disable_background_playback_title">禁用短后台播放</string>
-  <string name="revanced_shorts_disable_background_playback_summary_on">短后台播放已禁用</string>
-  <string name="revanced_shorts_disable_background_playback_summary_off">短后台播放已启用</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">调试</string>
@@ -119,9 +116,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">隐藏浮动麦克风</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">麦克风按钮隐藏</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">麦克风按钮显示</string>
-  <string name="revanced_hide_gray_separator_title">隐藏灰色分隔符</string>
-  <string name="revanced_hide_gray_separator_summary_on">灰色分隔符已隐藏</string>
-  <string name="revanced_hide_gray_separator_summary_off">灰色分隔符已显示</string>
   <string name="revanced_hide_channel_watermark_title">隐藏频道水印</string>
   <string name="revanced_hide_channel_watermark_summary_on">水印已隐藏</string>
   <string name="revanced_hide_channel_watermark_summary_off">水印将显示</string>
