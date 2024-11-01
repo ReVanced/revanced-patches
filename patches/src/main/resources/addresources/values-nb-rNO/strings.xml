@@ -87,8 +87,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Deaktiver Shorts bakgrunn spill</string>
-  <string name="revanced_shorts_disable_background_playback_summary_on">Kortere bakgrunnsspilling er deaktivert</string>
-  <string name="revanced_shorts_disable_background_playback_summary_off">Kortere bakgrunnsspilling er aktivert</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Feilsøking</string>
@@ -120,9 +118,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">Skjul flytende mikrofonknapp</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Mikrofonknappen er skjult</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Mikrofon knapp vist</string>
-  <string name="revanced_hide_gray_separator_title">Skjul grå skilletegn</string>
-  <string name="revanced_hide_gray_separator_summary_on">Grå skilletegn er skjult</string>
-  <string name="revanced_hide_gray_separator_summary_off">Grå skilletegn vises</string>
   <string name="revanced_hide_channel_watermark_title">Skjul kanalvannmerke</string>
   <string name="revanced_hide_channel_watermark_summary_on">Vannmerket er skjult</string>
   <string name="revanced_hide_channel_watermark_summary_off">Vannmerke er vist</string>

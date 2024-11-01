@@ -107,9 +107,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">Схаваць плаваючую кнопку мікрафона</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Кнопка мікрафона схавана</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Паказана кнопка мікрафона</string>
-  <string name="revanced_hide_gray_separator_title">Схаваць шэры раздзяляльнік</string>
-  <string name="revanced_hide_gray_separator_summary_on">Шэрыя падзельнікі схаваныя</string>
-  <string name="revanced_hide_gray_separator_summary_off">Паказаны шэрыя раздзяляльнікі</string>
   <string name="revanced_hide_channel_watermark_title">Схаваць вадзяны знак канала</string>
   <string name="revanced_hide_channel_watermark_summary_on">Вадзяны знак схаваны</string>
   <string name="revanced_hide_channel_watermark_summary_off">Паказаны вадзяны знак</string>

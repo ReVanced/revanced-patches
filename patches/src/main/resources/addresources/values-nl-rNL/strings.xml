@@ -87,9 +87,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_12_video_title">Video</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
-  <string name="revanced_shorts_disable_background_playback_title">Uitschakelen korte achtergrond afspelen</string>
-  <string name="revanced_shorts_disable_background_playback_summary_on">Afspelen van de korte achtergrond is uitgeschakeld</string>
-  <string name="revanced_shorts_disable_background_playback_summary_off">Afspelen op de achtergrond is ingeschakeld</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Debugging</string>
@@ -121,9 +118,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">Zwevende microfoon knop verbergen</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Microfoon knop verborgen</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Microfoon knop weergegeven</string>
-  <string name="revanced_hide_gray_separator_title">Grijze scheidingsbalken verbergen</string>
-  <string name="revanced_hide_gray_separator_summary_on">Grijze scheidingsbalken zijn verborgen</string>
-  <string name="revanced_hide_gray_separator_summary_off">Grijze scheidingsbalken worden weergegeven</string>
   <string name="revanced_hide_channel_watermark_title">Verberg kanaal watermerk</string>
   <string name="revanced_hide_channel_watermark_summary_on">Watermerk is verborgen</string>
   <string name="revanced_hide_channel_watermark_summary_off">Watermerk wordt getoond</string>
