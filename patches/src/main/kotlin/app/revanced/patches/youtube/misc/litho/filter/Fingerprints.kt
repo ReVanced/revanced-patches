@@ -61,7 +61,7 @@ internal val nativeUpbFeatureFlagFingerprint = fingerprint {
     literal { 45419603L }
 }
 
-internal val lithoNativeComponentNamesFingerprint = fingerprint {
+internal val lithoNativeComponentFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()

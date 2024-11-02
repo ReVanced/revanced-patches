@@ -43,7 +43,7 @@ val lithoFilterPatch = bytecodePatch(
     val readComponentIdentifierMatch by readComponentIdentifierFingerprint()
     val emptyComponentMatch by emptyComponentFingerprint()
     val nativeUpbFeatureFlagMatch by nativeUpbFeatureFlagFingerprint()
-    val lithoNativeComponentNamesMatch by lithoNativeComponentNamesFingerprint()
+    val lithoNativeComponentFeatureFlagMatch by lithoNativeComponentFeatureFlagFingerprint()
 
     var filterCount = 0
 
@@ -138,9 +138,19 @@ val lithoFilterPatch = bytecodePatch(
             builderMethodDescriptor.returnType == classDef.type
         }!!.immutableClass.fields.single()
 
+        // Returns an empty component instead of the original component.
+        fun createReturnEmptyComponentInstructions(register : Int) : String =
+            """
+                move-object/from16 v$register, p1
+                invoke-static { v$register }, $builderMethodDescriptor
+                move-result-object v$register
+                iget-object v$register, v$register, $emptyComponentField
+                return-object v$register
+            """
+
         componentContextParserMatch.mutableMethod.apply {
             // 19.18 and later require patching 2 methods instead of one.
-            // Otherwise, the patched code is the same.
+            // Otherwise the modifications done here are the same for all targets.
             if (is_19_18_or_greater) {
                 // Get the method name of the ReadComponentIdentifierFingerprint call.
                 val readComponentMethodCallIndex = indexOfFirstInstructionOrThrow {
@@ -159,15 +169,11 @@ val lithoFilterPatch = bytecodePatch(
                 addInstructionsWithLabels(
                     insertHookIndex,
                     """
-                            if-nez v$register, :unfiltered
-    
-                            # Component was filtered in ReadComponentIdentifierFingerprint hook
-                            move-object/from16 v$register, p1
-                            invoke-static { v$register }, $builderMethodDescriptor
-                            move-result-object v$register
-                            iget-object v$register, v$register, $emptyComponentField
-                            return-object v$register
-                        """,
+                        if-nez v$register, :unfiltered
+
+                        # Component was filtered in ReadComponentIdentifierFingerprint hook
+                        ${createReturnEmptyComponentInstructions(register)}
+                    """,
                     ExternalLabel("unfiltered", getInstruction(insertHookIndex)),
                 )
             }
@@ -224,13 +230,7 @@ val lithoFilterPatch = bytecodePatch(
                     """
                         $invokeFilterInstructions
                     
-                        # Exact same code as ComponentContextParserFingerprint hook,
-                        # but with the free register of this method.
-                        move-object/from16 v$register, p1
-                        invoke-static { v$register }, $builderMethodDescriptor
-                        move-result-object v$register
-                        iget-object v$register, v$register, $emptyComponentField
-                        return-object v$register
+                        ${createReturnEmptyComponentInstructions(register)}
                     """
                 },
                 ExternalLabel("unfiltered", getInstruction(insertHookIndex)),
@@ -258,7 +258,7 @@ val lithoFilterPatch = bytecodePatch(
         // Native Litho components.  If this feature is enabled, then the litho paths
         // are missing nearly all component names and almost all filters are broken.
         if (is_19_25_or_greater) {
-            lithoNativeComponentNamesMatch.mutableMethod.apply {
+            lithoNativeComponentFeatureFlagMatch.mutableMethod.apply {
                 // Don't use return early, so the debug patch logs if this was originally on.
                 val insertIndex = indexOfFirstInstructionOrThrow(Opcode.RETURN)
                 val register = getInstruction<OneRegisterInstruction>(insertIndex).registerA
