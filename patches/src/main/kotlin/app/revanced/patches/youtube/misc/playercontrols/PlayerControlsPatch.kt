@@ -10,6 +10,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
+import app.revanced.patches.youtube.misc.playservice.is_19_35_or_greater
 import app.revanced.util.*
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -217,6 +218,7 @@ val playerControlsPatch = bytecodePatch(
     val playerTopControlsInflateMatch by playerTopControlsInflateFingerprint()
     val overlayViewInflateMatch by overlayViewInflateFingerprint()
     val playerControlsExtensionHookMatch by playerControlsExtensionHookFingerprint()
+    val playerControlsExploderFeatureFlagMatch by playerControlsExploderFeatureFlagFingerprint()
 
     execute { context ->
         fun MutableMethod.indexOfFirstViewInflateOrThrow() =
@@ -269,5 +271,13 @@ val playerControlsPatch = bytecodePatch(
         }
 
         visibilityImmediateMethod = playerControlsExtensionHookMatch.mutableMethod
+
+        // A/B test for a slightly different overlay controls,
+        // that uses layout file youtube_video_exploder_controls_bottom_ui_container.xml
+        // The change to support this is simple and only requires adding buttons to both layout files,
+        // but for now force this different layout off since it's still an experimental test.
+        if (is_19_35_or_greater) {
+            playerControlsExploderFeatureFlagMatch.mutableMethod.returnEarly()
+        }
     }
 }
