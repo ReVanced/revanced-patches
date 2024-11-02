@@ -63,7 +63,7 @@ val disableSuggestedVideoEndScreenPatch = bytecodePatch(
     )
 
     execute {
-        createEndScreenViewMatch.mutableMethod.apply {
+        createEndScreenViewMatch.method.apply {
             val addOnClickEventListenerIndex = createEndScreenViewMatch.patternMatch!!.endIndex - 1
             val viewRegister = getInstruction<FiveRegisterInstruction>(addOnClickEventListenerIndex).registerC
 

@@ -23,7 +23,8 @@ fun NodeList.asSequence() = (0 until this.length).asSequence().map { this.item(i
  * Returns a sequence for all child nodes.
  */
 @Suppress("UNCHECKED_CAST")
-fun Node.childElementsSequence() = this.childNodes.asSequence().filter { it.nodeType == Node.ELEMENT_NODE } as Sequence<Element>
+fun Node.childElementsSequence() =
+    this.childNodes.asSequence().filter { it.nodeType == Node.ELEMENT_NODE } as Sequence<Element>
 
 /**
  * Performs the given [action] on each child element.
@@ -164,7 +165,8 @@ internal fun NodeList.findElementByAttributeValue(attributeName: String, value: 
     return null
 }
 
-internal fun NodeList.findElementByAttributeValueOrThrow(attributeName: String, value: String): Element = findElementByAttributeValue(attributeName, value) ?: throw PatchException("Could not find: $attributeName $value")
+internal fun NodeList.findElementByAttributeValueOrThrow(attributeName: String, value: String) =
+    findElementByAttributeValue(attributeName, value) ?: throw PatchException("Could not find: $attributeName $value")
 
 internal fun Element.copyAttributesFrom(oldContainer: Element) {
     // Copy attributes from the old element to the new element

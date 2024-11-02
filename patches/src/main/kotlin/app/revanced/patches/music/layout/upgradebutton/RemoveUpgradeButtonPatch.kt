@@ -21,7 +21,7 @@ val removeUpgradeButtonPatch = bytecodePatch(
     compatibleWith("com.google.android.apps.youtube.music")
 
     execute {
-        pivotBarConstructorMatch.mutableMethod.apply {
+        pivotBarConstructorMatch.method.apply {
             val pivotBarElementFieldReference =
                 getInstruction(pivotBarConstructorMatch.patternMatch!!.endIndex - 1)
                     .getReference<FieldReference>()

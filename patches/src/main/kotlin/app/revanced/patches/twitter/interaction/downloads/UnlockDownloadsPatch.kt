@@ -21,29 +21,29 @@ val unlockDownloadsPatch = bytecodePatch(
 
     fun Match.patch(getRegisterAndIndex: Match.() -> Pair<Int, Int>) {
         val (index, register) = getRegisterAndIndex()
-        mutableMethod.addInstruction(index, "const/4 v$register, 0x1")
+        method.addInstruction(index, "const/4 v$register, 0x1")
     }
 
     execute {
         // Allow downloads for non-premium users.
         showDownloadVideoUpsellBottomSheetMatch.patch {
             val checkIndex = patternMatch!!.startIndex
-            val register = mutableMethod.getInstruction<OneRegisterInstruction>(checkIndex).registerA
+            val register = method.getInstruction<OneRegisterInstruction>(checkIndex).registerA
 
             checkIndex to register
         }
 
         // Force show the download menu item.
         constructMediaOptionsSheetMatch.patch {
-            val showDownloadButtonIndex = mutableMethod.instructions.lastIndex - 1
-            val register = mutableMethod.getInstruction<TwoRegisterInstruction>(showDownloadButtonIndex).registerA
+            val showDownloadButtonIndex = method.instructions.lastIndex - 1
+            val register = method.getInstruction<TwoRegisterInstruction>(showDownloadButtonIndex).registerA
 
             showDownloadButtonIndex to register
         }
 
         // Make GIFs downloadable.
         val patternMatch = buildMediaOptionsSheetMatch.patternMatch!!
-        buildMediaOptionsSheetMatch.mutableMethod.apply {
+        buildMediaOptionsSheetMatch.method.apply {
             val checkMediaTypeIndex = patternMatch.startIndex
             val checkMediaTypeInstruction = getInstruction<TwoRegisterInstruction>(checkMediaTypeIndex)
 

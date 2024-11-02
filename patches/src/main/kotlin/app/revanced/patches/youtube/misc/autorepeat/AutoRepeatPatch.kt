@@ -41,9 +41,9 @@ val autoRepeatPatch = bytecodePatch(
         )
 
         autoRepeatFingerprint.apply {
-            match(context, autoRepeatParentMatch.classDef)
+            match(context, autoRepeatParentMatch.originalClassDef)
         }.matchOrThrow.mutableMethod.apply {
-            val playMethod = autoRepeatParentMatch.mutableMethod
+            val playMethod = autoRepeatParentMatch.method
             val index = instructions.lastIndex
 
             // Remove return-void.

@@ -17,7 +17,7 @@ val permanentRepeatPatch = bytecodePatch(
         val startIndex = repeatTrackMatch.patternMatch!!.endIndex
         val repeatIndex = startIndex + 1
 
-        repeatTrackMatch.mutableMethod.apply {
+        repeatTrackMatch.method.apply {
             addInstructionsWithLabels(
                 startIndex,
                 "goto :repeat",

@@ -3,8 +3,6 @@ package app.revanced.patches.youtube.video.speed.custom
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
@@ -125,19 +123,19 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         // Add a static INSTANCE field to the class.
         // This is later used to call "showOldPlaybackSpeedMenu" on the instance.
         val instanceField = ImmutableField(
-            getOldPlaybackSpeedsMatch.classDef.type,
+            getOldPlaybackSpeedsMatch.originalClassDef.type,
             "INSTANCE",
-            getOldPlaybackSpeedsMatch.classDef.type,
+            getOldPlaybackSpeedsMatch.originalClassDef.type,
             AccessFlags.PUBLIC.value or AccessFlags.STATIC.value,
             null,
             null,
             null,
         ).toMutable()
 
-        getOldPlaybackSpeedsMatch.mutableClass.staticFields.add(instanceField)
+        getOldPlaybackSpeedsMatch.classDef.staticFields.add(instanceField)
         // Set the INSTANCE field to the instance of the class.
         // In order to prevent a conflict with another patch, add the instruction at index 1.
-        getOldPlaybackSpeedsMatch.mutableMethod.addInstruction(1, "sput-object p0, $instanceField")
+        getOldPlaybackSpeedsMatch.method.addInstruction(1, "sput-object p0, $instanceField")
 
         // Get the "showOldPlaybackSpeedMenu" method.
         // This is later called on the field INSTANCE.
@@ -147,7 +145,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         ).method.toString()
 
         // Insert the call to the "showOldPlaybackSpeedMenu" method on the field INSTANCE.
-        showOldPlaybackSpeedMenuExtensionMatch.mutableMethod.apply {
+        showOldPlaybackSpeedMenuExtensionMatch.method.apply {
             addInstructionsWithLabels(
                 instructions.lastIndex,
                 """

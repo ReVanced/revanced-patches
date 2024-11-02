@@ -47,7 +47,7 @@ val disableResumingShortsOnStartupPatch = bytecodePatch(
             SwitchPreference("revanced_disable_resuming_shorts_player"),
         )
 
-        userWasInShortsConfigMatch.mutableMethod.apply {
+        userWasInShortsConfigMatch.method.apply {
             val startIndex = indexOfOptionalInstruction(this)
             val walkerIndex = indexOfFirstInstructionOrThrow(startIndex) {
                 val reference = getReference<MethodReference>()
@@ -72,7 +72,7 @@ val disableResumingShortsOnStartupPatch = bytecodePatch(
             )
         }
 
-        userWasInShortsMatch.mutableMethod.apply {
+        userWasInShortsMatch.method.apply {
             val listenableInstructionIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_INTERFACE &&
                     getReference<MethodReference>()?.definingClass == "Lcom/google/common/util/concurrent/ListenableFuture;" &&

@@ -80,10 +80,10 @@ val hideInfoCardsPatch = bytecodePatch(
             )
         }
 
-        val hideInfoCardsCallMethod = infocardsMethodCallMatch.mutableMethod
+        val hideInfoCardsCallMethod = infocardsMethodCallMatch.method
 
         val invokeInterfaceIndex = infocardsMethodCallMatch.patternMatch!!.endIndex
-        val toggleRegister = infocardsMethodCallMatch.mutableMethod.implementation!!.registerCount - 1
+        val toggleRegister = infocardsMethodCallMatch.method.implementation!!.registerCount - 1
 
         hideInfoCardsCallMethod.addInstructionsWithLabels(
             invokeInterfaceIndex,

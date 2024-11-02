@@ -8,7 +8,7 @@ val hideCommentAdsPatch = bytecodePatch(
 ) {
 
     execute {
-        hideCommentAdsMatch.mutableMethod.addInstructions(
+        hideCommentAdsMatch.method.addInstructions(
             0,
             """
                 new-instance v0, Ljava/lang/Object;

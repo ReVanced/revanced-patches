@@ -49,7 +49,7 @@ val seekbarThumbnailsPatch = bytecodePatch(
             },
         )
 
-        fullscreenSeekbarThumbnailsQualityMatch.mutableMethod.addInstructions(
+        fullscreenSeekbarThumbnailsQualityMatch.method.addInstructions(
             0,
             """
                 invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->useHighQualityFullscreenThumbnails()Z

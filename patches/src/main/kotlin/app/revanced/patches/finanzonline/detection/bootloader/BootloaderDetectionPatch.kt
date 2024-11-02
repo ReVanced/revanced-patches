@@ -12,7 +12,7 @@ val bootloaderDetectionPatch = bytecodePatch(
 
     execute {
         setOf(createKeyMatch, bootStateMatch).forEach { match ->
-            match.mutableMethod.addInstructions(
+            match.method.addInstructions(
                 0,
                 """
                     const/4 v0, 0x1

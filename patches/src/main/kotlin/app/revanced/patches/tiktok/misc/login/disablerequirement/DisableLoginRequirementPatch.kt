@@ -14,8 +14,8 @@ val disableLoginRequirementPatch = bytecodePatch(
 
     execute {
         listOf(
-            mandatoryLoginServiceMatch.mutableMethod,
-            mandatoryLoginService2Match.mutableMethod,
+            mandatoryLoginServiceMatch.method,
+            mandatoryLoginService2Match.method,
         ).forEach { method ->
             method.addInstructions(
                 0,

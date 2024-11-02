@@ -25,7 +25,7 @@ val feedFilterPatch = bytecodePatch(
     )
 
     execute {
-        feedApiServiceLIZMatch.mutableMethod.apply {
+        feedApiServiceLIZMatch.method.apply {
             val returnFeedItemInstruction = instructions.first { it.opcode == Opcode.RETURN_OBJECT }
             val feedItemsRegister = (returnFeedItemInstruction as OneRegisterInstruction).registerA
 
@@ -36,7 +36,7 @@ val feedFilterPatch = bytecodePatch(
             )
         }
 
-        settingsStatusLoadMatch.mutableMethod.addInstruction(
+        settingsStatusLoadMatch.method.addInstruction(
             0,
             "invoke-static {}, Lapp/revanced/extension/tiktok/settings/SettingsStatus;->enableFeedFilter()V",
         )

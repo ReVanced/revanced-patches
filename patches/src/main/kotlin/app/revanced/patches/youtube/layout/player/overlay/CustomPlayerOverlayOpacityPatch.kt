@@ -52,7 +52,7 @@ val customPlayerOverlayOpacityPatch = bytecodePatch(
     compatibleWith("com.google.android.youtube")
 
     execute {
-        createPlayerOverviewMatch.mutableMethod.apply {
+        createPlayerOverviewMatch.method.apply {
             val viewRegisterIndex =
                 indexOfFirstLiteralInstructionOrThrow(scrimOverlayId) + 3
             val viewRegister =

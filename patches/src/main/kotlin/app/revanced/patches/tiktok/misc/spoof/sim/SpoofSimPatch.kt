@@ -91,7 +91,7 @@ val spoofSimPatch = bytecodePatch(
         }
 
         // Enable patch in settings.
-        settingsStatusLoadMatch.mutableMethod.addInstruction(
+        settingsStatusLoadMatch.method.addInstruction(
             0,
             "invoke-static {}, Lapp/revanced/extension/tiktok/settings/SettingsStatus;->enableSimSpoof()V",
         )

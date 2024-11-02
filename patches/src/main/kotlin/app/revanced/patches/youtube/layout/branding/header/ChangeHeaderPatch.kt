@@ -7,6 +7,7 @@ import app.revanced.util.ResourceGroup
 import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.copyResources
 import java.io.File
+import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 private const val HEADER_FILE_NAME = "yt_wordmark_header"
 private const val PREMIUM_HEADER_FILE_NAME = "yt_premium_wordmark_header"

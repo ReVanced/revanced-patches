@@ -49,7 +49,7 @@ val disableRollingNumberAnimationPatch = bytecodePatch(
         val patternMatch = rollingNumberTextViewAnimationUpdateMatch.patternMatch!!
         val blockStartIndex = patternMatch.startIndex
         val blockEndIndex = patternMatch.endIndex + 1
-        rollingNumberTextViewAnimationUpdateMatch.mutableMethod.apply {
+        rollingNumberTextViewAnimationUpdateMatch.method.apply {
             val freeRegister = getInstruction<OneRegisterInstruction>(blockStartIndex).registerA
 
             // ReturnYouTubeDislike also makes changes to this same method,

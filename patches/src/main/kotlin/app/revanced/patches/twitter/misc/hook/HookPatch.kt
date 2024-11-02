@@ -2,8 +2,8 @@ package app.revanced.patches.twitter.misc.hook
 
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.twitter.misc.hook.json.JsonHook
+import app.revanced.patches.twitter.misc.hook.json.addJsonHook
 import app.revanced.patches.twitter.misc.hook.json.jsonHookPatch
-import app.revanced.patches.twitter.misc.hook.json.jsonHooks
 
 fun hookPatch(
     name: String,
@@ -14,6 +14,6 @@ fun hookPatch(
     compatibleWith("com.twitter.android")
 
     execute {
-        jsonHooks.addHook(JsonHook(this, hookClassDescriptor))
+        addJsonHook(JsonHook(hookClassDescriptor))
     }
 }

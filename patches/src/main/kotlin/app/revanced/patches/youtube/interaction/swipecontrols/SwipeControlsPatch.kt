@@ -76,15 +76,15 @@ val swipeControlsPatch = bytecodePatch(
     )
 
     execute {
-        val wrapperClass = swipeControlsHostActivityMatch.mutableClass
-        val targetClass = mainActivityMatch.mutableClass
+        val wrapperClass = swipeControlsHostActivityMatch.classDef
+        val targetClass = mainActivityMatch.classDef
 
         // Inject the wrapper class from the extension into the class hierarchy of MainActivity.
         wrapperClass.setSuperClass(targetClass.superclass)
         targetClass.setSuperClass(wrapperClass.type)
 
         // Ensure all classes and methods in the hierarchy are non-final, so we can override them in the extension.
-        context.traverseClassHierarchy(targetClass) {
+        traverseClassHierarchy(targetClass) {
             accessFlags = accessFlags and AccessFlags.FINAL.value.inv()
             transformMethods {
                 ImmutableMethod(

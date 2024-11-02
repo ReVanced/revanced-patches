@@ -15,7 +15,7 @@ val hideGetPremiumPatch = bytecodePatch(
     compatibleWith("com.google.android.apps.youtube.music")
 
     execute {
-        hideGetPremiumMatch.mutableMethod.apply {
+        hideGetPremiumMatch.method.apply {
             val insertIndex = hideGetPremiumMatch.patternMatch!!.endIndex
 
             val setVisibilityInstruction = getInstruction<FiveRegisterInstruction>(insertIndex)
@@ -34,7 +34,7 @@ val hideGetPremiumPatch = bytecodePatch(
             )
         }
 
-        membershipSettingsMatch.mutableMethod.addInstructions(
+        membershipSettingsMatch.method.addInstructions(
             0,
             """
             const/4 v0, 0x0

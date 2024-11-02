@@ -8,7 +8,7 @@ val signatureVerificationPatch = bytecodePatch(
 ) {
 
     execute {
-        verifySignatureMatch.mutableMethod.replaceInstructions(
+        verifySignatureMatch.method.replaceInstructions(
             0,
             """
                 const/4 p0, 0x1

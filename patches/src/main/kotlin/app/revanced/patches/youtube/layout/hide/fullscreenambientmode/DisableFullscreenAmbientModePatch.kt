@@ -52,7 +52,7 @@ val disableFullscreenAmbientModePatch = bytecodePatch(
             SwitchPreference("revanced_disable_fullscreen_ambient_mode"),
         )
 
-        initializeAmbientModeMatch.mutableMethod.apply {
+        initializeAmbientModeMatch.method.apply {
             val moveIsEnabledIndex = initializeAmbientModeMatch.patternMatch!!.endIndex
 
             addInstruction(

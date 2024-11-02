@@ -21,6 +21,6 @@ val permanentShufflePatch = bytecodePatch(
     )
 
     execute {
-        disableShuffleMatch.mutableMethod.addInstruction(0, "return-void")
+        disableShuffleMatch.method.addInstruction(0, "return-void")
     }
 }

@@ -208,7 +208,7 @@ val themePatch = bytecodePatch(
             SwitchPreference("revanced_gradient_loading_screen"),
         )
 
-        useGradientLoadingScreenMatch.mutableMethod.apply {
+        useGradientLoadingScreenMatch.method.apply {
 
             val isEnabledIndex = indexOfFirstLiteralInstructionOrThrow(GRADIENT_LOADING_SCREEN_AB_CONSTANT) + 3
             val isEnabledRegister = getInstruction<OneRegisterInstruction>(isEnabledIndex - 1).registerA
@@ -225,7 +225,7 @@ val themePatch = bytecodePatch(
             themeHelperLightColorMatch to lightThemeBackgroundColor,
             themeHelperDarkColorMatch to darkThemeBackgroundColor,
         ).forEach { (match, color) ->
-            match.mutableMethod.apply {
+            match.method.apply {
                 addInstructions(
                     0,
                     """

@@ -10,7 +10,7 @@ val unlockProPatch = bytecodePatch(
     compatibleWith("com.wakdev.apps.nfctools.se")
 
     execute {
-        isLicenseRegisteredMatch.mutableMethod.addInstructions(
+        isLicenseRegisteredMatch.method.addInstructions(
             0,
             """
                 const/4 v0, 0x1

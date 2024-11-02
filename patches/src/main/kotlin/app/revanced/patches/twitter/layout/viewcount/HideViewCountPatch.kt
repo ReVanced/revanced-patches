@@ -12,7 +12,7 @@ val hideViewCountPatch = bytecodePatch(
     compatibleWith("com.twitter.android")
 
     execute {
-        viewCountsEnabledMatch.mutableMethod.addInstructions(
+        viewCountsEnabledMatch.method.addInstructions(
             0,
             """
                 const/4 v0, 0x0

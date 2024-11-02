@@ -11,6 +11,6 @@ val hideInboxSubtabsPatch = bytecodePatch(
     compatibleWith("com.facebook.orca")
 
     execute {
-        createInboxSubTabsMatch.mutableMethod.replaceInstruction(2, "const/4 v0, 0x0")
+        createInboxSubTabsMatch.method.replaceInstruction(2, "const/4 v0, 0x0")
     }
 }

@@ -15,7 +15,7 @@ val disableSwitchingEmojiToStickerPatch = bytecodePatch(
     execute {
         val setStringIndex = switchMessangeInputEmojiButtonMatch.patternMatch!!.startIndex + 2
 
-        switchMessangeInputEmojiButtonMatch.mutableMethod.apply {
+        switchMessangeInputEmojiButtonMatch.method.apply {
             val targetRegister = getInstruction<OneRegisterInstruction>(setStringIndex).registerA
 
             replaceInstruction(setStringIndex, "const-string v$targetRegister, \"expression\"")

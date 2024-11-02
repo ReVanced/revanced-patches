@@ -18,7 +18,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "http://baconreader.com/au
         fun Match.patch(replacementString: String) {
             val clientIdIndex = stringMatches!!.first().index
 
-            mutableMethod.apply {
+            method.apply {
                 val clientIdRegister = getInstruction<OneRegisterInstruction>(clientIdIndex).registerA
                 replaceInstruction(
                     clientIdIndex,

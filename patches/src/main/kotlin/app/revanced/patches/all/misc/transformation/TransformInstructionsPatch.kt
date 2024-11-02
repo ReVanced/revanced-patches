@@ -12,7 +12,8 @@ fun <T> transformInstructionsPatch(
     transform: (MutableMethod, T) -> Unit,
 ) = bytecodePatch {
     // Returns the patch indices as a Sequence, which will execute lazily.
-    fun findPatchIndices(classDef: ClassDef, method: Method): Sequence<T>? = method.implementation?.instructions?.asSequence()?.withIndex()?.mapNotNull { (index, instruction) ->
+    fun findPatchIndices(classDef: ClassDef, method: Method): Sequence<T>? =
+        method.implementation?.instructions?.asSequence()?.withIndex()?.mapNotNull { (index, instruction) ->
         filterMap(classDef, method, instruction, index)
     }
 

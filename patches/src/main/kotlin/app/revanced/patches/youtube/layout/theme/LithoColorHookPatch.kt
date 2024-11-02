@@ -14,7 +14,7 @@ val lithoColorHookPatch = bytecodePatch(
         var insertionIndex = lithoThemeMatch.patternMatch!!.endIndex - 1
 
         lithoColorOverrideHook = { targetMethodClass, targetMethodName ->
-            lithoThemeMatch.mutableMethod.addInstructions(
+            lithoThemeMatch.method.addInstructions(
                 insertionIndex,
                 """
                     invoke-static { p1 }, $targetMethodClass->$targetMethodName(I)I

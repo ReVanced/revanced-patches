@@ -34,7 +34,7 @@ val disableTrackingPatch = bytecodePatch(
     )
 
     execute {
-        facebookSDKMatch.mutableMethod.apply {
+        facebookSDKMatch.method.apply {
             instructions.filter { instruction ->
                 instruction.opcode == Opcode.CONST_STRING
             }.forEach { instruction ->
@@ -47,7 +47,7 @@ val disableTrackingPatch = bytecodePatch(
             }
         }
 
-        firebaseInstallMatch.mutableMethod.apply {
+        firebaseInstallMatch.method.apply {
             instructions.filter {
                 it.opcode == Opcode.CONST_STRING
             }.filter {
@@ -62,6 +62,6 @@ val disableTrackingPatch = bytecodePatch(
             }
         }
 
-        appMeasurementMatch.mutableMethod.addInstruction(0, "return-void")
+        appMeasurementMatch.method.addInstruction(0, "return-void")
     }
 }

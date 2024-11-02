@@ -11,7 +11,7 @@ val unlockProPatch = bytecodePatch(
     compatibleWith("tv.trakt.trakt"("1.1.1"))
 
     execute {
-        remoteUserMatch.classDef.let { remoteUserClass ->
+        remoteUserMatch.originalClassDef.let { remoteUserClass ->
             arrayOf(isVIPFingerprint, isVIPEPFingerprint).onEach { fingerprint ->
                 // Resolve both fingerprints on the same class.
                 if (!fingerprint.match(context, remoteUserClass)) {
@@ -19,7 +19,7 @@ val unlockProPatch = bytecodePatch(
                 }
             }.forEach { fingerprint ->
                 // Return true for both VIP check methods.
-                fingerprint.match?.mutableMethod?.addInstructions(
+                fingerprint.match?.method?.addInstructions(
                     0,
                     """
                         const/4 v0, 0x1

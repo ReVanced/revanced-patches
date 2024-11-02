@@ -11,7 +11,7 @@ val sanitizeUrlQueryPatch = bytecodePatch(
     compatibleWith("com.reddit.frontpage")
 
     execute {
-        shareLinkFormatterMatch.mutableMethod.addInstructions(
+        shareLinkFormatterMatch.method.addInstructions(
             0,
             "return-object p0",
         )

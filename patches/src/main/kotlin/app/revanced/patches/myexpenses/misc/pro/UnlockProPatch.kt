@@ -10,7 +10,7 @@ val unlockProPatch = bytecodePatch(
     compatibleWith("org.totschnig.myexpenses")
 
     execute {
-        isEnabledMatch.mutableMethod.addInstructions(
+        isEnabledMatch.method.addInstructions(
             0,
             """
                 const/4 v0, 0x1

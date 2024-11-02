@@ -42,7 +42,7 @@ val cronetImageUrlHookPatch = bytecodePatch(
 
         // The URL is required for the failure callback hook, but the URL field is obfuscated.
         // Add a helper get method that returns the URL field.
-        val urlFieldInstruction = requestMatch.mutableMethod.instructions.first {
+        val urlFieldInstruction = requestMatch.method.instructions.first {
             val reference = it.getReference<FieldReference>()
             it.opcode == Opcode.IPUT_OBJECT && reference?.type == "Ljava/lang/String;"
         } as ReferenceInstruction
@@ -50,7 +50,7 @@ val cronetImageUrlHookPatch = bytecodePatch(
         val urlFieldName = (urlFieldInstruction.reference as FieldReference).name
         val definingClass = CRONET_URL_REQUEST_CLASS_DESCRIPTOR
         val addedMethodName = "getHookedUrl"
-        requestMatch.mutableClass.methods.add(
+        requestMatch.classDef.methods.add(
             ImmutableMethod(
                 definingClass,
                 addedMethodName,
@@ -78,7 +78,7 @@ val cronetImageUrlHookPatch = bytecodePatch(
 fun addImageUrlHook(targetMethodClass: String, highPriority: Boolean = false) {
     loadImageUrlMethod.addInstructions(
         if (highPriority) 0 else loadImageUrlIndex,
-"""
+        """
         invoke-static { p1 }, $targetMethodClass->overrideImageURL(Ljava/lang/String;)Ljava/lang/String;
         move-result-object p1
         """,

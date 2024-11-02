@@ -63,7 +63,7 @@ val navigationButtonsPatch = bytecodePatch(
         )
 
         // Switch create with notifications button.
-        addCreateButtonViewMatch.mutableMethod.apply {
+        addCreateButtonViewMatch.method.apply {
             val stringIndex = addCreateButtonViewMatch.stringMatches!!.find { match ->
                 match.string == ANDROID_AUTOMOTIVE_STRING
             }!!.index
@@ -82,7 +82,7 @@ val navigationButtonsPatch = bytecodePatch(
         }
 
         // Hide navigation button labels.
-        createPivotBarMatch.mutableMethod.apply {
+        createPivotBarMatch.method.apply {
             val setTextIndex = indexOfFirstInstructionOrThrow {
                 getReference<MethodReference>()?.name == "setText"
             }

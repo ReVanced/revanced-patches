@@ -9,7 +9,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "http://www.ccrama.me") { 
     val clientId by clientIdOption
 
     execute {
-        getClientIdMatch.mutableMethod.addInstructions(
+        getClientIdMatch.method.addInstructions(
             0,
             """
                  const-string v0, "$clientId"

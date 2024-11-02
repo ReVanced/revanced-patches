@@ -27,10 +27,10 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "dbrady://relay") {
             getRefreshTokenMatch,
         ).forEach { match ->
             val clientIdIndex = match.stringMatches!!.first().index
-            match.mutableMethod.apply {
+            match.method.apply {
                 val clientIdRegister = getInstruction<OneRegisterInstruction>(clientIdIndex).registerA
 
-                match.mutableMethod.replaceInstruction(
+                match.method.replaceInstruction(
                     clientIdIndex,
                     "const-string v$clientIdRegister, \"$clientId\"",
                 )
@@ -42,12 +42,12 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "dbrady://relay") {
         // region Patch miscellaneous.
 
         // Do not load remote config which disables OAuth login remotely.
-        setRemoteConfigMatch.mutableMethod.addInstructions(0, "return-void")
+        setRemoteConfigMatch.method.addInstructions(0, "return-void")
 
         // Prevent OAuth login being disabled remotely.
         val checkIsOAuthRequestIndex = redditCheckDisableAPIMatch.patternMatch!!.startIndex
 
-        redditCheckDisableAPIMatch.mutableMethod.apply {
+        redditCheckDisableAPIMatch.method.apply {
             val returnNextChain = getInstruction<BuilderInstruction21t>(checkIsOAuthRequestIndex).target
             replaceInstruction(checkIsOAuthRequestIndex, BuilderInstruction10t(Opcode.GOTO, returnNextChain))
         }

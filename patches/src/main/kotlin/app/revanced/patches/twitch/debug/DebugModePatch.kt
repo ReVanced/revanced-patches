@@ -35,7 +35,7 @@ val debugModePatch = bytecodePatch(
             isOmVerificationEnabledMatch,
             shouldShowDebugOptionsMatch,
         ).forEach {
-            it.mutableMethod.addInstructions(
+            it.method.addInstructions(
                 0,
                 """
                     invoke-static {}, Lapp/revanced/extension/twitch/patches/DebugModePatch;->isDebugModeEnabled()Z

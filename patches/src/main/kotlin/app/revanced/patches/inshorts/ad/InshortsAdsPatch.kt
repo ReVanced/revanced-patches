@@ -10,7 +10,7 @@ val hideAdsPatch = bytecodePatch(
     compatibleWith("com.nis.app")
 
     execute {
-        inshortsAdsMatch.mutableMethod.addInstruction(
+        inshortsAdsMatch.method.addInstruction(
             0,
             """
                 return-void

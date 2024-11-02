@@ -13,7 +13,7 @@ val disableAdsPatch = bytecodePatch(
     compatibleWith("o.o.joey")
 
     execute {
-        isAdFreeUserMatch.mutableMethod.addInstructions(
+        isAdFreeUserMatch.method.addInstructions(
             0,
             """
                 const/4 v0, 0x1

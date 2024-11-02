@@ -14,14 +14,14 @@ val showSeekbarPatch = bytecodePatch(
     )
 
     execute {
-        shouldShowSeekBarMatch.mutableMethod.addInstructions(
+        shouldShowSeekBarMatch.method.addInstructions(
             0,
             """
                 const/4 v0, 0x1
                 return v0
             """,
         )
-        setSeekBarShowTypeMatch.mutableMethod.apply {
+        setSeekBarShowTypeMatch.method.apply {
             val typeRegister = implementation!!.registerCount - 1
 
             addInstructions(

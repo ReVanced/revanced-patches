@@ -70,7 +70,7 @@ val backgroundPlaybackPatch = bytecodePatch(
             backgroundPlaybackManagerMatch to "isBackgroundPlaybackAllowed",
             backgroundPlaybackManagerShortsMatch to "isBackgroundShortsPlaybackAllowed",
         ).forEach { (match, integrationsMethod) ->
-            match.mutableMethod.apply {
+            match.method.apply {
                 findInstructionIndicesReversedOrThrow(Opcode.RETURN).forEach { index ->
                     val register = getInstruction<OneRegisterInstruction>(index).registerA
 
@@ -86,7 +86,7 @@ val backgroundPlaybackPatch = bytecodePatch(
         }
 
         // Enable background playback option in YouTube settings
-        backgroundPlaybackSettingsMatch.mutableMethod.apply {
+        backgroundPlaybackSettingsMatch.method.apply {
             val booleanCalls = instructions.withIndex().filter {
                 it.value.getReference<MethodReference>()?.returnType == "Z"
             }
@@ -98,9 +98,9 @@ val backgroundPlaybackPatch = bytecodePatch(
         }
 
         // Force allowing background play for Shorts.
-        shortsBackgroundPlaybackFeatureFlagMatch.mutableMethod.returnEarly(true)
+        shortsBackgroundPlaybackFeatureFlagMatch.method.returnEarly(true)
 
         // Force allowing background play for videos labeled for kids.
-        kidsBackgroundPlaybackPolicyControllerMatch.mutableMethod.returnEarly()
+        kidsBackgroundPlaybackPolicyControllerMatch.method.returnEarly()
     }
 }

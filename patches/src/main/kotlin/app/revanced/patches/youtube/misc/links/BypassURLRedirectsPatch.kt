@@ -59,7 +59,7 @@ val bypassURLRedirectsPatch = bytecodePatch(
         }
 
         matches.forEach {
-            it.mutableMethod.apply {
+            it.method.apply {
                 val insertIndex = findUriParseIndex()
                 val uriStringRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
 

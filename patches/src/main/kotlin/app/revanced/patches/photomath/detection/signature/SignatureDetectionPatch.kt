@@ -10,12 +10,12 @@ val signatureDetectionPatch = bytecodePatch(
 ) {
 
     execute {
-        val signatureCheckInstruction = checkSignatureMatch.mutableMethod.getInstruction(
+        val signatureCheckInstruction = checkSignatureMatch.method.getInstruction(
             checkSignatureMatch.patternMatch!!.endIndex,
         )
         val checkRegister = (signatureCheckInstruction as OneRegisterInstruction).registerA
 
-        checkSignatureMatch.mutableMethod.replaceInstruction(
+        checkSignatureMatch.method.replaceInstruction(
             signatureCheckInstruction.location.index,
             "const/4 v$checkRegister, 0x1",
         )

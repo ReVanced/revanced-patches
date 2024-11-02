@@ -25,7 +25,7 @@ val checkWatchHistoryDomainNameResolutionPatch = bytecodePatch(
     execute {
         addResources("youtube", "misc.dns.checkWatchHistoryDomainNameResolutionPatch")
 
-        mainActivityOnCreateMatch.mutableMethod.addInstructions(
+        mainActivityOnCreateMatch.method.addInstructions(
             // FIXME: Insert index must be greater than the insert index used by GmsCoreSupport,
             //  as both patch the same method and GmsCoreSupport check should be first,
             //  but the patch does not depend on GmsCoreSupport, so it should not be possible to enforce this

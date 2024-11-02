@@ -13,7 +13,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "infinity://localhost") { 
     val clientId by clientIdOption
 
     execute {
-        apiUtilsMatch.mutableClass.methods.apply {
+        apiUtilsMatch.classDef.methods.apply {
             val getClientIdMethod = single { it.name == "getId" }.also(::remove)
 
             val newGetClientIdMethod = ImmutableMethod(

@@ -50,9 +50,9 @@ val removeTrackingQueryParameterPatch = bytecodePatch(
             getUrlRegister: MutableMethod.(insertIndex: Int) -> Int,
         ) {
             val insertIndex = patternMatch!!.getInsertIndex()
-            val urlRegister = mutableMethod.getUrlRegister(insertIndex)
+            val urlRegister = method.getUrlRegister(insertIndex)
 
-            mutableMethod.addInstructions(
+            method.addInstructions(
                 insertIndex,
                 """
                     invoke-static {v$urlRegister}, $EXTENSION_CLASS_DESCRIPTOR->sanitize(Ljava/lang/String;)Ljava/lang/String;

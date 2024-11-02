@@ -11,7 +11,7 @@ val disableAdsPatch = bytecodePatch(
 
     execute {
         arrayOf(maxMediationMatch, admobMediationMatch).forEach {
-            it.mutableMethod.addInstructions(0, "return-void")
+            it.method.addInstructions(0, "return-void")
         }
     }
 }

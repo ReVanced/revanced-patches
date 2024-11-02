@@ -17,7 +17,7 @@ val removeGooglePlayIntegrityCheckPatch = bytecodePatch(
     compatibleWith("com.swisssign.swissid.mobile")
 
     execute {
-        checkIntegrityMatch.mutableMethod.addInstructions(
+        checkIntegrityMatch.method.addInstructions(
             0,
             """
                 iget-object p1, p0, $RESULT_METHOD_REFERENCE

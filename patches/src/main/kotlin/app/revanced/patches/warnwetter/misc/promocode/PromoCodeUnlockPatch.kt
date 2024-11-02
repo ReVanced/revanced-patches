@@ -14,7 +14,7 @@ val promoCodeUnlockPatch = bytecodePatch(
     compatibleWith("de.dwd.warnapp"("4.2.2"))
 
     execute {
-        promoCodeUnlockMatch.mutableMethod.addInstructions(
+        promoCodeUnlockMatch.method.addInstructions(
             0,
             """
                 const/4 v0, 0x1

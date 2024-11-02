@@ -15,7 +15,7 @@ val disableSyncForLemmyBottomSheetPatch = bytecodePatch(
     )
 
     execute {
-        mainActivityOnCreateMatch.mutableMethod.apply {
+        mainActivityOnCreateMatch.method.apply {
             val showBottomSheetIndex = implementation!!.instructions.lastIndex - 1
 
             removeInstruction(showBottomSheetIndex)

@@ -53,15 +53,15 @@ val shortsAutoplayPatch = bytecodePatch(
         }
 
         // Main activity is used to check if app is in pip mode.
-        mainActivityOnCreateMatch.mutableMethod.addInstructions(
+        mainActivityOnCreateMatch.method.addInstructions(
             0,
             "invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->" +
                 "setMainActivity(Landroid/app/Activity;)V",
         )
 
-        val reelEnumClass = reelEnumConstructorMatch.classDef.type
+        val reelEnumClass = reelEnumConstructorMatch.originalClassDef.type
 
-        reelEnumConstructorMatch.mutableMethod.apply {
+        reelEnumConstructorMatch.method.apply {
             val insertIndex = reelEnumConstructorMatch.patternMatch!!.startIndex
 
             addInstructions(
@@ -75,7 +75,7 @@ val shortsAutoplayPatch = bytecodePatch(
             )
         }
 
-        reelPlaybackRepeatMatch.mutableMethod.apply {
+        reelPlaybackRepeatMatch.method.apply {
             // The behavior enums are looked up from an ordinal value to an enum type.
             findInstructionIndicesReversedOrThrow {
                 val reference = getReference<MethodReference>()

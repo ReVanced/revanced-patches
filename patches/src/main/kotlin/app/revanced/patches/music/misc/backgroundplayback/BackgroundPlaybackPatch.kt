@@ -12,12 +12,12 @@ val backgroundPlaybackPatch = bytecodePatch(
     compatibleWith("com.google.android.apps.youtube.music")
 
     execute {
-        kidsBackgroundPlaybackPolicyControllerMatch.mutableMethod.addInstruction(
+        kidsBackgroundPlaybackPolicyControllerMatch.method.addInstruction(
             0,
             "return-void",
         )
 
-        backgroundPlaybackDisableMatch.mutableMethod.addInstructions(
+        backgroundPlaybackDisableMatch.method.addInstructions(
             0,
             """
                 const/4 v0, 0x1

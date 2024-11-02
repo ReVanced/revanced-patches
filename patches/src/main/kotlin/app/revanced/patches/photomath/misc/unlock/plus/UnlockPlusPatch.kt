@@ -14,7 +14,7 @@ val unlockPlusPatch = bytecodePatch(
     compatibleWith("com.microblink.photomath"("8.37.0"))
 
     execute {
-        isPlusUnlockedMatch.mutableMethod.addInstructions(
+        isPlusUnlockedMatch.method.addInstructions(
             0,
             """
                 const/4 v0, 0x1

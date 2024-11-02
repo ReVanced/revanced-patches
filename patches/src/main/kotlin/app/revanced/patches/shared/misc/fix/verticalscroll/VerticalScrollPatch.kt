@@ -1,16 +1,16 @@
 package app.revanced.patches.shared.misc.fix.verticalscroll
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
 
 val verticalScrollPatch = bytecodePatch(
     description = "Fixes issues with refreshing the feed when the first component is of type EmptyComponent.",
 ) {
 
     execute {
-        canScrollVerticallyMatch.mutableMethod.apply {
+        canScrollVerticallyMatch.method.apply {
             val moveResultIndex = canScrollVerticallyMatch.patternMatch!!.endIndex
             val moveResultRegister = getInstruction<OneRegisterInstruction>(moveResultIndex).registerA
 

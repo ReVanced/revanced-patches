@@ -41,7 +41,7 @@ val autoCaptionsPatch = bytecodePatch(
             startVideoInformerMatch to 0,
             subtitleButtonControllerMatch to 1,
         ).forEach { (match, enabled) ->
-            match.mutableMethod.addInstructions(
+            match.method.addInstructions(
                 0,
                 """
                     const/4 v0, 0x$enabled
@@ -50,7 +50,7 @@ val autoCaptionsPatch = bytecodePatch(
             )
         }
 
-        subtitleTrackMatch.mutableMethod.addInstructions(
+        subtitleTrackMatch.method.addInstructions(
             0,
             """
                 invoke-static {}, Lapp/revanced/extension/youtube/patches/DisableAutoCaptionsPatch;->autoCaptionsEnabled()Z

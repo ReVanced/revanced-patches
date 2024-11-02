@@ -28,7 +28,7 @@ val useUserEndpointPatch = bytecodePatch(
             oAuthUnfriendRequestMatch,
             oAuthUserIdRequestMatch,
             oAuthUserInfoRequestMatch,
-        ).map { it.stringMatches!!.first().index to it.mutableMethod }.forEach { (userPathStringIndex, method) ->
+        ).map { it.stringMatches!!.first().index to it.method }.forEach { (userPathStringIndex, method) ->
             val userPathStringInstruction = method.getInstruction<OneRegisterInstruction>(userPathStringIndex)
 
             val userPathStringRegister = userPathStringInstruction.registerA

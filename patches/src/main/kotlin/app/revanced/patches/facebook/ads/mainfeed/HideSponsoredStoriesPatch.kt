@@ -17,8 +17,8 @@ val hideSponsoredStoriesPatch = bytecodePatch(
     compatibleWith("com.facebook.katana")
 
     execute {
-        val sponsoredDataModelTemplateMethod = getSponsoredDataModelTemplateMatch.method
-        val baseModelMapperMethod = baseModelMapperMatch.method
+        val sponsoredDataModelTemplateMethod = getSponsoredDataModelTemplateMatch.originalMethod
+        val baseModelMapperMethod = baseModelMapperMatch.originalMethod
         val baseModelWithTreeType = baseModelMapperMethod.returnType
 
         val graphQlStoryClassDescriptor = "Lcom/facebook/graphql/model/GraphQLStory;"
@@ -27,7 +27,7 @@ val hideSponsoredStoriesPatch = bytecodePatch(
         // from GraphQL models, but targets the wrong derived type of "BaseModelWithTree". Since those ids
         // could change in future version, we need to extract them and call the base implementation directly.
         val getSponsoredDataHelperMethod = ImmutableMethod(
-            getStoryVisibilityMatch.classDef.type,
+            getStoryVisibilityMatch.originalClassDef.type,
             "getSponsoredData",
             listOf(ImmutableMethodParameter(graphQlStoryClassDescriptor, null, null)),
             baseModelWithTreeType,
@@ -61,11 +61,11 @@ val hideSponsoredStoriesPatch = bytecodePatch(
             )
         }
 
-        getStoryVisibilityMatch.mutableClass.methods.add(getSponsoredDataHelperMethod)
+        getStoryVisibilityMatch.classDef.methods.add(getSponsoredDataHelperMethod)
 
         // Check if the parameter type is GraphQLStory and if sponsoredDataModelGetter returns a non-null value.
         // If so, hide the story by setting the visibility to StoryVisibility.GONE.
-        getStoryVisibilityMatch.mutableMethod.addInstructionsWithLabels(
+        getStoryVisibilityMatch.method.addInstructionsWithLabels(
             getStoryVisibilityMatch.patternMatch!!.startIndex,
             """
                 instance-of v0, p0, $graphQlStoryClassDescriptor

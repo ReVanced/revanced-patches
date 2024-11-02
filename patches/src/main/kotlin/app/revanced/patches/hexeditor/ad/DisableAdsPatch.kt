@@ -10,7 +10,7 @@ val disableAdsPatch = bytecodePatch(
     compatibleWith("com.myprog.hexedit")
 
     execute {
-        primaryAdsMatch.mutableMethod.replaceInstructions(
+        primaryAdsMatch.method.replaceInstructions(
             0,
             """
                 const/4 v0, 0x1

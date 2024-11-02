@@ -10,6 +10,6 @@ val fixLoginPatch = bytecodePatch(
     compatibleWith("com.xiaomi.wearable")
 
     execute {
-        xiaomiAccountManagerConstructorMatch.mutableMethod.addInstruction(0, "const/16 p2, 0x0")
+        xiaomiAccountManagerConstructorMatch.method.addInstruction(0, "const/16 p2, 0x0")
     }
 }

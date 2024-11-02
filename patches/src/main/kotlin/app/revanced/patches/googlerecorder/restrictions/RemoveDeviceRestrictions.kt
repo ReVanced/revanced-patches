@@ -16,7 +16,7 @@ val removeDeviceRestrictionsPatch = bytecodePatch(
     execute {
         val featureStringIndex = onApplicationCreateMatch.stringMatches!!.first().index
 
-        onApplicationCreateMatch.mutableMethod.apply {
+        onApplicationCreateMatch.method.apply {
             // Remove check for device restrictions.
             removeInstructions(featureStringIndex - 2, 5)
 

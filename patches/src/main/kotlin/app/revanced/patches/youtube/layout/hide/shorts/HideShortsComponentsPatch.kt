@@ -29,6 +29,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
+import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 internal var reelMultipleItemShelfId = -1L
     private set
@@ -201,7 +203,7 @@ val hideShortsComponentsPatch = bytecodePatch(
         // This patch point is not present in 19.03.x and greater.
         if (!is_19_03_or_greater) {
             reelConstructorFingerprint.match?.let {
-                it.mutableMethod.apply {
+                it.method.apply {
                     val insertIndex = it.patternMatch!!.startIndex + 2
                     val viewRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
@@ -220,7 +222,7 @@ val hideShortsComponentsPatch = bytecodePatch(
         // region Hide the Shorts buttons in older versions of YouTube.
 
         // Some Shorts buttons are views, hide them by setting their visibility to GONE.
-        ShortsButtons.entries.forEach { button -> button.injectHideCall(createShortsButtonsMatch.mutableMethod) }
+        ShortsButtons.entries.forEach { button -> button.injectHideCall(createShortsButtonsMatch.method) }
 
         // endregion
 
@@ -280,7 +282,7 @@ val hideShortsComponentsPatch = bytecodePatch(
         )
 
         // Hide the bottom bar container of the Shorts player.
-        shortsBottomBarContainerMatch.mutableMethod.apply {
+        shortsBottomBarContainerMatch.method.apply {
             val resourceIndex = indexOfFirstLiteralInstruction(bottomBarContainer)
 
             val targetIndex = indexOfFirstInstructionOrThrow(resourceIndex) {

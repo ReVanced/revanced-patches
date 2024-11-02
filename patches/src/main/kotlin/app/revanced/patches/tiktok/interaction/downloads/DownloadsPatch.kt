@@ -27,7 +27,7 @@ val downloadsPatch = bytecodePatch(
     )
 
     execute {
-        aclCommonShareMatch.mutableMethod.replaceInstructions(
+        aclCommonShareMatch.method.replaceInstructions(
             0,
             """
                 const/4 v0, 0x0
@@ -35,7 +35,7 @@ val downloadsPatch = bytecodePatch(
             """,
         )
 
-        aclCommonShare2Match.mutableMethod.replaceInstructions(
+        aclCommonShare2Match.method.replaceInstructions(
             0,
             """
                 const/4 v0, 0x2
@@ -44,7 +44,7 @@ val downloadsPatch = bytecodePatch(
         )
 
         // Download videos without watermark.
-        aclCommonShare3Match.mutableMethod.addInstructionsWithLabels(
+        aclCommonShare3Match.method.addInstructionsWithLabels(
             0,
             """
                     invoke-static {}, Lapp/revanced/extension/tiktok/download/DownloadsPatch;->shouldRemoveWatermark()Z
@@ -58,7 +58,7 @@ val downloadsPatch = bytecodePatch(
         )
 
         // Change the download path patch.
-        downloadUriMatch.mutableMethod.apply {
+        downloadUriMatch.method.apply {
             val firstIndex = indexOfFirstInstructionOrThrow {
                 getReference<MethodReference>()?.name == "<init>"
             }
@@ -83,7 +83,7 @@ val downloadsPatch = bytecodePatch(
             )
         }
 
-        settingsStatusLoadMatch.mutableMethod.addInstruction(
+        settingsStatusLoadMatch.method.addInstruction(
             0,
             "invoke-static {}, Lapp/revanced/extension/tiktok/settings/SettingsStatus;->enableDownload()V",
         )

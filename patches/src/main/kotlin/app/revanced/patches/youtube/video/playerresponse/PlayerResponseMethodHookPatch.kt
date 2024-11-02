@@ -36,10 +36,10 @@ val playerResponseMethodHookPatch = bytecodePatch {
 
     execute {
         if (is_19_23_or_greater) {
-            playerResponseMethod = playerParameterBuilderMatch.mutableMethod
+            playerResponseMethod = playerParameterBuilderMatch.method
             parameterIsShortAndOpeningOrPlaying = 12
         } else {
-            playerResponseMethod = playerParameterBuilderLegacyMatch.mutableMethod
+            playerResponseMethod = playerParameterBuilderLegacyMatch.method
             parameterIsShortAndOpeningOrPlaying = 11
         }
 

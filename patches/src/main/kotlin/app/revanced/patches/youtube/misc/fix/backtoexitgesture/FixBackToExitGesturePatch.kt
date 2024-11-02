@@ -11,7 +11,7 @@ internal val fixBackToExitGesturePatch = bytecodePatch(
 
     execute {
         recyclerViewTopScrollingFingerprint.apply {
-            match(context, recyclerViewTopScrollingParentMatch.classDef)
+            match(context, recyclerViewTopScrollingParentMatch.originalClassDef)
         }
 
         /**
@@ -19,7 +19,7 @@ internal val fixBackToExitGesturePatch = bytecodePatch(
          *
          * @param targetMethod The target method to call.
          */
-        fun Match.injectCall(targetMethod: ExtensionMethod) = mutableMethod.addInstruction(
+        fun Match.injectCall(targetMethod: ExtensionMethod) = method.addInstruction(
             patternMatch!!.endIndex,
             targetMethod.toString(),
         )

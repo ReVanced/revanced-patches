@@ -16,6 +16,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import org.w3c.dom.Node
+import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 /**
  * Add a new top to the bottom of the YouTube player.
@@ -221,7 +222,7 @@ val playerControlsPatch = bytecodePatch(
                     reference.name == "inflate"
             }
 
-        playerBottomControlsInflateMatch.mutableMethod.apply {
+        playerBottomControlsInflateMatch.method.apply {
             inflateBottomControlMethod = this
 
             val inflateReturnObjectIndex = indexOfFirstViewInflateOrThrow() + 1
@@ -229,7 +230,7 @@ val playerControlsPatch = bytecodePatch(
             inflateBottomControlInsertIndex = inflateReturnObjectIndex + 1
         }
 
-        playerTopControlsInflateMatch.mutableMethod.apply {
+        playerTopControlsInflateMatch.method.apply {
             inflateTopControlMethod = this
 
             val inflateReturnObjectIndex = indexOfFirstViewInflateOrThrow() + 1
@@ -246,7 +247,7 @@ val playerControlsPatch = bytecodePatch(
 
         // Hook the fullscreen close button.  Used to fix visibility
         // when seeking and other situations.
-        overlayViewInflateMatch.mutableMethod.apply {
+        overlayViewInflateMatch.method.apply {
             val resourceIndex = indexOfFirstLiteralInstructionReversedOrThrow(fullscreenButton)
 
             val index = indexOfFirstInstructionOrThrow(resourceIndex) {
@@ -263,6 +264,6 @@ val playerControlsPatch = bytecodePatch(
             )
         }
 
-        visibilityImmediateMethod = playerControlsExtensionHookMatch.mutableMethod
+        visibilityImmediateMethod = playerControlsExtensionHookMatch.method
     }
 }

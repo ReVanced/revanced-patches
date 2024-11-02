@@ -28,9 +28,9 @@ val fixVideoDownloadsPatch = bytecodePatch(
         val newInstanceIndex = scanResult.startIndex
         val invokeDirectIndex = scanResult.endIndex - 1
 
-        val buildResponseInstruction = parseRedditVideoNetworkResponseMatch.mutableMethod.getInstruction<Instruction35c>(invokeDirectIndex)
+        val buildResponseInstruction = parseRedditVideoNetworkResponseMatch.method.getInstruction<Instruction35c>(invokeDirectIndex)
 
-        parseRedditVideoNetworkResponseMatch.mutableMethod.addInstructions(
+        parseRedditVideoNetworkResponseMatch.method.addInstructions(
             newInstanceIndex + 1,
             """
                 # Get byte array from response.

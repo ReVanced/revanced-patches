@@ -12,6 +12,6 @@ val hidePurchaseReminderPatch = bytecodePatch(
     compatibleWith("com.rarlab.rar")
 
     execute {
-        showReminderMatch.mutableMethod.addInstruction(0, "return-void")
+        showReminderMatch.method.addInstruction(0, "return-void")
     }
 }

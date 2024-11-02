@@ -23,10 +23,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.reference.Reference
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
-context(BytecodePatchContext)
-val Fingerprint.matchOrThrow
-    get() = match ?: throw exception
-
 /**
  * The [PatchException] of failing to match a [Fingerprint].
  *
@@ -435,12 +431,14 @@ fun MutableMethod.returnEarly(bool: Boolean = false) {
                 const/4 v0, $const
                 return-object v0
             """
+
         'V' -> "return-void"
         'I', 'Z' ->
             """
                 const/4 v0, $const
                 return v0
             """
+
         else -> throw Exception("This case should never happen.")
     }
 
@@ -456,6 +454,43 @@ fun Iterable<Fingerprint>.returnEarly(
 ) = forEach { fingerprint ->
     fingerprint.returnEarly(bool)
 }
+
+context(BytecodePatchContext)
+val Fingerprint.matchOrThrow
+    get() = match ?: throw exception
+
+/**
+ * Matches this fingerprint using a class or throws an exception.
+ *
+ * @param classDef The class to match against.
+ * @throws PatchException If the fingerprint does not match the class.
+ */
+context(BytecodePatchContext)
+fun Fingerprint.matchOrThrow(
+    classDef: MutableClass,
+) = match(classDef) ?: throw exception
+
+/**
+ * Matches this fingerprint using a method or throws an exception.
+ *
+ * @param method The method to match against.
+ * @throws PatchException If the fingerprint does not match the method.
+ */
+context(BytecodePatchContext)
+fun Fingerprint.matchOrThrow(
+    method: Method,
+) = match(method) ?: throw exception
+
+/**
+ * Matches this fingerprint using a class  from a fingerprint or throws an exception.
+ *
+ * @param fingerprint The fingerprint to match the class of against.
+ * @throws PatchException If the fingerprint does not match the class.
+ */
+context(BytecodePatchContext)
+fun Fingerprint.matchOrThrow(
+    fingerprint: Fingerprint,
+) = match(fingerprint.matchOrThrow.classDef) ?: throw exception
 
 /**
  * Set the custom condition for this fingerprint to check for a literal value.

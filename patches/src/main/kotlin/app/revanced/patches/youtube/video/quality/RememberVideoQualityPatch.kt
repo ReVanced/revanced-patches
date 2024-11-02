@@ -18,6 +18,7 @@ import app.revanced.util.applyMatch
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/playback/quality/RememberVideoQualityPatch;"
@@ -96,7 +97,7 @@ val rememberVideoQualityPatch = bytecodePatch(
                 .find { method -> method.parameterTypes.first() == "I" }
                 ?: throw PatchException("Could not find setQualityByIndex method")
 
-            videoQualitySetterMatch.mutableMethod.addInstructions(
+            videoQualitySetterMatch.method.addInstructions(
                 0,
                 """
                     # Get the object instance to invoke the setQualityByIndex method on.
@@ -118,7 +119,7 @@ val rememberVideoQualityPatch = bytecodePatch(
         }
 
         // Inject a call to remember the selected quality.
-        videoQualityItemOnClickParentMatch.mutableClass.methods.find { it.name == "onItemClick" }?.apply {
+        videoQualityItemOnClickParentMatch.classDef.methods.find { it.name == "onItemClick" }?.apply {
             val listItemIndexParameter = 3
 
             addInstruction(
@@ -129,7 +130,7 @@ val rememberVideoQualityPatch = bytecodePatch(
         } ?: throw PatchException("Failed to find onItemClick method")
 
         // Remember video quality if not using old layout menu.
-        newVideoQualityChangedMatch.mutableMethod.apply {
+        newVideoQualityChangedMatch.method.apply {
             val index = newVideoQualityChangedMatch.patternMatch!!.startIndex
             val qualityRegister = getInstruction<TwoRegisterInstruction>(index).registerA
 

@@ -11,6 +11,6 @@ val disableScreenshotPopupPatch = bytecodePatch(
     compatibleWith("com.reddit.frontpage")
 
     execute {
-        disableScreenshotPopupMatch.mutableMethod.addInstruction(0, "return-void")
+        disableScreenshotPopupMatch.method.addInstruction(0, "return-void")
     }
 }

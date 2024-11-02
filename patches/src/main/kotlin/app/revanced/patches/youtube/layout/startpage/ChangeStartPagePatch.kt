@@ -49,7 +49,7 @@ val changeStartPagePatch = bytecodePatch(
         )
 
         // Hook browseId.
-        browseIdMatch.mutableMethod.apply {
+        browseIdMatch.method.apply {
             val browseIdIndex = indexOfFirstInstructionOrThrow {
                 getReference<StringReference>()?.string == "FEwhat_to_watch"
             }
@@ -66,7 +66,7 @@ val changeStartPagePatch = bytecodePatch(
 
         // There is no browserId assigned to Shorts and Search.
         // Just hook the Intent action.
-        intentActionMatch.mutableMethod.addInstruction(
+        intentActionMatch.method.addInstruction(
             0,
             "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->overrideIntentAction(Landroid/content/Intent;)V",
         )

@@ -26,6 +26,7 @@ import com.android.tools.smali.dexlib2.immutable.reference.ImmutableStringRefere
 import com.android.tools.smali.dexlib2.util.MethodUtil
 import org.w3c.dom.Element
 import org.w3c.dom.Node
+import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 private const val PACKAGE_NAME_REGEX_PATTERN = "^[a-z]\\w*(\\.[a-z]\\w*)+\$"
 
@@ -167,7 +168,7 @@ fun gmsCoreSupportPatch(
         }
 
         fun transformPrimeMethod(packageName: String) {
-            primeMethodFingerprint!!.match?.mutableMethod?.apply {
+            primeMethodFingerprint!!.match?.method?.apply {
                 var register = 2
 
                 val index = instructions.indexOfFirst {
@@ -212,7 +213,7 @@ fun gmsCoreSupportPatch(
         }
 
         // Verify GmsCore is installed and whitelisted for power optimizations and background usage.
-        mainActivityOnCreateMatch.mutableMethod.apply {
+        mainActivityOnCreateMatch.method.apply {
             // Temporary fix for patches with an extension patch that hook the onCreate method as well.
             val setContextIndex = indexOfFirstInstruction {
                 val reference = getReference<MethodReference>() ?: return@indexOfFirstInstruction false
@@ -229,7 +230,7 @@ fun gmsCoreSupportPatch(
         }
 
         // Change the vendor of GmsCore in the extension.
-        gmsCoreSupportMatch.mutableClass.methods
+        gmsCoreSupportMatch.classDef.methods
             .single { it.name == GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME }
             .replaceInstruction(0, "const-string v0, \"$gmsCoreVendorGroupId\"")
 

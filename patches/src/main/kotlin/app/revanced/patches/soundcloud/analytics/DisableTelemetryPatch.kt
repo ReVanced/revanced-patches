@@ -12,6 +12,6 @@ val disableTelemetryPatch = bytecodePatch(
 
     execute {
         // Empty the "backend" argument to abort the initializer.
-        createTrackingApiMatch.mutableMethod.addInstruction(0, "const-string p1, \"\"")
+        createTrackingApiMatch.method.addInstruction(0, "const-string p1, \"\"")
     }
 }

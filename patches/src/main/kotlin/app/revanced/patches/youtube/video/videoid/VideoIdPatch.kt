@@ -104,7 +104,7 @@ val videoIdPatch = bytecodePatch(
             videoIdInsertIndex = index + 2
         }
 
-        videoIdBackgroundPlayMatch.mutableMethod.apply {
+        videoIdBackgroundPlayMatch.method.apply {
             backgroundPlaybackMethod = this
             val index = indexOfPlayerResponseModelString()
             backgroundPlaybackVideoIdRegister = getInstruction<OneRegisterInstruction>(index + 1).registerA

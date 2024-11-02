@@ -1,23 +1,43 @@
 package app.revanced.patches.twitter.misc.hook.json
 
-import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.reddit.misc.extension.sharedExtensionPatch
-import java.io.Closeable
+import app.revanced.util.matchOrThrow
 import java.io.InvalidClassException
-import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 /**
- * The [JsonHookPatchHook] of the [jsonHookPatch].
+ * Add a hook to the [jsonHookPatch].
+ * Will not add the hook if it's already added.
  *
- * @see JsonHookPatchHook
+ * @param jsonHook The [JsonHook] to add.
  */
-internal lateinit var jsonHooks: JsonHookPatchHook
-    private set
+context(BytecodePatchContext)
+fun addJsonHook(
+    jsonHook: JsonHook,
+) {
+    if (jsonHook.added) return
+
+    val jsonHookPatchMatch by jsonHookPatchFingerprint
+
+    jsonHookPatchMatch.method.apply {
+        // Insert hooks right before calling buildList.
+        val insertIndex = jsonHookPatchMatch.patternMatch!!.endIndex
+
+        addInstructions(
+            insertIndex,
+            """
+                sget-object v1, ${jsonHook.descriptor}->INSTANCE:${jsonHook.descriptor}
+                invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+            """,
+        )
+    }
+
+    jsonHook.added = true
+}
 
 private const val JSON_HOOK_CLASS_NAMESPACE = "app/revanced/extension/twitter/patches/hook/json"
 private const val JSON_HOOK_PATCH_CLASS_DESCRIPTOR = "L$JSON_HOOK_CLASS_NAMESPACE/JsonHookPatch;"
@@ -35,14 +55,14 @@ val jsonHookPatch = bytecodePatch(
             val jsonHookPatch = classBy { classDef -> classDef.type == JSON_HOOK_PATCH_CLASS_DESCRIPTOR }
                 ?: throw PatchException("Could not find the extension.")
 
-            if (match(jsonHookPatch.immutableClass) != null) {
+            if (match(jsonHookPatch.immutableClass) == null) {
                 throw PatchException("Unexpected extension.")
             }
-        }.let { jsonHooks = JsonHookPatchHook(it) }
+        }
 
         // Conveniently find the type to hook a method in, via a named field.
-        val jsonFactory = loganSquareMatch
-            .classDef
+        val jsonFactory = loganSquareFingerprint.matchOrThrow
+            .originalClassDef
             .fields
             .firstOrNull { it.name == "JSON_FACTORY" }
             ?.type
@@ -51,21 +71,23 @@ val jsonHookPatch = bytecodePatch(
             } ?: throw PatchException("Could not find required class.")
 
         // Hook the methods first parameter.
-        jsonInputStreamFingerprint
-            .apply { match(context, jsonFactory) }
-            .match
-            ?.mutableMethod
-            ?.addInstructions(
-                0,
-                """
-                    invoke-static { p1 }, $JSON_HOOK_PATCH_CLASS_DESCRIPTOR->parseJsonHook(Ljava/io/InputStream;)Ljava/io/InputStream;
-                    move-result-object p1
-                """,
-            ) ?: throw PatchException("Could not find method to hook.")
+        jsonInputStreamFingerprint.matchOrThrow(jsonFactory).method.addInstructions(
+            0,
+            """
+                invoke-static { p1 }, $JSON_HOOK_PATCH_CLASS_DESCRIPTOR->parseJsonHook(Ljava/io/InputStream;)Ljava/io/InputStream;
+                move-result-object p1
+            """,
+        )
     }
 
     finalize {
-        jsonHooks.close()
+        val jsonHookPatchMatch by jsonHookPatchFingerprint
+        // Remove hooks.add(dummyHook).
+        jsonHookPatchMatch.method.apply {
+            val addDummyHookIndex = jsonHookPatchMatch.patternMatch!!.endIndex - 2
+
+            removeInstructions(addDummyHookIndex, 2)
+        }
     }
 }
 
@@ -74,11 +96,13 @@ val jsonHookPatch = bytecodePatch(
  * The class has to extend on **JsonHook**.
  * The class has to be a Kotlin object class, or at least have an INSTANCE field of itself.
  *
- * @param context The [BytecodePatchContext] of the current patch.
  * @param descriptor The class descriptor of the hook.
  * @throws ClassNotFoundException If the class could not be found.
  */
-class JsonHook(context: BytecodePatchContext, internal val descriptor: String) {
+context(BytecodePatchContext)
+class JsonHook(
+    internal val descriptor: String,
+) {
     internal var added = false
 
     init {
@@ -92,49 +116,5 @@ class JsonHook(context: BytecodePatchContext, internal val descriptor: String) {
                 }
             }
         } ?: throw ClassNotFoundException("Failed to find hook class $descriptor")
-    }
-}
-
-/**
- * A hook for the [jsonHookPatch].
- *
- * @param jsonHookPatchFingerprint The [jsonHookPatchFingerprint] to hook.
- */
-class JsonHookPatchHook(jsonHookPatchFingerprint: Fingerprint) : Closeable {
-    private val jsonHookPatchMatch = jsonHookPatchFingerprint.match!!
-    private val jsonHookPatchIndex = jsonHookPatchMatch.patternMatch!!.endIndex
-
-    /**
-     * Add a hook to the [jsonHookPatch].
-     * Will not add the hook if it's already added.
-     *
-     * @param jsonHook The [JsonHook] to add.
-     */
-    fun addHook(jsonHook: JsonHook) {
-        if (jsonHook.added) return
-
-        jsonHookPatchMatch.mutableMethod.apply {
-            // Insert hooks right before calling buildList.
-            val insertIndex = jsonHookPatchIndex
-
-            addInstructions(
-                insertIndex,
-                """
-                            sget-object v1, ${jsonHook.descriptor}->INSTANCE:${jsonHook.descriptor}
-                            invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-                        """,
-            )
-        }
-
-        jsonHook.added = true
-    }
-
-    override fun close() {
-        // Remove hooks.add(dummyHook).
-        jsonHookPatchMatch.mutableMethod.apply {
-            val addDummyHookIndex = jsonHookPatchIndex - 2
-
-            removeInstructions(addDummyHookIndex, 2)
-        }
     }
 }

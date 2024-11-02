@@ -56,11 +56,11 @@ val enableSlideToSeekPatch = bytecodePatch(
 
         // Restore the behaviour to slide to seek.
         val checkIndex = slideToSeekMatch.patternMatch!!.startIndex
-        val checkReference = slideToSeekMatch.mutableMethod.getInstruction(checkIndex)
+        val checkReference = slideToSeekMatch.method.getInstruction(checkIndex)
             .getReference<MethodReference>()!!
 
         // A/B check method was only called on this class.
-        slideToSeekMatch.mutableClass.methods.forEach { method ->
+        slideToSeekMatch.classDef.methods.forEach { method ->
             method.findInstructionIndicesReversed {
                 opcode == Opcode.INVOKE_VIRTUAL && getReference<MethodReference>() == checkReference
             }.forEach { index ->
@@ -72,7 +72,7 @@ val enableSlideToSeekPatch = bytecodePatch(
                         """
                             invoke-static { v$register }, $EXTENSION_METHOD_DESCRIPTOR
                             move-result v$register
-                       """
+                       """,
                     )
                 }
 
@@ -88,7 +88,7 @@ val enableSlideToSeekPatch = bytecodePatch(
                 disableFastForwardGestureMatch,
                 disableFastForwardNoticeMatch,
             ).forEach {
-                it.mutableMethod.apply {
+                it.method.apply {
                     val targetIndex = it.patternMatch!!.endIndex
                     val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
@@ -103,7 +103,7 @@ val enableSlideToSeekPatch = bytecodePatch(
             }
         } else {
             disableFastForwardLegacyMatch.let {
-                it.mutableMethod.apply {
+                it.method.apply {
                     val insertIndex = it.patternMatch!!.endIndex + 1
                     val targetRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
@@ -112,7 +112,7 @@ val enableSlideToSeekPatch = bytecodePatch(
                         """
                             invoke-static { v$targetRegister }, $EXTENSION_METHOD_DESCRIPTOR
                             move-result v$targetRegister
-                        """
+                        """,
                     )
                 }
             }
