@@ -1263,7 +1263,7 @@ public final class app/revanced/patches/youtube/misc/check/CheckEnvironmentPatch
 }
 
 public final class app/revanced/patches/youtube/misc/debugging/EnableDebuggingPatchKt {
-	public static final fun getEnableDebuggingPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+	public static final fun getEnableDebuggingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/misc/dimensions/spoof/SpoofDeviceDimensionsPatchKt {
