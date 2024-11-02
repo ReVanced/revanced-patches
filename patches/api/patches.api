@@ -1053,6 +1053,10 @@ public final class app/revanced/patches/youtube/interaction/seekbar/EnableSlideT
 	public static final fun getEnableSlideToSeekPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/interaction/seekbar/SeekbarThumbnailsPatchKt {
+	public static final fun getSeekbarThumbnailsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/interaction/swipecontrols/SwipeControlsPatchKt {
 	public static final fun getSwipeControlsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1194,10 +1198,6 @@ public final class app/revanced/patches/youtube/layout/seekbar/RestoreOldSeekbar
 
 public final class app/revanced/patches/youtube/layout/seekbar/SeekbarColorPatchKt {
 	public static final fun getSeekbarColorPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/youtube/layout/seekbar/SeekbarThumbnailsPatchKt {
-	public static final fun getSeekbarThumbnailsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/layout/shortsautoplay/ShortsAutoplayPatchKt {
