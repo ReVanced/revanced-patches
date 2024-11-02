@@ -4,6 +4,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.memegenerator.detection.license.licenseValidationPatch
 import app.revanced.patches.memegenerator.detection.signature.signatureVerificationPatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val unlockProVersionPatch = bytecodePatch(
@@ -14,7 +15,7 @@ val unlockProVersionPatch = bytecodePatch(
     compatibleWith("com.zombodroid.MemeGenerator"("4.6364", "4.6370", "4.6375", "4.6377"))
 
     execute {
-        isFreeVersionMatch.method.replaceInstructions(
+        isFreeVersionFingerprint.matchOrThrow.method.replaceInstructions(
             0,
             """
                 sget-object p0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;

@@ -2,6 +2,7 @@ package app.revanced.patches.music.interaction.permanentshuffle
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val permanentShufflePatch = bytecodePatch(
@@ -21,6 +22,6 @@ val permanentShufflePatch = bytecodePatch(
     )
 
     execute {
-        disableShuffleMatch.method.addInstruction(0, "return-void")
+        disableShuffleFingerprint.matchOrThrow.method.addInstruction(0, "return-void")
     }
 }

@@ -3,6 +3,7 @@ package app.revanced.patches.music.misc.backgroundplayback
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val backgroundPlaybackPatch = bytecodePatch(
@@ -12,12 +13,12 @@ val backgroundPlaybackPatch = bytecodePatch(
     compatibleWith("com.google.android.apps.youtube.music")
 
     execute {
-        kidsBackgroundPlaybackPolicyControllerMatch.method.addInstruction(
+        kidsBackgroundPlaybackPolicyControllerFingerprint.matchOrThrow.method.addInstruction(
             0,
             "return-void",
         )
 
-        backgroundPlaybackDisableMatch.method.addInstructions(
+        backgroundPlaybackDisableFingerprint.matchOrThrow.method.addInstructions(
             0,
             """
                 const/4 v0, 0x1

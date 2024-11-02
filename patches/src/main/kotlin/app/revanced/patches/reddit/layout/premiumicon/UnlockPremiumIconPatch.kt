@@ -2,6 +2,7 @@ package app.revanced.patches.reddit.layout.premiumicon
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val unlockPremiumIconPatch = bytecodePatch(
@@ -11,7 +12,7 @@ val unlockPremiumIconPatch = bytecodePatch(
     compatibleWith("com.reddit.frontpage")
 
     execute {
-        hasPremiumIconAccessMatch.method.addInstructions(
+        hasPremiumIconAccessFingerprint.matchOrThrow.method.addInstructions(
             0,
             """
                 const/4 v0, 0x1

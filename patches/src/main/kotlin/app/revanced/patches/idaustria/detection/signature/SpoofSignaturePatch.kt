@@ -2,6 +2,7 @@ package app.revanced.patches.idaustria.detection.signature
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val spoofSignaturePatch = bytecodePatch(
@@ -24,7 +25,7 @@ val spoofSignaturePatch = bytecodePatch(
                 "77ef1be61b2c01ebdabddcbf53cc4b6fd9a3c445606ee77b3758162c80ad8f8137b3c6864e92db904807dcb2be9d7717dd21" +
                 "bf42c121d620ddfb7914f7a95c713d9e1c1b7bdb4a03d618e40cf7e9e235c0b5687e03b7ab3,publicExponent=10001}"
 
-        spoofSignatureMatch.method.addInstructions(
+        spoofSignatureFingerprint.matchOrThrow.method.addInstructions(
             0,
             """
                 const-string v0, "$expectedSignature"

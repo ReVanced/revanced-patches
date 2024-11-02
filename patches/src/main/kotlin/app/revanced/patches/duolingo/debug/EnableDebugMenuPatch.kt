@@ -13,6 +13,8 @@ val enableDebugMenuPatch = bytecodePatch(
     compatibleWith("com.duolingo"("5.158.4"))
 
     execute {
+        val initializeBuildConfigProviderMatch by initializeBuildConfigProviderFingerprint
+
         initializeBuildConfigProviderMatch.method.apply {
             val insertIndex = initializeBuildConfigProviderMatch.patternMatch!!.startIndex
             val register = getInstruction<TwoRegisterInstruction>(insertIndex).registerA

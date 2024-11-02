@@ -16,6 +16,7 @@ import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -467,7 +468,7 @@ val Fingerprint.matchOrThrow
  */
 context(BytecodePatchContext)
 fun Fingerprint.matchOrThrow(
-    classDef: MutableClass,
+    classDef: ClassDef,
 ) = match(classDef) ?: throw exception
 
 /**

@@ -2,6 +2,7 @@ package app.revanced.patches.inshorts.ad
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val hideAdsPatch = bytecodePatch(
@@ -10,7 +11,7 @@ val hideAdsPatch = bytecodePatch(
     compatibleWith("com.nis.app")
 
     execute {
-        inshortsAdsMatch.method.addInstruction(
+        inshortsAdsFingerprint.matchOrThrow.method.addInstruction(
             0,
             """
                 return-void

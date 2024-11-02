@@ -2,6 +2,7 @@ package app.revanced.patches.finanzonline.detection.root
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val rootDetectionPatch = bytecodePatch(
@@ -11,7 +12,7 @@ val rootDetectionPatch = bytecodePatch(
     compatibleWith("at.gv.bmf.bmf2go")
 
     execute {
-        rootDetectionMatch.method.addInstructions(
+        rootDetectionFingerprint.matchOrThrow.method.addInstructions(
             0,
             """
                 sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;

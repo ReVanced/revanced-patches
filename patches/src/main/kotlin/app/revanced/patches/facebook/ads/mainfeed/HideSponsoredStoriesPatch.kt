@@ -4,11 +4,15 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import app.revanced.util.matchOrThrow
+import baseModelMapperFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction31i
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
+import getSponsoredDataModelTemplateFingerprint
+import getStoryVisibilityFingerprint
 
 @Suppress("unused")
 val hideSponsoredStoriesPatch = bytecodePatch(
@@ -17,8 +21,8 @@ val hideSponsoredStoriesPatch = bytecodePatch(
     compatibleWith("com.facebook.katana")
 
     execute {
-        val sponsoredDataModelTemplateMethod = getSponsoredDataModelTemplateMatch.originalMethod
-        val baseModelMapperMethod = baseModelMapperMatch.originalMethod
+        val sponsoredDataModelTemplateMethod = getSponsoredDataModelTemplateFingerprint.matchOrThrow.originalMethod
+        val baseModelMapperMethod = baseModelMapperFingerprint.matchOrThrow.originalMethod
         val baseModelWithTreeType = baseModelMapperMethod.returnType
 
         val graphQlStoryClassDescriptor = "Lcom/facebook/graphql/model/GraphQLStory;"
@@ -26,8 +30,10 @@ val hideSponsoredStoriesPatch = bytecodePatch(
         // The "SponsoredDataModelTemplate" methods has the ids in its body to extract sponsored data
         // from GraphQL models, but targets the wrong derived type of "BaseModelWithTree". Since those ids
         // could change in future version, we need to extract them and call the base implementation directly.
+        val getStoryVisibilityMatch by getStoryVisibilityFingerprint
+
         val getSponsoredDataHelperMethod = ImmutableMethod(
-            getStoryVisibilityMatch.originalClassDef.type,
+            getStoryVisibilityFingerprint.matchOrThrow.originalClassDef.type,
             "getSponsoredData",
             listOf(ImmutableMethodParameter(graphQlStoryClassDescriptor, null, null)),
             baseModelWithTreeType,
@@ -61,11 +67,11 @@ val hideSponsoredStoriesPatch = bytecodePatch(
             )
         }
 
-        getStoryVisibilityMatch.classDef.methods.add(getSponsoredDataHelperMethod)
+        getStoryVisibilityFingerprint.matchOrThrow.classDef.methods.add(getSponsoredDataHelperMethod)
 
         // Check if the parameter type is GraphQLStory and if sponsoredDataModelGetter returns a non-null value.
         // If so, hide the story by setting the visibility to StoryVisibility.GONE.
-        getStoryVisibilityMatch.method.addInstructionsWithLabels(
+        getStoryVisibilityFingerprint.matchOrThrow.method.addInstructionsWithLabels(
             getStoryVisibilityMatch.patternMatch!!.startIndex,
             """
                 instance-of v0, p0, $graphQlStoryClassDescriptor

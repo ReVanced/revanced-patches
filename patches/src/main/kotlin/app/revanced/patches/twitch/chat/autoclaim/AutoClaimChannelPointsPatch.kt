@@ -9,6 +9,7 @@ import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.twitch.misc.settings.PreferenceScreen
 import app.revanced.patches.twitch.misc.settings.settingsPatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val autoClaimChannelPointsPatch = bytecodePatch(
@@ -29,8 +30,8 @@ val autoClaimChannelPointsPatch = bytecodePatch(
             SwitchPreference("revanced_auto_claim_channel_points"),
         )
 
-        communityPointsButtonViewDelegateMatch.method.apply {
-            val lastIndex = implementation!!.instructions.lastIndex
+        communityPointsButtonViewDelegateFingerprint.matchOrThrow.method.apply {
+            val lastIndex = instructions.lastIndex
             addInstructionsWithLabels(
                 lastIndex, // place in front of return-void
                 """

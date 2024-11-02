@@ -55,9 +55,8 @@ val jsonHookPatch = bytecodePatch(
             val jsonHookPatch = classBy { classDef -> classDef.type == JSON_HOOK_PATCH_CLASS_DESCRIPTOR }
                 ?: throw PatchException("Could not find the extension.")
 
-            if (match(jsonHookPatch.immutableClass) == null) {
-                throw PatchException("Unexpected extension.")
-            }
+            match(jsonHookPatch.immutableClass)
+                ?: throw PatchException("Unexpected extension.")
         }
 
         // Conveniently find the type to hook a method in, via a named field.

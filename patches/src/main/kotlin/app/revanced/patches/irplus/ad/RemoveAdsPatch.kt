@@ -2,6 +2,7 @@ package app.revanced.patches.irplus.ad
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val removeAdsPatch = bytecodePatch(
@@ -12,6 +13,6 @@ val removeAdsPatch = bytecodePatch(
     execute {
         // By overwriting the second parameter of the method,
         // the view which holds the advertisement is removed.
-        irplusAdsMatch.method.addInstruction(0, "const/4 p2, 0x0")
+        irplusAdsFingerprint.matchOrThrow.method.addInstruction(0, "const/4 p2, 0x0")
     }
 }

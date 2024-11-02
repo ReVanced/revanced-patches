@@ -8,6 +8,7 @@ import app.revanced.patches.reddit.customclients.RESOLVE_S_LINK_METHOD
 import app.revanced.patches.reddit.customclients.SET_ACCESS_TOKEN_METHOD
 import app.revanced.patches.reddit.customclients.boostforreddit.misc.extension.sharedExtensionPatch
 import app.revanced.patches.reddit.customclients.fixSLinksPatch
+import app.revanced.util.matchOrThrow
 
 const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/boostforreddit/FixSLinksPatch;"
 
@@ -20,7 +21,7 @@ val fixSlinksPatch = fixSLinksPatch(
     execute {
         // region Patch navigation handler.
 
-        handleNavigationMatch.method.apply {
+        handleNavigationFingerprint.matchOrThrow.method.apply {
             val urlRegister = "p1"
             val tempRegister = "v1"
 
@@ -40,7 +41,7 @@ val fixSlinksPatch = fixSLinksPatch(
 
         // region Patch set access token.
 
-        setAccessTokenMatch.method.addInstruction(
+        getOAuthAccessTokenFingerprint.matchOrThrow.method.addInstruction(
             3,
             "invoke-static { v0 }, $EXTENSION_CLASS_DESCRIPTOR->$SET_ACCESS_TOKEN_METHOD",
         )

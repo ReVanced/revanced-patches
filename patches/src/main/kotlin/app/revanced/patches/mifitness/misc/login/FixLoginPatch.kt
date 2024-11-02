@@ -2,6 +2,7 @@ package app.revanced.patches.mifitness.misc.login
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.matchOrThrow
 
 val fixLoginPatch = bytecodePatch(
     name = "Fix login",
@@ -10,6 +11,6 @@ val fixLoginPatch = bytecodePatch(
     compatibleWith("com.xiaomi.wearable")
 
     execute {
-        xiaomiAccountManagerConstructorMatch.method.addInstruction(0, "const/16 p2, 0x0")
+        xiaomiAccountManagerConstructorFingerprint.matchOrThrow.method.addInstruction(0, "const/16 p2, 0x0")
     }
 }

@@ -11,7 +11,6 @@ import app.revanced.util.copyResources
 import app.revanced.util.getNode
 import app.revanced.util.insertFirst
 import org.w3c.dom.Node
-import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 /**
  * A resource patch that adds settings to a settings fragment.
@@ -27,7 +26,7 @@ fun settingsPatch(
     dependsOn(addResourcesPatch)
 
     execute {
-        context.copyResources(
+        copyResources(
             "settings",
             ResourceGroup("xml", "revanced_prefs.xml"),
         )

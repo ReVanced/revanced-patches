@@ -5,6 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.stringsOption
 import app.revanced.util.getReference
+import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
@@ -61,7 +62,7 @@ val spoofFeaturesPatch = bytecodePatch(
         @Suppress("NAME_SHADOWING")
         val featuresToDisable = featuresToDisable!!.toSet()
 
-        initializeFeaturesEnumMatch.method.apply {
+        initializeFeaturesEnumFingerprint.matchOrThrow.method.apply {
             instructions.filter { it.opcode == Opcode.CONST_STRING }.forEach {
                 val feature = it.getReference<StringReference>()!!.string
 

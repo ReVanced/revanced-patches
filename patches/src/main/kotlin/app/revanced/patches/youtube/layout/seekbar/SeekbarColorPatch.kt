@@ -18,12 +18,11 @@ import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
+import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
-import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
 import org.w3c.dom.Element
-import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 internal var reelTimeBarPlayedColorId = -1L
     private set
@@ -95,20 +94,20 @@ val seekbarColorPatch = bytecodePatch(
             )
         }
 
-        playerSeekbarColorMatch.method.apply {
+        playerSeekbarColorFingerprint.matchOrThrow.method.apply {
             addColorChangeInstructions(inlineTimeBarColorizedBarPlayedColorDarkId)
             addColorChangeInstructions(inlineTimeBarPlayedNotHighlightedColorId)
         }
 
-        shortsSeekbarColorMatch.method.apply {
+        shortsSeekbarColorFingerprint.matchOrThrow.method.apply {
             addColorChangeInstructions(reelTimeBarPlayedColorId)
         }
 
+        val setSeekbarClickedColorMatch by setSeekbarClickedColorFingerprint
         setSeekbarClickedColorMatch.method.let {
             val setColorMethodIndex = setSeekbarClickedColorMatch.patternMatch!!.startIndex + 1
-            val method = context.navigate(it).at(setColorMethodIndex).mutable()
 
-            method.apply {
+            navigate(it).at(setColorMethodIndex).stop().apply {
                 val colorRegister = getInstruction<TwoRegisterInstruction>(0).registerA
                 addInstructions(
                     0,
@@ -121,7 +120,7 @@ val seekbarColorPatch = bytecodePatch(
         }
 
         if (is_19_23_or_greater) {
-            playerSeekbarGradientConfigMatch.method.apply {
+            playerSeekbarGradientConfigFingerprint.matchOrThrow.method.apply {
                 val literalIndex = indexOfFirstLiteralInstructionOrThrow(PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG)
                 val resultIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
                 val register = getInstruction<OneRegisterInstruction>(resultIndex).registerA
@@ -135,7 +134,7 @@ val seekbarColorPatch = bytecodePatch(
                 )
             }
 
-            lithoLinearGradientMatch.method.addInstruction(
+            lithoLinearGradientFingerprint.matchOrThrow.method.addInstruction(
                 0,
                 "invoke-static/range { p4 .. p5 },  $EXTENSION_CLASS_DESCRIPTOR->setLinearGradient([I[F)V",
             )

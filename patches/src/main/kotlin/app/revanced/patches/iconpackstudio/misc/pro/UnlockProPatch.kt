@@ -2,6 +2,7 @@ package app.revanced.patches.iconpackstudio.misc.pro
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val unlockProPatch = bytecodePatch(
@@ -10,7 +11,7 @@ val unlockProPatch = bytecodePatch(
     compatibleWith("ginlemon.iconpackstudio"("2.2 build 016"))
 
     execute {
-        checkProMatch.method.addInstructions(
+        checkProFingerprint.matchOrThrow.method.addInstructions(
             0,
             """
                 const/4 v0, 0x1

@@ -11,8 +11,10 @@ import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
+import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
@@ -53,11 +55,13 @@ val shortsAutoplayPatch = bytecodePatch(
         }
 
         // Main activity is used to check if app is in pip mode.
-        mainActivityOnCreateMatch.method.addInstructions(
+        mainActivityOnCreateFingerprint.matchOrThrow.method.addInstructions(
             0,
             "invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->" +
                 "setMainActivity(Landroid/app/Activity;)V",
         )
+
+        val reelEnumConstructorMatch by reelEnumConstructorFingerprint
 
         val reelEnumClass = reelEnumConstructorMatch.originalClassDef.type
 
@@ -75,7 +79,7 @@ val shortsAutoplayPatch = bytecodePatch(
             )
         }
 
-        reelPlaybackRepeatMatch.method.apply {
+        reelPlaybackRepeatFingerprint.matchOrThrow.method.apply {
             // The behavior enums are looked up from an ordinal value to an enum type.
             findInstructionIndicesReversedOrThrow {
                 val reference = getReference<MethodReference>()

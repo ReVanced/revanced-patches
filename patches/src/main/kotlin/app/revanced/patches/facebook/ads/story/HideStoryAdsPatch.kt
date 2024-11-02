@@ -2,6 +2,7 @@ package app.revanced.patches.facebook.ads.story
 
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val hideStoryAdsPatch = bytecodePatch(
@@ -11,8 +12,11 @@ val hideStoryAdsPatch = bytecodePatch(
     compatibleWith("com.facebook.katana")
 
     execute {
-        setOf(fetchMoreAdsMatch, adsInsertionMatch).forEach { match ->
-            match.method.replaceInstruction(0, "return-void")
+        setOf(
+            fetchMoreAdsFingerprint,
+            adsInsertionFingerprint,
+        ).forEach { fingerprint ->
+            fingerprint.matchOrThrow.method.replaceInstruction(0, "return-void")
         }
     }
 }

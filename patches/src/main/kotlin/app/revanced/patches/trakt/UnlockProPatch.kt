@@ -3,6 +3,7 @@ package app.revanced.patches.trakt
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.exception
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val unlockProPatch = bytecodePatch(
@@ -11,12 +12,10 @@ val unlockProPatch = bytecodePatch(
     compatibleWith("tv.trakt.trakt"("1.1.1"))
 
     execute {
-        remoteUserMatch.originalClassDef.let { remoteUserClass ->
+        remoteUserFingerprint.matchOrThrow.originalClassDef.let { remoteUserClass ->
             arrayOf(isVIPFingerprint, isVIPEPFingerprint).onEach { fingerprint ->
                 // Resolve both fingerprints on the same class.
-                if (!fingerprint.match(context, remoteUserClass)) {
-                    throw fingerprint.exception
-                }
+                fingerprint.match(remoteUserClass) ?: throw fingerprint.exception
             }.forEach { fingerprint ->
                 // Return true for both VIP check methods.
                 fingerprint.match?.method?.addInstructions(

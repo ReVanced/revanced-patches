@@ -2,6 +2,7 @@ package app.revanced.patches.music.misc.androidauto
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val bypassCertificateChecksPatch = bytecodePatch(
@@ -11,12 +12,12 @@ val bypassCertificateChecksPatch = bytecodePatch(
     compatibleWith("com.google.android.apps.youtube.music")
 
     execute {
-        checkCertificateMatch.method.addInstructions(
+        checkCertificateFingerprint.matchOrThrow.method.addInstructions(
             0,
             """
-                    const/4 v0, 0x1
-                    return v0
-                """,
+                const/4 v0, 0x1
+                return v0
+            """,
         )
     }
 }

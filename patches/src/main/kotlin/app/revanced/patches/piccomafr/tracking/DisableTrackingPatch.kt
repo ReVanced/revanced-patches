@@ -5,6 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.getReference
+import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
@@ -34,7 +35,7 @@ val disableTrackingPatch = bytecodePatch(
     )
 
     execute {
-        facebookSDKMatch.method.apply {
+        facebookSDKFingerprint.matchOrThrow.method.apply {
             instructions.filter { instruction ->
                 instruction.opcode == Opcode.CONST_STRING
             }.forEach { instruction ->
@@ -47,7 +48,7 @@ val disableTrackingPatch = bytecodePatch(
             }
         }
 
-        firebaseInstallMatch.method.apply {
+        firebaseInstallFingerprint.matchOrThrow.method.apply {
             instructions.filter {
                 it.opcode == Opcode.CONST_STRING
             }.filter {
@@ -62,6 +63,6 @@ val disableTrackingPatch = bytecodePatch(
             }
         }
 
-        appMeasurementMatch.method.addInstruction(0, "return-void")
+        appMeasurementFingerprint.matchOrThrow.method.addInstruction(0, "return-void")
     }
 }
