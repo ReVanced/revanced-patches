@@ -12,12 +12,14 @@ import app.revanced.patches.youtube.misc.playservice.is_19_17_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.util.findInstructionIndicesReversed
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/SlideToSeekPatch;"
+internal const val EXTENSION_METHOD_DESCRIPTOR =
+    "Lapp/revanced/extension/youtube/patches/SlideToSeekPatch;->isSlideToSeekDisabled(Z)Z"
 
 @Suppress("unused")
 val enableSlideToSeekPatch = bytecodePatch(
@@ -36,7 +38,6 @@ val enableSlideToSeekPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "18.38.44",
             "18.49.37",
             "19.16.39",
             "19.25.37",
@@ -54,51 +55,35 @@ val enableSlideToSeekPatch = bytecodePatch(
         var modifiedMethods = false
 
         // Restore the behaviour to slide to seek.
-        val checkIndex =
-            slideToSeekMatch.patternMatch!!.startIndex
-        val checkReference =
-            slideToSeekMatch.mutableMethod.getInstruction(checkIndex).getReference<MethodReference>()!!
+        val checkIndex = slideToSeekMatch.patternMatch!!.startIndex
+        val checkReference = slideToSeekMatch.mutableMethod.getInstruction(checkIndex)
+            .getReference<MethodReference>()!!
 
         // A/B check method was only called on this class.
         slideToSeekMatch.mutableClass.methods.forEach { method ->
-            method.implementation!!.instructions.forEachIndexed { index, instruction ->
-                if (instruction.opcode == Opcode.INVOKE_VIRTUAL &&
-                    instruction.getReference<MethodReference>() == checkReference
-                ) {
-                    method.apply {
-                        val targetRegister = getInstruction<OneRegisterInstruction>(index + 1).registerA
+            method.findInstructionIndicesReversed {
+                opcode == Opcode.INVOKE_VIRTUAL && getReference<MethodReference>() == checkReference
+            }.forEach { index ->
+                method.apply {
+                    val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
 
-                        addInstructions(
-                            index + 2,
-                            """
-                                invoke-static { v$targetRegister }, $EXTENSION_CLASS_DESCRIPTOR
-                                move-result v$targetRegister
-                           """,
-                        )
-                    }
-
-                    modifiedMethods = true
+                    addInstructions(
+                        index + 2,
+                        """
+                            invoke-static { v$register }, $EXTENSION_METHOD_DESCRIPTOR
+                            move-result v$register
+                       """
+                    )
                 }
+
+                modifiedMethods = true
             }
         }
 
         if (!modifiedMethods) throw PatchException("Could not find methods to modify")
 
         // Disable the double speed seek gesture.
-        if (!is_19_17_or_greater) {
-            disableFastForwardLegacyMatch.mutableMethod.apply {
-                val insertIndex = disableFastForwardLegacyMatch.patternMatch!!.endIndex + 1
-                val targetRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
-
-                addInstructions(
-                    insertIndex,
-                    """
-                        invoke-static { v$targetRegister }, $EXTENSION_CLASS_DESCRIPTOR
-                        move-result v$targetRegister
-                    """,
-                )
-            }
-        } else {
+        if (is_19_17_or_greater) {
             arrayOf(
                 disableFastForwardGestureMatch,
                 disableFastForwardNoticeMatch,
@@ -110,9 +95,24 @@ val enableSlideToSeekPatch = bytecodePatch(
                     addInstructions(
                         targetIndex + 1,
                         """
-                            invoke-static { v$targetRegister }, $EXTENSION_CLASS_DESCRIPTOR
+                            invoke-static { v$targetRegister }, $EXTENSION_METHOD_DESCRIPTOR
                             move-result v$targetRegister
                         """,
+                    )
+                }
+            }
+        } else {
+            disableFastForwardLegacyMatch.let {
+                it.mutableMethod.apply {
+                    val insertIndex = it.patternMatch!!.endIndex + 1
+                    val targetRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+                    addInstructions(
+                        insertIndex,
+                        """
+                            invoke-static { v$targetRegister }, $EXTENSION_METHOD_DESCRIPTOR
+                            move-result v$targetRegister
+                        """
                     )
                 }
             }

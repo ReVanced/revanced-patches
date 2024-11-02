@@ -222,7 +222,6 @@ val hideLayoutComponentsPatch = bytecodePatch(
         )
 
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(
-            SwitchPreference("revanced_hide_gray_separator"),
             PreferenceScreenPreference(
                 key = "revanced_custom_filter_screen",
                 sorting = PreferenceScreenPreference.Sorting.UNSORTED,

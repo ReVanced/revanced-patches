@@ -87,8 +87,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Deaktiver Shorts bakgrunn spill</string>
-  <string name="revanced_shorts_disable_background_playback_summary_on">Kortere bakgrunnsspilling er deaktivert</string>
-  <string name="revanced_shorts_disable_background_playback_summary_off">Kortere bakgrunnsspilling er aktivert</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Feilsøking</string>
@@ -120,9 +118,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">Skjul flytende mikrofonknapp</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Mikrofonknappen er skjult</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Mikrofon knapp vist</string>
-  <string name="revanced_hide_gray_separator_title">Skjul grå skilletegn</string>
-  <string name="revanced_hide_gray_separator_summary_on">Grå skilletegn er skjult</string>
-  <string name="revanced_hide_gray_separator_summary_off">Grå skilletegn vises</string>
   <string name="revanced_hide_channel_watermark_title">Skjul kanalvannmerke</string>
   <string name="revanced_hide_channel_watermark_summary_on">Vannmerket er skjult</string>
   <string name="revanced_hide_channel_watermark_summary_off">Vannmerke er vist</string>
@@ -166,9 +161,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_expandable_chip_title">Skjul ekspanderbar chip under videoer</string>
   <string name="revanced_hide_expandable_chip_summary_on">Utvidbare brikker er skjult</string>
   <string name="revanced_hide_expandable_chip_summary_off">Utvidbare brikker vises</string>
-  <string name="revanced_hide_video_quality_menu_footer_title">Skjul meny for bildekvalitet bunntekst</string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_on">Menybunntekst for videokvalitet er skjult</string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_off">Menybunntekst for videokvalitet vises</string>
   <string name="revanced_hide_community_posts_title">Skjul samfunnsinnlegg</string>
   <string name="revanced_hide_community_posts_summary_on">Samfunnets innlegg er skjult</string>
   <string name="revanced_hide_community_posts_summary_off">Samfunnsinnlegg vises</string>
@@ -520,6 +512,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_ambient_mode_title">Skjul Ambient modus</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_on">Meny for omgivelsesmodus er skjult</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_off">Ambient modus meny er vist</string>
+  <string name="revanced_hide_player_flyout_stable_volume_title">Skjul Stabil volum</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_off">Stabil volummeny er vist</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_on">Stabil volummeny er skjult</string>
   <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_help_title">Skjul hjelp &amp; tilbakemelding</string>
   <string name="revanced_hide_player_flyout_help_summary_on">Hjelp &amp; Tilbakemeldingsmenyen er skjult</string>
@@ -545,6 +540,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Skjul klokke i VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Se i VR-menyen er skjult</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Se i VR-meny for å vise</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_title">Skjul meny for bildekvalitet bunntekst</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Menybunntekst for videokvalitet er skjult</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Menybunntekst for videokvalitet vises</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_player_previous_next_buttons_title">Skjul forrige &amp; neste videoknapper</string>
@@ -955,7 +953,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - Gjenopprette bred videokastighet &amp; kvalitetsmeny</string>
   <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - Gjenopprett bibliotek-fane</string>
   <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Gjenopprett gammel spilleliste</string>
-  <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - Gjenopprett gammelt UI oppsett</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Angi startside</string>

@@ -117,9 +117,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">Плаващ бутон за микрофона</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Бутонът на микрофона е скрит</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Показан е бутон на микрофона</string>
-  <string name="revanced_hide_gray_separator_title">Скриване на сивия разделител</string>
-  <string name="revanced_hide_gray_separator_summary_on">Сивите разделители са скрити</string>
-  <string name="revanced_hide_gray_separator_summary_off">Сивите разделители са показани</string>
   <string name="revanced_hide_channel_watermark_title">Скриване на водния знак на канала</string>
   <string name="revanced_hide_channel_watermark_summary_on">Водният знак е скрит</string>
   <string name="revanced_hide_channel_watermark_summary_off">Водният знак е показан</string>
@@ -164,9 +161,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_expandable_chip_title">Скриване на разширяемия чип под видеоклиповете</string>
   <string name="revanced_hide_expandable_chip_summary_on">Разширяващите се чипове са скрити</string>
   <string name="revanced_hide_expandable_chip_summary_off">Разширяващите се чипове са показани</string>
-  <string name="revanced_hide_video_quality_menu_footer_title">Скриване на футъра на менюто за качество на видеото</string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_on">Футърът на менюто за качество на видеото е скрит</string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_off">Футърът на менюто за качество на видеото е показан</string>
   <string name="revanced_hide_community_posts_title">Скриване на публикациите от общността</string>
   <string name="revanced_hide_community_posts_summary_on">Публикациите от общността са скрити</string>
   <string name="revanced_hide_community_posts_summary_off">Публикациите от общността са показани</string>
@@ -507,6 +501,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_additional_settings_summary_on">Допълнителните настройки са скрити</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_off">Допълнителните настройки се показват</string>
   <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_sleep_timer_title">Менюто на таймера за заспиване</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_on">Менюто на таймера за заспиване е скрито</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_off">Менюто на таймера за заспиване се показва</string>
   <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_loop_video_title">\"Повторно възпроизвеждане\"</string>
   <string name="revanced_hide_player_flyout_loop_video_summary_on">Менюто за повторение е скрито</string>
@@ -540,6 +537,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Гледайте във VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Менюто за гледане в VR е скрито</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Менюто за гледане в VR се показва</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_title">Скриване на футъра на менюто за качество на видеото</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_player_previous_next_buttons_title">Бутони за Предишно &amp; Следващо видео</string>
@@ -585,6 +583,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Лентата за време при миниатюрите се показва</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <string name="revanced_shorts_player_screen_title">Играч на Shorts</string>
+  <string name="revanced_shorts_player_screen_summary">Скриване или показване на компоненти в Shorts плейъра</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Скриване на Shorts в началната лента</string>
   <string name="revanced_hide_shorts_home_summary_on">Shorts в началната лента са скрити</string>
@@ -949,17 +949,23 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - Възстановяване на видео скорост &amp; в менюто за качество</string>
   <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - Възстановяване на таб \"Библиотека\"</string>
   <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Връщане на секцията с плейлиста към стария стил</string>
-  <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - Възстановява стария изглед</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Задай начална страница</string>
   <string name="revanced_change_start_page_entry_default">По подразбиране</string>
+  <string name="revanced_change_start_page_entry_browse">Разглеждане на канала</string>
   <string name="revanced_change_start_page_entry_explore">Разгледайте</string>
   <string name="revanced_change_start_page_entry_history">История</string>
+  <string name="revanced_change_start_page_entry_library">Библиотека</string>
   <string name="revanced_change_start_page_entry_liked_videos">Харесани видеа</string>
+  <string name="revanced_change_start_page_entry_live">На Живо</string>
+  <string name="revanced_change_start_page_entry_movies">Филми</string>
+  <string name="revanced_change_start_page_entry_music">Музика</string>
   <string name="revanced_change_start_page_entry_search">Търсене</string>
+  <string name="revanced_change_start_page_entry_sports">Спорт</string>
   <string name="revanced_change_start_page_entry_subscriptions">Абонаменти</string>
   <string name="revanced_change_start_page_entry_trending">Популярни</string>
+  <string name="revanced_change_start_page_entry_watch_later">Гледай по-късно</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Скриване на Shorts плейъра при стартиране</string>
@@ -992,6 +998,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_hide_rewind_forward_title">Бутони за напред и назад</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Бутони за напред и назад са скрити</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Бутони за напред и назад са показани</string>
+  <string name="revanced_miniplayer_width_dip_title">Първоначален размер</string>
+  <string name="revanced_miniplayer_width_dip_summary">Първоначален размер на екрана, в пиксели</string>
   <string name="revanced_miniplayer_opacity_title">Прозрачност на менютата</string>
   <string name="revanced_miniplayer_opacity_summary">Стойност на прозрачност между 0-100, където 0 е прозрачно</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Прозрачността на менюто трябва да бъде между 0-100</string>
@@ -1111,6 +1119,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_playback_speeds_title">Персонализирани скорости на възпроизвеждане</string>
+  <string name="revanced_custom_playback_speeds_summary">Добавете или променете скоростa на възпроизвеждане</string>
   <string name="revanced_custom_playback_speeds_invalid">Персоналната скорост трябва да е по-малка от %s. Използване на стойности по подразбиране.</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Невалидни персонализирани скорости на възпроизвеждане. Използване на стойности по подразбиране.</string>
   </patch>

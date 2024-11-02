@@ -107,9 +107,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">Схаваць плаваючую кнопку мікрафона</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Кнопка мікрафона схавана</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Паказана кнопка мікрафона</string>
-  <string name="revanced_hide_gray_separator_title">Схаваць шэры раздзяляльнік</string>
-  <string name="revanced_hide_gray_separator_summary_on">Шэрыя падзельнікі схаваныя</string>
-  <string name="revanced_hide_gray_separator_summary_off">Паказаны шэрыя раздзяляльнікі</string>
   <string name="revanced_hide_channel_watermark_title">Схаваць вадзяны знак канала</string>
   <string name="revanced_hide_channel_watermark_summary_on">Вадзяны знак схаваны</string>
   <string name="revanced_hide_channel_watermark_summary_off">Паказаны вадзяны знак</string>
@@ -154,9 +151,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_expandable_chip_title">Схаваць пашыраемы чып пад відэа</string>
   <string name="revanced_hide_expandable_chip_summary_on">Чыпы, якія пашыраюцца, схаваныя</string>
   <string name="revanced_hide_expandable_chip_summary_off">Паказаны чыпы, якія пашыраюцца</string>
-  <string name="revanced_hide_video_quality_menu_footer_title">Схаваць калонтытул меню якасці відэа</string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_on">Ніжні калонтытул меню якасці відэа схаваны</string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_off">Паказваецца ніжні калонтытул меню якасці відэа</string>
   <string name="revanced_hide_community_posts_title">Схаваць паведамленні ў супольнасці</string>
   <string name="revanced_hide_community_posts_summary_on">Паведамленні ў супольнасці схаваны</string>
   <string name="revanced_hide_community_posts_summary_off">Паказваюцца паведамленні ў супольнасці</string>
@@ -517,6 +511,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Схаваць гадзіннік у VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Меню прагляду ў VR схавана</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Паказана меню \"Глядзець у VR\".</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_title">Схаваць калонтытул меню якасці відэа</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Ніжні калонтытул меню якасці відэа схаваны</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Паказваецца ніжні калонтытул меню якасці відэа</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_player_previous_next_buttons_title">Схаваць папярэдні &amp; кнопкі наступнага відэа</string>
@@ -906,7 +903,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - Аднавіць хуткасць шырокага відэа &amp; якаснае меню</string>
   <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - Аднаўленне ўкладкі бібліятэкі</string>
   <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Аднаўленне старой паліцы плэйлістоў</string>
-  <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - Аднавіць стары макет інтэрфейсу</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Усталяваць стартавую старонку</string>

@@ -80,12 +80,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_03_feed_title">動態消息</string>
   <string name="revanced_settings_screen_04_player_title">播放器</string>
   <string name="revanced_settings_screen_05_general_title">通用版面</string>
-  <string name="revanced_settings_screen_07_seekbar_title">進度列</string>
+  <string name="revanced_settings_screen_07_seekbar_title">拖拽欄</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">滑動控制</string>
   <string name="revanced_settings_screen_11_misc_title">其他</string>
   <string name="revanced_settings_screen_12_video_title">影片</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <string name="revanced_shorts_disable_background_playback_title">停用背景播放 Shorts</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">已停用背景播放 Shorts</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">已啟用背景播放 Shorts</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">偵錯</string>
@@ -117,9 +120,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">隱藏語音辨識按鈕</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">已隱藏語音辨識按鈕</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">已顯示語音辨識按鈕</string>
-  <string name="revanced_hide_gray_separator_title">隱藏灰色分隔線</string>
-  <string name="revanced_hide_gray_separator_summary_on">已隱藏灰色分隔線</string>
-  <string name="revanced_hide_gray_separator_summary_off">已顯示灰色分隔線</string>
   <string name="revanced_hide_channel_watermark_title">隱藏頻道浮水印</string>
   <string name="revanced_hide_channel_watermark_summary_on">已隱藏影片浮水印</string>
   <string name="revanced_hide_channel_watermark_summary_off">已顯示影片浮水印</string>
@@ -164,9 +164,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_expandable_chip_title">隱藏影片下方的章節選擇欄</string>
   <string name="revanced_hide_expandable_chip_summary_on">已隱藏影片下方的章節選擇欄</string>
   <string name="revanced_hide_expandable_chip_summary_off">已顯示影片下方的章節選擇欄</string>
-  <string name="revanced_hide_video_quality_menu_footer_title">隱藏畫質選單底部</string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_on">已隱藏畫質選單底部</string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_off">已顯示畫質選單底部</string>
   <string name="revanced_hide_community_posts_title">隱藏社群貼文</string>
   <string name="revanced_hide_community_posts_summary_on">已隱藏社群貼文</string>
   <string name="revanced_hide_community_posts_summary_off">已顯示社群貼文</string>
@@ -510,6 +507,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_additional_settings_summary_on">已隱藏其他設定</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_off">已顯示其他設定</string>
   <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_sleep_timer_title">隱藏 [睡眠計時器]</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_on">已隱藏 [睡眠計時器]</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_off">已顯示 [睡眠計時器]</string>
   <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_loop_video_title">隱藏循環播放影片</string>
   <string name="revanced_hide_player_flyout_loop_video_summary_on">已隱藏循環播放選項</string>
@@ -518,6 +518,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_ambient_mode_title">隱藏微光效果</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_on">已隱藏微光模式選項</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_off">已顯示微光效果模式</string>
+  <string name="revanced_hide_player_flyout_stable_volume_title">隱藏 [平衡音量]</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_off">已顯示 [平衡音量]</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_on">已隱藏 [平衡音量]</string>
   <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_help_title">隱藏說明和意見回饋</string>
   <string name="revanced_hide_player_flyout_help_summary_on">已隱藏說明與回饋選單</string>
@@ -543,6 +546,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_title">隱藏在 VR 觀看</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">已隱藏在 VR 觀看</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">已顯示在 VR 觀看</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_title">隱藏 [影片畫質] 選單頁尾</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">已隱藏 [影片畫質] 選單頁尾</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">已顯示 [影片畫質] 選單頁尾</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_player_previous_next_buttons_title">隱藏上一部和下一部影片按紐</string>
@@ -757,6 +763,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_wide_searchbar_summary_off">已停用寬搜尋列</string>
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_title">啟用高畫質縮圖</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">已啟用拖拽欄高畫質縮圖</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">已設定拖拽欄為中畫質縮圖</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">已設定全螢幕拖拽欄為高畫質縮圖</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">已設定全螢幕拖拽欄為中畫質縮圖</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">這將恢復沒有進度條縮圖的直播縮圖。\n\n網路數據使用量可能會增加，且進度條縮圖顯示會有些許延遲。\n\n此功能在網速非常快的網路連線下效果最佳。</string>
   </patch>
   <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
   <string name="revanced_restore_old_seekbar_thumbnails_title">還原舊版進度列縮圖</string>
@@ -957,7 +969,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - 還原寬影片速度 &amp; 畫質選單</string>
   <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - 還原庫標籤</string>
   <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - 還原舊版播放清單匣</string>
-  <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - 還原舊版 UI 介面</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">設定起始頁面</string>
@@ -1150,7 +1161,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_playback_speed_dialog_button_summary_off">未顯示按鈕</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <string name="revanced_custom_speed_menu_title">自訂 [播放速度] 選單</string>
+  <string name="revanced_custom_speed_menu_summary_on">已顯示自訂 [播放速度] 選單</string>
+  <string name="revanced_custom_speed_menu_summary_off">已隱藏自訂 [播放速度] 選單</string>
   <string name="revanced_custom_playback_speeds_title">自訂播放速度</string>
+  <string name="revanced_custom_playback_speeds_summary">新增或更改自訂播放速度</string>
   <string name="revanced_custom_playback_speeds_invalid">自訂速度必須小於 %s。已重設為預設值。</string>
   <string name="revanced_custom_playback_speeds_parse_exception">無效的自訂播放速度。已重設為預設值。</string>
   </patch>

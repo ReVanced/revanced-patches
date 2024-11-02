@@ -86,6 +86,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_12_video_title">Físeán</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <string name="revanced_shorts_disable_background_playback_title">Díchumasaigh súgradh cúlra Shorts</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Tá súgradh cúlra shorts díchumasaithe</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Tá súgradh cúlra shorts cumasaithe</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Dífhabhtú</string>
@@ -117,9 +120,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">Cnaipe micreafón ar snámh</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Cnaipe micreafón folach</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Taispeántar an cnaipe micreafón</string>
-  <string name="revanced_hide_gray_separator_title">Folaigh deighilteoir liath</string>
-  <string name="revanced_hide_gray_separator_summary_on">Tá deighilteoirí liath i bhfolach</string>
-  <string name="revanced_hide_gray_separator_summary_off">Taispeántar deighilteoirí liath</string>
   <string name="revanced_hide_channel_watermark_title">Folaigh comhartha uisce cainéal</string>
   <string name="revanced_hide_channel_watermark_summary_on">Tá comhartha uisce i bhfolach</string>
   <string name="revanced_hide_channel_watermark_summary_off">Taispeántar comhartha uisce</string>
@@ -164,9 +164,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_expandable_chip_title">Folaigh sliseanna inmhéadaithe faoi fhíseáin</string>
   <string name="revanced_hide_expandable_chip_summary_on">Tá sceallóga leathnaithe i bhfolach</string>
   <string name="revanced_hide_expandable_chip_summary_off">Taispeántar sceallóga leathnaithe</string>
-  <string name="revanced_hide_video_quality_menu_footer_title">Folaigh buntásc roghchlár cáilíochta físe</string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_on">Tá buntásc an roghchláir cáilíochta físeáin folaithe</string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_off">Taispeántar buntásc roghchlár cáilíochta físeáin</string>
   <string name="revanced_hide_community_posts_title">Folaigh postálacha pobail</string>
   <string name="revanced_hide_community_posts_summary_on">Tá postálacha pobail i bhfolach</string>
   <string name="revanced_hide_community_posts_summary_off">Taispeántar postálacha pobail</string>
@@ -510,6 +507,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_additional_settings_summary_on">Tá roghchlár socruithe breise i bhfolach</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_off">Taispeántar roghchlár socruithe breise</string>
   <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_sleep_timer_title">Folaigh lasc ama codlata</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_on">Tá an roghchlár lasc ama codlata i bhfolach</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_off">Taispeántar roghchlár an lasc ama codlata</string>
   <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_loop_video_title">Folaigh físeán lúb</string>
   <string name="revanced_hide_player_flyout_loop_video_summary_on">Tá roghchlár físe lúb i bhfolach</string>
@@ -518,6 +518,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_ambient_mode_title">Folaigh modh comhthimpeallach</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_on">Tá roghchlár mód chomhthimpeallach</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_off">Taispeántar roghchlár mód comhthimpeallach</string>
+  <string name="revanced_hide_player_flyout_stable_volume_title">Folaigh toirt cobhsaí</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_off">Taispeántar roghchlár toirte cobhsaí</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_on">Tá roghchlár toirte cobhsaí i bhfolach</string>
   <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_help_title">Folaigh Cabhair &amp; aiseolas</string>
   <string name="revanced_hide_player_flyout_help_summary_on">Cabhair &amp; Tá an roghchlár aiseolais i bhfolach</string>
@@ -543,6 +546,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Folaigh Watch i VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Tá faire i roghchlár VR i bhfolach</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Taispeántar an faire sa roghchlár VR</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_title">Folaigh buntásc roghchlár cáilíochta físe</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Tá buntásc an roghchláir cáilíochta físeáin folaithe</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Taispeántar buntásc roghchlár cáilíochta físeáin</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_player_previous_next_buttons_title">Folaigh &amp; cnaipí físeáin seo chugainn</string>
@@ -757,6 +763,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_wide_searchbar_summary_off">Tá barra cuardaigh leathan míchumasaithe</string>
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_title">Cumasaigh mionsamhlacha ardchaighdeáin</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Tá mionsamhlacha Seekbar ardchaighdeáin</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Tá mionsamhlacha barra cuardaigh de chaighdeán meánach</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Tá mionsamhlacha an bharra cuardaigh lánscáileáin ar ardchaighdeán</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Tá mionsamhlacha an bharra cuardaigh lánscáileáin de chaighdeán meánach</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Cuirfidh sé seo mionsamhlacha ar ais go sruthanna beo nach bhfuil mionsamhlacha barra cuardaigh acu.\n\nD\'fhéadfadh úsáid sonraí idirlín a bheith níos airde, agus beidh moill bheag ar mhionsamhlacha an bharra cuardaigh sula dtaispeánfar iad.\n\nIs fearr a oibríonn an ghné seo le nasc idirlín an-tapa.</string>
   </patch>
   <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
   <string name="revanced_restore_old_seekbar_thumbnails_title">Cuir sean-mionsamhlacha barra cuardaigh ar ais</string>
@@ -957,7 +969,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - Athchóirigh luas leathan físe &amp; roghchlár cáilíochta</string>
   <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - Athchóirigh cluaisín leabharlainne</string>
   <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Athchóirigh sean-seilf seinmliostaí</string>
-  <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - Athchóirigh sean leagan amach Chomhéadain</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Socraigh leathanach tosaigh</string>
@@ -1149,7 +1160,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_playback_speed_dialog_button_summary_off">Ní thaispeántar an cnaipe</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <string name="revanced_custom_speed_menu_title">Roghchlár luas athsheinm saincheaptha</string>
+  <string name="revanced_custom_speed_menu_summary_on">Taispeántar roghchlár luais saincheaptha</string>
+  <string name="revanced_custom_speed_menu_summary_off">Ní thaispeántar roghchlár luais saincheaptha</string>
   <string name="revanced_custom_playback_speeds_title">Luas athsheinm saincheaptha</string>
+  <string name="revanced_custom_playback_speeds_summary">Cuir leis nó athraigh na luasanna athsheinm saincheaptha</string>
   <string name="revanced_custom_playback_speeds_invalid">Caithfidh luasanna saincheaptha a bheith níos lú ná %s. Úsáid luachanna réamhshocraithe.</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Luasanna athsheinm saincheaptha neamhí Luachanna réamhshocraithe a úsáid.</string>
   </patch>

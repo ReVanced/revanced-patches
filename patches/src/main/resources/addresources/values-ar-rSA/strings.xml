@@ -86,9 +86,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_12_video_title">الفيديو</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
-  <string name="revanced_shorts_disable_background_playback_title">تعطيل تشغيل خلفية الاختصارات</string>
-  <string name="revanced_shorts_disable_background_playback_summary_on">تم تعطيل تشغيل الخلفية المختصرة</string>
-  <string name="revanced_shorts_disable_background_playback_summary_off">تشغيل خلفية الاختصارات مفعل</string>
+  <string name="revanced_shorts_disable_background_playback_title">تعطيل تشغيل فيديوهات Shorts في الخلفية</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">تم تعطيل تشغيل Shorts بالخلفية</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">تم تمكين تشغيل Shorts بالخلفية</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">تصحيح الأخطاء</string>
@@ -120,9 +120,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">إخفاء زر الميكروفون العائم</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">تم إخفاء زر الميكروفون</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">يتم عرض زر الميكروفون</string>
-  <string name="revanced_hide_gray_separator_title">إخفاء الفاصل الرمادي</string>
-  <string name="revanced_hide_gray_separator_summary_on">تم إخفاء الفواصل الرمادية</string>
-  <string name="revanced_hide_gray_separator_summary_off">يتم عرض الفواصل الرمادية</string>
   <string name="revanced_hide_channel_watermark_title">إخفاء العلامة المائية للقناة</string>
   <string name="revanced_hide_channel_watermark_summary_on">تم إخفاء علامة الفيديو المائية</string>
   <string name="revanced_hide_channel_watermark_summary_off">يتم عرض علامة الفيديو المائية</string>
@@ -167,9 +164,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_expandable_chip_title">إخفاء الشريحة القابلة للتوسيع تحت مقاطع الفيديو</string>
   <string name="revanced_hide_expandable_chip_summary_on">تم إخفاء الرقائق القابلة للتوسيع</string>
   <string name="revanced_hide_expandable_chip_summary_off">يتم عرض الرقائق القابلة للتوسيع</string>
-  <string name="revanced_hide_video_quality_menu_footer_title">إخفاء تذييل قائمة جودة الفيديو</string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_on">تم إخفاء تذييل قائمة جودة الفيديو</string>
-  <string name="revanced_hide_video_quality_menu_footer_summary_off">يتم عرض تذييل قائمة جودة الفيديو</string>
   <string name="revanced_hide_community_posts_title">إخفاء مشاركات المجتمع</string>
   <string name="revanced_hide_community_posts_summary_on">تم إخفاء مشاركات المجتمع</string>
   <string name="revanced_hide_community_posts_summary_off">يتم عرض مشاركات المجتمع</string>
@@ -513,7 +507,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_additional_settings_summary_on">تم إخفاء قائمة الإعدادات الإضافية</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_off">يتم عرض قائمة الإعدادات الإضافية</string>
   <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_sleep_timer_title">إخفاء مؤقت السكون</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_title">إخفاء مؤقت النوم</string>
   <string name="revanced_hide_player_flyout_sleep_timer_summary_on">تم إخفاء قائمة مؤقت النوم</string>
   <string name="revanced_hide_player_flyout_sleep_timer_summary_off">يتم عرض قائمة مؤقت النوم</string>
   <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -524,6 +518,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_ambient_mode_title">إخفاء وضع الإضاءة السينمائية</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_on">تم إخفاء قائمة الإضاءة السينمائية</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_off">يتم عرض قائمة الإضاءة السينمائية</string>
+  <string name="revanced_hide_player_flyout_stable_volume_title">إخفاء مستوى الصوت الثابت</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_off">يتم عرض قائمة مستوى الصوت الثابت</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_on">تم إخفاء قائمة مستوى الصوت الثابت</string>
   <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_help_title">إخفاء المساعدة &amp; الملاحظات</string>
   <string name="revanced_hide_player_flyout_help_summary_on">تم إخفاء قائمة المساعدة &amp; الملاحظات</string>
@@ -549,6 +546,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_title">إخفاء المشاهدة في VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">تم إخفاء قائمة المشاهدة في الوضع الافتراضي</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">يتم عرض قائمة المشاهدة في الوضع الافتراضي</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_title">إخفاء تذييل قائمة جودة الفيديو</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">تم إخفاء تذييل قائمة جودة الفيديو</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">يتم عرض تذييل قائمة جودة الفيديو</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_player_previous_next_buttons_title">إخفاء أزرار الفيديو السابق &amp; التالي</string>
@@ -763,12 +763,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_wide_searchbar_summary_off">تم تعطيل شريط البحث العريض</string>
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
-  <string name="revanced_seekbar_thumbnails_high_quality_title">تمكين الصور المصغرة عالية الجودة</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">الصور المصغرة لشريط البحث عالية الجودة</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">الصور المصغرة لشريط البحث جودة متوسطة</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">الصور المصغرة لشريط البحث بملء الشاشة عالية الجودة</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">الصور المصغرة لشريط البحث بملء الشاشة ذات جودة متوسطة</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">سيؤدي هذا إلى استعادة الصور المصغرة إلى الحياة التي لا تحتوي على مصغرات شريط البحث.\n\nقد يكون استخدام بيانات الإنترنت أعلى، ومصغرات شريط البحث سوف يكون لها تأخير طفيف قبل العرض.\n\nتعمل هذه الميزة بشكل أفضل مع اتصال إنترنت سريع جدا.</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_title">تمكين المصغرات عالية الجودة</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">مصغرات شريط التقدم عالية الجودة</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">مصغرات شريط التقدم متوسطة الجودة</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">مصغرات شريط التقدم بملء الشاشة عالية الجودة</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">مصغرات شريط التقدم بملء الشاشة متوسطة الجودة</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">سيؤدي هذا إلى استعادة المصغرات إلى البث المباشر الذي لا يحتوي على مصغرات لشريط التقدم.\n\nقد يكون استخدام بيانات الإنترنت أعلى، وقد يحدث تأخير طفيف في عرض المصغرات لشريط التقدم.\n\nتعمل هذه الميزة بشكل أفضل مع اتصال إنترنت سريع للغاية.</string>
   </patch>
   <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
   <string name="revanced_restore_old_seekbar_thumbnails_title">استعادة مصغرات شريط التقدم القديم</string>
@@ -969,7 +969,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - استعادة سرعة الفيديو الواسعة &amp; قائمة الجودة</string>
   <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - استعادة علامة تبويب المكتبة</string>
   <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - استعادة رف قائمة التشغيل القديم</string>
-  <string name="revanced_spoof_app_version_target_entry_5">17.33.42 - استعادة تصميم واجهة المستخدم القديم</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">تعيين صفحة البداية</string>
@@ -1161,9 +1160,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_playback_speed_dialog_button_summary_off">لا يتم عرض الزر</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
-  <string name="revanced_custom_speed_menu_title">قائمة سرعة تشغيل مخصصة</string>
-  <string name="revanced_custom_speed_menu_summary_on">قائمة السرعة المخصصة تظهر</string>
-  <string name="revanced_custom_speed_menu_summary_off">لم تظهر قائمة السرعة المخصصة</string>
+  <string name="revanced_custom_speed_menu_title">قائمة سرعة التشغيل المخصصة</string>
+  <string name="revanced_custom_speed_menu_summary_on">يتم عرض قائمة سرعة التشغيل المخصصة</string>
+  <string name="revanced_custom_speed_menu_summary_off">لا يتم عرض قائمة سرعة التشغيل المخصصة</string>
   <string name="revanced_custom_playback_speeds_title">سرعة التشغيل المخصصة</string>
   <string name="revanced_custom_playback_speeds_summary">إضافة أو تغيير سرعة التشغيل المخصصة</string>
   <string name="revanced_custom_playback_speeds_invalid">يجب أن تكون السرعة المخصصة أقل من %s. باستخدام القيم الافتراضية.</string>

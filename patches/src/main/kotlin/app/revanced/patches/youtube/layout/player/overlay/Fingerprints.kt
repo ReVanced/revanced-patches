@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.layout.player.overlay
 
 import app.revanced.patcher.fingerprint
-import app.revanced.util.containsLiteralInstruction
+import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -14,7 +14,5 @@ internal val createPlayerOverviewFingerprint = fingerprint {
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CHECK_CAST,
     )
-    custom { method, _ ->
-        method.containsLiteralInstruction(scrimOverlayId)
-    }
+    literal { scrimOverlayId }
 }
