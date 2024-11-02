@@ -22,8 +22,6 @@ val zoomHapticsPatch = bytecodePatch(
 
     compatibleWith("com.google.android.youtube")
 
-    val zoomHapticsMatch by zoomHapticsFingerprint()
-
     execute {
         addResources("youtube", "misc.zoomhaptics.zoomHapticsPatch")
 
@@ -31,7 +29,7 @@ val zoomHapticsPatch = bytecodePatch(
             SwitchPreference("revanced_disable_zoom_haptics"),
         )
 
-        zoomHapticsMatch.mutableMethod.apply {
+        zoomHapticsMatch.method.apply {
             addInstructionsWithLabels(
                 0,
                 """

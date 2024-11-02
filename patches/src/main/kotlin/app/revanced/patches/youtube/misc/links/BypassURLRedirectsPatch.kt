@@ -39,11 +39,6 @@ val bypassURLRedirectsPatch = bytecodePatch(
         ),
     )
 
-    val abUriParserMatch by abUriParserFingerprint()
-    val abUriParserLegacyMatch by abUriParserLegacyFingerprint()
-    val httpUriParserMatch by httpUriParserFingerprint()
-    val httpUriParserLegacyMatch by httpUriParserLegacyFingerprint()
-
     execute {
         addResources("youtube", "misc.links.bypassURLRedirectsPatch")
 
@@ -64,7 +59,7 @@ val bypassURLRedirectsPatch = bytecodePatch(
         }
 
         matches.forEach {
-            it.mutableMethod.apply {
+            it.method.apply {
                 val insertIndex = findUriParseIndex()
                 val uriStringRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
 

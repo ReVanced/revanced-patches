@@ -13,12 +13,10 @@ val removeDeviceRestrictionsPatch = bytecodePatch(
 ) {
     compatibleWith("com.google.android.apps.recorder")
 
-    val onApplicationCreateMatch by onApplicationCreateFingerprint()
-
     execute {
         val featureStringIndex = onApplicationCreateMatch.stringMatches!!.first().index
 
-        onApplicationCreateMatch.mutableMethod.apply {
+        onApplicationCreateMatch.method.apply {
             // Remove check for device restrictions.
             removeInstructions(featureStringIndex - 2, 5)
 

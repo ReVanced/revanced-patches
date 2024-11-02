@@ -19,10 +19,10 @@ import app.revanced.patches.youtube.misc.check.checkEnvironmentPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.fix.cairo.disableCairoSettingsPatch
 import app.revanced.util.*
-import app.revanced.util.inputStreamFromBundledResource
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.util.MethodUtil
+import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 // Used by a fingerprint() from SettingsPatch.
 internal var appearanceStringId = -1L
@@ -47,7 +47,7 @@ private val settingsResourcePatch = resourcePatch {
         ),
     )
 
-    execute { context ->
+    execute {
         // Used for a fingerprint from SettingsPatch.
         appearanceStringId = resourceMappings["string", "app_theme_appearance_dark"]
 
@@ -66,14 +66,14 @@ private val settingsResourcePatch = resourcePatch {
             targetResource,
         )!!.let { inputStream ->
             "resources".copyXmlNode(
-                context.document[inputStream],
-                context.document["res/$targetResource"],
+                document(inputStream),
+                document("res/$targetResource"),
             ).close()
         }
 
         // Remove horizontal divider from the settings Preferences
         // To better match the appearance of the stock YouTube settings.
-        context.document["res/values/styles.xml"].use { document ->
+        document("res/values/styles.xml").use { document ->
 
             arrayOf(
                 "Theme.YouTube.Settings",
@@ -93,7 +93,7 @@ private val settingsResourcePatch = resourcePatch {
         // Modify the manifest and add a data intent filter to the LicenseActivity.
         // Some devices freak out if undeclared data is passed to an intent,
         // and this change appears to fix the issue.
-        context.document["AndroidManifest.xml"].use { document ->
+        document("AndroidManifest.xml").use { document ->
 
             val licenseElement = document.childNodes.findElementByAttributeValueOrThrow(
                 "android:name",
@@ -124,9 +124,6 @@ val settingsPatch = bytecodePatch(
         checkEnvironmentPatch,
     )
 
-    val setThemeMatch by setThemeFingerprint()
-    val licenseActivityOnCreateMatch by licenseActivityOnCreateFingerprint()
-
     val extensionPackage = "app/revanced/extension/youtube"
     val activityHookClassDescriptor = "L$extensionPackage/settings/LicenseActivityHook;"
 
@@ -154,7 +151,7 @@ val settingsPatch = bytecodePatch(
             ),
         )
 
-        setThemeMatch.mutableMethod.let { setThemeMethod ->
+        setThemeMatch.method.let { setThemeMethod ->
             setThemeMethod.implementation!!.instructions.mapIndexedNotNull { i, instruction ->
                 if (instruction.opcode == Opcode.RETURN_OBJECT) i else null
             }.asReversed().forEach { returnIndex ->
@@ -178,7 +175,7 @@ val settingsPatch = bytecodePatch(
         // Modify the license activity and remove all existing layout code.
         // Must modify an existing activity and cannot add a new activity to the manifest,
         // as that fails for root installations.
-        licenseActivityOnCreateMatch.mutableMethod.addInstructions(
+        licenseActivityOnCreateMatch.method.addInstructions(
             1,
             """
                 invoke-static { p0 }, $activityHookClassDescriptor->initialize(Landroid/app/Activity;)V
@@ -187,7 +184,7 @@ val settingsPatch = bytecodePatch(
         )
 
         // Remove other methods as they will break as the onCreate method is modified above.
-        licenseActivityOnCreateMatch.mutableClass.apply {
+        licenseActivityOnCreateMatch.classDef.apply {
             methods.removeIf { it.name != "onCreate" && !MethodUtil.isConstructor(it) }
         }
     }

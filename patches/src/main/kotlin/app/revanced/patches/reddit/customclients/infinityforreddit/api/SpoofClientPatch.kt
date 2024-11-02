@@ -10,12 +10,10 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodImplementation
 val spoofClientPatch = spoofClientPatch(redirectUri = "infinity://localhost") { clientIdOption ->
     compatibleWith("ml.docilealligator.infinityforreddit")
 
-    val apiUtilsMatch by apiUtilsFingerprint()
-
     val clientId by clientIdOption
 
     execute {
-        apiUtilsMatch.mutableClass.methods.apply {
+        apiUtilsMatch.classDef.methods.apply {
             val getClientIdMethod = single { it.name == "getId" }.also(::remove)
 
             val newGetClientIdMethod = ImmutableMethod(

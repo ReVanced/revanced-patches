@@ -1,7 +1,7 @@
 package app.revanced.util
 
-import app.revanced.patcher.patch.ResourcePatchContext
 import app.revanced.patcher.patch.PatchException
+import app.revanced.patcher.patch.ResourcePatchContext
 import app.revanced.patcher.util.Document
 import app.revanced.util.resource.BaseResource
 import org.w3c.dom.Attr
@@ -23,7 +23,8 @@ fun NodeList.asSequence() = (0 until this.length).asSequence().map { this.item(i
  * Returns a sequence for all child nodes.
  */
 @Suppress("UNCHECKED_CAST")
-fun Node.childElementsSequence() = this.childNodes.asSequence().filter { it.nodeType == Node.ELEMENT_NODE } as Sequence<Element>
+fun Node.childElementsSequence() =
+    this.childNodes.asSequence().filter { it.nodeType == Node.ELEMENT_NODE } as Sequence<Element>
 
 /**
  * Performs the given [action] on each child element.
@@ -97,7 +98,7 @@ fun ResourcePatchContext.iterateXmlNodeChildren(
     resource: String,
     targetTag: String,
     callback: (node: Node) -> Unit,
-) = document[classLoader.getResourceAsStream(resource)!!].use { document ->
+) = document(classLoader.getResourceAsStream(resource)!!).use { document ->
     val stringsNode = document.getElementsByTagName(targetTag).item(0).childNodes
     for (i in 1 until stringsNode.length - 1) callback(stringsNode.item(i))
 }
@@ -164,9 +165,8 @@ internal fun NodeList.findElementByAttributeValue(attributeName: String, value: 
     return null
 }
 
-internal fun NodeList.findElementByAttributeValueOrThrow(attributeName: String, value: String): Element {
-    return findElementByAttributeValue(attributeName, value) ?: throw PatchException("Could not find: $attributeName $value")
-}
+internal fun NodeList.findElementByAttributeValueOrThrow(attributeName: String, value: String) =
+    findElementByAttributeValue(attributeName, value) ?: throw PatchException("Could not find: $attributeName $value")
 
 internal fun Element.copyAttributesFrom(oldContainer: Element) {
     // Copy attributes from the old element to the new element

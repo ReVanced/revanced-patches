@@ -9,10 +9,8 @@ val hideAdsPatch = bytecodePatch(
 ) {
     compatibleWith("jp.pxv.android")
 
-    val shouldShowAdsMatch by shouldShowAdsFingerprint()
-
     execute {
-        shouldShowAdsMatch.mutableMethod.addInstructions(
+        shouldShowAdsMatch.method.addInstructions(
             0,
             """
                 const/4 v0, 0x0

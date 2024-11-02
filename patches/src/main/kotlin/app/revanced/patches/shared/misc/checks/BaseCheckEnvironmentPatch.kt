@@ -35,10 +35,6 @@ fun checkEnvironmentPatch(
         addResourcesPatch,
     )
 
-    val patchInfoMatch by patchInfoFingerprint()
-    val patchInfoBuildMatch by patchInfoBuildFingerprint()
-    val mainActivityOnCreateMatch by mainActivityOnCreateFingerprint()
-
     execute {
         addResources("shared", "misc.checks.checkEnvironmentPatch")
 
@@ -79,7 +75,7 @@ fun checkEnvironmentPatch(
             }
         }
 
-        fun invokeCheck() = mainActivityOnCreateMatch.mutableMethod?.addInstructions(
+        fun invokeCheck() = mainActivityOnCreateMatch.method?.addInstructions(
             0,
             "invoke-static/range { p0 .. p0 },$EXTENSION_CLASS_DESCRIPTOR->check(Landroid/app/Activity;)V",
         )
@@ -105,7 +101,7 @@ private val Long.encoded get() = MutableLongEncodedValue(ImmutableLongEncodedVal
 private fun <T : MutableEncodedValue> Match.setClassFields(vararg fieldNameValues: Pair<String, T>) {
     val fieldNameValueMap = mapOf(*fieldNameValues)
 
-    mutableClass.fields.forEach { field ->
+    classDef.fields.forEach { field ->
         field.initialValue = fieldNameValueMap[field.name] ?: return@forEach
     }
 }

@@ -6,15 +6,12 @@ import app.revanced.patches.reddit.customclients.spoofClientPatch
 val spoofClientPatch = spoofClientPatch(redirectUri = "http://rubenmayayo.com") { clientIdOption ->
     compatibleWith("com.rubenmayayo.reddit")
 
-    val getClientIdMatch by getClientIdFingerprint()
-    val buildUserAgentMatch by buildUserAgentFingerprint()
-
     val clientId by clientIdOption
 
     execute {
         // region Patch client id.
 
-        getClientIdMatch.mutableMethod.addInstructions(
+        getClientIdMatch.method.addInstructions(
             0,
             """
                  const-string v0, "$clientId"
@@ -30,7 +27,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "http://rubenmayayo.com") 
         val platformName = (0..100000).random()
         val platformParameter = 0
 
-        buildUserAgentMatch.mutableMethod.addInstructions(
+        buildUserAgentMatch.method.addInstructions(
             0,
             "const-string p$platformParameter, \"$platformName\"",
         )

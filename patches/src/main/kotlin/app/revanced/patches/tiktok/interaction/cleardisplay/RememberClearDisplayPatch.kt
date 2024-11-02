@@ -5,7 +5,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.tiktok.shared.onRenderFirstFrameFingerprint
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -20,11 +19,8 @@ val rememberClearDisplayPatch = bytecodePatch(
         "com.zhiliaoapp.musically"("36.5.4"),
     )
 
-    val onClearDisplayEventMatch by onClearDisplayEventFingerprint()
-    val onRenderFirstFrameMatch by onRenderFirstFrameFingerprint()
-
     execute {
-        onClearDisplayEventMatch.mutableMethod.let {
+        onClearDisplayEventMatch.method.let {
             // region Hook the "Clear display" configuration save event to remember the state of clear display.
 
             val isEnabledIndex = it.indexOfFirstInstructionOrThrow(Opcode.IGET_BOOLEAN) + 1
@@ -41,7 +37,7 @@ val rememberClearDisplayPatch = bytecodePatch(
             // region Override the "Clear display" configuration load event to load the state of clear display.
 
             val clearDisplayEventClass = it.parameters[0].type
-            onRenderFirstFrameMatch.mutableMethod.addInstructionsWithLabels(
+            onRenderFirstFrameMatch.method.addInstructionsWithLabels(
                 0,
                 """
                         # Create a new clearDisplayEvent and post it to the EventBus (https://github.com/greenrobot/EventBus)
@@ -64,7 +60,7 @@ val rememberClearDisplayPatch = bytecodePatch(
                         invoke-direct { v0, v1, v2, v3, v4 }, $clearDisplayEventClass-><init>(ILjava/lang/String;Ljava/lang/String;Z)V
                         invoke-virtual { v0 }, $clearDisplayEventClass->post()Lcom/ss/android/ugc/governance/eventbus/IEvent;
                     """,
-                ExternalLabel("clear_display_disabled", onRenderFirstFrameMatch.mutableMethod.getInstruction(0)),
+                ExternalLabel("clear_display_disabled", onRenderFirstFrameMatch.method.getInstruction(0)),
             )
 
             // endregion

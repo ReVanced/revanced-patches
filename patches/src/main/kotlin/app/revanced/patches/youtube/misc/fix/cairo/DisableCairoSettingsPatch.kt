@@ -16,8 +16,6 @@ internal val disableCairoSettingsPatch = bytecodePatch(
 ) {
     dependsOn(versionCheckPatch)
 
-    val cairoFragmentConfigMatch by cairoFragmentConfigFingerprint()
-
     execute {
         if (!is_19_04_or_greater) {
             return@execute
@@ -35,7 +33,7 @@ internal val disableCairoSettingsPatch = bytecodePatch(
          * Screenshots of the Cairo Fragment:
          * <a href="https://github.com/qnblackcat/uYouPlus/issues/1468">uYouPlus#1468</a>.
          */
-        cairoFragmentConfigMatch.mutableMethod.apply {
+        cairoFragmentConfigMatch.method.apply {
             val literalIndex = indexOfFirstLiteralInstructionOrThrow(
                 CAIRO_CONFIG_LITERAL_VALUE,
             )

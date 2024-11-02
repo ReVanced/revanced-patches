@@ -34,15 +34,12 @@ val playerResponseMethodHookPatch = bytecodePatch {
         versionCheckPatch,
     )
 
-    val playerParameterBuilderMatch by playerParameterBuilderFingerprint()
-    val playerParameterBuilderLegacyMatch by playerParameterBuilderLegacyFingerprint()
-
     execute {
         if (is_19_23_or_greater) {
-            playerResponseMethod = playerParameterBuilderMatch.mutableMethod
+            playerResponseMethod = playerParameterBuilderMatch.method
             parameterIsShortAndOpeningOrPlaying = 12
         } else {
-            playerResponseMethod = playerParameterBuilderLegacyMatch.mutableMethod
+            playerResponseMethod = playerParameterBuilderLegacyMatch.method
             parameterIsShortAndOpeningOrPlaying = 11
         }
 

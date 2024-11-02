@@ -9,12 +9,9 @@ val disableAdsPatch = bytecodePatch(
 ) {
     compatibleWith("com.rubenmayayo.reddit")
 
-    val maxMediationMatch by maxMediationFingerprint()
-    val admobMediationMatch by admobMediationFingerprint()
-
     execute {
         arrayOf(maxMediationMatch, admobMediationMatch).forEach {
-            it.mutableMethod.addInstructions(0, "return-void")
+            it.method.addInstructions(0, "return-void")
         }
     }
 }

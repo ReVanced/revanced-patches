@@ -11,7 +11,6 @@ import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -40,10 +39,6 @@ val shortsAutoplayPatch = bytecodePatch(
         ),
     )
 
-    val mainActivityOnCreateMatch by mainActivityOnCreateFingerprint()
-    val reelEnumConstructorMatch by reelEnumConstructorFingerprint()
-    val reelPlaybackRepeatMatch by reelPlaybackRepeatFingerprint()
-
     execute {
         addResources("youtube", "layout.shortsautoplay.shortsAutoplayPatch")
 
@@ -58,15 +53,15 @@ val shortsAutoplayPatch = bytecodePatch(
         }
 
         // Main activity is used to check if app is in pip mode.
-        mainActivityOnCreateMatch.mutableMethod.addInstructions(
+        mainActivityOnCreateMatch.method.addInstructions(
             0,
             "invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->" +
                 "setMainActivity(Landroid/app/Activity;)V",
         )
 
-        val reelEnumClass = reelEnumConstructorMatch.classDef.type
+        val reelEnumClass = reelEnumConstructorMatch.originalClassDef.type
 
-        reelEnumConstructorMatch.mutableMethod.apply {
+        reelEnumConstructorMatch.method.apply {
             val insertIndex = reelEnumConstructorMatch.patternMatch!!.startIndex
 
             addInstructions(
@@ -80,7 +75,7 @@ val shortsAutoplayPatch = bytecodePatch(
             )
         }
 
-        reelPlaybackRepeatMatch.mutableMethod.apply {
+        reelPlaybackRepeatMatch.method.apply {
             // The behavior enums are looked up from an ordinal value to an enum type.
             findInstructionIndicesReversedOrThrow {
                 val reference = getReference<MethodReference>()

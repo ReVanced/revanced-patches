@@ -10,10 +10,8 @@ val unlockPremiumIconPatch = bytecodePatch(
 ) {
     compatibleWith("com.reddit.frontpage")
 
-    val hasPremiumIconAccessMatch by hasPremiumIconAccessFingerprint()
-
     execute {
-        hasPremiumIconAccessMatch.mutableMethod.addInstructions(
+        hasPremiumIconAccessMatch.method.addInstructions(
             0,
             """
                 const/4 v0, 0x1

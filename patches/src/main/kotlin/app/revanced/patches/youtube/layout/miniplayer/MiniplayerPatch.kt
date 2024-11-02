@@ -170,15 +170,7 @@ val miniplayerPatch = bytecodePatch(
         ),
     )
 
-    val miniplayerDimensionsCalculatorParentMatch by miniplayerDimensionsCalculatorParentFingerprint()
-    val miniplayerResponseModelSizeCheckMatch by miniplayerResponseModelSizeCheckFingerprint()
-    val miniplayerOverrideMatch by miniplayerOverrideFingerprint()
-    val miniplayerModernConstructorMatch by miniplayerModernConstructorFingerprint()
-    val miniplayerModernViewParentMatch by miniplayerModernViewParentFingerprint()
-    val miniplayerMinimumSizeMatch by miniplayerMinimumSizeFingerprint()
-    val playerOverlaysLayoutMatch by playerOverlaysLayoutFingerprint()
-
-    execute { context ->
+    execute {
         addResources("youtube", "layout.miniplayer.miniplayerPatch")
 
         val preferences = mutableSetOf<BasePreference>()
@@ -270,7 +262,7 @@ val miniplayerPatch = bytecodePatch(
             literal: Long,
             extensionMethod: String,
         ) {
-            mutableMethod.apply {
+            method.apply {
                 val literalIndex = indexOfFirstLiteralInstructionOrThrow(literal)
                 val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
 
@@ -282,7 +274,7 @@ val miniplayerPatch = bytecodePatch(
             literal: Long,
             extensionMethod: String,
         ) {
-            mutableMethod.apply {
+            method.apply {
                 val literalIndex = indexOfFirstLiteralInstructionOrThrow(literal)
                 val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.DOUBLE_TO_FLOAT)
                 val register = getInstruction<OneRegisterInstruction>(targetIndex).registerA
@@ -344,12 +336,12 @@ val miniplayerPatch = bytecodePatch(
         // region Legacy tablet miniplayer hooks.
 
         val appNameStringIndex = miniplayerOverrideMatch.stringMatches!!.first().index + 2
-        context.navigate(miniplayerOverrideMatch.mutableMethod).at(appNameStringIndex).mutable().apply {
+        context.navigate(miniplayerOverrideMatch.method).at(appNameStringIndex).mutable().apply {
             findReturnIndicesReversed().forEach { index -> insertLegacyTabletMiniplayerOverride(index) }
         }
 
         miniplayerResponseModelSizeCheckMatch.let {
-            it.mutableMethod.insertLegacyTabletMiniplayerOverride(it.patternMatch!!.endIndex)
+            it.method.insertLegacyTabletMiniplayerOverride(it.patternMatch!!.endIndex)
         }
 
         if (!is_19_16_or_greater) {
@@ -361,7 +353,7 @@ val miniplayerPatch = bytecodePatch(
 
         // region Enable modern miniplayer.
 
-        miniplayerModernConstructorMatch.mutableClass.methods.forEach {
+        miniplayerModernConstructorMatch.classDef.methods.forEach {
             it.apply {
                 if (AccessFlags.CONSTRUCTOR.isSet(accessFlags)) {
                     val iPutIndex = indexOfFirstInstructionOrThrow {
@@ -400,7 +392,7 @@ val miniplayerPatch = bytecodePatch(
         }
 
         if (is_19_26_or_greater) {
-            miniplayerModernConstructorMatch.mutableMethod.apply {
+            miniplayerModernConstructorMatch.method.apply {
                 val literalIndex = indexOfFirstLiteralInstructionOrThrow(
                     INITIAL_SIZE_FEATURE_KEY_LITERAL,
                 )
@@ -418,7 +410,7 @@ val miniplayerPatch = bytecodePatch(
             }
 
             // Override a mininimum miniplayer size constant.
-            miniplayerMinimumSizeMatch.mutableMethod.apply {
+            miniplayerMinimumSizeMatch.method.apply {
                 val index = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.CONST_16 && (this as NarrowLiteralInstruction).narrowLiteral == 192
                 }
@@ -530,7 +522,7 @@ val miniplayerPatch = bytecodePatch(
         //
         // NOTE: Modern 2 uses the same video UI as the regular player except resized to smaller.
         // This patch code could be used to hide other player overlays that do not use Litho.
-        playerOverlaysLayoutMatch.mutableClass.methods.add(
+        playerOverlaysLayoutMatch.classDef.methods.add(
             ImmutableMethod(
                 YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME,
                 "addView",

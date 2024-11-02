@@ -12,12 +12,10 @@ val restoreHiddenBackUpWhileChargingTogglePatch = bytecodePatch(
 ) {
     compatibleWith("com.google.android.apps.photos")
 
-    val backupPreferencesMatch by backupPreferencesFingerprint()
-
     execute {
         // Patches 'backup_prefs_had_backup_only_when_charging_enabled' to always be true.
         val chargingPrefStringIndex = backupPreferencesMatch.stringMatches!!.first().index
-        backupPreferencesMatch.mutableMethod.apply {
+        backupPreferencesMatch.method.apply {
             // Get the register of move-result.
             val resultRegister = getInstruction<OneRegisterInstruction>(chargingPrefStringIndex + 2).registerA
             // Insert const after move-result to override register as true.

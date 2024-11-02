@@ -5,7 +5,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tiktok.misc.extension.sharedExtensionPatch
 import app.revanced.patches.tiktok.misc.settings.settingsPatch
-import app.revanced.patches.tiktok.misc.settings.settingsStatusLoadFingerprint
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -25,11 +24,8 @@ val feedFilterPatch = bytecodePatch(
         "com.zhiliaoapp.musically"("36.5.4"),
     )
 
-    val feedApiServiceLIZMatch by feedApiServiceLIZFingerprint()
-    val settingsStatusLoadMatch by settingsStatusLoadFingerprint()
-
     execute {
-        feedApiServiceLIZMatch.mutableMethod.apply {
+        feedApiServiceLIZMatch.method.apply {
             val returnFeedItemInstruction = instructions.first { it.opcode == Opcode.RETURN_OBJECT }
             val feedItemsRegister = (returnFeedItemInstruction as OneRegisterInstruction).registerA
 
@@ -40,7 +36,7 @@ val feedFilterPatch = bytecodePatch(
             )
         }
 
-        settingsStatusLoadMatch.mutableMethod.addInstruction(
+        settingsStatusLoadMatch.method.addInstruction(
             0,
             "invoke-static {}, Lapp/revanced/extension/tiktok/settings/SettingsStatus;->enableFeedFilter()V",
         )

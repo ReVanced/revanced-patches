@@ -10,9 +10,7 @@ val rootDetectionPatch = bytecodePatch(
 ) {
     compatibleWith("at.gv.bka.serviceportal")
 
-    val rootDetectionMatch by rootDetectionFingerprint()
-
     execute {
-        rootDetectionMatch.mutableMethod.addInstruction(0, "return-void")
+        rootDetectionMatch.method.addInstruction(0, "return-void")
     }
 }

@@ -10,10 +10,8 @@ val disableTelemetryPatch = bytecodePatch(
 ) {
     compatibleWith("com.soundcloud.android")
 
-    val createTrackingApiMatch by createTrackingApiFingerprint()
-
     execute {
         // Empty the "backend" argument to abort the initializer.
-        createTrackingApiMatch.mutableMethod.addInstruction(0, "const-string p1, \"\"")
+        createTrackingApiMatch.method.addInstruction(0, "const-string p1, \"\"")
     }
 }

@@ -19,10 +19,9 @@ fun sharedExtensionPatch(
 ) = bytecodePatch {
     extendWith("extensions/shared.rve")
 
-    val revancedUtilsPatchesVersionMatch by revancedUtilsPatchesVersionFingerprint()
     hooks.forEach { it.fingerprint() }
 
-    execute { context ->
+    execute {
         if (context.classBy { EXTENSION_CLASS_DESCRIPTOR in it.type } == null) {
             throw PatchException(
                 "Shared extension has not been merged yet. This patch can not succeed without merging it.",
@@ -32,7 +31,7 @@ fun sharedExtensionPatch(
         hooks.forEach { hook -> hook(EXTENSION_CLASS_DESCRIPTOR) }
 
         // Modify Utils method to include the patches release version.
-        revancedUtilsPatchesVersionMatch.mutableMethod.apply {
+        revancedUtilsPatchesVersionMatch.method.apply {
             /**
              * @return The file path for the jar this classfile is contained inside.
              */

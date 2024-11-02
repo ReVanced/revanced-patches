@@ -15,7 +15,6 @@ import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.IntentPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playercontrols.*
-import app.revanced.patches.youtube.misc.playercontrols.addTopControl
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.addSettingPreference
 import app.revanced.patches.youtube.misc.settings.newIntent
@@ -32,6 +31,9 @@ import com.android.tools.smali.dexlib2.iface.instruction.*
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
+import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
+import org.stringtemplate.v4.compiler.Bytecode.instructions
+import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 private val sponsorBlockResourcePatch = resourcePatch {
     dependsOn(
@@ -41,7 +43,7 @@ private val sponsorBlockResourcePatch = resourcePatch {
         playerControlsPatch,
     )
 
-    execute { context ->
+    execute {
         addResources("youtube", "layout.sponsorblock.sponsorBlockResourcePatch")
 
         addSettingPreference(
@@ -120,12 +122,7 @@ val sponsorBlockPatch = bytecodePatch(
         ),
     )
 
-    val seekbarMatch by seekbarFingerprint()
-    val appendTimeMatch by appendTimeFingerprint()
-    val layoutConstructorMatch by layoutConstructorFingerprint()
-    val autoRepeatParentMatch by autoRepeatParentFingerprint()
-
-    execute { context ->
+    execute {
         // Hook the video time methods.
         videoTimeHook(
             EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR,
@@ -184,7 +181,7 @@ val sponsorBlockPatch = bytecodePatch(
 
         // Append the new time to the player layout.
         val appendTimePatternScanStartIndex = appendTimeMatch.patternMatch!!.startIndex
-        appendTimeMatch.mutableMethod.apply {
+        appendTimeMatch.method.apply {
             val register = getInstruction<OneRegisterInstruction>(appendTimePatternScanStartIndex + 1).registerA
 
             addInstructions(
@@ -218,7 +215,7 @@ val sponsorBlockPatch = bytecodePatch(
 
             // replace the "replaceMeWith*" strings
             context
-                .proxy(context.classes.first { it.type.endsWith("SegmentPlaybackController;") })
+                .proxy(classes.first { it.type.endsWith("SegmentPlaybackController;") })
                 .mutableClass
                 .methods
                 .find { it.name == "setSponsorBarRect" }

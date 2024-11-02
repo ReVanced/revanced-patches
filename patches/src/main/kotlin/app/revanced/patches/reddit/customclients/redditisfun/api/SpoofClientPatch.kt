@@ -16,10 +16,6 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "redditisfun://auth") { cl
         "com.andrewshu.android.redditdonation",
     )
 
-    val buildAuthorizationStringMatch by buildAuthorizationStringFingerprint()
-    val basicAuthorizationMatch by basicAuthorizationFingerprint()
-    val getUserAgentMatch by getUserAgentFingerprint()
-
     val clientId by clientIdOption
 
     execute {
@@ -36,7 +32,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "redditisfun://auth") { cl
         fun Match.replaceWith(
             string: String,
             getReplacementIndex: List<Match.StringMatch>.() -> Int,
-        ) = mutableMethod.apply {
+        ) = method.apply {
             val replacementIndex = stringMatches!!.getReplacementIndex()
             val clientIdRegister = getInstruction<OneRegisterInstruction>(replacementIndex).registerA
 
@@ -57,7 +53,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "redditisfun://auth") { cl
         val randomName = (0..100000).random()
         val userAgent = "$randomName:app.revanced.$randomName:v1.0.0 (by /u/revanced)"
 
-        getUserAgentMatch.mutableMethod.addInstructions(
+        getUserAgentMatch.method.addInstructions(
             0,
             """
                 const-string v0, "$userAgent"
@@ -71,7 +67,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "redditisfun://auth") { cl
 
         // Reddit messed up and does not append a redirect uri to the authorization url to old.reddit.com/login.
         // Replace old.reddit.com with ssl.reddit.com to fix this.
-        buildAuthorizationStringMatch.mutableMethod.apply {
+        buildAuthorizationStringMatch.method.apply {
             val index = indexOfFirstInstructionOrThrow {
                 getReference<StringReference>()?.contains("old.reddit.com") == true
             }

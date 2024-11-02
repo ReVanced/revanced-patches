@@ -33,9 +33,7 @@ val disablePreciseSeekingGesturePatch = bytecodePatch(
         ),
     )
 
-    val swipingUpGestureParentMatch by swipingUpGestureParentFingerprint()
-
-    execute { context ->
+    execute {
         addResources("youtube", "interaction.seekbar.disablePreciseSeekingGesturePatch")
 
         PreferenceScreen.SEEKBAR.addPreferences(

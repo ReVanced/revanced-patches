@@ -16,8 +16,6 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.layoutConstructorFingerprint
-import app.revanced.patches.youtube.shared.subtitleButtonControllerFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
@@ -65,11 +63,6 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
         ),
     )
 
-    val playerControlsPreviousNextOverlayTouchMatch by playerControlsPreviousNextOverlayTouchFingerprint()
-    val mediaRouteButtonMatch by mediaRouteButtonFingerprint()
-    val subtitleButtonControllerMatch by subtitleButtonControllerFingerprint()
-    val layoutConstructorMatch by layoutConstructorFingerprint()
-
     execute {
         addResources("youtube", "layout.buttons.overlay.hidePlayerOverlayButtonsPatch")
 
@@ -82,7 +75,7 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
 
         // region Hide player next/previous button.
 
-        playerControlsPreviousNextOverlayTouchMatch.mutableMethod.apply {
+        playerControlsPreviousNextOverlayTouchMatch.method.apply {
             val resourceIndex = indexOfFirstLiteralInstructionOrThrow(playerControlPreviousButtonTouchArea)
 
             val insertIndex = indexOfFirstInstructionOrThrow(resourceIndex) {
@@ -103,7 +96,7 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
 
         // region Hide cast button.
 
-        mediaRouteButtonMatch.mutableMethod.addInstructions(
+        mediaRouteButtonMatch.method.addInstructions(
             0,
             """
                 invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->getCastButtonOverrideV2(I)I
@@ -115,7 +108,7 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
 
         // region Hide captions button.
 
-        subtitleButtonControllerMatch.mutableMethod.apply {
+        subtitleButtonControllerMatch.method.apply {
             // Due to previously applied patches, scanResult index cannot be used in this context
             val insertIndex = indexOfFirstInstructionOrThrow(Opcode.IGET_BOOLEAN) + 1
 
@@ -129,7 +122,7 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
 
         // region Hide autoplay button.
 
-        layoutConstructorMatch.mutableMethod.apply {
+        layoutConstructorMatch.method.apply {
             val constIndex = indexOfFirstResourceIdOrThrow("autonav_toggle")
             val constRegister = getInstruction<OneRegisterInstruction>(constIndex).registerA
 

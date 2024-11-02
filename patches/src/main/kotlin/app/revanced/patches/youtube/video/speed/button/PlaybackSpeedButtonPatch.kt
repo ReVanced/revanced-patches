@@ -15,7 +15,7 @@ import app.revanced.util.copyResources
 private val playbackSpeedButtonResourcePatch = resourcePatch {
     dependsOn(playerControlsResourcePatch)
 
-    execute { context ->
+    execute {
         context.copyResources(
             "speedbutton",
             ResourceGroup(

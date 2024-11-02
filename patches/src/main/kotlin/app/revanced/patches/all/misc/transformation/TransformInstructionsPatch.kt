@@ -12,16 +12,15 @@ fun <T> transformInstructionsPatch(
     transform: (MutableMethod, T) -> Unit,
 ) = bytecodePatch {
     // Returns the patch indices as a Sequence, which will execute lazily.
-    fun findPatchIndices(classDef: ClassDef, method: Method): Sequence<T>? {
-        return method.implementation?.instructions?.asSequence()?.withIndex()?.mapNotNull { (index, instruction) ->
+    fun findPatchIndices(classDef: ClassDef, method: Method): Sequence<T>? =
+        method.implementation?.instructions?.asSequence()?.withIndex()?.mapNotNull { (index, instruction) ->
             filterMap(classDef, method, instruction, index)
         }
-    }
 
-    execute { context ->
+    execute {
         // Find all methods to patch
         buildMap {
-            context.classes.forEach { classDef ->
+            classes.forEach { classDef ->
                 val methods = buildList {
                     classDef.methods.forEach { method ->
                         // Since the Sequence executes lazily,
@@ -37,7 +36,7 @@ fun <T> transformInstructionsPatch(
             }
         }.forEach { (classDef, methods) ->
             // And finally transform the methods...
-            val mutableClass = context.proxy(classDef).mutableClass
+            val mutableClass = proxy(classDef).mutableClass
 
             methods.map(mutableClass::findMutableMethodOf).forEach methods@{ mutableMethod ->
                 val patchIndices = findPatchIndices(mutableClass, mutableMethod)?.toCollection(ArrayDeque())

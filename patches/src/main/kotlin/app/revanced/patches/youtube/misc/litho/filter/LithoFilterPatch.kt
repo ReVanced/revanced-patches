@@ -36,12 +36,6 @@ val lithoFilterPatch = bytecodePatch(
         versionCheckPatch,
     )
 
-    val componentContextParserMatch by componentContextParserFingerprint()
-    val lithoFilterMatch by lithoFilterFingerprint()
-    val protobufBufferReferenceMatch by protobufBufferReferenceFingerprint()
-    val readComponentIdentifierMatch by readComponentIdentifierFingerprint()
-    val emptyComponentMatch by emptyComponentFingerprint()
-
     var filterCount = 0
 
     /**
@@ -95,10 +89,10 @@ val lithoFilterPatch = bytecodePatch(
      *    }
      * }
      */
-    execute { context ->
+    execute {
         // Remove dummy filter from extenion static field
         // and add the filters included during patching.
-        lithoFilterMatch.mutableMethod.apply {
+        lithoFilterMatch.method.apply {
             removeInstructions(2, 4) // Remove dummy filter.
 
             addLithoFilter = { classDescriptor ->
@@ -116,7 +110,7 @@ val lithoFilterPatch = bytecodePatch(
 
         // region Pass the buffer into extension.
 
-        protobufBufferReferenceMatch.mutableMethod.addInstruction(
+        protobufBufferReferenceMatch.method.addInstruction(
             0,
             " invoke-static { p2 }, $EXTENSION_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V",
         )
@@ -125,9 +119,9 @@ val lithoFilterPatch = bytecodePatch(
 
         // region Hook the method that parses bytes into a ComponentContext.
 
-        val readComponentMethod = readComponentIdentifierMatch.method
+        val readComponentMethod = readComponentIdentifierMatch.originalMethod
         // Get the only static method in the class.
-        val builderMethodDescriptor = emptyComponentMatch.classDef.methods.first { method ->
+        val builderMethodDescriptor = emptyComponentMatch.originalClassDef.methods.first { method ->
             AccessFlags.STATIC.isSet(method.accessFlags)
         }
         // Only one field.
@@ -135,7 +129,7 @@ val lithoFilterPatch = bytecodePatch(
             builderMethodDescriptor.returnType == classDef.type
         }!!.immutableClass.fields.single()
 
-        componentContextParserMatch.mutableMethod.apply {
+        componentContextParserMatch.method.apply {
             // 19.18 and later require patching 2 methods instead of one.
             // Otherwise, the patched code is the same.
             if (is_19_18_or_greater) {
@@ -174,7 +168,7 @@ val lithoFilterPatch = bytecodePatch(
 
         // region Read component then store the result.
 
-        readComponentIdentifierMatch.mutableMethod.apply {
+        readComponentIdentifierMatch.method.apply {
             val insertHookIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.IPUT_OBJECT &&
                     getReference<FieldReference>()?.type == "Ljava/lang/StringBuilder;"
@@ -238,6 +232,6 @@ val lithoFilterPatch = bytecodePatch(
     }
 
     finalize {
-        lithoFilterMatch.mutableMethod.replaceInstruction(0, "const/16 v0, $filterCount")
+        lithoFilterMatch.method.replaceInstruction(0, "const/16 v0, $filterCount")
     }
 }

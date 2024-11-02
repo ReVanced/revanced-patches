@@ -131,18 +131,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
         ),
     )
 
-    val parseElementFromBufferMatch by parseElementFromBufferFingerprint()
-    val playerOverlayMatch by playerOverlayFingerprint()
-    val hideShowMoreButtonMatch by hideShowMoreButtonFingerprint()
-    val albumCardsMatch by albumCardsFingerprint()
-    val crowdfundingBoxMatch by crowdfundingBoxFingerprint()
-    val yoodlesImageViewMatch by yoodlesImageViewFingerprint()
-    val relatedChipCloudMatch by relatedChipCloudFingerprint()
-    val searchResultsChipBarMatch by searchResultsChipBarFingerprint()
-    val showFloatingMicrophoneButtonMatch by showFloatingMicrophoneButtonFingerprint()
-    val filterBarHeightMatch by filterBarHeightFingerprint()
-
-    execute { context ->
+    execute {
         addResources("youtube", "layout.hide.general.hideLayoutComponentsPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
@@ -254,7 +243,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         val startIndex = parseElementFromBufferMatch.patternMatch!!.startIndex
 
-        parseElementFromBufferMatch.mutableMethod.apply {
+        parseElementFromBufferMatch.method.apply {
             val freeRegister = "v0"
             val byteArrayParameter = "p3"
             val conversionContextRegister = getInstruction<TwoRegisterInstruction>(startIndex).registerA
@@ -296,7 +285,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         // region Show more button
 
-        hideShowMoreButtonMatch.mutableMethod.apply {
+        hideShowMoreButtonMatch.method.apply {
             val moveRegisterIndex = hideShowMoreButtonMatch.patternMatch!!.endIndex
             val viewRegister = getInstruction<OneRegisterInstruction>(moveRegisterIndex).registerA
 
@@ -312,7 +301,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         // region crowdfunding box
         crowdfundingBoxMatch.let {
-            it.mutableMethod.apply {
+            it.method.apply {
                 val insertIndex = it.patternMatch!!.endIndex
                 val objectRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
@@ -329,7 +318,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
         // region hide album cards
 
         albumCardsMatch.let {
-            it.mutableMethod.apply {
+            it.method.apply {
                 val checkCastAnchorIndex = it.patternMatch!!.endIndex
                 val insertIndex = checkCastAnchorIndex + 1
                 val register = getInstruction<OneRegisterInstruction>(checkCastAnchorIndex).registerA
@@ -347,7 +336,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
         // region hide floating microphone
 
         showFloatingMicrophoneButtonMatch.let {
-            it.mutableMethod.apply {
+            it.method.apply {
                 val startIndex = it.patternMatch!!.startIndex
                 val register = getInstruction<TwoRegisterInstruction>(startIndex).registerA
 
@@ -365,7 +354,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         // region 'Yoodles'
 
-        yoodlesImageViewMatch.mutableMethod.apply {
+        yoodlesImageViewMatch.method.apply {
             findInstructionIndicesReversedOrThrow {
                 getReference<MethodReference>()?.name == "setImageDrawable"
             }.forEach { insertIndex ->
@@ -399,7 +388,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
             insertIndexOffset: Int = 0,
             hookRegisterOffset: Int = 0,
             instructions: (Int) -> String,
-        ) = mutableMethod.apply {
+        ) = method.apply {
             val endIndex = patternMatch!!.endIndex
 
             val insertIndex = endIndex + insertIndexOffset

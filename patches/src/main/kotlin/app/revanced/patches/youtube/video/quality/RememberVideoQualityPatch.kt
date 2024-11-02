@@ -12,13 +12,13 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.newVideoQualityChangedFingerprint
 import app.revanced.patches.youtube.video.information.onCreateHook
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.applyMatch
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/playback/quality/RememberVideoQualityPatch;"
@@ -45,11 +45,7 @@ val rememberVideoQualityPatch = bytecodePatch(
         ),
     )
 
-    val videoQualitySetterMatch by videoQualitySetterFingerprint()
-    val videoQualityItemOnClickParentMatch by videoQualityItemOnClickParentFingerprint()
-    val newVideoQualityChangedMatch by newVideoQualityChangedFingerprint()
-
-    execute { context ->
+    execute {
         addResources("youtube", "video.quality.rememberVideoQualityPatch")
 
         PreferenceScreen.VIDEO.addPreferences(
@@ -93,7 +89,7 @@ val rememberVideoQualityPatch = bytecodePatch(
             val setQualityByIndexMethodClassFieldReference =
                 getSetQualityByIndexMethodClassFieldReference as FieldReference
 
-            val setQualityByIndexMethodClass = context.classes
+            val setQualityByIndexMethodClass = classes
                 .find { classDef -> classDef.type == setQualityByIndexMethodClassFieldReference.type }!!
 
             // Get the name of the setQualityByIndex method.
@@ -101,7 +97,7 @@ val rememberVideoQualityPatch = bytecodePatch(
                 .find { method -> method.parameterTypes.first() == "I" }
                 ?: throw PatchException("Could not find setQualityByIndex method")
 
-            videoQualitySetterMatch.mutableMethod.addInstructions(
+            videoQualitySetterMatch.method.addInstructions(
                 0,
                 """
                     # Get the object instance to invoke the setQualityByIndex method on.
@@ -123,7 +119,7 @@ val rememberVideoQualityPatch = bytecodePatch(
         }
 
         // Inject a call to remember the selected quality.
-        videoQualityItemOnClickParentMatch.mutableClass.methods.find { it.name == "onItemClick" }?.apply {
+        videoQualityItemOnClickParentMatch.classDef.methods.find { it.name == "onItemClick" }?.apply {
             val listItemIndexParameter = 3
 
             addInstruction(
@@ -134,7 +130,7 @@ val rememberVideoQualityPatch = bytecodePatch(
         } ?: throw PatchException("Failed to find onItemClick method")
 
         // Remember video quality if not using old layout menu.
-        newVideoQualityChangedMatch.mutableMethod.apply {
+        newVideoQualityChangedMatch.method.apply {
             val index = newVideoQualityChangedMatch.patternMatch!!.startIndex
             val qualityRegister = getInstruction<TwoRegisterInstruction>(index).registerA
 

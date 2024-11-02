@@ -275,7 +275,7 @@ val addResourcesPatch = resourcePatch(
     After all patches that depend on addResourcesPatch have been executed,
     addResourcesPatch#finalize is finally called to add all staged resources to the app.
      */
-    execute { context ->
+    execute {
         stagedResources = buildMap {
             /**
              * Puts resources under `/resources/addresources/<value>/<resourceKind>.xml` into the map.
@@ -299,7 +299,7 @@ val addResourcesPatch = resourcePatch(
                     // instead of overwriting it.
                     // This covers the example case such as adding strings and arrays of the same value.
                     getOrPut(destValue, ::mutableMapOf).apply {
-                        context.document[stream].use { document ->
+                        document(stream).use { document ->
                             document.getElementsByTagName("app").asSequence().forEach { app ->
                                 val appId = app.attributes.getNamedItem("id").textContent
 
@@ -343,7 +343,7 @@ val addResourcesPatch = resourcePatch(
      * Adds all resources staged in [addResourcesPatch] to the app.
      * This is called after all patches that depend on [addResourcesPatch] have been executed.
      */
-    finalize { context ->
+    finalize {
         operator fun MutableMap<String, Pair<Document, Node>>.invoke(
             value: Value,
             resource: BaseResource,
@@ -360,7 +360,7 @@ val addResourcesPatch = resourcePatch(
 
             getOrPut(resourceFileName) {
                 val targetFile =
-                    context["res/$value/$resourceFileName.xml"].also {
+                    this@finalize["res/$value/$resourceFileName.xml"].also {
                         it.parentFile?.mkdirs()
 
                         if (it.createNewFile()) {
@@ -368,7 +368,7 @@ val addResourcesPatch = resourcePatch(
                         }
                     }
 
-                context.document[targetFile.path].let { document ->
+                document(targetFile.path).let { document ->
 
                     // Save the target node here as well
                     // in order to avoid having to call document.getNode("resources")

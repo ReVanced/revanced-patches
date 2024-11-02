@@ -3,8 +3,6 @@ package app.revanced.patches.youtube.video.speed.custom
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
@@ -30,6 +28,9 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
+import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
+import org.stringtemplate.v4.compiler.Bytecode.instructions
+import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 var speedUnavailableId = -1L
     internal set
@@ -63,12 +64,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         addResourcesPatch,
     )
 
-    val speedArrayGeneratorMatch by speedArrayGeneratorFingerprint()
-    val speedLimiterMatch by speedLimiterFingerprint()
-    val getOldPlaybackSpeedsMatch by getOldPlaybackSpeedsFingerprint()
-    val showOldPlaybackSpeedMenuExtensionMatch by showOldPlaybackSpeedMenuExtensionFingerprint()
-
-    execute { context ->
+    execute {
         addResources("youtube", "video.speed.custom.customPlaybackSpeedPatch")
 
         PreferenceScreen.VIDEO.addPreferences(
@@ -77,7 +73,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         )
 
         // Replace the speeds float array with custom speeds.
-        speedArrayGeneratorMatch.mutableMethod.apply {
+        speedArrayGeneratorMatch.method.apply {
             val sizeCallIndex = indexOfFirstInstructionOrThrow { getReference<MethodReference>()?.name == "size" }
             val sizeCallResultRegister = getInstruction<OneRegisterInstruction>(sizeCallIndex + 1).registerA
 
@@ -109,7 +105,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         }
 
         // Override the min/max speeds that can be used.
-        speedLimiterMatch.mutableMethod.apply {
+        speedLimiterMatch.method.apply {
             val limitMinIndex = indexOfFirstLiteralInstructionOrThrow(0.25f.toRawBits().toLong())
             var limitMaxIndex = indexOfFirstLiteralInstruction(2.0f.toRawBits().toLong())
             // Newer targets have 4x max speed.
@@ -127,19 +123,19 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         // Add a static INSTANCE field to the class.
         // This is later used to call "showOldPlaybackSpeedMenu" on the instance.
         val instanceField = ImmutableField(
-            getOldPlaybackSpeedsMatch.classDef.type,
+            getOldPlaybackSpeedsMatch.originalClassDef.type,
             "INSTANCE",
-            getOldPlaybackSpeedsMatch.classDef.type,
+            getOldPlaybackSpeedsMatch.originalClassDef.type,
             AccessFlags.PUBLIC.value or AccessFlags.STATIC.value,
             null,
             null,
             null,
         ).toMutable()
 
-        getOldPlaybackSpeedsMatch.mutableClass.staticFields.add(instanceField)
+        getOldPlaybackSpeedsMatch.classDef.staticFields.add(instanceField)
         // Set the INSTANCE field to the instance of the class.
         // In order to prevent a conflict with another patch, add the instruction at index 1.
-        getOldPlaybackSpeedsMatch.mutableMethod.addInstruction(1, "sput-object p0, $instanceField")
+        getOldPlaybackSpeedsMatch.method.addInstruction(1, "sput-object p0, $instanceField")
 
         // Get the "showOldPlaybackSpeedMenu" method.
         // This is later called on the field INSTANCE.
@@ -149,7 +145,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         ).method.toString()
 
         // Insert the call to the "showOldPlaybackSpeedMenu" method on the field INSTANCE.
-        showOldPlaybackSpeedMenuExtensionMatch.mutableMethod.apply {
+        showOldPlaybackSpeedMenuExtensionMatch.method.apply {
             addInstructionsWithLabels(
                 instructions.lastIndex,
                 """

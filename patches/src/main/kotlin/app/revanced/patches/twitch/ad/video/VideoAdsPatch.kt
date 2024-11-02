@@ -26,11 +26,8 @@ val videoAdsPatch = bytecodePatch(
         settingsPatch,
         addResourcesPatch,
         adPatch(conditionCall, skipLabelName) { createConditionInstructions, blockMethods ->
-            val checkAdEligibilityLambdaMatch by checkAdEligibilityLambdaFingerprint()
-            val getReadyToShowAdMatch by getReadyToShowAdFingerprint()
-            val contentConfigShowAdsMatch by contentConfigShowAdsFingerprint()
 
-            execute { context ->
+            execute {
                 addResources("twitch", "ad.video.videoAdsPatch")
 
                 PreferenceScreen.ADS.CLIENT_SIDE.addPreferences(
@@ -114,7 +111,7 @@ val videoAdsPatch = bytecodePatch(
                 )
 
                 // Pretend our player is ineligible for all ads.
-                checkAdEligibilityLambdaMatch.mutableMethod.addInstructionsWithLabels(
+                checkAdEligibilityLambdaMatch.method.addInstructionsWithLabels(
                     0,
                     """
                         ${createConditionInstructions("v0")}
@@ -125,13 +122,13 @@ val videoAdsPatch = bytecodePatch(
                     """,
                     ExternalLabel(
                         skipLabelName,
-                        checkAdEligibilityLambdaMatch.mutableMethod.getInstruction(0),
+                        checkAdEligibilityLambdaMatch.method.getInstruction(0),
                     ),
                 )
 
                 val adFormatDeclined =
                     "Ltv/twitch/android/shared/display/ads/theatre/StreamDisplayAdsPresenter\$Action\$AdFormatDeclined;"
-                getReadyToShowAdMatch.mutableMethod.addInstructionsWithLabels(
+                getReadyToShowAdMatch.method.addInstructionsWithLabels(
                     0,
                     """
                     ${createConditionInstructions("v0")}
@@ -140,11 +137,11 @@ val videoAdsPatch = bytecodePatch(
                     move-result-object p1
                     return-object p1
                 """,
-                    ExternalLabel(skipLabelName, getReadyToShowAdMatch.mutableMethod.getInstruction(0)),
+                    ExternalLabel(skipLabelName, getReadyToShowAdMatch.method.getInstruction(0)),
                 )
 
                 // Spoof showAds JSON field.
-                contentConfigShowAdsMatch.mutableMethod.addInstructions(
+                contentConfigShowAdsMatch.method.addInstructions(
                     0,
                     """
                     ${createConditionInstructions("v0")}

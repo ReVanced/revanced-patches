@@ -2,6 +2,7 @@ package app.revanced.patches.amazon
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val deepLinkingPatch = bytecodePatch(
@@ -10,10 +11,8 @@ val deepLinkingPatch = bytecodePatch(
 ) {
     compatibleWith("com.amazon.mShop.android.shopping")
 
-    val deepLinkingMatch by deepLinkingFingerprint()
-
     execute {
-        deepLinkingMatch.mutableMethod.addInstructions(
+        deepLinkingFingerprint.matchOrThrow.method.addInstructions(
             0,
             """
                 const/4 v0, 0x1

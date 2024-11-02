@@ -31,10 +31,6 @@ val showDeletedMessagesPatch = bytecodePatch(
         if-eqz $register, :no_spoiler
     """
 
-    val setHasModAccessMatch by setHasModAccessFingerprint()
-    val deletedMessageClickableSpanCtorMatch by deletedMessageClickableSpanCtorFingerprint()
-    val chatUtilCreateDeletedSpanMatch by chatUtilCreateDeletedSpanFingerprint()
-
     execute {
         addResources("twitch", "chat.antidelete.showDeletedMessagesPatch")
 
@@ -46,7 +42,7 @@ val showDeletedMessagesPatch = bytecodePatch(
         )
 
         // Spoiler mode: Force set hasModAccess member to true in constructor
-        deletedMessageClickableSpanCtorMatch.mutableMethod.apply {
+        deletedMessageClickableSpanCtorMatch.method.apply {
             addInstructionsWithLabels(
                 implementation!!.instructions.lastIndex, /* place in front of return-void */
                 """
@@ -59,10 +55,10 @@ val showDeletedMessagesPatch = bytecodePatch(
         }
 
         // Spoiler mode: Disable setHasModAccess setter
-        setHasModAccessMatch.mutableMethod.addInstruction(0, "return-void")
+        setHasModAccessMatch.method.addInstruction(0, "return-void")
 
         // Cross-out mode: Reformat span of deleted message
-        chatUtilCreateDeletedSpanMatch.mutableMethod.apply {
+        chatUtilCreateDeletedSpanMatch.method.apply {
             addInstructionsWithLabels(
                 0,
                 """

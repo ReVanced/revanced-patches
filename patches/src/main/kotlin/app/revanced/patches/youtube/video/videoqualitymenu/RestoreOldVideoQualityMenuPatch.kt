@@ -82,15 +82,12 @@ val restoreOldVideoQualityMenuPatch = bytecodePatch(
         ),
     )
 
-    val videoQualityMenuViewInflateMatch by videoQualityMenuViewInflateFingerprint()
-    val videoQualityMenuOptionsMatch by videoQualityMenuOptionsFingerprint()
-
     execute {
         // region Patch for the old type of the video quality menu.
         // Used for regular videos when spoofing to old app version,
         // and for the Shorts quality flyout on newer app versions.
 
-        videoQualityMenuViewInflateMatch.mutableMethod.apply {
+        videoQualityMenuViewInflateMatch.method.apply {
             val checkCastIndex = videoQualityMenuViewInflateMatch.patternMatch!!.endIndex
             val listViewRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
 
@@ -108,7 +105,7 @@ val restoreOldVideoQualityMenuPatch = bytecodePatch(
         if (startIndex != 0) throw PatchException("Unexpected opcode start index: $startIndex")
         val insertIndex = patternMatch.endIndex
 
-        videoQualityMenuOptionsMatch.mutableMethod.apply {
+        videoQualityMenuOptionsMatch.method.apply {
             val register = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
             // A condition controls whether to show the three or four items quality menu.

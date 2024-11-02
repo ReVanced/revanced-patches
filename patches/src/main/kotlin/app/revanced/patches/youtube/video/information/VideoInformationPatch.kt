@@ -8,7 +8,6 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
-import app.revanced.patches.youtube.shared.newVideoQualityChangedFingerprint
 import app.revanced.patches.youtube.video.playerresponse.Hook
 import app.revanced.patches.youtube.video.playerresponse.addPlayerResponseMethodHook
 import app.revanced.patches.youtube.video.playerresponse.playerResponseMethodHookPatch
@@ -34,7 +33,8 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/VideoInformation;"
-private const val EXTENSION_PLAYER_INTERFACE = "Lapp/revanced/extension/youtube/patches/VideoInformation${'$'}PlaybackController;"
+private const val EXTENSION_PLAYER_INTERFACE =
+    "Lapp/revanced/extension/youtube/patches/VideoInformation${'$'}PlaybackController;"
 
 private lateinit var playerInitMethod: MutableMethod
 private var playerInitInsertIndex = -1
@@ -74,15 +74,8 @@ val videoInformationPatch = bytecodePatch(
         playerResponseMethodHookPatch,
     )
 
-    val playerInitMatch by playerInitFingerprint()
-    val mdxPlayerDirectorSetVideoStageMatch by mdxPlayerDirectorSetVideoStageFingerprint()
-    val createVideoPlayerSeekbarMatch by createVideoPlayerSeekbarFingerprint()
-    val playerControllerSetTimeReferenceMatch by playerControllerSetTimeReferenceFingerprint()
-    val onPlaybackSpeedItemClickMatch by onPlaybackSpeedItemClickFingerprint()
-    val newVideoQualityChangedMatch by newVideoQualityChangedFingerprint()
-
-    execute { context ->
-        playerInitMethod = playerInitMatch.mutableClass.methods.first { MethodUtil.isConstructor(it) }
+    execute {
+        playerInitMethod = playerInitMatch.classDef.methods.first { MethodUtil.isConstructor(it) }
 
         // Find the location of the first invoke-direct call and extract the register storing the 'this' object reference.
         val initThisIndex = playerInitMethod.indexOfFirstInstructionOrThrow {
@@ -98,10 +91,14 @@ val videoInformationPatch = bytecodePatch(
         val seekRelativeFingerprintResultMethod = seekRelativeFingerprint.applyMatch(context, playerInitMatch).method
 
         // Create extension interface methods.
-        addSeekInterfaceMethods(playerInitMatch.mutableClass, seekFingerprintResultMethod, seekRelativeFingerprintResultMethod)
+        addSeekInterfaceMethods(
+            playerInitMatch.classDef,
+            seekFingerprintResultMethod,
+            seekRelativeFingerprintResultMethod,
+        )
 
         with(mdxPlayerDirectorSetVideoStageMatch) {
-            mdxInitMethod = mutableClass.methods.first { MethodUtil.isConstructor(it) }
+            mdxInitMethod = classDef.methods.first { MethodUtil.isConstructor(it) }
 
             val initThisIndex = mdxInitMethod.indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_DIRECT && getReference<MethodReference>()?.name == "<init>"
@@ -117,13 +114,13 @@ val videoInformationPatch = bytecodePatch(
             val mdxSeekRelativeFingerprintResultMethod =
                 mdxSeekRelativeFingerprint.applyMatch(context, mdxPlayerDirectorSetVideoStageMatch).method
 
-            addSeekInterfaceMethods(mutableClass, mdxSeekFingerprintResultMethod, mdxSeekRelativeFingerprintResultMethod)
+            addSeekInterfaceMethods(classDef, mdxSeekFingerprintResultMethod, mdxSeekRelativeFingerprintResultMethod)
         }
 
         with(createVideoPlayerSeekbarMatch) {
-            val videoLengthMethodMatch = videoLengthFingerprint.apply { match(context, classDef) }.match!!
+            val videoLengthMethodMatch = videoLengthFingerprint.apply { match(context, originalClassDef) }.match!!
 
-            with(videoLengthMethodMatch.mutableMethod) {
+            with(videoLengthMethodMatch.method) {
                 val videoLengthRegisterIndex = videoLengthMethodMatch.patternMatch!!.endIndex - 2
                 val videoLengthRegister = getInstruction<OneRegisterInstruction>(videoLengthRegisterIndex).registerA
                 val dummyRegisterForLong = videoLengthRegister + 1 // required for long values since they are wide
@@ -157,7 +154,7 @@ val videoInformationPatch = bytecodePatch(
         /*
          * Set the video time method
          */
-        timeMethod = context.navigate(playerControllerSetTimeReferenceMatch.method)
+        timeMethod = context.navigate(playerControllerSetTimeReferenceMatch.originalMethod)
             .at(playerControllerSetTimeReferenceMatch.patternMatch!!.startIndex)
             .mutable()
 
@@ -169,7 +166,7 @@ val videoInformationPatch = bytecodePatch(
         /*
          * Hook the user playback speed selection
          */
-        onPlaybackSpeedItemClickMatch.mutableMethod.apply {
+        onPlaybackSpeedItemClickMatch.method.apply {
             val speedSelectionMethodInstructions = implementation!!.instructions
             val speedSelectionValueInstructionIndex = speedSelectionMethodInstructions.indexOfFirst {
                 it.opcode == Opcode.IGET
@@ -201,6 +198,7 @@ val videoInformationPatch = bytecodePatch(
         userSelectedPlaybackSpeedHook(EXTENSION_CLASS_DESCRIPTOR, "userSelectedPlaybackSpeed")
     }
 }
+
 private fun addSeekInterfaceMethods(targetClass: MutableClass, seekToMethod: Method, seekToRelativeMethod: Method) {
     // Add the interface and methods that extension calls.
     targetClass.interfaces.add(EXTENSION_PLAYER_INTERFACE)

@@ -7,6 +7,7 @@ import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.copyResources
 import java.io.File
 import java.nio.file.Files
+import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 private const val REVANCED_ICON = "ReVanced*Logo" // Can never be a valid path.
 private const val APP_NAME = "YouTube ReVanced"
@@ -65,7 +66,7 @@ val customBrandingPatch = resourcePatch(
         """.trimIndentMultiline(),
     )
 
-    execute { context ->
+    execute {
         icon?.let { icon ->
             // Change the app icon.
             mipmapDirectories.map { directory ->
@@ -76,7 +77,7 @@ val customBrandingPatch = resourcePatch(
             }.let { resourceGroups ->
                 if (icon != REVANCED_ICON) {
                     val path = File(icon)
-                    val resourceDirectory = context["res"]
+                    val resourceDirectory = get("res")
 
                     resourceGroups.forEach { group ->
                         val fromDirectory = path.resolve(group.resourceDirectoryName)
@@ -97,7 +98,7 @@ val customBrandingPatch = resourcePatch(
 
         appName?.let { name ->
             // Change the app name.
-            val manifest = context["AndroidManifest.xml"]
+            val manifest = get("AndroidManifest.xml")
             manifest.writeText(
                 manifest.readText()
                     .replace(

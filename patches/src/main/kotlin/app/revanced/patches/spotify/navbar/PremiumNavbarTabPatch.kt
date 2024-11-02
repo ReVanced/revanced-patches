@@ -34,11 +34,9 @@ val premiumNavbarTabPatch = bytecodePatch(
 
     compatibleWith("com.spotify.music")
 
-    val addNavbarItemMatch by addNavBarItemFingerprint()
-
     // If the navigation bar item is the premium tab, do not add it.
     execute {
-        addNavbarItemMatch.mutableMethod.addInstructions(
+        addNavbarItemMatch.method.addInstructions(
             0,
             """
                 const v1, $premiumTabId

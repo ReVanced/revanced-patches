@@ -19,7 +19,7 @@ private val copyVideoUrlResourcePatch = resourcePatch {
         addResourcesPatch,
     )
 
-    execute { context ->
+    execute {
         addResources("youtube", "interaction.copyvideourl.copyVideoUrlResourcePatch")
 
         PreferenceScreen.PLAYER.addPreferences(

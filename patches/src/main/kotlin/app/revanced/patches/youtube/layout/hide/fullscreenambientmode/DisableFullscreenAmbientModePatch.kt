@@ -37,8 +37,6 @@ val disableFullscreenAmbientModePatch = bytecodePatch(
         ),
     )
 
-    val initializeAmbientModeMatch by initializeAmbientModeFingerprint()
-
     execute {
         // TODO: fix this patch when 19.43+ is eventually supported.
         if (is_19_43_or_greater) {
@@ -54,7 +52,7 @@ val disableFullscreenAmbientModePatch = bytecodePatch(
             SwitchPreference("revanced_disable_fullscreen_ambient_mode"),
         )
 
-        initializeAmbientModeMatch.mutableMethod.apply {
+        initializeAmbientModeMatch.method.apply {
             val moveIsEnabledIndex = initializeAmbientModeMatch.patternMatch!!.endIndex
 
             addInstruction(

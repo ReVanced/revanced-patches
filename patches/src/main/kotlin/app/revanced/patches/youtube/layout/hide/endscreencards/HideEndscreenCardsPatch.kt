@@ -64,17 +64,13 @@ val hideEndscreenCardsPatch = bytecodePatch(
         ),
     )
 
-    val layoutCircleMatch by layoutCircleFingerprint()
-    val layoutIconMatch by layoutIconFingerprint()
-    val layoutVideoMatch by layoutVideoFingerprint()
-
     execute {
         listOf(
             layoutCircleMatch,
             layoutIconMatch,
             layoutVideoMatch,
         ).forEach {
-            it.mutableMethod.apply {
+            it.method.apply {
                 val insertIndex = it.patternMatch!!.endIndex + 1
                 val viewRegister = getInstruction<Instruction21c>(insertIndex - 1).registerA
 

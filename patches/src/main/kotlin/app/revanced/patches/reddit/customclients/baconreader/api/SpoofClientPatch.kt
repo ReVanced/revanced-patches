@@ -12,16 +12,13 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "http://baconreader.com/au
         "com.onelouder.baconreader.premium",
     )
 
-    val getAuthorizationUrlMatch by getAuthorizationUrlFingerprint()
-    val requestTokenMatch by requestTokenFingerprint()
-
     val clientId by clientIdOption
 
     execute {
         fun Match.patch(replacementString: String) {
             val clientIdIndex = stringMatches!!.first().index
 
-            mutableMethod.apply {
+            method.apply {
                 val clientIdRegister = getInstruction<OneRegisterInstruction>(clientIdIndex).registerA
                 replaceInstruction(
                     clientIdIndex,

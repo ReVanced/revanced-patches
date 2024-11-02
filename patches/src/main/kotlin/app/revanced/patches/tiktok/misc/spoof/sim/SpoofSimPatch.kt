@@ -5,7 +5,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tiktok.misc.extension.sharedExtensionPatch
-import app.revanced.patches.tiktok.misc.settings.settingsStatusLoadFingerprint
 import app.revanced.patches.twitch.misc.settings.settingsPatch
 import app.revanced.util.findMutableMethodOf
 import com.android.tools.smali.dexlib2.Opcode
@@ -29,9 +28,7 @@ val spoofSimPatch = bytecodePatch(
         "com.zhiliaoapp.musically",
     )
 
-    val settingsStatusLoadMatch by settingsStatusLoadFingerprint()
-
-    execute { context ->
+    execute {
         val replacements = hashMapOf(
             "getSimCountryIso" to "getCountryIso",
             "getNetworkCountryIso" to "getCountryIso",
@@ -43,7 +40,7 @@ val spoofSimPatch = bytecodePatch(
 
         // Find all api call to check sim information.
         buildMap {
-            context.classes.forEach { classDef ->
+            classes.forEach { classDef ->
                 classDef.methods.let { methods ->
                     buildMap methodList@{
                         methods.forEach methods@{ method ->
@@ -71,7 +68,7 @@ val spoofSimPatch = bytecodePatch(
                 }
             }
         }.forEach { (classDef, methods) ->
-            with(context.proxy(classDef).mutableClass) {
+            with(proxy(classDef).mutableClass) {
                 methods.forEach { (method, patches) ->
                     with(findMutableMethodOf(method)) {
                         while (!patches.isEmpty()) {
@@ -94,7 +91,7 @@ val spoofSimPatch = bytecodePatch(
         }
 
         // Enable patch in settings.
-        settingsStatusLoadMatch.mutableMethod.addInstruction(
+        settingsStatusLoadMatch.method.addInstruction(
             0,
             "invoke-static {}, Lapp/revanced/extension/tiktok/settings/SettingsStatus;->enableSimSpoof()V",
         )

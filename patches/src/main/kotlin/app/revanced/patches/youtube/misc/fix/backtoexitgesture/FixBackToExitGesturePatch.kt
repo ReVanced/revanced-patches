@@ -8,13 +8,10 @@ import app.revanced.util.matchOrThrow
 internal val fixBackToExitGesturePatch = bytecodePatch(
     description = "Fixes the swipe back to exit gesture.",
 ) {
-    val recyclerViewTopScrollingParentMatch by recyclerViewTopScrollingParentFingerprint()
-    val recyclerViewScrollingMatch by recyclerViewScrollingFingerprint()
-    val onBackPressedMatch by onBackPressedFingerprint()
 
-    execute { context ->
+    execute {
         recyclerViewTopScrollingFingerprint.apply {
-            match(context, recyclerViewTopScrollingParentMatch.classDef)
+            match(context, recyclerViewTopScrollingParentMatch.originalClassDef)
         }
 
         /**
@@ -22,7 +19,7 @@ internal val fixBackToExitGesturePatch = bytecodePatch(
          *
          * @param targetMethod The target method to call.
          */
-        fun Match.injectCall(targetMethod: ExtensionMethod) = mutableMethod.addInstruction(
+        fun Match.injectCall(targetMethod: ExtensionMethod) = method.addInstruction(
             patternMatch!!.endIndex,
             targetMethod.toString(),
         )
