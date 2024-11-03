@@ -11,7 +11,7 @@ internal val fixBackToExitGesturePatch = bytecodePatch(
 
     execute {
         recyclerViewTopScrollingFingerprint.apply {
-            match(context, recyclerViewTopScrollingParentMatch.originalClassDef)
+            match(recyclerViewTopScrollingParentFingerprint.matchOrThrow.originalClassDef)
         }
 
         /**
@@ -28,10 +28,10 @@ internal val fixBackToExitGesturePatch = bytecodePatch(
             recyclerViewTopScrollingFingerprint.matchOrThrow to ExtensionMethod(
                 methodName = "onTopView",
             ),
-            recyclerViewScrollingMatch to ExtensionMethod(
+            recyclerViewScrollingFingerprint.matchOrThrow to ExtensionMethod(
                 methodName = "onScrollingViews",
             ),
-            onBackPressedMatch to ExtensionMethod(
+            onBackPressedFingerprint.matchOrThrow to ExtensionMethod(
                 "p0",
                 "onBackPressed",
                 "Landroid/app/Activity;",

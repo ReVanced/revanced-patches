@@ -11,6 +11,8 @@ import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.twitch.misc.extension.sharedExtensionPatch
 import app.revanced.patches.twitch.misc.settings.PreferenceScreen
 import app.revanced.patches.twitch.misc.settings.settingsPatch
+import app.revanced.util.matchOrThrow
+import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
 
 @Suppress("unused")
 val showDeletedMessagesPatch = bytecodePatch(
@@ -42,7 +44,7 @@ val showDeletedMessagesPatch = bytecodePatch(
         )
 
         // Spoiler mode: Force set hasModAccess member to true in constructor
-        deletedMessageClickableSpanCtorMatch.method.apply {
+        deletedMessageClickableSpanCtorFingerprint.matchOrThrow.method.apply {
             addInstructionsWithLabels(
                 implementation!!.instructions.lastIndex, /* place in front of return-void */
                 """
@@ -55,10 +57,10 @@ val showDeletedMessagesPatch = bytecodePatch(
         }
 
         // Spoiler mode: Disable setHasModAccess setter
-        setHasModAccessMatch.method.addInstruction(0, "return-void")
+        setHasModAccessFingerprint.matchOrThrow.method.addInstruction(0, "return-void")
 
         // Cross-out mode: Reformat span of deleted message
-        chatUtilCreateDeletedSpanMatch.method.apply {
+        chatUtilCreateDeletedSpanFingerprint.matchOrThrow.method.apply {
             addInstructionsWithLabels(
                 0,
                 """

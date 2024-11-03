@@ -7,8 +7,8 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
-import app.revanced.util.applyMatch
 import app.revanced.util.getReference
+import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -32,16 +32,17 @@ val cronetImageUrlHookPatch = bytecodePatch(
 
     execute {
         loadImageUrlMethod = messageDigestImageUrlFingerprint
-            .applyMatch(context, messageDigestImageUrlParentMatch).mutableMethod
+            .matchOrThrow(messageDigestImageUrlParentFingerprint).method
 
         loadImageSuccessCallbackMethod = onSucceededFingerprint
-            .applyMatch(context, onResponseStartedMatch).mutableMethod
+            .matchOrThrow(onResponseStartedFingerprint).method
 
         loadImageErrorCallbackMethod = onFailureFingerprint
-            .applyMatch(context, onResponseStartedMatch).mutableMethod
+            .matchOrThrow(onResponseStartedFingerprint).method
 
         // The URL is required for the failure callback hook, but the URL field is obfuscated.
         // Add a helper get method that returns the URL field.
+        val requestMatch by requestFingerprint
         val urlFieldInstruction = requestMatch.method.instructions.first {
             val reference = it.getReference<FieldReference>()
             it.opcode == Opcode.IPUT_OBJECT && reference?.type == "Ljava/lang/String;"

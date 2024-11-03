@@ -4,6 +4,7 @@ import app.revanced.patcher.Match
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patches.reddit.customclients.spoofClientPatch
+import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 val spoofClientPatch = spoofClientPatch(redirectUri = "http://baconreader.com/auth") { clientIdOption ->
@@ -28,9 +29,9 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "http://baconreader.com/au
         }
 
         // Patch client id in authorization url.
-        getAuthorizationUrlMatch.patch("client_id=$clientId")
+        getAuthorizationUrlFingerprint.matchOrThrow.patch("client_id=$clientId")
 
         // Patch client id for access token request.
-        requestTokenMatch.patch(clientId!!)
+        requestTokenFingerprint.matchOrThrow.patch(clientId!!)
     }
 }

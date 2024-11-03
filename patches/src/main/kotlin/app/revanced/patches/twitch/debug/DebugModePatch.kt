@@ -8,6 +8,7 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.twitch.misc.extension.sharedExtensionPatch
 import app.revanced.patches.twitch.misc.settings.PreferenceScreen
 import app.revanced.patches.twitch.misc.settings.settingsPatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val debugModePatch = bytecodePatch(
@@ -31,9 +32,9 @@ val debugModePatch = bytecodePatch(
         )
 
         listOf(
-            isDebugConfigEnabledMatch,
-            isOmVerificationEnabledMatch,
-            shouldShowDebugOptionsMatch,
+            isDebugConfigEnabledFingerprint.matchOrThrow,
+            isOmVerificationEnabledFingerprint.matchOrThrow,
+            shouldShowDebugOptionsFingerprint.matchOrThrow,
         ).forEach {
             it.method.addInstructions(
                 0,

@@ -7,8 +7,10 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tiktok.misc.extension.sharedExtensionPatch
 import app.revanced.patches.tiktok.misc.settings.settingsPatch
+import app.revanced.patches.tiktok.misc.settings.settingsStatusLoadFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
@@ -27,7 +29,7 @@ val downloadsPatch = bytecodePatch(
     )
 
     execute {
-        aclCommonShareMatch.method.replaceInstructions(
+        aclCommonShareFingerprint.matchOrThrow.method.replaceInstructions(
             0,
             """
                 const/4 v0, 0x0
@@ -35,7 +37,7 @@ val downloadsPatch = bytecodePatch(
             """,
         )
 
-        aclCommonShare2Match.method.replaceInstructions(
+        aclCommonShare2Fingerprint.matchOrThrow.method.replaceInstructions(
             0,
             """
                 const/4 v0, 0x2
@@ -44,7 +46,7 @@ val downloadsPatch = bytecodePatch(
         )
 
         // Download videos without watermark.
-        aclCommonShare3Match.method.addInstructionsWithLabels(
+        aclCommonShare3Fingerprint.matchOrThrow.method.addInstructionsWithLabels(
             0,
             """
                     invoke-static {}, Lapp/revanced/extension/tiktok/download/DownloadsPatch;->shouldRemoveWatermark()Z
@@ -58,7 +60,7 @@ val downloadsPatch = bytecodePatch(
         )
 
         // Change the download path patch.
-        downloadUriMatch.method.apply {
+        downloadUriFingerprint.matchOrThrow.method.apply {
             val firstIndex = indexOfFirstInstructionOrThrow {
                 getReference<MethodReference>()?.name == "<init>"
             }
@@ -83,7 +85,7 @@ val downloadsPatch = bytecodePatch(
             )
         }
 
-        settingsStatusLoadMatch.method.addInstruction(
+        settingsStatusLoadFingerprint.matchOrThrow.method.addInstruction(
             0,
             "invoke-static {}, Lapp/revanced/extension/tiktok/settings/SettingsStatus;->enableDownload()V",
         )

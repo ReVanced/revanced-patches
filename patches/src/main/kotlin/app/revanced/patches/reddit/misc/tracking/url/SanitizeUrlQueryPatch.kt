@@ -2,6 +2,7 @@ package app.revanced.patches.reddit.misc.tracking.url
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val sanitizeUrlQueryPatch = bytecodePatch(
@@ -11,7 +12,7 @@ val sanitizeUrlQueryPatch = bytecodePatch(
     compatibleWith("com.reddit.frontpage")
 
     execute {
-        shareLinkFormatterMatch.method.addInstructions(
+        shareLinkFormatterFingerprint.matchOrThrow.method.addInstructions(
             0,
             "return-object p0",
         )

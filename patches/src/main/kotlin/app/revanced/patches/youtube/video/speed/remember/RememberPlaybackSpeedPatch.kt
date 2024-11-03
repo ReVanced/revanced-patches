@@ -13,6 +13,7 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.video.information.*
 import app.revanced.patches.youtube.video.speed.custom.customPlaybackSpeedPatch
+import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
@@ -50,7 +51,7 @@ internal val rememberPlaybackSpeedPatch = bytecodePatch {
         /*
          * Hook the code that is called when the playback speeds are initialized, and sets the playback speed
          */
-        initializePlaybackSpeedValuesMatch.method.apply {
+        initializePlaybackSpeedValuesFingerprint.matchOrThrow.method.apply {
             // Infer everything necessary for calling the method setPlaybackSpeed().
             val onItemClickListenerClassFieldReference = getInstruction<ReferenceInstruction>(0).reference
 

@@ -4,6 +4,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.photomath.detection.signature.signatureDetectionPatch
 import app.revanced.patches.photomath.misc.unlock.bookpoint.enableBookpointPatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val unlockPlusPatch = bytecodePatch(
@@ -14,7 +15,7 @@ val unlockPlusPatch = bytecodePatch(
     compatibleWith("com.microblink.photomath"("8.37.0"))
 
     execute {
-        isPlusUnlockedMatch.method.addInstructions(
+        isPlusUnlockedFingerprint.matchOrThrow.method.addInstructions(
             0,
             """
                 const/4 v0, 0x1

@@ -10,6 +10,7 @@ val signatureDetectionPatch = bytecodePatch(
 ) {
 
     execute {
+        val checkSignatureMatch by checkSignatureFingerprint
         val signatureCheckInstruction = checkSignatureMatch.method.getInstruction(
             checkSignatureMatch.patternMatch!!.endIndex,
         )

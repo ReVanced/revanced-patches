@@ -2,13 +2,14 @@ package app.revanced.patches.reddit.ad.comments
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.matchOrThrow
 
 val hideCommentAdsPatch = bytecodePatch(
     description = "Removes ads in the comments.",
 ) {
 
     execute {
-        hideCommentAdsMatch.method.addInstructions(
+        hideCommentAdsFingerprint.matchOrThrow.method.addInstructions(
             0,
             """
                 new-instance v0, Ljava/lang/Object;

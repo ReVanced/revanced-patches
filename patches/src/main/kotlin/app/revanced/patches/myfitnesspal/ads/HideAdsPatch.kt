@@ -2,6 +2,7 @@ package app.revanced.patches.myfitnesspal.ads
 
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val hideAdsPatch = bytecodePatch(

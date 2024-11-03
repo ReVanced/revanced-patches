@@ -15,6 +15,7 @@ import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.settingsPatch
 import app.revanced.patches.twitch.misc.extension.sharedExtensionPatch
+import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 
@@ -72,6 +73,7 @@ val settingsPatch = bytecodePatch(
             ),
         )
 
+        val settingsActivityOnCreateMatch by settingsActivityOnCreateFingerprint
         // Hook onCreate to handle fragment creation.
         val insertIndex = settingsActivityOnCreateMatch.method.implementation!!.instructions.size - 2
         settingsActivityOnCreateMatch.method.addInstructionsWithLabels(
@@ -130,7 +132,7 @@ val settingsPatch = bytecodePatch(
             )
         }
 
-        settingsMenuItemEnumMatch.injectMenuItem(
+        settingsMenuItemEnumFingerprint.matchOrThrow.injectMenuItem(
             REVANCED_SETTINGS_MENU_ITEM_NAME,
             REVANCED_SETTINGS_MENU_ITEM_ID,
             REVANCED_SETTINGS_MENU_ITEM_TITLE_RES,
@@ -138,7 +140,7 @@ val settingsPatch = bytecodePatch(
         )
 
         // Intercept settings menu creation and add new menu item.
-        menuGroupsUpdatedMatch.method.addInstructions(
+        menuGroupsUpdatedFingerprint.matchOrThrow.method.addInstructions(
             0,
             """
                 sget-object v0, $MENU_ITEM_ENUM_CLASS_DESCRIPTOR->$REVANCED_SETTINGS_MENU_ITEM_NAME:$MENU_ITEM_ENUM_CLASS_DESCRIPTOR 
@@ -148,7 +150,7 @@ val settingsPatch = bytecodePatch(
         )
 
         // Intercept onclick events for the settings menu
-
+        val menuGroupsOnClickMatch by menuGroupsOnClickFingerprint
         menuGroupsOnClickMatch.method.addInstructionsWithLabels(
             0,
             """

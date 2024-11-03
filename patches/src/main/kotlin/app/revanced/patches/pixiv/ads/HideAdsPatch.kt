@@ -2,6 +2,7 @@ package app.revanced.patches.pixiv.ads
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val hideAdsPatch = bytecodePatch(
@@ -10,7 +11,7 @@ val hideAdsPatch = bytecodePatch(
     compatibleWith("jp.pxv.android")
 
     execute {
-        shouldShowAdsMatch.method.addInstructions(
+        shouldShowAdsFingerprint.matchOrThrow.method.addInstructions(
             0,
             """
                 const/4 v0, 0x0

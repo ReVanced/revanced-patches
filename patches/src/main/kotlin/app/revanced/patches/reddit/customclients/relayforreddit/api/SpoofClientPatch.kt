@@ -4,10 +4,12 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patches.reddit.customclients.spoofClientPatch
+import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction10t
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21t
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
 
 val spoofClientPatch = spoofClientPatch(redirectUri = "dbrady://relay") {
     compatibleWith(
@@ -21,10 +23,10 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "dbrady://relay") {
         // region Patch client id.
 
         setOf(
-            loginActivityClientIdMatch,
-            getLoggedInBearerTokenMatch,
-            getLoggedOutBearerTokenMatch,
-            getRefreshTokenMatch,
+            loginActivityClientIdFingerprint.matchOrThrow,
+            getLoggedInBearerTokenFingerprint.matchOrThrow,
+            getLoggedOutBearerTokenFingerprint.matchOrThrow,
+            getRefreshTokenFingerprint.matchOrThrow,
         ).forEach { match ->
             val clientIdIndex = match.stringMatches!!.first().index
             match.method.apply {
@@ -42,12 +44,12 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "dbrady://relay") {
         // region Patch miscellaneous.
 
         // Do not load remote config which disables OAuth login remotely.
-        setRemoteConfigMatch.method.addInstructions(0, "return-void")
+        setRemoteConfigFingerprint.matchOrThrow.method.addInstructions(0, "return-void")
 
         // Prevent OAuth login being disabled remotely.
-        val checkIsOAuthRequestIndex = redditCheckDisableAPIMatch.patternMatch!!.startIndex
+        val checkIsOAuthRequestIndex = redditCheckDisableAPIFingerprint.matchOrThrow.patternMatch!!.startIndex
 
-        redditCheckDisableAPIMatch.method.apply {
+        redditCheckDisableAPIFingerprint.matchOrThrow.method.apply {
             val returnNextChain = getInstruction<BuilderInstruction21t>(checkIsOAuthRequestIndex).target
             replaceInstruction(checkIsOAuthRequestIndex, BuilderInstruction10t(Opcode.GOTO, returnNextChain))
         }

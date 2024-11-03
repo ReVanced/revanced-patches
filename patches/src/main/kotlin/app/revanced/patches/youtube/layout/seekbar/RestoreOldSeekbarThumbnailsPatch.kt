@@ -10,6 +10,7 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_17_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
+import app.revanced.util.matchOrThrow
 import java.util.logging.Logger
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
@@ -46,7 +47,7 @@ val restoreOldSeekbarThumbnailsPatch = bytecodePatch(
             SwitchPreference("revanced_restore_old_seekbar_thumbnails"),
         )
 
-        fullscreenSeekbarThumbnailsMatch.method.apply {
+        fullscreenSeekbarThumbnailsFingerprint.matchOrThrow.method.apply {
             val moveResultIndex = instructions.lastIndex - 1
 
             addInstruction(

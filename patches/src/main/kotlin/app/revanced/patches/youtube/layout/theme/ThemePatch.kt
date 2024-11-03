@@ -18,6 +18,7 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.forEachChildElement
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
+import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import org.w3c.dom.Element
 
@@ -208,7 +209,7 @@ val themePatch = bytecodePatch(
             SwitchPreference("revanced_gradient_loading_screen"),
         )
 
-        useGradientLoadingScreenMatch.method.apply {
+        useGradientLoadingScreenFingerprint.matchOrThrow.method.apply {
 
             val isEnabledIndex = indexOfFirstLiteralInstructionOrThrow(GRADIENT_LOADING_SCREEN_AB_CONSTANT) + 3
             val isEnabledRegister = getInstruction<OneRegisterInstruction>(isEnabledIndex - 1).registerA
@@ -222,8 +223,8 @@ val themePatch = bytecodePatch(
             )
         }
         mapOf(
-            themeHelperLightColorMatch to lightThemeBackgroundColor,
-            themeHelperDarkColorMatch to darkThemeBackgroundColor,
+            themeHelperLightColorFingerprint.matchOrThrow to lightThemeBackgroundColor,
+            themeHelperDarkColorFingerprint.matchOrThrow to darkThemeBackgroundColor,
         ).forEach { (match, color) ->
             match.method.apply {
                 addInstructions(

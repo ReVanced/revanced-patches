@@ -2,6 +2,7 @@ package app.revanced.patches.messenger.inbox
 
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val hideInboxSubtabsPatch = bytecodePatch(
@@ -11,6 +12,6 @@ val hideInboxSubtabsPatch = bytecodePatch(
     compatibleWith("com.facebook.orca")
 
     execute {
-        createInboxSubTabsMatch.method.replaceInstruction(2, "const/4 v0, 0x0")
+        createInboxSubTabsFingerprint.matchOrThrow.method.replaceInstruction(2, "const/4 v0, 0x0")
     }
 }

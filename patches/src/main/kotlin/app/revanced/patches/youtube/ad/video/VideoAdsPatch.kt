@@ -39,6 +39,7 @@ val videoAdsPatch = bytecodePatch(
             SwitchPreference("revanced_hide_video_ads"),
         )
 
+        val loadVideoAdsMatch by loadVideoAdsFingerprint
         loadVideoAdsMatch.method.addInstructionsWithLabels(
             0,
             """

@@ -8,6 +8,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -26,7 +27,7 @@ val unlockDownloadsPatch = bytecodePatch(
 
     execute {
         // Allow downloads for non-premium users.
-        showDownloadVideoUpsellBottomSheetMatch.patch {
+        showDownloadVideoUpsellBottomSheetFingerprint.matchOrThrow.patch {
             val checkIndex = patternMatch!!.startIndex
             val register = method.getInstruction<OneRegisterInstruction>(checkIndex).registerA
 
@@ -34,12 +35,14 @@ val unlockDownloadsPatch = bytecodePatch(
         }
 
         // Force show the download menu item.
-        constructMediaOptionsSheetMatch.patch {
+        constructMediaOptionsSheetFingerprint.matchOrThrow.patch {
             val showDownloadButtonIndex = method.instructions.lastIndex - 1
             val register = method.getInstruction<TwoRegisterInstruction>(showDownloadButtonIndex).registerA
 
             showDownloadButtonIndex to register
         }
+
+        val buildMediaOptionsSheetMatch by buildMediaOptionsSheetFingerprint
 
         // Make GIFs downloadable.
         val patternMatch = buildMediaOptionsSheetMatch.patternMatch!!

@@ -3,6 +3,7 @@ package app.revanced.patches.photomath.detection.deviceid
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.photomath.detection.signature.signatureDetectionPatch
+import app.revanced.util.matchOrThrow
 import kotlin.random.Random
 
 @Suppress("unused")

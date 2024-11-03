@@ -3,6 +3,7 @@ package app.revanced.patches.ticktick.misc.themeunlock
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val unlockProPatch = bytecodePatch(
@@ -12,7 +13,7 @@ val unlockProPatch = bytecodePatch(
     compatibleWith("com.ticktick.task")
 
     execute {
-        checkLockedThemesMatch.method.addInstructions(
+        checkLockedThemesFingerprint.matchOrThrow.method.addInstructions(
             0,
             """
             const/4 v0, 0x0
@@ -20,6 +21,6 @@ val unlockProPatch = bytecodePatch(
             """,
         )
 
-        setThemeMatch.method.removeInstructions(0, 10)
+        setThemeFingerprint.matchOrThrow.method.removeInstructions(0, 10)
     }
 }

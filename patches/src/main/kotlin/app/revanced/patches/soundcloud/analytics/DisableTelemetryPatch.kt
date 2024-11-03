@@ -2,6 +2,7 @@ package app.revanced.patches.soundcloud.analytics
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val disableTelemetryPatch = bytecodePatch(
@@ -12,6 +13,6 @@ val disableTelemetryPatch = bytecodePatch(
 
     execute {
         // Empty the "backend" argument to abort the initializer.
-        createTrackingApiMatch.method.addInstruction(0, "const-string p1, \"\"")
+        createTrackingApiFingerprint.matchOrThrow.method.addInstruction(0, "const-string p1, \"\"")
     }
 }

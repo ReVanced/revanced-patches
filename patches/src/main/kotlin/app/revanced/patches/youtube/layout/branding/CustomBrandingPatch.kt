@@ -7,7 +7,6 @@ import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.copyResources
 import java.io.File
 import java.nio.file.Files
-import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 private const val REVANCED_ICON = "ReVanced*Logo" // Can never be a valid path.
 private const val APP_NAME = "YouTube ReVanced"
@@ -91,7 +90,7 @@ val customBrandingPatch = resourcePatch(
                         }
                     }
                 } else {
-                    resourceGroups.forEach { context.copyResources("custom-branding", it) }
+                    resourceGroups.forEach { copyResources("custom-branding", it) }
                 }
             }
         }

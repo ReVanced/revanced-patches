@@ -12,10 +12,8 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.util.ResourceGroup
-import app.revanced.util.copyResources
-import app.revanced.util.transformMethods
-import app.revanced.util.traverseClassHierarchy
+import app.revanced.patches.youtube.shared.mainActivityFingerprint
+import app.revanced.util.*
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 
@@ -41,7 +39,7 @@ private val swipeControlsResourcePatch = resourcePatch {
             TextPreference("revanced_swipe_threshold", inputType = InputType.NUMBER),
         )
 
-        context.copyResources(
+        copyResources(
             "swipecontrols",
             ResourceGroup(
                 "drawable",
@@ -76,8 +74,8 @@ val swipeControlsPatch = bytecodePatch(
     )
 
     execute {
-        val wrapperClass = swipeControlsHostActivityMatch.classDef
-        val targetClass = mainActivityMatch.classDef
+        val wrapperClass = swipeControlsHostActivityFingerprint.matchOrThrow.classDef
+        val targetClass = mainActivityFingerprint.matchOrThrow.classDef
 
         // Inject the wrapper class from the extension into the class hierarchy of MainActivity.
         wrapperClass.setSuperClass(targetClass.superclass)

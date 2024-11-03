@@ -2,6 +2,7 @@ package app.revanced.patches.windyapp.misc.unlockpro
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val unlockProPatch = bytecodePatch(
@@ -11,7 +12,7 @@ val unlockProPatch = bytecodePatch(
     compatibleWith("co.windyapp.android")
 
     execute {
-        checkProMatch.method.addInstructions(
+        checkProFingerprint.matchOrThrow.method.addInstructions(
             0,
             """
                 const/16 v0, 0x1

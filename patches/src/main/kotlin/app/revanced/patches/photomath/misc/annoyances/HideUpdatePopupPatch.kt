@@ -3,6 +3,7 @@ package app.revanced.patches.photomath.misc.annoyances
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.photomath.detection.signature.signatureDetectionPatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val hideUpdatePopupPatch = bytecodePatch(

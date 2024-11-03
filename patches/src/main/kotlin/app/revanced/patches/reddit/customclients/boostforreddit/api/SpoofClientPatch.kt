@@ -2,6 +2,7 @@ package app.revanced.patches.reddit.customclients.boostforreddit.api
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patches.reddit.customclients.spoofClientPatch
+import app.revanced.util.matchOrThrow
 
 val spoofClientPatch = spoofClientPatch(redirectUri = "http://rubenmayayo.com") { clientIdOption ->
     compatibleWith("com.rubenmayayo.reddit")
@@ -11,7 +12,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "http://rubenmayayo.com") 
     execute {
         // region Patch client id.
 
-        getClientIdMatch.method.addInstructions(
+        getClientIdFingerprint.matchOrThrow.method.addInstructions(
             0,
             """
                  const-string v0, "$clientId"
@@ -27,7 +28,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "http://rubenmayayo.com") 
         val platformName = (0..100000).random()
         val platformParameter = 0
 
-        buildUserAgentMatch.method.addInstructions(
+        buildUserAgentFingerprint.matchOrThrow.method.addInstructions(
             0,
             "const-string p$platformParameter, \"$platformName\"",
         )

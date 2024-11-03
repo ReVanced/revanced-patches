@@ -2,6 +2,7 @@ package app.revanced.patches.warnwetter.misc.firebasegetcert
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.matchOrThrow
 
 val firebaseGetCertPatch = bytecodePatch(
     description = "Spoofs the X-Android-Cert header.",
@@ -9,7 +10,7 @@ val firebaseGetCertPatch = bytecodePatch(
     compatibleWith("de.dwd.warnapp")
 
     execute {
-        listOf(getRegistrationCertMatch, getMessagingCertMatch).forEach { match ->
+        listOf(getRegistrationCertFingerprint.matchOrThrow, getMessagingCertFingerprint.matchOrThrow).forEach { match ->
             match.method.addInstructions(
                 0,
                 """

@@ -6,6 +6,7 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
+import app.revanced.util.matchOrThrow
 
 internal var showBottomNavigationItemsTextId = -1L
     private set
@@ -36,7 +37,7 @@ val premiumNavbarTabPatch = bytecodePatch(
 
     // If the navigation bar item is the premium tab, do not add it.
     execute {
-        addNavbarItemMatch.method.addInstructions(
+        addNavBarItemFingerprint.matchOrThrow.method.addInstructions(
             0,
             """
                 const v1, $premiumTabId

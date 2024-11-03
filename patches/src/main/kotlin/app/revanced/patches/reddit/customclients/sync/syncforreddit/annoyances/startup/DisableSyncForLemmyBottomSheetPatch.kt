@@ -2,6 +2,7 @@ package app.revanced.patches.reddit.customclients.sync.syncforreddit.annoyances.
 
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val disableSyncForLemmyBottomSheetPatch = bytecodePatch(
@@ -15,7 +16,7 @@ val disableSyncForLemmyBottomSheetPatch = bytecodePatch(
     )
 
     execute {
-        mainActivityOnCreateMatch.method.apply {
+        mainActivityOnCreateFingerprint.matchOrThrow.method.apply {
             val showBottomSheetIndex = implementation!!.instructions.lastIndex - 1
 
             removeInstruction(showBottomSheetIndex)

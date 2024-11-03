@@ -14,6 +14,7 @@ import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
+import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 internal var scrimOverlayId = -1L
@@ -52,7 +53,7 @@ val customPlayerOverlayOpacityPatch = bytecodePatch(
     compatibleWith("com.google.android.youtube")
 
     execute {
-        createPlayerOverviewMatch.method.apply {
+        createPlayerOverviewFingerprint.matchOrThrow.method.apply {
             val viewRegisterIndex =
                 indexOfFirstLiteralInstructionOrThrow(scrimOverlayId) + 3
             val viewRegister =

@@ -16,6 +16,7 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -63,6 +64,7 @@ val navigationButtonsPatch = bytecodePatch(
         )
 
         // Switch create with notifications button.
+        val addCreateButtonViewMatch by addCreateButtonViewFingerprint
         addCreateButtonViewMatch.method.apply {
             val stringIndex = addCreateButtonViewMatch.stringMatches!!.find { match ->
                 match.string == ANDROID_AUTOMOTIVE_STRING
@@ -82,7 +84,7 @@ val navigationButtonsPatch = bytecodePatch(
         }
 
         // Hide navigation button labels.
-        createPivotBarMatch.method.apply {
+        createPivotBarFingerprint.matchOrThrow.method.apply {
             val setTextIndex = indexOfFirstInstructionOrThrow {
                 getReference<MethodReference>()?.name == "setText"
             }

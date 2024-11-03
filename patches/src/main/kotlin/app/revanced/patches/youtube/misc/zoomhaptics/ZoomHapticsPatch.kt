@@ -9,6 +9,7 @@ import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val zoomHapticsPatch = bytecodePatch(
@@ -29,7 +30,7 @@ val zoomHapticsPatch = bytecodePatch(
             SwitchPreference("revanced_disable_zoom_haptics"),
         )
 
-        zoomHapticsMatch.method.apply {
+        zoomHapticsFingerprint.matchOrThrow.method.apply {
             addInstructionsWithLabels(
                 0,
                 """

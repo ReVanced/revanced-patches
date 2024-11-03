@@ -2,6 +2,7 @@ package app.revanced.patches.twitter.misc.links
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val sanitizeSharingLinksPatch = bytecodePatch(
@@ -11,7 +12,7 @@ val sanitizeSharingLinksPatch = bytecodePatch(
     compatibleWith("com.twitter.android")
 
     execute {
-        sanitizeSharingLinksMatch.method.addInstructions(
+        sanitizeSharingLinksFingerprint.matchOrThrow.method.addInstructions(
             0,
             """
                 # Method takes in a link (string, param 0) and then appends the tracking query params,

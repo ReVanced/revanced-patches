@@ -8,6 +8,7 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val playerPopupPanelsPatch = bytecodePatch(
@@ -37,7 +38,7 @@ val playerPopupPanelsPatch = bytecodePatch(
             SwitchPreference("revanced_hide_player_popup_panels"),
         )
 
-        engagementPanelControllerMatch.method.addInstructionsWithLabels(
+        engagementPanelControllerFingerprint.matchOrThrow.method.addInstructionsWithLabels(
             0,
             """
                 invoke-static { }, Lapp/revanced/extension/youtube/patches/DisablePlayerPopupPanelsPatch;->disablePlayerPopupPanels()Z

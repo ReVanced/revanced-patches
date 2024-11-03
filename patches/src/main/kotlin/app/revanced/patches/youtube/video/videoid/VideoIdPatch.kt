@@ -9,9 +9,9 @@ import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.video.playerresponse.Hook
 import app.revanced.patches.youtube.video.playerresponse.addPlayerResponseMethodHook
 import app.revanced.patches.youtube.video.playerresponse.playerResponseMethodHookPatch
-import app.revanced.util.applyMatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -97,14 +97,14 @@ val videoIdPatch = bytecodePatch(
     )
 
     execute {
-        videoIdFingerprint.applyMatch(context, videoIdParentMatch).mutableMethod.apply {
+        videoIdFingerprint.matchOrThrow(videoIdParentFingerprint).method.apply {
             videoIdMethod = this
             val index = indexOfPlayerResponseModelString()
             videoIdRegister = getInstruction<OneRegisterInstruction>(index + 1).registerA
             videoIdInsertIndex = index + 2
         }
 
-        videoIdBackgroundPlayMatch.method.apply {
+        videoIdBackgroundPlayFingerprint.matchOrThrow.method.apply {
             backgroundPlaybackMethod = this
             val index = indexOfPlayerResponseModelString()
             backgroundPlaybackVideoIdRegister = getInstruction<OneRegisterInstruction>(index + 1).registerA

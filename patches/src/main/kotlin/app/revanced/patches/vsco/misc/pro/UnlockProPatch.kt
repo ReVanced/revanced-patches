@@ -2,6 +2,7 @@ package app.revanced.patches.vsco.misc.pro
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val unlockProPatch = bytecodePatch(
@@ -12,6 +13,6 @@ val unlockProPatch = bytecodePatch(
 
     execute {
         // Set isSubscribed to true.
-        revCatSubscriptionMatch.method.addInstruction(0, "const p1, 0x1")
+        revCatSubscriptionFingerprint.matchOrThrow.method.addInstruction(0, "const p1, 0x1")
     }
 }

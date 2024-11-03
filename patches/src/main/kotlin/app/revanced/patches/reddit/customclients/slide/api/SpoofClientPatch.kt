@@ -2,6 +2,7 @@ package app.revanced.patches.reddit.customclients.slide.api
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patches.reddit.customclients.spoofClientPatch
+import app.revanced.util.matchOrThrow
 
 val spoofClientPatch = spoofClientPatch(redirectUri = "http://www.ccrama.me") { clientIdOption ->
     compatibleWith("me.ccrama.redditslide")
@@ -9,7 +10,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "http://www.ccrama.me") { 
     val clientId by clientIdOption
 
     execute {
-        getClientIdMatch.method.addInstructions(
+        getClientIdFingerprint.matchOrThrow.method.addInstructions(
             0,
             """
                  const-string v0, "$clientId"

@@ -3,6 +3,7 @@ package app.revanced.patches.piccomafr.misc
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.stringOption
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val spoofAndroidDeviceIdPatch = bytecodePatch(
@@ -39,7 +40,7 @@ val spoofAndroidDeviceIdPatch = bytecodePatch(
     ) { it!!.matches("[A-Fa-f0-9]{16}".toRegex()) }
 
     execute {
-        getAndroidIDMatch.method.addInstructions(
+        getAndroidIdFingerprint.matchOrThrow.method.addInstructions(
             0,
             """
                 const-string v0, "$androidDeviceId"

@@ -13,6 +13,7 @@ val disableSwitchingEmojiToStickerPatch = bytecodePatch(
     compatibleWith("com.facebook.orca"("439.0.0.29.119"))
 
     execute {
+        val switchMessangeInputEmojiButtonMatch by switchMessangeInputEmojiButtonFingerprint
         val setStringIndex = switchMessangeInputEmojiButtonMatch.patternMatch!!.startIndex + 2
 
         switchMessangeInputEmojiButtonMatch.method.apply {

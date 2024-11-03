@@ -2,6 +2,7 @@ package app.revanced.patches.serviceportalbund.detection.root
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val rootDetectionPatch = bytecodePatch(
@@ -11,6 +12,6 @@ val rootDetectionPatch = bytecodePatch(
     compatibleWith("at.gv.bka.serviceportal")
 
     execute {
-        rootDetectionMatch.method.addInstruction(0, "return-void")
+        rootDetectionFingerprint.matchOrThrow.method.addInstruction(0, "return-void")
     }
 }

@@ -11,6 +11,7 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
@@ -61,17 +62,17 @@ val removeTrackingQueryParameterPatch = bytecodePatch(
             )
         }
 
-        // YouTube share sheet.
-        youTubeShareSheetMatch.hook(getInsertIndex = { startIndex + 1 }) { insertIndex ->
+        // YouTube share sheet.\
+        youtubeShareSheetFingerprint.matchOrThrow.hook(getInsertIndex = { startIndex + 1 }) { insertIndex ->
             getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
         }
 
         // Native system share sheet.
-        systemShareSheetMatch.hook(getInsertIndex = { endIndex }) { insertIndex ->
+        systemShareSheetFingerprint.matchOrThrow.hook(getInsertIndex = { endIndex }) { insertIndex ->
             getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
         }
 
-        copyTextMatch.hook(getInsertIndex = { startIndex + 2 }) { insertIndex ->
+        copyTextFingerprint.matchOrThrow.hook(getInsertIndex = { startIndex + 2 }) { insertIndex ->
             getInstruction<TwoRegisterInstruction>(insertIndex - 2).registerA
         }
     }

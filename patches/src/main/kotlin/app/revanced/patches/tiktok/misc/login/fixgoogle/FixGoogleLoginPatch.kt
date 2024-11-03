@@ -2,6 +2,7 @@ package app.revanced.patches.tiktok.misc.login.fixgoogle
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val fixGoogleLoginPatch = bytecodePatch(
@@ -15,8 +16,8 @@ val fixGoogleLoginPatch = bytecodePatch(
 
     execute {
         listOf(
-            googleOneTapAuthAvailableMatch.method,
-            googleAuthAvailableMatch.method,
+            googleOneTapAuthAvailableFingerprint.matchOrThrow.method,
+            googleAuthAvailableFingerprint.matchOrThrow.method,
         ).forEach { method ->
             method.addInstructions(
                 0,

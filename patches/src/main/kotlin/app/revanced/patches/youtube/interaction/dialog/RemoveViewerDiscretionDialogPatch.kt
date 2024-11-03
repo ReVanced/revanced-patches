@@ -9,6 +9,7 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Suppress("unused")
@@ -44,7 +45,7 @@ val removeViewerDiscretionDialogPatch = bytecodePatch(
             SwitchPreference("revanced_remove_viewer_discretion_dialog"),
         )
 
-        createDialogMatch.method.apply {
+        createDialogFingerprint.matchOrThrow.method.apply {
             val showDialogIndex = implementation!!.instructions.lastIndex - 2
             val dialogRegister = getInstruction<FiveRegisterInstruction>(showDialogIndex).registerC
 

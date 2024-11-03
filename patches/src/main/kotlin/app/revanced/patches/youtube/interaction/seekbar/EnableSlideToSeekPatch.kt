@@ -14,6 +14,7 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.findInstructionIndicesReversed
 import app.revanced.util.getReference
+import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -55,6 +56,7 @@ val enableSlideToSeekPatch = bytecodePatch(
         var modifiedMethods = false
 
         // Restore the behaviour to slide to seek.
+        val slideToSeekMatch by slideToSeekFingerprint
         val checkIndex = slideToSeekMatch.patternMatch!!.startIndex
         val checkReference = slideToSeekMatch.method.getInstruction(checkIndex)
             .getReference<MethodReference>()!!
@@ -85,8 +87,8 @@ val enableSlideToSeekPatch = bytecodePatch(
         // Disable the double speed seek gesture.
         if (is_19_17_or_greater) {
             arrayOf(
-                disableFastForwardGestureMatch,
-                disableFastForwardNoticeMatch,
+                disableFastForwardGestureFingerprint.matchOrThrow,
+                disableFastForwardNoticeFingerprint.matchOrThrow,
             ).forEach {
                 it.method.apply {
                     val targetIndex = it.patternMatch!!.endIndex
@@ -102,7 +104,7 @@ val enableSlideToSeekPatch = bytecodePatch(
                 }
             }
         } else {
-            disableFastForwardLegacyMatch.let {
+            disableFastForwardLegacyFingerprint.matchOrThrow.let {
                 it.method.apply {
                     val insertIndex = it.patternMatch!!.endIndex + 1
                     val targetRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA

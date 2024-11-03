@@ -8,6 +8,8 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.patches.youtube.shared.subtitleButtonControllerFingerprint
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val autoCaptionsPatch = bytecodePatch(
@@ -38,8 +40,8 @@ val autoCaptionsPatch = bytecodePatch(
         )
 
         mapOf(
-            startVideoInformerMatch to 0,
-            subtitleButtonControllerMatch to 1,
+            startVideoInformerFingerprint.matchOrThrow to 0,
+            subtitleButtonControllerFingerprint.matchOrThrow to 1,
         ).forEach { (match, enabled) ->
             match.method.addInstructions(
                 0,
@@ -50,7 +52,7 @@ val autoCaptionsPatch = bytecodePatch(
             )
         }
 
-        subtitleTrackMatch.method.addInstructions(
+        subtitleTrackFingerprint.matchOrThrow.method.addInstructions(
             0,
             """
                 invoke-static {}, Lapp/revanced/extension/youtube/patches/DisableAutoCaptionsPatch;->autoCaptionsEnabled()Z

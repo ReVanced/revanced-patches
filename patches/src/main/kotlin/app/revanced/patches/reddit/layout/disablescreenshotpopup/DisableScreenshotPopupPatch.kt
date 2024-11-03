@@ -2,6 +2,7 @@ package app.revanced.patches.reddit.layout.disablescreenshotpopup
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val disableScreenshotPopupPatch = bytecodePatch(
@@ -11,6 +12,6 @@ val disableScreenshotPopupPatch = bytecodePatch(
     compatibleWith("com.reddit.frontpage")
 
     execute {
-        disableScreenshotPopupMatch.method.addInstruction(0, "return-void")
+        disableScreenshotPopupFingerprint.matchOrThrow.method.addInstruction(0, "return-void")
     }
 }

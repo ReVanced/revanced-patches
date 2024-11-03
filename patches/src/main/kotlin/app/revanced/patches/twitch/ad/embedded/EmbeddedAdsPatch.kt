@@ -8,6 +8,7 @@ import app.revanced.patches.twitch.ad.video.videoAdsPatch
 import app.revanced.patches.twitch.misc.extension.sharedExtensionPatch
 import app.revanced.patches.twitch.misc.settings.PreferenceScreen
 import app.revanced.patches.twitch.misc.settings.settingsPatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val embeddedAdsPatch = bytecodePatch(
@@ -30,7 +31,7 @@ val embeddedAdsPatch = bytecodePatch(
         )
 
         // Inject OkHttp3 application interceptor
-        createUsherClientMatch.method.addInstructions(
+        createsUsherClientFingerprint.matchOrThrow.method.addInstructions(
             3,
             """
                 invoke-static  {}, Lapp/revanced/extension/twitch/patches/EmbeddedAdsPatch;->createRequestInterceptor()Lapp/revanced/extension/twitch/api/RequestInterceptor;

@@ -13,6 +13,7 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -48,13 +49,13 @@ val bypassURLRedirectsPatch = bytecodePatch(
 
         val matches = if (is_19_33_or_greater) {
             arrayOf(
-                abUriParserMatch,
-                httpUriParserMatch,
+                abUriParserFingerprint.matchOrThrow,
+                httpUriParserFingerprint.matchOrThrow,
             )
         } else {
             arrayOf(
-                abUriParserLegacyMatch,
-                httpUriParserLegacyMatch,
+                abUriParserLegacyFingerprint.matchOrThrow,
+                httpUriParserLegacyFingerprint.matchOrThrow,
             )
         }
 

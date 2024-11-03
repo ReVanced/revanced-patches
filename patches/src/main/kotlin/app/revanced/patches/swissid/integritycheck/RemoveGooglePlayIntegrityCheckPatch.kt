@@ -2,6 +2,7 @@ package app.revanced.patches.swissid.integritycheck
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.matchOrThrow
 
 private const val RESULT_METHOD_REFERENCE = " Lcom/swisssign/deviceintegrity/DeviceintegrityPlugin\$onMethodCall\$1;->" +
     "\$result:Lio/flutter/plugin/common/MethodChannel\$Result;"
@@ -17,7 +18,7 @@ val removeGooglePlayIntegrityCheckPatch = bytecodePatch(
     compatibleWith("com.swisssign.swissid.mobile")
 
     execute {
-        checkIntegrityMatch.method.addInstructions(
+        checkIntegrityFingerprint.matchOrThrow.method.addInstructions(
             0,
             """
                 iget-object p1, p0, $RESULT_METHOD_REFERENCE

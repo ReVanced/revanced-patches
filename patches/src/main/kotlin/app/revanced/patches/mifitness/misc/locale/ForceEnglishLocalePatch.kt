@@ -16,6 +16,7 @@ val forceEnglishLocalePatch = bytecodePatch(
     dependsOn(fixLoginPatch)
 
     execute {
+        val syncBluetoothLanguageMatch by syncBluetoothLanguageFingerprint
         val resolvePhoneLocaleInstruction = syncBluetoothLanguageMatch.patternMatch!!.startIndex
 
         syncBluetoothLanguageMatch.method.apply {

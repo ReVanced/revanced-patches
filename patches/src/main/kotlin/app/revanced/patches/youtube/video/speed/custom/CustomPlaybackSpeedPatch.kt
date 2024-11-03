@@ -3,6 +3,8 @@ package app.revanced.patches.youtube.video.speed.custom
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
@@ -28,9 +30,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
-import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
-import org.stringtemplate.v4.compiler.Bytecode.instructions
-import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 var speedUnavailableId = -1L
     internal set
@@ -122,6 +121,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
 
         // Add a static INSTANCE field to the class.
         // This is later used to call "showOldPlaybackSpeedMenu" on the instance.
+        val getOldPlaybackSpeedsMatch by getOldPlaybackSpeedsFingerprint
         val instanceField = ImmutableField(
             getOldPlaybackSpeedsMatch.originalClassDef.type,
             "INSTANCE",
@@ -139,13 +139,12 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
 
         // Get the "showOldPlaybackSpeedMenu" method.
         // This is later called on the field INSTANCE.
-        val showOldPlaybackSpeedMenuMethod = showOldPlaybackSpeedMenuFingerprint.applyMatch(
-            context,
-            getOldPlaybackSpeedsMatch,
+        val showOldPlaybackSpeedMenuMethod = showOldPlaybackSpeedMenuFingerprint.matchOrThrow(
+            getOldPlaybackSpeedsFingerprint
         ).method.toString()
 
         // Insert the call to the "showOldPlaybackSpeedMenu" method on the field INSTANCE.
-        showOldPlaybackSpeedMenuExtensionMatch.method.apply {
+        showOldPlaybackSpeedMenuExtensionFingerprint.matchOrThrow.method.apply {
             addInstructionsWithLabels(
                 instructions.lastIndex,
                 """

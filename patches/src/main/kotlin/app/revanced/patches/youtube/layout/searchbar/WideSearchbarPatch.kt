@@ -12,6 +12,7 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
@@ -53,7 +54,7 @@ val wideSearchbarPatch = bytecodePatch(
          * @return The [MutableMethod] which was navigated on.
          */
         fun BytecodePatchContext.walkMutable(index: Int, fromMatch: Match) =
-            navigate(fromMatch.method).at(index).mutable()
+            navigate(fromMatch.method).at(index).stop()
 
         /**
          * Injects instructions required for certain methods.
@@ -71,11 +72,12 @@ val wideSearchbarPatch = bytecodePatch(
             )
         }
 
+        val createSearchSuggestionsMatch by createSearchSuggestionsFingerprint
         mapOf(
-            setWordmarkHeaderMatch to 1,
+            setWordmarkHeaderFingerprint.matchOrThrow to 1,
             createSearchSuggestionsMatch to createSearchSuggestionsMatch.patternMatch!!.startIndex,
         ).forEach { (fingerprint, callIndex) ->
-            context.walkMutable(callIndex, fingerprint).injectSearchBarHook()
+            walkMutable(callIndex, fingerprint).injectSearchBarHook()
         }
     }
 }

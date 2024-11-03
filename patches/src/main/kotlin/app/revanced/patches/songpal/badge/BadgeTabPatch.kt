@@ -3,6 +3,7 @@ package app.revanced.patches.songpal.badge
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.matchOrThrow
 
 internal const val ACTIVITY_TAB_DESCRIPTOR = "Ljp/co/sony/vim/framework/ui/yourheadphones/YhContract\$Tab;"
 
@@ -16,7 +17,7 @@ val badgeTabPatch = bytecodePatch(
     val arrayTabs = listOf("Log", "HealthCare")
 
     execute {
-        createTabsMatch.method.apply {
+        createTabsFingerprint.matchOrThrow.method.apply {
             removeInstructions(0, 2)
 
             val arrayRegister = 0

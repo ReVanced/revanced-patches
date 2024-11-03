@@ -2,6 +2,7 @@ package app.revanced.patches.rar.misc.annoyances.purchasereminder
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val hidePurchaseReminderPatch = bytecodePatch(
@@ -12,6 +13,6 @@ val hidePurchaseReminderPatch = bytecodePatch(
     compatibleWith("com.rarlab.rar")
 
     execute {
-        showReminderMatch.method.addInstruction(0, "return-void")
+        showReminderFingerprint.matchOrThrow.method.addInstruction(0, "return-void")
     }
 }

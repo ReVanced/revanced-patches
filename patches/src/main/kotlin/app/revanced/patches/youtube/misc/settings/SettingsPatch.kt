@@ -22,7 +22,6 @@ import app.revanced.util.*
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.util.MethodUtil
-import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 // Used by a fingerprint() from SettingsPatch.
 internal var appearanceStringId = -1L
@@ -54,7 +53,7 @@ private val settingsResourcePatch = resourcePatch {
         arrayOf(
             ResourceGroup("layout", "revanced_settings_with_toolbar.xml"),
         ).forEach { resourceGroup ->
-            context.copyResources("settings", resourceGroup)
+            copyResources("settings", resourceGroup)
         }
 
         // Copy style properties used to fix over-sized copy menu that appear in EditTextPreference.
@@ -151,7 +150,7 @@ val settingsPatch = bytecodePatch(
             ),
         )
 
-        setThemeMatch.method.let { setThemeMethod ->
+        setThemeFingerprint.matchOrThrow.method.let { setThemeMethod ->
             setThemeMethod.implementation!!.instructions.mapIndexedNotNull { i, instruction ->
                 if (instruction.opcode == Opcode.RETURN_OBJECT) i else null
             }.asReversed().forEach { returnIndex ->
@@ -172,6 +171,7 @@ val settingsPatch = bytecodePatch(
             }
         }
 
+        val licenseActivityOnCreateMatch by licenseActivityOnCreateFingerprint
         // Modify the license activity and remove all existing layout code.
         // Must modify an existing activity and cannot add a new activity to the manifest,
         // as that fails for root installations.
