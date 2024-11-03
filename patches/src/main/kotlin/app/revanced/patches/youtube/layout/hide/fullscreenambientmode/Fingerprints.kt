@@ -1,13 +1,14 @@
 package app.revanced.patches.youtube.layout.hide.fullscreenambientmode
 
-import app.revanced.util.literal
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.AccessFlags
 import app.revanced.patcher.fingerprint
+import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val initializeAmbientModeFingerprint = fingerprint {
+internal val setFullScreenBackgroundColorFingerprint = fingerprint {
     returns("V")
-    accessFlags(AccessFlags.CONSTRUCTOR, AccessFlags.PUBLIC)
-    opcodes(Opcode.MOVE_RESULT)
-    literal { 45389368 }
+    accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
+    parameters("Z", "I", "I", "I", "I")
+    custom { method, classDef ->
+        classDef.type.endsWith("/YouTubePlayerViewNotForReflection;")
+                && method.name == "onLayout"
+    }
 }
