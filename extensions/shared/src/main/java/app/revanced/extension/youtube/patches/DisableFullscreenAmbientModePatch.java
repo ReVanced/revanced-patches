@@ -8,7 +8,7 @@ public final class DisableFullscreenAmbientModePatch {
     private static final boolean DISABLE_FULLSCREEN_AMBIENT_MODE = Settings.DISABLE_FULLSCREEN_AMBIENT_MODE.get();
 
     /**
-     * Constant found in: androidx.window.embedding.COLOR_SYSTEM_DEFAULT
+     * Constant found in: androidx.window.embedding.DividerAttributes
      */
     private static final int DIVIDER_ATTRIBUTES_COLOR_SYSTEM_DEFAULT = -16777216;
 

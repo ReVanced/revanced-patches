@@ -199,20 +199,20 @@ val lithoFilterPatch = bytecodePatch(
             ).registerA
 
             // Find a free temporary register.
-            val register = getInstruction<OneRegisterInstruction>(
+            val freeRegister = getInstruction<OneRegisterInstruction>(
                 // Immediately before is a StringBuilder append constant character.
                 indexOfFirstInstructionReversedOrThrow(insertHookIndex, Opcode.CONST_16),
             ).registerA
 
             // Verify the temp register will not clobber the method result register.
-            if (stringBuilderRegister == register) {
+            if (stringBuilderRegister == freeRegister) {
                 throw PatchException("Free register will clobber StringBuilder register")
             }
 
             val invokeFilterInstructions = """
                 invoke-static { v$identifierRegister, v$stringBuilderRegister }, $EXTENSION_CLASS_DESCRIPTOR->filter(Ljava/lang/String;Ljava/lang/StringBuilder;)Z
-                move-result v$register
-                if-eqz v$register, :unfiltered
+                move-result v$freeRegister
+                if-eqz v$freeRegister, :unfiltered
             """
 
             addInstructionsWithLabels(
@@ -223,14 +223,14 @@ val lithoFilterPatch = bytecodePatch(
                         
                         # Return null, and the ComponentContextParserFingerprint hook 
                         # handles returning an empty component.
-                        const/4 v$register, 0x0
-                        return-object v$register
+                        const/4 v$freeRegister, 0x0
+                        return-object v$freeRegister
                     """
                 } else {
                     """
                         $invokeFilterInstructions
-                    
-                        ${createReturnEmptyComponentInstructions(register)}
+                        
+                        ${createReturnEmptyComponentInstructions(freeRegister)}
                     """
                 },
                 ExternalLabel("unfiltered", getInstruction(insertHookIndex)),
@@ -253,15 +253,13 @@ val lithoFilterPatch = bytecodePatch(
             }
         }
 
-        // Turn off a feature flag that enables native code of protobuf parsing (Upb protobuf)
+        // Turn off a feature flag that enables native code of protobuf parsing (Upb protobuf).
         // If this is enabled, then the litho protobuffer hook will always show an empty buffer
         // since it's no longer handled by the hooked Java code.
-        //
-        // This flag has been present since at least 18.38,
-        // and forcing it on also works so theoretically it could be enabled anytime.
         lithoConverterBufferUpbFeatureFlagMatch.mutableMethod.apply {
             val index = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT)
             val register = getInstruction<OneRegisterInstruction>(index).registerA
+
             addInstruction(index + 1, "const/4 v$register, 0x0")
         }
 
