@@ -8,7 +8,7 @@ val hideAdsPatch = bytecodePatch(
     name = "Hide ads",
     description = "Hides most of the ads across the app.",
 ) {
-    compatibleWith("com.myfitnesspal.android")
+    compatibleWith("com.myfitnesspal.android"("24.14.2"))
 
     val isPremiumUseCaseImplMatch by isPremiumUseCaseImplFingerprint()
     val mainActivityNavigateToNativePremiumUpsellMatch by mainActivityNavigateToNativePremiumUpsellFingerprint()
