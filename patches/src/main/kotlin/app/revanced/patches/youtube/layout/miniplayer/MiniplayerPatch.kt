@@ -167,6 +167,7 @@ val miniplayerPatch = bytecodePatch(
             // 19.32.36 // 19.32+ and beyond all work without issues.
             // 19.33.35
             "19.34.42",
+            "19.43.41",
         ),
     )
 
