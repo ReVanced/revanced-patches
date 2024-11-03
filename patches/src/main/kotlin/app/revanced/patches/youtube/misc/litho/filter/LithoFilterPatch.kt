@@ -42,8 +42,8 @@ val lithoFilterPatch = bytecodePatch(
     val protobufBufferReferenceMatch by protobufBufferReferenceFingerprint()
     val readComponentIdentifierMatch by readComponentIdentifierFingerprint()
     val emptyComponentMatch by emptyComponentFingerprint()
-    val nativeUpbFeatureFlagMatch by nativeUpbFeatureFlagFingerprint()
-    val lithoNativeComponentFeatureFlagMatch by lithoNativeComponentFeatureFlagFingerprint()
+    val lithoComponentNameUpbFeatureFlagMatch by lithoComponentNameUpbFeatureFlagFingerprint()
+    val lithoConverterBufferUpbFeatureFlagMatch by lithoConverterBufferUpbFeatureFlagFingerprint()
 
     var filterCount = 0
 
@@ -241,30 +241,28 @@ val lithoFilterPatch = bytecodePatch(
 
         // region A/B test of new Litho native code.
 
-        // Turn off a feature flag that enables native code of protobuf parsing (Upb protobuf)
-        // If this is enabled, then the litho protobuffer hook will always show an empty buffer
-        // since it's no longer handled by the hooked Java code.
-        //
-        // This flag has been present since at least 18.38,
-        // and forcing it on also works so theoretically it could be enabled anytime.
-        nativeUpbFeatureFlagMatch.let {
-            val endIndex = it.patternMatch!!.endIndex
-            it.mutableMethod.apply {
-                val register = getInstruction<OneRegisterInstruction>(endIndex).registerA
-                addInstruction(endIndex + 1, "const/4 v$register, 0x0")
-            }
-        }
-
-        // Native Litho components.  If this feature is enabled, then the litho paths
-        // are missing nearly all component names and almost all filters are broken.
+        // Turn off native code that handles litho component names.  If this feature is on then nearly
+        // all litho components have a null name and identifier/path filtering is completely broken.
         if (is_19_25_or_greater) {
-            lithoNativeComponentFeatureFlagMatch.mutableMethod.apply {
+            lithoComponentNameUpbFeatureFlagMatch.mutableMethod.apply {
                 // Don't use return early, so the debug patch logs if this was originally on.
                 val insertIndex = indexOfFirstInstructionOrThrow(Opcode.RETURN)
                 val register = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                 addInstruction(insertIndex, "const/4 v$register, 0x0")
             }
+        }
+
+        // Turn off a feature flag that enables native code of protobuf parsing (Upb protobuf)
+        // If this is enabled, then the litho protobuffer hook will always show an empty buffer
+        // since it's no longer handled by the hooked Java code.
+        //
+        // This flag has been present since at least 18.38,
+        // and forcing it on also works so theoretically it could be enabled anytime.
+        lithoConverterBufferUpbFeatureFlagMatch.mutableMethod.apply {
+            val index = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT)
+            val register = getInstruction<OneRegisterInstruction>(index).registerA
+            addInstruction(index + 1, "const/4 v$register, 0x0")
         }
 
         // endregion

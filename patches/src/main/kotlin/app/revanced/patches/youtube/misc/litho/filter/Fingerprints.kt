@@ -50,20 +50,16 @@ internal val emptyComponentFingerprint = fingerprint {
     }
 }
 
-internal val nativeUpbFeatureFlagFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("L")
-    parameters("L")
-    opcodes(
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT,
-    )
-    literal { 45419603L }
-}
-
-internal val lithoNativeComponentFeatureFlagFingerprint = fingerprint {
+internal val lithoComponentNameUpbFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()
     literal { 45631264L }
+}
+
+internal val lithoConverterBufferUpbFeatureFlagFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    returns("L")
+    parameters("L")
+    literal { 45419603L }
 }

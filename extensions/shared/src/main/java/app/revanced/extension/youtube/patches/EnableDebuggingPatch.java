@@ -10,7 +10,7 @@ import app.revanced.extension.shared.settings.BaseSettings;
 public final class EnableDebuggingPatch {
 
     private static final ConcurrentMap<Long, Boolean> featureFlags
-            = new ConcurrentHashMap<>(100, 0.75f, 1);
+            = new ConcurrentHashMap<>(150, 0.75f, 1);
 
     public static boolean isFeatureFlagEnabled(long flag, boolean value) {
         if (value && BaseSettings.DEBUG.get()) {
