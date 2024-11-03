@@ -31,14 +31,18 @@ public class SegmentCategoryListPreference extends ListPreference {
         super(context);
         final boolean isHighlightCategory = category == SegmentCategory.HIGHLIGHT;
         this.category = Objects.requireNonNull(category);
-        setKey(category.keyValue);
-        setDefaultValue(category.behaviour.reVancedKeyValue);
+
+        // Edit: Using preferences to sync together multiple pieces
+        // of code together is messy and should be rethought.
+        setKey(category.behaviorSetting.key);
+        setDefaultValue(category.behaviorSetting.defaultValue);
         setEntries(isHighlightCategory
                 ? CategoryBehaviour.getBehaviorDescriptionsWithoutSkipOnce()
                 : CategoryBehaviour.getBehaviorDescriptions());
         setEntryValues(isHighlightCategory
                 ? CategoryBehaviour.getBehaviorKeyValuesWithoutSkipOnce()
                 : CategoryBehaviour.getBehaviorKeyValues());
+
         setSummary(category.description.toString());
         updateTitle();
     }
