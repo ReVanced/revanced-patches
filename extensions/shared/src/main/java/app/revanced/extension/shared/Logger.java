@@ -110,14 +110,7 @@ public class Logger {
      * Logs exceptions under the outer class name of the code calling this method.
      */
     public static void printException(@NonNull LogMessage message) {
-        printException(message, null, null);
-    }
-
-    /**
-     * Logs exceptions under the outer class name of the code calling this method.
-     */
-    public static void printException(@NonNull LogMessage message, @Nullable Throwable ex) {
-        printException(message, ex, null);
+        printException(message, null);
     }
 
     /**
@@ -128,10 +121,8 @@ public class Logger {
      *
      * @param message          log message
      * @param ex               exception (optional)
-     * @param userToastMessage user specific toast message to show instead of the log message (optional)
      */
-    public static void printException(@NonNull LogMessage message, @Nullable Throwable ex,
-                                      @Nullable String userToastMessage) {
+    public static void printException(@NonNull LogMessage message, @Nullable Throwable ex) {
         String messageString = message.buildMessageString();
         String outerClassSimpleName = message.findOuterClassSimpleName();
         String logMessage = REVANCED_LOG_PREFIX + outerClassSimpleName;
@@ -141,10 +132,7 @@ public class Logger {
             Log.e(logMessage, messageString, ex);
         }
         if (DEBUG_TOAST_ON_ERROR.get()) {
-            String toastMessageToDisplay = (userToastMessage != null)
-                    ? userToastMessage
-                    : outerClassSimpleName + ": " + messageString;
-            Utils.showToastLong(toastMessageToDisplay);
+            Utils.showToastLong(outerClassSimpleName + ": " + messageString);
         }
     }
 
