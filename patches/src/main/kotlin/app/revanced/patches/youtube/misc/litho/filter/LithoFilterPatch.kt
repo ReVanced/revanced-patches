@@ -13,6 +13,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_18_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -41,6 +42,8 @@ val lithoFilterPatch = bytecodePatch(
     val protobufBufferReferenceMatch by protobufBufferReferenceFingerprint()
     val readComponentIdentifierMatch by readComponentIdentifierFingerprint()
     val emptyComponentMatch by emptyComponentFingerprint()
+    val lithoComponentNameUpbFeatureFlagMatch by lithoComponentNameUpbFeatureFlagFingerprint()
+    val lithoConverterBufferUpbFeatureFlagMatch by lithoConverterBufferUpbFeatureFlagFingerprint()
 
     var filterCount = 0
 
@@ -135,9 +138,19 @@ val lithoFilterPatch = bytecodePatch(
             builderMethodDescriptor.returnType == classDef.type
         }!!.immutableClass.fields.single()
 
+        // Returns an empty component instead of the original component.
+        fun createReturnEmptyComponentInstructions(register : Int) : String =
+            """
+                move-object/from16 v$register, p1
+                invoke-static { v$register }, $builderMethodDescriptor
+                move-result-object v$register
+                iget-object v$register, v$register, $emptyComponentField
+                return-object v$register
+            """
+
         componentContextParserMatch.mutableMethod.apply {
             // 19.18 and later require patching 2 methods instead of one.
-            // Otherwise, the patched code is the same.
+            // Otherwise the modifications done here are the same for all targets.
             if (is_19_18_or_greater) {
                 // Get the method name of the ReadComponentIdentifierFingerprint call.
                 val readComponentMethodCallIndex = indexOfFirstInstructionOrThrow {
@@ -156,15 +169,11 @@ val lithoFilterPatch = bytecodePatch(
                 addInstructionsWithLabels(
                     insertHookIndex,
                     """
-                            if-nez v$register, :unfiltered
-    
-                            # Component was filtered in ReadComponentIdentifierFingerprint hook
-                            move-object/from16 v$register, p1
-                            invoke-static { v$register }, $builderMethodDescriptor
-                            move-result-object v$register
-                            iget-object v$register, v$register, $emptyComponentField
-                            return-object v$register
-                        """,
+                        if-nez v$register, :unfiltered
+
+                        # Component was filtered in ReadComponentIdentifierFingerprint hook
+                        ${createReturnEmptyComponentInstructions(register)}
+                    """,
                     ExternalLabel("unfiltered", getInstruction(insertHookIndex)),
                 )
             }
@@ -190,20 +199,20 @@ val lithoFilterPatch = bytecodePatch(
             ).registerA
 
             // Find a free temporary register.
-            val register = getInstruction<OneRegisterInstruction>(
+            val freeRegister = getInstruction<OneRegisterInstruction>(
                 // Immediately before is a StringBuilder append constant character.
                 indexOfFirstInstructionReversedOrThrow(insertHookIndex, Opcode.CONST_16),
             ).registerA
 
             // Verify the temp register will not clobber the method result register.
-            if (stringBuilderRegister == register) {
+            if (stringBuilderRegister == freeRegister) {
                 throw PatchException("Free register will clobber StringBuilder register")
             }
 
             val invokeFilterInstructions = """
                 invoke-static { v$identifierRegister, v$stringBuilderRegister }, $EXTENSION_CLASS_DESCRIPTOR->filter(Ljava/lang/String;Ljava/lang/StringBuilder;)Z
-                move-result v$register
-                if-eqz v$register, :unfiltered
+                move-result v$freeRegister
+                if-eqz v$freeRegister, :unfiltered
             """
 
             addInstructionsWithLabels(
@@ -214,24 +223,44 @@ val lithoFilterPatch = bytecodePatch(
                         
                         # Return null, and the ComponentContextParserFingerprint hook 
                         # handles returning an empty component.
-                        const/4 v$register, 0x0
-                        return-object v$register
+                        const/4 v$freeRegister, 0x0
+                        return-object v$freeRegister
                     """
                 } else {
                     """
                         $invokeFilterInstructions
-                    
-                        # Exact same code as ComponentContextParserFingerprint hook,
-                        # but with the free register of this method.
-                        move-object/from16 v$register, p1
-                        invoke-static { v$register }, $builderMethodDescriptor
-                        move-result-object v$register
-                        iget-object v$register, v$register, $emptyComponentField
-                        return-object v$register
+                        
+                        ${createReturnEmptyComponentInstructions(freeRegister)}
                     """
                 },
                 ExternalLabel("unfiltered", getInstruction(insertHookIndex)),
             )
+        }
+
+        // endregion
+
+        // region A/B test of new Litho native code.
+
+        // Turn off native code that handles litho component names.  If this feature is on then nearly
+        // all litho components have a null name and identifier/path filtering is completely broken.
+        if (is_19_25_or_greater) {
+            lithoComponentNameUpbFeatureFlagMatch.mutableMethod.apply {
+                // Don't use return early, so the debug patch logs if this was originally on.
+                val insertIndex = indexOfFirstInstructionOrThrow(Opcode.RETURN)
+                val register = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+
+                addInstruction(insertIndex, "const/4 v$register, 0x0")
+            }
+        }
+
+        // Turn off a feature flag that enables native code of protobuf parsing (Upb protobuf).
+        // If this is enabled, then the litho protobuffer hook will always show an empty buffer
+        // since it's no longer handled by the hooked Java code.
+        lithoConverterBufferUpbFeatureFlagMatch.mutableMethod.apply {
+            val index = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT)
+            val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+            addInstruction(index + 1, "const/4 v$register, 0x0")
         }
 
         // endregion

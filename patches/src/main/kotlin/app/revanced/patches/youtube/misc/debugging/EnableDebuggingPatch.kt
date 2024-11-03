@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.misc.debugging
 
-import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
@@ -9,9 +10,15 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.util.applyMatch
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import com.android.tools.smali.dexlib2.Opcode
+
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/youtube/patches/EnableDebuggingPatch;"
 
 @Suppress("unused")
-val enableDebuggingPatch = resourcePatch(
+val enableDebuggingPatch = bytecodePatch(
     name = "Enable debugging",
     description = "Adds options for debugging.",
 ) {
@@ -21,9 +28,20 @@ val enableDebuggingPatch = resourcePatch(
         addResourcesPatch,
     )
 
-    compatibleWith("com.google.android.youtube")
+    compatibleWith(
+        "com.google.android.youtube"(
+            "18.38.44",
+            "18.49.37",
+            "19.16.39",
+            "19.25.37",
+            "19.34.42",
+            "19.43.41",
+        )
+    )
 
-    execute {
+    val experimentalFeatureFlagParentMatch by experimentalFeatureFlagParentFingerprint()
+
+    execute { context ->
         addResources("youtube", "misc.debugging.enableDebuggingPatch")
 
         PreferenceScreen.MISC.addPreferences(
@@ -38,5 +56,23 @@ val enableDebuggingPatch = resourcePatch(
                 ),
             ),
         )
+
+        // Hook the method that looks up if a feature flag is active or not.
+        experimentalFeatureFlagFingerprint.applyMatch(
+            context,
+            experimentalFeatureFlagParentMatch
+        ).mutableMethod.apply {
+            val insertIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT)
+
+            addInstructions(
+                insertIndex,
+                """
+                    move-result v0
+                    invoke-static { p1, p2, v0 }, $EXTENSION_CLASS_DESCRIPTOR->isFeatureFlagEnabled(JZ)Z
+                    move-result v0
+                    return v0
+                """
+            )
+        }
     }
 }

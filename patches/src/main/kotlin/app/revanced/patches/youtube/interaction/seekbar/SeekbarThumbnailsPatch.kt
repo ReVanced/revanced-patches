@@ -1,11 +1,10 @@
-package app.revanced.patches.youtube.layout.seekbar
+package app.revanced.patches.youtube.interaction.seekbar
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.youtube.interaction.seekbar.fullscreenSeekbarThumbnailsQualityFingerprint
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_17_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
@@ -32,6 +31,7 @@ val seekbarThumbnailsPatch = bytecodePatch(
             "19.16.39",
             "19.25.37",
             "19.34.42",
+            "19.43.41",
         )
     )
 
