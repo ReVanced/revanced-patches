@@ -101,7 +101,9 @@ public final class AdsFilter extends Filter {
         final var viewProducts = new StringFilterGroup(
                 Settings.HIDE_PRODUCTS_BANNER,
                 "product_item",
-                "products_in_video"
+                "products_in_video",
+                "shopping_overlay.eml", // Video player overlay shopping links.
+                "shopping_carousel.eml" // Channel profile shopping shelf.
         );
 
         shoppingLinks = new StringFilterGroup(
