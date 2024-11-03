@@ -13,8 +13,6 @@ import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
-import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
-import org.stringtemplate.v4.compiler.Bytecode.instructions
 
 @Suppress("unused")
 val enableOfflineSync = bytecodePatch(

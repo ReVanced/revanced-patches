@@ -9,7 +9,6 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction10t
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21t
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
 
 val spoofClientPatch = spoofClientPatch(redirectUri = "dbrady://relay") {
     compatibleWith(
