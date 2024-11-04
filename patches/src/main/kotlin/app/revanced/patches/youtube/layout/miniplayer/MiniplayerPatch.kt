@@ -382,24 +382,24 @@ val miniplayerPatch = bytecodePatch(
 
         if (is_19_23_or_greater) {
             miniplayerModernConstructorMatch.insertLiteralValueBooleanOverride(
-                DRAG_DROP_ENABLED_FEATURE_KEY_LITERAL,
+                MINIPLAYER_DRAG_DROP_FEATURE_KEY,
                 "enableMiniplayerDragAndDrop",
             )
         }
 
         if (is_19_25_or_greater) {
             miniplayerModernConstructorMatch.insertLiteralValueBooleanOverride(
-                MODERN_MINIPLAYER_ENABLED_OLD_TARGETS_FEATURE_KEY,
+                MINIPLAYER_MODERN_FEATURE_FLAG_LEGACY_KEY,
                 "getModernMiniplayerOverride",
             )
 
             miniplayerModernConstructorMatch.insertLiteralValueBooleanOverride(
-                MODERN_FEATURE_FLAGS_ENABLED_KEY_LITERAL,
+                MINIPLAYER_MODERN_FEATURE_FLAG_KEY,
                 "getModernFeatureFlagsActiveOverride",
             )
 
             miniplayerModernConstructorMatch.insertLiteralValueBooleanOverride(
-                DOUBLE_TAP_ENABLED_FEATURE_KEY_LITERAL,
+                MINIPLAYER_DOUBLE_TAP_FEATURE_FLAG_KEY,
                 "enableMiniplayerDoubleTapAction",
             )
         }
@@ -407,7 +407,7 @@ val miniplayerPatch = bytecodePatch(
         if (is_19_26_or_greater) {
             miniplayerModernConstructorMatch.mutableMethod.apply {
                 val literalIndex = indexOfFirstLiteralInstructionOrThrow(
-                    INITIAL_SIZE_FEATURE_KEY_LITERAL,
+                    MINIPLAYER_INITIAL_SIZE_FEATURE_KEY,
                 )
                 val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.LONG_TO_INT)
 
@@ -438,14 +438,14 @@ val miniplayerPatch = bytecodePatch(
 
         if (is_19_36_or_greater) {
             miniplayerModernConstructorMatch.insertLiteralValueBooleanOverride(
-                ROUNDED_CORNERS_FEATURE_KEY,
+                MINIPLAYER_ROUNDED_CORNERS_FEATURE_KEY,
                 "setRoundedCorners",
             )
         }
 
         if (is_19_43_or_greater) {
             miniplayerModernConstructorMatch.insertLiteralValueBooleanOverride(
-                HORIZONTAL_DRAG_FEATURE_FLAG,
+                MINIPLAYER_HORIZONTAL_DRAG_FEATURE_FLAG,
                 "setHorizontalDrag",
             )
         }
