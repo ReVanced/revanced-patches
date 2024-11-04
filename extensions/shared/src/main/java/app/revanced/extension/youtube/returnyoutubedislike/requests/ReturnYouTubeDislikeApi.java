@@ -302,7 +302,7 @@ public class ReturnYouTubeDislikeApi {
             handleConnectionError((str("revanced_ryd_failure_generic", ex.getMessage())), ex, true);
         } catch (Exception ex) {
             // should never happen
-            Logger.printException(() -> "Failed to fetch votes", ex, str("revanced_ryd_failure_generic", ex.getMessage()));
+            Logger.printException(() -> "fetchVotes failure", ex);
         }
 
         updateRateLimitAndStats(timeNetworkCallStarted, true, false);

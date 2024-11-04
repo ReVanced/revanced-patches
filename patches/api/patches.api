@@ -1053,6 +1053,10 @@ public final class app/revanced/patches/youtube/interaction/seekbar/EnableSlideT
 	public static final fun getEnableSlideToSeekPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/interaction/seekbar/SeekbarThumbnailsPatchKt {
+	public static final fun getSeekbarThumbnailsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/interaction/swipecontrols/SwipeControlsPatchKt {
 	public static final fun getSwipeControlsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1196,10 +1200,6 @@ public final class app/revanced/patches/youtube/layout/seekbar/SeekbarColorPatch
 	public static final fun getSeekbarColorPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/seekbar/SeekbarThumbnailsPatchKt {
-	public static final fun getSeekbarThumbnailsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
 public final class app/revanced/patches/youtube/layout/shortsautoplay/ShortsAutoplayPatchKt {
 	public static final fun getShortsAutoplayPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1263,7 +1263,7 @@ public final class app/revanced/patches/youtube/misc/check/CheckEnvironmentPatch
 }
 
 public final class app/revanced/patches/youtube/misc/debugging/EnableDebuggingPatchKt {
-	public static final fun getEnableDebuggingPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+	public static final fun getEnableDebuggingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/misc/dimensions/spoof/SpoofDeviceDimensionsPatchKt {
@@ -1348,6 +1348,7 @@ public final class app/revanced/patches/youtube/misc/playservice/VersionCheckPat
 	public static final fun is_19_32_or_greater ()Z
 	public static final fun is_19_33_or_greater ()Z
 	public static final fun is_19_34_or_greater ()Z
+	public static final fun is_19_35_or_greater ()Z
 	public static final fun is_19_36_or_greater ()Z
 	public static final fun is_19_41_or_greater ()Z
 	public static final fun is_19_43_or_greater ()Z

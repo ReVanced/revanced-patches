@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.seekbar
+package app.revanced.patches.youtube.interaction.seekbar
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
@@ -31,6 +31,7 @@ val seekbarThumbnailsPatch = bytecodePatch(
             "19.16.39",
             "19.25.37",
             "19.34.42",
+            "19.43.41",
         ),
     )
 

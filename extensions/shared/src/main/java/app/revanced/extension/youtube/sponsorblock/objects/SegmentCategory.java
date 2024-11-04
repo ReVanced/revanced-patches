@@ -136,7 +136,7 @@ public enum SegmentCategory {
     @NonNull
     public final String keyValue;
     @NonNull
-    private final StringSetting behaviorSetting;
+    public final StringSetting behaviorSetting;
     @NonNull
     private final StringSetting colorSetting;
 
