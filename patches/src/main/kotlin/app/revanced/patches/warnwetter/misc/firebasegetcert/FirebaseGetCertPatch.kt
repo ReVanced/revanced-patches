@@ -9,7 +9,7 @@ val firebaseGetCertPatch = bytecodePatch(
     compatibleWith("de.dwd.warnapp")
 
     execute {
-        listOf(getRegistrationCertMatch, getMessagingCertMatch).forEach { match ->
+        listOf(getRegistrationCertFingerprint.matchOrThrow, getMessagingCertFingerprint.matchOrThrow).forEach { match ->
             match.method.addInstructions(
                 0,
                 """

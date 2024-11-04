@@ -20,6 +20,8 @@ val fixOldVersionsPatch = bytecodePatch(
 
         // Remove the live query parameters from the path when it's specified via a @METHOD annotation.
         for (liveQueryParameter in liveQueryParameters) {
+            val httpPathParserMatch by httpPathParserFingerprint
+
             httpPathParserMatch.method.addInstructions(
                 httpPathParserMatch.patternMatch!!.endIndex + 1,
                 """
@@ -39,7 +41,7 @@ val fixOldVersionsPatch = bytecodePatch(
         // which would result in the path "api/me/inf0?fields[blog]=${value}"
         // Here we make sure that this value doesn't contain the broken query parameters.
         for (liveQueryParameter in liveQueryParameters) {
-            addQueryParamMatch.method.addInstructions(
+            addQueryParamFingerprint.matchOrThrow.method.addInstructions(
                 0,
                 """
                     # queryParameterValue = queryParameterValue.replace(liveQueryParameter, "")

@@ -10,7 +10,6 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.util.applyMatch
 
 @Suppress("unused")
 val disablePreciseSeekingGesturePatch = bytecodePatch(
@@ -42,10 +41,9 @@ val disablePreciseSeekingGesturePatch = bytecodePatch(
         val extensionMethodDescriptor =
             "Lapp/revanced/extension/youtube/patches/DisablePreciseSeekingGesturePatch;"
 
-        allowSwipingUpGestureFingerprint.applyMatch(
-            context,
-            swipingUpGestureParentMatch,
-        ).mutableMethod.apply {
+        allowSwipingUpGestureFingerprint.matchOrThrow(
+            swipingUpGestureParentFingerprint.matchOrThrow.originalClassDef,
+        ).method.apply {
             addInstructionsWithLabels(
                 0,
                 """
@@ -58,10 +56,9 @@ val disablePreciseSeekingGesturePatch = bytecodePatch(
             )
         }
 
-        showSwipingUpGuideFingerprint.applyMatch(
-            context,
-            swipingUpGestureParentMatch,
-        ).mutableMethod.apply {
+        showSwipingUpGuideFingerprint.matchOrThrow(
+            swipingUpGestureParentFingerprint.matchOrThrow.originalClassDef,
+        ).method.apply {
             addInstructionsWithLabels(
                 0,
                 """

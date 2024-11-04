@@ -16,7 +16,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import org.w3c.dom.Node
-import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 /**
  * Add a new top to the bottom of the YouTube player.
@@ -109,10 +108,10 @@ val playerControlsResourcePatch = resourcePatch {
 
         addBottomControl = { resourceDirectoryName ->
             val resourceFileName = "host/layout/youtube_controls_bottom_ui_container.xml"
-            val sourceDocument = context.document[
+            val sourceDocument = document(
                 inputStreamFromBundledResource(resourceDirectoryName, resourceFileName)
                     ?: throw PatchException("Could not find $resourceFileName"),
-            ]
+            )
 
             val sourceElements = sourceDocument.getElementsByTagName(
                 "android.support.constraint.ConstraintLayout",
@@ -222,7 +221,7 @@ val playerControlsPatch = bytecodePatch(
                     reference.name == "inflate"
             }
 
-        playerBottomControlsInflateMatch.method.apply {
+        playerBottomControlsInflateFingerprint.matchOrThrow.method.apply {
             inflateBottomControlMethod = this
 
             val inflateReturnObjectIndex = indexOfFirstViewInflateOrThrow() + 1
@@ -230,6 +229,7 @@ val playerControlsPatch = bytecodePatch(
             inflateBottomControlInsertIndex = inflateReturnObjectIndex + 1
         }
 
+        val playerTopControlsInflateMatch by playerTopControlsInflateFingerprint
         playerTopControlsInflateMatch.method.apply {
             inflateTopControlMethod = this
 
@@ -238,16 +238,15 @@ val playerControlsPatch = bytecodePatch(
             inflateTopControlInsertIndex = inflateReturnObjectIndex + 1
         }
 
-        controlsOverlayVisibilityFingerprint.applyMatch(
-            context,
-            playerTopControlsInflateMatch,
-        ).mutableMethod.apply {
+        controlsOverlayVisibilityFingerprint.matchOrThrow(
+            playerTopControlsInflateFingerprint.matchOrThrow.classDef,
+        ).method.apply {
             visibilityMethod = this
         }
 
         // Hook the fullscreen close button.  Used to fix visibility
         // when seeking and other situations.
-        overlayViewInflateMatch.method.apply {
+        overlayViewInflateFingerprint.matchOrThrow.method.apply {
             val resourceIndex = indexOfFirstLiteralInstructionReversedOrThrow(fullscreenButton)
 
             val index = indexOfFirstInstructionOrThrow(resourceIndex) {
@@ -264,6 +263,6 @@ val playerControlsPatch = bytecodePatch(
             )
         }
 
-        visibilityImmediateMethod = playerControlsExtensionHookMatch.method
+        visibilityImmediateMethod = playerControlsExtensionHookFingerprint.matchOrThrow.method
     }
 }

@@ -47,7 +47,7 @@ val disableResumingShortsOnStartupPatch = bytecodePatch(
             SwitchPreference("revanced_disable_resuming_shorts_player"),
         )
 
-        userWasInShortsConfigMatch.method.apply {
+        userWasInShortsConfigFingerprint.matchOrThrow.method.apply {
             val startIndex = indexOfOptionalInstruction(this)
             val walkerIndex = indexOfFirstInstructionOrThrow(startIndex) {
                 val reference = getReference<MethodReference>()
@@ -58,7 +58,7 @@ val disableResumingShortsOnStartupPatch = bytecodePatch(
             }
 
             // Presumably a method that processes the ProtoDataStore value (boolean) for the 'user_was_in_shorts' key.
-            context.navigate(this).at(walkerIndex).mutable().addInstructionsWithLabels(
+            navigate(this).at(walkerIndex).stop().addInstructionsWithLabels(
                 0,
                 """
                     invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->disableResumingStartupShortsPlayer()Z
@@ -72,7 +72,7 @@ val disableResumingShortsOnStartupPatch = bytecodePatch(
             )
         }
 
-        userWasInShortsMatch.method.apply {
+        userWasInShortsFingerprint.matchOrThrow.method.apply {
             val listenableInstructionIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_INTERFACE &&
                     getReference<MethodReference>()?.definingClass == "Lcom/google/common/util/concurrent/ListenableFuture;" &&

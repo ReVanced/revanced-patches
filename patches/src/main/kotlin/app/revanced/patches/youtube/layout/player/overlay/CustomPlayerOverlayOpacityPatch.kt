@@ -40,7 +40,8 @@ private val customPlayerOverlayOpacityResourcePatch = resourcePatch {
     }
 }
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/CustomPlayerOverlayOpacityPatch;"
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/youtube/patches/CustomPlayerOverlayOpacityPatch;"
 
 @Suppress("unused")
 val customPlayerOverlayOpacityPatch = bytecodePatch(
@@ -52,7 +53,7 @@ val customPlayerOverlayOpacityPatch = bytecodePatch(
     compatibleWith("com.google.android.youtube")
 
     execute {
-        createPlayerOverviewMatch.method.apply {
+        createPlayerOverviewFingerprint.matchOrThrow.method.apply {
             val viewRegisterIndex =
                 indexOfFirstLiteralInstructionOrThrow(scrimOverlayId) + 3
             val viewRegister =

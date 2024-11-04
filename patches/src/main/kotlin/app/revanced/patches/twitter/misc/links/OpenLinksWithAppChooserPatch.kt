@@ -17,7 +17,7 @@ val openLinksWithAppChooserPatch = bytecodePatch(
             "Lapp/revanced/extension/twitter/patches/links/OpenLinksWithAppChooserPatch;->" +
                 "openWithChooser(Landroid/content/Context;Landroid/content/Intent;)V"
 
-        openLinkMatch.method.addInstructions(
+        openLinkFingerprint.matchOrThrow.method.addInstructions(
             0,
             """
                 invoke-static { p0, p1 }, $methodReference

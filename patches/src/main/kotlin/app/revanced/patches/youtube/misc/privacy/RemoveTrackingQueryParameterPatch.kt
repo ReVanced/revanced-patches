@@ -61,17 +61,17 @@ val removeTrackingQueryParameterPatch = bytecodePatch(
             )
         }
 
-        // YouTube share sheet.
-        youTubeShareSheetMatch.hook(getInsertIndex = { startIndex + 1 }) { insertIndex ->
+        // YouTube share sheet.\
+        youtubeShareSheetFingerprint.matchOrThrow.hook(getInsertIndex = { startIndex + 1 }) { insertIndex ->
             getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
         }
 
         // Native system share sheet.
-        systemShareSheetMatch.hook(getInsertIndex = { endIndex }) { insertIndex ->
+        systemShareSheetFingerprint.matchOrThrow.hook(getInsertIndex = { endIndex }) { insertIndex ->
             getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
         }
 
-        copyTextMatch.hook(getInsertIndex = { startIndex + 2 }) { insertIndex ->
+        copyTextFingerprint.matchOrThrow.hook(getInsertIndex = { startIndex + 2 }) { insertIndex ->
             getInstruction<TwoRegisterInstruction>(insertIndex - 2).registerA
         }
     }

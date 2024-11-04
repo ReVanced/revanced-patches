@@ -11,7 +11,7 @@ val sanitizeSharingLinksPatch = bytecodePatch(
     compatibleWith("com.twitter.android")
 
     execute {
-        sanitizeSharingLinksMatch.method.addInstructions(
+        sanitizeSharingLinksFingerprint.matchOrThrow.method.addInstructions(
             0,
             """
                 # Method takes in a link (string, param 0) and then appends the tracking query params,

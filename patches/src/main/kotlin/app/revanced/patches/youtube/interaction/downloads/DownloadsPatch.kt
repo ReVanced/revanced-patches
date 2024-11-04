@@ -14,6 +14,7 @@ import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.misc.playercontrols.*
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.patches.youtube.shared.mainActivityFingerprint
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
@@ -40,7 +41,7 @@ private val downloadsResourcePatch = resourcePatch {
             ),
         )
 
-        context.copyResources(
+        copyResources(
             "downloads",
             ResourceGroup("drawable", "revanced_yt_download_button.xml"),
         )
@@ -80,14 +81,14 @@ val downloadsPatch = bytecodePatch(
         injectVisibilityCheckCall(BUTTON_DESCRIPTOR)
 
         // Main activity is used to launch downloader intent.
-        mainActivityMatch.method.apply {
+        mainActivityFingerprint.matchOrThrow.method.apply {
             addInstruction(
                 implementation!!.instructions.lastIndex,
                 "invoke-static { p0 }, $EXTENSION_CLASS_DESCRIPTOR->activityCreated(Landroid/app/Activity;)V",
             )
         }
 
-        offlineVideoEndpointMatch.method.apply {
+        offlineVideoEndpointFingerprint.matchOrThrow.method.apply {
             addInstructionsWithLabels(
                 0,
                 """

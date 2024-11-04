@@ -38,7 +38,7 @@ val changeStartPagePatch = bytecodePatch(
         ),
     )
 
-    execute { _ ->
+    execute {
         addResources("youtube", "layout.startpage.changeStartPagePatch")
 
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(
@@ -49,7 +49,7 @@ val changeStartPagePatch = bytecodePatch(
         )
 
         // Hook browseId.
-        browseIdMatch.method.apply {
+        browseIdFingerprint.matchOrThrow.method.apply {
             val browseIdIndex = indexOfFirstInstructionOrThrow {
                 getReference<StringReference>()?.string == "FEwhat_to_watch"
             }
@@ -66,7 +66,7 @@ val changeStartPagePatch = bytecodePatch(
 
         // There is no browserId assigned to Shorts and Search.
         // Just hook the Intent action.
-        intentActionMatch.method.addInstruction(
+        intentActionFingerprint.matchOrThrow.method.addInstruction(
             0,
             "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->overrideIntentAction(Landroid/content/Intent;)V",
         )

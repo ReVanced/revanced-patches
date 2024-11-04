@@ -52,6 +52,8 @@ val changeLinkSharingDomainPatch = bytecodePatch(
     )
 
     execute {
+        val linkSharingDomainMatch by linkSharingDomainFingerprint
+
         val replacementIndex =
             linkSharingDomainMatch.stringMatches!!.first().index
         val domainRegister =
@@ -63,7 +65,7 @@ val changeLinkSharingDomainPatch = bytecodePatch(
         )
 
         // Replace the domain name when copying a link with "Copy link" button.
-        linkBuilderMatch.method.apply {
+        linkBuilderFingerprint.matchOrThrow.method.apply {
             addInstructions(
                 0,
                 """
@@ -75,7 +77,7 @@ val changeLinkSharingDomainPatch = bytecodePatch(
         }
 
         // Used in the Share via... dialog.
-        linkResourceGetterMatch.method.apply {
+        linkResourceGetterFingerprint.matchOrThrow.method.apply {
             val templateIdConstIndex = indexOfFirstLiteralInstructionOrThrow(tweetShareLinkTemplateId)
 
             // Format the link with the new domain name register (1 instruction below the const).

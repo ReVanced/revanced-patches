@@ -16,7 +16,7 @@ private val playbackSpeedButtonResourcePatch = resourcePatch {
     dependsOn(playerControlsResourcePatch)
 
     execute {
-        context.copyResources(
+        copyResources(
             "speedbutton",
             ResourceGroup(
                 "drawable",

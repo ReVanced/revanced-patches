@@ -11,7 +11,7 @@ internal val getMessagingCertFingerprint = fingerprint {
     )
 }
 
-internal val getReqistrationCertFingerprint = fingerprint {
+internal val getRegistrationCertFingerprint = fingerprint {
     returns("Ljava/lang/String;")
     strings(
         "FirebaseRemoteConfig",

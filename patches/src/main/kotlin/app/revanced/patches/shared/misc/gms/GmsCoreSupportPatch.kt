@@ -12,10 +12,7 @@ import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.gms.Constants.ACTIONS
 import app.revanced.patches.shared.misc.gms.Constants.AUTHORITIES
 import app.revanced.patches.shared.misc.gms.Constants.PERMISSIONS
-import app.revanced.util.exception
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
-import app.revanced.util.returnEarly
+import app.revanced.util.*
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -26,7 +23,6 @@ import com.android.tools.smali.dexlib2.immutable.reference.ImmutableStringRefere
 import com.android.tools.smali.dexlib2.util.MethodUtil
 import org.w3c.dom.Element
 import org.w3c.dom.Node
-import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 private const val PACKAGE_NAME_REGEX_PATTERN = "^[a-z]\\w*(\\.[a-z]\\w*)+\$"
 
@@ -53,7 +49,7 @@ fun gmsCoreSupportPatch(
     mainActivityOnCreateFingerprint: Fingerprint,
     extensionPatch: Patch<*>,
     gmsCoreSupportResourcePatchFactory: (gmsCoreVendorGroupIdOption: Option<String>) -> Patch<*>,
-    executeBlock: Patch<BytecodePatchContext>.(BytecodePatchContext) -> Unit = {},
+    executeBlock: BytecodePatchContext.() -> Unit = {},
     block: BytecodePatchBuilder.() -> Unit = {},
 ) = bytecodePatch(
     name = "GmsCore support",
@@ -79,11 +75,6 @@ fun gmsCoreSupportPatch(
     )
 
     val gmsCoreVendorGroupId by gmsCoreVendorGroupIdOption
-
-    primeMethodFingerprint?.invoke()
-    googlePlayUtilityFingerprint()
-    serviceCheckFingerprint()
-    earlyReturnFingerprints.forEach { it() }
 
     execute {
         fun transformStringReferences(transform: (str: String) -> String?) = classes.forEach {
@@ -168,7 +159,7 @@ fun gmsCoreSupportPatch(
         }
 
         fun transformPrimeMethod(packageName: String) {
-            primeMethodFingerprint!!.match?.method?.apply {
+            primeMethodFingerprint!!.matchOrThrow.method.apply {
                 var register = 2
 
                 val index = instructions.indexOfFirst {
@@ -179,7 +170,7 @@ fun gmsCoreSupportPatch(
                 }
 
                 replaceInstruction(index, "const-string v$register, \"$packageName\"")
-            } ?: throw primeMethodFingerprint.exception
+            }
         }
 
         // endregion
@@ -213,7 +204,7 @@ fun gmsCoreSupportPatch(
         }
 
         // Verify GmsCore is installed and whitelisted for power optimizations and background usage.
-        mainActivityOnCreateMatch.method.apply {
+        mainActivityOnCreateFingerprint.matchOrThrow.method.apply {
             // Temporary fix for patches with an extension patch that hook the onCreate method as well.
             val setContextIndex = indexOfFirstInstruction {
                 val reference = getReference<MethodReference>() ?: return@indexOfFirstInstruction false
@@ -230,11 +221,11 @@ fun gmsCoreSupportPatch(
         }
 
         // Change the vendor of GmsCore in the extension.
-        gmsCoreSupportMatch.classDef.methods
+        gmsCoreSupportFingerprint.matchOrThrow.classDef.methods
             .single { it.name == GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME }
             .replaceInstruction(0, "const-string v0, \"$gmsCoreVendorGroupId\"")
 
-        executeBlock(context)
+        executeBlock()
     }
 
     block()
@@ -524,7 +515,7 @@ fun gmsCoreSupportResourcePatch(
     toPackageName: String,
     spoofedPackageSignature: String,
     gmsCoreVendorGroupIdOption: Option<String>,
-    executeBlock: Patch<ResourcePatchContext>.(ResourcePatchContext) -> Unit = {},
+    executeBlock: ResourcePatchContext.() -> Unit = {},
     block: ResourcePatchBuilder.() -> Unit = {},
 ) = resourcePatch {
     dependsOn(
@@ -606,7 +597,7 @@ fun gmsCoreSupportResourcePatch(
         patchManifest()
         addSpoofingMetadata()
 
-        executeBlock(context)
+        executeBlock()
     }
 
     block()

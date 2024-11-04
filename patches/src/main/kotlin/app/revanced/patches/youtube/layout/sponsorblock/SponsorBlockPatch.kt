@@ -33,7 +33,6 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
 import org.stringtemplate.v4.compiler.Bytecode.instructions
-import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 private val sponsorBlockResourcePatch = resourcePatch {
     dependsOn(
@@ -80,7 +79,7 @@ private val sponsorBlockResourcePatch = resourcePatch {
                 "quantum_ic_skip_next_white_24.png",
             ),
         ).forEach { resourceGroup ->
-            context.copyResources("sponsorblock", resourceGroup)
+            copyResources("sponsorblock", resourceGroup)
         }
 
         addTopControl("sponsorblock")
@@ -135,7 +134,7 @@ val sponsorBlockPatch = bytecodePatch(
         )
 
         // Seekbar drawing
-        seekbarOnDrawFingerprint.applyMatch(context, seekbarMatch).mutableMethod.apply {
+        seekbarOnDrawFingerprint.matchOrThrow(seekbarFingerprint.matchOrThrow.originalClassDef).method.apply {
             // Get left and right of seekbar rectangle.
             val moveRectangleToRegisterIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_OBJECT_FROM16)
 
@@ -180,6 +179,7 @@ val sponsorBlockPatch = bytecodePatch(
         injectVisibilityCheckCall(EXTENSION_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR)
 
         // Append the new time to the player layout.
+        val appendTimeMatch by appendTimeFingerprint
         val appendTimePatternScanStartIndex = appendTimeMatch.patternMatch!!.startIndex
         appendTimeMatch.method.apply {
             val register = getInstruction<OneRegisterInstruction>(appendTimePatternScanStartIndex + 1).registerA
@@ -197,9 +197,9 @@ val sponsorBlockPatch = bytecodePatch(
         onCreateHook(EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR, "initialize")
 
         // Initialize the SponsorBlock view.
-        controlsOverlayFingerprint.applyMatch(context, layoutConstructorMatch).let {
+        controlsOverlayFingerprint.matchOrThrow(layoutConstructorFingerprint.matchOrThrow.originalClassDef).let {
             val startIndex = it.patternMatch!!.startIndex
-            it.mutableMethod.apply {
+            it.method.apply {
                 val frameLayoutRegister = (getInstruction(startIndex + 2) as OneRegisterInstruction).registerA
                 addInstruction(
                     startIndex + 3,
@@ -209,13 +209,12 @@ val sponsorBlockPatch = bytecodePatch(
         }
 
         // Set seekbar draw rectangle.
-        rectangleFieldInvalidatorFingerprint.applyMatch(context, seekbarOnDrawFingerprint.match!!).mutableMethod.apply {
+        rectangleFieldInvalidatorFingerprint.matchOrThrow(seekbarOnDrawFingerprint.matchOrThrow.originalClassDef).method.apply {
             val fieldIndex = instructions.count() - 3
             val fieldReference = getInstruction<ReferenceInstruction>(fieldIndex).reference as FieldReference
 
             // replace the "replaceMeWith*" strings
-            context
-                .proxy(classes.first { it.type.endsWith("SegmentPlaybackController;") })
+            proxy(classes.first { it.type.endsWith("SegmentPlaybackController;") })
                 .mutableClass
                 .methods
                 .find { it.name == "setSponsorBarRect" }
@@ -244,7 +243,7 @@ val sponsorBlockPatch = bytecodePatch(
         // The vote and create segment buttons automatically change their visibility when appropriate,
         // but if buttons are showing when the end of the video is reached then they will not automatically hide.
         // Add a hook to forcefully hide when the end of the video is reached.
-        autoRepeatFingerprint.applyMatch(context, autoRepeatParentMatch).mutableMethod.addInstruction(
+        autoRepeatFingerprint.matchOrThrow(autoRepeatParentFingerprint.matchOrThrow.originalClassDef).method.addInstruction(
             0,
             "invoke-static {}, $EXTENSION_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR->endOfVideoReached()V",
         )

@@ -5,7 +5,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Suppress("unused")
@@ -18,8 +17,8 @@ val hideGetPremiumPatch = bytecodePatch(
     execute {
         val hideGetPremiumMatch by hideGetPremiumFingerprint
 
-        hideGetPremiumFingerprint.matchOrThrow.method.apply {
-            val insertIndex = hideGetPremiumFingerprint.matchOrThrow.patternMatch!!.endIndex
+        hideGetPremiumMatch.method.apply {
+            val insertIndex = hideGetPremiumMatch.patternMatch!!.endIndex
 
             val setVisibilityInstruction = getInstruction<FiveRegisterInstruction>(insertIndex)
             val getPremiumViewRegister = setVisibilityInstruction.registerC

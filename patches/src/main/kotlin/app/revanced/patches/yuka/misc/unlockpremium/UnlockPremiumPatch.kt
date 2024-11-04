@@ -2,7 +2,6 @@ package app.revanced.patches.yuka.misc.unlockpremium
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val unlockPremiumPatch = bytecodePatch(
@@ -11,9 +10,9 @@ val unlockPremiumPatch = bytecodePatch(
     compatibleWith("io.yuka.android"("4.29"))
 
     execute {
-        isPremiumFingerprint.apply {
-            match(context, yukaUserConstructorMatch.originalClassDef)
-        }.matchOrThrow.mutableMethod.addInstructions(
+        isPremiumFingerprint.matchOrThrow(
+            yukaUserConstructorFingerprint.matchOrThrow.originalClassDef,
+        ).method.addInstructions(
             0,
             """
                 const/4 v0, 0x1

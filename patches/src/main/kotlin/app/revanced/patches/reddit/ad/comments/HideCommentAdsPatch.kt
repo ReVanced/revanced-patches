@@ -8,7 +8,7 @@ val hideCommentAdsPatch = bytecodePatch(
 ) {
 
     execute {
-        hideCommentAdsMatch.method.addInstructions(
+        hideCommentAdsFingerprint.matchOrThrow.method.addInstructions(
             0,
             """
                 new-instance v0, Ljava/lang/Object;

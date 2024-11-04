@@ -21,7 +21,6 @@ import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.util.applyMatch
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.Opcode
@@ -241,6 +240,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         // region Mix playlists
 
+        val parseElementFromBufferMatch by parseElementFromBufferFingerprint
         val startIndex = parseElementFromBufferMatch.patternMatch!!.startIndex
 
         parseElementFromBufferMatch.method.apply {
@@ -265,10 +265,9 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         // region Watermark (legacy code for old versions of YouTube)
 
-        showWatermarkFingerprint.applyMatch(
-            context,
-            playerOverlayMatch,
-        ).mutableMethod.apply {
+        showWatermarkFingerprint.matchOrThrow(
+            playerOverlayFingerprint.matchOrThrow.originalClassDef,
+        ).method.apply {
             val index = implementation!!.instructions.size - 5
 
             removeInstruction(index)
@@ -285,6 +284,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         // region Show more button
 
+        val hideShowMoreButtonMatch by hideShowMoreButtonFingerprint
         hideShowMoreButtonMatch.method.apply {
             val moveRegisterIndex = hideShowMoreButtonMatch.patternMatch!!.endIndex
             val viewRegister = getInstruction<OneRegisterInstruction>(moveRegisterIndex).registerA
@@ -300,7 +300,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
         // endregion
 
         // region crowdfunding box
-        crowdfundingBoxMatch.let {
+        crowdfundingBoxFingerprint.matchOrThrow.let {
             it.method.apply {
                 val insertIndex = it.patternMatch!!.endIndex
                 val objectRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
@@ -317,7 +317,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         // region hide album cards
 
-        albumCardsMatch.let {
+        albumCardsFingerprint.matchOrThrow.let {
             it.method.apply {
                 val checkCastAnchorIndex = it.patternMatch!!.endIndex
                 val insertIndex = checkCastAnchorIndex + 1
@@ -335,7 +335,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         // region hide floating microphone
 
-        showFloatingMicrophoneButtonMatch.let {
+        showFloatingMicrophoneButtonFingerprint.matchOrThrow.let {
             it.method.apply {
                 val startIndex = it.patternMatch!!.startIndex
                 val register = getInstruction<TwoRegisterInstruction>(startIndex).registerA
@@ -354,7 +354,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         // region 'Yoodles'
 
-        yoodlesImageViewMatch.method.apply {
+        yoodlesImageViewFingerprint.matchOrThrow.method.apply {
             findInstructionIndicesReversedOrThrow {
                 getReference<MethodReference>()?.name == "setImageDrawable"
             }.forEach { insertIndex ->
@@ -398,21 +398,21 @@ val hideLayoutComponentsPatch = bytecodePatch(
             addInstructions(insertIndex, instructions(register))
         }
 
-        filterBarHeightMatch.patch<TwoRegisterInstruction> { register ->
+        filterBarHeightFingerprint.matchOrThrow.patch<TwoRegisterInstruction> { register ->
             """
                 invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideInFeed(I)I
                 move-result v$register
             """
         }
 
-        searchResultsChipBarMatch.patch<OneRegisterInstruction>(-1, -2) { register ->
+        searchResultsChipBarFingerprint.matchOrThrow.patch<OneRegisterInstruction>(-1, -2) { register ->
             """
                 invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideInSearch(I)I
                 move-result v$register
             """
         }
 
-        relatedChipCloudMatch.patch<OneRegisterInstruction>(1) { register ->
+        relatedChipCloudFingerprint.matchOrThrow.patch<OneRegisterInstruction>(1) { register ->
             "invoke-static { v$register }, " +
                 "$LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideInRelatedVideos(Landroid/view/View;)V"
         }

@@ -5,6 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.tiktok.shared.onRenderFirstFrameFingerprint
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -20,7 +21,7 @@ val rememberClearDisplayPatch = bytecodePatch(
     )
 
     execute {
-        onClearDisplayEventMatch.method.let {
+        onClearDisplayEventFingerprint.matchOrThrow.method.let {
             // region Hook the "Clear display" configuration save event to remember the state of clear display.
 
             val isEnabledIndex = it.indexOfFirstInstructionOrThrow(Opcode.IGET_BOOLEAN) + 1
@@ -36,29 +37,31 @@ val rememberClearDisplayPatch = bytecodePatch(
 
             // region Override the "Clear display" configuration load event to load the state of clear display.
 
+            val onRenderFirstFrameMatch by onRenderFirstFrameFingerprint
+
             val clearDisplayEventClass = it.parameters[0].type
             onRenderFirstFrameMatch.method.addInstructionsWithLabels(
                 0,
                 """
-                        # Create a new clearDisplayEvent and post it to the EventBus (https://github.com/greenrobot/EventBus)
+                    # Create a new clearDisplayEvent and post it to the EventBus (https://github.com/greenrobot/EventBus)
 
-                        # Clear display type such as 0 = LONG_PRESS, 1 = SCREEN_RECORD etc.
-                        const/4 v1, 0x0
+                    # Clear display type such as 0 = LONG_PRESS, 1 = SCREEN_RECORD etc.
+                    const/4 v1, 0x0
 
-                        # Enter method (Such as "pinch", "swipe_exit", or an empty string (unknown, what it means)).
-                        const-string v2, ""
+                    # Enter method (Such as "pinch", "swipe_exit", or an empty string (unknown, what it means)).
+                    const-string v2, ""
 
-                        # Name of the clear display type which is equivalent to the clear display type.
-                        const-string v3, "long_press"
-                        
-                         # The state of clear display.
-                        invoke-static { }, Lapp/revanced/extension/tiktok/cleardisplay/RememberClearDisplayPatch;->getClearDisplayState()Z
-                        move-result v4
-                        if-eqz v4, :clear_display_disabled
+                    # Name of the clear display type which is equivalent to the clear display type.
+                    const-string v3, "long_press"
+                    
+                     # The state of clear display.
+                    invoke-static { }, Lapp/revanced/extension/tiktok/cleardisplay/RememberClearDisplayPatch;->getClearDisplayState()Z
+                    move-result v4
+                    if-eqz v4, :clear_display_disabled
 
-                        new-instance v0, $clearDisplayEventClass
-                        invoke-direct { v0, v1, v2, v3, v4 }, $clearDisplayEventClass-><init>(ILjava/lang/String;Ljava/lang/String;Z)V
-                        invoke-virtual { v0 }, $clearDisplayEventClass->post()Lcom/ss/android/ugc/governance/eventbus/IEvent;
+                    new-instance v0, $clearDisplayEventClass
+                    invoke-direct { v0, v1, v2, v3, v4 }, $clearDisplayEventClass-><init>(ILjava/lang/String;Ljava/lang/String;Z)V
+                    invoke-virtual { v0 }, $clearDisplayEventClass->post()Lcom/ss/android/ugc/governance/eventbus/IEvent;
                     """,
                 ExternalLabel("clear_display_disabled", onRenderFirstFrameMatch.method.getInstruction(0)),
             )

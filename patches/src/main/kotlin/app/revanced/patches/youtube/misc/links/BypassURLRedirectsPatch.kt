@@ -46,20 +46,20 @@ val bypassURLRedirectsPatch = bytecodePatch(
             SwitchPreference("revanced_bypass_url_redirects"),
         )
 
-        val matches = if (is_19_33_or_greater) {
+        val fingerprints = if (is_19_33_or_greater) {
             arrayOf(
-                abUriParserMatch,
-                httpUriParserMatch,
+                abUriParserFingerprint,
+                httpUriParserFingerprint,
             )
         } else {
             arrayOf(
-                abUriParserLegacyMatch,
-                httpUriParserLegacyMatch,
+                abUriParserLegacyFingerprint,
+                httpUriParserLegacyFingerprint,
             )
         }
 
-        matches.forEach {
-            it.method.apply {
+        fingerprints.forEach {
+            it.matchOrThrow.method.apply {
                 val insertIndex = findUriParseIndex()
                 val uriStringRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
 

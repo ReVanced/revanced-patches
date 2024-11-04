@@ -324,10 +324,9 @@ val miniplayerPatch = bytecodePatch(
 
         // region Enable tablet miniplayer.
 
-        miniplayerOverrideNoContextFingerprint.applyMatch(
-            context,
-            miniplayerDimensionsCalculatorParentMatch,
-        ).mutableMethod.apply {
+        miniplayerOverrideNoContextFingerprint.matchOrThrow(
+            miniplayerDimensionsCalculatorParentFingerprint.matchOrThrow.originalClassDef,
+        ).method.apply {
             findReturnIndicesReversed().forEach { index -> insertLegacyTabletMiniplayerOverride(index) }
         }
 
@@ -335,12 +334,13 @@ val miniplayerPatch = bytecodePatch(
 
         // region Legacy tablet miniplayer hooks.
 
+        val miniplayerOverrideMatch by miniplayerOverrideFingerprint
         val appNameStringIndex = miniplayerOverrideMatch.stringMatches!!.first().index + 2
-        context.navigate(miniplayerOverrideMatch.method).at(appNameStringIndex).mutable().apply {
+        navigate(miniplayerOverrideMatch.method).at(appNameStringIndex).stop().apply {
             findReturnIndicesReversed().forEach { index -> insertLegacyTabletMiniplayerOverride(index) }
         }
 
-        miniplayerResponseModelSizeCheckMatch.let {
+        miniplayerResponseModelSizeCheckFingerprint.matchOrThrow.let {
             it.method.insertLegacyTabletMiniplayerOverride(it.patternMatch!!.endIndex)
         }
 
@@ -352,6 +352,8 @@ val miniplayerPatch = bytecodePatch(
         // endregion
 
         // region Enable modern miniplayer.
+
+        val miniplayerModernConstructorMatch by miniplayerModernConstructorFingerprint
 
         miniplayerModernConstructorMatch.classDef.methods.forEach {
             it.apply {
@@ -410,7 +412,7 @@ val miniplayerPatch = bytecodePatch(
             }
 
             // Override a mininimum miniplayer size constant.
-            miniplayerMinimumSizeMatch.method.apply {
+            miniplayerMinimumSizeFingerprint.matchOrThrow.method.apply {
                 val index = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.CONST_16 && (this as NarrowLiteralInstruction).narrowLiteral == 192
                 }
@@ -449,10 +451,9 @@ val miniplayerPatch = bytecodePatch(
         // YT fixed this mistake in 19.17.
         // Fix this, by swapping the drawable resource values with each other.
         if (ytOutlinePictureInPictureWhite24 >= 0) {
-            miniplayerModernExpandCloseDrawablesFingerprint.applyMatch(
-                context,
-                miniplayerModernViewParentMatch,
-            ).mutableMethod.apply {
+            miniplayerModernExpandCloseDrawablesFingerprint.matchOrThrow(
+                miniplayerModernViewParentFingerprint.matchOrThrow.originalClassDef,
+            ).method.apply {
                 listOf(
                     ytOutlinePictureInPictureWhite24 to ytOutlineXWhite24,
                     ytOutlineXWhite24 to ytOutlinePictureInPictureWhite24,
@@ -496,20 +497,18 @@ val miniplayerPatch = bytecodePatch(
                 "adjustMiniplayerOpacity",
             ),
         ).forEach { (fingerprint, literalValue, methodName) ->
-            fingerprint.applyMatch(
-                context,
-                miniplayerModernViewParentMatch,
-            ).mutableMethod.hookInflatedView(
+            fingerprint.matchOrThrow(
+                miniplayerModernViewParentFingerprint.matchOrThrow.classDef,
+            ).method.hookInflatedView(
                 literalValue,
                 "Landroid/widget/ImageView;",
                 "$EXTENSION_CLASS_DESCRIPTOR->$methodName(Landroid/widget/ImageView;)V",
             )
         }
 
-        miniplayerModernAddViewListenerFingerprint.applyMatch(
-            context,
-            miniplayerModernViewParentMatch,
-        ).mutableMethod.addInstruction(
+        miniplayerModernAddViewListenerFingerprint.matchOrThrow(
+            miniplayerModernViewParentFingerprint.matchOrThrow.classDef,
+        ).method.addInstruction(
             0,
             "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->" +
                 "hideMiniplayerSubTexts(Landroid/view/View;)V",
@@ -522,7 +521,7 @@ val miniplayerPatch = bytecodePatch(
         //
         // NOTE: Modern 2 uses the same video UI as the regular player except resized to smaller.
         // This patch code could be used to hide other player overlays that do not use Litho.
-        playerOverlaysLayoutMatch.classDef.methods.add(
+        playerOverlaysLayoutFingerprint.matchOrThrow.classDef.methods.add(
             ImmutableMethod(
                 YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME,
                 "addView",

@@ -14,10 +14,10 @@ val disableLoginRequirementPatch = bytecodePatch(
 
     execute {
         listOf(
-            mandatoryLoginServiceMatch.method,
-            mandatoryLoginService2Match.method,
-        ).forEach { method ->
-            method.addInstructions(
+            mandatoryLoginServiceFingerprint,
+            mandatoryLoginService2Fingerprint,
+        ).forEach { fingerprint ->
+            fingerprint.matchOrThrow.method.addInstructions(
                 0,
                 """
                     const/4 v0, 0x0

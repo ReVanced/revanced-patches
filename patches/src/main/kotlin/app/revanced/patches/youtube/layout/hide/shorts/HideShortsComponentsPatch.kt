@@ -29,8 +29,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
-import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 internal var reelMultipleItemShelfId = -1L
     private set
@@ -192,11 +190,6 @@ val hideShortsComponentsPatch = bytecodePatch(
         ),
     )
 
-    hideShortsAppShortcutOption()
-    hideShortsWidgetOption()
-
-    reelConstructorFingerprint()
-
     execute {
         // region Hide the Shorts shelf.
 
@@ -222,7 +215,7 @@ val hideShortsComponentsPatch = bytecodePatch(
         // region Hide the Shorts buttons in older versions of YouTube.
 
         // Some Shorts buttons are views, hide them by setting their visibility to GONE.
-        ShortsButtons.entries.forEach { button -> button.injectHideCall(createShortsButtonsMatch.method) }
+        ShortsButtons.entries.forEach { button -> button.injectHideCall(createShortsButtonsFingerprint.matchOrThrow.method) }
 
         // endregion
 
@@ -230,7 +223,7 @@ val hideShortsComponentsPatch = bytecodePatch(
 
         addLithoFilter(FILTER_CLASS_DESCRIPTOR)
 
-        context.forEachLiteralValueInstruction(
+        forEachLiteralValueInstruction(
             reelPlayerRightPivotV2Size,
         ) { literalInstructionIndex ->
             val targetIndex = indexOfFirstInstructionOrThrow(literalInstructionIndex) {
@@ -253,11 +246,10 @@ val hideShortsComponentsPatch = bytecodePatch(
         // region Hide the navigation bar.
 
         // Hook to get the pivotBar view.
-        setPivotBarVisibilityFingerprint.applyMatch(
-            context,
-            setPivotBarVisibilityParentMatch,
+        setPivotBarVisibilityFingerprint.matchOrThrow(
+            setPivotBarVisibilityParentFingerprint.matchOrThrow.originalClassDef,
         ).let { result ->
-            result.mutableMethod.apply {
+            result.method.apply {
                 val insertIndex = result.patternMatch!!.endIndex
                 val viewRegister = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
                 addInstruction(
@@ -269,20 +261,19 @@ val hideShortsComponentsPatch = bytecodePatch(
         }
 
         // Hook to hide the shared navigation bar when the Shorts player is opened.
-        renderBottomNavigationBarFingerprint.applyMatch(
-            context,
+        renderBottomNavigationBarFingerprint.matchOrThrow(
             if (is_19_41_or_greater) {
-                renderBottomNavigationBarParentMatch
+                renderBottomNavigationBarParentFingerprint
             } else {
-                legacyRenderBottomNavigationBarParentMatch
-            },
-        ).mutableMethod.addInstruction(
+                legacyRenderBottomNavigationBarParentFingerprint
+            }.matchOrThrow.originalClassDef,
+        ).method.addInstruction(
             0,
             "invoke-static { p1 }, $FILTER_CLASS_DESCRIPTOR->hideNavigationBar(Ljava/lang/String;)V",
         )
 
         // Hide the bottom bar container of the Shorts player.
-        shortsBottomBarContainerMatch.method.apply {
+        shortsBottomBarContainerFingerprint.matchOrThrow.method.apply {
             val resourceIndex = indexOfFirstLiteralInstruction(bottomBarContainer)
 
             val targetIndex = indexOfFirstInstructionOrThrow(resourceIndex) {

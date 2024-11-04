@@ -2,7 +2,6 @@ package app.revanced.patches.memegenerator.detection.signature
 
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.util.matchOrThrow
 
 val signatureVerificationPatch = bytecodePatch(
     description = "Disables detection of incorrect signature.",

@@ -13,7 +13,7 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 internal var layoutCircle = -1L
     private set
@@ -66,13 +66,15 @@ val hideEndscreenCardsPatch = bytecodePatch(
 
     execute {
         listOf(
-            layoutCircleMatch,
-            layoutIconMatch,
-            layoutVideoMatch,
-        ).forEach {
-            it.method.apply {
-                val insertIndex = it.patternMatch!!.endIndex + 1
-                val viewRegister = getInstruction<Instruction21c>(insertIndex - 1).registerA
+            layoutCircleFingerprint,
+            layoutIconFingerprint,
+            layoutVideoFingerprint,
+        ).forEach { fingerprint ->
+            val match by fingerprint
+
+            match.method.apply {
+                val insertIndex = match.patternMatch!!.endIndex + 1
+                val viewRegister = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
 
                 addInstruction(
                     insertIndex,

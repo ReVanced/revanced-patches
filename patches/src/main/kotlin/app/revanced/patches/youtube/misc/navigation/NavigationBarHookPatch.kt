@@ -12,7 +12,9 @@ import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
-import app.revanced.util.*
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
@@ -64,16 +66,16 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
             }
         }
 
-        initializeButtonsFingerprint.applyMatch(context, pivotBarConstructorMatch).mutableMethod.apply {
+        initializeButtonsFingerprint.matchOrThrow(pivotBarConstructorFingerprint.matchOrThrow.originalClassDef).method.apply {
             // Hook the current navigation bar enum value. Note, the 'You' tab does not have an enum value.
-            val navigationEnumClassName = navigationEnumMatch.classDef.type
+            val navigationEnumClassName = navigationEnumFingerprint.matchOrThrow.classDef.type
             addHook(Hook.SET_LAST_APP_NAVIGATION_ENUM) {
                 opcode == Opcode.INVOKE_STATIC &&
                     getReference<MethodReference>()?.definingClass == navigationEnumClassName
             }
 
             // Hook the creation of navigation tab views.
-            val drawableTabMethod = pivotBarButtonsCreateDrawableViewMatch.method
+            val drawableTabMethod = pivotBarButtonsCreateDrawableViewFingerprint.matchOrThrow.method
             addHook(Hook.NAVIGATION_TAB_LOADED) predicate@{
                 MethodUtil.methodSignaturesMatch(
                     getReference<MethodReference>() ?: return@predicate false,
@@ -81,7 +83,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
                 )
             }
 
-            val imageResourceTabMethod = pivotBarButtonsCreateResourceViewMatch.originalMethod
+            val imageResourceTabMethod = pivotBarButtonsCreateResourceViewFingerprint.matchOrThrow.originalMethod
             addHook(Hook.NAVIGATION_IMAGE_RESOURCE_TAB_LOADED) predicate@{
                 MethodUtil.methodSignaturesMatch(
                     getReference<MethodReference>() ?: return@predicate false,
@@ -90,7 +92,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
             }
         }
 
-        pivotBarButtonsViewSetSelectedMatch.method.apply {
+        pivotBarButtonsViewSetSelectedFingerprint.matchOrThrow.method.apply {
             val index = indexOfSetViewSelectedInstruction(this)
             val instruction = getInstruction<FiveRegisterInstruction>(index)
             val viewRegister = instruction.registerC
@@ -105,7 +107,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
 
         // Hook onto back button pressed.  Needed to fix race problem with
         // Litho filtering based on navigation tab before the tab is updated.
-        mainActivityOnBackPressedMatch.method.addInstruction(
+        mainActivityOnBackPressedFingerprint.matchOrThrow.method.addInstruction(
             0,
             "invoke-static { p0 }, " +
                 "$EXTENSION_CLASS_DESCRIPTOR->onBackPressed(Landroid/app/Activity;)V",
@@ -116,7 +118,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
         // Two different layouts are used at the hooked code.
         // Insert before the first ViewGroup method call after inflating,
         // so this works regardless which layout is used.
-        actionBarSearchResultsMatch.method.apply {
+        actionBarSearchResultsFingerprint.matchOrThrow.method.apply {
             val searchBarResourceId = indexOfFirstLiteralInstructionOrThrow(
                 actionBarSearchResultsViewMicId,
             )
@@ -135,7 +137,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
         }
 
         hookNavigationButtonCreated = { extensionClassDescriptor ->
-            navigationBarHookCallbackMatch.method.addInstruction(
+            navigationBarHookCallbackFingerprint.matchOrThrow.method.addInstruction(
                 0,
                 "invoke-static { p0, p1 }, " +
                     "$extensionClassDescriptor->navigationTabCreated" +

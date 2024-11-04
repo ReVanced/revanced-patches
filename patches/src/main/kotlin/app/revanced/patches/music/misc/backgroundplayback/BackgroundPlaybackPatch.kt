@@ -3,7 +3,6 @@ package app.revanced.patches.music.misc.backgroundplayback
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val backgroundPlaybackPatch = bytecodePatch(

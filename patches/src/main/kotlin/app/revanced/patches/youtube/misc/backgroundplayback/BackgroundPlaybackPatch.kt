@@ -15,10 +15,7 @@ import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.video.information.videoInformationPatch
-import app.revanced.util.addInstructionsAtControlFlowLabel
-import app.revanced.util.findInstructionIndicesReversedOrThrow
-import app.revanced.util.getReference
-import app.revanced.util.returnEarly
+import app.revanced.util.*
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -67,9 +64,11 @@ val backgroundPlaybackPatch = bytecodePatch(
         )
 
         arrayOf(
-            backgroundPlaybackManagerMatch to "isBackgroundPlaybackAllowed",
-            backgroundPlaybackManagerShortsMatch to "isBackgroundShortsPlaybackAllowed",
-        ).forEach { (match, integrationsMethod) ->
+            backgroundPlaybackManagerFingerprint to "isBackgroundPlaybackAllowed",
+            backgroundPlaybackManagerShortsFingerprint to "isBackgroundShortsPlaybackAllowed",
+        ).forEach { (fingerprint, integrationsMethod) ->
+            val match by fingerprint
+
             match.method.apply {
                 findInstructionIndicesReversedOrThrow(Opcode.RETURN).forEach { index ->
                     val register = getInstruction<OneRegisterInstruction>(index).registerA
@@ -86,21 +85,21 @@ val backgroundPlaybackPatch = bytecodePatch(
         }
 
         // Enable background playback option in YouTube settings
-        backgroundPlaybackSettingsMatch.method.apply {
+        backgroundPlaybackSettingsFingerprint.matchOrThrow.method.apply {
             val booleanCalls = instructions.withIndex().filter {
                 it.value.getReference<MethodReference>()?.returnType == "Z"
             }
 
             val settingsBooleanIndex = booleanCalls.elementAt(1).index
-            val settingsBooleanMethod = context.navigate(this).at(settingsBooleanIndex).mutable()
+            val settingsBooleanMethod by navigate(this).at(settingsBooleanIndex)
 
             settingsBooleanMethod.returnEarly(true)
         }
 
         // Force allowing background play for Shorts.
-        shortsBackgroundPlaybackFeatureFlagMatch.method.returnEarly(true)
+        shortsBackgroundPlaybackFeatureFlagFingerprint.matchOrThrow.method.returnEarly(true)
 
         // Force allowing background play for videos labeled for kids.
-        kidsBackgroundPlaybackPolicyControllerMatch.method.returnEarly()
+        kidsBackgroundPlaybackPolicyControllerFingerprint.matchOrThrow.method.returnEarly()
     }
 }

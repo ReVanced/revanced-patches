@@ -13,9 +13,6 @@ val unlockSubscriptionPatch = bytecodePatch(
 
     compatibleWith("ml.docilealligator.infinityforreddit")
 
-    startSubscriptionActivityFingerprint()
-    billingClientOnServiceConnectedFingerprint()
-
     execute {
         setOf(startSubscriptionActivityFingerprint, billingClientOnServiceConnectedFingerprint).returnEarly()
     }

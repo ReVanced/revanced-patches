@@ -55,6 +55,8 @@ val enableSlideToSeekPatch = bytecodePatch(
         var modifiedMethods = false
 
         // Restore the behaviour to slide to seek.
+        val slideToSeekMatch by slideToSeekFingerprint
+
         val checkIndex = slideToSeekMatch.patternMatch!!.startIndex
         val checkReference = slideToSeekMatch.method.getInstruction(checkIndex)
             .getReference<MethodReference>()!!
@@ -85,11 +87,13 @@ val enableSlideToSeekPatch = bytecodePatch(
         // Disable the double speed seek gesture.
         if (is_19_17_or_greater) {
             arrayOf(
-                disableFastForwardGestureMatch,
-                disableFastForwardNoticeMatch,
-            ).forEach {
-                it.method.apply {
-                    val targetIndex = it.patternMatch!!.endIndex
+                disableFastForwardGestureFingerprint,
+                disableFastForwardNoticeFingerprint,
+            ).forEach { fingerprint ->
+                val match by fingerprint
+
+                match.method.apply {
+                    val targetIndex = match.patternMatch!!.endIndex
                     val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                     addInstructions(
@@ -102,19 +106,18 @@ val enableSlideToSeekPatch = bytecodePatch(
                 }
             }
         } else {
-            disableFastForwardLegacyMatch.let {
-                it.method.apply {
-                    val insertIndex = it.patternMatch!!.endIndex + 1
-                    val targetRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+            val disableFastForwardLegacyMatch by disableFastForwardLegacyFingerprint
+            disableFastForwardLegacyMatch.method.apply {
+                val insertIndex = disableFastForwardLegacyMatch.patternMatch!!.endIndex + 1
+                val targetRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
-                    addInstructions(
-                        insertIndex,
-                        """
-                            invoke-static { v$targetRegister }, $EXTENSION_METHOD_DESCRIPTOR
-                            move-result v$targetRegister
-                        """,
-                    )
-                }
+                addInstructions(
+                    insertIndex,
+                    """
+                        invoke-static { v$targetRegister }, $EXTENSION_METHOD_DESCRIPTOR
+                        move-result v$targetRegister
+                    """,
+                )
             }
         }
     }
