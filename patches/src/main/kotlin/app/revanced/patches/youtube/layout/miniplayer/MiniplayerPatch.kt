@@ -325,7 +325,7 @@ val miniplayerPatch = bytecodePatch(
         // region Enable tablet miniplayer.
 
         miniplayerOverrideNoContextFingerprint.matchOrThrow(
-            miniplayerDimensionsCalculatorParentFingerprint
+            miniplayerDimensionsCalculatorParentFingerprint.matchOrThrow.originalClassDef,
         ).method.apply {
             findReturnIndicesReversed().forEach { index -> insertLegacyTabletMiniplayerOverride(index) }
         }
@@ -354,6 +354,7 @@ val miniplayerPatch = bytecodePatch(
         // region Enable modern miniplayer.
 
         val miniplayerModernConstructorMatch by miniplayerModernConstructorFingerprint
+
         miniplayerModernConstructorMatch.classDef.methods.forEach {
             it.apply {
                 if (AccessFlags.CONSTRUCTOR.isSet(accessFlags)) {
@@ -451,7 +452,7 @@ val miniplayerPatch = bytecodePatch(
         // Fix this, by swapping the drawable resource values with each other.
         if (ytOutlinePictureInPictureWhite24 >= 0) {
             miniplayerModernExpandCloseDrawablesFingerprint.matchOrThrow(
-                miniplayerModernViewParentFingerprint
+                miniplayerModernViewParentFingerprint.matchOrThrow.originalClassDef,
             ).method.apply {
                 listOf(
                     ytOutlinePictureInPictureWhite24 to ytOutlineXWhite24,
@@ -497,7 +498,7 @@ val miniplayerPatch = bytecodePatch(
             ),
         ).forEach { (fingerprint, literalValue, methodName) ->
             fingerprint.matchOrThrow(
-                miniplayerModernViewParentFingerprint
+                miniplayerModernViewParentFingerprint.matchOrThrow.classDef,
             ).method.hookInflatedView(
                 literalValue,
                 "Landroid/widget/ImageView;",
@@ -506,7 +507,7 @@ val miniplayerPatch = bytecodePatch(
         }
 
         miniplayerModernAddViewListenerFingerprint.matchOrThrow(
-            miniplayerModernViewParentFingerprint
+            miniplayerModernViewParentFingerprint.matchOrThrow.classDef,
         ).method.addInstruction(
             0,
             "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->" +

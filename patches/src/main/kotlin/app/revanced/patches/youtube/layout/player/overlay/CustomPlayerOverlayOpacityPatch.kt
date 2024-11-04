@@ -14,7 +14,6 @@ import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
-import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 internal var scrimOverlayId = -1L
@@ -41,7 +40,8 @@ private val customPlayerOverlayOpacityResourcePatch = resourcePatch {
     }
 }
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/CustomPlayerOverlayOpacityPatch;"
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/youtube/patches/CustomPlayerOverlayOpacityPatch;"
 
 @Suppress("unused")
 val customPlayerOverlayOpacityPatch = bytecodePatch(

@@ -247,7 +247,7 @@ val hideShortsComponentsPatch = bytecodePatch(
 
         // Hook to get the pivotBar view.
         setPivotBarVisibilityFingerprint.matchOrThrow(
-            setPivotBarVisibilityParentFingerprint
+            setPivotBarVisibilityParentFingerprint.matchOrThrow.originalClassDef,
         ).let { result ->
             result.method.apply {
                 val insertIndex = result.patternMatch!!.endIndex
@@ -266,7 +266,7 @@ val hideShortsComponentsPatch = bytecodePatch(
                 renderBottomNavigationBarParentFingerprint
             } else {
                 legacyRenderBottomNavigationBarParentFingerprint
-            },
+            }.matchOrThrow.originalClassDef,
         ).method.addInstruction(
             0,
             "invoke-static { p1 }, $FILTER_CLASS_DESCRIPTOR->hideNavigationBar(Ljava/lang/String;)V",

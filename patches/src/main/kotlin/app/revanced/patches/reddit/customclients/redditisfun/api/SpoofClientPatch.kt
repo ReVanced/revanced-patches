@@ -7,7 +7,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patches.reddit.customclients.spoofClientPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
@@ -42,6 +41,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "redditisfun://auth") { cl
 
         // Patch OAuth authorization.
         val buildAuthorizationStringMatch by buildAuthorizationStringFingerprint
+
         buildAuthorizationStringMatch.replaceWith(clientId!!) { first().index + 4 }
 
         // Path basic authorization.

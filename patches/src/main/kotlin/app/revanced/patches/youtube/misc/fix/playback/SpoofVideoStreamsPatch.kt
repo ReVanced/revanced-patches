@@ -17,7 +17,6 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -137,6 +136,7 @@ val spoofVideoStreamsPatch = bytecodePatch(
         // region Replace the streaming data with the replacement streams.
 
         val createStreamingDataMatch by createStreamingDataFingerprint
+
         createStreamingDataMatch.method.apply {
             val setStreamDataMethodName = "patch_setStreamingData"
             val resultMethodType = createStreamingDataMatch.classDef.type

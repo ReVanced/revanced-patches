@@ -4,7 +4,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.getReference
-import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
@@ -23,13 +22,17 @@ val useUserEndpointPatch = bytecodePatch(
 
     execute {
         arrayOf(
-            oAuthFriendRequestFingerprint.matchOrThrow,
-            oAuthSubredditInfoRequestConstructorFingerprint.matchOrThrow,
-            oAuthSubredditInfoRequestHelperFingerprint.matchOrThrow,
-            oAuthUnfriendRequestFingerprint.matchOrThrow,
-            oAuthUserIdRequestFingerprint.matchOrThrow,
-            oAuthUserInfoRequestFingerprint.matchOrThrow,
-        ).map { it.stringMatches!!.first().index to it.method }.forEach { (userPathStringIndex, method) ->
+            oAuthFriendRequestFingerprint,
+            oAuthSubredditInfoRequestConstructorFingerprint,
+            oAuthSubredditInfoRequestHelperFingerprint,
+            oAuthUnfriendRequestFingerprint,
+            oAuthUserIdRequestFingerprint,
+            oAuthUserInfoRequestFingerprint,
+        ).map { fingerprint ->
+            val match by fingerprint
+
+            match.stringMatches!!.first().index to match.method
+        }.forEach { (userPathStringIndex, method) ->
             val userPathStringInstruction = method.getInstruction<OneRegisterInstruction>(userPathStringIndex)
 
             val userPathStringRegister = userPathStringInstruction.registerA

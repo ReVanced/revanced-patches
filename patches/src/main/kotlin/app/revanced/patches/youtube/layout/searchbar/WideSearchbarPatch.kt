@@ -12,7 +12,6 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
@@ -73,6 +72,7 @@ val wideSearchbarPatch = bytecodePatch(
         }
 
         val createSearchSuggestionsMatch by createSearchSuggestionsFingerprint
+
         mapOf(
             setWordmarkHeaderFingerprint.matchOrThrow to 1,
             createSearchSuggestionsMatch to createSearchSuggestionsMatch.patternMatch!!.startIndex,

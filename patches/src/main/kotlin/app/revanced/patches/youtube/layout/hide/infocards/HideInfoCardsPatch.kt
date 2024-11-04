@@ -17,7 +17,6 @@ import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -67,7 +66,7 @@ val hideInfoCardsPatch = bytecodePatch(
     )
 
     execute {
-        infocardsIncognitoFingerprint.matchOrThrow(infocardsIncognitoParentFingerprint).method.apply {
+        infocardsIncognitoFingerprint.matchOrThrow(infocardsIncognitoParentFingerprint.matchOrThrow.originalClassDef).method.apply {
             val invokeInstructionIndex = implementation!!.instructions.indexOfFirst {
                 it.opcode.ordinal == Opcode.INVOKE_VIRTUAL.ordinal &&
                     ((it as ReferenceInstruction).reference.toString() == "Landroid/view/View;->setVisibility(I)V")
@@ -81,6 +80,7 @@ val hideInfoCardsPatch = bytecodePatch(
         }
 
         val infocardsMethodCallMatch by infocardsMethodCallFingerprint
+
         val hideInfoCardsCallMethod = infocardsMethodCallMatch.method
 
         val invokeInterfaceIndex = infocardsMethodCallMatch.patternMatch!!.endIndex

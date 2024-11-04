@@ -6,7 +6,6 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.reddit.ad.banner.hideBannerPatch
 import app.revanced.patches.reddit.ad.comments.hideCommentAdsPatch
 import app.revanced.patches.reddit.misc.extension.sharedExtensionPatch
-import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction22c
@@ -65,6 +64,7 @@ val hideAdsPatch = bytecodePatch(
         // AdElementConverter is conveniently responsible for inserting all feed ads.
         // By removing the appending instruction no ad posts gets appended to the feed.
         val newAdPostMatch by newAdPostFingerprint
+
         val index = newAdPostMatch.originalMethod.implementation!!.instructions.indexOfFirst {
             if (it.opcode != Opcode.INVOKE_VIRTUAL) return@indexOfFirst false
 

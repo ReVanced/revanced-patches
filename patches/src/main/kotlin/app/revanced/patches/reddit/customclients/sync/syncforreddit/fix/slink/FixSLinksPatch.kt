@@ -10,7 +10,6 @@ import app.revanced.patches.reddit.customclients.boostforreddit.fix.slink.getOAu
 import app.revanced.patches.reddit.customclients.boostforreddit.fix.slink.handleNavigationFingerprint
 import app.revanced.patches.reddit.customclients.fixSLinksPatch
 import app.revanced.patches.reddit.customclients.sync.syncforreddit.extension.sharedExtensionPatch
-import app.revanced.util.matchOrThrow
 
 const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/syncforreddit/FixSLinksPatch;"
 

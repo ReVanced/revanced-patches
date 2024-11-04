@@ -53,6 +53,7 @@ val disableFullscreenAmbientModePatch = bytecodePatch(
         )
 
         val initializeAmbientModeMatch by initializeAmbientModeFingerprint
+
         initializeAmbientModeMatch.method.apply {
             val moveIsEnabledIndex = initializeAmbientModeMatch.patternMatch!!.endIndex
 

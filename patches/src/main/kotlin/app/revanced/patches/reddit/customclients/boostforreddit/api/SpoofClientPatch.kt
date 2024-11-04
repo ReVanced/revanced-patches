@@ -2,7 +2,6 @@ package app.revanced.patches.reddit.customclients.boostforreddit.api
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patches.reddit.customclients.spoofClientPatch
-import app.revanced.util.matchOrThrow
 
 val spoofClientPatch = spoofClientPatch(redirectUri = "http://rubenmayayo.com") { clientIdOption ->
     compatibleWith("com.rubenmayayo.reddit")

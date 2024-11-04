@@ -15,7 +15,6 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.newVideoQualityChangedFingerprint
 import app.revanced.patches.youtube.video.information.onCreateHook
 import app.revanced.patches.youtube.video.information.videoInformationPatch
-import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
@@ -73,9 +72,11 @@ val rememberVideoQualityPatch = bytecodePatch(
          */
         onCreateHook(EXTENSION_CLASS_DESCRIPTOR, "newVideoStarted")
 
+        val videoQualitySetterMatch by videoQualitySetterFingerprint
+
         // Inject a call to set the remembered quality once a video loads.
         setQualityByIndexMethodClassFieldReferenceFingerprint.matchOrThrow(
-            videoQualitySetterFingerprint
+            videoQualitySetterMatch.originalClassDef,
         ).let { match ->
             // This instruction refers to the field with the type that contains the setQualityByIndex method.
             val instructions = match.method.implementation!!.instructions
@@ -96,7 +97,7 @@ val rememberVideoQualityPatch = bytecodePatch(
                 .find { method -> method.parameterTypes.first() == "I" }
                 ?: throw PatchException("Could not find setQualityByIndex method")
 
-            videoQualitySetterFingerprint.matchOrThrow.method.addInstructions(
+            videoQualitySetterMatch.method.addInstructions(
                 0,
                 """
                     # Get the object instance to invoke the setQualityByIndex method on.
@@ -118,15 +119,16 @@ val rememberVideoQualityPatch = bytecodePatch(
         }
 
         // Inject a call to remember the selected quality.
-        videoQualityItemOnClickParentFingerprint.matchOrThrow.classDef.methods.find { it.name == "onItemClick" }?.apply {
-            val listItemIndexParameter = 3
+        videoQualityItemOnClickParentFingerprint.matchOrThrow.classDef.methods.find { it.name == "onItemClick" }
+            ?.apply {
+                val listItemIndexParameter = 3
 
-            addInstruction(
-                0,
-                "invoke-static { p$listItemIndexParameter }, " +
-                    "$EXTENSION_CLASS_DESCRIPTOR->userChangedQuality(I)V",
-            )
-        } ?: throw PatchException("Failed to find onItemClick method")
+                addInstruction(
+                    0,
+                    "invoke-static { p$listItemIndexParameter }, " +
+                        "$EXTENSION_CLASS_DESCRIPTOR->userChangedQuality(I)V",
+                )
+            } ?: throw PatchException("Failed to find onItemClick method")
 
         // Remember video quality if not using old layout menu.
         val newVideoQualityChangedMatch by newVideoQualityChangedFingerprint

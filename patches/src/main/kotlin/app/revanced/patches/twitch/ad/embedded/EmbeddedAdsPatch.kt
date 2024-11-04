@@ -8,7 +8,6 @@ import app.revanced.patches.twitch.ad.video.videoAdsPatch
 import app.revanced.patches.twitch.misc.extension.sharedExtensionPatch
 import app.revanced.patches.twitch.misc.settings.PreferenceScreen
 import app.revanced.patches.twitch.misc.settings.settingsPatch
-import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val embeddedAdsPatch = bytecodePatch(

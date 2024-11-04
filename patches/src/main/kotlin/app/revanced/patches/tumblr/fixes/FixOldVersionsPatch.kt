@@ -2,7 +2,6 @@ package app.revanced.patches.tumblr.fixes
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val fixOldVersionsPatch = bytecodePatch(
@@ -21,8 +20,10 @@ val fixOldVersionsPatch = bytecodePatch(
 
         // Remove the live query parameters from the path when it's specified via a @METHOD annotation.
         for (liveQueryParameter in liveQueryParameters) {
-            httpPathParserFingerprint.matchOrThrow.method.addInstructions(
-                httpPathParserFingerprint.matchOrThrow.patternMatch!!.endIndex + 1,
+            val httpPathParserMatch by httpPathParserFingerprint
+
+            httpPathParserMatch.method.addInstructions(
+                httpPathParserMatch.patternMatch!!.endIndex + 1,
                 """
                     # urlPath = urlPath.replace(liveQueryParameter, "")
                     const-string p1, "$liveQueryParameter"

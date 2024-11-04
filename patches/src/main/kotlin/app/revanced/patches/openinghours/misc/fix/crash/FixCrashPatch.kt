@@ -19,6 +19,7 @@ val fixCrashPatch = bytecodePatch(
 
     execute {
         val setPlaceMatch by setPlaceFingerprint
+
         val indexedInstructions = setPlaceMatch.method.instructions.withIndex().toList()
 
         /**

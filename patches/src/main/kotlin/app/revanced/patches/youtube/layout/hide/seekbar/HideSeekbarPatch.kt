@@ -11,7 +11,6 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.seekbarFingerprint
 import app.revanced.patches.youtube.shared.seekbarOnDrawFingerprint
-import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val hideSeekbarPatch = bytecodePatch(
@@ -43,7 +42,7 @@ val hideSeekbarPatch = bytecodePatch(
             SwitchPreference("revanced_hide_seekbar_thumbnail"),
         )
 
-        seekbarOnDrawFingerprint.matchOrThrow(seekbarFingerprint).method.addInstructionsWithLabels(
+        seekbarOnDrawFingerprint.matchOrThrow(seekbarFingerprint.matchOrThrow.originalClassDef).method.addInstructionsWithLabels(
             0,
             """
                 const/4 v0, 0x0

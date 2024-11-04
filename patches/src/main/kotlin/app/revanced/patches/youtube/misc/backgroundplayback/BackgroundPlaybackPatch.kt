@@ -64,9 +64,11 @@ val backgroundPlaybackPatch = bytecodePatch(
         )
 
         arrayOf(
-            backgroundPlaybackManagerFingerprint.matchOrThrow to "isBackgroundPlaybackAllowed",
-            backgroundPlaybackManagerShortsFingerprint.matchOrThrow to "isBackgroundShortsPlaybackAllowed",
-        ).forEach { (match, integrationsMethod) ->
+            backgroundPlaybackManagerFingerprint to "isBackgroundPlaybackAllowed",
+            backgroundPlaybackManagerShortsFingerprint to "isBackgroundShortsPlaybackAllowed",
+        ).forEach { (fingerprint, integrationsMethod) ->
+            val match by fingerprint
+
             match.method.apply {
                 findInstructionIndicesReversedOrThrow(Opcode.RETURN).forEach { index ->
                     val register = getInstruction<OneRegisterInstruction>(index).registerA

@@ -5,7 +5,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patches.reddit.customclients.spoofClientPatch
 import app.revanced.patches.reddit.customclients.sync.detection.piracy.disablePiracyDetectionPatch
-import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
@@ -28,9 +27,7 @@ val spoofClientPatch = spoofClientPatch(
         // region Patch client id.
         val getAuthorizationStringMatch by getAuthorizationStringFingerprint
 
-        getBearerTokenFingerprint.apply {
-            match(getAuthorizationStringMatch.originalClassDef)
-        }.matchOrThrow.method.apply {
+        getBearerTokenFingerprint.matchOrThrow(getAuthorizationStringMatch.originalClassDef).method.apply {
             val auth = Base64.getEncoder().encodeToString("$clientId:".toByteArray(Charsets.UTF_8))
             addInstructions(
                 0,

@@ -5,7 +5,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
-import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
 internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/PlayerTypeHookPatch;"
@@ -22,6 +21,7 @@ val playerTypeHookPatch = bytecodePatch(
         )
 
         val videoStateMatch by videoStateFingerprint
+
         videoStateMatch.method.apply {
             val endIndex = videoStateMatch.patternMatch!!.endIndex
             val videoStateFieldName = getInstruction<ReferenceInstruction>(endIndex).reference

@@ -159,7 +159,7 @@ fun gmsCoreSupportPatch(
         }
 
         fun transformPrimeMethod(packageName: String) {
-            primeMethodFingerprint!!.match?.method?.apply {
+            primeMethodFingerprint!!.matchOrThrow.method.apply {
                 var register = 2
 
                 val index = instructions.indexOfFirst {
@@ -170,7 +170,7 @@ fun gmsCoreSupportPatch(
                 }
 
                 replaceInstruction(index, "const-string v$register, \"$packageName\"")
-            } ?: throw primeMethodFingerprint.exception
+            }
         }
 
         // endregion

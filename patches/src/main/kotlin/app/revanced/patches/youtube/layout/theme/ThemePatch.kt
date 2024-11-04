@@ -18,7 +18,6 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.forEachChildElement
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
-import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import org.w3c.dom.Element
 
@@ -223,9 +222,11 @@ val themePatch = bytecodePatch(
             )
         }
         mapOf(
-            themeHelperLightColorFingerprint.matchOrThrow to lightThemeBackgroundColor,
-            themeHelperDarkColorFingerprint.matchOrThrow to darkThemeBackgroundColor,
-        ).forEach { (match, color) ->
+            themeHelperLightColorFingerprint to lightThemeBackgroundColor,
+            themeHelperDarkColorFingerprint to darkThemeBackgroundColor,
+        ).forEach { (fingerprint, color) ->
+            val match by fingerprint
+
             match.method.apply {
                 addInstructions(
                     0,

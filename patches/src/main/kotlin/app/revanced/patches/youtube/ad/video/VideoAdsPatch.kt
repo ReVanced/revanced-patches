@@ -40,6 +40,7 @@ val videoAdsPatch = bytecodePatch(
         )
 
         val loadVideoAdsMatch by loadVideoAdsFingerprint
+
         loadVideoAdsMatch.method.addInstructionsWithLabels(
             0,
             """

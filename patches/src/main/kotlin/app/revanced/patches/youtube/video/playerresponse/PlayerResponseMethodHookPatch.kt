@@ -7,7 +7,6 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_23_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
-import app.revanced.util.matchOrThrow
 
 private val hooks = mutableSetOf<Hook>()
 
@@ -36,13 +35,15 @@ val playerResponseMethodHookPatch = bytecodePatch {
     )
 
     execute {
-        if (is_19_23_or_greater) {
-            playerResponseMethod = playerParameterBuilderFingerprint.matchOrThrow.method
+        playerResponseMethod = if (is_19_23_or_greater) {
             parameterIsShortAndOpeningOrPlaying = 12
+
+            playerParameterBuilderFingerprint
         } else {
-            playerResponseMethod = playerParameterBuilderLegacyFingerprint.matchOrThrow.method
             parameterIsShortAndOpeningOrPlaying = 11
-        }
+
+            playerParameterBuilderLegacyFingerprint
+        }.matchOrThrow.method
 
         // On some app targets the method has too many registers pushing the parameters past v15.
         // If needed, move the parameters to 4-bit registers, so they can be passed to the extension.

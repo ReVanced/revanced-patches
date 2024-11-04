@@ -9,7 +9,6 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.subtitleButtonControllerFingerprint
-import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val autoCaptionsPatch = bytecodePatch(
@@ -40,9 +39,11 @@ val autoCaptionsPatch = bytecodePatch(
         )
 
         mapOf(
-            startVideoInformerFingerprint.matchOrThrow to 0,
-            subtitleButtonControllerFingerprint.matchOrThrow to 1,
-        ).forEach { (match, enabled) ->
+            startVideoInformerFingerprint to 0,
+            subtitleButtonControllerFingerprint to 1,
+        ).forEach { (fingerprint, enabled) ->
+            val match by fingerprint
+
             match.method.addInstructions(
                 0,
                 """

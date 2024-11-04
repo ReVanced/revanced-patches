@@ -2,7 +2,6 @@ package app.revanced.patches.mifitness.misc.login
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.util.matchOrThrow
 
 val fixLoginPatch = bytecodePatch(
     name = "Fix login",

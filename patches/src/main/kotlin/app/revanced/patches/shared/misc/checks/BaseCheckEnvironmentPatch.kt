@@ -11,7 +11,6 @@ import app.revanced.patcher.util.proxy.mutableTypes.encodedValue.MutableLongEnco
 import app.revanced.patcher.util.proxy.mutableTypes.encodedValue.MutableStringEncodedValue
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.immutable.value.ImmutableLongEncodedValue
 import com.android.tools.smali.dexlib2.immutable.value.ImmutableStringEncodedValue
 import java.nio.charset.StandardCharsets

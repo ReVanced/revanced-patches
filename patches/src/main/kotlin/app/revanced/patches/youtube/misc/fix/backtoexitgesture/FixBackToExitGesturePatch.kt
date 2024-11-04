@@ -3,17 +3,12 @@ package app.revanced.patches.youtube.misc.fix.backtoexitgesture
 import app.revanced.patcher.Match
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.util.matchOrThrow
 
 internal val fixBackToExitGesturePatch = bytecodePatch(
     description = "Fixes the swipe back to exit gesture.",
 ) {
 
     execute {
-        recyclerViewTopScrollingFingerprint.apply {
-            match(recyclerViewTopScrollingParentFingerprint.matchOrThrow.originalClassDef)
-        }
-
         /**
          * Inject a call to a method from the extension.
          *
@@ -25,7 +20,9 @@ internal val fixBackToExitGesturePatch = bytecodePatch(
         )
 
         mapOf(
-            recyclerViewTopScrollingFingerprint.matchOrThrow to ExtensionMethod(
+            recyclerViewTopScrollingFingerprint.matchOrThrow(
+                recyclerViewTopScrollingParentFingerprint.matchOrThrow.originalClassDef,
+            ) to ExtensionMethod(
                 methodName = "onTopView",
             ),
             recyclerViewScrollingFingerprint.matchOrThrow to ExtensionMethod(

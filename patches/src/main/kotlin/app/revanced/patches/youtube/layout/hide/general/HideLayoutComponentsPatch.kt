@@ -21,10 +21,8 @@ import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.util.applyMatch
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
-import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -268,7 +266,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
         // region Watermark (legacy code for old versions of YouTube)
 
         showWatermarkFingerprint.matchOrThrow(
-            playerOverlayFingerprint
+            playerOverlayFingerprint.matchOrThrow.originalClassDef,
         ).method.apply {
             val index = implementation!!.instructions.size - 5
 

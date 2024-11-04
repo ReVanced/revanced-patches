@@ -8,7 +8,6 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.util.getReference
-import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
@@ -32,13 +31,13 @@ val cronetImageUrlHookPatch = bytecodePatch(
 
     execute {
         loadImageUrlMethod = messageDigestImageUrlFingerprint
-            .matchOrThrow(messageDigestImageUrlParentFingerprint).method
+            .matchOrThrow(messageDigestImageUrlParentFingerprint.matchOrThrow.originalClassDef).method
 
         loadImageSuccessCallbackMethod = onSucceededFingerprint
-            .matchOrThrow(onResponseStartedFingerprint).method
+            .matchOrThrow(onResponseStartedFingerprint.matchOrThrow.originalClassDef).method
 
         loadImageErrorCallbackMethod = onFailureFingerprint
-            .matchOrThrow(onResponseStartedFingerprint).method
+            .matchOrThrow(onResponseStartedFingerprint.matchOrThrow.originalClassDef).method
 
         // The URL is required for the failure callback hook, but the URL field is obfuscated.
         // Add a helper get method that returns the URL field.

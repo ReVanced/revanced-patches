@@ -7,7 +7,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.soundcloud.shared.featureConstructorFingerprint
-import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val hideAdsPatch = bytecodePatch(
@@ -55,6 +54,7 @@ val hideAdsPatch = bytecodePatch(
 
         // Prevent verification of an HTTP header containing the user's current plan, which would contradict the previous patch.
         val interceptMatch by interceptFingerprint
+
         val conditionIndex = interceptMatch.patternMatch!!.endIndex + 1
         interceptMatch.method.addInstruction(
             conditionIndex,

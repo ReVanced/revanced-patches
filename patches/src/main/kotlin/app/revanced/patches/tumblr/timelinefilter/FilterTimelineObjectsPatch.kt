@@ -6,7 +6,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tumblr.misc.extension.sharedExtensionPatch
-import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
 
 /**
@@ -26,6 +25,7 @@ val filterTimelineObjectsPatch = bytecodePatch(
 
     execute {
         val timelineFilterExtensionMatch by timelineFilterExtensionFingerprint
+
         val filterInsertIndex = timelineFilterExtensionMatch.patternMatch!!.startIndex
 
         timelineFilterExtensionMatch.method.apply {
@@ -50,10 +50,10 @@ val filterTimelineObjectsPatch = bytecodePatch(
         }
 
         mapOf(
-            timelineConstructorFingerprint.matchOrThrow to 1,
-            postsResponseConstructorFingerprint.matchOrThrow to 2,
-        ).forEach { (match, timelineObjectsRegister) ->
-            match.method.addInstructions(
+            timelineConstructorFingerprint to 1,
+            postsResponseConstructorFingerprint to 2,
+        ).forEach { (fingerprint, timelineObjectsRegister) ->
+            fingerprint.matchOrThrow.method.addInstructions(
                 0,
                 "invoke-static {p$timelineObjectsRegister}, " +
                     "Lapp/revanced/extension/tumblr/patches/TimelineFilterPatch;->" +

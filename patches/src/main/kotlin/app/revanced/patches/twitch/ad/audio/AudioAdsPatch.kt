@@ -33,6 +33,7 @@ val audioAdsPatch = bytecodePatch(
 
         // Block playAds call
         val audioAdsPresenterPlayMatch by audioAdsPresenterPlayFingerprint
+
         audioAdsPresenterPlayMatch.method.addInstructionsWithLabels(
             0,
             """

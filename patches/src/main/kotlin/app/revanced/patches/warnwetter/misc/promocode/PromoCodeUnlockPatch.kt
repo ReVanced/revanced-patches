@@ -3,7 +3,6 @@ package app.revanced.patches.warnwetter.misc.promocode
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.warnwetter.misc.firebasegetcert.firebaseGetCertPatch
-import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val promoCodeUnlockPatch = bytecodePatch(

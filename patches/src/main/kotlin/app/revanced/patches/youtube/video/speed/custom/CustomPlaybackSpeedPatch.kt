@@ -122,6 +122,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         // Add a static INSTANCE field to the class.
         // This is later used to call "showOldPlaybackSpeedMenu" on the instance.
         val getOldPlaybackSpeedsMatch by getOldPlaybackSpeedsFingerprint
+
         val instanceField = ImmutableField(
             getOldPlaybackSpeedsMatch.originalClassDef.type,
             "INSTANCE",
@@ -140,7 +141,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         // Get the "showOldPlaybackSpeedMenu" method.
         // This is later called on the field INSTANCE.
         val showOldPlaybackSpeedMenuMethod = showOldPlaybackSpeedMenuFingerprint.matchOrThrow(
-            getOldPlaybackSpeedsFingerprint
+            getOldPlaybackSpeedsFingerprint.matchOrThrow.classDef,
         ).method.toString()
 
         // Insert the call to the "showOldPlaybackSpeedMenu" method on the field INSTANCE.

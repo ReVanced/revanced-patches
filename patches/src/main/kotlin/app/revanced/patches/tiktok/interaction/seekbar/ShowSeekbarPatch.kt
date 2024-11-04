@@ -2,7 +2,6 @@ package app.revanced.patches.tiktok.interaction.seekbar
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val showSeekbarPatch = bytecodePatch(

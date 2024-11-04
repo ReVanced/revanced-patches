@@ -13,7 +13,6 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
-import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -47,20 +46,20 @@ val bypassURLRedirectsPatch = bytecodePatch(
             SwitchPreference("revanced_bypass_url_redirects"),
         )
 
-        val matches = if (is_19_33_or_greater) {
+        val fingerprints = if (is_19_33_or_greater) {
             arrayOf(
-                abUriParserFingerprint.matchOrThrow,
-                httpUriParserFingerprint.matchOrThrow,
+                abUriParserFingerprint,
+                httpUriParserFingerprint,
             )
         } else {
             arrayOf(
-                abUriParserLegacyFingerprint.matchOrThrow,
-                httpUriParserLegacyFingerprint.matchOrThrow,
+                abUriParserLegacyFingerprint,
+                httpUriParserLegacyFingerprint,
             )
         }
 
-        matches.forEach {
-            it.method.apply {
+        fingerprints.forEach {
+            it.matchOrThrow.method.apply {
                 val insertIndex = findUriParseIndex()
                 val uriStringRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
 

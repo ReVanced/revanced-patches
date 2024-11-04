@@ -10,7 +10,6 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_17_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
-import app.revanced.util.matchOrThrow
 import java.util.logging.Logger
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
@@ -38,7 +37,8 @@ val restoreOldSeekbarThumbnailsPatch = bytecodePatch(
 
     execute {
         if (is_19_17_or_greater) {
-            return@execute Logger.getLogger(this::class.java.name).severe("'Restore old seekbar thumbnails' cannot be patched to any version after 19.16.39")
+            return@execute Logger.getLogger(this::class.java.name)
+                .severe("'Restore old seekbar thumbnails' cannot be patched to any version after 19.16.39")
         }
 
         addResources("youtube", "layout.seekbar.restoreOldSeekbarThumbnailsPatch")

@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.layout.returnyoutubedislike
 
-import app.revanced.patcher.Match
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -32,6 +31,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
+import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/ReturnYouTubeDislikePatch;"
@@ -86,13 +86,12 @@ val returnYouTubeDislikePatch = bytecodePatch(
 
         // region Hook like/dislike/remove like button clicks to send votes to the API.
 
-        data class VotePatch(val fingerprint: Match, val voteKind: Vote)
-
-        listOf(
-            VotePatch(likeFingerprint.matchOrThrow, Vote.LIKE),
-            VotePatch(dislikeFingerprint.matchOrThrow, Vote.DISLIKE),
-            VotePatch(removeLikeFingerprint.matchOrThrow, Vote.REMOVE_LIKE),
-        ).forEach { (match, vote) ->
+        mapOf(
+            likeFingerprint to Vote.LIKE,
+            dislikeFingerprint to Vote.DISLIKE,
+            removeLikeFingerprint to Vote.REMOVE_LIKE,
+        ).forEach { (fingerprint, vote) ->
+            val match by fingerprint
             match.method.addInstructions(
                 0,
                 """
@@ -116,7 +115,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
             it.type == conversionContextFingerprint.matchOrThrow.originalClassDef.type
         } ?: throw PatchException("Could not find conversion context field")
 
-        textComponentLookupFingerprint.matchOrThrow(textComponentConstructorFingerprint)
+        textComponentLookupFingerprint.matchOrThrow(textComponentConstructorFingerprint.matchOrThrow.originalClassDef)
         textComponentLookupFingerprint.matchOrThrow.method.apply {
             // Find the instruction for creating the text data object.
             val textDataClassType = textComponentDataFingerprint.matchOrThrow.originalClassDef.type
@@ -281,7 +280,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
         // Additional text measurement method. Used if YouTube decides not to animate the likes count
         // and sometimes used for initial video load.
         rollingNumberMeasureStaticLabelFingerprint.matchOrThrow(
-            rollingNumberMeasureStaticLabelParentFingerprint
+            rollingNumberMeasureStaticLabelParentFingerprint.matchOrThrow.originalClassDef,
         ).let {
             val measureTextIndex = it.patternMatch!!.startIndex + 1
             it.method.apply {

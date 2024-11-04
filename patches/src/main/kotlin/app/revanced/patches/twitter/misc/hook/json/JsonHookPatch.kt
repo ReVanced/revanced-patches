@@ -6,7 +6,6 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.reddit.misc.extension.sharedExtensionPatch
-import app.revanced.util.matchOrThrow
 import java.io.InvalidClassException
 
 /**
@@ -65,9 +64,7 @@ val jsonHookPatch = bytecodePatch(
             .fields
             .firstOrNull { it.name == "JSON_FACTORY" }
             ?.type
-            .let { type ->
-                classBy { it.type == type }?.mutableClass
-            } ?: throw PatchException("Could not find required class.")
+            .let { type -> classes.find { it.type == type } } ?: throw PatchException("Could not find required class.")
 
         // Hook the methods first parameter.
         jsonInputStreamFingerprint.matchOrThrow(jsonFactory).method.addInstructions(

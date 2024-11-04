@@ -49,6 +49,7 @@ val spoofAppVersionPatch = bytecodePatch(
         )
 
         val spoofAppVersionMatch by spoofAppVersionFingerprint
+
         val insertIndex = spoofAppVersionMatch.patternMatch!!.startIndex + 1
         val buildOverrideNameRegister =
             spoofAppVersionMatch.method.getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA

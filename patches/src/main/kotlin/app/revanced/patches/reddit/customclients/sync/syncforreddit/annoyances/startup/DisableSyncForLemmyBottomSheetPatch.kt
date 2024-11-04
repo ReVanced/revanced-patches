@@ -2,7 +2,6 @@ package app.revanced.patches.reddit.customclients.sync.syncforreddit.annoyances.
 
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val disableSyncForLemmyBottomSheetPatch = bytecodePatch(

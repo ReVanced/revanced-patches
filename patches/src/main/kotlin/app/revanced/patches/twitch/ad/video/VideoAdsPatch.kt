@@ -13,7 +13,6 @@ import app.revanced.patches.twitch.ad.shared.util.adPatch
 import app.revanced.patches.twitch.misc.extension.sharedExtensionPatch
 import app.revanced.patches.twitch.misc.settings.PreferenceScreen
 import app.revanced.patches.twitch.misc.settings.settingsPatch
-import app.revanced.util.matchOrThrow
 
 val videoAdsPatch = bytecodePatch(
     name = "Block video ads",
@@ -129,6 +128,7 @@ val videoAdsPatch = bytecodePatch(
                 )
 
                 val getReadyToShowAdMatch by getReadyToShowAdFingerprint
+
                 val adFormatDeclined =
                     "Ltv/twitch/android/shared/display/ads/theatre/StreamDisplayAdsPresenter\$Action\$AdFormatDeclined;"
                 getReadyToShowAdMatch.method.addInstructionsWithLabels(

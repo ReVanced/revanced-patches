@@ -4,7 +4,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patches.reddit.customclients.spoofClientPatch
-import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction10t
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21t
@@ -22,11 +21,13 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "dbrady://relay") {
         // region Patch client id.
 
         setOf(
-            loginActivityClientIdFingerprint.matchOrThrow,
-            getLoggedInBearerTokenFingerprint.matchOrThrow,
-            getLoggedOutBearerTokenFingerprint.matchOrThrow,
-            getRefreshTokenFingerprint.matchOrThrow,
-        ).forEach { match ->
+            loginActivityClientIdFingerprint,
+            getLoggedInBearerTokenFingerprint,
+            getLoggedOutBearerTokenFingerprint,
+            getRefreshTokenFingerprint,
+        ).forEach { fingerprint ->
+            val match by fingerprint
+
             val clientIdIndex = match.stringMatches!!.first().index
             match.method.apply {
                 val clientIdRegister = getInstruction<OneRegisterInstruction>(clientIdIndex).registerA

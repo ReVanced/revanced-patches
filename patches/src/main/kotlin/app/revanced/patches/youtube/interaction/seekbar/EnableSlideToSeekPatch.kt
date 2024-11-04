@@ -14,7 +14,6 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.findInstructionIndicesReversed
 import app.revanced.util.getReference
-import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -57,6 +56,7 @@ val enableSlideToSeekPatch = bytecodePatch(
 
         // Restore the behaviour to slide to seek.
         val slideToSeekMatch by slideToSeekFingerprint
+
         val checkIndex = slideToSeekMatch.patternMatch!!.startIndex
         val checkReference = slideToSeekMatch.method.getInstruction(checkIndex)
             .getReference<MethodReference>()!!
@@ -87,11 +87,13 @@ val enableSlideToSeekPatch = bytecodePatch(
         // Disable the double speed seek gesture.
         if (is_19_17_or_greater) {
             arrayOf(
-                disableFastForwardGestureFingerprint.matchOrThrow,
-                disableFastForwardNoticeFingerprint.matchOrThrow,
-            ).forEach {
-                it.method.apply {
-                    val targetIndex = it.patternMatch!!.endIndex
+                disableFastForwardGestureFingerprint,
+                disableFastForwardNoticeFingerprint,
+            ).forEach { fingerprint ->
+                val match by fingerprint
+
+                match.method.apply {
+                    val targetIndex = match.patternMatch!!.endIndex
                     val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                     addInstructions(
@@ -104,19 +106,18 @@ val enableSlideToSeekPatch = bytecodePatch(
                 }
             }
         } else {
-            disableFastForwardLegacyFingerprint.matchOrThrow.let {
-                it.method.apply {
-                    val insertIndex = it.patternMatch!!.endIndex + 1
-                    val targetRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+            val disableFastForwardLegacyMatch by disableFastForwardLegacyFingerprint
+            disableFastForwardLegacyMatch.method.apply {
+                val insertIndex = disableFastForwardLegacyMatch.patternMatch!!.endIndex + 1
+                val targetRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
-                    addInstructions(
-                        insertIndex,
-                        """
-                            invoke-static { v$targetRegister }, $EXTENSION_METHOD_DESCRIPTOR
-                            move-result v$targetRegister
-                        """,
-                    )
-                }
+                addInstructions(
+                    insertIndex,
+                    """
+                        invoke-static { v$targetRegister }, $EXTENSION_METHOD_DESCRIPTOR
+                        move-result v$targetRegister
+                    """,
+                )
             }
         }
     }

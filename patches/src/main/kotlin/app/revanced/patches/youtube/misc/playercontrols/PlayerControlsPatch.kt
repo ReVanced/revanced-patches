@@ -221,7 +221,6 @@ val playerControlsPatch = bytecodePatch(
                     reference.name == "inflate"
             }
 
-
         playerBottomControlsInflateFingerprint.matchOrThrow.method.apply {
             inflateBottomControlMethod = this
 
@@ -240,7 +239,7 @@ val playerControlsPatch = bytecodePatch(
         }
 
         controlsOverlayVisibilityFingerprint.matchOrThrow(
-            playerTopControlsInflateFingerprint
+            playerTopControlsInflateFingerprint.matchOrThrow.classDef,
         ).method.apply {
             visibilityMethod = this
         }

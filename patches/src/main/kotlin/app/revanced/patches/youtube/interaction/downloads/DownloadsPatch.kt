@@ -18,7 +18,6 @@ import app.revanced.patches.youtube.shared.mainActivityFingerprint
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
-import app.revanced.util.matchOrThrow
 
 private val downloadsResourcePatch = resourcePatch {
     dependsOn(

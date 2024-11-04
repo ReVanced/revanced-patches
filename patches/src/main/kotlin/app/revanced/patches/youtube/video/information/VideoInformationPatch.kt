@@ -18,7 +18,6 @@ import app.revanced.patches.youtube.video.videoid.hookVideoId
 import app.revanced.patches.youtube.video.videoid.videoIdPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.BuilderInstruction
@@ -32,6 +31,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import com.android.tools.smali.dexlib2.util.MethodUtil
+import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/VideoInformation;"
 private const val EXTENSION_PLAYER_INTERFACE =
@@ -90,8 +90,9 @@ val videoInformationPatch = bytecodePatch(
         // Hook the player controller for use through the extension.
         onCreateHook(EXTENSION_CLASS_DESCRIPTOR, "initialize")
 
-        val seekFingerprintResultMethod = seekFingerprint.matchOrThrow(playerInitFingerprint).method
-        val seekRelativeFingerprintResultMethod = seekRelativeFingerprint.matchOrThrow(playerInitFingerprint).method
+        val seekFingerprintResultMethod = seekFingerprint.matchOrThrow(playerInitMatch.originalClassDef).method
+        val seekRelativeFingerprintResultMethod =
+            seekRelativeFingerprint.matchOrThrow(playerInitMatch.originalClassDef).method
 
         // Create extension interface methods.
         addSeekInterfaceMethods(
@@ -112,10 +113,8 @@ val videoInformationPatch = bytecodePatch(
             // Hook the MDX director for use through the extension.
             onCreateHookMdx(EXTENSION_CLASS_DESCRIPTOR, "initializeMdx")
 
-            val mdxSeekFingerprintResultMethod =
-                mdxSeekFingerprint.matchOrThrow(mdxPlayerDirectorSetVideoStageFingerprint).method
-            val mdxSeekRelativeFingerprintResultMethod =
-                mdxSeekRelativeFingerprint.matchOrThrow(mdxPlayerDirectorSetVideoStageFingerprint).method
+            val mdxSeekFingerprintResultMethod = mdxSeekFingerprint.matchOrThrow(classDef).method
+            val mdxSeekRelativeFingerprintResultMethod = mdxSeekRelativeFingerprint.matchOrThrow(classDef).method
 
             addSeekInterfaceMethods(classDef, mdxSeekFingerprintResultMethod, mdxSeekRelativeFingerprintResultMethod)
         }
@@ -189,7 +188,9 @@ val videoInformationPatch = bytecodePatch(
         }
 
         // Handle new playback speed menu.
-        playbackSpeedMenuSpeedChangedFingerprint.matchOrThrow(newVideoQualityChangedFingerprint).method.apply {
+        playbackSpeedMenuSpeedChangedFingerprint.matchOrThrow(
+            newVideoQualityChangedFingerprint.matchOrThrow.originalClassDef,
+        ).method.apply {
             val index = indexOfFirstInstructionOrThrow(Opcode.IGET)
 
             speedSelectionInsertMethod = this

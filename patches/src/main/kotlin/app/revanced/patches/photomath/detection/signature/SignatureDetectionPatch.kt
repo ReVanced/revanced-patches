@@ -11,14 +11,10 @@ val signatureDetectionPatch = bytecodePatch(
 
     execute {
         val checkSignatureMatch by checkSignatureFingerprint
-        val signatureCheckInstruction = checkSignatureMatch.method.getInstruction(
-            checkSignatureMatch.patternMatch!!.endIndex,
-        )
-        val checkRegister = (signatureCheckInstruction as OneRegisterInstruction).registerA
 
-        checkSignatureMatch.method.replaceInstruction(
-            signatureCheckInstruction.location.index,
-            "const/4 v$checkRegister, 0x1",
-        )
+        val replacementIndex = checkSignatureMatch.patternMatch!!.endIndex
+        val checkRegister =
+            checkSignatureMatch.method.getInstruction<OneRegisterInstruction>(replacementIndex).registerA
+        checkSignatureMatch.method.replaceInstruction(replacementIndex, "const/4 v$checkRegister, 0x1")
     }
 }

@@ -3,7 +3,6 @@ package app.revanced.patches.reddit.customclients.joeyforreddit.ads
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.reddit.customclients.joeyforreddit.detection.piracy.disablePiracyDetectionPatch
-import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val disableAdsPatch = bytecodePatch(

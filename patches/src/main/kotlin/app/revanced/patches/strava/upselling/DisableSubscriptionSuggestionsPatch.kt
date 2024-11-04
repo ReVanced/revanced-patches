@@ -20,6 +20,7 @@ val disableSubscriptionSuggestionsPatch = bytecodePatch(
         val label = "original"
 
         val getModulesMatch by getModulesFingerprint
+
         val className = getModulesMatch.originalClassDef.type
         val originalMethod = getModulesMatch.method
         val returnType = originalMethod.returnType
