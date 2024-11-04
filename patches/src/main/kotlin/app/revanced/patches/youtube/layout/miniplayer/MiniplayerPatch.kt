@@ -204,6 +204,10 @@ val miniplayerPatch = bytecodePatch(
                 preferences += SwitchPreference("revanced_miniplayer_drag_and_drop")
             }
 
+            if (is_19_43_or_greater) {
+                preferences += SwitchPreference("revanced_miniplayer_horizontal_drag")
+            }
+
             if (is_19_36_or_greater) {
                 preferences += SwitchPreference("revanced_miniplayer_rounded_corners")
             }
@@ -432,23 +436,17 @@ val miniplayerPatch = bytecodePatch(
             }
         }
 
-        if (is_19_32_or_greater) {
-            // Feature is not exposed in the settings, and currently only for debugging.
-            miniplayerModernConstructorMatch.insertLiteralValueFloatOverride(
-                ANIMATION_INTERPOLATION_FEATURE_KEY,
-                "setMovementBoundFactor",
-            )
-        }
-
         if (is_19_36_or_greater) {
-            miniplayerModernConstructorMatch.insertLiteralValueBooleanOverride(
-                DROP_SHADOW_FEATURE_KEY,
-                "setDropShadow",
-            )
-
             miniplayerModernConstructorMatch.insertLiteralValueBooleanOverride(
                 ROUNDED_CORNERS_FEATURE_KEY,
                 "setRoundedCorners",
+            )
+        }
+
+        if (is_19_43_or_greater) {
+            miniplayerModernConstructorMatch.insertLiteralValueBooleanOverride(
+                HORIZONTAL_DRAG_FEATURE_FLAG,
+                "setHorizontalDrag",
             )
         }
 

@@ -1037,6 +1037,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_miniplayer_drag_and_drop_title">Enable drag and drop</string>
             <string name="revanced_miniplayer_drag_and_drop_summary_on">Drag and drop is enabled\n\nMiniplayer can be dragged to any corner of the screen</string>
             <string name="revanced_miniplayer_drag_and_drop_summary_off">Drag and drop is disabled</string>
+            <string name="revanced_miniplayer_horizontal_drag_title">Enable horizontal dragging gesture</string>
+            <string name="revanced_miniplayer_horizontal_drag_summary_on">Horizontal drag gesture enabled\n\nMiniplayer can be dragged off screen to the left or right</string>
+            <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontal drag gesture disabled</string>
             <string name="revanced_miniplayer_hide_expand_close_title">Hide close button</string>
             <string name="revanced_miniplayer_hide_expand_close_summary_on">Close button is hidden</string>
             <string name="revanced_miniplayer_hide_expand_close_summary_off">Close button is shown</string>
