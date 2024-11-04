@@ -77,6 +77,7 @@ val spoofVideoStreamsPatch = bytecodePatch(
 
         // region Block /initplayback requests to fall back to /get_watch requests.
 
+        val buildInitPlaybackRequestMatch by buildInitPlaybackRequestFingerprint
         val moveUriStringIndex = buildInitPlaybackRequestMatch.patternMatch!!.startIndex
 
         buildInitPlaybackRequestMatch.method.apply {
@@ -95,6 +96,7 @@ val spoofVideoStreamsPatch = bytecodePatch(
 
         // region Block /get_watch requests to fall back to /player requests.
 
+        val buildPlayerRequestURIMatch by buildPlayerRequestURIFingerprint
         val invokeToStringIndex = buildPlayerRequestURIMatch.patternMatch!!.startIndex
 
         buildPlayerRequestURIMatch.method.apply {
@@ -113,7 +115,7 @@ val spoofVideoStreamsPatch = bytecodePatch(
 
         // region Get replacement streams at player requests.
 
-        buildRequestMatch.method.apply {
+        buildRequestFingerprint.matchOrThrow.method.apply {
             val newRequestBuilderIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_VIRTUAL &&
                     getReference<MethodReference>()?.name == "newUrlRequestBuilder"
@@ -134,6 +136,8 @@ val spoofVideoStreamsPatch = bytecodePatch(
 
         // region Replace the streaming data with the replacement streams.
 
+        val createStreamingDataMatch by createStreamingDataFingerprint
+
         createStreamingDataMatch.method.apply {
             val setStreamDataMethodName = "patch_setStreamingData"
             val resultMethodType = createStreamingDataMatch.classDef.type
@@ -147,7 +151,7 @@ val spoofVideoStreamsPatch = bytecodePatch(
                     "$resultMethodType->$setStreamDataMethodName($videoDetailsClass)V",
             )
 
-            val protobufClass = protobufClassParseByteBufferMatch.method.definingClass
+            val protobufClass = protobufClassParseByteBufferFingerprint.matchOrThrow.method.definingClass
             val setStreamingDataIndex = createStreamingDataMatch.patternMatch!!.startIndex
 
             val playerProtoClass = getInstruction(setStreamingDataIndex + 1)
@@ -215,7 +219,7 @@ val spoofVideoStreamsPatch = bytecodePatch(
         // Requesting streams intended for other platforms with a body tuned for Android could be the cause of 400 errors.
         // A proper fix may include modifying the request body to match the platforms expected body.
 
-        buildMediaDataSourceMatch.method.apply {
+        buildMediaDataSourceFingerprint.matchOrThrow.method.apply {
             val targetIndex = instructions.lastIndex
 
             // Instructions are added just before the method returns,

@@ -16,10 +16,9 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
-import app.revanced.util.indexOfFirstResourceIdOrThrow
+import app.revanced.patches.youtube.shared.layoutConstructorFingerprint
+import app.revanced.patches.youtube.shared.subtitleButtonControllerFingerprint
+import app.revanced.util.*
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -76,7 +75,7 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
 
         // region Hide player next/previous button.
 
-        playerControlsPreviousNextOverlayTouchMatch.method.apply {
+        playerControlsPreviousNextOverlayTouchFingerprint.matchOrThrow.method.apply {
             val resourceIndex = indexOfFirstLiteralInstructionOrThrow(playerControlPreviousButtonTouchArea)
 
             val insertIndex = indexOfFirstInstructionOrThrow(resourceIndex) {
@@ -97,7 +96,7 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
 
         // region Hide cast button.
 
-        mediaRouteButtonMatch.method.addInstructions(
+        mediaRouteButtonFingerprint.matchOrThrow.method.addInstructions(
             0,
             """
                 invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->getCastButtonOverrideV2(I)I
@@ -109,7 +108,7 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
 
         // region Hide captions button.
 
-        subtitleButtonControllerMatch.method.apply {
+        subtitleButtonControllerFingerprint.matchOrThrow.method.apply {
             // Due to previously applied patches, scanResult index cannot be used in this context
             val insertIndex = indexOfFirstInstructionOrThrow(Opcode.IGET_BOOLEAN) + 1
 
@@ -123,7 +122,7 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
 
         // region Hide autoplay button.
 
-        layoutConstructorMatch.method.apply {
+        layoutConstructorFingerprint.matchOrThrow.method.apply {
             val constIndex = indexOfFirstResourceIdOrThrow("autonav_toggle")
             val constRegister = getInstruction<OneRegisterInstruction>(constIndex).registerA
 

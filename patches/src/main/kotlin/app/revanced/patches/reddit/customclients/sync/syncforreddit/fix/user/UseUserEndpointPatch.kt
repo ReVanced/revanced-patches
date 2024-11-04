@@ -22,13 +22,17 @@ val useUserEndpointPatch = bytecodePatch(
 
     execute {
         arrayOf(
-            oAuthFriendRequestMatch,
-            oAuthSubredditInfoRequestConstructorMatch,
-            oAuthSubredditInfoRequestHelperMatch,
-            oAuthUnfriendRequestMatch,
-            oAuthUserIdRequestMatch,
-            oAuthUserInfoRequestMatch,
-        ).map { it.stringMatches!!.first().index to it.method }.forEach { (userPathStringIndex, method) ->
+            oAuthFriendRequestFingerprint,
+            oAuthSubredditInfoRequestConstructorFingerprint,
+            oAuthSubredditInfoRequestHelperFingerprint,
+            oAuthUnfriendRequestFingerprint,
+            oAuthUserIdRequestFingerprint,
+            oAuthUserInfoRequestFingerprint,
+        ).map { fingerprint ->
+            val match by fingerprint
+
+            match.stringMatches!!.first().index to match.method
+        }.forEach { (userPathStringIndex, method) ->
             val userPathStringInstruction = method.getInstruction<OneRegisterInstruction>(userPathStringIndex)
 
             val userPathStringRegister = userPathStringInstruction.registerA

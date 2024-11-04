@@ -28,9 +28,9 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "http://baconreader.com/au
         }
 
         // Patch client id in authorization url.
-        getAuthorizationUrlMatch.patch("client_id=$clientId")
+        getAuthorizationUrlFingerprint.matchOrThrow.patch("client_id=$clientId")
 
         // Patch client id for access token request.
-        requestTokenMatch.patch(clientId!!)
+        requestTokenFingerprint.matchOrThrow.patch(clientId!!)
     }
 }

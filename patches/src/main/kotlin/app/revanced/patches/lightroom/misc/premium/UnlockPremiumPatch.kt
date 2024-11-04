@@ -11,6 +11,6 @@ val unlockPremiumPatch = bytecodePatch(
 
     execute {
         // Set hasPremium = true.
-        hasPurchasedMatch.method.replaceInstruction(2, "const/4 v2, 0x1")
+        hasPurchasedFingerprint.matchOrThrow.method.replaceInstruction(2, "const/4 v2, 0x1")
     }
 }

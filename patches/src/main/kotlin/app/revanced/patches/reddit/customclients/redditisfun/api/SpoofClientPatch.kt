@@ -40,10 +40,12 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "redditisfun://auth") { cl
         }
 
         // Patch OAuth authorization.
+        val buildAuthorizationStringMatch by buildAuthorizationStringFingerprint
+
         buildAuthorizationStringMatch.replaceWith(clientId!!) { first().index + 4 }
 
         // Path basic authorization.
-        basicAuthorizationMatch.replaceWith("$clientId:") { last().index + 7 }
+        basicAuthorizationFingerprint.matchOrThrow.replaceWith("$clientId:") { last().index + 7 }
 
         // endregion
 
@@ -53,7 +55,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "redditisfun://auth") { cl
         val randomName = (0..100000).random()
         val userAgent = "$randomName:app.revanced.$randomName:v1.0.0 (by /u/revanced)"
 
-        getUserAgentMatch.method.addInstructions(
+        getUserAgentFingerprint.matchOrThrow.method.addInstructions(
             0,
             """
                 const-string v0, "$userAgent"

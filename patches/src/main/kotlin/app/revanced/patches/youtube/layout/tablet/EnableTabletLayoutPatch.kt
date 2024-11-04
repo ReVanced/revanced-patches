@@ -43,7 +43,7 @@ val enableTabletLayoutPatch = bytecodePatch(
             SwitchPreference("revanced_tablet_layout"),
         )
 
-        getFormFactorMatch.method.apply {
+        getFormFactorFingerprint.matchOrThrow.method.apply {
             val returnIsLargeFormFactorIndex = instructions.lastIndex - 4
             val returnIsLargeFormFactorLabel = getInstruction(returnIsLargeFormFactorIndex)
 

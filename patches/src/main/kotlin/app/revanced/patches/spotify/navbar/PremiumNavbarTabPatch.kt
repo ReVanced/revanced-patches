@@ -36,7 +36,7 @@ val premiumNavbarTabPatch = bytecodePatch(
 
     // If the navigation bar item is the premium tab, do not add it.
     execute {
-        addNavbarItemMatch.method.addInstructions(
+        addNavBarItemFingerprint.matchOrThrow.method.addInstructions(
             0,
             """
                 const v1, $premiumTabId

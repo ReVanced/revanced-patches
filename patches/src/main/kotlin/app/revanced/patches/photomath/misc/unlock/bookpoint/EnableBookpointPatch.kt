@@ -8,7 +8,7 @@ val enableBookpointPatch = bytecodePatch(
 ) {
 
     execute {
-        isBookpointEnabledMatch.method.replaceInstructions(
+        isBookpointEnabledFingerprint.matchOrThrow.method.replaceInstructions(
             0,
             """
                 const/4 v0, 0x1

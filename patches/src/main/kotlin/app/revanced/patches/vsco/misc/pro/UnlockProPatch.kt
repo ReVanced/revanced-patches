@@ -12,6 +12,6 @@ val unlockProPatch = bytecodePatch(
 
     execute {
         // Set isSubscribed to true.
-        revCatSubscriptionMatch.method.addInstruction(0, "const p1, 0x1")
+        revCatSubscriptionFingerprint.matchOrThrow.method.addInstruction(0, "const p1, 0x1")
     }
 }

@@ -37,7 +37,8 @@ val restoreOldSeekbarThumbnailsPatch = bytecodePatch(
 
     execute {
         if (is_19_17_or_greater) {
-            return@execute Logger.getLogger(this::class.java.name).severe("'Restore old seekbar thumbnails' cannot be patched to any version after 19.16.39")
+            return@execute Logger.getLogger(this::class.java.name)
+                .severe("'Restore old seekbar thumbnails' cannot be patched to any version after 19.16.39")
         }
 
         addResources("youtube", "layout.seekbar.restoreOldSeekbarThumbnailsPatch")
@@ -46,7 +47,7 @@ val restoreOldSeekbarThumbnailsPatch = bytecodePatch(
             SwitchPreference("revanced_restore_old_seekbar_thumbnails"),
         )
 
-        fullscreenSeekbarThumbnailsMatch.method.apply {
+        fullscreenSeekbarThumbnailsFingerprint.matchOrThrow.method.apply {
             val moveResultIndex = instructions.lastIndex - 1
 
             addInstruction(

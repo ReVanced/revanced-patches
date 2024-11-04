@@ -13,6 +13,7 @@ import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
 
 internal const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/DisableFullscreenAmbientModePatch;"
@@ -39,8 +40,6 @@ val disableFullscreenAmbientModePatch = bytecodePatch(
         ),
     )
 
-    val setFullScreenBackgroundColorMatch by setFullScreenBackgroundColorFingerprint()
-
     execute {
         addResources("youtube", "layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch")
 
@@ -48,7 +47,7 @@ val disableFullscreenAmbientModePatch = bytecodePatch(
             SwitchPreference("revanced_disable_fullscreen_ambient_mode"),
         )
 
-        setFullScreenBackgroundColorMatch.mutableMethod.apply {
+        setFullScreenBackgroundColorFingerprint.matchOrThrow.method.apply {
             val insertIndex = indexOfFirstInstructionReversedOrThrow {
                 getReference<MethodReference>()?.name == "setBackgroundColor"
             }
@@ -59,7 +58,7 @@ val disableFullscreenAmbientModePatch = bytecodePatch(
                 """
                     invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getFullScreenBackgroundColor(I)I
                     move-result v$register
-                """
+                """,
             )
         }
     }

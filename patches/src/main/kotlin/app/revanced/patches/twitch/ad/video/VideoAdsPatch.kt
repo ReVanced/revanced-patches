@@ -35,14 +35,14 @@ val videoAdsPatch = bytecodePatch(
                 )
 
                 /* Amazon ads SDK */
-                context.blockMethods(
+                blockMethods(
                     "Lcom/amazon/ads/video/player/AdsManagerImpl;",
                     setOf("playAds"),
                     ReturnMethod.default,
                 )
 
                 /* Twitch ads manager */
-                context.blockMethods(
+                blockMethods(
                     "Ltv/twitch/android/shared/ads/VideoAdManager;",
                     setOf(
                         "checkAdEligibilityAndRequestAd",
@@ -53,7 +53,7 @@ val videoAdsPatch = bytecodePatch(
                 )
 
                 /* Various ad presenters */
-                context.blockMethods(
+                blockMethods(
                     "Ltv/twitch/android/shared/ads/AdsPlayerPresenter;",
                     setOf(
                         "requestAd",
@@ -65,7 +65,7 @@ val videoAdsPatch = bytecodePatch(
                     ReturnMethod.default,
                 )
 
-                context.blockMethods(
+                blockMethods(
                     "Ltv/twitch/android/shared/ads/AdsVodPlayerPresenter;",
                     setOf(
                         "requestAd",
@@ -74,7 +74,7 @@ val videoAdsPatch = bytecodePatch(
                     ReturnMethod.default,
                 )
 
-                context.blockMethods(
+                blockMethods(
                     "Ltv/twitch/android/feature/theatre/ads/AdEdgeAllocationPresenter;",
                     setOf(
                         "parseAdAndCheckEligibility",
@@ -86,13 +86,13 @@ val videoAdsPatch = bytecodePatch(
                 )
 
                 /* A/B ad testing experiments */
-                context.blockMethods(
+                blockMethods(
                     "Ltv/twitch/android/provider/experiments/helpers/DisplayAdsExperimentHelper;",
                     setOf("areDisplayAdsEnabled"),
                     ReturnMethod('Z', "0"),
                 )
 
-                context.blockMethods(
+                blockMethods(
                     "Ltv/twitch/android/shared/ads/tracking/MultiFormatAdsTrackingExperiment;",
                     setOf(
                         "shouldUseMultiAdFormatTracker",
@@ -101,7 +101,7 @@ val videoAdsPatch = bytecodePatch(
                     ReturnMethod('Z', "0"),
                 )
 
-                context.blockMethods(
+                blockMethods(
                     "Ltv/twitch/android/shared/ads/MultiformatAdsExperiment;",
                     setOf(
                         "shouldDisableClientSideLivePreroll",
@@ -111,6 +111,7 @@ val videoAdsPatch = bytecodePatch(
                 )
 
                 // Pretend our player is ineligible for all ads.
+                val checkAdEligibilityLambdaMatch by checkAdEligibilityLambdaFingerprint
                 checkAdEligibilityLambdaMatch.method.addInstructionsWithLabels(
                     0,
                     """
@@ -125,6 +126,8 @@ val videoAdsPatch = bytecodePatch(
                         checkAdEligibilityLambdaMatch.method.getInstruction(0),
                     ),
                 )
+
+                val getReadyToShowAdMatch by getReadyToShowAdFingerprint
 
                 val adFormatDeclined =
                     "Ltv/twitch/android/shared/display/ads/theatre/StreamDisplayAdsPresenter\$Action\$AdFormatDeclined;"
@@ -141,7 +144,7 @@ val videoAdsPatch = bytecodePatch(
                 )
 
                 // Spoof showAds JSON field.
-                contentConfigShowAdsMatch.method.addInstructions(
+                contentConfigShowAdsFingerprint.matchOrThrow.method.addInstructions(
                     0,
                     """
                     ${createConditionInstructions("v0")}

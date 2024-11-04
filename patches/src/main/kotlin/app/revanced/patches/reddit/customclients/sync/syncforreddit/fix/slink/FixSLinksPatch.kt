@@ -6,6 +6,8 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.reddit.customclients.RESOLVE_S_LINK_METHOD
 import app.revanced.patches.reddit.customclients.SET_ACCESS_TOKEN_METHOD
+import app.revanced.patches.reddit.customclients.boostforreddit.fix.slink.getOAuthAccessTokenFingerprint
+import app.revanced.patches.reddit.customclients.boostforreddit.fix.slink.handleNavigationFingerprint
 import app.revanced.patches.reddit.customclients.fixSLinksPatch
 import app.revanced.patches.reddit.customclients.sync.syncforreddit.extension.sharedExtensionPatch
 
@@ -24,7 +26,7 @@ val fixSLinksPatch = fixSLinksPatch(
     execute {
         // region Patch navigation handler.
 
-        handleNavigationMatch.method.apply {
+        handleNavigationFingerprint.matchOrThrow.method.apply {
             val urlRegister = "p3"
             val tempRegister = "v2"
 
@@ -44,7 +46,7 @@ val fixSLinksPatch = fixSLinksPatch(
 
         // region Patch set access token.
 
-        setAccessTokenMatch.method.addInstruction(
+        getOAuthAccessTokenFingerprint.matchOrThrow.method.addInstruction(
             0,
             "invoke-static { p0 }, $EXTENSION_CLASS_DESCRIPTOR->$SET_ACCESS_TOKEN_METHOD",
         )

@@ -2,7 +2,6 @@ package app.revanced.patches.amazon
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val deepLinkingPatch = bytecodePatch(

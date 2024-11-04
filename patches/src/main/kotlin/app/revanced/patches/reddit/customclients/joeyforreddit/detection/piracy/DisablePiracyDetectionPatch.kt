@@ -6,6 +6,6 @@ import app.revanced.patcher.patch.bytecodePatch
 val disablePiracyDetectionPatch = bytecodePatch {
 
     execute {
-        piracyDetectionMatch.method.addInstruction(0, "return-void")
+        piracyDetectionFingerprint.matchOrThrow.method.addInstruction(0, "return-void")
     }
 }

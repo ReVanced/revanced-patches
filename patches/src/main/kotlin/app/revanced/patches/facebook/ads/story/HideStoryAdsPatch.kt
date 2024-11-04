@@ -2,7 +2,6 @@ package app.revanced.patches.facebook.ads.story
 
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.util.matchOrThrow
 
 @Suppress("unused")
 val hideStoryAdsPatch = bytecodePatch(

@@ -7,7 +7,6 @@ import app.revanced.util.ResourceGroup
 import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.copyResources
 import java.io.File
-import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 private const val HEADER_FILE_NAME = "yt_wordmark_header"
 private const val PREMIUM_HEADER_FILE_NAME = "yt_premium_wordmark_header"
@@ -96,14 +95,14 @@ val changeHeaderPatch = resourcePatch(
         val toHeader = { overwriteFromTo(HEADER_FILE_NAME, PREMIUM_HEADER_FILE_NAME) }
         val toReVanced = {
             // Copy the ReVanced header to the resource directories.
-            targetResourceFiles.forEach { context.copyResources("change-header/revanced", it) }
+            targetResourceFiles.forEach { copyResources("change-header/revanced", it) }
 
             // Overwrite the premium with the custom header as well.
             toHeader()
         }
         val toReVancedBorderless = {
             // Copy the ReVanced borderless header to the resource directories.
-            targetResourceFiles.forEach { context.copyResources("change-header/revanced-borderless", it) }
+            targetResourceFiles.forEach { copyResources("change-header/revanced-borderless", it) }
 
             // Overwrite the premium with the custom header as well.
             toHeader()

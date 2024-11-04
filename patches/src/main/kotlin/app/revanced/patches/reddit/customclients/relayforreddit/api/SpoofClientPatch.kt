@@ -21,11 +21,13 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "dbrady://relay") {
         // region Patch client id.
 
         setOf(
-            loginActivityClientIdMatch,
-            getLoggedInBearerTokenMatch,
-            getLoggedOutBearerTokenMatch,
-            getRefreshTokenMatch,
-        ).forEach { match ->
+            loginActivityClientIdFingerprint,
+            getLoggedInBearerTokenFingerprint,
+            getLoggedOutBearerTokenFingerprint,
+            getRefreshTokenFingerprint,
+        ).forEach { fingerprint ->
+            val match by fingerprint
+
             val clientIdIndex = match.stringMatches!!.first().index
             match.method.apply {
                 val clientIdRegister = getInstruction<OneRegisterInstruction>(clientIdIndex).registerA
@@ -42,12 +44,12 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "dbrady://relay") {
         // region Patch miscellaneous.
 
         // Do not load remote config which disables OAuth login remotely.
-        setRemoteConfigMatch.method.addInstructions(0, "return-void")
+        setRemoteConfigFingerprint.matchOrThrow.method.addInstructions(0, "return-void")
 
         // Prevent OAuth login being disabled remotely.
-        val checkIsOAuthRequestIndex = redditCheckDisableAPIMatch.patternMatch!!.startIndex
+        val checkIsOAuthRequestIndex = redditCheckDisableAPIFingerprint.matchOrThrow.patternMatch!!.startIndex
 
-        redditCheckDisableAPIMatch.method.apply {
+        redditCheckDisableAPIFingerprint.matchOrThrow.method.apply {
             val returnNextChain = getInstruction<BuilderInstruction21t>(checkIsOAuthRequestIndex).target
             replaceInstruction(checkIsOAuthRequestIndex, BuilderInstruction10t(Opcode.GOTO, returnNextChain))
         }

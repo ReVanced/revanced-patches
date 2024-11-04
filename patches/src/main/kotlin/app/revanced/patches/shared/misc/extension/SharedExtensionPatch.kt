@@ -5,9 +5,9 @@ import app.revanced.patcher.FingerprintBuilder
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.iface.Method
 import java.net.URLDecoder
 import java.util.jar.JarFile
@@ -19,8 +19,6 @@ fun sharedExtensionPatch(
 ) = bytecodePatch {
     extendWith("extensions/shared.rve")
 
-    hooks.forEach { it.fingerprint() }
-
     execute {
         if (classBy { EXTENSION_CLASS_DESCRIPTOR in it.type } == null) {
             throw PatchException(
@@ -31,7 +29,7 @@ fun sharedExtensionPatch(
         hooks.forEach { hook -> hook(EXTENSION_CLASS_DESCRIPTOR) }
 
         // Modify Utils method to include the patches release version.
-        revancedUtilsPatchesVersionMatch.method.apply {
+        revancedUtilsPatchesVersionFingerprint.matchOrThrow.method.apply {
             /**
              * @return The file path for the jar this classfile is contained inside.
              */
@@ -78,8 +76,9 @@ class ExtensionHook internal constructor(
     private val insertIndexResolver: ((Method) -> Int),
     private val contextRegisterResolver: (Method) -> String,
 ) {
+    context(BytecodePatchContext)
     operator fun invoke(extensionClassDescriptor: String) {
-        fingerprint.matchOrThrow.mutableMethod.let { method ->
+        fingerprint.matchOrThrow.method.let { method ->
             val insertIndex = insertIndexResolver(method)
             val contextRegister = contextRegisterResolver(method)
 

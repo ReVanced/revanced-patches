@@ -14,14 +14,14 @@ val showSeekbarPatch = bytecodePatch(
     )
 
     execute {
-        shouldShowSeekBarMatch.method.addInstructions(
+        shouldShowSeekBarFingerprint.matchOrThrow.method.addInstructions(
             0,
             """
                 const/4 v0, 0x1
                 return v0
             """,
         )
-        setSeekBarShowTypeMatch.method.apply {
+        setSeekBarShowTypeFingerprint.matchOrThrow.method.apply {
             val typeRegister = implementation!!.registerCount - 1
 
             addInstructions(

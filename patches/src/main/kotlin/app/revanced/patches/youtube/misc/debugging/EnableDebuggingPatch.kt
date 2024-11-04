@@ -10,7 +10,6 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.util.applyMatch
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -36,12 +35,10 @@ val enableDebuggingPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
-        )
+        ),
     )
 
-    val experimentalFeatureFlagParentMatch by experimentalFeatureFlagParentFingerprint()
-
-    execute { context ->
+    execute {
         addResources("youtube", "misc.debugging.enableDebuggingPatch")
 
         PreferenceScreen.MISC.addPreferences(
@@ -58,10 +55,9 @@ val enableDebuggingPatch = bytecodePatch(
         )
 
         // Hook the method that looks up if a feature flag is active or not.
-        experimentalFeatureFlagFingerprint.applyMatch(
-            context,
-            experimentalFeatureFlagParentMatch
-        ).mutableMethod.apply {
+        experimentalFeatureFlagFingerprint.matchOrThrow(
+            experimentalFeatureFlagParentFingerprint.matchOrThrow.originalClassDef,
+        ).method.apply {
             val insertIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT)
 
             addInstructions(
@@ -71,7 +67,7 @@ val enableDebuggingPatch = bytecodePatch(
                     invoke-static { p1, p2, v0 }, $EXTENSION_CLASS_DESCRIPTOR->isFeatureFlagEnabled(JZ)Z
                     move-result v0
                     return v0
-                """
+                """,
             )
         }
     }

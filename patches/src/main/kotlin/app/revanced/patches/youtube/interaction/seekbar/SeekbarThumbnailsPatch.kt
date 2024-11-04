@@ -5,6 +5,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.patches.youtube.interaction.seekbar.fullscreenSeekbarThumbnailsQualityFingerprint
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_17_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
@@ -50,7 +51,7 @@ val seekbarThumbnailsPatch = bytecodePatch(
             },
         )
 
-        fullscreenSeekbarThumbnailsQualityMatch.method.addInstructions(
+        fullscreenSeekbarThumbnailsQualityFingerprint.matchOrThrow.method.addInstructions(
             0,
             """
                 invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->useHighQualityFullscreenThumbnails()Z

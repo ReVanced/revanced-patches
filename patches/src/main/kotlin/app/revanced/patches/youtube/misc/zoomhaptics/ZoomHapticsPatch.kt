@@ -38,7 +38,7 @@ val zoomHapticsPatch = bytecodePatch(
             SwitchPreference("revanced_disable_zoom_haptics"),
         )
 
-        zoomHapticsMatch.method.apply {
+        zoomHapticsFingerprint.matchOrThrow.method.apply {
             addInstructionsWithLabels(
                 0,
                 """

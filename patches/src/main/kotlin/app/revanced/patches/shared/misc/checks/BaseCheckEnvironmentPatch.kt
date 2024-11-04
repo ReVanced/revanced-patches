@@ -39,12 +39,12 @@ fun checkEnvironmentPatch(
         addResources("shared", "misc.checks.checkEnvironmentPatch")
 
         fun setPatchInfo() {
-            patchInfoMatch.setClassFields(
+            patchInfoFingerprint.matchOrThrow.setClassFields(
                 "PATCH_TIME" to System.currentTimeMillis().encoded,
             )
 
             fun setBuildInfo() {
-                patchInfoBuildMatch.setClassFields(
+                patchInfoBuildFingerprint.matchOrThrow.setClassFields(
                     "PATCH_BOARD" to BOARD.encodedAndHashed,
                     "PATCH_BOOTLOADER" to BOOTLOADER.encodedAndHashed,
                     "PATCH_BRAND" to BRAND.encodedAndHashed,
@@ -75,7 +75,7 @@ fun checkEnvironmentPatch(
             }
         }
 
-        fun invokeCheck() = mainActivityOnCreateMatch.method?.addInstructions(
+        fun invokeCheck() = mainActivityOnCreateFingerprint.matchOrThrow.method?.addInstructions(
             0,
             "invoke-static/range { p0 .. p0 },$EXTENSION_CLASS_DESCRIPTOR->check(Landroid/app/Activity;)V",
         )

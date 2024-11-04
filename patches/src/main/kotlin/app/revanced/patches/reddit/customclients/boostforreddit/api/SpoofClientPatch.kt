@@ -11,7 +11,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "http://rubenmayayo.com") 
     execute {
         // region Patch client id.
 
-        getClientIdMatch.method.addInstructions(
+        getClientIdFingerprint.matchOrThrow.method.addInstructions(
             0,
             """
                  const-string v0, "$clientId"
@@ -27,7 +27,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "http://rubenmayayo.com") 
         val platformName = (0..100000).random()
         val platformParameter = 0
 
-        buildUserAgentMatch.method.addInstructions(
+        buildUserAgentFingerprint.matchOrThrow.method.addInstructions(
             0,
             "const-string p$platformParameter, \"$platformName\"",
         )
