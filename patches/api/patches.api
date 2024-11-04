@@ -1192,10 +1192,6 @@ public final class app/revanced/patches/youtube/layout/seekbar/FingerprintsKt {
 	public static final field PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG J
 }
 
-public final class app/revanced/patches/youtube/layout/seekbar/RestoreOldSeekbarThumbnailsPatchKt {
-	public static final fun getRestoreOldSeekbarThumbnailsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
 public final class app/revanced/patches/youtube/layout/seekbar/SeekbarColorPatchKt {
 	public static final fun getSeekbarColorPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
