@@ -1177,10 +1177,6 @@ public final class app/revanced/patches/youtube/layout/searchbar/WideSearchbarPa
 	public static final fun getWideSearchbarPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/seekbar/FingerprintsKt {
-	public static final field PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG J
-}
-
 public final class app/revanced/patches/youtube/layout/seekbar/RestoreOldSeekbarThumbnailsPatchKt {
 	public static final fun getRestoreOldSeekbarThumbnailsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1265,10 +1261,6 @@ public final class app/revanced/patches/youtube/misc/dns/CheckWatchHistoryDomain
 
 public final class app/revanced/patches/youtube/misc/extension/SharedExtensionPatchKt {
 	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/youtube/misc/fix/cairo/FingerprintsKt {
-	public static final field CAIRO_CONFIG_LITERAL_VALUE J
 }
 
 public final class app/revanced/patches/youtube/misc/fix/playback/SpoofVideoStreamsPatchKt {
