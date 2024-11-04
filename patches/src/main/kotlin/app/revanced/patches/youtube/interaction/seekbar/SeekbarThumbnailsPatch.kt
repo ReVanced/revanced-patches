@@ -19,8 +19,8 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 @Suppress("unused")
 val seekbarThumbnailsPatch = bytecodePatch(
     name = "Seekbar thumbnails",
-    description = "Adds an option to use high quality fullscreen seekbar thumbnails, " +
-            "and if patching 19.16.39 also adds an option to restore old seekbar thumbnails.",
+    description = "Adds an option to use high quality fullscreen seekbar thumbnails. " +
+            "Patching 19.16.39 or lower adds an option to restore old seekbar thumbnails.",
 ) {
     dependsOn(
         sharedExtensionPatch,
