@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.misc.privacy
 
+import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.Match
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -39,10 +40,6 @@ val removeTrackingQueryParameterPatch = bytecodePatch(
         ),
     )
 
-    val youTubeShareSheetMatch by youtubeShareSheetFingerprint()
-    val systemShareSheetMatch by systemShareSheetFingerprint()
-    val copyTextMatch by copyTextFingerprint()
-
     execute {
         addResources("youtube", "misc.privacy.removeTrackingQueryParameterPatch")
 
@@ -50,14 +47,14 @@ val removeTrackingQueryParameterPatch = bytecodePatch(
             SwitchPreference("revanced_remove_tracking_query_parameter"),
         )
 
-        fun Match.hook(
+        fun Fingerprint.hook(
             getInsertIndex: Match.PatternMatch.() -> Int,
             getUrlRegister: MutableMethod.(insertIndex: Int) -> Int,
         ) {
             val insertIndex = patternMatch!!.getInsertIndex()
-            val urlRegister = mutableMethod.getUrlRegister(insertIndex)
+            val urlRegister = method.getUrlRegister(insertIndex)
 
-            mutableMethod.addInstructions(
+            method.addInstructions(
                 insertIndex,
                 """
                     invoke-static {v$urlRegister}, $EXTENSION_CLASS_DESCRIPTOR->sanitize(Ljava/lang/String;)Ljava/lang/String;
@@ -66,17 +63,17 @@ val removeTrackingQueryParameterPatch = bytecodePatch(
             )
         }
 
-        // YouTube share sheet.
-        youTubeShareSheetMatch.hook(getInsertIndex = { startIndex + 1 }) { insertIndex ->
+        // YouTube share sheet.\
+        youtubeShareSheetFingerprint.hook(getInsertIndex = { startIndex + 1 }) { insertIndex ->
             getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
         }
 
         // Native system share sheet.
-        systemShareSheetMatch.hook(getInsertIndex = { endIndex }) { insertIndex ->
+        systemShareSheetFingerprint.hook(getInsertIndex = { endIndex }) { insertIndex ->
             getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
         }
 
-        copyTextMatch.hook(getInsertIndex = { startIndex + 2 }) { insertIndex ->
+        copyTextFingerprint.hook(getInsertIndex = { startIndex + 2 }) { insertIndex ->
             getInstruction<TwoRegisterInstruction>(insertIndex - 2).registerA
         }
     }

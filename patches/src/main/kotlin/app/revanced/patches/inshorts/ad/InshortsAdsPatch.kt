@@ -9,10 +9,8 @@ val hideAdsPatch = bytecodePatch(
 ) {
     compatibleWith("com.nis.app")
 
-    val inshortsAdsMatch by inshortsAdsFingerprint()
-
     execute {
-        inshortsAdsMatch.mutableMethod.addInstruction(
+        inshortsAdsFingerprint.method.addInstruction(
             0,
             """
                 return-void

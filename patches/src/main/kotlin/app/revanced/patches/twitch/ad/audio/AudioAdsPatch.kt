@@ -24,8 +24,6 @@ val audioAdsPatch = bytecodePatch(
 
     compatibleWith("tv.twitch.android.app"("15.4.1", "16.1.0", "16.9.1"))
 
-    val audioAdsPresenterPlayMatch by audioAdsPresenterPlayFingerprint()
-
     execute {
         addResources("twitch", "ad.audio.audioAdsPatch")
 
@@ -34,7 +32,7 @@ val audioAdsPatch = bytecodePatch(
         )
 
         // Block playAds call
-        audioAdsPresenterPlayMatch.mutableMethod.addInstructionsWithLabels(
+        audioAdsPresenterPlayFingerprint.method.addInstructionsWithLabels(
             0,
             """
                     invoke-static { }, Lapp/revanced/extension/twitch/patches/AudioAdsPatch;->shouldBlockAudioAds()Z
@@ -42,7 +40,7 @@ val audioAdsPatch = bytecodePatch(
                     if-eqz v0, :show_audio_ads
                     return-void
                 """,
-            ExternalLabel("show_audio_ads", audioAdsPresenterPlayMatch.mutableMethod.getInstruction(0)),
+            ExternalLabel("show_audio_ads", audioAdsPresenterPlayFingerprint.method.getInstruction(0)),
         )
     }
 }

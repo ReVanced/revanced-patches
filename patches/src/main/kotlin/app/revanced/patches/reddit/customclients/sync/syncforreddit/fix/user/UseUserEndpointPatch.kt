@@ -20,22 +20,17 @@ val useUserEndpointPatch = bytecodePatch(
         "com.laurencedawson.reddit_sync.dev",
     )
 
-    val oAuthFriendRequestMatch by oAuthFriendRequestFingerprint()
-    val oAuthSubredditInfoRequestConstructorMatch by oAuthSubredditInfoRequestConstructorFingerprint()
-    val oAuthSubredditInfoRequestHelperMatch by oAuthSubredditInfoRequestHelperFingerprint()
-    val oAuthUnfriendRequestMatch by oAuthUnfriendRequestFingerprint()
-    val oAuthUserIdRequestMatch by oAuthUserIdRequestFingerprint()
-    val oAuthUserInfoRequestMatch by oAuthUserInfoRequestFingerprint()
-
     execute {
         arrayOf(
-            oAuthFriendRequestMatch,
-            oAuthSubredditInfoRequestConstructorMatch,
-            oAuthSubredditInfoRequestHelperMatch,
-            oAuthUnfriendRequestMatch,
-            oAuthUserIdRequestMatch,
-            oAuthUserInfoRequestMatch,
-        ).map { it.stringMatches!!.first().index to it.mutableMethod }.forEach { (userPathStringIndex, method) ->
+            oAuthFriendRequestFingerprint,
+            oAuthSubredditInfoRequestConstructorFingerprint,
+            oAuthSubredditInfoRequestHelperFingerprint,
+            oAuthUnfriendRequestFingerprint,
+            oAuthUserIdRequestFingerprint,
+            oAuthUserInfoRequestFingerprint,
+        ).map { fingerprint ->
+            fingerprint.stringMatches!!.first().index to fingerprint.method
+        }.forEach { (userPathStringIndex, method) ->
             val userPathStringInstruction = method.getInstruction<OneRegisterInstruction>(userPathStringIndex)
 
             val userPathStringRegister = userPathStringInstruction.registerA

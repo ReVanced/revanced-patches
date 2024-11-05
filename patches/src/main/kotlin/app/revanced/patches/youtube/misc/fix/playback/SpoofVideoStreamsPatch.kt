@@ -52,13 +52,6 @@ val spoofVideoStreamsPatch = bytecodePatch(
         userAgentClientSpoofPatch,
     )
 
-    val buildInitPlaybackRequestMatch by buildInitPlaybackRequestFingerprint()
-    val buildPlayerRequestURIMatch by buildPlayerRequestURIFingerprint()
-    val createStreamingDataMatch by createStreamingDataFingerprint()
-    val buildMediaDataSourceMatch by buildMediaDataSourceFingerprint()
-    val buildRequestMatch by buildRequestFingerprint()
-    val protobufClassParseByteBufferMatch by protobufClassParseByteBufferFingerprint()
-
     execute {
         addResources("youtube", "misc.fix.playback.spoofVideoStreamsPatch")
 
@@ -84,9 +77,9 @@ val spoofVideoStreamsPatch = bytecodePatch(
 
         // region Block /initplayback requests to fall back to /get_watch requests.
 
-        val moveUriStringIndex = buildInitPlaybackRequestMatch.patternMatch!!.startIndex
+        val moveUriStringIndex = buildInitPlaybackRequestFingerprint.patternMatch!!.startIndex
 
-        buildInitPlaybackRequestMatch.mutableMethod.apply {
+        buildInitPlaybackRequestFingerprint.method.apply {
             val targetRegister = getInstruction<OneRegisterInstruction>(moveUriStringIndex).registerA
 
             addInstructions(
@@ -102,9 +95,9 @@ val spoofVideoStreamsPatch = bytecodePatch(
 
         // region Block /get_watch requests to fall back to /player requests.
 
-        val invokeToStringIndex = buildPlayerRequestURIMatch.patternMatch!!.startIndex
+        val invokeToStringIndex = buildPlayerRequestURIFingerprint.patternMatch!!.startIndex
 
-        buildPlayerRequestURIMatch.mutableMethod.apply {
+        buildPlayerRequestURIFingerprint.method.apply {
             val uriRegister = getInstruction<FiveRegisterInstruction>(invokeToStringIndex).registerC
 
             addInstructions(
@@ -120,7 +113,7 @@ val spoofVideoStreamsPatch = bytecodePatch(
 
         // region Get replacement streams at player requests.
 
-        buildRequestMatch.mutableMethod.apply {
+        buildRequestFingerprint.method.apply {
             val newRequestBuilderIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_VIRTUAL &&
                     getReference<MethodReference>()?.name == "newUrlRequestBuilder"
@@ -141,10 +134,10 @@ val spoofVideoStreamsPatch = bytecodePatch(
 
         // region Replace the streaming data with the replacement streams.
 
-        createStreamingDataMatch.mutableMethod.apply {
+        createStreamingDataFingerprint.method.apply {
             val setStreamDataMethodName = "patch_setStreamingData"
-            val resultMethodType = createStreamingDataMatch.mutableClass.type
-            val videoDetailsIndex = createStreamingDataMatch.patternMatch!!.endIndex
+            val resultMethodType = createStreamingDataFingerprint.classDef.type
+            val videoDetailsIndex = createStreamingDataFingerprint.patternMatch!!.endIndex
             val videoDetailsRegister = getInstruction<TwoRegisterInstruction>(videoDetailsIndex).registerA
             val videoDetailsClass = getInstruction(videoDetailsIndex).getReference<FieldReference>()!!.type
 
@@ -154,8 +147,8 @@ val spoofVideoStreamsPatch = bytecodePatch(
                     "$resultMethodType->$setStreamDataMethodName($videoDetailsClass)V",
             )
 
-            val protobufClass = protobufClassParseByteBufferMatch.mutableMethod.definingClass
-            val setStreamingDataIndex = createStreamingDataMatch.patternMatch!!.startIndex
+            val protobufClass = protobufClassParseByteBufferFingerprint.method.definingClass
+            val setStreamingDataIndex = createStreamingDataFingerprint.patternMatch!!.startIndex
 
             val playerProtoClass = getInstruction(setStreamingDataIndex + 1)
                 .getReference<FieldReference>()!!.definingClass
@@ -169,7 +162,7 @@ val spoofVideoStreamsPatch = bytecodePatch(
             ).getReference<FieldReference>()
 
             // Use a helper method to avoid the need of picking out multiple free registers from the hooked code.
-            createStreamingDataMatch.mutableClass.methods.add(
+            createStreamingDataFingerprint.classDef.methods.add(
                 ImmutableMethod(
                     resultMethodType,
                     setStreamDataMethodName,
@@ -222,7 +215,7 @@ val spoofVideoStreamsPatch = bytecodePatch(
         // Requesting streams intended for other platforms with a body tuned for Android could be the cause of 400 errors.
         // A proper fix may include modifying the request body to match the platforms expected body.
 
-        buildMediaDataSourceMatch.mutableMethod.apply {
+        buildMediaDataSourceFingerprint.method.apply {
             val targetIndex = instructions.lastIndex
 
             // Instructions are added just before the method returns,

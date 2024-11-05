@@ -34,17 +34,16 @@ val playerResponseMethodHookPatch = bytecodePatch {
         versionCheckPatch,
     )
 
-    val playerParameterBuilderMatch by playerParameterBuilderFingerprint()
-    val playerParameterBuilderLegacyMatch by playerParameterBuilderLegacyFingerprint()
-
     execute {
-        if (is_19_23_or_greater) {
-            playerResponseMethod = playerParameterBuilderMatch.mutableMethod
+        playerResponseMethod = if (is_19_23_or_greater) {
             parameterIsShortAndOpeningOrPlaying = 12
+
+            playerParameterBuilderFingerprint
         } else {
-            playerResponseMethod = playerParameterBuilderLegacyMatch.mutableMethod
             parameterIsShortAndOpeningOrPlaying = 11
-        }
+
+            playerParameterBuilderLegacyFingerprint
+        }.method
 
         // On some app targets the method has too many registers pushing the parameters past v15.
         // If needed, move the parameters to 4-bit registers, so they can be passed to the extension.

@@ -1,6 +1,6 @@
 package app.revanced.patches.twitter.interaction.downloads
 
-import app.revanced.patcher.Match
+import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -19,35 +19,31 @@ val unlockDownloadsPatch = bytecodePatch(
 ) {
     compatibleWith("com.twitter.android")
 
-    val constructMediaOptionsSheetMatch by constructMediaOptionsSheetFingerprint()
-    val showDownloadVideoUpsellBottomSheetMatch by showDownloadVideoUpsellBottomSheetFingerprint()
-    val buildMediaOptionsSheetMatch by buildMediaOptionsSheetFingerprint()
-
-    fun Match.patch(getRegisterAndIndex: Match.() -> Pair<Int, Int>) {
-        val (index, register) = getRegisterAndIndex()
-        mutableMethod.addInstruction(index, "const/4 v$register, 0x1")
-    }
-
     execute {
+        fun Fingerprint.patch(getRegisterAndIndex: Fingerprint.() -> Pair<Int, Int>) {
+            val (index, register) = getRegisterAndIndex()
+            method.addInstruction(index, "const/4 v$register, 0x1")
+        }
+
         // Allow downloads for non-premium users.
-        showDownloadVideoUpsellBottomSheetMatch.patch {
+        showDownloadVideoUpsellBottomSheetFingerprint.patch {
             val checkIndex = patternMatch!!.startIndex
-            val register = mutableMethod.getInstruction<OneRegisterInstruction>(checkIndex).registerA
+            val register = method.getInstruction<OneRegisterInstruction>(checkIndex).registerA
 
             checkIndex to register
         }
 
         // Force show the download menu item.
-        constructMediaOptionsSheetMatch.patch {
-            val showDownloadButtonIndex = mutableMethod.instructions.lastIndex - 1
-            val register = mutableMethod.getInstruction<TwoRegisterInstruction>(showDownloadButtonIndex).registerA
+        constructMediaOptionsSheetFingerprint.patch {
+            val showDownloadButtonIndex = method.instructions.lastIndex - 1
+            val register = method.getInstruction<TwoRegisterInstruction>(showDownloadButtonIndex).registerA
 
             showDownloadButtonIndex to register
         }
 
         // Make GIFs downloadable.
-        val patternMatch = buildMediaOptionsSheetMatch.patternMatch!!
-        buildMediaOptionsSheetMatch.mutableMethod.apply {
+        val patternMatch = buildMediaOptionsSheetFingerprint.patternMatch!!
+        buildMediaOptionsSheetFingerprint.method.apply {
             val checkMediaTypeIndex = patternMatch.startIndex
             val checkMediaTypeInstruction = getInstruction<TwoRegisterInstruction>(checkMediaTypeIndex)
 

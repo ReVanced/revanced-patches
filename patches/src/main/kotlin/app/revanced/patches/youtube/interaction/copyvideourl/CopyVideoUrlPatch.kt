@@ -19,7 +19,7 @@ private val copyVideoUrlResourcePatch = resourcePatch {
         addResourcesPatch,
     )
 
-    execute { context ->
+    execute {
         addResources("youtube", "interaction.copyvideourl.copyVideoUrlResourcePatch")
 
         PreferenceScreen.PLAYER.addPreferences(
@@ -27,7 +27,7 @@ private val copyVideoUrlResourcePatch = resourcePatch {
             SwitchPreference("revanced_copy_video_url_timestamp"),
         )
 
-        context.copyResources(
+        copyResources(
             "copyvideourl",
             ResourceGroup(
                 resourceDirectoryName = "drawable",

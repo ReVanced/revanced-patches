@@ -1,8 +1,6 @@
 package app.revanced.util
 
-import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.FingerprintBuilder
-import app.revanced.patcher.Match
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -23,17 +21,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.reference.Reference
 import com.android.tools.smali.dexlib2.util.MethodUtil
-
-val Fingerprint.matchOrThrow
-    get() = match ?: throw exception
-
-/**
- * The [PatchException] of failing to match a [Fingerprint].
- *
- * @return The [PatchException].
- */
-val Fingerprint.exception
-    get() = PatchException("Failed to match the fingerprint: $this")
 
 /**
  * Find the [MutableMethod] from a given [Method] in a [MutableClass].
@@ -358,13 +345,11 @@ fun Method.indexOfFirstInstructionReversedOrThrow(startIndex: Int? = null, filte
  *  _Returns an empty list if no indices are found_
  *  @see findInstructionIndicesReversedOrThrow
  */
-fun Method.findInstructionIndicesReversed(filter: Instruction.() -> Boolean): List<Int> {
-    return instructions
-        .withIndex()
-        .filter { (_, instruction) -> filter(instruction) }
-        .map { (index, _) -> index }
-        .asReversed()
-}
+fun Method.findInstructionIndicesReversed(filter: Instruction.() -> Boolean): List<Int> = instructions
+    .withIndex()
+    .filter { (_, instruction) -> filter(instruction) }
+    .map { (index, _) -> index }
+    .asReversed()
 
 /**
  * @return An immutable list of indices of the instructions in reverse order.
@@ -418,12 +403,6 @@ fun BytecodePatchContext.forEachLiteralValueInstruction(
 }
 
 /**
- * Return the matched method early.
- */
-fun Fingerprint.returnEarly(bool: Boolean = false) =
-    matchOrThrow.mutableMethod. returnEarly(bool)
-
-/**
  * Return the method early.
  */
 fun MutableMethod.returnEarly(bool: Boolean = false) {
@@ -435,30 +414,19 @@ fun MutableMethod.returnEarly(bool: Boolean = false) {
                 const/4 v0, $const
                 return-object v0
             """
+
         'V' -> "return-void"
         'I', 'Z' ->
             """
                 const/4 v0, $const
                 return v0
             """
+
         else -> throw Exception("This case should never happen.")
     }
 
     addInstructions(0, stringInstructions)
 }
-
-/**
- * Return the matched methods early.
- */
-fun Iterable<Fingerprint>.returnEarly(bool: Boolean = false) = forEach { fingerprint ->
-    fingerprint.returnEarly(bool)
-}
-
-/**
- * Matches this fingerprint using the classDef of a parent fingerprint match.
- */
-fun Fingerprint.applyMatch(context: BytecodePatchContext, parentMatch: Match) =
-    apply { match(context, parentMatch.classDef) }.matchOrThrow
 
 /**
  * Set the custom condition for this fingerprint to check for a literal value.

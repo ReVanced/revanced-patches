@@ -40,7 +40,8 @@ private val customPlayerOverlayOpacityResourcePatch = resourcePatch {
     }
 }
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/CustomPlayerOverlayOpacityPatch;"
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/youtube/patches/CustomPlayerOverlayOpacityPatch;"
 
 @Suppress("unused")
 val customPlayerOverlayOpacityPatch = bytecodePatch(
@@ -57,13 +58,11 @@ val customPlayerOverlayOpacityPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
-        )
+        ),
     )
 
-    val createPlayerOverviewMatch by createPlayerOverviewFingerprint()
-
     execute {
-        createPlayerOverviewMatch.mutableMethod.apply {
+        createPlayerOverviewFingerprint.method.apply {
             val viewRegisterIndex =
                 indexOfFirstLiteralInstructionOrThrow(scrimOverlayId) + 3
             val viewRegister =

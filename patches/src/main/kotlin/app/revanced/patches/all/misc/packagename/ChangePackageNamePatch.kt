@@ -41,8 +41,8 @@ val changePackageNamePatch = resourcePatch(
         it == "Default" || it!!.matches(Regex("^[a-z]\\w*(\\.[a-z]\\w*)+\$"))
     }
 
-    finalize { context ->
-        context.document["AndroidManifest.xml"].use { document ->
+    finalize {
+        document("AndroidManifest.xml").use { document ->
 
             val replacementPackageName = packageNameOption.value
 

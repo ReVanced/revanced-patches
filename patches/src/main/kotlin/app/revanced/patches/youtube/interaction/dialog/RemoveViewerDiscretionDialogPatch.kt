@@ -34,8 +34,6 @@ val removeViewerDiscretionDialogPatch = bytecodePatch(
         ),
     )
 
-    val createDialogMatch by createDialogFingerprint()
-
     val extensionMethodDescriptor =
         "Lapp/revanced/extension/youtube/patches/RemoveViewerDiscretionDialogPatch;->" +
             "confirmDialog(Landroid/app/AlertDialog;)V"
@@ -47,7 +45,7 @@ val removeViewerDiscretionDialogPatch = bytecodePatch(
             SwitchPreference("revanced_remove_viewer_discretion_dialog"),
         )
 
-        createDialogMatch.mutableMethod.apply {
+        createDialogFingerprint.method.apply {
             val showDialogIndex = implementation!!.instructions.lastIndex - 2
             val dialogRegister = getInstruction<FiveRegisterInstruction>(showDialogIndex).registerC
 

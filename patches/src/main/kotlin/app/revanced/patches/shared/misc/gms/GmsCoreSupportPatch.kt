@@ -12,10 +12,7 @@ import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.gms.Constants.ACTIONS
 import app.revanced.patches.shared.misc.gms.Constants.AUTHORITIES
 import app.revanced.patches.shared.misc.gms.Constants.PERMISSIONS
-import app.revanced.util.exception
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
-import app.revanced.util.returnEarly
+import app.revanced.util.*
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -52,7 +49,7 @@ fun gmsCoreSupportPatch(
     mainActivityOnCreateFingerprint: Fingerprint,
     extensionPatch: Patch<*>,
     gmsCoreSupportResourcePatchFactory: (gmsCoreVendorGroupIdOption: Option<String>) -> Patch<*>,
-    executeBlock: Patch<BytecodePatchContext>.(BytecodePatchContext) -> Unit = {},
+    executeBlock: BytecodePatchContext.() -> Unit = {},
     block: BytecodePatchBuilder.() -> Unit = {},
 ) = bytecodePatch(
     name = "GmsCore support",
@@ -79,17 +76,10 @@ fun gmsCoreSupportPatch(
 
     val gmsCoreVendorGroupId by gmsCoreVendorGroupIdOption
 
-    val gmsCoreSupportMatch by gmsCoreSupportFingerprint()
-    val mainActivityOnCreateMatch by mainActivityOnCreateFingerprint()
-    primeMethodFingerprint?.invoke()
-    googlePlayUtilityFingerprint()
-    serviceCheckFingerprint()
-    earlyReturnFingerprints.forEach { it() }
-
-    execute { context ->
-        fun transformStringReferences(transform: (str: String) -> String?) = context.classes.forEach {
+    execute {
+        fun transformStringReferences(transform: (str: String) -> String?) = classes.forEach {
             val mutableClass by lazy {
-                context.proxy(it).mutableClass
+                proxy(it).mutableClass
             }
 
             it.methods.forEach classLoop@{ method ->
@@ -169,7 +159,7 @@ fun gmsCoreSupportPatch(
         }
 
         fun transformPrimeMethod(packageName: String) {
-            primeMethodFingerprint!!.match?.mutableMethod?.apply {
+            primeMethodFingerprint!!.method.apply {
                 var register = 2
 
                 val index = instructions.indexOfFirst {
@@ -180,7 +170,7 @@ fun gmsCoreSupportPatch(
                 }
 
                 replaceInstruction(index, "const-string v$register, \"$packageName\"")
-            } ?: throw primeMethodFingerprint.exception
+            }
         }
 
         // endregion
@@ -205,16 +195,16 @@ fun gmsCoreSupportPatch(
         primeMethodFingerprint?.let { transformPrimeMethod(packageName) }
 
         // Return these methods early to prevent the app from crashing.
-        earlyReturnFingerprints.returnEarly()
-        serviceCheckFingerprint.returnEarly()
+        earlyReturnFingerprints.forEach { it.method.returnEarly() }
+        serviceCheckFingerprint.method.returnEarly()
 
         // Google Play Utility is not present in all apps, so we need to check if it's present.
-        if (googlePlayUtilityFingerprint.match != null) {
-            googlePlayUtilityFingerprint.returnEarly()
+        if (googlePlayUtilityFingerprint.methodOrNull != null) {
+            googlePlayUtilityFingerprint.method.returnEarly()
         }
 
         // Verify GmsCore is installed and whitelisted for power optimizations and background usage.
-        mainActivityOnCreateMatch.mutableMethod.apply {
+        mainActivityOnCreateFingerprint.method.apply {
             // Temporary fix for patches with an extension patch that hook the onCreate method as well.
             val setContextIndex = indexOfFirstInstruction {
                 val reference = getReference<MethodReference>() ?: return@indexOfFirstInstruction false
@@ -231,11 +221,11 @@ fun gmsCoreSupportPatch(
         }
 
         // Change the vendor of GmsCore in the extension.
-        gmsCoreSupportMatch.mutableClass.methods
+        gmsCoreSupportFingerprint.classDef.methods
             .single { it.name == GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME }
             .replaceInstruction(0, "const-string v0, \"$gmsCoreVendorGroupId\"")
 
-        executeBlock(context)
+        executeBlock()
     }
 
     block()
@@ -525,7 +515,7 @@ fun gmsCoreSupportResourcePatch(
     toPackageName: String,
     spoofedPackageSignature: String,
     gmsCoreVendorGroupIdOption: Option<String>,
-    executeBlock: Patch<ResourcePatchContext>.(ResourcePatchContext) -> Unit = {},
+    executeBlock: ResourcePatchContext.() -> Unit = {},
     block: ResourcePatchBuilder.() -> Unit = {},
 ) = resourcePatch {
     dependsOn(
@@ -535,7 +525,7 @@ fun gmsCoreSupportResourcePatch(
 
     val gmsCoreVendorGroupId by gmsCoreVendorGroupIdOption
 
-    execute { context ->
+    execute {
         addResources("shared", "misc.gms.gmsCoreSupportResourcePatch")
 
         /**
@@ -551,7 +541,7 @@ fun gmsCoreSupportResourcePatch(
                 appendChild(child)
             }
 
-            context.document["AndroidManifest.xml"].use { document ->
+            document("AndroidManifest.xml").use { document ->
                 val applicationNode =
                     document
                         .getElementsByTagName("application")
@@ -593,7 +583,7 @@ fun gmsCoreSupportResourcePatch(
                 "</queries>" to "<package android:name=\"$gmsCoreVendorGroupId.android.gms\"/></queries>",
             )
 
-            val manifest = context["AndroidManifest.xml"]
+            val manifest = get("AndroidManifest.xml")
             manifest.writeText(
                 transformations.entries.fold(manifest.readText()) { acc, (from, to) ->
                     acc.replace(
@@ -607,7 +597,7 @@ fun gmsCoreSupportResourcePatch(
         patchManifest()
         addSpoofingMetadata()
 
-        executeBlock(context)
+        executeBlock()
     }
 
     block()
