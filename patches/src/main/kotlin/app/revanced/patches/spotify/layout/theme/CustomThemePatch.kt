@@ -47,13 +47,13 @@ val customThemePatch = resourcePatch(
         required = true,
     )
 
-    execute { context ->
+    execute {
         val backgroundColor = backgroundColor!!
         val backgroundColorSecondary = backgroundColorSecondary!!
         val accentColor = accentColor!!
         val accentColorPressed = accentColorPressed!!
 
-        context.document["res/values/colors.xml"].use { document ->
+        document("res/values/colors.xml").use { document ->
             val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
 
             for (i in 0 until resourcesNode.childNodes.length) {

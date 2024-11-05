@@ -63,11 +63,9 @@ val disableSuggestedVideoEndScreenPatch = bytecodePatch(
         ),
     )
 
-    val createEndScreenViewMatch by createEndScreenViewFingerprint()
-
     execute {
-        createEndScreenViewMatch.mutableMethod.apply {
-            val addOnClickEventListenerIndex = createEndScreenViewMatch.patternMatch!!.endIndex - 1
+        createEndScreenViewFingerprint.method.apply {
+            val addOnClickEventListenerIndex = createEndScreenViewFingerprint.patternMatch!!.endIndex - 1
             val viewRegister = getInstruction<FiveRegisterInstruction>(addOnClickEventListenerIndex).registerC
 
             addInstruction(

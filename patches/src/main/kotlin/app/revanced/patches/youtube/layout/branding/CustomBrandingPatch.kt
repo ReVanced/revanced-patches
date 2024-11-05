@@ -65,7 +65,7 @@ val customBrandingPatch = resourcePatch(
         """.trimIndentMultiline(),
     )
 
-    execute { context ->
+    execute {
         icon?.let { icon ->
             // Change the app icon.
             mipmapDirectories.map { directory ->
@@ -76,7 +76,7 @@ val customBrandingPatch = resourcePatch(
             }.let { resourceGroups ->
                 if (icon != REVANCED_ICON) {
                     val path = File(icon)
-                    val resourceDirectory = context["res"]
+                    val resourceDirectory = get("res")
 
                     resourceGroups.forEach { group ->
                         val fromDirectory = path.resolve(group.resourceDirectoryName)
@@ -90,14 +90,14 @@ val customBrandingPatch = resourcePatch(
                         }
                     }
                 } else {
-                    resourceGroups.forEach { context.copyResources("custom-branding", it) }
+                    resourceGroups.forEach { copyResources("custom-branding", it) }
                 }
             }
         }
 
         appName?.let { name ->
             // Change the app name.
-            val manifest = context["AndroidManifest.xml"]
+            val manifest = get("AndroidManifest.xml")
             manifest.writeText(
                 manifest.readText()
                     .replace(

@@ -8,10 +8,10 @@ val exportAllActivitiesPatch = resourcePatch(
     description = "Makes all app activities exportable.",
     use = false,
 ) {
-    execute { context ->
+    execute {
         val exportedFlag = "android:exported"
 
-        context.document["AndroidManifest.xml"].use { document ->
+        document("AndroidManifest.xml").use { document ->
             val activities = document.getElementsByTagName("activity")
 
             for (i in 0..activities.length) {

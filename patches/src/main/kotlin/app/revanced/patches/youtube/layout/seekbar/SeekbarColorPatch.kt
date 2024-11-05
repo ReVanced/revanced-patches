@@ -37,7 +37,7 @@ private val seekbarColorResourcePatch = resourcePatch {
         versionCheckPatch,
     )
 
-    execute { context ->
+    execute {
         reelTimeBarPlayedColorId = resourceMappings[
             "color",
             "reel_time_bar_played_color",
@@ -52,7 +52,7 @@ private val seekbarColorResourcePatch = resourcePatch {
         ]
 
         // Edit the resume playback drawable and replace the progress bar with a custom drawable
-        context.document["res/drawable/resume_playback_progressbar_drawable.xml"].use { document ->
+        document("res/drawable/resume_playback_progressbar_drawable.xml").use { document ->
 
             val layerList = document.getElementsByTagName("layer-list").item(0) as Element
             val progressNode = layerList.getElementsByTagName("item").item(1) as Element
@@ -80,13 +80,7 @@ val seekbarColorPatch = bytecodePatch(
         seekbarColorResourcePatch,
     )
 
-    val playerSeekbarColorMatch by playerSeekbarColorFingerprint()
-    val shortsSeekbarColorMatch by shortsSeekbarColorFingerprint()
-    val setSeekbarClickedColorMatch by setSeekbarClickedColorFingerprint()
-    val playerSeekbarGradientConfigMatch by playerSeekbarGradientConfigFingerprint()
-    val lithoLinearGradientMatch by lithoLinearGradientFingerprint()
-
-    execute { context ->
+    execute {
         fun MutableMethod.addColorChangeInstructions(resourceId: Long) {
             val registerIndex = indexOfFirstLiteralInstructionOrThrow(resourceId) + 2
             val colorRegister = getInstruction<OneRegisterInstruction>(registerIndex).registerA
@@ -99,20 +93,19 @@ val seekbarColorPatch = bytecodePatch(
             )
         }
 
-        playerSeekbarColorMatch.mutableMethod.apply {
+        playerSeekbarColorFingerprint.method.apply {
             addColorChangeInstructions(inlineTimeBarColorizedBarPlayedColorDarkId)
             addColorChangeInstructions(inlineTimeBarPlayedNotHighlightedColorId)
         }
 
-        shortsSeekbarColorMatch.mutableMethod.apply {
+        shortsSeekbarColorFingerprint.method.apply {
             addColorChangeInstructions(reelTimeBarPlayedColorId)
         }
 
-        setSeekbarClickedColorMatch.mutableMethod.let {
-            val setColorMethodIndex = setSeekbarClickedColorMatch.patternMatch!!.startIndex + 1
-            val method = context.navigate(it).at(setColorMethodIndex).mutable()
+        setSeekbarClickedColorFingerprint.originalMethod.let {
+            val setColorMethodIndex = setSeekbarClickedColorFingerprint.patternMatch!!.startIndex + 1
 
-            method.apply {
+            navigate(it).to(setColorMethodIndex).stop().apply {
                 val colorRegister = getInstruction<TwoRegisterInstruction>(0).registerA
                 addInstructions(
                     0,
@@ -125,7 +118,7 @@ val seekbarColorPatch = bytecodePatch(
         }
 
         if (is_19_23_or_greater) {
-            playerSeekbarGradientConfigMatch.mutableMethod.apply {
+            playerSeekbarGradientConfigFingerprint.method.apply {
                 val literalIndex = indexOfFirstLiteralInstructionOrThrow(PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG)
                 val resultIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
                 val register = getInstruction<OneRegisterInstruction>(resultIndex).registerA
@@ -139,7 +132,7 @@ val seekbarColorPatch = bytecodePatch(
                 )
             }
 
-            lithoLinearGradientMatch.mutableMethod.addInstruction(
+            lithoLinearGradientFingerprint.method.addInstruction(
                 0,
                 "invoke-static/range { p4 .. p5 },  $EXTENSION_CLASS_DESCRIPTOR->setLinearGradient([I[F)V",
             )

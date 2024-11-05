@@ -16,7 +16,7 @@ internal val sendTypingIndicatorFingerprint = fingerprint {
     }
 }
 
-internal val switchMessangeInputEmojiButtonFingerprint = fingerprint {
+internal val switchMessengeInputEmojiButtonFingerprint = fingerprint {
     returns("V")
     parameters("L", "Z")
     opcodes(

@@ -13,9 +13,9 @@ val removeShareTargetsPatch = resourcePatch(
     description = "Removes share targets like directly sharing to a frequent contact.",
     use = false,
 ) {
-    execute { context ->
+    execute {
         try {
-            context.document["res/xml/shortcuts.xml"]
+            document("res/xml/shortcuts.xml")
         } catch (_: FileNotFoundException) {
             return@execute Logger.getLogger(this::class.java.name).warning("The app has no shortcuts")
         }.use { document ->

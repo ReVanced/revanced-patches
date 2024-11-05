@@ -10,7 +10,6 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.util.applyMatch
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -36,12 +35,10 @@ val enableDebuggingPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
-        )
+        ),
     )
 
-    val experimentalFeatureFlagParentMatch by experimentalFeatureFlagParentFingerprint()
-
-    execute { context ->
+    execute {
         addResources("youtube", "misc.debugging.enableDebuggingPatch")
 
         PreferenceScreen.MISC.addPreferences(
@@ -58,11 +55,9 @@ val enableDebuggingPatch = bytecodePatch(
         )
 
         // Hook the methods that look up if a feature flag is active.
-
-        experimentalBooleanFeatureFlagFingerprint.applyMatch(
-            context,
-            experimentalFeatureFlagParentMatch
-        ).mutableMethod.apply {
+        experimentalBooleanFeatureFlagFingerprint.match(
+            experimentalFeatureFlagParentFingerprint.originalClassDef
+        ).method.apply {
             val insertIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT)
 
             // It appears that all usage of this method has a default of 'false',
@@ -78,10 +73,9 @@ val enableDebuggingPatch = bytecodePatch(
             )
         }
 
-        experimentalDoubleFeatureFlagFingerprint.applyMatch(
-            context,
-            experimentalFeatureFlagParentMatch
-        ).mutableMethod.apply {
+        experimentalDoubleFeatureFlagFingerprint.match(
+            experimentalFeatureFlagParentFingerprint.originalClassDef
+        ).method.apply {
             val insertIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_WIDE)
 
             addInstructions(
@@ -95,10 +89,9 @@ val enableDebuggingPatch = bytecodePatch(
             )
         }
 
-        experimentalLongFeatureFlagFingerprint.applyMatch(
-            context,
-            experimentalFeatureFlagParentMatch
-        ).mutableMethod.apply {
+        experimentalLongFeatureFlagFingerprint.match(
+            experimentalFeatureFlagParentFingerprint.originalClassDef
+        ).method.apply {
             val insertIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_WIDE)
 
             addInstructions(

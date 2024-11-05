@@ -8,8 +8,8 @@ val enableAndroidDebuggingPatch = resourcePatch(
     description = "Enables Android debugging capabilities. This can slow down the app.",
     use = false,
 ) {
-    execute { context ->
-        context.document["AndroidManifest.xml"].use { document ->
+    execute {
+        document("AndroidManifest.xml").use { document ->
             val applicationNode =
                 document
                     .getElementsByTagName("application")

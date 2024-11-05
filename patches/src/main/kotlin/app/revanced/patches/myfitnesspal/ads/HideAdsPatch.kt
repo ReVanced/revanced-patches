@@ -10,12 +10,9 @@ val hideAdsPatch = bytecodePatch(
 ) {
     compatibleWith("com.myfitnesspal.android"("24.14.2"))
 
-    val isPremiumUseCaseImplMatch by isPremiumUseCaseImplFingerprint()
-    val mainActivityNavigateToNativePremiumUpsellMatch by mainActivityNavigateToNativePremiumUpsellFingerprint()
-
     execute {
         // Overwrite the premium status specifically for ads.
-        isPremiumUseCaseImplMatch.mutableMethod.replaceInstructions(
+        isPremiumUseCaseImplFingerprint.method.replaceInstructions(
             0,
             """
                 sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
@@ -25,7 +22,7 @@ val hideAdsPatch = bytecodePatch(
 
         // Prevent the premium upsell dialog from showing when the main activity is launched.
         // In other places that are premium-only the dialog will still show.
-        mainActivityNavigateToNativePremiumUpsellMatch.mutableMethod.replaceInstructions(
+        mainActivityNavigateToNativePremiumUpsellFingerprint.method.replaceInstructions(
             0,
             "return-void",
         )

@@ -15,10 +15,10 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.newVideoQualityChangedFingerprint
 import app.revanced.patches.youtube.video.information.onCreateHook
 import app.revanced.patches.youtube.video.information.videoInformationPatch
-import app.revanced.util.applyMatch
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/playback/quality/RememberVideoQualityPatch;"
@@ -46,11 +46,7 @@ val rememberVideoQualityPatch = bytecodePatch(
         ),
     )
 
-    val videoQualitySetterMatch by videoQualitySetterFingerprint()
-    val videoQualityItemOnClickParentMatch by videoQualityItemOnClickParentFingerprint()
-    val newVideoQualityChangedMatch by newVideoQualityChangedFingerprint()
-
-    execute { context ->
+    execute {
         addResources("youtube", "video.quality.rememberVideoQualityPatch")
 
         PreferenceScreen.VIDEO.addPreferences(
@@ -79,9 +75,8 @@ val rememberVideoQualityPatch = bytecodePatch(
         onCreateHook(EXTENSION_CLASS_DESCRIPTOR, "newVideoStarted")
 
         // Inject a call to set the remembered quality once a video loads.
-        setQualityByIndexMethodClassFieldReferenceFingerprint.applyMatch(
-            context,
-            videoQualitySetterMatch,
+        setQualityByIndexMethodClassFieldReferenceFingerprint.match(
+            videoQualitySetterFingerprint.originalClassDef,
         ).let { match ->
             // This instruction refers to the field with the type that contains the setQualityByIndex method.
             val instructions = match.method.implementation!!.instructions
@@ -94,7 +89,7 @@ val rememberVideoQualityPatch = bytecodePatch(
             val setQualityByIndexMethodClassFieldReference =
                 getSetQualityByIndexMethodClassFieldReference as FieldReference
 
-            val setQualityByIndexMethodClass = context.classes
+            val setQualityByIndexMethodClass = classes
                 .find { classDef -> classDef.type == setQualityByIndexMethodClassFieldReference.type }!!
 
             // Get the name of the setQualityByIndex method.
@@ -102,7 +97,7 @@ val rememberVideoQualityPatch = bytecodePatch(
                 .find { method -> method.parameterTypes.first() == "I" }
                 ?: throw PatchException("Could not find setQualityByIndex method")
 
-            videoQualitySetterMatch.mutableMethod.addInstructions(
+            videoQualitySetterFingerprint.method.addInstructions(
                 0,
                 """
                     # Get the object instance to invoke the setQualityByIndex method on.
@@ -124,19 +119,20 @@ val rememberVideoQualityPatch = bytecodePatch(
         }
 
         // Inject a call to remember the selected quality.
-        videoQualityItemOnClickParentMatch.mutableClass.methods.find { it.name == "onItemClick" }?.apply {
-            val listItemIndexParameter = 3
+        videoQualityItemOnClickParentFingerprint.classDef.methods.find { it.name == "onItemClick" }
+            ?.apply {
+                val listItemIndexParameter = 3
 
-            addInstruction(
-                0,
-                "invoke-static { p$listItemIndexParameter }, " +
-                    "$EXTENSION_CLASS_DESCRIPTOR->userChangedQuality(I)V",
-            )
-        } ?: throw PatchException("Failed to find onItemClick method")
+                addInstruction(
+                    0,
+                    "invoke-static { p$listItemIndexParameter }, " +
+                        "$EXTENSION_CLASS_DESCRIPTOR->userChangedQuality(I)V",
+                )
+            } ?: throw PatchException("Failed to find onItemClick method")
 
         // Remember video quality if not using old layout menu.
-        newVideoQualityChangedMatch.mutableMethod.apply {
-            val index = newVideoQualityChangedMatch.patternMatch!!.startIndex
+        newVideoQualityChangedFingerprint.method.apply {
+            val index = newVideoQualityChangedFingerprint.patternMatch!!.startIndex
             val qualityRegister = getInstruction<TwoRegisterInstruction>(index).registerA
 
             addInstruction(

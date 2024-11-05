@@ -2,6 +2,7 @@ package app.revanced.patches.twitch.chat.autoclaim
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.all.misc.resources.addResources
@@ -22,8 +23,6 @@ val autoClaimChannelPointsPatch = bytecodePatch(
 
     compatibleWith("tv.twitch.android.app"("15.4.1", "16.1.0", "16.9.1"))
 
-    val communityPointsButtonViewDelegateMatch by communityPointsButtonViewDelegateFingerprint()
-
     execute {
         addResources("twitch", "chat.autoclaim.autoClaimChannelPointsPatch")
 
@@ -31,8 +30,8 @@ val autoClaimChannelPointsPatch = bytecodePatch(
             SwitchPreference("revanced_auto_claim_channel_points"),
         )
 
-        communityPointsButtonViewDelegateMatch.mutableMethod.apply {
-            val lastIndex = implementation!!.instructions.lastIndex
+        communityPointsButtonViewDelegateFingerprint.method.apply {
+            val lastIndex = instructions.lastIndex
             addInstructionsWithLabels(
                 lastIndex, // place in front of return-void
                 """

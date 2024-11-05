@@ -19,16 +19,12 @@ val enableOfflineSync = bytecodePatch(
 ) {
     compatibleWith("com.soundcloud.android")
 
-    val featureConstructorMatch by featureConstructorFingerprint()
-    val downloadOperationsURLBuilderMatch by downloadOperationsURLBuilderFingerprint()
-    val downloadOperationsHeaderVerificationMatch by downloadOperationsHeaderVerificationFingerprint()
-
     execute {
         // Enable the feature to allow offline track syncing by modifying the JSON server response.
         // This method is the constructor of a class representing a "Feature" object parsed from JSON data.
         // p1 is the name of the feature.
         // p2 is true if the feature is enabled, false otherwise.
-        featureConstructorMatch.mutableMethod.apply {
+        featureConstructorFingerprint.method.apply {
             val afterCheckNotNullIndex = 2
 
             addInstructionsWithLabels(
@@ -46,7 +42,7 @@ val enableOfflineSync = bytecodePatch(
 
         // Patch the URL builder to use the HTTPS_STREAM endpoint
         // instead of the offline sync endpoint to downloading the track.
-        downloadOperationsURLBuilderMatch.mutableMethod.apply {
+        downloadOperationsURLBuilderFingerprint.method.apply {
             val getEndpointsEnumFieldIndex = 1
             val getEndpointsEnumFieldInstruction = getInstruction<OneRegisterInstruction>(getEndpointsEnumFieldIndex)
 
@@ -62,7 +58,7 @@ val enableOfflineSync = bytecodePatch(
         // The HTTPS_STREAM endpoint does not return the necessary headers for offline sync.
         // Mock the headers to prevent the app from crashing by setting them to empty strings.
         // The headers are all cosmetic and do not affect the functionality of the app.
-        downloadOperationsHeaderVerificationMatch.mutableMethod.apply {
+        downloadOperationsHeaderVerificationFingerprint.method.apply {
             // The first three null checks need to be patched.
             instructions.asSequence().filter {
                 it.opcode == Opcode.IF_EQZ

@@ -14,18 +14,16 @@ val disableSubscriptionSuggestionsPatch = bytecodePatch(
 ) {
     compatibleWith("com.strava"("320.12"))
 
-    val getModulesMatch by getModulesFingerprint()
-
     execute {
         val helperMethodName = "getModulesIfNotUpselling"
         val pageSuffix = "_upsell"
         val label = "original"
 
-        val className = getModulesMatch.classDef.type
-        val originalMethod = getModulesMatch.mutableMethod
+        val className = getModulesFingerprint.originalClassDef.type
+        val originalMethod = getModulesFingerprint.method
         val returnType = originalMethod.returnType
 
-        getModulesMatch.mutableClass.methods.add(
+        getModulesFingerprint.classDef.methods.add(
             ImmutableMethod(
                 className,
                 helperMethodName,
@@ -54,7 +52,7 @@ val disableSubscriptionSuggestionsPatch = bytecodePatch(
             },
         )
 
-        val getModulesIndex = getModulesMatch.patternMatch!!.startIndex
+        val getModulesIndex = getModulesFingerprint.patternMatch!!.startIndex
         with(originalMethod) {
             removeInstruction(getModulesIndex)
             addInstructions(

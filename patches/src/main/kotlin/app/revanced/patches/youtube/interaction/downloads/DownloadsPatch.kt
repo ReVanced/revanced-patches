@@ -26,7 +26,7 @@ private val downloadsResourcePatch = resourcePatch {
         addResourcesPatch,
     )
 
-    execute { context ->
+    execute {
         addResources("youtube", "interaction.downloads.downloadsResourcePatch")
 
         PreferenceScreen.PLAYER.addPreferences(
@@ -41,7 +41,7 @@ private val downloadsResourcePatch = resourcePatch {
             ),
         )
 
-        context.copyResources(
+        copyResources(
             "downloads",
             ResourceGroup("drawable", "revanced_yt_download_button.xml"),
         )
@@ -77,22 +77,19 @@ val downloadsPatch = bytecodePatch(
         ),
     )
 
-    val offlineVideoEndpointMatch by offlineVideoEndpointFingerprint()
-    val mainActivityMatch by mainActivityFingerprint()
-
     execute {
         initializeBottomControl(BUTTON_DESCRIPTOR)
         injectVisibilityCheckCall(BUTTON_DESCRIPTOR)
 
         // Main activity is used to launch downloader intent.
-        mainActivityMatch.mutableMethod.apply {
+        mainActivityFingerprint.method.apply {
             addInstruction(
                 implementation!!.instructions.lastIndex,
                 "invoke-static { p0 }, $EXTENSION_CLASS_DESCRIPTOR->activityCreated(Landroid/app/Activity;)V",
             )
         }
 
-        offlineVideoEndpointMatch.mutableMethod.apply {
+        offlineVideoEndpointFingerprint.method.apply {
             addInstructionsWithLabels(
                 0,
                 """

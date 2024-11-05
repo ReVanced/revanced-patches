@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.searchbar
 
-import app.revanced.patcher.Match
+import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatchContext
@@ -39,10 +39,7 @@ val wideSearchbarPatch = bytecodePatch(
         ),
     )
 
-    val setWordmarkHeaderMatch by setWordmarkHeaderFingerprint()
-    val createSearchSuggestionsMatch by createSearchSuggestionsFingerprint()
-
-    execute { context ->
+    execute {
         addResources("youtube", "layout.searchbar.wideSearchbarPatch")
 
         PreferenceScreen.FEED.addPreferences(
@@ -53,11 +50,11 @@ val wideSearchbarPatch = bytecodePatch(
          * Navigate a fingerprints method at a given index mutably.
          *
          * @param index The index to navigate to.
-         * @param fromMatch The fingerprint match to navigate the method on.
+         * @param from The fingerprint to navigate the method on.
          * @return The [MutableMethod] which was navigated on.
          */
-        fun BytecodePatchContext.walkMutable(index: Int, fromMatch: Match) =
-            navigate(fromMatch.method).at(index).mutable()
+        fun BytecodePatchContext.walkMutable(index: Int, from: Fingerprint) =
+            navigate(from.originalMethod).to(index).stop()
 
         /**
          * Injects instructions required for certain methods.
@@ -76,10 +73,10 @@ val wideSearchbarPatch = bytecodePatch(
         }
 
         mapOf(
-            setWordmarkHeaderMatch to 1,
-            createSearchSuggestionsMatch to createSearchSuggestionsMatch.patternMatch!!.startIndex,
+            setWordmarkHeaderFingerprint to 1,
+            createSearchSuggestionsFingerprint to createSearchSuggestionsFingerprint.patternMatch!!.startIndex,
         ).forEach { (fingerprint, callIndex) ->
-            context.walkMutable(callIndex, fingerprint).injectSearchBarHook()
+            walkMutable(callIndex, fingerprint).injectSearchBarHook()
         }
     }
 }

@@ -78,8 +78,8 @@ val hideAdsPatch = bytecodePatch(
         ),
     )
 
-    execute { context ->
-        context.classes.forEach { classDef ->
+    execute {
+        classes.forEach { classDef ->
             classDef.methods.forEach { method ->
                 with(method.implementation) {
                     this?.instructions?.forEachIndexed { index, instruction ->
@@ -101,7 +101,7 @@ val hideAdsPatch = bytecodePatch(
 
                             // Hide the view
                             val viewRegister = (this as Instruction35c).registerC
-                            context.proxy(classDef)
+                            proxy(classDef)
                                 .mutableClass
                                 .findMutableMethodOf(method)
                                 .injectHideViewCall(

@@ -7,7 +7,6 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
-import app.revanced.util.applyMatch
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -30,23 +29,19 @@ val cronetImageUrlHookPatch = bytecodePatch(
 ) {
     dependsOn(sharedExtensionPatch)
 
-    val messageDigestImageUrlParentMatch by messageDigestImageUrlParentFingerprint()
-    val onResponseStartedMatch by onResponseStartedFingerprint()
-    val requestMatch by requestFingerprint()
-
-    execute { context ->
+    execute {
         loadImageUrlMethod = messageDigestImageUrlFingerprint
-            .applyMatch(context, messageDigestImageUrlParentMatch).mutableMethod
+            .match(messageDigestImageUrlParentFingerprint.originalClassDef).method
 
         loadImageSuccessCallbackMethod = onSucceededFingerprint
-            .applyMatch(context, onResponseStartedMatch).mutableMethod
+            .match(onResponseStartedFingerprint.originalClassDef).method
 
         loadImageErrorCallbackMethod = onFailureFingerprint
-            .applyMatch(context, onResponseStartedMatch).mutableMethod
+            .match(onResponseStartedFingerprint.originalClassDef).method
 
         // The URL is required for the failure callback hook, but the URL field is obfuscated.
         // Add a helper get method that returns the URL field.
-        val urlFieldInstruction = requestMatch.mutableMethod.instructions.first {
+        val urlFieldInstruction = requestFingerprint.method.instructions.first {
             val reference = it.getReference<FieldReference>()
             it.opcode == Opcode.IPUT_OBJECT && reference?.type == "Ljava/lang/String;"
         } as ReferenceInstruction
@@ -54,7 +49,7 @@ val cronetImageUrlHookPatch = bytecodePatch(
         val urlFieldName = (urlFieldInstruction.reference as FieldReference).name
         val definingClass = CRONET_URL_REQUEST_CLASS_DESCRIPTOR
         val addedMethodName = "getHookedUrl"
-        requestMatch.mutableClass.methods.add(
+        requestFingerprint.classDef.methods.add(
             ImmutableMethod(
                 definingClass,
                 addedMethodName,
@@ -82,7 +77,7 @@ val cronetImageUrlHookPatch = bytecodePatch(
 fun addImageUrlHook(targetMethodClass: String, highPriority: Boolean = false) {
     loadImageUrlMethod.addInstructions(
         if (highPriority) 0 else loadImageUrlIndex,
-"""
+        """
         invoke-static { p1 }, $targetMethodClass->overrideImageURL(Ljava/lang/String;)Ljava/lang/String;
         move-result-object p1
         """,

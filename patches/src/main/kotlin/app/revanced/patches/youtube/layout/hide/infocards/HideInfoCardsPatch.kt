@@ -17,7 +17,6 @@ import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.util.applyMatch
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -67,11 +66,8 @@ val hideInfoCardsPatch = bytecodePatch(
         ),
     )
 
-    val infocardsIncognitoParentMatch by infocardsIncognitoParentFingerprint()
-    val infocardsMethodCallMatch by infocardsMethodCallFingerprint()
-
-    execute { context ->
-        infocardsIncognitoFingerprint.applyMatch(context, infocardsIncognitoParentMatch).mutableMethod.apply {
+    execute {
+        infocardsIncognitoFingerprint.match(infocardsIncognitoParentFingerprint.originalClassDef).method.apply {
             val invokeInstructionIndex = implementation!!.instructions.indexOfFirst {
                 it.opcode.ordinal == Opcode.INVOKE_VIRTUAL.ordinal &&
                     ((it as ReferenceInstruction).reference.toString() == "Landroid/view/View;->setVisibility(I)V")
@@ -84,10 +80,10 @@ val hideInfoCardsPatch = bytecodePatch(
             )
         }
 
-        val hideInfoCardsCallMethod = infocardsMethodCallMatch.mutableMethod
+        val hideInfoCardsCallMethod = infocardsMethodCallFingerprint.method
 
-        val invokeInterfaceIndex = infocardsMethodCallMatch.patternMatch!!.endIndex
-        val toggleRegister = infocardsMethodCallMatch.mutableMethod.implementation!!.registerCount - 1
+        val invokeInterfaceIndex = infocardsMethodCallFingerprint.patternMatch!!.endIndex
+        val toggleRegister = infocardsMethodCallFingerprint.method.implementation!!.registerCount - 1
 
         hideInfoCardsCallMethod.addInstructionsWithLabels(
             invokeInterfaceIndex,

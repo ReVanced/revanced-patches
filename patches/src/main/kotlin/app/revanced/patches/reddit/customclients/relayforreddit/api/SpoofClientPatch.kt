@@ -15,29 +15,22 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "dbrady://relay") {
         "reddit.news",
     )
 
-    val loginActivityClientIdMatch by loginActivityClientIdFingerprint()
-    val getLoggedInBearerTokenMatch by getLoggedInBearerTokenFingerprint()
-    val getLoggedOutBearerTokenMatch by getLoggedOutBearerTokenFingerprint()
-    val getRefreshTokenMatch by getRefreshTokenFingerprint()
-    val setRemoteConfigMatch by setRemoteConfigFingerprint()
-    val redditCheckDisableAPIMatch by redditCheckDisableAPIFingerprint()
-
     val clientId by it
 
     execute {
         // region Patch client id.
 
         setOf(
-            loginActivityClientIdMatch,
-            getLoggedInBearerTokenMatch,
-            getLoggedOutBearerTokenMatch,
-            getRefreshTokenMatch,
-        ).forEach { match ->
-            val clientIdIndex = match.stringMatches!!.first().index
-            match.mutableMethod.apply {
+            loginActivityClientIdFingerprint,
+            getLoggedInBearerTokenFingerprint,
+            getLoggedOutBearerTokenFingerprint,
+            getRefreshTokenFingerprint,
+        ).forEach { fingerprint ->
+            val clientIdIndex = fingerprint.stringMatches!!.first().index
+            fingerprint.method.apply {
                 val clientIdRegister = getInstruction<OneRegisterInstruction>(clientIdIndex).registerA
 
-                match.mutableMethod.replaceInstruction(
+                fingerprint.method.replaceInstruction(
                     clientIdIndex,
                     "const-string v$clientIdRegister, \"$clientId\"",
                 )
@@ -49,12 +42,12 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "dbrady://relay") {
         // region Patch miscellaneous.
 
         // Do not load remote config which disables OAuth login remotely.
-        setRemoteConfigMatch.mutableMethod.addInstructions(0, "return-void")
+        setRemoteConfigFingerprint.method.addInstructions(0, "return-void")
 
         // Prevent OAuth login being disabled remotely.
-        val checkIsOAuthRequestIndex = redditCheckDisableAPIMatch.patternMatch!!.startIndex
+        val checkIsOAuthRequestIndex = redditCheckDisableAPIFingerprint.patternMatch!!.startIndex
 
-        redditCheckDisableAPIMatch.mutableMethod.apply {
+        redditCheckDisableAPIFingerprint.method.apply {
             val returnNextChain = getInstruction<BuilderInstruction21t>(checkIsOAuthRequestIndex).target
             replaceInstruction(checkIsOAuthRequestIndex, BuilderInstruction10t(Opcode.GOTO, returnNextChain))
         }

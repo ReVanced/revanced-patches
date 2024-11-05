@@ -25,8 +25,8 @@ fun settingsPatch(
 ) = resourcePatch {
     dependsOn(addResourcesPatch)
 
-    execute { context ->
-        context.copyResources(
+    execute {
+        copyResources(
             "settings",
             ResourceGroup("xml", "revanced_prefs.xml"),
         )
@@ -34,7 +34,7 @@ fun settingsPatch(
         addResources("shared", "misc.settings.settingsResourcePatch")
     }
 
-    finalize { context ->
+    finalize {
         fun Node.addPreference(preference: BasePreference, prepend: Boolean = false) {
             preference.serialize(ownerDocument) { resource ->
                 // TODO: Currently, resources can only be added to "values", which may not be the correct place.
@@ -47,13 +47,13 @@ fun settingsPatch(
 
         // Add the root preference to an existing fragment if needed.
         rootPreference?.let { (intentPreference, fragment) ->
-            context.document["res/xml/$fragment.xml"].use { document ->
+            document("res/xml/$fragment.xml").use { document ->
                 document.getNode("PreferenceScreen").addPreference(intentPreference, true)
             }
         }
 
         // Add all preferences to the ReVanced fragment.
-        context.document["res/xml/revanced_prefs.xml"].use { document ->
+        document("res/xml/revanced_prefs.xml").use { document ->
             val revancedPreferenceScreenNode = document.getNode("PreferenceScreen")
             preferences.forEach { revancedPreferenceScreenNode.addPreference(it) }
         }

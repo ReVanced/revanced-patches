@@ -33,12 +33,8 @@ val disableTrackingPatch = bytecodePatch(
         ),
     )
 
-    val facebookSDKMatch by facebookSDKFingerprint()
-    val firebaseInstallMatch by firebaseInstallFingerprint()
-    val appMeasurementMatch by appMeasurementFingerprint()
-
     execute {
-        facebookSDKMatch.mutableMethod.apply {
+        facebookSDKFingerprint.method.apply {
             instructions.filter { instruction ->
                 instruction.opcode == Opcode.CONST_STRING
             }.forEach { instruction ->
@@ -51,7 +47,7 @@ val disableTrackingPatch = bytecodePatch(
             }
         }
 
-        firebaseInstallMatch.mutableMethod.apply {
+        firebaseInstallFingerprint.method.apply {
             instructions.filter {
                 it.opcode == Opcode.CONST_STRING
             }.filter {
@@ -66,6 +62,6 @@ val disableTrackingPatch = bytecodePatch(
             }
         }
 
-        appMeasurementMatch.mutableMethod.addInstruction(0, "return-void")
+        appMeasurementFingerprint.method.addInstruction(0, "return-void")
     }
 }

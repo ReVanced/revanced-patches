@@ -10,10 +10,8 @@ val unlockProPatch = bytecodePatch(
 ) {
     compatibleWith("com.vsco.cam"("345"))
 
-    val revCatSubscriptionMatch by revCatSubscriptionFingerprint()
-
     execute {
         // Set isSubscribed to true.
-        revCatSubscriptionMatch.mutableMethod.addInstruction(0, "const p1, 0x1")
+        revCatSubscriptionFingerprint.method.addInstruction(0, "const p1, 0x1")
     }
 }

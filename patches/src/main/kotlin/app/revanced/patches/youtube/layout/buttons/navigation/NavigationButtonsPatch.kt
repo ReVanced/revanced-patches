@@ -19,6 +19,7 @@ import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
 
 internal const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/NavigationButtonsPatch;"
@@ -45,9 +46,6 @@ val navigationButtonsPatch = bytecodePatch(
         ),
     )
 
-    val addCreateButtonViewMatch by addCreateButtonViewFingerprint()
-    val createPivotBarMatch by createPivotBarFingerprint()
-
     execute {
         addResources("youtube", "layout.buttons.navigation.navigationButtonsPatch")
 
@@ -67,8 +65,8 @@ val navigationButtonsPatch = bytecodePatch(
         )
 
         // Switch create with notifications button.
-        addCreateButtonViewMatch.mutableMethod.apply {
-            val stringIndex = addCreateButtonViewMatch.stringMatches!!.find { match ->
+        addCreateButtonViewFingerprint.method.apply {
+            val stringIndex = addCreateButtonViewFingerprint.stringMatches!!.find { match ->
                 match.string == ANDROID_AUTOMOTIVE_STRING
             }!!.index
 
@@ -86,7 +84,7 @@ val navigationButtonsPatch = bytecodePatch(
         }
 
         // Hide navigation button labels.
-        createPivotBarMatch.mutableMethod.apply {
+        createPivotBarFingerprint.method.apply {
             val setTextIndex = indexOfFirstInstructionOrThrow {
                 getReference<MethodReference>()?.name == "setText"
             }
