@@ -10,7 +10,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
  * When this value is true, Cairo Fragment is used.
  * In this case, some of the patches may be broken, so set this value to FALSE.
  */
-const val CAIRO_CONFIG_LITERAL_VALUE = 45532100L
+internal const val CAIRO_CONFIG_LITERAL_VALUE = 45532100L
 
 internal val cairoFragmentConfigFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)

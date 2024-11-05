@@ -54,21 +54,58 @@ val enableDebuggingPatch = bytecodePatch(
             ),
         )
 
-        // Hook the method that looks up if a feature flag is active or not.
-        experimentalFeatureFlagFingerprint.match(
-            experimentalFeatureFlagParentFingerprint.originalClassDef,
+        // Hook the methods that look up if a feature flag is active.
+        experimentalBooleanFeatureFlagFingerprint.match(
+            experimentalFeatureFlagParentFingerprint.originalClassDef
         ).method.apply {
             val insertIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT)
 
+            // It appears that all usage of this method has a default of 'false',
+            // so there's no need to pass in the default.
             addInstructions(
                 insertIndex,
                 """
                     move-result v0
-                    invoke-static { p1, p2, v0 }, $EXTENSION_CLASS_DESCRIPTOR->isFeatureFlagEnabled(JZ)Z
+                    invoke-static { v0, p1, p2 }, $EXTENSION_CLASS_DESCRIPTOR->isBooleanFeatureFlagEnabled(ZJ)Z
                     move-result v0
                     return v0
-                """,
+                """
             )
         }
+
+        experimentalDoubleFeatureFlagFingerprint.match(
+            experimentalFeatureFlagParentFingerprint.originalClassDef
+        ).method.apply {
+            val insertIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_WIDE)
+
+            addInstructions(
+                insertIndex,
+                """
+                    move-result-wide v0     # Also clobbers v1 (p0) since result is wide.
+                    invoke-static/range { v0 .. v5 }, $EXTENSION_CLASS_DESCRIPTOR->isDoubleFeatureFlagEnabled(DJD)D
+                    move-result-wide v0
+                    return-wide v0
+                """
+            )
+        }
+
+        experimentalLongFeatureFlagFingerprint.match(
+            experimentalFeatureFlagParentFingerprint.originalClassDef
+        ).method.apply {
+            val insertIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_WIDE)
+
+            addInstructions(
+                insertIndex,
+                """
+                    move-result-wide v0
+                    invoke-static/range { v0 .. v5 }, $EXTENSION_CLASS_DESCRIPTOR->isLongFeatureFlagEnabled(JJJ)J
+                    move-result-wide v0
+                    return-wide v0
+                """
+            )
+        }
+
+        // There exists other experimental accessor methods for String, byte[], and wrappers for obfuscated classes,
+        // but currently none of those are hooked.
     }
 }
