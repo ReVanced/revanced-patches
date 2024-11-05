@@ -10,8 +10,21 @@ internal val experimentalFeatureFlagParentFingerprint = fingerprint {
     strings("Unable to parse proto typed experiment flag: ")
 }
 
-internal val experimentalFeatureFlagFingerprint = fingerprint {
+internal val experimentalBooleanFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters("J", "Z")
 }
+
+internal val experimentalDoubleFeatureFlagFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("D")
+    parameters("J", "D")
+}
+
+internal val experimentalLongFeatureFlagFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("J")
+    parameters("J", "J")
+}
+

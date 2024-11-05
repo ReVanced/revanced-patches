@@ -1133,17 +1133,6 @@ public final class app/revanced/patches/youtube/layout/hide/time/HideTimestampPa
 	public static final fun getHideTimestampPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/miniplayer/FingerprintsKt {
-	public static final field ANIMATION_INTERPOLATION_FEATURE_KEY J
-	public static final field DOUBLE_TAP_ENABLED_FEATURE_KEY_LITERAL J
-	public static final field DRAG_DROP_ENABLED_FEATURE_KEY_LITERAL J
-	public static final field DROP_SHADOW_FEATURE_KEY J
-	public static final field INITIAL_SIZE_FEATURE_KEY_LITERAL J
-	public static final field MODERN_FEATURE_FLAGS_ENABLED_KEY_LITERAL J
-	public static final field MODERN_MINIPLAYER_ENABLED_OLD_TARGETS_FEATURE_KEY J
-	public static final field ROUNDED_CORNERS_FEATURE_KEY J
-}
-
 public final class app/revanced/patches/youtube/layout/miniplayer/MiniplayerPatchKt {
 	public static final fun getFloatyBarButtonTopMargin ()J
 	public static final fun getMiniplayerMaxSize ()J
@@ -1186,10 +1175,6 @@ public final class app/revanced/patches/youtube/layout/returnyoutubedislike/Vote
 
 public final class app/revanced/patches/youtube/layout/searchbar/WideSearchbarPatchKt {
 	public static final fun getWideSearchbarPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/youtube/layout/seekbar/FingerprintsKt {
-	public static final field PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG J
 }
 
 public final class app/revanced/patches/youtube/layout/seekbar/SeekbarColorPatchKt {
@@ -1272,10 +1257,6 @@ public final class app/revanced/patches/youtube/misc/dns/CheckWatchHistoryDomain
 
 public final class app/revanced/patches/youtube/misc/extension/SharedExtensionPatchKt {
 	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/youtube/misc/fix/cairo/FingerprintsKt {
-	public static final field CAIRO_CONFIG_LITERAL_VALUE J
 }
 
 public final class app/revanced/patches/youtube/misc/fix/playback/SpoofVideoStreamsPatchKt {
