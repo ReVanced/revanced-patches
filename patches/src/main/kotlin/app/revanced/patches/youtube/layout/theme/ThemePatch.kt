@@ -209,7 +209,7 @@ val themePatch = bytecodePatch(
             SwitchPreference("revanced_gradient_loading_screen"),
         )
 
-        useGradientLoadingScreenFingerprint.matchOrThrow.method.apply {
+        useGradientLoadingScreenFingerprint.method.apply {
 
             val isEnabledIndex = indexOfFirstLiteralInstructionOrThrow(GRADIENT_LOADING_SCREEN_AB_CONSTANT) + 3
             val isEnabledRegister = getInstruction<OneRegisterInstruction>(isEnabledIndex - 1).registerA
@@ -226,9 +226,7 @@ val themePatch = bytecodePatch(
             themeHelperLightColorFingerprint to lightThemeBackgroundColor,
             themeHelperDarkColorFingerprint to darkThemeBackgroundColor,
         ).forEach { (fingerprint, color) ->
-            val match by fingerprint
-
-            match.method.apply {
+            fingerprint.method.apply {
                 addInstructions(
                     0,
                     """

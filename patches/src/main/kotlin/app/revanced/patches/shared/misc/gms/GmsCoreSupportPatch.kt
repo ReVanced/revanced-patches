@@ -159,7 +159,7 @@ fun gmsCoreSupportPatch(
         }
 
         fun transformPrimeMethod(packageName: String) {
-            primeMethodFingerprint!!.matchOrThrow.method.apply {
+            primeMethodFingerprint!!.method.apply {
                 var register = 2
 
                 val index = instructions.indexOfFirst {
@@ -195,16 +195,16 @@ fun gmsCoreSupportPatch(
         primeMethodFingerprint?.let { transformPrimeMethod(packageName) }
 
         // Return these methods early to prevent the app from crashing.
-        earlyReturnFingerprints.returnEarly()
-        serviceCheckFingerprint.returnEarly()
+        earlyReturnFingerprints.forEach { it.method.returnEarly() }
+        serviceCheckFingerprint.method.returnEarly()
 
         // Google Play Utility is not present in all apps, so we need to check if it's present.
-        if (googlePlayUtilityFingerprint.match != null) {
-            googlePlayUtilityFingerprint.returnEarly()
+        if (googlePlayUtilityFingerprint.methodOrNull != null) {
+            googlePlayUtilityFingerprint.method.returnEarly()
         }
 
         // Verify GmsCore is installed and whitelisted for power optimizations and background usage.
-        mainActivityOnCreateFingerprint.matchOrThrow.method.apply {
+        mainActivityOnCreateFingerprint.method.apply {
             // Temporary fix for patches with an extension patch that hook the onCreate method as well.
             val setContextIndex = indexOfFirstInstruction {
                 val reference = getReference<MethodReference>() ?: return@indexOfFirstInstruction false
@@ -221,7 +221,7 @@ fun gmsCoreSupportPatch(
         }
 
         // Change the vendor of GmsCore in the extension.
-        gmsCoreSupportFingerprint.matchOrThrow.classDef.methods
+        gmsCoreSupportFingerprint.classDef.methods
             .single { it.name == GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME }
             .replaceInstruction(0, "const-string v0, \"$gmsCoreVendorGroupId\"")
 

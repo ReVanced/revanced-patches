@@ -23,8 +23,8 @@ val playbackSpeedPatch = bytecodePatch(
     )
 
     execute {
-        setSpeedFingerprint.matchOrThrow.let { onVideoSwiped ->
-            getSpeedFingerprint.matchOrThrow.method.apply {
+        setSpeedFingerprint.let { onVideoSwiped ->
+            getSpeedFingerprint.method.apply {
                 val injectIndex =
                     indexOfFirstInstructionOrThrow { getReference<MethodReference>()?.returnType == "F" } + 2
                 val register = getInstruction<Instruction11x>(injectIndex - 1).registerA
@@ -38,12 +38,12 @@ val playbackSpeedPatch = bytecodePatch(
 
             // By default, the playback speed will reset to 1.0 at the start of each video.
             // Instead, override it with the desired playback speed.
-            onRenderFirstFrameFingerprint.matchOrThrow.method.addInstructions(
+            onRenderFirstFrameFingerprint.method.addInstructions(
                 0,
                 """
                     # Video playback location (e.g. home page, following page or search result page) retrieved using getEnterFrom method.
                     const/4 v0, 0x1
-                    invoke-virtual { p0, v0 },  ${getEnterFromFingerprint.matchOrThrow.originalMethod}
+                    invoke-virtual { p0, v0 },  ${getEnterFromFingerprint.originalMethod}
                     move-result-object v0
     
                     # Model of current video retrieved using getCurrentAweme method.

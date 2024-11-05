@@ -29,7 +29,7 @@ fun sharedExtensionPatch(
         hooks.forEach { hook -> hook(EXTENSION_CLASS_DESCRIPTOR) }
 
         // Modify Utils method to include the patches release version.
-        revancedUtilsPatchesVersionFingerprint.matchOrThrow.method.apply {
+        revancedUtilsPatchesVersionFingerprint.method.apply {
             /**
              * @return The file path for the jar this classfile is contained inside.
              */
@@ -78,16 +78,14 @@ class ExtensionHook internal constructor(
 ) {
     context(BytecodePatchContext)
     operator fun invoke(extensionClassDescriptor: String) {
-        fingerprint.matchOrThrow.method.let { method ->
-            val insertIndex = insertIndexResolver(method)
-            val contextRegister = contextRegisterResolver(method)
+        val insertIndex = insertIndexResolver(fingerprint.method)
+        val contextRegister = contextRegisterResolver(fingerprint.method)
 
-            method.addInstruction(
-                insertIndex,
-                "invoke-static/range { $contextRegister .. $contextRegister }, " +
-                    "$extensionClassDescriptor->setContext(Landroid/content/Context;)V",
-            )
-        }
+        fingerprint.method.addInstruction(
+            insertIndex,
+            "invoke-static/range { $contextRegister .. $contextRegister }, " +
+                "$extensionClassDescriptor->setContext(Landroid/content/Context;)V",
+        )
     }
 }
 

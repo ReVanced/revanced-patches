@@ -1,6 +1,5 @@
 package app.revanced.util
 
-import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.FingerprintBuilder
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -404,14 +403,6 @@ fun BytecodePatchContext.forEachLiteralValueInstruction(
 }
 
 /**
- * Return the matched method early.
- */
-context(BytecodePatchContext)
-fun Fingerprint.returnEarly(
-    bool: Boolean = false,
-) = matchOrThrow.method.returnEarly(bool)
-
-/**
  * Return the method early.
  */
 fun MutableMethod.returnEarly(bool: Boolean = false) {
@@ -435,16 +426,6 @@ fun MutableMethod.returnEarly(bool: Boolean = false) {
     }
 
     addInstructions(0, stringInstructions)
-}
-
-/**
- * Return the matched methods early.
- */
-context(BytecodePatchContext)
-fun Iterable<Fingerprint>.returnEarly(
-    bool: Boolean = false,
-) = forEach { fingerprint ->
-    fingerprint.returnEarly(bool)
 }
 
 /**

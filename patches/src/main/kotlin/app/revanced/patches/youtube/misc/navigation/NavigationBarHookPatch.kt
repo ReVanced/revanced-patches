@@ -66,16 +66,16 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
             }
         }
 
-        initializeButtonsFingerprint.matchOrThrow(pivotBarConstructorFingerprint.matchOrThrow.originalClassDef).method.apply {
+        initializeButtonsFingerprint.match(pivotBarConstructorFingerprint.originalClassDef).method.apply {
             // Hook the current navigation bar enum value. Note, the 'You' tab does not have an enum value.
-            val navigationEnumClassName = navigationEnumFingerprint.matchOrThrow.classDef.type
+            val navigationEnumClassName = navigationEnumFingerprint.classDef.type
             addHook(Hook.SET_LAST_APP_NAVIGATION_ENUM) {
                 opcode == Opcode.INVOKE_STATIC &&
                     getReference<MethodReference>()?.definingClass == navigationEnumClassName
             }
 
             // Hook the creation of navigation tab views.
-            val drawableTabMethod = pivotBarButtonsCreateDrawableViewFingerprint.matchOrThrow.method
+            val drawableTabMethod = pivotBarButtonsCreateDrawableViewFingerprint.method
             addHook(Hook.NAVIGATION_TAB_LOADED) predicate@{
                 MethodUtil.methodSignaturesMatch(
                     getReference<MethodReference>() ?: return@predicate false,
@@ -83,7 +83,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
                 )
             }
 
-            val imageResourceTabMethod = pivotBarButtonsCreateResourceViewFingerprint.matchOrThrow.originalMethod
+            val imageResourceTabMethod = pivotBarButtonsCreateResourceViewFingerprint.originalMethod
             addHook(Hook.NAVIGATION_IMAGE_RESOURCE_TAB_LOADED) predicate@{
                 MethodUtil.methodSignaturesMatch(
                     getReference<MethodReference>() ?: return@predicate false,
@@ -92,7 +92,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
             }
         }
 
-        pivotBarButtonsViewSetSelectedFingerprint.matchOrThrow.method.apply {
+        pivotBarButtonsViewSetSelectedFingerprint.method.apply {
             val index = indexOfSetViewSelectedInstruction(this)
             val instruction = getInstruction<FiveRegisterInstruction>(index)
             val viewRegister = instruction.registerC
@@ -107,7 +107,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
 
         // Hook onto back button pressed.  Needed to fix race problem with
         // Litho filtering based on navigation tab before the tab is updated.
-        mainActivityOnBackPressedFingerprint.matchOrThrow.method.addInstruction(
+        mainActivityOnBackPressedFingerprint.method.addInstruction(
             0,
             "invoke-static { p0 }, " +
                 "$EXTENSION_CLASS_DESCRIPTOR->onBackPressed(Landroid/app/Activity;)V",
@@ -118,7 +118,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
         // Two different layouts are used at the hooked code.
         // Insert before the first ViewGroup method call after inflating,
         // so this works regardless which layout is used.
-        actionBarSearchResultsFingerprint.matchOrThrow.method.apply {
+        actionBarSearchResultsFingerprint.method.apply {
             val searchBarResourceId = indexOfFirstLiteralInstructionOrThrow(
                 actionBarSearchResultsViewMicId,
             )
@@ -137,7 +137,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
         }
 
         hookNavigationButtonCreated = { extensionClassDescriptor ->
-            navigationBarHookCallbackFingerprint.matchOrThrow.method.addInstruction(
+            navigationBarHookCallbackFingerprint.method.addInstruction(
                 0,
                 "invoke-static { p0, p1 }, " +
                     "$extensionClassDescriptor->navigationTabCreated" +

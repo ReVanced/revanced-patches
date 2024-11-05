@@ -11,6 +11,7 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.shared.autoRepeatFingerprint
 import app.revanced.patches.youtube.shared.autoRepeatParentFingerprint
+import org.stringtemplate.v4.compiler.Bytecode.instructions
 
 // TODO: Rename this patch to AlwaysRepeatPatch (as well as strings and references in the extension).
 @Suppress("unused")
@@ -41,10 +42,8 @@ val autoRepeatPatch = bytecodePatch(
             SwitchPreference("revanced_auto_repeat"),
         )
 
-        val autoRepeatParentMatch by autoRepeatParentFingerprint
-
-        autoRepeatFingerprint.matchOrThrow(autoRepeatParentMatch.originalClassDef).method.apply {
-            val playMethod = autoRepeatParentMatch.method
+        autoRepeatFingerprint.match(autoRepeatParentFingerprint.originalClassDef).method.apply {
+            val playMethod = autoRepeatParentFingerprint.method
             val index = instructions.lastIndex
 
             // Remove return-void.

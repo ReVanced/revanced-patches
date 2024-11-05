@@ -41,10 +41,8 @@ val hideGetPremiumPatch = bytecodePatch(
             SwitchPreference("revanced_hide_get_premium"),
         )
 
-        val getPremiumViewMatch by getPremiumViewFingerprint
-
-        getPremiumViewMatch.method.apply {
-            val startIndex = getPremiumViewMatch.patternMatch!!.startIndex
+        getPremiumViewFingerprint.method.apply {
+            val startIndex = getPremiumViewFingerprint.patternMatch!!.startIndex
             val measuredWidthRegister = getInstruction<TwoRegisterInstruction>(startIndex).registerA
             val measuredHeightInstruction = getInstruction<TwoRegisterInstruction>(startIndex + 1)
 

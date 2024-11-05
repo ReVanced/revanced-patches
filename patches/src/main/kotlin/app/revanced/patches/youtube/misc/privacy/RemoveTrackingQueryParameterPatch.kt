@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.misc.privacy
 
+import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.Match
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -46,7 +47,7 @@ val removeTrackingQueryParameterPatch = bytecodePatch(
             SwitchPreference("revanced_remove_tracking_query_parameter"),
         )
 
-        fun Match.hook(
+        fun Fingerprint.hook(
             getInsertIndex: Match.PatternMatch.() -> Int,
             getUrlRegister: MutableMethod.(insertIndex: Int) -> Int,
         ) {
@@ -63,16 +64,16 @@ val removeTrackingQueryParameterPatch = bytecodePatch(
         }
 
         // YouTube share sheet.\
-        youtubeShareSheetFingerprint.matchOrThrow.hook(getInsertIndex = { startIndex + 1 }) { insertIndex ->
+        youtubeShareSheetFingerprint.hook(getInsertIndex = { startIndex + 1 }) { insertIndex ->
             getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
         }
 
         // Native system share sheet.
-        systemShareSheetFingerprint.matchOrThrow.hook(getInsertIndex = { endIndex }) { insertIndex ->
+        systemShareSheetFingerprint.hook(getInsertIndex = { endIndex }) { insertIndex ->
             getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
         }
 
-        copyTextFingerprint.matchOrThrow.hook(getInsertIndex = { startIndex + 2 }) { insertIndex ->
+        copyTextFingerprint.hook(getInsertIndex = { startIndex + 2 }) { insertIndex ->
             getInstruction<TwoRegisterInstruction>(insertIndex - 2).registerA
         }
     }

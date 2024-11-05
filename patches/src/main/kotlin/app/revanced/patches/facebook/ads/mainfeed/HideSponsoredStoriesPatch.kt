@@ -20,8 +20,8 @@ val hideSponsoredStoriesPatch = bytecodePatch(
     compatibleWith("com.facebook.katana")
 
     execute {
-        val sponsoredDataModelTemplateMethod = getSponsoredDataModelTemplateFingerprint.matchOrThrow.originalMethod
-        val baseModelMapperMethod = baseModelMapperFingerprint.matchOrThrow.originalMethod
+        val sponsoredDataModelTemplateMethod = getSponsoredDataModelTemplateFingerprint.originalMethod
+        val baseModelMapperMethod = baseModelMapperFingerprint.originalMethod
         val baseModelWithTreeType = baseModelMapperMethod.returnType
 
         val graphQlStoryClassDescriptor = "Lcom/facebook/graphql/model/GraphQLStory;"
@@ -29,10 +29,9 @@ val hideSponsoredStoriesPatch = bytecodePatch(
         // The "SponsoredDataModelTemplate" methods has the ids in its body to extract sponsored data
         // from GraphQL models, but targets the wrong derived type of "BaseModelWithTree". Since those ids
         // could change in future version, we need to extract them and call the base implementation directly.
-        val getStoryVisibilityMatch by getStoryVisibilityFingerprint
 
         val getSponsoredDataHelperMethod = ImmutableMethod(
-            getStoryVisibilityFingerprint.matchOrThrow.originalClassDef.type,
+            getStoryVisibilityFingerprint.originalClassDef.type,
             "getSponsoredData",
             listOf(ImmutableMethodParameter(graphQlStoryClassDescriptor, null, null)),
             baseModelWithTreeType,
@@ -66,12 +65,12 @@ val hideSponsoredStoriesPatch = bytecodePatch(
             )
         }
 
-        getStoryVisibilityFingerprint.matchOrThrow.classDef.methods.add(getSponsoredDataHelperMethod)
+        getStoryVisibilityFingerprint.classDef.methods.add(getSponsoredDataHelperMethod)
 
         // Check if the parameter type is GraphQLStory and if sponsoredDataModelGetter returns a non-null value.
         // If so, hide the story by setting the visibility to StoryVisibility.GONE.
-        getStoryVisibilityFingerprint.matchOrThrow.method.addInstructionsWithLabels(
-            getStoryVisibilityMatch.patternMatch!!.startIndex,
+        getStoryVisibilityFingerprint.method.addInstructionsWithLabels(
+            getStoryVisibilityFingerprint.patternMatch!!.startIndex,
             """
                 instance-of v0, p0, $graphQlStoryClassDescriptor
                 if-eqz v0, :resume_normal

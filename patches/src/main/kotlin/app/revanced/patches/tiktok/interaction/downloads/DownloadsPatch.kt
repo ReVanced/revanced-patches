@@ -28,7 +28,7 @@ val downloadsPatch = bytecodePatch(
     )
 
     execute {
-        aclCommonShareFingerprint.matchOrThrow.method.replaceInstructions(
+        aclCommonShareFingerprint.method.replaceInstructions(
             0,
             """
                 const/4 v0, 0x0
@@ -36,7 +36,7 @@ val downloadsPatch = bytecodePatch(
             """,
         )
 
-        aclCommonShare2Fingerprint.matchOrThrow.method.replaceInstructions(
+        aclCommonShare2Fingerprint.method.replaceInstructions(
             0,
             """
                 const/4 v0, 0x2
@@ -45,7 +45,7 @@ val downloadsPatch = bytecodePatch(
         )
 
         // Download videos without watermark.
-        aclCommonShare3Fingerprint.matchOrThrow.method.addInstructionsWithLabels(
+        aclCommonShare3Fingerprint.method.addInstructionsWithLabels(
             0,
             """
                     invoke-static {}, Lapp/revanced/extension/tiktok/download/DownloadsPatch;->shouldRemoveWatermark()Z
@@ -59,7 +59,7 @@ val downloadsPatch = bytecodePatch(
         )
 
         // Change the download path patch.
-        downloadUriFingerprint.matchOrThrow.method.apply {
+        downloadUriFingerprint.method.apply {
             val firstIndex = indexOfFirstInstructionOrThrow {
                 getReference<MethodReference>()?.name == "<init>"
             }
@@ -84,7 +84,7 @@ val downloadsPatch = bytecodePatch(
             )
         }
 
-        settingsStatusLoadFingerprint.matchOrThrow.method.addInstruction(
+        settingsStatusLoadFingerprint.method.addInstruction(
             0,
             "invoke-static {}, Lapp/revanced/extension/tiktok/settings/SettingsStatus;->enableDownload()V",
         )

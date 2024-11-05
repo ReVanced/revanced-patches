@@ -1,6 +1,6 @@
 package app.revanced.patches.twitch.misc.settings
 
-import app.revanced.patcher.Match
+import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -72,11 +72,9 @@ val settingsPatch = bytecodePatch(
             ),
         )
 
-        val settingsActivityOnCreateMatch by settingsActivityOnCreateFingerprint
-
         // Hook onCreate to handle fragment creation.
-        val insertIndex = settingsActivityOnCreateMatch.method.implementation!!.instructions.size - 2
-        settingsActivityOnCreateMatch.method.addInstructionsWithLabels(
+        val insertIndex = settingsActivityOnCreateFingerprint.method.implementation!!.instructions.size - 2
+        settingsActivityOnCreateFingerprint.method.addInstructionsWithLabels(
             insertIndex,
             """
                 invoke-static { p0 }, $ACTIVITY_HOOKS_CLASS_DESCRIPTOR->handleSettingsCreation(Landroidx/appcompat/app/AppCompatActivity;)Z
@@ -86,12 +84,12 @@ val settingsPatch = bytecodePatch(
             """,
             ExternalLabel(
                 "no_rv_settings_init",
-                settingsActivityOnCreateMatch.method.getInstruction(insertIndex),
+                settingsActivityOnCreateFingerprint.method.getInstruction(insertIndex),
             ),
         )
 
         // Create new menu item for settings menu.
-        fun Match.injectMenuItem(
+        fun Fingerprint.injectMenuItem(
             name: String,
             value: Int,
             titleResourceName: String,
@@ -132,7 +130,7 @@ val settingsPatch = bytecodePatch(
             )
         }
 
-        settingsMenuItemEnumFingerprint.matchOrThrow.injectMenuItem(
+        settingsMenuItemEnumFingerprint.injectMenuItem(
             REVANCED_SETTINGS_MENU_ITEM_NAME,
             REVANCED_SETTINGS_MENU_ITEM_ID,
             REVANCED_SETTINGS_MENU_ITEM_TITLE_RES,
@@ -140,7 +138,7 @@ val settingsPatch = bytecodePatch(
         )
 
         // Intercept settings menu creation and add new menu item.
-        menuGroupsUpdatedFingerprint.matchOrThrow.method.addInstructions(
+        menuGroupsUpdatedFingerprint.method.addInstructions(
             0,
             """
                 sget-object v0, $MENU_ITEM_ENUM_CLASS_DESCRIPTOR->$REVANCED_SETTINGS_MENU_ITEM_NAME:$MENU_ITEM_ENUM_CLASS_DESCRIPTOR 
@@ -150,9 +148,7 @@ val settingsPatch = bytecodePatch(
         )
 
         // Intercept onclick events for the settings menu
-        val menuGroupsOnClickMatch by menuGroupsOnClickFingerprint
-
-        menuGroupsOnClickMatch.method.addInstructionsWithLabels(
+        menuGroupsOnClickFingerprint.method.addInstructionsWithLabels(
             0,
             """
                 invoke-static {p1}, $ACTIVITY_HOOKS_CLASS_DESCRIPTOR->handleSettingMenuOnClick(Ljava/lang/Enum;)Z
@@ -164,7 +160,7 @@ val settingsPatch = bytecodePatch(
             """,
             ExternalLabel(
                 "no_rv_settings_onclick",
-                menuGroupsOnClickMatch.method.getInstruction(0),
+                menuGroupsOnClickFingerprint.method.getInstruction(0),
             ),
         )
     }

@@ -8,7 +8,7 @@ fun disableAdsPatch(block: BytecodePatchBuilder.() -> Unit = {}) = bytecodePatch
     name = "Disable ads",
 ) {
     execute {
-        isAdsEnabledFingerprint.returnEarly()
+        isAdsEnabledFingerprint.method.returnEarly()
     }
 
     block()

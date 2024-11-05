@@ -16,7 +16,6 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
-import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
 import org.w3c.dom.Node
 
 /**
@@ -223,7 +222,7 @@ val playerControlsPatch = bytecodePatch(
                     reference.name == "inflate"
             }
 
-        playerBottomControlsInflateFingerprint.matchOrThrow.method.apply {
+        playerBottomControlsInflateFingerprint.method.apply {
             inflateBottomControlMethod = this
 
             val inflateReturnObjectIndex = indexOfFirstViewInflateOrThrow() + 1
@@ -231,7 +230,7 @@ val playerControlsPatch = bytecodePatch(
             inflateBottomControlInsertIndex = inflateReturnObjectIndex + 1
         }
 
-        playerTopControlsInflateFingerprint.matchOrThrow.method.apply {
+        playerTopControlsInflateFingerprint.method.apply {
             inflateTopControlMethod = this
 
             val inflateReturnObjectIndex = indexOfFirstViewInflateOrThrow() + 1
@@ -239,13 +238,13 @@ val playerControlsPatch = bytecodePatch(
             inflateTopControlInsertIndex = inflateReturnObjectIndex + 1
         }
 
-        visibilityMethod = controlsOverlayVisibilityFingerprint.matchOrThrow(
-            playerTopControlsInflateFingerprint.matchOrThrow.originalClassDef,
+        visibilityMethod = controlsOverlayVisibilityFingerprint.match(
+            playerTopControlsInflateFingerprint.originalClassDef,
         ).method
 
         // Hook the fullscreen close button.  Used to fix visibility
         // when seeking and other situations.
-        overlayViewInflateFingerprint.matchOrThrow.method.apply {
+        overlayViewInflateFingerprint.method.apply {
             val resourceIndex = indexOfFirstLiteralInstructionReversedOrThrow(fullscreenButton)
 
             val index = indexOfFirstInstructionOrThrow(resourceIndex) {
@@ -262,14 +261,14 @@ val playerControlsPatch = bytecodePatch(
             )
         }
 
-        visibilityImmediateMethod = playerControlsExtensionHookFingerprint.matchOrThrow.method
+        visibilityImmediateMethod = playerControlsExtensionHookFingerprint.method
 
         // A/B test for a slightly different overlay controls,
         // that uses layout file youtube_video_exploder_controls_bottom_ui_container.xml
         // The change to support this is simple and only requires adding buttons to both layout files,
         // but for now force this different layout off since it's still an experimental test.
         if (is_19_35_or_greater) {
-            playerControlsExploderFeatureFlagFingerprint.matchOrThrow.method.returnEarly()
+            playerControlsExploderFeatureFlagFingerprint.method.returnEarly()
         }
     }
 }

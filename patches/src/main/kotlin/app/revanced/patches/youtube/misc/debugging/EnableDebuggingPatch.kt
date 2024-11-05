@@ -55,8 +55,8 @@ val enableDebuggingPatch = bytecodePatch(
         )
 
         // Hook the method that looks up if a feature flag is active or not.
-        experimentalFeatureFlagFingerprint.matchOrThrow(
-            experimentalFeatureFlagParentFingerprint.matchOrThrow.originalClassDef,
+        experimentalFeatureFlagFingerprint.match(
+            experimentalFeatureFlagParentFingerprint.originalClassDef,
         ).method.apply {
             val insertIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT)
 

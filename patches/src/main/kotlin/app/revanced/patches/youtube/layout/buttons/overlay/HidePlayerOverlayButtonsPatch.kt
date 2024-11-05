@@ -75,7 +75,7 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
 
         // region Hide player next/previous button.
 
-        playerControlsPreviousNextOverlayTouchFingerprint.matchOrThrow.method.apply {
+        playerControlsPreviousNextOverlayTouchFingerprint.method.apply {
             val resourceIndex = indexOfFirstLiteralInstructionOrThrow(playerControlPreviousButtonTouchArea)
 
             val insertIndex = indexOfFirstInstructionOrThrow(resourceIndex) {
@@ -96,7 +96,7 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
 
         // region Hide cast button.
 
-        mediaRouteButtonFingerprint.matchOrThrow.method.addInstructions(
+        mediaRouteButtonFingerprint.method.addInstructions(
             0,
             """
                 invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->getCastButtonOverrideV2(I)I
@@ -108,7 +108,7 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
 
         // region Hide captions button.
 
-        subtitleButtonControllerFingerprint.matchOrThrow.method.apply {
+        subtitleButtonControllerFingerprint.method.apply {
             // Due to previously applied patches, scanResult index cannot be used in this context
             val insertIndex = indexOfFirstInstructionOrThrow(Opcode.IGET_BOOLEAN) + 1
 
@@ -122,7 +122,7 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
 
         // region Hide autoplay button.
 
-        layoutConstructorFingerprint.matchOrThrow.method.apply {
+        layoutConstructorFingerprint.method.apply {
             val constIndex = indexOfFirstResourceIdOrThrow("autonav_toggle")
             val constRegister = getInstruction<OneRegisterInstruction>(constIndex).registerA
 

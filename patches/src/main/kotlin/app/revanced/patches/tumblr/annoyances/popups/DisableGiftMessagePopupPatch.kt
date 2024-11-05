@@ -11,6 +11,6 @@ val disableGiftMessagePopupPatch = bytecodePatch(
     compatibleWith("com.tumblr")
 
     execute {
-        showGiftMessagePopupFingerprint.matchOrThrow.method.addInstructions(0, "return-void")
+        showGiftMessagePopupFingerprint.method.addInstructions(0, "return-void")
     }
 }

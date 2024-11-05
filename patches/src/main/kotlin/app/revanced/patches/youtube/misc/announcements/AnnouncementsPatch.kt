@@ -30,7 +30,7 @@ val announcementsPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
-        )
+        ),
     )
 
     execute {
@@ -40,7 +40,7 @@ val announcementsPatch = bytecodePatch(
             SwitchPreference("revanced_announcements"),
         )
 
-        mainActivityOnCreateFingerprint.matchOrThrow.method.addInstructions(
+        mainActivityOnCreateFingerprint.method.addInstructions(
             // Insert index must be greater than the insert index used by GmsCoreSupport,
             // as both patch the same method and GmsCore check should be first.
             1,

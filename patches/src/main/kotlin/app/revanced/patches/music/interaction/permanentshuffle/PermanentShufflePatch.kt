@@ -21,6 +21,6 @@ val permanentShufflePatch = bytecodePatch(
     )
 
     execute {
-        disableShuffleFingerprint.matchOrThrow.method.addInstruction(0, "return-void")
+        disableShuffleFingerprint.method.addInstruction(0, "return-void")
     }
 }

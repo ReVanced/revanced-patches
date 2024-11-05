@@ -96,14 +96,14 @@ val videoIdPatch = bytecodePatch(
     )
 
     execute {
-        videoIdFingerprint.matchOrThrow(videoIdParentFingerprint.matchOrThrow.originalClassDef).method.apply {
+        videoIdFingerprint.match(videoIdParentFingerprint.originalClassDef).method.apply {
             videoIdMethod = this
             val index = indexOfPlayerResponseModelString()
             videoIdRegister = getInstruction<OneRegisterInstruction>(index + 1).registerA
             videoIdInsertIndex = index + 2
         }
 
-        videoIdBackgroundPlayFingerprint.matchOrThrow.method.apply {
+        videoIdBackgroundPlayFingerprint.method.apply {
             backgroundPlaybackMethod = this
             val index = indexOfPlayerResponseModelString()
             backgroundPlaybackVideoIdRegister = getInstruction<OneRegisterInstruction>(index + 1).registerA

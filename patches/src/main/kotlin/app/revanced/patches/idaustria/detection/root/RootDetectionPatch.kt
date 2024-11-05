@@ -11,6 +11,10 @@ val rootDetectionPatch = bytecodePatch(
     compatibleWith("at.gv.oe.app")
 
     execute {
-        setOf(attestationSupportedCheckFingerprint, bootloaderCheckFingerprint, rootCheckFingerprint).returnEarly(true)
+        setOf(
+            attestationSupportedCheckFingerprint,
+            bootloaderCheckFingerprint,
+            rootCheckFingerprint,
+        ).forEach { it.method.returnEarly(true) }
     }
 }

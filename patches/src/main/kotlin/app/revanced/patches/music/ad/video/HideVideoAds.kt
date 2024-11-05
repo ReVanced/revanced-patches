@@ -11,9 +11,8 @@ val hideVideoAdsPatch = bytecodePatch(
     compatibleWith("com.google.android.apps.youtube.music")
 
     execute {
-        val showVideoAdsParentMatch by showVideoAdsParentFingerprint
-        navigate(showVideoAdsParentMatch.method)
-            .at(showVideoAdsParentMatch.patternMatch!!.startIndex + 1)
+        navigate(showVideoAdsParentFingerprint.originalMethod)
+            .to(showVideoAdsParentFingerprint.patternMatch!!.startIndex + 1)
             .stop()
             .addInstruction(0, "const/4 p1, 0x0")
     }

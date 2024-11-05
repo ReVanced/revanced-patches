@@ -31,18 +31,17 @@ val cronetImageUrlHookPatch = bytecodePatch(
 
     execute {
         loadImageUrlMethod = messageDigestImageUrlFingerprint
-            .matchOrThrow(messageDigestImageUrlParentFingerprint.matchOrThrow.originalClassDef).method
+            .match(messageDigestImageUrlParentFingerprint.originalClassDef).method
 
         loadImageSuccessCallbackMethod = onSucceededFingerprint
-            .matchOrThrow(onResponseStartedFingerprint.matchOrThrow.originalClassDef).method
+            .match(onResponseStartedFingerprint.originalClassDef).method
 
         loadImageErrorCallbackMethod = onFailureFingerprint
-            .matchOrThrow(onResponseStartedFingerprint.matchOrThrow.originalClassDef).method
+            .match(onResponseStartedFingerprint.originalClassDef).method
 
         // The URL is required for the failure callback hook, but the URL field is obfuscated.
         // Add a helper get method that returns the URL field.
-        val requestMatch by requestFingerprint
-        val urlFieldInstruction = requestMatch.method.instructions.first {
+        val urlFieldInstruction = requestFingerprint.method.instructions.first {
             val reference = it.getReference<FieldReference>()
             it.opcode == Opcode.IPUT_OBJECT && reference?.type == "Ljava/lang/String;"
         } as ReferenceInstruction
@@ -50,7 +49,7 @@ val cronetImageUrlHookPatch = bytecodePatch(
         val urlFieldName = (urlFieldInstruction.reference as FieldReference).name
         val definingClass = CRONET_URL_REQUEST_CLASS_DESCRIPTOR
         val addedMethodName = "getHookedUrl"
-        requestMatch.classDef.methods.add(
+        requestFingerprint.classDef.methods.add(
             ImmutableMethod(
                 definingClass,
                 addedMethodName,

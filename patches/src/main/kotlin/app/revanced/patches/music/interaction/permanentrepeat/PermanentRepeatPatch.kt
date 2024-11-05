@@ -14,12 +14,11 @@ val permanentRepeatPatch = bytecodePatch(
     compatibleWith("com.google.android.apps.youtube.music")
 
     execute {
-        val repeatTrackMatch by repeatTrackFingerprint
 
-        val startIndex = repeatTrackMatch.patternMatch!!.endIndex
+        val startIndex = repeatTrackFingerprint.patternMatch!!.endIndex
         val repeatIndex = startIndex + 1
 
-        repeatTrackMatch.method.apply {
+        repeatTrackFingerprint.method.apply {
             addInstructionsWithLabels(
                 startIndex,
                 "goto :repeat",

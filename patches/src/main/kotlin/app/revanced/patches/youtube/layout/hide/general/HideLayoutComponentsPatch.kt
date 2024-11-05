@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.hide.general
 
+import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.Match
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
@@ -241,10 +242,9 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         // region Mix playlists
 
-        val parseElementFromBufferMatch by parseElementFromBufferFingerprint
-        val startIndex = parseElementFromBufferMatch.patternMatch!!.startIndex
+        val startIndex = parseElementFromBufferFingerprint.patternMatch!!.startIndex
 
-        parseElementFromBufferMatch.method.apply {
+        parseElementFromBufferFingerprint.method.apply {
             val freeRegister = "v0"
             val byteArrayParameter = "p3"
             val conversionContextRegister = getInstruction<TwoRegisterInstruction>(startIndex).registerA
@@ -266,8 +266,8 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         // region Watermark (legacy code for old versions of YouTube)
 
-        showWatermarkFingerprint.matchOrThrow(
-            playerOverlayFingerprint.matchOrThrow.originalClassDef,
+        showWatermarkFingerprint.match(
+            playerOverlayFingerprint.originalClassDef,
         ).method.apply {
             val index = implementation!!.instructions.size - 5
 
@@ -285,9 +285,8 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         // region Show more button
 
-        val hideShowMoreButtonMatch by hideShowMoreButtonFingerprint
-        hideShowMoreButtonMatch.method.apply {
-            val moveRegisterIndex = hideShowMoreButtonMatch.patternMatch!!.endIndex
+        hideShowMoreButtonFingerprint.method.apply {
+            val moveRegisterIndex = hideShowMoreButtonFingerprint.patternMatch!!.endIndex
             val viewRegister = getInstruction<OneRegisterInstruction>(moveRegisterIndex).registerA
 
             val insertIndex = moveRegisterIndex + 1
@@ -301,7 +300,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
         // endregion
 
         // region crowdfunding box
-        crowdfundingBoxFingerprint.matchOrThrow.let {
+        crowdfundingBoxFingerprint.let {
             it.method.apply {
                 val insertIndex = it.patternMatch!!.endIndex
                 val objectRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
@@ -318,7 +317,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         // region hide album cards
 
-        albumCardsFingerprint.matchOrThrow.let {
+        albumCardsFingerprint.let {
             it.method.apply {
                 val checkCastAnchorIndex = it.patternMatch!!.endIndex
                 val insertIndex = checkCastAnchorIndex + 1
@@ -336,7 +335,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         // region hide floating microphone
 
-        showFloatingMicrophoneButtonFingerprint.matchOrThrow.let {
+        showFloatingMicrophoneButtonFingerprint.let {
             it.method.apply {
                 val startIndex = it.patternMatch!!.startIndex
                 val register = getInstruction<TwoRegisterInstruction>(startIndex).registerA
@@ -355,7 +354,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         // region 'Yoodles'
 
-        yoodlesImageViewFingerprint.matchOrThrow.method.apply {
+        yoodlesImageViewFingerprint.method.apply {
             findInstructionIndicesReversedOrThrow {
                 getReference<MethodReference>()?.name == "setImageDrawable"
             }.forEach { insertIndex ->
@@ -385,7 +384,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
          * @param hookRegisterOffset The offset to add to the register of the hook.
          * @param instructions The instructions to add with the register as a parameter.
          */
-        fun <RegisterInstruction : OneRegisterInstruction> Match.patch(
+        fun <RegisterInstruction : OneRegisterInstruction> Fingerprint.patch(
             insertIndexOffset: Int = 0,
             hookRegisterOffset: Int = 0,
             instructions: (Int) -> String,
@@ -399,21 +398,21 @@ val hideLayoutComponentsPatch = bytecodePatch(
             addInstructions(insertIndex, instructions(register))
         }
 
-        filterBarHeightFingerprint.matchOrThrow.patch<TwoRegisterInstruction> { register ->
+        filterBarHeightFingerprint.patch<TwoRegisterInstruction> { register ->
             """
                 invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideInFeed(I)I
                 move-result v$register
             """
         }
 
-        searchResultsChipBarFingerprint.matchOrThrow.patch<OneRegisterInstruction>(-1, -2) { register ->
+        searchResultsChipBarFingerprint.patch<OneRegisterInstruction>(-1, -2) { register ->
             """
                 invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideInSearch(I)I
                 move-result v$register
             """
         }
 
-        relatedChipCloudFingerprint.matchOrThrow.patch<OneRegisterInstruction>(1) { register ->
+        relatedChipCloudFingerprint.patch<OneRegisterInstruction>(1) { register ->
             "invoke-static { v$register }, " +
                 "$LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideInRelatedVideos(Landroid/view/View;)V"
         }

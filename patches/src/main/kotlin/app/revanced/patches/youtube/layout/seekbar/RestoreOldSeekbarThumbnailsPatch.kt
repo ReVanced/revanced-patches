@@ -47,7 +47,7 @@ val restoreOldSeekbarThumbnailsPatch = bytecodePatch(
             SwitchPreference("revanced_restore_old_seekbar_thumbnails"),
         )
 
-        fullscreenSeekbarThumbnailsFingerprint.matchOrThrow.method.apply {
+        fullscreenSeekbarThumbnailsFingerprint.method.apply {
             val moveResultIndex = instructions.lastIndex - 1
 
             addInstruction(

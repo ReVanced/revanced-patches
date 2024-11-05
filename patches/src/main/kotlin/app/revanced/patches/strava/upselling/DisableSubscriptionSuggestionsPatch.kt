@@ -19,13 +19,11 @@ val disableSubscriptionSuggestionsPatch = bytecodePatch(
         val pageSuffix = "_upsell"
         val label = "original"
 
-        val getModulesMatch by getModulesFingerprint
-
-        val className = getModulesMatch.originalClassDef.type
-        val originalMethod = getModulesMatch.method
+        val className = getModulesFingerprint.originalClassDef.type
+        val originalMethod = getModulesFingerprint.method
         val returnType = originalMethod.returnType
 
-        getModulesMatch.classDef.methods.add(
+        getModulesFingerprint.classDef.methods.add(
             ImmutableMethod(
                 className,
                 helperMethodName,
@@ -54,7 +52,7 @@ val disableSubscriptionSuggestionsPatch = bytecodePatch(
             },
         )
 
-        val getModulesIndex = getModulesMatch.patternMatch!!.startIndex
+        val getModulesIndex = getModulesFingerprint.patternMatch!!.startIndex
         with(originalMethod) {
             removeInstruction(getModulesIndex)
             addInstructions(

@@ -31,8 +31,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.*
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
-import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
-import org.stringtemplate.v4.compiler.Bytecode.instructions
 
 private val sponsorBlockResourcePatch = resourcePatch {
     dependsOn(
@@ -135,7 +133,7 @@ val sponsorBlockPatch = bytecodePatch(
         )
 
         // Seekbar drawing
-        seekbarOnDrawFingerprint.matchOrThrow(seekbarFingerprint.matchOrThrow.originalClassDef).method.apply {
+        seekbarOnDrawFingerprint.match(seekbarFingerprint.originalClassDef).method.apply {
             // Get left and right of seekbar rectangle.
             val moveRectangleToRegisterIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_OBJECT_FROM16)
 
@@ -180,9 +178,8 @@ val sponsorBlockPatch = bytecodePatch(
         injectVisibilityCheckCall(EXTENSION_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR)
 
         // Append the new time to the player layout.
-        val appendTimeMatch by appendTimeFingerprint
-        val appendTimePatternScanStartIndex = appendTimeMatch.patternMatch!!.startIndex
-        appendTimeMatch.method.apply {
+        val appendTimePatternScanStartIndex = appendTimeFingerprint.patternMatch!!.startIndex
+        appendTimeFingerprint.method.apply {
             val register = getInstruction<OneRegisterInstruction>(appendTimePatternScanStartIndex + 1).registerA
 
             addInstructions(
@@ -198,7 +195,7 @@ val sponsorBlockPatch = bytecodePatch(
         onCreateHook(EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR, "initialize")
 
         // Initialize the SponsorBlock view.
-        controlsOverlayFingerprint.matchOrThrow(layoutConstructorFingerprint.matchOrThrow.originalClassDef).let {
+        controlsOverlayFingerprint.match(layoutConstructorFingerprint.originalClassDef).let {
             val startIndex = it.patternMatch!!.startIndex
             it.method.apply {
                 val frameLayoutRegister = (getInstruction(startIndex + 2) as OneRegisterInstruction).registerA
@@ -210,7 +207,7 @@ val sponsorBlockPatch = bytecodePatch(
         }
 
         // Set seekbar draw rectangle.
-        rectangleFieldInvalidatorFingerprint.matchOrThrow(seekbarOnDrawFingerprint.matchOrThrow.originalClassDef).method.apply {
+        rectangleFieldInvalidatorFingerprint.match(seekbarOnDrawFingerprint.originalClassDef).method.apply {
             val fieldIndex = instructions.count() - 3
             val fieldReference = getInstruction<ReferenceInstruction>(fieldIndex).reference as FieldReference
 
@@ -244,7 +241,7 @@ val sponsorBlockPatch = bytecodePatch(
         // The vote and create segment buttons automatically change their visibility when appropriate,
         // but if buttons are showing when the end of the video is reached then they will not automatically hide.
         // Add a hook to forcefully hide when the end of the video is reached.
-        autoRepeatFingerprint.matchOrThrow(autoRepeatParentFingerprint.matchOrThrow.originalClassDef).method.addInstruction(
+        autoRepeatFingerprint.match(autoRepeatParentFingerprint.originalClassDef).method.addInstruction(
             0,
             "invoke-static {}, $EXTENSION_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR->endOfVideoReached()V",
         )

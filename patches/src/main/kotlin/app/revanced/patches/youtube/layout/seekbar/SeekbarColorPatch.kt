@@ -93,20 +93,19 @@ val seekbarColorPatch = bytecodePatch(
             )
         }
 
-        playerSeekbarColorFingerprint.matchOrThrow.method.apply {
+        playerSeekbarColorFingerprint.method.apply {
             addColorChangeInstructions(inlineTimeBarColorizedBarPlayedColorDarkId)
             addColorChangeInstructions(inlineTimeBarPlayedNotHighlightedColorId)
         }
 
-        shortsSeekbarColorFingerprint.matchOrThrow.method.apply {
+        shortsSeekbarColorFingerprint.method.apply {
             addColorChangeInstructions(reelTimeBarPlayedColorId)
         }
 
-        val setSeekbarClickedColorMatch by setSeekbarClickedColorFingerprint
-        setSeekbarClickedColorMatch.method.let {
-            val setColorMethodIndex = setSeekbarClickedColorMatch.patternMatch!!.startIndex + 1
+        setSeekbarClickedColorFingerprint.originalMethod.let {
+            val setColorMethodIndex = setSeekbarClickedColorFingerprint.patternMatch!!.startIndex + 1
 
-            navigate(it).at(setColorMethodIndex).stop().apply {
+            navigate(it).to(setColorMethodIndex).stop().apply {
                 val colorRegister = getInstruction<TwoRegisterInstruction>(0).registerA
                 addInstructions(
                     0,
@@ -119,7 +118,7 @@ val seekbarColorPatch = bytecodePatch(
         }
 
         if (is_19_23_or_greater) {
-            playerSeekbarGradientConfigFingerprint.matchOrThrow.method.apply {
+            playerSeekbarGradientConfigFingerprint.method.apply {
                 val literalIndex = indexOfFirstLiteralInstructionOrThrow(PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG)
                 val resultIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
                 val register = getInstruction<OneRegisterInstruction>(resultIndex).registerA
@@ -133,7 +132,7 @@ val seekbarColorPatch = bytecodePatch(
                 )
             }
 
-            lithoLinearGradientFingerprint.matchOrThrow.method.addInstruction(
+            lithoLinearGradientFingerprint.method.addInstruction(
                 0,
                 "invoke-static/range { p4 .. p5 },  $EXTENSION_CLASS_DESCRIPTOR->setLinearGradient([I[F)V",
             )

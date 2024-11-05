@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.misc.fix.backtoexitgesture
 
-import app.revanced.patcher.Match
+import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
 
@@ -14,26 +14,26 @@ internal val fixBackToExitGesturePatch = bytecodePatch(
          *
          * @param targetMethod The target method to call.
          */
-        fun Match.injectCall(targetMethod: ExtensionMethod) = method.addInstruction(
+        fun Fingerprint.injectCall(targetMethod: ExtensionMethod) = method.addInstruction(
             patternMatch!!.endIndex,
             targetMethod.toString(),
         )
 
         mapOf(
-            recyclerViewTopScrollingFingerprint.matchOrThrow(
-                recyclerViewTopScrollingParentFingerprint.matchOrThrow.originalClassDef,
-            ) to ExtensionMethod(
+            recyclerViewTopScrollingFingerprint.also {
+                it.match(recyclerViewTopScrollingParentFingerprint.originalClassDef)
+            } to ExtensionMethod(
                 methodName = "onTopView",
             ),
-            recyclerViewScrollingFingerprint.matchOrThrow to ExtensionMethod(
+            recyclerViewScrollingFingerprint to ExtensionMethod(
                 methodName = "onScrollingViews",
             ),
-            onBackPressedFingerprint.matchOrThrow to ExtensionMethod(
+            onBackPressedFingerprint to ExtensionMethod(
                 "p0",
                 "onBackPressed",
                 "Landroid/app/Activity;",
             ),
-        ).forEach { (match, target) -> match.injectCall(target) }
+        ).forEach { (fingerprint, target) -> fingerprint.injectCall(target) }
     }
 }
 

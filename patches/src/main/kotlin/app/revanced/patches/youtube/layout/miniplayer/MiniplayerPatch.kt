@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.miniplayer
 
-import app.revanced.patcher.Match
+import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -259,7 +259,7 @@ val miniplayerPatch = bytecodePatch(
             insertBooleanOverride(index, "getModernMiniplayerOverride")
         }
 
-        fun Match.insertLiteralValueBooleanOverride(
+        fun Fingerprint.insertLiteralValueBooleanOverride(
             literal: Long,
             extensionMethod: String,
         ) {
@@ -271,7 +271,7 @@ val miniplayerPatch = bytecodePatch(
             }
         }
 
-        fun Match.insertLiteralValueFloatOverride(
+        fun Fingerprint.insertLiteralValueFloatOverride(
             literal: Long,
             extensionMethod: String,
         ) {
@@ -325,8 +325,8 @@ val miniplayerPatch = bytecodePatch(
 
         // region Enable tablet miniplayer.
 
-        miniplayerOverrideNoContextFingerprint.matchOrThrow(
-            miniplayerDimensionsCalculatorParentFingerprint.matchOrThrow.originalClassDef,
+        miniplayerOverrideNoContextFingerprint.match(
+            miniplayerDimensionsCalculatorParentFingerprint.originalClassDef,
         ).method.apply {
             findReturnIndicesReversed().forEach { index -> insertLegacyTabletMiniplayerOverride(index) }
         }
@@ -334,14 +334,12 @@ val miniplayerPatch = bytecodePatch(
         // endregion
 
         // region Legacy tablet miniplayer hooks.
-
-        val miniplayerOverrideMatch by miniplayerOverrideFingerprint
-        val appNameStringIndex = miniplayerOverrideMatch.stringMatches!!.first().index + 2
-        navigate(miniplayerOverrideMatch.method).at(appNameStringIndex).stop().apply {
+        val appNameStringIndex = miniplayerOverrideFingerprint.stringMatches!!.first().index + 2
+        navigate(miniplayerOverrideFingerprint.originalMethod).to(appNameStringIndex).stop().apply {
             findReturnIndicesReversed().forEach { index -> insertLegacyTabletMiniplayerOverride(index) }
         }
 
-        miniplayerResponseModelSizeCheckFingerprint.matchOrThrow.let {
+        miniplayerResponseModelSizeCheckFingerprint.let {
             it.method.insertLegacyTabletMiniplayerOverride(it.patternMatch!!.endIndex)
         }
 
@@ -354,9 +352,7 @@ val miniplayerPatch = bytecodePatch(
 
         // region Enable modern miniplayer.
 
-        val miniplayerModernConstructorMatch by miniplayerModernConstructorFingerprint
-
-        miniplayerModernConstructorMatch.classDef.methods.forEach {
+        miniplayerModernConstructorFingerprint.classDef.methods.forEach {
             it.apply {
                 if (AccessFlags.CONSTRUCTOR.isSet(accessFlags)) {
                     val iPutIndex = indexOfFirstInstructionOrThrow {
@@ -371,31 +367,31 @@ val miniplayerPatch = bytecodePatch(
         }
 
         if (is_19_23_or_greater) {
-            miniplayerModernConstructorMatch.insertLiteralValueBooleanOverride(
+            miniplayerModernConstructorFingerprint.insertLiteralValueBooleanOverride(
                 DRAG_DROP_ENABLED_FEATURE_KEY_LITERAL,
                 "enableMiniplayerDragAndDrop",
             )
         }
 
         if (is_19_25_or_greater) {
-            miniplayerModernConstructorMatch.insertLiteralValueBooleanOverride(
+            miniplayerModernConstructorFingerprint.insertLiteralValueBooleanOverride(
                 MODERN_MINIPLAYER_ENABLED_OLD_TARGETS_FEATURE_KEY,
                 "getModernMiniplayerOverride",
             )
 
-            miniplayerModernConstructorMatch.insertLiteralValueBooleanOverride(
+            miniplayerModernConstructorFingerprint.insertLiteralValueBooleanOverride(
                 MODERN_FEATURE_FLAGS_ENABLED_KEY_LITERAL,
                 "getModernFeatureFlagsActiveOverride",
             )
 
-            miniplayerModernConstructorMatch.insertLiteralValueBooleanOverride(
+            miniplayerModernConstructorFingerprint.insertLiteralValueBooleanOverride(
                 DOUBLE_TAP_ENABLED_FEATURE_KEY_LITERAL,
                 "enableMiniplayerDoubleTapAction",
             )
         }
 
         if (is_19_26_or_greater) {
-            miniplayerModernConstructorMatch.method.apply {
+            miniplayerModernConstructorFingerprint.method.apply {
                 val literalIndex = indexOfFirstLiteralInstructionOrThrow(
                     INITIAL_SIZE_FEATURE_KEY_LITERAL,
                 )
@@ -413,7 +409,7 @@ val miniplayerPatch = bytecodePatch(
             }
 
             // Override a mininimum miniplayer size constant.
-            miniplayerMinimumSizeFingerprint.matchOrThrow.method.apply {
+            miniplayerMinimumSizeFingerprint.method.apply {
                 val index = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.CONST_16 && (this as NarrowLiteralInstruction).narrowLiteral == 192
                 }
@@ -428,19 +424,19 @@ val miniplayerPatch = bytecodePatch(
 
         if (is_19_32_or_greater) {
             // Feature is not exposed in the settings, and currently only for debugging.
-            miniplayerModernConstructorMatch.insertLiteralValueFloatOverride(
+            miniplayerModernConstructorFingerprint.insertLiteralValueFloatOverride(
                 ANIMATION_INTERPOLATION_FEATURE_KEY,
                 "setMovementBoundFactor",
             )
         }
 
         if (is_19_36_or_greater) {
-            miniplayerModernConstructorMatch.insertLiteralValueBooleanOverride(
+            miniplayerModernConstructorFingerprint.insertLiteralValueBooleanOverride(
                 DROP_SHADOW_FEATURE_KEY,
                 "setDropShadow",
             )
 
-            miniplayerModernConstructorMatch.insertLiteralValueBooleanOverride(
+            miniplayerModernConstructorFingerprint.insertLiteralValueBooleanOverride(
                 ROUNDED_CORNERS_FEATURE_KEY,
                 "setRoundedCorners",
             )
@@ -452,8 +448,8 @@ val miniplayerPatch = bytecodePatch(
         // YT fixed this mistake in 19.17.
         // Fix this, by swapping the drawable resource values with each other.
         if (ytOutlinePictureInPictureWhite24 >= 0) {
-            miniplayerModernExpandCloseDrawablesFingerprint.matchOrThrow(
-                miniplayerModernViewParentFingerprint.matchOrThrow.originalClassDef,
+            miniplayerModernExpandCloseDrawablesFingerprint.match(
+                miniplayerModernViewParentFingerprint.originalClassDef,
             ).method.apply {
                 listOf(
                     ytOutlinePictureInPictureWhite24 to ytOutlineXWhite24,
@@ -498,8 +494,8 @@ val miniplayerPatch = bytecodePatch(
                 "adjustMiniplayerOpacity",
             ),
         ).forEach { (fingerprint, literalValue, methodName) ->
-            fingerprint.matchOrThrow(
-                miniplayerModernViewParentFingerprint.matchOrThrow.classDef,
+            fingerprint.match(
+                miniplayerModernViewParentFingerprint.classDef,
             ).method.hookInflatedView(
                 literalValue,
                 "Landroid/widget/ImageView;",
@@ -507,8 +503,8 @@ val miniplayerPatch = bytecodePatch(
             )
         }
 
-        miniplayerModernAddViewListenerFingerprint.matchOrThrow(
-            miniplayerModernViewParentFingerprint.matchOrThrow.classDef,
+        miniplayerModernAddViewListenerFingerprint.match(
+            miniplayerModernViewParentFingerprint.classDef,
         ).method.addInstruction(
             0,
             "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->" +
@@ -522,7 +518,7 @@ val miniplayerPatch = bytecodePatch(
         //
         // NOTE: Modern 2 uses the same video UI as the regular player except resized to smaller.
         // This patch code could be used to hide other player overlays that do not use Litho.
-        playerOverlaysLayoutFingerprint.matchOrThrow.classDef.methods.add(
+        playerOverlaysLayoutFingerprint.classDef.methods.add(
             ImmutableMethod(
                 YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME,
                 "addView",

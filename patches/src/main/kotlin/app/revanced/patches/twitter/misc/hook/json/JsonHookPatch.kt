@@ -20,11 +20,9 @@ fun addJsonHook(
 ) {
     if (jsonHook.added) return
 
-    val jsonHookPatchMatch by jsonHookPatchFingerprint
-
-    jsonHookPatchMatch.method.apply {
+    jsonHookPatchFingerprint.method.apply {
         // Insert hooks right before calling buildList.
-        val insertIndex = jsonHookPatchMatch.patternMatch!!.endIndex
+        val insertIndex = jsonHookPatchFingerprint.patternMatch!!.endIndex
 
         addInstructions(
             insertIndex,
@@ -49,25 +47,21 @@ val jsonHookPatch = bytecodePatch(
     dependsOn(sharedExtensionPatch)
 
     execute {
-        jsonHookPatchFingerprint.apply {
+        val jsonFactoryClassDef = jsonHookPatchFingerprint.apply {
             // Make sure the extension is present.
             val jsonHookPatch = classBy { classDef -> classDef.type == JSON_HOOK_PATCH_CLASS_DESCRIPTOR }
                 ?: throw PatchException("Could not find the extension.")
 
-            match(jsonHookPatch.immutableClass)
+            matchOrNull(jsonHookPatch.immutableClass)
                 ?: throw PatchException("Unexpected extension.")
-        }
-
-        // Conveniently find the type to hook a method in, via a named field.
-        val jsonFactory = loganSquareFingerprint.matchOrThrow
-            .originalClassDef
+        }.originalClassDef // Conveniently find the type to hook a method in, via a named field.
             .fields
             .firstOrNull { it.name == "JSON_FACTORY" }
             ?.type
             .let { type -> classes.find { it.type == type } } ?: throw PatchException("Could not find required class.")
 
         // Hook the methods first parameter.
-        jsonInputStreamFingerprint.matchOrThrow(jsonFactory).method.addInstructions(
+        jsonInputStreamFingerprint.match(jsonFactoryClassDef).method.addInstructions(
             0,
             """
                 invoke-static { p1 }, $JSON_HOOK_PATCH_CLASS_DESCRIPTOR->parseJsonHook(Ljava/io/InputStream;)Ljava/io/InputStream;
@@ -77,10 +71,9 @@ val jsonHookPatch = bytecodePatch(
     }
 
     finalize {
-        val jsonHookPatchMatch by jsonHookPatchFingerprint
         // Remove hooks.add(dummyHook).
-        jsonHookPatchMatch.method.apply {
-            val addDummyHookIndex = jsonHookPatchMatch.patternMatch!!.endIndex - 2
+        jsonHookPatchFingerprint.method.apply {
+            val addDummyHookIndex = jsonHookPatchFingerprint.patternMatch!!.endIndex - 2
 
             removeInstructions(addDummyHookIndex, 2)
         }

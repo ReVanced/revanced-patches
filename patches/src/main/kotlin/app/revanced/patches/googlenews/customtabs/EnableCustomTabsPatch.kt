@@ -4,6 +4,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
 
 @Suppress("unused")
 val enableCustomTabsPatch = bytecodePatch(
@@ -13,10 +14,8 @@ val enableCustomTabsPatch = bytecodePatch(
     compatibleWith("com.google.android.apps.magazines")
 
     execute {
-        val launchCustomTabMatch by launchCustomTabFingerprint
-
-        launchCustomTabMatch.method.apply {
-            val checkIndex = launchCustomTabMatch.patternMatch!!.endIndex + 1
+        launchCustomTabFingerprint.method.apply {
+            val checkIndex = launchCustomTabFingerprint.patternMatch!!.endIndex + 1
             val register = getInstruction<OneRegisterInstruction>(checkIndex).registerA
 
             replaceInstruction(checkIndex, "const/4 v$register, 0x1")

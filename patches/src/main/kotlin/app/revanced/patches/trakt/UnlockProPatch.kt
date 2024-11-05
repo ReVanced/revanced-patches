@@ -12,10 +12,10 @@ val unlockProPatch = bytecodePatch(
     execute {
         arrayOf(isVIPFingerprint, isVIPEPFingerprint).onEach { fingerprint ->
             // Resolve both fingerprints on the same class.
-            fingerprint.matchOrThrow(remoteUserFingerprint.matchOrThrow.originalClassDef)
+            fingerprint.match(remoteUserFingerprint.originalClassDef)
         }.forEach { fingerprint ->
             // Return true for both VIP check methods.
-            fingerprint.matchOrThrow.method.addInstructions(
+            fingerprint.method.addInstructions(
                 0,
                 """
                     const/4 v0, 0x1

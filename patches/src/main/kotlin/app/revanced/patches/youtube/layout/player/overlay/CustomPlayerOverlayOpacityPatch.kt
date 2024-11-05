@@ -58,11 +58,11 @@ val customPlayerOverlayOpacityPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
-        )
+        ),
     )
 
     execute {
-        createPlayerOverviewFingerprint.matchOrThrow.method.apply {
+        createPlayerOverviewFingerprint.method.apply {
             val viewRegisterIndex =
                 indexOfFirstLiteralInstructionOrThrow(scrimOverlayId) + 3
             val viewRegister =

@@ -72,7 +72,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         )
 
         // Replace the speeds float array with custom speeds.
-        speedArrayGeneratorFingerprint.matchOrThrow.method.apply {
+        speedArrayGeneratorFingerprint.method.apply {
             val sizeCallIndex = indexOfFirstInstructionOrThrow { getReference<MethodReference>()?.name == "size" }
             val sizeCallResultRegister = getInstruction<OneRegisterInstruction>(sizeCallIndex + 1).registerA
 
@@ -104,7 +104,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         }
 
         // Override the min/max speeds that can be used.
-        speedLimiterFingerprint.matchOrThrow.method.apply {
+        speedLimiterFingerprint.method.apply {
             val limitMinIndex = indexOfFirstLiteralInstructionOrThrow(0.25f.toRawBits().toLong())
             var limitMaxIndex = indexOfFirstLiteralInstruction(2.0f.toRawBits().toLong())
             // Newer targets have 4x max speed.
@@ -121,31 +121,30 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
 
         // Add a static INSTANCE field to the class.
         // This is later used to call "showOldPlaybackSpeedMenu" on the instance.
-        val getOldPlaybackSpeedsMatch by getOldPlaybackSpeedsFingerprint
 
         val instanceField = ImmutableField(
-            getOldPlaybackSpeedsMatch.originalClassDef.type,
+            getOldPlaybackSpeedsFingerprint.originalClassDef.type,
             "INSTANCE",
-            getOldPlaybackSpeedsMatch.originalClassDef.type,
+            getOldPlaybackSpeedsFingerprint.originalClassDef.type,
             AccessFlags.PUBLIC.value or AccessFlags.STATIC.value,
             null,
             null,
             null,
         ).toMutable()
 
-        getOldPlaybackSpeedsMatch.classDef.staticFields.add(instanceField)
+        getOldPlaybackSpeedsFingerprint.classDef.staticFields.add(instanceField)
         // Set the INSTANCE field to the instance of the class.
         // In order to prevent a conflict with another patch, add the instruction at index 1.
-        getOldPlaybackSpeedsMatch.method.addInstruction(1, "sput-object p0, $instanceField")
+        getOldPlaybackSpeedsFingerprint.method.addInstruction(1, "sput-object p0, $instanceField")
 
         // Get the "showOldPlaybackSpeedMenu" method.
         // This is later called on the field INSTANCE.
-        val showOldPlaybackSpeedMenuMethod = showOldPlaybackSpeedMenuFingerprint.matchOrThrow(
-            getOldPlaybackSpeedsFingerprint.matchOrThrow.classDef,
+        val showOldPlaybackSpeedMenuMethod = showOldPlaybackSpeedMenuFingerprint.match(
+            getOldPlaybackSpeedsFingerprint.classDef,
         ).method.toString()
 
         // Insert the call to the "showOldPlaybackSpeedMenu" method on the field INSTANCE.
-        showOldPlaybackSpeedMenuExtensionFingerprint.matchOrThrow.method.apply {
+        showOldPlaybackSpeedMenuExtensionFingerprint.method.apply {
             addInstructionsWithLabels(
                 instructions.lastIndex,
                 """
