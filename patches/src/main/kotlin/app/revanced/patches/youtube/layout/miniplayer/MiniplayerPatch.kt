@@ -1,3 +1,5 @@
+@file:Suppress("SpellCheckingInspection")
+
 package app.revanced.patches.youtube.layout.miniplayer
 
 import app.revanced.patcher.Match
@@ -295,7 +297,7 @@ val miniplayerPatch = bytecodePatch(
                 addInstructions(
                     targetIndex + 1,
                     """
-                        invoke-static {v$register}, $EXTENSION_CLASS_DESCRIPTOR->$extensionMethod(F)F
+                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->$extensionMethod(F)F
                         move-result v$register
                     """,
                 )
@@ -306,13 +308,13 @@ val miniplayerPatch = bytecodePatch(
          * Adds an override to specify which modern miniplayer is used.
          */
         fun MutableMethod.insertModernMiniplayerTypeOverride(iPutIndex: Int) {
-            val targetInstruction = getInstruction<TwoRegisterInstruction>(iPutIndex)
+            val register = getInstruction<TwoRegisterInstruction>(iPutIndex).registerA
 
             addInstructionsAtControlFlowLabel(
                 iPutIndex,
                 """
-                    invoke-static { v${targetInstruction.registerA} }, $EXTENSION_CLASS_DESCRIPTOR->getModernMiniplayerOverrideType(I)I
-                    move-result v${targetInstruction.registerA}
+                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getModernMiniplayerOverrideType(I)I
+                    move-result v$register
                 """,
             )
         }
@@ -387,19 +389,26 @@ val miniplayerPatch = bytecodePatch(
             )
         }
 
+        if (is_19_43_or_greater) {
+            miniplayerModernConstructorMatch.insertLiteralValueBooleanOverride(
+                MINIPLAYER_HORIZONTAL_DRAG_FEATURE_KEY,
+                "setHorizontalDrag",
+            )
+        }
+
         if (is_19_25_or_greater) {
             miniplayerModernConstructorMatch.insertLiteralValueBooleanOverride(
-                MINIPLAYER_MODERN_FEATURE_FLAG_LEGACY_KEY,
+                MINIPLAYER_MODERN_FEATURE_LEGACY_KEY,
                 "getModernMiniplayerOverride",
             )
 
             miniplayerModernConstructorMatch.insertLiteralValueBooleanOverride(
-                MINIPLAYER_MODERN_FEATURE_FLAG_KEY,
+                MINIPLAYER_MODERN_FEATURE_KEY,
                 "getModernFeatureFlagsActiveOverride",
             )
 
             miniplayerModernConstructorMatch.insertLiteralValueBooleanOverride(
-                MINIPLAYER_DOUBLE_TAP_FEATURE_FLAG_KEY,
+                MINIPLAYER_DOUBLE_TAP_FEATURE_KEY,
                 "enableMiniplayerDoubleTapAction",
             )
         }
@@ -422,7 +431,7 @@ val miniplayerPatch = bytecodePatch(
                 )
             }
 
-            // Override a mininimum miniplayer size constant.
+            // Override a minimum size constant.
             miniplayerMinimumSizeMatch.mutableMethod.apply {
                 val index = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.CONST_16 && (this as NarrowLiteralInstruction).narrowLiteral == 192
@@ -440,13 +449,6 @@ val miniplayerPatch = bytecodePatch(
             miniplayerModernConstructorMatch.insertLiteralValueBooleanOverride(
                 MINIPLAYER_ROUNDED_CORNERS_FEATURE_KEY,
                 "setRoundedCorners",
-            )
-        }
-
-        if (is_19_43_or_greater) {
-            miniplayerModernConstructorMatch.insertLiteralValueBooleanOverride(
-                MINIPLAYER_HORIZONTAL_DRAG_FEATURE_FLAG,
-                "setHorizontalDrag",
             )
         }
 
@@ -549,9 +551,9 @@ val miniplayerPatch = bytecodePatch(
                         invoke-super { p0, p1, p2, p3 }, Landroid/view/ViewGroup;->addView(Landroid/view/View;ILandroid/view/ViewGroup${'$'}LayoutParams;)V
                         invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->playerOverlayGroupCreated(Landroid/view/View;)V
                         return-void
-                    """,
+                    """
                 )
-            },
+            }
         )
 
         // endregion
