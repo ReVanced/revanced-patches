@@ -86,6 +86,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_12_video_title">Videó</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <string name="revanced_shorts_disable_background_playback_title">A Shorts háttérben történő lejátszásának letiltása</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">A Shorts háttérben történő lejátszása le van tiltva</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">A Shorts háttérben történő lejátszása engedélyezve van</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Hibakeresés</string>
@@ -326,6 +329,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_products_banner_title">Szalagkép elrejtése a termékek megtekintéséhez</string>
   <string name="revanced_hide_products_banner_summary_on">A szalagkép rejtett</string>
   <string name="revanced_hide_products_banner_summary_off">A szalagkép megjelenik</string>
+  <string name="revanced_hide_player_store_shelf_title">A lejátszó bevásárlópolcának elrejtése</string>
+  <string name="revanced_hide_player_store_shelf_summary_on">A bevásárlópolc el van rejtve</string>
+  <string name="revanced_hide_player_store_shelf_summary_off">Megjelenik a bevásárlópolc</string>
   <string name="revanced_hide_shopping_links_title">Vásárlási linkek elrejtése a videó leírásában</string>
   <string name="revanced_hide_shopping_links_summary_on">A vásárlási linkek rejtve vannak</string>
   <string name="revanced_hide_shopping_links_summary_off">A vásárlási linkek láthatóak</string>
@@ -501,6 +507,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_additional_settings_summary_on">A további beállítások menü el van rejtve</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_off">A további beállítások menü látható</string>
   <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_sleep_timer_title">Elalvási időzítő elrejtése</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_on">Az elalváskapcsoló menüje el van rejtve</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_off">Megjelenik az elalvásidőzítő menü</string>
   <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_loop_video_title">Videó folyamatos ismétlése menü elrejtése</string>
   <string name="revanced_hide_player_flyout_loop_video_summary_on">A videó folyamatos ismétlése menü el van rejtve</string>
@@ -509,6 +518,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_ambient_mode_title">Mozifilmes világítás elrejtése</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_on">A mozifilmes világítás menü el van rejtve</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_off">A mozifilmes világítás menü látható</string>
+  <string name="revanced_hide_player_flyout_stable_volume_title">Stabil hangerő elrejtése</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_off">Megjelenik a Stabil hangerő menü</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_on">A Stabil hangerő menü el van rejtve</string>
   <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_help_title">Súgó és visszajelzés elrejtése</string>
   <string name="revanced_hide_player_flyout_help_summary_on">A súgó és visszajelzés menü elrejtve</string>
@@ -535,6 +547,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">A megtekintés VR-módban menü el van rejtve</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">A „Megtekintés VR-módban” menü megjelenik</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">A videóminőség menü láblécének elrejtése</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">A videóminőség menü lábléce el van rejtve</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Megjelenik a videóminőség menü lábléce</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_player_previous_next_buttons_title">Az előző és következő videó gombok elrejtése</string>
@@ -749,8 +763,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_wide_searchbar_summary_off">Széles keresősáv kikapcsolva</string>
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
-  </patch>
-  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_title">Jó minőségű miniatűrök engedélyezése</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">A keresősáv bélyegképei kiváló minőségűek</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">A keresősáv bélyegképei közepes minőségűek</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">A teljes képernyős keresősáv bélyegképei kiváló minőségűek</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">A teljes képernyős keresősáv bélyegképei közepes minőségűek</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Ezzel az élő közvetítések miniatűrjeit is visszaállítja, amelyek nem rendelkeznek keresősáv-bélyegképekkel.\n\nA keresősáv bélyegképei ugyanazt a minőséget fogják használni, mint az aktuális videó.\n\nEz a funkció 720p vagy annál alacsonyabb videóminőség esetén működik a legjobban, és nagyon gyors videót használ. internet kapcsolat.</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Régi keresősáv bélyegképek visszaállítása</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">A keresősáv bélyegképei megjelennek a keresősáv felett</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">A keresősáv bélyegképei megjelennek a teljes képernyőn</string>
@@ -1006,6 +1024,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_drag_and_drop_title">Fogd és vidd engedélyezése</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">A fogd és vidd be van kapcsolva\n\nA minilejátszó a képernyő bármely sarkába húzható</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">A Fogd és vidd letiltva</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">Vízszintes húzási kézmozdulat engedélyezése</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">A vízszintes húzási kézmozdulat engedélyezve\n\nA minilejátszó a képernyőről balra vagy jobbra húzható</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">A vízszintes húzómozdulat letiltva</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Bezárás gomb elrejtése</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">A Bezárás gomb el van rejtve</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">A Bezárás gomb látható</string>
@@ -1140,7 +1161,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_playback_speed_dialog_button_summary_off">A gomb nem látható</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <string name="revanced_custom_speed_menu_title">Egyedi lejátszási sebesség menü</string>
+  <string name="revanced_custom_speed_menu_summary_on">Megjelenik az egyéni sebesség menü</string>
+  <string name="revanced_custom_speed_menu_summary_off">Az egyéni sebesség menü nem jelenik meg</string>
   <string name="revanced_custom_playback_speeds_title">Egyedi lejátszási sebesség</string>
+  <string name="revanced_custom_playback_speeds_summary">Egyéni lejátszási sebesség hozzáadása vagy módosítása</string>
   <string name="revanced_custom_playback_speeds_invalid">Ennek kevesebbnek kell lenniük, mint %s. Alap értékek használata.</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Érvénytelen sebesség. Az alap értékek használata.</string>
   </patch>

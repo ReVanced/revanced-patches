@@ -36,6 +36,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_check_environment_failed_title">Verificação falhou</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Abrir site oficial</string>
   <string name="revanced_check_environment_dialog_ignore_button">Ignorar</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Esta app não parece ter sido modificada por ti.&lt;/h5&gt;&lt;br&gt;Esta app pode não funcionar corretamente, &lt;b&gt;pode ser maliciosa ou até perigosa de usar&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Estas verificações implicam que esta app é pré-modificada ou obtida de outros:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;É extremamente recomendado &lt;b&gt;desinstalar esta app e modificá-la tu mesmo&lt;/b&gt; para garantir que estás a usar uma app segura e validada.&lt;p&gt;&lt;br&gt;Se ignorado, este aviso apenas será mostrado duas vezes.</string>
   <string name="revanced_check_environment_not_same_patching_device">Patrulhado em um dispositivo diferente</string>
   <string name="revanced_check_environment_manager_not_expected_installer">Não instalado pelo ReVanced Manager</string>
   <string name="revanced_check_environment_not_near_patch_time">Corrigida há mais de 10 minutos</string>
@@ -85,6 +86,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_12_video_title">Vídeo</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <string name="revanced_shorts_disable_background_playback_title">Desativar reprodução de fundo de Shorts</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Reprodução de fundo de Shorts está desativada</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Reprodução de fundo de Shorts está ativa</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Depuração</string>
@@ -298,6 +302,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_content_about_summary">Home/Assinatura/Busca resultados são filtrados para ocultar conteúdo que corresponde às frases chave\n\nLimitações\n• Shorts não podem ser ocultados pelo nome do canal\n• Alguns componentes do UI podem não ser ocultados\n• Procurar por uma palavra-chave pode não mostrar resultados</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Combinar palavras inteiras</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <string name="revanced_hide_keyword_content_about_whole_words_summary">Colocar uma frase/palavra-chave entre aspas irá prevenir correspondências parcias de títuloas de vídeos e nomes de canais&lt;br&gt;&lt;br&gt;Por exemplo,&lt;br&gt;&lt;b&gt;\"ia\"&lt;/b&gt; vai esconder o vídeo: &lt;b&gt;Como IA funciona?&lt;/b&gt;&lt;br&gt;mas não vai esconder: &lt;b&gt;O que significa Inteligência Artificial?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Não é possível usar a palavra-chave: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Adicionar aspas para usar a palavra-chave: %s</string>
@@ -589,6 +594,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Barra de busca de miniaturas visível</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <string name="revanced_shorts_player_screen_title">Reprodutor de Shorts</string>
   <string name="revanced_shorts_player_screen_summary">Ocultar ou mostrar componentes no player Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Esconder Shorts no feed inicial</string>
@@ -762,9 +768,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">As miniaturas na barra de busca são de qualidade média</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">As miniaturas da barra de busca completa de tela são de alta qualidade</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">As miniaturas da barra de busca completa são de qualidade média</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Isto irá restaurar miniaturas para filmagens que não possuem miniaturas na barra de procura.\n\no uso de dados da Internet pode ser maior e as miniaturas da barra de busca terão um pequeno atraso antes de serem exibidas.\n\nEste recurso funciona melhor com uma conexão de internet muito rápida.</string>
-  </patch>
-  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Isso também irá restaurar miniaturas em filmagens que não possuem miniaturas na barra de pesquisa.\n\nAs miniaturas da barra de busca usarão a mesma qualidade do vídeo atual.\n\nEste recurso funciona melhor com uma qualidade de vídeo de 720p ou inferior e usando uma conexão de internet muito rápida.</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Restaurar as miniaturas antigas da barra de pesquisa</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">As miniaturas da barra de busca aparecerão acima da barra de busca</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">As miniaturas da Seekbar aparecerão em ecrã cheia</string>
@@ -983,13 +987,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_change_start_page_entry_watch_later">Assistir depois</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
-  <string name="revanced_disable_resuming_shorts_player_title">Desativar modo retomada do player</string>
-  <string name="revanced_disable_resuming_shorts_player_summary_on">Curta o reprodutor não continuará na inicialização do aplicativo</string>
+  <string name="revanced_disable_resuming_shorts_player_title">Desativar a retomada do player do Shorts</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_on">Desativar a retomada do player do Shorts</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts que o reprodutor continuará na inicialização do aplicativo</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Reprodução automática de Shorts</string>
+  <string name="revanced_shorts_autoplay_summary_on">Shorts vão ser reproduzidos automaticamente</string>
   <string name="revanced_shorts_autoplay_summary_off">Shorts irão repetir</string>
+  <string name="revanced_shorts_autoplay_background_title">Reprodução automática de Shorts no fundo</string>
+  <string name="revanced_shorts_autoplay_background_summary_on">Reprodução de fundo de Shorts irá reproduzir automaticamente</string>
+  <string name="revanced_shorts_autoplay_background_summary_off">Reprodução de fundo de Shorts irá repetir</string>
   </patch>
   <patch id="layout.tablet.enableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Habilitar layout do tablet</string>
@@ -1016,6 +1024,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_drag_and_drop_title">Ativar arrastar e soltar</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">Arrastar e soltar é habilitado\n\nMiniplayer pode ser arrastado para qualquer canto da tela</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">Arrastar e soltar está desativado</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">Ativar o gesto de arrastar horizontal</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">Gesto de arrastar horizontal ativado\n\nMiniplayer pode ser arrastado para a esquerda ou para a direita</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">Gestos de arrastar horizontais desativados</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Ocultar botão fechar</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">O botão fechar está oculto</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">Botão fechar é mostrado</string>
@@ -1095,6 +1106,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
   <string name="revanced_check_watch_history_domain_name_dialog_title">Atenção</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">O teu histórico de visualização não está a ser guardado.&lt;br&gt;&lt;br&gt;Isto é mais provávelmente causado por um bloqueador de anúncios DNS ou proxy de rede.&lt;br&gt;&lt;br&gt;Para reparar isto, adiciona às exceções &lt;b&gt;s.youtube.com&lt;/b&gt; ou desativa todos os bloqueadores DNS e proxies.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Não mostrar novamente</string>
   </patch>
   <patch id="misc.autorepeat.autoRepeatPatch">

@@ -87,8 +87,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Díchumasaigh súgradh cúlra Shorts</string>
-  <string name="revanced_shorts_disable_background_playback_summary_on">Tá súgradh cúlra shorts díchumasaithe</string>
-  <string name="revanced_shorts_disable_background_playback_summary_off">Tá súgradh cúlra shorts cumasaithe</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Tá súgradh cúlra Shorts díchumasaithe</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Tá súgradh cúlra Shorts cumasaithe</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Dífhabhtú</string>
@@ -257,9 +257,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_section_title">Folaigh roinn tuairimí</string>
   <string name="revanced_hide_comments_section_summary_on">Tá an chuid tuairimí i bhfolach</string>
   <string name="revanced_hide_comments_section_summary_off">Taispeántar an chuid tuairimí</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">Folaigh cnaipe \'Cruthaigh gearr\'</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">Tá cnaipe \'Cruthaigh gearr\' i bhfolach</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">Taispeántar cnaipe \'Cruthaigh gearr\'</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">Folaigh an cnaipe \'Cruthaigh Short\'</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">Tá cnaipe ‘Cruthaigh Short’ i bhfolach</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">Taispeántar an cnaipe ‘Cruthaigh Short’</string>
   <string name="revanced_hide_comments_preview_comment_title">Folaigh trácht réamhamharc</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Tá trácht réamhamhar i bhfolach</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Taispeántar trácht réamhamharc</string>
@@ -299,7 +299,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">Eochairfhocail agus frásaí le cur i bhfolach, scartha le línte nua\n\nIs féidir le heochairfhocail a bheith ina n-ainmneacha cainéal nó in aon téacs a thaispeántar i dteideal físeáin\n\nNí mór focail a bhfuil litreacha móra sa lár a chur isteach leis an gcásáil (. i. iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">Maidir le scagadh eochairfhocal</string>
-  <string name="revanced_hide_keyword_content_about_summary">Déantar torthaí Baile/Síntiúis/Cuardaigh a scagadh chun inneachar a mheaitseálann frásaí eochairfhocail a chur i bhfolach\n\nTeorainneacha\n• Ní féidir shorts a chur i bhfolach le hainm an chainéil\n• Seans nach mbeidh roinnt comhpháirteanna Chomhéadain i bhfolach\n• Seans nach dtaispeánfar torthaí nuair a chuardaítear eochairfhocal</string>
+  <string name="revanced_hide_keyword_content_about_summary">Déantar torthaí Baile/Síntiúis/Cuardaigh a scagadh chun inneachar a mheaitseálann frásaí eochairfhocail a chur i bhfolach\n\nTeorainneacha\n• Ní féidir Shorts a chur i bhfolach le hainm an chainéil\n• Seans nach mbeidh roinnt comhpháirteanna Chomhéadain i bhfolach\n• Seans nach dtaispeánfar torthaí nuair a chuardaítear eochairfhocal</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Meaitseáil focail iomlána</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Má bhaineann tú eochairfhocal/frása le comharthaí athfhriotail dhúbailte, cuirfear cosc ​​ar mheaitseáil pháirteach de theidil físeáin agus ainmneacha cainéal&lt;br&gt;&lt;br&gt;Mar shampla,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; ceilteoidh sé an físeán: &lt;b&gt;Conas a oibríonn AI?&lt;/b&gt;&lt;br&gt;ach ní cheiltfidh sé: &lt;b&gt;Cad is brí le hainm féinig?&lt;/b&gt;</string>
@@ -477,8 +477,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_home_button_summary_off">Taispeántar cnaipe baile</string>
   <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_hide_shorts_button_title">Folaigh Shorts</string>
-  <string name="revanced_hide_shorts_button_summary_on">Tá cnaipe shorts i bhfolach</string>
-  <string name="revanced_hide_shorts_button_summary_off">Taispeántar cnaipe shorts</string>
+  <string name="revanced_hide_shorts_button_summary_on">Tá cnaipe Shorts i bhfolach</string>
+  <string name="revanced_hide_shorts_button_summary_off">Taispeántar cnaipe Shorts</string>
   <!-- The Create button has no display name. Translate normally. -->
   <string name="revanced_hide_create_button_title">Folaigh Cruthaigh</string>
   <string name="revanced_hide_create_button_summary_on">Tá cnaipe Cruthaigh i bhfolach</string>
@@ -598,8 +598,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_shorts_player_screen_summary">Folaigh nó taispeáin comhpháirteanna san seinnteoir Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Folaigh Shorts i mbeatha baile</string>
-  <string name="revanced_hide_shorts_home_summary_on">Tá shorts i mbeatha baile i bhfolach</string>
-  <string name="revanced_hide_shorts_home_summary_off">Taispeántar gearrthóga i mbeatha baile</string>
+  <string name="revanced_hide_shorts_home_summary_on">Tá Shorts i mbeatha baile i bhfolach</string>
+  <string name="revanced_hide_shorts_home_summary_off">Taispeántar Shorts sa bheathú baile</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Folaigh Shorts i mbeatha síntiúis</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">Tá Shorts i mbeatha síntiúis i bhfolach</string>
@@ -768,9 +768,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Tá mionsamhlacha barra cuardaigh de chaighdeán meánach</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Tá mionsamhlacha an bharra cuardaigh lánscáileáin ar ardchaighdeán</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Tá mionsamhlacha an bharra cuardaigh lánscáileáin de chaighdeán meánach</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Cuirfidh sé seo mionsamhlacha ar ais go sruthanna beo nach bhfuil mionsamhlacha barra cuardaigh acu.\n\nD\'fhéadfadh úsáid sonraí idirlín a bheith níos airde, agus beidh moill bheag ar mhionsamhlacha an bharra cuardaigh sula dtaispeánfar iad.\n\nIs fearr a oibríonn an ghné seo le nasc idirlín an-tapa.</string>
-  </patch>
-  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Athchóireoidh sé seo mionsamhlacha ar shruthanna beo nach bhfuil mionsamhlacha ar an mbarra cuardaigh acu.\n\nÚsáidfidh mionsamhlacha an bharra cuardaigh atá ar an gcaighdeán céanna leis an bhfíseán reatha.\n\nIs fearr a oibríonn an ghné seo le cáilíocht físeáin 720p nó níos ísle agus nuair a úsáideann sé an-tapa nasc idirlín.</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Cuir sean-mionsamhlacha barra cuardaigh ar ais</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Beidh mionsamhlacha Seekbar le feiceáil os cionn an barra cuardaigh</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Beidh mionsamhlacha Seekbar le feiceáil ar an scáileán</string>
@@ -990,13 +988,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Díchumasaigh an t-imreoir Shorts atá ag tosú arís</string>
-  <string name="revanced_disable_resuming_shorts_player_summary_on">Ní thosóidh an t-imreoir shorts ar thosú an aip</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_on">Ní thosóidh an t-imreoir Shorts ar thosú an aip</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Athosóidh an t-imreoir Shorts ar thosú an aip</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Shorts Autoplay</string>
   <string name="revanced_shorts_autoplay_summary_on">Seinnfidh Shorts go huathoibríoch</string>
-  <string name="revanced_shorts_autoplay_summary_off">Déanfaidh shorts arís</string>
+  <string name="revanced_shorts_autoplay_summary_off">Déanfaidh Shorts arís</string>
   <string name="revanced_shorts_autoplay_background_title">Cluiche Cúlra Shorts Autoplay</string>
   <string name="revanced_shorts_autoplay_background_summary_on">Déanfar súgradh cúlra Shorts go huathoibríoch</string>
   <string name="revanced_shorts_autoplay_background_summary_off">Athdhéanfar súgradh cúlra Shorts</string>
@@ -1026,6 +1024,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_drag_and_drop_title">Cumasaigh tarraing agus scaoil</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">Cumasaítear tarraing agus scaoil\n\nIs féidir mion-imreoir a tharraingt go cúinne ar bith den scáileán</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">Tá tarraing agus scaoil díchumasaithe</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">Cumasaigh gotha ​​tarraingthe cothrománach</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">Gothaí tarraingthe cothrománach cumasaithe\n\nIs féidir mion-imreoir a tharraingt den scáileán ar chlé nó ar dheis</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">Díchumasaíodh an comhartha tarraingthe cothrománach</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Folaigh cnaipe dúnta</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">Tá an cnaipe dúnta i bhfolach</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">Taispeántar an cnaipe dúnta</string>

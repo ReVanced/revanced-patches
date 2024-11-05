@@ -768,9 +768,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Las miniuñas Seekbar son de calidad media</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Las miniaturas de la barra de búsqueda a pantalla completa son de alta calidad</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Las miniaturas de la barra de búsqueda a pantalla completa son de calidad media</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Esto restaurará las miniaturas de las transmisiones en directo que no tengan miniaturas en la barra de progreso\n\nEl uso de datos de Internet puede ser mayor, y las miniaturas de la barra de progreso tendrán un ligero retraso antes de mostrarse.\n\nEsta característica funciona mejor con una conexión a Internet muy rápida.</string>
-  </patch>
-  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Esto también restaurará las miniuñas en vivos que no tienen las miniuñas seekbar.\n\nLas miniaturas de la barra de búsqueda usarán la misma calidad que el vídeo actual.\n\nEsta función funciona mejor con una calidad de vídeo de 720p o inferior y al usar una conexión a internet muy rápida.</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Restaurar antiguas miniaturas de la barra de búsqueda</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Las miniaturas de la barra de búsqueda aparecerán por encima de la barra de búsqueda</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Las miniaturas de Seekbar aparecerán en pantalla completa</string>
@@ -989,7 +987,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_change_start_page_entry_watch_later">Ver más tarde</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
-  <string name="revanced_disable_resuming_shorts_player_title">Desactivar reanudación del reproductor</string>
+  <string name="revanced_disable_resuming_shorts_player_title">Desactivar reanudación del reproductor de Shorts</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">El reproductor de Shorts no se reanudará al iniciar la aplicación</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">El reproductor de Shorts se reanudará al iniciar la aplicación</string>
   </patch>
@@ -1026,6 +1024,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_drag_and_drop_title">Activar arrastrar y soltar</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">Arrastrar y soltar está habilitado\n\nMinijugador puede ser arrastrado a cualquier esquina de la pantalla</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">Arrastre y suelte está desactivado</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">Activar gesto de arrastre horizontal</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">Gesto de arrastre horizontal habilitado\n\nMinijugador puede ser arrastrado de la pantalla a la izquierda o derecha</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">Gesto de arrastre horizontal desactivado</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Ocultar botón de cerrar</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">El botón de cierre está oculto</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">Se muestra el botón de cerrar</string>

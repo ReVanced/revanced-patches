@@ -768,9 +768,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Thumbnails in der Suchleiste sind mittlere Qualität</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Thumbnails in der Suchleiste sind qualitativ hochwertig</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Thumbnails in der Suchleiste sind mittlere Qualität</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Damit werden Thumbnails für Livestreams wiederhergestellt, die keine Suchleisten-Thumbnails haben.\n\nInternet-Datennutzung kann höher sein, und Suchleisten-Thumbnails werden eine leichte Verzögerung haben, bevor sie angezeigt werden.\n\nDiese Funktion funktioniert am besten mit einer sehr schnellen Internetverbindung.</string>
-  </patch>
-  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Dadurch werden auch Thumbnails auf Livestreams wiederhergestellt, die keine Suchleisten-Thumbnails haben.\n\nSuchleisten-Thumbnails verwenden die gleiche Qualität wie das aktuelle Video.\n\nDiese Funktion funktioniert am besten mit einer Videoqualität von 720p oder niedriger und bei einer sehr schnellen Internetverbindung.</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Alte Suchleisten-Thumbnails wiederherstellen</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Suchleisten-Thumbnails werden über der Suchleiste angezeigt</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Miniaturansichten werden im Vollbild angezeigt</string>
@@ -1026,6 +1024,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_drag_and_drop_title">Drag and Drop aktivieren</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">Drag and Drop ist aktiviert\n\nMiniplayer kann in jede Ecke des Bildschirms gezogen werden</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">Drag and Drop ist deaktiviert</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">Horizontales Ziehen aktivieren</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">Horizontale Drag Geste aktiviert\n\nMiniplayer kann vom Bildschirm nach links oder rechts gezogen werden</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontale Drag Geste deaktiviert</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Schließen-Button ausblenden</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">Schließen-Button ist ausgeblendet</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">Schließen-Schaltfläche wird angezeigt</string>

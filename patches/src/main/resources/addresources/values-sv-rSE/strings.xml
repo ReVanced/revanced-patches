@@ -769,9 +769,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Seekbar miniatyrer är av medelhög kvalitet</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Fullskärm sökfält miniatyrer är av hög kvalitet</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Fullskärm sökfält miniatyrer är medelhög kvalitet</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Detta kommer att återställa miniatyrer till livestreams som inte har sökfält miniatyrer.\n\nInternetdataanvändning kan vara högre, och sökfältet miniatyrer kommer att ha en liten fördröjning innan visning.\n\nDen här funktionen fungerar bäst med en mycket snabb internetanslutning.</string>
-  </patch>
-  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Detta kommer också att återställa miniatyrer på livestreams som inte har sökfält miniatyrer.\n\nSeekbar miniatyrer kommer att använda samma kvalitet som den aktuella videon.\n\nDen här funktionen fungerar bäst med en videokvalitet på 720p eller lägre och när du använder en mycket snabb internetanslutning.</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Återställ gamla miniatyrer i sökfältet</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Seekbar miniatyrer visas ovanför sökfältet</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Seekbar miniatyrer visas i helskärm</string>
@@ -1027,6 +1025,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_drag_and_drop_title">Aktivera dra och släpp</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">Dra och släpp är aktiverat\n\nMiniplayer kan dras till valfritt hörn av skärmen</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">Dra och släpp är inaktiverat</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">Aktivera horisontell drag gest</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">Horisontell drag gesture aktiverad\n\nMiniplayer kan dras från skärmen till vänster eller höger</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">Horisontell drag gest inaktiverad</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Dölj stängningsknappen</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">Stäng knappen är dold</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">Stäng knappen visas</string>

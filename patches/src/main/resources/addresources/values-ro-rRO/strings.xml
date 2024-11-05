@@ -36,6 +36,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_check_environment_failed_title">Verificări eșuate</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Deschide site-ul oficial</string>
   <string name="revanced_check_environment_dialog_ignore_button">Ignoră</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Se pare că aplicația nu este modificată de dv.&lt;/h5&gt;&lt;br&gt;Este posibil ca aplicația să nu funcționeze corect, &lt;b&gt;să dăuneze dispozitivului sau să prezinte un pericol la utilizare&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Simpla existență a acestor verificări sugerează faptul că aplicația este modificată în prealabil sau obținută de la altcineva: &lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Recomandăm cu tărie &lt;b&gt;dezinstalarea și modificarea manuală a acestei aplicații&lt;/b&gt; pentru a vă asigura că aplicația pe care o folosiți este validă și sigură.&lt;p&gt;&lt;br&gt;După ignorare, mesajul nu va mai fi afișat decât o a doua oară.</string>
   <string name="revanced_check_environment_not_same_patching_device">Patchat pe un alt dispozitiv</string>
   <string name="revanced_check_environment_manager_not_expected_installer">Nu este instalat de ReVanced Manager</string>
   <string name="revanced_check_environment_not_near_patch_time">Patchat acum mai mult de 10 minute</string>
@@ -86,6 +87,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_12_video_title">Video</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <string name="revanced_shorts_disable_background_playback_title">Dezactivează redarea în fundal a videoclipurilor Shorts</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Redarea în fundal este dezactivată</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Redarea în fundal este activată</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Depanare</string>
@@ -296,7 +300,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">Cuvinte cheie și fraze de ascuns, separate prin linii noi\n\nCuvintele cheie pot fi nume de canal sau orice text afișat în titlurile video\n\nCuvinte cu litere mari în mijloc trebuie să fie introduse cu caseta (ex: iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">Despre filtrarea cuvintelor cheie</string>
-  <string name="revanced_hide_keyword_content_about_summary">Rezultatele Acasă/Abonament/Căutare sunt filtrate pentru a ascunde conținutul care corespunde cuvintelor-cheie\n\nLimitările\n• Scurtăturile nu pot fi ascunse după numele canalului\n• Este posibil ca unele componente UI să nu fie ascunse\n• Căutarea unui cuvânt cheie poate să nu arate rezultate</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Potrivește cuvinte întregi</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Supravieţuirea unui cuvânt cheie/frază cu ghilimele duble va preveni meciurile parţiale ale titlurilor video şi numelui canalelor&lt;br&gt;&lt;br&gt;De exemplu,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; va ascunde video-ul: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;dar nu se va ascunde: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
@@ -591,6 +594,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Pictograma bara de căutare este afișată</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <string name="revanced_shorts_player_screen_title">Player pentru Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Ascunde Short din feed-ul de acasă</string>
   <string name="revanced_hide_shorts_home_summary_on">Shorts în fluxul de acasă sunt ascunse</string>
@@ -763,9 +767,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Miniaturile din bara de afișare sunt de calitate medie</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Miniaturile din bara de căutare a ecranului complet sunt de înaltă calitate</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Miniaturile din bara ecran ecran deschis sunt de calitate medie</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Acest lucru va restabili miniaturile la animale care nu au miniaturi în bara de căutări.\n\nutilizarea datelor de Internet poate fi mai mare, iar miniaturile vizuale vor avea o ușoară întârziere înainte de a fi afișate.\n\nAceastă funcție funcționează cel mai bine cu o conexiune la internet foarte rapidă.</string>
-  </patch>
-  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Acest lucru va restabili miniaturile pentru animale care nu au miniaturi în bara de căutări.\n\nMiniaturile din Bara de căutare vor folosi aceeași calitate ca și videoclipul curent.\n\nAceastă funcție funcționează cel mai bine cu o calitate video mai mică sau egală cu 720p și atunci când se utilizează o conexiune la internet foarte rapidă.</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Restaurează miniaturile vechi din bara de căutare</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Miniaturile din bara de căutare vor apărea deasupra barei de căutare</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Miniaturile din bara de afișare vor apărea pe tot ecranul</string>
@@ -984,9 +986,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_change_start_page_entry_watch_later">Urmărește mai târziu</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
-  <string name="revanced_disable_resuming_shorts_player_title">Dezactivează reluarea Jucător de scurtături</string>
-  <string name="revanced_disable_resuming_shorts_player_summary_on">Scurtătura jucătorului nu va fi reluată la pornirea aplicației</string>
-  <string name="revanced_disable_resuming_shorts_player_summary_off">Scurtătura va fi reluată la pornirea aplicației</string>
+  <string name="revanced_disable_resuming_shorts_player_title">Nu relua videoclipurile Shorts la deschidere</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_on">Videoclipurile Shorts nu vor fi reluate la deschiderea aplicației</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_off">Videoclipurile Shorts vor fi reluate la deschiderea aplicației</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   </patch>
@@ -1015,6 +1017,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_drag_and_drop_title">Activează drag and drop</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">Drag and drop este activat\n\nMiniplayer poate fi mutat în orice colț al ecranului</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">Drag and drop este dezactivat</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">Activează Gestul de tragere orizontal</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">Gest de tragere orizontal activat\n\nMiniplayer poate fi mutat în stânga sau dreapta</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">Gest de tragere orizontal dezactivat</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Ascunde butonul de închidere</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">Butonul de închidere este ascuns</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">Butonul de închidere este afișat</string>

@@ -768,9 +768,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Οι μικρογραφίες της γραμμής προόδου είναι μέτριας ποιότητας</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Οι μικρογραφίες πλήρους οθόνης της γραμμής προόδου είναι υψηλής ποιότητας</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Οι μικρογραφίες πλήρους οθόνης της γραμμής προόδου είναι μέτριας ποιότητας</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Αυτό θα επαναφέρει τις μικρογραφίες σε ζωντανές μεταδόσεις που δεν έχουν μικρογραφίες γραμμής προόδου.\n\nΗ χρήση δεδομένων internet ενδέχεται να είναι υψηλότερη, και οι μικρογραφίες της γραμμής προόδου θα έχουν μια μικρή καθυστέρηση πριν εμφανιστούν.\n\nΑυτή η ρύθμιση λειτουργεί καλύτερα με γρήγορη σύνδεση internet.</string>
-  </patch>
-  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Αυτό θα επαναφέρει επίσης τις μικρογραφίες σε ζωντανές μεταδόσεις που δεν έχουν μικρογραφίες γραμμής προόδου.\n\nΟι μικρογραφίες της γραμμής προόδου θα χρησιμοποιούν την ίδια ποιότητα με το τρέχον βίντεο.\n\nΑυτή η ρύθμιση λειτουργεί καλύτερα με ποιότητα βίντεο 720p ή χαμηλότερη και όταν χρησιμοποιείτε μια πολύ γρήγορη σύνδεση στο διαδίκτυο.</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Παλιές μικρογραφίες γραμμής προόδου</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Οι μικρογραφίες προεπισκόπησης θα εμφανίζονται πάνω από τη γραμμή προόδου</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Οι μικρογραφίες προεπισκόπησης θα εμφανίζονται σε πλήρη οθόνη</string>
@@ -1026,6 +1024,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_drag_and_drop_title">Λειτουργία μεταφοράς και απόθεσης</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">Η λειτουργία μεταφοράς και απόθεσης είναι ενεργοποιημένη\n\nΗ ελαχιστοποιημένη οθόνη αναπαραγωγής μπορεί να μετακινηθεί σε οποιαδήποτε γωνία της οθόνης</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">Η λειτουργία μεταφοράς και απόθεσης είναι απενεργοποιημένη</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">Ενεργοποίηση οριζόντιας χειρονομίας απόρριψης</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">Η οριζόντια χειρονομία είναι ενεργή\n\nΗ ελαχιστοποιημένη οθόνη μπορεί να συρθεί εκτός οθόνης προς τα αριστερά ή δεξιά</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">Η οριζόντια χειρονομία είναι ανενεργή</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Κουμπί κλεισίματος</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">Κρυμμένο</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">Εμφανίζεται</string>
