@@ -764,13 +764,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
   <string name="revanced_seekbar_thumbnails_high_quality_title">啟用高畫質縮圖</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">已啟用拖拽欄高畫質縮圖</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">已設定拖拽欄為高畫質縮圖</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">已設定拖拽欄為中畫質縮圖</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">已設定全螢幕拖拽欄為高畫質縮圖</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">已設定全螢幕拖拽欄為中畫質縮圖</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">這將恢復沒有進度條縮圖的直播縮圖。\n\n網路數據使用量可能會增加，且進度條縮圖顯示會有些許延遲。\n\n此功能在網速非常快的網路連線下效果最佳。</string>
-  </patch>
-  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">此操作將復原沒有拖拽欄的即時串流縮圖\n\n拖拽欄縮圖將使用與目前影片的同等畫質。\n\n此功能在您使用高速網際網路，並使用在 720p 或更低的畫質時為最佳狀態。</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">還原舊版進度列縮圖</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">進度列縮圖將出現在進度列上</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">進度列縮圖將出現在全螢幕畫面</string>
@@ -1027,6 +1025,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_drag_and_drop_title">啟用拖曳</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">已啟用拖曳\n\n現在迷你播放器可以拖曳至螢幕的任何角落</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">已停用拖曳</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">啟用水平拖拽手勢</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">已啟用水平拖拽手勢\n\n迷你播放器現可拖拽至螢幕的左側或右側外。</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">已停用水平拖拽手勢</string>
   <string name="revanced_miniplayer_hide_expand_close_title">隱藏 [關閉] 按鈕</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">已隱藏 [關閉] 按鈕</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">已顯示 [關閉] 按鈕</string>

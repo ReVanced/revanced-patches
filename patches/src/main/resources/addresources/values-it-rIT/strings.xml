@@ -297,7 +297,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">Parole chiave e frasi da nascondere, separate da nuove righe\n\nLe parole chiave possono essere nomi di canali o qualsiasi testo mostrato nei titoli video\n\nLe parole con lettere maiuscole nel centro devono essere inserite con il contenitore (es: iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">Informazioni sul filtro delle parole chiave</string>
-  <string name="revanced_hide_keyword_content_about_summary">Home/Abbonamento/I risultati della ricerca sono filtrati per nascondere il contenuto che corrisponde alle frasi di parole chiave\n\nLimitazioni\n• I resort non possono essere nascosti dal nome del canale\n• Alcuni componenti dell\'interfaccia utente potrebbero non essere nascosti\n• La ricerca di una parola chiave potrebbe non mostrare alcun risultato</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Corrispondenza parole intere</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Circondare una parola chiave/frase con doppie virgolette impedirà partite parziali di titoli video e nomi di canali&lt;br&gt;&lt;br&gt;Per esempio,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; nasconderà il video: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;ma non si nasconde: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
@@ -474,7 +473,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_home_button_summary_on">Il pulsante Home è nascosto</string>
   <string name="revanced_hide_home_button_summary_off">Il pulsante Home è mostrato</string>
   <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
-  <string name="revanced_hide_shorts_button_title">Nascondi Pantaloncini</string>
+  <string name="revanced_hide_shorts_button_title">Nascondi Shorts</string>
   <string name="revanced_hide_shorts_button_summary_on">Il pulsante Shorts è nascosto</string>
   <string name="revanced_hide_shorts_button_summary_off">Il pulsante Shorts è visibile</string>
   <!-- The Create button has no display name. Translate normally. -->
@@ -592,17 +591,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Barra di ricerca miniature mostrata</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
-  <string name="revanced_shorts_player_screen_title">Giocatore di Shorts</string>
+  <string name="revanced_shorts_player_screen_title">Riproduttore Shorts</string>
   <string name="revanced_shorts_player_screen_summary">Nascondi o mostra i componenti nel riproduttore Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Nascondi Shorts nella scheda Home</string>
-  <string name="revanced_hide_shorts_home_summary_on">Pantaloncini nel feed domestico sono nascosti</string>
-  <string name="revanced_hide_shorts_home_summary_off">Vengono mostrati i pantaloncini in home feed</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Nascondi Shorts nel feed di abbonamento</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts in abbonamento feed sono nascosti</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Vengono mostrati i resort in abbonamento</string>
-  <string name="revanced_hide_shorts_search_title">Nascondi ricordi nei risultati di ricerca</string>
   <string name="revanced_hide_shorts_search_summary_on">Shorts nei risultati di ricerca sono nascosti</string>
   <string name="revanced_hide_shorts_search_summary_off">Vengono visualizzati gli Shorts nei risultati di ricerca</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
@@ -766,9 +761,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Le miniature di Seekbar sono di media qualità</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Le miniature della barra di ricerca a schermo intero sono di alta qualità</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Le miniature della barra di ricerca a schermo intero sono di media qualità</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Questo ripristinerà le miniature ai livestreams che non hanno miniature nella barra di ricerca.\n\nL\'utilizzo dei dati Internet può essere più alto e le miniature della barra di ricerca avranno un leggero ritardo prima di mostrare.\n\nQuesta funzione funziona meglio con una connessione internet molto veloce.</string>
-  </patch>
-  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Questo ripristinerà anche le miniature sui livestreams che non hanno miniature nella barra di ricerca. Le miniature\n\nSeekbar useranno la stessa qualità del video corrente.\n\nQuesta funzione funziona al meglio con una qualità video di 720p o inferiore e quando si utilizza una connessione internet molto veloce.</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Ripristina vecchie miniature della barra di ricerca</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Le miniature della barra di ricerca appariranno sopra la barra di ricerca</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Le miniature della barra di ricerca appariranno a schermo intero</string>
@@ -1024,6 +1017,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_drag_and_drop_title">Abilita drag and drop</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">Drag and drop è abilitato\n\nMiniplayer può essere trascinato in qualsiasi angolo dello schermo</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">Trascinare e rilasciare è disabilitato</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">Abilita il gesto di trascinamento orizzontale</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">Gesto di trascinamento orizzontale abilitato\n\nMiniplayer può essere trascinato fuori schermo a sinistra o destra</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">Gesto di trascinamento orizzontale disabilitato</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Nascondi pulsante di chiusura</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">Il pulsante di chiusura è nascosto</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">Il pulsante Chiudi è mostrato</string>

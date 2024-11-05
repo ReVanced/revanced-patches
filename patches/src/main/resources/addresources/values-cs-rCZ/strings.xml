@@ -87,6 +87,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_12_video_title">Video</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <string name="revanced_shorts_disable_background_playback_title">Zakázat automatické přehrávání Shorts v pozadí</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Přehrávání Shorts v pozadí je zakázáno</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Přehrávání Shorts v pozadí je povoleno</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Debugování</string>
@@ -255,9 +258,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_section_title">Skrýt sekci komentáře</string>
   <string name="revanced_hide_comments_section_summary_on">Sekce komentářů je skrytá</string>
   <string name="revanced_hide_comments_section_summary_off">Část Komentáře je zobrazena</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">Skrýt tlačítko \'Vytvořit krátký\'</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">Tlačítko \"Vytvořit krátký\" je skryté</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">Zobrazí se tlačítko \'Vytvořit krátké\'</string>
   <string name="revanced_hide_comments_preview_comment_title">Skrýt náhled komentáře</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Náhled komentáře je skrytý</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Náhled komentáře je zobrazen</string>
@@ -297,7 +297,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">klíčová slova a fráze ke skrytí, odděleno novými řádky\n\nKlíčová slova mohou být jména kanálů nebo jakýkoli text zobrazený v nadpisech videa\n\nSlova s velkými písmeny uprostřed musí být zadána se skříní (např: iPhone, iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">O filtrování klíčových slov</string>
-  <string name="revanced_hide_keyword_content_about_summary">Výsledky domovského/předplatného/vyhledávání jsou filtrovány pro skrytí obsahu, který odpovídá výrazům klíčových slov\n\nOmezení\n• Krátké nelze skrýt podle názvu kanálu\n• Některé komponenty uživatelského rozhraní nemusí být skryté\n• Hledání klíčového slova nemusí zobrazovat žádné výsledky</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Porovnat celá slova</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Zaokrouhlení klíčového slova/fráze s dvojitými uvozovkami zabrání částečným shodám s názvy videí a kanálů&lt;br&gt;&lt;br&gt;Například&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; skryje video: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;, ale nebude skrýt: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
@@ -595,18 +594,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_shorts_player_screen_title">Přehrávač Shorts</string>
   <string name="revanced_shorts_player_screen_summary">Skrýt nebo zobrazit komponenty v přehrávači Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_hide_shorts_home_title">Skrýt zkratky v domovském kanálu</string>
-  <string name="revanced_hide_shorts_home_summary_on">Krátky v domovském kanálu jsou skryté</string>
-  <string name="revanced_hide_shorts_home_summary_off">Zobrazí se zkratky v domovském kanálu</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
-  <string name="revanced_hide_shorts_subscriptions_title">Skrýt zkratky v odběru kanálu</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Krátky v předplatném kanálu jsou skryté</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Zobrazí se zkratky v předplatném kanálu</string>
-  <string name="revanced_hide_shorts_search_title">Skrýt zkratky ve výsledcích vyhledávání</string>
-  <string name="revanced_hide_shorts_search_summary_on">Krátky ve výsledcích vyhledávání jsou skryty</string>
-  <string name="revanced_hide_shorts_search_summary_off">Zobrazí se zkratky ve výsledcích vyhledávání</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_join_button_title">Skrýt tlačítko pro připojení</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Tlačítko spojení je skryté</string>
   <string name="revanced_hide_shorts_join_button_summary_off">Zobrazí se tlačítko pro připojení</string>
   <!-- 'subscribe' should be translated using the same localized wording YouTube displays for the button. -->
@@ -766,9 +755,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Náhledy jsou středně kvalitní</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Náhledy na celou obrazovku jsou vysoce kvalitní</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Náhledy na celou obrazovku jsou středně kvalitní</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Tímto obnovíte náhledy na dobytek, které nemají náhledy ve vyhledávacím panelu.\n\nvyužití dat na internetu může být vyšší a náhledy vyhledávacího panelu budou mít před zobrazením mírné zpoždění.\n\nTato funkce funguje nejlépe s velmi rychlým připojením k internetu.</string>
-  </patch>
-  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Tímto také obnovíte náhledy na hospodářských zvířatech, která nemají náhledy ve vyhledávacím panelu.\n\nNáhledy budou používat stejnou kvalitu jako aktuální video.\n\nTato funkce funguje nejlépe s kvalitou videa 720p nebo nižší a při použití velmi rychlého internetového připojení.</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Obnovit staré náhledové lišty</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Náhledy se zobrazí nad vyhledávací lištou</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Náhledy se zobrazí v režimu celé obrazovky</string>
@@ -987,8 +974,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_change_start_page_entry_watch_later">Sledujte později</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
-  <string name="revanced_disable_resuming_shorts_player_title">Zakázat obnovení krátkého přehrávače</string>
-  <string name="revanced_disable_resuming_shorts_player_summary_on">Krátký přehrávač nebude pokračovat při spuštění aplikace</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Krátký přehrávač bude pokračovat při spuštění aplikace</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
@@ -1024,6 +1009,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_drag_and_drop_title">Povolit přetažení</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">Přetažení je povoleno\n\nMiniplayer může být přetažen do libovolného rohu obrazovky</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">Přetažení je zakázáno</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">Povolit horizontální přetažení</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">Povolené gesto vodorovného přetažení\n\nMinipřehrávač může být přetažen na levé nebo pravé straně obrazovky</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">Gesto vodorovného tažení je zakázáno</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Skrýt tlačítko zavření</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">Tlačítko zavřít je skryté</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">Tlačítko zavření je zobrazeno</string>

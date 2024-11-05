@@ -252,9 +252,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_section_title">Skjul kommentarfeltet</string>
   <string name="revanced_hide_comments_section_summary_on">Kommentarer seksjonen er skjult</string>
   <string name="revanced_hide_comments_section_summary_off">Kommentarer er vist</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">Skjul \"Lag en kort\"-knapp</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">\'Opprett en kort\' knapp er skjult</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">\'Opprett en kort\' knapp vises</string>
   <string name="revanced_hide_comments_preview_comment_title">Skjul forhåndsvisningskommentar</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Forhåndsvisningskommentaren er skjult</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Forhåndsvisningskommentar vises</string>
@@ -294,7 +291,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">Nøkkelord og fraser å gjemme seg; atskilt med nye linjer\n\nnøkkelord kan være kanalnavn eller tekst som vises i videotitler\n\nord med store bokstaver i midten må angis med kasus (ie: iPhone, TikTok, bland</string>
   <string name="revanced_hide_keyword_content_about_title">Om nøkkelordfiltrering</string>
-  <string name="revanced_hide_keyword_content_about_summary">Hjemme/Abonnement/Søkeresultater filtreres for å skjule innhold som matcher nøkkelordfraser\n\nBegrensninger\n• Butikker kan ikke skjules med kanalnavn\n• Noen UI komponenter kan ikke skjules\n• Ved å søke etter et nøkkelord kan det ikke være noen treff</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Sammenlign hele ord</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Å sirkulere en søkeord/frase med doble sitater vil hindre delvis treff med videotitler og kanalnavn&lt;br&gt;&lt;br&gt;For eksempel,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; vil skjule videoen: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;men vil ikke gjemme: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
@@ -757,9 +753,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Seekbar miniatyrbilder er middels høy kvalitet</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Fullskjerm søkbar miniatyrbilder er høy kvalitet</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Fullskjerm søkbar miniatyrbilder er middels kvalitet</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Dette vil gjenopprette miniatyrbilder til strømminger som ikke har miniatyrbilder.\n\nInternett-databruk kan være høyere, og søkbar miniatyrbilder vil ha litt forsinkelse før seriing.\n\nfungerer best med en veldig rask internettforbindelse.</string>
-  </patch>
-  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
   <string name="revanced_restore_old_seekbar_thumbnails_title">Gjenopprett gamle miniatyrbilder for søkefelt</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Seekbar miniatyrbilder vil vises over søkefeltet</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Seekbar miniatyrbilder vil vises i fullskjerm</string>
@@ -1003,6 +996,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_drag_and_drop_title">Aktiver dra og slipp</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">Dra og slipp er aktivert\n\nHjelperavspiller kan flyttes til et hvilken som helst hjørne av skjermen</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">Dra og slipp er deaktivert</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">Aktiver horisontal dra bevegelse</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">Horisontal dra bevegelse aktivert\n\nMiniplayer kan flyttes av skjermen til venstre eller høyre</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">Horisontal dra bevegelse deaktivert</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Skjul lukkeknapp</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">Lukk-knappen er skjult</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">Lukk-knappen vises</string>

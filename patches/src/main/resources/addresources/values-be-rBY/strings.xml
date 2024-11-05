@@ -244,9 +244,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_section_title">Схаваць раздзел каментарыяў</string>
   <string name="revanced_hide_comments_section_summary_on">Раздзел каментарыяў схаваны</string>
   <string name="revanced_hide_comments_section_summary_off">Паказваецца раздзел каментарыяў</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">Схаваць кнопку \"Стварыць кароткае відэа\"</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">Кнопка \"Стварыць кароткае відэа\" схавана</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">Паказана кнопка \"Стварыць кароткае відэа\"</string>
   <string name="revanced_hide_comments_preview_comment_title">Схаваць каментарый для папярэдняга прагляду</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Каментарый перад праглядам схаваны</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Паказваецца папярэдні прагляд каментарыя</string>
@@ -447,9 +444,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_home_button_summary_on">Кнопка \"Дадому\" схавана</string>
   <string name="revanced_hide_home_button_summary_off">Паказана кнопка \"Дадому\".</string>
   <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
-  <string name="revanced_hide_shorts_button_title">Схаваць кнопку \"Shorts\"</string>
-  <string name="revanced_hide_shorts_button_summary_on">Кнопка Shorts схавана</string>
-  <string name="revanced_hide_shorts_button_summary_off">Паказана кнопка Shorts</string>
   <!-- The Create button has no display name. Translate normally. -->
   <string name="revanced_hide_create_button_title">Схаваць Стварыць</string>
   <string name="revanced_hide_create_button_summary_on">Кнопка \"Стварыць\" схавана</string>
@@ -560,16 +554,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_hide_shorts_home_title">Схаваць шорты ў хатняй стужцы</string>
-  <string name="revanced_hide_shorts_home_summary_on">Шорты ў хатняй карме схаваныя</string>
-  <string name="revanced_hide_shorts_home_summary_off">Шорты ў хатняй стужцы паказаны</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
-  <string name="revanced_hide_shorts_subscriptions_title">Схаваць Shorts у стужцы падпісак</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Шорты ў стужцы падпіскі схаваныя</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Шорты ў стужцы падпіскі паказваюцца</string>
-  <string name="revanced_hide_shorts_search_title">Схаваць Shorts у выніках пошуку</string>
-  <string name="revanced_hide_shorts_search_summary_on">Шорты ў выніках пошуку схаваныя</string>
-  <string name="revanced_hide_shorts_search_summary_off">Шорты паказваюцца ў выніках пошуку</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Схаваць кнопку далучыцца</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Кнопка «Далучыцца» схавана</string>
@@ -705,8 +690,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_wide_searchbar_summary_off">Шырокая панэль пошуку адключана</string>
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
-  </patch>
-  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
   <string name="revanced_restore_old_seekbar_thumbnails_title">Аднавіць старыя мініяцюры панэлі пошуку</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Эскізы панэлі пошуку з\"явяцца над панэллю пошуку</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Мініяцюры панэлі пошуку з\"явяцца ў поўнаэкранным рэжыме</string>

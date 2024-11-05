@@ -769,9 +769,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Сличице на траци за премотавање су средњег квалитета</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Сличице на траци за премотавање у режиму целог екрана су високог квалитета</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Сличице на траци за премотавање у режиму целог екрана су средњег квалитета</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Ово ће вратити сличице у стримове уживо који немају сличице на траци за премотавање.\n\nПотрошња интернета може бити већа, а сличице на траци за премотавање ће имати мало кашњење пре него што се прикажу.\n\nОва функција најбоље функционише са веома брзом интернет везом.</string>
-  </patch>
-  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
   <string name="revanced_restore_old_seekbar_thumbnails_title">Врати старе сличице на траци за премотавање</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Сличице траке за премотавање ће се појавити изнад ње</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Сличице траке за премотавање ће се појавити у режиму целог екрана</string>

@@ -255,9 +255,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_section_title">Skjul kommentarsektion</string>
   <string name="revanced_hide_comments_section_summary_on">Kommentarer sektion er skjult</string>
   <string name="revanced_hide_comments_section_summary_off">Kommentarer sektion er vist</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">Skjul knappen \'Opret en kort\'</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">\'Opret en kort\'-knap er skjult</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">\'Opret en kort\'-knap vises</string>
   <string name="revanced_hide_comments_preview_comment_title">Skjul forhåndsvisning kommentar</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Forhåndsvisning kommentar er skjult</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Forhåndsvis kommentar er vist</string>
@@ -297,7 +294,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">Nøgleord og sætninger at skjule, adskilt af nye linjer\n\nSøgeord kan være kanalnavne eller enhver tekst vist i video titler\n\nOrd med store bogstaver i midten skal indtastes med casing (dvs. iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">Om søgeord filtrering</string>
-  <string name="revanced_hide_keyword_content_about_summary">Hjem/Abonnement/Søgeresultater filtreres for at skjule indhold, der matcher søgeordssætninger\n\nBegrænsninger\n• Korte kan ikke skjules ved kanalnavn\n• Nogle UI-komponenter kan ikke skjules\n• Søger efter et søgeord, kan ikke vise nogen resultater</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Match hele ord</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Omkring et nøgleord/sætning med dobbelt-citater vil forhindre partielle kampe af videotitler og kanalnavne&lt;br&gt;&lt;br&gt;For eksempel&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; vil skjule videoen: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;, men skjuler ikke: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
@@ -305,7 +301,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_toast_invalid_common">Kan ikke bruge søgeord: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Tilføj tilbud for at bruge søgeord: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_conflicting">Nøgleord har modstridende erklæringer: %s</string>
-  <string name="revanced_hide_keyword_toast_invalid_length">Nøgleord er for kort og kræver tilbud: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Nøgleord vil skjule alle videoer: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
@@ -763,9 +758,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Seekbar miniaturer er af middel kvalitet</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Fuldskærmssøgerbar miniaturer er af høj kvalitet</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Fuldskærmssøgerbar miniaturer er af middel kvalitet</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Dette vil gendanne miniaturer til livestreams, der ikke har søgelinjen miniaturebilleder.\n\nInternet dataforbrug kan være højere, og søge miniaturer vil have en lille forsinkelse, før du viser.\n\nDenne funktion fungerer bedst med en meget hurtig internetforbindelse.</string>
-  </patch>
-  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Dette vil også gendanne miniaturer på livestreams, der ikke har søgbar miniaturebilleder.\n\nSeekbar miniaturer vil bruge samme kvalitet som den aktuelle video.\n\nDenne funktion fungerer bedst med en videokvalitet på 720p eller lavere og ved brug af en meget hurtig internetforbindelse.</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Gendan gamle miniaturer på søgelinjen</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Seekbar miniaturer vises over søgelinjen</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Seekbar miniaturer vises i fuld skærm</string>
@@ -985,7 +978,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Deaktivér genoptagelse af Shorts spiller</string>
-  <string name="revanced_disable_resuming_shorts_player_summary_on">Kortspilleren vil ikke genoptage ved app-opstart</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Kortspilleren vil genoptage ved app-opstart</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
@@ -1015,6 +1007,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_drag_and_drop_title">Aktiver træk og slip</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">Træk og slip er aktiveret\n\nMiniplayer kan trækkes til ethvert hjørne af skærmen</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">Træk og slip er deaktiveret</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">Aktiver vandret træk-bevægelse</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">Vandret træk gestus aktiveret\n\nMiniplayer kan trækkes fra skærmen til venstre eller højre</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">Vandret trækbevægelse deaktiveret</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Skjul lukkeknap</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">Luk knappen er skjult</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">Luk knappen vises</string>

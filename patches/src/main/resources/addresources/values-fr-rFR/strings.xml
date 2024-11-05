@@ -769,9 +769,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Les vignettes de la barre de recherche sont de qualité moyenne</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Les vignettes de la barre de recherche plein écran sont de haute qualité</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Les vignettes de barre de recherche plein écran ont une qualité moyenne</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Cela va restaurer les miniatures des diffusions en direct n\'ayant pas de miniatures dans la barre de progression.\n\nL\'utilisation des données Internet peut être plus élevée et les miniatures de la barre de progression s\'afficheront avec un léger retard.\n\nCette fonction fonctionne mieux avec une connexion internet très rapide.</string>
-  </patch>
-  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
   <string name="revanced_restore_old_seekbar_thumbnails_title">Restaurer les anciennes miniatures de la barre de recherche</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Les vignettes de la barre de recherche apparaîtront au-dessus de la barre de recherche</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Les vignettes de la barre de recherche apparaîtront en plein écran</string>
@@ -991,7 +988,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Désactiver la reprise du joueur Shorts</string>
-  <string name="revanced_disable_resuming_shorts_player_summary_on">Le lecteur court ne reprendra pas au démarrage de l\'application</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Le lecteur court reprendra au démarrage de l\'application</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
@@ -1027,6 +1023,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_drag_and_drop_title">Activer le glisser-déposer</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">Le glisser-déposer est activé\n\nMiniplayer peut être déplacé vers n\'importe quel coin de l\'écran</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">Glisser-déposer est désactivé</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">Activer le geste de glissement horizontal</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">Geste de glissement horizontal activé\n\nMiniplayer peut être déplacé hors de l\'écran vers la gauche ou la droite</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">Geste de glissement horizontal désactivé</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Masquer le bouton de fermeture</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">Le bouton de fermeture est masqué</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">Le bouton de fermeture est affiché</string>

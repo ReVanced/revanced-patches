@@ -255,9 +255,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_section_title">Reacties sectie verbergen</string>
   <string name="revanced_hide_comments_section_summary_on">Reacties sectie is verborgen</string>
   <string name="revanced_hide_comments_section_summary_off">Reacties sectie wordt weergegeven</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">\'Maak een kort\' knop verbergen</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">\'Maak een kort\' knop is verborgen</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">De \'Maak een korting\' knop wordt weergegeven</string>
   <string name="revanced_hide_comments_preview_comment_title">Verberg commentaar op voorbeeld</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Voorbeeldcommentaar is verborgen</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Voorbeeld commentaar wordt weergegeven</string>
@@ -297,7 +294,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">Trefwoorden en zinnen te verbergen, gescheiden door nieuwe regels\n\nTrefwoorden kunnen kanaalnamen zijn of elke tekst getoond in videocategorie\n\nwoorden met hoofdletters in het midden moeten worden ingevoerd met het behuizing (bijvoorbeeld iPhone, TikTok, Lei)</string>
   <string name="revanced_hide_keyword_content_about_title">Over trefwoord filteren</string>
-  <string name="revanced_hide_keyword_content_about_summary">Thuis/Abonnement/Zoekresultaten worden gefilterd om de inhoud te verbergen die overeenkomt met trefwoordzinnen\n\nBeperkingen\n• Kortingen kunnen niet worden verborgen met kanaalnaam\n• Sommige componenten van de UI kunnen niet verborgen zijn\n• Zoeken naar een sleutelwoord kan geen resultaten laten zien</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Koppel hele woorden</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Omkeren van een trefwoord/zin met dubbele aanhalingstekens zal voorkomen dat deel-matches van videotitels en kanaalnamen&lt;br&gt;&lt;br&gt;Bijvoorbeeld,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; verbergt de video: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;maar zal deze niet verbergen: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
@@ -764,9 +760,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Zoekbalk miniaturen zijn gemiddelde kwaliteit</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Volledig scherm Zoekbalk miniaturen zijn van hoge kwaliteit</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Volledig scherm Zoekbalk miniaturen zijn gemiddelde kwaliteit</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Dit herstelt miniaturen voor livestreams die geen Zoekbalk miniaturen hebben.\n\ninternetgegevensgebruik kan hoger zijn en miniaturen in de zoekbalk zullen een lichte vertraging hebben voordat ze worden getoond.\n\nDeze functie werkt het beste met een zeer snelle internetverbinding.</string>
-  </patch>
-  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Dit zal ook miniaturen op livestreams herstellen die geen zoekbalkminiaturen hebben.\n\nZoekbar miniaturen gebruiken dezelfde kwaliteit als de huidige video.\n\nDeze functie werkt het beste met een videokwaliteit van 720p of lager en bij het gebruik van een zeer snelle internetverbinding.</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Herstel oude Zoekbalk miniaturen</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Zoekbalk miniaturen verschijnen boven de zoekbalk</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Zoekbalk miniaturen worden weergegeven op volledig scherm</string>
@@ -1016,6 +1010,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_drag_and_drop_title">Schakel slepen en neerzetten in</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">Slepen en neerzetten is ingeschakeld\n\nMiniplayer kan naar elke hoek van het scherm worden gesleept</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">Slepen en neerzetten is uitgeschakeld</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">Horizontaal slepen gebaar inschakelen</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">Horizontaal sleep gebaar ingeschakeld\n\nMiniplayer kan worden weggesleept van het scherm naar links of rechts</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontaal slepen gebaar uitgeschakeld</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Verberg sluit knop</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">Sluitknop is verborgen</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">Sluitknop wordt weergegeven</string>
