@@ -768,9 +768,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Thumbnail seekbar berkualitas sedang</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Layar penuh thumbnail seekbar berkualitas tinggi</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Layar penuh thumbnail seekbar berkualitas sedang</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Ini akan mengembalikan thumbnail ke streaming langsung yang tidak memiliki thumbnail seekbar.\n\nPenggunaan data internet mungkin lebih tinggi, dan thumbnail seekbar akan mengalami sedikit penundaan sebelum ditampilkan.\n\nFitur ini bekerja dengan baik dengan koneksi internet yang sangat cepat.</string>
-  </patch>
-  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Ini juga akan memulihkan thumbnail pada siaran langsung yang tidak memiliki thumbnail seekbar.\n\nThumbnail seekbar akan menggunakan kualitas yang sama dengan video saat ini.\n\nFitur ini berfungsi paling baik dengan kualitas video 720p atau lebih rendah dan saat menggunakan koneksi internet yang sangat cepat.</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Kembalikan thumbnail seekbar yang lama</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Thumbnail seekbar akan muncul di atas seekbar</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Thumbnail seekbar akan muncul di layar penuh</string>
@@ -1026,6 +1024,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_drag_and_drop_title">Aktifkan seret dan lepas</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">Seret dan lepas diaktifkan\n\nPemutar mini dapat diseret ke sudut mana pun di layar</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">Seret dan lepas dinonaktifkan</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">Aktifkan gerakan seret horizontal</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">Gerakan seret horizontal diaktifkan\n\nMiniplayer dapat diseret keluar layar ke kiri atau kanan</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">Gerakan seret horizontal dinonaktifkan</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Sembunyikan tombol tutup</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">Tombol tutup disembunyikan</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">Tombol tutup ditampilkan</string>

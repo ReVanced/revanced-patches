@@ -81,12 +81,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_03_feed_title">Syöte</string>
   <string name="revanced_settings_screen_04_player_title">Soitin</string>
   <string name="revanced_settings_screen_05_general_title">Yleinen asettelu</string>
+  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Liukusäädin</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Pyyhkäisyohjaus</string>
   <string name="revanced_settings_screen_11_misc_title">Sekalaiset</string>
   <string name="revanced_settings_screen_12_video_title">Video</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <string name="revanced_shorts_disable_background_playback_title">Poista Shorts taustatoisto käytöstä</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Shorts taustatoisto ei ole käytössä</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Shorts taustatoisto on käytössä</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Vianetsintä</string>
@@ -297,7 +301,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">Piilotettavia avainsanoja ja lauseita, erotettuna uusilla riveillä\n\nAvainsanat voivat olla kanavien nimiä tai videon otsikoissa\n\nSuurilla kirjaimilla varustetut sanat täytyy syöttää kotelon kanssa (esim. iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">Tietoja avainsanoilla suodatuksesta</string>
-  <string name="revanced_hide_keyword_content_about_summary">Etusivu/Tilaus / Hakutulokset suodatetaan piilottamaan sisältö, joka vastaa avainsanalauseita\n\nRajoitukset\n• Shortteja ei voi piilottaa kanavan nimellä\n• Joitakin UI-komponentteja ei välttämättä ole piilotettu\n• Haetaan hakusanalla ei ole tuloksia.</string>
+  <string name="revanced_hide_keyword_content_about_summary">Etusivu/Tilaus / Hakutulokset suodatetaan piilottamaan sisältö, joka vastaa avainsanalauseita\n\nRajoitukset\n• Shorts ei voi piilottaa kanavan nimellä\n• Joitakin UI-komponentteja ei välttämättä ole piilotettu\n• Haetaan hakusanalla ei ole tuloksia</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Täsmää koko sanaan</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Hakusanan/lauseen ympäröiminen kaksoislainauksilla estää videon oitsikoiden ja kanavien nimien osittaisia vastaavuuksia&lt;br&gt;&lt;br&gt;Esimerkiksi,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; piilottaa videon: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;mutta ei piilota: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
@@ -595,16 +599,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_shorts_player_screen_title">Shorts-soitin</string>
   <string name="revanced_shorts_player_screen_summary">Piilota tai näytä Shorts-soittimen osia</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_hide_shorts_home_title">Piilota Shortsit koti-syötteessä</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shortsit on piilotettu koti-syötteessä</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shortsit näytetään koti-syötteessä</string>
+  <string name="revanced_hide_shorts_home_title">Piilota Shorts koti-syötteessä</string>
+  <string name="revanced_hide_shorts_home_summary_on">Shorts on piilotettu koti-syötteessä</string>
+  <string name="revanced_hide_shorts_home_summary_off">Shorts näytetään koti-syötteessä</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
-  <string name="revanced_hide_shorts_subscriptions_title">Piilota Shortsit tilaukset-syötteessä</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shortsit on piilotettu tilaukset-syötteessä</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shortsit näytetään tilaukset-syötteessä</string>
+  <string name="revanced_hide_shorts_subscriptions_title">Piilota Shorts tilaukset-syötteessä</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts on piilotettu tilaukset-syötteessä</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts näytetään tilaukset-syötteessä</string>
   <string name="revanced_hide_shorts_search_title">Piilota Shortsit hakutuloksissa</string>
-  <string name="revanced_hide_shorts_search_summary_on">Shortsit on piilotettu hakutuloksissa</string>
-  <string name="revanced_hide_shorts_search_summary_off">Shortsit näytetään hakutuloksissa</string>
+  <string name="revanced_hide_shorts_search_summary_on">Shorts on piilotettu hakutuloksissa</string>
+  <string name="revanced_hide_shorts_search_summary_off">Shorts näytetään hakutuloksissa</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Piilota liity-painike</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Liity-painike on piilotettu</string>
@@ -766,9 +770,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Seekbar pikkukuvat ovat keskitasoisia</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Koko näytön seekbar pikkukuvat ovat laadukkaita</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Koko näytön seekbar pienoiskuvat ovat keskitasoisia</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Tämä palauttaa pikkukuvat livestreams, joilla ei ole seekbar pikkukuvat.\n\nInternetin datan käyttö voi olla suurempi, ja seekbar pikkukuvat on pieni viive ennen näyttämistä.\n\nTämä ominaisuus toimii parhaiten erittäin nopealla internetyhteydellä.</string>
-  </patch>
-  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Tämä myös palauttaa pikkukuvat livestreams että ei ole seekbar pikkukuvat.\n\nSeekbar pikkukuvat käyttävät samaa laatua kuin nykyinen video.\n\nTämä ominaisuus toimii parhaiten, kun videon laatu on 720p tai alempi, ja kun käytetään erittäin nopeaa internet-yhteyttä.</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Palauta vanhat liukusäätimen pikkukuvat</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Liukusäätimen pikkukuvat näkyvät liukusäätimen yläpuolella</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Liukusäätimen pikkukuvat näkyvät kokoruututilassa</string>
@@ -1024,6 +1026,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_drag_and_drop_title">Ota käyttöön vedä ja pudota</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">Vedä ja pudota on käytössä\n\nMiniplayer voidaan vetää mihin tahansa ruudun kulmaan</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">Vedä ja pudotus pois käytöstä</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">Ota käyttöön vaakasuora vedä ele</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">Vaakasuora vedä ele käytössä\n\nMiniplayer voidaan vetää pois näytön vasemmalle tai oikealle</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">Vaakasuora vedä ele pois käytöstä</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Piilota sulje painike</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">Sulje painike on piilotettu</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">Sulje painike näytetään</string>

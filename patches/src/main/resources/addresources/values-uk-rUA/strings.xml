@@ -768,9 +768,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Мініатюри панелі прогресу під час перемотування мають середню якість</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Повноекранні мініатюри під час перемотування мають високу якість</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Повноекранні мініатюри під час перемотування мають середню якість</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Це відновить мініатюри для прямих трансляцій, у яких немає мініатюр під час перемотування.\n\nВикористання Інтернет-даних може бути вищим, а мініатюри під час перемотування матимуть невелику затримку.\n\nЦя функція найкраще працює з дуже швидким підключенням до Інтернету.</string>
-  </patch>
-  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Це також відновить мініатюри в прямих трансляціях, які не мають мініатюр при перемотуванні.\n\nМініатюри при перемотуванні матимуть ту саму якість, що й поточне відео.\n\nЦя функція найкраще працює з якістю відео 720p або нижчою та при використанні дуже швидкого підключення до Інтернету.</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Відновити старі мініатюри</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Мініатюри під час перемотування показуються у мінівікні над панеллю прогресу</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Мініатюри під час перемотування показуються в повноекранному режимі</string>
@@ -1026,6 +1024,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_drag_and_drop_title">Увімкнути перетягування</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">Перетягування увімкнено\n\nМініплеєр можна перетягнути в будь-який кут екрану</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">Перетягування вимкнуто</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">Увімкнути жест горизонтального перетягування</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">Жест горизонтального перетягування увімкнено\n\nМініплеєр можна перетягнути за межі екрана вліво або вправо</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">Жест горизонтального перетягування вимкнено</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Приховати кнопку закриття</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">Кнопку закриття мініплеєру приховано</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">Кнопка закриття мініплеєру показується</string>

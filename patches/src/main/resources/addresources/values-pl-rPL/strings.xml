@@ -255,9 +255,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_section_title">Ukryj sekcję komentarzy</string>
   <string name="revanced_hide_comments_section_summary_on">Sekcja komentarzy jest ukryta</string>
   <string name="revanced_hide_comments_section_summary_off">Sekcja komentarzy jest wyświetlana</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">Ukryj przycisk \'Utwórz krótki\'</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">Przycisk \'Utwórz krótki\' jest ukryty</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">Przycisk \'Utwórz krótki\' jest pokazany</string>
   <string name="revanced_hide_comments_preview_comment_title">Ukryj podgląd komentarza</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Podgląd komentarza jest ukryty</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Podgląd komentarza jest wyświetlany</string>
@@ -297,7 +294,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">Słowa kluczowe i frazy do ukrycia, oddzielone nowymi wierszami\n\nSłowa kluczowe mogą być nazwami kanałów lub dowolnymi tekstami pokazanymi w tytułach wideo\n\nSłowa z wielkimi literami w środku muszą być wpisane z obudową (np. iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">O filtrowaniu słów kluczowych</string>
-  <string name="revanced_hide_keyword_content_about_summary">Wyniki strony głównej/Subskrypcji/Wyszukiwarki są filtrowane w celu ukrycia treści pasującej do słów kluczowych\n\nOgraniczenia\n• Skróty nie mogą być ukryte przez nazwę kanału\n• Niektóre komponenty interfejsu użytkownika nie mogą być ukryte\n• Wyszukiwanie słowa kluczowego może nie pokazywać wyników</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Dopasuj całe słowa</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Otwarcie słowa kluczowego/frazy podwójnymi cudzysłowami uniemożliwi częściowe dopasowanie tytułów wideo i nazw kanałów&lt;br&gt;&lt;br&gt;Na przykład,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; ukryje wideo: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;ale nie ukry: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
@@ -763,9 +759,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Miniatury paska wyszukiwania są średniej jakości</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Miniatury paska paska paska pełnoekranowego są wysokiej jakości</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Miniaturki paska paska paska pełnoekranowego są średniej jakości</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Spowoduje to przywracanie miniatur na żywo które nie ma miniatur.\n\nkorzystanie z danych w Internecie może być wyższe, a miniatury na pasku nawigacji będą miały niewielkie opóźnienie przed wyświetleniem.\n\nTa funkcja działa najlepiej z bardzo szybkim połączeniem internetowym.</string>
-  </patch>
-  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Spowoduje to również przywrócenie miniatur na zwierzętach, które nie mają miniatur paska wyszukiwania.\n\nMiniaturki paska wyszukiwania będą miały taką samą jakość jak bieżący film.\n\nTa funkcja działa najlepiej z jakością wideo 720p lub niższą oraz przy użyciu bardzo szybkiego połączenia internetowego.</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Przywróć stare miniatury paska nawigacji</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Miniatury paska wyszukiwania pojawią się nad paskiem wyszukiwania</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Miniaturki paska wyszukiwania pojawią się na pełnym ekranie</string>
@@ -1015,6 +1009,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_drag_and_drop_title">Włącz przeciągnij i upuść</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">Przeciągnij i upuść jest włączone\n\nMiniplayer może być przeciągnięty do dowolnego rogu ekranu</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">Przeciągnij i upuść jest wyłączona</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">Włącz gest przeciągania poziomego</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">Gest przeciągania w poziomie włączony\n\nMiniplayer może być przesunięty z ekranu w lewo lub w prawo</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">Gest przeciągania w poziomie wyłączony</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Ukryj przycisk zamykania</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">Przycisk zamykający jest ukryty</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">Przycisk zamykający jest pokazany</string>

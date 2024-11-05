@@ -593,16 +593,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_shorts_player_screen_title">Shortsプレイヤー</string>
   <string name="revanced_shorts_player_screen_summary">Shorts プレーヤーのコンポーネントを非表示または表示</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_hide_shorts_home_title">ホームフィードにショートパンツを隠す</string>
-  <string name="revanced_hide_shorts_home_summary_on">ホームフィード内のショートパンツが表示されません</string>
-  <string name="revanced_hide_shorts_home_summary_off">ホームフィードに短縮形が表示されます</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
-  <string name="revanced_hide_shorts_subscriptions_title">サブスクリプションフィード内のショーツを非表示</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">サブスクリプションフィードのショートパンツは非表示です</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">サブスクリプションフィードの短縮形が表示されます</string>
-  <string name="revanced_hide_shorts_search_title">検索結果にショーツを隠す</string>
-  <string name="revanced_hide_shorts_search_summary_on">検索結果の短縮形は非表示です</string>
-  <string name="revanced_hide_shorts_search_summary_off">検索結果の短縮形が表示されます</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">参加ボタンを隠す</string>
   <string name="revanced_hide_shorts_join_button_summary_on">結合ボタンは非表示です</string>
@@ -764,8 +755,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">シークバーのサムネイルの品質は中程度です</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">全画面表示のサムネイルの画質が高い</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">全画面表示のサムネイルの品質は中程度です</string>
-  </patch>
-  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
   <string name="revanced_restore_old_seekbar_thumbnails_title">古いシークバーのサムネイルを復元</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">シークバーのサムネイルがシークバーの上に表示されます</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">シークバーのサムネイルが全画面表示されます</string>
@@ -1016,6 +1005,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_drag_and_drop_title">ドラッグ＆ドロップを有効にする</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">ドラッグ＆ドロップが有効です\n\nミニプレーヤーは画面の隅にドラッグできます</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">ドラッグ＆ドロップは無効です</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">水平ドラッグジェスチャーを有効にする</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">水平ドラッグジェスチャーを有効にした\n\nミニプレーヤーは画面の左右にドラッグできます</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">水平ドラッグジェスチャーが無効になっています</string>
   <string name="revanced_miniplayer_hide_expand_close_title">閉じるボタンを隠す</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">閉じるボタンは非表示です</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">閉じるボタンが表示されます</string>

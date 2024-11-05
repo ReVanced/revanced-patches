@@ -272,8 +272,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">타임스탬프 &amp; 이모지 버튼이 표시됩니다</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">YouTube Doodles 숨기기</string>
-  <string name="revanced_hide_doodles_summary_on">YouTube Doodles가 숨겨집니다\n• 이벤트성 YouTube 헤더</string>
-  <string name="revanced_hide_doodles_summary_off">YouTube Doodles가 표시됩니다\n• 이벤트성 YouTube 헤더</string>
+  <string name="revanced_hide_doodles_summary_on">YouTube Doodles가 숨겨집니다\n• Doodles: 기념일 로고 헤더</string>
+  <string name="revanced_hide_doodles_summary_off">YouTube Doodles가 표시됩니다\n• Doodles: 기념일 로고 헤더</string>
   <string name="revanced_hide_doodles_user_dialog_message">YouTube Doodles는 공휴일이나 기념일 등, 그날에 맞춘 디자인으로 변경되는 왼쪽 상단의 YouTube 헤더를 말합니다\n\n현재 거주하는 지역에서 YouTube Doodles가 표시되어 있는데 이 설정이 활성화되어 있는 경우에는 검색창 아래에 표시되는 카테고리 바도 숨겨집니다</string>
   <string name="revanced_custom_filter_screen_title">사용자 정의 필터</string>
   <string name="revanced_custom_filter_screen_summary">사용자 정의 필터를 사용하여 구성요소를 숨길 수 있습니다</string>
@@ -769,9 +769,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">재생바 썸네일이 일반 화질입니다</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">전체 화면 재생바 썸네일이 고화질입니다</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">전체 화면 재생바 썸네일이 일반화질입니다</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">이 설정을 활성화하면 재생바 썸네일이 없는 실시간 스트림에서 썸네일이 복원됩니다\n\n재생바 썸네일이 표시되기 전에 약간의 지연이 발생하고, 더 많은 모바일 데이터가 사용되오니 주의하세요\n\n이 설정은 인터넷 연결이 매우 좋을 때 가장 잘 작동합니다</string>
-  </patch>
-  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">이 설정을 활성화하면 재생바 썸네일이 없는 실시간 스트림의 썸네일도 복원됩니다\n\n재생바 썸네일에는 현재 동영상과 동일한 화질 값이 사용됩니다\n\n이 설정은 동영상 화질 값이 720p 이하이고 인터넷 연결 상태가 매우 빠를 때 가장 잘 작동합니다</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">이전 재생바 썸네일 복원하기</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">재생바 상단에서 최소화된 썸네일을 표시합니다</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">플레이어에서 전체 화면으로 된 썸네일을 표시합니다</string>
@@ -1027,6 +1025,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_drag_and_drop_title">드래그 &amp; 드롭 활성화하기</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">드래그 &amp; 드롭을 활성화합니다\n\n• 미니 플레이어를 화면의 어느 곳이든 드래그할 수 있습니다</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">드래그 &amp; 드롭을 비활성화합니다</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">수평 드래그 제스처 활성화하기</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">수평 드래그 제스처를 활성화합니다\n\n미니 플레이어를 화면에서 왼쪽 또는 오른쪽으로 드래그할 수 있습니다</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">수평 드래그 제스처를 비활성화합니다</string>
   <string name="revanced_miniplayer_hide_expand_close_title">닫기 버튼 숨기기</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">닫기 버튼이 숨겨집니다</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">닫기 버튼이 표시됩니다</string>

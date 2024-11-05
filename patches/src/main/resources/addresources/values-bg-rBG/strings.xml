@@ -470,9 +470,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_home_button_summary_on">Бутона за начало е скрит</string>
   <string name="revanced_hide_home_button_summary_off">Бутона за начало се показва</string>
   <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
-  <string name="revanced_hide_shorts_button_title">Бутон за Кратки клипове</string>
-  <string name="revanced_hide_shorts_button_summary_on">Бутона за кратки клипове е скрит</string>
-  <string name="revanced_hide_shorts_button_summary_off">Бутона за кратки клипове се показва</string>
+  <string name="revanced_hide_shorts_button_title">Скриване на Shorts</string>
+  <string name="revanced_hide_shorts_button_summary_on">Бутонът Shorts е скрит</string>
+  <string name="revanced_hide_shorts_button_summary_off">Показан е бутон Shorts</string>
   <!-- The Create button has no display name. Translate normally. -->
   <string name="revanced_hide_create_button_title">Бутон за създаване на клип</string>
   <string name="revanced_hide_create_button_summary_on">Бутонът за създаване е скрит</string>
@@ -749,8 +749,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_wide_searchbar_summary_off">Широката лента за търсене е изключена</string>
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
-  </patch>
-  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
   <string name="revanced_restore_old_seekbar_thumbnails_title">Стари миниатюри на времевата линия</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Над лентата за възпроизвеждане се появяват миниатюри</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Миниатюрите се показват в режим на цял екран</string>

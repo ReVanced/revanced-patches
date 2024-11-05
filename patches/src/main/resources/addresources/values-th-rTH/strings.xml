@@ -157,8 +157,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
   </patch>
-  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
-  </patch>
   <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
   <string name="revanced_sb_enable_sb">เปิดใช้งาน SponsorBlock</string>
   <string name="revanced_sb_enable_sb_sum">SponsorBlock เป็นระบบที่ใครๆก็เข้าถึงได้ ใช้สำหรับการข้ามส่วนต่างๆของวิดีโอที่คุณไม่ต้องการ</string>
