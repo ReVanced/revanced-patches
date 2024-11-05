@@ -1,3 +1,5 @@
+@file:Suppress("SpellCheckingInspection")
+
 package app.revanced.patches.youtube.layout.miniplayer
 
 import app.revanced.patcher.fingerprint
@@ -33,16 +35,14 @@ internal val miniplayerModernCloseButtonFingerprint = fingerprint {
     literal { modernMiniplayerClose }
 }
 
-const val MODERN_FEATURE_FLAGS_ENABLED_KEY_LITERAL = 45622882L
-
+internal const val MINIPLAYER_MODERN_FEATURE_KEY = 45622882L
 // In later targets this feature flag does nothing and is dead code.
-const val MODERN_MINIPLAYER_ENABLED_OLD_TARGETS_FEATURE_KEY = 45630429L
-const val DOUBLE_TAP_ENABLED_FEATURE_KEY_LITERAL = 45628823L
-const val DRAG_DROP_ENABLED_FEATURE_KEY_LITERAL = 45628752L
-const val INITIAL_SIZE_FEATURE_KEY_LITERAL = 45640023L
-const val ANIMATION_INTERPOLATION_FEATURE_KEY = 45647018L
-const val DROP_SHADOW_FEATURE_KEY = 45652223L
-const val ROUNDED_CORNERS_FEATURE_KEY = 45652224L
+internal const val MINIPLAYER_MODERN_FEATURE_LEGACY_KEY = 45630429L
+internal const val MINIPLAYER_DOUBLE_TAP_FEATURE_KEY = 45628823L
+internal const val MINIPLAYER_DRAG_DROP_FEATURE_KEY = 45628752L
+internal const val MINIPLAYER_HORIZONTAL_DRAG_FEATURE_KEY = 45658112L
+internal const val MINIPLAYER_ROUNDED_CORNERS_FEATURE_KEY = 45652224L
+internal const val MINIPLAYER_INITIAL_SIZE_FEATURE_KEY = 45640023L
 
 internal val miniplayerModernConstructorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)

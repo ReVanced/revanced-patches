@@ -122,6 +122,9 @@ public final class MiniplayerPatch {
     private static final boolean MINIPLAYER_ROUNDED_CORNERS_ENABLED =
             Settings.MINIPLAYER_ROUNDED_CORNERS.get();
 
+    private static final boolean MINIPLAYER_HORIZONTAL_DRAG_ENABLED =
+            DRAG_AND_DROP_ENABLED && Settings.MINIPLAYER_HORIZONTAL_DRAG.get();
+
     /**
      * Remove a broken and always present subtitle text that is only
      * present with {@link MiniplayerType#MODERN_2}. Bug was fixed in 19.21.
@@ -130,6 +133,13 @@ public final class MiniplayerPatch {
             CURRENT_TYPE == MODERN_2 && !IS_19_21_OR_GREATER;
 
     private static final int OPACITY_LEVEL;
+
+    public static final class MiniplayerHorizontalDragAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            return Settings.MINIPLAYER_TYPE.get().isModern() && Settings.MINIPLAYER_DRAG_AND_DROP.get();
+        }
+    }
 
     public static final class MiniplayerHideExpandCloseAvailability implements Setting.Availability {
         @Override
@@ -248,21 +258,15 @@ public final class MiniplayerPatch {
         return original;
     }
 
-    /**
-     * Injection point.
-     */
-    public static float setMovementBoundFactor(float original) {
-        // Not clear if customizing this is useful or not.
-        // So for now just log this and use the original value.
-        if (original != 1.0) Logger.printDebug(() -> "setMovementBoundFactor original: " + original);
-
-        return original;
-    }
 
     /**
      * Injection point.
      */
-    public static boolean setDropShadow(boolean original) {
+    public static boolean setHorizontalDrag(boolean original) {
+        if (CURRENT_TYPE.isModern()) {
+            return MINIPLAYER_HORIZONTAL_DRAG_ENABLED;
+        }
+
         return original;
     }
 

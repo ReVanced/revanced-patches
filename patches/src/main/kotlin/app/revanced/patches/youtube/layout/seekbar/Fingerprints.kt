@@ -34,7 +34,7 @@ internal val shortsSeekbarColorFingerprint = fingerprint {
     literal { reelTimeBarPlayedColorId }
 }
 
-const val PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG = 45617850L
+internal const val PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG = 45617850L
 
 internal val playerSeekbarGradientConfigFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
