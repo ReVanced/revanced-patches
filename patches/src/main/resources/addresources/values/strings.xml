@@ -777,9 +777,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Seekbar thumbnails are medium quality</string>
             <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Fullscreen seekbar thumbnails are high quality</string>
             <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Fullscreen seekbar thumbnails are medium quality</string>
-            <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">This will restore thumbnails to livestreams that do not have seekbar thumbnails.\n\nInternet data usage may be higher, and seekbar thumbnails will have a slight delay before showing.\n\nThis feature works best with a very fast internet connection.</string>
-        </patch>
-        <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
+            <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">This will also restore thumbnails on livestreams that do not have seekbar thumbnails.\n\nSeekbar thumbnails will use the same quality as the current video.\n\nThis feature works best with a video quality of 720p or lower and when using a very fast internet connection.</string>
             <string name="revanced_restore_old_seekbar_thumbnails_title">Restore old seekbar thumbnails</string>
             <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Seekbar thumbnails will appear above the seekbar</string>
             <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Seekbar thumbnails will appear in fullscreen</string>
