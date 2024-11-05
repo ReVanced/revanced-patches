@@ -683,8 +683,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_wide_searchbar_summary_off">প্রশস্ত অনুসন্ধান বার নিষ্ক্রিয় হয়েছে</string>
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
-  </patch>
-  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
   <string name="revanced_restore_old_seekbar_thumbnails_title">পুরোনো সিকবার থাম্বনেইল পুনরুদ্ধার করুন</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">সিকবার এর উপরে সিকবার থাম্বনেইল দেখানো হবে</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">পূর্ণস্ক্রীণে সিকবার থাম্বনেইল দেখানো হবে</string>

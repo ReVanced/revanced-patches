@@ -762,9 +762,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">搜索栏缩略图为中等质量</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">全屏寻找缩略图质量高</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">全屏寻找缩略图为中等质量</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">这将把缩略图恢复到没有搜索缩略图的生活树。\n\n互联网数据使用率可能更高，搜索条缩略图显示前稍有延迟。\n\n此功能最适合于很快的互联网连接。</string>
-  </patch>
-  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
   <string name="revanced_restore_old_seekbar_thumbnails_title">恢复旧的搜索栏缩略图</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">搜索栏缩略图将出现在搜索栏上</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">搜索栏缩略图将显示在全屏显示</string>
@@ -982,8 +979,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_change_start_page_entry_watch_later">稍后查看</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
-  <string name="revanced_disable_resuming_shorts_player_title">禁用恢复快捷播放器</string>
-  <string name="revanced_disable_resuming_shorts_player_summary_on">应用启动时短暂播放器将不会恢复</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">应用启动时短暂播放器将恢复</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
@@ -1013,6 +1008,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_drag_and_drop_title">启用拖放功能</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">拖放已启用\n\n迷你播放器可以拖动到屏幕的任何角</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">拖放已禁用</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">启用水平拖动手势</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">水平拖动手势启用\n\n迷你玩家可以从屏幕上拖动到左边或右边。</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">水平拖动手势已禁用</string>
   <string name="revanced_miniplayer_hide_expand_close_title">隐藏关闭按钮</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">关闭按钮已隐藏</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">显示关闭按钮</string>

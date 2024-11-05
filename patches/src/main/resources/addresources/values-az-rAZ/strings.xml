@@ -768,9 +768,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Axtarış çubuğu miniatürləri orta keyfiyyətlidir</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Tam ekran axtarış çubuğu miniatürləri yüksək keyfiyyətlidir</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Tam ekran axtarış çubuğu miniatürləri orta keyfiyyətlidir</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Bu, axtarış çubuğu miniatürləri olmayan canlı yayımların miniatürlərin bərpa edəcək.\n\nİnternet məlumat istifadəsi daha çox ola bilər və axtarış çubuğu miniatürləri göstərilməzdən əvvəl azca gecikmə olacaq.\n\nBu xüsusiyyət çox sürətli internet bağlantısı ilə yaxşı işləyir.</string>
-  </patch>
-  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Bu, həm də axtarış cizgisi üzrə miniatürləri olmayan canlı yayımlarda miniatürləri qaytaracaq.\n\nAxtarış cizgisi miniatürləri, cari video kimi eyni keyfiyyəti işlədəcək.\n\nBu xüsusiyyət, 720p və ya daha aşağı video keyfiyyəti və çox sürətli internet bağlantısı istifadə edərkən daha yaxşı işləyir.</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Köhnə axtarış çubuğu miniatürlərin al</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Axtarış çubuğu miniatürləri axtarış çubuğu üstündə görünəcək</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Axtarış çubuğu miniatürləri tam ekranda görünəcək</string>
@@ -1026,6 +1024,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_drag_and_drop_title">\"Sürüklə və burax\"ı aktivləşdir</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">\"Sürüklə və burax\" aktivdir\n\nMini oynadıcı, ekranın istənilən küncünə sürüklənə bilər</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">\"Sürüklə və burax\" aktiv deyil</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">Üfüqi sürükləmə jestini aktivləşdir</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">Üfüqi sürükləmə jesti aktivdir\n\nKiçik Oynadıcı ekranın soluna və ya sağına sürüklənə bilər</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">Üfüqi sürükləmə jesti qapatıldı</string>
   <string name="revanced_miniplayer_hide_expand_close_title">\"Bağla\" düyməsini gizlət</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">\"Bağla\" düyməsi gizlidir</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">\"Bağla\" düyməsi göstərilir</string>

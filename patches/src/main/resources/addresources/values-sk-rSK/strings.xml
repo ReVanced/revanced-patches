@@ -238,9 +238,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_section_title">Skryť sekciu komentárov</string>
   <string name="revanced_hide_comments_section_summary_on">Sekcia komentárov je skrytá</string>
   <string name="revanced_hide_comments_section_summary_off">Zobrazí sa sekcia komentárov</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">Skryť tlačidlo \"Vytvoriť krátke\"</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">Tlačidlo \"Vytvoriť krátke\" je skryté</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">Zobrazí sa tlačidlo \"Vytvoriť krátke\"</string>
   <string name="revanced_hide_comments_preview_comment_title">Skryť ukážkový komentár</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Komentár ukážky je skrytý</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Zobrazí sa ukážka komentára</string>
@@ -698,8 +695,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_wide_searchbar_summary_off">Široký panel vyhľadávania je vypnutý</string>
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
-  </patch>
-  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
   <string name="revanced_restore_old_seekbar_thumbnails_title">Obnovte staré miniatúry vyhľadávacieho panela</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Miniatúry panela vyhľadávania sa zobrazia nad panelom vyhľadávania</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Miniatúry panela vyhľadávania sa zobrazia na celej obrazovke</string>

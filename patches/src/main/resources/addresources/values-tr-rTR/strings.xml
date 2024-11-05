@@ -768,9 +768,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Zaman çubuğu küçük resimleri orta kalitede</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Tam ekran zaman çubuğu küçük resimleri yüksek kalitede</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Tam ekran zaman çubuğu küçük resimleri orta kalitede</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Bu, zaman çubuğu küçük resimleri olmayan canlı yayınlar için küçük resimleri geri getirecektir.\n\nİnternet veri kullanımı daha yüksek olabilir ve zaman çubuğu küçük resimleri gözükmeden önce küçük bir gecikme olabilir.\n\nBu özellik çok hızlı bir internet bağlantısında en iyi şekilde çalışır.</string>
-  </patch>
-  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
   <string name="revanced_restore_old_seekbar_thumbnails_title">Eski zaman çubuğu küçük resimlerini geri getir</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Zaman çubuğu küçük resimleri zaman çubuğunun üzerinde görünecek</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Zaman çubuğu küçük resimleri tam ekran olarak gösterilecek</string>

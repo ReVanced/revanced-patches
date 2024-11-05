@@ -237,9 +237,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_section_title">Itago ang seksyon ng mga komento</string>
   <string name="revanced_hide_comments_section_summary_on">Nakatago ang seksyon ng mga komento</string>
   <string name="revanced_hide_comments_section_summary_off">Ipinapakita ang seksyon ng mga komento</string>
-  <string name="revanced_hide_comments_create_a_short_button_title">Itago ang pindutang \"Gumawa ng Maikling\"</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_on">Nakatago ang pindutang \"Gumawa ng Maikling\"</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">Ipinapakita ang pindutang \"Gumawa ng Maikling\"</string>
   <string name="revanced_hide_comments_preview_comment_title">Itago ang preview na komento</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Nakatago ang preview ng komento</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Ang pag-preview ng komento ay ipinapakita</string>
@@ -439,7 +436,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_home_button_summary_on">Nakatago ang home button</string>
   <string name="revanced_hide_home_button_summary_off">Ipinapakita ang home button</string>
   <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
-  <string name="revanced_hide_shorts_button_title">Itago ang Shorts</string>
   <string name="revanced_hide_shorts_button_summary_on">Nakatago ang pindutan sa Shorts</string>
   <string name="revanced_hide_shorts_button_summary_off">Nakikita ang Shorts button</string>
   <!-- The Create button has no display name. Translate normally. -->
@@ -553,15 +549,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Itago ang Shorts sa home feed</string>
-  <string name="revanced_hide_shorts_home_summary_on">Nakatago ang shorts sa home feed</string>
-  <string name="revanced_hide_shorts_home_summary_off">Ipinapakita ang shorts sa home feed</string>
+  <string name="revanced_hide_shorts_home_summary_on">Nakatago ang Shorts sa home feed</string>
+  <string name="revanced_hide_shorts_home_summary_off">Ipinapakita ang Shorts sa home feed</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Itago ang Shorts sa feed ng subscription</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Nakatago ang mga shorts sa feed ng subscription</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Ipinapakita ang mga shorts sa feed ng subscription</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Nakatago ang mga Shorts sa feed ng subscription</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Ipinapakita ang mga Shorts sa feed ng subscription</string>
   <string name="revanced_hide_shorts_search_title">Itago ang Shorts sa mga resulta ng paghahanap</string>
-  <string name="revanced_hide_shorts_search_summary_on">Nakatago ang mga shorts sa mga resulta ng paghahanap</string>
-  <string name="revanced_hide_shorts_search_summary_off">Ang mga shorts sa mga resulta ng paghahanap ay ipinapakita</string>
+  <string name="revanced_hide_shorts_search_summary_on">Nakatago ang mga Shorts sa mga resulta ng paghahanap</string>
+  <string name="revanced_hide_shorts_search_summary_off">Ang mga Shorts sa mga resulta ng paghahanap ay ipinapakita</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_title">Itago ang button na sumali</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Nakatago ang button na sumali</string>
@@ -697,8 +693,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_wide_searchbar_summary_off">Naka-disable ang malawak na search bar</string>
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
-  </patch>
-  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
   <string name="revanced_restore_old_seekbar_thumbnails_title">Ibalik ang mga lumang thumbnail ng seekbar</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Lalabas ang mga thumbnail ng Seekbar sa itaas ng seekbar</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Lalabas ang mga thumbnail ng Seekbar sa fullscreen</string>
@@ -899,7 +893,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Huwag paganahin ang pagpapatuloy na manlalaro ng Shorts</string>
-  <string name="revanced_disable_resuming_shorts_player_summary_on">Hindi magpapatuloy ang shorts player sa pagsisimula ng app</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_on">Hindi magpapatuloy ang Shorts player sa pagsisimula ng app</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Magpapatuloy ang manlalaro ng shorts sa pagsisimula ng app</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">

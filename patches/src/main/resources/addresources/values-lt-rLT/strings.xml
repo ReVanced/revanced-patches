@@ -160,8 +160,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
   </patch>
-  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
-  </patch>
   <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->

@@ -769,9 +769,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Миниатюры прогресса воспроизведения среднего качества</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Полноэкранные миниатюры прогресса воспроизведения высокого качества</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Полноэкранные миниатюры прогресса воспроизведения среднего качества</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Это действие восстановит миниатюры для прямых трансляций, у которых нет миниатюр прогресса воспроизведения.\n\nИспользование интернет-данных может быть выше, а миниатюры прогресса воспроизведения будут отображаться с небольшой задержкой.\n\nЭта опция работает лучше всего с очень быстрым интернет-соединением.</string>
-  </patch>
-  <patch id="layout.seekbar.restoreOldSeekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Данная опция также восстановит миниатюры в прямых трансляциях, у которых они отсутствуют в прогрессе воспроизведения.\n\nМиниатюры прогресса воспроизведения будут использовать такое же качество, как и текущее видео.\n\nДанная опция работает лучше с качеством видео 720p или ниже, и при использовании очень быстрого подключения к Интернету.</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Восстановление старых миниатюр</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Старые миниатюры восстановлены - миниатюры прогресса воспроизведения отображаются над ним</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Миниатюры прогресса воспроизведения отображаются в полноэкранном режиме</string>
@@ -1027,6 +1025,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_drag_and_drop_title">Перетаскивание</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">Перетаскивание включено\n\nМини-плеер можно перетащить в любой угол экрана</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">Перетаскивание отключено</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">Жест горизонтального перетаскивания</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">Жест горизонтального перетаскивания включен\n\nМини-плеер можно перетаскивать за пределы экрана влево или вправо</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">Жест горизонтального перетаскивания отключен</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Кнопка закрытия</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">Кнопка закрытия скрыта</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">Кнопка закрытия отображена</string>
