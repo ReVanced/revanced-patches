@@ -1,3 +1,5 @@
+@file:Suppress("SpellCheckingInspection")
+
 package app.revanced.patches.youtube.layout.miniplayer
 
 import app.revanced.patcher.Match
@@ -204,6 +206,10 @@ val miniplayerPatch = bytecodePatch(
                 preferences += SwitchPreference("revanced_miniplayer_drag_and_drop")
             }
 
+            if (is_19_43_or_greater) {
+                preferences += SwitchPreference("revanced_miniplayer_horizontal_drag")
+            }
+
             if (is_19_36_or_greater) {
                 preferences += SwitchPreference("revanced_miniplayer_rounded_corners")
             }
@@ -291,7 +297,7 @@ val miniplayerPatch = bytecodePatch(
                 addInstructions(
                     targetIndex + 1,
                     """
-                        invoke-static {v$register}, $EXTENSION_CLASS_DESCRIPTOR->$extensionMethod(F)F
+                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->$extensionMethod(F)F
                         move-result v$register
                     """,
                 )
@@ -302,13 +308,13 @@ val miniplayerPatch = bytecodePatch(
          * Adds an override to specify which modern miniplayer is used.
          */
         fun MutableMethod.insertModernMiniplayerTypeOverride(iPutIndex: Int) {
-            val targetInstruction = getInstruction<TwoRegisterInstruction>(iPutIndex)
+            val register = getInstruction<TwoRegisterInstruction>(iPutIndex).registerA
 
             addInstructionsAtControlFlowLabel(
                 iPutIndex,
                 """
-                    invoke-static { v${targetInstruction.registerA} }, $EXTENSION_CLASS_DESCRIPTOR->getModernMiniplayerOverrideType(I)I
-                    move-result v${targetInstruction.registerA}
+                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getModernMiniplayerOverrideType(I)I
+                    move-result v$register
                 """,
             )
         }
@@ -378,24 +384,31 @@ val miniplayerPatch = bytecodePatch(
 
         if (is_19_23_or_greater) {
             miniplayerModernConstructorMatch.insertLiteralValueBooleanOverride(
-                DRAG_DROP_ENABLED_FEATURE_KEY_LITERAL,
+                MINIPLAYER_DRAG_DROP_FEATURE_KEY,
                 "enableMiniplayerDragAndDrop",
+            )
+        }
+
+        if (is_19_43_or_greater) {
+            miniplayerModernConstructorMatch.insertLiteralValueBooleanOverride(
+                MINIPLAYER_HORIZONTAL_DRAG_FEATURE_KEY,
+                "setHorizontalDrag",
             )
         }
 
         if (is_19_25_or_greater) {
             miniplayerModernConstructorMatch.insertLiteralValueBooleanOverride(
-                MODERN_MINIPLAYER_ENABLED_OLD_TARGETS_FEATURE_KEY,
+                MINIPLAYER_MODERN_FEATURE_LEGACY_KEY,
                 "getModernMiniplayerOverride",
             )
 
             miniplayerModernConstructorMatch.insertLiteralValueBooleanOverride(
-                MODERN_FEATURE_FLAGS_ENABLED_KEY_LITERAL,
+                MINIPLAYER_MODERN_FEATURE_KEY,
                 "getModernFeatureFlagsActiveOverride",
             )
 
             miniplayerModernConstructorMatch.insertLiteralValueBooleanOverride(
-                DOUBLE_TAP_ENABLED_FEATURE_KEY_LITERAL,
+                MINIPLAYER_DOUBLE_TAP_FEATURE_KEY,
                 "enableMiniplayerDoubleTapAction",
             )
         }
@@ -403,7 +416,7 @@ val miniplayerPatch = bytecodePatch(
         if (is_19_26_or_greater) {
             miniplayerModernConstructorMatch.mutableMethod.apply {
                 val literalIndex = indexOfFirstLiteralInstructionOrThrow(
-                    INITIAL_SIZE_FEATURE_KEY_LITERAL,
+                    MINIPLAYER_INITIAL_SIZE_FEATURE_KEY,
                 )
                 val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.LONG_TO_INT)
 
@@ -418,7 +431,7 @@ val miniplayerPatch = bytecodePatch(
                 )
             }
 
-            // Override a mininimum miniplayer size constant.
+            // Override a minimum size constant.
             miniplayerMinimumSizeMatch.mutableMethod.apply {
                 val index = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.CONST_16 && (this as NarrowLiteralInstruction).narrowLiteral == 192
@@ -432,22 +445,9 @@ val miniplayerPatch = bytecodePatch(
             }
         }
 
-        if (is_19_32_or_greater) {
-            // Feature is not exposed in the settings, and currently only for debugging.
-            miniplayerModernConstructorMatch.insertLiteralValueFloatOverride(
-                ANIMATION_INTERPOLATION_FEATURE_KEY,
-                "setMovementBoundFactor",
-            )
-        }
-
         if (is_19_36_or_greater) {
             miniplayerModernConstructorMatch.insertLiteralValueBooleanOverride(
-                DROP_SHADOW_FEATURE_KEY,
-                "setDropShadow",
-            )
-
-            miniplayerModernConstructorMatch.insertLiteralValueBooleanOverride(
-                ROUNDED_CORNERS_FEATURE_KEY,
+                MINIPLAYER_ROUNDED_CORNERS_FEATURE_KEY,
                 "setRoundedCorners",
             )
         }
@@ -551,9 +551,9 @@ val miniplayerPatch = bytecodePatch(
                         invoke-super { p0, p1, p2, p3 }, Landroid/view/ViewGroup;->addView(Landroid/view/View;ILandroid/view/ViewGroup${'$'}LayoutParams;)V
                         invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->playerOverlayGroupCreated(Landroid/view/View;)V
                         return-void
-                    """,
+                    """
                 )
-            },
+            }
         )
 
         // endregion
