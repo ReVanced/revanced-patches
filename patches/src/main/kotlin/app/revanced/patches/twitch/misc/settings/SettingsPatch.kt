@@ -1,6 +1,6 @@
 package app.revanced.patches.twitch.misc.settings
 
-import app.revanced.patcher.Match
+import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -55,11 +55,6 @@ val settingsPatch = bytecodePatch(
         ),
     )
 
-    val settingsActivityOnCreateMatch by settingsActivityOnCreateFingerprint()
-    val settingsMenuItemEnumMatch by settingsMenuItemEnumFingerprint()
-    val menuGroupsUpdatedMatch by menuGroupsUpdatedFingerprint()
-    val menuGroupsOnClickMatch by menuGroupsOnClickFingerprint()
-
     execute {
         addResources("twitch", "misc.settings.settingsPatch")
 
@@ -78,8 +73,8 @@ val settingsPatch = bytecodePatch(
         )
 
         // Hook onCreate to handle fragment creation.
-        val insertIndex = settingsActivityOnCreateMatch.mutableMethod.implementation!!.instructions.size - 2
-        settingsActivityOnCreateMatch.mutableMethod.addInstructionsWithLabels(
+        val insertIndex = settingsActivityOnCreateFingerprint.method.implementation!!.instructions.size - 2
+        settingsActivityOnCreateFingerprint.method.addInstructionsWithLabels(
             insertIndex,
             """
                 invoke-static { p0 }, $ACTIVITY_HOOKS_CLASS_DESCRIPTOR->handleSettingsCreation(Landroidx/appcompat/app/AppCompatActivity;)Z
@@ -89,21 +84,21 @@ val settingsPatch = bytecodePatch(
             """,
             ExternalLabel(
                 "no_rv_settings_init",
-                settingsActivityOnCreateMatch.mutableMethod.getInstruction(insertIndex),
+                settingsActivityOnCreateFingerprint.method.getInstruction(insertIndex),
             ),
         )
 
         // Create new menu item for settings menu.
-        fun Match.injectMenuItem(
+        fun Fingerprint.injectMenuItem(
             name: String,
             value: Int,
             titleResourceName: String,
             iconResourceName: String,
         ) {
             // Add new static enum member field
-            mutableClass.staticFields.add(
+            classDef.staticFields.add(
                 ImmutableField(
-                    mutableMethod.definingClass,
+                    method.definingClass,
                     name,
                     MENU_ITEM_ENUM_CLASS_DESCRIPTOR,
                     AccessFlags.PUBLIC.value or
@@ -117,8 +112,8 @@ val settingsPatch = bytecodePatch(
             )
 
             // Add initializer for the new enum member
-            mutableMethod.addInstructions(
-                mutableMethod.implementation!!.instructions.size - 4,
+            method.addInstructions(
+                method.implementation!!.instructions.size - 4,
                 """   
                 new-instance        v0, $MENU_ITEM_ENUM_CLASS_DESCRIPTOR
                 const-string        v1, "$titleResourceName"
@@ -135,7 +130,7 @@ val settingsPatch = bytecodePatch(
             )
         }
 
-        settingsMenuItemEnumMatch.injectMenuItem(
+        settingsMenuItemEnumFingerprint.injectMenuItem(
             REVANCED_SETTINGS_MENU_ITEM_NAME,
             REVANCED_SETTINGS_MENU_ITEM_ID,
             REVANCED_SETTINGS_MENU_ITEM_TITLE_RES,
@@ -143,7 +138,7 @@ val settingsPatch = bytecodePatch(
         )
 
         // Intercept settings menu creation and add new menu item.
-        menuGroupsUpdatedMatch.mutableMethod.addInstructions(
+        menuGroupsUpdatedFingerprint.method.addInstructions(
             0,
             """
                 sget-object v0, $MENU_ITEM_ENUM_CLASS_DESCRIPTOR->$REVANCED_SETTINGS_MENU_ITEM_NAME:$MENU_ITEM_ENUM_CLASS_DESCRIPTOR 
@@ -153,8 +148,7 @@ val settingsPatch = bytecodePatch(
         )
 
         // Intercept onclick events for the settings menu
-
-        menuGroupsOnClickMatch.mutableMethod.addInstructionsWithLabels(
+        menuGroupsOnClickFingerprint.method.addInstructionsWithLabels(
             0,
             """
                 invoke-static {p1}, $ACTIVITY_HOOKS_CLASS_DESCRIPTOR->handleSettingMenuOnClick(Ljava/lang/Enum;)Z
@@ -166,7 +160,7 @@ val settingsPatch = bytecodePatch(
             """,
             ExternalLabel(
                 "no_rv_settings_onclick",
-                menuGroupsOnClickMatch.mutableMethod.getInstruction(0),
+                menuGroupsOnClickFingerprint.method.getInstruction(0),
             ),
         )
     }

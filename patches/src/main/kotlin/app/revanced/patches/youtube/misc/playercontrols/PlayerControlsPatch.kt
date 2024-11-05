@@ -59,7 +59,7 @@ val playerControlsResourcePatch = resourcePatch {
 
     lateinit var bottomTargetDocument: Document
 
-    execute { context ->
+    execute {
         val targetResourceName = "youtube_controls_bottom_ui_container.xml"
 
         bottomUiContainerResourceId = resourceMappings["id", "bottom_ui_container_stub"]
@@ -67,7 +67,7 @@ val playerControlsResourcePatch = resourcePatch {
         heatseekerViewstub = resourceMappings["id", "heatseeker_viewstub"]
         fullscreenButton = resourceMappings["id", "fullscreen_button"]
 
-        bottomTargetDocument = context.document["res/layout/$targetResourceName"]
+        bottomTargetDocument = document("res/layout/$targetResourceName")
 
         val bottomTargetElement: Node = bottomTargetDocument.getElementsByTagName(
             "android.support.constraint.ConstraintLayout",
@@ -85,13 +85,13 @@ val playerControlsResourcePatch = resourcePatch {
             val resourceFileName = "host/layout/youtube_controls_layout.xml"
             val hostingResourceStream = inputStreamFromBundledResource(
                 resourceDirectoryName,
-                resourceFileName
+                resourceFileName,
             ) ?: throw PatchException("Could not find $resourceFileName")
 
-            val document = context.document["res/layout/youtube_controls_layout.xml"]
+            val document = document("res/layout/youtube_controls_layout.xml")
 
             "RelativeLayout".copyXmlNode(
-                context.document[hostingResourceStream],
+                document(hostingResourceStream),
                 document,
             ).use {
                 val element = document.childNodes.findElementByAttributeValueOrThrow(
@@ -109,10 +109,10 @@ val playerControlsResourcePatch = resourcePatch {
 
         addBottomControl = { resourceDirectoryName ->
             val resourceFileName = "host/layout/youtube_controls_bottom_ui_container.xml"
-            val sourceDocument = context.document[
+            val sourceDocument = document(
                 inputStreamFromBundledResource(resourceDirectoryName, resourceFileName)
-                    ?: throw PatchException("Could not find $resourceFileName")
-            ]
+                    ?: throw PatchException("Could not find $resourceFileName"),
+            )
 
             val sourceElements = sourceDocument.getElementsByTagName(
                 "android.support.constraint.ConstraintLayout",
@@ -214,13 +214,7 @@ val playerControlsPatch = bytecodePatch(
 ) {
     dependsOn(playerControlsResourcePatch)
 
-    val playerBottomControlsInflateMatch by playerBottomControlsInflateFingerprint()
-    val playerTopControlsInflateMatch by playerTopControlsInflateFingerprint()
-    val overlayViewInflateMatch by overlayViewInflateFingerprint()
-    val playerControlsExtensionHookMatch by playerControlsExtensionHookFingerprint()
-    val playerControlsExploderFeatureFlagMatch by playerControlsExploderFeatureFlagFingerprint()
-
-    execute { context ->
+    execute {
         fun MutableMethod.indexOfFirstViewInflateOrThrow() =
             indexOfFirstInstructionOrThrow {
                 val reference = getReference<MethodReference>()
@@ -228,7 +222,7 @@ val playerControlsPatch = bytecodePatch(
                     reference.name == "inflate"
             }
 
-        playerBottomControlsInflateMatch.mutableMethod.apply {
+        playerBottomControlsInflateFingerprint.method.apply {
             inflateBottomControlMethod = this
 
             val inflateReturnObjectIndex = indexOfFirstViewInflateOrThrow() + 1
@@ -236,7 +230,7 @@ val playerControlsPatch = bytecodePatch(
             inflateBottomControlInsertIndex = inflateReturnObjectIndex + 1
         }
 
-        playerTopControlsInflateMatch.mutableMethod.apply {
+        playerTopControlsInflateFingerprint.method.apply {
             inflateTopControlMethod = this
 
             val inflateReturnObjectIndex = indexOfFirstViewInflateOrThrow() + 1
@@ -244,16 +238,13 @@ val playerControlsPatch = bytecodePatch(
             inflateTopControlInsertIndex = inflateReturnObjectIndex + 1
         }
 
-        controlsOverlayVisibilityFingerprint.applyMatch(
-            context,
-            playerTopControlsInflateMatch,
-        ).mutableMethod.apply {
-            visibilityMethod = this
-        }
+        visibilityMethod = controlsOverlayVisibilityFingerprint.match(
+            playerTopControlsInflateFingerprint.originalClassDef,
+        ).method
 
         // Hook the fullscreen close button.  Used to fix visibility
         // when seeking and other situations.
-        overlayViewInflateMatch.mutableMethod.apply {
+        overlayViewInflateFingerprint.method.apply {
             val resourceIndex = indexOfFirstLiteralInstructionReversedOrThrow(fullscreenButton)
 
             val index = indexOfFirstInstructionOrThrow(resourceIndex) {
@@ -270,14 +261,14 @@ val playerControlsPatch = bytecodePatch(
             )
         }
 
-        visibilityImmediateMethod = playerControlsExtensionHookMatch.mutableMethod
+        visibilityImmediateMethod = playerControlsExtensionHookFingerprint.method
 
         // A/B test for a slightly different overlay controls,
         // that uses layout file youtube_video_exploder_controls_bottom_ui_container.xml
         // The change to support this is simple and only requires adding buttons to both layout files,
         // but for now force this different layout off since it's still an experimental test.
         if (is_19_35_or_greater) {
-            playerControlsExploderFeatureFlagMatch.mutableMethod.returnEarly()
+            playerControlsExploderFeatureFlagFingerprint.method.returnEarly()
         }
     }
 }

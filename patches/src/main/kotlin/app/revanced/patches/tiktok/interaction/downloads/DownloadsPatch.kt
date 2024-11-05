@@ -27,14 +27,8 @@ val downloadsPatch = bytecodePatch(
         "com.zhiliaoapp.musically"("36.5.4"),
     )
 
-    val aclCommonShareMatch by aclCommonShareFingerprint()
-    val aclCommonShare2Match by aclCommonShare2Fingerprint()
-    val aclCommonShare3Match by aclCommonShare3Fingerprint()
-    val downloadUriMatch by downloadUriFingerprint()
-    val settingsStatusLoadMatch by settingsStatusLoadFingerprint()
-
-    execute { context ->
-        aclCommonShareMatch.mutableMethod.replaceInstructions(
+    execute {
+        aclCommonShareFingerprint.method.replaceInstructions(
             0,
             """
                 const/4 v0, 0x0
@@ -42,7 +36,7 @@ val downloadsPatch = bytecodePatch(
             """,
         )
 
-        aclCommonShare2Match.mutableMethod.replaceInstructions(
+        aclCommonShare2Fingerprint.method.replaceInstructions(
             0,
             """
                 const/4 v0, 0x2
@@ -51,7 +45,7 @@ val downloadsPatch = bytecodePatch(
         )
 
         // Download videos without watermark.
-        aclCommonShare3Match.mutableMethod.addInstructionsWithLabels(
+        aclCommonShare3Fingerprint.method.addInstructionsWithLabels(
             0,
             """
                     invoke-static {}, Lapp/revanced/extension/tiktok/download/DownloadsPatch;->shouldRemoveWatermark()Z
@@ -65,7 +59,7 @@ val downloadsPatch = bytecodePatch(
         )
 
         // Change the download path patch.
-        downloadUriMatch.mutableMethod.apply {
+        downloadUriFingerprint.method.apply {
             val firstIndex = indexOfFirstInstructionOrThrow {
                 getReference<MethodReference>()?.name == "<init>"
             }
@@ -90,7 +84,7 @@ val downloadsPatch = bytecodePatch(
             )
         }
 
-        settingsStatusLoadMatch.mutableMethod.addInstruction(
+        settingsStatusLoadFingerprint.method.addInstruction(
             0,
             "invoke-static {}, Lapp/revanced/extension/tiktok/settings/SettingsStatus;->enableDownload()V",
         )

@@ -41,28 +41,25 @@ val disableResumingShortsOnStartupPatch = bytecodePatch(
         ),
     )
 
-    val userWasInShortsConfigMatch by userWasInShortsConfigFingerprint()
-    val userWasInShortsMatch by userWasInShortsFingerprint()
-
-    execute { context ->
+    execute {
         addResources("youtube", "layout.startupshortsreset.disableResumingShortsOnStartupPatch")
 
         PreferenceScreen.SHORTS.addPreferences(
             SwitchPreference("revanced_disable_resuming_shorts_player"),
         )
 
-        userWasInShortsConfigMatch.mutableMethod.apply {
+        userWasInShortsConfigFingerprint.originalMethod.apply {
             val startIndex = indexOfOptionalInstruction(this)
             val walkerIndex = indexOfFirstInstructionOrThrow(startIndex) {
                 val reference = getReference<MethodReference>()
                 opcode == Opcode.INVOKE_VIRTUAL &&
                     reference?.returnType == "Z" &&
                     reference.definingClass != "Lj${'$'}/util/Optional;" &&
-                        reference.parameterTypes.isEmpty()
+                    reference.parameterTypes.isEmpty()
             }
 
             // Presumably a method that processes the ProtoDataStore value (boolean) for the 'user_was_in_shorts' key.
-            context.navigate(this).at(walkerIndex).mutable().addInstructionsWithLabels(
+            navigate(this).to(walkerIndex).stop().addInstructionsWithLabels(
                 0,
                 """
                     invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->disableResumingStartupShortsPlayer()Z
@@ -76,7 +73,7 @@ val disableResumingShortsOnStartupPatch = bytecodePatch(
             )
         }
 
-        userWasInShortsMatch.mutableMethod.apply {
+        userWasInShortsFingerprint.method.apply {
             val listenableInstructionIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_INTERFACE &&
                     getReference<MethodReference>()?.definingClass == "Lcom/google/common/util/concurrent/ListenableFuture;" &&

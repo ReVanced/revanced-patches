@@ -10,8 +10,8 @@ val hideOffersTabPatch = resourcePatch(
 ) {
     compatibleWith("de.stocard.stocard")
 
-    execute { context ->
-        context.document["res/menu/bottom_navigation_menu.xml"].use { document ->
+    execute {
+        document("res/menu/bottom_navigation_menu.xml").use { document ->
             document.getNode("menu").apply {
                 removeChild(
                     childElementsSequence().first {

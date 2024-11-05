@@ -10,7 +10,6 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.util.applyMatch
 
 @Suppress("unused")
 val disablePreciseSeekingGesturePatch = bytecodePatch(
@@ -34,9 +33,7 @@ val disablePreciseSeekingGesturePatch = bytecodePatch(
         ),
     )
 
-    val swipingUpGestureParentMatch by swipingUpGestureParentFingerprint()
-
-    execute { context ->
+    execute {
         addResources("youtube", "interaction.seekbar.disablePreciseSeekingGesturePatch")
 
         PreferenceScreen.SEEKBAR.addPreferences(
@@ -45,10 +42,9 @@ val disablePreciseSeekingGesturePatch = bytecodePatch(
         val extensionMethodDescriptor =
             "Lapp/revanced/extension/youtube/patches/DisablePreciseSeekingGesturePatch;"
 
-        allowSwipingUpGestureFingerprint.applyMatch(
-            context,
-            swipingUpGestureParentMatch,
-        ).mutableMethod.apply {
+        allowSwipingUpGestureFingerprint.match(
+            swipingUpGestureParentFingerprint.originalClassDef,
+        ).method.apply {
             addInstructionsWithLabels(
                 0,
                 """
@@ -61,10 +57,9 @@ val disablePreciseSeekingGesturePatch = bytecodePatch(
             )
         }
 
-        showSwipingUpGuideFingerprint.applyMatch(
-            context,
-            swipingUpGestureParentMatch,
-        ).mutableMethod.apply {
+        showSwipingUpGuideFingerprint.match(
+            swipingUpGestureParentFingerprint.originalClassDef,
+        ).method.apply {
             addInstructionsWithLabels(
                 0,
                 """

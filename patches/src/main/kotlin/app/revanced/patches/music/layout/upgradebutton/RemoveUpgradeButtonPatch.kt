@@ -20,12 +20,10 @@ val removeUpgradeButtonPatch = bytecodePatch(
 ) {
     compatibleWith("com.google.android.apps.youtube.music")
 
-    val pivotBarConstructorMatch by pivotBarConstructorFingerprint()
-
     execute {
-        pivotBarConstructorMatch.mutableMethod.apply {
+        pivotBarConstructorFingerprint.method.apply {
             val pivotBarElementFieldReference =
-                getInstruction(pivotBarConstructorMatch.patternMatch!!.endIndex - 1)
+                getInstruction(pivotBarConstructorFingerprint.patternMatch!!.endIndex - 1)
                     .getReference<FieldReference>()
 
             val register = getInstruction<FiveRegisterInstruction>(0).registerC
@@ -39,7 +37,7 @@ val removeUpgradeButtonPatch = bytecodePatch(
                 iput-object v0, v$register, $pivotBarElementFieldReference
             """.toInstructions().toMutableList()
 
-            val endIndex = pivotBarConstructorMatch.patternMatch!!.endIndex
+            val endIndex = pivotBarConstructorFingerprint.patternMatch!!.endIndex
 
             // Replace the instruction to retain the label at given index.
             replaceInstruction(

@@ -15,7 +15,6 @@ import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.IntentPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playercontrols.*
-import app.revanced.patches.youtube.misc.playercontrols.addTopControl
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.addSettingPreference
 import app.revanced.patches.youtube.misc.settings.newIntent
@@ -41,7 +40,7 @@ private val sponsorBlockResourcePatch = resourcePatch {
         playerControlsPatch,
     )
 
-    execute { context ->
+    execute {
         addResources("youtube", "layout.sponsorblock.sponsorBlockResourcePatch")
 
         addSettingPreference(
@@ -78,7 +77,7 @@ private val sponsorBlockResourcePatch = resourcePatch {
                 "quantum_ic_skip_next_white_24.png",
             ),
         ).forEach { resourceGroup ->
-            context.copyResources("sponsorblock", resourceGroup)
+            copyResources("sponsorblock", resourceGroup)
         }
 
         addTopControl("sponsorblock")
@@ -121,12 +120,7 @@ val sponsorBlockPatch = bytecodePatch(
         ),
     )
 
-    val seekbarMatch by seekbarFingerprint()
-    val appendTimeMatch by appendTimeFingerprint()
-    val layoutConstructorMatch by layoutConstructorFingerprint()
-    val autoRepeatParentMatch by autoRepeatParentFingerprint()
-
-    execute { context ->
+    execute {
         // Hook the video time methods.
         videoTimeHook(
             EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR,
@@ -139,7 +133,7 @@ val sponsorBlockPatch = bytecodePatch(
         )
 
         // Seekbar drawing
-        seekbarOnDrawFingerprint.applyMatch(context, seekbarMatch).mutableMethod.apply {
+        seekbarOnDrawFingerprint.match(seekbarFingerprint.originalClassDef).method.apply {
             // Get left and right of seekbar rectangle.
             val moveRectangleToRegisterIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_OBJECT_FROM16)
 
@@ -184,8 +178,8 @@ val sponsorBlockPatch = bytecodePatch(
         injectVisibilityCheckCall(EXTENSION_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR)
 
         // Append the new time to the player layout.
-        val appendTimePatternScanStartIndex = appendTimeMatch.patternMatch!!.startIndex
-        appendTimeMatch.mutableMethod.apply {
+        val appendTimePatternScanStartIndex = appendTimeFingerprint.patternMatch!!.startIndex
+        appendTimeFingerprint.method.apply {
             val register = getInstruction<OneRegisterInstruction>(appendTimePatternScanStartIndex + 1).registerA
 
             addInstructions(
@@ -201,9 +195,9 @@ val sponsorBlockPatch = bytecodePatch(
         onCreateHook(EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR, "initialize")
 
         // Initialize the SponsorBlock view.
-        controlsOverlayFingerprint.applyMatch(context, layoutConstructorMatch).let {
+        controlsOverlayFingerprint.match(layoutConstructorFingerprint.originalClassDef).let {
             val startIndex = it.patternMatch!!.startIndex
-            it.mutableMethod.apply {
+            it.method.apply {
                 val frameLayoutRegister = (getInstruction(startIndex + 2) as OneRegisterInstruction).registerA
                 addInstruction(
                     startIndex + 3,
@@ -213,13 +207,12 @@ val sponsorBlockPatch = bytecodePatch(
         }
 
         // Set seekbar draw rectangle.
-        rectangleFieldInvalidatorFingerprint.applyMatch(context, seekbarOnDrawFingerprint.match!!).mutableMethod.apply {
+        rectangleFieldInvalidatorFingerprint.match(seekbarOnDrawFingerprint.originalClassDef).method.apply {
             val fieldIndex = instructions.count() - 3
             val fieldReference = getInstruction<ReferenceInstruction>(fieldIndex).reference as FieldReference
 
             // replace the "replaceMeWith*" strings
-            context
-                .proxy(context.classes.first { it.type.endsWith("SegmentPlaybackController;") })
+            proxy(classes.first { it.type.endsWith("SegmentPlaybackController;") })
                 .mutableClass
                 .methods
                 .find { it.name == "setSponsorBarRect" }
@@ -248,7 +241,7 @@ val sponsorBlockPatch = bytecodePatch(
         // The vote and create segment buttons automatically change their visibility when appropriate,
         // but if buttons are showing when the end of the video is reached then they will not automatically hide.
         // Add a hook to forcefully hide when the end of the video is reached.
-        autoRepeatFingerprint.applyMatch(context, autoRepeatParentMatch).mutableMethod.addInstruction(
+        autoRepeatFingerprint.match(autoRepeatParentFingerprint.originalClassDef).method.addInstruction(
             0,
             "invoke-static {}, $EXTENSION_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR->endOfVideoReached()V",
         )

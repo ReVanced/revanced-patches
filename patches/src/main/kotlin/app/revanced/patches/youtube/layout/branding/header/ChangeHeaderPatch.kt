@@ -63,10 +63,10 @@ val changeHeaderPatch = resourcePatch(
         required = true,
     )
 
-    execute { context ->
+    execute {
         // The directories to copy the header to.
         val targetResourceDirectories = targetResourceDirectoryNames.keys.mapNotNull {
-            context["res"].resolve(it).takeIf(File::exists)
+            get("res").resolve(it).takeIf(File::exists)
         }
         // The files to replace in the target directories.
         val targetResourceFiles = targetResourceDirectoryNames.keys.map { directoryName ->
@@ -95,14 +95,14 @@ val changeHeaderPatch = resourcePatch(
         val toHeader = { overwriteFromTo(HEADER_FILE_NAME, PREMIUM_HEADER_FILE_NAME) }
         val toReVanced = {
             // Copy the ReVanced header to the resource directories.
-            targetResourceFiles.forEach { context.copyResources("change-header/revanced", it) }
+            targetResourceFiles.forEach { copyResources("change-header/revanced", it) }
 
             // Overwrite the premium with the custom header as well.
             toHeader()
         }
         val toReVancedBorderless = {
             // Copy the ReVanced borderless header to the resource directories.
-            targetResourceFiles.forEach { context.copyResources("change-header/revanced-borderless", it) }
+            targetResourceFiles.forEach { copyResources("change-header/revanced-borderless", it) }
 
             // Overwrite the premium with the custom header as well.
             toHeader()
@@ -115,7 +115,7 @@ val changeHeaderPatch = resourcePatch(
 
             // For each source folder, copy the files to the target resource directories.
             sourceFolders.forEach { dpiSourceFolder ->
-                val targetDpiFolder = context["res"].resolve(dpiSourceFolder.name)
+                val targetDpiFolder = get("res").resolve(dpiSourceFolder.name)
                 if (!targetDpiFolder.exists()) return@forEach
 
                 val imgSourceFiles = dpiSourceFolder.listFiles { file -> file.isFile }!!

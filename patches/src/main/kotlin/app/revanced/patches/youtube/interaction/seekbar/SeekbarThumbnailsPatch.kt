@@ -39,10 +39,6 @@ val seekbarThumbnailsPatch = bytecodePatch(
         )
     )
 
-    val fullscreenSeekbarThumbnailsQualityMatch by fullscreenSeekbarThumbnailsQualityFingerprint()
-
-    val fullscreenSeekbarThumbnailsMatch by fullscreenSeekbarThumbnailsFingerprint()
-
     execute {
         addResources("youtube", "layout.seekbar.seekbarThumbnailsPatch")
 
@@ -60,7 +56,7 @@ val seekbarThumbnailsPatch = bytecodePatch(
                 )
             )
 
-            fullscreenSeekbarThumbnailsMatch.mutableMethod.apply {
+            fullscreenSeekbarThumbnailsFingerprint.method.apply {
                 val moveResultIndex = instructions.lastIndex - 1
 
                 addInstruction(
@@ -70,7 +66,7 @@ val seekbarThumbnailsPatch = bytecodePatch(
             }
         }
 
-        fullscreenSeekbarThumbnailsQualityMatch.mutableMethod.addInstructions(
+        fullscreenSeekbarThumbnailsQualityFingerprint.method.addInstructions(
             0,
             """
                 invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->useHighQualityFullscreenThumbnails()Z

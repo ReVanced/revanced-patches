@@ -13,10 +13,7 @@ import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.mainActivityFingerprint
-import app.revanced.util.ResourceGroup
-import app.revanced.util.copyResources
-import app.revanced.util.transformMethods
-import app.revanced.util.traverseClassHierarchy
+import app.revanced.util.*
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 
@@ -26,7 +23,7 @@ private val swipeControlsResourcePatch = resourcePatch {
         addResourcesPatch,
     )
 
-    execute { context ->
+    execute {
         addResources("youtube", "interaction.swipecontrols.swipeControlsResourcePatch")
 
         PreferenceScreen.SWIPE_CONTROLS.addPreferences(
@@ -42,7 +39,7 @@ private val swipeControlsResourcePatch = resourcePatch {
             TextPreference("revanced_swipe_threshold", inputType = InputType.NUMBER),
         )
 
-        context.copyResources(
+        copyResources(
             "swipecontrols",
             ResourceGroup(
                 "drawable",
@@ -77,19 +74,16 @@ val swipeControlsPatch = bytecodePatch(
         ),
     )
 
-    val mainActivityMatch by mainActivityFingerprint()
-    val swipeControlsHostActivityMatch by swipeControlsHostActivityFingerprint()
-
-    execute { context ->
-        val wrapperClass = swipeControlsHostActivityMatch.mutableClass
-        val targetClass = mainActivityMatch.mutableClass
+    execute {
+        val wrapperClass = swipeControlsHostActivityFingerprint.classDef
+        val targetClass = mainActivityFingerprint.classDef
 
         // Inject the wrapper class from the extension into the class hierarchy of MainActivity.
         wrapperClass.setSuperClass(targetClass.superclass)
         targetClass.setSuperClass(wrapperClass.type)
 
         // Ensure all classes and methods in the hierarchy are non-final, so we can override them in the extension.
-        context.traverseClassHierarchy(targetClass) {
+        traverseClassHierarchy(targetClass) {
             accessFlags = accessFlags and AccessFlags.FINAL.value.inv()
             transformMethods {
                 ImmutableMethod(

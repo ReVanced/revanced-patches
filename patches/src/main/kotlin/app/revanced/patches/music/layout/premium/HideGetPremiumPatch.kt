@@ -14,12 +14,9 @@ val hideGetPremiumPatch = bytecodePatch(
 ) {
     compatibleWith("com.google.android.apps.youtube.music")
 
-    val hideGetPremiumMatch by hideGetPremiumFingerprint()
-    val membershipSettingsMatch by membershipSettingsFingerprint()
-
     execute {
-        hideGetPremiumMatch.mutableMethod.apply {
-            val insertIndex = hideGetPremiumMatch.patternMatch!!.endIndex
+        hideGetPremiumFingerprint.method.apply {
+            val insertIndex = hideGetPremiumFingerprint.patternMatch!!.endIndex
 
             val setVisibilityInstruction = getInstruction<FiveRegisterInstruction>(insertIndex)
             val getPremiumViewRegister = setVisibilityInstruction.registerC
@@ -37,7 +34,7 @@ val hideGetPremiumPatch = bytecodePatch(
             )
         }
 
-        membershipSettingsMatch.mutableMethod.addInstructions(
+        membershipSettingsFingerprint.method.addInstructions(
             0,
             """
             const/4 v0, 0x0

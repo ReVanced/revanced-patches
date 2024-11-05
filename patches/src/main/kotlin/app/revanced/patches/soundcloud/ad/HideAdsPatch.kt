@@ -14,16 +14,12 @@ val hideAdsPatch = bytecodePatch(
 ) {
     compatibleWith("com.soundcloud.android")
 
-    val featureConstructorMatch by featureConstructorFingerprint()
-    val userConsumerPlanConstructorMatch by userConsumerPlanConstructorFingerprint()
-    val interceptMatch by interceptFingerprint()
-
     execute {
         // Enable a preset feature to disable audio ads by modifying the JSON server response.
         // This method is the constructor of a class representing a "Feature" object parsed from JSON data.
         // p1 is the name of the feature.
         // p2 is true if the feature is enabled, false otherwise.
-        featureConstructorMatch.mutableMethod.apply {
+        featureConstructorFingerprint.method.apply {
             val afterCheckNotNullIndex = 2
             addInstructionsWithLabels(
                 afterCheckNotNullIndex,
@@ -45,7 +41,7 @@ val hideAdsPatch = bytecodePatch(
         // p4 is the "consumerPlanUpsells" value, a list of plans to try to sell to the user.
         // p5 is the "currentConsumerPlan" value, the type of plan currently subscribed to.
         // p6 is the "currentConsumerPlanTitle" value, the name of the plan currently subscribed to, shown to the user.
-        userConsumerPlanConstructorMatch.mutableMethod.addInstructions(
+        userConsumerPlanConstructorFingerprint.method.addInstructions(
             0,
             """
                 const-string p1, "high_tier"
@@ -57,8 +53,9 @@ val hideAdsPatch = bytecodePatch(
         )
 
         // Prevent verification of an HTTP header containing the user's current plan, which would contradict the previous patch.
-        val conditionIndex = interceptMatch.patternMatch!!.endIndex + 1
-        interceptMatch.mutableMethod.addInstruction(
+
+        val conditionIndex = interceptFingerprint.patternMatch!!.endIndex + 1
+        interceptFingerprint.method.addInstruction(
             conditionIndex,
             "return-object p1",
         )

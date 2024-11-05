@@ -11,9 +11,7 @@ val hidePurchaseReminderPatch = bytecodePatch(
 ) {
     compatibleWith("com.rarlab.rar")
 
-    val showReminderMatch by showReminderFingerprint()
-
     execute {
-        showReminderMatch.mutableMethod.addInstruction(0, "return-void")
+        showReminderFingerprint.method.addInstruction(0, "return-void")
     }
 }

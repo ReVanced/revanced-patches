@@ -39,8 +39,6 @@ val disableFullscreenAmbientModePatch = bytecodePatch(
         ),
     )
 
-    val setFullScreenBackgroundColorMatch by setFullScreenBackgroundColorFingerprint()
-
     execute {
         addResources("youtube", "layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch")
 
@@ -48,7 +46,7 @@ val disableFullscreenAmbientModePatch = bytecodePatch(
             SwitchPreference("revanced_disable_fullscreen_ambient_mode"),
         )
 
-        setFullScreenBackgroundColorMatch.mutableMethod.apply {
+        setFullScreenBackgroundColorFingerprint.method.apply {
             val insertIndex = indexOfFirstInstructionReversedOrThrow {
                 getReference<MethodReference>()?.name == "setBackgroundColor"
             }
@@ -59,7 +57,7 @@ val disableFullscreenAmbientModePatch = bytecodePatch(
                 """
                     invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getFullScreenBackgroundColor(I)I
                     move-result v$register
-                """
+                """,
             )
         }
     }

@@ -9,10 +9,8 @@ val unlockProPatch = bytecodePatch(
 ) {
     compatibleWith("com.wakdev.apps.nfctools.se")
 
-    val isLicenseRegisteredMatch by isLicenseRegisteredFingerprint()
-
     execute {
-        isLicenseRegisteredMatch.mutableMethod.addInstructions(
+        isLicenseRegisteredFingerprint.method.addInstructions(
             0,
             """
                 const/4 v0, 0x1

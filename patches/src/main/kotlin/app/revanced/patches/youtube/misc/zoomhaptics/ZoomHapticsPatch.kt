@@ -28,10 +28,8 @@ val zoomHapticsPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
-        )
+        ),
     )
-
-    val zoomHapticsMatch by zoomHapticsFingerprint()
 
     execute {
         addResources("youtube", "misc.zoomhaptics.zoomHapticsPatch")
@@ -40,7 +38,7 @@ val zoomHapticsPatch = bytecodePatch(
             SwitchPreference("revanced_disable_zoom_haptics"),
         )
 
-        zoomHapticsMatch.mutableMethod.apply {
+        zoomHapticsFingerprint.method.apply {
             addInstructionsWithLabels(
                 0,
                 """

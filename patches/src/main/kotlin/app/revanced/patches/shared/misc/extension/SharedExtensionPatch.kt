@@ -5,9 +5,9 @@ import app.revanced.patcher.FingerprintBuilder
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.util.matchOrThrow
 import com.android.tools.smali.dexlib2.iface.Method
 import java.net.URLDecoder
 import java.util.jar.JarFile
@@ -19,11 +19,8 @@ fun sharedExtensionPatch(
 ) = bytecodePatch {
     extendWith("extensions/shared.rve")
 
-    val revancedUtilsPatchesVersionMatch by revancedUtilsPatchesVersionFingerprint()
-    hooks.forEach { it.fingerprint() }
-
-    execute { context ->
-        if (context.classBy { EXTENSION_CLASS_DESCRIPTOR in it.type } == null) {
+    execute {
+        if (classBy { EXTENSION_CLASS_DESCRIPTOR in it.type } == null) {
             throw PatchException(
                 "Shared extension has not been merged yet. This patch can not succeed without merging it.",
             )
@@ -32,7 +29,7 @@ fun sharedExtensionPatch(
         hooks.forEach { hook -> hook(EXTENSION_CLASS_DESCRIPTOR) }
 
         // Modify Utils method to include the patches release version.
-        revancedUtilsPatchesVersionMatch.mutableMethod.apply {
+        revancedUtilsPatchesVersionFingerprint.method.apply {
             /**
              * @return The file path for the jar this classfile is contained inside.
              */
@@ -79,17 +76,16 @@ class ExtensionHook internal constructor(
     private val insertIndexResolver: ((Method) -> Int),
     private val contextRegisterResolver: (Method) -> String,
 ) {
+    context(BytecodePatchContext)
     operator fun invoke(extensionClassDescriptor: String) {
-        fingerprint.matchOrThrow.mutableMethod.let { method ->
-            val insertIndex = insertIndexResolver(method)
-            val contextRegister = contextRegisterResolver(method)
+        val insertIndex = insertIndexResolver(fingerprint.method)
+        val contextRegister = contextRegisterResolver(fingerprint.method)
 
-            method.addInstruction(
-                insertIndex,
-                "invoke-static/range { $contextRegister .. $contextRegister }, " +
-                    "$extensionClassDescriptor->setContext(Landroid/content/Context;)V",
-            )
-        }
+        fingerprint.method.addInstruction(
+            insertIndex,
+            "invoke-static/range { $contextRegister .. $contextRegister }, " +
+                "$extensionClassDescriptor->setContext(Landroid/content/Context;)V",
+        )
     }
 }
 

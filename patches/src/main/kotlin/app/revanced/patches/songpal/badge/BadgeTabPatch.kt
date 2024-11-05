@@ -13,12 +13,10 @@ val badgeTabPatch = bytecodePatch(
 ) {
     compatibleWith("com.sony.songpal.mdr")
 
-    val createTabsMatch by createTabsFingerprint()
-
     val arrayTabs = listOf("Log", "HealthCare")
 
     execute {
-        createTabsMatch.mutableMethod.apply {
+        createTabsFingerprint.method.apply {
             removeInstructions(0, 2)
 
             val arrayRegister = 0

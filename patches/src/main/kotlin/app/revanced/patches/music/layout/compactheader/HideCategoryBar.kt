@@ -13,11 +13,9 @@ val hideCategoryBar = bytecodePatch(
 ) {
     compatibleWith("com.google.android.apps.youtube.music")
 
-    val constructCategoryBarMatch by constructCategoryBarFingerprint()
-
     execute {
-        constructCategoryBarMatch.mutableMethod.apply {
-            val insertIndex = constructCategoryBarMatch.patternMatch!!.startIndex
+        constructCategoryBarFingerprint.method.apply {
+            val insertIndex = constructCategoryBarFingerprint.patternMatch!!.startIndex
             val register = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
 
             addInstructions(

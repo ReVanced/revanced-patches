@@ -23,14 +23,10 @@ val filterTimelineObjectsPatch = bytecodePatch(
 ) {
     dependsOn(sharedExtensionPatch)
 
-    val timelineConstructorMatch by timelineConstructorFingerprint()
-    val timelineFilterExtensionMatch by timelineFilterExtensionFingerprint()
-    val postsResponseConstructorMatch by postsResponseConstructorFingerprint()
-
     execute {
-        val filterInsertIndex = timelineFilterExtensionMatch.patternMatch!!.startIndex
+        val filterInsertIndex = timelineFilterExtensionFingerprint.patternMatch!!.startIndex
 
-        timelineFilterExtensionMatch.mutableMethod.apply {
+        timelineFilterExtensionFingerprint.method.apply {
             val addInstruction = getInstruction<BuilderInstruction35c>(filterInsertIndex + 1)
 
             val filterListRegister = addInstruction.registerC
@@ -52,10 +48,10 @@ val filterTimelineObjectsPatch = bytecodePatch(
         }
 
         mapOf(
-            timelineConstructorMatch to 1,
-            postsResponseConstructorMatch to 2,
-        ).forEach { (match, timelineObjectsRegister) ->
-            match.mutableMethod.addInstructions(
+            timelineConstructorFingerprint to 1,
+            postsResponseConstructorFingerprint to 2,
+        ).forEach { (fingerprint, timelineObjectsRegister) ->
+            fingerprint.method.addInstructions(
                 0,
                 "invoke-static {p$timelineObjectsRegister}, " +
                     "Lapp/revanced/extension/tumblr/patches/TimelineFilterPatch;->" +

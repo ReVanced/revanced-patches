@@ -2,7 +2,6 @@ package app.revanced.patches.shared.misc.checks
 
 import android.os.Build.*
 import app.revanced.patcher.Fingerprint
-import app.revanced.patcher.Match
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.Patch
 import app.revanced.patcher.patch.bytecodePatch
@@ -35,20 +34,24 @@ fun checkEnvironmentPatch(
         addResourcesPatch,
     )
 
-    val patchInfoMatch by patchInfoFingerprint()
-    val patchInfoBuildMatch by patchInfoBuildFingerprint()
-    val mainActivityOnCreateMatch by mainActivityOnCreateFingerprint()
-
     execute {
         addResources("shared", "misc.checks.checkEnvironmentPatch")
 
         fun setPatchInfo() {
-            patchInfoMatch.setClassFields(
+            fun <T : MutableEncodedValue> Fingerprint.setClassFields(vararg fieldNameValues: Pair<String, T>) {
+                val fieldNameValueMap = mapOf(*fieldNameValues)
+
+                classDef.fields.forEach { field ->
+                    field.initialValue = fieldNameValueMap[field.name] ?: return@forEach
+                }
+            }
+
+            patchInfoFingerprint.setClassFields(
                 "PATCH_TIME" to System.currentTimeMillis().encoded,
             )
 
             fun setBuildInfo() {
-                patchInfoBuildMatch.setClassFields(
+                patchInfoBuildFingerprint.setClassFields(
                     "PATCH_BOARD" to BOARD.encodedAndHashed,
                     "PATCH_BOOTLOADER" to BOOTLOADER.encodedAndHashed,
                     "PATCH_BRAND" to BRAND.encodedAndHashed,
@@ -79,7 +82,7 @@ fun checkEnvironmentPatch(
             }
         }
 
-        fun invokeCheck() = mainActivityOnCreateMatch.mutableMethod?.addInstructions(
+        fun invokeCheck() = mainActivityOnCreateFingerprint.method.addInstructions(
             0,
             "invoke-static/range { p0 .. p0 },$EXTENSION_CLASS_DESCRIPTOR->check(Landroid/app/Activity;)V",
         )
@@ -101,11 +104,3 @@ private val String.encodedAndHashed
     )
 
 private val Long.encoded get() = MutableLongEncodedValue(ImmutableLongEncodedValue(this))
-
-private fun <T : MutableEncodedValue> Match.setClassFields(vararg fieldNameValues: Pair<String, T>) {
-    val fieldNameValueMap = mapOf(*fieldNameValues)
-
-    mutableClass.fields.forEach { field ->
-        field.initialValue = fieldNameValueMap[field.name] ?: return@forEach
-    }
-}

@@ -11,10 +11,8 @@ val hideAdsPatch = bytecodePatch(
 ) {
     compatibleWith("com.instagram.android")
 
-    val adInjectorMatch by adInjectorFingerprint()
-
     execute {
-        adInjectorMatch.mutableMethod.addInstructions(
+        adInjectorFingerprint.method.addInstructions(
             0,
             """
                 const/4 v0, 0x0

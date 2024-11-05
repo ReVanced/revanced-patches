@@ -1,45 +1,39 @@
 package app.revanced.patches.youtube.misc.fix.backtoexitgesture
 
-import app.revanced.patcher.Match
+import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.util.matchOrThrow
 
 internal val fixBackToExitGesturePatch = bytecodePatch(
     description = "Fixes the swipe back to exit gesture.",
 ) {
-    val recyclerViewTopScrollingParentMatch by recyclerViewTopScrollingParentFingerprint()
-    val recyclerViewScrollingMatch by recyclerViewScrollingFingerprint()
-    val onBackPressedMatch by onBackPressedFingerprint()
 
-    execute { context ->
-        recyclerViewTopScrollingFingerprint.apply {
-            match(context, recyclerViewTopScrollingParentMatch.classDef)
-        }
-
+    execute {
         /**
          * Inject a call to a method from the extension.
          *
          * @param targetMethod The target method to call.
          */
-        fun Match.injectCall(targetMethod: ExtensionMethod) = mutableMethod.addInstruction(
+        fun Fingerprint.injectCall(targetMethod: ExtensionMethod) = method.addInstruction(
             patternMatch!!.endIndex,
             targetMethod.toString(),
         )
 
         mapOf(
-            recyclerViewTopScrollingFingerprint.matchOrThrow to ExtensionMethod(
+            recyclerViewTopScrollingFingerprint.also {
+                it.match(recyclerViewTopScrollingParentFingerprint.originalClassDef)
+            } to ExtensionMethod(
                 methodName = "onTopView",
             ),
-            recyclerViewScrollingMatch to ExtensionMethod(
+            recyclerViewScrollingFingerprint to ExtensionMethod(
                 methodName = "onScrollingViews",
             ),
-            onBackPressedMatch to ExtensionMethod(
+            onBackPressedFingerprint to ExtensionMethod(
                 "p0",
                 "onBackPressed",
                 "Landroid/app/Activity;",
             ),
-        ).forEach { (match, target) -> match.injectCall(target) }
+        ).forEach { (fingerprint, target) -> fingerprint.injectCall(target) }
     }
 }
 
