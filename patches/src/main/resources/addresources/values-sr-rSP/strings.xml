@@ -769,6 +769,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Сличице на траци за премотавање су средњег квалитета</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Сличице на траци за премотавање у режиму целог екрана су високог квалитета</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Сличице на траци за премотавање у режиму целог екрана су средњег квалитета</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Ово ће такође вратити сличице на стримовима уживо који немају сличице на траци за премотавање.\n\nСличице на траке за премотавање ће користити исти квалитет као и тренутни видео.\n\nОва функција најбоље функционише са квалитетом видеа од 720p или нижим и када користите веома брзу интернет везу.</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Врати старе сличице на траци за премотавање</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Сличице траке за премотавање ће се појавити изнад ње</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Сличице траке за премотавање ће се појавити у режиму целог екрана</string>
@@ -1024,6 +1025,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_drag_and_drop_title">Омогући превлачење и отпуштање</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">Превлачење и отпуштање је омогућено\n\nМини-плејер може да се превуче у било који угао екрана</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">Превлачење и отпуштање је онемогућено</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">Омогући покрет хоризонталног превлачења</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">Покрет хоризонталног превлачења је омогућен\n\nМини-плејер може да се превуче са екрана налево или надесно</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">Покрет хоризонталног превлачења је онемогућен</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Сакриј дугме за затварање</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">Дугме за затварање је скривено</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">Дугме за затварање је приказано</string>
