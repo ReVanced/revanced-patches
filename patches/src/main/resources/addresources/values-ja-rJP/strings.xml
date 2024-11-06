@@ -42,7 +42,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_check_environment_not_near_patch_time_invalid">APKビルド日付が破損しています</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
-  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">続行しますか？</string>
   <string name="revanced_settings_reset">リセット</string>
   <string name="revanced_settings_restart_title">更新して再起動</string>
