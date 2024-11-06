@@ -128,7 +128,7 @@ public class ReturnYouTubeDislike {
 
         leftSeparatorBounds = new Rect(0, 0,
                 (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 1.2f, dp),
-                (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 18, dp));
+                (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 14, dp));
         final int middleSeparatorSize =
                 (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 3.7f, dp);
         middleSeparatorBounds = new Rect(0, 0, middleSeparatorSize, middleSeparatorSize);
