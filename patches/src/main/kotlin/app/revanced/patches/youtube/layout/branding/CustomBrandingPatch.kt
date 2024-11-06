@@ -2,6 +2,8 @@ package app.revanced.patches.youtube.layout.branding
 
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
+import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
+import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.copyResources
@@ -18,6 +20,11 @@ private val iconResourceFileNames = arrayOf(
     "ic_launcher_round",
 ).map { "$it.png" }.toTypedArray()
 
+private val iconResourceFileNamesNew = mapOf(
+    "adaptiveproduct_youtube_foreground_color_108" to "adaptiveproduct_youtube_2024_q4_foreground_color_108",
+    "adaptiveproduct_youtube_background_color_108" to "adaptiveproduct_youtube_2024_q4_background_color_108",
+)
+
 private val mipmapDirectories = arrayOf(
     "xxxhdpi",
     "xxhdpi",
@@ -32,6 +39,8 @@ val customBrandingPatch = resourcePatch(
     description = "Applies a custom app name and icon. Defaults to \"YouTube ReVanced\" and the ReVanced logo.",
     use = false,
 ) {
+    dependsOn(versionCheckPatch)
+
     compatibleWith("com.google.android.youtube")
 
     val appName by stringOption(
@@ -91,6 +100,21 @@ val customBrandingPatch = resourcePatch(
                     }
                 } else {
                     resourceGroups.forEach { copyResources("custom-branding", it) }
+                }
+            }
+
+            if (is_19_34_or_greater) {
+                val resourceDirectory = get("res")
+
+                mipmapDirectories.forEach { directory ->
+                    val targetDirectory = resourceDirectory.resolve(directory)
+
+                    iconResourceFileNamesNew.forEach { (old, new) ->
+                        val oldFile = targetDirectory.resolve("$old.png")
+                        val newFile = targetDirectory.resolve("$new.png")
+
+                        Files.write(newFile.toPath(), oldFile.readBytes())
+                    }
                 }
             }
         }
