@@ -1,3 +1,10 @@
+# [5.0.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.0.0-dev.1...v5.0.0-dev.2) (2024-11-06)
+
+
+### Bug Fixes
+
+* **YouTube - Custom branding:** Change icon correctly on 19.34+ ([#3866](https://github.com/ReVanced/revanced-patches/issues/3866)) ([0b3812b](https://github.com/ReVanced/revanced-patches/commit/0b3812b0e14ef729ce602bff3a538eca372d53a8))
+
 # [5.0.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.18.0-dev.6...v5.0.0-dev.1) (2024-11-06)
 
 
