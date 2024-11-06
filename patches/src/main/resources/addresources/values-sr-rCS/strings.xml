@@ -769,6 +769,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Sličice na traci za premotavanje su srednjeg kvaliteta</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Sličice na traci za premotavanje u režimu celog ekrana su visokog kvaliteta</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Sličice na traci za premotavanje u režimu celog ekrana su srednjeg kvaliteta</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Ovo će takođe vratiti sličice na strimovima uživo koji nemaju sličice na traci za premotavanje.\n\nSličice na traci za premotavanje će koristiti isti kvalitet kao i trenutni video.\n\nOva funkcija najbolje funkcioniše sa kvalitetom videa od 720p ili nižim i kada koristite veoma brzu internet vezu.</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Vrati stare sličice na traci za premotavanje</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Sličice trake za premotavanje će se pojaviti iznad nje</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Sličice trake za premotavanje će se pojaviti u režimu celog ekrana</string>
@@ -1024,6 +1025,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_drag_and_drop_title">Omogući prevlačenje i otpuštanje</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">Prevlačenje i otpuštanje je omogućeno\n\nMini-plejer može da se prevuče u bilo koji ugao ekrana</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">Prevlačenje i otpuštanje je onemogućeno</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">Omogući pokret horizontalnog prevlačenja</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">Pokret horizontalnog prevlačenja je omogućen\n\nMini-plejer može da se prevuče sa ekrana nalevo ili nadesno</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">Pokret horizontalnog prevlačenja je onemogućen</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Sakrij dugme za zatvaranje</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">Dugme za zatvaranje je skriveno</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">Dugme za zatvaranje je prikazano</string>
