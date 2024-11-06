@@ -2,7 +2,8 @@ package app.revanced.extension.youtube.patches.announcements;
 
 import static android.text.Html.FROM_HTML_MODE_COMPACT;
 import static app.revanced.extension.shared.StringRef.str;
-import static app.revanced.extension.youtube.patches.announcements.requests.AnnouncementsRoutes.GET_LATEST_ANNOUNCEMENT;
+import static app.revanced.extension.youtube.patches.announcements.requests.AnnouncementsRoutes.GET_LATEST_ANNOUNCEMENTS;
+import static app.revanced.extension.youtube.patches.announcements.requests.AnnouncementsRoutes.GET_LATEST_ANNOUNCEMENT_IDS;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -13,11 +14,14 @@ import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
+import java.time.LocalDateTime;
 import java.util.Locale;
+import java.util.logging.Level;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
@@ -31,6 +35,45 @@ public final class AnnouncementsPatch {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
+    private static boolean isLatestAlready() throws IOException {
+        HttpURLConnection connection =
+                AnnouncementsRoutes.getAnnouncementsConnectionFromRoute(GET_LATEST_ANNOUNCEMENT_IDS);
+
+        Logger.printDebug(() -> "Get latest announcement IDs route connection url: " + connection.getURL());
+
+        try {
+            // Do not show the announcement if the request failed.
+            if (connection.getResponseCode() != 200) {
+                if (Settings.ANNOUNCEMENT_LAST_ID.isSetToDefault())
+                    return true;
+
+                Settings.ANNOUNCEMENT_LAST_ID.resetToDefault();
+                Utils.showToastLong(str("revanced_announcements_connection_failed"));
+
+                return true;
+            }
+        } catch (IOException ex) {
+            Logger.printException(() -> "Could not connect to announcements provider", ex);
+            return true;
+        }
+
+        var jsonString = Requester.parseStringAndDisconnect(connection);
+
+        // Parse the ID. Fall-back to raw string if it fails.
+        int id = Settings.ANNOUNCEMENT_LAST_ID.defaultValue;
+        try {
+            final var announcementIds = new JSONArray(jsonString);
+            id = announcementIds.getJSONObject(0).getInt("id");
+
+        } catch (Throwable ex) {
+            Logger.printException(() -> "Failed to parse announcement IDs", ex);
+        }
+
+        // Do not show the announcement, if the last announcement id is the same as the current one.
+        return Settings.ANNOUNCEMENT_LAST_ID.get() == id;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public static void showAnnouncement(final Activity context) {
         if (!Settings.ANNOUNCEMENTS.get()) return;
 
@@ -39,26 +82,12 @@ public final class AnnouncementsPatch {
 
         Utils.runOnBackgroundThread(() -> {
             try {
+                if (isLatestAlready()) return;
+
                 HttpURLConnection connection = AnnouncementsRoutes.getAnnouncementsConnectionFromRoute(
-                        GET_LATEST_ANNOUNCEMENT, Locale.getDefault().toLanguageTag());
+                        GET_LATEST_ANNOUNCEMENTS, Locale.getDefault().toLanguageTag());
 
-                Logger.printDebug(() -> "Get latest announcement route connection url: " + connection.getURL());
-
-                try {
-                    // Do not show the announcement if the request failed.
-                    if (connection.getResponseCode() != 200) {
-                        if (Settings.ANNOUNCEMENT_LAST_ID.isSetToDefault())
-                            return;
-
-                        Settings.ANNOUNCEMENT_LAST_ID.resetToDefault();
-                        Utils.showToastLong(str("revanced_announcements_connection_failed"));
-
-                        return;
-                    }
-                } catch (IOException ex) {
-                    Logger.printException(() -> "Could not connect to announcements provider", ex);
-                    return;
-                }
+                Logger.printDebug(() -> "Get latest announcements route connection url: " + connection.getURL());
 
                 var jsonString = Requester.parseStringAndDisconnect(connection);
 
@@ -66,6 +95,7 @@ public final class AnnouncementsPatch {
                 int id = Settings.ANNOUNCEMENT_LAST_ID.defaultValue;
                 String title;
                 String message;
+                LocalDateTime archivedAt = LocalDateTime.MAX;
                 Level level = Level.INFO;
                 try {
                     final var announcement = new JSONObject(jsonString);
@@ -73,8 +103,12 @@ public final class AnnouncementsPatch {
                     id = announcement.getInt("id");
                     title = announcement.getString("title");
                     message = announcement.getJSONObject("content").getString("message");
-                    if (!announcement.isNull("level")) level = Level.fromInt(announcement.getInt("level"));
-
+                    if (!announcement.isNull("archived_at")) {
+                        archivedAt = LocalDateTime.parse(announcement.getString("archived_at"));
+                    }
+                    if (!announcement.isNull("level")) {
+                        level = Level.fromInt(announcement.getInt("level"));
+                    }
                 } catch (Throwable ex) {
                     Logger.printException(() -> "Failed to parse announcement. Fall-backing to raw string", ex);
 
@@ -82,8 +116,11 @@ public final class AnnouncementsPatch {
                     message = jsonString;
                 }
 
-                // Do not show the announcement, if the last announcement id is the same as the current one.
-                if (Settings.ANNOUNCEMENT_LAST_ID.get() == id) return;
+                // If the announcement is archived, do not show it.
+                if (archivedAt.isBefore(LocalDateTime.now())) {
+                    Settings.ANNOUNCEMENT_LAST_ID.save(id);
+                    return;
+                }
 
                 int finalId = id;
                 final var finalTitle = title;
