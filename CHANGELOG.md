@@ -1,3 +1,10 @@
+# [5.0.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.0.0-dev.2...v5.0.0-dev.3) (2024-11-06)
+
+
+### Bug Fixes
+
+* **YouTube - Return YouTube Dislike:** Use latest separator height ([af73e6a](https://github.com/ReVanced/revanced-patches/commit/af73e6a7f1941dc3ae236157e702bbb2c385b947))
+
 # [5.0.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.0.0-dev.1...v5.0.0-dev.2) (2024-11-06)
 
 
