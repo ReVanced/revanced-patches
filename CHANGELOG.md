@@ -1,3 +1,41 @@
+# [5.0.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.18.0-dev.6...v5.0.0-dev.1) (2024-11-06)
+
+
+### Bug Fixes
+
+* **MyFitnessPal - Hide ads:** Constrain patch to last working version ([#3847](https://github.com/ReVanced/revanced-patches/issues/3847)) ([f9fa526](https://github.com/ReVanced/revanced-patches/commit/f9fa526b04c2848175c389d6bb911aa5a245b60f))
+* **YouTube - Copy video URL:** Support A/B player layout ([0f42574](https://github.com/ReVanced/revanced-patches/commit/0f42574b7f4b1c9a48df8550c7d710093f76ce8c))
+* **YouTube - Custom branding:** Change icon correctly on 19.34+ ([#3866](https://github.com/ReVanced/revanced-patches/issues/3866)) ([2e47903](https://github.com/ReVanced/revanced-patches/commit/2e4790382546256e106a5842cd8c530f41b161e5))
+* **YouTube - Hide ads:** Hide new types of ads ([454281a](https://github.com/ReVanced/revanced-patches/commit/454281ac2108648832b7f0203f5fb7e814887835))
+* **YouTube - Hide layout components:** Remove obsolete 'Hide gray separator' ([a697701](https://github.com/ReVanced/revanced-patches/commit/a697701c5f1f9510b51e310b1ff212b609f38519))
+* **YouTube - Playback speed:** Restore old playback speed menu ([#3817](https://github.com/ReVanced/revanced-patches/issues/3817)) ([806b210](https://github.com/ReVanced/revanced-patches/commit/806b21093e3251697f03cd8804e5d5cd26070716))
+* **YouTube - Remove background playback restrictions:** Enable for Shorts as well ([#3671](https://github.com/ReVanced/revanced-patches/issues/3671)) ([7db1a77](https://github.com/ReVanced/revanced-patches/commit/7db1a7751dc47c4e36096fbdc2b3761b0ae11ccb))
+* **YouTube - Return YouTube Dislike:** Use latest separator height ([ae160a3](https://github.com/ReVanced/revanced-patches/commit/ae160a37985cc96c6de7e1a2fe5a1c83bc523046))
+* **YouTube - Seekbar:** Use latest shade of YouTube red ([4b77648](https://github.com/ReVanced/revanced-patches/commit/4b77648607a84eb29f4cae9ddb42b87084be7cd0))
+* **YouTube - Settings:** Use multiline preference title for localized languages ([#3821](https://github.com/ReVanced/revanced-patches/issues/3821)) ([ff85d49](https://github.com/ReVanced/revanced-patches/commit/ff85d490887de64eb6c6fd42e385a3e75969ff10))
+* **YouTube - SponsorBlock:** Show correct segment behavior in settings UI after importing ([e3f25a0](https://github.com/ReVanced/revanced-patches/commit/e3f25a03cd314eeae786e7660a6beacb275a6a76))
+* **YouTube - Spoof app version:** Remove obsolete 17.33.42 spoof target ([#3825](https://github.com/ReVanced/revanced-patches/issues/3825)) ([33aeba2](https://github.com/ReVanced/revanced-patches/commit/33aeba2a0895e9ecaba27ba4a3b22b86c9f1a51c))
+* **YouTube:** Merge `Restore old seekbar thumbnails` into `Seekbar thumbnails` ([#3860](https://github.com/ReVanced/revanced-patches/issues/3860)) ([e377b1e](https://github.com/ReVanced/revanced-patches/commit/e377b1e6ad93dea8e5f3829cd3894f71851887a3))
+
+
+### Build System
+
+* Bump ReVanced Patcher ([eee1692](https://github.com/ReVanced/revanced-patches/commit/eee16922779f994f5752190a20a9016ea98ec4cb))
+
+
+### Features
+
+* **YouTube - Hide player flyout menu items:** Hide stable volume ([#3827](https://github.com/ReVanced/revanced-patches/issues/3827)) ([b91e932](https://github.com/ReVanced/revanced-patches/commit/b91e932e65c04b1c1aee9a2f3dc3a73772d9c225))
+* **YouTube - Miniplayer:** Add horizontal drag gesture ([#3859](https://github.com/ReVanced/revanced-patches/issues/3859)) ([e32b19e](https://github.com/ReVanced/revanced-patches/commit/e32b19e170a5571b23547c3211b497089d0cd441))
+* **YouTube - Player flyout menu:** Hide sleep timer ([#3637](https://github.com/ReVanced/revanced-patches/issues/3637)) ([7e1bdab](https://github.com/ReVanced/revanced-patches/commit/7e1bdab520dba65682f018f819c0b7d9783f94ca))
+* **YouTube:** Add `Seekbar thumbnails` patch ([#3813](https://github.com/ReVanced/revanced-patches/issues/3813)) ([5988b75](https://github.com/ReVanced/revanced-patches/commit/5988b759752b944b6999b401faa394e2089e4003))
+* **YouTube:** Support version `19.43.41` ([#3854](https://github.com/ReVanced/revanced-patches/issues/3854)) ([85de5c7](https://github.com/ReVanced/revanced-patches/commit/85de5c7d96ce2d67f6386d1438e43620d31cc645))
+
+
+### BREAKING CHANGES
+
+* Various APIs have been changed or removed.
+
 # [4.18.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v4.18.0-dev.5...v4.18.0-dev.6) (2024-10-24)
 
 
