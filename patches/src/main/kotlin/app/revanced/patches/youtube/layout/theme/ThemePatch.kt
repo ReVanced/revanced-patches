@@ -17,7 +17,9 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.forEachChildElement
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import org.w3c.dom.Element
 
@@ -210,18 +212,19 @@ val themePatch = bytecodePatch(
         )
 
         useGradientLoadingScreenFingerprint.method.apply {
-
-            val isEnabledIndex = indexOfFirstLiteralInstructionOrThrow(GRADIENT_LOADING_SCREEN_AB_CONSTANT) + 3
-            val isEnabledRegister = getInstruction<OneRegisterInstruction>(isEnabledIndex - 1).registerA
+            val literalIndex = indexOfFirstLiteralInstructionOrThrow(GRADIENT_LOADING_SCREEN_AB_CONSTANT)
+            val isEnabledIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
+            val isEnabledRegister = getInstruction<OneRegisterInstruction>(isEnabledIndex).registerA
 
             addInstructions(
-                isEnabledIndex,
+                isEnabledIndex + 1,
                 """
                     invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->gradientLoadingScreenEnabled()Z
                     move-result v$isEnabledRegister
                 """,
             )
         }
+
         mapOf(
             themeHelperLightColorFingerprint to lightThemeBackgroundColor,
             themeHelperDarkColorFingerprint to darkThemeBackgroundColor,
