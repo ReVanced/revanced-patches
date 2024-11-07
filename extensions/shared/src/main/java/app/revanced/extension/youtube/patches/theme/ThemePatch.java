@@ -1,8 +1,8 @@
 package app.revanced.extension.youtube.patches.theme;
 
-import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.ThemeHelper;
+import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
 public class ThemePatch {
@@ -21,14 +21,15 @@ public class ThemePatch {
             -98492127 // video chapters list background
     };
 
+    // Background colors.
+    private static final int WHITE_COLOR = Utils.getResourceColor("yt_white1");
+    private static final int BLACK_COLOR = Utils.getResourceColor("yt_black1");
+
     private static final boolean GRADIENT_LOADING_SCREEN_ENABLED = Settings.GRADIENT_LOADING_SCREEN.get();
 
-    // background colors
-    private static int whiteColor = 0;
-    private static int blackColor = 0;
-
-    // Used by app.revanced.patches.youtube.layout.theme.patch.LithoThemePatch
     /**
+     * Injection point.
+     *
      * Change the color of Litho components.
      * If the color of the component matches one of the values, return the background color .
      *
@@ -37,33 +38,24 @@ public class ThemePatch {
      */
     public static int getValue(int originalValue) {
         if (ThemeHelper.isDarkTheme()) {
-            if (anyEquals(originalValue, DARK_VALUES)) return getBlackColor();
+            if (anyEquals(originalValue, DARK_VALUES)) return BLACK_COLOR;
         } else {
-            if (anyEquals(originalValue, WHITE_VALUES)) return getWhiteColor();
+            if (anyEquals(originalValue, WHITE_VALUES)) return WHITE_COLOR;
         }
 
         return originalValue;
-    }
-
-    public static boolean gradientLoadingScreenEnabled() {
-        return GRADIENT_LOADING_SCREEN_ENABLED;
-    }
-
-    private static int getBlackColor() {
-        if (blackColor == 0) blackColor = Utils.getResourceColor("yt_black1");
-
-        return blackColor;
-    }
-
-    private static int getWhiteColor() {
-        if (whiteColor == 0) whiteColor = Utils.getResourceColor("yt_white1");
-
-        return whiteColor;
     }
 
     private static boolean anyEquals(int value, int... of) {
         for (int v : of) if (value == v) return true;
 
         return false;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean gradientLoadingScreenEnabled() {
+        return GRADIENT_LOADING_SCREEN_ENABLED;
     }
 }
