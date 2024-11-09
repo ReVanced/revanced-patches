@@ -1,3 +1,10 @@
+# [5.0.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.0.0-dev.1...v5.0.0-dev.2) (2024-11-09)
+
+
+### Bug Fixes
+
+* **YouTube - Return YouTube Dislike:** Show Shorts dislikes with new A/B button icons ([084e0a5](https://github.com/ReVanced/revanced-patches/commit/084e0a527b1c75d1ef15dc706c429aa48d0ffe6b))
+
 # [5.0.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v4.18.0-dev.6...v5.0.0-dev.1) (2024-11-06)
 
 
