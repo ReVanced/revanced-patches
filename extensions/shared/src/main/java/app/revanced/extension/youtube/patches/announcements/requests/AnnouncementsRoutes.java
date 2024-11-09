@@ -9,9 +9,9 @@ import java.net.HttpURLConnection;
 import static app.revanced.extension.youtube.requests.Route.Method.GET;
 
 public class AnnouncementsRoutes {
-    public static final Route GET_LATEST_ANNOUNCEMENTS = new Route(GET, "/announcements/latest?tag=youtube");
-    public static final Route GET_LATEST_ANNOUNCEMENT_IDS = new Route(GET, "/announcements/latest/id?tag=youtube");
     private static final String ANNOUNCEMENTS_PROVIDER = "https://api.revanced.app/v4";
+    public static final Route GET_LATEST_ANNOUNCEMENT_IDS = new Route(GET, "/announcements/latest/id?tag=youtube");
+    public static final Route GET_LATEST_ANNOUNCEMENTS = new Route(GET, "/announcements/latest?tag=youtube");
 
     private AnnouncementsRoutes() {
     }
