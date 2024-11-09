@@ -1,3 +1,10 @@
+# [5.0.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.0.0-dev.2...v5.0.0-dev.3) (2024-11-09)
+
+
+### Bug Fixes
+
+* Add missing dependency to patch ([97f5240](https://github.com/ReVanced/revanced-patches/commit/97f5240d53b9978fb3745170fe03619c7c90274a))
+
 # [5.0.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.0.0-dev.1...v5.0.0-dev.2) (2024-11-09)
 
 
