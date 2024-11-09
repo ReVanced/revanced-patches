@@ -1,3 +1,10 @@
+# [5.0.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.0.0-dev.3...v5.0.0-dev.4) (2024-11-09)
+
+
+### Bug Fixes
+
+* **YouTube - Remember video quality:** Correctly set default quality when changing from a low quality video ([#3879](https://github.com/ReVanced/revanced-patches/issues/3879)) ([ddb73e8](https://github.com/ReVanced/revanced-patches/commit/ddb73e857d7c26fd27ea995a27f53f5660d3f71c))
+
 # [5.0.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.0.0-dev.2...v5.0.0-dev.3) (2024-11-09)
 
 
