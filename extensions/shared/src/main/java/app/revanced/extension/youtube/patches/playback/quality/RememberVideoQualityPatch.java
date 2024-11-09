@@ -62,19 +62,12 @@ public class RememberVideoQualityPatch {
      */
     public static int setVideoQuality(Object[] qualities, final int originalQualityIndex, Object qInterface, String qIndexMethod) {
         try {
-            if (!(qualityNeedsUpdating || userChangedDefaultQuality) || qInterface == null) {
-                return originalQualityIndex;
-            }
-            qualityNeedsUpdating = false;
+            final int preferredQuality = Utils.getNetworkType() == NetworkType.MOBILE
+                    ? mobileQualitySetting.get()
+                    : wifiQualitySetting.get();
 
-            final int preferredQuality;
-            if (Utils.getNetworkType() == NetworkType.MOBILE) {
-                preferredQuality = mobileQualitySetting.get();
-            } else {
-                preferredQuality = wifiQualitySetting.get();
-            }
             if (!userChangedDefaultQuality && preferredQuality == AUTOMATIC_VIDEO_QUALITY_VALUE) {
-                return originalQualityIndex; // nothing to do
+                return originalQualityIndex; // Nothing to do.
             }
 
             if (videoQualities == null || videoQualities.size() != qualities.length) {
@@ -87,7 +80,11 @@ public class RememberVideoQualityPatch {
                         }
                     }
                 }
-                Logger.printDebug(() -> "videoQualities: " + videoQualities);
+                
+                // After changing videos the qualities can initially be for the prior video.
+                // So if the qualities have changed an update is needed.
+                qualityNeedsUpdating = true;
+                Logger.printDebug(() -> "VideoQualities: " + videoQualities);
             }
 
             if (userChangedDefaultQuality) {
@@ -98,7 +95,12 @@ public class RememberVideoQualityPatch {
                 return userSelectedQualityIndex;
             }
 
-            // find the highest quality that is equal to or less than the preferred
+            if (!qualityNeedsUpdating) {
+                return originalQualityIndex;
+            }
+            qualityNeedsUpdating = false;
+
+            // Find the highest quality that is equal to or less than the preferred.
             int qualityToUse = videoQualities.get(0); // first element is automatic mode
             int qualityIndexToUse = 0;
             int i = 0;
@@ -112,20 +114,18 @@ public class RememberVideoQualityPatch {
 
             // If the desired quality index is equal to the original index,
             // then the video is already set to the desired default quality.
-            //
-            // The method could return here, but the UI video quality flyout will still
-            // show 'Auto' (ie: Auto (480p))
-            // It appears that "Auto" picks the resolution on video load,
-            // and it does not appear to change the resolution during playback.
-            //
-            // To prevent confusion, set the video index anyways (even if it matches the existing index)
-            // As that will force the UI picker to not display "Auto" which may confuse the user.
+            final int qualityToUseFinal = qualityToUse;
             if (qualityIndexToUse == originalQualityIndex) {
-                Logger.printDebug(() -> "Video is already preferred quality: " + preferredQuality);
+                // On first load of a new video, if the UI video quality flyout menu
+                // is not updated then it will still show 'Auto' (ie: Auto (480p)),
+                // even though it's already set to the desired resolution.
+                //
+                // To prevent confusion, set the video index anyways (even if it matches the existing index)
+                // as that will force the UI picker to not display "Auto".
+                Logger.printDebug(() -> "Video is already preferred quality: " + qualityToUseFinal);
             } else {
-                final int qualityToUseLog = qualityToUse;
-                Logger.printDebug(() -> "Quality changed from: "
-                        + videoQualities.get(originalQualityIndex) + " to: " + qualityToUseLog);
+                Logger.printDebug(() -> "Changing video quality from: "
+                        + videoQualities.get(originalQualityIndex) + " to: " + qualityToUseFinal);
             }
 
             Method m = qInterface.getClass().getMethod(qIndexMethod, Integer.TYPE);
