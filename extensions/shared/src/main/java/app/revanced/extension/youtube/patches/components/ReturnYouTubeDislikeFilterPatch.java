@@ -76,15 +76,10 @@ public final class ReturnYouTubeDislikeFilterPatch extends Filter {
                 new StringFilterGroup(null, "|shorts_dislike_button.eml")
         );
 
-        // After the likes icon name is some binary data and then the video id for that specific short.
+        // After the button identifiers is binary data and then the video id for that specific short.
         videoIdFilterGroup.addAll(
-                // on_shadowed  = Video was previously like/disliked before opening.
-                // off_shadowed = Video was not previously liked/disliked before opening.
-                new ByteArrayFilterGroup(null, "ic_right_like_on_shadowed"),
-                new ByteArrayFilterGroup(null, "ic_right_like_off_shadowed"),
-
-                new ByteArrayFilterGroup(null, "ic_right_dislike_on_shadowed"),
-                new ByteArrayFilterGroup(null, "ic_right_dislike_off_shadowed")
+                new ByteArrayFilterGroup(null, "id.reel_like_button"),
+                new ByteArrayFilterGroup(null, "id.reel_dislike_button")
         );
     }
 
