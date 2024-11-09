@@ -416,7 +416,6 @@ public final class ShortsFilter extends Filter {
     // endregion
 
     public static void setNavigationBar(PivotBar view) {
-        Logger.printDebug(() -> "Setting navigation bar");
         pivotBarRef = new WeakReference<>(view);
     }
 
