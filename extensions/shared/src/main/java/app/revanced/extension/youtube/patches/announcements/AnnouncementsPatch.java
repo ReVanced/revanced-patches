@@ -15,13 +15,10 @@ import android.widget.TextView;
 import androidx.annotation.RequiresApi;
 
 import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.time.LocalDateTime;
-import java.util.Locale;
-import java.util.logging.Level;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
@@ -84,8 +81,8 @@ public final class AnnouncementsPatch {
             try {
                 if (isLatestAlready()) return;
 
-                HttpURLConnection connection = AnnouncementsRoutes.getAnnouncementsConnectionFromRoute(
-                        GET_LATEST_ANNOUNCEMENTS, Locale.getDefault().toLanguageTag());
+                HttpURLConnection connection = AnnouncementsRoutes
+                        .getAnnouncementsConnectionFromRoute(GET_LATEST_ANNOUNCEMENTS);
 
                 Logger.printDebug(() -> "Get latest announcements route connection url: " + connection.getURL());
 
@@ -98,11 +95,11 @@ public final class AnnouncementsPatch {
                 LocalDateTime archivedAt = LocalDateTime.MAX;
                 Level level = Level.INFO;
                 try {
-                    final var announcement = new JSONObject(jsonString);
+                    final var announcement = new JSONArray(jsonString).getJSONObject(0);
 
                     id = announcement.getInt("id");
                     title = announcement.getString("title");
-                    message = announcement.getJSONObject("content").getString("message");
+                    message = announcement.getString("content");
                     if (!announcement.isNull("archived_at")) {
                         archivedAt = LocalDateTime.parse(announcement.getString("archived_at"));
                     }
