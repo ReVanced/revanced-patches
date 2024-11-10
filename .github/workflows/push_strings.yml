@@ -6,7 +6,7 @@ on:
     branches:
       - dev
     paths:
-      - src/main/resources/addresources/values/strings.xml
+      - patches/src/main/resources/addresources/values/strings.xml
 
 jobs:
   push:

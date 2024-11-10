@@ -23,13 +23,19 @@ jobs:
           persist-credentials: false
           fetch-depth: 0
 
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "17"
+
       - name: Cache Gradle
         uses: burrunan/gradle-cache-action@v1
 
       - name: Build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: ./gradlew generateMeta clean
+        run: ./gradlew build clean
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
