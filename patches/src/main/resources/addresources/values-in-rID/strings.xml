@@ -230,9 +230,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">Sembunyikan kartu info</string>
   <string name="revanced_hide_info_cards_section_summary_on">Bagian kartu info disembunyikan</string>
   <string name="revanced_hide_info_cards_section_summary_off">Bagian kartu info ditampilkan</string>
-  <string name="revanced_hide_key_concepts_section_title">Sembunyikan bagian \'Konsep kunci\'</string>
-  <string name="revanced_hide_key_concepts_section_summary_on">Bagian \'Konsep kunci\' disembunyikan</string>
-  <string name="revanced_hide_key_concepts_section_summary_off">Bagian \'Konsep kunci\' ditampilkan</string>
+  <string name="revanced_hide_key_concepts_section_title">Sembunyikan bagian \'Konsep Utama\'</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">Bagian \'Konsep Utama\' disembunyikan</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">Bagian \'Konsep Utama\' ditampilkan</string>
   <string name="revanced_hide_transcript_section_title">Sembunyikan bagian transkrip</string>
   <string name="revanced_hide_transcript_section_summary_on">Bagian transkrip disembunyikan</string>
   <string name="revanced_hide_transcript_section_summary_off">Bagian transkrip ditampilkan</string>
@@ -734,7 +734,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_compact_layout_title">Tombol suka ringkas</string>
   <string name="revanced_ryd_compact_layout_summary_on">Tombol suka ditata untuk lebar minimum</string>
   <string name="revanced_ryd_compact_layout_summary_off">Tombol suka ditata untuk tampilan terbaik</string>
-  <string name="revanced_ryd_toast_on_connection_error_title">Tampilkan dialog jika API tidak tersedia</string>
+  <string name="revanced_ryd_toast_on_connection_error_title">Tampilkan pesan timbul jika API tidak tersedia</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Pesan timbul tidak ditampilkan jika Return YouTube Dislike tidak tersedia</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Pesan timbul tidak ditampilkan jika Return YouTube Dislike tidak tersedia</string>
   <string name="revanced_ryd_about">Tentang</string>
@@ -787,9 +787,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_enable_auto_hide_skip_segment_button">Tombol lewati disembunyikan secara otomatis</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Tombol lewati disembunyikan setelah beberapa detik</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Tombol lewati ditampilkan untuk seluruh segmen</string>
-  <string name="revanced_sb_general_skiptoast">Tampilkan dialog ketika melewati segmen otomatis</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">Dialog ditampilkan saat segmen dilewati secara otomatis. Tekan di sini untuk melihat contohnya</string>
-  <string name="revanced_sb_general_skiptoast_sum_off">Dialog tidak ditampilkan. Tekan di sini untuk melihat contohnya</string>
+  <string name="revanced_sb_general_skiptoast">Tampilkan pesan timbul ketika melewati segmen otomatis</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">Pesan timbul ditampilkan saat segmen dilewati secara otomatis. Tekan di sini untuk melihat contohnya</string>
+  <string name="revanced_sb_general_skiptoast_sum_off">Pesan timbul tidak ditampilkan. Tekan di sini untuk melihat contohnya</string>
   <string name="revanced_sb_general_time_without">Tampilkan durasi video tanpa segmen</string>
   <string name="revanced_sb_general_time_without_sum_on">Durasi video dikurangi semua segmen, ditampilkan dalam tanda kurung di samping durasi video penuh</string>
   <string name="revanced_sb_general_time_without_sum_off">Durasi video penuh ditampilkan</string>
@@ -816,9 +816,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_general_min_duration">Durasi minimum segmen</string>
   <string name="revanced_sb_general_min_duration_sum">Segmen yang lebih pendek pada dari nilai ini (detik) tidak akan ditampilkan atau dilewati</string>
   <string name="revanced_sb_general_min_duration_invalid">Durasi waktu tidak sah</string>
-  <string name="revanced_sb_general_uuid">ID user pribadi Anda</string>
+  <string name="revanced_sb_general_uuid">ID pengguna pribadi Anda</string>
   <string name="revanced_sb_general_uuid_sum">Ini harus dijaga kerahasiaannya. Seperti kata sandi dan tidak disarankan untuk dibagikan dengan siapa pun. Jika seseorang mendapatkan ini, mereka dapat menyamar sebagai Anda</string>
-  <string name="revanced_sb_general_uuid_invalid">ID user harus tidak lebih dari 30 karakter</string>
+  <string name="revanced_sb_general_uuid_invalid">ID pengguna tidak boleh lebih dari 30 karakter </string>
   <string name="revanced_sb_general_api_url">Ubah URL API</string>
   <string name="revanced_sb_general_api_url_sum">Alamat yang digunakan SponsorBlock untuk membuat panggilan ke server</string>
   <string name="revanced_sb_api_url_reset">Atur ulang URL API</string>
@@ -827,7 +827,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_settings_ie">Impor/Ekspor pengaturan</string>
   <string name="revanced_sb_settings_copy">Salin</string>
   <string name="revanced_sb_settings_ie_sum">Konfigurasi JSON SponsorBlock Anda yang dapat diimpor/diekspor ke ReVanced dan platform SponsorBlock lainnya</string>
-  <string name="revanced_sb_settings_ie_sum_warning">Konfigurasi JSON SponsorBlock Anda yang dapat diimpor/diekspor ke ReVanced dan platform SponsorBlock lainnya, termasuk ID user Anda. Pastikan untuk membagikannya dengan bijak</string>
+  <string name="revanced_sb_settings_ie_sum_warning">Konfigurasi JSON SponsorBlock Anda yang dapat diimpor/diekspor ke ReVanced dan platform SponsorBlock lainnya, termasuk ID pengguna Anda. Pastikan untuk membagikannya dengan bijak</string>
   <string name="revanced_sb_settings_import_successful">Pengaturan berhasil diimpor</string>
   <string name="revanced_sb_settings_import_failed">Gagal mengimpor: %s</string>
   <string name="revanced_sb_settings_export_failed">Gagal mengekspor: %s</string>
@@ -1003,7 +1003,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_tablet_layout_title">Aktifkan tata letak tablet</string>
   <string name="revanced_tablet_layout_summary_on">Tata letak tablet diaktifkan</string>
   <string name="revanced_tablet_layout_summary_off">Tata letak tablet dinonaktifkan</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Tidak ada postingan komunitas untuk tablet</string>
+  <string name="revanced_tablet_layout_user_dialog_message">Postingan komunitas tidak muncul pada tata letak tablet</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Pemutar Mini</string>
