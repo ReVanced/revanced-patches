@@ -258,6 +258,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_section_title">Skrýt sekci komentáře</string>
   <string name="revanced_hide_comments_section_summary_on">Sekce komentářů je skrytá</string>
   <string name="revanced_hide_comments_section_summary_off">Část Komentáře je zobrazena</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">Skrýt tlačítko \"Vytvořit Short\"</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">Tlačítko \"Vytvořit Short\" je skryté</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">Tlačítko \"Vytvořit Short\" je viditelné</string>
   <string name="revanced_hide_comments_preview_comment_title">Skrýt náhled komentáře</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Náhled komentáře je skrytý</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Náhled komentáře je zobrazen</string>
@@ -595,6 +598,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_shorts_player_screen_summary">Skrýt nebo zobrazit komponenty v přehrávači Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
+  <string name="revanced_hide_shorts_search_title">Skrýt Shorts ve výsledcích vyhledávání</string>
+  <string name="revanced_hide_shorts_search_summary_on">Shorts jsou ve výsledcích vyhledávání skryté</string>
+  <string name="revanced_hide_shorts_search_summary_off">Shorts jsou ve výsledcích vyhledávání viditelné</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
   <string name="revanced_hide_shorts_join_button_summary_on">Tlačítko spojení je skryté</string>
   <string name="revanced_hide_shorts_join_button_summary_off">Zobrazí se tlačítko pro připojení</string>
@@ -974,6 +980,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_change_start_page_entry_watch_later">Sledujte později</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
+  <string name="revanced_disable_resuming_shorts_player_title">Zakázat obnovení přehrávače Shorts</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_on">Přehrávač Shorts nebude obnoven při spuštění aplikace</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Krátký přehrávač bude pokračovat při spuštění aplikace</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">

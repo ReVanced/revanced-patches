@@ -768,6 +768,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Zaman çubuğu küçük resimleri orta kalitede</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Tam ekran zaman çubuğu küçük resimleri yüksek kalitede</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Tam ekran zaman çubuğu küçük resimleri orta kalitede</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Bu aynı zamanda zaman çubuğu küçük resimleri olmayan canlı yayınlar için küçük resimleri geri getirecektir.\n\nZaman çubuğu küçük resimleri, şu anki video ile aynı kaliteyi kullanacaktır.\n\nBu özellik 720p video kalitesinde ve çok hızlı bir internet bağlantısında en iyi şekilde çalışır.</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Eski zaman çubuğu küçük resimlerini geri getir</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Zaman çubuğu küçük resimleri zaman çubuğunun üzerinde görünecek</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Zaman çubuğu küçük resimleri tam ekran olarak gösterilecek</string>
@@ -1023,6 +1024,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_drag_and_drop_title">Sürükleyip bırakmayı etkinleştir</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">Sürükleyip bırakma etkin\n\nMini oynatıcı ekranın herhangi bir köşesine sürüklenebilir</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">Sürükleyip bırakma devre dışı</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">Yatay sürükleme hareketini etkinleştir</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">Yatay sürükleme hareketi etkin\n\nMini oynatıcı ekranın dışına doğru sağa veya sola sürüklenebilir</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">Yatay sürükleme hareketi devre dışı</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Kapatma düğmesini gizle</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">Kapatma düğmesi gizli</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">Kapatma düğmesi görünür</string>

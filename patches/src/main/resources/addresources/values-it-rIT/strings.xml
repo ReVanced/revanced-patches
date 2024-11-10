@@ -598,6 +598,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Nascondi Shorts nel feed di abbonamento</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts in abbonamento feed sono nascosti</string>
+  <string name="revanced_hide_shorts_search_title">Nascondi i Video Short nei risultati delle ricerche</string>
   <string name="revanced_hide_shorts_search_summary_on">Shorts nei risultati di ricerca sono nascosti</string>
   <string name="revanced_hide_shorts_search_summary_off">Vengono visualizzati gli Shorts nei risultati di ricerca</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
