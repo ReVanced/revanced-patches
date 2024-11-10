@@ -185,9 +185,7 @@ val settingsPatch = bytecodePatch(
 
         // Remove other methods as they will break as the onCreate method is modified above.
         licenseActivityOnCreateFingerprint.classDef.apply {
-            synchronized(methods) {
-                methods.removeIf { it.name != "onCreate" && !MethodUtil.isConstructor(it) }
-            }
+            methods.removeIf { it.name != "onCreate" && !MethodUtil.isConstructor(it) }
         }
     }
 

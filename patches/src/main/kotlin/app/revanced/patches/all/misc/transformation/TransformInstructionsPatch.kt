@@ -6,6 +6,9 @@ import app.revanced.util.findMutableMethodOf
 import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.joinAll
+import kotlinx.coroutines.launch
 
 fun <T> transformInstructionsPatch(
     filterMap: (ClassDef, Method, Instruction, Int) -> T?,
@@ -20,20 +23,28 @@ fun <T> transformInstructionsPatch(
     execute {
         // Find all methods to patch
         buildMap {
-            synchronized(classes) {
-                classes.forEach { classDef ->
-                    val methods = buildList {
-                        classDef.methods.forEach { method ->
-                            // Since the Sequence executes lazily,
-                            // using any() results in only calling
-                            // filterMap until the first index has been found.
-                            if (findPatchIndices(classDef, method)?.any() == true) add(method)
-                        }
-                    }
+            suspend {
+                coroutineScope {
+                    classes.map { classDef ->
+                        launch {
+                            val methods = buildList {
+                                coroutineScope {
+                                    classDef.methods.map { method ->
+                                        launch {
+                                            // Since the Sequence executes lazily,
+                                            // using any() results in only calling
+                                            // filterMap until the first index has been found.
+                                            if (findPatchIndices(classDef, method)?.any() == true) add(method)
+                                        }
+                                    }
+                                }.joinAll()
+                            }
 
-                    if (methods.isNotEmpty()) {
-                        put(classDef, methods)
-                    }
+                            if (methods.isNotEmpty()) {
+                                put(classDef, methods)
+                            }
+                        }
+                    }.joinAll()
                 }
             }
         }.forEach { (classDef, methods) ->
