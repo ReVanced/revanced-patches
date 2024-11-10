@@ -11,7 +11,7 @@ val bypassCertificateChecksPatch = bytecodePatch(
     compatibleWith("com.google.android.apps.youtube.music")
 
     execute {
-        checkCertificateFingerprint.method.addInstructions(
+        checkCertificateFingerprint.method().addInstructions(
             0,
             """
                 const/4 v0, 0x1

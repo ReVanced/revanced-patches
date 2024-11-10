@@ -55,16 +55,16 @@ val shortsAutoplayPatch = bytecodePatch(
         }
 
         // Main activity is used to check if app is in pip mode.
-        mainActivityOnCreateFingerprint.method.addInstructions(
+        mainActivityOnCreateFingerprint.method().addInstructions(
             0,
             "invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->" +
                 "setMainActivity(Landroid/app/Activity;)V",
         )
 
-        val reelEnumClass = reelEnumConstructorFingerprint.originalClassDef.type
+        val reelEnumClass = reelEnumConstructorFingerprint.originalClassDef().type
 
-        reelEnumConstructorFingerprint.method.apply {
-            val insertIndex = reelEnumConstructorFingerprint.patternMatch!!.startIndex
+        reelEnumConstructorFingerprint.method().apply {
+            val insertIndex = reelEnumConstructorFingerprint.patternMatch()!!.startIndex
 
             addInstructions(
                 insertIndex,
@@ -77,7 +77,7 @@ val shortsAutoplayPatch = bytecodePatch(
             )
         }
 
-        reelPlaybackRepeatFingerprint.method.apply {
+        reelPlaybackRepeatFingerprint.method().apply {
             // The behavior enums are looked up from an ordinal value to an enum type.
             findInstructionIndicesReversedOrThrow {
                 val reference = getReference<MethodReference>()

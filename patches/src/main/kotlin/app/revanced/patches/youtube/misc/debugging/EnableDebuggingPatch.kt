@@ -56,7 +56,7 @@ val enableDebuggingPatch = bytecodePatch(
 
         // Hook the methods that look up if a feature flag is active.
         experimentalBooleanFeatureFlagFingerprint.match(
-            experimentalFeatureFlagParentFingerprint.originalClassDef
+            experimentalFeatureFlagParentFingerprint.originalClassDef()
         ).method.apply {
             val insertIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT)
 
@@ -74,7 +74,7 @@ val enableDebuggingPatch = bytecodePatch(
         }
 
         experimentalDoubleFeatureFlagFingerprint.match(
-            experimentalFeatureFlagParentFingerprint.originalClassDef
+            experimentalFeatureFlagParentFingerprint.originalClassDef()
         ).method.apply {
             val insertIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_WIDE)
 
@@ -90,7 +90,7 @@ val enableDebuggingPatch = bytecodePatch(
         }
 
         experimentalLongFeatureFlagFingerprint.match(
-            experimentalFeatureFlagParentFingerprint.originalClassDef
+            experimentalFeatureFlagParentFingerprint.originalClassDef()
         ).method.apply {
             val insertIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_WIDE)
 

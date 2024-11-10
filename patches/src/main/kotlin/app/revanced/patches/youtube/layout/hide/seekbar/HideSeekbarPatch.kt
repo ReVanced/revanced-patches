@@ -43,7 +43,7 @@ val hideSeekbarPatch = bytecodePatch(
             SwitchPreference("revanced_hide_seekbar_thumbnail"),
         )
 
-        seekbarOnDrawFingerprint.match(seekbarFingerprint.originalClassDef).method.addInstructionsWithLabels(
+        seekbarOnDrawFingerprint.match(seekbarFingerprint.originalClassDef()).method.addInstructionsWithLabels(
             0,
             """
                 const/4 v0, 0x0

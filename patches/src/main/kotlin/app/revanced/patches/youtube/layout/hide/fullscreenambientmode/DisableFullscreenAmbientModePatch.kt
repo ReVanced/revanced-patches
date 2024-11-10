@@ -46,7 +46,7 @@ val disableFullscreenAmbientModePatch = bytecodePatch(
             SwitchPreference("revanced_disable_fullscreen_ambient_mode"),
         )
 
-        setFullScreenBackgroundColorFingerprint.method.apply {
+        setFullScreenBackgroundColorFingerprint.method().apply {
             val insertIndex = indexOfFirstInstructionReversedOrThrow {
                 getReference<MethodReference>()?.name == "setBackgroundColor"
             }

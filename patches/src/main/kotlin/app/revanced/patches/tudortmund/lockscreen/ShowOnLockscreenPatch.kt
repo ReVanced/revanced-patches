@@ -25,7 +25,7 @@ val showOnLockscreenPatch = bytecodePatch(
     compatibleWith("de.tudortmund.app")
 
     execute {
-        brightnessFingerprint.method.apply {
+        brightnessFingerprint.method().apply {
             // Find the instruction where the brightness value is loaded into a register
             val brightnessInstruction = instructions.firstNotNullOf { instruction ->
                 if (instruction.opcode != Opcode.IGET_OBJECT) return@firstNotNullOf null

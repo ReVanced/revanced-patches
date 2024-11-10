@@ -45,7 +45,7 @@ val removeViewerDiscretionDialogPatch = bytecodePatch(
             SwitchPreference("revanced_remove_viewer_discretion_dialog"),
         )
 
-        createDialogFingerprint.method.apply {
+        createDialogFingerprint.method().apply {
             val showDialogIndex = implementation!!.instructions.lastIndex - 2
             val dialogRegister = getInstruction<FiveRegisterInstruction>(showDialogIndex).registerC
 

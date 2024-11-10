@@ -14,14 +14,14 @@ internal val fixBackToExitGesturePatch = bytecodePatch(
          *
          * @param targetMethod The target method to call.
          */
-        fun Fingerprint.injectCall(targetMethod: ExtensionMethod) = method.addInstruction(
-            patternMatch!!.endIndex,
+        suspend fun Fingerprint.injectCall(targetMethod: ExtensionMethod) = method().addInstruction(
+            patternMatch()!!.endIndex,
             targetMethod.toString(),
         )
 
         mapOf(
             recyclerViewTopScrollingFingerprint.also {
-                it.match(recyclerViewTopScrollingParentFingerprint.originalClassDef)
+                it.match(recyclerViewTopScrollingParentFingerprint.originalClassDef())
             } to ExtensionMethod(
                 methodName = "onTopView",
             ),

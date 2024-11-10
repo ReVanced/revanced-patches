@@ -12,6 +12,6 @@ val disableTelemetryPatch = bytecodePatch(
 
     execute {
         // Empty the "backend" argument to abort the initializer.
-        createTrackingApiFingerprint.method.addInstruction(0, "const-string p1, \"\"")
+        createTrackingApiFingerprint.method().addInstruction(0, "const-string p1, \"\"")
     }
 }

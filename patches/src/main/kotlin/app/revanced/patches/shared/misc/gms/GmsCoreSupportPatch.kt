@@ -5,6 +5,8 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.*
+import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.all.misc.packagename.changePackageNamePatch
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
 import app.revanced.patches.all.misc.resources.addResources
@@ -77,17 +79,23 @@ fun gmsCoreSupportPatch(
     val gmsCoreVendorGroupId by gmsCoreVendorGroupIdOption
 
     execute {
-        fun transformStringReferences(transform: (str: String) -> String?) = classes.forEach {
+        suspend fun transformStringReferences(transform: (str: String) -> String?) = classes.forEach {
+            var _mutableClass: MutableClass? = null
+            suspend fun mutableClass() = _mutableClass ?: proxy(it).mutableClass.also { mutableClass -> _mutableClass = mutableClass }
+            /*
             val mutableClass by lazy {
                 proxy(it).mutableClass
-            }
+            }*/
 
             it.methods.forEach classLoop@{ method ->
                 val implementation = method.implementation ?: return@classLoop
 
+                /*
                 val mutableMethod by lazy {
                     mutableClass.methods.first { MethodUtil.methodSignaturesMatch(it, method) }
-                }
+                }*/
+                var _mutableMethod: MutableMethod? = null
+                suspend fun mutableMethod() = _mutableMethod ?: mutableClass().methods.first { MethodUtil.methodSignaturesMatch(it, method) }
 
                 implementation.instructions.forEachIndexed insnLoop@{ index, instruction ->
                     val string = ((instruction as? Instruction21c)?.reference as? StringReference)?.string
@@ -96,7 +104,7 @@ fun gmsCoreSupportPatch(
                     // Apply transformation.
                     val transformedString = transform(string) ?: return@insnLoop
 
-                    mutableMethod.replaceInstruction(
+                    mutableMethod().replaceInstruction(
                         index,
                         BuilderInstruction21c(
                             Opcode.CONST_STRING,
@@ -158,8 +166,8 @@ fun gmsCoreSupportPatch(
             }
         }
 
-        fun transformPrimeMethod(packageName: String) {
-            primeMethodFingerprint!!.method.apply {
+        suspend fun transformPrimeMethod(packageName: String) {
+            primeMethodFingerprint!!.method().apply {
                 var register = 2
 
                 val index = instructions.indexOfFirst {
@@ -195,16 +203,16 @@ fun gmsCoreSupportPatch(
         primeMethodFingerprint?.let { transformPrimeMethod(packageName) }
 
         // Return these methods early to prevent the app from crashing.
-        earlyReturnFingerprints.forEach { it.method.returnEarly() }
-        serviceCheckFingerprint.method.returnEarly()
+        earlyReturnFingerprints.forEach { it.method().returnEarly() }
+        serviceCheckFingerprint.method().returnEarly()
 
         // Google Play Utility is not present in all apps, so we need to check if it's present.
-        if (googlePlayUtilityFingerprint.methodOrNull != null) {
-            googlePlayUtilityFingerprint.method.returnEarly()
+        if (googlePlayUtilityFingerprint.methodOrNull() != null) {
+            googlePlayUtilityFingerprint.method().returnEarly()
         }
 
         // Verify GmsCore is installed and whitelisted for power optimizations and background usage.
-        mainActivityOnCreateFingerprint.method.apply {
+        mainActivityOnCreateFingerprint.method().apply {
             // Temporary fix for patches with an extension patch that hook the onCreate method as well.
             val setContextIndex = indexOfFirstInstruction {
                 val reference = getReference<MethodReference>() ?: return@indexOfFirstInstruction false
@@ -221,7 +229,7 @@ fun gmsCoreSupportPatch(
         }
 
         // Change the vendor of GmsCore in the extension.
-        gmsCoreSupportFingerprint.classDef.methods
+        gmsCoreSupportFingerprint.classDef().methods
             .single { it.name == GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME }
             .replaceInstruction(0, "const-string v0, \"$gmsCoreVendorGroupId\"")
 

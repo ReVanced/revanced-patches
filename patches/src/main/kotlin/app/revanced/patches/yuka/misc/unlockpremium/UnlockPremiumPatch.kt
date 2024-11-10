@@ -11,7 +11,7 @@ val unlockPremiumPatch = bytecodePatch(
 
     execute {
         isPremiumFingerprint.match(
-            yukaUserConstructorFingerprint.originalClassDef,
+            yukaUserConstructorFingerprint.originalClassDef(),
         ).method.addInstructions(
             0,
             """

@@ -15,7 +15,7 @@ val getDeviceIdPatch = bytecodePatch(
     compatibleWith("com.microblink.photomath"("8.37.0"))
 
     execute {
-        getDeviceIdFingerprint.method.replaceInstructions(
+        getDeviceIdFingerprint.method().replaceInstructions(
             0,
             """
                 const-string v0, "${Random.nextLong().toString(16)}"

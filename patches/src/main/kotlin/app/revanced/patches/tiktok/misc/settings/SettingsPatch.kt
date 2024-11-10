@@ -40,11 +40,11 @@ val settingsPatch = bytecodePatch(
         fun String.toClassName(): String = substring(1, this.length - 1).replace("/", ".")
 
         // Find the class name of classes which construct a settings entry
-        val settingsButtonClass = settingsEntryFingerprint.originalClassDef.type.toClassName()
-        val settingsButtonInfoClass = settingsEntryInfoFingerprint.originalClassDef.type.toClassName()
+        val settingsButtonClass = settingsEntryFingerprint.originalClassDef().type.toClassName()
+        val settingsButtonInfoClass = settingsEntryInfoFingerprint.originalClassDef().type.toClassName()
 
         // Create a settings entry for 'revanced settings' and add it to settings fragment
-        addSettingsEntryFingerprint.method.apply {
+        addSettingsEntryFingerprint.method().apply {
             val markIndex = implementation!!.instructions.indexOfFirst {
                 it.opcode == Opcode.IGET_OBJECT && ((it as Instruction22c).reference as FieldReference).name == "headerUnit"
             }
@@ -67,13 +67,13 @@ val settingsPatch = bytecodePatch(
                     const-string v1, "$settingsButtonInfoClass"
                     invoke-static {v0, v1}, $createSettingsEntryMethodDescriptor
                     move-result-object v0
-                    check-cast v0, ${settingsEntryFingerprint.originalClassDef.type}
+                    check-cast v0, ${settingsEntryFingerprint.originalClassDef().type}
                 """,
             )
         }
 
         // Initialize the settings menu once the replaced setting entry is clicked.
-        adPersonalizationActivityOnCreateFingerprint.method.apply {
+        adPersonalizationActivityOnCreateFingerprint.method().apply {
             val initializeSettingsIndex = implementation!!.instructions.indexOfFirst {
                 it.opcode == Opcode.INVOKE_SUPER
             } + 1

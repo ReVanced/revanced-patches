@@ -8,7 +8,7 @@ val licenseValidationPatch = bytecodePatch(
 ) {
 
     execute {
-        licenseValidationFingerprint.method.replaceInstructions(
+        licenseValidationFingerprint.method().replaceInstructions(
             0,
             """
                 const/4 p0, 0x1

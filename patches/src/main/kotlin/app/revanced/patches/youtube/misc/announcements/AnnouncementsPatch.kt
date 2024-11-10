@@ -40,7 +40,7 @@ val announcementsPatch = bytecodePatch(
             SwitchPreference("revanced_announcements"),
         )
 
-        mainActivityOnCreateFingerprint.method.addInstructions(
+        mainActivityOnCreateFingerprint.method().addInstructions(
             // Insert index must be greater than the insert index used by GmsCoreSupport,
             // as both patch the same method and GmsCore check should be first.
             1,

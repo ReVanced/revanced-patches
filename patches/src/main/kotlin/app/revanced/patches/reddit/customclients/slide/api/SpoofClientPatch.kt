@@ -9,7 +9,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "http://www.ccrama.me") { 
     val clientId by clientIdOption
 
     execute {
-        getClientIdFingerprint.method.addInstructions(
+        getClientIdFingerprint.method().addInstructions(
             0,
             """
                  const-string v0, "$clientId"

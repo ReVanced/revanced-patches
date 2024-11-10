@@ -20,8 +20,8 @@ val hideSponsoredStoriesPatch = bytecodePatch(
     compatibleWith("com.facebook.katana")
 
     execute {
-        val sponsoredDataModelTemplateMethod = getSponsoredDataModelTemplateFingerprint.originalMethod
-        val baseModelMapperMethod = baseModelMapperFingerprint.originalMethod
+        val sponsoredDataModelTemplateMethod = getSponsoredDataModelTemplateFingerprint.originalMethod()
+        val baseModelMapperMethod = baseModelMapperFingerprint.originalMethod()
         val baseModelWithTreeType = baseModelMapperMethod.returnType
 
         val graphQlStoryClassDescriptor = "Lcom/facebook/graphql/model/GraphQLStory;"
@@ -31,7 +31,7 @@ val hideSponsoredStoriesPatch = bytecodePatch(
         // could change in future version, we need to extract them and call the base implementation directly.
 
         val getSponsoredDataHelperMethod = ImmutableMethod(
-            getStoryVisibilityFingerprint.originalClassDef.type,
+            getStoryVisibilityFingerprint.originalClassDef().type,
             "getSponsoredData",
             listOf(ImmutableMethodParameter(graphQlStoryClassDescriptor, null, null)),
             baseModelWithTreeType,
@@ -65,12 +65,12 @@ val hideSponsoredStoriesPatch = bytecodePatch(
             )
         }
 
-        getStoryVisibilityFingerprint.classDef.methods.add(getSponsoredDataHelperMethod)
+        getStoryVisibilityFingerprint.classDef().methods.add(getSponsoredDataHelperMethod)
 
         // Check if the parameter type is GraphQLStory and if sponsoredDataModelGetter returns a non-null value.
         // If so, hide the story by setting the visibility to StoryVisibility.GONE.
-        getStoryVisibilityFingerprint.method.addInstructionsWithLabels(
-            getStoryVisibilityFingerprint.patternMatch!!.startIndex,
+        getStoryVisibilityFingerprint.method().addInstructionsWithLabels(
+            getStoryVisibilityFingerprint.patternMatch()!!.startIndex,
             """
                 instance-of v0, p0, $graphQlStoryClassDescriptor
                 if-eqz v0, :resume_normal

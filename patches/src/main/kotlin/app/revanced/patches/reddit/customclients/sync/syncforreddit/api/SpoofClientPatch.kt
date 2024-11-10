@@ -26,7 +26,7 @@ val spoofClientPatch = spoofClientPatch(
     execute {
         // region Patch client id.
 
-        getBearerTokenFingerprint.match(getAuthorizationStringFingerprint.originalClassDef).method.apply {
+        getBearerTokenFingerprint.match(getAuthorizationStringFingerprint.originalClassDef()).method.apply {
             val auth = Base64.getEncoder().encodeToString("$clientId:".toByteArray(Charsets.UTF_8))
             addInstructions(
                 0,
@@ -36,9 +36,9 @@ val spoofClientPatch = spoofClientPatch(
                 """,
             )
             val occurrenceIndex =
-                getAuthorizationStringFingerprint.stringMatches!!.first().index
+                getAuthorizationStringFingerprint.stringMatches()!!.first().index
 
-            getAuthorizationStringFingerprint.method.apply {
+            getAuthorizationStringFingerprint.method().apply {
                 val authorizationStringInstruction = getInstruction<ReferenceInstruction>(occurrenceIndex)
                 val targetRegister = (authorizationStringInstruction as OneRegisterInstruction).registerA
                 val reference = authorizationStringInstruction.reference as StringReference
@@ -63,7 +63,7 @@ val spoofClientPatch = spoofClientPatch(
         val randomName = (0..100000).random()
         val userAgent = "$randomName:app.revanced.$randomName:v1.0.0 (by /u/revanced)"
 
-        imgurImageAPIFingerprint.method.replaceInstruction(
+        imgurImageAPIFingerprint.method().replaceInstruction(
             0,
             """
             const-string v0, "$userAgent"
@@ -75,8 +75,8 @@ val spoofClientPatch = spoofClientPatch(
 
         // region Patch Imgur API URL.
 
-        val apiUrlIndex = getUserAgentFingerprint.stringMatches!!.first().index
-        getUserAgentFingerprint.method.replaceInstruction(
+        val apiUrlIndex = getUserAgentFingerprint.stringMatches()!!.first().index
+        getUserAgentFingerprint.method().replaceInstruction(
             apiUrlIndex,
             "const-string v1, \"https://api.imgur.com/3/image\"",
         )

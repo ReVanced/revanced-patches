@@ -42,7 +42,7 @@ val showDeletedMessagesPatch = bytecodePatch(
         )
 
         // Spoiler mode: Force set hasModAccess member to true in constructor
-        deletedMessageClickableSpanCtorFingerprint.method.apply {
+        deletedMessageClickableSpanCtorFingerprint.method().apply {
             addInstructionsWithLabels(
                 implementation!!.instructions.lastIndex, /* place in front of return-void */
                 """
@@ -55,10 +55,10 @@ val showDeletedMessagesPatch = bytecodePatch(
         }
 
         // Spoiler mode: Disable setHasModAccess setter
-        setHasModAccessFingerprint.method.addInstruction(0, "return-void")
+        setHasModAccessFingerprint.method().addInstruction(0, "return-void")
 
         // Cross-out mode: Reformat span of deleted message
-        chatUtilCreateDeletedSpanFingerprint.method.apply {
+        chatUtilCreateDeletedSpanFingerprint.method().apply {
             addInstructionsWithLabels(
                 0,
                 """

@@ -62,7 +62,7 @@ val customPlayerOverlayOpacityPatch = bytecodePatch(
     )
 
     execute {
-        createPlayerOverviewFingerprint.method.apply {
+        createPlayerOverviewFingerprint.method().apply {
             val viewRegisterIndex =
                 indexOfFirstLiteralInstructionOrThrow(scrimOverlayId) + 3
             val viewRegister =

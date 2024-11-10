@@ -30,7 +30,7 @@ val autoClaimChannelPointsPatch = bytecodePatch(
             SwitchPreference("revanced_auto_claim_channel_points"),
         )
 
-        communityPointsButtonViewDelegateFingerprint.method.apply {
+        communityPointsButtonViewDelegateFingerprint.method().apply {
             val lastIndex = instructions.lastIndex
             addInstructionsWithLabels(
                 lastIndex, // place in front of return-void

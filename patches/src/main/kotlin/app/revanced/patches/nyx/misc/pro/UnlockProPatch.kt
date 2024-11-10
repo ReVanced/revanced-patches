@@ -10,7 +10,7 @@ val unlockProPatch = bytecodePatch(
     compatibleWith("com.awedea.nyx")
 
     execute {
-        checkProFingerprint.method.addInstructions(
+        checkProFingerprint.method().addInstructions(
             0,
             """
                  const/4 v0, 0x1

@@ -18,8 +18,8 @@ val fixAudioMissingInDownloadsPatch = bytecodePatch(
             "/audio" to "/DASH_AUDIO_64.mp4",
         )
 
-        downloadAudioFingerprint.method.apply {
-            downloadAudioFingerprint.stringMatches!!.forEach { match ->
+        downloadAudioFingerprint.method().apply {
+            downloadAudioFingerprint.stringMatches()!!.forEach { match ->
                 val replacement = endpointReplacements[match.string]
                 val register = getInstruction<OneRegisterInstruction>(match.index).registerA
 

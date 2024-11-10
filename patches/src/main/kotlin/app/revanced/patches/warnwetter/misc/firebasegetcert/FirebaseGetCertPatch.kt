@@ -10,7 +10,7 @@ val firebaseGetCertPatch = bytecodePatch(
 
     execute {
         listOf(getRegistrationCertFingerprint, getMessagingCertFingerprint).forEach { match ->
-            match.method.addInstructions(
+            match.method().addInstructions(
                 0,
                 """
                     const-string v0, "0799DDF0414D3B3475E88743C91C0676793ED450"

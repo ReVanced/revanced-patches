@@ -242,9 +242,9 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         // region Mix playlists
 
-        val startIndex = parseElementFromBufferFingerprint.patternMatch!!.startIndex
+        val startIndex = parseElementFromBufferFingerprint.patternMatch()!!.startIndex
 
-        parseElementFromBufferFingerprint.method.apply {
+        parseElementFromBufferFingerprint.method().apply {
             val freeRegister = "v0"
             val byteArrayParameter = "p3"
             val conversionContextRegister = getInstruction<TwoRegisterInstruction>(startIndex).registerA
@@ -267,7 +267,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
         // region Watermark (legacy code for old versions of YouTube)
 
         showWatermarkFingerprint.match(
-            playerOverlayFingerprint.originalClassDef,
+            playerOverlayFingerprint.originalClassDef(),
         ).method.apply {
             val index = implementation!!.instructions.size - 5
 
@@ -285,8 +285,8 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         // region Show more button
 
-        hideShowMoreButtonFingerprint.method.apply {
-            val moveRegisterIndex = hideShowMoreButtonFingerprint.patternMatch!!.endIndex
+        hideShowMoreButtonFingerprint.method().apply {
+            val moveRegisterIndex = hideShowMoreButtonFingerprint.patternMatch()!!.endIndex
             val viewRegister = getInstruction<OneRegisterInstruction>(moveRegisterIndex).registerA
 
             val insertIndex = moveRegisterIndex + 1
@@ -301,8 +301,8 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         // region crowdfunding box
         crowdfundingBoxFingerprint.let {
-            it.method.apply {
-                val insertIndex = it.patternMatch!!.endIndex
+            it.method().apply {
+                val insertIndex = it.patternMatch()!!.endIndex
                 val objectRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
                 addInstruction(
@@ -318,8 +318,8 @@ val hideLayoutComponentsPatch = bytecodePatch(
         // region hide album cards
 
         albumCardsFingerprint.let {
-            it.method.apply {
-                val checkCastAnchorIndex = it.patternMatch!!.endIndex
+            it.method().apply {
+                val checkCastAnchorIndex = it.patternMatch()!!.endIndex
                 val insertIndex = checkCastAnchorIndex + 1
                 val register = getInstruction<OneRegisterInstruction>(checkCastAnchorIndex).registerA
 
@@ -336,8 +336,8 @@ val hideLayoutComponentsPatch = bytecodePatch(
         // region hide floating microphone
 
         showFloatingMicrophoneButtonFingerprint.let {
-            it.method.apply {
-                val startIndex = it.patternMatch!!.startIndex
+            it.method().apply {
+                val startIndex = it.patternMatch()!!.startIndex
                 val register = getInstruction<TwoRegisterInstruction>(startIndex).registerA
 
                 addInstructions(
@@ -354,7 +354,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         // region 'Yoodles'
 
-        yoodlesImageViewFingerprint.method.apply {
+        yoodlesImageViewFingerprint.method().apply {
             findInstructionIndicesReversedOrThrow {
                 getReference<MethodReference>()?.name == "setImageDrawable"
             }.forEach { insertIndex ->
@@ -384,12 +384,12 @@ val hideLayoutComponentsPatch = bytecodePatch(
          * @param hookRegisterOffset The offset to add to the register of the hook.
          * @param instructions The instructions to add with the register as a parameter.
          */
-        fun <RegisterInstruction : OneRegisterInstruction> Fingerprint.patch(
+        suspend fun <RegisterInstruction : OneRegisterInstruction> Fingerprint.patch(
             insertIndexOffset: Int = 0,
             hookRegisterOffset: Int = 0,
             instructions: (Int) -> String,
-        ) = method.apply {
-            val endIndex = patternMatch!!.endIndex
+        ) = method().apply {
+            val endIndex = patternMatch()!!.endIndex
 
             val insertIndex = endIndex + insertIndexOffset
             val register =

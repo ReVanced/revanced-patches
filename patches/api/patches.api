@@ -533,7 +533,7 @@ public final class app/revanced/patches/shared/misc/checks/BaseCheckEnvironmentP
 
 public final class app/revanced/patches/shared/misc/extension/ExtensionHook {
 	public final fun getFingerprint ()Lapp/revanced/patcher/Fingerprint;
-	public final fun invoke (Lapp/revanced/patcher/patch/BytecodePatchContext;Ljava/lang/String;)V
+	public final fun invoke (Lapp/revanced/patcher/patch/BytecodePatchContext;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
 public final class app/revanced/patches/shared/misc/extension/SharedExtensionPatchKt {
@@ -980,7 +980,7 @@ public final class app/revanced/patches/twitter/misc/hook/json/JsonHook {
 }
 
 public final class app/revanced/patches/twitter/misc/hook/json/JsonHookPatchKt {
-	public static final fun addJsonHook (Lapp/revanced/patcher/patch/BytecodePatchContext;Lapp/revanced/patches/twitter/misc/hook/json/JsonHook;)V
+	public static final fun addJsonHook (Lapp/revanced/patcher/patch/BytecodePatchContext;Lapp/revanced/patches/twitter/misc/hook/json/JsonHook;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static final fun getJsonHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
@@ -1207,7 +1207,7 @@ public final class app/revanced/patches/youtube/layout/tablet/EnableTabletLayout
 
 public final class app/revanced/patches/youtube/layout/theme/LithoColorHookPatchKt {
 	public static final fun getLithoColorHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-	public static final fun getLithoColorOverrideHook ()Lkotlin/jvm/functions/Function2;
+	public static final fun getLithoColorOverrideHook ()Lkotlin/jvm/functions/Function3;
 }
 
 public final class app/revanced/patches/youtube/layout/theme/ThemePatchKt {
@@ -1288,10 +1288,10 @@ public final class app/revanced/patches/youtube/misc/litho/filter/LithoFilterPat
 }
 
 public final class app/revanced/patches/youtube/misc/navigation/NavigationBarHookPatchKt {
-	public static field hookNavigationButtonCreated Lkotlin/jvm/functions/Function1;
-	public static final fun getHookNavigationButtonCreated ()Lkotlin/jvm/functions/Function1;
+	public static field hookNavigationButtonCreated Lkotlin/jvm/functions/Function2;
+	public static final fun getHookNavigationButtonCreated ()Lkotlin/jvm/functions/Function2;
 	public static final fun getNavigationBarHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-	public static final fun setHookNavigationButtonCreated (Lkotlin/jvm/functions/Function1;)V
+	public static final fun setHookNavigationButtonCreated (Lkotlin/jvm/functions/Function2;)V
 }
 
 public final class app/revanced/patches/youtube/misc/playercontrols/PlayerControlsPatchKt {
@@ -1433,7 +1433,7 @@ public final class app/revanced/util/BytecodeUtilsKt {
 	public static final fun findInstructionIndicesReversedOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/Opcode;)Ljava/util/List;
 	public static final fun findInstructionIndicesReversedOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;Lkotlin/jvm/functions/Function1;)Ljava/util/List;
 	public static final fun findMutableMethodOf (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableClass;Lcom/android/tools/smali/dexlib2/iface/Method;)Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;
-	public static final fun forEachLiteralValueInstruction (Lapp/revanced/patcher/patch/BytecodePatchContext;JLkotlin/jvm/functions/Function2;)V
+	public static final fun forEachLiteralValueInstruction (Lapp/revanced/patcher/patch/BytecodePatchContext;JLkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static final fun indexOfFirstInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;ILcom/android/tools/smali/dexlib2/Opcode;)I
 	public static final fun indexOfFirstInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;ILkotlin/jvm/functions/Function1;)I
 	public static final fun indexOfFirstInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/Opcode;)I
@@ -1463,7 +1463,7 @@ public final class app/revanced/util/BytecodeUtilsKt {
 	public static final fun returnEarly (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Z)V
 	public static synthetic fun returnEarly$default (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;ZILjava/lang/Object;)V
 	public static final fun transformMethods (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableClass;Lkotlin/jvm/functions/Function1;)V
-	public static final fun traverseClassHierarchy (Lapp/revanced/patcher/patch/BytecodePatchContext;Lapp/revanced/patcher/util/proxy/mutableTypes/MutableClass;Lkotlin/jvm/functions/Function1;)V
+	public static final fun traverseClassHierarchy (Lapp/revanced/patcher/patch/BytecodePatchContext;Lapp/revanced/patcher/util/proxy/mutableTypes/MutableClass;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
 public final class app/revanced/util/ResourceGroup {

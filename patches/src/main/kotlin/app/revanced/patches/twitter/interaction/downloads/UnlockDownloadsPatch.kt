@@ -20,30 +20,30 @@ val unlockDownloadsPatch = bytecodePatch(
     compatibleWith("com.twitter.android")
 
     execute {
-        fun Fingerprint.patch(getRegisterAndIndex: Fingerprint.() -> Pair<Int, Int>) {
+        suspend fun Fingerprint.patch(getRegisterAndIndex: suspend Fingerprint.() -> Pair<Int, Int>) {
             val (index, register) = getRegisterAndIndex()
-            method.addInstruction(index, "const/4 v$register, 0x1")
+            method().addInstruction(index, "const/4 v$register, 0x1")
         }
 
         // Allow downloads for non-premium users.
         showDownloadVideoUpsellBottomSheetFingerprint.patch {
-            val checkIndex = patternMatch!!.startIndex
-            val register = method.getInstruction<OneRegisterInstruction>(checkIndex).registerA
+            val checkIndex = patternMatch()!!.startIndex
+            val register = method().getInstruction<OneRegisterInstruction>(checkIndex).registerA
 
             checkIndex to register
         }
 
         // Force show the download menu item.
         constructMediaOptionsSheetFingerprint.patch {
-            val showDownloadButtonIndex = method.instructions.lastIndex - 1
-            val register = method.getInstruction<TwoRegisterInstruction>(showDownloadButtonIndex).registerA
+            val showDownloadButtonIndex = method().instructions.lastIndex - 1
+            val register = method().getInstruction<TwoRegisterInstruction>(showDownloadButtonIndex).registerA
 
             showDownloadButtonIndex to register
         }
 
         // Make GIFs downloadable.
-        val patternMatch = buildMediaOptionsSheetFingerprint.patternMatch!!
-        buildMediaOptionsSheetFingerprint.method.apply {
+        val patternMatch = buildMediaOptionsSheetFingerprint.patternMatch()!!
+        buildMediaOptionsSheetFingerprint.method().apply {
             val checkMediaTypeIndex = patternMatch.startIndex
             val checkMediaTypeInstruction = getInstruction<TwoRegisterInstruction>(checkMediaTypeIndex)
 

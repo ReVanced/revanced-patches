@@ -47,14 +47,14 @@ val removeTrackingQueryParameterPatch = bytecodePatch(
             SwitchPreference("revanced_remove_tracking_query_parameter"),
         )
 
-        fun Fingerprint.hook(
+        suspend fun Fingerprint.hook(
             getInsertIndex: Match.PatternMatch.() -> Int,
             getUrlRegister: MutableMethod.(insertIndex: Int) -> Int,
         ) {
-            val insertIndex = patternMatch!!.getInsertIndex()
-            val urlRegister = method.getUrlRegister(insertIndex)
+            val insertIndex = patternMatch()!!.getInsertIndex()
+            val urlRegister = method().getUrlRegister(insertIndex)
 
-            method.addInstructions(
+            method().addInstructions(
                 insertIndex,
                 """
                     invoke-static {v$urlRegister}, $EXTENSION_CLASS_DESCRIPTOR->sanitize(Ljava/lang/String;)Ljava/lang/String;

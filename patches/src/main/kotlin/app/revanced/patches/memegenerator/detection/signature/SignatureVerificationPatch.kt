@@ -8,7 +8,7 @@ val signatureVerificationPatch = bytecodePatch(
 ) {
 
     execute {
-        verifySignatureFingerprint.method.replaceInstructions(
+        verifySignatureFingerprint.method().replaceInstructions(
             0,
             """
                 const/4 p0, 0x1

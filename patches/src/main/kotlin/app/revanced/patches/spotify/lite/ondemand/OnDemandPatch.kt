@@ -13,8 +13,8 @@ val onDemandPatch = bytecodePatch(
     execute {
         // Spoof a premium account
 
-        onDemandFingerprint.method.addInstruction(
-            onDemandFingerprint.patternMatch!!.endIndex - 1,
+        onDemandFingerprint.method().addInstruction(
+            onDemandFingerprint.patternMatch()!!.endIndex - 1,
             "const/4 v0, 0x2",
         )
     }

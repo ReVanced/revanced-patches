@@ -43,7 +43,7 @@ val playerResponseMethodHookPatch = bytecodePatch {
             parameterIsShortAndOpeningOrPlaying = 11
 
             playerParameterBuilderLegacyFingerprint
-        }.method
+        }.method()
 
         // On some app targets the method has too many registers pushing the parameters past v15.
         // If needed, move the parameters to 4-bit registers, so they can be passed to the extension.

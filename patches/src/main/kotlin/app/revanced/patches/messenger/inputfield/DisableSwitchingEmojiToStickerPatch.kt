@@ -14,8 +14,8 @@ val disableSwitchingEmojiToStickerPatch = bytecodePatch(
     compatibleWith("com.facebook.orca"("439.0.0.29.119"))
 
     execute {
-        switchMessengeInputEmojiButtonFingerprint.method.apply {
-            val setStringIndex = switchMessengeInputEmojiButtonFingerprint.patternMatch!!.startIndex + 2
+        switchMessengeInputEmojiButtonFingerprint.method().apply {
+            val setStringIndex = switchMessengeInputEmojiButtonFingerprint.patternMatch()!!.startIndex + 2
             val targetRegister = getInstruction<OneRegisterInstruction>(setStringIndex).registerA
 
             replaceInstruction(setStringIndex, "const-string v$targetRegister, \"expression\"")

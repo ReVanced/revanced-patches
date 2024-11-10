@@ -49,11 +49,11 @@ val spoofAppVersionPatch = bytecodePatch(
             ),
         )
 
-        val insertIndex = spoofAppVersionFingerprint.patternMatch!!.startIndex + 1
+        val insertIndex = spoofAppVersionFingerprint.patternMatch()!!.startIndex + 1
         val buildOverrideNameRegister =
-            spoofAppVersionFingerprint.method.getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
+            spoofAppVersionFingerprint.method().getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
 
-        spoofAppVersionFingerprint.method.addInstructions(
+        spoofAppVersionFingerprint.method().addInstructions(
             insertIndex,
             """
                 invoke-static {v$buildOverrideNameRegister}, $EXTENSION_CLASS_DESCRIPTOR->getYouTubeVersionOverride(Ljava/lang/String;)Ljava/lang/String;

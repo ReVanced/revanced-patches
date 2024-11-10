@@ -150,7 +150,7 @@ val settingsPatch = bytecodePatch(
             ),
         )
 
-        setThemeFingerprint.method.let { setThemeMethod ->
+        setThemeFingerprint.method().let { setThemeMethod ->
             setThemeMethod.implementation!!.instructions.mapIndexedNotNull { i, instruction ->
                 if (instruction.opcode == Opcode.RETURN_OBJECT) i else null
             }.asReversed().forEach { returnIndex ->
@@ -175,7 +175,7 @@ val settingsPatch = bytecodePatch(
         // Must modify an existing activity and cannot add a new activity to the manifest,
         // as that fails for root installations.
 
-        licenseActivityOnCreateFingerprint.method.addInstructions(
+        licenseActivityOnCreateFingerprint.method().addInstructions(
             1,
             """
                 invoke-static { p0 }, $activityHookClassDescriptor->initialize(Landroid/app/Activity;)V
@@ -184,7 +184,7 @@ val settingsPatch = bytecodePatch(
         )
 
         // Remove other methods as they will break as the onCreate method is modified above.
-        licenseActivityOnCreateFingerprint.classDef.apply {
+        licenseActivityOnCreateFingerprint.classDef().apply {
             methods.removeIf { it.name != "onCreate" && !MethodUtil.isConstructor(it) }
         }
     }

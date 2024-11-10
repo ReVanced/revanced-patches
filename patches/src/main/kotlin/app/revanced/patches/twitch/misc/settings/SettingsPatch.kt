@@ -73,8 +73,8 @@ val settingsPatch = bytecodePatch(
         )
 
         // Hook onCreate to handle fragment creation.
-        val insertIndex = settingsActivityOnCreateFingerprint.method.implementation!!.instructions.size - 2
-        settingsActivityOnCreateFingerprint.method.addInstructionsWithLabels(
+        val insertIndex = settingsActivityOnCreateFingerprint.method().implementation!!.instructions.size - 2
+        settingsActivityOnCreateFingerprint.method().addInstructionsWithLabels(
             insertIndex,
             """
                 invoke-static { p0 }, $ACTIVITY_HOOKS_CLASS_DESCRIPTOR->handleSettingsCreation(Landroidx/appcompat/app/AppCompatActivity;)Z
@@ -84,21 +84,21 @@ val settingsPatch = bytecodePatch(
             """,
             ExternalLabel(
                 "no_rv_settings_init",
-                settingsActivityOnCreateFingerprint.method.getInstruction(insertIndex),
+                settingsActivityOnCreateFingerprint.method().getInstruction(insertIndex),
             ),
         )
 
         // Create new menu item for settings menu.
-        fun Fingerprint.injectMenuItem(
+        suspend fun Fingerprint.injectMenuItem(
             name: String,
             value: Int,
             titleResourceName: String,
             iconResourceName: String,
         ) {
             // Add new static enum member field
-            classDef.staticFields.add(
+            classDef().staticFields.add(
                 ImmutableField(
-                    method.definingClass,
+                    method().definingClass,
                     name,
                     MENU_ITEM_ENUM_CLASS_DESCRIPTOR,
                     AccessFlags.PUBLIC.value or
@@ -112,8 +112,8 @@ val settingsPatch = bytecodePatch(
             )
 
             // Add initializer for the new enum member
-            method.addInstructions(
-                method.implementation!!.instructions.size - 4,
+            method().addInstructions(
+                method().implementation!!.instructions.size - 4,
                 """   
                 new-instance        v0, $MENU_ITEM_ENUM_CLASS_DESCRIPTOR
                 const-string        v1, "$titleResourceName"
@@ -138,7 +138,7 @@ val settingsPatch = bytecodePatch(
         )
 
         // Intercept settings menu creation and add new menu item.
-        menuGroupsUpdatedFingerprint.method.addInstructions(
+        menuGroupsUpdatedFingerprint.method().addInstructions(
             0,
             """
                 sget-object v0, $MENU_ITEM_ENUM_CLASS_DESCRIPTOR->$REVANCED_SETTINGS_MENU_ITEM_NAME:$MENU_ITEM_ENUM_CLASS_DESCRIPTOR 
@@ -148,7 +148,7 @@ val settingsPatch = bytecodePatch(
         )
 
         // Intercept onclick events for the settings menu
-        menuGroupsOnClickFingerprint.method.addInstructionsWithLabels(
+        menuGroupsOnClickFingerprint.method().addInstructionsWithLabels(
             0,
             """
                 invoke-static {p1}, $ACTIVITY_HOOKS_CLASS_DESCRIPTOR->handleSettingMenuOnClick(Ljava/lang/Enum;)Z
@@ -160,7 +160,7 @@ val settingsPatch = bytecodePatch(
             """,
             ExternalLabel(
                 "no_rv_settings_onclick",
-                menuGroupsOnClickFingerprint.method.getInstruction(0),
+                menuGroupsOnClickFingerprint.method().getInstruction(0),
             ),
         )
     }

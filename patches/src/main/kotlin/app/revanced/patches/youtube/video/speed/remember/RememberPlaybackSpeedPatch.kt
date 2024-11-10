@@ -50,7 +50,7 @@ internal val rememberPlaybackSpeedPatch = bytecodePatch {
         /*
          * Hook the code that is called when the playback speeds are initialized, and sets the playback speed
          */
-        initializePlaybackSpeedValuesFingerprint.method.apply {
+        initializePlaybackSpeedValuesFingerprint.method().apply {
             // Infer everything necessary for calling the method setPlaybackSpeed().
             val onItemClickListenerClassFieldReference = getInstruction<ReferenceInstruction>(0).reference
 

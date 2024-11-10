@@ -15,7 +15,7 @@ val hideStoryAdsPatch = bytecodePatch(
             fetchMoreAdsFingerprint,
             adsInsertionFingerprint,
         ).forEach { fingerprint ->
-            fingerprint.method.replaceInstruction(0, "return-void")
+            fingerprint.method().replaceInstruction(0, "return-void")
         }
     }
 }

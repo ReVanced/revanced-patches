@@ -12,12 +12,12 @@ val backgroundPlaybackPatch = bytecodePatch(
     compatibleWith("com.google.android.apps.youtube.music")
 
     execute {
-        kidsBackgroundPlaybackPolicyControllerFingerprint.method.addInstruction(
+        kidsBackgroundPlaybackPolicyControllerFingerprint.method().addInstruction(
             0,
             "return-void",
         )
 
-        backgroundPlaybackDisableFingerprint.method.addInstructions(
+        backgroundPlaybackDisableFingerprint.method().addInstructions(
             0,
             """
                 const/4 v0, 0x1

@@ -26,7 +26,7 @@ val feedFilterPatch = bytecodePatch(
     )
 
     execute {
-        feedApiServiceLIZFingerprint.method.apply {
+        feedApiServiceLIZFingerprint.method().apply {
             val returnFeedItemInstruction = instructions.first { it.opcode == Opcode.RETURN_OBJECT }
             val feedItemsRegister = (returnFeedItemInstruction as OneRegisterInstruction).registerA
 
@@ -37,7 +37,7 @@ val feedFilterPatch = bytecodePatch(
             )
         }
 
-        settingsStatusLoadFingerprint.method.addInstruction(
+        settingsStatusLoadFingerprint.method().addInstruction(
             0,
             "invoke-static {}, Lapp/revanced/extension/tiktok/settings/SettingsStatus;->enableFeedFilter()V",
         )

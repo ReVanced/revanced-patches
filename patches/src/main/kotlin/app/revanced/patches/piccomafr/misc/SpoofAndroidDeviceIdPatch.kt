@@ -39,7 +39,7 @@ val spoofAndroidDeviceIdPatch = bytecodePatch(
     ) { it!!.matches("[A-Fa-f0-9]{16}".toRegex()) }
 
     execute {
-        getAndroidIdFingerprint.method.addInstructions(
+        getAndroidIdFingerprint.method().addInstructions(
             0,
             """
                 const-string v0, "$androidDeviceId"

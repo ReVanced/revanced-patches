@@ -10,7 +10,7 @@ val disableMandatoryLoginPatch = bytecodePatch(
     compatibleWith("com.adobe.lrmobile")
 
     execute {
-        isLoggedInFingerprint.method.apply {
+        isLoggedInFingerprint.method().apply {
             val index = implementation!!.instructions.lastIndex - 1
             // Set isLoggedIn = true.
             replaceInstruction(index, "const/4 v0, 0x1")

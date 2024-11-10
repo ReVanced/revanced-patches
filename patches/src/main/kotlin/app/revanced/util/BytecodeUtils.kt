@@ -186,7 +186,7 @@ fun Method.containsLiteralInstruction(literal: Long) =
  * @param targetClass the class to start traversing the class hierarchy from.
  * @param callback function that is called for every class in the hierarchy.
  */
-fun BytecodePatchContext.traverseClassHierarchy(targetClass: MutableClass, callback: MutableClass.() -> Unit) {
+suspend fun BytecodePatchContext.traverseClassHierarchy(targetClass: MutableClass, callback: MutableClass.() -> Unit) {
     callback(targetClass)
 
     targetClass.superclass ?: return
@@ -384,7 +384,7 @@ fun Method.findInstructionIndicesReversedOrThrow(opcode: Opcode): List<Int> {
 /**
  * Called for _all_ instructions with the given literal value.
  */
-fun BytecodePatchContext.forEachLiteralValueInstruction(
+suspend fun BytecodePatchContext.forEachLiteralValueInstruction(
     literal: Long,
     block: MutableMethod.(literalInstructionIndex: Int) -> Unit,
 ) {

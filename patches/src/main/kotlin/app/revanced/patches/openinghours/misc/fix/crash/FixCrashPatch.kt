@@ -18,7 +18,7 @@ val fixCrashPatch = bytecodePatch(
     compatibleWith("de.simon.openinghours"("1.0"))
 
     execute {
-        val indexedInstructions = setPlaceFingerprint.method.instructions.withIndex().toList()
+        val indexedInstructions = setPlaceFingerprint.method().instructions.withIndex().toList()
 
         /**
          * This function replaces all `checkNotNull` instructions in the integer interval
@@ -26,8 +26,8 @@ val fixCrashPatch = bytecodePatch(
          * instruction an if-null check is inserted. If the if-null check yields that
          * the value is indeed null, we jump to a newly created label at `endIndex + 1`.
          */
-        fun avoidNullPointerException(startIndex: Int, endIndex: Int) {
-            val continueLabel = setPlaceFingerprint.method.newLabel(endIndex + 1)
+        suspend fun avoidNullPointerException(startIndex: Int, endIndex: Int) {
+            val continueLabel = setPlaceFingerprint.method().newLabel(endIndex + 1)
 
             for (index in startIndex..endIndex) {
                 val instruction = indexedInstructions[index].value
@@ -39,7 +39,7 @@ val fixCrashPatch = bytecodePatch(
                 val checkNotNullInstruction = instruction as FiveRegisterInstruction
                 val originalRegister = checkNotNullInstruction.registerC
 
-                setPlaceFingerprint.method.replaceInstruction(
+                setPlaceFingerprint.method().replaceInstruction(
                     index,
                     BuilderInstruction21t(
                         Opcode.IF_EQZ,

@@ -53,8 +53,8 @@ val wideSearchbarPatch = bytecodePatch(
          * @param from The fingerprint to navigate the method on.
          * @return The [MutableMethod] which was navigated on.
          */
-        fun BytecodePatchContext.walkMutable(index: Int, from: Fingerprint) =
-            navigate(from.originalMethod).to(index).stop()
+        suspend fun BytecodePatchContext.walkMutable(index: Int, from: Fingerprint) =
+            navigate(from.originalMethod()).to(index).stop()
 
         /**
          * Injects instructions required for certain methods.
@@ -74,7 +74,7 @@ val wideSearchbarPatch = bytecodePatch(
 
         mapOf(
             setWordmarkHeaderFingerprint to 1,
-            createSearchSuggestionsFingerprint to createSearchSuggestionsFingerprint.patternMatch!!.startIndex,
+            createSearchSuggestionsFingerprint to createSearchSuggestionsFingerprint.patternMatch()!!.startIndex,
         ).forEach { (fingerprint, callIndex) ->
             walkMutable(callIndex, fingerprint).injectSearchBarHook()
         }

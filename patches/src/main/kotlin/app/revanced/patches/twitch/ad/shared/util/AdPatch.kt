@@ -12,7 +12,7 @@ fun adPatch(
     skipLabelName: String,
     block: BytecodePatchBuilder.(
         createConditionInstructions: (register: String) -> String,
-        blockMethods: BytecodePatchContext.(
+        blockMethods: suspend BytecodePatchContext.(
             clazz: String,
             methodNames: Set<String>,
             returnMethod: ReturnMethod,
@@ -25,7 +25,7 @@ fun adPatch(
         if-eqz $register, :$skipLabelName
     """
 
-    fun BytecodePatchContext.blockMethods(
+    suspend fun BytecodePatchContext.blockMethods(
         classDefType: String,
         methodNames: Set<String>,
         returnMethod: ReturnMethod,

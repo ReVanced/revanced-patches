@@ -60,7 +60,7 @@ val bypassURLRedirectsPatch = bytecodePatch(
         }
 
         fingerprints.forEach {
-            it.method.apply {
+            it.method().apply {
                 val insertIndex = findUriParseIndex()
                 val uriStringRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
 

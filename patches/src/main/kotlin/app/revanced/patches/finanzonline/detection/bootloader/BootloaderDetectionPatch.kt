@@ -12,7 +12,7 @@ val bootloaderDetectionPatch = bytecodePatch(
 
     execute {
         setOf(createKeyFingerprint, bootStateFingerprint).forEach { fingerprint ->
-            fingerprint.method.addInstructions(
+            fingerprint.method().addInstructions(
                 0,
                 """
                     const/4 v0, 0x1

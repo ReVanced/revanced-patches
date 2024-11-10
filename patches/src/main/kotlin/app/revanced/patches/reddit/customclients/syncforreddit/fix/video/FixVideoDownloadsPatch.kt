@@ -24,14 +24,14 @@ val fixVideoDownloadsPatch = bytecodePatch(
     )
 
     execute {
-        val scanResult = parseRedditVideoNetworkResponseFingerprint.patternMatch!!
+        val scanResult = parseRedditVideoNetworkResponseFingerprint.patternMatch()!!
         val newInstanceIndex = scanResult.startIndex
         val invokeDirectIndex = scanResult.endIndex - 1
 
         val buildResponseInstruction =
-            parseRedditVideoNetworkResponseFingerprint.method.getInstruction<Instruction35c>(invokeDirectIndex)
+            parseRedditVideoNetworkResponseFingerprint.method().getInstruction<Instruction35c>(invokeDirectIndex)
 
-        parseRedditVideoNetworkResponseFingerprint.method.addInstructions(
+        parseRedditVideoNetworkResponseFingerprint.method().addInstructions(
             newInstanceIndex + 1,
             """
                 # Get byte array from response.

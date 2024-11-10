@@ -37,11 +37,11 @@ fun checkEnvironmentPatch(
     execute {
         addResources("shared", "misc.checks.checkEnvironmentPatch")
 
-        fun setPatchInfo() {
-            fun <T : MutableEncodedValue> Fingerprint.setClassFields(vararg fieldNameValues: Pair<String, T>) {
+        suspend fun setPatchInfo() {
+            suspend fun <T : MutableEncodedValue> Fingerprint.setClassFields(vararg fieldNameValues: Pair<String, T>) {
                 val fieldNameValueMap = mapOf(*fieldNameValues)
 
-                classDef.fields.forEach { field ->
+                classDef().fields.forEach { field ->
                     field.initialValue = fieldNameValueMap[field.name] ?: return@forEach
                 }
             }
@@ -50,7 +50,7 @@ fun checkEnvironmentPatch(
                 "PATCH_TIME" to System.currentTimeMillis().encoded,
             )
 
-            fun setBuildInfo() {
+            suspend fun setBuildInfo() {
                 patchInfoBuildFingerprint.setClassFields(
                     "PATCH_BOARD" to BOARD.encodedAndHashed,
                     "PATCH_BOOTLOADER" to BOOTLOADER.encodedAndHashed,
@@ -82,7 +82,7 @@ fun checkEnvironmentPatch(
             }
         }
 
-        fun invokeCheck() = mainActivityOnCreateFingerprint.method.addInstructions(
+        suspend fun invokeCheck() = mainActivityOnCreateFingerprint.method().addInstructions(
             0,
             "invoke-static/range { p0 .. p0 },$EXTENSION_CLASS_DESCRIPTOR->check(Landroid/app/Activity;)V",
         )

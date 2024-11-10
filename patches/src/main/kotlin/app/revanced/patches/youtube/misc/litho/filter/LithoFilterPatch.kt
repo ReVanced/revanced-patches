@@ -93,7 +93,7 @@ val lithoFilterPatch = bytecodePatch(
     execute {
         // Remove dummy filter from extenion static field
         // and add the filters included during patching.
-        lithoFilterFingerprint.method.apply {
+        lithoFilterFingerprint.method().apply {
             removeInstructions(2, 4) // Remove dummy filter.
 
             addLithoFilter = { classDescriptor ->
@@ -111,7 +111,7 @@ val lithoFilterPatch = bytecodePatch(
 
         // region Pass the buffer into extension.
 
-        protobufBufferReferenceFingerprint.method.addInstruction(
+        protobufBufferReferenceFingerprint.method().addInstruction(
             0,
             " invoke-static { p2 }, $EXTENSION_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V",
         )
@@ -120,9 +120,9 @@ val lithoFilterPatch = bytecodePatch(
 
         // region Hook the method that parses bytes into a ComponentContext.
 
-        val readComponentMethod = readComponentIdentifierFingerprint.originalMethod
+        val readComponentMethod = readComponentIdentifierFingerprint.originalMethod()
         // Get the only static method in the class.
-        val builderMethodDescriptor = emptyComponentFingerprint.classDef.methods.first { method ->
+        val builderMethodDescriptor = emptyComponentFingerprint.classDef().methods.first { method ->
             AccessFlags.STATIC.isSet(method.accessFlags)
         }
         // Only one field.
@@ -140,7 +140,7 @@ val lithoFilterPatch = bytecodePatch(
                 return-object v$register
             """
 
-        componentContextParserFingerprint.method.apply {
+        componentContextParserFingerprint.method().apply {
             // 19.18 and later require patching 2 methods instead of one.
             // Otherwise the modifications done here are the same for all targets.
             if (is_19_18_or_greater) {
@@ -175,7 +175,7 @@ val lithoFilterPatch = bytecodePatch(
 
         // region Read component then store the result.
 
-        readComponentIdentifierFingerprint.method.apply {
+        readComponentIdentifierFingerprint.method().apply {
             val insertHookIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.IPUT_OBJECT &&
                     getReference<FieldReference>()?.type == "Ljava/lang/StringBuilder;"
@@ -236,7 +236,7 @@ val lithoFilterPatch = bytecodePatch(
         // Turn off native code that handles litho component names.  If this feature is on then nearly
         // all litho components have a null name and identifier/path filtering is completely broken.
         if (is_19_25_or_greater) {
-            lithoComponentNameUpbFeatureFlagFingerprint.method.apply {
+            lithoComponentNameUpbFeatureFlagFingerprint.method().apply {
                 // Don't use return early, so the debug patch logs if this was originally on.
                 val insertIndex = indexOfFirstInstructionOrThrow(Opcode.RETURN)
                 val register = getInstruction<OneRegisterInstruction>(insertIndex).registerA
@@ -248,7 +248,7 @@ val lithoFilterPatch = bytecodePatch(
         // Turn off a feature flag that enables native code of protobuf parsing (Upb protobuf).
         // If this is enabled, then the litho protobuffer hook will always show an empty buffer
         // since it's no longer handled by the hooked Java code.
-        lithoConverterBufferUpbFeatureFlagFingerprint.method.apply {
+        lithoConverterBufferUpbFeatureFlagFingerprint.method().apply {
             val index = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT)
             val register = getInstruction<OneRegisterInstruction>(index).registerA
 
@@ -259,6 +259,6 @@ val lithoFilterPatch = bytecodePatch(
     }
 
     finalize {
-        lithoFilterFingerprint.method.replaceInstruction(0, "const/16 v0, $filterCount")
+        lithoFilterFingerprint.method().replaceInstruction(0, "const/16 v0, $filterCount")
     }
 }

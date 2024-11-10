@@ -76,7 +76,7 @@ val rememberVideoQualityPatch = bytecodePatch(
 
         // Inject a call to set the remembered quality once a video loads.
         setQualityByIndexMethodClassFieldReferenceFingerprint.match(
-            videoQualitySetterFingerprint.originalClassDef,
+            videoQualitySetterFingerprint.originalClassDef(),
         ).let { match ->
             // This instruction refers to the field with the type that contains the setQualityByIndex method.
             val instructions = match.method.implementation!!.instructions
@@ -97,7 +97,7 @@ val rememberVideoQualityPatch = bytecodePatch(
                 .find { method -> method.parameterTypes.first() == "I" }
                 ?: throw PatchException("Could not find setQualityByIndex method")
 
-            videoQualitySetterFingerprint.method.addInstructions(
+            videoQualitySetterFingerprint.method().addInstructions(
                 0,
                 """
                     # Get the object instance to invoke the setQualityByIndex method on.
@@ -119,7 +119,7 @@ val rememberVideoQualityPatch = bytecodePatch(
         }
 
         // Inject a call to remember the selected quality.
-        videoQualityItemOnClickParentFingerprint.classDef.methods.find { it.name == "onItemClick" }
+        videoQualityItemOnClickParentFingerprint.classDef().methods.find { it.name == "onItemClick" }
             ?.apply {
                 val listItemIndexParameter = 3
 
@@ -131,8 +131,8 @@ val rememberVideoQualityPatch = bytecodePatch(
             } ?: throw PatchException("Failed to find onItemClick method")
 
         // Remember video quality if not using old layout menu.
-        newVideoQualityChangedFingerprint.method.apply {
-            val index = newVideoQualityChangedFingerprint.patternMatch!!.startIndex
+        newVideoQualityChangedFingerprint.method().apply {
+            val index = newVideoQualityChangedFingerprint.patternMatch()!!.startIndex
             val qualityRegister = getInstruction<TwoRegisterInstruction>(index).registerA
 
             addInstruction(

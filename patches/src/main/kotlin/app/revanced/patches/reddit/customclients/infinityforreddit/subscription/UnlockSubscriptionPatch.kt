@@ -17,6 +17,6 @@ val unlockSubscriptionPatch = bytecodePatch(
         setOf(
             startSubscriptionActivityFingerprint,
             billingClientOnServiceConnectedFingerprint,
-        ).forEach { it.method.returnEarly() }
+        ).forEach { it.method().returnEarly() }
     }
 }

@@ -20,7 +20,7 @@ val fixSlinksPatch = fixSLinksPatch(
     execute {
         // region Patch navigation handler.
 
-        handleNavigationFingerprint.method.apply {
+        handleNavigationFingerprint.method().apply {
             val urlRegister = "p1"
             val tempRegister = "v1"
 
@@ -40,7 +40,7 @@ val fixSlinksPatch = fixSLinksPatch(
 
         // region Patch set access token.
 
-        getOAuthAccessTokenFingerprint.method.addInstruction(
+        getOAuthAccessTokenFingerprint.method().addInstruction(
             3,
             "invoke-static { v0 }, $EXTENSION_CLASS_DESCRIPTOR->$SET_ACCESS_TOKEN_METHOD",
         )

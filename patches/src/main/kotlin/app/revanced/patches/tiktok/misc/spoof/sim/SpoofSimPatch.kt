@@ -92,7 +92,7 @@ val spoofSimPatch = bytecodePatch(
         }
 
         // Enable patch in settings.
-        settingsStatusLoadFingerprint.method.addInstruction(
+        settingsStatusLoadFingerprint.method().addInstruction(
             0,
             "invoke-static {}, Lapp/revanced/extension/tiktok/settings/SettingsStatus;->enableSimSpoof()V",
         )

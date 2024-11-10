@@ -222,7 +222,7 @@ val playerControlsPatch = bytecodePatch(
                     reference.name == "inflate"
             }
 
-        playerBottomControlsInflateFingerprint.method.apply {
+        playerBottomControlsInflateFingerprint.method().apply {
             inflateBottomControlMethod = this
 
             val inflateReturnObjectIndex = indexOfFirstViewInflateOrThrow() + 1
@@ -230,7 +230,7 @@ val playerControlsPatch = bytecodePatch(
             inflateBottomControlInsertIndex = inflateReturnObjectIndex + 1
         }
 
-        playerTopControlsInflateFingerprint.method.apply {
+        playerTopControlsInflateFingerprint.method().apply {
             inflateTopControlMethod = this
 
             val inflateReturnObjectIndex = indexOfFirstViewInflateOrThrow() + 1
@@ -239,12 +239,12 @@ val playerControlsPatch = bytecodePatch(
         }
 
         visibilityMethod = controlsOverlayVisibilityFingerprint.match(
-            playerTopControlsInflateFingerprint.originalClassDef,
+            playerTopControlsInflateFingerprint.originalClassDef(),
         ).method
 
         // Hook the fullscreen close button.  Used to fix visibility
         // when seeking and other situations.
-        overlayViewInflateFingerprint.method.apply {
+        overlayViewInflateFingerprint.method().apply {
             val resourceIndex = indexOfFirstLiteralInstructionReversedOrThrow(fullscreenButton)
 
             val index = indexOfFirstInstructionOrThrow(resourceIndex) {
@@ -261,14 +261,14 @@ val playerControlsPatch = bytecodePatch(
             )
         }
 
-        visibilityImmediateMethod = playerControlsExtensionHookFingerprint.method
+        visibilityImmediateMethod = playerControlsExtensionHookFingerprint.method()
 
         // A/B test for a slightly different overlay controls,
         // that uses layout file youtube_video_exploder_controls_bottom_ui_container.xml
         // The change to support this is simple and only requires adding buttons to both layout files,
         // but for now force this different layout off since it's still an experimental test.
         if (is_19_35_or_greater) {
-            playerControlsExploderFeatureFlagFingerprint.method.returnEarly()
+            playerControlsExploderFeatureFlagFingerprint.method().returnEarly()
         }
     }
 }

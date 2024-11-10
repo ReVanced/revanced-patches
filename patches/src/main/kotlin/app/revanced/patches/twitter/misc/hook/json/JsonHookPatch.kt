@@ -15,14 +15,14 @@ import java.io.InvalidClassException
  * @param jsonHook The [JsonHook] to add.
  */
 context(BytecodePatchContext)
-fun addJsonHook(
+suspend fun addJsonHook(
     jsonHook: JsonHook,
 ) {
     if (jsonHook.added) return
 
-    jsonHookPatchFingerprint.method.apply {
+    jsonHookPatchFingerprint.method().apply {
         // Insert hooks right before calling buildList.
-        val insertIndex = jsonHookPatchFingerprint.patternMatch!!.endIndex
+        val insertIndex = jsonHookPatchFingerprint.patternMatch()!!.endIndex
 
         addInstructions(
             insertIndex,
@@ -54,7 +54,7 @@ val jsonHookPatch = bytecodePatch(
 
             matchOrNull(jsonHookPatch.immutableClass)
                 ?: throw PatchException("Unexpected extension.")
-        }.originalClassDef // Conveniently find the type to hook a method in, via a named field.
+        }.originalClassDef() // Conveniently find the type to hook a method in, via a named field.
             .fields
             .firstOrNull { it.name == "JSON_FACTORY" }
             ?.type
@@ -72,8 +72,8 @@ val jsonHookPatch = bytecodePatch(
 
     finalize {
         // Remove hooks.add(dummyHook).
-        jsonHookPatchFingerprint.method.apply {
-            val addDummyHookIndex = jsonHookPatchFingerprint.patternMatch!!.endIndex - 2
+        jsonHookPatchFingerprint.method().apply {
+            val addDummyHookIndex = jsonHookPatchFingerprint.patternMatch()!!.endIndex - 2
 
             removeInstructions(addDummyHookIndex, 2)
         }
@@ -95,6 +95,7 @@ class JsonHook(
     internal var added = false
 
     init {
+        /*
         classBy { it.type == descriptor }?.let {
             it.mutableClass.also { classDef ->
                 if (
@@ -104,6 +105,6 @@ class JsonHook(
                     throw InvalidClassException(classDef.type, "Not a hook class")
                 }
             }
-        } ?: throw ClassNotFoundException("Failed to find hook class $descriptor")
+        } ?: throw ClassNotFoundException("Failed to find hook class $descriptor")*/
     }
 }

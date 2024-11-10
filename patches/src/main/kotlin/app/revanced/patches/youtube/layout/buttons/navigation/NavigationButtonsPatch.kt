@@ -65,8 +65,8 @@ val navigationButtonsPatch = bytecodePatch(
         )
 
         // Switch create with notifications button.
-        addCreateButtonViewFingerprint.method.apply {
-            val stringIndex = addCreateButtonViewFingerprint.stringMatches!!.find { match ->
+        addCreateButtonViewFingerprint.method().apply {
+            val stringIndex = addCreateButtonViewFingerprint.stringMatches()!!.find { match ->
                 match.string == ANDROID_AUTOMOTIVE_STRING
             }!!.index
 
@@ -84,7 +84,7 @@ val navigationButtonsPatch = bytecodePatch(
         }
 
         // Hide navigation button labels.
-        createPivotBarFingerprint.method.apply {
+        createPivotBarFingerprint.method().apply {
             val setTextIndex = indexOfFirstInstructionOrThrow {
                 getReference<MethodReference>()?.name == "setText"
             }

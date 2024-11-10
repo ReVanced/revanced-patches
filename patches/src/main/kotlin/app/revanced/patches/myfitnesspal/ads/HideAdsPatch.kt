@@ -12,7 +12,7 @@ val hideAdsPatch = bytecodePatch(
 
     execute {
         // Overwrite the premium status specifically for ads.
-        isPremiumUseCaseImplFingerprint.method.replaceInstructions(
+        isPremiumUseCaseImplFingerprint.method().replaceInstructions(
             0,
             """
                 sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
@@ -22,7 +22,7 @@ val hideAdsPatch = bytecodePatch(
 
         // Prevent the premium upsell dialog from showing when the main activity is launched.
         // In other places that are premium-only the dialog will still show.
-        mainActivityNavigateToNativePremiumUpsellFingerprint.method.replaceInstructions(
+        mainActivityNavigateToNativePremiumUpsellFingerprint.method().replaceInstructions(
             0,
             "return-void",
         )

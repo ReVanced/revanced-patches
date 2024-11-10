@@ -75,8 +75,8 @@ val swipeControlsPatch = bytecodePatch(
     )
 
     execute {
-        val wrapperClass = swipeControlsHostActivityFingerprint.classDef
-        val targetClass = mainActivityFingerprint.classDef
+        val wrapperClass = swipeControlsHostActivityFingerprint.classDef()
+        val targetClass = mainActivityFingerprint.classDef()
 
         // Inject the wrapper class from the extension into the class hierarchy of MainActivity.
         wrapperClass.setSuperClass(targetClass.superclass)

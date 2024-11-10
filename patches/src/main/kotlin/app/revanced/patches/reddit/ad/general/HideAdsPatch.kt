@@ -32,7 +32,7 @@ val hideAdsPatch = bytecodePatch(
             "Lapp/revanced/extension/reddit/patches/FilterPromotedLinksPatch;" +
                 "->filterChildren(Ljava/lang/Iterable;)Ljava/util/List;"
 
-        adPostFingerprint.method.apply {
+        adPostFingerprint.method().apply {
             val setPostsListChildren = implementation!!.instructions.first { instruction ->
                 if (instruction.opcode != Opcode.IPUT_OBJECT) return@first false
 
@@ -64,7 +64,7 @@ val hideAdsPatch = bytecodePatch(
         // AdElementConverter is conveniently responsible for inserting all feed ads.
         // By removing the appending instruction no ad posts gets appended to the feed.
 
-        val index = newAdPostFingerprint.originalMethod.implementation!!.instructions.indexOfFirst {
+        val index = newAdPostFingerprint.originalMethod().implementation!!.instructions.indexOfFirst {
             if (it.opcode != Opcode.INVOKE_VIRTUAL) return@indexOfFirst false
 
             val reference = (it as ReferenceInstruction).reference as MethodReference
@@ -72,7 +72,7 @@ val hideAdsPatch = bytecodePatch(
             reference.name == "add" && reference.definingClass == "Ljava/util/ArrayList;"
         }
 
-        newAdPostFingerprint.method.removeInstruction(index)
+        newAdPostFingerprint.method().removeInstruction(index)
     }
 
     // endregion

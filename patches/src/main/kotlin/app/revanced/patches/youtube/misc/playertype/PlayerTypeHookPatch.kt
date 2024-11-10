@@ -15,13 +15,13 @@ val playerTypeHookPatch = bytecodePatch(
     dependsOn(sharedExtensionPatch)
 
     execute {
-        playerTypeFingerprint.method.addInstruction(
+        playerTypeFingerprint.method().addInstruction(
             0,
             "invoke-static {p1}, $EXTENSION_CLASS_DESCRIPTOR->setPlayerType(Ljava/lang/Enum;)V",
         )
 
-        videoStateFingerprint.method.apply {
-            val endIndex = videoStateFingerprint.patternMatch!!.endIndex
+        videoStateFingerprint.method().apply {
+            val endIndex = videoStateFingerprint.patternMatch()!!.endIndex
             val videoStateFieldName = getInstruction<ReferenceInstruction>(endIndex).reference
 
             addInstructions(

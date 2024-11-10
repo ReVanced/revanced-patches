@@ -54,17 +54,17 @@ val changeLinkSharingDomainPatch = bytecodePatch(
     execute {
 
         val replacementIndex =
-            linkSharingDomainFingerprint.stringMatches!!.first().index
+            linkSharingDomainFingerprint.stringMatches()!!.first().index
         val domainRegister =
-            linkSharingDomainFingerprint.method.getInstruction<OneRegisterInstruction>(replacementIndex).registerA
+            linkSharingDomainFingerprint.method().getInstruction<OneRegisterInstruction>(replacementIndex).registerA
 
-        linkSharingDomainFingerprint.method.replaceInstruction(
+        linkSharingDomainFingerprint.method().replaceInstruction(
             replacementIndex,
             "const-string v$domainRegister, \"https://$domainName\"",
         )
 
         // Replace the domain name when copying a link with "Copy link" button.
-        linkBuilderFingerprint.method.apply {
+        linkBuilderFingerprint.method().apply {
             addInstructions(
                 0,
                 """
@@ -76,7 +76,7 @@ val changeLinkSharingDomainPatch = bytecodePatch(
         }
 
         // Used in the Share via... dialog.
-        linkResourceGetterFingerprint.method.apply {
+        linkResourceGetterFingerprint.method().apply {
             val templateIdConstIndex = indexOfFirstLiteralInstructionOrThrow(tweetShareLinkTemplateId)
 
             // Format the link with the new domain name register (1 instruction below the const).

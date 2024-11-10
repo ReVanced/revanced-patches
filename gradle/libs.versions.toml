@@ -12,6 +12,7 @@ appcompat = "1.7.0"
 okhttp = "5.0.0-alpha.14"
 retrofit = "2.11.0"
 guava = "33.2.1-jre"
+kotlinx-corouiines = "1.9.0"
 
 [libraries]
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
@@ -20,6 +21,7 @@ appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "a
 okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 guava = { module = "com.google.guava:guava", version.ref = "guava" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-corouiines" }
 
 
 [plugins]

@@ -11,7 +11,7 @@ val disableAdsPatch = bytecodePatch(
 
     execute {
         arrayOf(maxMediationFingerprint, admobMediationFingerprint).forEach { fingerprint ->
-            fingerprint.method.addInstructions(0, "return-void")
+            fingerprint.method().addInstructions(0, "return-void")
         }
     }
 }

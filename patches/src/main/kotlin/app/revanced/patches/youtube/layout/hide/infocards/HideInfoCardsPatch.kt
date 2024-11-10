@@ -67,7 +67,7 @@ val hideInfoCardsPatch = bytecodePatch(
     )
 
     execute {
-        infocardsIncognitoFingerprint.match(infocardsIncognitoParentFingerprint.originalClassDef).method.apply {
+        infocardsIncognitoFingerprint.match(infocardsIncognitoParentFingerprint.originalClassDef()).method.apply {
             val invokeInstructionIndex = implementation!!.instructions.indexOfFirst {
                 it.opcode.ordinal == Opcode.INVOKE_VIRTUAL.ordinal &&
                     ((it as ReferenceInstruction).reference.toString() == "Landroid/view/View;->setVisibility(I)V")
@@ -80,10 +80,10 @@ val hideInfoCardsPatch = bytecodePatch(
             )
         }
 
-        val hideInfoCardsCallMethod = infocardsMethodCallFingerprint.method
+        val hideInfoCardsCallMethod = infocardsMethodCallFingerprint.method()
 
-        val invokeInterfaceIndex = infocardsMethodCallFingerprint.patternMatch!!.endIndex
-        val toggleRegister = infocardsMethodCallFingerprint.method.implementation!!.registerCount - 1
+        val invokeInterfaceIndex = infocardsMethodCallFingerprint.patternMatch()!!.endIndex
+        val toggleRegister = infocardsMethodCallFingerprint.method().implementation!!.registerCount - 1
 
         hideInfoCardsCallMethod.addInstructionsWithLabels(
             invokeInterfaceIndex,

@@ -58,12 +58,12 @@ val enableSlideToSeekPatch = bytecodePatch(
 
         // Restore the behaviour to slide to seek.
 
-        val checkIndex = slideToSeekFingerprint.patternMatch!!.startIndex
-        val checkReference = slideToSeekFingerprint.method.getInstruction(checkIndex)
+        val checkIndex = slideToSeekFingerprint.patternMatch()!!.startIndex
+        val checkReference = slideToSeekFingerprint.method().getInstruction(checkIndex)
             .getReference<MethodReference>()!!
 
         // A/B check method was only called on this class.
-        slideToSeekFingerprint.classDef.methods.forEach { method ->
+        slideToSeekFingerprint.classDef().methods.forEach { method ->
             method.findInstructionIndicesReversed {
                 opcode == Opcode.INVOKE_VIRTUAL && getReference<MethodReference>() == checkReference
             }.forEach { index ->
@@ -91,8 +91,8 @@ val enableSlideToSeekPatch = bytecodePatch(
                 disableFastForwardGestureFingerprint,
                 disableFastForwardNoticeFingerprint,
             ).forEach { fingerprint ->
-                fingerprint.method.apply {
-                    val targetIndex = fingerprint.patternMatch!!.endIndex
+                fingerprint.method().apply {
+                    val targetIndex = fingerprint.patternMatch()!!.endIndex
                     val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                     addInstructions(
@@ -105,8 +105,8 @@ val enableSlideToSeekPatch = bytecodePatch(
                 }
             }
         } else {
-            disableFastForwardLegacyFingerprint.method.apply {
-                val insertIndex = disableFastForwardLegacyFingerprint.patternMatch!!.endIndex + 1
+            disableFastForwardLegacyFingerprint.method().apply {
+                val insertIndex = disableFastForwardLegacyFingerprint.patternMatch()!!.endIndex + 1
                 val targetRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                 addInstructions(
