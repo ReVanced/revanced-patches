@@ -1,0 +1,1248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+Note: All strings must have a unique path, even if the same string is declared in two different apps.
+This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+
+# General guidelines and information for translating
+
+## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
+
+    For example, the patches string:
+        <string name="revanced_patches_string">You will arrive at %1$s in %2$s hours from now</string>
+    Could be translated to another language using a rearranged grammar:
+        <string name="revanced_patches_string">You will arrive %2$s hours from now at %1$s</string>
+
+     For Manager strings:
+        You will arrive at ${destination} in ${count} hours from now
+     Could be rearranged by changing the order of the ${} parameters:
+        You will arrive ${count} hours from now at ${destination}
+
+    Reordering is particularly relevant when translating into right to left languages, or for any language with grammar that is noticeably different from English.
+
+## Single and double quotation marks must be escaped for patch strings (Manager does not require escaping any quotes).
+
+    All _patches_ single and double quotation marks must be escaped as \"  or \'
+    Forgetting to do this will cause that string to appear in app with no quotation characters.
+
+    Correct:
+        <string name="revanced_string">You\'re correct. This is the \"correct\" way and this text will appear as expected in the app</string>
+    Not correct:
+        <string name="revanced_string">You're not correct. This is not the "correct" way and this text will not appear as expected the in app</string>
+-->
+<resources>
+  <app id="shared">
+  <patch id="misc.checks.checkEnvironmentPatch">
+  <string name="revanced_check_environment_failed_title">Controle mislukt</string>
+  <string name="revanced_check_environment_dialog_open_official_source_button">Open officiële website</string>
+  <string name="revanced_check_environment_dialog_ignore_button">Negeren</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Deze app lijkt niet te worden gepatched door jou.&lt;/h5&gt;&lt;br&gt;Deze app werkt mogelijk niet goed. &lt;b&gt;kan schadelijk of zelfs gevaarlijk zijn om&lt;/b&gt;te gebruiken.&lt;br&gt;&lt;br&gt;Deze controles impliceren dat deze app vooraf wordt gepatenteerd of verkregen is van iemand anders:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Het wordt sterk aangeraden om deze app &lt;b&gt;te verwijderen en het zelf te repareren&lt;/b&gt; om ervoor te zorgen dat je een gevalideerde en beveiligde app gebruikt.&lt;p&gt;&lt;br&gt;wanneer genegeerd, zal deze waarschuwing slechts twee keer worden weergegeven.</string>
+  <string name="revanced_check_environment_not_same_patching_device">Opgenomen op een ander apparaat</string>
+  <string name="revanced_check_environment_manager_not_expected_installer">Niet geïnstalleerd door ReVanced Manager</string>
+  <string name="revanced_check_environment_not_near_patch_time">Meer dan 10 minuten geleden besteld</string>
+  <string name="revanced_check_environment_not_near_patch_time_days">Gekochte %s dagen geleden</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">APK build datum is beschadigd</string>
+  </patch>
+  <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_title">ReVanced</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Wilt u doorgaan?</string>
+  <string name="revanced_settings_reset">Herstellen naar standaard</string>
+  <string name="revanced_settings_restart_title">Vernieuwen en herstarten</string>
+  <string name="revanced_settings_restart">Herstarten</string>
+  <string name="revanced_settings_import">Importeren</string>
+  <string name="revanced_settings_import_copy">Kopiëren</string>
+  <string name="revanced_settings_import_reset">ReVanced instellingen hersteld naar standaard</string>
+  <string name="revanced_settings_import_success">%d instellingen geïmporteerd</string>
+  <string name="revanced_settings_import_failure_parse">Importeren mislukt: %s</string>
+  <string name="revanced_pref_import_export_title">Importeren / Exporteren</string>
+  <string name="revanced_pref_import_export_summary">Importeer / Exporteer ReVanced instellingen</string>
+  <!-- Settings about dialog. -->
+  <string name="revanced_settings_about_links_body">U gebruikt ReVanced Patches versie &lt;i&gt;%s&lt;/i&gt;</string>
+  <string name="revanced_settings_about_links_dev_header">Notitie</string>
+  <string name="revanced_settings_about_links_dev_body">Deze versie is een pre-release en je kunt onverwachte problemen ondervinden</string>
+  <string name="revanced_settings_about_links_header">Officiële links</string>
+  <string name="revanced_settings_about_links_donate">Doneren</string>
+  </patch>
+  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="gms_core_toast_not_installed_message">MicroG GmsCore is niet geïnstalleerd. Installeer het.</string>
+  <string name="gms_core_dialog_title">Actie vereist</string>
+  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">MicroG GsmCore heeft geen toestemming om op de achtergrond te werken.\n\nVolg de \"Vermoord mijn app niet\" handleiding voor je telefoon en pas de instructies toe op je MicroG installatie.\n\nDit is vereist om de app te laten werken.</string>
+  <string name="gms_core_dialog_open_website_text">Website openen</string>
+  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">MicroG GmsCore batterij optimalisaties moeten worden uitgeschakeld om problemen te voorkomen.\n\nDruk op de knop \'Doorgaan\' en schakel batterij optimalisaties uit.</string>
+  <string name="gms_core_dialog_continue_text">Doorgaan</string>
+  </patch>
+  </app>
+  <app id="youtube">
+  <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings_screen_00_about_title">Over</string>
+  <string name="revanced_settings_screen_01_ads_title">Advertenties</string>
+  <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternatieve miniaturen</string>
+  <string name="revanced_settings_screen_03_feed_title">Feed</string>
+  <string name="revanced_settings_screen_04_player_title">Speler</string>
+  <string name="revanced_settings_screen_05_general_title">Algemene lay-out</string>
+  <string name="revanced_settings_screen_07_seekbar_title">Zoekbalk</string>
+  <string name="revanced_settings_screen_08_swipe_controls_title">Veegbediening</string>
+  <string name="revanced_settings_screen_11_misc_title">Diversen</string>
+  <string name="revanced_settings_screen_12_video_title">Video</string>
+  </patch>
+  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_screen_title">Debugging</string>
+  <string name="revanced_debug_screen_summary">Debugging opties in- of uitschakelen</string>
+  <string name="revanced_debug_title">Logboek foutopsporing</string>
+  <string name="revanced_debug_summary_on">Debug logboeken zijn ingeschakeld</string>
+  <string name="revanced_debug_summary_off">Debug logboeken zijn uitgeschakeld</string>
+  <string name="revanced_debug_protobuffer_title">Log protocol buffer</string>
+  <string name="revanced_debug_protobuffer_summary_on">Debug logs bevatten proto-buffer</string>
+  <string name="revanced_debug_protobuffer_summary_off">Debug logs bevatten geen proto-buffer</string>
+  <string name="revanced_debug_stacktrace_title">Log stack sporen</string>
+  <string name="revanced_debug_stacktrace_summary_on">Debug logs omvatten stack trace</string>
+  <string name="revanced_debug_stacktrace_summary_off">Debug logs bevatten geen stack trace</string>
+  <string name="revanced_debug_toast_on_error_title">Toon toastmelding bij ReVanced error</string>
+  <string name="revanced_debug_toast_on_error_summary_on">Toastmelding weergegeven als er een fout optreedt</string>
+  <string name="revanced_debug_toast_on_error_summary_off">Toastmelding niet weergegeven als er een fout optreedt</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">Uitschakelen van foutmeldingen verbergt alle ReVanced error meldingen.\n\nJe wordt niet op de hoogte gesteld van onverwachte gebeurtenissen.</string>
+  </patch>
+  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <string name="revanced_disable_like_subscribe_glow_title">Uitschakelen like- / abonneer-knop gloed</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">De knop \'like\' en \'abonneren\' zal niet gloeien wanneer deze genoemd wordt</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">\'Like en abonneren\' knop zal gloeien wanneer genoemd</string>
+  <string name="revanced_hide_album_cards_title">Verberg albumkaarten</string>
+  <string name="revanced_hide_album_cards_summary_on">Albumkaarten zijn verborgen</string>
+  <string name="revanced_hide_album_cards_summary_off">Albumkaarten worden weergegeven</string>
+  <string name="revanced_hide_crowdfunding_box_title">Crowdfunding box verbergen</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">Crowdfunding box is verborgen</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">Crowdfunding box wordt getoond</string>
+  <string name="revanced_hide_floating_microphone_button_title">Zwevende microfoon knop verbergen</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">Microfoon knop verborgen</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">Microfoon knop weergegeven</string>
+  <string name="revanced_hide_channel_watermark_title">Verberg kanaal watermerk</string>
+  <string name="revanced_hide_channel_watermark_summary_on">Watermerk is verborgen</string>
+  <string name="revanced_hide_channel_watermark_summary_off">Watermerk wordt getoond</string>
+  <string name="revanced_hide_horizontal_shelves_title">Verberg horizontale planken</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">Granaten zijn verborgen zoals:\n• A\n• Bak nieuws \n • Doorgaan kijken\n• Verken meer kanalen\n• Shopping\n• Bekijk het opnieuw</string>
+  <string name="revanced_hide_horizontal_shelves_summary_off">Scholen worden weergegeven</string>
+  <!-- 'Join' should be translated using the same localized wording YouTube displays.
+                 This appears in the video player for certain videos. -->
+  <string name="revanced_hide_join_membership_button_title">Knop \'Aansluiten\' verbergen</string>
+  <string name="revanced_hide_join_membership_button_summary_on">Knop is verborgen</string>
+  <string name="revanced_hide_join_membership_button_summary_off">Knop wordt weergegeven</string>
+  <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_for_you_shelf_title">Verberg \'Voor jou\' blijven op kanaalpagina</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">Schuilplaats is verborgen</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">Schil wordt weergegeven</string>
+  <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
+                 This item appear in the subscription feed for future livestreams or unreleased videos. -->
+  <string name="revanced_hide_notify_me_button_title">\'Melden me\' knop verbergen</string>
+  <string name="revanced_hide_notify_me_button_summary_on">Knop is verborgen</string>
+  <string name="revanced_hide_notify_me_button_summary_off">Knop wordt weergegeven</string>
+  <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendations_title">Verberg \'Mensen die ook hebben gekeken\' aanbevelingen</string>
+  <string name="revanced_hide_search_result_recommendations_summary_on">Aanbevelingen zijn verborgen</string>
+  <string name="revanced_hide_search_result_recommendations_summary_off">Aanbevelingen worden getoond</string>
+  <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
+                  This button usually appears when searching for a YT creator. -->
+  <string name="revanced_hide_show_more_button_title">Verberg de \'Toon meer\' knop</string>
+  <string name="revanced_hide_show_more_button_summary_on">Knop is verborgen</string>
+  <string name="revanced_hide_show_more_button_summary_off">Knop wordt weergegeven</string>
+  <string name="revanced_hide_timed_reactions_title">Verberg getimede reacties</string>
+  <string name="revanced_hide_timed_reactions_summary_on">Tijdgebonden reacties zijn verborgen</string>
+  <string name="revanced_hide_timed_reactions_summary_off">Tijdgebonden reacties worden weergegeven</string>
+  <string name="revanced_hide_search_result_shelf_header_title">Verberg koptekst van zoekresultaat</string>
+  <string name="revanced_hide_search_result_shelf_header_summary_on">Schuilkop is verborgen</string>
+  <string name="revanced_hide_search_result_shelf_header_summary_off">Shelf header wordt weergegeven</string>
+  <string name="revanced_hide_channel_guidelines_title">Kanaalrichtlijnen verbergen</string>
+  <string name="revanced_hide_channel_guidelines_summary_on">Kanaalrichtlijnen zijn verborgen</string>
+  <string name="revanced_hide_channel_guidelines_summary_off">Kanaalrichtlijnen worden getoond</string>
+  <string name="revanced_hide_chips_shelf_title">Verberg chips plank</string>
+  <string name="revanced_hide_chips_shelf_summary_on">Chips plank is verborgen</string>
+  <string name="revanced_hide_chips_shelf_summary_off">Chips plank wordt weergegeven</string>
+  <string name="revanced_hide_expandable_chip_title">Uitbreidbare chip verbergen onder video\'s</string>
+  <string name="revanced_hide_expandable_chip_summary_on">Uitklapbare chips zijn verborgen</string>
+  <string name="revanced_hide_expandable_chip_summary_off">Uitklapbare chips worden getoond</string>
+  <string name="revanced_hide_community_posts_title">Verberg community berichten</string>
+  <string name="revanced_hide_community_posts_summary_on">Gemeenschapsberichten zijn verborgen</string>
+  <string name="revanced_hide_community_posts_summary_off">Community berichten worden getoond</string>
+  <string name="revanced_hide_compact_banner_title">Verberg compacte banners</string>
+  <string name="revanced_hide_compact_banner_summary_on">Compacte banners worden verborgen</string>
+  <string name="revanced_hide_compact_banner_summary_off">Compacte banners worden weergegeven</string>
+  <string name="revanced_hide_movies_section_title">Verberg filmsectie</string>
+  <string name="revanced_hide_movies_section_summary_on">Films sectie is verborgen</string>
+  <string name="revanced_hide_movies_section_summary_off">Films sectie wordt weergegeven</string>
+  <string name="revanced_hide_feed_survey_title">Verberg feed enquêtes</string>
+  <string name="revanced_hide_feed_survey_summary_on">Enquêtes van feeds zijn verborgen</string>
+  <string name="revanced_hide_feed_survey_summary_off">Enquêtes worden getoond</string>
+  <string name="revanced_hide_community_guidelines_title">Verberg communityrichtlijnen</string>
+  <string name="revanced_hide_community_guidelines_summary_on">Communautaire richtlijnen worden verborgen</string>
+  <string name="revanced_hide_community_guidelines_summary_off">Communautaire richtlijnen worden getoond</string>
+  <string name="revanced_hide_subscribers_community_guidelines_title">Verberg richtlijnen voor abonnees</string>
+  <string name="revanced_hide_subscribers_community_guidelines_summary_on">Abonnees communityrichtlijnen zijn verborgen</string>
+  <string name="revanced_hide_subscribers_community_guidelines_summary_off">Abonnees communityrichtlijnen worden getoond</string>
+  <string name="revanced_hide_channel_member_shelf_title">Zenderlid zelf verbergen</string>
+  <string name="revanced_hide_channel_member_shelf_summary_on">Kanaallid is verborgen in de plank</string>
+  <string name="revanced_hide_channel_member_shelf_summary_off">Kanaallid wordt weergegeven</string>
+  <string name="revanced_hide_emergency_box_title">Hulpmiddelen verbergen</string>
+  <string name="revanced_hide_emergency_box_summary_on">Noodgevallen zijn verborgen</string>
+  <string name="revanced_hide_emergency_box_summary_off">De noodboxen worden getoond</string>
+  <string name="revanced_hide_info_panels_title">Verberg info panelen</string>
+  <string name="revanced_hide_info_panels_summary_on">Info panelen zijn verborgen</string>
+  <string name="revanced_hide_info_panels_summary_off">Info panelen worden weergegeven</string>
+  <string name="revanced_hide_medical_panels_title">Verberg medische panelen</string>
+  <string name="revanced_hide_medical_panels_summary_on">Medische panelen zijn verborgen</string>
+  <string name="revanced_hide_medical_panels_summary_off">Medische panelen worden weergegeven</string>
+  <string name="revanced_hide_channel_bar_title">Zenderbalk verbergen</string>
+  <string name="revanced_hide_channel_bar_summary_on">Kanaalbalk is verborgen</string>
+  <string name="revanced_hide_channel_bar_summary_off">Kanaalbalk wordt weergegeven</string>
+  <string name="revanced_hide_playables_title">Verberg afspeellijsten</string>
+  <string name="revanced_hide_playables_summary_on">Afspeellijsten zijn verborgen</string>
+  <string name="revanced_hide_playables_summary_off">Afspeellijsten worden weergegeven</string>
+  <string name="revanced_hide_quick_actions_title">Verberg snelle acties in volledig scherm</string>
+  <string name="revanced_hide_quick_actions_summary_on">Snelle acties zijn verborgen</string>
+  <string name="revanced_hide_quick_actions_summary_off">Snelle acties worden weergegeven</string>
+  <string name="revanced_hide_related_videos_title">Verberg gerelateerde video\'s in snelle acties</string>
+  <string name="revanced_hide_related_videos_summary_on">Gerelateerde video\'s zijn verborgen</string>
+  <string name="revanced_hide_related_videos_summary_off">Gerelateerde video\'s worden weergegeven</string>
+  <string name="revanced_hide_image_shelf_title">Verberg afbeelding in zoekresultaten</string>
+  <string name="revanced_hide_image_shelf_summary_on">Afbeeldingsplank is verborgen</string>
+  <string name="revanced_hide_image_shelf_summary_off">Afbeeldingsplank wordt weergegeven</string>
+  <string name="revanced_hide_latest_posts_ads_title">Laatste berichten verbergen</string>
+  <string name="revanced_hide_latest_posts_ads_summary_on">Laatste berichten zijn verborgen</string>
+  <string name="revanced_hide_latest_posts_ads_summary_off">Laatste berichten worden weergegeven</string>
+  <string name="revanced_hide_mix_playlists_title">Verberg mix afspeellijsten</string>
+  <string name="revanced_hide_mix_playlists_summary_on">Mix afspeellijsten zijn verborgen</string>
+  <string name="revanced_hide_mix_playlists_summary_off">Mix afspeellijsten worden weergegeven</string>
+  <string name="revanced_hide_artist_cards_title">Verberg artiest kaarten</string>
+  <string name="revanced_hide_artist_cards_summary_on">Kunstenaartjes zijn verborgen</string>
+  <string name="revanced_hide_artist_cards_summary_off">Kunstenaarkaarten worden weergegeven</string>
+  <string name="revanced_hide_attributes_section_title">Attributensectie verbergen</string>
+  <string name="revanced_hide_attributes_section_summary_on">\'Aanbevolen plaatsen\', Games en Muziek secties zijn verborgen</string>
+  <string name="revanced_hide_attributes_section_summary_off">\'Aanbevolen plaatsen\', spellen en Muziek secties worden weergegeven</string>
+  <string name="revanced_hide_chapters_section_title">Verberg hoofdstuk sectie</string>
+  <string name="revanced_hide_chapters_section_summary_on">Hoofdstukken sectie is verborgen</string>
+  <string name="revanced_hide_chapters_section_summary_off">Hoofdstukken sectie wordt weergegeven</string>
+  <string name="revanced_hide_podcast_section_title">\'Verken de podcast\' sectie verbergen</string>
+  <string name="revanced_hide_podcast_section_summary_on">\'Verken de podcast\' sectie is verborgen</string>
+  <string name="revanced_hide_podcast_section_summary_off">\'Verken de podcast\' sectie wordt weergegeven</string>
+  <string name="revanced_hide_info_cards_section_title">Verberg info kaarten sectie</string>
+  <string name="revanced_hide_info_cards_section_summary_on">Sectie informatiekaarten is verborgen</string>
+  <string name="revanced_hide_info_cards_section_summary_off">Sectie informatiekaarten wordt weergegeven</string>
+  <string name="revanced_hide_key_concepts_section_title">Verberg \'Sleutelbegrippen\' sectie</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">\'Sleutelbegrippen\' sectie is verborgen</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">\'Sleutelbegrippen\' sectie wordt weergegeven</string>
+  <string name="revanced_hide_transcript_section_title">Transcriptsectie verbergen</string>
+  <string name="revanced_hide_transcript_section_summary_on">Transcriptsectie is verborgen</string>
+  <string name="revanced_hide_transcript_section_summary_off">Transcriptsectie wordt weergegeven</string>
+  <string name="revanced_hide_description_components_screen_title">Video beschrijving</string>
+  <string name="revanced_hide_description_components_screen_summary">Verberg of toon video beschrijving componenten</string>
+  <string name="revanced_hide_filter_bar_screen_title">Filter balk</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Verberg of toon de filterbalk in de feed, zoeken, en gerelateerde video\'s</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Verberg in feed</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Verborgen in feed</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Zichtbaar in feed</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Verbergen in zoekopdracht</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Verborgen in zoekopdracht</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Weergegeven in zoekopdracht</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Verbergen in gerelateerde video\'s</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Verborgen in gerelateerde video\'s</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Weergegeven in gerelateerde video\'s</string>
+  <string name="revanced_comments_screen_title">Opmerkingen</string>
+  <string name="revanced_comments_screen_summary">Opmerkingen sectie onderdelen verbergen of weergeven</string>
+  <string name="revanced_hide_comments_by_members_header_title">Verberg de titel \'Opmerkingen van leden\'</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">De header \'Reacties door leden\' is verborgen</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">De header \'Reacties door leden\' wordt getoond</string>
+  <string name="revanced_hide_comments_section_title">Reacties sectie verbergen</string>
+  <string name="revanced_hide_comments_section_summary_on">Reacties sectie is verborgen</string>
+  <string name="revanced_hide_comments_section_summary_off">Reacties sectie wordt weergegeven</string>
+  <string name="revanced_hide_comments_preview_comment_title">Verberg commentaar op voorbeeld</string>
+  <string name="revanced_hide_comments_preview_comment_summary_on">Voorbeeldcommentaar is verborgen</string>
+  <string name="revanced_hide_comments_preview_comment_summary_off">Voorbeeld commentaar wordt weergegeven</string>
+  <string name="revanced_hide_comments_thanks_button_title">Knop voor dank(en) verbergen</string>
+  <string name="revanced_hide_comments_thanks_button_summary_on">Bedankt knop is verborgen</string>
+  <string name="revanced_hide_comments_thanks_button_summary_off">Bedankt knop wordt weergegeven</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Verberg tijdstempel en emoji-knoppen</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Tijdstempel en emoji knoppen zijn verborgen</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Tijdstempel en emoji-knoppen worden getoond</string>
+  <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
+  <string name="revanced_hide_doodles_title">Youtube Doodles verbergen</string>
+  <string name="revanced_hide_doodles_summary_on">Zoekbalk Doodsen zijn verborgen</string>
+  <string name="revanced_hide_doodles_summary_off">Zoekbalk Doodles worden weergegeven</string>
+  <string name="revanced_hide_doodles_user_dialog_message">YouTube Doodles verschijnen een paar dagen per jaar.\n\nAls een Doodle momenteel zichtbaar is in jouw regio en deze instelling is ingeschakeld dan wordt de filterbalk onder de zoekbalk ook verborgen.</string>
+  <string name="revanced_custom_filter_screen_title">Aangepast filter</string>
+  <string name="revanced_custom_filter_screen_summary">Componenten met aangepaste filters verbergen</string>
+  <string name="revanced_custom_filter_title">Aangepaste filter inschakelen</string>
+  <string name="revanced_custom_filter_summary_on">Aangepast filter is ingeschakeld</string>
+  <string name="revanced_custom_filter_summary_off">Aangepast filter is uitgeschakeld</string>
+  <string name="revanced_custom_filter_strings_title">Aangepast filter</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="revanced_custom_filter_strings_summary">Lijst van componentpadbouwer tekenreeksen te filteren gescheiden door een nieuwe regel</string>
+  <string name="revanced_custom_filter_toast_invalid_syntax">Ongeldig aangepast filter: %s</string>
+  <string name="revanced_hide_keyword_content_screen_title">Verberg inhoud van trefwoorden</string>
+  <string name="revanced_hide_keyword_content_screen_summary">Verberg zoek en feed video\'s met trefwoord filters</string>
+  <string name="revanced_hide_keyword_content_home_title">Verberg Thuisvideo\'s door trefwoorden</string>
+  <string name="revanced_hide_keyword_content_home_summary_on">Video\'s in de home tab worden gefilterd op trefwoorden</string>
+  <string name="revanced_hide_keyword_content_home_summary_off">Video\'s in het home tabblad worden niet gefilterd op trefwoorden</string>
+  <string name="revanced_hide_keyword_content_subscriptions_title">Verberg inschrijvingsvideo\'s door trefwoorden</string>
+  <string name="revanced_hide_keyword_content_subscriptions_summary_on">Video\'s in het tabblad abonnementen worden gefilterd op trefwoorden</string>
+  <string name="revanced_hide_keyword_content_subscriptions_summary_off">Video\'s in het tabblad abonnementen worden niet gefilterd op trefwoorden</string>
+  <string name="revanced_hide_keyword_content_search_title">Zoekresultaten verbergen op trefwoorden</string>
+  <string name="revanced_hide_keyword_content_search_summary_on">Zoekresultaten worden gefilterd op trefwoorden</string>
+  <string name="revanced_hide_keyword_content_search_summary_off">Zoekresultaten worden niet gefilterd op trefwoorden</string>
+  <string name="revanced_hide_keyword_content_phrases_title">Trefwoorden om te verbergen</string>
+  <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+                 This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
+  <string name="revanced_hide_keyword_content_phrases_summary">Trefwoorden en zinnen te verbergen, gescheiden door nieuwe regels\n\nTrefwoorden kunnen kanaalnamen zijn of elke tekst getoond in videocategorie\n\nwoorden met hoofdletters in het midden moeten worden ingevoerd met het behuizing (bijvoorbeeld iPhone, TikTok, Lei)</string>
+  <string name="revanced_hide_keyword_content_about_title">Over trefwoord filteren</string>
+  <string name="revanced_hide_keyword_content_about_whole_words_title">Koppel hele woorden</string>
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <string name="revanced_hide_keyword_content_about_whole_words_summary">Omkeren van een trefwoord/zin met dubbele aanhalingstekens zal voorkomen dat deel-matches van videotitels en kanaalnamen&lt;br&gt;&lt;br&gt;Bijvoorbeeld,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; verbergt de video: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;maar zal deze niet verbergen: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_keyword_toast_invalid_common">Kan trefwoord niet gebruiken: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Voeg offertes toe om trefwoord te gebruiken: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_conflicting">Sleutelwoord bevat tegenstrijdige verklaringen: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_length">Trefwoord is te kort en vereist quotes: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">Trefwoord zal alle video\'s verbergen: %s</string>
+  </patch>
+  <patch id="ad.general.hideAdsResourcePatch">
+  <string name="revanced_hide_general_ads_title">Algemene advertenties verbergen</string>
+  <string name="revanced_hide_general_ads_summary_on">Algemene advertenties zijn verborgen</string>
+  <string name="revanced_hide_general_ads_summary_off">Algemene advertenties worden weergegeven</string>
+  <string name="revanced_hide_fullscreen_ads_title">Verberg advertenties op volledig scherm</string>
+  <string name="revanced_hide_fullscreen_ads_summary_on">Volledig scherm advertenties zijn verborgen\n\nDeze functie is alleen beschikbaar voor oudere apparaten</string>
+  <string name="revanced_hide_fullscreen_ads_summary_off">Volledig scherm advertenties worden weergegeven</string>
+  <string name="revanced_hide_buttoned_ads_title">Verberg geknopte advertenties</string>
+  <string name="revanced_hide_buttoned_ads_summary_on">Knoppen zijn verborgen</string>
+  <string name="revanced_hide_buttoned_ads_summary_off">Knoppen worden weergegeven</string>
+  <string name="revanced_hide_paid_promotion_label_title">Verberg betaalde promotie label</string>
+  <string name="revanced_hide_paid_promotion_label_summary_on">Betaalde promotie label is verborgen</string>
+  <string name="revanced_hide_paid_promotion_label_summary_off">Betaalde promotie label is weergegeven</string>
+  <string name="revanced_hide_self_sponsor_ads_title">Verberg zelfgesponsorde kaarten</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_on">Zelfgesponsorde kaarten zijn verborgen</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_off">Zelf gesponsorde kaarten worden weergegeven</string>
+  <string name="revanced_hide_products_banner_title">Verberg banner om producten te bekijken</string>
+  <string name="revanced_hide_products_banner_summary_on">Banner is verborgen</string>
+  <string name="revanced_hide_products_banner_summary_off">Banner wordt getoond</string>
+  <string name="revanced_hide_player_store_shelf_title">Verberg spelers boodschappenplank</string>
+  <string name="revanced_hide_player_store_shelf_summary_on">Winkelwagen is verborgen</string>
+  <string name="revanced_hide_player_store_shelf_summary_off">Winkelwagen wordt weergegeven</string>
+  <string name="revanced_hide_shopping_links_title">Verberg shopping links in video beschrijving</string>
+  <string name="revanced_hide_shopping_links_summary_on">Shopping links zijn verborgen</string>
+  <string name="revanced_hide_shopping_links_summary_off">Shopping links worden weergegeven</string>
+  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_store_button_title">Verberg de \'Bezoek winkel\' knop op kanaal pagina\'s</string>
+  <string name="revanced_hide_visit_store_button_summary_on">Knop is verborgen</string>
+  <string name="revanced_hide_visit_store_button_summary_off">Knop wordt weergegeven</string>
+  <string name="revanced_hide_web_search_results_title">Verberg web zoekresultaten</string>
+  <string name="revanced_hide_web_search_results_summary_on">Web zoekresultaten zijn verborgen</string>
+  <string name="revanced_hide_web_search_results_summary_off">Web zoekresultaten worden weergegeven</string>
+  <string name="revanced_hide_merchandise_banners_title">Verberg banners van artikelen</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">Merchandise banners zijn verborgen</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">Producten worden getoond</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Verberg advertenties op volledig scherm werkt alleen met oudere apparaten</string>
+  </patch>
+  <patch id="ad.getpremium.hideGetPremiumPatch">
+  <string name="revanced_hide_get_premium_title">Verberg YouTube Premium promoties</string>
+  <string name="revanced_hide_get_premium_summary_on">YouTube Premium promoties onder videospeler zijn verborgen</string>
+  <string name="revanced_hide_get_premium_summary_off">YouTube Premium promoties onder videospeler worden getoond</string>
+  </patch>
+  <patch id="ad.video.videoAdsPatch">
+  <string name="revanced_hide_video_ads_title">Video-advertenties verbergen</string>
+  <string name="revanced_hide_video_ads_summary_on">Video-advertenties zijn verborgen</string>
+  <string name="revanced_hide_video_ads_summary_off">Video-advertenties worden weergegeven</string>
+  </patch>
+  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
+  <string name="revanced_share_copy_url_success">URL gekopieerd naar klembord</string>
+  <string name="revanced_share_copy_url_timestamp_success">URL met tijdstempel gekopieerd</string>
+  <string name="revanced_copy_video_url_title">Knop voor kopie video weergeven</string>
+  <string name="revanced_copy_video_url_summary_on">Knop wordt weergegeven. Tik om de video URL te kopiëren. Tik en houd vast om de video URL te kopiëren met een tijdstempel</string>
+  <string name="revanced_copy_video_url_summary_off">Knop wordt niet weergegeven</string>
+  <string name="revanced_copy_video_url_timestamp_title">Kopiëer tijdstempel URL knop weergeven</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Knop wordt weergegeven. Tik om de video-URL te kopiëren met tijdstempel. Druk en houd vast om de video zonder tijdstempel te kopiëren</string>
+  <string name="revanced_copy_video_url_timestamp_summary_off">Knop wordt niet weergegeven</string>
+  </patch>
+  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
+  <string name="revanced_remove_viewer_discretion_dialog_title">Verwijder discretie kijkvenster</string>
+  <string name="revanced_remove_viewer_discretion_dialog_summary_on">Dialoogvenster zal worden verwijderd</string>
+  <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialoogvenster wordt getoond</string>
+  <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Hiermee wordt de leeftijdsbeperking niet omzeild. Het accepteert deze gewoon automatisch.</string>
+  </patch>
+  <patch id="interaction.downloads.downloadsResourcePatch">
+  <string name="revanced_external_downloader_screen_title">Externe downloads</string>
+  <string name="revanced_external_downloader_screen_summary">Instellingen voor het gebruik van een externe downloader</string>
+  <string name="revanced_external_downloader_title">Externe downloadknop weergeven</string>
+  <string name="revanced_external_downloader_summary_on">Download knop weergegeven in speler</string>
+  <string name="revanced_external_downloader_summary_off">Downloadknop niet weergegeven in speler</string>
+  <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
+  <string name="revanced_external_downloader_action_button_title">Download knop negeren</string>
+  <string name="revanced_external_downloader_action_button_summary_on">Download knop opent uw externe downloader</string>
+  <string name="revanced_external_downloader_action_button_summary_off">Download knop opent de native in-app downloader</string>
+  <string name="revanced_external_downloader_name_title">Naam downloader pakket</string>
+  <string name="revanced_external_downloader_name_summary">Pakketnaam van uw geïnstalleerde externe downloader-app, zoals NewPipe of Seal</string>
+  <string name="revanced_external_downloader_not_installed_warning">%s is niet geïnstalleerd. Installeer het alstublieft.</string>
+  </patch>
+  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
+  <string name="revanced_disable_precise_seeking_gesture_title">Schakel nauwkeurige zoektocht gebaar uit</string>
+  <string name="revanced_disable_precise_seeking_gesture_summary_on">Gebaar is uitgeschakeld</string>
+  <string name="revanced_disable_precise_seeking_gesture_summary_off">Gebaar is ingeschakeld</string>
+  </patch>
+  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
+  <string name="revanced_seekbar_tapping_title">Zoekbalk tappen inschakelen</string>
+  <string name="revanced_seekbar_tapping_summary_on">Seekbar tikken is ingeschakeld</string>
+  <string name="revanced_seekbar_tapping_summary_off">Seekbar tappen is uitgeschakeld</string>
+  </patch>
+  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
+  <string name="revanced_swipe_brightness_title">Helderheid gebaar inschakelen</string>
+  <string name="revanced_swipe_brightness_summary_on">Helderheid vegen is ingeschakeld</string>
+  <string name="revanced_swipe_brightness_summary_off">Helderheid vegen is uitgeschakeld</string>
+  <string name="revanced_swipe_volume_title">Volumegebaar inschakelen</string>
+  <string name="revanced_swipe_volume_summary_on">Veeg volume is ingeschakeld</string>
+  <string name="revanced_swipe_volume_summary_off">Volume vegen is uitgeschakeld</string>
+  <string name="revanced_swipe_press_to_engage_title">Indrukken-naar-veeg gebaar inschakelen</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">Press-to-swipe is ingeschakeld</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">Press-to-swipe is uitgeschakeld</string>
+  <string name="revanced_swipe_haptic_feedback_title">Haptische feedback inschakelen</string>
+  <string name="revanced_swipe_haptic_feedback_summary_on">Haptische feedback is ingeschakeld</string>
+  <string name="revanced_swipe_haptic_feedback_summary_off">Haptische feedback is uitgeschakeld</string>
+  <string name="revanced_swipe_save_and_restore_brightness_title">Opslaan en herstellen van helderheid</string>
+  <string name="revanced_swipe_save_and_restore_brightness_summary_on">Sla en herstel helderheid bij het sluiten of invoeren van volledig scherm</string>
+  <string name="revanced_swipe_save_and_restore_brightness_summary_off">Helderheid niet opslaan en herstellen bij het afsluiten of invoeren van volledig scherm</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Automatische helderheid gebaar inschakelen</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Omlaag vegen naar de laagste waarde van de helderheidsgebaar inschakelen automatische helderheid</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Omlaag vegen naar de laagste waarde schakelt automatische helderheid niet in</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automatisch</string>
+  <string name="revanced_swipe_overlay_timeout_title">Time-out veeg overlay</string>
+  <string name="revanced_swipe_overlay_timeout_summary">De hoeveelheid milliseconden die de overlay zichtbaar is</string>
+  <string name="revanced_swipe_text_overlay_size_title">Swipe overlay tekst grootte</string>
+  <string name="revanced_swipe_text_overlay_size_summary">De grootte van de tekst voor veeg overlay</string>
+  <string name="revanced_swipe_overlay_background_alpha_title">Veeg achtergrond zichtbaarheid</string>
+  <string name="revanced_swipe_overlay_background_alpha_summary">De zichtbaarheid van de overlay veeg de achtergrond</string>
+  <string name="revanced_swipe_threshold_title">Veeg magnitude drempel</string>
+  <string name="revanced_swipe_threshold_summary">Het aantal drempelwaarden om te vegen</string>
+  </patch>
+  <patch id="layout.autocaptions.autoCaptionsPatch">
+  <string name="revanced_auto_captions_title">Automatisch bijschrift uitschakelen</string>
+  <string name="revanced_auto_captions_summary_on">Automatisch bijschrift uitgeschakeld</string>
+  <string name="revanced_auto_captions_summary_off">Automatisch bijschrift is ingeschakeld</string>
+  </patch>
+  <patch id="layout.buttons.action.hideButtonsPatch">
+  <string name="revanced_hide_buttons_screen_title">Actie knoppen</string>
+  <string name="revanced_hide_buttons_screen_summary">Verberg of toon knoppen onder video\'s</string>
+  <string name="revanced_hide_like_dislike_button_title">Verberg Like en Niet leuk</string>
+  <string name="revanced_hide_like_dislike_button_summary_on">Leuk- en niet-leuk-knoppen zijn verborgen</string>
+  <string name="revanced_hide_like_dislike_button_summary_off">Leuk- en niet-leuk-knoppen worden weergegeven</string>
+  <!-- 'Share' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_share_button_title">Verberg delen</string>
+  <string name="revanced_hide_share_button_summary_on">Deel knop is verborgen</string>
+  <string name="revanced_hide_share_button_summary_off">Deel knop wordt weergegeven</string>
+  <!-- 'Report' should be translated with the same localized wording that YouTube displays.
+                 This button usually appears only on live streams. -->
+  <string name="revanced_hide_report_button_title">Melden verbergen</string>
+  <string name="revanced_hide_report_button_summary_on">Melden is verborgen</string>
+  <string name="revanced_hide_report_button_summary_off">Melden wordt weergegeven</string>
+  <!-- 'Remix' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_remix_button_title">Verberg Remix</string>
+  <string name="revanced_hide_remix_button_summary_on">Remix knop is verborgen</string>
+  <string name="revanced_hide_remix_button_summary_off">Remix knop wordt weergegeven</string>
+  <!-- 'Download' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_download_button_title">Downloaden verbergen</string>
+  <string name="revanced_hide_download_button_summary_on">Downloaden knop is verborgen</string>
+  <string name="revanced_hide_download_button_summary_off">Downloaden knop wordt weergegeven</string>
+  <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_thanks_button_title">Bedankt verbergen</string>
+  <string name="revanced_hide_thanks_button_summary_on">Bedankt knop is verborgen</string>
+  <string name="revanced_hide_thanks_button_summary_off">Bedankt knop wordt weergegeven</string>
+  <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_clip_button_title">Fragment verbergen</string>
+  <string name="revanced_hide_clip_button_summary_on">Fragment knop is verborgen</string>
+  <string name="revanced_hide_clip_button_summary_off">Fragment knop wordt weergegeven</string>
+  <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_playlist_button_title">Verberg opslaan in afspeellijst</string>
+  <string name="revanced_hide_playlist_button_summary_on">Opslaan naar afspeellijst knop is verborgen</string>
+  <string name="revanced_hide_playlist_button_summary_off">Opslaan naar afspeellijst knop wordt weergegeven</string>
+  </patch>
+  <patch id="layout.buttons.navigation.navigationButtonsPatch">
+  <string name="revanced_navigation_buttons_screen_title">Navigation buttons</string>
+  <string name="revanced_navigation_buttons_screen_summary">Verberg of wijzig knoppen in de navigatiebalk</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
+  <string name="revanced_hide_home_button_title">Verberg startpagina</string>
+  <string name="revanced_hide_home_button_summary_on">Thuisknop is verborgen</string>
+  <string name="revanced_hide_home_button_summary_off">Home-knop wordt weergegeven</string>
+  <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
+  <string name="revanced_hide_shorts_button_title">Verberg Shorts</string>
+  <string name="revanced_hide_shorts_button_summary_on">Shorts knop is verborgen</string>
+  <string name="revanced_hide_shorts_button_summary_off">Shorts knop wordt weergegeven</string>
+  <!-- The Create button has no display name. Translate normally. -->
+  <string name="revanced_hide_create_button_title">Aanmaken verbergen</string>
+  <string name="revanced_hide_create_button_summary_on">Aanmaken knop is verborgen</string>
+  <string name="revanced_hide_create_button_summary_off">Maak knop wordt weergegeven</string>
+  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays the tab. -->
+  <string name="revanced_hide_subscriptions_button_title">Verberg abonnementen</string>
+  <string name="revanced_hide_subscriptions_button_summary_on">Inschrijvingen knop is verborgen</string>
+  <string name="revanced_hide_subscriptions_button_summary_off">Inschrijvingen knop wordt weergegeven</string>
+  <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
+  <string name="revanced_switch_create_with_notifications_button_title">Wissel Aanmaken met meldingen</string>
+  <string name="revanced_switch_create_with_notifications_button_summary_on">Knop maken wordt veranderd met de Notificatie knop\n\nOpmerking: dit ook inschakelen met behulp van video advertenties</string>
+  <string name="revanced_switch_create_with_notifications_button_summary_off">Maak knop is niet omgeschakeld met de Notificatie knop</string>
+  <string name="revanced_hide_navigation_button_labels_title">Verberg navigatieknop labels</string>
+  <string name="revanced_hide_navigation_button_labels_summary_on">Labels zijn verborgen</string>
+  <string name="revanced_hide_navigation_button_labels_summary_off">Labels worden weergegeven</string>
+  </patch>
+  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
+  <string name="revanced_hide_player_flyout_title">Flyout menu</string>
+  <string name="revanced_hide_player_flyout_summary">Menu-items van speler verbergen of tonen</string>
+  <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_captions_title">Ondertiteling verbergen</string>
+  <string name="revanced_hide_player_flyout_captions_summary_on">Ondertitelingsmenu is verborgen</string>
+  <string name="revanced_hide_player_flyout_captions_summary_off">Menu Ondertitelingen wordt getoond</string>
+  <!-- 'Additional settings' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_additional_settings_title">Aanvullende instellingen verbergen</string>
+  <string name="revanced_hide_player_flyout_additional_settings_summary_on">Extra instellingenmenu is verborgen</string>
+  <string name="revanced_hide_player_flyout_additional_settings_summary_off">Extra instellingenmenu wordt weergegeven</string>
+  <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_sleep_timer_title">Verberg slaaptimer</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_on">Slaaptimer menu is verborgen</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_off">Slaaptimer menu wordt weergegeven</string>
+  <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_loop_video_title">Loop video verbergen</string>
+  <string name="revanced_hide_player_flyout_loop_video_summary_on">Lusvideo menu is verborgen</string>
+  <string name="revanced_hide_player_flyout_loop_video_summary_off">Lus video menu wordt weergegeven</string>
+  <!-- 'Ambient mode' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_ambient_mode_title">Verberg omgevingsmodus</string>
+  <string name="revanced_hide_player_flyout_ambient_mode_summary_on">Menu voor omgevingsmodus is verborgen</string>
+  <string name="revanced_hide_player_flyout_ambient_mode_summary_off">Menu omgevingsmodus wordt weergegeven</string>
+  <string name="revanced_hide_player_flyout_stable_volume_title">Stabiel volume verbergen</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_off">Stabiel volume menu wordt weergegeven</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_on">Stabiel volume menu is verborgen</string>
+  <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_help_title">Help verbergen &amp; feedback</string>
+  <string name="revanced_hide_player_flyout_help_summary_on">Help &amp; feedback menu is verborgen</string>
+  <string name="revanced_hide_player_flyout_help_summary_off">Help &amp; feedback menu wordt getoond</string>
+  <!-- 'Playback speed' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_speed_title">Verberg afspeelsnelheid</string>
+  <string name="revanced_hide_player_flyout_speed_summary_on">Speelsnelheid menu is verborgen</string>
+  <string name="revanced_hide_player_flyout_speed_summary_off">Speelsnelheid menu wordt weergegeven</string>
+  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
+                 This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
+  <string name="revanced_hide_player_flyout_more_info_title">Verberg meer informatie</string>
+  <string name="revanced_hide_player_flyout_more_info_summary_on">Meer info menu is verborgen</string>
+  <string name="revanced_hide_player_flyout_more_info_summary_off">Meer info menu wordt weergegeven</string>
+  <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_lock_screen_title">Vergrendelingsscherm verbergen</string>
+  <string name="revanced_hide_player_flyout_lock_screen_summary_on">Vergrendelscherm menu is verborgen</string>
+  <string name="revanced_hide_player_flyout_lock_screen_summary_off">Vergrendelscherm menu wordt weergegeven</string>
+  <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_audio_track_title">Audio-spoor verbergen</string>
+  <string name="revanced_hide_player_flyout_audio_track_summary_on">Audio track menu is verborgen</string>
+  <string name="revanced_hide_player_flyout_audio_track_summary_off">Audio-track menu wordt weergegeven</string>
+  <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_watch_in_vr_title">Verberg horloge in VR</string>
+  <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Bekijk in het VR-menu is verborgen</string>
+  <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Bekijk in het VR-menu</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_title">Verberg video kwaliteit menu voettekst</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Video kwaliteit menu voettekst is verborgen</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Videokwaliteit menu voettekst wordt weergegeven</string>
+  </patch>
+  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+  <string name="revanced_hide_player_previous_next_buttons_title">Vorige &amp; volgende video knoppen verbergen</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">Knoppen zijn verborgen</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">Knoppen worden weergegeven</string>
+  <string name="revanced_hide_cast_button_title">Verberg cast knop</string>
+  <string name="revanced_hide_cast_button_summary_on">Cast knop is verborgen</string>
+  <string name="revanced_hide_cast_button_summary_off">Cast knop wordt weergegeven</string>
+  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
+  <string name="revanced_hide_captions_button_title">Knop voor onderschriften verbergen</string>
+  <string name="revanced_hide_captions_button_summary_on">Knop voor bijschriften is verborgen</string>
+  <string name="revanced_hide_captions_button_summary_off">Knop voor bijschriften wordt weergegeven</string>
+  <string name="revanced_hide_autoplay_button_title">Knop voor automatisch afspelen verbergen</string>
+  <string name="revanced_hide_autoplay_button_summary_on">Automatisch afspelen knop is verborgen</string>
+  <string name="revanced_hide_autoplay_button_summary_off">Automatisch afspelen knop wordt weergegeven</string>
+  </patch>
+  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <string name="revanced_hide_endscreen_cards_title">Verberg eindschermkaarten</string>
+  <string name="revanced_hide_endscreen_cards_summary_on">Eindscherm kaarten zijn verborgen</string>
+  <string name="revanced_hide_endscreen_cards_summary_off">Eindschermkaarten worden weergegeven</string>
+  </patch>
+  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
+  <string name="revanced_disable_fullscreen_ambient_mode_title">Schakel omgevingsmodus uit in volledig scherm</string>
+  <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Actieve modus uitgeschakeld</string>
+  <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Actieve modus ingeschakeld</string>
+  </patch>
+  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
+  <string name="revanced_hide_info_cards_title">Verberg informatiekaarten</string>
+  <string name="revanced_hide_info_cards_summary_on">Info kaarten zijn verborgen</string>
+  <string name="revanced_hide_info_cards_summary_off">Info kaarten worden weergegeven</string>
+  </patch>
+  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
+  <string name="revanced_disable_rolling_number_animations_title">Schakel rolnummer animaties uit</string>
+  <string name="revanced_disable_rolling_number_animations_summary_on">Rolnummers zijn niet geanimeerd</string>
+  <string name="revanced_disable_rolling_number_animations_summary_off">Rolnummers zijn geanimeerd</string>
+  </patch>
+  <patch id="layout.hide.seekbar.hideSeekbarPatch">
+  <string name="revanced_hide_seekbar_title">Verberg zoekbalk in videospeler</string>
+  <string name="revanced_hide_seekbar_summary_on">Zoekbalk videospeler verborgen</string>
+  <string name="revanced_hide_seekbar_summary_off">Zoekbalk videospeler is weergegeven</string>
+  <string name="revanced_hide_seekbar_thumbnail_title">Zoekbalk verbergen in video-miniaturen</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">Thumbnail zoekbalk is verborgen</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_off">Miniatuur zoekbalk wordt weergegeven</string>
+  </patch>
+  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
+  <string name="revanced_hide_shorts_home_title">Shorts verbergen in de homefeed</string>
+  <string name="revanced_hide_shorts_home_summary_on">Shorts in de thuisfeed zijn verborgen</string>
+  <string name="revanced_hide_shorts_home_summary_off">Shorts in de thuisfeed worden getoond</string>
+  <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
+  <string name="revanced_hide_shorts_subscriptions_title">Verberg Shorts in de abonnementsfeed</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts in de abonnementsfeed zijn verborgen</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts in de abonnementsfeed worden weergegeven</string>
+  <string name="revanced_hide_shorts_search_title">Verberg Shorts in zoekresultaten</string>
+  <string name="revanced_hide_shorts_search_summary_on">Shorts in zoekresultaten zijn verborgen</string>
+  <string name="revanced_hide_shorts_search_summary_off">Shorts zoekresultaten worden weergegeven</string>
+  <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
+  <string name="revanced_hide_shorts_join_button_title">Toetredingsknop verbergen</string>
+  <string name="revanced_hide_shorts_join_button_summary_on">Join knop is verborgen</string>
+  <string name="revanced_hide_shorts_join_button_summary_off">Toetredingsknop wordt weergegeven</string>
+  <!-- 'subscribe' should be translated using the same localized wording YouTube displays for the button. -->
+  <string name="revanced_hide_shorts_subscribe_button_title">Verberg inschrijfknop</string>
+  <string name="revanced_hide_shorts_subscribe_button_summary_on">Abonneren knop is verborgen</string>
+  <string name="revanced_hide_shorts_subscribe_button_summary_off">\'Abonneren\' knop wordt weergegeven</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_title">Verberg gepauzeerde overlayknoppen</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Gepauzeerde overlay knoppen zijn verborgen</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Gepauzeerde overlay knoppen worden weergegeven</string>
+  <string name="revanced_hide_shorts_shop_button_title">Winkelknop verbergen</string>
+  <string name="revanced_hide_shorts_shop_button_summary_on">Winkelknop is verborgen</string>
+  <string name="revanced_hide_shorts_shop_button_summary_off">Winkelknop wordt weergegeven</string>
+  <string name="revanced_hide_shorts_super_thanks_button_title">Verberg superbedankt knop</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_on">Super bedankje is verborgen</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_off">Super bedankje wordt getoond</string>
+  <string name="revanced_hide_shorts_tagged_products_title">Verberg getagde producten</string>
+  <string name="revanced_hide_shorts_tagged_products_summary_on">Gelabelde producten zijn verborgen</string>
+  <string name="revanced_hide_shorts_tagged_products_summary_off">Gecodeerde producten worden weergegeven</string>
+  <string name="revanced_hide_shorts_location_label_title">Verberg locatie label</string>
+  <string name="revanced_hide_shorts_location_label_summary_on">Locatie label is verborgen</string>
+  <string name="revanced_hide_shorts_location_label_summary_off">Locatie label wordt weergegeven</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Verberg bewaar muziek knop</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">Muziekknop opslaan is verborgen</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">Muziekknop wordt weergegeven</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Verberg gebruik sjabloonknop</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Gebruik sjabloonknop is verborgen</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Gebruik sjabloonknop wordt weergegeven</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">Aankomende knop verbergen</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">Aankomende knop is verborgen</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">Aankomende knop wordt weergegeven</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">Verberg groene schermknop</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_on">Groene schermknop is verborgen</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_off">Groene schermknop wordt weergegeven</string>
+  <string name="revanced_hide_shorts_hashtag_button_title">hashtag knop verbergen</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_on">Hashtag knop is verborgen</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_off">Hashtag knop wordt weergegeven</string>
+  <string name="revanced_hide_shorts_search_suggestions_title">Zoeksuggesties verbergen</string>
+  <string name="revanced_hide_shorts_search_suggestions_summary_on">Zoeksuggesties zijn verborgen</string>
+  <string name="revanced_hide_shorts_search_suggestions_summary_off">Zoeksuggesties worden getoond</string>
+  <string name="revanced_hide_shorts_stickers_title">Verberg stickers</string>
+  <string name="revanced_hide_shorts_stickers_summary_on">Stickers zijn verborgen</string>
+  <string name="revanced_hide_shorts_stickers_summary_off">Stickers worden getoond</string>
+  <string name="revanced_hide_shorts_like_fountain_title">Verbergen als fontein</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_on">Like knop fontein animatie is verborgen</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_off">De vind-ik-leuk-knop animatie wordt weergegeven</string>
+  <string name="revanced_hide_shorts_like_button_title">Verberg leuk-knop</string>
+  <string name="revanced_hide_shorts_like_button_summary_on">Vind-ik-leuk-knop is verborgen</string>
+  <string name="revanced_hide_shorts_like_button_summary_off">Vind-ik-leuk-knop wordt weergegeven</string>
+  <string name="revanced_hide_shorts_dislike_button_title">Verberg niet-leuk-knop</string>
+  <string name="revanced_hide_shorts_dislike_button_summary_on">Vind-ik-leuk-knop is verborgen</string>
+  <string name="revanced_hide_shorts_dislike_button_summary_off">Dislike knop wordt weergegeven</string>
+  <string name="revanced_hide_shorts_comments_button_title">Knop voor reacties verbergen</string>
+  <string name="revanced_hide_shorts_comments_button_summary_on">Reacties knop is verborgen</string>
+  <string name="revanced_hide_shorts_comments_button_summary_off">Knop voor reacties wordt weergegeven</string>
+  <!-- 'remix' should be translated using the same localized wording YouTube displays for the button. -->
+  <string name="revanced_hide_shorts_remix_button_title">Verberg remix knop</string>
+  <string name="revanced_hide_shorts_remix_button_summary_on">Remix knop is verborgen</string>
+  <string name="revanced_hide_shorts_remix_button_summary_off">Remix knop wordt weergegeven</string>
+  <!-- 'share' should be translated using the same localized wording YouTube displays for the button. -->
+  <string name="revanced_hide_shorts_share_button_title">Verberg share knop</string>
+  <string name="revanced_hide_shorts_share_button_summary_on">Deel knop is verborgen</string>
+  <string name="revanced_hide_shorts_share_button_summary_off">Deel knop wordt weergegeven</string>
+  <string name="revanced_hide_shorts_info_panel_title">Verberg informatiepaneel</string>
+  <string name="revanced_hide_shorts_info_panel_summary_on">Info paneel is verborgen</string>
+  <string name="revanced_hide_shorts_info_panel_summary_off">Info paneel wordt weergegeven</string>
+  <string name="revanced_hide_shorts_channel_bar_title">Zenderbalk verbergen</string>
+  <string name="revanced_hide_shorts_channel_bar_summary_on">Kanaalbalk is verborgen</string>
+  <string name="revanced_hide_shorts_channel_bar_summary_off">Kanaalbalk wordt weergegeven</string>
+  <string name="revanced_hide_shorts_video_title_title">Videotitel verbergen</string>
+  <string name="revanced_hide_shorts_video_title_summary_on">Titel is verborgen</string>
+  <string name="revanced_hide_shorts_video_title_summary_off">Titel wordt weergegeven</string>
+  <string name="revanced_hide_shorts_sound_metadata_label_title">Verberg geluidmetagegevens label</string>
+  <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Metagegevens label is verborgen</string>
+  <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Metagegevens label wordt weergegeven</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">Verberg volledige video link label</string>
+  <string name="revanced_hide_shorts_full_video_link_label_summary_on">Video link label is verborgen</string>
+  <string name="revanced_hide_shorts_full_video_link_label_summary_off">Label van de video-link wordt weergegeven</string>
+  <string name="revanced_hide_shorts_sound_button_title">Verberg geluid knop</string>
+  <string name="revanced_hide_shorts_sound_button_summary_on">Geluid knop is verborgen</string>
+  <string name="revanced_hide_shorts_sound_button_summary_off">Geluid knop wordt weergegeven</string>
+  <string name="revanced_hide_shorts_navigation_bar_title">Verberg navigatiebalk</string>
+  <string name="revanced_hide_shorts_navigation_bar_summary_on">Navigatiebalk is verborgen</string>
+  <string name="revanced_hide_shorts_navigation_bar_summary_off">Navigatiebalk wordt weergegeven</string>
+  </patch>
+  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
+  <string name="revanced_disable_suggested_video_end_screen_title">Voorgestelde video eindscherm uitschakelen</string>
+  <string name="revanced_disable_suggested_video_end_screen_summary_on">Voorgestelde video\'s worden uitgeschakeld</string>
+  <string name="revanced_disable_suggested_video_end_screen_summary_off">Voorgestelde video\'s worden getoond</string>
+  </patch>
+  <patch id="layout.hide.time.hideTimestampPatch">
+  <string name="revanced_hide_timestamp_title">Verberg video tijdstempel</string>
+  <string name="revanced_hide_timestamp_summary_on">Tijdstempel is verborgen</string>
+  <string name="revanced_hide_timestamp_summary_off">Tijdstempel wordt weergegeven</string>
+  </patch>
+  <patch id="layout.panels.popup.playerPopupPanelsPatch">
+  <string name="revanced_hide_player_popup_panels_title">Verberg speler popup panelen</string>
+  <string name="revanced_hide_player_popup_panels_summary_on">Speler pop-up panelen zijn verborgen</string>
+  <string name="revanced_hide_player_popup_panels_summary_off">Speler pop-up panelen worden getoond</string>
+  </patch>
+  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
+  <string name="revanced_player_overlay_opacity_title">Doorzichtigheid speler overlay</string>
+  <string name="revanced_player_overlay_opacity_summary">Transparantiewaarde tussen 0-100, waarbij 0 transparant is</string>
+  <string name="revanced_player_overlay_opacity_invalid_toast">Speler overlay transparantie moet tussen 0-100 liggen</string>
+  </patch>
+  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
+  <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
+  <string name="revanced_ryd_failure_connection_timeout">Dislikes tijdelijk niet beschikbaar (API time-out)</string>
+  <string name="revanced_ryd_failure_connection_status_code">Niet beschikbaar (status %d)</string>
+  <string name="revanced_ryd_failure_client_rate_limit_requested">Niet beschikbaar (client API limiet bereikt)</string>
+  <string name="revanced_ryd_failure_generic">Niet beschikbaar (%s)</string>
+  <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
+  <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Herlaad video om te stemmen via Return YouTube Dislike</string>
+  <string name="revanced_ryd_enable_summary_on">Dislikes worden weergegeven</string>
+  <string name="revanced_ryd_enable_summary_off">Dislikes worden niet weergegeven</string>
+  <string name="revanced_ryd_shorts_title">Toon onlikes op Shorts</string>
+  <string name="revanced_ryd_shorts_summary_on">Vind ik niet leuk getoond op Shorts</string>
+  <string name="revanced_ryd_shorts_summary_on_disclaimer">Niet leuk weergegeven op Shorts\n\nLimitatie: Niet leuk vinden mag niet verschijnen in incognito modus</string>
+  <string name="revanced_ryd_shorts_summary_off">Vindt het niet leuk verborgen op Shorts</string>
+  <string name="revanced_ryd_dislike_percentage_title">Niet leuk als percentage</string>
+  <string name="revanced_ryd_dislike_percentage_summary_on">Niet leuk weergegeven als percentage</string>
+  <string name="revanced_ryd_dislike_percentage_summary_off">Niet leuk weergegeven als nummer</string>
+  <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
+  <string name="revanced_ryd_compact_layout_title">Compacte zoals knop</string>
+  <string name="revanced_ryd_compact_layout_summary_on">Zoek-leuk-knop vormgegeven voor minimale breedte</string>
+  <string name="revanced_ryd_compact_layout_summary_off">Like knop vormgegeven voor het beste uiterlijk</string>
+  <string name="revanced_ryd_toast_on_connection_error_title">Toast tonen als de API niet beschikbaar is</string>
+  <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast wordt getoond als Return YouTube Dislike niet beschikbaar is</string>
+  <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast wordt niet getoond als Return YouTube Dislike niet beschikbaar is</string>
+  <string name="revanced_ryd_about">Over</string>
+  <string name="revanced_ryd_attribution_summary">Gegevens worden verstrekt door de Return YouTube Dislike API. Tik hier om meer te weten te komen</string>
+  <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
+  <string name="revanced_ryd_statistics_category_title">Retourneer YouTubeDislike API-statistieken van dit apparaat</string>
+  <string name="revanced_ryd_statistics_getFetchCallResponseTimeAverage_title">API responstijd, gemiddeld</string>
+  <string name="revanced_ryd_statistics_getFetchCallResponseTimeMin_title">API responstijd, minimum</string>
+  <string name="revanced_ryd_statistics_getFetchCallResponseTimeMax_title">API responstijd, maximum</string>
+  <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_title">API reactietijd, laatste video</string>
+  <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_rate_limit_summary">Dislikes tijdelijk niet beschikbaar - Client API tarieflimiet van kracht</string>
+  <string name="revanced_ryd_statistics_getFetchCallCount_title">API ophalen stemmen, aantal oproepen</string>
+  <string name="revanced_ryd_statistics_getFetchCallCount_zero_summary">Geen netwerkoproepen gemaakt</string>
+  <string name="revanced_ryd_statistics_getFetchCallCount_non_zero_summary">%d netwerkoproepen gemaakt</string>
+  <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_title">API haal stemmen, aantal time-outs</string>
+  <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_zero_summary">Geen netwerkgesprekken duurde te lang</string>
+  <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_non_zero_summary">%d netwerkoproepen time-out</string>
+  <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_title">API client rate limieten</string>
+  <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">Geen klantentarief limieten gevonden</string>
+  <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Client rate limiet opgelopen %d keer</string>
+  <string name="revanced_ryd_statistics_millisecond_text">%d milliseconden</string>
+  </patch>
+  <patch id="layout.searchbar.wideSearchbarPatch">
+  <string name="revanced_wide_searchbar_title">Schakel brede zoekbalk in</string>
+  <string name="revanced_wide_searchbar_summary_on">Brede zoekbalk is ingeschakeld</string>
+  <string name="revanced_wide_searchbar_summary_off">Brede zoekbalk is uitgeschakeld</string>
+  </patch>
+  <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_title">Hoge kwaliteit miniaturen inschakelen</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Zoekbalk miniaturen zijn van hoge kwaliteit</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Zoekbalk miniaturen zijn gemiddelde kwaliteit</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Volledig scherm Zoekbalk miniaturen zijn van hoge kwaliteit</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Volledig scherm Zoekbalk miniaturen zijn gemiddelde kwaliteit</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Dit zal ook miniaturen op livestreams herstellen die geen zoekbalkminiaturen hebben.\n\nZoekbar miniaturen gebruiken dezelfde kwaliteit als de huidige video.\n\nDeze functie werkt het beste met een videokwaliteit van 720p of lager en bij het gebruik van een zeer snelle internetverbinding.</string>
+  <string name="revanced_restore_old_seekbar_thumbnails_title">Herstel oude Zoekbalk miniaturen</string>
+  <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Zoekbalk miniaturen verschijnen boven de zoekbalk</string>
+  <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Zoekbalk miniaturen worden weergegeven op volledig scherm</string>
+  </patch>
+  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
+  <string name="revanced_sb_enable_sb">SponsorBlock inschakelen</string>
+  <string name="revanced_sb_enable_sb_sum">SponsorBlock is een crowd-sourced systeem om vervelende delen van YouTube video\'s over te slaan</string>
+  <string name="revanced_sb_appearance_category">Uiterlijk</string>
+  <string name="revanced_sb_enable_voting">Toon de stem knop</string>
+  <string name="revanced_sb_enable_voting_sum_on">De segmenten-knop wordt weergegeven</string>
+  <string name="revanced_sb_enable_voting_sum_off">De segmenten-knop wordt niet weergegeven</string>
+  <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
+  <string name="revanced_sb_enable_compact_skip_button">Gebruik compacte overslaan knop</string>
+  <string name="revanced_sb_enable_compact_skip_button_sum_on">Sla de knop over voor minimale breedte</string>
+  <string name="revanced_sb_enable_compact_skip_button_sum_off">Knop overslaan voor het beste uiterlijk</string>
+  <string name="revanced_sb_enable_auto_hide_skip_segment_button">Automatisch de overslagknop verbergen</string>
+  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Overslaan knop verbergt zich na enkele seconden</string>
+  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Weergegeven knop voor hele segmenten overslaan</string>
+  <string name="revanced_sb_general_skiptoast">Toon een toast wanneer automatisch wordt overgeslagen</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">Toastmelding wordt weergegeven wanneer een segment automatisch wordt overgeslagen. Tik hier om een voorbeeld te zien</string>
+  <string name="revanced_sb_general_skiptoast_sum_off">Toast wordt niet getoond. Tik hier om een voorbeeld te zien</string>
+  <string name="revanced_sb_general_time_without">Videolengte zonder segmenten weergeven</string>
+  <string name="revanced_sb_general_time_without_sum_on">Videolengte min alle segmenten, weergegeven in haakjes naast de volledige videolengte</string>
+  <string name="revanced_sb_general_time_without_sum_off">Volledige videolengte weergegeven</string>
+  <string name="revanced_sb_create_segment_category">Nieuwe segmenten aanmaken</string>
+  <string name="revanced_sb_enable_create_segment">Toon nieuwe segment knop</string>
+  <string name="revanced_sb_enable_create_segment_sum_on">Nieuwe segment knop is weergegeven</string>
+  <string name="revanced_sb_enable_create_segment_sum_off">Nieuwe segment knop wordt niet weergegeven</string>
+  <string name="revanced_sb_general_adjusting">Nieuwe segment stap aanpassen</string>
+  <string name="revanced_sb_general_adjusting_sum">Aantal milliseconden de tijden aanpassingsknoppen bewegen bij het maken van nieuwe segmenten</string>
+  <string name="revanced_sb_general_adjusting_invalid">Waarde moet een positief getal zijn</string>
+  <string name="revanced_sb_guidelines_preference_title">Bekijk richtlijnen</string>
+  <string name="revanced_sb_guidelines_preference_sum">Richtlijnen bevatten regels en tips voor het maken van nieuwe segmenten</string>
+  <string name="revanced_sb_guidelines_popup_title">Volg de richtlijnen</string>
+  <string name="revanced_sb_guidelines_popup_content">Lees de SponsorBlock richtlijnen voordat u nieuwe segmenten maakt</string>
+  <string name="revanced_sb_guidelines_popup_already_read">Al gelezen</string>
+  <string name="revanced_sb_guidelines_popup_open">Laat me zien</string>
+  <string name="revanced_sb_general">Algemeen</string>
+  <string name="revanced_sb_toast_on_connection_error_title">Toast tonen als de API niet beschikbaar is</string>
+  <string name="revanced_sb_toast_on_connection_error_summary_on">Melding wordt getoond als SponsorBlock niet beschikbaar is</string>
+  <string name="revanced_sb_toast_on_connection_error_summary_off">Melding wordt niet getoond als SponsorBlock niet beschikbaar is</string>
+  <string name="revanced_sb_general_skipcount">Schakel het aantal overslaan in</string>
+  <string name="revanced_sb_general_skipcount_sum_on">Laat het SponsorBlock scorebord weten hoeveel tijd er wordt opgeslagen. Elke keer dat een segment wordt overgeslagen wordt een bericht verzonden naar het scorebord</string>
+  <string name="revanced_sb_general_skipcount_sum_off">Tel tracking overslaan is niet ingeschakeld</string>
+  <string name="revanced_sb_general_min_duration">Minimale segmentduur</string>
+  <string name="revanced_sb_general_min_duration_sum">Segmenten korter dan deze waarde (in seconden) worden niet getoond of overgeslagen</string>
+  <string name="revanced_sb_general_min_duration_invalid">Ongeldige tijdsduur</string>
+  <string name="revanced_sb_general_uuid">Je privégebruikers-id</string>
+  <string name="revanced_sb_general_uuid_sum">Dit moet privé blijven. Dit is als een wachtwoord en moet met niemand worden gedeeld. Als iemand dit heeft, kunnen zij u imiteren</string>
+  <string name="revanced_sb_general_uuid_invalid">Privé gebruikers-id moet ten minste 30 tekens lang zijn</string>
+  <string name="revanced_sb_general_api_url">API-URL wijzigen</string>
+  <string name="revanced_sb_general_api_url_sum">De adres SponsorBlock gebruikt om naar de server te bellen</string>
+  <string name="revanced_sb_api_url_reset">API URL reset</string>
+  <string name="revanced_sb_api_url_invalid">API URL is ongeldig</string>
+  <string name="revanced_sb_api_url_changed">API URL gewijzigd</string>
+  <string name="revanced_sb_settings_ie">Import/Export instellingen</string>
+  <string name="revanced_sb_settings_copy">Kopiëren</string>
+  <string name="revanced_sb_settings_ie_sum">Uw SponsorBlock JSON configuratie die kan worden geïmporteerd/geëxporteerd naar ReVanced en andere SponsorBlock platforms</string>
+  <string name="revanced_sb_settings_ie_sum_warning">Uw SponsorBlock JSON configuratie die kan worden geïmporteerd/geëxporteerd naar ReVanced en andere SponsorBlock platformen. Dit is inclusief uw privégebruikers-id. Zorg ervoor dat u dit verstandig deelt</string>
+  <string name="revanced_sb_settings_import_successful">Instellingen succesvol geïmporteerd</string>
+  <string name="revanced_sb_settings_import_failed">Importeren mislukt: %s</string>
+  <string name="revanced_sb_settings_export_failed">Exporteren mislukt: %s</string>
+  <string name="revanced_sb_settings_revanced_export_user_id_warning">Uw instellingen bevatten een persoonlijke SponsorBlock userid.\n\nUw gebruikers-id is als een wachtwoord en het zou nooit gedeeld moeten worden.\n</string>
+  <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">Niet meer weergeven</string>
+  <string name="revanced_sb_diff_segments">Verander segment gedrag</string>
+  <string name="revanced_sb_segments_sponsor">Sponsor</string>
+  <string name="revanced_sb_segments_sponsor_sum">Betaalde promotie, betaalde aanbevelingen en directe advertenties. Niet voor zelf-promotie of gratis uit-outs voor die/creators/websites/producten waar ze van houden</string>
+  <string name="revanced_sb_segments_selfpromo">Onbetaalde/zelf-promotie</string>
+  <string name="revanced_sb_segments_selfpromo_sum">Vergelijkbaar met \'Sponsor\' behalve onbetaalde of zelfpromotie. Inclusief secties over goederen, donaties of informatie over wie ze hebben samengewerkt</string>
+  <string name="revanced_sb_segments_interaction">Interactie Herinnering (Abonneren)</string>
+  <string name="revanced_sb_segments_interaction_sum">Een korte herinnering om te liken, te abonneren of te volgen tussen de inhoud in. Als het lang of iets specifieks is, moet het in plaats daarvan onder zelfpromotie vallen</string>
+  <string name="revanced_sb_segments_highlight">Markeren</string>
+  <string name="revanced_sb_segments_highlight_sum">Het deel van de video waarnaar de meeste mensen op zoek zijn</string>
+  <string name="revanced_sb_segments_intro">Intermissie/Intro Animatie</string>
+  <string name="revanced_sb_segments_intro_sum">Een interval zonder actuele inhoud. Kan een pauze, statische frame, of herhalende animatie zijn. Inclusief overgangen die informatie bevatten</string>
+  <string name="revanced_sb_segments_outro">Eindkaarten/Credits</string>
+  <string name="revanced_sb_segments_outro_sum">Credits of wanneer de YouTube eindkaarten verschijnen. Niet voor conclusies met informatie</string>
+  <string name="revanced_sb_segments_preview">Voorbeeld/Recap/Hook</string>
+  <string name="revanced_sb_segments_preview_sum">Collectie van clips die laten zien wat er gebeurt of wat er is gebeurd in de video of in andere video\'s van een serie, waar alle informatie elders wordt herhaald</string>
+  <string name="revanced_sb_segments_filler">Filler Tangent/Jokes</string>
+  <string name="revanced_sb_segments_filler_sum">Tangential scènes alleen toegevoegd voor opvulling of humor die niet nodig zijn om de belangrijkste inhoud van de video te begrijpen. Bevat geen segmenten die context- of achtergrondgegevens verstrekken</string>
+  <string name="revanced_sb_segments_nomusic">Muziek: Sectie zonder muziek</string>
+  <string name="revanced_sb_segments_nomusic_sum">Alleen voor gebruik in muziekvideo\'s. Secties van muziekvideo\'s zonder muziek, die nog niet door een andere categorie worden behandeld</string>
+  <string name="revanced_sb_skip_button_compact">Overslaan</string>
+  <string name="revanced_sb_skip_button_compact_highlight">Markeren</string>
+  <string name="revanced_sb_skip_button_sponsor">Sla sponsor over</string>
+  <string name="revanced_sb_skip_button_selfpromo">Actie overslaan</string>
+  <string name="revanced_sb_skip_button_interaction">Interactie overslaan</string>
+  <string name="revanced_sb_skip_button_highlight">Overslaan om te markeren</string>
+  <string name="revanced_sb_skip_button_intro_beginning">Introductie overslaan</string>
+  <string name="revanced_sb_skip_button_intro_middle">Interactie overslaan</string>
+  <string name="revanced_sb_skip_button_intro_end">Interactie overslaan</string>
+  <string name="revanced_sb_skip_button_outro">Skip outro</string>
+  <string name="revanced_sb_skip_button_preview_beginning">Voorbeeld overslaan</string>
+  <string name="revanced_sb_skip_button_preview_middle">Voorbeeld overslaan</string>
+  <string name="revanced_sb_skip_button_preview_end">Terugslag Overslaan</string>
+  <string name="revanced_sb_skip_button_filler">Overslaan vuller</string>
+  <string name="revanced_sb_skip_button_nomusic">Sla niet-muziek over</string>
+  <string name="revanced_sb_skip_button_unsubmitted">Segment overslaan</string>
+  <string name="revanced_sb_skipped_sponsor">Overgeslagen sponsor</string>
+  <string name="revanced_sb_skipped_selfpromo">Zelfpromotie overgeslagen</string>
+  <string name="revanced_sb_skipped_interaction">Vervelende herinnering overgeslagen</string>
+  <string name="revanced_sb_skipped_highlight">Overgeslagen om te markeren</string>
+  <string name="revanced_sb_skipped_intro_beginning">Intro overgeslagen</string>
+  <string name="revanced_sb_skipped_intro_middle">Overgeslagen interactie</string>
+  <string name="revanced_sb_skipped_intro_end">Overgeslagen interactie</string>
+  <string name="revanced_sb_skipped_outro">Outro overgeslagen</string>
+  <string name="revanced_sb_skipped_preview_beginning">Voorbeeld overgeslagen</string>
+  <string name="revanced_sb_skipped_preview_middle">Voorbeeld overgeslagen</string>
+  <string name="revanced_sb_skipped_preview_end">Overgeslagen reap</string>
+  <string name="revanced_sb_skipped_filler">Opvuller overgeslagen</string>
+  <string name="revanced_sb_skipped_nomusic">Een niet-muzieksectie overgeslagen</string>
+  <string name="revanced_sb_skipped_unsubmitted">Niet-ingediend segment overgeslagen</string>
+  <string name="revanced_sb_skipped_multiple_segments">Meervoudige segmenten overgeslagen</string>
+  <string name="revanced_sb_skip_automatically">Automatisch overslaan</string>
+  <string name="revanced_sb_skip_automatically_once">Sla automatisch over eenmalig</string>
+  <string name="revanced_sb_skip_showbutton">Toon een oversla-knop</string>
+  <string name="revanced_sb_skip_seekbaronly">In de zoekbalk weergeven</string>
+  <string name="revanced_sb_skip_ignore">Uitschakelen</string>
+  <string name="revanced_sb_submit_failed_invalid">Kon segment niet indienen: %s</string>
+  <string name="revanced_sb_submit_failed_timeout">SponsorBlock is tijdelijk niet beschikbaar</string>
+  <string name="revanced_sb_submit_failed_unknown_error">Kon segment niet verzenden (status: %1$d %2$s)</string>
+  <string name="revanced_sb_submit_failed_rate_limit">Segment verzenden niet mogelijk.\n Tarief gelimiteerd (te veel van dezelfde gebruiker of IP)</string>
+  <string name="revanced_sb_submit_failed_forbidden">Kan de groep niet indienen: %s</string>
+  <string name="revanced_sb_submit_failed_duplicate">Kan het segment niet indienen.\nBestaat al</string>
+  <string name="revanced_sb_submit_succeeded">Segment succesvol ingediend</string>
+  <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
+  <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock tijdelijk niet beschikbaar (API time-out)</string>
+  <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock tijdelijk niet beschikbaar (status %d)</string>
+  <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock tijdelijk niet beschikbaar</string>
+  <string name="revanced_sb_vote_failed_timeout">Kan niet voor segment stemmen (API time-out)</string>
+  <string name="revanced_sb_vote_failed_unknown_error">Kan niet stemmen voor segment (status: %1$d %2$s)</string>
+  <string name="revanced_sb_vote_failed_forbidden">Niet mogelijk om te stemmen op segment: %s</string>
+  <string name="revanced_sb_vote_upvote">Upvote</string>
+  <string name="revanced_sb_vote_downvote">Downvote</string>
+  <string name="revanced_sb_vote_category">Verander categorie</string>
+  <string name="revanced_sb_vote_no_segments">Er zijn geen segmenten om voor te stemmen</string>
+  <string name="revanced_sb_new_segment_choose_category">Kies de segmentcategorie</string>
+  <string name="revanced_sb_new_segment_disabled_category">Categorie is uitgeschakeld in instellingen. Schakel categorie in om in te dienen.</string>
+  <string name="revanced_sb_new_segment_title">Nieuw SponsorBlock-segment</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">%s instellen als het begin of einde van een nieuw segment?</string>
+  <string name="revanced_sb_new_segment_mark_start">begin</string>
+  <string name="revanced_sb_new_segment_mark_end">einde</string>
+  <string name="revanced_sb_new_segment_now">nu</string>
+  <string name="revanced_sb_new_segment_time_start">Tijd waarop het segment begint</string>
+  <string name="revanced_sb_new_segment_time_end">Tijd waarop het segment eindigt</string>
+  <string name="revanced_sb_new_segment_confirm_title">Zijn de tijden correct?</string>
+  <string name="revanced_sb_new_segment_confirm_content">Het segment is van\n\n%1$s\nnaar\n%2$s\n\n(%3$s)\n\nklaar om te indienen?</string>
+  <string name="revanced_sb_new_segment_start_is_before_end">De start moet voor het einde zijn</string>
+  <string name="revanced_sb_new_segment_mark_locations_first">Markeer eerst twee locaties op de tijdbalk</string>
+  <string name="revanced_sb_new_segment_preview_segment_first">Bekijk het segment en zorg ervoor dat het soepel wordt overgeslagen</string>
+  <string name="revanced_sb_new_segment_edit_by_hand_title">Bewerk timing van segment handmatig</string>
+  <string name="revanced_sb_new_segment_edit_by_hand_content">Wil je de timing van het begin of einde van het segment bewerken?</string>
+  <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Ongeldige tijd opgegeven</string>
+  <string name="revanced_sb_stats">Statistieken</string>
+  <!-- Shown in the settings preferences, and translations can be any text length. -->
+  <string name="revanced_sb_stats_connection_failure">Statistieken tijdelijk niet beschikbaar (API is down)</string>
+  <string name="revanced_sb_stats_loading">Bezig met laden...</string>
+  <string name="revanced_sb_stats_sb_disabled">SponsorBlock is uitgeschakeld</string>
+  <string name="revanced_sb_stats_username">Uw gebruikersnaam: &lt;b&gt;%s&lt;/b&gt;</string>
+  <string name="revanced_sb_stats_username_change">Tik hier om je gebruikersnaam te wijzigen</string>
+  <string name="revanced_sb_stats_username_change_unknown_error">Niet in staat om gebruikersnaam te wijzigen: Status: %1$d %2$s</string>
+  <string name="revanced_sb_stats_username_changed">Gebruikersnaam succesvol gewijzigd</string>
+  <string name="revanced_sb_stats_reputation">Je reputatie is &lt;b&gt;%.2f&lt;/b&gt;</string>
+  <string name="revanced_sb_stats_submissions">Je hebt &lt;b&gt;%s&lt;/b&gt; segmenten aangemaakt</string>
+  <string name="revanced_sb_stats_submissions_sum">Tik hier om je segmenten te bekijken</string>
+  <string name="revanced_sb_stats_saved_zero">SponsorBlock scorebord</string>
+  <string name="revanced_sb_stats_saved">Je hebt mensen gered van &lt;b&gt;%s&lt;/b&gt; segmenten</string>
+  <string name="revanced_sb_stats_saved_sum_zero">Tik hier om de globale statistieken en de top bijdragers te zien</string>
+  <string name="revanced_sb_stats_saved_sum">Dat is &lt;b&gt;%s&lt;/b&gt; van hun leven. &lt;br&gt; klik hier om het scorebord te zien</string>
+  <string name="revanced_sb_stats_self_saved">Je hebt &lt;b&gt;%s&lt;/b&gt; segmenten overgeslagen</string>
+  <string name="revanced_sb_stats_self_saved_sum">Dat is &lt;b&gt;%s&lt;/b&gt;</string>
+  <string name="revanced_sb_stats_self_saved_reset_title">Reset overgeslagen segmenten teller?</string>
+  <string name="revanced_sb_stats_saved_hour_format">%1$s uren %2$s minuten</string>
+  <string name="revanced_sb_stats_saved_minute_format">%1$s minuten %2$s seconden</string>
+  <string name="revanced_sb_stats_saved_second_format">%s seconden</string>
+  <string name="revanced_sb_color_dot_label">Kleur:</string>
+  <string name="revanced_sb_color_changed">Kleur gewijzigd</string>
+  <string name="revanced_sb_color_reset">Kleur reset</string>
+  <string name="revanced_sb_color_invalid">Ongeldige kleurcode</string>
+  <string name="revanced_sb_reset_color">Kleur resetten</string>
+  <string name="revanced_sb_reset">Herstellen naar standaard</string>
+  <string name="revanced_sb_about">Over</string>
+  <string name="revanced_sb_about_api_sum">Gegevens worden verstrekt door de SponsorBlock API. Tik hier om meer te weten te komen en de downloads van andere platforms te bekijken</string>
+  </patch>
+  <patch id="layout.spoofappversion.spoofAppVersionPatch">
+  <string name="revanced_spoof_app_version_title">Spoof app versie</string>
+  <string name="revanced_spoof_app_version_summary_on">Versie vervalst</string>
+  <string name="revanced_spoof_app_version_summary_off">Versie niet vervalst</string>
+  <string name="revanced_spoof_app_version_user_dialog_message">App versie zal worden gespoofd tot een oudere versie van YouTube.\n\nDit zal het uiterlijk en de functies van de app veranderen, maar er kunnen onbekende neveneffecten optreden.\n\nAls later is uitgeschakeld, wordt aanbevolen om de app-gegevens te wissen om bugs in de gebruikersinterface te voorkomen.</string>
+  <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
+                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
+  <string name="revanced_spoof_app_version_target_title">Spoof app versie doel</string>
+  <!-- 'RYD' is 'Return YouTube Dislike' -->
+  <string name="revanced_spoof_app_version_target_entry_1">18.33.40 - Herstel RYD op incognito modus</string>
+  <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - Herstel brede videosnelheid &amp; kwaliteitsmenu</string>
+  <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - Tabblad bibliotheek herstellen</string>
+  <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - oude afspeellijst herstellen</string>
+  </patch>
+  <patch id="layout.startpage.changeStartPagePatch">
+  <string name="revanced_change_start_page_title">Startpagina instellen</string>
+  <string name="revanced_change_start_page_entry_default">Standaard</string>
+  <string name="revanced_change_start_page_entry_browse">Kanalen doorzoeken</string>
+  <string name="revanced_change_start_page_entry_explore">Verken</string>
+  <string name="revanced_change_start_page_entry_gaming">Gaming</string>
+  <string name="revanced_change_start_page_entry_history">Geschiedenis</string>
+  <string name="revanced_change_start_page_entry_library">Bibliotheek</string>
+  <string name="revanced_change_start_page_entry_liked_videos">Video\'s leuk vinden</string>
+  <string name="revanced_change_start_page_entry_live">Zichtbaar</string>
+  <string name="revanced_change_start_page_entry_movies">Films</string>
+  <string name="revanced_change_start_page_entry_music">Muziek</string>
+  <string name="revanced_change_start_page_entry_search">Zoeken</string>
+  <string name="revanced_change_start_page_entry_sports">Sport</string>
+  <string name="revanced_change_start_page_entry_subscriptions">Abonnementen</string>
+  <string name="revanced_change_start_page_entry_trending">Populair</string>
+  <string name="revanced_change_start_page_entry_watch_later">Later bekijken</string>
+  </patch>
+  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
+  <string name="revanced_disable_resuming_shorts_player_title">Schakel het hervatten van Shorts-speler uit</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts-speler wordt niet hervat bij het opstarten van de app</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts-speler wordt hervat bij het opstarten van de app</string>
+  </patch>
+  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  </patch>
+  <patch id="layout.tablet.enableTabletLayoutPatch">
+  <string name="revanced_tablet_layout_title">Tablet lay-out inschakelen</string>
+  <string name="revanced_tablet_layout_summary_on">Tablet lay-out is ingeschakeld</string>
+  <string name="revanced_tablet_layout_summary_off">Tablet lay-out is uitgeschakeld</string>
+  <string name="revanced_tablet_layout_user_dialog_message">Gemeenschapsberichten verschijnen niet op de tabletlay-outs</string>
+  </patch>
+  <patch id="layout.miniplayer.miniplayerPatch">
+  <string name="revanced_miniplayer_screen_title">Minispeler</string>
+  <string name="revanced_miniplayer_screen_summary">De stijl van de in de app geminimaliseerde speler wijzigen</string>
+  <string name="revanced_miniplayer_type_title">Miniplayer type</string>
+  <string name="revanced_miniplayer_type_entry_1">Origineel</string>
+  <string name="revanced_miniplayer_type_entry_2">Telefoonnummer</string>
+  <string name="revanced_miniplayer_type_entry_3">Telefoon</string>
+  <string name="revanced_miniplayer_type_entry_4">Moderne 1</string>
+  <string name="revanced_miniplayer_type_entry_5">Moderne 2</string>
+  <string name="revanced_miniplayer_type_entry_6">Moderne 3</string>
+  <string name="revanced_miniplayer_rounded_corners_title">Schakel afgeronde hoeken in</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_on">Hoeken zijn afgerond</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_off">Hoeken zijn vierkant</string>
+  <string name="revanced_miniplayer_double_tap_action_title">Dubbeltikken en knijpen om formaat aan te passen inschakelen</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">Dubbeltikken op actie en knijp om de grootte te wijzigen is ingeschakeld\n\n• Dubbel tikken om de miniplayer grootte te verhogen\n• Dubbel tikken om de originele grootte te herstellen</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_off">Dubbeltikken op actie en knijpen om formaat aan te passen is uitgeschakeld</string>
+  <string name="revanced_miniplayer_drag_and_drop_title">Schakel slepen en neerzetten in</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">Slepen en neerzetten is ingeschakeld\n\nMiniplayer kan naar elke hoek van het scherm worden gesleept</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_off">Slepen en neerzetten is uitgeschakeld</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">Horizontaal slepen gebaar inschakelen</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">Horizontaal sleep gebaar ingeschakeld\n\nMiniplayer kan worden weggesleept van het scherm naar links of rechts</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontaal slepen gebaar uitgeschakeld</string>
+  <string name="revanced_miniplayer_hide_expand_close_title">Verberg sluit knop</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">Sluitknop is verborgen</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">Sluitknop wordt weergegeven</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Verberg knoppen voor uitvouwen en sluiten</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Knoppen zijn verborgen\n\nVeeg om uit te breiden of te sluiten</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Uitvouwen en sluiten knoppen worden weergegeven</string>
+  <string name="revanced_miniplayer_hide_subtext_title">Verberg subteksten</string>
+  <string name="revanced_miniplayer_hide_subtext_summary_on">Subteksten zijn verborgen</string>
+  <string name="revanced_miniplayer_hide_subtext_summary_off">Subteksten worden getoond</string>
+  <string name="revanced_miniplayer_hide_rewind_forward_title">Voor- en achterkant knoppen verbergen</string>
+  <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Vooruit en achterkant zijn verborgen</string>
+  <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Spring vooruit en achterkant worden weergegeven</string>
+  <string name="revanced_miniplayer_width_dip_title">Initiële grootte</string>
+  <string name="revanced_miniplayer_width_dip_summary">Initiële grootte van het scherm, in pixels</string>
+  <string name="revanced_miniplayer_width_dip_invalid_toast">Pixel grootte moet liggen tussen %1$s en %2$s</string>
+  <string name="revanced_miniplayer_opacity_title">Dekking van de overlay</string>
+  <string name="revanced_miniplayer_opacity_summary">Transparantiewaarde tussen 0-100, waarbij 0 transparant is</string>
+  <string name="revanced_miniplayer_opacity_invalid_toast">Minispeler overlay transparantie moet tussen de 0-100 zijn</string>
+  </patch>
+  <patch id="layout.theme.themePatch">
+  <string name="revanced_gradient_loading_screen_title">Kleurovergang laden scherm inschakelen</string>
+  <string name="revanced_gradient_loading_screen_summary_on">Het laden van het scherm zal een verloopachtergrond hebben</string>
+  <string name="revanced_gradient_loading_screen_summary_off">Het laadscherm zal een solide achtergrond hebben</string>
+  </patch>
+  <patch id="layout.theme.themeResourcePatch">
+  <string name="revanced_seekbar_custom_color_title">Aangepaste Zoekbalk kleur inschakelen</string>
+  <string name="revanced_seekbar_custom_color_summary_on">Aangepaste zoekbalk kleur wordt weergegeven</string>
+  <string name="revanced_seekbar_custom_color_summary_off">Oorspronkelijke Zoekbalk kleur wordt weergegeven</string>
+  <string name="revanced_seekbar_custom_color_value_title">Aangepaste zoekbalk kleur</string>
+  <string name="revanced_seekbar_custom_color_value_summary">De kleur van de zoekbalk</string>
+  <string name="revanced_seekbar_custom_color_invalid">Ongeldige zoekbalk kleurwaarde</string>
+  </patch>
+  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
+  <string name="revanced_bypass_image_region_restrictions_title">Bypass afbeelding regio beperkingen</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_on">Gebruik yt4.ggpht.com voor afbeeldingen</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">Het gebruik van de originele afbeeldingshost\n\nDit kan ontbrekende afbeeldingen die geblokkeerd zijn in sommige regio\'s herstellen</string>
+  </patch>
+  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
+  <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
+  <string name="revanced_alt_thumbnail_home_title">Tabblad Home</string>
+  <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
+  <string name="revanced_alt_thumbnail_subscription_title">Abonnement tabblad</string>
+  <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
+  <string name="revanced_alt_thumbnail_library_title">Uw tabblad</string>
+  <string name="revanced_alt_thumbnail_player_title">Speler afspeellijsten, aanbevelingen</string>
+  <string name="revanced_alt_thumbnail_search_title">Zoek resultaten</string>
+  <string name="revanced_alt_thumbnail_options_entry_1">Original thumbnails</string>
+  <string name="revanced_alt_thumbnail_options_entry_2">Depijl &amp; Originele miniaturen</string>
+  <string name="revanced_alt_thumbnail_options_entry_3">Depijl &amp; nog steeds opnemen</string>
+  <string name="revanced_alt_thumbnail_options_entry_4">Nog steeds vastleggen</string>
+  <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow biedt miniaturen van crowd-sourced voor YouTube-video\'s. Deze miniaturen zijn vaak relevanter dan die welke worden verstrekt door YouTube\n\nIndien ingeschakeld Video-URL\'s worden verzonden naar de API-server en er worden geen andere gegevens verzonden. Als een video geen DeArrow miniaturen heeft, dan wordt de originele of nog steeds opnamen weergegeven\n\nTik hier om meer te weten te komen over DeArrow</string>
+  <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Toast tonen als de API niet beschikbaar is</string>
+  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Melding wordt weergegeven als DeArrow niet beschikbaar is</string>
+  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Melding wordt niet getoond als DeArrow niet beschikbaar is</string>
+  <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API endpoint</string>
+  <string name="revanced_alt_thumbnail_dearrow_api_url_summary">De URL van het DeArrow thumbnail cache eindpunt</string>
+  <string name="revanced_alt_thumbnail_stills_about_title">Video-opnames nog steeds</string>
+  <string name="revanced_alt_thumbnail_stills_about_summary">Nog steeds opgenomen worden vanaf het begin/midden/einde van elke video. Deze afbeeldingen zijn in YouTube ingebouwd en er wordt geen externe API gebruikt.</string>
+  <string name="revanced_alt_thumbnail_stills_fast_title">Gebruik snel nog steeds opnamen</string>
+  <string name="revanced_alt_thumbnail_stills_fast_summary_on">Met behulp van medium kwaliteit nog steeds capturen. Miniaturen zullen sneller laden, maar live streams, losgelaten of zeer oude video\'s kunnen lege miniaturen laten zien</string>
+  <string name="revanced_alt_thumbnail_stills_fast_summary_off">Gebruik nog steeds van hoge kwaliteit</string>
+  <string name="revanced_alt_thumbnail_stills_time_title">Videotijd om nog steeds op te nemen van</string>
+  <string name="revanced_alt_thumbnail_stills_time_entry_1">Begin van video</string>
+  <string name="revanced_alt_thumbnail_stills_time_entry_2">Midden van de video</string>
+  <string name="revanced_alt_thumbnail_stills_time_entry_3">Einde van de video</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_alt_thumbnail_dearrow_error">Pijl tijdelijk niet beschikbaar (statuscode: %s)</string>
+  <string name="revanced_alt_thumbnail_dearrow_error_generic">Pijl tijdelijk niet beschikbaar</string>
+  </patch>
+  <patch id="misc.announcements.announcementsPatch">
+  <string name="revanced_announcements_title">Toon ReVanced aankondigingen</string>
+  <string name="revanced_announcements_summary_on">Aankondigingen worden getoond bij het opstarten</string>
+  <string name="revanced_announcements_summary_off">Aankondigingen worden niet getoond bij het opstarten</string>
+  <string name="revanced_announcements_enabled_summary">Mededelingen bij het opstarten weergeven</string>
+  <string name="revanced_announcements_connection_failed">Verbinding met aankondigingsaanbieder mislukt</string>
+  <string name="revanced_announcements_dialog_dismiss">Afwijzen</string>
+  </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Waarschuwing</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Je kijkgeschiedenis wordt niet opgeslagen.&lt;br&gt;&lt;br&gt;Dit wordt waarschijnlijk veroorzaakt door een DNS-adblocker of netwerkproxy.&lt;br&gt;&lt;br&gt;Om dit op te lossen, whitelist &lt;b&gt;s.youtube.com&lt;/b&gt; of schakel alle DNS blockers en proxy uit.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Niet meer weergeven</string>
+  </patch>
+  <patch id="misc.autorepeat.autoRepeatPatch">
+  <string name="revanced_auto_repeat_title">Automatisch herhalen inschakelen</string>
+  <string name="revanced_auto_repeat_summary_on">Auto-herhaal is ingeschakeld</string>
+  <string name="revanced_auto_repeat_summary_off">Auto-herhaal is uitgeschakeld</string>
+  </patch>
+  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
+  <string name="revanced_spoof_device_dimensions_title">Apparaatafmetingen nabootsen</string>
+  <string name="revanced_spoof_device_dimensions_summary_on">Apparaatdimensies bespoeld\n\nHogere videokwaliteiten kunnen worden ontgrendeld, maar je kunt het afspelen van video vastmaken, een slechter leven van de batterij en onbekende bijwerkingen ervaren</string>
+  <string name="revanced_spoof_device_dimensions_summary_off">Apparaatafmetingen niet vervalst\n\nDit inschakelen kan hogere videokwaliteiten ontgrendelen</string>
+  <string name="revanced_spoof_device_dimensions_user_dialog_message">Als dit wordt ingeschakeld kan het afspelen van video vastlopen, de batterijduur en onbekende neveneffecten doen toenemen.</string>
+  </patch>
+  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <string name="microg_settings_title">GmsCore Instellingen</string>
+  <string name="microg_settings_summary">Instellingen voor GmsCore</string>
+  </patch>
+  <patch id="misc.links.bypassURLRedirectsPatch">
+  <string name="revanced_bypass_url_redirects_title">URL omleidingen omzeilen</string>
+  <string name="revanced_bypass_url_redirects_summary_on">URL-omleidingen zijn overgeslagen</string>
+  <string name="revanced_bypass_url_redirects_summary_off">URL-omleidingen worden niet gepasseerd</string>
+  </patch>
+  <patch id="misc.links.openLinksExternallyPatch">
+  <string name="revanced_external_browser_title">Open links in browser</string>
+  <string name="revanced_external_browser_summary_on">Links extern openen</string>
+  <string name="revanced_external_browser_summary_off">Koppelingen openen in app</string>
+  </patch>
+  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
+  <string name="revanced_remove_tracking_query_parameter_title">Verwijder tracking query parameter</string>
+  <string name="revanced_remove_tracking_query_parameter_summary_on">Tracking query parameter is verwijderd uit links</string>
+  <string name="revanced_remove_tracking_query_parameter_summary_off">Tracking query parameter is niet verwijderd uit links</string>
+  </patch>
+  <patch id="misc.zoomhaptics.zoomHapticsPatch">
+  <string name="revanced_disable_zoom_haptics_title">Vorm zoom uitschakelen</string>
+  <string name="revanced_disable_zoom_haptics_summary_on">Haptics zijn uitgeschakeld</string>
+  <string name="revanced_disable_zoom_haptics_summary_off">Haptics zijn ingeschakeld</string>
+  </patch>
+  <patch id="video.quality.rememberVideoQualityPatch">
+  <string name="revanced_video_quality_default_entry_1">Automatische kwaliteit</string>
+  <string name="revanced_remember_video_quality_last_selected_title">Videokwaliteitswijzigingen onthouden</string>
+  <string name="revanced_remember_video_quality_last_selected_summary_on">Kwaliteitswijzigingen zijn van toepassing op alle video\'s</string>
+  <string name="revanced_remember_video_quality_last_selected_summary_off">Kwaliteitswijzigingen zijn alleen van toepassing op de huidige video</string>
+  <string name="revanced_video_quality_default_wifi_title">Standaard videokwaliteit op wifi-netwerk</string>
+  <string name="revanced_video_quality_default_mobile_title">Standaard videokwaliteit op mobiel netwerk</string>
+  <string name="revanced_remember_video_quality_mobile">mobiel</string>
+  <string name="revanced_remember_video_quality_wifi">wifi</string>
+  <string name="revanced_remember_video_quality_toast">Standaard %1$s kwaliteit gewijzigd naar: %2$s</string>
+  </patch>
+  <patch id="video.speed.button.playbackSpeedButtonPatch">
+  <string name="revanced_playback_speed_dialog_button_title">Snelheids dialoog knop weergeven</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Knop wordt weergegeven</string>
+  <string name="revanced_playback_speed_dialog_button_summary_off">Knop wordt niet weergegeven</string>
+  </patch>
+  <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <string name="revanced_custom_speed_menu_title">Eigen snelheid afspeel menu</string>
+  <string name="revanced_custom_speed_menu_summary_on">Aangepast snelheidsmenu wordt weergegeven</string>
+  <string name="revanced_custom_speed_menu_summary_off">Aangepast snelheidsmenu wordt niet weergegeven</string>
+  <string name="revanced_custom_playback_speeds_title">Aangepaste afspeelsnelheden</string>
+  <string name="revanced_custom_playback_speeds_summary">Voeg toe of verander de aangepaste afspeelsnelheden</string>
+  <string name="revanced_custom_playback_speeds_invalid">Aangepaste snelheden moeten kleiner zijn dan %s. Standaard waarden worden gebruikt.</string>
+  <string name="revanced_custom_playback_speeds_parse_exception">Ongeldige aangepaste afspeelsnelheden. Gebruik standaard waarden.</string>
+  </patch>
+  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
+  <string name="revanced_remember_playback_speed_last_selected_title">Onthoud wijzigingen in afspeelsnelheid</string>
+  <string name="revanced_remember_playback_speed_last_selected_summary_on">Wijzigingen in de afspeelsnelheid zijn van toepassing op alle video\'s</string>
+  <string name="revanced_remember_playback_speed_last_selected_summary_off">Wijzigingen in afspeelsnelheid zijn alleen van toepassing op de huidige video</string>
+  <string name="revanced_playback_speed_default_title">Standaard afspeelsnelheid</string>
+  <string name="revanced_remember_playback_speed_toast">Standaardsnelheid gewijzigd naar: %s</string>
+  </patch>
+  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
+  <string name="revanced_restore_old_video_quality_menu_title">Herstel oude video kwaliteit menu</string>
+  <string name="revanced_restore_old_video_quality_menu_summary_on">Oude video kwaliteit menu wordt weergegeven</string>
+  <string name="revanced_restore_old_video_quality_menu_summary_off">Het oude kwaliteitsmenu wordt niet weergegeven</string>
+  </patch>
+  <patch id="interaction.seekbar.enableSlideToSeekPatch">
+  <string name="revanced_slide_to_seek_title">Slide om te zoeken inschakelen</string>
+  <string name="revanced_slide_to_seek_summary_on">Slide om te zoeken is ingeschakeld</string>
+  <string name="revanced_slide_to_seek_summary_off">Slide om te zoeken is niet ingeschakeld</string>
+  </patch>
+  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Videostreams omzeilen</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Videostreams van de client bederven om afspeelproblemen te voorkomen</string>
+  <string name="revanced_spoof_video_streams_title">Videostreams omzeilen</string>
+  <string name="revanced_spoof_video_streams_summary_on">Videostreams zijn vervalst</string>
+  <string name="revanced_spoof_video_streams_summary_off">Videostreams zijn niet gespoofd\n\nVideo afspelen werkt mogelijk niet</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Het uitschakelen van deze instelling kan problemen met het afspelen van video veroorzaken.</string>
+  <string name="revanced_spoof_video_streams_client_title">Standaard client</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Forceer AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Videocodec is AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Videocodec is VP9 of AV1</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Je apparaat heeft geen VP9 hardware-decodering en deze instelling is altijd ingeschakeld wanneer \'Client spoofing\' is ingeschakeld</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Het inschakelen hiervan kan de batterijduur verbeteren en het terugspringen corrigeren.\n\nAVC heeft een maximale resolutie van 1080p, en het afspelen van video\'s zal meer internetgegevens gebruiken dan VP9 of AV1.</string>
+  <string name="revanced_spoof_video_streams_about_ios_title">iOS vervalste bijwerkingen</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Films of betaalde video\'s kunnen mogelijk niet afspelen\n• Livestreams beginnen vanaf het begin\n• Video\'s kunnen 1 seconde vroeg eindigen\n• Geen opus audio codec</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR vervalste bijeffecten</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Audio track menu ontbreekt\n• Stabiel volume is niet beschikbaar</string>
+  </patch>
+  </app>
+  <app id="twitch">
+  <patch id="ad.audio.audioAdsPatch">
+  <string name="revanced_block_audio_ads_title">Audio-advertenties blokkeren</string>
+  <string name="revanced_block_audio_ads_summary_on">Audio-advertenties zijn geblokkeerd</string>
+  <string name="revanced_block_audio_ads_summary_off">Audio-advertenties zijn gedeblokkeerd</string>
+  </patch>
+  <patch id="ad.embedded.embeddedAdsPatch">
+  <string name="revanced_embedded_ads_service_unavailable">%s is niet beschikbaar. Advertenties kunnen worden weergegeven. Probeer over te schakelen naar een andere block-service in de instellingen.</string>
+  <string name="revanced_embedded_ads_service_failed">%s server gaf een fout. Advertenties kunnen worden weergegeven. Probeer over te schakelen naar een andere advertentie blok service in instellingen.</string>
+  <string name="revanced_block_embedded_ads_title">Ingesloten videoadvertenties blokkeren</string>
+  <string name="revanced_block_embedded_ads_entry_1">Uitgeschakeld</string>
+  <string name="revanced_block_embedded_ads_entry_2">Onduidelijke proxy</string>
+  <string name="revanced_block_embedded_ads_entry_3">Paarse AdBlock-proxy</string>
+  </patch>
+  <patch id="ad.video.videoAdsPatch">
+  <string name="revanced_block_video_ads_title">Video-advertenties blokkeren</string>
+  <string name="revanced_block_video_ads_summary_on">Video-advertenties zijn geblokkeerd</string>
+  <string name="revanced_block_video_ads_summary_off">Video-advertenties zijn gedeblokkeerd</string>
+  </patch>
+  <patch id="chat.antidelete.showDeletedMessagesPatch">
+  <string name="revanced_deleted_msg">bericht verwijderd</string>
+  <string name="revanced_show_deleted_messages_title">Toon verwijderde berichten</string>
+  <string name="revanced_show_deleted_messages_entry_1">Verwijderde berichten niet weergeven</string>
+  <string name="revanced_show_deleted_messages_entry_2">Verberg verwijderde berichten achter een spoiler</string>
+  <string name="revanced_show_deleted_messages_entry_3">Toon verwijderde berichten als gekruiste tekst</string>
+  </patch>
+  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
+  <string name="revanced_auto_claim_channel_points_title">Automatisch ophalen Kanaal Punten</string>
+  <string name="revanced_auto_claim_channel_points_summary_on">Kanaalpunten worden automatisch opgeëist</string>
+  <string name="revanced_auto_claim_channel_points_summary_off">Kanaalpunten worden niet automatisch opgeëist</string>
+  </patch>
+  <patch id="debug.debugModePatch">
+  <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
+  <string name="revanced_twitch_debug_mode_title">Twitch debugmodus inschakelen</string>
+  <string name="revanced_twitch_debug_mode_summary_on">Twitch debugmodus is ingeschakeld (niet aanbevolen)</string>
+  <string name="revanced_twitch_debug_mode_summary_off">Twitch debug modus is uitgeschakeld</string>
+  </patch>
+  <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings">Verbeterde instellingen</string>
+  <string name="revanced_ads_screen_title">Advertenties</string>
+  <string name="revanced_ads_screen_summary">Instellingen voor advertentieblokkering</string>
+  <string name="revanced_chat_screen_title">Chatten</string>
+  <string name="revanced_chat_screen_summary">Chat instellingen</string>
+  <string name="revanced_misc_screen_title">Diversen</string>
+  <string name="revanced_misc_screen_summary">Overige instellingen</string>
+  <string name="revanced_general_category_title">Algemene instellingen</string>
+  <string name="revanced_other_category_title">Andere instellingen</string>
+  <string name="revanced_client_ads_category_title">Client-side advertenties</string>
+  <string name="revanced_surestream_ads_category_title">Server-side surestream advertenties</string>
+  <string name="revanced_twitch_debug_title">Logboek foutopsporing</string>
+  <string name="revanced_twitch_debug_summary_on">Debug logs zijn ingeschakeld</string>
+  <string name="revanced_twitch_debug_summary_off">Debug logs zijn uitgeschakeld</string>
+  </patch>
+  </app>
+</resources>

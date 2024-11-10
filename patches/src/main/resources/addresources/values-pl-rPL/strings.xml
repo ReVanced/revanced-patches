@@ -1,0 +1,1247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+Note: All strings must have a unique path, even if the same string is declared in two different apps.
+This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+
+# General guidelines and information for translating
+
+## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
+
+    For example, the patches string:
+        <string name="revanced_patches_string">You will arrive at %1$s in %2$s hours from now</string>
+    Could be translated to another language using a rearranged grammar:
+        <string name="revanced_patches_string">You will arrive %2$s hours from now at %1$s</string>
+
+     For Manager strings:
+        You will arrive at ${destination} in ${count} hours from now
+     Could be rearranged by changing the order of the ${} parameters:
+        You will arrive ${count} hours from now at ${destination}
+
+    Reordering is particularly relevant when translating into right to left languages, or for any language with grammar that is noticeably different from English.
+
+## Single and double quotation marks must be escaped for patch strings (Manager does not require escaping any quotes).
+
+    All _patches_ single and double quotation marks must be escaped as \"  or \'
+    Forgetting to do this will cause that string to appear in app with no quotation characters.
+
+    Correct:
+        <string name="revanced_string">You\'re correct. This is the \"correct\" way and this text will appear as expected in the app</string>
+    Not correct:
+        <string name="revanced_string">You're not correct. This is not the "correct" way and this text will not appear as expected the in app</string>
+-->
+<resources>
+  <app id="shared">
+  <patch id="misc.checks.checkEnvironmentPatch">
+  <string name="revanced_check_environment_failed_title">Sprawdzanie nie powiodło się</string>
+  <string name="revanced_check_environment_dialog_open_official_source_button">Otwórz oficjalną stronę internetową</string>
+  <string name="revanced_check_environment_dialog_ignore_button">Ignoruj</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Ta aplikacja nie wydaje się być przez ciebie naprawiana.&lt;/h5&gt;&lt;br&gt;Ta aplikacja może nie działać poprawnie, &lt;b&gt;może być szkodliwa lub nawet niebezpieczna dla użycia&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Te sprawdzenia oznaczają, że ta aplikacja jest wstępnie przygotowana lub uzyskana od kogoś innego:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Zdecydowanie zaleca się odinstalować aplikację &lt;b&gt;i zaktualizować ją samodzielnie&lt;/b&gt; , aby upewnić się, że używasz zweryfikowanej i bezpiecznej aplikacji.&lt;p&gt;&lt;br&gt;Jeśli zignorowane, to ostrzeżenie będzie wyświetlane tylko dwukrotnie.</string>
+  <string name="revanced_check_environment_not_same_patching_device">Ulepszono na innym urządzeniu</string>
+  <string name="revanced_check_environment_manager_not_expected_installer">Nie zainstalowany przez ReVanced Manager</string>
+  <string name="revanced_check_environment_not_near_patch_time">Ponad 10 minut temu</string>
+  <string name="revanced_check_environment_not_near_patch_time_days">Dostosuj %s dni temu</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">Data kompilacji APK jest uszkodzona</string>
+  </patch>
+  <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_title">ReVanced</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Czy chcesz kontynuować?</string>
+  <string name="revanced_settings_reset">Zresetuj</string>
+  <string name="revanced_settings_restart_title">Odśwież i uruchom ponownie</string>
+  <string name="revanced_settings_restart">Uruchom ponownie</string>
+  <string name="revanced_settings_import">Zaimportuj</string>
+  <string name="revanced_settings_import_copy">Skopiuj</string>
+  <string name="revanced_settings_import_reset">Przywrócono domyślne ustawienia ReVanced</string>
+  <string name="revanced_settings_import_success">Zaimportowano ustawienia %d</string>
+  <string name="revanced_settings_import_failure_parse">Importowanie nie powiodło się: %s</string>
+  <string name="revanced_pref_import_export_title">Zaimportuj / Wyeksportuj</string>
+  <string name="revanced_pref_import_export_summary">Zaimportuj / Wyeksportuj ustawienia ReVanced</string>
+  <!-- Settings about dialog. -->
+  <string name="revanced_settings_about_links_body">Używasz wersji &lt;i&gt;%s&lt;/i&gt; Łatek ReVanced</string>
+  <string name="revanced_settings_about_links_dev_header">Uwaga</string>
+  <string name="revanced_settings_about_links_dev_body">Ta wersja jest wersją wstępną i mogą wystąpić nieoczekiwane problemy</string>
+  <string name="revanced_settings_about_links_header">Oficjalne linki</string>
+  <string name="revanced_settings_about_links_donate">Wesprzyj</string>
+  </patch>
+  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="gms_core_toast_not_installed_message">MicroG GmsCore nie jest zainstalowany. Zainstaluj go.</string>
+  <string name="gms_core_dialog_title">Wymagane działanie</string>
+  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">MicroG GmsCore nie ma uprawnień do działania w tle.\n\nPostępuj zgodnie z przewodnikiem \"Nie zabijaj mojej aplikacji\" dla swojego telefonu i zastosuj instrukcje do aplikacji MicroG.\n\nJest to wymagane do działania aplikacji.</string>
+  <string name="gms_core_dialog_open_website_text">Otwórz stronę</string>
+  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">Optymalizacja baterii MicroG GmsCore musi być wyłączona, aby zapobiec problemom.\n\Kontynuuj i wyłącz optymalizację baterii.</string>
+  <string name="gms_core_dialog_continue_text">Kontynuuj</string>
+  </patch>
+  </app>
+  <app id="youtube">
+  <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings_screen_00_about_title">O aplikacji</string>
+  <string name="revanced_settings_screen_01_ads_title">Reklamy</string>
+  <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternatywne miniaturki</string>
+  <string name="revanced_settings_screen_03_feed_title">Strona</string>
+  <string name="revanced_settings_screen_04_player_title">Odtwarzacz</string>
+  <string name="revanced_settings_screen_05_general_title">Ogólny układ</string>
+  <string name="revanced_settings_screen_07_seekbar_title">Pasek wyszukiwania</string>
+  <string name="revanced_settings_screen_08_swipe_controls_title">Sterowanie gestami</string>
+  <string name="revanced_settings_screen_11_misc_title">Pozostałe</string>
+  <string name="revanced_settings_screen_12_video_title">Wideo</string>
+  </patch>
+  <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_screen_title">Debugowanie</string>
+  <string name="revanced_debug_screen_summary">Włącz lub wyłącz opcje debugowania</string>
+  <string name="revanced_debug_title">Logi do debugowania</string>
+  <string name="revanced_debug_summary_on">Włączone</string>
+  <string name="revanced_debug_summary_off">Wyłączone</string>
+  <string name="revanced_debug_protobuffer_title">Logi protokołu bufora</string>
+  <string name="revanced_debug_protobuffer_summary_on">Logi do debugowania zawierają bufory</string>
+  <string name="revanced_debug_protobuffer_summary_off">Logi do debugowania nie zawierają buforów</string>
+  <string name="revanced_debug_stacktrace_title">Logi śladów stosów</string>
+  <string name="revanced_debug_stacktrace_summary_on">Logi do debugowania zawierają ślady stosów</string>
+  <string name="revanced_debug_stacktrace_summary_off">Logi do debugowania nie zawierają śladów stosów</string>
+  <string name="revanced_debug_toast_on_error_title">Komunikaty o błędach ReVanced</string>
+  <string name="revanced_debug_toast_on_error_summary_on">Widoczne</string>
+  <string name="revanced_debug_toast_on_error_summary_off">Niewidoczne</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">Wyłączanie komunikatów o błędach ukrywa wszystkie komunikaty o błędach ReVanced.\n\nNie będziesz powiadamiany o żadnych nieoczekiwanych zdarzeniach.</string>
+  </patch>
+  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <string name="revanced_disable_like_subscribe_glow_title">Wyłącz polubienie/subskrybuj podświetlenie przycisków</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">Przycisk polubienia i subskrybuj nie pojawi się po wzmiance</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">Przycisk polubienia i subskrybuj się po wzmiance</string>
+  <string name="revanced_hide_album_cards_title">Ukryj karty albumu</string>
+  <string name="revanced_hide_album_cards_summary_on">Karty albumów są ukryte</string>
+  <string name="revanced_hide_album_cards_summary_off">Karty albumów są wyświetlane</string>
+  <string name="revanced_hide_crowdfunding_box_title">Ukryj program finansowania społecznościowego</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">Crowdfunding box jest ukryty</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">Pokazywany jest program Crowdfunding</string>
+  <string name="revanced_hide_floating_microphone_button_title">Ukryj pływający przycisk mikrofonu</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">Przycisk mikrofonu ukryty</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">Przycisk mikrofonu pokazany</string>
+  <string name="revanced_hide_channel_watermark_title">Znaki wodne kanałów</string>
+  <string name="revanced_hide_channel_watermark_summary_on">Ukryte</string>
+  <string name="revanced_hide_channel_watermark_summary_off">Widoczne</string>
+  <string name="revanced_hide_horizontal_shelves_title">Poziome półki</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">Ukryte są półki:\n• Z najnowszymi informacjami\n• Z wideo, które nie zostały dokończone\n• Od odkrywania kanałów\n• Od kupowania\n• Z wideo, które zostały obejrzane</string>
+  <string name="revanced_hide_horizontal_shelves_summary_off">Widoczne</string>
+  <!-- 'Join' should be translated using the same localized wording YouTube displays.
+                 This appears in the video player for certain videos. -->
+  <string name="revanced_hide_join_membership_button_title">Przycisk \'Dołącz\'</string>
+  <string name="revanced_hide_join_membership_button_summary_on">Ukryty</string>
+  <string name="revanced_hide_join_membership_button_summary_off">Widoczny</string>
+  <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_for_you_shelf_title">Półka \'Dla ciebie\' na stronach kanałów</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">Ukryta</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">Widoczna</string>
+  <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
+                 This item appear in the subscription feed for future livestreams or unreleased videos. -->
+  <string name="revanced_hide_notify_me_button_title">Przycisk \'Powiadom mnie\'</string>
+  <string name="revanced_hide_notify_me_button_summary_on">Ukryty</string>
+  <string name="revanced_hide_notify_me_button_summary_off">Widoczny</string>
+  <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendations_title">Rekomendacje \'Inni widzowie obejrzeli też ten film\'</string>
+  <string name="revanced_hide_search_result_recommendations_summary_on">Ukryte</string>
+  <string name="revanced_hide_search_result_recommendations_summary_off">Widoczne</string>
+  <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
+                  This button usually appears when searching for a YT creator. -->
+  <string name="revanced_hide_show_more_button_title">Przycisk \'Pokaż więcej\'</string>
+  <string name="revanced_hide_show_more_button_summary_on">Ukryty</string>
+  <string name="revanced_hide_show_more_button_summary_off">Widoczny</string>
+  <string name="revanced_hide_timed_reactions_title">Reakcje czasowe</string>
+  <string name="revanced_hide_timed_reactions_summary_on">Ukryte</string>
+  <string name="revanced_hide_timed_reactions_summary_off">Widoczne</string>
+  <string name="revanced_hide_search_result_shelf_header_title">Ukryj nagłówek półki wyników wyszukiwania</string>
+  <string name="revanced_hide_search_result_shelf_header_summary_on">Nagłówek półki jest ukryty</string>
+  <string name="revanced_hide_search_result_shelf_header_summary_off">Nagłówek półki jest pokazany</string>
+  <string name="revanced_hide_channel_guidelines_title">Ukryj wytyczne kanału</string>
+  <string name="revanced_hide_channel_guidelines_summary_on">Wytyczne kanału są ukryte</string>
+  <string name="revanced_hide_channel_guidelines_summary_off">Wytyczne kanału są wyświetlane</string>
+  <string name="revanced_hide_chips_shelf_title">Ukryj półkę chipów</string>
+  <string name="revanced_hide_chips_shelf_summary_on">Półka czipów jest ukryta</string>
+  <string name="revanced_hide_chips_shelf_summary_off">Półka na czipy jest pokazana</string>
+  <string name="revanced_hide_expandable_chip_title">Ukryj rozszerzalny chipy pod filmami</string>
+  <string name="revanced_hide_expandable_chip_summary_on">Rozwijalne chipy są ukryte</string>
+  <string name="revanced_hide_expandable_chip_summary_off">Rozwijalne chipy są wyświetlane</string>
+  <string name="revanced_hide_community_posts_title">Ukryj posty społeczności</string>
+  <string name="revanced_hide_community_posts_summary_on">Posty społeczności są ukryte</string>
+  <string name="revanced_hide_community_posts_summary_off">Posty społeczności są wyświetlane</string>
+  <string name="revanced_hide_compact_banner_title">Ukryj kompaktowe banery</string>
+  <string name="revanced_hide_compact_banner_summary_on">Kompaktowe banery są ukryte</string>
+  <string name="revanced_hide_compact_banner_summary_off">Kompaktowe banery są wyświetlane</string>
+  <string name="revanced_hide_movies_section_title">Ukryj sekcję filmów</string>
+  <string name="revanced_hide_movies_section_summary_on">Sekcja filmów jest ukryta</string>
+  <string name="revanced_hide_movies_section_summary_off">Sekcja filmów jest wyświetlana</string>
+  <string name="revanced_hide_feed_survey_title">Ukryj ankiety</string>
+  <string name="revanced_hide_feed_survey_summary_on">Ankiety RSS są ukryte</string>
+  <string name="revanced_hide_feed_survey_summary_off">Pokazane są ankiety RSS</string>
+  <string name="revanced_hide_community_guidelines_title">Ukryj wytyczne społeczności</string>
+  <string name="revanced_hide_community_guidelines_summary_on">Wytyczne Wspólnoty są ukryte</string>
+  <string name="revanced_hide_community_guidelines_summary_off">Wskazane są wytyczne Wspólnoty</string>
+  <string name="revanced_hide_subscribers_community_guidelines_title">Ukryj wytyczne społeczności subskrybentów</string>
+  <string name="revanced_hide_subscribers_community_guidelines_summary_on">Wytyczne społeczności subskrybentów są ukryte</string>
+  <string name="revanced_hide_subscribers_community_guidelines_summary_off">Wytyczne społeczności subskrybentów są wyświetlane</string>
+  <string name="revanced_hide_channel_member_shelf_title">Ukryj półkę członków kanału</string>
+  <string name="revanced_hide_channel_member_shelf_summary_on">Półka członka kanału jest ukryta</string>
+  <string name="revanced_hide_channel_member_shelf_summary_off">Półka członka kanału jest pokazana</string>
+  <string name="revanced_hide_emergency_box_title">Ukryj skrzynki alarmowe</string>
+  <string name="revanced_hide_emergency_box_summary_on">Skrzynki alarmowe są ukryte</string>
+  <string name="revanced_hide_emergency_box_summary_off">Wyświetlane są skrzynki alarmowe</string>
+  <string name="revanced_hide_info_panels_title">Ukryj panele informacyjne</string>
+  <string name="revanced_hide_info_panels_summary_on">Panele informacyjne są ukryte</string>
+  <string name="revanced_hide_info_panels_summary_off">Wyświetlane są panele informacyjne</string>
+  <string name="revanced_hide_medical_panels_title">Ukryj panele medyczne</string>
+  <string name="revanced_hide_medical_panels_summary_on">Panele medyczne są ukryte</string>
+  <string name="revanced_hide_medical_panels_summary_off">Pokazywane są panele medyczne</string>
+  <string name="revanced_hide_channel_bar_title">Ukryj pasek kanału</string>
+  <string name="revanced_hide_channel_bar_summary_on">Pasek kanału jest ukryty</string>
+  <string name="revanced_hide_channel_bar_summary_off">Pasek kanału jest wyświetlany</string>
+  <string name="revanced_hide_playables_title">Ukryj Playables</string>
+  <string name="revanced_hide_playables_summary_on">Playables są ukryte</string>
+  <string name="revanced_hide_playables_summary_off">Playables są wyświetlane</string>
+  <string name="revanced_hide_quick_actions_title">Ukryj szybkie akcje na pełnym ekranie</string>
+  <string name="revanced_hide_quick_actions_summary_on">Szybkie akcje są ukryte</string>
+  <string name="revanced_hide_quick_actions_summary_off">Wyświetlane są szybkie akcje</string>
+  <string name="revanced_hide_related_videos_title">Ukryj powiązane filmy w szybkich akcjach</string>
+  <string name="revanced_hide_related_videos_summary_on">Powiązane filmy są ukryte</string>
+  <string name="revanced_hide_related_videos_summary_off">Powiązane filmy są wyświetlane</string>
+  <string name="revanced_hide_image_shelf_title">Ukryj półkę obrazu w wynikach wyszukiwania</string>
+  <string name="revanced_hide_image_shelf_summary_on">Półka obrazu jest ukryta</string>
+  <string name="revanced_hide_image_shelf_summary_off">Półka obrazu jest wyświetlana</string>
+  <string name="revanced_hide_latest_posts_ads_title">Ukryj najnowsze posty</string>
+  <string name="revanced_hide_latest_posts_ads_summary_on">Najnowsze posty są ukryte</string>
+  <string name="revanced_hide_latest_posts_ads_summary_off">Najnowsze posty są wyświetlane</string>
+  <string name="revanced_hide_mix_playlists_title">Ukryj mieszane listy odtwarzania</string>
+  <string name="revanced_hide_mix_playlists_summary_on">Wymieszane listy odtwarzania są ukryte</string>
+  <string name="revanced_hide_mix_playlists_summary_off">Wyświetlane są listy odtwarzania</string>
+  <string name="revanced_hide_artist_cards_title">Ukryj karty artystów</string>
+  <string name="revanced_hide_artist_cards_summary_on">Karty wykonawcy są ukryte</string>
+  <string name="revanced_hide_artist_cards_summary_off">Karty artystów są wyświetlane</string>
+  <string name="revanced_hide_attributes_section_title">Ukryj sekcję atrybutów</string>
+  <string name="revanced_hide_attributes_section_summary_on">Sekcje \'Polecane miejsca\', gry i muzyka są ukryte</string>
+  <string name="revanced_hide_attributes_section_summary_off">Wyświetlane są sekcje \'Polecane miejsca\', gry i muzyka</string>
+  <string name="revanced_hide_chapters_section_title">Ukryj sekcję rozdziałów</string>
+  <string name="revanced_hide_chapters_section_summary_on">Sekcja rozdziałów jest ukryta</string>
+  <string name="revanced_hide_chapters_section_summary_off">Sekcja rozdziałów jest pokazana</string>
+  <string name="revanced_hide_podcast_section_title">Ukryj sekcję \'Przeglądaj podcast\'</string>
+  <string name="revanced_hide_podcast_section_summary_on">Sekcja \'Przeglądaj podcast\' jest ukryta</string>
+  <string name="revanced_hide_podcast_section_summary_off">Sekcja \'Przeglądaj podcast\' jest pokazana</string>
+  <string name="revanced_hide_info_cards_section_title">Ukryj sekcję kart informacyjnych</string>
+  <string name="revanced_hide_info_cards_section_summary_on">Sekcja kart informacyjnych jest ukryta</string>
+  <string name="revanced_hide_info_cards_section_summary_off">Sekcja kart informacyjnych jest wyświetlana</string>
+  <string name="revanced_hide_key_concepts_section_title">Ukryj sekcję \'Koncepcje kluczowe\'</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">Sekcja \"Koncepcje kluczowe\" jest ukryta</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">Sekcja \"Koncepcje kluczowe\" jest pokazana</string>
+  <string name="revanced_hide_transcript_section_title">Ukryj sekcję transkryptu</string>
+  <string name="revanced_hide_transcript_section_summary_on">Sekcja transkryptu jest ukryta</string>
+  <string name="revanced_hide_transcript_section_summary_off">Sekcja transkryptu jest wyświetlana</string>
+  <string name="revanced_hide_description_components_screen_title">Opis wideo</string>
+  <string name="revanced_hide_description_components_screen_summary">Ukryj lub pokaż elementy opisu wideo</string>
+  <string name="revanced_hide_filter_bar_screen_title">Pasek filtra</string>
+  <string name="revanced_hide_filter_bar_screen_summary">Ukryj lub pokaż pasek filtrów w kanale, wyszukiwaniu i powiązanych filmach</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">Ukryj w kanale</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Ukryte w kanale</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Pokazane w kanale</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">Ukryj w wyszukiwaniu</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Ukryte w wyszukiwaniu</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Pokaż w wyszukiwarce</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Ukryj w powiązanych filmach</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Ukryte w powiązanych filmach</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Wyświetlane w powiązanych filmach</string>
+  <string name="revanced_comments_screen_title">Komentarze</string>
+  <string name="revanced_comments_screen_summary">Ukryj lub pokaż składniki sekcji komentarzy</string>
+  <string name="revanced_hide_comments_by_members_header_title">Ukryj nagłówek \'Komentarze wg użytkowników\'</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">Nagłówek \'Komentarze użytkowników\' jest ukryty</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">Wyświetlony jest nagłówek \'Komentarze użytkowników\'</string>
+  <string name="revanced_hide_comments_section_title">Ukryj sekcję komentarzy</string>
+  <string name="revanced_hide_comments_section_summary_on">Sekcja komentarzy jest ukryta</string>
+  <string name="revanced_hide_comments_section_summary_off">Sekcja komentarzy jest wyświetlana</string>
+  <string name="revanced_hide_comments_preview_comment_title">Ukryj podgląd komentarza</string>
+  <string name="revanced_hide_comments_preview_comment_summary_on">Podgląd komentarza jest ukryty</string>
+  <string name="revanced_hide_comments_preview_comment_summary_off">Podgląd komentarza jest wyświetlany</string>
+  <string name="revanced_hide_comments_thanks_button_title">Ukryj przycisk podziękowania</string>
+  <string name="revanced_hide_comments_thanks_button_summary_on">Przycisk podziękowania jest ukryty</string>
+  <string name="revanced_hide_comments_thanks_button_summary_off">Przycisk podziękowania jest pokazany</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Ukryj znaczniki czasu i przyciski emoji</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Przyciski znacznika czasu i emoji są ukryte</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Wyświetlane są przyciski znacznika czasu i emoji</string>
+  <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
+  <string name="revanced_hide_doodles_title">Ukryj Doodles YouTube</string>
+  <string name="revanced_hide_doodles_summary_on">Pasek wyszukiwania jest ukryty</string>
+  <string name="revanced_hide_doodles_summary_off">Pasek wyszukiwania jest wyświetlany</string>
+  <string name="revanced_hide_doodles_user_dialog_message">Doodles YouTube pojawia się co roku kilka dni.\n\nJeśli Doodle wyświetla się w Twoim regionie, a to ustawienie ukrycia jest włączone, następnie pasek filtru poniżej paska wyszukiwania będzie również ukryty.</string>
+  <string name="revanced_custom_filter_screen_title">Własny filtr</string>
+  <string name="revanced_custom_filter_screen_summary">Ukryj komponenty za pomocą niestandardowych filtrów</string>
+  <string name="revanced_custom_filter_title">Włącz własny filtr</string>
+  <string name="revanced_custom_filter_summary_on">Filtr niestandardowy jest włączony</string>
+  <string name="revanced_custom_filter_summary_off">Filtr niestandardowy jest wyłączony</string>
+  <string name="revanced_custom_filter_strings_title">Własny filtr</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="revanced_custom_filter_strings_summary">Lista tekstów tworzących ścieżki komponentu do filtrowania oddzielonych nową linią</string>
+  <string name="revanced_custom_filter_toast_invalid_syntax">Nieprawidłowy niestandardowy filtr: %s</string>
+  <string name="revanced_hide_keyword_content_screen_title">Ukryj zawartość słowa kluczowego</string>
+  <string name="revanced_hide_keyword_content_screen_summary">Ukryj wyszukiwanie i kanały wideo za pomocą filtrów słów kluczowych</string>
+  <string name="revanced_hide_keyword_content_home_title">Ukryj filmy domowe słowami kluczowymi</string>
+  <string name="revanced_hide_keyword_content_home_summary_on">Filmy w zakładce głównej są filtrowane przez słowa kluczowe</string>
+  <string name="revanced_hide_keyword_content_home_summary_off">Filmy w zakładce głównej nie są filtrowane przez słowa kluczowe</string>
+  <string name="revanced_hide_keyword_content_subscriptions_title">Ukryj filmy subskrypcji słowami kluczowymi</string>
+  <string name="revanced_hide_keyword_content_subscriptions_summary_on">Filmy w zakładce subskrypcje są filtrowane przez słowa kluczowe</string>
+  <string name="revanced_hide_keyword_content_subscriptions_summary_off">Filmy w zakładce subskrypcje nie są filtrowane przez słowa kluczowe</string>
+  <string name="revanced_hide_keyword_content_search_title">Ukryj wyniki wyszukiwania za pomocą słów kluczowych</string>
+  <string name="revanced_hide_keyword_content_search_summary_on">Wyniki wyszukiwania są filtrowane przez słowa kluczowe</string>
+  <string name="revanced_hide_keyword_content_search_summary_off">Wyniki wyszukiwania nie są filtrowane przez słowa kluczowe</string>
+  <string name="revanced_hide_keyword_content_phrases_title">Słowa kluczowe do ukrycia</string>
+  <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
+                 This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
+  <string name="revanced_hide_keyword_content_phrases_summary">Słowa kluczowe i frazy do ukrycia, oddzielone nowymi wierszami\n\nSłowa kluczowe mogą być nazwami kanałów lub dowolnymi tekstami pokazanymi w tytułach wideo\n\nSłowa z wielkimi literami w środku muszą być wpisane z obudową (np. iPhone, TikTok, LeBlanc)</string>
+  <string name="revanced_hide_keyword_content_about_title">O filtrowaniu słów kluczowych</string>
+  <string name="revanced_hide_keyword_content_about_whole_words_title">Dopasuj całe słowa</string>
+  <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <string name="revanced_hide_keyword_content_about_whole_words_summary">Otwarcie słowa kluczowego/frazy podwójnymi cudzysłowami uniemożliwi częściowe dopasowanie tytułów wideo i nazw kanałów&lt;br&gt;&lt;br&gt;Na przykład,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; ukryje wideo: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;ale nie ukry: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_keyword_toast_invalid_common">Nie można użyć słowa kluczowego: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Dodaj cudzysłowy, aby użyć słowa kluczowego: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_conflicting">Słowo kluczowe zawiera sprzeczne deklaracje: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_length">Słowo kluczowe jest zbyt krótkie i wymaga cytatów: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">Słowo kluczowe ukryje wszystkie filmy: %s</string>
+  </patch>
+  <patch id="ad.general.hideAdsResourcePatch">
+  <string name="revanced_hide_general_ads_title">Ukryj reklamy ogólne</string>
+  <string name="revanced_hide_general_ads_summary_on">Ogólne reklamy są ukryte</string>
+  <string name="revanced_hide_general_ads_summary_off">Ogólne reklamy są wyświetlane</string>
+  <string name="revanced_hide_fullscreen_ads_title">Ukryj reklamy w trybie pełnoekranowym</string>
+  <string name="revanced_hide_fullscreen_ads_summary_on">Reklamy pełnoekranowe są ukryte\n\nTa funkcja jest dostępna tylko dla starszych urządzeń</string>
+  <string name="revanced_hide_fullscreen_ads_summary_off">Pokazywane są reklamy pełnoekranowe</string>
+  <string name="revanced_hide_buttoned_ads_title">Ukryj przyciski reklam</string>
+  <string name="revanced_hide_buttoned_ads_summary_on">Przyciskane reklamy są ukryte</string>
+  <string name="revanced_hide_buttoned_ads_summary_off">Przyciski reklam są wyświetlane</string>
+  <string name="revanced_hide_paid_promotion_label_title">Ukryj etykietę płatnej promocji</string>
+  <string name="revanced_hide_paid_promotion_label_summary_on">Płatna promocja jest ukryta</string>
+  <string name="revanced_hide_paid_promotion_label_summary_off">Wyświetlono płatną etykietę promocyjną</string>
+  <string name="revanced_hide_self_sponsor_ads_title">Ukryj samosponsorowane karty</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_on">Karty samosponsorowane są ukryte</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_off">Pokazywane są karty samosponsorowane</string>
+  <string name="revanced_hide_products_banner_title">Ukryj baner do wyświetlania produktów</string>
+  <string name="revanced_hide_products_banner_summary_on">Baner jest ukryty</string>
+  <string name="revanced_hide_products_banner_summary_off">Baner jest pokazany</string>
+  <string name="revanced_hide_player_store_shelf_title">Ukryj półkę na zakupy gracza</string>
+  <string name="revanced_hide_player_store_shelf_summary_on">Półka Zakupów jest ukryta</string>
+  <string name="revanced_hide_player_store_shelf_summary_off">Półka Zakupów jest pokazana</string>
+  <string name="revanced_hide_shopping_links_title">Ukryj linki do zakupów w opisie wideo</string>
+  <string name="revanced_hide_shopping_links_summary_on">Linki do zakupów są ukryte</string>
+  <string name="revanced_hide_shopping_links_summary_off">Odnośniki do zakupów są wyświetlane</string>
+  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_store_button_title">Ukryj przycisk \'Odwiedź sklep\' na stronach kanału</string>
+  <string name="revanced_hide_visit_store_button_summary_on">Ukryty</string>
+  <string name="revanced_hide_visit_store_button_summary_off">Widoczny</string>
+  <string name="revanced_hide_web_search_results_title">Ukryj wyniki wyszukiwania</string>
+  <string name="revanced_hide_web_search_results_summary_on">Wyniki wyszukiwania w Internecie są ukryte</string>
+  <string name="revanced_hide_web_search_results_summary_off">Wyniki wyszukiwania w Internecie są wyświetlane</string>
+  <string name="revanced_hide_merchandise_banners_title">Ukryj banery towaru</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">Banery towaru są ukryte</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">Banery handlowe są wyświetlane</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Ukryj reklamy w trybie pełnoekranowym tylko ze starszymi urządzeniami</string>
+  </patch>
+  <patch id="ad.getpremium.hideGetPremiumPatch">
+  <string name="revanced_hide_get_premium_title">Ukryj promocje YouTube Premium</string>
+  <string name="revanced_hide_get_premium_summary_on">Promocje YouTube Premium w odtwarzaczu wideo są ukryte</string>
+  <string name="revanced_hide_get_premium_summary_off">Promocje YouTube Premium w odtwarzaczu wideo są wyświetlane</string>
+  </patch>
+  <patch id="ad.video.videoAdsPatch">
+  <string name="revanced_hide_video_ads_title">Ukryj reklamy wideo</string>
+  <string name="revanced_hide_video_ads_summary_on">Reklamy wideo są ukryte</string>
+  <string name="revanced_hide_video_ads_summary_off">Wyświetlane reklamy wideo</string>
+  </patch>
+  <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
+  <string name="revanced_share_copy_url_success">Adres URL skopiowany do schowka</string>
+  <string name="revanced_share_copy_url_timestamp_success">Adres URL z znacznikiem czasu skopiowany</string>
+  <string name="revanced_copy_video_url_title">Pokaż przycisk kopiowania filmu URL</string>
+  <string name="revanced_copy_video_url_summary_on">Przycisk jest wyświetlony. Dotknij, aby skopiować adres URL wideo. Dotknij i przytrzymaj aby skopiować adres wideo ze znacznikiem czasu</string>
+  <string name="revanced_copy_video_url_summary_off">Przycisk nie jest wyświetlany</string>
+  <string name="revanced_copy_video_url_timestamp_title">Pokaż przycisk URL kopii znacznika czasu</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Przycisk jest wyświetlony. Dotknij, aby skopiować URL wideo ze znacznikiem czasu. Dotknij i przytrzymaj aby skopiować film bez znacznika czasu</string>
+  <string name="revanced_copy_video_url_timestamp_summary_off">Przycisk nie jest wyświetlany</string>
+  </patch>
+  <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
+  <string name="revanced_remove_viewer_discretion_dialog_title">Usuń okno dialogowe przeglądarki</string>
+  <string name="revanced_remove_viewer_discretion_dialog_summary_on">Okno dialogowe zostanie usunięte</string>
+  <string name="revanced_remove_viewer_discretion_dialog_summary_off">Okno dialogowe zostanie wyświetlone</string>
+  <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">To nie pomija ograniczeń wiekowych i akceptuje je automatycznie.</string>
+  </patch>
+  <patch id="interaction.downloads.downloadsResourcePatch">
+  <string name="revanced_external_downloader_screen_title">Pobieranie zewnętrzne</string>
+  <string name="revanced_external_downloader_screen_summary">Ustawienia dla zewnętrznego pobierania</string>
+  <string name="revanced_external_downloader_title">Pokaż zewnętrzny przycisk pobierania</string>
+  <string name="revanced_external_downloader_summary_on">Przycisk pobierania wyświetlany w odtwarzaczu</string>
+  <string name="revanced_external_downloader_summary_off">Przycisk pobierania nie jest wyświetlany w odtwarzaczu</string>
+  <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
+  <string name="revanced_external_downloader_action_button_title">Zastąp przycisk akcji pobierania</string>
+  <string name="revanced_external_downloader_action_button_summary_on">Przycisk pobierania otwiera zewnętrzny plik pobierania</string>
+  <string name="revanced_external_downloader_action_button_summary_off">Przycisk pobierania otwiera natywne pobieranie w aplikacji</string>
+  <string name="revanced_external_downloader_name_title">Nazwa pakietu do pobrania</string>
+  <string name="revanced_external_downloader_name_summary">Nazwa pakietu zainstalowanej zewnętrznej aplikacji do pobierania pliku, takiej jak NewPipe lub Pieczęć</string>
+  <string name="revanced_external_downloader_not_installed_warning">%s nie jest zainstalowany. Zainstaluj go.</string>
+  </patch>
+  <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
+  <string name="revanced_disable_precise_seeking_gesture_title">Wyłącz dokładny gest szukania</string>
+  <string name="revanced_disable_precise_seeking_gesture_summary_on">Gest jest wyłączony</string>
+  <string name="revanced_disable_precise_seeking_gesture_summary_off">Gest jest włączony</string>
+  </patch>
+  <patch id="interaction.seekbar.enableSeekbarTappingPatch">
+  <string name="revanced_seekbar_tapping_title">Włącz dotknięcie paska nawigacji</string>
+  <string name="revanced_seekbar_tapping_summary_on">Naciśnięcie paska wyszukiwania jest włączone</string>
+  <string name="revanced_seekbar_tapping_summary_off">Stuknięcie paska wyszukiwania jest wyłączone</string>
+  </patch>
+  <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
+  <string name="revanced_swipe_brightness_title">Włącz gest jasności</string>
+  <string name="revanced_swipe_brightness_summary_on">Przesunięcie jasności jest włączone</string>
+  <string name="revanced_swipe_brightness_summary_off">Przesunięcie jasności jest wyłączone</string>
+  <string name="revanced_swipe_volume_title">Włącz gest głośności</string>
+  <string name="revanced_swipe_volume_summary_on">Przesunięcie głośności jest włączone</string>
+  <string name="revanced_swipe_volume_summary_off">Przesunięcie głośności jest wyłączone</string>
+  <string name="revanced_swipe_press_to_engage_title">Włącz gest naciśnięcia na przesunięcie</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">Naciśnij do przesunięcia palcem jest włączone</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">Przeciągnięcie palcem jest wyłączone</string>
+  <string name="revanced_swipe_haptic_feedback_title">Włącz wibracje</string>
+  <string name="revanced_swipe_haptic_feedback_summary_on">Wibracja Haptic jest włączona</string>
+  <string name="revanced_swipe_haptic_feedback_summary_off">Wibracje Haptic są wyłączone</string>
+  <string name="revanced_swipe_save_and_restore_brightness_title">Zapisz i przywróć jasność</string>
+  <string name="revanced_swipe_save_and_restore_brightness_summary_on">Zapisz i przywróć jasność podczas zamykania lub wchodzenia w tryb pełnoekranowy</string>
+  <string name="revanced_swipe_save_and_restore_brightness_summary_off">Nie zapisuj i nie przywracaj jasności podczas zamykania lub wchodzenia w tryb pełnoekranowy</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Włącz gest automatycznej jasności</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Przesuń palcem w dół do najniższej wartości gestu jasności włącza automatyczną jasność</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Przesunięcie w dół do najniższej wartości nie włącza automatycznej jasności</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Auto</string>
+  <string name="revanced_swipe_overlay_timeout_title">Limit czasu przesunięcia nakładki</string>
+  <string name="revanced_swipe_overlay_timeout_summary">Ilość milisekund widocznych nakładek</string>
+  <string name="revanced_swipe_text_overlay_size_title">Rozmiar tekstu przesunięcia nakładki</string>
+  <string name="revanced_swipe_text_overlay_size_summary">Rozmiar tekstu dla nakładki przesuwania</string>
+  <string name="revanced_swipe_overlay_background_alpha_title">Widoczność w tle przesunięcia</string>
+  <string name="revanced_swipe_overlay_background_alpha_summary">Widoczność tła nakładki przesunięcia</string>
+  <string name="revanced_swipe_threshold_title">Próg wielkości przesunięcia</string>
+  <string name="revanced_swipe_threshold_summary">Ilość progu dla przesunięcia palcem</string>
+  </patch>
+  <patch id="layout.autocaptions.autoCaptionsPatch">
+  <string name="revanced_auto_captions_title">Wyłącz automatyczne podpisy</string>
+  <string name="revanced_auto_captions_summary_on">Automatyczne podpisy są wyłączone</string>
+  <string name="revanced_auto_captions_summary_off">Automatyczne podpisy są włączone</string>
+  </patch>
+  <patch id="layout.buttons.action.hideButtonsPatch">
+  <string name="revanced_hide_buttons_screen_title">Przyciski akcji</string>
+  <string name="revanced_hide_buttons_screen_summary">Ukryj lub pokaż przyciski pod filmami</string>
+  <string name="revanced_hide_like_dislike_button_title">Ukryj polubienie i nie lubię</string>
+  <string name="revanced_hide_like_dislike_button_summary_on">Przyciski polubienia i nielubiania są ukryte</string>
+  <string name="revanced_hide_like_dislike_button_summary_off">Przyciski polubienia i nielubiania są wyświetlane</string>
+  <!-- 'Share' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_share_button_title">Ukryj udostępnianie</string>
+  <string name="revanced_hide_share_button_summary_on">Przycisk udostępniania jest ukryty</string>
+  <string name="revanced_hide_share_button_summary_off">Przycisk udostępniania jest pokazany</string>
+  <!-- 'Report' should be translated with the same localized wording that YouTube displays.
+                 This button usually appears only on live streams. -->
+  <string name="revanced_hide_report_button_title">Ukryj raport</string>
+  <string name="revanced_hide_report_button_summary_on">Przycisk raportu jest ukryty</string>
+  <string name="revanced_hide_report_button_summary_off">Przycisk raportu jest pokazany</string>
+  <!-- 'Remix' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_remix_button_title">Ukryj remiks</string>
+  <string name="revanced_hide_remix_button_summary_on">Przycisk remiksu jest ukryty</string>
+  <string name="revanced_hide_remix_button_summary_off">Przycisk remiksu jest pokazany</string>
+  <!-- 'Download' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_download_button_title">Ukryj pobieranie</string>
+  <string name="revanced_hide_download_button_summary_on">Przycisk pobierania jest ukryty</string>
+  <string name="revanced_hide_download_button_summary_off">Przycisk pobierania jest pokazany</string>
+  <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_thanks_button_title">Ukryj podziękowania</string>
+  <string name="revanced_hide_thanks_button_summary_on">Przycisk podziękowania jest ukryty</string>
+  <string name="revanced_hide_thanks_button_summary_off">Przycisk podziękowania jest pokazany</string>
+  <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_clip_button_title">Hide Clip</string>
+  <string name="revanced_hide_clip_button_summary_on">Przycisk klipu jest ukryty</string>
+  <string name="revanced_hide_clip_button_summary_off">Przycisk klipu jest pokazany</string>
+  <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_playlist_button_title">Ukryj zapis na liście odtwarzania</string>
+  <string name="revanced_hide_playlist_button_summary_on">Zapisz do przycisku playlisty jest ukryty</string>
+  <string name="revanced_hide_playlist_button_summary_off">Pokaż przycisk Zapisz do playlisty</string>
+  </patch>
+  <patch id="layout.buttons.navigation.navigationButtonsPatch">
+  <string name="revanced_navigation_buttons_screen_title">Navigation buttons</string>
+  <string name="revanced_navigation_buttons_screen_summary">Ukryj lub zmień przyciski na pasku nawigacji</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
+  <string name="revanced_hide_home_button_title">Ukryj stronę główną</string>
+  <string name="revanced_hide_home_button_summary_on">Przycisk Home jest ukryty</string>
+  <string name="revanced_hide_home_button_summary_off">Przycisk Home jest pokazany</string>
+  <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
+  <string name="revanced_hide_shorts_button_title">Ukryj Shorts</string>
+  <string name="revanced_hide_shorts_button_summary_on">Przycisk Shorts jest ukryty</string>
+  <string name="revanced_hide_shorts_button_summary_off">Przycisk Shorts jest widoczny</string>
+  <!-- The Create button has no display name. Translate normally. -->
+  <string name="revanced_hide_create_button_title">Ukryj Utwórz</string>
+  <string name="revanced_hide_create_button_summary_on">Przycisk Utwórz jest ukryty</string>
+  <string name="revanced_hide_create_button_summary_off">Przycisk Utwórz jest pokazany</string>
+  <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays the tab. -->
+  <string name="revanced_hide_subscriptions_button_title">Ukryj subskrypcje</string>
+  <string name="revanced_hide_subscriptions_button_summary_on">Przycisk subskrypcji jest ukryty</string>
+  <string name="revanced_hide_subscriptions_button_summary_off">Przycisk subskrypcji jest pokazany</string>
+  <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
+  <string name="revanced_switch_create_with_notifications_button_title">Przełącz tworzenie z powiadomieniami</string>
+  <string name="revanced_switch_create_with_notifications_button_summary_on">Przycisk Utwórz jest przełączony za pomocą przycisku Powiadomienia\n\nUwaga: Włączenie tego również wymusza ukrycie reklam wideo</string>
+  <string name="revanced_switch_create_with_notifications_button_summary_off">Przycisk Utwórz nie jest przełączony za pomocą przycisku Powiadomienia</string>
+  <string name="revanced_hide_navigation_button_labels_title">Ukryj etykiety przycisków nawigacji</string>
+  <string name="revanced_hide_navigation_button_labels_summary_on">Etykiety są ukryte</string>
+  <string name="revanced_hide_navigation_button_labels_summary_off">Etykiety są wyświetlane</string>
+  </patch>
+  <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
+  <string name="revanced_hide_player_flyout_title">Flyout menu</string>
+  <string name="revanced_hide_player_flyout_summary">Ukryj lub pokaż elementy menu flyout gracza</string>
+  <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_captions_title">Ukryj podpisy</string>
+  <string name="revanced_hide_player_flyout_captions_summary_on">Menu podpisów jest ukryte</string>
+  <string name="revanced_hide_player_flyout_captions_summary_off">Menu podpisów jest wyświetlane</string>
+  <!-- 'Additional settings' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_additional_settings_title">Ukryj dodatkowe ustawienia</string>
+  <string name="revanced_hide_player_flyout_additional_settings_summary_on">Dodatkowe menu ustawień jest ukryte</string>
+  <string name="revanced_hide_player_flyout_additional_settings_summary_off">Dodatkowe menu ustawień jest wyświetlane</string>
+  <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_sleep_timer_title">Ukryj zegar uśpienia</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_on">Menu timera uśpienia jest ukryte</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_off">Wyświetlane jest menu timera</string>
+  <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_loop_video_title">Ukryj wideo w pętli</string>
+  <string name="revanced_hide_player_flyout_loop_video_summary_on">Menu wideo w pętli jest ukryte</string>
+  <string name="revanced_hide_player_flyout_loop_video_summary_off">Menu wideo w pętli jest wyświetlane</string>
+  <!-- 'Ambient mode' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_ambient_mode_title">Ukryj tryb Ambient</string>
+  <string name="revanced_hide_player_flyout_ambient_mode_summary_on">Menu trybu otoczenia jest ukryte</string>
+  <string name="revanced_hide_player_flyout_ambient_mode_summary_off">Wyświetlane jest menu trybu otoczenia</string>
+  <string name="revanced_hide_player_flyout_stable_volume_title">Ukryj stabilną głośność</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_off">Widoczne jest stabilne menu głośności</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_on">Stabilne menu głośności jest ukryte</string>
+  <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_help_title">Ukryj opinię o pomocy &amp;</string>
+  <string name="revanced_hide_player_flyout_help_summary_on">Menu pomocy &amp; jest ukryte</string>
+  <string name="revanced_hide_player_flyout_help_summary_off">Pokaż menu opinii &amp;</string>
+  <!-- 'Playback speed' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_speed_title">Ukryj prędkość odtwarzania</string>
+  <string name="revanced_hide_player_flyout_speed_summary_on">Menu prędkości odtwarzania jest ukryte</string>
+  <string name="revanced_hide_player_flyout_speed_summary_off">Menu prędkości odtwarzania jest wyświetlane</string>
+  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
+                 This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
+  <string name="revanced_hide_player_flyout_more_info_title">Ukryj więcej informacji</string>
+  <string name="revanced_hide_player_flyout_more_info_summary_on">Menu więcej informacji jest ukryte</string>
+  <string name="revanced_hide_player_flyout_more_info_summary_off">Wyświetlane jest więcej informacji</string>
+  <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_lock_screen_title">Ukryj ekran blokady</string>
+  <string name="revanced_hide_player_flyout_lock_screen_summary_on">Menu ekranu blokady jest ukryte</string>
+  <string name="revanced_hide_player_flyout_lock_screen_summary_off">Wyświetlane jest menu ekranu blokady</string>
+  <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_audio_track_title">Ukryj ścieżkę audio</string>
+  <string name="revanced_hide_player_flyout_audio_track_summary_on">Menu ścieżki audio jest ukryte</string>
+  <string name="revanced_hide_player_flyout_audio_track_summary_off">Menu ścieżki audio jest wyświetlane</string>
+  <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_watch_in_vr_title">Ukryj wachtę w VR</string>
+  <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Obejrzyj menu VR jest ukryte</string>
+  <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Obejrzyj w menu VR</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_title">Ukryj stopkę menu jakości wideo</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Stopka menu jakości wideo jest ukryta</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Stopka menu jakości wideo jest pokazana</string>
+  </patch>
+  <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+  <string name="revanced_hide_player_previous_next_buttons_title">Ukryj poprzednie przyciski &amp; następnego filmu</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">Przyciski są ukryte</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">Przyciski są wyświetlane</string>
+  <string name="revanced_hide_cast_button_title">Ukryj przycisk Cofania</string>
+  <string name="revanced_hide_cast_button_summary_on">Przycisk Przesyłaj jest ukryty</string>
+  <string name="revanced_hide_cast_button_summary_off">Przycisk Przesyłaj jest widoczny</string>
+  <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
+  <string name="revanced_hide_captions_button_title">Przycisk ukrycia podpisów</string>
+  <string name="revanced_hide_captions_button_summary_on">Przycisk podpisów jest ukryty</string>
+  <string name="revanced_hide_captions_button_summary_off">Przycisk podpisów jest pokazany</string>
+  <string name="revanced_hide_autoplay_button_title">Ukryj przycisk automatycznego odtwarzania</string>
+  <string name="revanced_hide_autoplay_button_summary_on">Przycisk automatycznego odtwarzania jest ukryty</string>
+  <string name="revanced_hide_autoplay_button_summary_off">Przycisk automatycznego odtwarzania jest wyświetlany</string>
+  </patch>
+  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <string name="revanced_hide_endscreen_cards_title">Ukryj karty ekranu końcowego</string>
+  <string name="revanced_hide_endscreen_cards_summary_on">Karty ekranu końcowego są ukryte</string>
+  <string name="revanced_hide_endscreen_cards_summary_off">Karty ekranu końcowego są wyświetlane</string>
+  </patch>
+  <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
+  <string name="revanced_disable_fullscreen_ambient_mode_title">Wyłącz tryb otoczenia na pełnym ekranie</string>
+  <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Tryb otoczenia wyłączony</string>
+  <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Tryb Ambient włączony</string>
+  </patch>
+  <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
+  <string name="revanced_hide_info_cards_title">Ukryj karty informacyjne</string>
+  <string name="revanced_hide_info_cards_summary_on">Karty informacyjne są ukryte</string>
+  <string name="revanced_hide_info_cards_summary_off">Karty informacyjne są wyświetlane</string>
+  </patch>
+  <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
+  <string name="revanced_disable_rolling_number_animations_title">Wyłącz animacje liczb kroczących</string>
+  <string name="revanced_disable_rolling_number_animations_summary_on">Numery rolowania nie są animowane</string>
+  <string name="revanced_disable_rolling_number_animations_summary_off">Numery toczenia są animowane</string>
+  </patch>
+  <patch id="layout.hide.seekbar.hideSeekbarPatch">
+  <string name="revanced_hide_seekbar_title">Ukryj pasek nawigacji w odtwarzaczu wideo</string>
+  <string name="revanced_hide_seekbar_summary_on">Pasek wyszukiwania odtwarzacza wideo jest ukryty</string>
+  <string name="revanced_hide_seekbar_summary_off">Pasek przeszukiwania odtwarzacza wideo jest wyświetlany</string>
+  <string name="revanced_hide_seekbar_thumbnail_title">Ukryj pasek przeszukiwania w miniaturach wideo</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">Pasek miniatur jest ukryty</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_off">Pasek miniatur jest wyświetlany</string>
+  </patch>
+  <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
+  <string name="revanced_hide_shorts_home_title">Ukryj Shorts w kanale głównym</string>
+  <string name="revanced_hide_shorts_home_summary_on">Shorts w kanale głównym są ukryte</string>
+  <string name="revanced_hide_shorts_home_summary_off">Shorts w kanale głównym są wyświetlane</string>
+  <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
+  <string name="revanced_hide_shorts_subscriptions_title">Ukryj Shorts w kanale subskrypcji</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts w kanale subskrypcji są ukryte</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts w kanale subskrypcji są wyświetlane</string>
+  <string name="revanced_hide_shorts_search_title">Ukryj Shorts w wynikach wyszukiwania</string>
+  <string name="revanced_hide_shorts_search_summary_on">Shorts w wynikach wyszukiwania są ukryte</string>
+  <string name="revanced_hide_shorts_search_summary_off">Shorts w wynikach wyszukiwania są wyświetlane</string>
+  <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
+  <string name="revanced_hide_shorts_join_button_title">Ukryj przycisk dołączenia</string>
+  <string name="revanced_hide_shorts_join_button_summary_on">Przycisk dołączenia jest ukryty</string>
+  <string name="revanced_hide_shorts_join_button_summary_off">Przycisk dołączenia jest pokazany</string>
+  <!-- 'subscribe' should be translated using the same localized wording YouTube displays for the button. -->
+  <string name="revanced_hide_shorts_subscribe_button_title">Ukryj przycisk subskrypcji</string>
+  <string name="revanced_hide_shorts_subscribe_button_summary_on">Przycisk subskrypcji jest ukryty</string>
+  <string name="revanced_hide_shorts_subscribe_button_summary_off">Przycisk subskrypcji jest pokazany</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_title">Ukryj wstrzymane przyciski nakładki</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Zatrzymane przyciski nakładki są ukryte</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Wyświetlane są wstrzymane przyciski nakładki</string>
+  <string name="revanced_hide_shorts_shop_button_title">Ukryj przycisk sklepu</string>
+  <string name="revanced_hide_shorts_shop_button_summary_on">Przycisk Sklep jest ukryty</string>
+  <string name="revanced_hide_shorts_shop_button_summary_off">Przycisk sklepu jest pokazany</string>
+  <string name="revanced_hide_shorts_super_thanks_button_title">Ukryj przycisk super podziękowania</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_on">Przycisk Super dziękuję jest ukryty</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_off">Przycisk Super dziękuję jest pokazany</string>
+  <string name="revanced_hide_shorts_tagged_products_title">Ukryj oznakowane produkty</string>
+  <string name="revanced_hide_shorts_tagged_products_summary_on">Produkty oznaczone tagiem są ukryte</string>
+  <string name="revanced_hide_shorts_tagged_products_summary_off">Produkty oznaczone tagiem są wyświetlane</string>
+  <string name="revanced_hide_shorts_location_label_title">Ukryj etykietę lokalizacji</string>
+  <string name="revanced_hide_shorts_location_label_summary_on">Etykieta lokalizacji jest ukryta</string>
+  <string name="revanced_hide_shorts_location_label_summary_off">Etykieta lokalizacji jest wyświetlana</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Ukryj przycisk zapisu muzyki</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">Przycisk zapisu muzyki jest ukryty</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">Przycisk zapisu muzyki jest pokazany</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Ukryj przycisk użyj szablonu</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Przycisk \"Użyj szablonu\" jest ukryty</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Przycisk szablonu jest pokazany</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">Ukryj nadchodzący przycisk</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">Przychodzący przycisk jest ukryty</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">Przychodzący przycisk jest pokazany</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">Ukryj zielony przycisk ekranu</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_on">Przycisk zielonego ekranu jest ukryty</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_off">Przycisk zielonego ekranu jest pokazany</string>
+  <string name="revanced_hide_shorts_hashtag_button_title">Ukryj przycisk hasztaga</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_on">Przycisk Hashtag jest ukryty</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_off">Przycisk Hashtag jest pokazany</string>
+  <string name="revanced_hide_shorts_search_suggestions_title">Ukryj sugestie wyszukiwania</string>
+  <string name="revanced_hide_shorts_search_suggestions_summary_on">Sugestie wyszukiwania są ukryte</string>
+  <string name="revanced_hide_shorts_search_suggestions_summary_off">Sugestie wyszukiwania są wyświetlane</string>
+  <string name="revanced_hide_shorts_stickers_title">Ukryj naklejki</string>
+  <string name="revanced_hide_shorts_stickers_summary_on">Naklejki są ukryte</string>
+  <string name="revanced_hide_shorts_stickers_summary_off">Naklejki są wyświetlane</string>
+  <string name="revanced_hide_shorts_like_fountain_title">Ukryj jak Fontanna</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_on">Animacja tworzenia przycisków polubienia jest ukryta</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_off">Pokazana jest animacja przycisku założycielskiego</string>
+  <string name="revanced_hide_shorts_like_button_title">Ukryj przycisk polubień</string>
+  <string name="revanced_hide_shorts_like_button_summary_on">Przycisk polubienia jest ukryty</string>
+  <string name="revanced_hide_shorts_like_button_summary_off">Przycisk polubienia jest pokazany</string>
+  <string name="revanced_hide_shorts_dislike_button_title">Ukryj przycisk odlubiania</string>
+  <string name="revanced_hide_shorts_dislike_button_summary_on">Przycisk nielubiania jest ukryty</string>
+  <string name="revanced_hide_shorts_dislike_button_summary_off">Przycisk nielubiania jest wyświetlany</string>
+  <string name="revanced_hide_shorts_comments_button_title">Ukryj przycisk komentarzy</string>
+  <string name="revanced_hide_shorts_comments_button_summary_on">Przycisk komentarzy jest ukryty</string>
+  <string name="revanced_hide_shorts_comments_button_summary_off">Przycisk komentarzy jest wyświetlany</string>
+  <!-- 'remix' should be translated using the same localized wording YouTube displays for the button. -->
+  <string name="revanced_hide_shorts_remix_button_title">Ukryj przycisk remiksowania</string>
+  <string name="revanced_hide_shorts_remix_button_summary_on">Przycisk remiksu jest ukryty</string>
+  <string name="revanced_hide_shorts_remix_button_summary_off">Przycisk remiksu jest pokazany</string>
+  <!-- 'share' should be translated using the same localized wording YouTube displays for the button. -->
+  <string name="revanced_hide_shorts_share_button_title">Ukryj przycisk udostępniania</string>
+  <string name="revanced_hide_shorts_share_button_summary_on">Przycisk udostępniania jest ukryty</string>
+  <string name="revanced_hide_shorts_share_button_summary_off">Przycisk udostępniania jest pokazany</string>
+  <string name="revanced_hide_shorts_info_panel_title">Ukryj panel informacji</string>
+  <string name="revanced_hide_shorts_info_panel_summary_on">Panel informacji jest ukryty</string>
+  <string name="revanced_hide_shorts_info_panel_summary_off">Panel informacji jest wyświetlany</string>
+  <string name="revanced_hide_shorts_channel_bar_title">Ukryj pasek kanału</string>
+  <string name="revanced_hide_shorts_channel_bar_summary_on">Pasek kanału jest ukryty</string>
+  <string name="revanced_hide_shorts_channel_bar_summary_off">Pasek kanału jest wyświetlany</string>
+  <string name="revanced_hide_shorts_video_title_title">Ukryj tytuł wideo</string>
+  <string name="revanced_hide_shorts_video_title_summary_on">Tytuł jest ukryty</string>
+  <string name="revanced_hide_shorts_video_title_summary_off">Tytuł jest wyświetlany</string>
+  <string name="revanced_hide_shorts_sound_metadata_label_title">Ukryj etykietę metadanych dźwięku</string>
+  <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Etykieta metadanych jest ukryta</string>
+  <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Etykieta metadanych jest wyświetlana</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">Ukryj pełną etykietę łącza wideo</string>
+  <string name="revanced_hide_shorts_full_video_link_label_summary_on">Etykieta łącza wideo jest ukryta</string>
+  <string name="revanced_hide_shorts_full_video_link_label_summary_off">Etykieta linku wideo jest wyświetlana</string>
+  <string name="revanced_hide_shorts_sound_button_title">Ukryj przycisk dźwięku</string>
+  <string name="revanced_hide_shorts_sound_button_summary_on">Przycisk dźwięku jest ukryty</string>
+  <string name="revanced_hide_shorts_sound_button_summary_off">Przycisk dźwięku jest wyświetlany</string>
+  <string name="revanced_hide_shorts_navigation_bar_title">Ukryj pasek nawigacji</string>
+  <string name="revanced_hide_shorts_navigation_bar_summary_on">Pasek nawigacji jest ukryty</string>
+  <string name="revanced_hide_shorts_navigation_bar_summary_off">Pasek nawigacji jest wyświetlany</string>
+  </patch>
+  <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
+  <string name="revanced_disable_suggested_video_end_screen_title">Wyłącz sugerowany ekran końcowy wideo</string>
+  <string name="revanced_disable_suggested_video_end_screen_summary_on">Sugerowane filmy zostaną wyłączone</string>
+  <string name="revanced_disable_suggested_video_end_screen_summary_off">Sugerowane filmy będą wyświetlane</string>
+  </patch>
+  <patch id="layout.hide.time.hideTimestampPatch">
+  <string name="revanced_hide_timestamp_title">Ukryj znacznik czasu wideo</string>
+  <string name="revanced_hide_timestamp_summary_on">Znacznik czasu jest ukryty</string>
+  <string name="revanced_hide_timestamp_summary_off">Znacznik czasu jest wyświetlany</string>
+  </patch>
+  <patch id="layout.panels.popup.playerPopupPanelsPatch">
+  <string name="revanced_hide_player_popup_panels_title">Ukryj wyskakujące panele</string>
+  <string name="revanced_hide_player_popup_panels_summary_on">Panel wyskakujących okienek graczy jest ukryty</string>
+  <string name="revanced_hide_player_popup_panels_summary_off">Wyskakujące panele graczy są wyświetlane</string>
+  </patch>
+  <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
+  <string name="revanced_player_overlay_opacity_title">Przezroczystość nakładki odtwarzacza</string>
+  <string name="revanced_player_overlay_opacity_summary">Wartość przezroczystości między 0-100, gdzie 0 jest przezroczysty</string>
+  <string name="revanced_player_overlay_opacity_invalid_toast">Przezroczystość nakładki odtwarzacza musi być pomiędzy 0-100</string>
+  </patch>
+  <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
+  <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
+  <string name="revanced_ryd_failure_connection_timeout">Łapki w dół są tymczasowo niedostępne (API nie reaguje)</string>
+  <string name="revanced_ryd_failure_connection_status_code">Brak polubień (status %d)</string>
+  <string name="revanced_ryd_failure_client_rate_limit_requested">Łapki w dół nie są dostępne (limit API użytkownika)</string>
+  <string name="revanced_ryd_failure_generic">Brak polubień (%s)</string>
+  <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
+  <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Odśwież wideo, aby głosować używając zwróć YouTube Dislike</string>
+  <string name="revanced_ryd_enable_summary_on">Nie polubiono</string>
+  <string name="revanced_ryd_enable_summary_off">Nie pokazano polubień</string>
+  <string name="revanced_ryd_shorts_title">Pokaż nielubienie na Shorts</string>
+  <string name="revanced_ryd_shorts_summary_on">Nie lubi wyświetlane na Shorts</string>
+  <string name="revanced_ryd_shorts_summary_on_disclaimer">Brak polubień wyświetlanych na Shorts\n\nOgraniczenie: brak polubień w trybie incognito</string>
+  <string name="revanced_ryd_shorts_summary_off">Nie lubię ukryć na Shorts</string>
+  <string name="revanced_ryd_dislike_percentage_title">Nie lubi jako procent</string>
+  <string name="revanced_ryd_dislike_percentage_summary_on">Nie lubi wyświetlane jako procent</string>
+  <string name="revanced_ryd_dislike_percentage_summary_off">Nie lubi wyświetlane jako liczba</string>
+  <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
+  <string name="revanced_ryd_compact_layout_title">Przycisk kompaktowy jak</string>
+  <string name="revanced_ryd_compact_layout_summary_on">Przycisk polubienia stylizowany dla minimalnej szerokości</string>
+  <string name="revanced_ryd_compact_layout_summary_off">Przycisk polubienia stylizowany dla najlepszego wyglądu</string>
+  <string name="revanced_ryd_toast_on_connection_error_title">Pokaż toast jeśli API nie jest dostępne</string>
+  <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast jest wyświetlany, jeśli Zwrot YouTube nie jest dostępny</string>
+  <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast nie jest wyświetlany, jeśli Zwrot YouTube nie jest dostępny</string>
+  <string name="revanced_ryd_about">O programie</string>
+  <string name="revanced_ryd_attribution_summary">Dane są dostarczane przez API Zwrotu YouTube Dislike API. Dotknij tutaj, aby dowiedzieć się więcej</string>
+  <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
+  <string name="revanced_ryd_statistics_category_title">Zwróć statystyki API tego urządzenia YouTubeDislike</string>
+  <string name="revanced_ryd_statistics_getFetchCallResponseTimeAverage_title">Czas reakcji API, średnia</string>
+  <string name="revanced_ryd_statistics_getFetchCallResponseTimeMin_title">Czas odpowiedzi API, minimum</string>
+  <string name="revanced_ryd_statistics_getFetchCallResponseTimeMax_title">Czas reakcji API, maksymalny</string>
+  <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_title">Czas odpowiedzi API, ostatni film</string>
+  <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_rate_limit_summary">Nie polubiono tymczasowo niedostępne - limit czasu API klienta w efekcie</string>
+  <string name="revanced_ryd_statistics_getFetchCallCount_title">API pobiera głosy, liczba połączeń</string>
+  <string name="revanced_ryd_statistics_getFetchCallCount_zero_summary">Nie wykonano połączeń sieciowych</string>
+  <string name="revanced_ryd_statistics_getFetchCallCount_non_zero_summary">%d połączenia sieciowe wykonane</string>
+  <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_title">API pobiera głosy, liczba czasów</string>
+  <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_zero_summary">Upłynął limit czasu połączenia sieciowego</string>
+  <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_non_zero_summary">%d połączenia sieciowe przekroczyły limit czasu</string>
+  <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_title">Limity prędkości klienta API</string>
+  <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">Nie napotkano limitów cenowych klienta</string>
+  <string name="revanced_ryd_statistics_millisecond_text">%d milisekund</string>
+  </patch>
+  <patch id="layout.searchbar.wideSearchbarPatch">
+  <string name="revanced_wide_searchbar_title">Włącz szeroki pasek wyszukiwania</string>
+  <string name="revanced_wide_searchbar_summary_on">Szeroki pasek wyszukiwania jest włączony</string>
+  <string name="revanced_wide_searchbar_summary_off">Szeroki pasek wyszukiwania jest wyłączony</string>
+  </patch>
+  <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_title">Włącz miniaturki wysokiej jakości</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Miniatury paska wyszukiwania są wysokiej jakości</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Miniatury paska wyszukiwania są średniej jakości</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Miniatury paska paska paska pełnoekranowego są wysokiej jakości</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Miniaturki paska paska paska pełnoekranowego są średniej jakości</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Spowoduje to również przywrócenie miniatur na zwierzętach, które nie mają miniatur paska wyszukiwania.\n\nMiniaturki paska wyszukiwania będą miały taką samą jakość jak bieżący film.\n\nTa funkcja działa najlepiej z jakością wideo 720p lub niższą oraz przy użyciu bardzo szybkiego połączenia internetowego.</string>
+  <string name="revanced_restore_old_seekbar_thumbnails_title">Przywróć stare miniatury paska nawigacji</string>
+  <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Miniatury paska wyszukiwania pojawią się nad paskiem wyszukiwania</string>
+  <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Miniaturki paska wyszukiwania pojawią się na pełnym ekranie</string>
+  </patch>
+  <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
+  <string name="revanced_sb_enable_sb">Włącz SponsorBlock\'a</string>
+  <string name="revanced_sb_enable_sb_sum">SponsorBlock jest systemem crowd-sourcing do pominięcia irytujących części filmów YouTube</string>
+  <string name="revanced_sb_appearance_category">Wygląd</string>
+  <string name="revanced_sb_enable_voting">Pokaż przycisk głosowania</string>
+  <string name="revanced_sb_enable_voting_sum_on">Przycisk głosowania segmentu jest pokazany</string>
+  <string name="revanced_sb_enable_voting_sum_off">Przycisk głosowania segmentu nie jest pokazany</string>
+  <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
+  <string name="revanced_sb_enable_compact_skip_button">Użyj kompaktowego przycisku Pomiń</string>
+  <string name="revanced_sb_enable_compact_skip_button_sum_on">Pomiń przycisk stylizowany dla minimalnej szerokości</string>
+  <string name="revanced_sb_enable_compact_skip_button_sum_off">Pomiń przycisk stylizowany dla najlepszego wyglądu</string>
+  <string name="revanced_sb_enable_auto_hide_skip_segment_button">Automatycznie ukryj przycisk Pomiń</string>
+  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Pomiń przycisk ukrywa się po kilku sekundach</string>
+  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Pomiń przycisk wyświetlany dla całego segmentu</string>
+  <string name="revanced_sb_general_skiptoast">Pokaż toast podczas automatycznego pominięcia</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">Toast jest wyświetlany, gdy segment zostanie automatycznie pominięty. Dotknij tutaj, aby zobaczyć przykład</string>
+  <string name="revanced_sb_general_skiptoast_sum_off">Toast nie jest wyświetlany. Dotknij tutaj, aby zobaczyć przykład</string>
+  <string name="revanced_sb_general_time_without">Pokaż długość wideo bez segmentów</string>
+  <string name="revanced_sb_general_time_without_sum_on">Długość wideo minus wszystkie segmenty, wyświetlane w nawiasach obok pełnej długości wideo</string>
+  <string name="revanced_sb_general_time_without_sum_off">Pełna długość wideo wyświetlana</string>
+  <string name="revanced_sb_create_segment_category">Tworzenie nowych segmentów</string>
+  <string name="revanced_sb_enable_create_segment">Pokaż przycisk Utwórz nowy segment</string>
+  <string name="revanced_sb_enable_create_segment_sum_on">Pokaż przycisk tworzenia nowego segmentu</string>
+  <string name="revanced_sb_enable_create_segment_sum_off">Utwórz nowy przycisk segmentu nie jest wyświetlany</string>
+  <string name="revanced_sb_general_adjusting">Dostosuj nowy krok segmentu</string>
+  <string name="revanced_sb_general_adjusting_sum">Ilość milisekund przycisków dostosowania czasu podczas tworzenia nowych segmentów</string>
+  <string name="revanced_sb_general_adjusting_invalid">Wartość musi być liczbą dodatnią</string>
+  <string name="revanced_sb_guidelines_preference_title">Wyświetl wytyczne</string>
+  <string name="revanced_sb_guidelines_preference_sum">Wytyczne zawierają zasady i wskazówki dotyczące tworzenia nowych segmentów</string>
+  <string name="revanced_sb_guidelines_popup_title">Postępuj zgodnie z wytycznymi</string>
+  <string name="revanced_sb_guidelines_popup_content">Przeczytaj wytyczne SponsorBlock przed tworzeniem nowych segmentów</string>
+  <string name="revanced_sb_guidelines_popup_already_read">Przeczytano</string>
+  <string name="revanced_sb_guidelines_popup_open">Pokaż mi</string>
+  <string name="revanced_sb_general">Główne</string>
+  <string name="revanced_sb_toast_on_connection_error_title">Pokaż toast jeśli API nie jest dostępne</string>
+  <string name="revanced_sb_toast_on_connection_error_summary_on">Toast jest wyświetlany, jeśli SponsorBlock nie jest dostępny</string>
+  <string name="revanced_sb_toast_on_connection_error_summary_off">Toast nie jest wyświetlany, jeśli SponsorBlock nie jest dostępny</string>
+  <string name="revanced_sb_general_skipcount">Włącz śledzenie licznika pominięć</string>
+  <string name="revanced_sb_general_skipcount_sum_on">Pozwala tablicy wyników SponsorBlock\'a wiedzieć, ile czasu zostało zapisane. Wiadomość jest wysyłana do tablicy wyników za każdym razem, gdy segment zostanie pominięty</string>
+  <string name="revanced_sb_general_skipcount_sum_off">Pomiń licznik śledzenia nie jest włączony</string>
+  <string name="revanced_sb_general_min_duration">Minimalna długość segmentu</string>
+  <string name="revanced_sb_general_min_duration_sum">Segmenty krótsze niż ta wartość (w sekundach) nie będą wyświetlane lub pominięte</string>
+  <string name="revanced_sb_general_min_duration_invalid">Nieprawidłowy czas trwania</string>
+  <string name="revanced_sb_general_uuid">Twój prywatny identyfikator użytkownika</string>
+  <string name="revanced_sb_general_uuid_sum">Ta informacja jest poufna i działa jak hasło. Użytkownik, który ma do niej dostęp, może zgłaszać treści jako ty</string>
+  <string name="revanced_sb_general_uuid_invalid">ID użytkownika prywatnego musi mieć co najmniej 30 znaków</string>
+  <string name="revanced_sb_general_api_url">Zmień link API</string>
+  <string name="revanced_sb_general_api_url_sum">Adres SponsorBlock używa do wykonywania połączeń na serwerze</string>
+  <string name="revanced_sb_api_url_reset">Zresetuj adres API</string>
+  <string name="revanced_sb_api_url_invalid">Adres API jest nieprawidłowy</string>
+  <string name="revanced_sb_api_url_changed">Adres API został zmieniony</string>
+  <string name="revanced_sb_settings_ie">Importuj/Eksportuj ustawienia</string>
+  <string name="revanced_sb_settings_copy">Kopiuj</string>
+  <string name="revanced_sb_settings_ie_sum">Twoja konfiguracja JSON SponsorBlock, którą można importować/eksportować do platformy ReVanced i innych platform SponsorBlock</string>
+  <string name="revanced_sb_settings_ie_sum_warning">Twoja konfiguracja JSON SponsorBlock, którą można importować/eksportować do ReVanced i innych platform SponsorBlock. Obejmuje to Twój identyfikator użytkownika prywatnego. Upewnij się, że udostępniasz go mądrze</string>
+  <string name="revanced_sb_settings_import_successful">Ustawienia zaimportowane pomyślnie</string>
+  <string name="revanced_sb_settings_import_failed">Nie udało się zaimportować: %s</string>
+  <string name="revanced_sb_settings_export_failed">Nie udało się wyeksportować: %s</string>
+  <string name="revanced_sb_settings_revanced_export_user_id_warning">Twoje ustawienia zawierają prywatnego użytkownika SponsorBlock.\n\nTwój identyfikator użytkownika jest jak hasło i nigdy nie powinien być udostępniany.\n</string>
+  <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">Nie pokazuj ponownie</string>
+  <string name="revanced_sb_diff_segments">Zmień zachowanie segmentu</string>
+  <string name="revanced_sb_segments_sponsor">Treści sponsorowane</string>
+  <string name="revanced_sb_segments_sponsor_sum">Płatna promocja, płatne rekomendacje i reklamy bezpośrednie. Nieprzeznaczone do autopromocji lub bezpłatnych wypisów dla przyczyn/twórców/stron internetowych/produktów, które lubią</string>
+  <string name="revanced_sb_segments_selfpromo">Nieopłacona/Własna promocja</string>
+  <string name="revanced_sb_segments_selfpromo_sum">Podobnie jak w przypadku \"Sponsor\", z wyjątkiem niespłaconej lub samopromocji. Zawiera sekcje dotyczące towaru, darowizny lub informacje o kogo współpracowali</string>
+  <string name="revanced_sb_segments_interaction">Przypomnienia o interakcji (Subskrypcja)</string>
+  <string name="revanced_sb_segments_interaction_sum">Krótkie przypomnienie do polubienia, subskrybowania lub śledzenia ich treści w środku treści. Jeśli jest długa lub dotyczy czegoś konkretnego, to powinien być w trakcie samopromocji</string>
+  <string name="revanced_sb_segments_highlight">Podświetl</string>
+  <string name="revanced_sb_segments_highlight_sum">Część filmu, której szuka większość osób</string>
+  <string name="revanced_sb_segments_intro">Przerywnik/Animowane intro</string>
+  <string name="revanced_sb_segments_intro_sum">Interwał bez aktualnej zawartości. Może to być pauza, ramka statyczna lub animacja powtarzana. Nie zawiera przejść zawierających informacje</string>
+  <string name="revanced_sb_segments_outro">Ekran końcowy/Napisy</string>
+  <string name="revanced_sb_segments_outro_sum">Kredyty lub kiedy pojawi się endcard YouTube. Nie dla wniosków z informacją</string>
+  <string name="revanced_sb_segments_preview">Podgląd/Podejrzeć/Podejdź/Podejdź/Podejdź/Podejdź/Podejdź/Podejdź/Podejdź/Podejdź/Hook</string>
+  <string name="revanced_sb_segments_preview_sum">Zbiór klipów pokazujących to, co się pojawia lub co stało się w filmie lub innych filmach serii, jeżeli wszystkie informacje są powtarzane w innym miejscu</string>
+  <string name="revanced_sb_segments_filler">Nietematyczny Wypełniacz/Żart</string>
+  <string name="revanced_sb_segments_filler_sum">Sceny styczne dodawane tylko dla wypełniacza lub humoru, które nie są wymagane do zrozumienia głównej treści wideo. Nie obejmuje segmentów zawierających szczegóły kontekstu lub tła</string>
+  <string name="revanced_sb_segments_nomusic">Muzyka: Sekcja bez muzyki</string>
+  <string name="revanced_sb_segments_nomusic_sum">Tylko do użytku w filmach muzycznych. Sekcje muzyki bez muzyki, które nie są już objęte inną kategorią</string>
+  <string name="revanced_sb_skip_button_compact">Pomiń</string>
+  <string name="revanced_sb_skip_button_compact_highlight">Podświetl</string>
+  <string name="revanced_sb_skip_button_sponsor">Pomiń sponsora</string>
+  <string name="revanced_sb_skip_button_selfpromo">Pomiń promocję</string>
+  <string name="revanced_sb_skip_button_interaction">Pomiń interakcję</string>
+  <string name="revanced_sb_skip_button_highlight">Pomiń do podświetlenia</string>
+  <string name="revanced_sb_skip_button_intro_beginning">Pomiń wprowadzenie</string>
+  <string name="revanced_sb_skip_button_intro_middle">Pomiń intermisję</string>
+  <string name="revanced_sb_skip_button_intro_end">Pomiń intermisję</string>
+  <string name="revanced_sb_skip_button_outro">Skip outro</string>
+  <string name="revanced_sb_skip_button_preview_beginning">Pomiń podgląd</string>
+  <string name="revanced_sb_skip_button_preview_middle">Pomiń podgląd</string>
+  <string name="revanced_sb_skip_button_preview_end">Pomiń ponowne podsumowanie</string>
+  <string name="revanced_sb_skip_button_filler">Pomiń wypełniacz</string>
+  <string name="revanced_sb_skip_button_nomusic">Pomiń niemuzykę</string>
+  <string name="revanced_sb_skip_button_unsubmitted">Pomiń segment</string>
+  <string name="revanced_sb_skipped_sponsor">Pominięto treści sponsorowane</string>
+  <string name="revanced_sb_skipped_selfpromo">Pominięto własną promocję</string>
+  <string name="revanced_sb_skipped_interaction">Pominięto irytujące przypomnienie</string>
+  <string name="revanced_sb_skipped_highlight">Pominięto do podświetlenia</string>
+  <string name="revanced_sb_skipped_intro_beginning">Pominięto wstęp</string>
+  <string name="revanced_sb_skipped_intro_middle">Pominięta intermisja</string>
+  <string name="revanced_sb_skipped_intro_end">Pominięta intermisja</string>
+  <string name="revanced_sb_skipped_outro">Pominięto zakończenie</string>
+  <string name="revanced_sb_skipped_preview_beginning">Pominięto podgląd</string>
+  <string name="revanced_sb_skipped_preview_middle">Pominięto podgląd</string>
+  <string name="revanced_sb_skipped_preview_end">Pominięto ponowne zamknięcie</string>
+  <string name="revanced_sb_skipped_filler">Pominięto wypełniacz</string>
+  <string name="revanced_sb_skipped_nomusic">Pominięto sekcję bez muzyki</string>
+  <string name="revanced_sb_skipped_unsubmitted">Pominięto niezgłoszony segment</string>
+  <string name="revanced_sb_skipped_multiple_segments">Pominięto wiele segmentów</string>
+  <string name="revanced_sb_skip_automatically">Pomiń automatycznie</string>
+  <string name="revanced_sb_skip_automatically_once">Pomiń automatycznie raz</string>
+  <string name="revanced_sb_skip_showbutton">Pokaż przycisk pominięcia</string>
+  <string name="revanced_sb_skip_seekbaronly">Pokaż w pasku wyszukiwania</string>
+  <string name="revanced_sb_skip_ignore">Wyłącz</string>
+  <string name="revanced_sb_submit_failed_invalid">Nie można przesłać segmentu: %s</string>
+  <string name="revanced_sb_submit_failed_timeout">SponsorBlock jest tymczasowo wyłączony</string>
+  <string name="revanced_sb_submit_failed_unknown_error">Nie można przesłać segmentu (status: %1$d %2$s)</string>
+  <string name="revanced_sb_submit_failed_rate_limit">Nie można przesłać segmentu.\nRate Limited (zbyt wiele od tego samego użytkownika lub IP)</string>
+  <string name="revanced_sb_submit_failed_forbidden">Nie można przesłać segmentu: %s</string>
+  <string name="revanced_sb_submit_failed_duplicate">Nie można przesłać segmentu.\nJuż istnieje</string>
+  <string name="revanced_sb_submit_succeeded">Pomyślnie przesłano segment</string>
+  <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
+  <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock jest niedostępny (API nie reaguje)</string>
+  <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock tymczasowo niedostępny (status %d)</string>
+  <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock tymczasowo niedostępny</string>
+  <string name="revanced_sb_vote_failed_timeout">Nie można zagłosować na segment (upłynął limit czasu API)</string>
+  <string name="revanced_sb_vote_failed_unknown_error">Nie można zagłosować na segment (status: %1$d %2$s)</string>
+  <string name="revanced_sb_vote_failed_forbidden">Nie można zagłosować na segment: %s</string>
+  <string name="revanced_sb_vote_upvote">Głos za</string>
+  <string name="revanced_sb_vote_downvote">Głos przeciw</string>
+  <string name="revanced_sb_vote_category">Zmień kategorię</string>
+  <string name="revanced_sb_vote_no_segments">Brak segmentów do zagłosowania</string>
+  <string name="revanced_sb_new_segment_choose_category">Wybierz kategorię segmentu</string>
+  <string name="revanced_sb_new_segment_disabled_category">Kategoria jest wyłączona w ustawieniach. Włącz kategorię do wysyłania.</string>
+  <string name="revanced_sb_new_segment_title">Nowy segment SponsorBlock\'a</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">Ustawić %s jako początek lub koniec nowego segmentu?</string>
+  <string name="revanced_sb_new_segment_mark_start">początek</string>
+  <string name="revanced_sb_new_segment_mark_end">koniec</string>
+  <string name="revanced_sb_new_segment_now">aktualnie</string>
+  <string name="revanced_sb_new_segment_time_start">Czas rozpoczęcia segmentu od</string>
+  <string name="revanced_sb_new_segment_time_end">Czas zakończenia segmentu od</string>
+  <string name="revanced_sb_new_segment_confirm_title">Czy te czasy są poprawne?</string>
+  <string name="revanced_sb_new_segment_confirm_content">Segment jest od\n\n%1$s\ndo\n%2$s\n\n(%3$s)\n\nGotowy do wysłania?</string>
+  <string name="revanced_sb_new_segment_start_is_before_end">Początek musi być przed końcem</string>
+  <string name="revanced_sb_new_segment_mark_locations_first">Najpierw zaznacz dwie lokalizacje na pasku czasu</string>
+  <string name="revanced_sb_new_segment_preview_segment_first">Podgląd segmentu i sprawdzenie jego płynnego pominięcia</string>
+  <string name="revanced_sb_new_segment_edit_by_hand_title">Edytuj ręcznie czas segmentu</string>
+  <string name="revanced_sb_new_segment_edit_by_hand_content">Czy chcesz edytować czas rozpoczęcia lub zakończenia segmentu?</string>
+  <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Podano nieprawidłowy format czasu</string>
+  <string name="revanced_sb_stats">Statystyki</string>
+  <!-- Shown in the settings preferences, and translations can be any text length. -->
+  <string name="revanced_sb_stats_connection_failure">Statystyki tymczasowo niedostępne (API jest wyłączone)</string>
+  <string name="revanced_sb_stats_loading">Wczytywanie...</string>
+  <string name="revanced_sb_stats_sb_disabled">SponsorBlock jest wyłączony</string>
+  <string name="revanced_sb_stats_username">Twoja nazwa użytkownika: &lt;b&gt;%s&lt;/b&gt;</string>
+  <string name="revanced_sb_stats_username_change">Dotknij tutaj, aby zmienić nazwę użytkownika</string>
+  <string name="revanced_sb_stats_username_change_unknown_error">Nie można zmienić nazwy użytkownika: Status: %1$d %2$s</string>
+  <string name="revanced_sb_stats_username_changed">Nazwa użytkownika została zmieniona</string>
+  <string name="revanced_sb_stats_reputation">Twoja reputacja to &lt;b&gt;%.2f&lt;/b&gt;</string>
+  <string name="revanced_sb_stats_submissions">Stworzyłeś segmenty &lt;b&gt;%s&lt;/b&gt;</string>
+  <string name="revanced_sb_stats_submissions_sum">Dotknij tutaj, aby zobaczyć swoje segmenty</string>
+  <string name="revanced_sb_stats_saved_zero">Tablica wyników SponsorBlock</string>
+  <string name="revanced_sb_stats_saved">Zapisałeś ludzi z segmentów &lt;b&gt;%s&lt;/b&gt;</string>
+  <string name="revanced_sb_stats_saved_sum_zero">Dotknij tutaj, aby zobaczyć globalne statystyki i najlepszych współtwórców</string>
+  <string name="revanced_sb_stats_saved_sum">To jest &lt;b&gt;%s&lt;/b&gt; ich życia.&lt;br&gt;Dotknij tutaj, aby zobaczyć tablicę wyników.</string>
+  <string name="revanced_sb_stats_self_saved">Pominięłeś segmenty &lt;b&gt;%s&lt;/b&gt;</string>
+  <string name="revanced_sb_stats_self_saved_sum">To jest &lt;b&gt;%s&lt;/b&gt;</string>
+  <string name="revanced_sb_stats_self_saved_reset_title">Zresetować pomijany licznik segmentów?</string>
+  <string name="revanced_sb_stats_saved_hour_format">%1$s godzin %2$s minut</string>
+  <string name="revanced_sb_stats_saved_minute_format">%1$s minut %2$s sekund</string>
+  <string name="revanced_sb_stats_saved_second_format">%s sekund</string>
+  <string name="revanced_sb_color_dot_label">Kolor:</string>
+  <string name="revanced_sb_color_changed">Zmieniono kolor</string>
+  <string name="revanced_sb_color_reset">Resetowanie kolorów</string>
+  <string name="revanced_sb_color_invalid">Nieprawidłowy kod koloru</string>
+  <string name="revanced_sb_reset_color">Resetuj kolor</string>
+  <string name="revanced_sb_reset">Resetuj</string>
+  <string name="revanced_sb_about">O programie</string>
+  <string name="revanced_sb_about_api_sum">Dane są dostarczane przez API SponsorBlock. Dotknij tutaj, aby dowiedzieć się więcej i zobaczyć pobierania dla innych platform</string>
+  </patch>
+  <patch id="layout.spoofappversion.spoofAppVersionPatch">
+  <string name="revanced_spoof_app_version_title">Wersja Spoof app</string>
+  <string name="revanced_spoof_app_version_summary_on">Wersja zespoofowana</string>
+  <string name="revanced_spoof_app_version_summary_off">Wersja nie zespoofowana</string>
+  <string name="revanced_spoof_app_version_user_dialog_message">Wersja aplikacji będzie zespoofowana do starszej wersji YouTube.\n\nZmieni to wygląd i zachowanie aplikacji, lecz mogą wystąpić niepożądane skutki.\n\nJeśli później wyłączone, zaleca się wyczyszczenie danych aplikacji, aby zapobiec błędom interfejsu.</string>
+  <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
+                 This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
+  <string name="revanced_spoof_app_version_target_title">Docelowa zespoofowana wersja aplikacji</string>
+  <!-- 'RYD' is 'Return YouTube Dislike' -->
+  <string name="revanced_spoof_app_version_target_entry_1">18.33.40 - Przywróć RYD (Return YouTube Dislike) w trybie incognito</string>
+  <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - Przywracanie szerokiej prędkości wideo &amp; menu jakości</string>
+  <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - Przywróć kartę bibliotek</string>
+  <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Przywróć starą półkę na liście odtwarzania</string>
+  </patch>
+  <patch id="layout.startpage.changeStartPagePatch">
+  <string name="revanced_change_start_page_title">Ustaw stronę startową</string>
+  <string name="revanced_change_start_page_entry_default">Domyślnie</string>
+  <string name="revanced_change_start_page_entry_browse">Przeglądaj kanały</string>
+  <string name="revanced_change_start_page_entry_explore">Przeglądaj</string>
+  <string name="revanced_change_start_page_entry_gaming">Gra</string>
+  <string name="revanced_change_start_page_entry_history">Historia</string>
+  <string name="revanced_change_start_page_entry_library">Biblioteka</string>
+  <string name="revanced_change_start_page_entry_liked_videos">Polubione filmy</string>
+  <string name="revanced_change_start_page_entry_live">Żywe</string>
+  <string name="revanced_change_start_page_entry_movies">Filmy</string>
+  <string name="revanced_change_start_page_entry_music">Muzyka</string>
+  <string name="revanced_change_start_page_entry_search">Szukaj</string>
+  <string name="revanced_change_start_page_entry_sports">Sport</string>
+  <string name="revanced_change_start_page_entry_subscriptions">Subskrypcje</string>
+  <string name="revanced_change_start_page_entry_trending">Popularne</string>
+  <string name="revanced_change_start_page_entry_watch_later">Obserwuj później</string>
+  </patch>
+  <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
+  <string name="revanced_disable_resuming_shorts_player_title">Wyłącz wznawianie odtwarzacza Shorts</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_on">Odtwarzacz Shorts nie będzie wznawiany przy starcie aplikacji</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_off">Odtwarzacz Shorts zostanie wznowiony przy starcie aplikacji</string>
+  </patch>
+  <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  </patch>
+  <patch id="layout.tablet.enableTabletLayoutPatch">
+  <string name="revanced_tablet_layout_title">Włącz układ tabletu</string>
+  <string name="revanced_tablet_layout_summary_on">Układ tabletu jest włączony</string>
+  <string name="revanced_tablet_layout_summary_off">Układ tabletu jest wyłączony</string>
+  <string name="revanced_tablet_layout_user_dialog_message">Posty społeczności nie pojawiają się w układach tabletów</string>
+  </patch>
+  <patch id="layout.miniplayer.miniplayerPatch">
+  <string name="revanced_miniplayer_screen_title">Minigracz</string>
+  <string name="revanced_miniplayer_screen_summary">Zmień styl zminimalizowanego odtwarzacza aplikacji</string>
+  <string name="revanced_miniplayer_type_title">Typ minigracza</string>
+  <string name="revanced_miniplayer_type_entry_1">Oryginał</string>
+  <string name="revanced_miniplayer_type_entry_2">Telefon</string>
+  <string name="revanced_miniplayer_type_entry_3">Tabletka</string>
+  <string name="revanced_miniplayer_type_entry_4">Nowoczesny 1</string>
+  <string name="revanced_miniplayer_type_entry_5">Nowoczesny 2</string>
+  <string name="revanced_miniplayer_type_entry_6">Nowoczesny 3</string>
+  <string name="revanced_miniplayer_rounded_corners_title">Włącz zaokrąglone narożniki</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_on">Narożniki są zaokrąglone</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_off">Narożniki są kwadratowe</string>
+  <string name="revanced_miniplayer_double_tap_action_title">Włącz dwukrotne dotknięcie i przypnij aby zmienić rozmiar</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">Akcja dwukrotnego dotknięcia i przypinanie aby zmienić rozmiar jest włączone\n\n• Dwukrotnie stuknij, aby zwiększyć rozmiar minigracza\n• Dwukrotnie stuknij ponownie, aby przywrócić oryginalny rozmiar</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_off">Akcja dwukrotnego dotknięcia i przypinanie aby zmienić rozmiar jest wyłączona</string>
+  <string name="revanced_miniplayer_drag_and_drop_title">Włącz przeciągnij i upuść</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">Przeciągnij i upuść jest włączone\n\nMiniplayer może być przeciągnięty do dowolnego rogu ekranu</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_off">Przeciągnij i upuść jest wyłączona</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">Włącz gest przeciągania poziomego</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">Gest przeciągania w poziomie włączony\n\nMiniplayer może być przesunięty z ekranu w lewo lub w prawo</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">Gest przeciągania w poziomie wyłączony</string>
+  <string name="revanced_miniplayer_hide_expand_close_title">Ukryj przycisk zamykania</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">Przycisk zamykający jest ukryty</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">Przycisk zamykający jest pokazany</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Ukryj przyciski rozwijające i zamykające</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Przyciski są ukryte\n\nPrzesuń, aby rozwinąć lub zamknąć</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Wyświetlane są przyciski rozwijane i zamykane</string>
+  <string name="revanced_miniplayer_hide_subtext_title">Ukryj napisy</string>
+  <string name="revanced_miniplayer_hide_subtext_summary_on">Podteksty są ukryte</string>
+  <string name="revanced_miniplayer_hide_subtext_summary_off">Podteksty są wyświetlane</string>
+  <string name="revanced_miniplayer_hide_rewind_forward_title">Ukryj przyciski przeskakujące do przodu i do tyłu</string>
+  <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Pomiń do przodu i z powrotem są ukryte</string>
+  <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Pomiń do przodu i do tyłu są wyświetlane</string>
+  <string name="revanced_miniplayer_width_dip_title">Rozmiar początkowy</string>
+  <string name="revanced_miniplayer_width_dip_summary">Początkowy rozmiar ekranu, w pikselach</string>
+  <string name="revanced_miniplayer_width_dip_invalid_toast">Rozmiar piksela musi być pomiędzy %1$s i %2$s</string>
+  <string name="revanced_miniplayer_opacity_title">Przezroczystość nakładki</string>
+  <string name="revanced_miniplayer_opacity_summary">Wartość przezroczystości między 0-100, gdzie 0 jest przezroczysty</string>
+  <string name="revanced_miniplayer_opacity_invalid_toast">Przezroczystość nakładki musi być pomiędzy 0-100</string>
+  </patch>
+  <patch id="layout.theme.themePatch">
+  <string name="revanced_gradient_loading_screen_title">Włącz ekran ładowania gradientu</string>
+  <string name="revanced_gradient_loading_screen_summary_on">Ekran ładowania będzie miał gradient tła</string>
+  <string name="revanced_gradient_loading_screen_summary_off">Ekran ładujący będzie miał stałe tło</string>
+  </patch>
+  <patch id="layout.theme.themeResourcePatch">
+  <string name="revanced_seekbar_custom_color_title">Włącz niestandardowy kolor paska paska</string>
+  <string name="revanced_seekbar_custom_color_summary_on">Niestandardowy kolor paska nawigacji jest wyświetlany</string>
+  <string name="revanced_seekbar_custom_color_summary_off">Oryginalny kolor paska nawigacji jest wyświetlany</string>
+  <string name="revanced_seekbar_custom_color_value_title">Niestandardowy kolor paska podglądu</string>
+  <string name="revanced_seekbar_custom_color_value_summary">Kolor paska wyszukiwania</string>
+  <string name="revanced_seekbar_custom_color_invalid">Nieprawidłowa wartość koloru paska wyszukiwania</string>
+  </patch>
+  <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
+  <string name="revanced_bypass_image_region_restrictions_title">Pomiń ograniczenia regionu obrazu</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_on">Używanie hosta obrazu yt4.ggpht.com</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">Używanie oryginalnego hosta obrazu\n\nWłączenie tego może naprawić brakujące obrazy, które są zablokowane w niektórych regionach</string>
+  </patch>
+  <patch id="layout.thumbnails.alternativeThumbnailsPatch">
+  <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
+  <string name="revanced_alt_thumbnail_home_title">Zakładka domowa</string>
+  <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
+  <string name="revanced_alt_thumbnail_subscription_title">Zakładka subskrypcji</string>
+  <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
+  <string name="revanced_alt_thumbnail_library_title">Zakładka</string>
+  <string name="revanced_alt_thumbnail_player_title">Listy odtwarzania, rekomendacje</string>
+  <string name="revanced_alt_thumbnail_search_title">Wyniki wyszukiwania</string>
+  <string name="revanced_alt_thumbnail_options_entry_1">Original thumbnails</string>
+  <string name="revanced_alt_thumbnail_options_entry_2">Strzałka &amp; Oryginalne miniatury</string>
+  <string name="revanced_alt_thumbnail_options_entry_3">Strzała &amp; Nadal przechwytywane</string>
+  <string name="revanced_alt_thumbnail_options_entry_4">Nadal przechwytywane</string>
+  <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow udostępnia miniaturki z crowd-sourcing dla filmów YouTube. Miniaturki te są często bardziej odpowiednie niż te dostarczane przez YouTube\n\nJeśli włączone, adresy URL wideo zostaną wysłane do serwera API i nie zostaną wysłane żadne inne dane. Jeśli film nie ma miniatur DeArrow następnie oryginalne lub nadal są wyświetlane\n\nDotknij tutaj, aby dowiedzieć się więcej o DeStrzałce</string>
+  <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Pokaż toast jeśli API nie jest dostępne</string>
+  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Toast jest wyświetlany, jeśli strzałka nie jest dostępna</string>
+  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Toast nie jest wyświetlany, jeśli strzałka nie jest dostępna</string>
+  <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API endpoint</string>
+  <string name="revanced_alt_thumbnail_dearrow_api_url_summary">Adres URL punktu końcowego miniaturki DeArrow</string>
+  <string name="revanced_alt_thumbnail_stills_about_title">Przechwytywanie wideo</string>
+  <string name="revanced_alt_thumbnail_stills_about_summary">Przechwytywanie jest nadal pobierane od początku/środka/końca każdego filmu. Te obrazy są wbudowane w YouTube i żadne zewnętrzne API nie jest używane</string>
+  <string name="revanced_alt_thumbnail_stills_fast_title">Używaj szybkiego przechwytywania</string>
+  <string name="revanced_alt_thumbnail_stills_fast_summary_on">Używanie średnich jakości wciąż przechwytywanych miniatur będzie ładowane szybciej, ale strumienie na żywo, nieuwolnione lub bardzo stare filmy mogą pokazywać puste miniatury</string>
+  <string name="revanced_alt_thumbnail_stills_fast_summary_off">Używanie wysokiej jakości przechwytywania</string>
+  <string name="revanced_alt_thumbnail_stills_time_title">Czas na pobranie nagrań wideo</string>
+  <string name="revanced_alt_thumbnail_stills_time_entry_1">Początek wideo</string>
+  <string name="revanced_alt_thumbnail_stills_time_entry_2">Średnie wideo</string>
+  <string name="revanced_alt_thumbnail_stills_time_entry_3">Koniec wideo</string>
+  <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_alt_thumbnail_dearrow_error">Strzała tymczasowo niedostępna (kod statusu: %s)</string>
+  <string name="revanced_alt_thumbnail_dearrow_error_generic">Strzałka tymczasowo niedostępna</string>
+  </patch>
+  <patch id="misc.announcements.announcementsPatch">
+  <string name="revanced_announcements_title">Pokaż zaawansowane ogłoszenia</string>
+  <string name="revanced_announcements_summary_on">Ogłoszenia są wyświetlane przy starcie</string>
+  <string name="revanced_announcements_summary_off">Ogłoszenia nie są wyświetlane przy starcie</string>
+  <string name="revanced_announcements_enabled_summary">Pokaż ogłoszenia przy starcie</string>
+  <string name="revanced_announcements_connection_failed">Nie udało się połączyć z dostawcą ogłoszeń</string>
+  <string name="revanced_announcements_dialog_dismiss">Odrzuć</string>
+  </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Ostrzeżenie</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Twoja historia zegarka nie jest zapisywana.&lt;br&gt;&lt;br&gt;Najprawdopodobniej jest to spowodowane przez blokowanie reklam DNS lub serwer proxy sieciowego.&lt;br&gt;&lt;br&gt;Aby to naprawić, biała lista &lt;b&gt;s.youtube.com&lt;/b&gt; lub wyłącz wszystkie bloki DNS i proxy.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Nie pokazuj ponownie</string>
+  </patch>
+  <patch id="misc.autorepeat.autoRepeatPatch">
+  <string name="revanced_auto_repeat_title">Włącz automatyczne powtarzanie</string>
+  <string name="revanced_auto_repeat_summary_on">Automatyczne powtarzanie jest włączone</string>
+  <string name="revanced_auto_repeat_summary_off">Automatyczne powtarzanie jest wyłączone</string>
+  </patch>
+  <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
+  <string name="revanced_spoof_device_dimensions_title">Zespoofuj wymiar urządzenia</string>
+  <string name="revanced_spoof_device_dimensions_summary_on">Zespoofuj wymiar urządzenia</string>
+  <string name="revanced_spoof_device_dimensions_summary_off">Wymiary urządzenia nie są zespoofowane\n\nWłączenie tej opcji umożliwia ustawienie wyższej jakości wideo niż zwykle</string>
+  <string name="revanced_spoof_device_dimensions_user_dialog_message">Włączenie tego może spowodować zacinanie się odtwarzanego filmu, pogorszenie żywotności baterii i nieznane działania niepożądane.</string>
+  </patch>
+  <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <string name="microg_settings_title">Ustawienia GmsCore</string>
+  <string name="microg_settings_summary">Ustawienia GmsCore</string>
+  </patch>
+  <patch id="misc.links.bypassURLRedirectsPatch">
+  <string name="revanced_bypass_url_redirects_title">Obejście przekierowań URL</string>
+  <string name="revanced_bypass_url_redirects_summary_on">Przekierowanie URL jest omijane</string>
+  <string name="revanced_bypass_url_redirects_summary_off">Przekierowanie URL nie jest omijane</string>
+  </patch>
+  <patch id="misc.links.openLinksExternallyPatch">
+  <string name="revanced_external_browser_title">Otwórz linki w przeglądarce</string>
+  <string name="revanced_external_browser_summary_on">Otwieranie linków zewnętrznych</string>
+  <string name="revanced_external_browser_summary_off">Otwieranie linków w aplikacji</string>
+  </patch>
+  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
+  <string name="revanced_remove_tracking_query_parameter_title">Usuń parametr zapytania</string>
+  <string name="revanced_remove_tracking_query_parameter_summary_on">Parametr zapytania śledzenia jest usuwany z linków</string>
+  <string name="revanced_remove_tracking_query_parameter_summary_off">Parametr zapytania nie został usunięty z linków</string>
+  </patch>
+  <patch id="misc.zoomhaptics.zoomHapticsPatch">
+  <string name="revanced_disable_zoom_haptics_title">Wyłącz szczęście powiększenia</string>
+  <string name="revanced_disable_zoom_haptics_summary_on">Haptyka jest wyłączona</string>
+  <string name="revanced_disable_zoom_haptics_summary_off">Haptyka jest włączona</string>
+  </patch>
+  <patch id="video.quality.rememberVideoQualityPatch">
+  <string name="revanced_video_quality_default_entry_1">Jakość automatyczna</string>
+  <string name="revanced_remember_video_quality_last_selected_title">Zapamiętaj zmiany jakości wideo</string>
+  <string name="revanced_remember_video_quality_last_selected_summary_on">Zmiany jakości dotyczą wszystkich filmów</string>
+  <string name="revanced_remember_video_quality_last_selected_summary_off">Zmiany jakości dotyczą tylko bieżącego filmu</string>
+  <string name="revanced_video_quality_default_wifi_title">Domyślna jakość wideo w sieci Wi-Fi</string>
+  <string name="revanced_video_quality_default_mobile_title">Domyślna jakość wideo w sieci komórkowej</string>
+  <string name="revanced_remember_video_quality_mobile">mobilny</string>
+  <string name="revanced_remember_video_quality_wifi">wifi</string>
+  <string name="revanced_remember_video_quality_toast">Zmieniono domyślną jakość %1$s na: %2$s</string>
+  </patch>
+  <patch id="video.speed.button.playbackSpeedButtonPatch">
+  <string name="revanced_playback_speed_dialog_button_title">Pokaż przycisk szybkiego dialogu.</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Widoczny</string>
+  <string name="revanced_playback_speed_dialog_button_summary_off">Przycisk nie jest wyświetlany</string>
+  </patch>
+  <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <string name="revanced_custom_speed_menu_title">Własne menu prędkości odtwarzania</string>
+  <string name="revanced_custom_speed_menu_summary_on">Pokaż niestandardowe menu prędkości</string>
+  <string name="revanced_custom_speed_menu_summary_off">Niestandardowe menu prędkości nie jest wyświetlane</string>
+  <string name="revanced_custom_playback_speeds_title">Niestandardowe prędkości odtwarzania</string>
+  <string name="revanced_custom_playback_speeds_summary">Dodaj lub zmień niestandardowe prędkości odtwarzania</string>
+  <string name="revanced_custom_playback_speeds_invalid">Prędkość niestandardowa musi być mniejsza niż %s. Używając wartości domyślnych.</string>
+  <string name="revanced_custom_playback_speeds_parse_exception">Nieprawidłowa niestandardowa prędkość odtwarzania. Używanie wartości domyślnych.</string>
+  </patch>
+  <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
+  <string name="revanced_remember_playback_speed_last_selected_title">Zapamiętaj zmiany prędkości odtwarzania</string>
+  <string name="revanced_remember_playback_speed_last_selected_summary_on">Zmiany prędkości odtwarzania dotyczą wszystkich filmów</string>
+  <string name="revanced_remember_playback_speed_last_selected_summary_off">Prędkość odtwarzania zmienia się tylko dla bieżącego filmu</string>
+  <string name="revanced_playback_speed_default_title">Domyślna prędkość odtwarzania</string>
+  <string name="revanced_remember_playback_speed_toast">Zmieniono domyślną prędkość na: %s</string>
+  </patch>
+  <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
+  <string name="revanced_restore_old_video_quality_menu_title">Przywróć stare menu jakości wideo</string>
+  <string name="revanced_restore_old_video_quality_menu_summary_on">Wyświetlane jest stare menu jakości wideo</string>
+  <string name="revanced_restore_old_video_quality_menu_summary_off">Stare menu jakości wideo nie jest wyświetlane</string>
+  </patch>
+  <patch id="interaction.seekbar.enableSlideToSeekPatch">
+  <string name="revanced_slide_to_seek_title">Włącz slajd, aby wyszukać</string>
+  <string name="revanced_slide_to_seek_summary_on">Przesuń, aby przeszukiwać jest włączony</string>
+  <string name="revanced_slide_to_seek_summary_off">Przesuń, aby przeszukiwać nie jest włączony</string>
+  </patch>
+  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Słuchanie strumieni wideo</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Słuchaj strumienia wideo klienta, aby zapobiec problemom z odtwarzaniem</string>
+  <string name="revanced_spoof_video_streams_title">Słuchanie strumieni wideo</string>
+  <string name="revanced_spoof_video_streams_summary_on">Strumienie wideo są spoofowane</string>
+  <string name="revanced_spoof_video_streams_summary_off">Strumienie wideo nie jest spoofed\n\nOdtwarzanie wideo może nie działać</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Wyłączenie tego ustawienia może spowodować problemy z odtwarzaniem wideo.</string>
+  <string name="revanced_spoof_video_streams_client_title">Domyślny klient</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Siła AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Kodek wideo to AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodek wideo to VP9 lub AV1</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Twoje urządzenie nie posiada dekodowania VP9, a to ustawienie jest zawsze włączone, gdy spoofing klienta jest włączony</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Włączenie tego może poprawić żywotność baterii i naprawić stłuczenie odtwarzania.\n\nAVC ma maksymalną rozdzielczość 1080p, a odtwarzanie wideo wykorzysta więcej danych internetowych niż VP9 lub AV1.</string>
+  <string name="revanced_spoof_video_streams_about_ios_title">iOS spoofing działania niepożądane</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmy lub płatne filmy mogą nie odtwarzać\n• Livestreams zaczynają się od początku\n• Filmy mogą zakończyć się 1 sekundą na początku\n• Brak kodeka opus audio</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_title">Działania niepożądane związane z systemem Android VR</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Brakuje menu ścieżki dźwiękowej\n• Stabilna głośność nie jest dostępna</string>
+  </patch>
+  </app>
+  <app id="twitch">
+  <patch id="ad.audio.audioAdsPatch">
+  <string name="revanced_block_audio_ads_title">Blokuj reklamy audio</string>
+  <string name="revanced_block_audio_ads_summary_on">Reklamy audio są zablokowane</string>
+  <string name="revanced_block_audio_ads_summary_off">Reklamy audio są odblokowane</string>
+  </patch>
+  <patch id="ad.embedded.embeddedAdsPatch">
+  <string name="revanced_embedded_ads_service_unavailable">%s jest niedostępny. Reklamy mogą wyskakiwać. Spróbuj przełączyć się na inną usługę w ustawieniach.</string>
+  <string name="revanced_embedded_ads_service_failed">Serwer %s zwrócił błąd. Reklamy mogą wyświetlić. Spróbuj przełączyć się na inną usługę blokowania reklam w ustawieniach.</string>
+  <string name="revanced_block_embedded_ads_title">Blokuj osadzone reklamy wideo</string>
+  <string name="revanced_block_embedded_ads_entry_1">Nieaktywne</string>
+  <string name="revanced_block_embedded_ads_entry_2">Proxy świetlne</string>
+  <string name="revanced_block_embedded_ads_entry_3">Proxy PurpleAdBlock</string>
+  </patch>
+  <patch id="ad.video.videoAdsPatch">
+  <string name="revanced_block_video_ads_title">Blokuj reklamy wideo</string>
+  <string name="revanced_block_video_ads_summary_on">Reklamy wideo są zablokowane</string>
+  <string name="revanced_block_video_ads_summary_off">Reklamy wideo są odblokowane</string>
+  </patch>
+  <patch id="chat.antidelete.showDeletedMessagesPatch">
+  <string name="revanced_deleted_msg">wiadomość usunięta</string>
+  <string name="revanced_show_deleted_messages_title">Pokaż usunięte wiadomości</string>
+  <string name="revanced_show_deleted_messages_entry_1">Nie pokazuj usuniętych wiadomości</string>
+  <string name="revanced_show_deleted_messages_entry_2">Ukryj usunięte wiadomości za spoilerem</string>
+  <string name="revanced_show_deleted_messages_entry_3">Pokaż usunięte wiadomości jako przekreślony tekst</string>
+  </patch>
+  <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
+  <string name="revanced_auto_claim_channel_points_title">Automatycznie włącz punkty kanału</string>
+  <string name="revanced_auto_claim_channel_points_summary_on">Punkty kanału są automatycznie odejmowane</string>
+  <string name="revanced_auto_claim_channel_points_summary_off">Punkty kanału nie są automatycznie odebrane</string>
+  </patch>
+  <patch id="debug.debugModePatch">
+  <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
+  <string name="revanced_twitch_debug_mode_title">Włącz tryb debugowania Twitch</string>
+  <string name="revanced_twitch_debug_mode_summary_on">Tryb debugowania Twitch jest włączony (nie zalecane)</string>
+  <string name="revanced_twitch_debug_mode_summary_off">Tryb debugowania Twitch jest wyłączony</string>
+  </patch>
+  <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings">Ulepszone ustawienia</string>
+  <string name="revanced_ads_screen_title">Reklamy</string>
+  <string name="revanced_ads_screen_summary">Ustawienia blokowania reklam</string>
+  <string name="revanced_chat_screen_title">Czat</string>
+  <string name="revanced_chat_screen_summary">Ustawienia czatu</string>
+  <string name="revanced_misc_screen_title">Różne</string>
+  <string name="revanced_misc_screen_summary">Różne ustawienia</string>
+  <string name="revanced_general_category_title">Ustawienia ogólne</string>
+  <string name="revanced_other_category_title">Inne ustawienia</string>
+  <string name="revanced_client_ads_category_title">Reklamy klientów</string>
+  <string name="revanced_surestream_ads_category_title">Reklamy surestream po stronie serwera</string>
+  <string name="revanced_twitch_debug_title">Logi do debugowania</string>
+  <string name="revanced_twitch_debug_summary_on">Włączone</string>
+  <string name="revanced_twitch_debug_summary_off">Wyłączone</string>
+  </patch>
+  </app>
+</resources>
