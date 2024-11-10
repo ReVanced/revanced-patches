@@ -373,7 +373,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_remove_viewer_discretion_dialog_title">시청 경고 다이얼로그 제거하기</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">다이얼로그가 숨겨집니다</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">다이얼로그가 표시됩니다</string>
-  <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">• 이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다\n• 즉, 성인인증이 필요한 동영상에서 인증을 하려 할 때, 휴대폰 번호가 필요하다고 알려주는 소형 팝업창(다이얼로그) 없이 바로 휴대폰 번호 인증 페이지가 표시됩니다</string>
+  <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">• 이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다\n• 즉, 성인인증이 필요한 동영상에서 인증을 하려 할 때, 휴대폰 번호가 필요하다고 알려주는 소형 팝업창(다이얼로그) 없이 바로 휴대폰 번호 인증 페이지가 표시됩니다\n• \'당신은 혼자가 아닙니다\' 페이지에서 \'확인하기\' 버튼이 표시되지 않는다면 이 설정이 아닌 플레이어 설정에서 \'정보 패널 숨기기\'를 비활성화해야 합니다</string>
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">외부 다운로드</string>
@@ -1188,11 +1188,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_off">슬라이드하여 탐색을 비활성화합니다</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">동영상 스트림 변경하기</string>
-  <string name="revanced_spoof_video_streams_screen_summary">동영상 스트림을 변경하여 재생 문제를 방지할 수 있습니다</string>
-  <string name="revanced_spoof_video_streams_title">동영상 스트림 변경하기</string>
-  <string name="revanced_spoof_video_streams_summary_on">동영상 스트림을 변경합니다</string>
-  <string name="revanced_spoof_video_streams_summary_off">동영상 스트림을 변경하지 않습니다\n동영상 재생 문제가 발생할 수 있습니다</string>
+  <string name="revanced_spoof_video_streams_screen_title">스트리밍 데이터 변경하기</string>
+  <string name="revanced_spoof_video_streams_screen_summary">스트리밍 데이터를 변경하여 재생 문제를 방지할 수 있습니다</string>
+  <string name="revanced_spoof_video_streams_title">스트리밍 데이터 변경하기</string>
+  <string name="revanced_spoof_video_streams_summary_on">스트리밍 데이터를 변경합니다</string>
+  <string name="revanced_spoof_video_streams_summary_off">스트리밍 데이터를 변경하지 않습니다\n동영상 재생 문제가 발생할 수 있습니다</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">이 설정을 비활성화하면 동영상 재생 문제가 발생할 수 있습니다</string>
   <string name="revanced_spoof_video_streams_client_title">기본 클라이언트</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">AVC (H.264) 강제로 활성화하기</string>
@@ -1201,7 +1201,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">이 기기는 VP9 하드웨어 디코딩을 지원하지 않습니다. 그러므로 \'클라이언트 변경하기\'가 활성화된 경우에는 이 설정은 항상 켜져 있습니다</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">이 설정을 활성화하면 배터리 수명이 향상되고 재생 끊김 현상이 해결될 수 있습니다\n\nAVC의 최대 화질 값은 1080p이며 동영상을 재생하면 VP9 또는 AV1보다 더 많은 모바일 데이터가 사용되오니 주의하세요.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">\'iOS로 변경\'의 알려진 문제점</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• 영화 또는 회원 전용 동영상과 같은 유료 동영상이 재생되지 않을 수 있습니다\n• 되감기가 가능한 실시간 스트림이 라이브 중인 시점이 아닌 처음부터 재생될 수 있습니다\n• 동영상이 1초 일찍 종료될 수 있습니다\n• OPUS 오디오 코덱이 지원되지 않습니다</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• 영화 또는 회원 전용 동영상과 같은 유료 동영상이 재생되지 않을 수 있습니다\n• 일부 실시간 스트림이 처음부터 재생될 수 있습니다\n• 동영상이 1초 일찍 종료될 수 있습니다\n• OPUS 오디오 코덱이 지원되지 않습니다</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">\'Android VR로 변경\'의 알려진 문제점</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">• 오디오 트랙 메뉴가 표시되지 않습니다\n• 안정적인 볼륨 메뉴가 비활성화된 채로 잠겨있습니다</string>
   </patch>
