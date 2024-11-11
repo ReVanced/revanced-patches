@@ -1,9 +1,11 @@
 package app.revanced.patches.reddit.customclients.sync.detection.piracy
 
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.AccessFlags
+import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.fingerprint
+import app.revanced.util.getReference
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.reference.Reference
 
 internal val piracyDetectionFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
@@ -16,12 +18,9 @@ internal val piracyDetectionFingerprint = fingerprint {
         Opcode.INVOKE_VIRTUAL,
     )
     custom { method, _ ->
-        method.implementation?.instructions?.any {
-            if (it.opcode != Opcode.NEW_INSTANCE) return@any false
-
-            val reference = (it as ReferenceInstruction).reference
-
-            reference.toString() == "Lcom/github/javiersantos/piracychecker/PiracyChecker;"
-        } == true
+        method.implementation ?: return@custom false
+        method.instructions.any {
+            it.getReference<Reference>()?.toString() == "Lcom/github/javiersantos/piracychecker/PiracyChecker;"
+        }
     }
 }
