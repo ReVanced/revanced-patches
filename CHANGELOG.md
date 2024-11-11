@@ -1,3 +1,16 @@
+## [5.0.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.0.0...v5.0.1-dev.1) (2024-11-11)
+
+
+### Bug Fixes
+
+* **Sync:** Fix patches by not throwing unnecessarily ([2ee1316](https://github.com/ReVanced/revanced-patches/commit/2ee13160d51dba3c5806594b2387f806e5946b9a))
+* **Tiktok - Settings:** Fix the patch by depending on the correct settings patch ([0c75929](https://github.com/ReVanced/revanced-patches/commit/0c75929a83729841197b482d28f7f7f5f9cec332))
+
+
+### Performance Improvements
+
+* Check for extension without a class proxy ([a6a74e2](https://github.com/ReVanced/revanced-patches/commit/a6a74e289db1fe04db230d1e864cb9e752f9a01d))
+
 # [5.0.0](https://github.com/ReVanced/revanced-patches/compare/v4.17.0...v5.0.0) (2024-11-10)
 
 
