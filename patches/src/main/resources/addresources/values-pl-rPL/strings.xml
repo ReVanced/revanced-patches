@@ -87,6 +87,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_12_video_title">Wideo</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <string name="revanced_shorts_disable_background_playback_title">Wyłącz odtwarzanie Shorts w tle</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Odtwarzanie w tle Shorts jest wyłączone</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Odtwarzanie w tle Shorts jest włączone</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Debugowanie</string>
@@ -255,6 +258,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_section_title">Ukryj sekcję komentarzy</string>
   <string name="revanced_hide_comments_section_summary_on">Sekcja komentarzy jest ukryta</string>
   <string name="revanced_hide_comments_section_summary_off">Sekcja komentarzy jest wyświetlana</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">Ukryj przycisk \'Utwórz Short\'</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">Przycisk \'Utwórz film Short\' jest ukryty</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">Przycisk \'Utwórz film Short\' jest wyświetlany</string>
   <string name="revanced_hide_comments_preview_comment_title">Ukryj podgląd komentarza</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Podgląd komentarza jest ukryty</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Podgląd komentarza jest wyświetlany</string>
@@ -588,6 +594,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Pasek miniatur jest wyświetlany</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <string name="revanced_shorts_player_screen_title">Odtwarzacz Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Ukryj Shorts w kanale głównym</string>
   <string name="revanced_hide_shorts_home_summary_on">Shorts w kanale głównym są ukryte</string>
@@ -983,6 +990,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_resuming_shorts_player_summary_off">Odtwarzacz Shorts zostanie wznowiony przy starcie aplikacji</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <string name="revanced_shorts_autoplay_title">Autoodtwarzanie Shorts</string>
+  <string name="revanced_shorts_autoplay_summary_on">Shorts\'y będą odtwarzane automatycznie</string>
+  <string name="revanced_shorts_autoplay_summary_off">Shorts\'y będą odtwarzane automatycznie</string>
   </patch>
   <patch id="layout.tablet.enableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Włącz układ tabletu</string>
