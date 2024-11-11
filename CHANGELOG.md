@@ -1,3 +1,19 @@
+## [5.0.1](https://github.com/ReVanced/revanced-patches/compare/v5.0.0...v5.0.1) (2024-11-11)
+
+
+### Bug Fixes
+
+* **Sync:** Fix patches by not throwing unnecessarily ([2ee1316](https://github.com/ReVanced/revanced-patches/commit/2ee13160d51dba3c5806594b2387f806e5946b9a))
+* **Tiktok - Settings:** Fix the patch by depending on the correct settings patch ([0c75929](https://github.com/ReVanced/revanced-patches/commit/0c75929a83729841197b482d28f7f7f5f9cec332))
+* **Twitter:** Fix patches by depending on patch that merges required extension ([c330e9d](https://github.com/ReVanced/revanced-patches/commit/c330e9d67d3e8c8c3535fa43e52c9f06e33ff0bf))
+* **Twitter:** Fix patches by matching fingerprint using correct class ([6ae0d12](https://github.com/ReVanced/revanced-patches/commit/6ae0d124e1f27faecd20e4008951b08353572d98))
+* **YouTube - Playback speed:** Remember playback speed when using non 1.0x default speed ([05b9f87](https://github.com/ReVanced/revanced-patches/commit/05b9f8709895dae67e8cc12e8b7bdb87ff401997)), closes [#3810](https://github.com/ReVanced/revanced-patches/issues/3810)
+
+
+### Performance Improvements
+
+* Check for extension without a class proxy ([a6a74e2](https://github.com/ReVanced/revanced-patches/commit/a6a74e289db1fe04db230d1e864cb9e752f9a01d))
+
 ## [5.0.1-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.0.1-dev.3...v5.0.1-dev.4) (2024-11-11)
 
 
