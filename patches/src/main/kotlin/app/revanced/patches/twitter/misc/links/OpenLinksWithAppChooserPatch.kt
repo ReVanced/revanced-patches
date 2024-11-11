@@ -2,6 +2,7 @@ package app.revanced.patches.twitter.misc.links
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.twitter.misc.extension.sharedExtensionPatch
 
 @Suppress("unused")
 val openLinksWithAppChooserPatch = bytecodePatch(
@@ -10,6 +11,8 @@ val openLinksWithAppChooserPatch = bytecodePatch(
         "As a result you can select a browser to open the link with.",
     use = false,
 ) {
+    dependsOn(sharedExtensionPatch)
+
     compatibleWith("com.twitter.android"("10.48.0-release.0"))
 
     execute {
