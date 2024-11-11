@@ -1,3 +1,10 @@
+## [5.0.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.0.1-dev.1...v5.0.1-dev.2) (2024-11-11)
+
+
+### Bug Fixes
+
+* **Twitter:** Fix patches by matching fingerprint using correct class ([6ae0d12](https://github.com/ReVanced/revanced-patches/commit/6ae0d124e1f27faecd20e4008951b08353572d98))
+
 ## [5.0.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.0.0...v5.0.1-dev.1) (2024-11-11)
 
 
