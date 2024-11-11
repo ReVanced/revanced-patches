@@ -302,8 +302,14 @@ private fun getReference(instructions: List<BuilderInstruction>, offset: Int, op
 /**
  * Hook the video speed selected by the user.
  */
-fun userSelectedPlaybackSpeedHook(targetMethodClass: String, targetMethodName: String) =
+fun userSelectedPlaybackSpeedHook(targetMethodClass: String, targetMethodName: String) {
+    legacySpeedSelectionInsertMethod.addInstruction(
+        legacySpeedSelectionInsertIndex++,
+        "invoke-static { v$legacySpeedSelectionValueRegister }, $targetMethodClass->$targetMethodName(F)V"
+    )
+
     speedSelectionInsertMethod.addInstruction(
         speedSelectionInsertIndex++,
-        "invoke-static {v$speedSelectionValueRegister}, $targetMethodClass->$targetMethodName(F)V",
+        "invoke-static { v$speedSelectionValueRegister }, $targetMethodClass->$targetMethodName(F)V",
     )
+}
