@@ -34,14 +34,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <app id="shared">
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Az ellenőrzések sikertelenek</string>
-  <string name="revanced_check_environment_dialog_open_official_source_button">Hivatalos webhelyet megnyitása</string>
+  <string name="revanced_check_environment_dialog_open_official_source_button">Hivatalos weboldal megnyitása</string>
   <string name="revanced_check_environment_dialog_ignore_button">Mellőzés</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Úgy tűnik, hogy ezt az alkalmazást nem Ön javította.&lt;/h5&gt;&lt;br&gt;Lehet, hogy ez az alkalmazás nem működik megfelelően, &lt;b&gt;ártalmas vagy akár veszélyes is lehet a használata&lt;/b&gt;.&lt; br&gt;&lt;br&gt;Ezek az ellenőrzések arra utalnak, hogy ez az alkalmazás előre javítva van, vagy valaki mástól szerezte be:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Erősen ajánlott &lt;b&gt;távolítsa el ezt az alkalmazást, és saját maga javítsa meg&lt;/b&gt; annak biztosítása érdekében, hogy érvényesített és biztonságos alkalmazást használjon.&lt;p&gt;&lt;br&gt;Ha figyelmen kívül hagyja, ez a figyelmeztetés csak kétszer jelenik meg.</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Úgy tűnik, hogy ezt az alkalmazást nem te patchelted.&lt;/h5&gt;&lt;br&gt;Lehet, hogy az alkalmazás nem fog megfelelően működni, sőt, &lt;b&gt;ártalmas vagy akár veszélyes is lehet a használata&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Az alábbi ellenőrzések arra utalnak, hogy már előre patchelték az alkalmazást, vagy mástól szerezted be azt:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Ajánlott &lt;b&gt;letörölni és magadnak patchelni&lt;/b&gt; az alkalmazást a teljes biztonság érdekében.&lt;p&gt;&lt;br&gt;Ha ezt az értesítést mellőzöd, csak kétszer fog megjelenni.</string>
   <string name="revanced_check_environment_not_same_patching_device">Patchelve egy másik eszközön</string>
   <string name="revanced_check_environment_manager_not_expected_installer">Nem a ReVanced Manager telepítette</string>
   <string name="revanced_check_environment_not_near_patch_time">Több mint 10 perce patchelve</string>
   <string name="revanced_check_environment_not_near_patch_time_days">%s napja patchelve</string>
-  <string name="revanced_check_environment_not_near_patch_time_invalid">Az APK felépítési dátuma sérült</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">Az APK build dátuma sérült</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_confirm_user_dialog_title">Szeretné folytatni?</string>
@@ -116,7 +116,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_album_cards_summary_off">Az album kártyák láthatóak</string>
   <string name="revanced_hide_crowdfunding_box_title">Közösségi finanszírozási doboz elrejtése</string>
   <string name="revanced_hide_crowdfunding_box_summary_on">A közösségi finanszírozási doboz el van rejtve</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">A közösségi finanszírozási doboz megjelenik</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">A közösségi finanszírozási doboz meg van jelenítve</string>
   <string name="revanced_hide_floating_microphone_button_title">Lebegő mikrofon gomb elrejtése</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">A mikrofon gomb elrejtve</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">A mikrofon gomb látható</string>
@@ -134,7 +134,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_for_you_shelf_title">\"Neked\" polc elrejtése a csatorna oldalon</string>
   <string name="revanced_hide_for_you_shelf_summary_on">A polc rejtett</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">A polc megjelenik</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">A polc meg van jelenítve</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">\"Értesítést kérek\" gomb elrejtése</string>
@@ -160,8 +160,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_guidelines_summary_off">A csatorna irányelvei megjelenítve</string>
   <string name="revanced_hide_chips_shelf_title">Vágások polc elrejtése</string>
   <string name="revanced_hide_chips_shelf_summary_on">A vágások polc el van rejtve</string>
-  <string name="revanced_hide_chips_shelf_summary_off">A vágások polc megjelenik</string>
-  <string name="revanced_hide_expandable_chip_title">Kiterjeszthető vágások elrejtése a videók alatt</string>
+  <string name="revanced_hide_chips_shelf_summary_off">A részletek polc meg van jelenítve</string>
+  <string name="revanced_hide_expandable_chip_title">Kiterjeszthető részletek elrejtése a videók alatt</string>
   <string name="revanced_hide_expandable_chip_summary_on">A kiterjeszthető vágások el vannak rejtve</string>
   <string name="revanced_hide_expandable_chip_summary_off">A kiterjeszthető vágások megjelennek</string>
   <string name="revanced_hide_community_posts_title">Közösségi posztok elrejtése</string>
@@ -255,8 +255,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_by_members_header_summary_on">A „tagok megjegyzései” fejléc el van rejtve</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Megjelenik a „Tagok megjegyzései” fejléc</string>
   <string name="revanced_hide_comments_section_title">A megjegyzések szekció elrejtése</string>
-  <string name="revanced_hide_comments_section_summary_on">A megjegyzések szakasz el van rejtve</string>
-  <string name="revanced_hide_comments_section_summary_off">Megjelenik a megjegyzések rész</string>
+  <string name="revanced_hide_comments_section_summary_on">A komment szekció el van rejtve</string>
+  <string name="revanced_hide_comments_section_summary_off">A megjegyzések szekció megjelenik</string>
   <string name="revanced_hide_comments_create_a_short_button_title">A „Rövid létrehozása” gomb elrejtése</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">A „Short létrehozása” gomb el van rejtve</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Megjelenik a „Short létrehozása” gomb</string>

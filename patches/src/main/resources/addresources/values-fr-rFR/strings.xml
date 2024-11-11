@@ -45,9 +45,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_title">ReVanced</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Souhaitez-vous continuer ?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Voulez-vous continuer ?</string>
   <string name="revanced_settings_reset">Réinitialiser</string>
-  <string name="revanced_settings_restart_title">Appliquer et redémarrer ?</string>
+  <string name="revanced_settings_restart_title">Appliquer et redémarrer</string>
   <string name="revanced_settings_restart">Redémarrer</string>
   <string name="revanced_settings_import">Importer</string>
   <string name="revanced_settings_import_copy">Copier</string>
@@ -769,6 +769,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Les vignettes de la barre de recherche sont de qualité moyenne</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Les vignettes de la barre de recherche plein écran sont de haute qualité</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Les vignettes de barre de recherche plein écran ont une qualité moyenne</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Cela restaurera aussi les vignettes sur les diffusions en direct qui n\'ont pas la fonctionnalité de vignette de prévisualisation.\n\nLes vignettes de prévisualisation utiliseront la même qualité que la vidéo actuelle.\n\nCette fonctionnalité fonctionne mieux avec une qualité vidéo de 720p ou moins et lorsque vous utilisez une connexion Internet très rapide.</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Restaurer les anciennes miniatures de la barre de recherche</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Les vignettes de la barre de recherche apparaîtront au-dessus de la barre de recherche</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Les vignettes de la barre de recherche apparaîtront en plein écran</string>
@@ -988,6 +989,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Désactiver la reprise du joueur Shorts</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_on">Le lecteur de Shorts ne se relancera pas au démarrage de l\'application</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Le lecteur court reprendra au démarrage de l\'application</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">

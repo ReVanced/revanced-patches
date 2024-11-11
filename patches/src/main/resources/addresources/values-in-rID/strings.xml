@@ -77,7 +77,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_00_about_title">Tentang</string>
   <string name="revanced_settings_screen_01_ads_title">Iklan</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Thumbnail alternatif</string>
-  <string name="revanced_settings_screen_03_feed_title">Umpan</string>
+  <string name="revanced_settings_screen_03_feed_title">Feed</string>
   <string name="revanced_settings_screen_04_player_title">Pemutar</string>
   <string name="revanced_settings_screen_05_general_title">Layout umum</string>
   <string name="revanced_settings_screen_07_seekbar_title">Seekbar</string>
@@ -818,7 +818,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_general_min_duration_invalid">Durasi waktu tidak sah</string>
   <string name="revanced_sb_general_uuid">ID pengguna pribadi Anda</string>
   <string name="revanced_sb_general_uuid_sum">Ini harus dijaga kerahasiaannya. Seperti kata sandi dan tidak disarankan untuk dibagikan dengan siapa pun. Jika seseorang mendapatkan ini, mereka dapat menyamar sebagai Anda</string>
-  <string name="revanced_sb_general_uuid_invalid">ID pengguna tidak boleh lebih dari 30 karakter </string>
+  <string name="revanced_sb_general_uuid_invalid">ID pengguna tidak boleh lebih dari 30 karakter</string>
   <string name="revanced_sb_general_api_url">Ubah URL API</string>
   <string name="revanced_sb_general_api_url_sum">Alamat yang digunakan SponsorBlock untuk membuat panggilan ke server</string>
   <string name="revanced_sb_api_url_reset">Atur ulang URL API</string>
