@@ -1,3 +1,10 @@
+## [5.0.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.0.1-dev.2...v5.0.1-dev.3) (2024-11-11)
+
+
+### Bug Fixes
+
+* **YouTube - Playback speed:** Remember playback speed when using non 1.0x default speed ([05b9f87](https://github.com/ReVanced/revanced-patches/commit/05b9f8709895dae67e8cc12e8b7bdb87ff401997)), closes [#3810](https://github.com/ReVanced/revanced-patches/issues/3810)
+
 ## [5.0.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.0.1-dev.1...v5.0.1-dev.2) (2024-11-11)
 
 
