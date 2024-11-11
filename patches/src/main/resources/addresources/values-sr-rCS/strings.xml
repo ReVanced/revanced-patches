@@ -272,8 +272,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Dugmad za vremensku oznaku i emodžije su prikazana</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Sakrij YouTube Doodles</string>
-  <string name="revanced_hide_doodles_summary_on">YouTube Doodles u traci za pretragu su skriveni</string>
-  <string name="revanced_hide_doodles_summary_off">YouTube Doodles u traci za pretragu su prikazani</string>
+  <string name="revanced_hide_doodles_summary_on">YouTube Doodles u traci za pretragu je skriven</string>
+  <string name="revanced_hide_doodles_summary_off">YouTube Doodles u traci za pretragu je prikazan</string>
   <string name="revanced_hide_doodles_user_dialog_message">YouTube Doodles se pojavljuje nekoliko dana svake godine.\n\nAko se Doodle trenutno prikazuje u vašem regionu i ovo podešavanje skrivanja je uključeno, traka za filtriranje ispod trake za pretragu takođe će biti skrivena.</string>
   <string name="revanced_custom_filter_screen_title">Prilagođeni filter</string>
   <string name="revanced_custom_filter_screen_summary">Sakrijte komponente koristeći prilagođene filtere</string>
@@ -739,7 +739,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Iskačuće obaveštenje je prikazano, ako Return YouTube Dislike nije dostupan</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Iskačuće obaveštenje nije prikazano, ako Return YouTube Dislike nije dostupan</string>
   <string name="revanced_ryd_about">O programu</string>
-  <string name="revanced_ryd_attribution_summary">Podatke obezbeđuje Return YouTube Dislike API. Dodirnite ovde da biste saznali više</string>
+  <string name="revanced_ryd_attribution_summary">Podatke obezbeđuje Return YouTube Dislike API. Dodirnite ovde da saznate više</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">Statistike ReturnYouTubeDislike API-ja za ovaj uređaj</string>
   <string name="revanced_ryd_statistics_getFetchCallResponseTimeAverage_title">Vreme odgovora API-ja, prosečno</string>
@@ -953,7 +953,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_reset_color">Resetuj boju</string>
   <string name="revanced_sb_reset">Resetuj</string>
   <string name="revanced_sb_about">O programu</string>
-  <string name="revanced_sb_about_api_sum">Podatke obezbeđuje SponsorBlock API. Dodirnite ovde da biste saznali više i videli preuzimanja za druge platforme</string>
+  <string name="revanced_sb_about_api_sum">Podatke obezbeđuje SponsorBlock API. Dodirnite ovde da saznate više i vidite preuzimanja za druge platforme</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Lažirana verzija aplikacije</string>
@@ -1078,7 +1078,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow i originalne sličice</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow i zahvati kadra</string>
   <string name="revanced_alt_thumbnail_options_entry_4">Zahvati kadra</string>
-  <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow pruža sličice za YouTube videe prikupljene od zajednice. Ove sličice su često relevantnije od onih koje pruža YouTube\n\nAko je omogućeno, linkovi videa će biti poslati na API server i nikakvi drugi podaci se neće slati. Ako video nema DeArrow sličice, tada se prikazuju originalne sličice ili sličice zahvata kadra\n\nDodirnite ovde da biste saznali više o DeArrowu</string>
+  <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow pruža sličice za YouTube videe prikupljene od zajednice. Ove sličice su često relevantnije od onih koje pruža YouTube\n\nAko je omogućeno, linkovi videa će biti poslati na API server i nikakvi drugi podaci se neće slati. Ako video nema DeArrow sličice, tada se prikazuju originalne sličice ili sličice zahvata kadra\n\nDodirnite ovde da saznate više o DeArrowu</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Prikaži iskačuće obaveštenje ako API nije dostupan</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Iskačuće obaveštenje je prikazano, ako DeArrow nije dostupan</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Iskačuće obaveštenje nije prikazano, ako DeArrow nije dostupan</string>
@@ -1151,10 +1151,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_remember_video_quality_last_selected_summary_on">Promene kvaliteta se primenjuju na sve videe</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Promene kvaliteta se primenjuju samo na trenutni video</string>
   <string name="revanced_video_quality_default_wifi_title">Podrazumevani kvalitet videa na Wi-Fi mreži</string>
-  <string name="revanced_video_quality_default_mobile_title">Podrazumevani kvalitet videa na mobilnim podacima</string>
-  <string name="revanced_remember_video_quality_mobile">na mobilnim podacima</string>
-  <string name="revanced_remember_video_quality_wifi">na Wi-Fi mreži</string>
-  <string name="revanced_remember_video_quality_toast">Promenjen podrazumevani kvalitet %1$s na: %2$s</string>
+  <string name="revanced_video_quality_default_mobile_title">Podrazumevani kvalitet videa na mobilnoj mreži</string>
+  <string name="revanced_remember_video_quality_mobile">mobilnoj mreži</string>
+  <string name="revanced_remember_video_quality_wifi">Wi-Fi mreži</string>
+  <string name="revanced_remember_video_quality_toast">Kvalitet na %1$s promenjen na: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Prikaži dugme dijaloga za brzinu</string>
