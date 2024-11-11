@@ -34,14 +34,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <app id="shared">
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Comprobaciones fallidas</string>
-  <string name="revanced_check_environment_dialog_open_official_source_button">Abrir sitio web oficial</string>
+  <string name="revanced_check_environment_dialog_open_official_source_button">Ir al sitio web oficial</string>
   <string name="revanced_check_environment_dialog_ignore_button">Ignorar</string>
   <string name="revanced_check_environment_failed_message">&lt;h5&gt;Esta app no parece estar parcheada por ti.&lt;/h5&gt;&lt;br&gt;Esta app podría no funcionar correctamente, &lt;b&gt; podría ser perjudicial o incluso peligrosa de usar&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Estas comprobaciones implican que esta app está pre-parcheada o se ha obtenido de alguien más:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Se recomienda mucho &lt;b&gt;desinstalar esta app y parchearla por ti mismo&lt;/b&gt; para asegurarte de que estás usando una app segura y validada.&lt;p&gt;&lt;br&gt;Si se ignora, este aviso se mostrará solo dos veces.</string>
   <string name="revanced_check_environment_not_same_patching_device">Parcheado en un dispositivo diferente</string>
   <string name="revanced_check_environment_manager_not_expected_installer">No instalado por ReVanced Manager</string>
   <string name="revanced_check_environment_not_near_patch_time">Parcheado hace más de 10 minutos</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Parcheado hace %s días</string>
-  <string name="revanced_check_environment_not_near_patch_time_invalid">La fecha de compilación de APK está dañada</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">La fecha de compilación del APK está dañada</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_confirm_user_dialog_title">¿Desea continuar?</string>
@@ -132,7 +132,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_join_membership_button_summary_on">Botón oculto</string>
   <string name="revanced_hide_join_membership_button_summary_off">Se muestra el botón</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">Ocultar estantería \'Para ti\' en la página del canal</string>
+  <string name="revanced_hide_for_you_shelf_title">Ocultar sección \'Para ti\' en la página del canal</string>
   <string name="revanced_hide_for_you_shelf_summary_on">Estante oculto</string>
   <string name="revanced_hide_for_you_shelf_summary_off">Estante mostrado</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
@@ -141,7 +141,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_notify_me_button_summary_on">Botón oculto</string>
   <string name="revanced_hide_notify_me_button_summary_off">Se muestra el botón</string>
   <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Ocultar recomendaciones \"Las personas también vieron\"</string>
+  <string name="revanced_hide_search_result_recommendations_title">Ocultar recomendaciones de \"Las personas también vieron\"</string>
   <string name="revanced_hide_search_result_recommendations_summary_on">Recomendaciones ocultas</string>
   <string name="revanced_hide_search_result_recommendations_summary_off">Se muestran las recomendaciones</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
@@ -158,9 +158,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_guidelines_title">Ocultar pautas de canal</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Las pautas del canal están ocultas</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Se muestran las pautas del canal</string>
-  <string name="revanced_hide_chips_shelf_title">Ocultar estante de fichas</string>
-  <string name="revanced_hide_chips_shelf_summary_on">El estante de fichas está oculto</string>
-  <string name="revanced_hide_chips_shelf_summary_off">Se muestra el estante de fichas</string>
+  <string name="revanced_hide_chips_shelf_title">Ocultar \"Más como esto\"</string>
+  <string name="revanced_hide_chips_shelf_summary_on">\"Más como esto\" está oculto</string>
+  <string name="revanced_hide_chips_shelf_summary_off">\"Más como esto\" está habilitado</string>
   <string name="revanced_hide_expandable_chip_title">Ocultar ficha expandible en videos</string>
   <string name="revanced_hide_expandable_chip_summary_on">Las fichas expandibles están ocultas</string>
   <string name="revanced_hide_expandable_chip_summary_off">Se muestran fichas expandibles</string>
