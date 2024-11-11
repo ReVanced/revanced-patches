@@ -1,3 +1,11 @@
+## [5.0.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.0.1...v5.0.2-dev.1) (2024-11-11)
+
+
+### Bug Fixes
+
+* **Sync for Reddit - Fix /s/ links:** Fix patch by using correct fingerprints ([a0ad07e](https://github.com/ReVanced/revanced-patches/commit/a0ad07ef3170dbe1d91ebd40f11d97b63d1c63d0))
+* **Sync for Reddit - Spoof client:** Fix patch by using correct fingerprints ([5776de3](https://github.com/ReVanced/revanced-patches/commit/5776de3cfbfa62360267eb6026525d2da8c45654))
+
 ## [5.0.1](https://github.com/ReVanced/revanced-patches/compare/v5.0.0...v5.0.1) (2024-11-11)
 
 
