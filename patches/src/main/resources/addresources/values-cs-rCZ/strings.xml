@@ -36,26 +36,26 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_check_environment_failed_title">Kontroly selhaly</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Otevřít oficiální webovou stránku</string>
   <string name="revanced_check_environment_dialog_ignore_button">Ignorovat</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Zdá se, že tuto aplikaci neupravujete.&lt;/h5&gt;&lt;br&gt;Tato aplikace nemusí fungovat správně, &lt;b&gt;může být škodlivá nebo dokonce nebezpečná pro použití&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Z těchto kontrol vyplývá, že tato aplikace je předem upravena nebo získána od někoho jiného:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Je důrazně doporučeno &lt;b&gt;odinstalovat tuto aplikaci a opravit ji sami&lt;/b&gt; , abyste se ujistili, že používáte ověřenou a bezpečnou aplikaci.&lt;p&gt;&lt;br&gt;Pokud je ignorováno, toto varování se zobrazí pouze dvakrát.</string>
-  <string name="revanced_check_environment_not_same_patching_device">Upraveno na jiném zařízení</string>
-  <string name="revanced_check_environment_manager_not_expected_installer">Není nainstalován ReVanced Manager</string>
-  <string name="revanced_check_environment_not_near_patch_time">Upraveno před více než 10 minutami</string>
-  <string name="revanced_check_environment_not_near_patch_time_days">Patchnuto před %s dny</string>
-  <string name="revanced_check_environment_not_near_patch_time_invalid">APK datum sestavení je poškozeno</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Zdá se, že jste tuto upravenou verzi aplikace nevygenerovali vy.&lt;/h5&gt;&lt;br&gt;Aplikace nemusí fungovat správně, &lt;b&gt;může být škodlivá nebo nebezpečná&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Z následujících kontrol vyplývá, že úpravy této aplikace byly provedeny někým jiným:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Je důrazně doporučeno &lt;b&gt;odinstalovat tuto aplikaci a vygenerovat ji sami&lt;/b&gt;, abyste měli jistotu, že je aplikace ověřená a bezpečná.&lt;p&gt;&lt;br&gt;Pokud zvolíte Ignorovat, toto varování se zobrazí pouze dvakrát.</string>
+  <string name="revanced_check_environment_not_same_patching_device">Vygenerována na jiném zařízení</string>
+  <string name="revanced_check_environment_manager_not_expected_installer">Nebyla nainstalována skrze ReVanced Manager</string>
+  <string name="revanced_check_environment_not_near_patch_time">Vygenerována před více než 10 minutami</string>
+  <string name="revanced_check_environment_not_near_patch_time_days">Vygenerována před %s dny</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">Datum sestavení souboru APK je poškozeno</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Přejete si pokračovat?</string>
-  <string name="revanced_settings_reset">Resetovat</string>
+  <string name="revanced_settings_reset">Výchozí</string>
   <string name="revanced_settings_restart_title">Obnovit a restartovat</string>
   <string name="revanced_settings_restart">Restartovat</string>
   <string name="revanced_settings_import">Importovat</string>
   <string name="revanced_settings_import_copy">Kopírovat</string>
-  <string name="revanced_settings_import_reset">Nastavení Revanced resetováno do výchozího stavu</string>
+  <string name="revanced_settings_import_reset">Nastavení ReVanced obnoveno do výchozího stavu</string>
   <string name="revanced_settings_import_success">Importováno %d nastavení</string>
   <string name="revanced_settings_import_failure_parse">Importováni selhalo: %s</string>
   <string name="revanced_pref_import_export_title">Import / Export</string>
-  <string name="revanced_pref_import_export_summary">Importovat/ exportovat nastavení ReVanced</string>
+  <string name="revanced_pref_import_export_summary">Importovat/exportovat nastavení ReVanced</string>
   <!-- Settings about dialog. -->
   <string name="revanced_settings_about_links_body">Používáte ReVanced Patches verze &lt;i&gt;%s&lt;/i&gt;</string>
   <string name="revanced_settings_about_links_dev_header">Poznámka</string>
@@ -300,6 +300,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">klíčová slova a fráze ke skrytí, odděleno novými řádky\n\nKlíčová slova mohou být jména kanálů nebo jakýkoli text zobrazený v nadpisech videa\n\nSlova s velkými písmeny uprostřed musí být zadána se skříní (např: iPhone, iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">O filtrování klíčových slov</string>
+  <string name="revanced_hide_keyword_content_about_summary">Domů/Předplatné/Výsledky vyhledávání jsou filtrovány tak, aby se skryl obsah, který odpovídá klíčovým slovům\n\nOmezení\n- Shorts nelze skrýt podle názvu kanálu\n- Některé součásti uživatelského rozhraní se nemusí skrýt\n- Při vyhledávání klíčového slova se nemusí zobrazit žádné výsledky</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Porovnat celá slova</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Zaokrouhlení klíčového slova/fráze s dvojitými uvozovkami zabrání částečným shodám s názvy videí a kanálů&lt;br&gt;&lt;br&gt;Například&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; skryje video: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;, ale nebude skrýt: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
@@ -597,11 +598,18 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_shorts_player_screen_title">Přehrávač Shorts</string>
   <string name="revanced_shorts_player_screen_summary">Skrýt nebo zobrazit komponenty v přehrávači Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
+  <string name="revanced_hide_shorts_home_title">Skrýt Shorts v Domů</string>
+  <string name="revanced_hide_shorts_home_summary_on">Shorts jsou schovány v Domů</string>
+  <string name="revanced_hide_shorts_home_summary_off">Shorts jsou zobrazeny v Domů</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
+  <string name="revanced_hide_shorts_subscriptions_title">Schovat Shorts v odběrovém feedu</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts jsou v odběrovém feedu schovány</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts jsou v odběrovém feedu zobazeny</string>
   <string name="revanced_hide_shorts_search_title">Skrýt Shorts ve výsledcích vyhledávání</string>
   <string name="revanced_hide_shorts_search_summary_on">Shorts jsou ve výsledcích vyhledávání skryté</string>
   <string name="revanced_hide_shorts_search_summary_off">Shorts jsou ve výsledcích vyhledávání viditelné</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
+  <string name="revanced_hide_shorts_join_button_title">Skrýt tlačítko Připojit se</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Tlačítko spojení je skryté</string>
   <string name="revanced_hide_shorts_join_button_summary_off">Zobrazí se tlačítko pro připojení</string>
   <!-- 'subscribe' should be translated using the same localized wording YouTube displays for the button. -->
