@@ -1,3 +1,10 @@
+## [5.0.1-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.0.1-dev.3...v5.0.1-dev.4) (2024-11-11)
+
+
+### Bug Fixes
+
+* **Twitter:** Fix patches by depending on patch that merges required extension ([c330e9d](https://github.com/ReVanced/revanced-patches/commit/c330e9d67d3e8c8c3535fa43e52c9f06e33ff0bf))
+
 ## [5.0.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.0.1-dev.2...v5.0.1-dev.3) (2024-11-11)
 
 
