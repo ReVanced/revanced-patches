@@ -20,7 +20,7 @@ fun sharedExtensionPatch(
     extendWith("extensions/shared.rve")
 
     execute {
-        if (classBy { EXTENSION_CLASS_DESCRIPTOR in it.type } == null) {
+        if (classes.none { EXTENSION_CLASS_DESCRIPTOR == it.type }) {
             throw PatchException(
                 "Shared extension has not been merged yet. This patch can not succeed without merging it.",
             )
@@ -35,7 +35,7 @@ fun sharedExtensionPatch(
              */
             fun getCurrentJarFilePath(): String {
                 val className = object {}::class.java.enclosingClass.name.replace('.', '/') + ".class"
-                val classUrl = object {}::class.java.classLoader.getResource(className)
+                val classUrl = object {}::class.java.classLoader?.getResource(className)
                 if (classUrl != null) {
                     val urlString = classUrl.toString()
 
