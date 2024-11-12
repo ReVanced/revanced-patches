@@ -53,4 +53,18 @@ public final class EnableDebuggingPatch {
 
         return value;
     }
+
+    /**
+     * Injection point.
+     */
+    public static String isStringFeatureFlagEnabled(String value, long flag, String defaultValue) {
+        if (BaseSettings.DEBUG.get() && !defaultValue.equals(value)) {
+            if (featureFlags.putIfAbsent(flag, true) == null) {
+                Logger.printDebug(() -> " string feature is enabled: " + flag
+                        + " value: " + value +  (defaultValue.isEmpty() ? "" : " default: " + defaultValue));
+            }
+        }
+
+        return value;
+    }
 }
