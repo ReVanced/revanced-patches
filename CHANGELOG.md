@@ -1,3 +1,18 @@
+## [5.0.2-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.0.2-dev.1...v5.0.2-dev.2) (2024-11-12)
+
+
+### Bug Fixes
+
+* **YouTube - Player controls:** Show player control buttons with A/B layout ([#3901](https://github.com/ReVanced/revanced-patches/issues/3901)) ([bb526bc](https://github.com/ReVanced/revanced-patches/commit/bb526bc00a384eb808f46267e5802c8e5beaa7d5))
+
+## [5.0.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.0.1...v5.0.2-dev.1) (2024-11-11)
+
+
+### Bug Fixes
+
+* **Sync for Reddit - Fix /s/ links:** Fix patch by using correct fingerprints ([a0ad07e](https://github.com/ReVanced/revanced-patches/commit/a0ad07ef3170dbe1d91ebd40f11d97b63d1c63d0))
+* **Sync for Reddit - Spoof client:** Fix patch by using correct fingerprints ([5776de3](https://github.com/ReVanced/revanced-patches/commit/5776de3cfbfa62360267eb6026525d2da8c45654))
+
 ## [5.0.1](https://github.com/ReVanced/revanced-patches/compare/v5.0.0...v5.0.1) (2024-11-11)
 
 

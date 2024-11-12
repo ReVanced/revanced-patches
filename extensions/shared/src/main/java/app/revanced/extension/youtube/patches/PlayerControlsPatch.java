@@ -8,6 +8,7 @@ import app.revanced.extension.shared.Logger;
 
 @SuppressWarnings("unused")
 public class PlayerControlsPatch {
+
     /**
      * Injection point.
      */
@@ -40,5 +41,12 @@ public class PlayerControlsPatch {
     // noinspection EmptyMethod
     public static void fullscreenButtonVisibilityChanged(boolean isVisible) {
         // Code added during patching.
+    }
+
+    /**
+     * Injection point.
+     */
+    public static String getPlayerTopControlsLayoutResourceName(String original) {
+        return "default";
     }
 }

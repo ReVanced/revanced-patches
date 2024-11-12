@@ -47,10 +47,17 @@ internal val controlsOverlayVisibilityFingerprint = fingerprint {
     parameters("Z", "Z")
 }
 
-internal val playerControlsExploderFeatureFlagFingerprint = fingerprint {
+internal val playerBottomControlsExploderFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()
     literal { 45643739L }
+}
+
+internal val playerTopControlsExperimentalLayoutFeatureFlagFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("I")
+    parameters()
+    literal { 45629424L }
 }
 
