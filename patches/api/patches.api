@@ -1444,10 +1444,12 @@ public final class app/revanced/util/BytecodeUtilsKt {
 	public static final fun indexOfFirstInstructionOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/Opcode;)I
 	public static synthetic fun indexOfFirstInstructionOrThrow$default (Lcom/android/tools/smali/dexlib2/iface/Method;ILcom/android/tools/smali/dexlib2/Opcode;ILjava/lang/Object;)I
 	public static synthetic fun indexOfFirstInstructionOrThrow$default (Lcom/android/tools/smali/dexlib2/iface/Method;ILkotlin/jvm/functions/Function1;ILjava/lang/Object;)I
+	public static final fun indexOfFirstInstructionReversed (Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/Opcode;)I
 	public static final fun indexOfFirstInstructionReversed (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/Integer;Lcom/android/tools/smali/dexlib2/Opcode;)I
 	public static final fun indexOfFirstInstructionReversed (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/Integer;Lkotlin/jvm/functions/Function1;)I
 	public static synthetic fun indexOfFirstInstructionReversed$default (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/Integer;Lcom/android/tools/smali/dexlib2/Opcode;ILjava/lang/Object;)I
 	public static synthetic fun indexOfFirstInstructionReversed$default (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/Integer;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)I
+	public static final fun indexOfFirstInstructionReversedOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;Lcom/android/tools/smali/dexlib2/Opcode;)I
 	public static final fun indexOfFirstInstructionReversedOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/Integer;Lcom/android/tools/smali/dexlib2/Opcode;)I
 	public static final fun indexOfFirstInstructionReversedOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/Integer;Lkotlin/jvm/functions/Function1;)I
 	public static synthetic fun indexOfFirstInstructionReversedOrThrow$default (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/Integer;Lcom/android/tools/smali/dexlib2/Opcode;ILjava/lang/Object;)I
