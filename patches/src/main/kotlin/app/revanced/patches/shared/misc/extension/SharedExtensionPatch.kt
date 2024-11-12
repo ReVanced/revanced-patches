@@ -14,10 +14,19 @@ import java.util.jar.JarFile
 
 internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/shared/Utils;"
 
+/**
+ * A patch to extend with an extension shared with multiple patches.
+ *
+ * @param app The name of the extension to extend with.
+ * If null, the shared extension will be merged only.
+ * @param hooks The hooks to get the application context for use in the extension,
+ * commonly for the onCreate method of exported activities.
+ */
 fun sharedExtensionPatch(
+    extensionName: String,
     vararg hooks: ExtensionHook,
 ) = bytecodePatch {
-    extendWith("extensions/shared.rve")
+    extendWith("extensions/$extensionName.rve")
 
     execute {
         if (classes.none { EXTENSION_CLASS_DESCRIPTOR == it.type }) {
