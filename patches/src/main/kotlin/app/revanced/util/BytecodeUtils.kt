@@ -311,6 +311,17 @@ fun Method.indexOfFirstInstructionReversed(startIndex: Int? = null, filter: Inst
 
 /**
  * Get the index of matching instruction,
+ * starting from the end of the method and searching down.
+ *
+ * @return -1 if the instruction is not found.
+ */
+fun Method.indexOfFirstInstructionReversed(targetOpcode: Opcode): Int =
+    indexOfFirstInstructionReversed {
+        opcode == targetOpcode
+    }
+
+/**
+ * Get the index of matching instruction,
  * starting from and [startIndex] and searching down.
  *
  * @param startIndex Optional starting index to search down from. Searching includes the start index.
@@ -322,6 +333,16 @@ fun Method.indexOfFirstInstructionReversedOrThrow(startIndex: Int? = null, targe
         opcode == targetOpcode
     }
 
+/**
+ * Get the index of matching instruction,
+ * starting from the end of the method and searching down.
+ *
+ * @return -1 if the instruction is not found.
+ */
+fun Method.indexOfFirstInstructionReversedOrThrow(targetOpcode: Opcode): Int =
+    indexOfFirstInstructionReversedOrThrow {
+        opcode == targetOpcode
+    }
 /**
  * Get the index of matching instruction,
  * starting from and [startIndex] and searching down.
