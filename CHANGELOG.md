@@ -1,3 +1,10 @@
+## [5.0.2-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.0.2-dev.1...v5.0.2-dev.2) (2024-11-12)
+
+
+### Bug Fixes
+
+* **YouTube - Player controls:** Show player control buttons with A/B layout ([#3901](https://github.com/ReVanced/revanced-patches/issues/3901)) ([bb526bc](https://github.com/ReVanced/revanced-patches/commit/bb526bc00a384eb808f46267e5802c8e5beaa7d5))
+
 ## [5.0.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.0.1...v5.0.2-dev.1) (2024-11-11)
 
 
