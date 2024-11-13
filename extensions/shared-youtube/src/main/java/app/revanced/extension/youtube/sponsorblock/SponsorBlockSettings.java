@@ -27,6 +27,17 @@ public class SponsorBlockSettings {
      */
     private static final int SB_PRIVATE_USER_ID_MINIMUM_LENGTH = 30;
 
+    public static final Setting.ImportExportCallback SB_IMPORT_EXPORT_CALLBACK = new Setting.ImportExportCallback() {
+        @Override
+        public void settingsImported(@Nullable Context context) {
+            updateFromImportedSettings();
+        }
+        @Override
+        public void settingsExported(@Nullable Context context) {
+            showExportWarningIfNeeded(context);
+        }
+    };
+
     public static void importDesktopSettings(@NonNull String json) {
         Utils.verifyOnMainThread();
         try {
