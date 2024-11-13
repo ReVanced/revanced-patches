@@ -1,4 +1,4 @@
-package app.revanced.extension.youtube.requests;
+package app.revanced.extension.shared.requests;
 
 import app.revanced.extension.shared.Utils;
 import org.json.JSONArray;

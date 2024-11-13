@@ -1,4 +1,4 @@
-package app.revanced.extension.youtube.requests;
+package app.revanced.extension.shared.requests;
 
 public class Route {
     private final String route;

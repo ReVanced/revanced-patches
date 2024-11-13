@@ -2,7 +2,7 @@ package app.revanced.extension.shared.settings.preference;
 
 import static app.revanced.extension.shared.StringRef.sf;
 import static app.revanced.extension.shared.StringRef.str;
-import static app.revanced.extension.youtube.requests.Route.Method.GET;
+import static app.revanced.extension.shared.requests.Route.Method.GET;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -33,8 +33,8 @@ import java.util.List;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
-import app.revanced.extension.youtube.requests.Requester;
-import app.revanced.extension.youtube.requests.Route;
+import app.revanced.extension.shared.requests.Requester;
+import app.revanced.extension.shared.requests.Route;
 
 /**
  * Opens a dialog showing the links from {@link SocialLinksRoutes}.
