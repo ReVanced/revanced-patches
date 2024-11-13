@@ -19,7 +19,7 @@ import java.util.Collection;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
-import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.shared.settings.BaseSettings;
 
 abstract class Check {
     private static final int NUMBER_OF_TIMES_TO_IGNORE_WARNING_BEFORE_DISABLING = 2;
@@ -46,11 +46,11 @@ abstract class Check {
     /**
      * For debugging and development only.
      * Forces all checks to be performed and the check failed dialog to be shown.
-     * Can be enabled by importing settings text with {@link Settings#CHECK_ENVIRONMENT_WARNINGS_ISSUED}
+     * Can be enabled by importing settings text with {@link BaseSettings#CHECK_ENVIRONMENT_WARNINGS_ISSUED}
      * set to -1.
      */
     static boolean debugAlwaysShowWarning() {
-        final boolean alwaysShowWarning = Settings.CHECK_ENVIRONMENT_WARNINGS_ISSUED.get() < 0;
+        final boolean alwaysShowWarning = BaseSettings.CHECK_ENVIRONMENT_WARNINGS_ISSUED.get() < 0;
         if (alwaysShowWarning) {
             Logger.printInfo(() -> "Debug forcing environment check warning to show");
         }
@@ -59,14 +59,14 @@ abstract class Check {
     }
 
     static boolean shouldRun() {
-        return Settings.CHECK_ENVIRONMENT_WARNINGS_ISSUED.get()
+        return BaseSettings.CHECK_ENVIRONMENT_WARNINGS_ISSUED.get()
                 < NUMBER_OF_TIMES_TO_IGNORE_WARNING_BEFORE_DISABLING;
     }
 
     static void disableForever() {
         Logger.printInfo(() -> "Environment checks disabled forever");
 
-        Settings.CHECK_ENVIRONMENT_WARNINGS_ISSUED.save(Integer.MAX_VALUE);
+        BaseSettings.CHECK_ENVIRONMENT_WARNINGS_ISSUED.save(Integer.MAX_VALUE);
     }
 
     @SuppressLint("NewApi")
@@ -107,8 +107,8 @@ abstract class Check {
                             " ",
                             (dialog, which) -> {
                                 // Cleanup data if the user incorrectly imported a huge negative number.
-                                final int current = Math.max(0, Settings.CHECK_ENVIRONMENT_WARNINGS_ISSUED.get());
-                                Settings.CHECK_ENVIRONMENT_WARNINGS_ISSUED.save(current + 1);
+                                final int current = Math.max(0, BaseSettings.CHECK_ENVIRONMENT_WARNINGS_ISSUED.get());
+                                BaseSettings.CHECK_ENVIRONMENT_WARNINGS_ISSUED.save(current + 1);
 
                                 dialog.dismiss();
                             }
