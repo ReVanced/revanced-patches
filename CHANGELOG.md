@@ -1,3 +1,10 @@
+## [5.0.3-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.0.2...v5.0.3-dev.1) (2024-11-13)
+
+
+### Bug Fixes
+
+* **YouTube - Change header:** Apply header changes to A/B layout ([#3907](https://github.com/ReVanced/revanced-patches/issues/3907)) ([6ccf114](https://github.com/ReVanced/revanced-patches/commit/6ccf11426ec9e9cd9c8e89a2443f0d0645cc78b1))
+
 ## [5.0.2](https://github.com/ReVanced/revanced-patches/compare/v5.0.1...v5.0.2) (2024-11-12)
 
 
