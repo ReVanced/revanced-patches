@@ -84,7 +84,7 @@ val changeHeaderPatch = resourcePatch(
         /**
          * A function that overwrites both header variants in the target resource directories.
          */
-        val overwriteFromTo: (String, String) -> Unit = { from: String, to: String ->
+        fun overwriteFromTo(from: String, to: String) {
             targetResourceDirectories.forEach { directory ->
                 variants.forEach { variant ->
                     val fromPath = directory.resolve("${from}_$variant.png")
@@ -153,11 +153,11 @@ val changeHeaderPatch = resourcePatch(
             else -> toCustom()
         }
 
-        // Fix 19.25+ a/b layout that uses different header icons:
-        // yt_ringo2_premium_wordmark_header_dark, yt_ringo2_wordmark_header_dark
+        // Fix 19.25+ A/B layout with different header icons:
+        // yt_ringo2_wordmark_header, yt_ringo2_premium_wordmark_header
         //
-        // These images are webp and not png, so overwriting them them is not so simple.
-        // Instead change the styles.xml entry to use the old drawable resources.
+        // These images are webp and not png, so overwriting them is not so simple.
+        // Instead change styles.xml to use the old drawable resources.
         if (is_19_25_or_greater) {
             document("res/values/styles.xml").use { document ->
                 arrayOf(
@@ -169,7 +169,7 @@ val changeHeaderPatch = resourcePatch(
                         styleName,
                     )
 
-                    var drawable = "@drawable/${HEADER_FILE_NAME}_${theme}"
+                    val drawable = "@drawable/${HEADER_FILE_NAME}_${theme}"
 
                     arrayOf(
                         "ytWordmarkHeader",
