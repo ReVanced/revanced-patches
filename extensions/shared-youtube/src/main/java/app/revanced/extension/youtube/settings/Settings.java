@@ -391,6 +391,12 @@ public class Settings extends BaseSettings {
         }
 
         // endregion
+
+        // region SB import/export callbacks
+
+        Setting.addImportExportCallback(SponsorBlockSettings.SB_IMPORT_EXPORT_CALLBACK);
+
+        // endregion
     }
 }
 

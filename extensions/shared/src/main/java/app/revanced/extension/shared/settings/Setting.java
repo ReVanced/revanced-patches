@@ -7,7 +7,6 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.StringRef;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.SharedPrefCategory;
-import app.revanced.extension.youtube.sponsorblock.SponsorBlockSettings;
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -60,6 +59,30 @@ public abstract class Setting<T> {
             }
             return false;
         };
+    }
+
+    /**
+     * Callback for importing/exporting settings.
+     */
+    public interface ImportExportCallback {
+        /**
+         * Called after all settings have been imported.
+         */
+        void settingsImported(@Nullable Context context);
+
+        /**
+         * Called after all settings have been exported.
+         */
+        void settingsExported(@Nullable Context context);
+    }
+
+    private static final List<ImportExportCallback> importExportCallbacks = new ArrayList<>();
+
+    /**
+     * Adds a callback for {@link #importFromJSON(Context, String)} and {@link #exportToJson(Context)}.
+     */
+    public static void addImportExportCallback(@NonNull ImportExportCallback callback) {
+        importExportCallbacks.add(Objects.requireNonNull(callback));
     }
 
     /**
@@ -365,7 +388,10 @@ public abstract class Setting<T> {
                     setting.writeToJSON(json, importExportKey);
                 }
             }
-            SponsorBlockSettings.showExportWarningIfNeeded(alertDialogContext);
+
+            for (ImportExportCallback callback : importExportCallbacks) {
+                callback.settingsExported(alertDialogContext);
+            }
 
             if (json.length() == 0) {
                 return "";
@@ -385,7 +411,7 @@ public abstract class Setting<T> {
     /**
      * @return if any settings that require a reboot were changed.
      */
-    public static boolean importFromJSON(@NonNull String settingsJsonString) {
+    public static boolean importFromJSON(@NonNull Context alertDialogContext, @NonNull String settingsJsonString) {
         try {
             if (!settingsJsonString.matches("[\\s\\S]*\\{")) {
                 settingsJsonString = '{' + settingsJsonString + '}'; // Restore outer JSON braces
@@ -411,12 +437,9 @@ public abstract class Setting<T> {
                 }
             }
 
-            // SB Enum categories are saved using StringSettings.
-            // Which means they need to reload again if changed by other code (such as here).
-            // This call could be removed by creating a custom Setting class that manages the
-            // "String <-> Enum" logic or by adding an event hook of when settings are imported.
-            // But for now this is simple and works.
-            SponsorBlockSettings.updateFromImportedSettings();
+            for (ImportExportCallback callback : importExportCallbacks) {
+                callback.settingsExported(alertDialogContext);
+            }
 
             Utils.showToastLong(numberOfSettingsImported == 0
                     ? str("revanced_settings_import_reset")
