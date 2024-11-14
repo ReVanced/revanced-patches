@@ -18,6 +18,7 @@ import app.revanced.extension.youtube.patches.AlternativeThumbnailsPatch.DeArrow
 import app.revanced.extension.youtube.patches.AlternativeThumbnailsPatch.StillImagesAvailability;
 import app.revanced.extension.youtube.patches.AlternativeThumbnailsPatch.ThumbnailOption;
 import app.revanced.extension.youtube.patches.AlternativeThumbnailsPatch.ThumbnailStillTime;
+import app.revanced.extension.youtube.patches.VersionCheckPatch;
 import app.revanced.extension.youtube.patches.spoof.ClientType;
 import app.revanced.extension.youtube.patches.spoof.SpoofAppVersionPatch;
 import app.revanced.extension.youtube.patches.spoof.SpoofVideoStreamsPatch;
@@ -199,7 +200,7 @@ public class Settings extends BaseSettings {
     // General layout
     public static final EnumSetting<StartPage> CHANGE_START_PAGE = new EnumSetting<>("revanced_change_start_page", StartPage.ORIGINAL, true);
     public static final BooleanSetting SPOOF_APP_VERSION = new BooleanSetting("revanced_spoof_app_version", FALSE, true, "revanced_spoof_app_version_user_dialog_message");
-    public static final StringSetting SPOOF_APP_VERSION_TARGET = new StringSetting("revanced_spoof_app_version_target", "17.41.37", true, parent(SPOOF_APP_VERSION));
+    public static final StringSetting SPOOF_APP_VERSION_TARGET = new StringSetting("revanced_spoof_app_version_target", VersionCheckPatch.IS_19_17_OR_GREATER ? "18.38.45" : "17.41.37", true, parent(SPOOF_APP_VERSION));
     public static final BooleanSetting TABLET_LAYOUT = new BooleanSetting("revanced_tablet_layout", FALSE, true, "revanced_tablet_layout_user_dialog_message");
     public static final BooleanSetting WIDE_SEARCHBAR = new BooleanSetting("revanced_wide_searchbar", FALSE, true);
     public static final BooleanSetting BYPASS_IMAGE_REGION_RESTRICTIONS = new BooleanSetting("revanced_bypass_image_region_restrictions", FALSE, true);
@@ -378,7 +379,7 @@ public class Settings extends BaseSettings {
         migrateOldSettingToNew(DEPRECATED_SB_UUID_OLD_MIGRATION_SETTING, SB_PRIVATE_USER_ID);
 
         // Old spoof versions that no longer work reliably.
-        if (SpoofAppVersionPatch.isSpoofingToLessThan("17.33.00")) {
+        if (SpoofAppVersionPatch.isSpoofingToLessThan(Settings.SPOOF_APP_VERSION_TARGET.defaultValue)) {
             Logger.printInfo(() -> "Resetting spoof app version target");
             Settings.SPOOF_APP_VERSION_TARGET.resetToDefault();
         }
