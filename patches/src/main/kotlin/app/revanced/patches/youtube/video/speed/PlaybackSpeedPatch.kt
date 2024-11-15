@@ -9,7 +9,7 @@ import app.revanced.patches.youtube.video.speed.remember.rememberPlaybackSpeedPa
 val playbackSpeedPatch = bytecodePatch(
     name = "Playback speed",
     description = "Adds options to customize available playback speeds, remember the last playback speed selected " +
-        "and show a speed dialog button to the video player.",
+        "and show a speed dialog button in the video player.",
 ) {
     dependsOn(
         playbackSpeedButtonPatch,
