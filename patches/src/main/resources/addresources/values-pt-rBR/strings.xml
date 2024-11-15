@@ -589,10 +589,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
   <string name="revanced_hide_seekbar_title">Ocultar barra de busca no reprodutor de vídeo</string>
   <string name="revanced_hide_seekbar_summary_on">Barra de busca no reprodutor de vídeo está oculto</string>
-  <string name="revanced_hide_seekbar_summary_off">Barra de busca no reprodutor de vídeo não está oculto</string>
-  <string name="revanced_hide_seekbar_thumbnail_title">Ocultar barra de busca nas miniaturas do vídeo</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_on">Barra de busca nas miniaturas estão oculta</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_off">Barra de busca nas miniaturas não estão oculta</string>
+  <string name="revanced_hide_seekbar_summary_off">Barra de busca no reprodutor de vídeo é mostrada</string>
+  <string name="revanced_hide_seekbar_thumbnail_title">Ocultar barra de busca nas miniaturas de vídeo</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">A barra de busca nas miniaturas está oculta</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_off">Barra de busca nas miniaturas é mostrada</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Reprodutor do Shorts</string>
@@ -637,6 +637,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_use_template_button_title">Ocultar botão Usar template</string>
   <string name="revanced_hide_shorts_use_template_button_summary_on">O botão Usar template está oculto</string>
   <string name="revanced_hide_shorts_use_template_button_summary_off">O botão Usar template será exibido</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">Ocultar botão \"próximo\"</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">O botão \"próximo\" está oculto</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">O botão \"próximo\" é mostrado</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">Ocultar botão de tela verde</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_on">O botão de tela verde está oculto</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_off">O botão de tela verde será exibido</string>
+  <string name="revanced_hide_shorts_hashtag_button_title">Ocultar botão hashtag</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_on">O botão hashtag está oculto</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_off">Botão hashtag é mostrado</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Ocultar sugestões de busca</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Sugestões de pesquisa estão ocultas</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Sugestões de pesquisa são mostradas</string>
@@ -755,9 +764,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_wide_searchbar_summary_off">Barra de busca ampla está desativada</string>
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_title">Ativar miniaturas de alta qualidade</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">As miniaturas na barra de busca são de qualidade alta</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">As miniaturas na barra de busca são de qualidade média</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">As miniaturas da barra de busca em tela cheia são de alta qualidade</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">As miniaturas da barra de busca em tela cheia são de qualidade média</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Isso também vai restaurar miniaturas em transmissões ao vivo que não têm miniaturas da barra de busca.\n\nAs miniaturas da barra de busca vão usar a mesma qualidade do vídeo atual.\\n\nEste recurso funciona melhor com qualidade de vídeo de 720p ou inferior e quando usar uma conexão de internet muito rápida.</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Restaurar as miniaturas antigas da barra de busca</string>
-  <string name="revanced_restore_old_seekbar_thumbnails_summary_on">As miniaturas aparecerão acima da barra de busca</string>
-  <string name="revanced_restore_old_seekbar_thumbnails_summary_off">As miniaturas na barra de busca aparecerão em tela cheia</string>
+  <string name="revanced_restore_old_seekbar_thumbnails_summary_on">As miniaturas vão aparecer acima da barra de busca</string>
+  <string name="revanced_restore_old_seekbar_thumbnails_summary_off">As miniaturas na barra de busca vão aparecer em tela cheia</string>
   </patch>
   <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
   <string name="revanced_sb_enable_sb">Ativar SponsorBlock</string>
@@ -949,20 +964,28 @@ This is because Crowdin requires temporarily flattening this file and removing t
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Versão de spoofing alvo</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_entry_1">18.33.40 - Restaurar RYD no modo Shorts ocultos</string>
-  <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - Restaurar a velocidade de vídeo ampla &amp; menu de qualidade</string>
-  <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - Restaurar aba biblioteca</string>
-  <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Restaurar prateleira de lista de reprodução antiga</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Restaurar RYD no modo Shorts ocultos</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Restaurar a velocidade de vídeo ampla &amp; menu de qualidade</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Restaurar aba biblioteca</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.41.37 - Restaurar prateleira de lista de reprodução antiga</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Definir página inicial</string>
   <string name="revanced_change_start_page_entry_default">Padrão</string>
+  <string name="revanced_change_start_page_entry_browse">Explorar canais</string>
   <string name="revanced_change_start_page_entry_explore">Explorar</string>
+  <string name="revanced_change_start_page_entry_gaming">Jogos</string>
   <string name="revanced_change_start_page_entry_history">Histórico</string>
+  <string name="revanced_change_start_page_entry_library">Biblioteca</string>
   <string name="revanced_change_start_page_entry_liked_videos">Videos curtidos</string>
+  <string name="revanced_change_start_page_entry_live">Ao Vivo</string>
+  <string name="revanced_change_start_page_entry_movies">Filmes</string>
+  <string name="revanced_change_start_page_entry_music">Música</string>
   <string name="revanced_change_start_page_entry_search">Procurar</string>
+  <string name="revanced_change_start_page_entry_sports">Esportes</string>
   <string name="revanced_change_start_page_entry_subscriptions">Inscrições</string>
   <string name="revanced_change_start_page_entry_trending">Em alta</string>
+  <string name="revanced_change_start_page_entry_watch_later">Assistir mais tarde</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Desativar continuar a reproduzir Shorts</string>
@@ -970,6 +993,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts irá continuar reproduzindo ao iniciar o aplicativo</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <string name="revanced_shorts_autoplay_title">Reprodução automática nos Shorts</string>
+  <string name="revanced_shorts_autoplay_summary_on">Os Shorts vão ser reproduzidos automaticamente</string>
+  <string name="revanced_shorts_autoplay_summary_off">Os Shorts vão repetir</string>
+  <string name="revanced_shorts_autoplay_background_title">Reprodução automática nos Shorts em segundo plano</string>
+  <string name="revanced_shorts_autoplay_background_summary_on">A reprodução em segundo plano dos Shorts vai ser reproduzidas automaticamente</string>
+  <string name="revanced_shorts_autoplay_background_summary_off">A reprodução em segundo plano dos Shorts vai ser reproduzidas automaticamente</string>
   </patch>
   <patch id="layout.tablet.enableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Ativar layout de tablet</string>
@@ -987,12 +1016,33 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_entry_4">Moderno 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderno 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderno 3</string>
+  <string name="revanced_miniplayer_rounded_corners_title">Ativar cantos arredondados</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_on">Os cantos são arredondados</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_off">Os cantos são quadrados</string>
+  <string name="revanced_miniplayer_double_tap_action_title">Ativar toque duplo e pinçar para redimensionar</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">Toque duplo e pinça para redimensionar está ativado\n\n• Toque duplo para aumentar o tamanho do miniplayer\n• Toque duas vezes de novo para restaurar o tamanho original</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_off">Toque duplo e pinçar para redimensionar está desativado</string>
+  <string name="revanced_miniplayer_drag_and_drop_title">Ativar arrastar e soltar</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">Arrastar e soltar é habilitado\n\nMiniplayer pode ser arrastado para qualquer canto da tela</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_off">Arrastar e soltar está desativado</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">Ativar o gesto de arrastar horizontal</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">Gesto de arrastar horizontal habilitado\n\nO miniplayer pode ser arrastado para fora da tela para a esquerda ou direita</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">Gesto de arrastar horizontal desativado</string>
+  <string name="revanced_miniplayer_hide_expand_close_title">Ocultar botão fechar</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">O botão fechar está oculto</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">Botão fechar é mostrado</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Ocultar botões de expansão e fechar</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Os botões são ocultos\n\nDeslize para expandir ou fechar</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Os botões de expansão e fechar são mostrados</string>
   <string name="revanced_miniplayer_hide_subtext_title">Ocultar subtextos</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Subtextos estão ocultos</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Subtextos são exibidos</string>
   <string name="revanced_miniplayer_hide_rewind_forward_title">Ocultar botões pular para frente e para trás</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Pular para frente e para trás estão escondidos</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Pular para frente e para trás são mostrados</string>
+  <string name="revanced_miniplayer_width_dip_title">Tamanho inicial</string>
+  <string name="revanced_miniplayer_width_dip_summary">Tamanho inicial na tela, em pixels</string>
+  <string name="revanced_miniplayer_width_dip_invalid_toast">O tamanho do pixel deve estar entre %1$s e %2$s</string>
   <string name="revanced_miniplayer_opacity_title">Opacidade de sobreposição</string>
   <string name="revanced_miniplayer_opacity_summary">Valor de opacidade entre 0-100, onde 0 é transparente</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Opacidade da sobreposição de miniplayer deve estar entre 0-100</string>
@@ -1004,10 +1054,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.theme.themeResourcePatch">
   <string name="revanced_seekbar_custom_color_title">Ativar cor personalizada da barra de busca</string>
-  <string name="revanced_seekbar_custom_color_summary_on">Mostrar cor personalizada da barra de busca</string>
-  <string name="revanced_seekbar_custom_color_summary_off">Mostrar cor original da barra de busca</string>
+  <string name="revanced_seekbar_custom_color_summary_on">Cor personalizada da barra de busca é mostrada</string>
+  <string name="revanced_seekbar_custom_color_summary_off">Cor original da barra de busca é mostrada</string>
   <string name="revanced_seekbar_custom_color_value_title">Cor personalizada da barra de busca</string>
-  <string name="revanced_seekbar_custom_color_value_summary">Cor da barra de busca</string>
+  <string name="revanced_seekbar_custom_color_value_summary">A cor da barra de busca</string>
   <string name="revanced_seekbar_custom_color_invalid">Valor de cor da barra de busca inválido</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
@@ -1112,7 +1162,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_playback_speed_dialog_button_summary_off">Botão não está visível</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <string name="revanced_custom_speed_menu_title">Menu de velocidade de reprodução personalizado</string>
+  <string name="revanced_custom_speed_menu_summary_on">O menu de velocidade personalizado é mostrado</string>
+  <string name="revanced_custom_speed_menu_summary_off">O menu de velocidade personalizado não é mostrado</string>
   <string name="revanced_custom_playback_speeds_title">Velocidade de reprodução personalizada</string>
+  <string name="revanced_custom_playback_speeds_summary">Adicionar ou mudar as velocidades de reprodução personalizadas</string>
   <string name="revanced_custom_playback_speeds_invalid">Velocidades personalizadas devem ser menores que %s. Usando valores padrão.</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Velocidade personalizada de reprodução inválida. Usando valores padrão.</string>
   </patch>
