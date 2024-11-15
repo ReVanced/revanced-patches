@@ -1,5 +1,6 @@
 package app.revanced.extension.youtube.patches.playback.speed;
 
+import static app.revanced.extension.shared.StringRef.sf;
 import static app.revanced.extension.shared.StringRef.str;
 
 import android.preference.ListPreference;
@@ -10,15 +11,18 @@ import android.view.ViewParent;
 
 import androidx.annotation.NonNull;
 
-import app.revanced.extension.youtube.patches.components.PlaybackSpeedMenuFilterPatch;
-import app.revanced.extension.youtube.settings.Settings;
+import java.util.Arrays;
+
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
-
-import java.util.Arrays;
+import app.revanced.extension.youtube.patches.components.PlaybackSpeedMenuFilterPatch;
+import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
 public class CustomPlaybackSpeedPatch {
+
+    private static final float PLAYBACK_SPEED_AUTO = Settings.PLAYBACK_SPEED_DEFAULT.defaultValue;
+
     /**
      * Maximum playback speed, exclusive value.  Custom speeds must be less than this value.
      *
@@ -26,7 +30,7 @@ public class CustomPlaybackSpeedPatch {
      * and the UI selector starts flickering and acting weird.
      * Over 10x and the speeds show up out of order in the UI selector.
      */
-    public static final float MAXIMUM_PLAYBACK_SPEED = 8;
+    public static final float PLAYBACK_SPEED_MAXIMUM = 8;
 
     /**
      * Custom playback speeds.
@@ -69,8 +73,8 @@ public class CustomPlaybackSpeedPatch {
                     throw new IllegalArgumentException();
                 }
 
-                if (speedFloat >= MAXIMUM_PLAYBACK_SPEED) {
-                    resetCustomSpeeds(str("revanced_custom_playback_speeds_invalid", MAXIMUM_PLAYBACK_SPEED));
+                if (speedFloat >= PLAYBACK_SPEED_MAXIMUM) {
+                    resetCustomSpeeds(str("revanced_custom_playback_speeds_invalid", PLAYBACK_SPEED_MAXIMUM));
                     loadCustomSpeeds();
                     return;
                 }
@@ -98,10 +102,15 @@ public class CustomPlaybackSpeedPatch {
     @SuppressWarnings("deprecation")
     public static void initializeListPreference(ListPreference preference) {
         if (preferenceListEntries == null) {
-            preferenceListEntries = new String[customPlaybackSpeeds.length];
-            preferenceListEntryValues = new String[customPlaybackSpeeds.length];
+            final int numberOfEntries = customPlaybackSpeeds.length + 1;
+            preferenceListEntries = new String[numberOfEntries];
+            preferenceListEntryValues = new String[numberOfEntries];
 
-            int i = 0;
+            // Auto speed (same behavior as unpatched).
+            preferenceListEntries[0] = sf("revanced_custom_playback_speeds_auto").toString();
+            preferenceListEntryValues[0] = String.valueOf(PLAYBACK_SPEED_AUTO);
+
+            int i = 1;
             for (float speed : customPlaybackSpeeds) {
                 String speedString = String.valueOf(speed);
                 preferenceListEntries[i] = speedString + "x";

@@ -1189,6 +1189,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_custom_playback_speeds_summary">Add or change the custom playback speeds</string>
             <string name="revanced_custom_playback_speeds_invalid">Custom speeds must be less than %s. Using default values.</string>
             <string name="revanced_custom_playback_speeds_parse_exception">Invalid custom playback speeds. Using default values.</string>
+            <string name="revanced_custom_playback_speeds_auto">Auto</string>
         </patch>
         <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
             <string name="revanced_remember_playback_speed_last_selected_title">Remember playback speed changes</string>
