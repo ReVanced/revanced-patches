@@ -1,3 +1,10 @@
+## [5.0.3-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.0.3-dev.2...v5.0.3-dev.3) (2024-11-15)
+
+
+### Bug Fixes
+
+* **YouTube - Playback speed:** Add 'Auto' speed. Always override speed if default is set to 1.0x ([#3914](https://github.com/ReVanced/revanced-patches/issues/3914)) ([497739e](https://github.com/ReVanced/revanced-patches/commit/497739e8ce6933c1f1ea46edffc102e56b985623))
+
 ## [5.0.3-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.0.3-dev.1...v5.0.3-dev.2) (2024-11-15)
 
 
