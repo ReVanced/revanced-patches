@@ -1,12 +1,12 @@
 package app.revanced.extension.youtube.patches.announcements.requests;
 
-import app.revanced.extension.youtube.requests.Requester;
-import app.revanced.extension.youtube.requests.Route;
+import app.revanced.extension.shared.requests.Requester;
+import app.revanced.extension.shared.requests.Route;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
 
-import static app.revanced.extension.youtube.requests.Route.Method.GET;
+import static app.revanced.extension.shared.requests.Route.Method.GET;
 
 public class AnnouncementsRoutes {
     private static final String ANNOUNCEMENTS_PROVIDER = "https://api.revanced.app/v4";

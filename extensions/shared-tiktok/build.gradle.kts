@@ -1,5 +1,5 @@
 extension {
-    name = "extensions/shared-tiktok.rve"
+    name = "extensions/shared/tiktok.rve"
 }
 
 android {
@@ -9,6 +9,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":extensions:shared"))
+    compileOnly(project(":shared"))
     compileOnly(project(":extensions:shared-tiktok:stub"))
+    compileOnly(libs.annotation)
 }

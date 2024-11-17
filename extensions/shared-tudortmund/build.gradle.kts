@@ -1,5 +1,5 @@
 extension {
-    name = "extensions/shared-tudortmund.rve"
+    name = "extensions/shared/tudortmund.rve"
 }
 
 android {

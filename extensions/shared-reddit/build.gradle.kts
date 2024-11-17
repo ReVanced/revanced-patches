@@ -1,5 +1,5 @@
 extension {
-    name = "extensions/shared-googlenews.rve"
+    name = "extensions/shared/reddit.rve"
 }
 
 android {

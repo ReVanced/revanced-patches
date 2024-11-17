@@ -7,9 +7,9 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.requests.Requester;
+import app.revanced.extension.shared.requests.Route;
 import app.revanced.extension.youtube.patches.spoof.ClientType;
-import app.revanced.extension.youtube.requests.Requester;
-import app.revanced.extension.youtube.requests.Route;
 
 final class PlayerRoutes {
     private static final String YT_API_URL = "https://youtubei.googleapis.com/youtubei/v1/";

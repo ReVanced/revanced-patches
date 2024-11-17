@@ -20,3 +20,4 @@ plugins {
 }
 
 include(":patches:stub")
+include(":shared")

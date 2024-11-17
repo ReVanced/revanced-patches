@@ -22,8 +22,8 @@ import java.time.LocalDateTime;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.requests.Requester;
 import app.revanced.extension.youtube.patches.announcements.requests.AnnouncementsRoutes;
-import app.revanced.extension.youtube.requests.Requester;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")

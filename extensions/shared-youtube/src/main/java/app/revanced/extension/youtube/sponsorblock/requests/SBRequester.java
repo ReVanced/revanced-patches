@@ -17,14 +17,14 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
-import app.revanced.extension.youtube.requests.Requester;
-import app.revanced.extension.youtube.requests.Route;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.sponsorblock.SponsorBlockSettings;
 import app.revanced.extension.youtube.sponsorblock.objects.SegmentCategory;
 import app.revanced.extension.youtube.sponsorblock.objects.SponsorSegment;
 import app.revanced.extension.youtube.sponsorblock.objects.SponsorSegment.SegmentVote;
 import app.revanced.extension.youtube.sponsorblock.objects.UserStats;
+import app.revanced.extension.shared.requests.Route;
+import app.revanced.extension.shared.requests.Requester;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 

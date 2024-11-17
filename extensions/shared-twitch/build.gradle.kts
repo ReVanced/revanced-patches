@@ -1,5 +1,5 @@
 extension {
-    name = "extensions/shared-twitch.rve"
+    name = "extensions/shared/twitch.rve"
 }
 
 android {
@@ -9,5 +9,10 @@ android {
 }
 
 dependencies {
+    compileOnly(project(":shared"))
+    compileOnly(project(":extensions:shared-twitch:stub"))
     compileOnly(libs.okhttp)
+    compileOnly(libs.retrofit)
+    compileOnly(libs.annotation)
+    compileOnly(libs.appcompat)
 }

@@ -1,5 +1,5 @@
 extension {
-    name = "extensions/shared-boostforreddit.rve"
+    name = "extensions/shared/boostforreddit.rve"
 }
 
 android {
@@ -9,6 +9,6 @@ android {
 }
 
 dependencies {
-    implementation(project(":extensions:shared"))
+    compileOnly(project(":shared"))
     compileOnly(project(":extensions:shared-boostforreddit:stub"))
 }

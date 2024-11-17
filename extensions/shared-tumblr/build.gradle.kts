@@ -1,5 +1,5 @@
 extension {
-    name = "extensions/shared-tumblr.rve"
+    name = "extensions/shared/tumblr.rve"
 }
 
 android {

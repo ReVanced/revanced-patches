@@ -1,9 +1,9 @@
 package app.revanced.extension.youtube.sponsorblock.requests;
 
-import static app.revanced.extension.youtube.requests.Route.Method.GET;
-import static app.revanced.extension.youtube.requests.Route.Method.POST;
+import static app.revanced.extension.shared.requests.Route.Method.GET;
+import static app.revanced.extension.shared.requests.Route.Method.POST;
 
-import app.revanced.extension.youtube.requests.Route;
+import app.revanced.extension.shared.requests.Route;
 
 class SBRoutes {
     static final Route IS_USER_VIP = new Route(GET, "/api/isUserVIP?userID={user_id}");

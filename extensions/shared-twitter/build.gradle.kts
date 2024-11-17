@@ -1,5 +1,5 @@
 extension {
-    name = "extensions/shared-twitter.rve"
+    name = "extensions/shared/twitter.rve"
 }
 
 android {

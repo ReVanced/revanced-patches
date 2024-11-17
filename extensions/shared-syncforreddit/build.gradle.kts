@@ -1,5 +1,5 @@
 extension {
-    name = "extensions/shared-syncforreddit.rve"
+    name = "extensions/shared/syncforreddit.rve"
 }
 
 android {
@@ -9,7 +9,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":extensions:shared"))
+    compileOnly(project(":shared"))
     compileOnly(project(":extensions:shared-syncforreddit:stub"))
     compileOnly(libs.annotation)
 }

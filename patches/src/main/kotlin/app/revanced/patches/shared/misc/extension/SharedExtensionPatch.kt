@@ -26,7 +26,8 @@ fun sharedExtensionPatch(
     extensionName: String,
     vararg hooks: ExtensionHook,
 ) = bytecodePatch {
-    extendWith("extensions/$extensionName.rve")
+    extendWith("extensions/shared/$extensionName.rve")
+    extendWith("extensions/shared.rve")
 
     execute {
         if (classes.none { EXTENSION_CLASS_DESCRIPTOR == it.type }) {
