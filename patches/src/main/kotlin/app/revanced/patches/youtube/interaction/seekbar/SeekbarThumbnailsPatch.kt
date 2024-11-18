@@ -16,7 +16,6 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/SeekbarThumbnailsPatch;"
 
-@Suppress("unused")
 val seekbarThumbnailsPatch = bytecodePatch(
     name = "Seekbar thumbnails",
     description = "Adds an option to use high quality fullscreen seekbar thumbnails. " +

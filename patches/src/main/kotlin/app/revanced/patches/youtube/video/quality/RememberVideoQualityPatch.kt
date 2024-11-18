@@ -22,7 +22,6 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/playback/quality/RememberVideoQualityPatch;"
 
-@Suppress("unused")
 val rememberVideoQualityPatch = bytecodePatch(
     name = "Remember video quality",
     description = "Adds an option to remember the last video quality selected.",

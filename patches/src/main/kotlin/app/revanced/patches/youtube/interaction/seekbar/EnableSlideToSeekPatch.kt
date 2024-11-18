@@ -21,7 +21,6 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 internal const val EXTENSION_METHOD_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/SlideToSeekPatch;->isSlideToSeekDisabled(Z)Z"
 
-@Suppress("unused")
 val enableSlideToSeekPatch = bytecodePatch(
     name = "Enable slide to seek",
     description = "Adds an option to enable slide to seek " +

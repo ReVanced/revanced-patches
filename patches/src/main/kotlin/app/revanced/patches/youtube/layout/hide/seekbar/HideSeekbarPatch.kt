@@ -12,7 +12,6 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.seekbarFingerprint
 import app.revanced.patches.youtube.shared.seekbarOnDrawFingerprint
 
-@Suppress("unused")
 val hideSeekbarPatch = bytecodePatch(
     name = "Hide seekbar",
     description = "Adds an option to hide the seekbar.",

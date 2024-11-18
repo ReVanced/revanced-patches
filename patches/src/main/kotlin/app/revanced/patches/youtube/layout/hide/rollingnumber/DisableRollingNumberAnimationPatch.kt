@@ -17,7 +17,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/DisableRollingNumberAnimationsPatch;"
 
-@Suppress("unused")
 val disableRollingNumberAnimationPatch = bytecodePatch(
     name = "Disable rolling number animations",
     description = "Adds an option to disable rolling number animations of video view count, user likes, and upload time.",

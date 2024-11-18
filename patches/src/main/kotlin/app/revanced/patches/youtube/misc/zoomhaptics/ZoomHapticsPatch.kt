@@ -10,7 +10,6 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 
-@Suppress("unused")
 val zoomHapticsPatch = bytecodePatch(
     name = "Disable zoom haptics",
     description = "Adds an option to disable haptics when zooming.",

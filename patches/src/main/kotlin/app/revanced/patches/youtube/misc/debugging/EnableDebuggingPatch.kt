@@ -17,7 +17,6 @@ import com.android.tools.smali.dexlib2.Opcode
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/EnableDebuggingPatch;"
 
-@Suppress("unused")
 val enableDebuggingPatch = bytecodePatch(
     name = "Enable debugging",
     description = "Adds options for debugging.",

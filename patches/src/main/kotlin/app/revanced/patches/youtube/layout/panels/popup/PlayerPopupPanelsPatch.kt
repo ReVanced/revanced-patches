@@ -9,7 +9,6 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 
-@Suppress("unused")
 val playerPopupPanelsPatch = bytecodePatch(
     name = "Disable player popup panels",
     description = "Adds an option to disable panels (such as live chat) from opening automatically.",

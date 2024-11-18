@@ -28,7 +28,6 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 
 internal const val GRADIENT_LOADING_SCREEN_AB_CONSTANT = 45412406L
 
-@Suppress("unused")
 val themePatch = bytecodePatch(
     name = "Theme",
     description = "Adds options for theming and applies a custom background theme (dark background theme defaults to amoled black).",

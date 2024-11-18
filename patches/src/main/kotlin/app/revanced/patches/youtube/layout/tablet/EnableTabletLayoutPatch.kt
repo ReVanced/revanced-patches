@@ -14,7 +14,6 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 
 const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/TabletLayoutPatch;"
 
-@Suppress("unused")
 val enableTabletLayoutPatch = bytecodePatch(
     name = "Enable tablet layout",
     description = "Adds an option to enable tablet layout.",

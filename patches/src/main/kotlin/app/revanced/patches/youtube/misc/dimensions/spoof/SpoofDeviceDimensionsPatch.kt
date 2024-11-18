@@ -12,7 +12,6 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/spoof/SpoofDeviceDimensionsPatch;"
 
-@Suppress("unused")
 val spoofDeviceDimensionsPatch = bytecodePatch(
     name = "Spoof device dimensions",
     description = "Adds an option to spoof the device dimensions which can unlock higher video qualities.",

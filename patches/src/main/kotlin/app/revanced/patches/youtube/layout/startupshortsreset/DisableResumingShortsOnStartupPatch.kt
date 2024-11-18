@@ -19,7 +19,6 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/DisableResumingStartupShortsPlayerPatch;"
 
-@Suppress("unused")
 val disableResumingShortsOnStartupPatch = bytecodePatch(
     name = "Disable resuming Shorts on startup",
     description = "Adds an option to disable the Shorts player from resuming on app startup when Shorts were last being watched.",

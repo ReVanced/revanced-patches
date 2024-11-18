@@ -14,7 +14,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-@Suppress("unused")
 val enableSeekbarTappingPatch = bytecodePatch(
     name = "Seekbar tapping",
     description = "Adds an option to enable tap-to-seek on the seekbar of the video player.",

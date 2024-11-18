@@ -13,7 +13,6 @@ import app.revanced.patches.youtube.shared.autoRepeatFingerprint
 import app.revanced.patches.youtube.shared.autoRepeatParentFingerprint
 
 // TODO: Rename this patch to AlwaysRepeatPatch (as well as strings and references in the extension).
-@Suppress("unused")
 val autoRepeatPatch = bytecodePatch(
     name = "Always repeat",
     description = "Adds an option to always repeat videos when they end.",

@@ -11,7 +11,6 @@ import app.revanced.patches.twitch.misc.extension.sharedExtensionPatch
 import app.revanced.patches.twitch.misc.settings.PreferenceScreen
 import app.revanced.patches.twitch.misc.settings.settingsPatch
 
-@Suppress("unused")
 val audioAdsPatch = bytecodePatch(
     name = "Block audio ads",
     description = "Blocks audio ads in streams and VODs.",

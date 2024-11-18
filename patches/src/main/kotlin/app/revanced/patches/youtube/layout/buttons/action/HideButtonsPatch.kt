@@ -10,7 +10,6 @@ import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 
-@Suppress("unused")
 val hideButtonsPatch = resourcePatch(
     name = "Hide video action buttons",
     description = "Adds options to hide action buttons (such as the Download button) under videos.",

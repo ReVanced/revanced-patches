@@ -147,6 +147,7 @@ public class ReturnYouTubeDislikeApi {
      */
     private static void randomlyWaitIfLocallyDebugging() {
         final boolean DEBUG_RANDOMLY_DELAY_NETWORK_CALLS = false; // set true to debug UI
+        //noinspection ConstantValue
         if (DEBUG_RANDOMLY_DELAY_NETWORK_CALLS) {
             final long amountOfTimeToWaste = (long) (Math.random()
                     * (API_GET_VOTES_TCP_TIMEOUT_MILLISECONDS + API_GET_VOTES_HTTP_TIMEOUT_MILLISECONDS));
@@ -187,6 +188,7 @@ public class ReturnYouTubeDislikeApi {
      */
     private static boolean checkIfRateLimitWasHit(int httpResponseCode) {
         final boolean DEBUG_RATE_LIMIT = false;  // set to true, to verify rate limit works
+        //noinspection ConstantValue
         if (DEBUG_RATE_LIMIT) {
             final double RANDOM_RATE_LIMIT_PERCENTAGE = 0.2; // 20% chance of a triggering a rate limit
             if (Math.random() < RANDOM_RATE_LIMIT_PERCENTAGE) {
