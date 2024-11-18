@@ -969,7 +969,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Palauita RYD Shorts-videoissa incognito-tilassa</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Palauta laaja videonopeus- ja laatuvalikko</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Palauta kirjasto-välilehti</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.41.37 - Palauta vanha soittolistahylly</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Palauta vanha soittolistahylly</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Aseta aloitussivu</string>
@@ -1171,6 +1171,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_custom_playback_speeds_summary">Lisää tai muuta mukautettuja soiton nopeuksia</string>
   <string name="revanced_custom_playback_speeds_invalid">Mukautettujen nopeuksien on oltava alle %s. Käytetään oletusarvoja.</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Virheelliset mukautetut toistonopeudet. Käytetään oletusarvoja.</string>
+  <string name="revanced_custom_playback_speeds_auto">Automaattinen</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Muista toistonopeuden muutokset</string>

@@ -877,7 +877,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - ছদ্মবেশি মোডে RYD পুনরুদ্ধার করে</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - প্রশ্বস্ত ভিডিও স্পিড এবং গুণমান মেনু পুনরুদ্ধার করে</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - লাইব্রেরি ট্যাপ পুনরুদ্ধার করে</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.41.37 - পুরোনো প্লেলিস্ট শেলফ পুনরুদ্ধার করে</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - পুরোনো প্লেলিস্ট শেলফ পুনরুদ্ধার করে</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">শুরুর পৃষ্ঠা সেট করুন</string>
@@ -1036,6 +1036,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_custom_playback_speeds_title">নিজস্ব প্লেব্যাক স্পিড</string>
   <string name="revanced_custom_playback_speeds_invalid">নিজস্ব স্পিড অবশ্যই %sগুণ থেকে কম হতে হবে। মূল ভ্যালু ব্যবহৃত হচ্ছে।</string>
   <string name="revanced_custom_playback_speeds_parse_exception">ভুল নিজস্ব প্লেব্যাক স্পিড। মূল ভ্যালু ব্যবহৃত হচ্ছে।</string>
+  <string name="revanced_custom_playback_speeds_auto">স্বতস্ফূর্তভাবে</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">প্লেব্যাকের স্পিড পরিবর্তন মনে রাখুন</string>
