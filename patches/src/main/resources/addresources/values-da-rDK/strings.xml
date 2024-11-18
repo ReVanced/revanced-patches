@@ -957,7 +957,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Gendan RYD på Shorts inkognitotilstand</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Gendan bred video hastighed &amp; kvalitet menu</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Genopret biblioteks fane</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.41.37 - Gendan gammel spilleliste hylde</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Gendan gammel spilleliste hylde</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Indstil startside</string>
@@ -1152,6 +1152,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_custom_playback_speeds_summary">Tilføj eller ændr den brugerdefinerede afspilningshastighed</string>
   <string name="revanced_custom_playback_speeds_invalid">Brugerdefinerede hastigheder skal være mindre end %s. Bruger standardværdier.</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Ugyldig brugerdefineret afspilningshastighed. Brug af standardværdier.</string>
+  <string name="revanced_custom_playback_speeds_auto">Automatisk</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Husk ændringer i afspilningshastighed</string>
