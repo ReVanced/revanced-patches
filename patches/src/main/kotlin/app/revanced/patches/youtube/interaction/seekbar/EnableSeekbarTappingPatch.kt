@@ -33,6 +33,7 @@ val enableSeekbarTappingPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
+            "19.45.36",
         ),
     )
 
