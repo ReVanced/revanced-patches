@@ -1,3 +1,10 @@
+## [5.0.3-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.0.3-dev.3...v5.0.3-dev.4) (2024-11-18)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof app version:** Adjust legacy spoof targets ([#3934](https://github.com/ReVanced/revanced-patches/issues/3934)) ([f5794c1](https://github.com/ReVanced/revanced-patches/commit/f5794c1f896c331d76fdfc299e31a2773f2209ca))
+
 ## [5.0.3-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.0.3-dev.2...v5.0.3-dev.3) (2024-11-15)
 
 
