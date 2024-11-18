@@ -1,3 +1,10 @@
+## [5.0.3-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.0.3-dev.4...v5.0.3-dev.5) (2024-11-18)
+
+
+### Bug Fixes
+
+* **YouTube - Hide Shorts components:** Do not hide Shorts action buttons on app first launch ([#3933](https://github.com/ReVanced/revanced-patches/issues/3933)) ([0d78815](https://github.com/ReVanced/revanced-patches/commit/0d78815e33bf2ae216e519f067fb773df0f2084e))
+
 ## [5.0.3-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.0.3-dev.3...v5.0.3-dev.4) (2024-11-18)
 
 
