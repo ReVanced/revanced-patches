@@ -40,7 +40,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_check_environment_not_same_patching_device">Patché depuis un appareil différent</string>
   <string name="revanced_check_environment_manager_not_expected_installer">Non installé depuis ReVanced Manager</string>
   <string name="revanced_check_environment_not_near_patch_time">Patché il y a plus de 10 minutes</string>
-  <string name="revanced_check_environment_not_near_patch_time_days">Patché il y as %s jours</string>
+  <string name="revanced_check_environment_not_near_patch_time_days">Patché il y a %s jours</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">La date de compilation de l\'APK est corrompue</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
@@ -968,7 +968,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Restaurer RYD en mode incognito Shorts</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Restaurer une grande vitesse vidéo &amp; menu qualité</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Restaurer l\'onglet bibliothèque</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.41.37 - Restaurer l\'ancienne tablette de la liste de lecture</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Restaurer l\'ancienne tablette de la liste de lecture</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Définir la page de démarrage</string>
@@ -1170,6 +1170,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_custom_playback_speeds_summary">Ajouter ou modifier les vitesses de lecture personnalisées</string>
   <string name="revanced_custom_playback_speeds_invalid">Les vitesses personnalisées doivent être inférieures à %s. Utiliser les valeurs par défaut.</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Vitesses de lecture personnalisées invalides. Utilisation des valeurs par défaut.</string>
+  <string name="revanced_custom_playback_speeds_auto">Automatique</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Se souvenir des changements de vitesse de lecture</string>

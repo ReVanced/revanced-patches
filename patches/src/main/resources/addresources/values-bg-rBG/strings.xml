@@ -87,8 +87,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Възпроизвеждане на  Shorts в фонов режим</string>
-  <string name="revanced_shorts_disable_background_playback_summary_on">Изключено</string>
-  <string name="revanced_shorts_disable_background_playback_summary_off">Включено</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Отстраняване на грешки</string>
@@ -966,7 +964,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Възстановете RYD в режим „инкогнито“ на Shorts</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Възстановяване на видео скорост &amp; в менюто за качество</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Възстановяване на таб \"Библиотека\"</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.41.37 - Връщане на секцията с плейлиста към стария стил</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Връщане на секцията с плейлиста към стария стил</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Задай начална страница</string>
@@ -1168,6 +1166,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_custom_playback_speeds_summary">Добавете или променете скоростa на възпроизвеждане</string>
   <string name="revanced_custom_playback_speeds_invalid">Персоналната скорост трябва да е по-малка от %s. Използване на стойности по подразбиране.</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Невалидни персонализирани скорости на възпроизвеждане. Използване на стойности по подразбиране.</string>
+  <string name="revanced_custom_playback_speeds_auto">Авто</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Запомни промените в скоростта на възпроизвеждане</string>

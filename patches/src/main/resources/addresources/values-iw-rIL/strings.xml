@@ -284,6 +284,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <string name="revanced_custom_playback_speeds_auto">אוטומטי</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   </patch>

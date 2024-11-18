@@ -968,7 +968,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - RYD auf Shorts Inkognito-Modus wiederherstellen</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Wiederherstellen der breiten Videogeschwindigkeit &amp; Qualitätsmenü</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Bibliotheks-Tab wiederherstellen</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.41.37 - Alte Wiedergabeliste wiederherstellen</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Alte Wiedergabeliste wiederherstellen</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Startseite festlegen</string>
@@ -1170,6 +1170,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_custom_playback_speeds_summary">Hinzufügen oder Ändern der benutzerdefinierten Wiedergabegeschwindigkeit</string>
   <string name="revanced_custom_playback_speeds_invalid">Benutzerdefinierte Geschwindigkeiten müssen kleiner als %ssein. Standardwerte werden verwendet.</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Ungültige benutzerdefinierte Wiedergabegeschwindigkeiten. Standardwerte verwenden.</string>
+  <string name="revanced_custom_playback_speeds_auto">Auto</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Änderungen der Wiedergabegeschwindigkeit merken</string>

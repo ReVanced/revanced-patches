@@ -966,7 +966,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Gizli modda Shorts için RYD\'yi onar</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Geniş video hızı &amp; kalite menüsünü geri getir</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_3">18.08.39 - Kitaplık sekmesini geri getir</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.41.37 - Eski oynatma listesi rafını geri getir</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Eski oynatma listesi rafını geri getir</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Başlangıç sayfasını seç</string>
@@ -1168,6 +1168,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_custom_playback_speeds_summary">Özel oynatma hızları ekle veya değiştir</string>
   <string name="revanced_custom_playback_speeds_invalid">Özel hızlar %s\'dan az olmalıdır. Varsayılanlar kullanılıyor.</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Geçersiz özel oynatma hızları. Varsayılanlar seçildi.</string>
+  <string name="revanced_custom_playback_speeds_auto">Oto</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Oynatma hızı değişikliklerini hatırla</string>
