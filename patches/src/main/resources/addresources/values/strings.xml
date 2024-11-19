@@ -1158,7 +1158,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_disable_zoom_haptics_summary_off">Haptics are enabled</string>
         </patch>
         <patch id="video.quality.rememberVideoQualityPatch">
-            <string name="revanced_video_quality_default_entry_1">Automatic quality</string>
+            <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+            <string name="revanced_video_quality_default_entry_1">Auto</string>
             <string name="revanced_video_quality_default_entry_2">2160p</string>
             <string name="revanced_video_quality_default_entry_3">1440p</string>
             <string name="revanced_video_quality_default_entry_4">1080p</string>
