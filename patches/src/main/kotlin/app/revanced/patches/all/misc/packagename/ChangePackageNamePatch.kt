@@ -1,6 +1,7 @@
 package app.revanced.patches.all.misc.packagename
 
 import app.revanced.patcher.patch.Option
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
 import org.w3c.dom.Element
@@ -41,18 +42,34 @@ val changePackageNamePatch = resourcePatch(
         it == "Default" || it!!.matches(Regex("^[a-z]\\w*(\\.[a-z]\\w*)+\$"))
     }
 
+    /**
+     * Apps that are confirmed to not work correctly when used with this patch.
+     */
+    val incompatibleAppPackages = setOf(
+        "com.facebook.orca",
+        "com.instagram.android",
+        "com.twitter.android",
+        "tv.twitch.android.app"
+    )
+
     finalize {
         document("AndroidManifest.xml").use { document ->
+            val manifest = document.getElementsByTagName("manifest").item(0) as Element
+            val originalPackageName = manifest.getAttribute("package")
+
+            if (incompatibleAppPackages.contains(originalPackageName)) {
+                // Instead of throwing an exception this could print a more readable severe log statement,
+                // but then the patcher would show "INFO: "Change package name" succeeded" which is not correct.
+                throw PatchException("'$originalPackageName' does not work correctly with \"Change package name\"")
+            }
 
             val replacementPackageName = packageNameOption.value
-
-            val manifest = document.getElementsByTagName("manifest").item(0) as Element
             manifest.setAttribute(
                 "package",
                 if (replacementPackageName != packageNameOption.default) {
                     replacementPackageName
                 } else {
-                    "${manifest.getAttribute("package")}.revanced"
+                    "${originalPackageName}.revanced"
                 },
             )
         }
