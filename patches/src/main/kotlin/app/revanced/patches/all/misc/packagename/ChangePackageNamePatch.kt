@@ -43,13 +43,19 @@ val changePackageNamePatch = resourcePatch(
     }
 
     /**
-     * Apps that are confirmed to not work correctly when used with this patch.
+     * Apps that are confirmed to not work correctly with this patch.
+     * This is not an exhaustive list, and is only the apps with
+     * ReVanced specific patches and are confirmed incompatible with this patch.
      */
     val incompatibleAppPackages = setOf(
         "com.facebook.orca",
         "com.instagram.android",
+        "com.reddit.frontpage",
         "com.twitter.android",
-        "tv.twitch.android.app"
+        "tv.twitch.android.app",
+        // TikTok fails due to resource compilation error.
+        "com.zhiliaoapp.musically",
+        "com.ss.android.ugc.trill"
     )
 
     finalize {
