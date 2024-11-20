@@ -1,3 +1,5 @@
+package app.revanced.patches.facebook.ads.mainfeed
+
 import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode

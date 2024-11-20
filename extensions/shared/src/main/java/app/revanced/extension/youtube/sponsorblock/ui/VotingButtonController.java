@@ -1,7 +1,5 @@
 package app.revanced.extension.youtube.sponsorblock.ui;
 
-import static app.revanced.extension.shared.Utils.getResourceIdentifier;
-
 import android.view.View;
 import android.widget.ImageView;
 

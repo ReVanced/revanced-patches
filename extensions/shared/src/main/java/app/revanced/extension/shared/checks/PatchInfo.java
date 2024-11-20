@@ -1,7 +1,11 @@
 package app.revanced.extension.shared.checks;
 
-// Fields are set by the patch. Do not modify.
-// Fields are not final, because the compiler is inlining them.
+/**
+ * Fields are set by the patch. Do not modify.
+ * Fields are not final, because the compiler is inlining them.
+ *
+ * @noinspection CanBeFinal
+ */
 final class PatchInfo {
     static long PATCH_TIME = 0L;
 
