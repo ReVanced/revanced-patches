@@ -1,3 +1,10 @@
+# [5.1.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.0.3-dev.5...v5.1.0-dev.1) (2024-11-20)
+
+
+### Features
+
+* **YouTube:** Support version `19.45.38` ([#3938](https://github.com/ReVanced/revanced-patches/issues/3938)) ([7c4e3fe](https://github.com/ReVanced/revanced-patches/commit/7c4e3fe97e8cbbb8cf16a2fb95f64223ca2bd7ef))
+
 ## [5.0.3-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.0.3-dev.4...v5.0.3-dev.5) (2024-11-18)
 
 
