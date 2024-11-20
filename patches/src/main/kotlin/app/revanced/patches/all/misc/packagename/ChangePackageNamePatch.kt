@@ -48,14 +48,21 @@ val changePackageNamePatch = resourcePatch(
      * ReVanced specific patches and are confirmed incompatible with this patch.
      */
     val incompatibleAppPackages = setOf(
-        "com.facebook.orca",
-        "com.instagram.android",
+        // Cannot login, settings menu is broken.
         "com.reddit.frontpage",
+
+        // Patches and installs but crashes on launch.
+        "com.duolingo",
         "com.twitter.android",
         "tv.twitch.android.app",
-        // TikTok fails due to resource compilation error.
+
+        // Fails during resource decoding/compilation.
+        "com.instagram.android",
+        "com.facebook.katana",
+        "com.facebook.orca",
+        "com.ss.android.ugc.trill",
         "com.zhiliaoapp.musically",
-        "com.ss.android.ugc.trill"
+        "com.tumblr"
     )
 
     finalize {
