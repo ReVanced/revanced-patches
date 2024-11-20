@@ -9,7 +9,6 @@ import app.revanced.patches.twitch.misc.extension.sharedExtensionPatch
 import app.revanced.patches.twitch.misc.settings.PreferenceScreen
 import app.revanced.patches.twitch.misc.settings.settingsPatch
 
-@Suppress("unused")
 val debugModePatch = bytecodePatch(
     name = "Debug mode",
     description = "Enables Twitch's internal debugging mode.",

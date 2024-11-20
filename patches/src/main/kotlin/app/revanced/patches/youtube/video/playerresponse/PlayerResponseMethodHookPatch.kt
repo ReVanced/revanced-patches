@@ -111,7 +111,7 @@ val playerResponseMethodHookPatch = bytecodePatch {
     }
 }
 
-sealed class Hook private constructor(private val methodDescriptor: String) {
+sealed class Hook(private val methodDescriptor: String) {
     class VideoId(methodDescriptor: String) : Hook(methodDescriptor)
 
     class ProtoBufferParameter(methodDescriptor: String) : Hook(methodDescriptor)

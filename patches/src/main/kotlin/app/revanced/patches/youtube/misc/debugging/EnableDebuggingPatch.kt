@@ -17,7 +17,6 @@ import com.android.tools.smali.dexlib2.Opcode
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/EnableDebuggingPatch;"
 
-@Suppress("unused")
 val enableDebuggingPatch = bytecodePatch(
     name = "Enable debugging",
     description = "Adds options for debugging.",
@@ -36,6 +35,7 @@ val enableDebuggingPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
+            "19.45.38",
         ),
     )
 
