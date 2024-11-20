@@ -1,10 +1,10 @@
 package app.revanced.patches.all.misc.packagename
 
 import app.revanced.patcher.patch.Option
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
 import org.w3c.dom.Element
+import java.util.logging.Logger
 
 lateinit var packageNameOption: Option<String>
 
@@ -71,9 +71,8 @@ val changePackageNamePatch = resourcePatch(
             val originalPackageName = manifest.getAttribute("package")
 
             if (incompatibleAppPackages.contains(originalPackageName)) {
-                // Instead of throwing an exception this could print a more readable severe log statement,
-                // but then the patcher would show "INFO: "Change package name" succeeded" which is not correct.
-                throw PatchException("'$originalPackageName' does not work correctly with \"Change package name\"")
+                return@finalize Logger.getLogger(this::class.java.name).severe(
+                    "'$originalPackageName' does not work correctly with \"Change package name\"")
             }
 
             val replacementPackageName = packageNameOption.value
