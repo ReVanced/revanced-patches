@@ -1,3 +1,10 @@
+# [5.1.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.1.0-dev.1...v5.1.0-dev.2) (2024-11-21)
+
+
+### Bug Fixes
+
+* **YouTube - SponsorBlock:** Fix create new segment crash on tablet custom roms ([#3946](https://github.com/ReVanced/revanced-patches/issues/3946)) ([a0da377](https://github.com/ReVanced/revanced-patches/commit/a0da377ba8f90ba39e905ed9730b3e819633bd50))
+
 # [5.1.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.0.3-dev.5...v5.1.0-dev.1) (2024-11-20)
 
 
