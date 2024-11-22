@@ -1,3 +1,10 @@
+# [5.1.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.1.0-dev.2...v5.1.0-dev.3) (2024-11-22)
+
+
+### Features
+
+* **YouTube - Miniplayer:** Add option to disable miniplayer ([#3961](https://github.com/ReVanced/revanced-patches/issues/3961)) ([e565cdb](https://github.com/ReVanced/revanced-patches/commit/e565cdb583aacfc0052d12c430f56fd9abd5bf00))
+
 # [5.1.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.1.0-dev.1...v5.1.0-dev.2) (2024-11-21)
 
 
