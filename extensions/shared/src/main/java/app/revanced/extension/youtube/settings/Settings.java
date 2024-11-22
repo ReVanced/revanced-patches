@@ -375,15 +375,20 @@ public class Settings extends BaseSettings {
 
         migrateOldSettingToNew(DEPRECATED_SB_UUID_OLD_MIGRATION_SETTING, SB_PRIVATE_USER_ID);
 
+        migrateOldSettingToNew(DEPRECATED_HIDE_PLAYER_BUTTONS, HIDE_PLAYER_PREVIOUS_NEXT_BUTTONS);
+
+        migrateOldSettingToNew(DEPRECATED_HIDE_PLAYER_FLYOUT_VIDEO_QUALITY_FOOTER, HIDE_PLAYER_FLYOUT_VIDEO_QUALITY_FOOTER);
+
         // Old spoof versions that no longer work reliably.
         if (SpoofAppVersionPatch.isSpoofingToLessThan(SPOOF_APP_VERSION_TARGET.defaultValue)) {
             Logger.printInfo(() -> "Resetting spoof app version target");
             SPOOF_APP_VERSION_TARGET.resetToDefault();
         }
 
-        migrateOldSettingToNew(DEPRECATED_HIDE_PLAYER_BUTTONS, HIDE_PLAYER_PREVIOUS_NEXT_BUTTONS);
-
-        migrateOldSettingToNew(DEPRECATED_HIDE_PLAYER_FLYOUT_VIDEO_QUALITY_FOOTER, HIDE_PLAYER_FLYOUT_VIDEO_QUALITY_FOOTER);
+        // Migrate renamed enum type.
+        if (MINIPLAYER_TYPE.get() == PHONE) {
+            MINIPLAYER_TYPE.save(MINIMAL);
+        }
 
         // endregion
     }

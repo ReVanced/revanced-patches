@@ -46,7 +46,7 @@
                 <!-- Enum names from the extension. -->
                 <item>DISABLED</item>
                 <item>ORIGINAL</item>
-                <item>PHONE</item>
+                <item>MINIMAL</item>
                 <item>TABLET</item>
                 <item>MODERN_1</item>
                 <item>MODERN_2</item>
@@ -63,7 +63,7 @@
             <string-array name="revanced_miniplayer_type_legacy_entry_values">
                 <!-- Enum names from the extension. -->
                 <item>ORIGINAL</item>
-                <item>PHONE</item>
+                <item>MINIMAL</item>
                 <item>TABLET</item>
                 <item>MODERN_1</item>
                 <item>MODERN_2</item>
