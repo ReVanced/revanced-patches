@@ -1011,8 +1011,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">미니 플레이어</string>
   <string name="revanced_miniplayer_screen_summary">앱 내에서 최소화된 플레이어의 스타일을 변경할 수 있습니다</string>
   <string name="revanced_miniplayer_type_title">미니 플레이어 유형 설정</string>
+  <string name="revanced_miniplayer_type_entry_0">비활성화됨</string>
   <string name="revanced_miniplayer_type_entry_1">기기 기본값 사용</string>
-  <string name="revanced_miniplayer_type_entry_2">폰</string>
   <string name="revanced_miniplayer_type_entry_3">태블릿</string>
   <string name="revanced_miniplayer_type_entry_4">최신 스타일 1</string>
   <string name="revanced_miniplayer_type_entry_5">최신 스타일 2</string>
@@ -1147,6 +1147,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">진동 피드백을 활성화합니다</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">자동</string>
   <string name="revanced_remember_video_quality_last_selected_title">동영상 화질 저장 활성화하기</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">동영상 화질 값을 변경할 때마다 저장합니다</string>

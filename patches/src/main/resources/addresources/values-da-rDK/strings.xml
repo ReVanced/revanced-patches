@@ -993,8 +993,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Miniplayer</string>
   <string name="revanced_miniplayer_screen_summary">Ændre stilen for den i app minimeret afspiller</string>
   <string name="revanced_miniplayer_type_title">Type af miniplayer</string>
+  <string name="revanced_miniplayer_type_entry_0">Deaktiveret</string>
   <string name="revanced_miniplayer_type_entry_1">Oprindelig</string>
-  <string name="revanced_miniplayer_type_entry_2">Telefon</string>
+  <string name="revanced_miniplayer_type_entry_2">Minimal</string>
   <string name="revanced_miniplayer_type_entry_3">Tablet</string>
   <string name="revanced_miniplayer_type_entry_4">Moderne 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderne 2</string>
@@ -1129,7 +1130,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">Haptics er aktiveret</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Automatisk kvalitet</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">Automatisk</string>
   <string name="revanced_remember_video_quality_last_selected_title">Husk ændringer i videokvalitet</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Kvalitetsændringer gælder for alle videoer</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Kvalitetsændringer gælder kun for den aktuelle video</string>

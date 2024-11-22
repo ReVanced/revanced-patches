@@ -906,8 +906,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">মিনিপ্লেয়ার</string>
   <string name="revanced_miniplayer_screen_summary">অ্যাপের মধ্যকার মিনিমাইজড প্লেয়ার এর ধরণ পরিবর্তন করুন</string>
   <string name="revanced_miniplayer_type_title">মিনিপ্লেয়ার ধরণ</string>
+  <string name="revanced_miniplayer_type_entry_0">নিষ্ক্রিয় হয়েছে</string>
   <string name="revanced_miniplayer_type_entry_1">আসল</string>
-  <string name="revanced_miniplayer_type_entry_2">ফোন</string>
   <string name="revanced_miniplayer_type_entry_3">ট্যাবলেট</string>
   <string name="revanced_miniplayer_type_entry_4">মর্ডান ১</string>
   <string name="revanced_miniplayer_type_entry_5">মর্ডান ২</string>
@@ -1017,7 +1017,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">কম্পন সক্রিয় করা হয়েছে</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">স্বয়ংক্রিয় গুণমান</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">স্বতস্ফূর্তভাবে</string>
   <string name="revanced_remember_video_quality_last_selected_title">ভিডিও গুণমান পরিবর্তন মনে রাখুন</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">গুণমান পরিবর্তন সব ভিডিওতে প্রয়োগ করা হয়েছে</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">গুণমান পরিবর্তন বর্তমান ভিডিওতে প্রয়োগ করা হয়েছে</string>

@@ -918,8 +918,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Miniprehrávač</string>
   <string name="revanced_miniplayer_screen_summary">Zmeňte štýl minimalizovaného prehrávača v aplikácii</string>
   <string name="revanced_miniplayer_type_title">Typ miniprehrávača</string>
+  <string name="revanced_miniplayer_type_entry_0">Vypnuté</string>
   <string name="revanced_miniplayer_type_entry_1">Originál</string>
-  <string name="revanced_miniplayer_type_entry_2">Telefón</string>
   <string name="revanced_miniplayer_type_entry_4">Moderné 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderné 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderné 3</string>
@@ -1029,7 +1029,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">Haptika je povolená</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Automatická kvalita</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_remember_video_quality_last_selected_title">Pamätajte na zmeny kvality videa</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Zmeny kvality sa vzťahujú na všetky videá</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Zmeny kvality sa vzťahujú iba na aktuálne video</string>

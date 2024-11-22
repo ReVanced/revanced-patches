@@ -914,8 +914,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Міні-плэер</string>
   <string name="revanced_miniplayer_screen_summary">Змяніце стыль мінімізаванага плэера ў праграме</string>
   <string name="revanced_miniplayer_type_title">Тып мініплэера</string>
+  <string name="revanced_miniplayer_type_entry_0">Інваліды</string>
   <string name="revanced_miniplayer_type_entry_1">Арыгінал</string>
-  <string name="revanced_miniplayer_type_entry_2">Тэлефон</string>
   <string name="revanced_miniplayer_type_entry_3">Планшэт</string>
   <string name="revanced_miniplayer_type_entry_4">Сучасны 1</string>
   <string name="revanced_miniplayer_type_entry_5">Сучасны 2</string>
@@ -1029,7 +1029,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">Тактыльныя сігналы ўключаны</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Аўтаматычнае якасць</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">Аўто</string>
   <string name="revanced_remember_video_quality_last_selected_title">Запомніце змены якасці відэа</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Змены якасці распаўсюджваюцца на ўсе відэа</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Змены якасці прымяняюцца толькі да бягучага відэа</string>

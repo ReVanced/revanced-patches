@@ -1010,8 +1010,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Miniplayer</string>
   <string name="revanced_miniplayer_screen_summary">Athraigh stíl an imreora íoslaghdaithe san aip</string>
   <string name="revanced_miniplayer_type_title">Cineál Miniplayer</string>
+  <string name="revanced_miniplayer_type_entry_0">Díchumasaithe</string>
   <string name="revanced_miniplayer_type_entry_1">Bunaidh</string>
-  <string name="revanced_miniplayer_type_entry_2">Fón</string>
   <string name="revanced_miniplayer_type_entry_3">Táibléad</string>
   <string name="revanced_miniplayer_type_entry_4">Nua-aimseartha 1</string>
   <string name="revanced_miniplayer_type_entry_5">Nua-Aimseartha 2</string>
@@ -1146,7 +1146,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">Tá Haptics cumasaithe</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Cáilíocht uathoibríoch</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">Auto</string>
   <string name="revanced_remember_video_quality_last_selected_title">Cuimhnigh athruithe ar cháilíocht</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Baineann athruithe cáilíochta le gach físeán</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Ní bhaineann athruithe cáilíochta ach leis an bhfíseán reatha</string>

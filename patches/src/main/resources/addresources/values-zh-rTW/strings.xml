@@ -1010,8 +1010,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">迷你播放器</string>
   <string name="revanced_miniplayer_screen_summary">更改應用程式內縮小播放器的樣式</string>
   <string name="revanced_miniplayer_type_title">迷你播放器類型</string>
+  <string name="revanced_miniplayer_type_entry_0">已停用</string>
   <string name="revanced_miniplayer_type_entry_1">原始</string>
-  <string name="revanced_miniplayer_type_entry_2">手機</string>
   <string name="revanced_miniplayer_type_entry_3">平板</string>
   <string name="revanced_miniplayer_type_entry_4">現代樣式 1</string>
   <string name="revanced_miniplayer_type_entry_5">現代樣式 2</string>
@@ -1147,6 +1147,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">已啟用震動</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">自動</string>
   <string name="revanced_remember_video_quality_last_selected_title">記住影片畫質</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">變更畫質套用到所有影片</string>

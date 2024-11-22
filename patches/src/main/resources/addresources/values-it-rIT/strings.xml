@@ -1010,8 +1010,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Miniplayer</string>
   <string name="revanced_miniplayer_screen_summary">Cambia lo stile del miniplayer nell\'app</string>
   <string name="revanced_miniplayer_type_title">Tipo di Miniplayer</string>
+  <string name="revanced_miniplayer_type_entry_0">Disattivato</string>
   <string name="revanced_miniplayer_type_entry_1">Originale</string>
-  <string name="revanced_miniplayer_type_entry_2">Telefono</string>
+  <string name="revanced_miniplayer_type_entry_2">Minimo</string>
   <string name="revanced_miniplayer_type_entry_3">Tablet</string>
   <string name="revanced_miniplayer_type_entry_4">Moderno 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderno 2</string>
@@ -1146,7 +1147,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">Haptics sono abilitati</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Qualità automatica</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">Automatico</string>
   <string name="revanced_remember_video_quality_last_selected_title">Ricorda i cambiamenti di qualità video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">I cambiamenti di qualità si applicano a tutti i video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">I cambiamenti di qualità si applicano solo al video corrente</string>
