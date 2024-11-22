@@ -51,7 +51,7 @@ internal val miniplayerModernConstructorFingerprint = fingerprint {
     literal { 45623000L }
 }
 
-internal val miniplayerDisabledFingerprint = fingerprint {
+internal val miniplayerOnCloseHandlerFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     literal { MINIPLAYER_DISABLED_FEATURE_KEY  }
