@@ -1011,8 +1011,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Minipřehrávač</string>
   <string name="revanced_miniplayer_screen_summary">Změnit styl přehrávače minimalizovaného nastavení</string>
   <string name="revanced_miniplayer_type_title">Typ minipřehrávače</string>
+  <string name="revanced_miniplayer_type_entry_0">Vypnuto</string>
   <string name="revanced_miniplayer_type_entry_1">Původní</string>
-  <string name="revanced_miniplayer_type_entry_2">Telefon</string>
+  <string name="revanced_miniplayer_type_entry_2">Minimální</string>
   <string name="revanced_miniplayer_type_entry_3">Tablet</string>
   <string name="revanced_miniplayer_type_entry_4">Moderní 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderní 2</string>
@@ -1147,7 +1148,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">Hmatové úlohy jsou povoleny</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Automatická kvalita</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">Automaticky</string>
   <string name="revanced_remember_video_quality_last_selected_title">Zapamatovat změny kvality videa</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Změny kvality platí pro všechna videa</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Změny kvality se vztahují pouze na aktuální video</string>

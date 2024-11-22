@@ -1012,8 +1012,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Minisoitin</string>
   <string name="revanced_miniplayer_screen_summary">Muuta sovelluksen tyyliä pienennetyssä soittimessa</string>
   <string name="revanced_miniplayer_type_title">Minisoittimen tyyppi</string>
+  <string name="revanced_miniplayer_type_entry_0">Pois käytöstä</string>
   <string name="revanced_miniplayer_type_entry_1">Alkuperäinen</string>
-  <string name="revanced_miniplayer_type_entry_2">Puhelin</string>
+  <string name="revanced_miniplayer_type_entry_2">Minimaali</string>
   <string name="revanced_miniplayer_type_entry_3">Tabletti</string>
   <string name="revanced_miniplayer_type_entry_4">Moderni 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderni 2</string>
@@ -1148,7 +1149,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">Tärinä on käytössä</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Automaattinen laatu</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">Automaattinen</string>
   <string name="revanced_remember_video_quality_last_selected_title">Muista videolaadun muutokset</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Laatumuutokset koskevat kaikkia videoita</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Laatumuutokset koskevat vain nykyistä videota</string>

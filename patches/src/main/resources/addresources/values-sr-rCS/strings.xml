@@ -1011,8 +1011,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Mini-plejer</string>
   <string name="revanced_miniplayer_screen_summary">Promenite stil minimiziranog plejera u aplikaciji</string>
   <string name="revanced_miniplayer_type_title">Tip mini-plejera</string>
+  <string name="revanced_miniplayer_type_entry_0">Onemogućeno</string>
   <string name="revanced_miniplayer_type_entry_1">Originalni</string>
-  <string name="revanced_miniplayer_type_entry_2">Telefon</string>
   <string name="revanced_miniplayer_type_entry_3">Tablet</string>
   <string name="revanced_miniplayer_type_entry_4">Moderan 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderan 2</string>
@@ -1147,7 +1147,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">Vibracija pri uveličavanju je omogućena</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Automatski kvalitet</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">Automatski</string>
   <string name="revanced_remember_video_quality_last_selected_title">Zapamti promene kvaliteta videa</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Promene kvaliteta se primenjuju na sve videe</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Promene kvaliteta se primenjuju samo na trenutni video</string>

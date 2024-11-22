@@ -1010,8 +1010,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">المشغل المصغر</string>
   <string name="revanced_miniplayer_screen_summary">تغيير نمط المشغل المصغر داخل التطبيق</string>
   <string name="revanced_miniplayer_type_title">نوع المشغل المصغر</string>
+  <string name="revanced_miniplayer_type_entry_0">معطّل</string>
   <string name="revanced_miniplayer_type_entry_1">الأصلي</string>
-  <string name="revanced_miniplayer_type_entry_2">الجوّال</string>
+  <string name="revanced_miniplayer_type_entry_2">الحد الأدنى</string>
   <string name="revanced_miniplayer_type_entry_3">الجهاز اللوحي</string>
   <string name="revanced_miniplayer_type_entry_4">حديث 1</string>
   <string name="revanced_miniplayer_type_entry_5">حديث 2</string>
@@ -1146,7 +1147,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">تم تمكين الاهتزاز</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">جودة تلقائية</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">تلقائي</string>
   <string name="revanced_remember_video_quality_last_selected_title">تذكر تغييرات جودة الفيديو</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">تنطبق تغييرات الجودة على جميع مقاطع الفيديو</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">تنطبق تغييرات الجودة على الفيديو الحالي فقط</string>

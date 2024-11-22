@@ -967,7 +967,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Відновлення RYD в анонімному режимі Shorts</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Відновлення розширеного меню швидкості та якості відео</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Відновлення вкладки Бібліотека</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Відновлення старого інтерфейсу плейлиста</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Відновлення старого інтерфейсу списку відтворення</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Початкова сторінка</string>
@@ -1010,8 +1010,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Мініплеєр</string>
   <string name="revanced_miniplayer_screen_summary">Змінити стиль згорнутого мініплеєра</string>
   <string name="revanced_miniplayer_type_title">Тип мініплеєра</string>
+  <string name="revanced_miniplayer_type_entry_0">Вимкнуто</string>
   <string name="revanced_miniplayer_type_entry_1">Оригінальний</string>
-  <string name="revanced_miniplayer_type_entry_2">Телефонний</string>
+  <string name="revanced_miniplayer_type_entry_2">Мінімальні</string>
   <string name="revanced_miniplayer_type_entry_3">Планшетний</string>
   <string name="revanced_miniplayer_type_entry_4">Новітній 1</string>
   <string name="revanced_miniplayer_type_entry_5">Новітній 2</string>
@@ -1146,7 +1147,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">Вібрації при масштабуванні ввімкнуто</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Автоматична якість</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">Авто</string>
   <string name="revanced_remember_video_quality_last_selected_title">Запам\'ятовувати зміни якості відео</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Зміни якості застосовуються до всіх відео</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Зміни якості застосовуються лише до поточного відео</string>

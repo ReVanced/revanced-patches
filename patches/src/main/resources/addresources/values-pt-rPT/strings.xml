@@ -1009,8 +1009,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Minijogador</string>
   <string name="revanced_miniplayer_screen_summary">Alterar o estilo do player minimizado no aplicativo</string>
   <string name="revanced_miniplayer_type_title">Tipo de minijogador</string>
+  <string name="revanced_miniplayer_type_entry_0">Desativado</string>
   <string name="revanced_miniplayer_type_entry_1">Original</string>
-  <string name="revanced_miniplayer_type_entry_2">Smartphone</string>
+  <string name="revanced_miniplayer_type_entry_2">Mínimo</string>
   <string name="revanced_miniplayer_type_entry_3">Tábua</string>
   <string name="revanced_miniplayer_type_entry_4">Moderno 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderno 2</string>
@@ -1145,7 +1146,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">Hábitos estão ativados</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Qualidade automática</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">Automático</string>
   <string name="revanced_remember_video_quality_last_selected_title">Lembrar mudanças na qualidade do vídeo</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Alterações de qualidade se aplicam a todos os vídeos</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">As alterações de qualidade só se aplicam ao vídeo atual</string>
