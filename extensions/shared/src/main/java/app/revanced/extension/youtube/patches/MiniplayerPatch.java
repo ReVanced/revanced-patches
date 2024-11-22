@@ -172,7 +172,7 @@ public final class MiniplayerPatch {
     /**
      * Injection point.
      */
-    public static boolean getMiniplayerDisabled(boolean original) {
+    public static boolean getMiniplayerOnCloseHandler(boolean original) {
         return CURRENT_TYPE == DISABLED || original;
     }
 

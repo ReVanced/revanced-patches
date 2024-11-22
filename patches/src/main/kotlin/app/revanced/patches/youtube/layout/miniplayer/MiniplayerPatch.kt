@@ -433,9 +433,9 @@ val miniplayerPatch = bytecodePatch(
         }
 
         if (is_19_43_or_greater) {
-            miniplayerDisabledFingerprint.insertLiteralValueBooleanOverride(
+            miniplayerOnCloseHandlerFingerprint.insertLiteralValueBooleanOverride(
                 MINIPLAYER_DISABLED_FEATURE_KEY,
-                "getMiniplayerDisabled"
+                "getMiniplayerOnCloseHandler"
             )
 
             miniplayerModernConstructorFingerprint.insertLiteralValueBooleanOverride(
