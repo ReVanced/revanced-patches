@@ -1002,8 +1002,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Minijucător</string>
   <string name="revanced_miniplayer_screen_summary">Schimbă stilul aplicaţiei minimizat jucătorul</string>
   <string name="revanced_miniplayer_type_title">Tip minijucător</string>
+  <string name="revanced_miniplayer_type_entry_0">Dezactivat</string>
   <string name="revanced_miniplayer_type_entry_1">Originală</string>
-  <string name="revanced_miniplayer_type_entry_2">Telefon</string>
+  <string name="revanced_miniplayer_type_entry_2">Minimă</string>
   <string name="revanced_miniplayer_type_entry_3">Tabletă</string>
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
@@ -1138,7 +1139,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">Haptic-urile sunt activate</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Calitate automată</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">Automat</string>
   <string name="revanced_remember_video_quality_last_selected_title">Memorează modificările calității video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Modificările de calitate se aplică tuturor videoclipurilor</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Modificările de calitate se aplică numai video-ului curent</string>

@@ -1010,8 +1010,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Ελαχιστοποιημένη οθόνη αναπαραγωγής</string>
   <string name="revanced_miniplayer_screen_summary">Αλλάξτε το στυλ της ελαχιστοποιημένης οθόνης αναπαραγωγής</string>
   <string name="revanced_miniplayer_type_title">Τύπος ελαχιστοποιημένης οθόνης αναπαραγωγής</string>
+  <string name="revanced_miniplayer_type_entry_0">Ανενεργό</string>
   <string name="revanced_miniplayer_type_entry_1">Αρχικός</string>
-  <string name="revanced_miniplayer_type_entry_2">Τηλεφώνου</string>
+  <string name="revanced_miniplayer_type_entry_2">Ελάχιστα</string>
   <string name="revanced_miniplayer_type_entry_3">Ταμπλετ</string>
   <string name="revanced_miniplayer_type_entry_4">Μοντέρνος 1</string>
   <string name="revanced_miniplayer_type_entry_5">Μοντέρνος 2</string>
@@ -1146,7 +1147,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">Η απόκριση δόνησης είναι ενεργοποιημένη</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Αυτόματη ποιότητα</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">Αυτόματη</string>
   <string name="revanced_remember_video_quality_last_selected_title">Απομνημόνευση αλλαγών ποιότητας βίντεο</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Οι αλλαγές ποιότητας θα ισχύουν για όλα τα βίντεο</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Οι αλλαγές ποιότητας θα ισχύουν μόνο για το τρέχον βίντεο</string>

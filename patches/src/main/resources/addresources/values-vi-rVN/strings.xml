@@ -1010,8 +1010,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Trình phát thu nhỏ</string>
   <string name="revanced_miniplayer_screen_summary">Thay đổi kiểu trình phát thu nhỏ trong ứng dụng</string>
   <string name="revanced_miniplayer_type_title">Loại trình phát thu nhỏ</string>
+  <string name="revanced_miniplayer_type_entry_0">Đã tắt</string>
   <string name="revanced_miniplayer_type_entry_1">Nguyên bản</string>
-  <string name="revanced_miniplayer_type_entry_2">Điện thoại</string>
   <string name="revanced_miniplayer_type_entry_3">Máy tính bảng</string>
   <string name="revanced_miniplayer_type_entry_4">Hiện đại 1</string>
   <string name="revanced_miniplayer_type_entry_5">Hiện đại 2</string>
@@ -1146,7 +1146,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">Phản hồi xúc giác được bật</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Chất lượng tự động</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">Tự động</string>
   <string name="revanced_remember_video_quality_last_selected_title">Nhớ các thay đổi chất lượng video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Thay đổi chất lượng áp dụng cho tất cả video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Thay đổi chất lượng chỉ áp dụng cho video hiện tại</string>

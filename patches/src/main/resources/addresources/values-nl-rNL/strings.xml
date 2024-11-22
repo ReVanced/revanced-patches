@@ -995,8 +995,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Minispeler</string>
   <string name="revanced_miniplayer_screen_summary">De stijl van de in de app geminimaliseerde speler wijzigen</string>
   <string name="revanced_miniplayer_type_title">Miniplayer type</string>
+  <string name="revanced_miniplayer_type_entry_0">Uitgeschakeld</string>
   <string name="revanced_miniplayer_type_entry_1">Origineel</string>
-  <string name="revanced_miniplayer_type_entry_2">Telefoonnummer</string>
   <string name="revanced_miniplayer_type_entry_3">Telefoon</string>
   <string name="revanced_miniplayer_type_entry_4">Moderne 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderne 2</string>
@@ -1131,7 +1131,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">Haptics zijn ingeschakeld</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Automatische kwaliteit</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">Automatisch</string>
   <string name="revanced_remember_video_quality_last_selected_title">Videokwaliteitswijzigingen onthouden</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Kwaliteitswijzigingen zijn van toepassing op alle video\'s</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Kwaliteitswijzigingen zijn alleen van toepassing op de huidige video</string>

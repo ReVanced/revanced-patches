@@ -1010,8 +1010,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Minilejátszó</string>
   <string name="revanced_miniplayer_screen_summary">Módosítsa az alkalmazáson belüli kisméretű lejátszó stílusát</string>
   <string name="revanced_miniplayer_type_title">Minilejátszó típus</string>
+  <string name="revanced_miniplayer_type_entry_0">Kikapcsolva</string>
   <string name="revanced_miniplayer_type_entry_1">Eredeti</string>
-  <string name="revanced_miniplayer_type_entry_2">Telefon</string>
   <string name="revanced_miniplayer_type_entry_3">Tablet</string>
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
@@ -1146,7 +1146,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">A haptikus zoom engedélyezve</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Automatikus felbontás</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">Automatikus</string>
   <string name="revanced_remember_video_quality_last_selected_title">Felbontás változtatások mentése</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Felbontás változtatások alkalmazása az összes videóra</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Felbontás változtatások alkalmazása a jelenlegi videóra</string>
