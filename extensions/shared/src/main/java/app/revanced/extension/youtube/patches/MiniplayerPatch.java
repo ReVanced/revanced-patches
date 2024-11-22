@@ -177,9 +177,14 @@ public final class MiniplayerPatch {
 
     /**
      * Injection point.
+     *
+     * Enables a handler that immediately closes the miniplayer when the video is minimized,
+     * effectively disabling the miniplayer.
      */
     public static boolean getMiniplayerOnCloseHandler(boolean original) {
-        return CURRENT_TYPE == DISABLED || original;
+        return CURRENT_TYPE == ORIGINAL
+                ? original
+                : CURRENT_TYPE == DISABLED;
     }
 
     /**
