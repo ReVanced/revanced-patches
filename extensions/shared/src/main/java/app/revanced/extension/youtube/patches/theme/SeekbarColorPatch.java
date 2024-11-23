@@ -2,9 +2,12 @@ package app.revanced.extension.youtube.patches.theme;
 
 import static app.revanced.extension.shared.StringRef.str;
 
+import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.drawable.AnimatedVectorDrawable;
 
 import java.util.Arrays;
+import java.util.Locale;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
@@ -16,7 +19,7 @@ public final class SeekbarColorPatch {
     private static final boolean SEEKBAR_CUSTOM_COLOR_ENABLED = Settings.SEEKBAR_CUSTOM_COLOR.get();
 
     /**
-     * Default color of the seekbar.
+     * Default color of the seekbar.  Differs slightly from the custom color used in the settings.
      */
     private static final int ORIGINAL_SEEKBAR_COLOR = 0xFFFF0000;
 
@@ -72,10 +75,63 @@ public final class SeekbarColorPatch {
         return seekbarColor;
     }
 
+    /**
+     * Injection point
+     */
     public static boolean playerSeekbarGradientEnabled(boolean original) {
         if (SEEKBAR_CUSTOM_COLOR_ENABLED) return false;
 
         return original;
+    }
+
+    /**
+     * Injection point
+     */
+    public static boolean useLotteLaunchSplashScreen(boolean original) {
+        Logger.printDebug(() -> "useLotteLaunchSplashScreen original: " + original);
+
+        if (SEEKBAR_CUSTOM_COLOR_ENABLED) return false;
+
+        return original;
+    }
+
+    private static String get8BitStyleIdentifier(int color24Bit) {
+        // Convert to nearest 3-3-2 bit depth.
+        final int r3 = Math.round(Color.red(color24Bit) * 7 / 255f);
+        final int g3 = Math.round(Color.green(color24Bit) * 7 / 255f);
+        final int b2 = Math.round(Color.blue(color24Bit) * 3 / 255f);
+
+        return String.format(Locale.US, "splash_seekbar_color_style_%d_%d_%d", r3, g3, b2);
+    }
+
+    /**
+     * Injection point
+     */
+    public static void setSplashAnimationDrawableTheme(AnimatedVectorDrawable vectorDrawable) {
+        // Alternatively a ColorMatrixColorFilter can be used to change the color of the drawable
+        // without using any styles, but a color filter cannot selectively change the seekbar
+        // while keeping the red YT logo untouched.
+        // Even if the seekbar color xml value is changed to a completely different color (such as green),
+        // a color filter still cannot be selectively applied when the drawable has more than 1 color.
+        try {
+            String seekbarStyle = get8BitStyleIdentifier(seekbarColor);
+            Logger.printDebug(() -> "Using splash seekbar style: " + seekbarStyle);
+
+            final int styleIdentifierDefault = Utils.getResourceIdentifier(
+                    seekbarStyle,
+                    "style"
+            );
+            if (styleIdentifierDefault == 0) {
+                throw new RuntimeException("Seekbar style not found: " + seekbarStyle);
+            }
+
+            Resources.Theme theme = Utils.getContext().getResources().newTheme();
+            theme.applyStyle(styleIdentifierDefault, true);
+
+            vectorDrawable.applyTheme(theme);
+        } catch (Exception ex) {
+            Logger.printException(() -> "setSplashAnimationDrawableTheme failure", ex);
+        }
     }
 
     /**

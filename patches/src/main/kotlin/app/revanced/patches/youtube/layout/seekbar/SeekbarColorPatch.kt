@@ -14,14 +14,24 @@ import app.revanced.patches.youtube.layout.theme.lithoColorHookPatch
 import app.revanced.patches.youtube.layout.theme.lithoColorOverrideHook
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_23_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
+import app.revanced.util.copyXmlNode
+import app.revanced.util.findElementByAttributeValueOrThrow
+import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
+import app.revanced.util.inputStreamFromBundledResource
+import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import org.w3c.dom.Element
+import java.io.ByteArrayInputStream
+import kotlin.use
 
 internal var reelTimeBarPlayedColorId = -1L
     private set
@@ -53,7 +63,6 @@ private val seekbarColorResourcePatch = resourcePatch {
 
         // Edit the resume playback drawable and replace the progress bar with a custom drawable
         document("res/drawable/resume_playback_progressbar_drawable.xml").use { document ->
-
             val layerList = document.getElementsByTagName("layer-list").item(0) as Element
             val progressNode = layerList.getElementsByTagName("item").item(1) as Element
             if (!progressNode.getAttributeNode("android:id").value.endsWith("progress")) {
@@ -66,8 +75,96 @@ private val seekbarColorResourcePatch = resourcePatch {
             )
             scaleNode.replaceChild(replacementNode, shapeNode)
         }
+
+
+        if (is_19_25_or_greater) {
+            // Add attribute and styles for splash screen custom color.
+            // Using a style is the only way to selectively change just the seekbar fill color.
+            //
+            // Because the style colors must be hard coded for all color possibilities,
+            // instead of allowing 24 bit color the style is restricted to 8-bit (3-3-2 color depth)
+            // and the style color closest to the users custom color is used for the splash screen.
+            arrayOf(
+                inputStreamFromBundledResource("seekbar/values", "attrs.xml")!!
+                        to "res/values/attrs.xml",
+                ByteArrayInputStream(create8BitSeekbarColorStyles().toByteArray())
+                        to "res/values/styles.xml"
+            ).forEach { (source, destination) ->
+                "resources".copyXmlNode(
+                    document(source),
+                    document(destination),
+                ).close()
+            }
+
+            fun setSplashDrawablePathFillColor(xmlFileNames: Iterable<String>, resourceNames: Iterable<String>) {
+                xmlFileNames.forEach { xmlFileName ->
+                    document(xmlFileName).use { document ->
+                        resourceNames.forEach { elementId ->
+                            val element = document.childNodes.findElementByAttributeValueOrThrow(
+                                "android:name",
+                                elementId
+                            )
+
+                            val attribute = "android:fillColor"
+                            if (!element.hasAttribute(attribute)) {
+                                throw PatchException("Could not find $attribute for $elementId")
+                            }
+
+                            element.setAttribute(attribute, "?attr/splash_custom_seekbar_color")
+                        }
+                    }
+                }
+            }
+
+            setSplashDrawablePathFillColor(
+                listOf(
+                    "res/drawable/\$startup_animation_light__0.xml",
+                    "res/drawable/\$startup_animation_dark__0.xml"
+                ),
+                listOf("_R_G_L_10_G_D_0_P_0")
+            )
+
+            setSplashDrawablePathFillColor(
+                listOf(
+                    "res/drawable/\$buenos_aires_animation_light__0.xml",
+                    "res/drawable/\$buenos_aires_animation_dark__0.xml"
+                ),
+                listOf("_R_G_L_8_G_D_0_P_0")
+            )
+        }
     }
 }
+
+/**
+ * Generate a style file with all combinations of 3-3-2 (8-bit) colors
+ */
+private fun create8BitSeekbarColorStyles(): String = StringBuilder().apply {
+    append("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<resources>\n")
+
+    for (red in 0..7) {
+        for (green in 0..7) {
+            for (blue in 0..3) {
+                val name = "${red}_${green}_${blue}"
+
+                val r = (red * 255 / 7).toString(16).padStart(2, '0')
+                val g = (green * 255 / 7).toString(16).padStart(2, '0')
+                val b = (blue * 255 / 3).toString(16).padStart(2, '0')
+                val color = "#ff$r$g$b"
+
+                append(
+                    """
+                        <style name="splash_seekbar_color_style_$name">
+                            <item name="splash_custom_seekbar_color">$color</item>
+                        </style>
+                        
+                    """.trimIndent()
+                )
+            }
+        }
+    }
+
+    append("</resources>")
+}.toString()
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/theme/SeekbarColorPatch;"
 
@@ -139,5 +236,55 @@ val seekbarColorPatch = bytecodePatch(
         }
 
         lithoColorOverrideHook(EXTENSION_CLASS_DESCRIPTOR, "getLithoColor")
+
+
+        // region apply seekbar custom color to splash screen animation.
+
+        // Development changes to force the different launch screens to be used.
+        // All appear to be nearly identical and there is no strong reason to force any particular one.
+        if (false) {
+            // 3 combinations of each flag individually on and with both flags off.
+            launchScreenBuenosAiresFeatureFlagFingerprint.method.returnEarly(false)
+            launchScreenOptimizedFeatureFlagFingerprint.method.returnEarly(true)
+        }
+
+        // Don't use the lotte splash screen layout if using custom seekbar.
+        arrayOf(
+            launchScreenLayoutTypeFingerprint,
+            mainActivityOnCreateFingerprint
+        ).forEach { fingerprint ->
+            fingerprint.method.apply {
+                val literalIndex = indexOfFirstLiteralInstructionOrThrow(launchScreenLayoutTypeLotteFeatureFlag)
+                val resultIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
+                val register = getInstruction<OneRegisterInstruction>(resultIndex).registerA
+
+                addInstructions(
+                    resultIndex + 1,
+                    """
+                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->useLotteLaunchSplashScreen(Z)Z
+                        move-result v$register
+                    """
+                )
+            }
+        }
+
+        // Hook the splash animation drawable to set the a seekbar color theme.
+        mainActivityOnCreateFingerprint.method.apply {
+            val drawableIndex = indexOfFirstInstructionOrThrow {
+                val reference = getReference<MethodReference>()
+                reference?.definingClass == "Landroid/widget/ImageView;"
+                        && reference.name == "getDrawable"
+            }
+            val checkCastIndex = indexOfFirstInstructionOrThrow(drawableIndex, Opcode.CHECK_CAST)
+            val drawableRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
+
+            addInstruction(
+                checkCastIndex + 1,
+                "invoke-static { v$drawableRegister }, $EXTENSION_CLASS_DESCRIPTOR->" +
+                        "setSplashAnimationDrawableTheme(Landroid/graphics/drawable/AnimatedVectorDrawable;)V"
+            )
+        }
+
+        // endregion
     }
 }
