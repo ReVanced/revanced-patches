@@ -30,6 +30,7 @@ public class InternalDataDocumentsProvider extends DocumentsProvider {
     private static final String[] directoryColumns =
             {"document_id", "mime_type", "_display_name", "last_modified", "flags",
                     "_size", "full_path", "lstat_info"};
+    private static final int S_IFLNK = 0x8000;
 
     private String packageName;
     private File dataDirectory;
@@ -199,7 +200,7 @@ public class InternalDataDocumentsProvider extends DocumentsProvider {
         if (root.isDirectory()) {
             try {
                 // Only delete recursively if the directory is not a symlink
-                if ((Os.lstat(root.getPath()).st_mode & 0x8000 /* S_IFLNK */) != 0x8000) {
+                if ((Os.lstat(root.getPath()).st_mode & S_IFLNK) != S_IFLNK) {
                     File[] files = root.listFiles();
                     if (files != null) {
                         for (File file : files) {
@@ -321,7 +322,7 @@ public class InternalDataDocumentsProvider extends DocumentsProvider {
             sb.append(";");
             sb.append(lstat.st_gid);
             // Append symlink target if it is a symlink
-            if ((lstat.st_mode & 0x8000) == 0x8000 /* S_IFLNK */) {
+            if ((lstat.st_mode & S_IFLNK) == S_IFLNK) {
                 sb.append(";");
                 sb.append(Os.readlink(path));
             }
