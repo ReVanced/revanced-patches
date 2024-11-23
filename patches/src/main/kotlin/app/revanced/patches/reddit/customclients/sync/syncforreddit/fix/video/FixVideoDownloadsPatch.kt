@@ -1,4 +1,4 @@
-package app.revanced.patches.reddit.customclients.syncforreddit.fix.video
+package app.revanced.patches.reddit.customclients.sync.syncforreddit.fix.video
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
