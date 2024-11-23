@@ -260,7 +260,8 @@ public class InternalDataDocumentsProvider extends DocumentsProvider {
         if (path.equals("/") || path.isEmpty()) {
             file = this.dataDirectory;
         } else {
-            String relativePath = path.substring(path.indexOf('/') + 1);
+            // Remove leading slash
+            String relativePath = path.substring(1);
             file = new File(this.dataDirectory, relativePath);
         }
 
