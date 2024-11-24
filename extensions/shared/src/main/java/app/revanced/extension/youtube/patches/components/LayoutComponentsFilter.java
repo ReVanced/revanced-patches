@@ -31,7 +31,7 @@ public final class LayoutComponentsFilter extends Filter {
             "cell_description_body"
     );
     private static final ByteArrayFilterGroup mixPlaylists = new ByteArrayFilterGroup(
-            Settings.HIDE_MIX_PLAYLISTS,
+            null,
             "&list="
     );
 
@@ -344,6 +344,10 @@ public final class LayoutComponentsFilter extends Filter {
      */
     public static boolean filterMixPlaylists(final Object conversionContext, @Nullable final byte[] bytes) {
         try {
+            if (!Settings.HIDE_MIX_PLAYLISTS.get()) {
+                return false;
+            }
+
             if (bytes == null) {
                 Logger.printDebug(() -> "bytes is null");
                 return false;

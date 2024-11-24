@@ -1,3 +1,59 @@
+# [5.1.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.1.0-dev.2...v5.1.0-dev.3) (2024-11-22)
+
+
+### Features
+
+* **YouTube - Miniplayer:** Add option to disable miniplayer ([#3961](https://github.com/ReVanced/revanced-patches/issues/3961)) ([e565cdb](https://github.com/ReVanced/revanced-patches/commit/e565cdb583aacfc0052d12c430f56fd9abd5bf00))
+
+# [5.1.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.1.0-dev.1...v5.1.0-dev.2) (2024-11-21)
+
+
+### Bug Fixes
+
+* **YouTube - SponsorBlock:** Fix create new segment crash on tablet custom roms ([#3946](https://github.com/ReVanced/revanced-patches/issues/3946)) ([a0da377](https://github.com/ReVanced/revanced-patches/commit/a0da377ba8f90ba39e905ed9730b3e819633bd50))
+
+# [5.1.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.0.3-dev.5...v5.1.0-dev.1) (2024-11-20)
+
+
+### Features
+
+* **YouTube:** Support version `19.45.38` ([#3938](https://github.com/ReVanced/revanced-patches/issues/3938)) ([7c4e3fe](https://github.com/ReVanced/revanced-patches/commit/7c4e3fe97e8cbbb8cf16a2fb95f64223ca2bd7ef))
+
+## [5.0.3-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.0.3-dev.4...v5.0.3-dev.5) (2024-11-18)
+
+
+### Bug Fixes
+
+* **YouTube - Hide Shorts components:** Do not hide Shorts action buttons on app first launch ([#3933](https://github.com/ReVanced/revanced-patches/issues/3933)) ([0d78815](https://github.com/ReVanced/revanced-patches/commit/0d78815e33bf2ae216e519f067fb773df0f2084e))
+
+## [5.0.3-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.0.3-dev.3...v5.0.3-dev.4) (2024-11-18)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof app version:** Adjust legacy spoof targets ([#3934](https://github.com/ReVanced/revanced-patches/issues/3934)) ([f5794c1](https://github.com/ReVanced/revanced-patches/commit/f5794c1f896c331d76fdfc299e31a2773f2209ca))
+
+## [5.0.3-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.0.3-dev.2...v5.0.3-dev.3) (2024-11-15)
+
+
+### Bug Fixes
+
+* **YouTube - Playback speed:** Add 'Auto' speed. Always override speed if default is set to 1.0x ([#3914](https://github.com/ReVanced/revanced-patches/issues/3914)) ([497739e](https://github.com/ReVanced/revanced-patches/commit/497739e8ce6933c1f1ea46edffc102e56b985623))
+
+## [5.0.3-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.0.3-dev.1...v5.0.3-dev.2) (2024-11-15)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof app version:** Remove broken spoof targets when patching 19.25+ ([#3915](https://github.com/ReVanced/revanced-patches/issues/3915)) ([9e18eca](https://github.com/ReVanced/revanced-patches/commit/9e18ecab1877dd33a3ad0fe216e6b91a8daaf1f8))
+
+## [5.0.3-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.0.2...v5.0.3-dev.1) (2024-11-13)
+
+
+### Bug Fixes
+
+* **YouTube - Change header:** Apply header changes to A/B layout ([#3907](https://github.com/ReVanced/revanced-patches/issues/3907)) ([6ccf114](https://github.com/ReVanced/revanced-patches/commit/6ccf11426ec9e9cd9c8e89a2443f0d0645cc78b1))
+
 ## [5.0.2](https://github.com/ReVanced/revanced-patches/compare/v5.0.1...v5.0.2) (2024-11-12)
 
 

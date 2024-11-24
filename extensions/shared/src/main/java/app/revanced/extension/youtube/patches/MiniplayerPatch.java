@@ -24,9 +24,20 @@ public final class MiniplayerPatch {
      * Mini player type. Null fields indicates to use the original un-patched value.
      */
     public enum MiniplayerType {
+        /**
+         * Disabled. When swiped down the miniplayer is immediately closed.
+         * Only available with 19.43+
+         */
+        DISABLED(false, null),
         /** Unmodified type, and same as un-patched. */
         ORIGINAL(null, null),
+        /**
+         * Exactly the same as MINIMAL, and only here for migration of user settings.
+         * Eventually this should be deleted.
+         */
+        @Deprecated
         PHONE(false, null),
+        MINIMAL(false, null),
         TABLET(true, null),
         MODERN_1(null, 1),
         MODERN_2(null, 2),
@@ -162,6 +173,18 @@ public final class MiniplayerPatch {
         }
 
         OPACITY_LEVEL = (opacity * 255) / 100;
+    }
+
+    /**
+     * Injection point.
+     *
+     * Enables a handler that immediately closes the miniplayer when the video is minimized,
+     * effectively disabling the miniplayer.
+     */
+    public static boolean getMiniplayerOnCloseHandler(boolean original) {
+        return CURRENT_TYPE == ORIGINAL
+                ? original
+                : CURRENT_TYPE == DISABLED;
     }
 
     /**

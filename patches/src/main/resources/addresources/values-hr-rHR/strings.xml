@@ -176,6 +176,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.tablet.enableTabletLayoutPatch">
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
+  <string name="revanced_miniplayer_type_entry_0">Onemogućeno</string>
   </patch>
   <patch id="layout.theme.themePatch">
   </patch>
@@ -209,6 +210,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="misc.zoomhaptics.zoomHapticsPatch">
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   </patch>

@@ -4,14 +4,11 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
-import baseModelMapperFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction31i
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
-import getSponsoredDataModelTemplateFingerprint
-import getStoryVisibilityFingerprint
 
 @Suppress("unused")
 val hideSponsoredStoriesPatch = bytecodePatch(

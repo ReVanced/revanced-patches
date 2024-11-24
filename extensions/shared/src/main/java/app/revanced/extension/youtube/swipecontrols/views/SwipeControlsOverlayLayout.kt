@@ -7,8 +7,6 @@ import android.os.Handler
 import android.os.Looper
 import android.util.TypedValue
 import android.view.HapticFeedbackConstants
-import android.view.View
-import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
 import app.revanced.extension.shared.StringRef.str
@@ -59,8 +57,8 @@ class SwipeControlsOverlayLayout(
         val compoundIconPadding = 4.applyDimension(context, TypedValue.COMPLEX_UNIT_DIP)
         feedbackTextView = TextView(context).apply {
             layoutParams = LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT,
+                LayoutParams.WRAP_CONTENT,
+                LayoutParams.WRAP_CONTENT,
             ).apply {
                 addRule(CENTER_IN_PARENT, TRUE)
                 setPadding(
@@ -91,7 +89,7 @@ class SwipeControlsOverlayLayout(
 
     private val feedbackHideHandler = Handler(Looper.getMainLooper())
     private val feedbackHideCallback = Runnable {
-        feedbackTextView.visibility = View.GONE
+        feedbackTextView.visibility = GONE
     }
 
     /**

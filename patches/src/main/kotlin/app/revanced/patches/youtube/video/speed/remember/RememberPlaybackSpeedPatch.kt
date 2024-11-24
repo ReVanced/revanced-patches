@@ -61,10 +61,10 @@ internal val rememberPlaybackSpeedPatch = bytecodePatch {
                     invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->getPlaybackSpeedOverride()F
                     move-result v0
                     
-                    # Check if the playback speed is not 1.0x.
-                    const/high16 v1, 1.0f
+                    # Check if the playback speed is not auto (-2.0f)
+                    const/4 v1, 0x0
                     cmpg-float v1, v0, v1
-                    if-eqz v1, :do_not_override
+                    if-lez v1, :do_not_override
     
                     # Get the instance of the class which has the container class field below.
                     iget-object v1, p0, $onItemClickListenerClassFieldReference

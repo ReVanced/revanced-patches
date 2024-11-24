@@ -107,7 +107,6 @@ private const val CUSTOM_FILTER_CLASS_NAME =
 private const val KEYWORD_FILTER_CLASS_NAME =
     "Lapp/revanced/extension/youtube/patches/components/KeywordContentFilter;"
 
-@Suppress("unused")
 val hideLayoutComponentsPatch = bytecodePatch(
     name = "Hide layout components",
     description = "Adds options to hide general layout components.",
@@ -129,6 +128,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
+            "19.45.38",
         ),
     )
 

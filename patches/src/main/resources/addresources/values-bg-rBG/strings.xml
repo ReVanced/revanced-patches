@@ -86,6 +86,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_12_video_title">Видео</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <string name="revanced_shorts_disable_background_playback_title">Възпроизвеждане на  Shorts в фонов режим</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Фоновото възпроизвеждане на Shorts е деактивирано</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Фоновото възпроизвеждане на Shorts е активирано</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Отстраняване на грешки</string>
@@ -326,6 +329,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_products_banner_title">Скриване на банера за показване на продукти</string>
   <string name="revanced_hide_products_banner_summary_on">Банерът е скрит</string>
   <string name="revanced_hide_products_banner_summary_off">Банерът е показан</string>
+  <string name="revanced_hide_player_store_shelf_title">Скриване на рафта за пазаруване</string>
+  <string name="revanced_hide_player_store_shelf_summary_on">Рафта за пазаруване е скрит</string>
+  <string name="revanced_hide_player_store_shelf_summary_off">Рафта за пазаруване се показва</string>
   <string name="revanced_hide_shopping_links_title">Скриване на връзките за пазаруване в описанието на видеоклипа</string>
   <string name="revanced_hide_shopping_links_summary_on">Връзките за пазаруване са скрити</string>
   <string name="revanced_hide_shopping_links_summary_off">Връзките за пазаруване са показани</string>
@@ -512,6 +518,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_ambient_mode_title">Подсветка около видеото</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_on">Менюто за подсветка около видеото е скрито</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_off">Менюто за подсветка около видеото се показва</string>
+  <string name="revanced_hide_player_flyout_stable_volume_title">Меню за постоянна сила на звука</string>
   <string name="revanced_hide_player_flyout_stable_volume_summary_off">Постоянно ниво на звука се показва</string>
   <string name="revanced_hide_player_flyout_stable_volume_summary_on">Постоянно ниво на звука е скрито</string>
   <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -540,6 +547,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Менюто за гледане в VR е скрито</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Менюто за гледане в VR се показва</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Скриване на футъра на менюто за качество на видеото</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Долният колонтитул на менюто за качество на видеото е скрит</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Долният колонтитул на менюто за качество на видеото се показва</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_player_previous_next_buttons_title">Бутони за Предишно &amp; Следващо видео</string>
@@ -633,6 +642,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_green_screen_button_title">Бутон \"Зелен екран\"</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Бутон \"Зелен екран\" е скрит</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Бутон \"Зелен екран\" се показва</string>
+  <string name="revanced_hide_shorts_hashtag_button_title">Скриване на бутона за хаштаг</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_on">Бутона за хаштаг е скрит</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_off">Бутона за хаштаг се показва</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Скриване на предложенията за търсене</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Предложенията за търсене са скрити</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Предложенията за търсене се показват</string>
@@ -751,6 +763,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_wide_searchbar_summary_off">Широката лента за търсене е изключена</string>
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_title">Активиране на висококачествени миниатюри</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Миниатюри с високо качество в лентата на възпроизвеждане</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Миниатюри с средно качество в лентата на възпроизвеждане</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Миниатюри с високо качество в лентата на прогреса на цял екран</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Миниатюри със средно качество в лентата на прогреса на цял екран</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Това също така ще възстанови миниатюри на потоци на живо, които нямат миниатюри на лентата на прогреса.\n\nМиниизображенията на лентата на прогреса ще използват същото качество като текущия видеоклип.\n\nТази функция работи най-добре с качество на видеото 720p или по-ниско и когато използвате много бързо интернет връзка.</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Стари миниатюри на времевата линия</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Над лентата за възпроизвеждане се появяват миниатюри</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Миниатюрите се показват в режим на цял екран</string>
@@ -944,11 +962,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Подлъгване за версията на</string>
+  <string name="revanced_spoof_app_version_target_entry_1">18.38.44 - Възстановете старите икони на Shorts в плейъра</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_entry_1">18.33.40 - Възстановете RYD в режим „инкогнито“ на Shorts</string>
-  <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - Възстановяване на видео скорост &amp; в менюто за качество</string>
-  <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - Възстановяване на таб \"Библиотека\"</string>
-  <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Връщане на секцията с плейлиста към стария стил</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Възстановете RYD в режим „инкогнито“ на Shorts</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Възстановяване на видео скорост &amp; в менюто за качество</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Възстановяване на таб \"Библиотека\"</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Връщане на секцията с плейлиста към стария стил</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Задай начална страница</string>
@@ -974,6 +993,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts плейъра при стартиране на приложението се показва</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <string name="revanced_shorts_autoplay_title">Автоматично пускане Shorts</string>
+  <string name="revanced_shorts_autoplay_summary_on">Shorts ще се пускат автоматично</string>
+  <string name="revanced_shorts_autoplay_summary_off">Shorts ще се повторят</string>
+  <string name="revanced_shorts_autoplay_background_title">Автоматично пускане на Shorts във фонов режим</string>
+  <string name="revanced_shorts_autoplay_background_summary_on">Shorts ще се възпроизвеждат автоматично един след друг във фонов режим</string>
+  <string name="revanced_shorts_autoplay_background_summary_off">Shorts ще се повтори във фонов режим</string>
   </patch>
   <patch id="layout.tablet.enableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Включи режим за таблет</string>
@@ -985,13 +1010,29 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Минимизиран екран за възпроизвеждане</string>
   <string name="revanced_miniplayer_screen_summary">Променете стила на минимизирания екран за възпроизвеждане</string>
   <string name="revanced_miniplayer_type_title">Минимизиран тип екран за гледане</string>
+  <string name="revanced_miniplayer_type_entry_0">Деактивирано</string>
   <string name="revanced_miniplayer_type_entry_1">Оригинал</string>
-  <string name="revanced_miniplayer_type_entry_2">Телефон</string>
   <string name="revanced_miniplayer_type_entry_3">Таблет</string>
   <string name="revanced_miniplayer_type_entry_4">Модерен 1</string>
   <string name="revanced_miniplayer_type_entry_5">Модерен 2</string>
   <string name="revanced_miniplayer_type_entry_6">Модерен 3</string>
+  <string name="revanced_miniplayer_rounded_corners_title">Активирайте заоблени ъгли</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_on">Ъглите са заоблени</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_off">Ъглите са нормални</string>
+  <string name="revanced_miniplayer_double_tap_action_title">Активирайте двойното докосване и щипване за преоразмеряване</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">Действието с двойно докосване и щипване за преоразмеряване е активирано\n\n• Докоснете двукратно, за да увеличите размера на миниплейъра\n• Докоснете два пъти отново, за да възстановите оригиналния размер</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_off">Двойно докосване и щипване за преоразмеряване е деактивирано</string>
+  <string name="revanced_miniplayer_drag_and_drop_title">Разрешете плъзгане и местене</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">Плъзгане и местенето е активирано\n\nМиниплейърът може да се плъзга до всеки ъгъл на екрана</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_off">Плъзгането и преместването е деактивирано</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">Активиране на хоризонтално плъзгане</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">Жестът за хоризонтално плъзгане е активиран\n\nМиниплейърът може да се плъзга извън екрана наляво или надясно</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">Жестът за хоризонтално плъзгане е деактивиран</string>
+  <string name="revanced_miniplayer_hide_expand_close_title">Скриване на бутона за затваряне</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">Бутонът за затваряне е скрит</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">Показан е бутон за затваряне</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_title">Бутони за разширяване и свиване на екрана</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Бутоните са скрити\n\nПлъзнете за разгъване или затваряне</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Бутони за разширяване и свиване на екрана са видими</string>
   <string name="revanced_miniplayer_hide_subtext_title">Екранни текстове, етикети</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Скрити</string>
@@ -1001,6 +1042,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Бутони за напред и назад са показани</string>
   <string name="revanced_miniplayer_width_dip_title">Първоначален размер</string>
   <string name="revanced_miniplayer_width_dip_summary">Първоначален размер на екрана, в пиксели</string>
+  <string name="revanced_miniplayer_width_dip_invalid_toast">Размерът на пиксела трябва да бъде между %1$s и %2$s</string>
   <string name="revanced_miniplayer_opacity_title">Прозрачност на менютата</string>
   <string name="revanced_miniplayer_opacity_summary">Стойност на прозрачност между 0-100, където 0 е прозрачно</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Прозрачността на менюто трябва да бъде между 0-100</string>
@@ -1016,6 +1058,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_summary_off">Показва се оригиналния цвят на лентата за напредък</string>
   <string name="revanced_seekbar_custom_color_value_title">Персонализиран цвят на лентата за напредък</string>
   <string name="revanced_seekbar_custom_color_value_summary">Цветове на лентата за напредък</string>
+  <string name="revanced_seekbar_custom_color_invalid">Невалидна стойност за цвят на лентата на прогреса</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Прескочете забраната за зареждане на изображение</string>
@@ -1103,7 +1146,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">Вибрациите са активирани</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Автоматично качество</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">Авто</string>
   <string name="revanced_remember_video_quality_last_selected_title">Запомни промените в качеството на видеото</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Промените в качеството се отнасят за всички видеоклипове</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Промените в качеството се отнасят само за текущия видеоклип</string>
@@ -1119,10 +1163,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_playback_speed_dialog_button_summary_off">Бутонът не е показан</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <string name="revanced_custom_speed_menu_title">Менюто за потребителска скорост</string>
+  <string name="revanced_custom_speed_menu_summary_on">Менюто за потребителска скорост се показва</string>
+  <string name="revanced_custom_speed_menu_summary_off">Менюто за потребителска скорост не се показва</string>
   <string name="revanced_custom_playback_speeds_title">Персонализирани скорости на възпроизвеждане</string>
   <string name="revanced_custom_playback_speeds_summary">Добавете или променете скоростa на възпроизвеждане</string>
   <string name="revanced_custom_playback_speeds_invalid">Персоналната скорост трябва да е по-малка от %s. Използване на стойности по подразбиране.</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Невалидни персонализирани скорости на възпроизвеждане. Използване на стойности по подразбиране.</string>
+  <string name="revanced_custom_playback_speeds_auto">Авто</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Запомни промените в скоростта на възпроизвеждане</string>

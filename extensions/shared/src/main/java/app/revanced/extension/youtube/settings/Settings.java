@@ -9,6 +9,7 @@ import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerH
 import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerType;
 import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerType.*;
 import static app.revanced.extension.youtube.patches.SeekbarThumbnailsPatch.SeekbarThumbnailsHighQualityAvailability;
+import static app.revanced.extension.youtube.patches.VersionCheckPatch.IS_19_17_OR_GREATER;
 import static app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour.*;
 
 import app.revanced.extension.shared.Logger;
@@ -23,7 +24,6 @@ import app.revanced.extension.youtube.patches.spoof.SpoofAppVersionPatch;
 import app.revanced.extension.youtube.patches.spoof.SpoofVideoStreamsPatch;
 import app.revanced.extension.youtube.sponsorblock.SponsorBlockSettings;
 
-@SuppressWarnings("deprecation")
 public class Settings extends BaseSettings {
     // Video
     public static final BooleanSetting RESTORE_OLD_VIDEO_QUALITY_MENU = new BooleanSetting("revanced_restore_old_video_quality_menu", TRUE);
@@ -33,7 +33,7 @@ public class Settings extends BaseSettings {
     // Speed
     public static final BooleanSetting REMEMBER_PLAYBACK_SPEED_LAST_SELECTED = new BooleanSetting("revanced_remember_playback_speed_last_selected", FALSE);
     public static final BooleanSetting CUSTOM_SPEED_MENU = new BooleanSetting("revanced_custom_speed_menu", TRUE);
-    public static final FloatSetting PLAYBACK_SPEED_DEFAULT = new FloatSetting("revanced_playback_speed_default", 1.0f);
+    public static final FloatSetting PLAYBACK_SPEED_DEFAULT = new FloatSetting("revanced_playback_speed_default", -2.0f);
     public static final StringSetting CUSTOM_PLAYBACK_SPEEDS = new StringSetting("revanced_custom_playback_speeds",
             "0.25\n0.5\n0.75\n0.9\n0.95\n1.0\n1.05\n1.1\n1.25\n1.5\n1.75\n2.0\n3.0\n4.0\n5.0", true);
 
@@ -128,8 +128,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_AUTOPLAY_BUTTON = new BooleanSetting("revanced_hide_autoplay_button", TRUE, true);
     public static final BooleanSetting HIDE_CAST_BUTTON = new BooleanSetting("revanced_hide_cast_button", TRUE, true);
     public static final BooleanSetting HIDE_PLAYER_PREVIOUS_NEXT_BUTTONS = new BooleanSetting("revanced_hide_player_previous_next_buttons", FALSE, true);
-    @Deprecated
-    public static final BooleanSetting HIDE_PLAYER_BUTTONS = new BooleanSetting("revanced_hide_player_buttons", FALSE, true);
+    private static final BooleanSetting DEPRECATED_HIDE_PLAYER_BUTTONS = new BooleanSetting("revanced_hide_player_buttons", FALSE, true);
     public static final BooleanSetting COPY_VIDEO_URL = new BooleanSetting("revanced_copy_video_url", FALSE);
     public static final BooleanSetting COPY_VIDEO_URL_TIMESTAMP = new BooleanSetting("revanced_copy_video_url_timestamp", TRUE);
     public static final BooleanSetting PLAYBACK_SPEED_DIALOG_BUTTON = new BooleanSetting("revanced_playback_speed_dialog_button", FALSE);
@@ -192,14 +191,13 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_PLAYER_FLYOUT_SLEEP_TIMER = new BooleanSetting("revanced_hide_player_flyout_sleep_timer", FALSE);
     public static final BooleanSetting HIDE_PLAYER_FLYOUT_STABLE_VOLUME = new BooleanSetting("revanced_hide_player_flyout_stable_volume", FALSE);
     public static final BooleanSetting HIDE_PLAYER_FLYOUT_WATCH_IN_VR = new BooleanSetting("revanced_hide_player_flyout_watch_in_vr", TRUE);
-    @Deprecated
     private static final BooleanSetting DEPRECATED_HIDE_PLAYER_FLYOUT_VIDEO_QUALITY_FOOTER = new BooleanSetting("revanced_hide_video_quality_menu_footer", FALSE);
     public static final BooleanSetting HIDE_PLAYER_FLYOUT_VIDEO_QUALITY_FOOTER = new BooleanSetting("revanced_hide_player_flyout_video_quality_footer", FALSE);
 
     // General layout
     public static final EnumSetting<StartPage> CHANGE_START_PAGE = new EnumSetting<>("revanced_change_start_page", StartPage.ORIGINAL, true);
     public static final BooleanSetting SPOOF_APP_VERSION = new BooleanSetting("revanced_spoof_app_version", FALSE, true, "revanced_spoof_app_version_user_dialog_message");
-    public static final StringSetting SPOOF_APP_VERSION_TARGET = new StringSetting("revanced_spoof_app_version_target", "17.41.37", true, parent(SPOOF_APP_VERSION));
+    public static final StringSetting SPOOF_APP_VERSION_TARGET = new StringSetting("revanced_spoof_app_version_target", IS_19_17_OR_GREATER ? "18.38.44" : "17.33.42", true, parent(SPOOF_APP_VERSION));
     public static final BooleanSetting TABLET_LAYOUT = new BooleanSetting("revanced_tablet_layout", FALSE, true, "revanced_tablet_layout_user_dialog_message");
     public static final BooleanSetting WIDE_SEARCHBAR = new BooleanSetting("revanced_wide_searchbar", FALSE, true);
     public static final BooleanSetting BYPASS_IMAGE_REGION_RESTRICTIONS = new BooleanSetting("revanced_bypass_image_region_restrictions", FALSE, true);
@@ -235,7 +233,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_SHORTS_UPCOMING_BUTTON = new BooleanSetting("revanced_hide_shorts_upcoming_button", TRUE);
     public static final BooleanSetting HIDE_SHORTS_GREEN_SCREEN_BUTTON = new BooleanSetting("revanced_hide_shorts_green_screen_button", TRUE);
     public static final BooleanSetting HIDE_SHORTS_HASHTAG_BUTTON = new BooleanSetting("revanced_hide_shorts_hashtag_button", TRUE);
-    public static final BooleanSetting HIDE_SHORTS_SEARCH_SUGGESTIONS = new BooleanSetting("revanced_hide_shorts_search_suggestions", FALSE);
+    public static final BooleanSetting HIDE_SHORTS_SEARCH_SUGGESTIONS = new BooleanSetting("revanced_hide_shorts_search_suggestions", TRUE);
     public static final BooleanSetting HIDE_SHORTS_STICKERS = new BooleanSetting("revanced_hide_shorts_stickers", TRUE);
     public static final BooleanSetting HIDE_SHORTS_SUPER_THANKS_BUTTON = new BooleanSetting("revanced_hide_shorts_super_thanks_button", TRUE);
     public static final BooleanSetting HIDE_SHORTS_LIKE_FOUNTAIN = new BooleanSetting("revanced_hide_shorts_like_fountain", TRUE);
@@ -274,7 +272,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting SPOOF_DEVICE_DIMENSIONS = new BooleanSetting("revanced_spoof_device_dimensions", FALSE, true,
             "revanced_spoof_device_dimensions_user_dialog_message");
     public static final BooleanSetting BYPASS_URL_REDIRECTS = new BooleanSetting("revanced_bypass_url_redirects", TRUE);
-    public static final BooleanSetting ANNOUNCEMENTS = new BooleanSetting("revanced_announcements", TRUE);
+    public static final BooleanSetting ANNOUNCEMENTS = new BooleanSetting("revanced_announcements", TRUE, false, false);
     public static final BooleanSetting SPOOF_VIDEO_STREAMS = new BooleanSetting("revanced_spoof_video_streams", TRUE, true,"revanced_spoof_video_streams_user_dialog_message");
     public static final BooleanSetting SPOOF_VIDEO_STREAMS_IOS_FORCE_AVC = new BooleanSetting("revanced_spoof_video_streams_ios_force_avc", FALSE, true,
             "revanced_spoof_video_streams_ios_force_avc_user_dialog_message", new SpoofVideoStreamsPatch.ForceiOSAVCAvailability());
@@ -377,15 +375,20 @@ public class Settings extends BaseSettings {
 
         migrateOldSettingToNew(DEPRECATED_SB_UUID_OLD_MIGRATION_SETTING, SB_PRIVATE_USER_ID);
 
-        // Old spoof versions that no longer work reliably.
-        if (SpoofAppVersionPatch.isSpoofingToLessThan("17.33.00")) {
-            Logger.printInfo(() -> "Resetting spoof app version target");
-            Settings.SPOOF_APP_VERSION_TARGET.resetToDefault();
-        }
-
-        migrateOldSettingToNew(HIDE_PLAYER_BUTTONS, HIDE_PLAYER_PREVIOUS_NEXT_BUTTONS);
+        migrateOldSettingToNew(DEPRECATED_HIDE_PLAYER_BUTTONS, HIDE_PLAYER_PREVIOUS_NEXT_BUTTONS);
 
         migrateOldSettingToNew(DEPRECATED_HIDE_PLAYER_FLYOUT_VIDEO_QUALITY_FOOTER, HIDE_PLAYER_FLYOUT_VIDEO_QUALITY_FOOTER);
+
+        // Old spoof versions that no longer work reliably.
+        if (SpoofAppVersionPatch.isSpoofingToLessThan(SPOOF_APP_VERSION_TARGET.defaultValue)) {
+            Logger.printInfo(() -> "Resetting spoof app version target");
+            SPOOF_APP_VERSION_TARGET.resetToDefault();
+        }
+
+        // Migrate renamed enum type.
+        if (MINIPLAYER_TYPE.get() == PHONE) {
+            MINIPLAYER_TYPE.save(MINIMAL);
+        }
 
         // endregion
     }

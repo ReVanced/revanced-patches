@@ -963,11 +963,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Spoof-App-Versionsziel</string>
+  <string name="revanced_spoof_app_version_target_entry_1">18.38.44 - Alte Shorts Spielersymbole wiederherstellen</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_entry_1">18.33.40 - RYD auf Shorts Inkognito-Modus wiederherstellen</string>
-  <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - Wiederherstellen der breiten Videogeschwindigkeit &amp; Qualitätsmenü</string>
-  <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - Bibliotheks-Tab wiederherstellen</string>
-  <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Alte Wiedergabeliste wiederherstellen</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - RYD auf Shorts Inkognito-Modus wiederherstellen</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Wiederherstellen der breiten Videogeschwindigkeit &amp; Qualitätsmenü</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Bibliotheks-Tab wiederherstellen</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Alte Wiedergabeliste wiederherstellen</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Startseite festlegen</string>
@@ -1010,8 +1011,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Miniplayer</string>
   <string name="revanced_miniplayer_screen_summary">Ändere den Stil des in App minimierten Players</string>
   <string name="revanced_miniplayer_type_title">Minispielertyp</string>
+  <string name="revanced_miniplayer_type_entry_0">Deaktiviert</string>
   <string name="revanced_miniplayer_type_entry_1">Original</string>
-  <string name="revanced_miniplayer_type_entry_2">Telefon</string>
+  <string name="revanced_miniplayer_type_entry_2">Minimal</string>
   <string name="revanced_miniplayer_type_entry_3">Tablets</string>
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
@@ -1146,7 +1148,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">Haptik ist aktiviert</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Automatische Qualität</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">Auto</string>
   <string name="revanced_remember_video_quality_last_selected_title">Änderungen der Videoqualität merken</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Qualitätsänderungen gelten für alle Videos</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Qualitätsänderungen gelten nur für das aktuelle Video</string>
@@ -1169,6 +1172,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_custom_playback_speeds_summary">Hinzufügen oder Ändern der benutzerdefinierten Wiedergabegeschwindigkeit</string>
   <string name="revanced_custom_playback_speeds_invalid">Benutzerdefinierte Geschwindigkeiten müssen kleiner als %ssein. Standardwerte werden verwendet.</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Ungültige benutzerdefinierte Wiedergabegeschwindigkeiten. Standardwerte verwenden.</string>
+  <string name="revanced_custom_playback_speeds_auto">Auto</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Änderungen der Wiedergabegeschwindigkeit merken</string>
