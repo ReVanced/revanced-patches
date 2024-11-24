@@ -95,11 +95,22 @@ public final class SeekbarColorPatch {
         return original;
     }
 
+    private static int colorChannelTo3Bits(int channel8Bits) {
+        final float channel3Bits = channel8Bits * 7 / 255f;
+
+        // If a color channel is near zero, then allow rounding up so values between
+        // 0x12 and 0x23 will show as 0x24. But always round down when the channel is
+        // near full saturation, otherwise rounding to nearest will cause all values
+        // between 0xEC and 0xFE to always show as full saturation (0xFF).
+        return channel3Bits < 6
+                ? Math.round(channel3Bits)
+                : (int) channel3Bits;
+    }
+
     private static String get9BitStyleIdentifier(int color24Bit) {
-        // Convert to nearest 9-bit color (3 bits per color channel).
-        final int r3 = Color.red(color24Bit) * 7 / 255;
-        final int g3 = Color.green(color24Bit) * 7 / 255;
-        final int b3 = Color.blue(color24Bit) * 7 / 255;
+        final int r3 = colorChannelTo3Bits(Color.red(color24Bit));
+        final int g3 = colorChannelTo3Bits(Color.green(color24Bit));
+        final int b3 = colorChannelTo3Bits(Color.blue(color24Bit));
 
         return String.format(Locale.US, "splash_seekbar_color_style_%d_%d_%d", r3, g3, b3);
     }
