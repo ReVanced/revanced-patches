@@ -59,7 +59,7 @@ val changePackageNamePatch = resourcePatch(
         key = "updateProviders",
         default = false,
         title = "Update providers",
-        description = "Update provider names declared by the app.",
+        description = "Update provider names declared by the app. Enabling this can fix installation errors, but this can also break features in certain apps.",
         required = false
     )
 
