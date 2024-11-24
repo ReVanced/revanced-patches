@@ -13,7 +13,6 @@ import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.youtube.layout.theme.lithoColorHookPatch
 import app.revanced.patches.youtube.layout.theme.lithoColorOverrideHook
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
-import app.revanced.patches.youtube.misc.playservice.is_19_23_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.settingsPatch
@@ -40,6 +39,8 @@ internal var inlineTimeBarColorizedBarPlayedColorDarkId = -1L
 internal var inlineTimeBarPlayedNotHighlightedColorId = -1L
     private set
 
+internal const val splashSeekbarColorAttributeName = "splash_custom_seekbar_color"
+
 private val seekbarColorResourcePatch = resourcePatch {
     dependsOn(
         settingsPatch,
@@ -61,7 +62,7 @@ private val seekbarColorResourcePatch = resourcePatch {
             "inline_time_bar_played_not_highlighted_color",
         ]
 
-        // Edit the resume playback drawable and replace the progress bar with a custom drawable
+        // Modify the resume playback drawable and replace the progress bar with a custom drawable.
         document("res/drawable/resume_playback_progressbar_drawable.xml").use { document ->
             val layerList = document.getElementsByTagName("layer-list").item(0) as Element
             val progressNode = layerList.getElementsByTagName("item").item(1) as Element
@@ -77,61 +78,61 @@ private val seekbarColorResourcePatch = resourcePatch {
         }
 
 
-        if (is_19_25_or_greater) {
-            // Add attribute and styles for splash screen custom color.
-            // Using a style is the only way to selectively change just the seekbar fill color.
-            //
-            // Because the style colors must be hard coded for all color possibilities,
-            // instead of allowing 24 bit color the style is restricted to 8-bit (3-3-2 color depth)
-            // and the style color closest to the users custom color is used for the splash screen.
-            arrayOf(
-                inputStreamFromBundledResource("seekbar/values", "attrs.xml")!!
-                        to "res/values/attrs.xml",
-                ByteArrayInputStream(create8BitSeekbarColorStyles().toByteArray())
-                        to "res/values/styles.xml"
-            ).forEach { (source, destination) ->
-                "resources".copyXmlNode(
-                    document(source),
-                    document(destination),
-                ).close()
-            }
+        if (!is_19_25_or_greater) {
+            return@execute
+        }
 
-            fun setSplashDrawablePathFillColor(xmlFileNames: Iterable<String>, resourceNames: Iterable<String>) {
-                xmlFileNames.forEach { xmlFileName ->
-                    document(xmlFileName).use { document ->
-                        resourceNames.forEach { elementId ->
-                            val element = document.childNodes.findElementByAttributeValueOrThrow(
-                                "android:name",
-                                elementId
-                            )
+        // Add attribute and styles for splash screen custom color.
+        // Using a style is the only way to selectively change just the seekbar fill color.
+        //
+        // Because the style colors must be hard coded for all color possibilities,
+        // instead of allowing 24 bit color the style is restricted to 8-bit (3-3-2 color depth)
+        // and the style color closest to the users custom color is used for the splash screen.
+        arrayOf(
+            inputStreamFromBundledResource("seekbar/values", "attrs.xml")!! to "res/values/attrs.xml",
+            ByteArrayInputStream(create8BitSeekbarColorStyles().toByteArray()) to "res/values/styles.xml"
+        ).forEach { (source, destination) ->
+            "resources".copyXmlNode(
+                document(source),
+                document(destination),
+            ).close()
+        }
 
-                            val attribute = "android:fillColor"
-                            if (!element.hasAttribute(attribute)) {
-                                throw PatchException("Could not find $attribute for $elementId")
-                            }
+        fun setSplashDrawablePathFillColor(xmlFileNames: Iterable<String>, vararg resourceNames: String) {
+            xmlFileNames.forEach { xmlFileName ->
+                document(xmlFileName).use { document ->
+                    resourceNames.forEach { elementId ->
+                        val element = document.childNodes.findElementByAttributeValueOrThrow(
+                            "android:name",
+                            elementId
+                        )
 
-                            element.setAttribute(attribute, "?attr/splash_custom_seekbar_color")
+                        val attribute = "android:fillColor"
+                        if (!element.hasAttribute(attribute)) {
+                            throw PatchException("Could not find $attribute for $elementId")
                         }
+
+                        element.setAttribute(attribute, "?attr/$splashSeekbarColorAttributeName")
                     }
                 }
             }
-
-            setSplashDrawablePathFillColor(
-                listOf(
-                    "res/drawable/\$startup_animation_light__0.xml",
-                    "res/drawable/\$startup_animation_dark__0.xml"
-                ),
-                listOf("_R_G_L_10_G_D_0_P_0")
-            )
-
-            setSplashDrawablePathFillColor(
-                listOf(
-                    "res/drawable/\$buenos_aires_animation_light__0.xml",
-                    "res/drawable/\$buenos_aires_animation_dark__0.xml"
-                ),
-                listOf("_R_G_L_8_G_D_0_P_0")
-            )
         }
+
+        setSplashDrawablePathFillColor(
+            listOf(
+                "res/drawable/\$startup_animation_light__0.xml",
+                "res/drawable/\$startup_animation_dark__0.xml"
+            ),
+            "_R_G_L_10_G_D_0_P_0"
+        )
+
+        setSplashDrawablePathFillColor(
+            listOf(
+                "res/drawable/\$buenos_aires_animation_light__0.xml",
+                "res/drawable/\$buenos_aires_animation_dark__0.xml"
+            ),
+            "_R_G_L_8_G_D_0_P_0"
+        )
     }
 }
 
@@ -154,10 +155,9 @@ private fun create8BitSeekbarColorStyles(): String = StringBuilder().apply {
                 append(
                     """
                         <style name="splash_seekbar_color_style_$name">
-                            <item name="splash_custom_seekbar_color">$color</item>
+                            <item name="$splashSeekbarColorAttributeName">$color</item>
                         </style>
-                        
-                    """.trimIndent()
+                    """
                 )
             }
         }
@@ -214,28 +214,32 @@ val seekbarColorPatch = bytecodePatch(
             }
         }
 
-        if (is_19_23_or_greater) {
-            playerSeekbarGradientConfigFingerprint.method.apply {
-                val literalIndex = indexOfFirstLiteralInstructionOrThrow(PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG)
-                val resultIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
-                val register = getInstruction<OneRegisterInstruction>(resultIndex).registerA
+        lithoColorOverrideHook(EXTENSION_CLASS_DESCRIPTOR, "getLithoColor")
 
-                addInstructions(
-                    resultIndex + 1,
-                    """
-                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->playerSeekbarGradientEnabled(Z)Z
-                        move-result v$register
-                    """,
-                )
-            }
+        if (!is_19_25_or_greater) {
+            return@execute
+        }
 
-            lithoLinearGradientFingerprint.method.addInstruction(
-                0,
-                "invoke-static/range { p4 .. p5 },  $EXTENSION_CLASS_DESCRIPTOR->setLinearGradient([I[F)V",
+        // 19.25+ changes
+
+        playerSeekbarGradientConfigFingerprint.method.apply {
+            val literalIndex = indexOfFirstLiteralInstructionOrThrow(PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG)
+            val resultIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
+            val register = getInstruction<OneRegisterInstruction>(resultIndex).registerA
+
+            addInstructions(
+                resultIndex + 1,
+                """
+                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->playerSeekbarGradientEnabled(Z)Z
+                    move-result v$register
+                """
             )
         }
 
-        lithoColorOverrideHook(EXTENSION_CLASS_DESCRIPTOR, "getLithoColor")
+        lithoLinearGradientFingerprint.method.addInstruction(
+            0,
+            "invoke-static/range { p4 .. p5 },  $EXTENSION_CLASS_DESCRIPTOR->setLinearGradient([I[F)V"
+        )
 
 
         // region apply seekbar custom color to splash screen animation.
