@@ -95,13 +95,13 @@ public final class SeekbarColorPatch {
         return original;
     }
 
-    private static String get8BitStyleIdentifier(int color24Bit) {
-        // Convert to nearest 3-3-2 bit depth.
+    private static String get9BitStyleIdentifier(int color24Bit) {
+        // Convert to nearest 9-bit color (3 bits per color channel).
         final int r3 = Color.red(color24Bit) * 7 / 255;
         final int g3 = Color.green(color24Bit) * 7 / 255;
-        final int b2 = Color.blue(color24Bit) * 3 / 255;
+        final int b3 = Color.blue(color24Bit) * 7 / 255;
 
-        return String.format(Locale.US, "splash_seekbar_color_style_%d_%d_%d", r3, g3, b2);
+        return String.format(Locale.US, "splash_seekbar_color_style_%d_%d_%d", r3, g3, b3);
     }
 
     /**
@@ -114,7 +114,7 @@ public final class SeekbarColorPatch {
         // Even if the seekbar color xml value is changed to a completely different color (such as green),
         // a color filter still cannot be selectively applied when the drawable has more than 1 color.
         try {
-            String seekbarStyle = get8BitStyleIdentifier(seekbarColor);
+            String seekbarStyle = get9BitStyleIdentifier(seekbarColor);
             Logger.printDebug(() -> "Using splash seekbar style: " + seekbarStyle);
 
             final int styleIdentifierDefault = Utils.getResourceIdentifier(

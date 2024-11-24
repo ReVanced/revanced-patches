@@ -86,11 +86,11 @@ private val seekbarColorResourcePatch = resourcePatch {
         // Using a style is the only way to selectively change just the seekbar fill color.
         //
         // Because the style colors must be hard coded for all color possibilities,
-        // instead of allowing 24 bit color the style is restricted to 8-bit (3-3-2 color depth)
+        // instead of allowing 24 bit color the style is restricted to 9-bit (3 bits per color channel)
         // and the style color closest to the users custom color is used for the splash screen.
         arrayOf(
             inputStreamFromBundledResource("seekbar/values", "attrs.xml")!! to "res/values/attrs.xml",
-            ByteArrayInputStream(create8BitSeekbarColorStyles().toByteArray()) to "res/values/styles.xml"
+            ByteArrayInputStream(create9BitSeekbarColorStyles().toByteArray()) to "res/values/styles.xml"
         ).forEach { (source, destination) ->
             "resources".copyXmlNode(
                 document(source),
@@ -137,19 +137,22 @@ private val seekbarColorResourcePatch = resourcePatch {
 }
 
 /**
- * Generate a style file with all combinations of 3-3-2 (8-bit) colors
+ * Generate a style xml with all combinations of 9-bit colors.
  */
-private fun create8BitSeekbarColorStyles(): String = StringBuilder().apply {
-    append("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<resources>\n")
+private fun create9BitSeekbarColorStyles(): String = StringBuilder().apply {
+    append("<?xml version=\"1.0\" encoding=\"utf-8\"?>")
+    append("<resources>\n")
 
     for (red in 0..7) {
         for (green in 0..7) {
-            for (blue in 0..3) {
+            for (blue in 0..7) {
                 val name = "${red}_${green}_${blue}"
 
-                val r = (red * 255 / 7).toString(16).padStart(2, '0')
-                val g = (green * 255 / 7).toString(16).padStart(2, '0')
-                val b = (blue * 255 / 3).toString(16).padStart(2, '0')
+                fun roundTo3BitHex(channel8Bits: Int) =
+                    (channel8Bits * 255 / 7).toString(16).padStart(2, '0')
+                val r = roundTo3BitHex(red)
+                val g = roundTo3BitHex(green)
+                val b = roundTo3BitHex(blue)
                 val color = "#ff$r$g$b"
 
                 append(
