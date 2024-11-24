@@ -97,9 +97,9 @@ public final class SeekbarColorPatch {
 
     private static String get8BitStyleIdentifier(int color24Bit) {
         // Convert to nearest 3-3-2 bit depth.
-        final int r3 = Math.round(Color.red(color24Bit) * 7 / 255f);
-        final int g3 = Math.round(Color.green(color24Bit) * 7 / 255f);
-        final int b2 = Math.round(Color.blue(color24Bit) * 3 / 255f);
+        final int r3 = Color.red(color24Bit) * 7 / 255;
+        final int g3 = Color.green(color24Bit) * 7 / 255;
+        final int b2 = Color.blue(color24Bit) * 3 / 255;
 
         return String.format(Locale.US, "splash_seekbar_color_style_%d_%d_%d", r3, g3, b2);
     }
