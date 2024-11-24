@@ -1,3 +1,10 @@
+## [5.1.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.1.0...v5.1.1-dev.1) (2024-11-24)
+
+
+### Bug Fixes
+
+* **My Expenses - Unlock pro:** Constrain compatible version to working version ([#3974](https://github.com/ReVanced/revanced-patches/issues/3974)) ([ba3bf69](https://github.com/ReVanced/revanced-patches/commit/ba3bf69df07ec8dab46868c3940ebd56db0cd137))
+
 # [5.1.0](https://github.com/ReVanced/revanced-patches/compare/v5.0.2...v5.1.0) (2024-11-24)
 
 
