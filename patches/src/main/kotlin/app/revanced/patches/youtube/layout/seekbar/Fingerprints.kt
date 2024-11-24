@@ -54,8 +54,13 @@ internal const val launchScreenLayoutTypeLotteFeatureFlag = 268507948L
 internal val launchScreenLayoutTypeFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     returns("V")
-    parameters("Lcom/google/android/apps/youtube/app/watchwhile/MainActivity;", "L", "L", "L", "L", "L", "L", "L")
-    literal { launchScreenLayoutTypeLotteFeatureFlag }
+    custom { method, _ ->
+        val firstParameter = method.parameterTypes.firstOrNull()
+        // 19.25 - 19.45
+        (firstParameter == "Lcom/google/android/apps/youtube/app/watchwhile/MainActivity;"
+                || firstParameter == "Landroid/app/Activity;") // 19.46+
+                && method.containsLiteralInstruction(launchScreenLayoutTypeLotteFeatureFlag)
+    }
 }
 
 internal val launchScreenOptimizedFeatureFlagFingerprint = fingerprint {

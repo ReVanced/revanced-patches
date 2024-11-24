@@ -14,6 +14,7 @@ import app.revanced.patches.youtube.layout.theme.lithoColorHookPatch
 import app.revanced.patches.youtube.layout.theme.lithoColorOverrideHook
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_19_46_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
@@ -126,13 +127,16 @@ private val seekbarColorResourcePatch = resourcePatch {
             "_R_G_L_10_G_D_0_P_0"
         )
 
-        setSplashDrawablePathFillColor(
-            listOf(
-                "res/drawable/\$buenos_aires_animation_light__0.xml",
-                "res/drawable/\$buenos_aires_animation_dark__0.xml"
-            ),
-            "_R_G_L_8_G_D_0_P_0"
-        )
+        if (!is_19_46_or_greater) {
+            // Resources removed in 19.46+
+            setSplashDrawablePathFillColor(
+                listOf(
+                    "res/drawable/\$buenos_aires_animation_light__0.xml",
+                    "res/drawable/\$buenos_aires_animation_dark__0.xml"
+                ),
+                "_R_G_L_8_G_D_0_P_0"
+            )
+        }
     }
 }
 
