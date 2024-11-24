@@ -11,9 +11,6 @@ import static android.view.WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD;
 import static android.view.WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED;
 
 public class ShowOnLockscreenPatch {
-    /**
-     * @noinspection deprecation
-     */
     public static Window getWindow(AppCompatActivity activity, float brightness) {
         Window window = activity.getWindow();
 

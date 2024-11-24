@@ -382,7 +382,6 @@ public class SponsorBlockUtils {
         return statsNumberFormatter.format(viewCount);
     }
 
-    @SuppressWarnings("ConstantConditions")
     private static long parseSegmentTime(@NonNull String time) {
         Matcher matcher = manualEditTimePattern.matcher(time);
         if (!matcher.matches()) {

@@ -948,10 +948,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">アプリバージョンのターゲットを偽装する</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_entry_1">18.33.40 - シークレットモード使用時のShortsのRYDを復元</string>
-  <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - ワイドビデオスピード &amp; クオリティメニューを復元</string>
-  <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - ライブラリタブを復元</string>
-  <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - 古いプレイリストシェルフを復元する</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - シークレットモード使用時のShortsのRYDを復元</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - ワイドビデオスピード &amp; クオリティメニューを復元</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - ライブラリタブを復元</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - 古いプレイリストシェルフを復元</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">開始ページを設定</string>
@@ -990,8 +990,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">ミニプレイヤー</string>
   <string name="revanced_miniplayer_screen_summary">アプリの最小化プレイヤーのスタイルを変更する</string>
   <string name="revanced_miniplayer_type_title">ミニプレーヤータイプ</string>
+  <string name="revanced_miniplayer_type_entry_0">無効</string>
   <string name="revanced_miniplayer_type_entry_1">オリジナル</string>
-  <string name="revanced_miniplayer_type_entry_2">携帯</string>
+  <string name="revanced_miniplayer_type_entry_2">最小</string>
   <string name="revanced_miniplayer_type_entry_3">タブレット</string>
   <string name="revanced_miniplayer_type_entry_4">モダン 1</string>
   <string name="revanced_miniplayer_type_entry_5">モダン 2</string>
@@ -1124,7 +1125,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">触覚機能は有効です</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">自動品質</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">自動</string>
   <string name="revanced_remember_video_quality_last_selected_title">ビデオ画質の変更を記憶する</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">品質の変更はすべてのビデオに適用されます</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">品質の変更は現在のビデオにのみ適用されます</string>
@@ -1147,6 +1149,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_custom_playback_speeds_summary">再生速度を追加または変更する</string>
   <string name="revanced_custom_playback_speeds_invalid">カスタム速度は %s未満でなければなりません。デフォルト値を使用してください。</string>
   <string name="revanced_custom_playback_speeds_parse_exception">無効なカスタム再生速度です。デフォルト値を使用します。</string>
+  <string name="revanced_custom_playback_speeds_auto">自動</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">再生速度の変更を記憶する</string>
