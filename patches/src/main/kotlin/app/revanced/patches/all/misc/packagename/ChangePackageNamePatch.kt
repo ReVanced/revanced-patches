@@ -51,7 +51,7 @@ val changePackageNamePatch = resourcePatch(
         key = "updatePermissions",
         default = false,
         title = "Update permissions",
-        description = "Update compatibility receiver permissions.",
+        description = "Update compatibility receiver permissions. Enabling this can fix installation errors, but this can also break features in certain apps.",
         required = false
     )
 
