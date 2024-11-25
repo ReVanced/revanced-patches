@@ -62,24 +62,3 @@ internal val launchScreenLayoutTypeFingerprint = fingerprint {
                 && method.containsLiteralInstruction(launchScreenLayoutTypeLotteFeatureFlag)
     }
 }
-
-internal val launchScreenOptimizedFeatureFlagFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("Z")
-    parameters("L")
-    custom { method, _ ->
-        method.containsLiteralInstruction(268639016)
-                && method.containsLiteralInstruction(4)
-    }
-}
-
-internal val launchScreenBuenosAiresFeatureFlagFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("Z")
-    parameters("L")
-    custom { method, _ ->
-        method.containsLiteralInstruction(268639016)
-                && method.containsLiteralInstruction(1)
-    }
-}
-

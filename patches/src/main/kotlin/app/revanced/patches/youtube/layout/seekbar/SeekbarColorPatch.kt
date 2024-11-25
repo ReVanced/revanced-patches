@@ -24,7 +24,6 @@ import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import app.revanced.util.inputStreamFromBundledResource
-import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -250,14 +249,6 @@ val seekbarColorPatch = bytecodePatch(
 
 
         // region apply seekbar custom color to splash screen animation.
-
-        // Development changes to force the different launch screens to be used.
-        // All appear to be nearly identical and there is no strong reason to force any particular one.
-        if (false) {
-            // 3 combinations of each flag individually on and with both flags off.
-            launchScreenBuenosAiresFeatureFlagFingerprint.method.returnEarly(false)
-            launchScreenOptimizedFeatureFlagFingerprint.method.returnEarly(true)
-        }
 
         // Don't use the lotte splash screen layout if using custom seekbar.
         arrayOf(

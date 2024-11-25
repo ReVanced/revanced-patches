@@ -19,7 +19,8 @@ public final class SeekbarColorPatch {
     private static final boolean SEEKBAR_CUSTOM_COLOR_ENABLED = Settings.SEEKBAR_CUSTOM_COLOR.get();
 
     /**
-     * Default color of the seekbar.  Differs slightly from the custom color used in the settings.
+     * Default color of the litho seekbar.
+     * Differs slightly from the default custom seekbar color setting.
      */
     private static final int ORIGINAL_SEEKBAR_COLOR = 0xFFFF0000;
 
