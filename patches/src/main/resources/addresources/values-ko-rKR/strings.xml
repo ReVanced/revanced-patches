@@ -373,7 +373,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_remove_viewer_discretion_dialog_title">시청 경고 다이얼로그 제거하기</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">다이얼로그가 숨겨집니다</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">다이얼로그가 표시됩니다</string>
-  <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">• 이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다\n• 즉, 성인인증이 필요한 동영상에서 인증을 하려 할 때, 휴대폰 번호가 필요하다고 알려주는 소형 팝업창(다이얼로그) 없이 바로 휴대폰 번호 인증 페이지가 표시됩니다\n• \'당신은 혼자가 아닙니다\' 페이지에서 \'확인하기\' 버튼이 표시되지 않는다면 이 설정이 아닌 플레이어 설정에서 \'정보 패널 숨기기\'를 비활성화해야 합니다</string>
+  <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">• 이 설정은 다이얼로그를 자동으로 허용하기만 하며 연령 제한(성인인증 절차)을 우회할 수 없습니다\n• 즉, 성인인증이 필요한 동영상에서 인증을 하려 할 때, 휴대폰 번호가 필요하다고 알려주는 소형 팝업창(다이얼로그) 없이 바로 휴대폰 번호 인증 페이지가 표시됩니다\n• \'당신은 혼자가 아닙니다\' 페이지는 제거할 수 없으며, 해당 페이지에서 \'확인하기\' 버튼이 표시되지 않는다면 이 설정이 아닌 플레이어 설정에서 \'정보 패널 숨기기\'를 비활성화해야 합니다</string>
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">외부 다운로드</string>
@@ -968,7 +968,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - 시크릿 모드에서 Shorts RYD를 복원합니다</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - 넓은 동영상 재생 속도 &amp; 화질 메뉴를 복원합니다</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_3">16.09.39 - 이전 보관함 탭을 복원합니다 (내 페이지 탭을 비활성화합니다)</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - 이전 재생목록 선반으로 복원합니다</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - 이전 재생목록 선반을 복원합니다</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">앱 시작 페이지 변경하기</string>
@@ -1013,6 +1013,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_title">미니 플레이어 유형 설정</string>
   <string name="revanced_miniplayer_type_entry_0">비활성화됨</string>
   <string name="revanced_miniplayer_type_entry_1">기기 기본값 사용</string>
+  <string name="revanced_miniplayer_type_entry_2">최소화</string>
   <string name="revanced_miniplayer_type_entry_3">태블릿</string>
   <string name="revanced_miniplayer_type_entry_4">최신 스타일 1</string>
   <string name="revanced_miniplayer_type_entry_5">최신 스타일 2</string>
