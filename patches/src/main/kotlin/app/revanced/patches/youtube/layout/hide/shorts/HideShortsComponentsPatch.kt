@@ -192,6 +192,9 @@ val hideShortsComponentsPatch = bytecodePatch(
         ),
     )
 
+    hideShortsAppShortcutOption()
+    hideShortsWidgetOption()
+
     execute {
         // region Hide the Shorts shelf.
 
