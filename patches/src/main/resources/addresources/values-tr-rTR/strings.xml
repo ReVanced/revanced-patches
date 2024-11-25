@@ -1012,6 +1012,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_title">Mini oynatıcı tipi</string>
   <string name="revanced_miniplayer_type_entry_0">Devre dışı</string>
   <string name="revanced_miniplayer_type_entry_1">Orijinal</string>
+  <string name="revanced_miniplayer_type_entry_2">Minimal</string>
   <string name="revanced_miniplayer_type_entry_3">Tablet</string>
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>

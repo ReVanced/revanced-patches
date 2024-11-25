@@ -995,6 +995,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_title">最小播放器类型</string>
   <string name="revanced_miniplayer_type_entry_0">已禁用</string>
   <string name="revanced_miniplayer_type_entry_1">原始文件</string>
+  <string name="revanced_miniplayer_type_entry_2">最小化</string>
   <string name="revanced_miniplayer_type_entry_3">平板电脑</string>
   <string name="revanced_miniplayer_type_entry_4">现代1</string>
   <string name="revanced_miniplayer_type_entry_5">现代2</string>
