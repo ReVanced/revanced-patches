@@ -1,3 +1,10 @@
+## [5.1.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.1.1-dev.1...v5.1.1-dev.2) (2024-11-25)
+
+
+### Bug Fixes
+
+* **YouTube - Hide Shorts components:** Add missing options to patch ([65f62fc](https://github.com/ReVanced/revanced-patches/commit/65f62fcd5ac340616a96542c64faf2af2a60df28))
+
 ## [5.1.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.1.0...v5.1.1-dev.1) (2024-11-24)
 
 
