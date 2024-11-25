@@ -1012,6 +1012,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_title">Минимизиран тип екран за гледане</string>
   <string name="revanced_miniplayer_type_entry_0">Деактивирано</string>
   <string name="revanced_miniplayer_type_entry_1">Оригинал</string>
+  <string name="revanced_miniplayer_type_entry_2">Минимално</string>
   <string name="revanced_miniplayer_type_entry_3">Таблет</string>
   <string name="revanced_miniplayer_type_entry_4">Модерен 1</string>
   <string name="revanced_miniplayer_type_entry_5">Модерен 2</string>

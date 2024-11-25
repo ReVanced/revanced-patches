@@ -1012,6 +1012,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_title">Cineál Miniplayer</string>
   <string name="revanced_miniplayer_type_entry_0">Díchumasaithe</string>
   <string name="revanced_miniplayer_type_entry_1">Bunaidh</string>
+  <string name="revanced_miniplayer_type_entry_2">Íosta</string>
   <string name="revanced_miniplayer_type_entry_3">Táibléad</string>
   <string name="revanced_miniplayer_type_entry_4">Nua-aimseartha 1</string>
   <string name="revanced_miniplayer_type_entry_5">Nua-Aimseartha 2</string>

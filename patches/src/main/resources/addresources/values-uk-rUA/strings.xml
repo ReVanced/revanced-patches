@@ -1012,7 +1012,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_title">Тип мініплеєра</string>
   <string name="revanced_miniplayer_type_entry_0">Вимкнуто</string>
   <string name="revanced_miniplayer_type_entry_1">Оригінальний</string>
-  <string name="revanced_miniplayer_type_entry_2">Мінімальні</string>
+  <string name="revanced_miniplayer_type_entry_2">Мінімальний</string>
   <string name="revanced_miniplayer_type_entry_3">Планшетний</string>
   <string name="revanced_miniplayer_type_entry_4">Новітній 1</string>
   <string name="revanced_miniplayer_type_entry_5">Новітній 2</string>

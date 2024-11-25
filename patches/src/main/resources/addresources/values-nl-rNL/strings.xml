@@ -997,6 +997,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_title">Miniplayer type</string>
   <string name="revanced_miniplayer_type_entry_0">Uitgeschakeld</string>
   <string name="revanced_miniplayer_type_entry_1">Origineel</string>
+  <string name="revanced_miniplayer_type_entry_2">Minimaal</string>
   <string name="revanced_miniplayer_type_entry_3">Telefoon</string>
   <string name="revanced_miniplayer_type_entry_4">Moderne 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderne 2</string>

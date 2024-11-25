@@ -350,8 +350,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
   <string name="revanced_hide_get_premium_title">隱藏 YouTube Premium 推廣</string>
-  <string name="revanced_hide_get_premium_summary_on">已隱藏影片播放器下方的 YouTube Premium 推廣</string>
-  <string name="revanced_hide_get_premium_summary_off">已顯示影片播放器下方的 YouTube Premium 推廣</string>
+  <string name="revanced_hide_get_premium_summary_on">已隱藏影片播放器下方 YouTube Premium 推廣</string>
+  <string name="revanced_hide_get_premium_summary_off">已顯示影片播放器下方 YouTube Premium 推廣</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">
   <string name="revanced_hide_video_ads_title">隱藏影片廣告</string>
@@ -394,9 +394,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_precise_seeking_gesture_summary_off">已啟用手勢</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">啟用進度列點擊</string>
-  <string name="revanced_seekbar_tapping_summary_on">已啟用進度列點擊</string>
-  <string name="revanced_seekbar_tapping_summary_off">已停用進度列點擊</string>
+  <string name="revanced_seekbar_tapping_title">啟用拖拽欄點擊</string>
+  <string name="revanced_seekbar_tapping_summary_on">已啟用拖拽欄點擊</string>
+  <string name="revanced_seekbar_tapping_summary_off">已停用拖拽欄點擊</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">啟用亮度手勢</string>
@@ -586,12 +586,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_rolling_number_animations_summary_off">動畫滾動數字</string>
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
-  <string name="revanced_hide_seekbar_title">隱藏影片播放器進度列</string>
-  <string name="revanced_hide_seekbar_summary_on">已隱藏影片播放器進度列</string>
-  <string name="revanced_hide_seekbar_summary_off">已顯示影片播放器進度列</string>
-  <string name="revanced_hide_seekbar_thumbnail_title">在縮圖中隱藏進度列</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_on">已隱藏縮圖進度列</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_off">已顯示縮圖進度列</string>
+  <string name="revanced_hide_seekbar_title">隱藏影片播放器拖拽欄</string>
+  <string name="revanced_hide_seekbar_summary_on">已隱藏影片播放器拖拽欄</string>
+  <string name="revanced_hide_seekbar_summary_off">已顯示影片播放器拖拽欄</string>
+  <string name="revanced_hide_seekbar_thumbnail_title">在縮圖中隱藏拖拽欄</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">已隱藏縮圖拖拽欄</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_off">已顯示縮圖拖拽欄</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Shorts 播放器</string>
@@ -725,7 +725,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_enable_summary_off">未顯示「不喜歡」數</string>
   <string name="revanced_ryd_shorts_title">在 Shorts 中顯示「不喜歡」數</string>
   <string name="revanced_ryd_shorts_summary_on">已在 Shorts 中顯示「不喜歡」數</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">顯示 Shorts「不喜歡」數\n\n限制性：在無痕模式中可能不會出現「不喜歡」數</string>
+  <string name="revanced_ryd_shorts_summary_on_disclaimer">顯示 Shorts「不喜歡」數\n\n限制：在無痕模式中可能不會出現「不喜歡」數</string>
   <string name="revanced_ryd_shorts_summary_off">已在 Shorts 中隱藏「不喜歡」數</string>
   <string name="revanced_ryd_dislike_percentage_title">「不喜歡」數比例</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">顯示「不喜歡」數為比例</string>
@@ -738,7 +738,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_toast_on_connection_error_summary_on">若 Return YouTube Dislike 無法使用，顯示提示</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">若 Return YouTube Dislike 無法使用，不顯示提示</string>
   <string name="revanced_ryd_about">關於</string>
-  <string name="revanced_ryd_attribution_summary">資料由 Return YouTube Dislike API 提供。點選瞭解更多資訊</string>
+  <string name="revanced_ryd_attribution_summary">資料由 Return YouTube Dislike API 提供。點擊此處來瞭解更多資訊</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">回傳此裝置的 ReturnYouTubeDislike API 統計資料</string>
   <string name="revanced_ryd_statistics_getFetchCallResponseTimeAverage_title">平均 API 回應時間</string>
@@ -769,9 +769,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">已設定全螢幕拖拽欄為高畫質縮圖</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">已設定全螢幕拖拽欄為中畫質縮圖</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">此操作將復原沒有拖拽欄的即時串流縮圖\n\n拖拽欄縮圖將使用與目前影片的同等畫質。\n\n此功能在您使用高速網際網路，並使用在 720p 或更低的畫質時為最佳狀態。</string>
-  <string name="revanced_restore_old_seekbar_thumbnails_title">還原舊版進度列縮圖</string>
-  <string name="revanced_restore_old_seekbar_thumbnails_summary_on">進度列縮圖將出現在進度列上</string>
-  <string name="revanced_restore_old_seekbar_thumbnails_summary_off">進度列縮圖將出現在全螢幕畫面</string>
+  <string name="revanced_restore_old_seekbar_thumbnails_title">還原舊版拖拽欄縮圖</string>
+  <string name="revanced_restore_old_seekbar_thumbnails_summary_on">拖拽欄縮圖將出現在拖拽欄上</string>
+  <string name="revanced_restore_old_seekbar_thumbnails_summary_off">拖拽欄縮圖將出現在全螢幕畫面</string>
   </patch>
   <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
   <string name="revanced_sb_enable_sb">啟用 SponsorBlock</string>
@@ -886,7 +886,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_skip_automatically">自動跳過</string>
   <string name="revanced_sb_skip_automatically_once">自動跳過一次</string>
   <string name="revanced_sb_skip_showbutton">顯示跳過按鈕</string>
-  <string name="revanced_sb_skip_seekbaronly">在進度列顯示</string>
+  <string name="revanced_sb_skip_seekbaronly">在拖拽欄顯示</string>
   <string name="revanced_sb_skip_ignore">停用</string>
   <string name="revanced_sb_submit_failed_invalid">無法提交片段：%s</string>
   <string name="revanced_sb_submit_failed_timeout">SponsorBlock 暫時離線</string>
@@ -1012,6 +1012,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_title">迷你播放器類型</string>
   <string name="revanced_miniplayer_type_entry_0">已停用</string>
   <string name="revanced_miniplayer_type_entry_1">原始</string>
+  <string name="revanced_miniplayer_type_entry_2">最小化</string>
   <string name="revanced_miniplayer_type_entry_3">平板</string>
   <string name="revanced_miniplayer_type_entry_4">現代樣式 1</string>
   <string name="revanced_miniplayer_type_entry_5">現代樣式 2</string>
@@ -1054,17 +1055,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_gradient_loading_screen_summary_off">載入畫面將有純色背景</string>
   </patch>
   <patch id="layout.theme.themeResourcePatch">
-  <string name="revanced_seekbar_custom_color_title">啟用自訂進度列顏色</string>
-  <string name="revanced_seekbar_custom_color_summary_on">已顯示自訂進度列顏色</string>
-  <string name="revanced_seekbar_custom_color_summary_off">已顯示原版進度列顏色</string>
-  <string name="revanced_seekbar_custom_color_value_title">自訂進度列顏色</string>
-  <string name="revanced_seekbar_custom_color_value_summary">進度列顏色</string>
+  <string name="revanced_seekbar_custom_color_title">啟用自訂拖拽欄顏色</string>
+  <string name="revanced_seekbar_custom_color_summary_on">已顯示自訂拖拽欄顏色</string>
+  <string name="revanced_seekbar_custom_color_summary_off">已顯示原版拖拽欄顏色</string>
+  <string name="revanced_seekbar_custom_color_value_title">自訂拖拽欄顏色</string>
+  <string name="revanced_seekbar_custom_color_value_summary">拖拽欄顏色</string>
   <string name="revanced_seekbar_custom_color_invalid">滑動桿色彩值無效</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">繞過圖片區域限制</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">使用圖片主機 yt4.ggpht.com</string>
-  <string name="revanced_bypass_image_region_restrictions_summary_off">使用原始圖片主機\n\n啟用此功能可以修正在某些區域被封鎖的遺失圖片</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">使用原始圖片主機\n\n啟用此功能可以修正在某些區域被封鎖遺失圖片</string>
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->

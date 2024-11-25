@@ -1013,6 +1013,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_title">Tip mini-plejera</string>
   <string name="revanced_miniplayer_type_entry_0">Onemogućeno</string>
   <string name="revanced_miniplayer_type_entry_1">Originalni</string>
+  <string name="revanced_miniplayer_type_entry_2">Minimalan</string>
   <string name="revanced_miniplayer_type_entry_3">Tablet</string>
   <string name="revanced_miniplayer_type_entry_4">Moderan 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderan 2</string>
