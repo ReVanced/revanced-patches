@@ -8,12 +8,14 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Insets;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.*;
 import android.util.TypedValue;
 import android.view.ViewGroup;
+import android.view.WindowInsets;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
@@ -309,6 +311,18 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                             ViewGroup rootView = (ViewGroup) preferenceScreenDialog
                                     .findViewById(android.R.id.content)
                                     .getParent();
+
+                            // Fix required for Android 15 and YT 19.46+
+                            // FIXME:
+                            // On Android 15 the text layout is not aligned the same as the parent
+                            // screen and it looks a little off.  Otherwise this works.
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                                rootView.setOnApplyWindowInsetsListener((v, insets) -> {
+                                    Insets statusInsets = insets.getInsets(WindowInsets.Type.statusBars());
+                                    v.setPadding(0, statusInsets.top, 0, 0);
+                                    return insets;
+                                });
+                            }
 
                             Toolbar toolbar = new Toolbar(childScreen.getContext());
                             toolbar.setTitle(childScreen.getTitle());
