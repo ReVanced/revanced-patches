@@ -1045,7 +1045,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_width_dip_summary">Awal pada ukuran layar, dalam piksel</string>
   <string name="revanced_miniplayer_width_dip_invalid_toast">Ukuran piksel harus antara %1$s dan %2$s</string>
   <string name="revanced_miniplayer_opacity_title">Opasitas hamparan</string>
-  <string name="revanced_miniplayer_opacity_summary">Nilai opasitas antara 0-100, di mana 0 adalah transparan</string>
+  <string name="revanced_miniplayer_opacity_summary">Nilai opasitas antara 0-100, dimana 0 adalah transparan</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Opasitas hamparan pemutar mini antara 0-100</string>
   </patch>
   <patch id="layout.theme.themePatch">
