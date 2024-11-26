@@ -1,3 +1,17 @@
+# [5.2.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.2.0-dev.3...v5.2.0-dev.4) (2024-11-26)
+
+
+### Bug Fixes
+
+* **YouTube - Playback speed:** Allow long press 2x speed when using custom playback speeds ([#3990](https://github.com/ReVanced/revanced-patches/issues/3990)) ([79a543a](https://github.com/ReVanced/revanced-patches/commit/79a543a57470638f983862c61270e046f3ac5cb7))
+
+# [5.2.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.2.0-dev.2...v5.2.0-dev.3) (2024-11-26)
+
+
+### Features
+
+* **VSCO:** Remove non functional `Unlock pro` patch ([4fddb19](https://github.com/ReVanced/revanced-patches/commit/4fddb1930bc7adeee3b60ae9cd346b143e88bd42))
+
 # [5.2.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.2.0-dev.1...v5.2.0-dev.2) (2024-11-26)
 
 
