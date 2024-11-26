@@ -1,6 +1,6 @@
 package app.revanced.extension.youtube.patches.playback.quality;
 
-import com.google.android.android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
@@ -39,10 +39,11 @@ public final class RestoreOldVideoQualityMenuPatch {
                 }
 
                 View firstChild = recyclerView.getChildAt(0);
-                if (!(firstChild instanceof ViewGroup advancedQualityParentView)) {
+                if (!(firstChild instanceof ViewGroup)) {
                     return;
                 }
 
+                ViewGroup advancedQualityParentView = (ViewGroup) firstChild;
                 if (advancedQualityParentView.getChildCount() < 4) {
                     return;
                 }
@@ -66,7 +67,7 @@ public final class RestoreOldVideoQualityMenuPatch {
 
     /**
      * Injection point.
-     * <p>
+     *
      * Used to force the creation of the advanced menu item for the Shorts quality flyout.
      */
     public static boolean forceAdvancedVideoQualityMenuCreation(boolean original) {
@@ -75,7 +76,7 @@ public final class RestoreOldVideoQualityMenuPatch {
 
     /**
      * Injection point.
-     * <p>
+     *
      * Used if spoofing to an old app version, and also used for the Shorts video quality flyout.
      */
     public static void showOldVideoQualityMenu(final ListView listView) {

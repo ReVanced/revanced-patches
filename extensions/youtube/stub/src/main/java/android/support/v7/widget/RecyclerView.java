@@ -1,4 +1,4 @@
-package com.google.android.android.support.v7.widget;
+package android.support.v7.widget;
 
 import android.content.Context;
 import android.view.View;
@@ -7,6 +7,7 @@ public class RecyclerView extends View {
 
     public RecyclerView(Context context) {
         super(context);
+        throw new UnsupportedOperationException("Stub");
     }
 
     public View getChildAt(@SuppressWarnings("unused") final int index) {
