@@ -17,16 +17,26 @@ internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/shared/
 /**
  * A patch to extend with an extension shared with multiple patches.
  *
- * @param app The name of the extension to extend with.
- * If null, the shared extension will be merged only.
- * @param hooks The hooks to get the application context for use in the extension,
- * commonly for the onCreate method of exported activities.
+ * @param extensionName The name of the extension to extend with.
  */
 fun sharedExtensionPatch(
     extensionName: String,
     vararg hooks: ExtensionHook,
 ) = bytecodePatch {
-    extendWith("extensions/shared/$extensionName.rve")
+    dependsOn(sharedExtensionPatch(*hooks))
+
+    extendWith("extensions/$extensionName.rve")
+}
+
+/**
+ * A patch to extend with the "shared" extension.
+ *
+ * @param hooks The hooks to get the application context for use in the extension,
+ * commonly for the onCreate method of exported activities.
+ */
+fun sharedExtensionPatch(
+    vararg hooks: ExtensionHook,
+) = bytecodePatch {
     extendWith("extensions/shared.rve")
 
     execute {

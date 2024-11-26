@@ -11,6 +11,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
+import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_35_or_greater
 import app.revanced.util.*
@@ -214,15 +215,17 @@ private var visibilityImmediateInsertIndex: Int = 0
 val playerControlsPatch = bytecodePatch(
     description = "Manages the code for the player controls of the YouTube player.",
 ) {
-    dependsOn(playerControlsResourcePatch)
+    dependsOn(
+        playerControlsResourcePatch,
+        sharedExtensionPatch,
+    )
 
     execute {
-        fun MutableMethod.indexOfFirstViewInflateOrThrow() =
-            indexOfFirstInstructionOrThrow {
-                val reference = getReference<MethodReference>()
-                reference?.definingClass == "Landroid/view/ViewStub;" &&
-                    reference.name == "inflate"
-            }
+        fun MutableMethod.indexOfFirstViewInflateOrThrow() = indexOfFirstInstructionOrThrow {
+            val reference = getReference<MethodReference>()
+            reference?.definingClass == "Landroid/view/ViewStub;" &&
+                reference.name == "inflate"
+        }
 
         playerBottomControlsInflateFingerprint.method.apply {
             inflateBottomControlMethod = this
@@ -292,7 +295,7 @@ val playerControlsPatch = bytecodePatch(
                     """
                         invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getPlayerTopControlsLayoutResourceName(Ljava/lang/String;)Ljava/lang/String;
                         move-result-object v$register
-                    """
+                    """,
                 )
             }
         }
