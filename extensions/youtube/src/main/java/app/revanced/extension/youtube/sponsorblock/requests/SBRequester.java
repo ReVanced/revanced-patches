@@ -113,6 +113,7 @@ public class SBRequester {
         // Could benefit from:
         // 1) collection of YouTube videos with test segment times (verify client skip timing matches the video, verify seekbar draws correctly)
         // 2) unit tests (verify everything else)
+        //noinspection ConstantValue
         if (false) {
             segments.clear();
             // Test auto-hide skip button:

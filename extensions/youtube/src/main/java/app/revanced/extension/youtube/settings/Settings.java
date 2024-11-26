@@ -272,7 +272,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting SPOOF_DEVICE_DIMENSIONS = new BooleanSetting("revanced_spoof_device_dimensions", FALSE, true,
             "revanced_spoof_device_dimensions_user_dialog_message");
     public static final BooleanSetting BYPASS_URL_REDIRECTS = new BooleanSetting("revanced_bypass_url_redirects", TRUE);
-    public static final BooleanSetting ANNOUNCEMENTS = new BooleanSetting("revanced_announcements", TRUE);
+    public static final BooleanSetting ANNOUNCEMENTS = new BooleanSetting("revanced_announcements", TRUE, false, false);
     public static final BooleanSetting SPOOF_VIDEO_STREAMS = new BooleanSetting("revanced_spoof_video_streams", TRUE, true,"revanced_spoof_video_streams_user_dialog_message");
     public static final BooleanSetting SPOOF_VIDEO_STREAMS_IOS_FORCE_AVC = new BooleanSetting("revanced_spoof_video_streams_ios_force_avc", FALSE, true,
             "revanced_spoof_video_streams_ios_force_avc_user_dialog_message", new SpoofVideoStreamsPatch.ForceiOSAVCAvailability());
@@ -374,15 +374,20 @@ public class Settings extends BaseSettings {
 
         migrateOldSettingToNew(DEPRECATED_SB_UUID_OLD_MIGRATION_SETTING, SB_PRIVATE_USER_ID);
 
+        migrateOldSettingToNew(DEPRECATED_HIDE_PLAYER_BUTTONS, HIDE_PLAYER_PREVIOUS_NEXT_BUTTONS);
+
+        migrateOldSettingToNew(DEPRECATED_HIDE_PLAYER_FLYOUT_VIDEO_QUALITY_FOOTER, HIDE_PLAYER_FLYOUT_VIDEO_QUALITY_FOOTER);
+
         // Old spoof versions that no longer work reliably.
-        if (SpoofAppVersionPatch.isSpoofingToLessThan(SPOOF_APP_VERSION_TARGET.defaultValue)) {
+        if (SPOOF_APP_VERSION_TARGET.get().compareTo(SPOOF_APP_VERSION_TARGET.defaultValue) < 0) {
             Logger.printInfo(() -> "Resetting spoof app version target");
             SPOOF_APP_VERSION_TARGET.resetToDefault();
         }
 
-        migrateOldSettingToNew(DEPRECATED_HIDE_PLAYER_BUTTONS, HIDE_PLAYER_PREVIOUS_NEXT_BUTTONS);
-
-        migrateOldSettingToNew(DEPRECATED_HIDE_PLAYER_FLYOUT_VIDEO_QUALITY_FOOTER, HIDE_PLAYER_FLYOUT_VIDEO_QUALITY_FOOTER);
+        // Migrate renamed enum.
+        if (MINIPLAYER_TYPE.get() == PHONE) {
+            MINIPLAYER_TYPE.save(MINIMAL);
+        }
 
         // endregion
 
