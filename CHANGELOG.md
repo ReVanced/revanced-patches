@@ -1,3 +1,17 @@
+# [5.2.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.2.0-dev.1...v5.2.0-dev.2) (2024-11-26)
+
+
+### Bug Fixes
+
+* **YouTube - Settings:** Show navigation back button in setting sub menus ([#3991](https://github.com/ReVanced/revanced-patches/issues/3991)) ([e61686c](https://github.com/ReVanced/revanced-patches/commit/e61686c1039ae29e443273e4da4ec63956216841))
+
+# [5.2.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.1.1-dev.2...v5.2.0-dev.1) (2024-11-25)
+
+
+### Features
+
+* **YouTube - Theme:** Apply custom seekbar color to splash screen animation ([#3978](https://github.com/ReVanced/revanced-patches/issues/3978)) ([98d57e2](https://github.com/ReVanced/revanced-patches/commit/98d57e28af7206099867474b7aa3760cd4fe333f))
+
 ## [5.1.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.1.1-dev.1...v5.1.1-dev.2) (2024-11-25)
 
 
