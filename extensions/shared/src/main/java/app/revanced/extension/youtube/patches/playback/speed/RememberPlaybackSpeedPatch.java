@@ -20,12 +20,8 @@ public final class RememberPlaybackSpeedPatch {
      * Injection point.
      */
     public static void newVideoStarted(VideoInformation.PlaybackController ignoredPlayerController) {
-        try {
-            Logger.printDebug(() -> "newVideoStarted");
-            newVideoStarted = true;
-        } catch (Exception ex) {
-            Logger.printException(() -> "newVideoStarted failure", ex);
-        }
+        Logger.printDebug(() -> "newVideoStarted");
+        newVideoStarted = true;
     }
 
     /**

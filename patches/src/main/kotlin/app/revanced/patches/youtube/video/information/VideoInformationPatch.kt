@@ -20,13 +20,13 @@ import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.builder.BuilderInstruction
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
@@ -62,11 +62,11 @@ private lateinit var setPlaybackSpeedMethod: MutableMethod
 private var setPlaybackSpeedMethodIndex = -1
 
 // Used by other patches.
-lateinit var setPlaybackSpeedContainerClassFieldReference: String
+internal lateinit var setPlaybackSpeedContainerClassFieldReference: FieldReference
     private set
-lateinit var setPlaybackSpeedClassFieldReference: String
+internal lateinit var setPlaybackSpeedClassFieldReference: FieldReference
     private set
-lateinit var setPlaybackSpeedMethodReference: String
+internal lateinit var setPlaybackSpeedMethodReference: MethodReference
     private set
 
 val videoInformationPatch = bytecodePatch(
@@ -168,29 +168,27 @@ val videoInformationPatch = bytecodePatch(
         videoTimeHook(EXTENSION_CLASS_DESCRIPTOR, "setVideoTime")
 
         /*
-         * Hook the user playback speed selection
+         * Hook the user playback speed selection.
          */
         onPlaybackSpeedItemClickFingerprint.method.apply {
-            val speedSelectionMethodInstructions = implementation!!.instructions
-            val speedSelectionValueInstructionIndex = speedSelectionMethodInstructions.indexOfFirst {
-                it.opcode == Opcode.IGET
-            }
+            val speedSelectionValueInstructionIndex = indexOfFirstInstructionOrThrow(Opcode.IGET)
+
             legacySpeedSelectionInsertMethod = this
             legacySpeedSelectionInsertIndex = speedSelectionValueInstructionIndex + 1
             legacySpeedSelectionValueRegister =
                 getInstruction<TwoRegisterInstruction>(speedSelectionValueInstructionIndex).registerA
 
-            val setPlaybackSpeedClassReference =
+            setPlaybackSpeedMethodReference =
                 getInstruction<ReferenceInstruction>(speedSelectionValueInstructionIndex + 2).reference as MethodReference
-            setPlaybackSpeedMethod = proxy(classes.first { it.type == setPlaybackSpeedClassReference.definingClass })
-                .mutableClass.methods.first { it.name == setPlaybackSpeedClassReference.name }
-            setPlaybackSpeedMethodIndex = 0
-
-            setPlaybackSpeedMethodReference = setPlaybackSpeedClassReference.toString()
             setPlaybackSpeedClassFieldReference =
-                getInstruction<ReferenceInstruction>(speedSelectionValueInstructionIndex + 1).reference.toString()
+                getInstruction<ReferenceInstruction>(speedSelectionValueInstructionIndex + 1).reference as FieldReference
             setPlaybackSpeedContainerClassFieldReference =
-                getReference(speedSelectionMethodInstructions, -1, Opcode.IF_EQZ)
+                getInstruction<ReferenceInstruction>(indexOfFirstInstructionOrThrow(Opcode.IF_EQZ) - 1).reference as FieldReference
+
+            setPlaybackSpeedMethod =
+                proxy(classes.first { it.type == setPlaybackSpeedMethodReference.definingClass })
+                    .mutableClass.methods.first { it.name == setPlaybackSpeedMethodReference.name }
+            setPlaybackSpeedMethodIndex = 0
         }
 
         // Handle new playback speed menu.
@@ -204,7 +202,7 @@ val videoInformationPatch = bytecodePatch(
             speedSelectionValueRegister = getInstruction<TwoRegisterInstruction>(index).registerA
         }
 
-        videoVideoSpeedChanged(EXTENSION_CLASS_DESCRIPTOR, "videoSpeedChanged")
+        videoSpeedChangedHook(EXTENSION_CLASS_DESCRIPTOR, "videoSpeedChanged")
         userSelectedPlaybackSpeedHook(EXTENSION_CLASS_DESCRIPTOR, "userSelectedPlaybackSpeed")
     }
 }
@@ -306,9 +304,9 @@ fun videoTimeHook(targetMethodClass: String, targetMethodName: String) =
     )
 
 /**
- * Hook when the video speed is changed, either by the user or any other reason.
+ * Hook when the video speed is changed for any reason _except when the user manually selects a new speed_.
  */
-fun videoVideoSpeedChanged(targetMethodClass: String, targetMethodName: String) =
+fun videoSpeedChangedHook(targetMethodClass: String, targetMethodName: String) =
     setPlaybackSpeedMethod.addInstruction(
         setPlaybackSpeedMethodIndex++,
         "invoke-static { p1 }, $targetMethodClass->$targetMethodName(F)V"
@@ -328,7 +326,3 @@ fun userSelectedPlaybackSpeedHook(targetMethodClass: String, targetMethodName: S
         "invoke-static { v$speedSelectionValueRegister }, $targetMethodClass->$targetMethodName(F)V",
     )
 }
-
-private fun getReference(instructions: List<BuilderInstruction>, offset: Int, opcode: Opcode) =
-    (instructions[instructions.indexOfFirst { it.opcode == opcode } + offset] as ReferenceInstruction)
-        .reference.toString()

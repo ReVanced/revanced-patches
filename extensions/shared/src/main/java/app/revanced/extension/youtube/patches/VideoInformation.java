@@ -1,13 +1,13 @@
 package app.revanced.extension.youtube.patches;
 
 import androidx.annotation.NonNull;
-import app.revanced.extension.youtube.patches.playback.speed.RememberPlaybackSpeedPatch;
-import app.revanced.extension.youtube.shared.VideoState;
-import app.revanced.extension.shared.Logger;
-import app.revanced.extension.shared.Utils;
 
 import java.lang.ref.WeakReference;
 import java.util.Objects;
+
+import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.Utils;
+import app.revanced.extension.youtube.shared.VideoState;
 
 /**
  * Hooking class for the current playing video.
@@ -139,18 +139,6 @@ public final class VideoInformation {
     public static void userSelectedPlaybackSpeed(float userSelectedPlaybackSpeed) {
         Logger.printDebug(() -> "User selected playback speed: " + userSelectedPlaybackSpeed);
         playbackSpeed = userSelectedPlaybackSpeed;
-    }
-
-    /**
-     * Overrides the current playback speed.
-     * <p>
-     * <b> Used exclusively by {@link RememberPlaybackSpeedPatch} </b>
-     */
-    public static void overridePlaybackSpeed(float speedOverride) {
-        if (speedOverride <= 0) throw new IllegalArgumentException("Invalid speed override: " + speedOverride);
-
-        Logger.printDebug(() -> "Overriding playback speed to: " + speedOverride);
-        playbackSpeed = speedOverride;
     }
 
     /**
