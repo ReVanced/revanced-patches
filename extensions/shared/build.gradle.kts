@@ -10,6 +10,8 @@ android {
             isMinifyEnabled = true
         }
     }
+    compileSdk = 35
+    buildToolsVersion = "35.0.0"
 }
 
 dependencies {
