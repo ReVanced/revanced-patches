@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.settings.preference.AbstractPreferenceFragment;
 import app.revanced.extension.youtube.ThemeHelper;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
 import app.revanced.extension.youtube.settings.preference.ReturnYouTubeDislikePreferenceFragment;
@@ -39,7 +40,7 @@ public class LicenseActivityHook {
 
             PreferenceFragment fragment;
             String toolbarTitleResourceName;
-            String dataString = licenseActivity.getIntent().getDataString();
+            String dataString = Objects.requireNonNull(licenseActivity.getIntent().getDataString());
             switch (dataString) {
                 case "revanced_sb_settings_intent":
                     toolbarTitleResourceName = "revanced_sb_settings_title";
@@ -59,12 +60,14 @@ public class LicenseActivityHook {
             }
 
             setToolbarTitle(licenseActivity, toolbarTitleResourceName);
+
+            //noinspection deprecation
             licenseActivity.getFragmentManager()
                     .beginTransaction()
                     .replace(getResourceIdentifier("revanced_settings_fragments", "id"), fragment)
                     .commit();
         } catch (Exception ex) {
-            Logger.printException(() -> "onCreate failure", ex);
+            Logger.printException(() -> "initialize failure", ex);
         }
     }
 
@@ -80,11 +83,7 @@ public class LicenseActivityHook {
         ViewGroup toolbar = activity.findViewById(getToolbarResourceId());
         ImageButton imageButton = Objects.requireNonNull(getChildView(toolbar, false,
                 view -> view instanceof ImageButton));
-        final int backButtonResource = getResourceIdentifier(ThemeHelper.isDarkTheme()
-                        ? "yt_outline_arrow_left_white_24"
-                        : "yt_outline_arrow_left_black_24",
-                "drawable");
-        imageButton.setImageDrawable(activity.getResources().getDrawable(backButtonResource));
+        imageButton.setImageDrawable(AbstractPreferenceFragment.getBackButtonDrawable());
         imageButton.setOnClickListener(view -> activity.onBackPressed());
     }
 
