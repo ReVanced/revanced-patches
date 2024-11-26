@@ -82,4 +82,12 @@ public class ThemeHelper {
         }
         return Utils.getResourceColor(colorString);
     }
+
+    public static int getBackgroundColor() {
+        return isDarkTheme() ? getDarkThemeColor() : getLightThemeColor();
+    }
+
+    public static int getForegroundColor() {
+        return isDarkTheme() ? getLightThemeColor() : getDarkThemeColor();
+    }
 }
