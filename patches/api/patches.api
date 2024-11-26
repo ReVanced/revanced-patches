@@ -1370,11 +1370,9 @@ public final class app/revanced/patches/youtube/shared/FingerprintsKt {
 }
 
 public final class app/revanced/patches/youtube/video/information/VideoInformationPatchKt {
-	public static final fun getSetPlaybackSpeedClassFieldReference ()Ljava/lang/String;
-	public static final fun getSetPlaybackSpeedContainerClassFieldReference ()Ljava/lang/String;
-	public static final fun getSetPlaybackSpeedMethodReference ()Ljava/lang/String;
 	public static final fun getVideoInformationPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 	public static final fun userSelectedPlaybackSpeedHook (Ljava/lang/String;Ljava/lang/String;)V
+	public static final fun videoSpeedChangedHook (Ljava/lang/String;Ljava/lang/String;)V
 	public static final fun videoTimeHook (Ljava/lang/String;Ljava/lang/String;)V
 }
 
