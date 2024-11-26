@@ -1,21 +1,13 @@
 package app.revanced.extension.shared.settings.preference;
 
 import static app.revanced.extension.shared.StringRef.str;
-import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.*;
-import android.util.TypedValue;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,7 +19,6 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.Setting;
-import app.revanced.extension.youtube.ThemeHelper;
 
 @SuppressWarnings("deprecation")
 public abstract class AbstractPreferenceFragment extends PreferenceFragment {
@@ -83,14 +74,6 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
         }
     };
 
-    @SuppressLint("UseCompatLoadingForDrawables")
-    public static Drawable getBackButtonDrawable() {
-        final int backButtonResource = getResourceIdentifier(ThemeHelper.isDarkTheme()
-                        ? "yt_outline_arrow_left_white_24"
-                        : "yt_outline_arrow_left_black_24",
-                "drawable");
-        return Utils.getContext().getResources().getDrawable(backButtonResource);
-    }
 
     /**
      * Initialize this instance, and do any custom behavior.
@@ -282,7 +265,6 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
             // causes a callback to the listener even though nothing changed.
             initialize();
             updateUIToSettingValues();
-            setPreferenceScreenToolbar(getPreferenceScreen());
 
             preferenceManager.getSharedPreferences().registerOnSharedPreferenceChangeListener(listener);
         } catch (Exception ex) {
@@ -294,45 +276,5 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
     public void onDestroy() {
         getPreferenceManager().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(listener);
         super.onDestroy();
-    }
-
-    private void setPreferenceScreenToolbar(PreferenceScreen parentScreen) {
-        for (int i = 0, preferenceCount = parentScreen.getPreferenceCount(); i < preferenceCount; i++) {
-            Preference childPreference = parentScreen.getPreference(i);
-            if (childPreference instanceof PreferenceScreen) {
-                // Recursively set sub preferences.
-                setPreferenceScreenToolbar((PreferenceScreen) childPreference);
-
-                childPreference.setOnPreferenceClickListener(
-                        childScreen -> {
-                            Dialog preferenceScreenDialog = ((PreferenceScreen) childScreen).getDialog();
-                            ViewGroup rootView = (ViewGroup) preferenceScreenDialog
-                                    .findViewById(android.R.id.content)
-                                    .getParent();
-
-                            Toolbar toolbar = new Toolbar(childScreen.getContext());
-                            toolbar.setTitle(childScreen.getTitle());
-                            toolbar.setNavigationIcon(getBackButtonDrawable());
-                            toolbar.setNavigationOnClickListener(view -> preferenceScreenDialog.dismiss());
-
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                                final int margin = (int) TypedValue.applyDimension(
-                                        TypedValue.COMPLEX_UNIT_DIP, 16, getResources().getDisplayMetrics()
-                                );
-                                toolbar.setTitleMargin(margin, 0, margin, 0);
-                            }
-
-                            TextView toolbarTextView = Utils.getChildView(toolbar,
-                                    true, TextView.class::isInstance);
-                            if (toolbarTextView != null) {
-                                toolbarTextView.setTextColor(ThemeHelper.getForegroundColor());
-                            }
-
-                            rootView.addView(toolbar, 0);
-                            return false;
-                        }
-                );
-            }
-        }
     }
 }
