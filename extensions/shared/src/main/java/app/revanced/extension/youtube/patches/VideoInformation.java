@@ -122,6 +122,16 @@ public final class VideoInformation {
 
     /**
      * Injection point.
+     */
+    public static void videoSpeedChanged(float currentVideoSpeed) {
+        if (playbackSpeed != currentVideoSpeed) {
+            Logger.printDebug(() -> "Video speed changed: " + currentVideoSpeed);
+            playbackSpeed = currentVideoSpeed;
+        }
+    }
+
+    /**
+     * Injection point.
      * Called when user selects a playback speed.
      *
      * @param userSelectedPlaybackSpeed The playback speed the user selected
@@ -137,10 +147,10 @@ public final class VideoInformation {
      * <b> Used exclusively by {@link RememberPlaybackSpeedPatch} </b>
      */
     public static void overridePlaybackSpeed(float speedOverride) {
-        if (playbackSpeed != speedOverride) {
-            Logger.printDebug(() -> "Overriding playback speed to: " + speedOverride);
-            playbackSpeed = speedOverride;
-        }
+        if (speedOverride <= 0) throw new IllegalArgumentException("Invalid speed override: " + speedOverride);
+
+        Logger.printDebug(() -> "Overriding playback speed to: " + speedOverride);
+        playbackSpeed = speedOverride;
     }
 
     /**

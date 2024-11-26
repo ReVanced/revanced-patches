@@ -57,6 +57,10 @@ private lateinit var speedSelectionInsertMethod: MutableMethod
 private var speedSelectionInsertIndex = -1
 private var speedSelectionValueRegister = -1
 
+// Change playback speed method.
+private lateinit var setPlaybackSpeedMethod: MutableMethod
+private var setPlaybackSpeedMethodIndex = -1
+
 // Used by other patches.
 lateinit var setPlaybackSpeedContainerClassFieldReference: String
     private set
@@ -176,10 +180,15 @@ val videoInformationPatch = bytecodePatch(
             legacySpeedSelectionValueRegister =
                 getInstruction<TwoRegisterInstruction>(speedSelectionValueInstructionIndex).registerA
 
+            val setPlaybackSpeedClassReference =
+                getInstruction<ReferenceInstruction>(speedSelectionValueInstructionIndex + 2).reference as MethodReference
+            setPlaybackSpeedMethod = proxy(classes.first { it.type == setPlaybackSpeedClassReference.definingClass })
+                .mutableClass.methods.first { it.name == setPlaybackSpeedClassReference.name }
+            setPlaybackSpeedMethodIndex = 0
+
+            setPlaybackSpeedMethodReference = setPlaybackSpeedClassReference.toString()
             setPlaybackSpeedClassFieldReference =
                 getInstruction<ReferenceInstruction>(speedSelectionValueInstructionIndex + 1).reference.toString()
-            setPlaybackSpeedMethodReference =
-                getInstruction<ReferenceInstruction>(speedSelectionValueInstructionIndex + 2).reference.toString()
             setPlaybackSpeedContainerClassFieldReference =
                 getReference(speedSelectionMethodInstructions, -1, Opcode.IF_EQZ)
         }
@@ -195,6 +204,7 @@ val videoInformationPatch = bytecodePatch(
             speedSelectionValueRegister = getInstruction<TwoRegisterInstruction>(index).registerA
         }
 
+        videoVideoSpeedChanged(EXTENSION_CLASS_DESCRIPTOR, "videoSpeedChanged")
         userSelectedPlaybackSpeedHook(EXTENSION_CLASS_DESCRIPTOR, "userSelectedPlaybackSpeed")
     }
 }
@@ -295,9 +305,14 @@ fun videoTimeHook(targetMethodClass: String, targetMethodName: String) =
         "$targetMethodClass->$targetMethodName(J)V",
     )
 
-private fun getReference(instructions: List<BuilderInstruction>, offset: Int, opcode: Opcode) =
-    (instructions[instructions.indexOfFirst { it.opcode == opcode } + offset] as ReferenceInstruction)
-        .reference.toString()
+/**
+ * Hook when the video speed is changed, either by the user or any other reason.
+ */
+fun videoVideoSpeedChanged(targetMethodClass: String, targetMethodName: String) =
+    setPlaybackSpeedMethod.addInstruction(
+        setPlaybackSpeedMethodIndex++,
+        "invoke-static { p1 }, $targetMethodClass->$targetMethodName(F)V"
+    )
 
 /**
  * Hook the video speed selected by the user.
@@ -313,3 +328,7 @@ fun userSelectedPlaybackSpeedHook(targetMethodClass: String, targetMethodName: S
         "invoke-static { v$speedSelectionValueRegister }, $targetMethodClass->$targetMethodName(F)V",
     )
 }
+
+private fun getReference(instructions: List<BuilderInstruction>, offset: Int, opcode: Opcode) =
+    (instructions[instructions.indexOfFirst { it.opcode == opcode } + offset] as ReferenceInstruction)
+        .reference.toString()
