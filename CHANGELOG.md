@@ -1,3 +1,10 @@
+# [5.2.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.2.0-dev.3...v5.2.0-dev.4) (2024-11-26)
+
+
+### Bug Fixes
+
+* **YouTube - Playback speed:** Allow long press 2x speed when using custom playback speeds ([#3990](https://github.com/ReVanced/revanced-patches/issues/3990)) ([79a543a](https://github.com/ReVanced/revanced-patches/commit/79a543a57470638f983862c61270e046f3ac5cb7))
+
 # [5.2.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.2.0-dev.2...v5.2.0-dev.3) (2024-11-26)
 
 
