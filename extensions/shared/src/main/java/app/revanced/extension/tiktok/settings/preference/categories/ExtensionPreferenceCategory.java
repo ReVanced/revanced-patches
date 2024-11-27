@@ -11,7 +11,7 @@ import app.revanced.extension.tiktok.settings.preference.TogglePreference;
 public class ExtensionPreferenceCategory extends ConditionalPreferenceCategory {
     public ExtensionPreferenceCategory(Context context, PreferenceScreen screen) {
         super(context, screen);
-        setTitle("Extension");
+        setTitle("Miscellaneous");
     }
 
     @Override
