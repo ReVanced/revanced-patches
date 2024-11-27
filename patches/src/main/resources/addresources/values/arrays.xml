@@ -3,11 +3,13 @@
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">
             <string-array name="revanced_spoof_video_streams_client_entries">
                 <!-- Operating system names are not translatable, so no need to use strings.xml -->
+                <item>Android VR (Logged out)</item>
                 <item>Android VR</item>
                 <item>iOS</item>
             </string-array>
             <string-array name="revanced_spoof_video_streams_client_entry_values">
                 <!-- Enum names from extension -->
+                <item>ANDROID_VR_UNAUTHORIZED</item>
                 <item>ANDROID_VR</item>
                 <item>IOS</item>
             </string-array>
@@ -176,7 +178,7 @@
         </patch>
         <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
         </patch>
-            <patch id="ad.embedded.embeddedAdsPatch">
+        <patch id="ad.embedded.embeddedAdsPatch">
             <string-array name="revanced_block_embedded_ads_entries">
                 <item>@string/revanced_block_embedded_ads_entry_1</item>
                 <item>@string/revanced_block_embedded_ads_entry_2</item>

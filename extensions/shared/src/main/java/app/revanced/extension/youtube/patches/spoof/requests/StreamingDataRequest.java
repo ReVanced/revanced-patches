@@ -28,7 +28,7 @@ import app.revanced.extension.youtube.settings.Settings;
 /**
  * Video streaming data.  Fetching is tied to the behavior YT uses,
  * where this class fetches the streams only when YT fetches.
- *
+ * <p>
  * Effectively the cache expiration of these fetches is the same as the stock app,
  * since the stock app would not use expired streams and therefor
  * the extension replace stream hook is called only if YT
@@ -37,38 +37,20 @@ import app.revanced.extension.youtube.settings.Settings;
 public class StreamingDataRequest {
 
     private static final ClientType[] CLIENT_ORDER_TO_USE;
-
-    static {
-        ClientType[] allClientTypes = ClientType.values();
-        ClientType preferredClient = Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get();
-
-        CLIENT_ORDER_TO_USE = new ClientType[allClientTypes.length];
-        CLIENT_ORDER_TO_USE[0] = preferredClient;
-
-        int i = 1;
-        for (ClientType c : allClientTypes) {
-            if (c != preferredClient) {
-                CLIENT_ORDER_TO_USE[i++] = c;
-            }
-        }
-    }
-
+    private static final String AUTHORIZATION_HEADER = "Authorization";
     private static final String[] REQUEST_HEADER_KEYS = {
-            "Authorization", // Available only to logged in users.
+            AUTHORIZATION_HEADER, // Available only to logged-in users.
             "X-GOOG-API-FORMAT-VERSION",
             "X-Goog-Visitor-Id"
     };
-
     /**
      * TCP connection and HTTP read timeout.
      */
     private static final int HTTP_TIMEOUT_MILLISECONDS = 10 * 1000;
-
     /**
      * Any arbitrarily large value, but must be at least twice {@link #HTTP_TIMEOUT_MILLISECONDS}
      */
     private static final int MAX_MILLISECONDS_TO_WAIT_FOR_FETCH = 20 * 1000;
-
     private static final Map<String, StreamingDataRequest> cache = Collections.synchronizedMap(
             new LinkedHashMap<>(100) {
                 /**
@@ -86,8 +68,32 @@ public class StreamingDataRequest {
                 }
             });
 
+    static {
+        ClientType[] allClientTypes = ClientType.values();
+        ClientType preferredClient = Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get();
+
+        CLIENT_ORDER_TO_USE = new ClientType[allClientTypes.length];
+        CLIENT_ORDER_TO_USE[0] = preferredClient;
+
+        int i = 1;
+        for (ClientType c : allClientTypes) {
+            if (c != preferredClient) {
+                CLIENT_ORDER_TO_USE[i++] = c;
+            }
+        }
+    }
+
+    private final String videoId;
+    private final Future<ByteBuffer> future;
+
+    private StreamingDataRequest(String videoId, Map<String, String> playerHeaders) {
+        Objects.requireNonNull(playerHeaders);
+        this.videoId = videoId;
+        this.future = Utils.submitOnBackgroundThread(() -> fetch(videoId, playerHeaders));
+    }
+
     public static void fetchRequest(String videoId, Map<String, String> fetchHeaders) {
-        // Always fetch, even if there is a existing request for the same video.
+        // Always fetch, even if there is an existing request for the same video.
         cache.put(videoId, new StreamingDataRequest(videoId, fetchHeaders));
     }
 
@@ -119,6 +125,10 @@ public class StreamingDataRequest {
             connection.setReadTimeout(HTTP_TIMEOUT_MILLISECONDS);
 
             for (String key : REQUEST_HEADER_KEYS) {
+                if (!clientType.canAuthorize && key.equals(AUTHORIZATION_HEADER)) {
+                    continue;
+                }
+
                 String value = playerHeaders.get(key);
                 if (value != null) {
                     connection.setRequestProperty(key, value);
@@ -184,15 +194,6 @@ public class StreamingDataRequest {
 
         handleConnectionError("Could not fetch any client streams", null, debugEnabled);
         return null;
-    }
-
-    private final String videoId;
-    private final Future<ByteBuffer> future;
-
-    private StreamingDataRequest(String videoId, Map<String, String> playerHeaders) {
-        Objects.requireNonNull(playerHeaders);
-        this.videoId = videoId;
-        this.future = Utils.submitOnBackgroundThread(() -> fetch(videoId, playerHeaders));
     }
 
     public boolean fetchCompleted() {
