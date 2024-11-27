@@ -9,6 +9,7 @@ import org.w3c.dom.Element
  *
  * @param key The key of the preference. If null, other parameters must be specified.
  * @param titleKey The key of the preference title.
+ * @param icon The preference icon resource name.
  * @param summaryKey The key of the preference summary.
  * @param tag The tag or full class name of the preference.
  */
@@ -17,6 +18,7 @@ abstract class BasePreference(
     val key: String? = null,
     val titleKey: String = "${key}_title",
     val summaryKey: String? = "${key}_summary",
+    val icon: String? = null,
     val tag: String
 ) {
     /**
@@ -33,6 +35,11 @@ abstract class BasePreference(
             key?.let { setAttribute("android:key", it) }
             setAttribute("android:title", "@string/${titleKey}")
             summaryKey?.let { addSummary(it) }
+            icon?.let {
+                setAttribute("android:icon", it)
+                setAttribute("android:layout", "@layout/preference_with_icon")
+                setAttribute("app:iconSpaceReserved", "true")
+            }
         }
 
     override fun hashCode(): Int {

@@ -12,6 +12,7 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.youtube.ThemeHelper;
+import app.revanced.extension.youtube.patches.VersionCheckPatch;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
 import app.revanced.extension.youtube.settings.preference.ReturnYouTubeDislikePreferenceFragment;
 import app.revanced.extension.youtube.settings.preference.SponsorBlockPreferenceFragment;
@@ -40,6 +41,17 @@ public class LicenseActivityHook {
         }
 
         return Utils.getContext();
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean useCairoSettingsFragment(boolean original) {
+        // Early targets have layout issues and it's better to always force off.
+        if (!VersionCheckPatch.IS_19_34_OR_GREATER) {
+            return false;
+        }
+        return !Settings.RESTORE_OLD_SETTINGS_MENUS.get();
     }
 
     /**

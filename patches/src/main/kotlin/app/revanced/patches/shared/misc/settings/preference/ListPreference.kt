@@ -19,10 +19,11 @@ class ListPreference(
     key: String? = null,
     titleKey: String = "${key}_title",
     summaryKey: String? = "${key}_summary",
+    icon: String? = null,
     tag: String = "ListPreference",
     val entriesKey: String? = "${key}_entries",
     val entryValuesKey: String? = "${key}_entry_values"
-) : BasePreference(key, titleKey, summaryKey, tag) {
+) : BasePreference(key, titleKey, summaryKey, icon, tag) {
     var entries: ArrayResource? = null
         private set
     var entryValues: ArrayResource? = null

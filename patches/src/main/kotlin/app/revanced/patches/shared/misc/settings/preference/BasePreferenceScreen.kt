@@ -24,16 +24,18 @@ abstract class BasePreferenceScreen(
         key: String? = null,
         titleKey: String = "${key}_title",
         private val summaryKey: String? = "${key}_summary",
+        icon: String? = null,
         preferences: MutableSet<BasePreference> = mutableSetOf(),
         val categories: MutableSet<Category> = mutableSetOf(),
         private val sorting: Sorting = Sorting.BY_TITLE,
-    ) : BasePreferenceCollection(key, titleKey, preferences) {
+    ) : BasePreferenceCollection(key, titleKey, icon, preferences) {
 
         override fun transform(): PreferenceScreenPreference {
             return PreferenceScreenPreference(
                 key,
                 titleKey,
                 summaryKey,
+                icon,
                 sorting,
                 // Screens and preferences are sorted at runtime by extension code,
                 // so title sorting uses the localized language in use.
@@ -56,12 +58,14 @@ abstract class BasePreferenceScreen(
         open inner class Category(
             key: String? = null,
             titleKey: String = "${key}_title",
+            icon: String? = null,
             preferences: MutableSet<BasePreference> = mutableSetOf(),
-        ) : BasePreferenceCollection(key, titleKey, preferences) {
+        ) : BasePreferenceCollection(key, titleKey, icon, preferences) {
             override fun transform(): PreferenceCategory {
                 return PreferenceCategory(
                     key,
                     titleKey,
+                    icon,
                     preferences = preferences,
                 )
             }
@@ -82,6 +86,7 @@ abstract class BasePreferenceScreen(
     abstract class BasePreferenceCollection(
         val key: String? = null,
         val titleKey: String = "${key}_title",
+        val icon: String? = null,
         val preferences: MutableSet<BasePreference> = mutableSetOf(),
     ) {
         abstract fun transform(): BasePreference
