@@ -177,12 +177,8 @@ public class ReVancedAboutPreference extends Preference {
         // Enable to randomly force a delay to debug the spinner logic.
         final boolean debugSpinnerDelayLogic = false;
         //noinspection ConstantConditions
-        if (debugSpinnerDelayLogic && handler != null) {
-            try {
-                if (Math.random() < 0.5f) Thread.sleep((long) (Math.random() * 4000));
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+        if (debugSpinnerDelayLogic && handler != null && Math.random() < 0.5f) {
+            Utils.doNothingForDuration((long) (Math.random() * 4000));
         }
 
         Utils.runOnMainThreadNowOrLater(() -> {
