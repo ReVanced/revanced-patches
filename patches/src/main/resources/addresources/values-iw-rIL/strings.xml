@@ -43,6 +43,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_pref_import_export_title">יבוא/ ייצוא</string>
   <string name="revanced_pref_import_export_summary">יבוא/ ייצוא הגדרות ReVanced</string>
   <!-- Settings about dialog. -->
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
