@@ -316,7 +316,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                             // FIXME:
                             // On Android 15 the text layout is not aligned the same as the parent
                             // screen and it looks a little off.  Otherwise this works.
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                                 rootView.setOnApplyWindowInsetsListener((v, insets) -> {
                                     Insets statusInsets = insets.getInsets(WindowInsets.Type.statusBars());
                                     v.setPadding(0, statusInsets.top, 0, 0);
