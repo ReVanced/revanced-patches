@@ -37,6 +37,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_reset">रीसेट करें</string>
   <!-- Settings about dialog. -->
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->

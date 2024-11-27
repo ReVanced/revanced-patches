@@ -60,7 +60,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">Lưu ý</string>
   <string name="revanced_settings_about_links_dev_body">Đây là phiên bản tiền phát hành và bạn có thể gặp phải sự cố không mong muốn</string>
   <string name="revanced_settings_about_links_header">Các liên kết chính thức</string>
-  <string name="revanced_settings_about_links_donate">Quyên góp</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -1012,6 +1013,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_title">Loại trình phát thu nhỏ</string>
   <string name="revanced_miniplayer_type_entry_0">Đã tắt</string>
   <string name="revanced_miniplayer_type_entry_1">Nguyên bản</string>
+  <string name="revanced_miniplayer_type_entry_2"></string>
   <string name="revanced_miniplayer_type_entry_3">Máy tính bảng</string>
   <string name="revanced_miniplayer_type_entry_4">Hiện đại 1</string>
   <string name="revanced_miniplayer_type_entry_5">Hiện đại 2</string>
@@ -1203,9 +1205,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Thiết bị của bạn không có phần cứng giải mã VP9, và thiết lập này luôn bật khi Giả mạo máy khách bật</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Bật chức năng này có thể tăng cường thời lượng pin và sửa lỗi phát lặp.\n\nAVC có độ phân giải tối đa 1080p, và video phát sẽ dùng nhiều dữ liệu mạng hơn VP9 hoặc AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Tác dụng phụ của giả mạo iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Phim hoặc video trả tiền có thể không phát được\n• Luồng phát trực tiếp có thể phát từ đầu\n• Video có thể kết thúc sớm trước 1 giây\n• Không có bộ giải mã âm thanh opus</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Tác dụng phụ của giả mạo Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Trình đơn bản âm thanh bị mất\n• Âm lượng thích ứng không hữu dụng</string>
   </patch>
   </app>
   <app id="twitch">

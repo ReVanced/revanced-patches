@@ -60,7 +60,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">Σημείωση</string>
   <string name="revanced_settings_about_links_dev_body">Αυτή η έκδοση είναι σε πρώιμο στάδιο, επομένως πιθανότατα να αντιμετωπίσετε απρόοπτα προβλήματα</string>
   <string name="revanced_settings_about_links_header">Επίσημοι σύνδεσμοι</string>
-  <string name="revanced_settings_about_links_donate">Δωρεά</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -1010,13 +1011,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Ελαχιστοποιημένη οθόνη αναπαραγωγής</string>
   <string name="revanced_miniplayer_screen_summary">Αλλάξτε το στυλ της ελαχιστοποιημένης οθόνης αναπαραγωγής</string>
   <string name="revanced_miniplayer_type_title">Τύπος ελαχιστοποιημένης οθόνης αναπαραγωγής</string>
-  <string name="revanced_miniplayer_type_entry_0">Ανενεργό</string>
+  <string name="revanced_miniplayer_type_entry_0">Ανενεργή</string>
   <string name="revanced_miniplayer_type_entry_1">Αρχικός</string>
-  <string name="revanced_miniplayer_type_entry_2">Ελάχιστα</string>
+  <string name="revanced_miniplayer_type_entry_2">Ελάχιστη</string>
   <string name="revanced_miniplayer_type_entry_3">Ταμπλετ</string>
-  <string name="revanced_miniplayer_type_entry_4">Μοντέρνος 1</string>
-  <string name="revanced_miniplayer_type_entry_5">Μοντέρνος 2</string>
-  <string name="revanced_miniplayer_type_entry_6">Μοντέρνος 3</string>
+  <string name="revanced_miniplayer_type_entry_4">Μοντέρνα 1</string>
+  <string name="revanced_miniplayer_type_entry_5">Μοντέρνα 2</string>
+  <string name="revanced_miniplayer_type_entry_6">Μοντέρνα 3</string>
   <string name="revanced_miniplayer_rounded_corners_title">Στρογγυλεμένες γωνίες</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Οι γωνίες είναι στρογγυλεμένες</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Οι γωνίες είναι τετράγωνες</string>
@@ -1204,9 +1205,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Η συσκευή σας δεν διαθέτει αποκωδικοποίηση υλικού VP9, και αυτή η ρύθμιση είναι πάντα ενεργή όταν είναι ενεργοποιημένη η παραποίηση προγράμματος πελάτη</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Ενεργοποιώντας αυτόν τον κωδικοποιητή ίσως να βελτιώσει κατανάλωση ενέργειας και ίσως διορθώσει κολλήματα αναπαραγωγής.\n\nΟ AVC έχει μέγιστη ανάλυση 1080p, και καταναλώνει περισσότερα δεδομένα internet από τον VP9 ή τον AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Παρενέργειες παραποίησης σε iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Οι ταινίες ή τα επί πληρωμή βίντεο ενδέχεται να μην αναπαράγονται\n• Οι ζωντανές μεταδόσεις ξεκινούν από την αρχή κατά την αναπαραγωγή\n• Τα βίντεο μπορεί να τελειώνουν 1 δευτερόλεπτο νωρίτερα\n• Ο κωδικοποιητής ήχου opus δεν είναι διαθέσιμος</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Τα ιδιωτικά βίντεο για παιδιά μπορεί να μην παίζουν\n• Livestreams ξεκινούν από την αρχή\n• Τα βίντεο μπορεί να λήξουν 1 δευτερόλεπτο\n• Δεν υπάρχει κωδικοποιητής ήχου opus</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Παρενέργειες παραποίησης σε Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Το μενού «Κομμάτι ήχου» λείπει\n• Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Τα βίντεο για παιδιά μπορεί να μην αναπαράγονται\n• Το μενού κομματιών ήχου λείπει\n• Η σταθερή ένταση δεν είναι διαθέσιμη</string>
   </patch>
   </app>
   <app id="twitch">

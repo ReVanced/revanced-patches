@@ -135,8 +135,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/
 @Suppress("unused")
 val miniplayerPatch = bytecodePatch(
     name = "Miniplayer",
-    description = "Adds options to change the in app minimized player. " +
-        "Patching target 19.16+ adds modern miniplayers.",
+    description = "Adds options to change the in app minimized player."
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -170,6 +169,7 @@ val miniplayerPatch = bytecodePatch(
             "19.34.42",
             "19.43.41",
             "19.45.38",
+            "19.46.42",
         ),
     )
 

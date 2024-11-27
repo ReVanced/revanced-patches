@@ -20,7 +20,6 @@ import app.revanced.extension.youtube.patches.AlternativeThumbnailsPatch.StillIm
 import app.revanced.extension.youtube.patches.AlternativeThumbnailsPatch.ThumbnailOption;
 import app.revanced.extension.youtube.patches.AlternativeThumbnailsPatch.ThumbnailStillTime;
 import app.revanced.extension.youtube.patches.spoof.ClientType;
-import app.revanced.extension.youtube.patches.spoof.SpoofAppVersionPatch;
 import app.revanced.extension.youtube.patches.spoof.SpoofVideoStreamsPatch;
 import app.revanced.extension.youtube.sponsorblock.SponsorBlockSettings;
 
@@ -380,7 +379,7 @@ public class Settings extends BaseSettings {
         migrateOldSettingToNew(DEPRECATED_HIDE_PLAYER_FLYOUT_VIDEO_QUALITY_FOOTER, HIDE_PLAYER_FLYOUT_VIDEO_QUALITY_FOOTER);
 
         // Old spoof versions that no longer work reliably.
-        if (SpoofAppVersionPatch.isSpoofingToLessThan(SPOOF_APP_VERSION_TARGET.defaultValue)) {
+        if (SPOOF_APP_VERSION_TARGET.get().compareTo(SPOOF_APP_VERSION_TARGET.defaultValue) < 0) {
             Logger.printInfo(() -> "Resetting spoof app version target");
             SPOOF_APP_VERSION_TARGET.resetToDefault();
         }

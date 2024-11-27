@@ -60,7 +60,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_settings_about_links_dev_header">Note</string>
             <string name="revanced_settings_about_links_dev_body">This version is a pre-release and you may experience unexpected issues</string>
             <string name="revanced_settings_about_links_header">Official links</string>
-            <string name="revanced_settings_about_links_donate">Donate</string>
+            <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
         </patch>
         <patch id="misc.gms.gmsCoreSupportResourcePatch">
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -1224,9 +1225,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Your device does not have VP9 hardware decoding, and this setting is always on when Client spoofing is enabled</string>
             <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Enabling this might improve battery life and fix playback stuttering.\n\nAVC has a maximum resolution of 1080p, and video playback will use more internet data than VP9 or AV1.</string>
             <string name="revanced_spoof_video_streams_about_ios_title">iOS spoofing side effects</string>
-            <string name="revanced_spoof_video_streams_about_ios_summary">• Movies or paid videos may not play\n• Livestreams start from the beginning\n• Videos may end 1 second early\n• No opus audio codec</string>
+            <string name="revanced_spoof_video_streams_about_ios_summary">• Private kids videos may not play\n• Livestreams start from the beginning\n• Videos may end 1 second early\n• No opus audio codec</string>
             <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR spoofing side effects</string>
-            <string name="revanced_spoof_video_streams_about_android_vr_summary">• Audio track menu is missing\n• Stable volume is not available</string>
+            <string name="revanced_spoof_video_streams_about_android_vr_summary">• Kids videos may not play\n• Audio track menu is missing\n• Stable volume is not available</string>
         </patch>
     </app>
     <app id="twitch">
