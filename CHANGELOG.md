@@ -1,3 +1,10 @@
+# [5.2.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.2.0-dev.6...v5.2.0-dev.7) (2024-11-27)
+
+
+### Bug Fixes
+
+* **YouTube - Settings:** Do not clip settings menus when using an Android 15 device ([#3999](https://github.com/ReVanced/revanced-patches/issues/3999)) ([7382a02](https://github.com/ReVanced/revanced-patches/commit/7382a020b8322a7abc016a4569bc15f9caf05546))
+
 # [5.2.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.2.0-dev.5...v5.2.0-dev.6) (2024-11-27)
 
 
