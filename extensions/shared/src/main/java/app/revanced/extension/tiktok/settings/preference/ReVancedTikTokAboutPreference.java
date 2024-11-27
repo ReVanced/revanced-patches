@@ -26,7 +26,7 @@ public class ReVancedTikTokAboutPreference extends ReVancedAboutPreference {
 
     {
         //noinspection deprecation
-        setTitle("Donate");
+        setTitle("About");
     }
 
     public ReVancedTikTokAboutPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
