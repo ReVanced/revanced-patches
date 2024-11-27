@@ -55,14 +55,6 @@ val changePackageNamePatch = resourcePatch(
         "com.duolingo",
         "com.twitter.android",
         "tv.twitch.android.app",
-
-        // Fails during resource decoding/compilation.
-        "com.instagram.android",
-        "com.facebook.katana",
-        "com.facebook.orca",
-        "com.ss.android.ugc.trill",
-        "com.zhiliaoapp.musically",
-        "com.tumblr"
     )
 
     finalize {
