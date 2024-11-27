@@ -312,7 +312,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                                     .findViewById(android.R.id.content)
                                     .getParent();
 
-                            // Fix required for Android 15 and YT 19.46+
+                            // Fix required for Android 15 and YT 19.45+
                             // FIXME:
                             // On Android 15 the text layout is not aligned the same as the parent
                             // screen and it looks a little off.  Otherwise this works.
