@@ -61,7 +61,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">Notka</string>
   <string name="revanced_settings_about_links_dev_body">Ta wersja jest wersją wstępną i mogą wystąpić nieoczekiwane problemy</string>
   <string name="revanced_settings_about_links_header">Oficjalne linki</string>
-  <string name="revanced_settings_about_links_donate">Wesprzyj</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -1205,9 +1206,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Twoje urządzenie nie posiada sprzętowego dekodowania VP9, a ta opcja jest zawsze włączona, gdy spoofing klienta jest aktywny</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Włączenie tej opcji może poprawić żywotność baterii i wyeliminować zacinanie się odtwarzania.\n\nAVC ma maksymalną rozdzielczość 1080p, a odtwarzanie wideo zużywa więcej danych internetowych niż VP9 czy AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Efekty uboczne spoofingu iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmy kinowe lub płatne filmy mogą się nie odtwarzać\n• Transmisje na żywo rozpoczynają się od początku\n• Filmy mogą zakończyć się o sekundę wcześniej\n• Kodek opus jest niedostępny</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmy wideo dla prywatnych dzieci mogą nie odtwarzać\n• Livestreams zaczynają się od początku\n• Filmy mogą kończyć 1 sekundę\n• Żaden kodek audio opus</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Efekty uboczne spoofingu Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Brakuje menu ścieżki dźwiękowej\n• Stabilna głośność nie jest dostępna</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Filmy dziecięce mogą nie odtwarzać\n• Brakuje menu ścieżki dźwiękowej\n• Stabilna głośność nie jest dostępna</string>
   </patch>
   </app>
   <app id="twitch">

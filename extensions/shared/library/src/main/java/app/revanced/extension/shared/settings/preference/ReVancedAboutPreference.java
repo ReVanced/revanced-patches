@@ -1,6 +1,5 @@
 package app.revanced.extension.shared.settings.preference;
 
-import static app.revanced.extension.shared.StringRef.sf;
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.requests.Route.Method.GET;
 
@@ -13,6 +12,8 @@ import android.content.res.Configuration;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.preference.Preference;
 import android.util.AttributeSet;
 import android.view.Window;
@@ -37,7 +38,7 @@ import app.revanced.extension.shared.requests.Requester;
 import app.revanced.extension.shared.requests.Route;
 
 /**
- * Opens a dialog showing the links from {@link SocialLinksRoutes}.
+ * Opens a dialog showing official links.
  */
 @SuppressWarnings({"unused", "deprecation"})
 public class ReVancedAboutPreference extends Preference {
@@ -72,7 +73,16 @@ public class ReVancedAboutPreference extends Preference {
         return Color.BLACK;
     }
 
-    private String createDialogHtml(WebLink[] socialLinks) {
+    /**
+     * Apps that do not support bundling resources must override this.
+     *
+     * @return A localized string to display for the key.
+     */
+    protected String getString(String key, Object ... args) {
+        return str(key, args);
+    }
+
+    private String createDialogHtml(WebLink[] aboutLinks) {
         final boolean isNetworkConnected = Utils.isNetworkConnected();
 
         StringBuilder builder = new StringBuilder();
@@ -91,7 +101,7 @@ public class ReVancedAboutPreference extends Preference {
             builder.append("<img style=\"width: 100px; height: 100px;\" "
                     // Hide the image if it does not load.
                     + "onerror=\"this.style.display='none';\" "
-                    + "src=\"https://revanced.app/favicon.ico\" />");
+                    + "src=\"").append(AboutLinksRoutes.aboutLogoUrl).append("\" />");
         }
 
         String patchesVersion = Utils.getPatchesReleaseVersion();
@@ -103,29 +113,29 @@ public class ReVancedAboutPreference extends Preference {
 
         builder.append("<p>")
                 // Replace hyphens with non breaking dashes so the version number does not break lines.
-                .append(useNonBreakingHyphens(str("revanced_settings_about_links_body", patchesVersion)))
+                .append(useNonBreakingHyphens(getString("revanced_settings_about_links_body", patchesVersion)))
                 .append("</p>");
 
         // Add a disclaimer if using a dev release.
         if (patchesVersion.contains("dev")) {
             builder.append("<h3>")
                     // English text 'Pre-release' can break lines.
-                    .append(useNonBreakingHyphens(str("revanced_settings_about_links_dev_header")))
+                    .append(useNonBreakingHyphens(getString("revanced_settings_about_links_dev_header")))
                     .append("</h3>");
 
             builder.append("<p>")
-                    .append(str("revanced_settings_about_links_dev_body"))
+                    .append(getString("revanced_settings_about_links_dev_body"))
                     .append("</p>");
         }
 
         builder.append("<h2 style=\"margin-top: 30px;\">")
-                .append(str("revanced_settings_about_links_header"))
+                .append(getString("revanced_settings_about_links_header"))
                 .append("</h2>");
 
         builder.append("<div>");
-        for (WebLink social : socialLinks) {
+        for (WebLink link : aboutLinks) {
             builder.append("<div style=\"margin-bottom: 20px;\">");
-            builder.append(String.format("<a href=\"%s\">%s</a>", social.url, social.name));
+            builder.append(String.format("<a href=\"%s\">%s</a>", link.url, link.name));
             builder.append("</div>");
         }
         builder.append("</div>");
@@ -137,25 +147,44 @@ public class ReVancedAboutPreference extends Preference {
     {
         setOnPreferenceClickListener(pref -> {
             // Show a progress spinner if the social links are not fetched yet.
-            if (!SocialLinksRoutes.hasFetchedLinks() && Utils.isNetworkConnected()) {
+            if (!AboutLinksRoutes.hasFetchedLinks() && Utils.isNetworkConnected()) {
+                // Show a progress spinner, but only if the api fetch takes more than a half a second.
+                final long delayToShowProgressSpinner = 500;
                 ProgressDialog progress = new ProgressDialog(getContext());
                 progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-                progress.show();
-                Utils.runOnBackgroundThread(() -> fetchLinksAndShowDialog(progress));
+
+                Handler handler = new Handler(Looper.getMainLooper());
+                Runnable showDialogRunnable = progress::show;
+                handler.postDelayed(showDialogRunnable, delayToShowProgressSpinner);
+
+                Utils.runOnBackgroundThread(() ->
+                        fetchLinksAndShowDialog(handler, showDialogRunnable, progress));
             } else {
                 // No network call required and can run now.
-                fetchLinksAndShowDialog(null);
+                fetchLinksAndShowDialog(null, null, null);
             }
 
             return false;
         });
     }
 
-    private void fetchLinksAndShowDialog(@Nullable ProgressDialog progress) {
-        WebLink[] socialLinks = SocialLinksRoutes.fetchSocialLinks();
-        String htmlDialog = createDialogHtml(socialLinks);
+    private void fetchLinksAndShowDialog(@Nullable Handler handler,
+                                         Runnable showDialogRunnable,
+                                         @Nullable ProgressDialog progress) {
+        WebLink[] links = AboutLinksRoutes.fetchAboutLinks();
+        String htmlDialog = createDialogHtml(links);
+
+        // Enable to randomly force a delay to debug the spinner logic.
+        final boolean debugSpinnerDelayLogic = false;
+        //noinspection ConstantConditions
+        if (debugSpinnerDelayLogic && handler != null && Math.random() < 0.5f) {
+            Utils.doNothingForDuration((long) (Math.random() * 4000));
+        }
 
         Utils.runOnMainThreadNowOrLater(() -> {
+            if (handler != null) {
+                handler.removeCallbacks(showDialogRunnable);
+            }
             if (progress != null) {
                 progress.dismiss();
             }
@@ -224,7 +253,7 @@ class WebViewDialog extends Dialog {
 
 class WebLink {
     final boolean preferred;
-    final String name;
+    String name;
     final String url;
 
     WebLink(JSONObject json) throws JSONException {
@@ -243,7 +272,7 @@ class WebLink {
     @NonNull
     @Override
     public String toString() {
-        return "ReVancedSocialLink{" +
+        return "WebLink{" +
                 "preferred=" + preferred +
                 ", name='" + name + '\'' +
                 ", url='" + url + '\'' +
@@ -251,25 +280,21 @@ class WebLink {
     }
 }
 
-class SocialLinksRoutes {
+class AboutLinksRoutes {
     /**
-     * Simple link to the website donate page,
-     * rather than fetching and parsing the donation links using the API.
+     * Backup icon url if the API call fails.
      */
-    public static final WebLink DONATE_LINK = new WebLink(true,
-            sf("revanced_settings_about_links_donate").toString(),
-            "https://revanced.app/donate");
+    public static volatile String aboutLogoUrl = "https://revanced.app/favicon.ico";
 
     /**
      * Links to use if fetch links api call fails.
      */
     private static final WebLink[] NO_CONNECTION_STATIC_LINKS = {
-            new WebLink(true, "ReVanced.app", "https://revanced.app"),
-            DONATE_LINK,
+            new WebLink(true, "ReVanced.app", "https://revanced.app")
     };
 
-    private static final String SOCIAL_LINKS_PROVIDER = "https://api.revanced.app/v2";
-    private static final Route.CompiledRoute GET_SOCIAL = new Route(GET, "/socials").compile();
+    private static final String SOCIAL_LINKS_PROVIDER = "https://api.revanced.app/v4";
+    private static final Route.CompiledRoute GET_SOCIAL = new Route(GET, "/about").compile();
 
     @Nullable
     private static volatile WebLink[] fetchedLinks;
@@ -278,7 +303,7 @@ class SocialLinksRoutes {
         return fetchedLinks != null;
     }
 
-    static WebLink[] fetchSocialLinks() {
+    static WebLink[] fetchAboutLinks() {
         try {
             if (hasFetchedLinks()) return fetchedLinks;
 
@@ -298,11 +323,22 @@ class SocialLinksRoutes {
             }
 
             JSONObject json = Requester.parseJSONObjectAndDisconnect(connection);
-            JSONArray socials = json.getJSONArray("socials");
+            aboutLogoUrl = json.getJSONObject("branding").getString("logo");
 
             List<WebLink> links = new ArrayList<>();
 
-            links.add(DONATE_LINK); // Show donate link first.
+            JSONArray donations = json.getJSONObject("donations").getJSONArray("links");
+            for (int i = 0, length = donations.length(); i < length; i++) {
+                WebLink link = new WebLink(donations.getJSONObject(i));
+                if (link.preferred) {
+                    // This could be localized, but TikTok does not support localized resources.
+                    // All link names returned by the api are also non localized.
+                    link.name = "Donate";
+                    links.add(link);
+                }
+            }
+
+            JSONArray socials = json.getJSONArray("socials");
             for (int i = 0, length = socials.length(); i < length; i++) {
                 WebLink link = new WebLink(socials.getJSONObject(i));
                 links.add(link);

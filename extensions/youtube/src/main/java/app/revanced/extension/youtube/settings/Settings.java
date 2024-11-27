@@ -20,7 +20,6 @@ import app.revanced.extension.youtube.patches.AlternativeThumbnailsPatch.StillIm
 import app.revanced.extension.youtube.patches.AlternativeThumbnailsPatch.ThumbnailOption;
 import app.revanced.extension.youtube.patches.AlternativeThumbnailsPatch.ThumbnailStillTime;
 import app.revanced.extension.youtube.patches.spoof.ClientType;
-import app.revanced.extension.youtube.patches.spoof.SpoofAppVersionPatch;
 import app.revanced.extension.youtube.patches.spoof.SpoofVideoStreamsPatch;
 import app.revanced.extension.youtube.sponsorblock.SponsorBlockSettings;
 

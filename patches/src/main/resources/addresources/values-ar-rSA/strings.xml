@@ -60,7 +60,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">ملاحظة</string>
   <string name="revanced_settings_about_links_dev_body">هذا الإصدار هو إصدار مسبق، وقد تواجه مشاكل غير متوقعة</string>
   <string name="revanced_settings_about_links_header">الروابط الرسمية</string>
-  <string name="revanced_settings_about_links_donate">تبرع</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -1204,9 +1205,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">لا يحتوي جهازك على فك تشفير الأجهزة VP9، وهذا الإعداد يعمل دائما عند تمكين تزييف العميل</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">قد يؤدي تمكين هذا إلى تحسين عمر البطارية وإصلاح مشكلة تقطيع التشغيل.\n\nيتمتع تنسيق AVC بدقة قصوى تبلغ 1080P، وسيستخدم تشغيل الفيديو المزيد من بيانات الإنترنت مقارنةً بتنسيق VP9 أو AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">التأثيرات الجانبية لمحاكاة iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• قد لا يتم تشغيل الأفلام أو الفيديوهات المدفوعة\n• تبدأ البثوث المباشرة من البداية\n• قد تنتهي الفيديوهات قبل النهاية بثانية واحدة\n• لا يوجد ترميز الصوت Opus</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• قد لا تشغل مقاطع فيديو الأطفال الخاصون\n• تبدأ Livestreams من البداية\n• قد تنتهي مقاطع الفيديو ثانية واحدة في أوائل\n• لا يوجد رمز صوتي opus</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">التأثيرات الجانبية لمحاكاة Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• قائمة المقطع الصوتي مفقودة\n• مستوى الصوت الثابت غير متوفر</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• قد لا تشغل مقاطع فيديو الأطفال\n• قائمة المسار الصوتي مفقودة\n• مستوى الصوت المستقر غير متوفر</string>
   </patch>
   </app>
   <app id="twitch">

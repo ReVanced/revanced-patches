@@ -12,15 +12,13 @@ import app.revanced.extension.shared.requests.Route;
 import app.revanced.extension.youtube.patches.spoof.ClientType;
 
 final class PlayerRoutes {
-    private static final String YT_API_URL = "https://youtubei.googleapis.com/youtubei/v1/";
-
     static final Route.CompiledRoute GET_STREAMING_DATA = new Route(
             Route.Method.POST,
             "player" +
                     "?fields=streamingData" +
                     "&alt=proto"
     ).compile();
-
+    private static final String YT_API_URL = "https://youtubei.googleapis.com/youtubei/v1/";
     /**
      * TCP connection and HTTP read timeout
      */
@@ -30,15 +28,15 @@ final class PlayerRoutes {
     }
 
     static String createInnertubeBody(ClientType clientType) {
-    	JSONObject innerTubeBody = new JSONObject();
+        JSONObject innerTubeBody = new JSONObject();
 
         try {
             JSONObject context = new JSONObject();
 
             JSONObject client = new JSONObject();
             client.put("clientName", clientType.name());
-            client.put("clientVersion", clientType.appVersion);
-            client.put("deviceModel", clientType.model);
+            client.put("clientVersion", clientType.clientVersion);
+            client.put("deviceModel", clientType.deviceModel);
             client.put("osVersion", clientType.osVersion);
             if (clientType.androidSdkVersion != null) {
                 client.put("androidSdkVersion", clientType.androidSdkVersion);
@@ -57,7 +55,9 @@ final class PlayerRoutes {
         return innerTubeBody.toString();
     }
 
-    /** @noinspection SameParameterValue*/
+    /**
+     * @noinspection SameParameterValue
+     */
     static HttpURLConnection getPlayerResponseConnectionFromRoute(Route.CompiledRoute route, ClientType clientType) throws IOException {
         var connection = Requester.getConnectionFromCompiledRoute(YT_API_URL, route);
 

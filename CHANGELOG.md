@@ -1,3 +1,49 @@
+# [5.2.0](https://github.com/ReVanced/revanced-patches/compare/v5.1.0...v5.2.0) (2024-11-27)
+
+
+### Bug Fixes
+
+* **My Expenses - Unlock pro:** Constrain compatible version to working version ([#3974](https://github.com/ReVanced/revanced-patches/issues/3974)) ([ba3bf69](https://github.com/ReVanced/revanced-patches/commit/ba3bf69df07ec8dab46868c3940ebd56db0cd137))
+* **YouTube - Hide Shorts components:** Add missing options to patch ([65f62fc](https://github.com/ReVanced/revanced-patches/commit/65f62fcd5ac340616a96542c64faf2af2a60df28))
+* **YouTube - Playback speed:** Allow long press 2x speed when using custom playback speeds ([#3990](https://github.com/ReVanced/revanced-patches/issues/3990)) ([79a543a](https://github.com/ReVanced/revanced-patches/commit/79a543a57470638f983862c61270e046f3ac5cb7))
+* **YouTube - Settings:** Do not clip settings menus when using an Android 15 device ([#3999](https://github.com/ReVanced/revanced-patches/issues/3999)) ([7382a02](https://github.com/ReVanced/revanced-patches/commit/7382a020b8322a7abc016a4569bc15f9caf05546))
+* **YouTube - Settings:** Show navigation back button in setting sub menus ([#3991](https://github.com/ReVanced/revanced-patches/issues/3991)) ([e61686c](https://github.com/ReVanced/revanced-patches/commit/e61686c1039ae29e443273e4da4ec63956216841))
+* **YouTube - Spoof video streams:** Log out the iOS client to restore kids videos playback ([#4000](https://github.com/ReVanced/revanced-patches/issues/4000)) ([cc2ac4e](https://github.com/ReVanced/revanced-patches/commit/cc2ac4e4cd15ca2a23d60abd160d915bc98f99b4))
+
+
+### Features
+
+* **TikTok:** Add ReVanced settings about screen ([#4009](https://github.com/ReVanced/revanced-patches/issues/4009)) ([12ea26b](https://github.com/ReVanced/revanced-patches/commit/12ea26b10ddea5ad39da1d35e2b8fd0b48c15d88))
+* **VSCO:** Remove non functional `Unlock pro` patch ([4fddb19](https://github.com/ReVanced/revanced-patches/commit/4fddb1930bc7adeee3b60ae9cd346b143e88bd42))
+* **YouTube - Theme:** Apply custom seekbar color to splash screen animation ([#3978](https://github.com/ReVanced/revanced-patches/issues/3978)) ([98d57e2](https://github.com/ReVanced/revanced-patches/commit/98d57e28af7206099867474b7aa3760cd4fe333f))
+* **YouTube:** Support version `19.46.42` ([#4010](https://github.com/ReVanced/revanced-patches/issues/4010)) ([122aac6](https://github.com/ReVanced/revanced-patches/commit/122aac6aee8ef0737f18564f11bbc2a6addf4a6b))
+
+# [5.2.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.2.0-dev.6...v5.2.0-dev.7) (2024-11-27)
+
+
+### Bug Fixes
+
+* **YouTube - Settings:** Do not clip settings menus when using an Android 15 device ([#3999](https://github.com/ReVanced/revanced-patches/issues/3999)) ([7382a02](https://github.com/ReVanced/revanced-patches/commit/7382a020b8322a7abc016a4569bc15f9caf05546))
+
+# [5.2.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.2.0-dev.5...v5.2.0-dev.6) (2024-11-27)
+
+
+### Features
+
+* **YouTube:** Support version `19.46.42` ([#4010](https://github.com/ReVanced/revanced-patches/issues/4010)) ([122aac6](https://github.com/ReVanced/revanced-patches/commit/122aac6aee8ef0737f18564f11bbc2a6addf4a6b))
+
+# [5.2.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.2.0-dev.4...v5.2.0-dev.5) (2024-11-27)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Log out the iOS client to restore kids videos playback ([#4000](https://github.com/ReVanced/revanced-patches/issues/4000)) ([cc2ac4e](https://github.com/ReVanced/revanced-patches/commit/cc2ac4e4cd15ca2a23d60abd160d915bc98f99b4))
+
+
+### Features
+
+* **TikTok:** Add ReVanced settings about screen ([#4009](https://github.com/ReVanced/revanced-patches/issues/4009)) ([12ea26b](https://github.com/ReVanced/revanced-patches/commit/12ea26b10ddea5ad39da1d35e2b8fd0b48c15d88))
+
 # [5.2.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.2.0-dev.3...v5.2.0-dev.4) (2024-11-26)
 
 

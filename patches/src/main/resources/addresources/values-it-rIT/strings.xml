@@ -60,7 +60,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">Nota</string>
   <string name="revanced_settings_about_links_dev_body">Questa versione è una pre-release e potresti riscontrare problemi inaspettati</string>
   <string name="revanced_settings_about_links_header">Link ufficiali</string>
-  <string name="revanced_settings_about_links_donate">Dona</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -198,17 +199,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_bar_summary_on">La barra del canale è nascosta</string>
   <string name="revanced_hide_channel_bar_summary_off">La barra dei canali è visibile</string>
   <string name="revanced_hide_playables_title">Nascondi Sala Giochi</string>
-  <string name="revanced_hide_playables_summary_on">I riproducibili sono nascosti</string>
-  <string name="revanced_hide_playables_summary_off">I riproducibili sono mostrati</string>
+  <string name="revanced_hide_playables_summary_on">I giochi sono nascosti</string>
+  <string name="revanced_hide_playables_summary_off">I giochi sono visibili</string>
   <string name="revanced_hide_quick_actions_title">Nascondi azioni rapide a schermo intero</string>
   <string name="revanced_hide_quick_actions_summary_on">Le azioni rapide sono nascoste</string>
   <string name="revanced_hide_quick_actions_summary_off">Le azioni rapide sono visibili</string>
   <string name="revanced_hide_related_videos_title">Nascondi video correlati nelle azioni rapide</string>
   <string name="revanced_hide_related_videos_summary_on">Video correlati nascosti</string>
   <string name="revanced_hide_related_videos_summary_off">Video correlati visibili</string>
-  <string name="revanced_hide_image_shelf_title">Nascondi lo scaffale immagine nei risultati di ricerca</string>
-  <string name="revanced_hide_image_shelf_summary_on">Lo scaffale dell\'immagine è nascosto</string>
-  <string name="revanced_hide_image_shelf_summary_off">Il ripiano immagine è visibile</string>
+  <string name="revanced_hide_image_shelf_title">Nascondi pubblicità con immagini nei risultati di ricerca</string>
+  <string name="revanced_hide_image_shelf_summary_on">Le pubblicità con immagini sono nascoste </string>
+  <string name="revanced_hide_image_shelf_summary_off">Le pubblicità con immagini sono visibili </string>
   <string name="revanced_hide_latest_posts_ads_title">Nascondi i post più recenti</string>
   <string name="revanced_hide_latest_posts_ads_summary_on">Gli ultimi post sono nascosti</string>
   <string name="revanced_hide_latest_posts_ads_summary_off">Gli ultimi post sono mostrati</string>
@@ -321,8 +322,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_buttoned_ads_summary_on">Le pubblicità a pulsante sono nascoste</string>
   <string name="revanced_hide_buttoned_ads_summary_off">Le pubblicità a pulsante sono visibili</string>
   <string name="revanced_hide_paid_promotion_label_title">Nascondi etichetta promozione a pagamento</string>
-  <string name="revanced_hide_paid_promotion_label_summary_on">L\'etichetta promozionale a pagamento è nascosta</string>
-  <string name="revanced_hide_paid_promotion_label_summary_off">L\'etichetta promozionale pagata è mostrata</string>
+  <string name="revanced_hide_paid_promotion_label_summary_on">L\'etichetta della promozione a pagamento è nascosta</string>
+  <string name="revanced_hide_paid_promotion_label_summary_off">L\'etichetta della promozione a pagamento è visibile</string>
   <string name="revanced_hide_self_sponsor_ads_title">Nascondi le carte autosponsorizzate</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Le carte autosponsorizzate sono nascoste</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Vengono mostrate le carte autosponsorizzate</string>
@@ -489,7 +490,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_subscriptions_button_summary_off">Il pulsante Iscrizioni è visibile</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Cambia Crea con le notifiche</string>
-  <string name="revanced_switch_create_with_notifications_button_summary_on">Il pulsante Crea viene scambiato con il pulsante Notifiche\n\nNota: Abilitando questo nasconde anche gli annunci video</string>
+  <string name="revanced_switch_create_with_notifications_button_summary_on">Il pulsante Crea viene scambiato con il pulsante Notifiche\n\nNota: Abilitando questo nasconde anche le pubblicità video</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Il pulsante Crea non è cambiato con il pulsante Notifiche</string>
   <string name="revanced_hide_navigation_button_labels_title">Nascondi etichette dei pulsanti di navigazione</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Le etichette sono nascoste</string>
@@ -853,7 +854,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_segments_nomusic">Musica: Sezione Non-Musicale</string>
   <string name="revanced_sb_segments_nomusic_sum">Solo per l\'uso in video musicali. Sezioni di video musicali senza musica, che non sono già coperti da un\'altra categoria</string>
   <string name="revanced_sb_skip_button_compact">Salta</string>
-  <string name="revanced_sb_skip_button_compact_highlight">Highlight</string>
+  <string name="revanced_sb_skip_button_compact_highlight">Momento saliente</string>
   <string name="revanced_sb_skip_button_sponsor">Salta sponsor</string>
   <string name="revanced_sb_skip_button_selfpromo">Salta promozione</string>
   <string name="revanced_sb_skip_button_interaction">Salta promemoria</string>
@@ -1108,7 +1109,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
   <string name="revanced_check_watch_history_domain_name_dialog_title">Attenzione</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">La cronologia dell\'orologio non è stata salvata.&lt;br&gt;&lt;br&gt;Questo molto probabilmente è causato da un blocco annunci DNS o da un proxy di rete.&lt;br&gt;&lt;br&gt;Per risolvere questo problema, whitelist &lt;b&gt;s.youtube.com&lt;/b&gt; o disattiva tutti i DNS bloccanti e proxy.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">La tua cronologia di visualizzazione non è stata salvata.&lt;br&gt;&lt;br&gt;Questo è molto probabilmente dovuto da un blocco annunci DNS o da un proxy di rete.&lt;br&gt;&lt;br&gt;Per risolvere questo problema, inserisci nella whitelist &lt;b&gt;s.youtube.com&lt;/b&gt; o disattiva tutti i DNS bloccanti e proxy.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Non mostrare più</string>
   </patch>
   <patch id="misc.autorepeat.autoRepeatPatch">
@@ -1204,9 +1205,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Il tuo dispositivo non ha la decodifica hardware VP9 e questa impostazione è sempre attiva quando lo spoof del client è abilitato</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">L\'attivazione di questa impostazione potrebbe migliorare la durata della batteria e risolvere il problema della riproduzione a scatti.\n\nNota: AVC ha una risoluzione massima di 1080p e la riproduzione userà più dati internet rispetto a VP9 o AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Effetti collaterali spoofing iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• I film o i video a pagamento potrebbero non essere riprodotti\n• Le dirette iniziano dall\'inizio\n• I video potrebbero terminare 1 secondo prima\n• Nessun codec audio Opus</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• I video privati per bambini potrebbero non riprodurre\n• Livestreams start from the start\n• I video potrebbero terminare 1 secondo presto\n• Nessun opus codec audio</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Effetti collaterali spoofing Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Il menu Traccia audio è mancante\n• Il menu Volume stabile non è disponibile</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• I video per bambini potrebbero non riprodurre\n• Il menu traccia audio è mancante\n• Volume stabile non è disponibile</string>
   </patch>
   </app>
   <app id="twitch">
@@ -1219,14 +1220,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_embedded_ads_service_unavailable">%s non è disponibile. Le pubblicità potrebbero apparire. Prova a passare ad un altro servizio di blocco pubblicità nelle impostazioni.</string>
   <string name="revanced_embedded_ads_service_failed">Il server %s ha restituito un errore. Le pubblicità potrebbero apparire. Prova a passare ad un altro servizio di blocco pubblicità nelle impostazioni.</string>
   <string name="revanced_block_embedded_ads_title">Blocca pubblicità video incorporata</string>
-  <string name="revanced_block_embedded_ads_entry_1">Disattivato</string>
+  <string name="revanced_block_embedded_ads_entry_1">Disabilitato</string>
   <string name="revanced_block_embedded_ads_entry_2">Luminous proxy</string>
   <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock proxy</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">
   <string name="revanced_block_video_ads_title">Blocca pubblicità video</string>
-  <string name="revanced_block_video_ads_summary_on">Le pubblicità del video sono bloccate</string>
-  <string name="revanced_block_video_ads_summary_off">Annunci video sbloccati</string>
+  <string name="revanced_block_video_ads_summary_on">Le pubblicità video sono bloccate</string>
+  <string name="revanced_block_video_ads_summary_off">Le pubblicità video sono sbloccate</string>
   </patch>
   <patch id="chat.antidelete.showDeletedMessagesPatch">
   <string name="revanced_deleted_msg">messaggio eliminato</string>
@@ -1236,28 +1237,28 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_show_deleted_messages_entry_3">Mostra i messaggi eliminati come testo sbarrato</string>
   </patch>
   <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
-  <string name="revanced_auto_claim_channel_points_title">Richiama automaticamente i punti del canale</string>
-  <string name="revanced_auto_claim_channel_points_summary_on">I punti del canale vengono rivendicati automaticamente</string>
-  <string name="revanced_auto_claim_channel_points_summary_off">I punti del canale non vengono rivendicati automaticamente</string>
+  <string name="revanced_auto_claim_channel_points_title">Riscatta automaticamente i punti del canale</string>
+  <string name="revanced_auto_claim_channel_points_summary_on">I punti del canale vengono riscattati automaticamente</string>
+  <string name="revanced_auto_claim_channel_points_summary_off">I punti del canale non vengono riscattati automaticamente</string>
   </patch>
   <patch id="debug.debugModePatch">
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
-  <string name="revanced_twitch_debug_mode_title">Abilita la modalità debug Twitch</string>
-  <string name="revanced_twitch_debug_mode_summary_on">La modalità debug Twitch è abilitata (non consigliato)</string>
-  <string name="revanced_twitch_debug_mode_summary_off">La modalità debug Twitch è disabilitata</string>
+  <string name="revanced_twitch_debug_mode_title">Abilita la modalità debug di Twitch</string>
+  <string name="revanced_twitch_debug_mode_summary_on">La modalità debug di Twitch è abilitata (non consigliato)</string>
+  <string name="revanced_twitch_debug_mode_summary_off">La modalità debug di Twitch è disabilitata</string>
   </patch>
   <patch id="misc.settings.settingsPatch">
-  <string name="revanced_settings">Impostazioni Avanzate</string>
-  <string name="revanced_ads_screen_title">Annunci</string>
+  <string name="revanced_settings">Impostazioni di ReVanced</string>
+  <string name="revanced_ads_screen_title">Pubblicità</string>
   <string name="revanced_ads_screen_summary">Impostazioni blocco pubblicità</string>
   <string name="revanced_chat_screen_title">Chat</string>
-  <string name="revanced_chat_screen_summary">Impostazioni chat</string>
+  <string name="revanced_chat_screen_summary">Impostazioni della chat</string>
   <string name="revanced_misc_screen_title">Varie</string>
   <string name="revanced_misc_screen_summary">Impostazioni varie</string>
   <string name="revanced_general_category_title">Impostazioni generali</string>
   <string name="revanced_other_category_title">Altre impostazioni</string>
-  <string name="revanced_client_ads_category_title">Annunci lato client</string>
-  <string name="revanced_surestream_ads_category_title">Pubblicità surestremismo lato server</string>
+  <string name="revanced_client_ads_category_title">Pubblicità lato client</string>
+  <string name="revanced_surestream_ads_category_title">Pubblicità surestream lato server</string>
   <string name="revanced_twitch_debug_title">Log di debug</string>
   <string name="revanced_twitch_debug_summary_on">I log di debug sono abilitati</string>
   <string name="revanced_twitch_debug_summary_off">I log di debug sono disabilitati</string>

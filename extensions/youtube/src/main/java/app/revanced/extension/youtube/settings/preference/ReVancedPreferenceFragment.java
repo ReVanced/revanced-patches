@@ -4,6 +4,7 @@ import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.graphics.Insets;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.preference.ListPreference;
@@ -11,6 +12,7 @@ import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.util.TypedValue;
 import android.view.ViewGroup;
+import android.view.WindowInsets;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
@@ -70,6 +72,18 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                             ViewGroup rootView = (ViewGroup) preferenceScreenDialog
                                     .findViewById(android.R.id.content)
                                     .getParent();
+
+                            // Fix required for Android 15 and YT 19.45+
+                            // FIXME:
+                            // On Android 15 the text layout is not aligned the same as the parent
+                            // screen and it looks a little off.  Otherwise this works.
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                                rootView.setOnApplyWindowInsetsListener((v, insets) -> {
+                                    Insets statusInsets = insets.getInsets(WindowInsets.Type.statusBars());
+                                    v.setPadding(0, statusInsets.top, 0, 0);
+                                    return insets;
+                                });
+                            }
 
                             Toolbar toolbar = new Toolbar(childScreen.getContext());
                             toolbar.setTitle(childScreen.getTitle());

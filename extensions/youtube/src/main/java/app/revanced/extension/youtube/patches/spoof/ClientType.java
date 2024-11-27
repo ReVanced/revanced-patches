@@ -8,6 +8,17 @@ import android.os.Build;
 import androidx.annotation.Nullable;
 
 public enum ClientType {
+    // Specific purpose for age restricted, or private videos, because the iOS client is not logged in.
+    ANDROID_VR(28,
+            "Quest 3",
+            "12",
+            "com.google.android.apps.youtube.vr.oculus/1.56.21 (Linux; U; Android 12; GB) gzip",
+            "32", // Android 12.1
+            "1.56.21",
+            "ANDROID_VR",
+            true
+    ),
+    // Specific for kids videos.
     // https://dumps.tadiphone.dev/dumps/oculus/eureka
     IOS(5,
             // iPhone 15 supports AV1 hardware decoding.
@@ -25,14 +36,9 @@ public enum ClientType {
             null,
             // Version number should be a valid iOS release.
             // https://www.ipa4fun.com/history/185230
-            "19.10.7"
-    ),
-    ANDROID_VR(28,
-            "Quest 3",
-            "12",
-            "com.google.android.apps.youtube.vr.oculus/1.56.21 (Linux; U; Android 12; GB) gzip",
-            "32", // Android 12.1
-            "1.56.21"
+            "19.10.7",
+            "IOS",
+            false
     );
 
     /**
@@ -44,7 +50,7 @@ public enum ClientType {
     /**
      * Device model, equivalent to {@link Build#MODEL} (System property: ro.product.model)
      */
-    public final String model;
+    public final String deviceModel;
 
     /**
      * Device OS version.
@@ -64,16 +70,36 @@ public enum ClientType {
     public final String androidSdkVersion;
 
     /**
+     * Client name.
+     */
+    public final String clientName;
+
+    /**
      * App version.
      */
-    public final String appVersion;
+    public final String clientVersion;
 
-    ClientType(int id, String model, String osVersion, String userAgent, @Nullable String androidSdkVersion, String appVersion) {
+    /**
+     * If the client can access the API logged in.
+     */
+    public final boolean canLogin;
+
+    ClientType(int id,
+               String deviceModel,
+               String osVersion,
+               String userAgent,
+               @Nullable String androidSdkVersion,
+               String clientVersion,
+               String clientName,
+               boolean canLogin
+    ) {
         this.id = id;
-        this.model = model;
+        this.deviceModel = deviceModel;
         this.osVersion = osVersion;
         this.userAgent = userAgent;
         this.androidSdkVersion = androidSdkVersion;
-        this.appVersion = appVersion;
+        this.clientVersion = clientVersion;
+        this.clientName = clientName;
+        this.canLogin = canLogin;
     }
 }

@@ -61,7 +61,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">Poznámka</string>
   <string name="revanced_settings_about_links_dev_body">Tato verze je předběžná verze a můžete zaznamenat neočekávané problémy</string>
   <string name="revanced_settings_about_links_header">Oficiální odkazy</string>
-  <string name="revanced_settings_about_links_donate">Přispět</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -1205,9 +1206,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Vaše zařízení nemá hardwarové dekódování VP9 a toto nastavení je vždy zapnuto, když je aktivní spoofování klienta</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Povolení této funkce může zlepšit životnost baterie a opravit stahování přehrávání.\n\nAVC má maximální rozlišení 1080p a video přehrávání bude používat více dat než VP9 nebo AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Boční efekty iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmy nebo placená videa nemusí přehrávat\n• Živočišné rekony začínající od začátku\n• Videa mohou skončit 1 sekundu na začátku\n• Žádný opus audio kodek</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Soukromá dětská videa nemusí přehrávat\n• Živočišná zvířata začínající od začátku\n• Videa mohou skončit 1 sekundu na začátku\n• Žádný opus zvukový kodek</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Boční efekty Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Menu zvukové stopy chybí\n• Stabilní hlasitost není k dispozici</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Dětská videa nemusí přehrát\n• Menu zvukové stopy chybí\n• Stabilní hlasitost není k dispozici</string>
   </patch>
   </app>
   <app id="twitch">
