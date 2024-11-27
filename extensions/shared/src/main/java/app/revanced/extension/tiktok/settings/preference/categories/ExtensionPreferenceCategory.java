@@ -4,6 +4,7 @@ import android.content.Context;
 import android.preference.PreferenceScreen;
 
 import app.revanced.extension.shared.settings.BaseSettings;
+import app.revanced.extension.tiktok.settings.preference.ReVancedTikTokAboutPreference;
 import app.revanced.extension.tiktok.settings.preference.TogglePreference;
 
 @SuppressWarnings("deprecation")
@@ -20,6 +21,8 @@ public class ExtensionPreferenceCategory extends ConditionalPreferenceCategory {
 
     @Override
     public void addPreferences(Context context) {
+        addPreference(new ReVancedTikTokAboutPreference(context));
+
         addPreference(new TogglePreference(context,
                 "Enable debug log",
                 "Show extension debug log.",
