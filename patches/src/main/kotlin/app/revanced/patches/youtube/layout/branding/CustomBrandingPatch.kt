@@ -50,6 +50,7 @@ val customBrandingPatch = resourcePatch(
             "19.34.42",
             "19.43.41",
             "19.45.38",
+            "19.46.42",
         ),
     )
 
