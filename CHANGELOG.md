@@ -1,3 +1,15 @@
+# [5.2.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.2.0-dev.4...v5.2.0-dev.5) (2024-11-27)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Log out the iOS client to restore kids videos playback ([#4000](https://github.com/ReVanced/revanced-patches/issues/4000)) ([cc2ac4e](https://github.com/ReVanced/revanced-patches/commit/cc2ac4e4cd15ca2a23d60abd160d915bc98f99b4))
+
+
+### Features
+
+* **TikTok:** Add ReVanced settings about screen ([#4009](https://github.com/ReVanced/revanced-patches/issues/4009)) ([12ea26b](https://github.com/ReVanced/revanced-patches/commit/12ea26b10ddea5ad39da1d35e2b8fd0b48c15d88))
+
 # [5.2.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.2.0-dev.3...v5.2.0-dev.4) (2024-11-26)
 
 
