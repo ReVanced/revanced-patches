@@ -8,18 +8,8 @@ import android.os.Build;
 import androidx.annotation.Nullable;
 
 public enum ClientType {
-    // Public videos, but no kids, private or age restricted videos.
+    // Specific purpose for age restricted, or private videos, because the iOS client is not logged in.
     ANDROID_VR(28,
-            "Quest 3",
-            "12",
-            "com.google.android.apps.youtube.vr.oculus/1.56.21 (Linux; U; Android 12; GB) gzip",
-            "32", // Android 12.1
-            "1.56.21",
-            "ANDROID_VR",
-            false
-    ),
-    // Specific purpose for age restricted videos.
-    ANDROID_VR_LOGGED_IN(28,
             "Quest 3",
             "12",
             "com.google.android.apps.youtube.vr.oculus/1.56.21 (Linux; U; Android 12; GB) gzip",
