@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 
 public enum ClientType {
     // Public videos, but no kids, private or age restricted videos.
-    ANDROID_VR_UNAUTHORIZED(28,
+    ANDROID_VR(28,
             "Quest 3",
             "12",
             "com.google.android.apps.youtube.vr.oculus/1.56.21 (Linux; U; Android 12; GB) gzip",
@@ -19,7 +19,7 @@ public enum ClientType {
             false
     ),
     // Specific purpose for age restricted videos.
-    ANDROID_VR(28,
+    ANDROID_VR_LOGGED_IN(28,
             "Quest 3",
             "12",
             "com.google.android.apps.youtube.vr.oculus/1.56.21 (Linux; U; Android 12; GB) gzip",
@@ -92,7 +92,7 @@ public enum ClientType {
     /**
      * If the client can access the API logged in.
      */
-    public final boolean canAuthorize;
+    public final boolean canLogin;
 
     ClientType(int id,
                String deviceModel,
@@ -101,7 +101,7 @@ public enum ClientType {
                @Nullable String androidSdkVersion,
                String clientVersion,
                String clientName,
-               boolean canAuthorize
+               boolean canLogin
     ) {
         this.id = id;
         this.deviceModel = deviceModel;
@@ -110,6 +110,6 @@ public enum ClientType {
         this.androidSdkVersion = androidSdkVersion;
         this.clientVersion = clientVersion;
         this.clientName = clientName;
-        this.canAuthorize = canAuthorize;
+        this.canLogin = canLogin;
     }
 }

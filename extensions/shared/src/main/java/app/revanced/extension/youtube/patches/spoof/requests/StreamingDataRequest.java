@@ -125,7 +125,7 @@ public class StreamingDataRequest {
             connection.setReadTimeout(HTTP_TIMEOUT_MILLISECONDS);
 
             for (String key : REQUEST_HEADER_KEYS) {
-                if (!clientType.canAuthorize && key.equals(AUTHORIZATION_HEADER)) {
+                if (!clientType.canLogin && key.equals(AUTHORIZATION_HEADER)) {
                     continue;
                 }
 
