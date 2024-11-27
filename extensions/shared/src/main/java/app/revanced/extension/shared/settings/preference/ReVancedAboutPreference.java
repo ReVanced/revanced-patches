@@ -101,7 +101,7 @@ public class ReVancedAboutPreference extends Preference {
             builder.append("<img style=\"width: 100px; height: 100px;\" "
                     // Hide the image if it does not load.
                     + "onerror=\"this.style.display='none';\" "
-                    + "src=\"" + AboutLinksRoutes.aboutLogoUrl + "\" />");
+                    + "src=\"").append(AboutLinksRoutes.aboutLogoUrl).append("\" />");
         }
 
         String patchesVersion = Utils.getPatchesReleaseVersion();
@@ -148,9 +148,8 @@ public class ReVancedAboutPreference extends Preference {
         setOnPreferenceClickListener(pref -> {
             // Show a progress spinner if the social links are not fetched yet.
             if (!AboutLinksRoutes.hasFetchedLinks() && Utils.isNetworkConnected()) {
-                // Show a progress spinner, but only if the api fetch
-                // takes more than a quarter of a second.
-                final long delayToShowProgressSpinner = 250;
+                // Show a progress spinner, but only if the api fetch takes more than a half a second.
+                final long delayToShowProgressSpinner = 500;
                 ProgressDialog progress = new ProgressDialog(getContext());
                 progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 
