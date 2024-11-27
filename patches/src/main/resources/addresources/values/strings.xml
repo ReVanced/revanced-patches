@@ -60,7 +60,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_settings_about_links_dev_header">Note</string>
             <string name="revanced_settings_about_links_dev_body">This version is a pre-release and you may experience unexpected issues</string>
             <string name="revanced_settings_about_links_header">Official links</string>
-            <string name="revanced_settings_about_links_donate">Donate</string>
+            <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
         </patch>
         <patch id="misc.gms.gmsCoreSupportResourcePatch">
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
