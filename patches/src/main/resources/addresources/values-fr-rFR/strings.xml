@@ -61,7 +61,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">Note</string>
   <string name="revanced_settings_about_links_dev_body">Cette version est une pré-version et vous pourriez rencontrer des problèmes inattendus</string>
   <string name="revanced_settings_about_links_header">Liens officiels</string>
-  <string name="revanced_settings_about_links_donate">Faire un don</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -1205,9 +1206,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Votre appareil ne possède pas de décodage matériel VP9, et ce paramètre est toujours activé lorsque la falsification du client est activée</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Activer ceci peut améliorer la durée de vie de la batterie et corriger les erreurs de lecture.\n\nAVC a une résolution maximale de 1080p, et la lecture vidéo utilisera plus de données internet que VP9 ou AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Effets secondaires d\'usurpation iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Les films ou les vidéos payantes ne peuvent pas lire\n• Les Livestreams commencent depuis le début\n• Les vidéos peuvent se terminer 1 seconde tôt\n• Pas de codec audio opus</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Les vidéos privées des enfants ne peuvent pas être lues\n• Les live reams commencent à partir de\n• Les vidéos peuvent se terminer 1 seconde tôt\n• Aucun codec audio opus</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Effets secondaires de l\'usurpation VR Android</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Le menu de la piste audio manque\n• Le volume stable n\'est pas disponible</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Les vidéos des enfants peuvent ne pas lire\n• Le menu de la piste audio manque\n• Le volume stable n\'est pas disponible</string>
   </patch>
   </app>
   <app id="twitch">

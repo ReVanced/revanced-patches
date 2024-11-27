@@ -59,7 +59,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">说明</string>
   <string name="revanced_settings_about_links_dev_body">此版本是预发布版本，您可能会遇到意外问题</string>
   <string name="revanced_settings_about_links_header">官方链接</string>
-  <string name="revanced_settings_about_links_donate">捐助</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -995,6 +996,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_title">最小播放器类型</string>
   <string name="revanced_miniplayer_type_entry_0">已禁用</string>
   <string name="revanced_miniplayer_type_entry_1">原始文件</string>
+  <string name="revanced_miniplayer_type_entry_2">最小化</string>
   <string name="revanced_miniplayer_type_entry_3">平板电脑</string>
   <string name="revanced_miniplayer_type_entry_4">现代1</string>
   <string name="revanced_miniplayer_type_entry_5">现代2</string>
@@ -1186,7 +1188,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">启用此功能可能会改善电池续航力并修复播放卡顿问题。\n\nAVC 的最大解析度为 1080p，且影片播放将使用比 VP9 或 AV1 更多的网路数据。</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS 伪装副作用</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR 伪装副作用</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• 音轨菜单缺少\n• 稳定音量不可用</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• 儿童视频可能无法播放\n• 音轨菜单丢失\n• 稳定音量</string>
   </patch>
   </app>
   <app id="twitch">

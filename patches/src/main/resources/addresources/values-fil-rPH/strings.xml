@@ -51,6 +51,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">Tandaan</string>
   <string name="revanced_settings_about_links_dev_body">Ang bersyon na ito ay isang pre-release at maaari kang makaranas ng mga hindi inaasahang isyu</string>
   <string name="revanced_settings_about_links_header">Mga opisyal na link</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->

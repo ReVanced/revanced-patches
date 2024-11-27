@@ -176,7 +176,7 @@
         </patch>
         <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
         </patch>
-            <patch id="ad.embedded.embeddedAdsPatch">
+        <patch id="ad.embedded.embeddedAdsPatch">
             <string-array name="revanced_block_embedded_ads_entries">
                 <item>@string/revanced_block_embedded_ads_entry_1</item>
                 <item>@string/revanced_block_embedded_ads_entry_2</item>

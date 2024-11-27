@@ -60,7 +60,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">Catatan</string>
   <string name="revanced_settings_about_links_dev_body">Versi ini adalah pra-rilis dan Anda mungkin mengalami masalah yang tidak terduga</string>
   <string name="revanced_settings_about_links_header">Tautan resmi</string>
-  <string name="revanced_settings_about_links_donate">Donasi</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -1012,6 +1013,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_title">Jenis pemutar mini</string>
   <string name="revanced_miniplayer_type_entry_0">Nonaktif</string>
   <string name="revanced_miniplayer_type_entry_1">Asli</string>
+  <string name="revanced_miniplayer_type_entry_2">Minimal</string>
   <string name="revanced_miniplayer_type_entry_3">Tablet</string>
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
@@ -1044,7 +1046,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_width_dip_summary">Awal pada ukuran layar, dalam piksel</string>
   <string name="revanced_miniplayer_width_dip_invalid_toast">Ukuran piksel harus antara %1$s dan %2$s</string>
   <string name="revanced_miniplayer_opacity_title">Opasitas hamparan</string>
-  <string name="revanced_miniplayer_opacity_summary">Nilai opasitas antara 0-100, di mana 0 adalah transparan</string>
+  <string name="revanced_miniplayer_opacity_summary">Nilai opasitas antara 0-100, dimana 0 adalah transparan</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Opasitas hamparan pemutar mini antara 0-100</string>
   </patch>
   <patch id="layout.theme.themePatch">
@@ -1203,9 +1205,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Perangkat Anda tidak memiliki dekode perangkat keras VP9, ​​dan pengaturan ini selalu aktif saat pemalsuan Klien diaktifkan</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Menyalakan ini dapat meningkatkan masa pakai baterai dan memperbaiki gangguan pemutaran.\n\nAVC memiliki resolusi maksimum 1080p, dan pemutaran video akan menggunakan lebih banyak data internet daripada VP9 atau AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Efek samping pemalsuan iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Film atau video berbayar mungkin tidak dapat diputar\n• Siaran langsung dimulai dari awal\n• Video mungkin berakhir 1 detik lebih awal\n• Tidak ada codec audio opus</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Efek samping pemalsuan Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Menu trek audio hilang\n• Volume stabil tidak tersedia</string>
   </patch>
   </app>
   <app id="twitch">

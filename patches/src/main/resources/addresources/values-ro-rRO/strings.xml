@@ -61,7 +61,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">Notă</string>
   <string name="revanced_settings_about_links_dev_body">Această versiune este o pre-lansare și este posibil să întâmpinați probleme neașteptate</string>
   <string name="revanced_settings_about_links_header">Link-uri oficiale</string>
-  <string name="revanced_settings_about_links_donate">Donează</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -1196,9 +1197,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Dispozitivul dvs. nu are decodare hardware VP9 și această setare este întotdeauna activată atunci când este activată lingerea clientului</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Activarea acestei funcții ar putea îmbunătăți durata de viață a bateriei și repara blocajul de redare.\n\nAVC are o rezoluție maximă de 1080p, iar redarea video va folosi mai multe date internet decât VP9 sau AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Reacţii adverse de lingere iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Este posibil ca filmele sau videoclipurile plătite să nu redea\n• Livestream-urile încep de la începutul\n• Videoclipurile se pot termina cu 1 secundă\n• Nici un codec audio opus</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Este posibil ca videoclipurile private pentru copii să nu se redea\n• Livestream-urile încep de la începutul lui\n• Videoclipurile pot să se termine cu 1 secundă\n• Nici un cod audio opus</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Reacţii adverse de spoofing Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Meniul piesei audio lipsește\n• Volum stabil nu este disponibil</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Videoclipurile pentru copii ar putea să nu redea\n• Meniul piesei audio lipsește\n• Volumul stabil nu este disponibil</string>
   </patch>
   </app>
   <app id="twitch">

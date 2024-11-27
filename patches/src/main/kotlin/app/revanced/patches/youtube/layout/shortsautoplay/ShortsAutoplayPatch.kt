@@ -38,6 +38,7 @@ val shortsAutoplayPatch = bytecodePatch(
             "19.34.42",
             "19.43.41",
             "19.45.38",
+            "19.46.42",
         ),
     )
 
@@ -56,7 +57,7 @@ val shortsAutoplayPatch = bytecodePatch(
 
         // Main activity is used to check if app is in pip mode.
         mainActivityOnCreateFingerprint.method.addInstructions(
-            0,
+            1,
             "invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->" +
                 "setMainActivity(Landroid/app/Activity;)V",
         )
