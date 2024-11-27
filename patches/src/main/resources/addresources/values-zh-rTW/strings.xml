@@ -60,7 +60,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">說明</string>
   <string name="revanced_settings_about_links_dev_body">此版本是預覽版，您可能會遇到意外問題</string>
   <string name="revanced_settings_about_links_header">官方連結</string>
-  <string name="revanced_settings_about_links_donate">捐贈</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -1205,9 +1206,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">您的裝置不支援 VP9 硬體解碼，當啟用用戶端欺騙時，此設定將始終保持開啟</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">啟用此功能可能會改善電池續航力並修復播放卡頓問題。\n\nAVC 的最大解析度為 1080p，且影片播放將使用比 VP9 或 AV1 更多的網路數據。</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS 欺騙副作用</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• 電影或付費影片可能無法播放\n• 直播從頭開始播放\n• 影片可能會提前 1 秒結束\n• 無 opus 音訊編解碼器</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR 欺騙副作用</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• 音訊軌道選單缺失\n• 穩定音量不可用</string>
   </patch>
   </app>
   <app id="twitch">

@@ -61,7 +61,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">Notitie</string>
   <string name="revanced_settings_about_links_dev_body">Deze versie is een pre-release en je kunt onverwachte problemen ondervinden</string>
   <string name="revanced_settings_about_links_header">Officiële links</string>
-  <string name="revanced_settings_about_links_donate">Doneren</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -1189,9 +1190,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Je apparaat heeft geen VP9 hardware-decodering en deze instelling is altijd ingeschakeld wanneer \'Client spoofing\' is ingeschakeld</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Het inschakelen hiervan kan de batterijduur verbeteren en het terugspringen corrigeren.\n\nAVC heeft een maximale resolutie van 1080p, en het afspelen van video\'s zal meer internetgegevens gebruiken dan VP9 of AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS vervalste bijwerkingen</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Films of betaalde video\'s kunnen mogelijk niet afspelen\n• Livestreams beginnen vanaf het begin\n• Video\'s kunnen 1 seconde vroeg eindigen\n• Geen opus audio codec</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Privé-kinderen video\'s kunnen mogelijk niet afspelen\n• Livestreams beginnen vanaf het begin\n• Video\'s kunnen 1 seconde vroeg eindigen\n• Geen opus audiocodec</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR vervalste bijeffecten</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Audio track menu ontbreekt\n• Stabiel volume is niet beschikbaar</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Kids video\'s mogen niet afspelen\n• Audio track menu ontbreekt\n• Stabiel volume is niet beschikbaar</string>
   </patch>
   </app>
   <app id="twitch">

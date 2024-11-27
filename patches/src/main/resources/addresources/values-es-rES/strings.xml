@@ -60,7 +60,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">Nota</string>
   <string name="revanced_settings_about_links_dev_body">Esta versión es un pre-lanzamiento y puede que experimentes problemas inesperados</string>
   <string name="revanced_settings_about_links_header">Enlaces oficiales</string>
-  <string name="revanced_settings_about_links_donate">Donar</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -1204,9 +1205,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Su dispositivo no tiene decodificación de hardware VP9, y esta configuración siempre está encendida cuando el cliente spoofing está habilitado</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Activar esto puede mejorar la vida de la batería y corregir el retraso en la reproducción.\n\nAVC tiene una resolución máxima de 1080p, y la reproducción de vídeo utilizará más datos de Internet que VP9 o AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Efectos secundarios para la falsificación de iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Las películas o vídeos de pago pueden no reproducirse\n• Los directos empiezan desde el principio\n• Los vídeos pueden terminar 1 segundo antes\n• No hay códec de audio de Opus</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Los vídeos de niños privados no pueden reproducir\n• Livestreams comienzan desde el principio\n• Los vídeos pueden terminar 1 segundo antes de\n• No hay código de audio de opus</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Efectos secundarios para la falsificación de Android RV</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Falta el menú de pista de audio\n• El volumen estable no está disponible</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Los vídeos infantiles no pueden reproducir\n• Falta el menú de pista de audio\n• El volumen estable no está disponible</string>
   </patch>
   </app>
   <app id="twitch">
