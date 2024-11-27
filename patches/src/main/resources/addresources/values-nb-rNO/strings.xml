@@ -60,7 +60,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">Notat</string>
   <string name="revanced_settings_about_links_dev_body">Denne versjonen er en forhåndsutgivelse, og du kan oppleve uventede problemer</string>
   <string name="revanced_settings_about_links_header">Offisielle lenker</string>
-  <string name="revanced_settings_about_links_donate">Doner</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -1174,9 +1175,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Din enhet har ikke VP9, dekotering av maskinvare og denne innstillingen er alltid på når spoofing av klient er aktivert</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Aktivering av dette kan forbedre batterilevetiden og korrigere avspilling med avvik.\n\nAVC har en maksimal oppløsning på 1080p, og videoavspilling vil bruke flere Internettdata enn VP9 eller AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS med bivirkninger</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmer eller betalte videoer spiller kanskje ikke\n• Livestreams start fra begynnelsen\n• Videoer kan avslutte 1 andre tidlig\n• Ingen opus lydkodek</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Private kids-videoer spiller kanskje ikke\n• Livestreams start fra begynnelsen\n• Videoer kan ende 1 sekund av\n• Ingen opus lydkodek</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR opplever bivirkninger</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Lydspormeny mangler\n• Stabil volum er ikke tilgjengelig</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Barn kan ikke spille\n• Lydspormeny mangler\n• Stabilt volum er ikke tilgjengelig</string>
   </patch>
   </app>
   <app id="twitch">

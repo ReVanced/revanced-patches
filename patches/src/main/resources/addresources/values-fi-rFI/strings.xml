@@ -61,7 +61,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">Huomautus</string>
   <string name="revanced_settings_about_links_dev_body">Tämä versio on ennakkojulkaisuversio, joten voit kokea odottamattomia ongelmia</string>
   <string name="revanced_settings_about_links_header">Viralliset linkit</string>
-  <string name="revanced_settings_about_links_donate">Lahjoita</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -1206,9 +1207,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Laitteessasi ei ole VP9-laitteiston dekoodausta, ja tämä asetus on aina päällä, kun asiakkaan spoofing on käytössä</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Tämän käyttöönotto voi parantaa akun kestoa ja korjata toistoa stuttering.\n\nAVC on suurin resoluutio 1080p, ja videon toisto käyttää enemmän internet-tietoja kuin VP9 tai AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS-naamioinnin haittavaikutukset</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Elokuvat tai maksetut videot eivät välttämättä toistu\n• Suoratoistot alkavat alusta\n• Videot saattavat päättyä 1 sekuntia etuajassa\n• Ei Opus-äänikoodekkia</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Yksityiset lapset videot eivät välttämättä pelaa\n• Livestreams alusta alkaen\n• Videot saattavat päättyä 1 sekunnin alkupuolella\n• Ei opus-äänikoodekkia</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR -naamioinnin haittavaikutukset</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Ääniraitavalikko puuttuu\n• Tasainen äänenvoimakkuus ei ole käytettävissä</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Lapset videot eivät välttämättä soita\n• Ääniraidan valikko puuttuu\n• Vakaa äänenvoimakkuus ei ole käytettävissä</string>
   </patch>
   </app>
   <app id="twitch">
