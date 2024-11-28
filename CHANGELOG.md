@@ -1,3 +1,10 @@
+## [5.2.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.2.1-dev.1...v5.2.1-dev.2) (2024-11-28)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof app version:** Update spoof target to resolve library tab crashes ([#4019](https://github.com/ReVanced/revanced-patches/issues/4019)) ([d89ad65](https://github.com/ReVanced/revanced-patches/commit/d89ad6501a7cdb3c074c6204dac7960ca3e252f1))
+
 ## [5.2.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.2.0...v5.2.1-dev.1) (2024-11-28)
 
 
