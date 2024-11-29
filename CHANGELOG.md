@@ -1,3 +1,10 @@
+## [5.2.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.2.1-dev.2...v5.2.1-dev.3) (2024-11-29)
+
+
+### Bug Fixes
+
+* **YouTube Music - Hide category bar:** Add support for latest release ([#3968](https://github.com/ReVanced/revanced-patches/issues/3968)) ([b63fdeb](https://github.com/ReVanced/revanced-patches/commit/b63fdeb10b504468307a77bd5de69407906848bf))
+
 ## [5.2.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.2.1-dev.1...v5.2.1-dev.2) (2024-11-28)
 
 
