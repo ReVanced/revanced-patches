@@ -23,16 +23,14 @@ fun NodeList.asSequence() = (0 until this.length).asSequence().map { this.item(i
  * Returns a sequence for all child nodes.
  */
 @Suppress("UNCHECKED_CAST")
-fun Node.childElementsSequence() =
-    this.childNodes.asSequence().filter { it.nodeType == Node.ELEMENT_NODE } as Sequence<Element>
+fun Node.childElementsSequence() = this.childNodes.asSequence().filter { it.nodeType == Node.ELEMENT_NODE } as Sequence<Element>
 
 /**
  * Performs the given [action] on each child element.
  */
-inline fun Node.forEachChildElement(action: (Element) -> Unit) =
-    childElementsSequence().forEach {
-        action(it)
-    }
+inline fun Node.forEachChildElement(action: (Element) -> Unit) = childElementsSequence().forEach {
+    action(it)
+}
 
 /**
  * Recursively traverse the DOM tree starting from the given root node.
@@ -141,7 +139,8 @@ internal fun Node.addResource(
     appendChild(resource.serialize(ownerDocument, resourceCallback))
 }
 
-internal fun org.w3c.dom.Document.getNode(tagName: String) = this.getElementsByTagName(tagName).item(0)
+internal fun org.w3c.dom.Document.getNode(tagName: String) = getElementsByTagName(tagName).item(0)
+internal fun Node.getNode(tagName: String) = childNodes.asSequence().find { it.nodeName == tagName }
 
 internal fun NodeList.findElementByAttributeValue(attributeName: String, value: String): Element? {
     for (i in 0 until length) {
@@ -164,8 +163,7 @@ internal fun NodeList.findElementByAttributeValue(attributeName: String, value: 
     return null
 }
 
-internal fun NodeList.findElementByAttributeValueOrThrow(attributeName: String, value: String) =
-    findElementByAttributeValue(attributeName, value) ?: throw PatchException("Could not find: $attributeName $value")
+internal fun NodeList.findElementByAttributeValueOrThrow(attributeName: String, value: String) = findElementByAttributeValue(attributeName, value) ?: throw PatchException("Could not find: $attributeName $value")
 
 internal fun Element.copyAttributesFrom(oldContainer: Element) {
     // Copy attributes from the old element to the new element
