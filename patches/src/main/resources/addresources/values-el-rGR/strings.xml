@@ -963,7 +963,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Έκδοση τροποποίησης της εφαρμογής</string>
-  <string name="revanced_spoof_app_version_target_entry_1">18.38.44 - Επαναφορά των παλαιών κουμπιών της οθόνης αναπαραγωγής των Shorts</string>
+  <string name="revanced_spoof_app_version_target_entry_1">19.16.39 - Επαναφορά των παλαιών κουμπιών της οθόνης αναπαραγωγής των Shorts</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Επαναφορά λειτουργικότητας του RYD στα Shorts σε λειτουργία ανώνυμης περιήγησης</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Επαναφορά ευρύτερου μενού ταχύτητας &amp; ποιότητας βίντεο</string>
@@ -1205,9 +1205,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Η συσκευή σας δεν διαθέτει αποκωδικοποίηση υλικού VP9, και αυτή η ρύθμιση είναι πάντα ενεργή όταν είναι ενεργοποιημένη η παραποίηση προγράμματος πελάτη</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Ενεργοποιώντας αυτόν τον κωδικοποιητή ίσως να βελτιώσει κατανάλωση ενέργειας και ίσως διορθώσει κολλήματα αναπαραγωγής.\n\nΟ AVC έχει μέγιστη ανάλυση 1080p, και καταναλώνει περισσότερα δεδομένα internet από τον VP9 ή τον AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Παρενέργειες παραποίησης σε iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Τα ιδιωτικά βίντεο για παιδιά μπορεί να μην παίζουν\n• Livestreams ξεκινούν από την αρχή\n• Τα βίντεο μπορεί να λήξουν 1 δευτερόλεπτο\n• Δεν υπάρχει κωδικοποιητής ήχου opus</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Ιδιωτικά βίντεο για παιδιά ενδεχομένως να μην αναπαράγονται\n• Οι ζωντανές μεταδόσεις ξεκινούν από την αρχή\n• Τα βίντεο ενδέχεται να λήξουν 1 δευτερόλεπτο νωρίτερα\n• Δεν υπάρχει κωδικοποιητής ήχου opus</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Παρενέργειες παραποίησης σε Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Τα βίντεο για παιδιά μπορεί να μην αναπαράγονται\n• Το μενού κομματιών ήχου λείπει\n• Η σταθερή ένταση δεν είναι διαθέσιμη</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Τα βίντεο για παιδιά ενδέχεται να μην αναπαράγονται\n• Το μενού «Κομμάτι ήχου» λείπει\n• Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη</string>
   </patch>
   </app>
   <app id="twitch">

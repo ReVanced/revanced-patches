@@ -963,7 +963,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Taklit edilecek uygulama sürümü</string>
-  <string name="revanced_spoof_app_version_target_entry_1">18.38.44 - Eski Shorts oynatıcı simgelerini geri getir</string>
+  <string name="revanced_spoof_app_version_target_entry_1">19.16.39 - Eski Shorts oynatıcı simgelerini geri getir</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Gizli modda Shorts için RYD\'yi onar</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Geniş video hızı &amp; kalite menüsünü geri getir</string>
@@ -1205,7 +1205,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Cihazınız VP9 donanım çözme özelliği yok ve bu ayar istemci taklit etme açık iken her zaman açıktır</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Bunu etkinleştirmek batarya ömrünü uzatabilir ve oynatma takılmalarını çözebilir.\n\nAVC en fazla 1080p çözünürlüğe sahiptir ve video oynatımı VP9 veya AV1\'e göre daha fazla internet harcayacaktır.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS taklidi yan etkileri</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Çocuklara özel gizli videolar oynatılamayabilir\n• Canlı yayınlar en baştan başlar\n• Videolar 1 saniye erken bitebilir\n• Opus ses kodeği yok</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR taklidi yan etkileri</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Çocuklara özel videolar oynatılamayabilir\n• Ses parçası menüsü eksik\n• Sabit ses özelliği kullanılamaz</string>
   </patch>
   </app>
   <app id="twitch">

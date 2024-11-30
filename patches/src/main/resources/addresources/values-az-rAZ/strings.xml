@@ -963,7 +963,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Saxta tətbiq versiyası hədəfi</string>
-  <string name="revanced_spoof_app_version_target_entry_1">18.38.44 - Köhnə Shorts oynadıcı işarələrin bərpa et</string>
+  <string name="revanced_spoof_app_version_target_entry_1">19.16.39 - Köhnə Shorts oynadıcı işarələrin bərpa et</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Shorts gizli rejimində RYD-ni bərpa et</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Geniş video sürəti &amp; keyfiyyət menyusunu bərpa et</string>
@@ -1205,7 +1205,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Cihazınızın VP9 hardware decoding\'i yoxdur və bu seçim, \"Qəbuledicini saxtalaşdırma\" aktivləşdikdə həmişəlikdir</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Bunu aktivləşdirmə batareya ömrünü yaxşılaşdıra və oynatma donmasını düzəldə bilər.\n\nAVC maksimum 1080p görüntü imkanına malikdir və video oynadılması VP9 və ya AV1-dən daha çox internet məlumatı istifadə edəcək.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS saxtakarlığı yan təsirləri</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Şəxsi uşaq videoları oynadılmaya bilər\n• Canlı yayımlar başdan başlayır\n• Videolar 1 saniyə tez bitə bilər\n• Opus səs kodlama yoxdur</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR saxtakarlığı yan təsirləri</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Uşaq videoları oynadılmaya bilər\n• Səs treki menyusu əskikdir\n• Sabit səs həcmi əlçatan deyil</string>
   </patch>
   </app>
   <app id="twitch">
