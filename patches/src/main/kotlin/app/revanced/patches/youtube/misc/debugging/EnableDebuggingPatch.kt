@@ -8,6 +8,8 @@ import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPref
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
+import app.revanced.patches.youtube.misc.playservice.is_19_16_or_greater
+import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -25,6 +27,7 @@ val enableDebuggingPatch = bytecodePatch(
         sharedExtensionPatch,
         settingsPatch,
         addResourcesPatch,
+        versionCheckPatch
     )
 
     compatibleWith(
@@ -91,20 +94,22 @@ val enableDebuggingPatch = bytecodePatch(
             )
         }
 
-        experimentalLongFeatureFlagFingerprint.match(
-            experimentalFeatureFlagParentFingerprint.originalClassDef
-        ).method.apply {
-            val insertIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_WIDE)
+        if (is_19_16_or_greater) {
+            experimentalLongFeatureFlagFingerprint.match(
+                experimentalFeatureFlagParentFingerprint.originalClassDef
+            ).method.apply {
+                val insertIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_WIDE)
 
-            addInstructions(
-                insertIndex,
-                """
-                    move-result-wide v0
-                    invoke-static/range { v0 .. v5 }, $EXTENSION_CLASS_DESCRIPTOR->isLongFeatureFlagEnabled(JJJ)J
-                    move-result-wide v0
-                    return-wide v0
-                """
-            )
+                addInstructions(
+                    insertIndex,
+                    """
+                        move-result-wide v0
+                        invoke-static/range { v0 .. v5 }, $EXTENSION_CLASS_DESCRIPTOR->isLongFeatureFlagEnabled(JJJ)J
+                        move-result-wide v0
+                        return-wide v0
+                    """
+                )
+            }
         }
 
         experimentalStringFeatureFlagFingerprint.match(
