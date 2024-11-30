@@ -11,6 +11,7 @@ import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.BasePreference
 import app.revanced.patches.shared.misc.settings.preference.BasePreferenceScreen
+import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.settingsPatch
@@ -57,6 +58,12 @@ val settingsPatch = bytecodePatch(
 
     execute {
         addResources("twitch", "misc.settings.settingsPatch")
+
+        preferences += NonInteractivePreference(
+            key = "revanced_about",
+            tag = "app.revanced.extension.shared.settings.preference.ReVancedAboutPreference",
+            selectable = true,
+        )
 
         PreferenceScreen.MISC.OTHER.addPreferences(
             // The debug setting is shared across multiple apps and the key must be the same.
