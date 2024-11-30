@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.startupshortsreset
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
@@ -49,31 +49,6 @@ val disableResumingShortsOnStartupPatch = bytecodePatch(
             SwitchPreference("revanced_disable_resuming_shorts_player"),
         )
 
-        userWasInShortsConfigFingerprint.originalMethod.apply {
-            val startIndex = indexOfOptionalInstruction(this)
-            val walkerIndex = indexOfFirstInstructionOrThrow(startIndex) {
-                val reference = getReference<MethodReference>()
-                opcode == Opcode.INVOKE_VIRTUAL &&
-                    reference?.returnType == "Z" &&
-                    reference.definingClass != "Lj${'$'}/util/Optional;" &&
-                    reference.parameterTypes.isEmpty()
-            }
-
-            // Presumably a method that processes the ProtoDataStore value (boolean) for the 'user_was_in_shorts' key.
-            navigate(this).to(walkerIndex).stop().addInstructionsWithLabels(
-                0,
-                """
-                    invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->disableResumingStartupShortsPlayer()Z
-                    move-result v0
-                    if-eqz v0, :show
-                    const/4 v0, 0x0
-                    return v0
-                    :show
-                    nop
-                """,
-            )
-        }
-
         userWasInShortsFingerprint.method.apply {
             val listenableInstructionIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_INTERFACE &&
@@ -94,5 +69,18 @@ val disableResumingShortsOnStartupPatch = bytecodePatch(
                 """,
             )
         }
+
+        userWasInShortsConfigFingerprint.method.addInstructions(
+            0,
+            """
+                invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->disableResumingStartupShortsPlayer()Z
+                move-result v0
+                if-eqz v0, :show
+                const/4 v0, 0x0
+                return v0
+                :show
+                nop
+            """
+        )
     }
 }

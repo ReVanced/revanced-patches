@@ -125,8 +125,8 @@ val returnYouTubeDislikePatch = bytecodePatch(
 
             if (is_19_33_or_greater) {
                 insertIndex = indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.INVOKE_STATIC_RANGE &&
-                        getReference<MethodReference>()?.returnType == textDataClassType
+                    (opcode == Opcode.INVOKE_STATIC || opcode == Opcode.INVOKE_STATIC_RANGE)
+                            && getReference<MethodReference>()?.returnType == textDataClassType
                 }
 
                 tempRegister = getInstruction<OneRegisterInstruction>(insertIndex + 1).registerA
