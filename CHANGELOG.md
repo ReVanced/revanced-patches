@@ -1,3 +1,10 @@
+## [5.2.1-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.2.1-dev.3...v5.2.1-dev.4) (2024-11-30)
+
+
+### Bug Fixes
+
+* **Twitch:** Resolve setting menu crashes ([#4025](https://github.com/ReVanced/revanced-patches/issues/4025)) ([62df596](https://github.com/ReVanced/revanced-patches/commit/62df5965d7331e47b3143425d169a79a19eac447))
+
 ## [5.2.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.2.1-dev.2...v5.2.1-dev.3) (2024-11-29)
 
 
