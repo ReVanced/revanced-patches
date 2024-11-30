@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.shared.settings.preference.AbstractPreferenceFragment;
 import app.revanced.extension.youtube.ThemeHelper;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
 import app.revanced.extension.youtube.settings.preference.ReturnYouTubeDislikePreferenceFragment;
@@ -83,7 +82,7 @@ public class LicenseActivityHook {
         ViewGroup toolbar = activity.findViewById(getToolbarResourceId());
         ImageButton imageButton = Objects.requireNonNull(getChildView(toolbar, false,
                 view -> view instanceof ImageButton));
-        imageButton.setImageDrawable(AbstractPreferenceFragment.getBackButtonDrawable());
+        imageButton.setImageDrawable(ReVancedPreferenceFragment.getBackButtonDrawable());
         imageButton.setOnClickListener(view -> activity.onBackPressed());
     }
 
