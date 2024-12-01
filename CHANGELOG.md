@@ -1,3 +1,10 @@
+## [5.2.1-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.2.1-dev.4...v5.2.1-dev.5) (2024-12-01)
+
+
+### Performance Improvements
+
+* Move variables to local scope ([43c0421](https://github.com/ReVanced/revanced-patches/commit/43c04216c6e647eaf6ad7e813eb5f0df0c108b77))
+
 ## [5.2.1-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.2.1-dev.3...v5.2.1-dev.4) (2024-11-30)
 
 
