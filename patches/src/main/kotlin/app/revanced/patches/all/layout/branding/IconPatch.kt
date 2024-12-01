@@ -1,137 +1,155 @@
 package app.revanced.patches.all.layout.branding
 
-import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.patch.ResourcePatchContext
-import app.revanced.patcher.patch.resourcePatch
-import app.revanced.patcher.patch.stringOption
-import app.revanced.patcher.util.Document
+import app.revanced.patcher.patch.*
 import app.revanced.util.getNode
-import java.io.File
-import java.io.FilenameFilter
+import app.revanced.util.inputStreamFromBundledResource
+import java.io.InputStream
+import java.nio.file.Files
+import java.nio.file.StandardCopyOption
+
+private const val FULL_ICON = 0
+private const val ROUND_ICON = 1
+private const val BACKGROUND_ICON = 2
+private const val FOREGROUND_ICON = 3
+private const val MONOCHROME_ICON = 4
 
 val changeIconPatch = resourcePatch(
     name = "Change icon",
-    description = "Changes the app icon to a custom icon. By default, the \"ReVanced icon\" is used.",
+    description = "Changes the app icon to a custom icon. By default, the ReVanced icon is used.",
     use = false,
 ) {
-    val revancedIconOptionValue = "" // Empty value == ReVanced icon.
+    val revancedIconOptionValue = emptyList<String>() // Empty list == ReVanced icon.
 
     val pixelDensities = setOf(
-        "xxxhdpi",
-        "xxhdpi",
-        "xhdpi",
-        "hdpi",
         "mdpi",
+        "hdpi",
+        "xhdpi",
+        "xxhdpi",
+        "xxxhdpi",
     )
 
-    val iconOptions = buildMap {
-        arrayOf("foreground", "background", "monochrome").forEach { iconType ->
-            this += pixelDensities.associateBy {
-                stringOption(
-                    key = "${iconType}IconPath",
-                    default = revancedIconOptionValue,
-                    values = mapOf("ReVanced Logo" to revancedIconOptionValue),
-                    title = "Icon file path (Pixel density: $it, Icon type: $iconType)",
-                    description = "The path to the icon file to apply to the app for the pixel density $it " +
-                        "and icon type $iconType.",
-                )
-            }
-        }
-
-        // This might confuse the user.
-        put(
-            "full",
-            stringOption(
-                key = "fullIconPath",
-                default = revancedIconOptionValue,
-                values = mapOf("ReVanced Logo" to revancedIconOptionValue),
-                title = "Full icon file path",
-                description = "The path to the icon file to apply when the app " +
-                    "does not have a specific icon for the pixel density.",
-            ),
+    val iconOptions = pixelDensities.associateWith { pixelDensity ->
+        stringsOption(
+            key = "${pixelDensity}Icons",
+            default = revancedIconOptionValue,
+            values = mapOf("ReVanced logo" to revancedIconOptionValue),
+            title = "Icons (Pixel density: $pixelDensity)",
+            description = buildString {
+                appendLine("Provide paths to the following icons for pixel density $pixelDensity (PNG, JPG, WEBP, or vector drawable XML):")
+                appendLine("1. Launcher icon (required)")
+                appendLine("2. Round icon (optional, Android 7+)")
+                appendLine("\nYou can use adaptive icons (Android 8+) by providing the following additional icons:")
+                appendLine("\n3. Background icon (optional)")
+                appendLine("4. Foreground icon (optional)")
+                appendLine("5. Monochrome icon (optional, Android 13+")
+                appendLine("\nIcons must be provided in the same order as listed above. Missing optional icons can be skipped by leaving the field empty.")
+                appendLine("\nYou can create custom icon sets at https://icon.kitchen.")
+            },
+            required = true,
         )
     }
 
     execute {
-        manifest {
-            val applicationNode = getNode("application")
-            val iconResourceReference = applicationNode.attributes.getNamedItem("android:icon").textContent!!
+        val firstPixelDensity = pixelDensities.first()
 
-            val iconResourceFiles = resolve(iconResourceReference)
+        fun patchIcon(
+            getIcon: (String, Int) -> String?,
+            readIcon: (String) -> InputStream,
+        ) {
+            // Any density, as the user should provide the icons for all densities.
 
-            iconResourceFiles.forEach { resourceFile ->
-                if (resourceFile.extension == "xml" && resourceFile.name.startsWith("ic_launcher")) {
-                    val adaptiveIcon = parseAdaptiveIcon(resourceFile)
+            // region Change the app icon in the AndroidManifest.xml file.
 
-                    // TODO: Replace the background, foreground, and monochrome icons with the custom icons.
-                } else {
-                    // TODO: Replace the icon with fullIcon.
+            // If a round icon is provided, set the android:roundIcon attribute.
+            document("AndroidManifest.xml").use {
+                it.getNode("application").attributes.apply {
+                    getNamedItem("android:icon").textContent = "@mipmap/ic_launcher"
+
+                    val roundIcon = getIcon(firstPixelDensity, ROUND_ICON)
+                    if (roundIcon?.isNotEmpty() == true) {
+                        val roundIconAttribute = getNamedItem("android:roundIcon")
+                            ?: setNamedItem(it.createAttribute("android:roundIcon"))
+                        roundIconAttribute.textContent = "@mipmap/ic_launcher_round"
+                    }
                 }
+            }
+
+            // endregion
+
+            // region Change the app icon for each pixel density.
+
+            val hasAdaptiveIcon = getIcon(firstPixelDensity, BACKGROUND_ICON)
+
+            if (hasAdaptiveIcon?.isNotEmpty() == true) {
+                val monochromeIconXmlString = if (getIcon(firstPixelDensity, MONOCHROME_ICON)?.isNotEmpty() == true) {
+                    "<monochrome android:drawable=\"@drawable/ic_launcher_monochrome\"/>"
+                } else {
+                    ""
+                }
+
+                // If an adaptive icon is provided, add the adaptive icon XML file to the res/mipmap-anydpi directory.
+                get("res/mipmap-anydpi/ic_launcher.xml").writeText(
+                    """
+                        <?xml version="1.0" encoding="utf-8"?>
+                            <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+                            <background android:drawable="@mipmap/ic_launcher_background"/>
+                            <foreground android:drawable="@mipmap/ic_launcher_foreground"/>
+                            $monochromeIconXmlString
+                        </adaptive-icon>
+                    """.trimIndent(),
+                )
+            }
+
+            pixelDensities.forEach { pixelDensity ->
+                val icon = getIcon(pixelDensity, FULL_ICON)!!
+                // Safe call (?.) is used because the user may just provide the full icon and skip the other optional icons.
+                val roundIcon = getIcon(pixelDensity, ROUND_ICON)
+                val backgroundIcon = getIcon(pixelDensity, BACKGROUND_ICON)
+                val foregroundIcon = getIcon(pixelDensity, FOREGROUND_ICON)
+                val monochromeIcon = getIcon(pixelDensity, MONOCHROME_ICON)
+
+                infix fun String?.to(target: String) {
+                    if (isNullOrEmpty()) {
+                        return
+                    }
+
+                    Files.copy(
+                        readIcon(this),
+                        get("res/$target").toPath(),
+                        StandardCopyOption.REPLACE_EXISTING,
+                    )
+                }
+
+                // Copy the icons to the mipmap directory.
+                icon to "mipmap-$pixelDensity/ic_launcher.png"
+                roundIcon to "mipmap-$pixelDensity/ic_launcher_round.png"
+                backgroundIcon to "mipmap-$pixelDensity/ic_launcher_background.png"
+                foregroundIcon to "mipmap-$pixelDensity/ic_launcher_foreground.png"
+                monochromeIcon to "drawable-$pixelDensity/ic_launcher_monochrome.png"
+            }
+
+            // endregion
+        }
+
+        if (iconOptions[firstPixelDensity]!!.value === revancedIconOptionValue) {
+            patchIcon({ pixelDensity, iconIndex ->
+                when (iconIndex) {
+                    FULL_ICON -> "mipmap-$pixelDensity/revanced-icon"
+                    ROUND_ICON -> "mipmap-$pixelDensity/revanced-icon-round"
+                    BACKGROUND_ICON -> "mipmap-$pixelDensity/revanced-icon-background"
+                    FOREGROUND_ICON -> "mipmap-$pixelDensity/revanced-icon-foreground"
+                    MONOCHROME_ICON -> "drawable-$pixelDensity/revanced-icon-monochrome"
+                    else -> throw IllegalArgumentException("Invalid icon index: $iconIndex")
+                }
+            }) { icon ->
+                inputStreamFromBundledResource("change-icon", "$icon.png")!!
+            }
+        } else {
+            patchIcon({ pixelDensity, iconIndex ->
+                iconOptions[pixelDensity]?.value?.get(iconIndex)
+            }) { icon ->
+                get(icon).inputStream()
             }
         }
     }
 }
-
-context(ResourcePatchContext)
-fun <T> manifest(block: Document.() -> T) = document("AndroidManifest.xml").use(block)
-
-context(ResourcePatchContext)
-private fun resolve(resourceReference: String): List<File> {
-    val isMipmap = resourceReference.startsWith("@mipmap/")
-    val isDrawable = resourceReference.startsWith("@drawable/")
-
-    val directories = get("res").listFiles(
-        if (isMipmap) {
-            FilenameFilter { _, name -> name.startsWith("mipmap-") }
-        } else if (isDrawable) {
-            FilenameFilter { _, name -> name.startsWith("drawable-") }
-        } else {
-            throw PatchException("Unsupported resource reference: $resourceReference")
-        },
-    )!!
-
-    // The name does not have an extension. It is the name of the resource.
-    val resourceName = resourceReference.split("/").last()
-    val resources = directories.mapNotNull {
-        // Find the first file that starts with the resource name.
-        it.listFiles { _, name -> name.startsWith(resourceName) }!!.firstOrNull()
-    }
-
-    return resources
-}
-
-private class IconResource(
-    val file: File,
-    val pixelDensity: String,
-)
-
-context(ResourcePatchContext)
-private fun parseAdaptiveIcon(xmlFile: File) = document(xmlFile.absolutePath).use { adaptiveIconNode ->
-    val adaptiveIcon = adaptiveIconNode.getNode("adaptive-icon")
-
-    fun getIconResourceReference(iconType: String): List<IconResource>? {
-        val resourceReferenceString = adaptiveIcon.getNode(iconType)?.let {
-            it.attributes.getNamedItem("android:drawable").textContent!!
-        }
-
-        if (resourceReferenceString == null) {
-            return null
-        }
-
-        return resolve(resourceReferenceString).map {
-            IconResource(file = it, pixelDensity = it.parentFile.name.split("-").last())
-        }
-    }
-
-    AdaptiveIcon(
-        getIconResourceReference("background")!!,
-        getIconResourceReference("foreground")!!,
-        getIconResourceReference("monochrome"),
-    )
-}
-
-private class AdaptiveIcon(
-    val background: List<IconResource>,
-    val foreground: List<IconResource>,
-    val monochrome: List<IconResource>?,
-)
