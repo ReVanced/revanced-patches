@@ -1109,6 +1109,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_twitch_debug_mode_summary_off">Režim ladenia Twitch je zakázaný</string>
   </patch>
   <patch id="misc.settings.settingsPatch">
+  <string name="revanced_about_title">O</string>
   <string name="revanced_ads_screen_title">Reklamy</string>
   <string name="revanced_ads_screen_summary">Nastavenia blokovania reklám</string>
   <string name="revanced_chat_screen_summary">Nastavenia chatu</string>

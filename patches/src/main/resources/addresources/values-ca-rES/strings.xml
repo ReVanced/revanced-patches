@@ -250,6 +250,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   </patch>
   <patch id="misc.settings.settingsPatch">
+  <string name="revanced_about_title">Quant a</string>
   </patch>
   </app>
 </resources>
