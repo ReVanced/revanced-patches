@@ -963,7 +963,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">الهدف من تغيير إصدار التطبيق</string>
-  <string name="revanced_spoof_app_version_target_entry_1">18.38.44 - استعادة أيقونات مشغل Shorts القديمة</string>
+  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - استعادة أيقونات مشغل Shorts القديمة</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - استعادة RYD على Shorts بوضع التخفي</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - استعادة قائمة سرعة الفيديو العريضة &amp; الجودة</string>
@@ -1205,9 +1205,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">لا يحتوي جهازك على فك تشفير الأجهزة VP9، وهذا الإعداد يعمل دائما عند تمكين تزييف العميل</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">قد يؤدي تمكين هذا إلى تحسين عمر البطارية وإصلاح مشكلة تقطيع التشغيل.\n\nيتمتع تنسيق AVC بدقة قصوى تبلغ 1080P، وسيستخدم تشغيل الفيديو المزيد من بيانات الإنترنت مقارنةً بتنسيق VP9 أو AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">التأثيرات الجانبية لمحاكاة iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• قد لا تشغل مقاطع فيديو الأطفال الخاصون\n• تبدأ Livestreams من البداية\n• قد تنتهي مقاطع الفيديو ثانية واحدة في أوائل\n• لا يوجد رمز صوتي opus</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• قد لا يتم تشغيل فيديوهات الأطفال الخاصة\n• تبدأ البثوث المباشر من البداية\n• قد تنتهي الفيديوهات قبل النهاية بثانية واحدة\n• لا يوجد ترميز الصوت opus</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">التأثيرات الجانبية لمحاكاة Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• قد لا تشغل مقاطع فيديو الأطفال\n• قائمة المسار الصوتي مفقودة\n• مستوى الصوت المستقر غير متوفر</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• قد لا يتم تشغيل فيديوهات الأطفال\n• قائمة المقطع الصوتي مفقودة\n• مستوى الصوت الثابت غير متوفر</string>
   </patch>
   </app>
   <app id="twitch">
@@ -1249,6 +1249,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">إعدادات ReVanced</string>
+  <string name="revanced_about_title">لمحة</string>
+  <string name="revanced_about_summary">لمحة عن ReVanced</string>
   <string name="revanced_ads_screen_title">الإعلانات</string>
   <string name="revanced_ads_screen_summary">إعدادات حجب الإعلانات</string>
   <string name="revanced_chat_screen_title">الدردشة</string>

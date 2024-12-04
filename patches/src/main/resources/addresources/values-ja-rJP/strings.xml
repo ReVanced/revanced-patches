@@ -1225,6 +1225,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">Revancedの設定</string>
+  <string name="revanced_about_title">情報</string>
+  <string name="revanced_about_summary">ReVancedについて</string>
   <string name="revanced_ads_screen_title">広告</string>
   <string name="revanced_ads_screen_summary">広告ブロックの設定</string>
   <string name="revanced_chat_screen_title">チャット</string>

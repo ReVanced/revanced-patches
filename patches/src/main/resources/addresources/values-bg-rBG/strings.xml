@@ -963,7 +963,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Подлъгване за версията на</string>
-  <string name="revanced_spoof_app_version_target_entry_1">18.38.44 - Възстановете старите икони на Shorts в плейъра</string>
+  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Възстановете старите икони на Shorts в плейъра</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Възстановете RYD в режим „инкогнито“ на Shorts</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Възстановяване на видео скорост &amp; в менюто за качество</string>
@@ -1205,7 +1205,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Вашето устройство няма хардуерно VP9 декодиране и тази настройка винаги е активирана, когато е активно подправяне на клиента</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Активирането на това може да подобри живота на батерията и да коригира прекъсванията при възпроизвеждане.\n\nAVC има максимална разделителна способност от 1080p и възпроизвеждането на видео ще използва повече интернет данни от VP9 или AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Cтранични ефекти от подмяната на iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Платените видеоклипове за деца може да не се възпроизвеждат\n• Потоците на живо започват отначало\n• Видеоклиповете може да завършват 1 секунда по-рано\n• Няма аудиокодек Opus</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Странични ефекти от подправяне на Android VR</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Детските видеоклипове може да не се възпроизвеждат\n• Липсва менюто за аудио запис\n• Не е налична стабилна сила на звука</string>
   </patch>
   </app>
   <app id="twitch">
@@ -1247,6 +1249,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">Настройки на ReVanced</string>
+  <string name="revanced_about_title">Относно</string>
+  <string name="revanced_about_summary">За ReVanced</string>
   <string name="revanced_ads_screen_title">Реклами</string>
   <string name="revanced_ads_screen_summary">Настройки за блокиране на реклами</string>
   <string name="revanced_chat_screen_title">Чатове</string>

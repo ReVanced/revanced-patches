@@ -1095,6 +1095,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_twitch_debug_mode_summary_off">Naka-disable ang twitch debug mode</string>
   </patch>
   <patch id="misc.settings.settingsPatch">
+  <string name="revanced_about_title">Mga Tungkol</string>
   <string name="revanced_ads_screen_title">Mga ad</string>
   <string name="revanced_ads_screen_summary">Mga setting ng pag-block ng ad</string>
   <string name="revanced_chat_screen_summary">Mga setting ng chat</string>

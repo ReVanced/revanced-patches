@@ -1230,6 +1230,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">光学设置</string>
+  <string name="revanced_about_title">关于</string>
+  <string name="revanced_about_summary">关于 ReVanced</string>
   <string name="revanced_ads_screen_title">广告</string>
   <string name="revanced_ads_screen_summary">广告屏蔽设置</string>
   <string name="revanced_chat_screen_title">聊天</string>

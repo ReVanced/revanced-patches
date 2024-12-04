@@ -1249,6 +1249,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">ReVanced-inställningar</string>
+  <string name="revanced_about_title">Om</string>
+  <string name="revanced_about_summary">Om ReVanced</string>
   <string name="revanced_ads_screen_title">Annonser</string>
   <string name="revanced_ads_screen_summary">Inställningar för annonsblockering</string>
   <string name="revanced_chat_screen_title">Chatt</string>
