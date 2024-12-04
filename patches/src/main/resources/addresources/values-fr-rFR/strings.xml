@@ -964,7 +964,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Falsifier la cible de version de l\'application</string>
-  <string name="revanced_spoof_app_version_target_entry_1">19.16.39 - Restaurer les anciennes icônes de joueur à court terme</string>
+  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Restauration des anciennes icônes du lecteur de Shorts </string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Restaurer RYD en mode incognito Shorts</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Restaurer une grande vitesse vidéo &amp; menu qualité</string>
@@ -1250,6 +1250,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">Réglages ReVanced</string>
+  <string name="revanced_about_title">À propos</string>
+  <string name="revanced_about_summary">À propos de ReVanced</string>
   <string name="revanced_ads_screen_title">Publicités</string>
   <string name="revanced_ads_screen_summary">Paramètres de blocage des publicités</string>
   <string name="revanced_chat_screen_title">Discuter</string>
