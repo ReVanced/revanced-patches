@@ -1113,6 +1113,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">Налады ReVanced</string>
+  <string name="revanced_about_title">Пра нас</string>
   <string name="revanced_ads_screen_title">Аб\"явы</string>
   <string name="revanced_ads_screen_summary">Налады блакіроўкі рэкламы</string>
   <string name="revanced_chat_screen_title">Чат</string>

@@ -1109,6 +1109,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">ReVanced সেটিং</string>
+  <string name="revanced_about_title">সম্পর্কিত</string>
   <string name="revanced_ads_screen_title">বিজ্ঞাপন</string>
   <string name="revanced_ads_screen_summary">বিজ্ঞাপন বন্ধ করার সেটিং</string>
   <string name="revanced_chat_screen_title">আলাপচারি</string>

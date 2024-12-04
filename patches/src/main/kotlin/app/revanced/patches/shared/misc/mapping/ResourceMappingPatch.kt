@@ -12,12 +12,12 @@ lateinit var resourceMappings: List<ResourceElement>
     private set
 
 val resourceMappingPatch = resourcePatch {
-    val threadCount = Runtime.getRuntime().availableProcessors()
-    val threadPoolExecutor = Executors.newFixedThreadPool(threadCount)
-
     val resourceMappings = Collections.synchronizedList(mutableListOf<ResourceElement>())
 
     execute {
+        val threadCount = Runtime.getRuntime().availableProcessors()
+        val threadPoolExecutor = Executors.newFixedThreadPool(threadCount)
+
         // Save the file in memory to concurrently read from it.
         val resourceXmlFile = get("res/values/public.xml").readBytes()
 
