@@ -30,7 +30,7 @@ public class SponsorBlockSettings {
     public static final Setting.ImportExportCallback SB_IMPORT_EXPORT_CALLBACK = new Setting.ImportExportCallback() {
         @Override
         public void settingsImported(@Nullable Context context) {
-            updateFromImportedSettings();
+            SegmentCategory.loadAllCategoriesFromSettings();
         }
         @Override
         public void settingsExported(@Nullable Context context) {
@@ -172,7 +172,7 @@ public class SponsorBlockSettings {
     /**
      * Export the categories using flatten json (no embedded dictionaries or arrays).
      */
-    public static void showExportWarningIfNeeded(@Nullable Context dialogContext) {
+    private static void showExportWarningIfNeeded(@Nullable Context dialogContext) {
         Utils.verifyOnMainThread();
         initialize();
 
@@ -244,12 +244,5 @@ public class SponsorBlockSettings {
         initialized = true;
 
         SegmentCategory.updateEnabledCategories();
-    }
-
-    /**
-     * Updates internal data based on {@link Setting} values.
-     */
-    public static void updateFromImportedSettings() {
-        SegmentCategory.loadAllCategoriesFromSettings();
     }
 }

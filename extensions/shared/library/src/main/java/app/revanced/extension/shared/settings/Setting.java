@@ -438,7 +438,7 @@ public abstract class Setting<T> {
             }
 
             for (ImportExportCallback callback : importExportCallbacks) {
-                callback.settingsExported(alertDialogContext);
+                callback.settingsImported(alertDialogContext);
             }
 
             Utils.showToastLong(numberOfSettingsImported == 0
