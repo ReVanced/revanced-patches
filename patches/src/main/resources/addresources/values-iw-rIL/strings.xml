@@ -317,6 +317,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">הגדרות ReVanced</string>
+  <string name="revanced_about_title">אודות</string>
   <string name="revanced_misc_screen_title">שונות</string>
   </patch>
   </app>

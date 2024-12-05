@@ -56,7 +56,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_pref_import_export_title">Importa / Esporta</string>
   <string name="revanced_pref_import_export_summary">Importa / Esporta impostazioni ReVanced</string>
   <!-- Settings about dialog. -->
-  <string name="revanced_settings_about_links_body">Stai usando la versione &lt;i&gt;%s&lt;/i&gt; di ReVanced Patches</string>
+  <string name="revanced_settings_about_links_body">Stai usando la versione &lt;i&gt;%s&lt;/i&gt; delle Patch ReVanced</string>
   <string name="revanced_settings_about_links_dev_header">Nota</string>
   <string name="revanced_settings_about_links_dev_body">Questa versione è una pre-release e potresti riscontrare problemi inaspettati</string>
   <string name="revanced_settings_about_links_header">Link ufficiali</string>
@@ -129,7 +129,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_horizontal_shelves_summary_off">Le sezioni sono visibili</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
-  <string name="revanced_hide_join_membership_button_title">Nascondi il pulsante \'Unisci\'</string>
+  <string name="revanced_hide_join_membership_button_title">Nascondi il pulsante \'Abbonati\'</string>
   <string name="revanced_hide_join_membership_button_summary_on">Il pulsante è nascosto</string>
   <string name="revanced_hide_join_membership_button_summary_off">Il pulsante è visibile</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
@@ -486,7 +486,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_create_button_summary_off">Il pulsante Crea è visibile</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_hide_subscriptions_button_title">Nascondi Iscrizioni</string>
-  <string name="revanced_hide_subscriptions_button_summary_on">Il pulsante di sottoscrizioni è nascosto</string>
+  <string name="revanced_hide_subscriptions_button_summary_on">Il pulsante Iscrizioni è nascosto</string>
   <string name="revanced_hide_subscriptions_button_summary_off">Il pulsante Iscrizioni è visibile</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Cambia Crea con le notifiche</string>
@@ -789,7 +789,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Il pulsante Salta si nasconde dopo alcuni secondi</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Il pulsante Salta è visibile per tutta la durata del segmento</string>
   <string name="revanced_sb_general_skiptoast">Mostra una notifica quando un segmento è saltato automaticamente</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">La notifica è visibile quando un segmento è saltato automaticamente. Tocca qui per vedere un esempio</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">Mostra una notifica quando un segmento è saltato automaticamente. Tocca qui per vedere un esempio</string>
   <string name="revanced_sb_general_skiptoast_sum_off">La notifica è nascosta. Tocca qui per vedere un esempio</string>
   <string name="revanced_sb_general_time_without">Mostra la durata del video senza segmenti</string>
   <string name="revanced_sb_general_time_without_sum_on">La durata del video meno tutti gli eventuali segmenti, visibile tra parentesi accanto alla durata del video completo</string>
@@ -841,8 +841,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_segments_selfpromo_sum">Simili agli Sponsor, ma sono promozioni non pagate o autopromozioni. Questo include segmenti sul merchandising, donazioni o informazioni dei collaboratori del video</string>
   <string name="revanced_sb_segments_interaction">Promemoria di interazione (iscrizione)</string>
   <string name="revanced_sb_segments_interaction_sum">Un breve promemoria per piacere, iscriversi o seguirli nel mezzo dei contenuti. Se è lungo o su qualcosa di specifico, dovrebbe invece essere sotto auto-promozione</string>
-  <string name="revanced_sb_segments_highlight">Evidenzia</string>
-  <string name="revanced_sb_segments_highlight_sum">La parte del video che la maggior parte delle persone sono alla ricerca</string>
+  <string name="revanced_sb_segments_highlight">Momento saliente</string>
+  <string name="revanced_sb_segments_highlight_sum">La parte del video che la maggior parte delle persone sta cercando</string>
   <string name="revanced_sb_segments_intro">Interruzione/Animazione Introduzione</string>
   <string name="revanced_sb_segments_intro_sum">Un intervallo senza contenuto effettivo. Potrebbe essere una pausa, un quadro statico o un\'animazione ripetitiva. Non include transizioni contenenti informazioni</string>
   <string name="revanced_sb_segments_outro">Conclusioni/titoli di coda</string>
@@ -858,7 +858,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_skip_button_sponsor">Salta sponsor</string>
   <string name="revanced_sb_skip_button_selfpromo">Salta promozione</string>
   <string name="revanced_sb_skip_button_interaction">Salta promemoria</string>
-  <string name="revanced_sb_skip_button_highlight">Salta al momento saliente</string>
+  <string name="revanced_sb_skip_button_highlight">Vai al momento saliente</string>
   <string name="revanced_sb_skip_button_intro_beginning">Salta introduzione</string>
   <string name="revanced_sb_skip_button_intro_middle">Salta intermezzo</string>
   <string name="revanced_sb_skip_button_intro_end">Salta intermezzo</string>
@@ -867,7 +867,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_skip_button_preview_middle">Salta anteprima</string>
   <string name="revanced_sb_skip_button_preview_end">Salta riepilogo</string>
   <string name="revanced_sb_skip_button_filler">Salta riempimento</string>
-  <string name="revanced_sb_skip_button_nomusic">Salta non-musica</string>
+  <string name="revanced_sb_skip_button_nomusic">Salta sezione non-musicale</string>
   <string name="revanced_sb_skip_button_unsubmitted">Salta segmento</string>
   <string name="revanced_sb_skipped_sponsor">Sponsorizzazione saltata</string>
   <string name="revanced_sb_skipped_selfpromo">Autopromozione saltata</string>
@@ -962,8 +962,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_user_dialog_message">La versione dell\'app sarà camuffata ad una versione precedente di YouTube.\n\nQuesto cambierà l\'aspetto e le caratteristiche dell\'app, ma potrebbero verificarsi effetti collaterali sconosciuti.\n\nSe in seguito verrà disattivato, si consiglia di cancellare i dati dell\'app per evitare bug dell\'interfaccia.</string>
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
-  <string name="revanced_spoof_app_version_target_title">Simula la versione dell\'app bersaglio</string>
-  <string name="revanced_spoof_app_version_target_entry_1">19.16.39 - Ripristinare vecchie icone del player Shorts</string>
+  <string name="revanced_spoof_app_version_target_title">Target della versione dell\'app desiderata</string>
+  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Ripristinare le vecchie icone del player Shorts</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Ripristina RYD negli Shorts in modalità incognito</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Ripristina velocità video larga &amp; menu qualità</string>
@@ -1249,6 +1249,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">Impostazioni di ReVanced</string>
+  <string name="revanced_about_title">Informazioni</string>
+  <string name="revanced_about_summary">Informazioni su ReVanced</string>
   <string name="revanced_ads_screen_title">Pubblicità</string>
   <string name="revanced_ads_screen_summary">Impostazioni blocco pubblicità</string>
   <string name="revanced_chat_screen_title">Chat</string>

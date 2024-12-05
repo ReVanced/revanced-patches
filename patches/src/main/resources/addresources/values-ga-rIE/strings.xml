@@ -963,7 +963,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Sprioc leagan aip spoof</string>
-  <string name="revanced_spoof_app_version_target_entry_1">19.16.39 - Athchóirigh sean-deilbhíní imreoir Shorts</string>
+  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Athchóirigh sean-deilbhíní imreoir Shorts</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Athchóirigh RYD ar mhodh incognito Shorts</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Athchóirigh luas leathan físe &amp; roghchlár cáilíochta</string>
@@ -1205,7 +1205,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Níl díchódú crua-earraí VP9 ar do ghléas, agus bíonn an socrú seo ar siúl i gcónaí nuair atá spoofing Cliant cumasaithe</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Má dhéantar é seo a chumasú, d\'fhéadfadh sé go bhfeabhsófaí saol na gceallraí agus go n-athshocraigh sé stopáil athsheinm.\n\nTá uas-taifeach 1080p ag AVC, agus úsáidfidh athsheinm físe níos mó sonraí idirlín ná mar a úsáideann VP9 nó AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Fo-iarsmaí spoofing iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Ní cheadaítear físeáin leanaí príobháideacha a sheinm\n• Tosaíonn sruthanna beo ón tús\n• Seans go gcríochnóidh físeáin 1 soicind go luath\n• Gan codec fuaime opus</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Fo-iarsmaí spoofing Android VR</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Ní fhéadfaidh físeáin leanaí a sheinm\n• Tá an roghchlár rian fuaime ar iarraidh\n• Níl an toirt cobhsaí ar fáil</string>
   </patch>
   </app>
   <app id="twitch">
@@ -1247,6 +1249,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">Socruithe ReVanced</string>
+  <string name="revanced_about_title">Maidir</string>
+  <string name="revanced_about_summary">Maidir ReVanced</string>
   <string name="revanced_ads_screen_title">Fógraí</string>
   <string name="revanced_ads_screen_summary">Socruithe blocála fógraí</string>
   <string name="revanced_chat_screen_title">Comhrá</string>
