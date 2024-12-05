@@ -25,6 +25,9 @@ final class PlayerRoutes {
      */
     private static final int CONNECTION_TIMEOUT_MILLISECONDS = 10 * 1000; // 10 Seconds.
 
+    private static final String LOCALE_LANGUAGE = Utils.getContext().getResources()
+            .getConfiguration().locale.getLanguage();
+
     private PlayerRoutes() {
     }
 
@@ -35,6 +38,8 @@ final class PlayerRoutes {
             JSONObject context = new JSONObject();
 
             JSONObject client = new JSONObject();
+            // Required to use correct default audio channel with iOS.
+            client.put("hl", LOCALE_LANGUAGE);
             client.put("clientName", clientType.name());
             client.put("clientVersion", clientType.clientVersion);
             client.put("deviceModel", clientType.deviceModel);
@@ -42,9 +47,6 @@ final class PlayerRoutes {
             if (clientType.androidSdkVersion != null) {
                 client.put("androidSdkVersion", clientType.androidSdkVersion);
             }
-            String languageCode = Utils.getContext().getResources().getConfiguration().locale.getLanguage();
-            client.put("hl", languageCode);
-
             context.put("client", client);
 
             innerTubeBody.put("context", context);
