@@ -88,19 +88,19 @@ public enum AudioStreamLanguage {
     private static final Configuration CONFIGURATION = Utils.getContext()
             .getResources().getConfiguration();
 
-    private final String iso_639_1;
+    private final String iso639_1;
 
     AudioStreamLanguage() {
-        iso_639_1 = this.name().replace('_', '-');
+        iso639_1 = this.name().replace('_', '-');
     }
 
-    public String getIso_639_1() {
+    public String getIso639_1() {
         // Changing the app language does not force the app to completely restart,
         // so the default needs to be the current language and not a static field.
         if (this == DEFAULT) {
             return CONFIGURATION.locale.getLanguage();
         }
 
-        return iso_639_1;
+        return iso639_1;
     }
 }
