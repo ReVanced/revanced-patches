@@ -1,3 +1,10 @@
+## [5.2.2](https://github.com/ReVanced/revanced-patches/compare/v5.2.1...v5.2.2) (2024-12-06)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Use system language as default iOS audio stream ([#4042](https://github.com/ReVanced/revanced-patches/issues/4042)) ([4017185](https://github.com/ReVanced/revanced-patches/commit/4017185e760c0569e6644b94bbe66a84fa245b4b))
+
 ## [5.2.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.2.1...v5.2.2-dev.1) (2024-12-05)
 
 
