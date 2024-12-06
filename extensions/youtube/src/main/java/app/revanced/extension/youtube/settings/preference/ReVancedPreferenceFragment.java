@@ -54,9 +54,13 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         CharSequence[] entryValues = listPreference.getEntryValues();
         final int entrySize = entries.length;
 
+        if (entrySize != entryValues.length) {
+            throw new IllegalStateException();
+        }
+
         // Ensure the first entry remains the first after sorting.
-        String firstEntry = entries[0].toString();
-        String firstEntryValue = entryValues[0].toString();
+        CharSequence firstEntry = entries[0];
+        CharSequence firstEntryValue = entryValues[0];
 
         List<Pair<String, String>> entryPairs = new ArrayList<>(entrySize);
         for (int i = 1; i < entrySize; i++) {
