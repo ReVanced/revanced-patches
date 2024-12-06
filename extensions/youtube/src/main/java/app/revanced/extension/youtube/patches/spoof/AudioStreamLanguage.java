@@ -1,10 +1,6 @@
 package app.revanced.extension.youtube.patches.spoof;
 
-import android.content.res.Configuration;
-
 import java.util.Locale;
-
-import app.revanced.extension.shared.Utils;
 
 public enum AudioStreamLanguage {
     DEFAULT,
@@ -87,13 +83,10 @@ public enum AudioStreamLanguage {
     ZH,
     ZU;
 
-    private static final Configuration CONFIGURATION = Utils.getContext()
-            .getResources().getConfiguration();
-
     private final String iso639_1;
 
     AudioStreamLanguage() {
-        iso639_1 = this.name().replace('_', '-');
+        iso639_1 = name().replace('_', '-');
     }
 
     public String getIso639_1() {
@@ -101,7 +94,7 @@ public enum AudioStreamLanguage {
         // so the default needs to be the current language and not a static field.
         if (this == DEFAULT) {
             // Android VR requires uppercase language code.
-            return CONFIGURATION.locale.getLanguage().toUpperCase(Locale.US);
+            return Locale.getDefault().toLanguageTag().toUpperCase(Locale.US);
         }
 
         return iso639_1;
