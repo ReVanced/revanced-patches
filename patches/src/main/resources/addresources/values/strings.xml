@@ -1282,8 +1282,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_spoof_video_streams_language_UK">Ukrainian</string>
             <string name="revanced_spoof_video_streams_language_UR">Urdu</string>
             <string name="revanced_spoof_video_streams_language_VI">Vietnamese</string>
-            <string name="revanced_spoof_video_streams_language_ZH_CN">Chinese (Simplified)</string>
-            <string name="revanced_spoof_video_streams_language_ZH_TW">Chinese (Traditional)</string>
+            <string name="revanced_spoof_video_streams_language_ZH">Chinese</string>
         </patch>
     </app>
     <app id="twitch">

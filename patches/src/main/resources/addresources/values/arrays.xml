@@ -64,8 +64,7 @@
                 <item>@string/revanced_spoof_video_streams_language_UK</item>
                 <item>@string/revanced_spoof_video_streams_language_UR</item>
                 <item>@string/revanced_spoof_video_streams_language_VI</item>
-                <item>@string/revanced_spoof_video_streams_language_ZH_CN</item>
-                <item>@string/revanced_spoof_video_streams_language_ZH_TW</item>
+                <item>@string/revanced_spoof_video_streams_language_ZH</item>
             </string-array>
             <string-array name="revanced_spoof_video_streams_language_entry_values">
                 <item>DEFAULT</item>
@@ -120,8 +119,7 @@
                 <item>UK</item>
                 <item>UR</item>
                 <item>VI</item>
-                <item>ZH_CN</item>
-                <item>ZH_TW</item>
+                <item>ZH</item>
             </string-array>
         </patch>
         <patch id="layout.spoofappversion.spoofAppVersionPatch">

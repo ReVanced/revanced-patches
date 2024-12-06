@@ -8,9 +8,7 @@ public enum AudioStreamLanguage {
     DEFAULT,
 
     // Language codes found in locale_config.xml
-    // Chinese languages use the same language codes as localized resources.
-    // Region specific variants of English/Spanish/French have been removed,
-    // and for those variants the user can pick the app language option.
+    // Region specific variants of Chinese/English/Spanish/French have been removed.
     AF,
     AM,
     AR,
@@ -84,8 +82,7 @@ public enum AudioStreamLanguage {
     UR,
     UZ,
     VI,
-    ZH_CN,
-    ZH_TW,
+    ZH,
     ZU;
 
     private static final Configuration CONFIGURATION = Utils.getContext()
