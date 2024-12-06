@@ -1,3 +1,10 @@
+## [5.2.3](https://github.com/ReVanced/revanced-patches/compare/v5.2.2...v5.2.3) (2024-12-06)
+
+
+### Bug Fixes
+
+* **YouTube Music - GmsCore support:** Resolve patching errors ([#4056](https://github.com/ReVanced/revanced-patches/issues/4056)) ([38a4bad](https://github.com/ReVanced/revanced-patches/commit/38a4bad5b890e3906d77d22efeabd8f38653508b))
+
 ## [5.2.3-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.2.2...v5.2.3-dev.1) (2024-12-06)
 
 
