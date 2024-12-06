@@ -67,6 +67,10 @@ val spoofVideoStreamsPatch = bytecodePatch(
                         "revanced_spoof_video_streams_client",
                         summaryKey = null,
                     ),
+                    ListPreference(
+                        "revanced_spoof_video_streams_language",
+                        summaryKey = null
+                    ),
                     SwitchPreference(
                         "revanced_spoof_video_streams_ios_force_avc",
                         tag = "app.revanced.extension.youtube.settings.preference.ForceAVCSpoofingPreference",

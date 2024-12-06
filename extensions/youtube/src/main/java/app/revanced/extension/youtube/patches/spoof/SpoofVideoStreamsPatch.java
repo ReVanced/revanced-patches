@@ -17,10 +17,11 @@ import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
 public class SpoofVideoStreamsPatch {
-    public static final class ForceiOSAVCAvailability implements Setting.Availability {
+    public static final class SpoofiOSAvailability implements Setting.Availability {
         @Override
         public boolean isAvailable() {
-            return Settings.SPOOF_VIDEO_STREAMS.get() && Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.IOS;
+            return Settings.SPOOF_VIDEO_STREAMS.get()
+                    && Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.IOS;
         }
     }
 
