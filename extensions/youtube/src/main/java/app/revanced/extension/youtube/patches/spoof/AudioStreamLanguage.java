@@ -73,7 +73,6 @@ public enum AudioStreamLanguage {
     SL,
     SQ,
     SR,
-    SR_LATN,
     SV,
     SW,
     TA,

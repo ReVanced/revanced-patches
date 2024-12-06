@@ -1273,7 +1273,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_spoof_video_streams_language_SK">Slovak</string>
             <string name="revanced_spoof_video_streams_language_SL">Slovene</string>
             <string name="revanced_spoof_video_streams_language_SR">Serbian</string>
-            <string name="revanced_spoof_video_streams_language_SR_LATN">Serbian (Latin)</string>
             <string name="revanced_spoof_video_streams_language_SV">Swedish</string>
             <string name="revanced_spoof_video_streams_language_SW">Swahili</string>
             <string name="revanced_spoof_video_streams_language_TA">Tamil</string>

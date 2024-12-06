@@ -55,7 +55,6 @@
                 <item>@string/revanced_spoof_video_streams_language_SK</item>
                 <item>@string/revanced_spoof_video_streams_language_SL</item>
                 <item>@string/revanced_spoof_video_streams_language_SR</item>
-                <item>@string/revanced_spoof_video_streams_language_SR_LATN</item>
                 <item>@string/revanced_spoof_video_streams_language_SV</item>
                 <item>@string/revanced_spoof_video_streams_language_SW</item>
                 <item>@string/revanced_spoof_video_streams_language_TA</item>
@@ -112,7 +111,6 @@
                 <item>SK</item>
                 <item>SL</item>
                 <item>SR</item>
-                <item>SR_LATN</item>
                 <item>SV</item>
                 <item>SW</item>
                 <item>TA</item>
