@@ -1,10 +1,11 @@
 package app.revanced.extension.youtube.patches.spoof;
 
+import android.content.res.Configuration;
+
 import app.revanced.extension.shared.Utils;
 
 public enum AudioStreamLanguage {
-    DEFAULT(Utils.getContext().getResources()
-            .getConfiguration().locale.getLanguage()),
+    DEFAULT,
 
     // Language codes found in locale_config.xml
     // Chinese languages use the same language codes as localized resources.
@@ -88,13 +89,22 @@ public enum AudioStreamLanguage {
     ZH_TW,
     ZU;
 
-    public final String iso_639_1;
+    private static final Configuration CONFIGURATION = Utils.getContext()
+            .getResources().getConfiguration();
 
-    AudioStreamLanguage(String iso_639_1) {
-        this.iso_639_1 = iso_639_1;
-    }
+    private final String iso_639_1;
 
     AudioStreamLanguage() {
         iso_639_1 = this.name().replace('_', '-');
+    }
+
+    public String getIso_639_1() {
+        // Changing the app language does not force the app to completely restart,
+        // so the default needs to be the current language and not a static field.
+        if (this == DEFAULT) {
+            return CONFIGURATION.locale.getLanguage();
+        }
+
+        return iso_639_1;
     }
 }

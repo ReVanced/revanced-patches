@@ -35,7 +35,7 @@ final class PlayerRoutes {
             JSONObject context = new JSONObject();
 
             JSONObject client = new JSONObject();
-            client.put("hl", Settings.SPOOF_VIDEO_STREAMS_LANGUAGE.get().iso_639_1);
+            client.put("hl", Settings.SPOOF_VIDEO_STREAMS_LANGUAGE.get().getIso_639_1());
             client.put("clientName", clientType.name());
             client.put("clientVersion", clientType.clientVersion);
             client.put("deviceModel", clientType.deviceModel);
