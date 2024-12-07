@@ -1,3 +1,10 @@
+## [5.2.4-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.2.4-dev.1...v5.2.4-dev.2) (2024-12-07)
+
+
+### Bug Fixes
+
+* **Sync for Reddit:** Fix patches by using correct extension name ([030093e](https://github.com/ReVanced/revanced-patches/commit/030093e913aab3fab43935eedbaeba0f6c0491bb))
+
 ## [5.2.4-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.2.3...v5.2.4-dev.1) (2024-12-07)
 
 
