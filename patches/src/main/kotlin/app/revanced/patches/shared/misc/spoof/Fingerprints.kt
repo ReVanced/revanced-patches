@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.misc.fix.playback
+package app.revanced.patches.shared.misc.spoof
 
 import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -27,7 +27,6 @@ internal val buildPlayerRequestURIFingerprint = fingerprint {
         Opcode.RETURN_OBJECT,
     )
     strings(
-        "youtubei/v1",
         "key",
         "asig",
     )

@@ -1,7 +1,7 @@
 package app.revanced.extension.youtube.settings.preference;
 
 import static app.revanced.extension.shared.StringRef.str;
-import static app.revanced.extension.youtube.patches.spoof.DeviceHardwareSupport.DEVICE_HAS_HARDWARE_DECODING_VP9;
+import static app.revanced.extension.shared.spoof.DeviceHardwareSupport.DEVICE_HAS_HARDWARE_DECODING_VP9;
 
 import android.content.Context;
 import android.preference.SwitchPreference;
@@ -18,12 +18,15 @@ public class ForceAVCSpoofingPreference extends SwitchPreference {
     public ForceAVCSpoofingPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
+
     public ForceAVCSpoofingPreference(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
+
     public ForceAVCSpoofingPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
+
     public ForceAVCSpoofingPreference(Context context) {
         super(context);
     }

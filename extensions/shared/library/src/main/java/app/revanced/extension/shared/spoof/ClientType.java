@@ -1,7 +1,7 @@
-package app.revanced.extension.youtube.patches.spoof;
+package app.revanced.extension.shared.spoof;
 
-import static app.revanced.extension.youtube.patches.spoof.DeviceHardwareSupport.allowAV1;
-import static app.revanced.extension.youtube.patches.spoof.DeviceHardwareSupport.allowVP9;
+import static app.revanced.extension.shared.spoof.DeviceHardwareSupport.allowAV1;
+import static app.revanced.extension.shared.spoof.DeviceHardwareSupport.allowVP9;
 
 import android.os.Build;
 
