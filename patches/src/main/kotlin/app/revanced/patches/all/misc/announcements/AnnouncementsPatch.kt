@@ -2,9 +2,7 @@ package app.revanced.patches.all.misc.announcements
 
 import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.patch.BytecodePatchBuilder
-import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.*
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 
@@ -13,6 +11,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 
 fun announcementsPatch(
     mainActivityOnCreateFingerprint: Fingerprint,
+    extensionPatch: Patch<*>,
     block: BytecodePatchBuilder.() -> Unit = {},
     executeBlock: BytecodePatchContext.() -> Unit = {},
 ) = bytecodePatch(
@@ -21,7 +20,10 @@ fun announcementsPatch(
 ) {
     block()
 
-    dependsOn(addResourcesPatch)
+    dependsOn(
+        extensionPatch,
+        addResourcesPatch,
+    )
 
     execute {
         addResources("shared", "misc.announcements.announcementsPatch")
