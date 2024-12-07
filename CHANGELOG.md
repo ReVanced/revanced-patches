@@ -1,3 +1,10 @@
+## [5.2.4-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.2.4-dev.2...v5.2.4-dev.3) (2024-12-07)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Enable opus codec by updating iOS client version ([#4063](https://github.com/ReVanced/revanced-patches/issues/4063)) ([0af156f](https://github.com/ReVanced/revanced-patches/commit/0af156f18972c5f089af4bb69824968d2a47d18f))
+
 ## [5.2.4-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.2.4-dev.1...v5.2.4-dev.2) (2024-12-07)
 
 
