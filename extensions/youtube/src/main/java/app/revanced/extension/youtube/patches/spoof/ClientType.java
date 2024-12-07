@@ -16,7 +16,6 @@ public enum ClientType {
             "com.google.android.apps.youtube.vr.oculus/1.56.21 (Linux; U; Android 12; GB) gzip",
             "32", // Android 12.1
             "1.56.21",
-            "ANDROID_VR",
             true
     ),
     // Specific for kids videos.
@@ -26,18 +25,21 @@ public enum ClientType {
             allowAV1()
                     ? "iPhone16,2"  // 15 Pro Max
                     : "iPhone11,4", // XS Max
-            // iOS 14+ forces VP9.
+            // iOS 13 and earlier use AVC.  14+ uses VP9 and AV1.
             allowVP9()
                     ? "17.5.1.21F90"
-                    : "13.7.17H35",
+                    : "13.7.17H35", // Last release of iOS 13.
             allowVP9()
                     ? "com.google.ios.youtube/19.47.7 (iPhone; U; CPU iOS 17_5_1 like Mac OS X)"
-                    : "com.google.ios.youtube/19.47.7 (iPhone; U; CPU iOS 13_7 like Mac OS X)",
+                    : "com.google.ios.youtube/17.40.5 (iPhone; U; CPU iOS 17_40_5 like Mac OS X)",
             null,
             // Version number should be a valid iOS release.
             // https://www.ipa4fun.com/history/185230
-            "19.47.7",
-            "IOS",
+            allowVP9()
+                    ? "19.47.7"
+                    // Some newer versions can also give AVC,
+                    // but 17.40 is the last version that supports iOS 13.
+                    : "17.40.5",
             false
     );
 
@@ -70,11 +72,6 @@ public enum ClientType {
     public final String androidSdkVersion;
 
     /**
-     * Client name.
-     */
-    public final String clientName;
-
-    /**
      * App version.
      */
     public final String clientVersion;
@@ -90,7 +87,6 @@ public enum ClientType {
                String userAgent,
                @Nullable String androidSdkVersion,
                String clientVersion,
-               String clientName,
                boolean canLogin
     ) {
         this.id = id;
@@ -99,7 +95,6 @@ public enum ClientType {
         this.userAgent = userAgent;
         this.androidSdkVersion = androidSdkVersion;
         this.clientVersion = clientVersion;
-        this.clientName = clientName;
         this.canLogin = canLogin;
     }
 }
