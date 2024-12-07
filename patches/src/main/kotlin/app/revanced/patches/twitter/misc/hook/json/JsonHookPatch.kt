@@ -5,7 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.reddit.misc.extension.sharedExtensionPatch
+import app.revanced.patches.twitter.misc.extension.sharedExtensionPatch
 import java.io.InvalidClassException
 
 /**
