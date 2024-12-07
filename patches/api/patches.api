@@ -2,6 +2,11 @@ public final class app/revanced/patches/all/misc/activity/exportall/ExportAllAct
 	public static final fun getExportAllActivitiesPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
+public final class app/revanced/patches/all/misc/announcements/AnnouncementsPatchKt {
+	public static final fun announcementsPatch (Lapp/revanced/patcher/Fingerprint;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/BytecodePatch;
+	public static synthetic fun announcementsPatch$default (Lapp/revanced/patcher/Fingerprint;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/all/misc/build/BaseSpoofBuildInfoPatchKt {
 	public static final fun baseSpoofBuildInfoPatch (Lkotlin/jvm/functions/Function0;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -302,6 +307,10 @@ public final class app/revanced/patches/music/layout/upgradebutton/RemoveUpgrade
 
 public final class app/revanced/patches/music/misc/androidauto/BypassCertificateChecksPatchKt {
 	public static final fun getBypassCertificateChecksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/music/misc/announcements/AnnouncementsPatchKt {
+	public static final fun getAnnouncementsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/music/misc/backgroundplayback/BackgroundPlaybackPatchKt {

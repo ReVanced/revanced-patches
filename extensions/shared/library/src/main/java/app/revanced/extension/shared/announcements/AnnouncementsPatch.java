@@ -1,9 +1,9 @@
-package app.revanced.extension.youtube.patches.announcements;
+package app.revanced.extension.shared.announcements;
 
 import static android.text.Html.FROM_HTML_MODE_COMPACT;
 import static app.revanced.extension.shared.StringRef.str;
-import static app.revanced.extension.youtube.patches.announcements.requests.AnnouncementsRoutes.GET_LATEST_ANNOUNCEMENTS;
-import static app.revanced.extension.youtube.patches.announcements.requests.AnnouncementsRoutes.GET_LATEST_ANNOUNCEMENT_IDS;
+import static app.revanced.extension.shared.announcements.requests.AnnouncementsRoutes.GET_LATEST_ANNOUNCEMENTS;
+import static app.revanced.extension.shared.announcements.requests.AnnouncementsRoutes.GET_LATEST_ANNOUNCEMENT_IDS;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -23,8 +23,8 @@ import java.time.LocalDateTime;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.requests.Requester;
-import app.revanced.extension.youtube.patches.announcements.requests.AnnouncementsRoutes;
-import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.shared.announcements.requests.AnnouncementsRoutes;
+import app.revanced.extension.shared.settings.BaseSettings;
 
 @SuppressWarnings("unused")
 public final class AnnouncementsPatch {
@@ -41,10 +41,10 @@ public final class AnnouncementsPatch {
         try {
             // Do not show the announcement if the request failed.
             if (connection.getResponseCode() != 200) {
-                if (Settings.ANNOUNCEMENT_LAST_ID.isSetToDefault())
+                if (BaseSettings.ANNOUNCEMENT_LAST_ID.isSetToDefault())
                     return true;
 
-                Settings.ANNOUNCEMENT_LAST_ID.resetToDefault();
+                BaseSettings.ANNOUNCEMENT_LAST_ID.resetToDefault();
                 Utils.showToastLong(str("revanced_announcements_connection_failed"));
 
                 return true;
@@ -57,7 +57,7 @@ public final class AnnouncementsPatch {
         var jsonString = Requester.parseStringAndDisconnect(connection);
 
         // Parse the ID. Fall-back to raw string if it fails.
-        int id = Settings.ANNOUNCEMENT_LAST_ID.defaultValue;
+        int id = BaseSettings.ANNOUNCEMENT_LAST_ID.defaultValue;
         try {
             final var announcementIds = new JSONArray(jsonString);
             id = announcementIds.getJSONObject(0).getInt("id");
@@ -67,12 +67,12 @@ public final class AnnouncementsPatch {
         }
 
         // Do not show the announcement, if the last announcement id is the same as the current one.
-        return Settings.ANNOUNCEMENT_LAST_ID.get() == id;
+        return BaseSettings.ANNOUNCEMENT_LAST_ID.get() == id;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public static void showAnnouncement(final Activity context) {
-        if (!Settings.ANNOUNCEMENTS.get()) return;
+        if (!BaseSettings.ANNOUNCEMENTS.get()) return;
 
         // Check if there is internet connection
         if (!Utils.isNetworkConnected()) return;
@@ -89,7 +89,7 @@ public final class AnnouncementsPatch {
                 var jsonString = Requester.parseStringAndDisconnect(connection);
 
                 // Parse the announcement. Fall-back to raw string if it fails.
-                int id = Settings.ANNOUNCEMENT_LAST_ID.defaultValue;
+                int id = BaseSettings.ANNOUNCEMENT_LAST_ID.defaultValue;
                 String title;
                 String message;
                 LocalDateTime archivedAt = LocalDateTime.MAX;
@@ -115,7 +115,7 @@ public final class AnnouncementsPatch {
 
                 // If the announcement is archived, do not show it.
                 if (archivedAt.isBefore(LocalDateTime.now())) {
-                    Settings.ANNOUNCEMENT_LAST_ID.save(id);
+                    BaseSettings.ANNOUNCEMENT_LAST_ID.save(id);
                     return;
                 }
 
@@ -131,7 +131,7 @@ public final class AnnouncementsPatch {
                             .setMessage(finalMessage)
                             .setIcon(finalLevel.icon)
                             .setPositiveButton(android.R.string.ok, (dialog, which) -> {
-                                Settings.ANNOUNCEMENT_LAST_ID.save(finalId);
+                                BaseSettings.ANNOUNCEMENT_LAST_ID.save(finalId);
                                 dialog.dismiss();
                             }).setNegativeButton(str("revanced_announcements_dialog_dismiss"), (dialog, which) -> {
                                 dialog.dismiss();

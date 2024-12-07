@@ -4,6 +4,7 @@ import app.revanced.patcher.patch.Option
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.patches.music.misc.gms.Constants.MUSIC_PACKAGE_NAME
 import app.revanced.patches.music.misc.gms.Constants.REVANCED_MUSIC_PACKAGE_NAME
+import app.revanced.patches.music.shared.musicActivityOnCreateFingerprint
 import app.revanced.patches.shared.castContextFetchFingerprint
 import app.revanced.patches.shared.misc.gms.gmsCoreSupportPatch
 import app.revanced.patches.shared.primeMethodFingerprint

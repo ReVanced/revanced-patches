@@ -31,13 +31,23 @@ This is because Crowdin requires temporarily flattening this file and removing t
 -->
 <resources>
     <app id="shared">
+        <patch id="misc.announcements.announcementsPatch">
+            <string name="revanced_announcements_connection_failed">Failed connecting to announcements provider</string>
+            <string name="revanced_announcements_dialog_dismiss">Dismiss</string>
+        </patch>
         <patch id="misc.checks.checkEnvironmentPatch">
             <string name="revanced_check_environment_failed_title">Checks failed</string>
             <string name="revanced_check_environment_dialog_open_official_source_button">Open official website</string>
             <string name="revanced_check_environment_dialog_ignore_button">Ignore</string>
-            <string name="revanced_check_environment_failed_message">&lt;h5>This app does not appear to be patched by you.&lt;/h5>&lt;br>This app may not function correctly, &lt;b>could be harmful or even dangerous to use&lt;/b>.&lt;br>&lt;br>These checks imply this app is pre-patched or obtained from someone else:&lt;br>&lt;br>&lt;small>%1$s&lt;/small>&lt;br>It is strongly recommended to &lt;b>uninstall this app and patch it yourself&lt;/b> to ensure you are using a validated and secure app.&lt;p>&lt;br>If ignored, this warning will only be shown twice.</string>
+            <string name="revanced_check_environment_failed_message">&lt;h5>This app does not appear to be patched by
+                you.&lt;/h5>&lt;br>This app may not function correctly, &lt;b>could be harmful or even dangerous to use&lt;/b>.&lt;br>&lt;br>These
+                checks imply this app is pre-patched or obtained from someone else:&lt;br>&lt;br>&lt;small>%1$s&lt;/small>&lt;br>It
+                is strongly recommended to &lt;b>uninstall this app and patch it yourself&lt;/b> to ensure you are using
+                a validated and secure app.&lt;p>&lt;br>If ignored, this warning will only be shown twice.
+            </string>
             <string name="revanced_check_environment_not_same_patching_device">Patched on a different device</string>
-            <string name="revanced_check_environment_manager_not_expected_installer">Not installed by ReVanced Manager</string>
+            <string name="revanced_check_environment_manager_not_expected_installer">Not installed by ReVanced Manager
+            </string>
             <string name="revanced_check_environment_not_near_patch_time">Patched more than 10 minutes ago</string>
             <string name="revanced_check_environment_not_near_patch_time_days">Patched %s days ago</string>
             <string name="revanced_check_environment_not_near_patch_time_invalid">APK build date is corrupted</string>
@@ -56,9 +66,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_pref_import_export_title">Import / Export</string>
             <string name="revanced_pref_import_export_summary">Import / Export ReVanced settings</string>
             <!-- Settings about dialog. -->
-            <string name="revanced_settings_about_links_body">You are using ReVanced Patches version &lt;i>%s&lt;/i></string>
+            <string name="revanced_settings_about_links_body">You are using ReVanced Patches version &lt;i>%s&lt;/i>
+            </string>
             <string name="revanced_settings_about_links_dev_header">Note</string>
-            <string name="revanced_settings_about_links_dev_body">This version is a pre-release and you may experience unexpected issues</string>
+            <string name="revanced_settings_about_links_dev_body">This version is a pre-release and you may experience
+                unexpected issues
+            </string>
             <string name="revanced_settings_about_links_header">Official links</string>
             <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
@@ -67,9 +80,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
             <string name="gms_core_toast_not_installed_message">MicroG GmsCore is not installed. Install it.</string>
             <string name="gms_core_dialog_title">Action needed</string>
-            <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">MicroG GmsCore does not have permission to run in the background.\n\nFollow the \"Don\'t kill my app\" guide for your phone, and apply the instructions to your MicroG installation.\n\nThis is required for the app to work.</string>
+            <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">MicroG GmsCore does not
+                have permission to run in the background.\n\nFollow the \"Don\'t kill my app\" guide for your phone, and
+                apply the instructions to your MicroG installation.\n\nThis is required for the app to work.
+            </string>
             <string name="gms_core_dialog_open_website_text">Open website</string>
-            <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">MicroG GmsCore battery optimizations must be disabled to prevent issues.\n\nTap on the continue button and disable battery optimizations.</string>
+            <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">MicroG GmsCore battery
+                optimizations must be disabled to prevent issues.\n\nTap on the continue button and disable battery
+                optimizations.
+            </string>
             <string name="gms_core_dialog_continue_text">Continue</string>
         </patch>
     </app>
@@ -89,8 +108,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
         </patch>
         <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
             <string name="revanced_shorts_disable_background_playback_title">Disable Shorts background play</string>
-            <string name="revanced_shorts_disable_background_playback_summary_on">Shorts background play is disabled</string>
-            <string name="revanced_shorts_disable_background_playback_summary_off">Shorts background play is enabled</string>
+            <string name="revanced_shorts_disable_background_playback_summary_on">Shorts background play is disabled
+            </string>
+            <string name="revanced_shorts_disable_background_playback_summary_off">Shorts background play is enabled
+            </string>
         </patch>
         <patch id="misc.debugging.enableDebuggingPatch">
             <string name="revanced_debug_screen_title">Debugging</string>
@@ -107,12 +128,18 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_debug_toast_on_error_title">Show toast on ReVanced error</string>
             <string name="revanced_debug_toast_on_error_summary_on">Toast shown if error occurs</string>
             <string name="revanced_debug_toast_on_error_summary_off">Toast not shown if error occurs</string>
-            <string name="revanced_debug_toast_on_error_user_dialog_message">Turning off error toasts hides all ReVanced error notifications.\n\nYou will not be notified of any unexpected events.</string>
+            <string name="revanced_debug_toast_on_error_user_dialog_message">Turning off error toasts hides all ReVanced
+                error notifications.\n\nYou will not be notified of any unexpected events.
+            </string>
         </patch>
         <patch id="layout.hide.general.hideLayoutComponentsPatch">
             <string name="revanced_disable_like_subscribe_glow_title">Disable like / subscribe button glow</string>
-            <string name="revanced_disable_like_subscribe_glow_summary_on">Like and subscribe button will not glow when mentioned</string>
-            <string name="revanced_disable_like_subscribe_glow_summary_off">Like and subscribe button will glow when mentioned</string>
+            <string name="revanced_disable_like_subscribe_glow_summary_on">Like and subscribe button will not glow when
+                mentioned
+            </string>
+            <string name="revanced_disable_like_subscribe_glow_summary_off">Like and subscribe button will glow when
+                mentioned
+            </string>
             <string name="revanced_hide_album_cards_title">Hide album cards</string>
             <string name="revanced_hide_album_cards_summary_on">Album cards are hidden</string>
             <string name="revanced_hide_album_cards_summary_off">Album cards are shown</string>
@@ -126,7 +153,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_channel_watermark_summary_on">Watermark is hidden</string>
             <string name="revanced_hide_channel_watermark_summary_off">Watermark is shown</string>
             <string name="revanced_hide_horizontal_shelves_title">Hide horizontal shelves</string>
-            <string name="revanced_hide_horizontal_shelves_summary_on">Shelves are hidden such as:\n• Breaking news\n• Continue watching\n• Explore more channels\n• Shopping\n• Watch it again</string>
+            <string name="revanced_hide_horizontal_shelves_summary_on">Shelves are hidden such as:\n• Breaking news\n•
+                Continue watching\n• Explore more channels\n• Shopping\n• Watch it again
+            </string>
             <string name="revanced_hide_horizontal_shelves_summary_off">Shelves are shown</string>
             <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
@@ -143,7 +172,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_notify_me_button_summary_on">Button is hidden</string>
             <string name="revanced_hide_notify_me_button_summary_off">Button is shown</string>
             <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
-            <string name="revanced_hide_search_result_recommendations_title">Hide \'People also watched\' recommendations</string>
+            <string name="revanced_hide_search_result_recommendations_title">Hide \'People also watched\'
+                recommendations
+            </string>
             <string name="revanced_hide_search_result_recommendations_summary_on">Recommendations are hidden</string>
             <string name="revanced_hide_search_result_recommendations_summary_off">Recommendations are shown</string>
             <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
@@ -181,9 +212,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_community_guidelines_title">Hide community guidelines</string>
             <string name="revanced_hide_community_guidelines_summary_on">Community guidelines are hidden</string>
             <string name="revanced_hide_community_guidelines_summary_off">Community guidelines are shown</string>
-            <string name="revanced_hide_subscribers_community_guidelines_title">Hide subscribers community guidelines</string>
-            <string name="revanced_hide_subscribers_community_guidelines_summary_on">Subscribers community guidelines are hidden</string>
-            <string name="revanced_hide_subscribers_community_guidelines_summary_off">Subscribers community guidelines are shown</string>
+            <string name="revanced_hide_subscribers_community_guidelines_title">Hide subscribers community guidelines
+            </string>
+            <string name="revanced_hide_subscribers_community_guidelines_summary_on">Subscribers community guidelines
+                are hidden
+            </string>
+            <string name="revanced_hide_subscribers_community_guidelines_summary_off">Subscribers community guidelines
+                are shown
+            </string>
             <string name="revanced_hide_channel_member_shelf_title">Hide channel member shelf</string>
             <string name="revanced_hide_channel_member_shelf_summary_on">Channel member shelf is hidden</string>
             <string name="revanced_hide_channel_member_shelf_summary_off">Channel member shelf is shown</string>
@@ -221,8 +257,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_artist_cards_summary_on">Artist cards are hidden</string>
             <string name="revanced_hide_artist_cards_summary_off">Artist cards are shown</string>
             <string name="revanced_hide_attributes_section_title">Hide attributes section</string>
-            <string name="revanced_hide_attributes_section_summary_on">\'Featured places\', Games and Music sections are hidden</string>
-            <string name="revanced_hide_attributes_section_summary_off">\'Featured places\', Games and Music sections are shown</string>
+            <string name="revanced_hide_attributes_section_summary_on">\'Featured places\', Games and Music sections are
+                hidden
+            </string>
+            <string name="revanced_hide_attributes_section_summary_off">\'Featured places\', Games and Music sections
+                are shown
+            </string>
             <string name="revanced_hide_chapters_section_title">Hide Chapters section</string>
             <string name="revanced_hide_chapters_section_summary_on">Chapters section is hidden</string>
             <string name="revanced_hide_chapters_section_summary_off">Chapters section is shown</string>
@@ -239,10 +279,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_transcript_section_summary_on">Transcript section is hidden</string>
             <string name="revanced_hide_transcript_section_summary_off">Transcript section is shown</string>
             <string name="revanced_hide_description_components_screen_title">Video description</string>
-            <string name="revanced_hide_description_components_screen_summary">Hide or show video description components</string>
+            <string name="revanced_hide_description_components_screen_summary">Hide or show video description
+                components
+            </string>
 
             <string name="revanced_hide_filter_bar_screen_title">Filter bar</string>
-            <string name="revanced_hide_filter_bar_screen_summary">Hide or show the filter bar in the feed, search, and related videos</string>
+            <string name="revanced_hide_filter_bar_screen_summary">Hide or show the filter bar in the feed, search, and
+                related videos
+            </string>
             <string name="revanced_hide_filter_bar_feed_in_feed_title">Hide in feed</string>
             <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Hidden in feed</string>
             <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Shown in feed</string>
@@ -256,29 +300,43 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_comments_screen_title">Comments</string>
             <string name="revanced_comments_screen_summary">Hide or show comments section components</string>
             <string name="revanced_hide_comments_by_members_header_title">Hide \'Comments by members\' header</string>
-            <string name="revanced_hide_comments_by_members_header_summary_on">\'Comments by members\' header is hidden</string>
-            <string name="revanced_hide_comments_by_members_header_summary_off">\'Comments by members\' header is shown</string>
+            <string name="revanced_hide_comments_by_members_header_summary_on">\'Comments by members\' header is
+                hidden
+            </string>
+            <string name="revanced_hide_comments_by_members_header_summary_off">\'Comments by members\' header is
+                shown
+            </string>
             <string name="revanced_hide_comments_section_title">Hide comments section</string>
             <string name="revanced_hide_comments_section_summary_on">Comments section is hidden</string>
             <string name="revanced_hide_comments_section_summary_off">Comments section is shown</string>
             <string name="revanced_hide_comments_create_a_short_button_title">Hide \'Create a Short\' button</string>
-            <string name="revanced_hide_comments_create_a_short_button_summary_on">\'Create a Short\' button is hidden</string>
-            <string name="revanced_hide_comments_create_a_short_button_summary_off">\'Create a Short\' button is shown</string>
+            <string name="revanced_hide_comments_create_a_short_button_summary_on">\'Create a Short\' button is hidden
+            </string>
+            <string name="revanced_hide_comments_create_a_short_button_summary_off">\'Create a Short\' button is shown
+            </string>
             <string name="revanced_hide_comments_preview_comment_title">Hide preview comment</string>
             <string name="revanced_hide_comments_preview_comment_summary_on">Preview comment is hidden</string>
             <string name="revanced_hide_comments_preview_comment_summary_off">Preview comment is shown</string>
             <string name="revanced_hide_comments_thanks_button_title">Hide thanks button</string>
             <string name="revanced_hide_comments_thanks_button_summary_on">Thanks button is hidden</string>
             <string name="revanced_hide_comments_thanks_button_summary_off">Thanks button is shown</string>
-            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Hide timestamp and emoji buttons</string>
-            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Timestamp and emoji buttons are hidden</string>
-            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Timestamp and emoji buttons are shown</string>
+            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Hide timestamp and emoji buttons
+            </string>
+            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Timestamp and emoji buttons are
+                hidden
+            </string>
+            <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Timestamp and emoji buttons
+                are shown
+            </string>
 
             <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
             <string name="revanced_hide_doodles_title">Hide YouTube Doodles</string>
             <string name="revanced_hide_doodles_summary_on">Search bar Doodles are hidden</string>
             <string name="revanced_hide_doodles_summary_off">Search bar Doodles are shown</string>
-            <string name="revanced_hide_doodles_user_dialog_message">YouTube Doodles show up a few days each year.\n\nIf a Doodle is currently showing in your region and this hide setting is on, then the filter bar below the search bar will also be hidden.</string>
+            <string name="revanced_hide_doodles_user_dialog_message">YouTube Doodles show up a few days each year.\n\nIf
+                a Doodle is currently showing in your region and this hide setting is on, then the filter bar below the
+                search bar will also be hidden.
+            </string>
 
             <string name="revanced_custom_filter_screen_title">Custom filter</string>
             <string name="revanced_custom_filter_screen_summary">Hide components using custom filters</string>
@@ -287,34 +345,64 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_custom_filter_summary_off">Custom filter is disabled</string>
             <string name="revanced_custom_filter_strings_title">Custom filter</string>
             <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-            <string name="revanced_custom_filter_strings_summary">List of component path builder strings to filter separated by new line</string>
+            <string name="revanced_custom_filter_strings_summary">List of component path builder strings to filter
+                separated by new line
+            </string>
             <string name="revanced_custom_filter_toast_invalid_syntax">Invalid custom filter: %s</string>
 
             <string name="revanced_hide_keyword_content_screen_title">Hide keyword content</string>
-            <string name="revanced_hide_keyword_content_screen_summary">Hide search and feed videos using keyword filters</string>
+            <string name="revanced_hide_keyword_content_screen_summary">Hide search and feed videos using keyword
+                filters
+            </string>
             <string name="revanced_hide_keyword_content_home_title">Hide home videos by keywords</string>
-            <string name="revanced_hide_keyword_content_home_summary_on">Videos in the home tab are filtered by keywords</string>
-            <string name="revanced_hide_keyword_content_home_summary_off">Videos in the home tab are not filtered by keywords</string>
-            <string name="revanced_hide_keyword_content_subscriptions_title">Hide subscription videos by keywords</string>
-            <string name="revanced_hide_keyword_content_subscriptions_summary_on">Videos in the subscriptions tab are filtered by keywords</string>
-            <string name="revanced_hide_keyword_content_subscriptions_summary_off">Videos in the subscriptions tab are not filtered by keywords</string>
+            <string name="revanced_hide_keyword_content_home_summary_on">Videos in the home tab are filtered by
+                keywords
+            </string>
+            <string name="revanced_hide_keyword_content_home_summary_off">Videos in the home tab are not filtered by
+                keywords
+            </string>
+            <string name="revanced_hide_keyword_content_subscriptions_title">Hide subscription videos by keywords
+            </string>
+            <string name="revanced_hide_keyword_content_subscriptions_summary_on">Videos in the subscriptions tab are
+                filtered by keywords
+            </string>
+            <string name="revanced_hide_keyword_content_subscriptions_summary_off">Videos in the subscriptions tab are
+                not filtered by keywords
+            </string>
             <string name="revanced_hide_keyword_content_search_title">Hide search results by keywords</string>
-            <string name="revanced_hide_keyword_content_search_summary_on">Search results are filtered by keywords</string>
-            <string name="revanced_hide_keyword_content_search_summary_off">Search results are not filtered by keywords</string>
+            <string name="revanced_hide_keyword_content_search_summary_on">Search results are filtered by keywords
+            </string>
+            <string name="revanced_hide_keyword_content_search_summary_off">Search results are not filtered by
+                keywords
+            </string>
             <string name="revanced_hide_keyword_content_phrases_title">Keywords to hide</string>
             <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
-            <string name="revanced_hide_keyword_content_phrases_summary">Keywords and phrases to hide, separated by new lines\n\nKeywords can be channel names or any text shown in video titles\n\nWords with uppercase letters in the middle must be entered with the casing (ie: iPhone, TikTok, LeBlanc)</string>
+            <string name="revanced_hide_keyword_content_phrases_summary">Keywords and phrases to hide, separated by new
+                lines\n\nKeywords can be channel names or any text shown in video titles\n\nWords with uppercase letters
+                in the middle must be entered with the casing (ie: iPhone, TikTok, LeBlanc)
+            </string>
             <string name="revanced_hide_keyword_content_about_title">About keyword filtering</string>
-            <string name="revanced_hide_keyword_content_about_summary">Home/Subscription/Search results are filtered to hide content that matches keyword phrases\n\nLimitations\n• Shorts cannot be hidden by channel name\n• Some UI components may not be hidden\n• Searching for a keyword may show no results</string>
+            <string name="revanced_hide_keyword_content_about_summary">Home/Subscription/Search results are filtered to
+                hide content that matches keyword phrases\n\nLimitations\n• Shorts cannot be hidden by channel name\n•
+                Some UI components may not be hidden\n• Searching for a keyword may show no results
+            </string>
             <string name="revanced_hide_keyword_content_about_whole_words_title">Match whole words</string>
             <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
-            <string name="revanced_hide_keyword_content_about_whole_words_summary">Surrounding a keyword/phrase with double-quotes will prevent partial matches of video titles and channel names&lt;br>&lt;br>For example,&lt;br>&lt;b>\"ai\"&lt;/b> will hide the video: &lt;b>How does AI work?&lt;/b>&lt;br>but will not hide: &lt;b>What does fair use mean?&lt;/b></string>
+            <string name="revanced_hide_keyword_content_about_whole_words_summary">Surrounding a keyword/phrase with
+                double-quotes will prevent partial matches of video titles and channel names&lt;br>&lt;br>For example,&lt;br>&lt;b>\"ai\"&lt;/b>
+                will hide the video: &lt;b>How does AI work?&lt;/b>&lt;br>but will not hide: &lt;b>What does fair use
+                mean?&lt;/b>
+            </string>
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
             <string name="revanced_hide_keyword_toast_invalid_common">Cannot use keyword: %s</string>
-            <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Add quotes to use keyword: %s</string>
-            <string name="revanced_hide_keyword_toast_invalid_conflicting">Keyword has conflicting declarations: %s</string>
-            <string name="revanced_hide_keyword_toast_invalid_length">Keyword is too short and requires quotes: %s</string>
+            <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Add quotes to use keyword:
+                %s
+            </string>
+            <string name="revanced_hide_keyword_toast_invalid_conflicting">Keyword has conflicting declarations: %s
+            </string>
+            <string name="revanced_hide_keyword_toast_invalid_length">Keyword is too short and requires quotes: %s
+            </string>
             <string name="revanced_hide_keyword_toast_invalid_broad">Keyword will hide all videos: %s</string>
         </patch>
         <patch id="ad.general.hideAdsResourcePatch">
@@ -322,7 +410,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_general_ads_summary_on">General ads are hidden</string>
             <string name="revanced_hide_general_ads_summary_off">General ads are shown</string>
             <string name="revanced_hide_fullscreen_ads_title">Hide fullscreen ads</string>
-            <string name="revanced_hide_fullscreen_ads_summary_on">Fullscreen ads are hidden\n\nThis feature is only available for older devices</string>
+            <string name="revanced_hide_fullscreen_ads_summary_on">Fullscreen ads are hidden\n\nThis feature is only
+                available for older devices
+            </string>
             <string name="revanced_hide_fullscreen_ads_summary_off">Fullscreen ads are shown</string>
             <string name="revanced_hide_buttoned_ads_title">Hide buttoned ads</string>
             <string name="revanced_hide_buttoned_ads_summary_on">Buttoned ads are hidden</string>
@@ -343,7 +433,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_shopping_links_summary_on">Shopping links are hidden</string>
             <string name="revanced_hide_shopping_links_summary_off">Shopping links are shown</string>
             <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-            <string name="revanced_hide_visit_store_button_title">Hide the \'Visit store\' button on channel pages</string>
+            <string name="revanced_hide_visit_store_button_title">Hide the \'Visit store\' button on channel pages
+            </string>
             <string name="revanced_hide_visit_store_button_summary_on">Button is hidden</string>
             <string name="revanced_hide_visit_store_button_summary_off">Button is shown</string>
             <string name="revanced_hide_web_search_results_title">Hide web search results</string>
@@ -353,12 +444,18 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_merchandise_banners_summary_on">Merchandise banners are hidden</string>
             <string name="revanced_hide_merchandise_banners_summary_off">Merchandise banners are shown</string>
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-            <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Hide fullscreen ads only works with older devices</string>
+            <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Hide fullscreen ads only works with
+                older devices
+            </string>
         </patch>
         <patch id="ad.getpremium.hideGetPremiumPatch">
             <string name="revanced_hide_get_premium_title">Hide YouTube Premium promotions</string>
-            <string name="revanced_hide_get_premium_summary_on">YouTube Premium promotions under video player are hidden</string>
-            <string name="revanced_hide_get_premium_summary_off">YouTube Premium promotions under video player are shown</string>
+            <string name="revanced_hide_get_premium_summary_on">YouTube Premium promotions under video player are
+                hidden
+            </string>
+            <string name="revanced_hide_get_premium_summary_off">YouTube Premium promotions under video player are
+                shown
+            </string>
         </patch>
         <patch id="ad.video.videoAdsPatch">
             <string name="revanced_hide_video_ads_title">Hide video ads</string>
@@ -369,31 +466,45 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_share_copy_url_success">URL copied to clipboard</string>
             <string name="revanced_share_copy_url_timestamp_success">URL with timestamp copied</string>
             <string name="revanced_copy_video_url_title">Show copy video URL button</string>
-            <string name="revanced_copy_video_url_summary_on">Button is shown. Tap to copy video URL. Tap and hold to copy video URL with timestamp</string>
+            <string name="revanced_copy_video_url_summary_on">Button is shown. Tap to copy video URL. Tap and hold to
+                copy video URL with timestamp
+            </string>
             <string name="revanced_copy_video_url_summary_off">Button is not shown</string>
             <string name="revanced_copy_video_url_timestamp_title">Show copy timestamp URL button</string>
-            <string name="revanced_copy_video_url_timestamp_summary_on">Button is shown. Tap to copy video URL with timestamp. Tap and hold to copy video without timestamp</string>
+            <string name="revanced_copy_video_url_timestamp_summary_on">Button is shown. Tap to copy video URL with
+                timestamp. Tap and hold to copy video without timestamp
+            </string>
             <string name="revanced_copy_video_url_timestamp_summary_off">Button is not shown</string>
         </patch>
         <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
             <string name="revanced_remove_viewer_discretion_dialog_title">Remove viewer discretion dialog</string>
             <string name="revanced_remove_viewer_discretion_dialog_summary_on">Dialog will be removed</string>
             <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialog will be shown</string>
-            <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">This does not bypass the age restriction. It just accepts it automatically.</string>
+            <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">This does not bypass the age
+                restriction. It just accepts it automatically.
+            </string>
         </patch>
         <patch id="interaction.downloads.downloadsResourcePatch">
             <string name="revanced_external_downloader_screen_title">External downloads</string>
-            <string name="revanced_external_downloader_screen_summary">Settings for using an external downloader</string>
+            <string name="revanced_external_downloader_screen_summary">Settings for using an external downloader
+            </string>
             <string name="revanced_external_downloader_title">Show external download button</string>
             <string name="revanced_external_downloader_summary_on">Download button shown in player</string>
             <string name="revanced_external_downloader_summary_off">Download button not shown in player</string>
             <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
             <string name="revanced_external_downloader_action_button_title">Override download action button</string>
-            <string name="revanced_external_downloader_action_button_summary_on">Download button opens your external downloader</string>
-            <string name="revanced_external_downloader_action_button_summary_off">Download button opens the native in-app downloader</string>
+            <string name="revanced_external_downloader_action_button_summary_on">Download button opens your external
+                downloader
+            </string>
+            <string name="revanced_external_downloader_action_button_summary_off">Download button opens the native
+                in-app downloader
+            </string>
             <string name="revanced_external_downloader_name_title">Downloader package name</string>
-            <string name="revanced_external_downloader_name_summary">Package name of your installed external downloader app, such as NewPipe or Seal</string>
-            <string name="revanced_external_downloader_not_installed_warning">%s is not installed. Please install it.</string>
+            <string name="revanced_external_downloader_name_summary">Package name of your installed external downloader
+                app, such as NewPipe or Seal
+            </string>
+            <string name="revanced_external_downloader_not_installed_warning">%s is not installed. Please install it.
+            </string>
         </patch>
         <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
             <string name="revanced_disable_precise_seeking_gesture_title">Disable precise seeking gesture</string>
@@ -419,18 +530,29 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_swipe_haptic_feedback_summary_on">Haptic feedback is enabled</string>
             <string name="revanced_swipe_haptic_feedback_summary_off">Haptic feedback is disabled</string>
             <string name="revanced_swipe_save_and_restore_brightness_title">Save and restore brightness</string>
-            <string name="revanced_swipe_save_and_restore_brightness_summary_on">Save and restore brightness when exiting or entering fullscreen</string>
-            <string name="revanced_swipe_save_and_restore_brightness_summary_off">Do not save and restore brightness when exiting or entering fullscreen</string>
-            <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Enable auto-brightness gesture</string>
-            <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Swiping down to the lowest value of the brightness gesture enable auto-brightness</string>
-            <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Swiping down to the lowest value does not enable auto-brightness</string>
+            <string name="revanced_swipe_save_and_restore_brightness_summary_on">Save and restore brightness when
+                exiting or entering fullscreen
+            </string>
+            <string name="revanced_swipe_save_and_restore_brightness_summary_off">Do not save and restore brightness
+                when exiting or entering fullscreen
+            </string>
+            <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Enable auto-brightness gesture
+            </string>
+            <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Swiping down to the lowest
+                value of the brightness gesture enable auto-brightness
+            </string>
+            <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Swiping down to the lowest
+                value does not enable auto-brightness
+            </string>
             <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Auto</string>
             <string name="revanced_swipe_overlay_timeout_title">Swipe overlay timeout</string>
-            <string name="revanced_swipe_overlay_timeout_summary">The amount of milliseconds the overlay is visible</string>
+            <string name="revanced_swipe_overlay_timeout_summary">The amount of milliseconds the overlay is visible
+            </string>
             <string name="revanced_swipe_text_overlay_size_title">Swipe overlay text size</string>
             <string name="revanced_swipe_text_overlay_size_summary">The text size for swipe overlay</string>
             <string name="revanced_swipe_overlay_background_alpha_title">Swipe background visibility</string>
-            <string name="revanced_swipe_overlay_background_alpha_summary">The visibility of swipe overlay background</string>
+            <string name="revanced_swipe_overlay_background_alpha_summary">The visibility of swipe overlay background
+            </string>
             <string name="revanced_swipe_threshold_title">Swipe magnitude threshold</string>
             <string name="revanced_swipe_threshold_summary">The amount of threshold for swipe to occur</string>
         </patch>
@@ -477,7 +599,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
         </patch>
         <patch id="layout.buttons.navigation.navigationButtonsPatch">
             <string name="revanced_navigation_buttons_screen_title">Navigation buttons</string>
-            <string name="revanced_navigation_buttons_screen_summary">Hide or change buttons in the navigation bar</string>
+            <string name="revanced_navigation_buttons_screen_summary">Hide or change buttons in the navigation bar
+            </string>
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
             <string name="revanced_hide_home_button_title">Hide Home</string>
             <string name="revanced_hide_home_button_summary_on">Home button is hidden</string>
@@ -495,9 +618,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_subscriptions_button_summary_on">Subscriptions button is hidden</string>
             <string name="revanced_hide_subscriptions_button_summary_off">Subscriptions button is shown</string>
             <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
-            <string name="revanced_switch_create_with_notifications_button_title">Switch Create with Notifications</string>
-            <string name="revanced_switch_create_with_notifications_button_summary_on">Create button is switched with Notifications button\n\nNote: Enabling this also forcibly hides video ads</string>
-            <string name="revanced_switch_create_with_notifications_button_summary_off">Create button is not switched with Notifications button</string>
+            <string name="revanced_switch_create_with_notifications_button_title">Switch Create with Notifications
+            </string>
+            <string name="revanced_switch_create_with_notifications_button_summary_on">Create button is switched with
+                Notifications button\n\nNote: Enabling this also forcibly hides video ads
+            </string>
+            <string name="revanced_switch_create_with_notifications_button_summary_off">Create button is not switched
+                with Notifications button
+            </string>
             <string name="revanced_hide_navigation_button_labels_title">Hide navigation button labels</string>
             <string name="revanced_hide_navigation_button_labels_summary_on">Labels are hidden</string>
             <string name="revanced_hide_navigation_button_labels_summary_off">Labels are shown</string>
@@ -511,8 +639,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_player_flyout_captions_summary_off">Captions menu is shown</string>
             <!-- 'Additional settings' should be translated using the same localized wording YouTube displays for the menu item. -->
             <string name="revanced_hide_player_flyout_additional_settings_title">Hide Additional settings</string>
-            <string name="revanced_hide_player_flyout_additional_settings_summary_on">Additional settings menu is hidden</string>
-            <string name="revanced_hide_player_flyout_additional_settings_summary_off">Additional settings menu is shown</string>
+            <string name="revanced_hide_player_flyout_additional_settings_summary_on">Additional settings menu is
+                hidden
+            </string>
+            <string name="revanced_hide_player_flyout_additional_settings_summary_off">Additional settings menu is
+                shown
+            </string>
             <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
             <string name="revanced_hide_player_flyout_sleep_timer_title">Hide Sleep timer</string>
             <string name="revanced_hide_player_flyout_sleep_timer_summary_on">Sleep timer menu is hidden</string>
@@ -553,12 +685,18 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_player_flyout_watch_in_vr_title">Hide Watch in VR</string>
             <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Watch in VR menu is hidden</string>
             <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Watch in VR menu is shown</string>
-            <string name="revanced_hide_player_flyout_video_quality_footer_title">Hide video quality menu footer</string>
-            <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Video quality menu footer is hidden</string>
-            <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Video quality menu footer is shown</string>
+            <string name="revanced_hide_player_flyout_video_quality_footer_title">Hide video quality menu footer
+            </string>
+            <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Video quality menu footer is
+                hidden
+            </string>
+            <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Video quality menu footer is
+                shown
+            </string>
         </patch>
         <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-            <string name="revanced_hide_player_previous_next_buttons_title">Hide previous &amp; next video buttons</string>
+            <string name="revanced_hide_player_previous_next_buttons_title">Hide previous &amp; next video buttons
+            </string>
             <string name="revanced_hide_player_previous_next_buttons_summary_on">Buttons are hidden</string>
             <string name="revanced_hide_player_previous_next_buttons_summary_off">Buttons are shown</string>
             <string name="revanced_hide_cast_button_title">Hide cast button</string>
@@ -589,7 +727,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
         </patch>
         <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
             <string name="revanced_disable_rolling_number_animations_title">Disable rolling number animations</string>
-            <string name="revanced_disable_rolling_number_animations_summary_on">Rolling numbers are not animated</string>
+            <string name="revanced_disable_rolling_number_animations_summary_on">Rolling numbers are not animated
+            </string>
             <string name="revanced_disable_rolling_number_animations_summary_off">Rolling numbers are animated</string>
         </patch>
         <patch id="layout.hide.seekbar.hideSeekbarPatch">
@@ -623,8 +762,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_shorts_subscribe_button_summary_on">Subscribe button is hidden</string>
             <string name="revanced_hide_shorts_subscribe_button_summary_off">Subscribe button is shown</string>
             <string name="revanced_hide_shorts_paused_overlay_buttons_title">Hide paused overlay buttons</string>
-            <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Paused overlay buttons are hidden</string>
-            <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Paused overlay buttons are shown</string>
+            <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Paused overlay buttons are hidden
+            </string>
+            <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Paused overlay buttons are shown
+            </string>
             <string name="revanced_hide_shorts_shop_button_title">Hide shop button</string>
             <string name="revanced_hide_shorts_shop_button_summary_on">Shop button is hidden</string>
             <string name="revanced_hide_shorts_shop_button_summary_off">Shop button is shown</string>
@@ -659,8 +800,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_shorts_stickers_summary_on">Stickers are hidden</string>
             <string name="revanced_hide_shorts_stickers_summary_off">Stickers are shown</string>
             <string name="revanced_hide_shorts_like_fountain_title">Hide like fountain</string>
-            <string name="revanced_hide_shorts_like_fountain_summary_on">Like button fountain animation is hidden</string>
-            <string name="revanced_hide_shorts_like_fountain_summary_off">Like button fountain animation is shown</string>
+            <string name="revanced_hide_shorts_like_fountain_summary_on">Like button fountain animation is hidden
+            </string>
+            <string name="revanced_hide_shorts_like_fountain_summary_off">Like button fountain animation is shown
+            </string>
             <string name="revanced_hide_shorts_like_button_title">Hide like button</string>
             <string name="revanced_hide_shorts_like_button_summary_on">Like button is hidden</string>
             <string name="revanced_hide_shorts_like_button_summary_off">Like button is shown</string>
@@ -702,8 +845,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
         </patch>
         <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
             <string name="revanced_disable_suggested_video_end_screen_title">Disable suggested video end screen</string>
-            <string name="revanced_disable_suggested_video_end_screen_summary_on">Suggested videos will be disabled</string>
-            <string name="revanced_disable_suggested_video_end_screen_summary_off">Suggested videos will be shown</string>
+            <string name="revanced_disable_suggested_video_end_screen_summary_on">Suggested videos will be disabled
+            </string>
+            <string name="revanced_disable_suggested_video_end_screen_summary_off">Suggested videos will be shown
+            </string>
         </patch>
         <patch id="layout.hide.time.hideTimestampPatch">
             <string name="revanced_hide_timestamp_title">Hide video timestamp</string>
@@ -717,24 +862,33 @@ This is because Crowdin requires temporarily flattening this file and removing t
         </patch>
         <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
             <string name="revanced_player_overlay_opacity_title">Player overlay opacity</string>
-            <string name="revanced_player_overlay_opacity_summary">Opacity value between 0-100, where 0 is transparent</string>
-            <string name="revanced_player_overlay_opacity_invalid_toast">Player overlay opacity must be between 0-100</string>
+            <string name="revanced_player_overlay_opacity_summary">Opacity value between 0-100, where 0 is transparent
+            </string>
+            <string name="revanced_player_overlay_opacity_invalid_toast">Player overlay opacity must be between 0-100
+            </string>
         </patch>
         <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
             <string name="revanced_ryd_settings_title">Return YouTube Dislike</string>
             <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
-            <string name="revanced_ryd_failure_connection_timeout">Dislikes temporarily not available (API timed out)</string>
+            <string name="revanced_ryd_failure_connection_timeout">Dislikes temporarily not available (API timed out)
+            </string>
             <string name="revanced_ryd_failure_connection_status_code">Dislikes not available (status %d)</string>
-            <string name="revanced_ryd_failure_client_rate_limit_requested">Dislikes not available (client API limit reached)</string>
+            <string name="revanced_ryd_failure_client_rate_limit_requested">Dislikes not available (client API limit
+                reached)
+            </string>
             <string name="revanced_ryd_failure_generic">Dislikes not available (%s)</string>
             <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
-            <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Reload video to vote using Return YouTube Dislike</string>
+            <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Reload video to vote
+                using Return YouTube Dislike
+            </string>
             <string name="revanced_ryd_enable_title">Return YouTube Dislike</string>
             <string name="revanced_ryd_enable_summary_on">Dislikes are shown</string>
             <string name="revanced_ryd_enable_summary_off">Dislikes are not shown</string>
             <string name="revanced_ryd_shorts_title">Show dislikes on Shorts</string>
             <string name="revanced_ryd_shorts_summary_on">Dislikes shown on Shorts</string>
-            <string name="revanced_ryd_shorts_summary_on_disclaimer">Dislikes shown on Shorts\n\nLimitation: Dislikes may not appear in incognito mode</string>
+            <string name="revanced_ryd_shorts_summary_on_disclaimer">Dislikes shown on Shorts\n\nLimitation: Dislikes
+                may not appear in incognito mode
+            </string>
             <string name="revanced_ryd_shorts_summary_off">Dislikes hidden on Shorts</string>
             <string name="revanced_ryd_dislike_percentage_title">Dislikes as percentage</string>
             <string name="revanced_ryd_dislike_percentage_summary_on">Dislikes shown as percentage</string>
@@ -744,27 +898,50 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_ryd_compact_layout_summary_on">Like button styled for minimum width</string>
             <string name="revanced_ryd_compact_layout_summary_off">Like button styled for best appearance</string>
             <string name="revanced_ryd_toast_on_connection_error_title">Show a toast if API is not available</string>
-            <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast is shown if Return YouTube Dislike is not available</string>
-            <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast is not shown if Return YouTube Dislike is not available</string>
+            <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast is shown if Return YouTube Dislike is
+                not available
+            </string>
+            <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast is not shown if Return YouTube
+                Dislike is not available
+            </string>
             <string name="revanced_ryd_about">About</string>
             <string name="revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
-            <string name="revanced_ryd_attribution_summary">Data is provided by the Return YouTube Dislike API. Tap here to learn more</string>
+            <string name="revanced_ryd_attribution_summary">Data is provided by the Return YouTube Dislike API. Tap here
+                to learn more
+            </string>
             <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
-            <string name="revanced_ryd_statistics_category_title">ReturnYouTubeDislike API statistics of this device</string>
-            <string name="revanced_ryd_statistics_getFetchCallResponseTimeAverage_title">API response time, average</string>
+            <string name="revanced_ryd_statistics_category_title">ReturnYouTubeDislike API statistics of this device
+            </string>
+            <string name="revanced_ryd_statistics_getFetchCallResponseTimeAverage_title">API response time, average
+            </string>
             <string name="revanced_ryd_statistics_getFetchCallResponseTimeMin_title">API response time, minimum</string>
             <string name="revanced_ryd_statistics_getFetchCallResponseTimeMax_title">API response time, maximum</string>
-            <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_title">API response time, last video</string>
-            <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_rate_limit_summary">Dislikes temporarily not available - Client API rate limit in effect</string>
+            <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_title">API response time, last video
+            </string>
+            <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_rate_limit_summary">Dislikes temporarily
+                not available - Client API rate limit in effect
+            </string>
             <string name="revanced_ryd_statistics_getFetchCallCount_title">API fetch votes, number of calls</string>
             <string name="revanced_ryd_statistics_getFetchCallCount_zero_summary">No network calls made</string>
             <string name="revanced_ryd_statistics_getFetchCallCount_non_zero_summary">%d network calls made</string>
-            <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_title">API fetch votes, number of timeouts</string>
-            <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_zero_summary">No network calls timed out</string>
-            <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_non_zero_summary">%d network calls timed out</string>
-            <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_title">API client rate limits</string>
-            <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">No client rate limits encountered</string>
-            <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Client rate limit encountered %d times</string>
+            <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_title">API fetch votes, number of
+                timeouts
+            </string>
+            <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_zero_summary">No network calls timed
+                out
+            </string>
+            <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_non_zero_summary">%d network calls timed
+                out
+            </string>
+            <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_title">API client rate
+                limits
+            </string>
+            <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">No client rate
+                limits encountered
+            </string>
+            <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Client rate
+                limit encountered %d times
+            </string>
             <string name="revanced_ryd_statistics_millisecond_text">%d milliseconds</string>
         </patch>
         <patch id="layout.searchbar.wideSearchbarPatch">
@@ -774,19 +951,35 @@ This is because Crowdin requires temporarily flattening this file and removing t
         </patch>
         <patch id="layout.seekbar.seekbarThumbnailsPatch">
             <string name="revanced_seekbar_thumbnails_high_quality_title">Enable high quality thumbnails</string>
-            <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Seekbar thumbnails are high quality</string>
-            <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Seekbar thumbnails are medium quality</string>
-            <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Fullscreen seekbar thumbnails are high quality</string>
-            <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Fullscreen seekbar thumbnails are medium quality</string>
-            <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">This will also restore thumbnails on livestreams that do not have seekbar thumbnails.\n\nSeekbar thumbnails will use the same quality as the current video.\n\nThis feature works best with a video quality of 720p or lower and when using a very fast internet connection.</string>
+            <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Seekbar thumbnails are high quality
+            </string>
+            <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Seekbar thumbnails are medium quality
+            </string>
+            <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Fullscreen seekbar thumbnails are
+                high quality
+            </string>
+            <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Fullscreen seekbar thumbnails are
+                medium quality
+            </string>
+            <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">This will also restore thumbnails on
+                livestreams that do not have seekbar thumbnails.\n\nSeekbar thumbnails will use the same quality as the
+                current video.\n\nThis feature works best with a video quality of 720p or lower and when using a very
+                fast internet connection.
+            </string>
             <string name="revanced_restore_old_seekbar_thumbnails_title">Restore old seekbar thumbnails</string>
-            <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Seekbar thumbnails will appear above the seekbar</string>
-            <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Seekbar thumbnails will appear in fullscreen</string>
+            <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Seekbar thumbnails will appear above the
+                seekbar
+            </string>
+            <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Seekbar thumbnails will appear in
+                fullscreen
+            </string>
         </patch>
         <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
             <string name="revanced_sb_settings_title">SponsorBlock</string>
             <string name="revanced_sb_enable_sb">Enable SponsorBlock</string>
-            <string name="revanced_sb_enable_sb_sum">SponsorBlock is a crowd-sourced system for skipping annoying parts of YouTube videos</string>
+            <string name="revanced_sb_enable_sb_sum">SponsorBlock is a crowd-sourced system for skipping annoying parts
+                of YouTube videos
+            </string>
             <string name="revanced_sb_appearance_category">Appearance</string>
             <string name="revanced_sb_enable_voting">Show voting button</string>
             <string name="revanced_sb_enable_voting_sum_on">Segment voting button is shown</string>
@@ -794,75 +987,128 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
             <string name="revanced_sb_enable_compact_skip_button">Use compact skip button</string>
             <string name="revanced_sb_enable_compact_skip_button_sum_on">Skip button styled for minimum width</string>
-            <string name="revanced_sb_enable_compact_skip_button_sum_off">Skip button styled for best appearance</string>
+            <string name="revanced_sb_enable_compact_skip_button_sum_off">Skip button styled for best appearance
+            </string>
             <string name="revanced_sb_enable_auto_hide_skip_segment_button">Automatically hide skip button</string>
-            <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Skip button hides after a few seconds</string>
-            <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Skip button displayed for entire segment</string>
+            <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Skip button hides after a few
+                seconds
+            </string>
+            <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Skip button displayed for entire
+                segment
+            </string>
             <string name="revanced_sb_general_skiptoast">Show a toast when skipping automatically</string>
-            <string name="revanced_sb_general_skiptoast_sum_on">Toast is shown when a segment is automatically skipped. Tap here to see an example</string>
+            <string name="revanced_sb_general_skiptoast_sum_on">Toast is shown when a segment is automatically skipped.
+                Tap here to see an example
+            </string>
             <string name="revanced_sb_general_skiptoast_sum_off">Toast is not shown. Tap here to see an example</string>
             <string name="revanced_sb_general_time_without">Show video length without segments</string>
-            <string name="revanced_sb_general_time_without_sum_on">Video length minus all segments, shown in parentheses next to the full video length</string>
+            <string name="revanced_sb_general_time_without_sum_on">Video length minus all segments, shown in parentheses
+                next to the full video length
+            </string>
             <string name="revanced_sb_general_time_without_sum_off">Full video length shown</string>
             <string name="revanced_sb_create_segment_category">Creating new segments</string>
             <string name="revanced_sb_enable_create_segment">Show create new segment button</string>
             <string name="revanced_sb_enable_create_segment_sum_on">Create new segment button is shown</string>
             <string name="revanced_sb_enable_create_segment_sum_off">Create new segment button is not shown</string>
             <string name="revanced_sb_general_adjusting">Adjust new segment step</string>
-            <string name="revanced_sb_general_adjusting_sum">Number of milliseconds the time adjustment buttons move when creating new segments</string>
+            <string name="revanced_sb_general_adjusting_sum">Number of milliseconds the time adjustment buttons move
+                when creating new segments
+            </string>
             <string name="revanced_sb_general_adjusting_invalid">Value must be a positive number</string>
             <string name="revanced_sb_guidelines_preference_title">View guidelines</string>
-            <string name="revanced_sb_guidelines_preference_sum">Guidelines contain rules and tips for creating new segments</string>
+            <string name="revanced_sb_guidelines_preference_sum">Guidelines contain rules and tips for creating new
+                segments
+            </string>
             <string name="revanced_sb_guidelines_popup_title">Follow the guidelines</string>
-            <string name="revanced_sb_guidelines_popup_content">Read the SponsorBlock guidelines before creating new segments</string>
+            <string name="revanced_sb_guidelines_popup_content">Read the SponsorBlock guidelines before creating new
+                segments
+            </string>
             <string name="revanced_sb_guidelines_popup_already_read">Already read</string>
             <string name="revanced_sb_guidelines_popup_open">Show me</string>
             <string name="revanced_sb_general">General</string>
             <string name="revanced_sb_toast_on_connection_error_title">Show a toast if API is not available</string>
-            <string name="revanced_sb_toast_on_connection_error_summary_on">Toast is shown if SponsorBlock is not available</string>
-            <string name="revanced_sb_toast_on_connection_error_summary_off">Toast is not shown if SponsorBlock is not available</string>
+            <string name="revanced_sb_toast_on_connection_error_summary_on">Toast is shown if SponsorBlock is not
+                available
+            </string>
+            <string name="revanced_sb_toast_on_connection_error_summary_off">Toast is not shown if SponsorBlock is not
+                available
+            </string>
             <string name="revanced_sb_general_skipcount">Enable skip count tracking</string>
-            <string name="revanced_sb_general_skipcount_sum_on">Lets the SponsorBlock leaderboard know how much time is saved. A message is sent to the leaderboard each time a segment is skipped</string>
+            <string name="revanced_sb_general_skipcount_sum_on">Lets the SponsorBlock leaderboard know how much time is
+                saved. A message is sent to the leaderboard each time a segment is skipped
+            </string>
             <string name="revanced_sb_general_skipcount_sum_off">Skip count tracking is not enabled</string>
             <string name="revanced_sb_general_min_duration">Minimum segment duration</string>
-            <string name="revanced_sb_general_min_duration_sum">Segments shorter than this value (in seconds) will not be shown or skipped</string>
+            <string name="revanced_sb_general_min_duration_sum">Segments shorter than this value (in seconds) will not
+                be shown or skipped
+            </string>
             <string name="revanced_sb_general_min_duration_invalid">Invalid time duration</string>
             <string name="revanced_sb_general_uuid">Your private user id</string>
-            <string name="revanced_sb_general_uuid_sum">This should be kept private. This is like a password and should not be shared with anyone. If someone has this, they can impersonate you</string>
+            <string name="revanced_sb_general_uuid_sum">This should be kept private. This is like a password and should
+                not be shared with anyone. If someone has this, they can impersonate you
+            </string>
             <string name="revanced_sb_general_uuid_invalid">Private user id must be at least 30 characters long</string>
             <string name="revanced_sb_general_api_url">Change API URL</string>
-            <string name="revanced_sb_general_api_url_sum">The address SponsorBlock uses to make calls to the server</string>
+            <string name="revanced_sb_general_api_url_sum">The address SponsorBlock uses to make calls to the server
+            </string>
             <string name="revanced_sb_api_url_reset">API URL reset</string>
             <string name="revanced_sb_api_url_invalid">API URL is invalid</string>
             <string name="revanced_sb_api_url_changed">API URL changed</string>
             <string name="revanced_sb_settings_ie">Import/Export settings</string>
             <string name="revanced_sb_settings_copy">Copy</string>
-            <string name="revanced_sb_settings_ie_sum">Your SponsorBlock JSON configuration that can be imported/exported to ReVanced and other SponsorBlock platforms</string>
-            <string name="revanced_sb_settings_ie_sum_warning">Your SponsorBlock JSON configuration that can be imported/exported to ReVanced and other SponsorBlock platforms. This includes your private user id. Be sure to share this wisely</string>
+            <string name="revanced_sb_settings_ie_sum">Your SponsorBlock JSON configuration that can be
+                imported/exported to ReVanced and other SponsorBlock platforms
+            </string>
+            <string name="revanced_sb_settings_ie_sum_warning">Your SponsorBlock JSON configuration that can be
+                imported/exported to ReVanced and other SponsorBlock platforms. This includes your private user id. Be
+                sure to share this wisely
+            </string>
             <string name="revanced_sb_settings_import_successful">Settings imported successfully</string>
             <string name="revanced_sb_settings_import_failed">Failed to import: %s</string>
             <string name="revanced_sb_settings_export_failed">Failed to export: %s</string>
-            <string name="revanced_sb_settings_revanced_export_user_id_warning">Your settings contain a private SponsorBlock userid.\n\nYour user id is like a password and it should never be shared.\n</string>
+            <string name="revanced_sb_settings_revanced_export_user_id_warning">Your settings contain a private
+                SponsorBlock userid.\n\nYour user id is like a password and it should never be shared.\n
+            </string>
             <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">Do not show again</string>
             <string name="revanced_sb_diff_segments">Change segment behavior</string>
             <string name="revanced_sb_segments_sponsor">Sponsor</string>
-            <string name="revanced_sb_segments_sponsor_sum">Paid promotion, paid referrals and direct advertisements. Not for self-promotion or free shout-outs to causes/creators/websites/products they like</string>
+            <string name="revanced_sb_segments_sponsor_sum">Paid promotion, paid referrals and direct advertisements.
+                Not for self-promotion or free shout-outs to causes/creators/websites/products they like
+            </string>
             <string name="revanced_sb_segments_selfpromo">Unpaid/Self Promotion</string>
-            <string name="revanced_sb_segments_selfpromo_sum">Similar to \'Sponsor\' except for unpaid or self promotion. Includes sections about merchandise, donations, or information about who they collaborated with</string>
+            <string name="revanced_sb_segments_selfpromo_sum">Similar to \'Sponsor\' except for unpaid or self
+                promotion. Includes sections about merchandise, donations, or information about who they collaborated
+                with
+            </string>
             <string name="revanced_sb_segments_interaction">Interaction Reminder (Subscribe)</string>
-            <string name="revanced_sb_segments_interaction_sum">A short reminder to like, subscribe or follow them in the middle of content. If it is long or about something specific, it should instead be under self promotion</string>
+            <string name="revanced_sb_segments_interaction_sum">A short reminder to like, subscribe or follow them in
+                the middle of content. If it is long or about something specific, it should instead be under self
+                promotion
+            </string>
             <string name="revanced_sb_segments_highlight">Highlight</string>
-            <string name="revanced_sb_segments_highlight_sum">The part of the video that most people are looking for</string>
+            <string name="revanced_sb_segments_highlight_sum">The part of the video that most people are looking for
+            </string>
             <string name="revanced_sb_segments_intro">Intermission/Intro Animation</string>
-            <string name="revanced_sb_segments_intro_sum">An interval without actual content. Could be a pause, static frame, or repeating animation. Does not include transitions containing information</string>
+            <string name="revanced_sb_segments_intro_sum">An interval without actual content. Could be a pause, static
+                frame, or repeating animation. Does not include transitions containing information
+            </string>
             <string name="revanced_sb_segments_outro">Endcards/Credits</string>
-            <string name="revanced_sb_segments_outro_sum">Credits or when the YouTube endcards appear. Not for conclusions with information</string>
+            <string name="revanced_sb_segments_outro_sum">Credits or when the YouTube endcards appear. Not for
+                conclusions with information
+            </string>
             <string name="revanced_sb_segments_preview">Preview/Recap/Hook</string>
-            <string name="revanced_sb_segments_preview_sum">Collection of clips that show what is coming up or what happened in the video or in other videos of a series, where all information is repeated elsewhere</string>
+            <string name="revanced_sb_segments_preview_sum">Collection of clips that show what is coming up or what
+                happened in the video or in other videos of a series, where all information is repeated elsewhere
+            </string>
             <string name="revanced_sb_segments_filler">Filler Tangent/Jokes</string>
-            <string name="revanced_sb_segments_filler_sum">Tangential scenes added only for filler or humor that are not required to understand the main content of the video. Does not include segments providing context or background details</string>
+            <string name="revanced_sb_segments_filler_sum">Tangential scenes added only for filler or humor that are not
+                required to understand the main content of the video. Does not include segments providing context or
+                background details
+            </string>
             <string name="revanced_sb_segments_nomusic">Music: Non-Music Section</string>
-            <string name="revanced_sb_segments_nomusic_sum">Only for use in music videos. Sections of music videos without music, that aren\'t already covered by another category</string>
+            <string name="revanced_sb_segments_nomusic_sum">Only for use in music videos. Sections of music videos
+                without music, that aren\'t already covered by another category
+            </string>
             <string name="revanced_sb_skip_button_compact">Skip</string>
             <string name="revanced_sb_skip_button_compact_highlight">Highlight</string>
             <string name="revanced_sb_skip_button_sponsor">Skip sponsor</string>
@@ -902,14 +1148,21 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_sb_submit_failed_invalid">Unable to submit segment: %s</string>
             <string name="revanced_sb_submit_failed_timeout">SponsorBlock is temporarily down</string>
             <string name="revanced_sb_submit_failed_unknown_error">Unable to submit segment (status: %1$d %2$s)</string>
-            <string name="revanced_sb_submit_failed_rate_limit">Unable to submit segment.\nRate Limited (too many from the same user or IP)</string>
+            <string name="revanced_sb_submit_failed_rate_limit">Unable to submit segment.\nRate Limited (too many from
+                the same user or IP)
+            </string>
             <string name="revanced_sb_submit_failed_forbidden">Can\'t submit the segment: %s</string>
             <string name="revanced_sb_submit_failed_duplicate">Can\'t submit the segment.\nAlready exists</string>
             <string name="revanced_sb_submit_succeeded">Segment submitted successfully</string>
             <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
-            <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock temporarily not available (API timed out)</string>
-            <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock temporarily not available (status %d)</string>
-            <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock temporarily not available</string>
+            <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock temporarily not available
+                (API timed out)
+            </string>
+            <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock temporarily not available
+                (status %d)
+            </string>
+            <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock temporarily not available
+            </string>
             <string name="revanced_sb_vote_failed_timeout">Unable to vote for segment (API timed out)</string>
             <string name="revanced_sb_vote_failed_unknown_error">Unable to vote for segment (status: %1$d %2$s)</string>
             <string name="revanced_sb_vote_failed_forbidden">Unable to vote for segment: %s</string>
@@ -918,21 +1171,31 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_sb_vote_category">Change category</string>
             <string name="revanced_sb_vote_no_segments">There are no segments to vote for</string>
             <string name="revanced_sb_new_segment_choose_category">Choose the segment category</string>
-            <string name="revanced_sb_new_segment_disabled_category">Category is disabled in settings. Enable category to submit.</string>
+            <string name="revanced_sb_new_segment_disabled_category">Category is disabled in settings. Enable category
+                to submit.
+            </string>
             <string name="revanced_sb_new_segment_title">New SponsorBlock segment</string>
-            <string name="revanced_sb_new_segment_mark_time_as_question">Set %s as the start or end of a new segment?</string>
+            <string name="revanced_sb_new_segment_mark_time_as_question">Set %s as the start or end of a new segment?
+            </string>
             <string name="revanced_sb_new_segment_mark_start">start</string>
             <string name="revanced_sb_new_segment_mark_end">end</string>
             <string name="revanced_sb_new_segment_now">now</string>
             <string name="revanced_sb_new_segment_time_start">Time the segment begins at</string>
             <string name="revanced_sb_new_segment_time_end">Time the segment ends at</string>
             <string name="revanced_sb_new_segment_confirm_title">Are the times correct?</string>
-            <string name="revanced_sb_new_segment_confirm_content">The segment is from\n\n%1$s\nto\n%2$s\n\n(%3$s)\n\nReady to submit?</string>
+            <string name="revanced_sb_new_segment_confirm_content">The segment is
+                from\n\n%1$s\nto\n%2$s\n\n(%3$s)\n\nReady to submit?
+            </string>
             <string name="revanced_sb_new_segment_start_is_before_end">Start must be before the end</string>
-            <string name="revanced_sb_new_segment_mark_locations_first">Mark two locations on the time bar first</string>
-            <string name="revanced_sb_new_segment_preview_segment_first">Preview the segment, and ensure it skips smoothly</string>
+            <string name="revanced_sb_new_segment_mark_locations_first">Mark two locations on the time bar first
+            </string>
+            <string name="revanced_sb_new_segment_preview_segment_first">Preview the segment, and ensure it skips
+                smoothly
+            </string>
             <string name="revanced_sb_new_segment_edit_by_hand_title">Edit timing of segment manually</string>
-            <string name="revanced_sb_new_segment_edit_by_hand_content">Do you want to edit the timing for the start or end of the segment?</string>
+            <string name="revanced_sb_new_segment_edit_by_hand_content">Do you want to edit the timing for the start or
+                end of the segment?
+            </string>
             <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Invalid time given</string>
             <string name="revanced_sb_stats">Stats</string>
             <!-- Shown in the settings preferences, and translations can be any text length. -->
@@ -941,15 +1204,20 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_sb_stats_sb_disabled">SponsorBlock is disabled</string>
             <string name="revanced_sb_stats_username">Your username: &lt;b>%s&lt;/b></string>
             <string name="revanced_sb_stats_username_change">Tap here to change your username</string>
-            <string name="revanced_sb_stats_username_change_unknown_error">Unable to change username: Status: %1$d %2$s</string>
+            <string name="revanced_sb_stats_username_change_unknown_error">Unable to change username: Status: %1$d
+                %2$s
+            </string>
             <string name="revanced_sb_stats_username_changed">Username successfully changed</string>
             <string name="revanced_sb_stats_reputation">Your reputation is &lt;b>%.2f&lt;/b></string>
             <string name="revanced_sb_stats_submissions">You\'ve created &lt;b>%s&lt;/b> segments</string>
             <string name="revanced_sb_stats_submissions_sum">Tap here to view your segments</string>
             <string name="revanced_sb_stats_saved_zero">SponsorBlock leaderboard</string>
             <string name="revanced_sb_stats_saved">You\'ve saved people from &lt;b>%s&lt;/b> segments</string>
-            <string name="revanced_sb_stats_saved_sum_zero">Tap here to see the global stats and top contributors</string>
-            <string name="revanced_sb_stats_saved_sum">That\'s &lt;b>%s&lt;/b> of their lives.&lt;br>Tap here to see the leaderboard</string>
+            <string name="revanced_sb_stats_saved_sum_zero">Tap here to see the global stats and top contributors
+            </string>
+            <string name="revanced_sb_stats_saved_sum">That\'s &lt;b>%s&lt;/b> of their lives.&lt;br>Tap here to see the
+                leaderboard
+            </string>
             <string name="revanced_sb_stats_self_saved">You\'ve skipped &lt;b>%s&lt;/b> segments</string>
             <string name="revanced_sb_stats_self_saved_sum">That\'s &lt;b>%s&lt;/b></string>
             <string name="revanced_sb_stats_self_saved_reset_title">Reset skipped segments counter?</string>
@@ -964,22 +1232,32 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_sb_reset">Reset</string>
             <string name="revanced_sb_about">About</string>
             <string name="revanced_sb_about_api">sponsor.ajay.app</string>
-            <string name="revanced_sb_about_api_sum">Data is provided by the SponsorBlock API. Tap here to learn more and see downloads for other platforms</string>
+            <string name="revanced_sb_about_api_sum">Data is provided by the SponsorBlock API. Tap here to learn more
+                and see downloads for other platforms
+            </string>
         </patch>
         <patch id="layout.spoofappversion.spoofAppVersionPatch">
             <string name="revanced_spoof_app_version_title">Spoof app version</string>
             <string name="revanced_spoof_app_version_summary_on">Version spoofed</string>
             <string name="revanced_spoof_app_version_summary_off">Version not spoofed</string>
-            <string name="revanced_spoof_app_version_user_dialog_message">App version will be spoofed to an older version of YouTube.\n\nThis will change the appearance and features of the app, but unknown side effects may occur.\n\nIf later turned off, it is recommended to clear the app data to prevent UI bugs.</string>
+            <string name="revanced_spoof_app_version_user_dialog_message">App version will be spoofed to an older
+                version of YouTube.\n\nThis will change the appearance and features of the app, but unknown side effects
+                may occur.\n\nIf later turned off, it is recommended to clear the app data to prevent UI bugs.
+            </string>
             <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
             <string name="revanced_spoof_app_version_target_title">Spoof app version target</string>
             <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Restore old Shorts player icons</string>
             <!-- 'RYD' is 'Return YouTube Dislike' -->
-            <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Restore RYD on Shorts incognito mode</string>
-            <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Restore wide video speed &amp; quality menu</string>
+            <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Restore RYD on Shorts incognito
+                mode
+            </string>
+            <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Restore wide video speed &amp;
+                quality menu
+            </string>
             <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Restore library tab</string>
-            <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Restore old playlist shelf</string>
+            <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Restore old playlist shelf
+            </string>
         </patch>
         <patch id="layout.startpage.changeStartPagePatch">
             <string name="revanced_change_start_page_title">Set start page</string>
@@ -1001,8 +1279,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
         </patch>
         <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
             <string name="revanced_disable_resuming_shorts_player_title">Disable resuming Shorts player</string>
-            <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts player will not resume on app startup</string>
-            <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts player will resume on app startup</string>
+            <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts player will not resume on app
+                startup
+            </string>
+            <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts player will resume on app
+                startup
+            </string>
         </patch>
         <patch id="layout.shortsautoplay.shortsAutoplayPatch">
             <string name="revanced_shorts_autoplay_title">Autoplay Shorts</string>
@@ -1016,8 +1298,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_tablet_layout_title">Enable tablet layout</string>
             <string name="revanced_tablet_layout_summary_on">Tablet layout is enabled</string>
             <string name="revanced_tablet_layout_summary_off">Tablet layout is disabled</string>
-            <string name="revanced_tablet_layout_user_dialog_message">Community posts do not show up on tablet layouts</string>
-        </patch>x
+            <string name="revanced_tablet_layout_user_dialog_message">Community posts do not show up on tablet layouts
+            </string>
+        </patch>
+        x
         <patch id="layout.miniplayer.miniplayerPatch">
             <string name="revanced_miniplayer_screen_title">Miniplayer</string>
             <string name="revanced_miniplayer_screen_summary">Change the style of the in app minimized player</string>
@@ -1033,20 +1317,31 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_miniplayer_rounded_corners_summary_on">Corners are rounded</string>
             <string name="revanced_miniplayer_rounded_corners_summary_off">Corners are square</string>
             <string name="revanced_miniplayer_double_tap_action_title">Enable double-tap and pinch to resize</string>
-            <string name="revanced_miniplayer_double_tap_action_summary_on">Double-tap action and pinch to resize is enabled\n\n• Double tap to increase miniplayer size\n• Double tap again to restore original size</string>
-            <string name="revanced_miniplayer_double_tap_action_summary_off">Double-tap action and pinch to resize is disabled</string>
+            <string name="revanced_miniplayer_double_tap_action_summary_on">Double-tap action and pinch to resize is
+                enabled\n\n• Double tap to increase miniplayer size\n• Double tap again to restore original size
+            </string>
+            <string name="revanced_miniplayer_double_tap_action_summary_off">Double-tap action and pinch to resize is
+                disabled
+            </string>
             <string name="revanced_miniplayer_drag_and_drop_title">Enable drag and drop</string>
-            <string name="revanced_miniplayer_drag_and_drop_summary_on">Drag and drop is enabled\n\nMiniplayer can be dragged to any corner of the screen</string>
+            <string name="revanced_miniplayer_drag_and_drop_summary_on">Drag and drop is enabled\n\nMiniplayer can be
+                dragged to any corner of the screen
+            </string>
             <string name="revanced_miniplayer_drag_and_drop_summary_off">Drag and drop is disabled</string>
             <string name="revanced_miniplayer_horizontal_drag_title">Enable horizontal drag gesture</string>
-            <string name="revanced_miniplayer_horizontal_drag_summary_on">Horizontal drag gesture enabled\n\nMiniplayer can be dragged off screen to the left or right</string>
+            <string name="revanced_miniplayer_horizontal_drag_summary_on">Horizontal drag gesture enabled\n\nMiniplayer
+                can be dragged off screen to the left or right
+            </string>
             <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontal drag gesture disabled</string>
             <string name="revanced_miniplayer_hide_expand_close_title">Hide close button</string>
             <string name="revanced_miniplayer_hide_expand_close_summary_on">Close button is hidden</string>
             <string name="revanced_miniplayer_hide_expand_close_summary_off">Close button is shown</string>
             <string name="revanced_miniplayer_hide_expand_close_legacy_title">Hide expand and close buttons</string>
-            <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Buttons are hidden\n\nSwipe to expand or close</string>
-            <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Expand and close buttons are shown</string>
+            <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Buttons are hidden\n\nSwipe to expand
+                or close
+            </string>
+            <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Expand and close buttons are shown
+            </string>
             <string name="revanced_miniplayer_hide_subtext_title">Hide subtexts</string>
             <string name="revanced_miniplayer_hide_subtext_summary_on">Subtexts are hidden</string>
             <string name="revanced_miniplayer_hide_subtext_summary_off">Subtexts are shown</string>
@@ -1057,13 +1352,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_miniplayer_width_dip_summary">Initial on screen size, in pixels</string>
             <string name="revanced_miniplayer_width_dip_invalid_toast">Pixel size must be between %1$s and %2$s</string>
             <string name="revanced_miniplayer_opacity_title">Overlay opacity</string>
-            <string name="revanced_miniplayer_opacity_summary">Opacity value between 0-100, where 0 is transparent</string>
-            <string name="revanced_miniplayer_opacity_invalid_toast">Miniplayer overlay opacity must be between 0-100</string>
+            <string name="revanced_miniplayer_opacity_summary">Opacity value between 0-100, where 0 is transparent
+            </string>
+            <string name="revanced_miniplayer_opacity_invalid_toast">Miniplayer overlay opacity must be between 0-100
+            </string>
         </patch>
         <patch id="layout.theme.themePatch">
             <string name="revanced_gradient_loading_screen_title">Enable gradient loading screen</string>
-            <string name="revanced_gradient_loading_screen_summary_on">Loading screen will have a gradient background</string>
-            <string name="revanced_gradient_loading_screen_summary_off">Loading screen will have a solid background</string>
+            <string name="revanced_gradient_loading_screen_summary_on">Loading screen will have a gradient background
+            </string>
+            <string name="revanced_gradient_loading_screen_summary_off">Loading screen will have a solid background
+            </string>
         </patch>
         <patch id="layout.theme.themeResourcePatch">
             <string name="revanced_seekbar_custom_color_title">Enable custom seekbar color</string>
@@ -1076,7 +1375,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
         <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
             <string name="revanced_bypass_image_region_restrictions_title">Bypass image region restrictions</string>
             <string name="revanced_bypass_image_region_restrictions_summary_on">Using image host yt4.ggpht.com</string>
-            <string name="revanced_bypass_image_region_restrictions_summary_off">Using original image host\n\nEnabling this can fix missing images that are blocked in some regions</string>
+            <string name="revanced_bypass_image_region_restrictions_summary_off">Using original image host\n\nEnabling
+                this can fix missing images that are blocked in some regions
+            </string>
         </patch>
         <patch id="layout.thumbnails.alternativeThumbnailsPatch">
             <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -1092,23 +1393,39 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Still captures</string>
             <string name="revanced_alt_thumbnail_options_entry_4">Still captures</string>
             <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
-            <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow provides crowd-sourced thumbnails for YouTube videos. These thumbnails are often more relevant than those provided by YouTube\n\nIf enabled, video URLs will be sent to the API server and no other data is sent. If a video does not have DeArrow thumbnails, then the original or still captures are shown\n\nTap here to learn more about DeArrow</string>
-            <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Show a toast if API is not available</string>
-            <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Toast is shown if DeArrow is not available</string>
-            <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Toast is not shown if DeArrow is not available</string>
+            <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow provides crowd-sourced thumbnails for
+                YouTube videos. These thumbnails are often more relevant than those provided by YouTube\n\nIf enabled,
+                video URLs will be sent to the API server and no other data is sent. If a video does not have DeArrow
+                thumbnails, then the original or still captures are shown\n\nTap here to learn more about DeArrow
+            </string>
+            <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Show a toast if API is not available
+            </string>
+            <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Toast is shown if DeArrow is not
+                available
+            </string>
+            <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Toast is not shown if DeArrow is
+                not available
+            </string>
             <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API endpoint</string>
-            <string name="revanced_alt_thumbnail_dearrow_api_url_summary">The URL of the DeArrow thumbnail cache endpoint</string>
+            <string name="revanced_alt_thumbnail_dearrow_api_url_summary">The URL of the DeArrow thumbnail cache
+                endpoint
+            </string>
             <string name="revanced_alt_thumbnail_stills_about_title">Still video captures</string>
-            <string name="revanced_alt_thumbnail_stills_about_summary">Still captures are taken from the beginning/middle/end of each video. These images are built into YouTube and no external API is used</string>
+            <string name="revanced_alt_thumbnail_stills_about_summary">Still captures are taken from the
+                beginning/middle/end of each video. These images are built into YouTube and no external API is used
+            </string>
             <string name="revanced_alt_thumbnail_stills_fast_title">Use fast still captures</string>
-            <string name="revanced_alt_thumbnail_stills_fast_summary_on">Using medium quality still captures. Thumbnails will load faster, but live streams, unreleased, or very old videos may show blank thumbnails</string>
+            <string name="revanced_alt_thumbnail_stills_fast_summary_on">Using medium quality still captures. Thumbnails
+                will load faster, but live streams, unreleased, or very old videos may show blank thumbnails
+            </string>
             <string name="revanced_alt_thumbnail_stills_fast_summary_off">Using high quality still captures</string>
             <string name="revanced_alt_thumbnail_stills_time_title">Video time to take still captures from</string>
             <string name="revanced_alt_thumbnail_stills_time_entry_1">Beginning of video</string>
             <string name="revanced_alt_thumbnail_stills_time_entry_2">Middle of video</string>
             <string name="revanced_alt_thumbnail_stills_time_entry_3">End of video</string>
             <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-            <string name="revanced_alt_thumbnail_dearrow_error">DeArrow temporarily not available (status code: %s)</string>
+            <string name="revanced_alt_thumbnail_dearrow_error">DeArrow temporarily not available (status code: %s)
+            </string>
             <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow temporarily not available</string>
         </patch>
         <patch id="misc.announcements.announcementsPatch">
@@ -1116,12 +1433,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_announcements_summary_on">Announcements are shown on startup</string>
             <string name="revanced_announcements_summary_off">Announcements are not shown on startup</string>
             <string name="revanced_announcements_enabled_summary">Show announcements on startup</string>
-            <string name="revanced_announcements_connection_failed">Failed connecting to announcements provider</string>
-            <string name="revanced_announcements_dialog_dismiss">Dismiss</string>
         </patch>
         <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
             <string name="revanced_check_watch_history_domain_name_dialog_title">Warning</string>
-            <string name="revanced_check_watch_history_domain_name_dialog_message">Your watch history is not being saved.&lt;br>&lt;br>This most likely is caused by a DNS ad blocker or network proxy.&lt;br>&lt;br>To fix this, whitelist &lt;b>s.youtube.com&lt;/b> or turn off all DNS blockers and proxies.</string>
+            <string name="revanced_check_watch_history_domain_name_dialog_message">Your watch history is not being
+                saved.&lt;br>&lt;br>This most likely is caused by a DNS ad blocker or network proxy.&lt;br>&lt;br>To fix
+                this, whitelist &lt;b>s.youtube.com&lt;/b> or turn off all DNS blockers and proxies.
+            </string>
             <string name="revanced_check_watch_history_domain_name_dialog_ignore">Do not show again</string>
         </patch>
         <patch id="misc.autorepeat.autoRepeatPatch">
@@ -1131,9 +1449,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
         </patch>
         <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
             <string name="revanced_spoof_device_dimensions_title">Spoof device dimensions</string>
-            <string name="revanced_spoof_device_dimensions_summary_on">Device dimensions spoofed\n\nHigher video qualities might be unlocked but you may experience video playback stuttering, worse battery life, and unknown side effects</string>
-            <string name="revanced_spoof_device_dimensions_summary_off">Device dimensions not spoofed\n\nEnabling this can unlock higher video qualities</string>
-            <string name="revanced_spoof_device_dimensions_user_dialog_message">Enabling this can cause video playback stuttering, worse battery life, and unknown side effects.</string>
+            <string name="revanced_spoof_device_dimensions_summary_on">Device dimensions spoofed\n\nHigher video
+                qualities might be unlocked but you may experience video playback stuttering, worse battery life, and
+                unknown side effects
+            </string>
+            <string name="revanced_spoof_device_dimensions_summary_off">Device dimensions not spoofed\n\nEnabling this
+                can unlock higher video qualities
+            </string>
+            <string name="revanced_spoof_device_dimensions_user_dialog_message">Enabling this can cause video playback
+                stuttering, worse battery life, and unknown side effects.
+            </string>
         </patch>
         <patch id="misc.gms.gmsCoreSupportResourcePatch">
             <string name="microg_settings_title">GmsCore Settings</string>
@@ -1151,8 +1476,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
         </patch>
         <patch id="misc.privacy.removeTrackingQueryParameterPatch">
             <string name="revanced_remove_tracking_query_parameter_title">Remove tracking query parameter</string>
-            <string name="revanced_remove_tracking_query_parameter_summary_on">Tracking query parameter is removed from links</string>
-            <string name="revanced_remove_tracking_query_parameter_summary_off">Tracking query parameter is not removed from links</string>
+            <string name="revanced_remove_tracking_query_parameter_summary_on">Tracking query parameter is removed from
+                links
+            </string>
+            <string name="revanced_remove_tracking_query_parameter_summary_off">Tracking query parameter is not removed
+                from links
+            </string>
         </patch>
         <patch id="misc.zoomhaptics.zoomHapticsPatch">
             <string name="revanced_disable_zoom_haptics_title">Disable zoom haptics</string>
@@ -1171,8 +1500,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_video_quality_default_entry_8">240p</string>
             <string name="revanced_video_quality_default_entry_9">144p</string>
             <string name="revanced_remember_video_quality_last_selected_title">Remember video quality changes</string>
-            <string name="revanced_remember_video_quality_last_selected_summary_on">Quality changes apply to all videos</string>
-            <string name="revanced_remember_video_quality_last_selected_summary_off">Quality changes only apply to the current video</string>
+            <string name="revanced_remember_video_quality_last_selected_summary_on">Quality changes apply to all
+                videos
+            </string>
+            <string name="revanced_remember_video_quality_last_selected_summary_off">Quality changes only apply to the
+                current video
+            </string>
             <string name="revanced_video_quality_default_wifi_title">Default video quality on Wi-Fi network</string>
             <string name="revanced_video_quality_default_mobile_title">Default video quality on mobile network</string>
             <string name="revanced_remember_video_quality_mobile">mobile</string>
@@ -1190,21 +1523,30 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_custom_speed_menu_summary_off">Custom speed menu is not shown</string>
             <string name="revanced_custom_playback_speeds_title">Custom playback speeds</string>
             <string name="revanced_custom_playback_speeds_summary">Add or change the custom playback speeds</string>
-            <string name="revanced_custom_playback_speeds_invalid">Custom speeds must be less than %s. Using default values.</string>
-            <string name="revanced_custom_playback_speeds_parse_exception">Invalid custom playback speeds. Using default values.</string>
+            <string name="revanced_custom_playback_speeds_invalid">Custom speeds must be less than %s. Using default
+                values.
+            </string>
+            <string name="revanced_custom_playback_speeds_parse_exception">Invalid custom playback speeds. Using default
+                values.
+            </string>
             <string name="revanced_custom_playback_speeds_auto">Auto</string>
         </patch>
         <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
             <string name="revanced_remember_playback_speed_last_selected_title">Remember playback speed changes</string>
-            <string name="revanced_remember_playback_speed_last_selected_summary_on">Playback speed changes apply to all videos</string>
-            <string name="revanced_remember_playback_speed_last_selected_summary_off">Playback speed changes only apply to the current video</string>
+            <string name="revanced_remember_playback_speed_last_selected_summary_on">Playback speed changes apply to all
+                videos
+            </string>
+            <string name="revanced_remember_playback_speed_last_selected_summary_off">Playback speed changes only apply
+                to the current video
+            </string>
             <string name="revanced_playback_speed_default_title">Default playback speed</string>
             <string name="revanced_remember_playback_speed_toast">Changed default speed to: %s</string>
         </patch>
         <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
             <string name="revanced_restore_old_video_quality_menu_title">Restore old video quality menu</string>
             <string name="revanced_restore_old_video_quality_menu_summary_on">Old video quality menu is shown</string>
-            <string name="revanced_restore_old_video_quality_menu_summary_off">Old video quality menu is not shown</string>
+            <string name="revanced_restore_old_video_quality_menu_summary_off">Old video quality menu is not shown
+            </string>
         </patch>
         <patch id="interaction.seekbar.enableSlideToSeekPatch">
             <string name="revanced_slide_to_seek_title">Enable slide to seek</string>
@@ -1213,21 +1555,36 @@ This is because Crowdin requires temporarily flattening this file and removing t
         </patch>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">
             <string name="revanced_spoof_video_streams_screen_title">Spoof video streams</string>
-            <string name="revanced_spoof_video_streams_screen_summary">Spoof the client video streams to prevent playback issues</string>
+            <string name="revanced_spoof_video_streams_screen_summary">Spoof the client video streams to prevent
+                playback issues
+            </string>
             <string name="revanced_spoof_video_streams_title">Spoof video streams</string>
             <string name="revanced_spoof_video_streams_summary_on">Video streams are spoofed</string>
-            <string name="revanced_spoof_video_streams_summary_off">Video streams are not spoofed\n\nVideo playback may not work</string>
-            <string name="revanced_spoof_video_streams_user_dialog_message">Turning off this setting may cause video playback issues.</string>
+            <string name="revanced_spoof_video_streams_summary_off">Video streams are not spoofed\n\nVideo playback may
+                not work
+            </string>
+            <string name="revanced_spoof_video_streams_user_dialog_message">Turning off this setting may cause video
+                playback issues.
+            </string>
             <string name="revanced_spoof_video_streams_client_title">Default client</string>
             <string name="revanced_spoof_video_streams_ios_force_avc_title">Force AVC (H.264)</string>
             <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video codec is AVC (H.264)</string>
             <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video codec is VP9 or AV1</string>
-            <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Your device does not have VP9 hardware decoding, and this setting is always on when Client spoofing is enabled</string>
-            <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Enabling this might improve battery life and fix playback stuttering.\n\nAVC has a maximum resolution of 1080p, and video playback will use more internet data than VP9 or AV1.</string>
+            <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Your device does not
+                have VP9 hardware decoding, and this setting is always on when Client spoofing is enabled
+            </string>
+            <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Enabling this might improve
+                battery life and fix playback stuttering.\n\nAVC has a maximum resolution of 1080p, and video playback
+                will use more internet data than VP9 or AV1.
+            </string>
             <string name="revanced_spoof_video_streams_about_ios_title">iOS spoofing side effects</string>
-            <string name="revanced_spoof_video_streams_about_ios_summary">• Private kids videos may not play\n• Livestreams start from the beginning\n• Videos may end 1 second early</string>
+            <string name="revanced_spoof_video_streams_about_ios_summary">• Private kids videos may not play\n•
+                Livestreams start from the beginning\n• Videos may end 1 second early
+            </string>
             <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR spoofing side effects</string>
-            <string name="revanced_spoof_video_streams_about_android_vr_summary">• Kids videos may not play\n• Audio track menu is missing\n• Stable volume is not available</string>
+            <string name="revanced_spoof_video_streams_about_android_vr_summary">• Kids videos may not play\n• Audio
+                track menu is missing\n• Stable volume is not available
+            </string>
         </patch>
     </app>
     <app id="twitch">
@@ -1237,8 +1594,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_block_audio_ads_summary_off">Audio ads are unblocked</string>
         </patch>
         <patch id="ad.embedded.embeddedAdsPatch">
-            <string name="revanced_embedded_ads_service_unavailable">%s is unavailable. Ads may show. Try switching to another ad block service in settings.</string>
-            <string name="revanced_embedded_ads_service_failed">%s server returned an error. Ads may show. Try switching to another ad block service in settings.</string>
+            <string name="revanced_embedded_ads_service_unavailable">%s is unavailable. Ads may show. Try switching to
+                another ad block service in settings.
+            </string>
+            <string name="revanced_embedded_ads_service_failed">%s server returned an error. Ads may show. Try switching
+                to another ad block service in settings.
+            </string>
             <string name="revanced_block_embedded_ads_title">Block embedded video ads</string>
             <string name="revanced_block_embedded_ads_entry_1">Disabled</string>
             <string name="revanced_block_embedded_ads_entry_2">Luminous proxy</string>
@@ -1258,8 +1619,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
         </patch>
         <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
             <string name="revanced_auto_claim_channel_points_title">Automatically claim Channel Points</string>
-            <string name="revanced_auto_claim_channel_points_summary_on">Channel Points are claimed automatically</string>
-            <string name="revanced_auto_claim_channel_points_summary_off">Channel Points are not claimed automatically</string>
+            <string name="revanced_auto_claim_channel_points_summary_on">Channel Points are claimed automatically
+            </string>
+            <string name="revanced_auto_claim_channel_points_summary_off">Channel Points are not claimed automatically
+            </string>
         </patch>
         <patch id="debug.debugModePatch">
             <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->

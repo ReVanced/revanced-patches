@@ -1,4 +1,4 @@
-package app.revanced.patches.music.misc.gms
+package app.revanced.patches.music.shared
 
 import app.revanced.patcher.fingerprint
 
