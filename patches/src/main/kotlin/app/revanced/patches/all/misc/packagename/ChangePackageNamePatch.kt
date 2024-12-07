@@ -26,12 +26,12 @@ fun setOrGetFallbackPackageName(fallbackPackageName: String): String {
 }
 
 val changePackageNamePatch = resourcePatch(
-    name = "Change package name",
+    name = "com.abhiram79.ytvanced",
     description = "Appends \".revanced\" to the package name by default. Changing the package name of the app can lead to unexpected issues.",
-    use = false,
+    use = true,
 ) {
     packageNameOption = stringOption(
-        key = "packageName",
+        key = "com.abhiram79.ytvanced",
         default = "Default",
         values = mapOf("Default" to "Default"),
         title = "Package name",
