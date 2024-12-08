@@ -1220,9 +1220,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_spoof_video_streams_user_dialog_message">Turning off this setting may cause video playback issues.</string>
             <string name="revanced_spoof_video_streams_client_title">Default client</string>
             <string name="revanced_spoof_video_streams_ios_force_avc_title">Force AVC (H.264)</string>
-            <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video codec is AVC (H.264)</string>
-            <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video codec is VP9 or AV1</string>
-            <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Your device does not have VP9 hardware decoding, and this setting is always on when Client spoofing is enabled</string>
+            <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video codec is forced to AVC (H.264)</string>
+            <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video codec is determined automatically</string>
             <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Enabling this might improve battery life and fix playback stuttering.\n\nAVC has a maximum resolution of 1080p, Opus audio codec is not available, and video playback will use more internet data than VP9 or AV1.</string>
             <string name="revanced_spoof_video_streams_about_ios_title">iOS spoofing side effects</string>
             <string name="revanced_spoof_video_streams_about_ios_summary">• Private kids videos may not play\n• Livestreams start from the beginning\n• Videos may end 1 second early</string>
