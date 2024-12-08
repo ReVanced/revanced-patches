@@ -1,3 +1,10 @@
+# [5.3.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.2.4-dev.3...v5.3.0-dev.1) (2024-12-08)
+
+
+### Features
+
+* **YouTube Music:** Add `Spoof video streams` patch to fix playback ([#4065](https://github.com/ReVanced/revanced-patches/issues/4065)) ([cf3116a](https://github.com/ReVanced/revanced-patches/commit/cf3116a7583d09c25c798a85687a056f143656f0))
+
 ## [5.2.4-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.2.4-dev.2...v5.2.4-dev.3) (2024-12-07)
 
 
