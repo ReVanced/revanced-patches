@@ -1,3 +1,10 @@
+# [5.3.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.3.0-dev.1...v5.3.0-dev.2) (2024-12-08)
+
+
+### Bug Fixes
+
+* **Reddit:** Fix patches by using correct extension class ([70bdc68](https://github.com/ReVanced/revanced-patches/commit/70bdc6840d465399625aa1ae0259f49e72711955))
+
 # [5.3.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.2.4-dev.3...v5.3.0-dev.1) (2024-12-08)
 
 
