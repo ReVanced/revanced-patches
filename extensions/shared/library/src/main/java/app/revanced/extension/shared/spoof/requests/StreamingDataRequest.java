@@ -1,6 +1,6 @@
-package app.revanced.extension.youtube.patches.spoof.requests;
+package app.revanced.extension.shared.spoof.requests;
 
-import static app.revanced.extension.youtube.patches.spoof.requests.PlayerRoutes.GET_STREAMING_DATA;
+import static app.revanced.extension.shared.spoof.requests.PlayerRoutes.GET_STREAMING_DATA;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,8 +22,7 @@ import java.util.concurrent.TimeoutException;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
-import app.revanced.extension.youtube.patches.spoof.ClientType;
-import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.shared.spoof.ClientType;
 
 /**
  * Video streaming data.  Fetching is tied to the behavior YT uses,
@@ -70,7 +69,7 @@ public class StreamingDataRequest {
 
     static {
         ClientType[] allClientTypes = ClientType.values();
-        ClientType preferredClient = Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get();
+        ClientType preferredClient = BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get();
 
         CLIENT_ORDER_TO_USE = new ClientType[allClientTypes.length];
         CLIENT_ORDER_TO_USE[0] = preferredClient;

@@ -1,4 +1,4 @@
-package app.revanced.extension.youtube.patches.spoof.requests;
+package app.revanced.extension.shared.spoof.requests;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -10,7 +10,7 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.requests.Requester;
 import app.revanced.extension.shared.requests.Route;
-import app.revanced.extension.youtube.patches.spoof.ClientType;
+import app.revanced.extension.shared.spoof.ClientType;
 
 final class PlayerRoutes {
     static final Route.CompiledRoute GET_STREAMING_DATA = new Route(

@@ -1,11 +1,11 @@
-package app.revanced.extension.youtube.patches.spoof;
+package app.revanced.extension.shared.spoof;
 
 import android.media.MediaCodecInfo;
 import android.media.MediaCodecList;
 import android.os.Build;
 
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.shared.settings.BaseSettings;
 
 public class DeviceHardwareSupport {
     public static final boolean DEVICE_HAS_HARDWARE_DECODING_VP9;
@@ -44,7 +44,7 @@ public class DeviceHardwareSupport {
     }
 
     public static boolean allowVP9() {
-        return DEVICE_HAS_HARDWARE_DECODING_VP9 && !Settings.SPOOF_VIDEO_STREAMS_IOS_FORCE_AVC.get();
+        return DEVICE_HAS_HARDWARE_DECODING_VP9 && !BaseSettings.SPOOF_VIDEO_STREAMS_IOS_FORCE_AVC.get();
     }
 
     public static boolean allowAV1() {
