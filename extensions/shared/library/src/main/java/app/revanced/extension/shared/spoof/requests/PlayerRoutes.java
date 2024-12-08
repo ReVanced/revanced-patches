@@ -1,4 +1,4 @@
-package app.revanced.extension.youtube.patches.spoof.requests;
+package app.revanced.extension.shared.spoof.requests;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -9,7 +9,7 @@ import java.net.HttpURLConnection;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.requests.Requester;
 import app.revanced.extension.shared.requests.Route;
-import app.revanced.extension.youtube.patches.spoof.ClientType;
+import app.revanced.extension.shared.spoof.ClientType;
 import app.revanced.extension.youtube.settings.Settings;
 
 final class PlayerRoutes {

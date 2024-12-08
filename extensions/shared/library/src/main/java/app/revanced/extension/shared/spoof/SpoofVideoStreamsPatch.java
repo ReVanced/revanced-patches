@@ -1,4 +1,4 @@
-package app.revanced.extension.youtube.patches.spoof;
+package app.revanced.extension.shared.spoof;
 
 import android.net.Uri;
 
@@ -12,21 +12,12 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.Setting;
-import app.revanced.extension.youtube.patches.spoof.requests.StreamingDataRequest;
-import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.shared.spoof.requests.StreamingDataRequest;
+import app.revanced.extension.shared.settings.BaseSettings;
 
 @SuppressWarnings("unused")
 public class SpoofVideoStreamsPatch {
-    public static final class SpoofiOSAvailability implements Setting.Availability {
-        @Override
-        public boolean isAvailable() {
-            return Settings.SPOOF_VIDEO_STREAMS.get()
-                    && Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.IOS;
-        }
-    }
-
-    private static final boolean SPOOF_STREAMING_DATA = Settings.SPOOF_VIDEO_STREAMS.get();
-
+    private static final boolean SPOOF_STREAMING_DATA = BaseSettings.SPOOF_VIDEO_STREAMS.get();
     /**
      * Any unreachable ip address.  Used to intentionally fail requests.
      */
@@ -165,5 +156,12 @@ public class SpoofVideoStreamsPatch {
         }
 
         return postData;
+    }
+
+    public static final class ForceiOSAVCAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            return BaseSettings.SPOOF_VIDEO_STREAMS.get() && BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.IOS;
+        }
     }
 }

@@ -1,7 +1,7 @@
-package app.revanced.extension.youtube.patches.spoof;
+package app.revanced.extension.shared.spoof;
 
-import static app.revanced.extension.youtube.patches.spoof.DeviceHardwareSupport.allowAV1;
-import static app.revanced.extension.youtube.patches.spoof.DeviceHardwareSupport.allowVP9;
+import static app.revanced.extension.shared.spoof.DeviceHardwareSupport.allowAV1;
+import static app.revanced.extension.shared.spoof.DeviceHardwareSupport.allowVP9;
 
 import android.os.Build;
 
@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 
 public enum ClientType {
     // Specific purpose for age restricted, or private videos, because the iOS client is not logged in.
+    // https://dumps.tadiphone.dev/dumps/oculus/eureka
     ANDROID_VR(28,
             "Quest 3",
             "12",
@@ -19,7 +20,6 @@ public enum ClientType {
             true
     ),
     // Specific for kids videos.
-    // https://dumps.tadiphone.dev/dumps/oculus/eureka
     IOS(5,
             // iPhone 15 supports AV1 hardware decoding.
             // Only use if this Android device also has hardware decoding.
@@ -31,12 +31,12 @@ public enum ClientType {
                     ? "17.5.1.21F90"
                     : "13.7.17H35",
             allowVP9()
-                    ? "com.google.ios.youtube/19.10.7 (iPhone; U; CPU iOS 17_5_1 like Mac OS X)"
-                    : "com.google.ios.youtube/19.10.7 (iPhone; U; CPU iOS 13_7 like Mac OS X)",
+                    ? "com.google.ios.youtube/19.47.7 (iPhone; U; CPU iOS 17_5_1 like Mac OS X)"
+                    : "com.google.ios.youtube/19.47.7 (iPhone; U; CPU iOS 13_7 like Mac OS X)",
             null,
             // Version number should be a valid iOS release.
             // https://www.ipa4fun.com/history/185230
-            "19.10.7",
+            "19.47.7",
             "IOS",
             false
     );
