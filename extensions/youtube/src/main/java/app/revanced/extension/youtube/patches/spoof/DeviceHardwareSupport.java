@@ -5,7 +5,6 @@ import android.media.MediaCodecList;
 import android.os.Build;
 
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.youtube.settings.Settings;
 
 public class DeviceHardwareSupport {
     public static final boolean DEVICE_HAS_HARDWARE_DECODING_VP9;
@@ -41,13 +40,5 @@ public class DeviceHardwareSupport {
                 + (DEVICE_HAS_HARDWARE_DECODING_VP9
                 ? "Device supports VP9 hardware decoding"
                 : "Device does not support VP9 hardware decoding"));
-    }
-
-    public static boolean allowVP9() {
-        return DEVICE_HAS_HARDWARE_DECODING_VP9 && !Settings.SPOOF_VIDEO_STREAMS_IOS_FORCE_AVC.get();
-    }
-
-    public static boolean allowAV1() {
-        return allowVP9() && DEVICE_HAS_HARDWARE_DECODING_AV1;
     }
 }

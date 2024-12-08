@@ -1,11 +1,10 @@
 package app.revanced.extension.youtube.patches.spoof;
 
-import static app.revanced.extension.youtube.patches.spoof.DeviceHardwareSupport.allowAV1;
-import static app.revanced.extension.youtube.patches.spoof.DeviceHardwareSupport.allowVP9;
-
 import android.os.Build;
 
 import androidx.annotation.Nullable;
+
+import app.revanced.extension.youtube.settings.Settings;
 
 public enum ClientType {
     // Specific purpose for age restricted, or private videos, because the iOS client is not logged in.
@@ -20,26 +19,30 @@ public enum ClientType {
     ),
     // Specific for kids videos.
     IOS(5,
-            allowAV1()
-                    ? "iPhone16,2"  // 15 Pro Max
-                    : "iPhone12,5", // 11 Pro Max
-            // iOS 13 and earlier always uses AVC.  14+ adds VP9 and AV1 streams.
-            allowVP9()
-                    ? "17.5.1.21F90"
-                    : "13.7.17H35", // Last release of iOS 13.
-            allowVP9()
-                    ? "com.google.ios.youtube/19.47.7 (iPhone; U; CPU iOS 17_5_1 like Mac OS X)"
-                    : "com.google.ios.youtube/17.40.5 (iPhone; U; CPU iOS 17_40_5 like Mac OS X)",
+            forceAVC()
+                    ? "iPhone12,5"  // 11 Pro Max (last device with iOS 13)
+                    : "iPhone16,2", // 15 Pro Max
+            // iOS 13 and earlier uses only AVC.  14+ adds VP9 and AV1.
+            forceAVC()
+                    ? "13.7.17H35" // Last release of iOS 13.
+                    : "17.5.1.21F90",
+            forceAVC()
+                    ? "com.google.ios.youtube/17.40.5 (iPhone; U; CPU iOS 17_40_5 like Mac OS X)"
+                    : "com.google.ios.youtube/19.47.7 (iPhone; U; CPU iOS 17_5_1 like Mac OS X)",
             null,
             // Version number should be a valid iOS release.
             // https://www.ipa4fun.com/history/185230
-            allowVP9()
-                    ? "19.47.7"
+            forceAVC()
                     // Some newer versions can also give AVC,
                     // but 17.40 is the last version that supports iOS 13.
-                    : "17.40.5",
+                    ? "17.40.5"
+                    : "19.47.7",
             false
     );
+
+    private static boolean forceAVC() {
+        return Settings.SPOOF_VIDEO_STREAMS_IOS_FORCE_AVC.get();
+    }
 
     /**
      * YouTube
