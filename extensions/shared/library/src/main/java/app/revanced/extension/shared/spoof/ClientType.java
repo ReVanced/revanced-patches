@@ -1,10 +1,10 @@
-package app.revanced.extension.youtube.patches.spoof;
+package app.revanced.extension.shared.spoof;
 
 import android.os.Build;
 
 import androidx.annotation.Nullable;
 
-import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.shared.settings.BaseSettings;
 
 public enum ClientType {
     // Specific purpose for age restricted, or private videos, because the iOS client is not logged in.
@@ -33,7 +33,7 @@ public enum ClientType {
             // Version number should be a valid iOS release.
             // https://www.ipa4fun.com/history/185230
             forceAVC()
-                    // Some newer versions can also give AVC,
+                    // Some newer versions can also force AVC,
                     // but 17.40 is the last version that supports iOS 13.
                     ? "17.40.5"
                     : "19.47.7",
@@ -41,7 +41,7 @@ public enum ClientType {
     );
 
     private static boolean forceAVC() {
-        return Settings.SPOOF_VIDEO_STREAMS_IOS_FORCE_AVC.get()
+        return BaseSettings.SPOOF_VIDEO_STREAMS_IOS_FORCE_AVC.get()
                 && DeviceHardwareSupport.DEVICE_HAS_HARDWARE_DECODING_VP9;
     }
 

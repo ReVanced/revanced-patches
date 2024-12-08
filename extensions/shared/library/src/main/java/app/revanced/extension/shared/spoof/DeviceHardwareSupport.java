@@ -1,4 +1,4 @@
-package app.revanced.extension.youtube.patches.spoof;
+package app.revanced.extension.shared.spoof;
 
 import android.media.MediaCodecInfo;
 import android.media.MediaCodecList;
