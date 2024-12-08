@@ -27,8 +27,8 @@ public enum ClientType {
                     ? "13.7.17H35" // Last release of iOS 13.
                     : "17.5.1.21F90",
             forceAVC()
-                    ? "com.google.ios.youtube/17.40.5 (iPhone; U; CPU iOS 17_40_5 like Mac OS X)"
-                    : "com.google.ios.youtube/19.47.7 (iPhone; U; CPU iOS 19_47_7 like Mac OS X)",
+                    ? "com.google.ios.youtube/17.40.5 (iPhone; U; CPU iOS 13_7 like Mac OS X)"
+                    : "com.google.ios.youtube/19.47.7 (iPhone; U; CPU iOS 17_5_1 like Mac OS X)",
             null,
             // Version number should be a valid iOS release.
             // https://www.ipa4fun.com/history/185230
