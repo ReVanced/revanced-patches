@@ -3,12 +3,12 @@ package app.revanced.extension.youtube.patches;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
-public class PortraitFullscreenPatch {
+public class OpenVideosFullscreen {
 
     /**
      * Injection point.
      */
-    public static boolean openVideosInPortraitFullscreen() {
-        return Settings.PORTRAIT_FULLSCREEN_MODE.get();
+    public static boolean openVideoFullscreenPortrait() {
+        return Settings.OPEN_VIDEOS_FULLSCREEN_PORTRAIT.get();
     }
 }

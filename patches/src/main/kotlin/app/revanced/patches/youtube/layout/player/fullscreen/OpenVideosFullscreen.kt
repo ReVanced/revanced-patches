@@ -15,12 +15,12 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
-    "Lapp/revanced/extension/youtube/patches/PortraitFullscreenPatch;"
+    "Lapp/revanced/extension/youtube/patches/OpenVideosFullscreen;"
 
 @Suppress("unused")
-val portraitFullscreenPatch = bytecodePatch(
-    name = "Portrait fullscreen",
-    description = "Adds an option to always open videos in portrait full screen mode.",
+val openVideosFullscreenPatch = bytecodePatch(
+    name = "Open videos fullscreen",
+    description = "Adds an option to open videos in portrait full screen mode.",
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -35,21 +35,21 @@ val portraitFullscreenPatch = bytecodePatch(
     )
 
     execute {
-        addResources("youtube", "layout.player.fullscreen.portraitFullscreenPatch")
+        addResources("youtube", "layout.player.fullscreen.openVideosFullscreen")
 
         PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_portrait_fullscreen")
+            SwitchPreference("revanced_open_videos_fullscreen_portrait")
         )
 
-        portraitFullscreenModeFingerprint.method.apply {
-            val constIndex = indexOfFirstLiteralInstructionOrThrow(OPEN_VIDEOS_IN_PORTRAIT_FULLSCREEN_FEATURE_FLAG)
+        openVideosFullscreenPortraitFingerprint.method.apply {
+            val constIndex = indexOfFirstLiteralInstructionOrThrow(OPEN_VIDEOS_FULLSCREEN_PORTRAIT_FEATURE_FLAG)
             val resultIndex = indexOfFirstInstructionOrThrow(constIndex, Opcode.MOVE_RESULT)
             val register = getInstruction<OneRegisterInstruction>(resultIndex).registerA
 
             addInstructions(
                 resultIndex + 1,
                 """
-                    invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->openVideosInPortraitFullscreen()Z
+                    invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->openVideoFullscreenPortrait()Z
                     move-result v$register
                 """
             )
