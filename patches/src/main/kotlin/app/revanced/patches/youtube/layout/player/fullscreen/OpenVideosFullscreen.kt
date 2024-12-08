@@ -35,12 +35,6 @@ val openVideosFullscreenPatch = bytecodePatch(
     )
 
     execute {
-        addResources("youtube", "layout.player.fullscreen.openVideosFullscreen")
-
-        PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_open_videos_fullscreen_portrait")
-        )
-
         openVideosFullscreenPortraitFingerprint.method.apply {
             val constIndex = indexOfFirstLiteralInstructionOrThrow(OPEN_VIDEOS_FULLSCREEN_PORTRAIT_FEATURE_FLAG)
             val resultIndex = indexOfFirstInstructionOrThrow(constIndex, Opcode.MOVE_RESULT)
@@ -54,5 +48,13 @@ val openVideosFullscreenPatch = bytecodePatch(
                 """
             )
         }
+
+        // Add resources and setting last, in case the user force patches an old incompatible version.
+
+        addResources("youtube", "layout.player.fullscreen.openVideosFullscreen")
+
+        PreferenceScreen.PLAYER.addPreferences(
+            SwitchPreference("revanced_open_videos_fullscreen_portrait")
+        )
     }
 }
