@@ -8,7 +8,7 @@ public class OpenVideosFullscreen {
     /**
      * Injection point.
      */
-    public static boolean openVideoFullscreenPortrait() {
+    public static boolean openVideoFullscreenPortrait(boolean original) {
         return Settings.OPEN_VIDEOS_FULLSCREEN_PORTRAIT.get();
     }
 }

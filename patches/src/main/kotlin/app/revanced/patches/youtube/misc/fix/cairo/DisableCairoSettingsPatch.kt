@@ -34,10 +34,7 @@ internal val disableCairoSettingsPatch = bytecodePatch(
          * <a href="https://github.com/qnblackcat/uYouPlus/issues/1468">uYouPlus#1468</a>.
          */
         cairoFragmentConfigFingerprint.method.apply {
-            val literalIndex = indexOfFirstLiteralInstructionOrThrow(
-                CAIRO_CONFIG_LITERAL_VALUE,
-            )
-
+            val literalIndex = indexOfFirstLiteralInstructionOrThrow(CAIRO_CONFIG_LITERAL_VALUE)
             val resultIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
             val register = getInstruction<OneRegisterInstruction>(resultIndex).registerA
 
