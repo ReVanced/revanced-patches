@@ -41,8 +41,7 @@ public enum ClientType {
     );
 
     private static boolean forceAVC() {
-        return BaseSettings.SPOOF_VIDEO_STREAMS_IOS_FORCE_AVC.get()
-                && DeviceHardwareSupport.DEVICE_HAS_HARDWARE_DECODING_VP9;
+        return BaseSettings.SPOOF_VIDEO_STREAMS_IOS_FORCE_AVC.get();
     }
 
     /**
