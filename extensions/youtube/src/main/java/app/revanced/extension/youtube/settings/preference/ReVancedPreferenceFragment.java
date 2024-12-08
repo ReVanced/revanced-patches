@@ -10,6 +10,7 @@ import android.os.Build;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
+import android.util.Pair;
 import android.util.TypedValue;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
@@ -17,6 +18,10 @@ import android.widget.TextView;
 import android.widget.Toolbar;
 
 import androidx.annotation.RequiresApi;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
@@ -41,6 +46,46 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
         return Utils.getContext().getResources().getDrawable(backButtonResource);
     }
 
+    /**
+     * Sorts a preference list by menu entries, but preserves the first value as the first entry.
+     */
+    private static void sortListPreferenceByValues(ListPreference listPreference) {
+        CharSequence[] entries = listPreference.getEntries();
+        CharSequence[] entryValues = listPreference.getEntryValues();
+        final int entrySize = entries.length;
+
+        if (entrySize != entryValues.length) {
+            throw new IllegalStateException();
+        }
+
+        // Ensure the first entry remains the first after sorting.
+        CharSequence firstEntry = entries[0];
+        CharSequence firstEntryValue = entryValues[0];
+
+        List<Pair<String, String>> entryPairs = new ArrayList<>(entrySize);
+        for (int i = 1; i < entrySize; i++) {
+            entryPairs.add(new Pair<>(entries[i].toString(), entryValues[i].toString()));
+        }
+
+        Collections.sort(entryPairs, (pair1, pair2) -> pair1.first.compareToIgnoreCase(pair2.first));
+
+        CharSequence[] sortedEntries = new CharSequence[entrySize];
+        CharSequence[] sortedEntryValues = new CharSequence[entrySize];
+
+        sortedEntries[0] = firstEntry;
+        sortedEntryValues[0] = firstEntryValue;
+
+        int i = 1;
+        for (Pair<String, String> pair : entryPairs) {
+            sortedEntries[i] = pair.first;
+            sortedEntryValues[i] = pair.second;
+            i++;
+        }
+
+        listPreference.setEntries(sortedEntries);
+        listPreference.setEntryValues(sortedEntryValues);
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void initialize() {
@@ -50,9 +95,14 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
             setPreferenceScreenToolbar(getPreferenceScreen());
 
             // If the preference was included, then initialize it based on the available playback speed.
-            Preference defaultSpeedPreference = findPreference(Settings.PLAYBACK_SPEED_DEFAULT.key);
-            if (defaultSpeedPreference instanceof ListPreference) {
-                CustomPlaybackSpeedPatch.initializeListPreference((ListPreference) defaultSpeedPreference);
+            Preference preference = findPreference(Settings.PLAYBACK_SPEED_DEFAULT.key);
+            if (preference instanceof ListPreference playbackPreference) {
+                CustomPlaybackSpeedPatch.initializeListPreference(playbackPreference);
+            }
+
+            preference = findPreference(Settings.SPOOF_VIDEO_STREAMS_LANGUAGE.key);
+            if (preference instanceof ListPreference languagePreference) {
+                sortListPreferenceByValues(languagePreference);
             }
         } catch (Exception ex) {
             Logger.printException(() -> "initialize failure", ex);

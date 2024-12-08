@@ -13,7 +13,6 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.spoof.requests.StreamingDataRequest;
-import app.revanced.extension.shared.settings.BaseSettings;
 
 @SuppressWarnings("unused")
 public class SpoofVideoStreamsPatch {
