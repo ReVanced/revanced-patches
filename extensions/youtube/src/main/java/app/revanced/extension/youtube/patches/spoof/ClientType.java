@@ -20,12 +20,10 @@ public enum ClientType {
     ),
     // Specific for kids videos.
     IOS(5,
-            // iPhone 15 supports AV1 hardware decoding.
-            // Only use if this Android device also has hardware decoding.
             allowAV1()
                     ? "iPhone16,2"  // 15 Pro Max
-                    : "iPhone11,4", // XS Max
-            // iOS 13 and earlier use AVC.  14+ uses VP9 and AV1.
+                    : "iPhone12,5", // 11 Pro Max
+            // iOS 13 and earlier always uses AVC.  14+ adds VP9 and AV1 streams.
             allowVP9()
                     ? "17.5.1.21F90"
                     : "13.7.17H35", // Last release of iOS 13.
