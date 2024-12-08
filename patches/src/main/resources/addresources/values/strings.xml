@@ -716,7 +716,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_hide_player_popup_panels_summary_off">Player popup panels are shown</string>
         </patch>
         <patch id="layout.player.fullscreen.portraitFullscreenPatch">
-            <string name="revanced_portrait_fullscreen_title">Open videos in portrait fullscreen</string>
+            <string name="revanced_portrait_fullscreen_title">Always open videos in portrait fullscreen</string>
             <string name="revanced_portrait_fullscreen_summary_on">Videos open in fullscreen</string>
             <string name="revanced_portrait_fullscreen_summary_off">Videos do not open in fullscreen</string>
         </patch>
