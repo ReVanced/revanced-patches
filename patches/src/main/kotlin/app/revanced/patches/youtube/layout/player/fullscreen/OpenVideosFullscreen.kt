@@ -20,7 +20,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 @Suppress("unused")
 val openVideosFullscreenPatch = bytecodePatch(
     name = "Open videos fullscreen",
-    description = "Adds an option to open videos in portrait full screen mode.",
+    description = "Adds an option to open videos in full screen portrait mode.",
 ) {
     dependsOn(
         sharedExtensionPatch,
