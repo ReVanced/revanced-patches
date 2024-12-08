@@ -9,8 +9,8 @@ import java.net.HttpURLConnection;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.requests.Requester;
 import app.revanced.extension.shared.requests.Route;
+import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.spoof.ClientType;
-import app.revanced.extension.youtube.settings.Settings;
 
 final class PlayerRoutes {
     static final Route.CompiledRoute GET_STREAMING_DATA = new Route(
@@ -35,7 +35,7 @@ final class PlayerRoutes {
             JSONObject context = new JSONObject();
 
             JSONObject client = new JSONObject();
-            client.put("hl", Settings.SPOOF_VIDEO_STREAMS_LANGUAGE.get().getIso639_1());
+            client.put("hl", BaseSettings.SPOOF_VIDEO_STREAMS_LANGUAGE.get().getIso639_1());
             client.put("clientName", clientType.name());
             client.put("clientVersion", clientType.clientVersion);
             client.put("deviceModel", clientType.deviceModel);
