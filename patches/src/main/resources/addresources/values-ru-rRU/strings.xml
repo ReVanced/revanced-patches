@@ -710,6 +710,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">Автоматически всплывающие панели (плейлист или живой чат) в плеере скрыты</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Автоматически всплывающие панели (плейлист или живой чат) в плеере отображены</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <string name="revanced_open_videos_fullscreen_portrait_title">Открыть видео в полноэкранном портрете</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_on">Видео открыть полноэкранный режим</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_off">Видео не открывают полноэкранный режим</string>
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Непрозрачность оверлея плеера</string>
   <string name="revanced_player_overlay_opacity_summary">Значение непрозрачности в пределах 0-100, где 0 - это прозрачно</string>
@@ -1201,12 +1206,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">Отключение этой настройки может вызвать проблемы с воспроизведением видео.</string>
   <string name="revanced_spoof_video_streams_client_title">Клиент по умолчанию</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Принудительно AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Видеокодек AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Видеокодек VP9 или AV1</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">На вашем устройстве нет аппаратного декодирования VP9, и эта настройка всегда активна при включенной подмене клиента</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Активация данной опции может улучшить время работы батареи и исправить задержки воспроизведения.\n\nAVC имеет максимальное разрешение 1080p, воспроизведение видео будет использовать больше интернет данных в сравнении с VP9 или AV1.</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Видео кодек привязан к AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Видео кодек определяется автоматически</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Включение этого параметра может улучшить время работы батареи и исправить затяжку воспроизведения.\n\nAVC имеет максимальное разрешение 1080p, аудио кодек Opus недоступен, и воспроизведение видео будет использовать больше интернет-данных, чем VP9 или AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Побочные эффекты подмены на iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Частные детские видео могут не воспроизводиться\n• Прямые трансляции начинаются с самого начала\n• Видео может закончиться на 1 секунду раньше\n• Отсутствует аудиокодек opus</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Видео частных детей не могут играть\n• Livestreams начинается с начала\n• Видео может закончиться 1 секунду рано</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Побочные эффекты подмены на Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">• Детские видео могут не воспроизводиться\n• Пункт меню \"Звуковая дорожка\" отсутвтует\n• Пункт меню \"Постоянный уровень громкости\" недоступен</string>
   </patch>

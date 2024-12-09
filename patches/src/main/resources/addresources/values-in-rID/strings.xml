@@ -709,6 +709,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">Panel popup pemutar disembunyikan</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Panel popup pemutar ditampilkan</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Opasitas hamparan pemutar</string>
   <string name="revanced_player_overlay_opacity_summary">Nilai opasitas antara 0-100, dimana 0 adalah transparan</string>
@@ -1200,12 +1202,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">Mematikan pengaturan ini dapat menyebabkan masalah pemutaran video.</string>
   <string name="revanced_spoof_video_streams_client_title">Klien bawaan</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Paksa AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Kodek video adalah AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodek video adalah VP9 atau AV1</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Perangkat Anda tidak memiliki dekode perangkat keras VP9, ​​dan pengaturan ini selalu aktif saat pemalsuan Klien diaktifkan</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Menyalakan ini dapat meningkatkan masa pakai baterai dan memperbaiki gangguan pemutaran.\n\nAVC memiliki resolusi maksimum 1080p, dan pemutaran video akan menggunakan lebih banyak data internet daripada VP9 atau AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Efek samping pemalsuan iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Video anak-anak pribadi mungkin tidak dapat diputar\n• Siaran langsung dimulai dari awal\n• Video mungkin berakhir 1 detik lebih awal\n• Tidak ada codec audio opus</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Video privat anak-anak tidak dapat diputar\n• Siaran langsung dimulai dari awal\n• Video akan berakhir 1 detik lebih awal</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Efek samping pemalsuan Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">• Video anak-anak mungkin tidak dapat diputar\n• Menu trek audio tidak ada\n• Volume stabil tidak tersedia</string>
   </patch>

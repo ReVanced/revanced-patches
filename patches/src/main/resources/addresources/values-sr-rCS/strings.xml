@@ -710,6 +710,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">Iskačuće table u plejeru su skrivene</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Iskačuće table u plejeru su prikazane</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Neprozirnost preklopa plejera</string>
   <string name="revanced_player_overlay_opacity_summary">Vrednost neprozirnosti između 0 i 100, gde je 0 prozirno</string>
@@ -1201,12 +1203,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">Isključivanje ove opcije će možda izazvati probleme sa reprodukcijom videa.</string>
   <string name="revanced_spoof_video_streams_client_title">Podrazumevani klijent</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Prisili AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodek je AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodek je VP9 ili AV1</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Vaš uređaj nema VP9 hardversko dekodiranje, i ova opcija je uvek uključena kada je omogućeno lažiranje klijenta</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Ako ovo omogućite, možda će se produžiti trajanje baterije i popraviti zastoj pri reprodukciji.\n\nAVC ima maksimalnu rezoluciju od 1080p, a reprodukcija videa će koristiti više internet podataka nego VP9 ili AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Neželjeni efekti lažiranja na iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Privatni dečji videi se možda neće puštati\n• Strimovi uživo počinju od početka\n• Videi će se možda završiti 1 sekundu ranije\n• Nema audio kodeka opus</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Privatni dečji videi se možda neće puštati\n• Strimovi uživo počinju od početka\n• Videi će se možda završiti 1 sekundu ranije</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Neželjeni efekti lažiranja na Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">• Dečji videi se možda neće puštati\n• Meni „Audio snimak” nedostaje\n• Ujednačena jačina zvuka nije dostupna</string>
   </patch>

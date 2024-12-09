@@ -709,6 +709,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">تم إخفاء لوحات المشغل المنبثقة</string>
   <string name="revanced_hide_player_popup_panels_summary_off">يتم عرض لوحات المشغل المنبثقة</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <string name="revanced_open_videos_fullscreen_portrait_title">فتح مقاطع الفيديو في ملء الشاشة</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_on">الفيديو فتح ملء الشاشة</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_off">الفيديو لا تفتح ملء الشاشة</string>
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">شفافية تراكب المشغل</string>
   <string name="revanced_player_overlay_opacity_summary">قيمة الشفافية بين 0-100، حيث يكون 0 شفاف</string>
@@ -1200,12 +1205,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">إيقاف تشغيل هذا الإعداد قد يسبب مشاكل في تشغيل الفيديو.</string>
   <string name="revanced_spoof_video_streams_client_title">العميل الافتراضي</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">فرض AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">ترميز الفيديو هو AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">ترميز الفيديو هو VP9 أو AV1</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">لا يحتوي جهازك على فك تشفير الأجهزة VP9، وهذا الإعداد يعمل دائما عند تمكين تزييف العميل</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">قد يؤدي تمكين هذا إلى تحسين عمر البطارية وإصلاح مشكلة تقطيع التشغيل.\n\nيتمتع تنسيق AVC بدقة قصوى تبلغ 1080P، وسيستخدم تشغيل الفيديو المزيد من بيانات الإنترنت مقارنةً بتنسيق VP9 أو AV1.</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">كود الفيديو مرغم على AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">يتم تحديد رمز الفيديو تلقائياً</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">تمكين هذا قد يحسّن عمر البطارية وإصلاح تشغيل التشغيل.\n\nAVC لها حد أقصى قدره 1080p، رمز الصوت Opus غير متوفر. وسيستخدم تشغيل الفيديو بيانات إنترنت أكثر من VP9 أو AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">التأثيرات الجانبية لمحاكاة iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• قد لا يتم تشغيل فيديوهات الأطفال الخاصة\n• تبدأ البثوث المباشر من البداية\n• قد تنتهي الفيديوهات قبل النهاية بثانية واحدة\n• لا يوجد ترميز الصوت opus</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• قد لا يتم تشغيل فيديوهات الأطفال الخاصة\n• تبدأ البثوث المباشرة من البداية\n• قد تنتهي الفيديوهات قبل النهاية بثانية واحدة</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">التأثيرات الجانبية لمحاكاة Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">• قد لا يتم تشغيل فيديوهات الأطفال\n• قائمة المقطع الصوتي مفقودة\n• مستوى الصوت الثابت غير متوفر</string>
   </patch>

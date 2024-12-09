@@ -709,6 +709,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">A lejátszó előugró panelei el vannak rejtve</string>
   <string name="revanced_hide_player_popup_panels_summary_off">A lejátszó előugró panelei megjelennek</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Lejátszó fedőrétegének átlátszatlansága</string>
   <string name="revanced_player_overlay_opacity_summary">Az átlátszatlanság értéke 0 és 100 között van, ahol a 0 átlátszó</string>
@@ -1200,12 +1202,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">A beállítás kikapcsolása videolejátszási problémákat okozhat.</string>
   <string name="revanced_spoof_video_streams_client_title">Alapértelmezett kliens</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">AVC (H.264) kényszerítése</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">A videokodek AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">A videokodek VP9 vagy AV1</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Eszközén nincs VP9 hardveres dekódolás, és ez a beállítás mindig be van kapcsolva, ha az ügyfélhamisítás engedélyezve van</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Ennek engedélyezése javíthatja az akkumulátor élettartamát, és kijavíthatja a lejátszás akadozását.\n\nAz AVC maximális felbontása 1080p, és a videolejátszás több internetadatot használ, mint a VP9 vagy az AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS hamisítási mellékhatások</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Előfordulhat, hogy a privát gyerekeknek készült videókat nem lehet lejátszani\n• Az élő közvetítések az elejétől kezdődnek.\n• A videók 1 másodperccel korábban véget érhetnek\n• Nincs opus audiokodek</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Előfordulhat, hogy a privát gyerekeknek szóló videók nem játszhatók le\n• Az élő közvetítések elölről kezdődnek\n• A videók 1 másodperccel korábban véget érhetnek</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR-hamisítási mellékhatások</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">• Előfordulhat, hogy a gyerekvideókat nem lehet lejátszani\n• Hiányzik a hangsáv menü\n• A stabil hangerő nem érhető el</string>
   </patch>

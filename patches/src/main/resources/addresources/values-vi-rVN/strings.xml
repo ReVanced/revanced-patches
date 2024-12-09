@@ -709,6 +709,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">Bảng bật lên trên trình phát được ẩn</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Bảng bật lên trên trình phát được hiện</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Độ mờ của lớp phủ trình phát</string>
   <string name="revanced_player_overlay_opacity_summary">Giá trị độ mờ của lớp phủ trình phát trong khoảng từ 0 đến 100, trong đó 0 là trong suốt</string>
@@ -1200,12 +1202,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">Việc tắt cài đặt này có thể gây ra sự cố phát nền video.</string>
   <string name="revanced_spoof_video_streams_client_title">Máy khách mặc định</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">AVC (H.264) ép buộc</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Bộ giải mã là AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Bộ giải mã là VP9 hoặc AV1</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Thiết bị của bạn không có phần cứng giải mã VP9, và thiết lập này luôn bật khi Giả mạo máy khách bật</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Bật chức năng này có thể tăng cường thời lượng pin và sửa lỗi phát lặp.\n\nAVC có độ phân giải tối đa 1080p, và video phát sẽ dùng nhiều dữ liệu mạng hơn VP9 hoặc AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Tác dụng phụ của giả mạo iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">•Video trẻ em riêng tư có thể không phát được \n •Phát trực tiếp bắt đầu từ đầu \n • Video có thể kết thúc sớm 1 giây \n • Không có codec âm thanh Opus</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Tác dụng phụ của giả mạo Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">• Video trẻ em có thể không phát được \n • Menu chọn bản âm thanh không khả dụng \n • Âm lượng ổn định không có sẵn</string>
   </patch>

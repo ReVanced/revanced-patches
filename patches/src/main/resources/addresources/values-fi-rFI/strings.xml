@@ -711,6 +711,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">Soittimen ponnahdusikkunat on piilotettu</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Soittimen ponnahdusikkunat näytetään</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <string name="revanced_open_videos_fullscreen_portrait_title">Avaa videot koko näytön muotokuvassa</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_on">Videot avataan kokoruututilassa</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_off">Videot eivät avaa kokoruututilaa</string>
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Soittimen peittoalueen läpinäkyvyys</string>
   <string name="revanced_player_overlay_opacity_summary">Läpinäkyvyysarvo välillä 0–100, jossa 0 on läpinäkyvä</string>
@@ -1202,12 +1207,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">Tämän asetuksen poistaminen käytöstä voi aiheuttaa ongelmia videotoistossa.</string>
   <string name="revanced_spoof_video_streams_client_title">Oletusasiakasohjelma</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Pakota AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Videokoodekki on AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Videokoodekki on VP9 tai AV1</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Laitteessasi ei ole VP9-laitteiston dekoodausta, ja tämä asetus on aina päällä, kun asiakkaan spoofing on käytössä</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Tämän käyttöönotto voi parantaa akun kestoa ja korjata toistoa stuttering.\n\nAVC on suurin resoluutio 1080p, ja videon toisto käyttää enemmän internet-tietoja kuin VP9 tai AV1.</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Videon koodekki pakotetaan AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Videokoodekki määritetään automaattisesti</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Tämän käyttöönotto voi parantaa akun kestoa ja korjata toistoa stuttering.\n\nAVC on enintään 1080p, Opus audio koodekki ei ole käytettävissä, ja videon toisto käyttää enemmän internet-tietoja kuin VP9 tai AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS-naamioinnin haittavaikutukset</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Yksityiset lapset videot eivät välttämättä pelaa\n• Livestreams alusta alkaen\n• Videot saattavat päättyä 1 sekunnin alkupuolella\n• Ei opus-äänikoodekkia</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Yksityiset lapset videot eivät välttämättä pelaa\n• Livestreams alkaa alusta\n• Videot saattavat päättyä 1 sekunti aikaisin</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR -naamioinnin haittavaikutukset</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">• Lapset videot eivät välttämättä soita\n• Ääniraidan valikko puuttuu\n• Vakaa äänenvoimakkuus ei ole käytettävissä</string>
   </patch>

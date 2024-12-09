@@ -710,6 +710,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">Spelare popup-paneler är dolda</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Spelarens popup-paneler visas</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <string name="revanced_open_videos_fullscreen_portrait_title">Öppna videor i helskärmsporträtt</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_on">Videor öppna helskärm</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_off">Videor öppnar inte fullskärm</string>
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Överlagring av spelarens opacitet</string>
   <string name="revanced_player_overlay_opacity_summary">Opacitetsvärde mellan 0-100, där 0 är transparent</string>
@@ -1200,12 +1205,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">Att stänga av den här inställningen kan orsaka videouppspelningsproblem.</string>
   <string name="revanced_spoof_video_streams_client_title">Standard klient</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Tvinga AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Videocodec är AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video-codec är VP9 eller AV1</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Din enhet har inte VP9 hårdvaruavkodning, och denna inställning är alltid på när klientförfalskning är aktiverad</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Aktivering av detta kan förbättra batteriets livslängd och åtgärda uppspelningshjälp.\n\nAVC har en maximal upplösning på 1080p, och videouppspelning kommer att använda mer internetdata än VP9 eller AV1.</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video-codec tvingas till AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video-codec bestäms automatiskt</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Aktivering av detta kan förbättra batteriets livslängd och åtgärda uppspelningshjälp.\n\nAVC har en maximal upplösning på 1080p, Opus audio codec är inte tillgänglig, och videouppspelning kommer att använda mer internetdata än VP9 eller AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS förfalskning biverkningar</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Privata barnvideor kanske inte spelar\n• Livestreams börjar från början\n• Videor kan sluta 1 sekund tidigt\n• Ingen opus-ljud-codec</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Privata barn videor får inte spela\n• Livestreams börjar från början\n• Videor kan sluta 1 sekund tidigt</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR förfalskning biverkningar</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">• Barnvideor kanske inte spelar\n• Ljudspårsmenyn saknas\n• Stabil volym är inte tillgänglig</string>
   </patch>

@@ -710,6 +710,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">Vyskakovací panely přehrávače jsou skryty</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Zobrazí se vyskakovací panely přehrávače</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <string name="revanced_open_videos_fullscreen_portrait_title">Otevřít videa na výšku na celou obrazovku</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_on">Videa otevřená na celou obrazovku</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_off">Videa neotevírají celou obrazovku</string>
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Neprůhlednost překrytí přehrávače</string>
   <string name="revanced_player_overlay_opacity_summary">Neprůhlednost mezi 0-100, kde 0 je průhledná</string>
@@ -1201,12 +1206,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">Vypnutí tohoto nastavení může způsobit problémy při přehrávání videa.</string>
   <string name="revanced_spoof_video_streams_client_title">Výchozí klient</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Síla AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodek je AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodek je VP9 nebo AV1</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Vaše zařízení nemá hardwarové dekódování VP9 a toto nastavení je vždy zapnuto, když je aktivní spoofování klienta</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Povolení této funkce může zlepšit životnost baterie a opravit stahování přehrávání.\n\nAVC má maximální rozlišení 1080p a video přehrávání bude používat více dat než VP9 nebo AV1.</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Kodek videa je nucen k AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodek videa je určen automaticky</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Povolení této funkce může zlepšit životnost baterie a opravit stahování přehrávání.\n\nAVC má maximální rozlišení 1080p, Opus audio kodek není k dispozici, a přehrávání videa bude používat více dat na internetu než VP9 nebo AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Boční efekty iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Soukromá dětská videa nemusí přehrávat\n• Živočišná zvířata začínající od začátku\n• Videa mohou skončit 1 sekundu na začátku\n• Žádný opus zvukový kodek</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Soukromé děti videa nemusí přehrávat\n• Živočišné rekony začínající od začátku\n• Videa mohou skončit 1 sekundu</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Boční efekty Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">• Dětská videa nemusí přehrát\n• Menu zvukové stopy chybí\n• Stabilní hlasitost není k dispozici</string>
   </patch>

@@ -695,6 +695,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">プレーヤーのポップアップパネルが非表示になります</string>
   <string name="revanced_hide_player_popup_panels_summary_off">プレーヤーのポップアップパネルが表示されます</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <string name="revanced_open_videos_fullscreen_portrait_title">全画面表示で動画を開く</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_on">動画を全画面表示で開く</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_off">動画が全画面表示されません</string>
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">プレイヤーオーバーレイの透明度</string>
   <string name="revanced_player_overlay_opacity_summary">透明度の値は 0〜100 の範囲で、0 が透明です</string>
@@ -1178,10 +1183,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">この設定をオフにすると、ビデオ再生の問題が発生する可能性があります。</string>
   <string name="revanced_spoof_video_streams_client_title">デフォルトのクライアント</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">強制AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">ビデオコーデックは AVC (H.264) です</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">ビデオコーデックはVP9またはAV1です</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">お使いのデバイスにはVP9ハードウェアデコードがありません。この設定はクライアントのスプーフィングが有効になっているときに常に有効になります</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">これを有効にするとバッテリー寿命と再生の途切れが改善する可能性があります。\n\nAVCの最大解像度は1080pで、ビデオ再生はVP9やAV1よりも多くの通信量を使用します。</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">ビデオコーデックはAVCに強制されました (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">ビデオコーデックが自動的に決定されます</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">これを有効にするとバッテリー寿命が延長され、再生が停止する可能性があります。\n\nAVCの最大解像度は1080pで、Opusオーディオコーデックは利用できません。 動画再生は、VP9やAV1よりも多くのインターネットデータを使用します。</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOSのクライアント偽装での副作用</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android-VR クライアント偽装の副作用</string>
   </patch>

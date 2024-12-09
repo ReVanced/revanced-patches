@@ -709,6 +709,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">Tá painéil aníos imreoirí i bhfolach</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Taispeántar painéil aníos imreoirí</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Trédhearcacht forleagtha an imreoir</string>
   <string name="revanced_player_overlay_opacity_summary">Luach trédhearcachta idir 0-100, áit a bhfuil 0 trédhearcach</string>
@@ -1200,12 +1202,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">Seans go mbeidh fadhbanna athsheinm físe ag baint leis an socrú seo a mhúchadh.</string>
   <string name="revanced_spoof_video_streams_client_title">Cliant réamhshocraithe</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Fórsa AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Is é AVC (H.264) an codec físeán</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Is é VP9 nó AV1 an codec físeán</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Níl díchódú crua-earraí VP9 ar do ghléas, agus bíonn an socrú seo ar siúl i gcónaí nuair atá spoofing Cliant cumasaithe</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Má dhéantar é seo a chumasú, d\'fhéadfadh sé go bhfeabhsófaí saol na gceallraí agus go n-athshocraigh sé stopáil athsheinm.\n\nTá uas-taifeach 1080p ag AVC, agus úsáidfidh athsheinm físe níos mó sonraí idirlín ná mar a úsáideann VP9 nó AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Fo-iarsmaí spoofing iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Ní cheadaítear físeáin leanaí príobháideacha a sheinm\n• Tosaíonn sruthanna beo ón tús\n• Seans go gcríochnóidh físeáin 1 soicind go luath\n• Gan codec fuaime opus</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">Ní féidir físeáin phríobháideacha do pháistí a sheinm\n• Tosaíonn sruthanna beo ón tús\n• Féadfaidh físeáin críochnú 1 soicind go luath</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Fo-iarsmaí spoofing Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">• Ní fhéadfaidh físeáin leanaí a sheinm\n• Tá an roghchlár rian fuaime ar iarraidh\n• Níl an toirt cobhsaí ar fáil</string>
   </patch>
