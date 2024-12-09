@@ -1209,7 +1209,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_about_android_vr_summary">• Дечји видеи се можда неће пуштати\n• Мени „Аудио снимак” недостаје\n• Уједначена јачина звука није доступна</string>
   <string name="revanced_spoof_video_streams_language_">Видео стримови су лажирани</string>
   <string name="revanced_spoof_video_streams_language_EN">енглески</string>
-  <string name="revanced_spoof_video_streams_language_FR">француски</string>
   </patch>
   </app>
   <app id="twitch">

@@ -1209,7 +1209,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_about_android_vr_summary">• 私人的兒童影片有可能不會播放\n• 找不到音樂曲目選單\n• 音量平衡不可用</string>
   <string name="revanced_spoof_video_streams_language_">已欺騙影片串流</string>
   <string name="revanced_spoof_video_streams_language_EN">英文</string>
-  <string name="revanced_spoof_video_streams_language_FR">French</string>
   </patch>
   </app>
   <app id="twitch">

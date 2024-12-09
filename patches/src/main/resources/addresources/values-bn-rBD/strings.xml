@@ -1069,8 +1069,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_client_title">ডিফল্ট ক্লায়েন্ট</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">AVC (H.264) ফোর্স করুন</string>
   <string name="revanced_spoof_video_streams_language_">ভিডিও স্ট্রিম স্পুফ করা হয়েছে</string>
-  <string name="revanced_spoof_video_streams_language_EN">ইংরেজি</string>
-  <string name="revanced_spoof_video_streams_language_FR">Français</string>
   </patch>
   </app>
   <app id="twitch">
