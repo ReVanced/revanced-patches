@@ -709,6 +709,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">Oynadıcı açılan pəncərə panelləri gizlidir</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Oynadıcı açılan pəncərə panelləri göstərilir</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Oynadıcı örtüyünün qeyri-şəffaflığı</string>
   <string name="revanced_player_overlay_opacity_summary">0-100 arasında qeyri-şəffaflıq dəyəri, burada 0 şəffafdır</string>
@@ -1200,14 +1202,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">Bu seçimi bağlamaq, video oynatma problemlərinə səbəb olar.</string>
   <string name="revanced_spoof_video_streams_client_title">İlkin qəbuledici</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Məcburi AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodlaşdırma: AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodlaşdırma / VP9 və ya AV1</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Cihazınızın VP9 hardware decoding\'i yoxdur və bu seçim, \"Qəbuledicini saxtalaşdırma\" aktivləşdikdə həmişəlikdir</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Bunu aktivləşdirmə batareya ömrünü yaxşılaşdıra və oynatma donmasını düzəldə bilər.\n\nAVC maksimum 1080p görüntü imkanına malikdir və video oynadılması VP9 və ya AV1-dən daha çox internet məlumatı istifadə edəcək.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS saxtakarlığı yan təsirləri</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Şəxsi uşaq videoları oynadılmaya bilər\n• Canlı yayımlar başdan başlayır\n• Videolar 1 saniyə tez bitə bilər\n• Opus səs kodlama yoxdur</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Uşaq videoları oxudulmaya bilər\n• Canlı yayımlar başdan başlayır\n• Videolar 1 saniyə tez bitə bilər</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR saxtakarlığı yan təsirləri</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">• Uşaq videoları oynadılmaya bilər\n• Səs treki menyusu əskikdir\n• Sabit səs həcmi əlçatan deyil</string>
+  <string name="revanced_spoof_video_streams_language_">Video yayımları saxtalaşdırılır</string>
+  <string name="revanced_spoof_video_streams_language_EN">İngiliscə</string>
+  <string name="revanced_spoof_video_streams_language_FR">Fransızca</string>
   </patch>
   </app>
   <app id="twitch">

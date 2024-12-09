@@ -709,6 +709,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">已隱藏播放器彈出面板</string>
   <string name="revanced_hide_player_popup_panels_summary_off">已顯示播放器彈出面板</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">播放器覆蓋透明度</string>
   <string name="revanced_player_overlay_opacity_summary">不透明度值介於 0-100 之間，0 為透明</string>
@@ -1201,14 +1203,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">關閉此設定可能會導致影片播放發生問題</string>
   <string name="revanced_spoof_video_streams_client_title">預設用戶端</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">強制 AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">影片編碼器為 AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">影片編碼器為 VP9 或 AV1</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">您的裝置不支援 VP9 硬體解碼，當啟用用戶端欺騙時，此設定將始終保持開啟</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">啟用此功能可能會改善電池續航力並修復播放卡頓問題。\n\nAVC 的最大解析度為 1080p，且影片播放將使用比 VP9 或 AV1 更多的網路數據。</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS 欺騙副作用</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• 私人的兒童影片有可能不會播放\n• 從直播起始處播放\n• 影片可能會提早一秒結束\n• 找不到音訊解碼器</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• 私人的兒童影片有可能不會播放\n• 從直播起始處播放\n• 影片可能會提早一秒結束</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR 欺騙副作用</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">• 私人的兒童影片有可能不會播放\n• 找不到音樂曲目選單\n• 音量平衡不可用</string>
+  <string name="revanced_spoof_video_streams_language_">已欺騙影片串流</string>
+  <string name="revanced_spoof_video_streams_language_EN">英文</string>
+  <string name="revanced_spoof_video_streams_language_FR">French</string>
   </patch>
   </app>
   <app id="twitch">
