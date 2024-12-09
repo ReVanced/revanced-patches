@@ -1241,9 +1241,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_language_KO">Κορεάτικα</string>
   <string name="revanced_spoof_video_streams_language_LT">Λιθουανικά</string>
   <string name="revanced_spoof_video_streams_language_LV">Λετονικά</string>
-  <string name="revanced_spoof_video_streams_language_MK">Σλαβομακεδονικά</string>
+  <string name="revanced_spoof_video_streams_language_MK">Μακεδονικά</string>
   <string name="revanced_spoof_video_streams_language_MN">Μογγολικά</string>
-  <string name="revanced_spoof_video_streams_language_MR">Μαραθικά</string>
+  <string name="revanced_spoof_video_streams_language_MR">Μαράτι</string>
   <string name="revanced_spoof_video_streams_language_MS">Μαλαισιανά</string>
   <string name="revanced_spoof_video_streams_language_MY">Βιρμανικά</string>
   <string name="revanced_spoof_video_streams_language_NL">Ολλανδικά</string>

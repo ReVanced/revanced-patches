@@ -93,7 +93,8 @@ public class SpoofVideoStreamsPatch {
                     StreamingDataRequest.fetchRequest(videoId, requestHeaders);
                 }
             } catch (Exception ex) {
-                Logger.printException(() -> "buildRequest failure", ex);
+                Logger.printException(() -> "buildRequest failure. Url: " + url
+                        + " headers: " + requestHeaders, ex);
             }
         }
     }

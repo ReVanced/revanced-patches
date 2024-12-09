@@ -54,9 +54,7 @@ public class ReVancedAboutPreference extends Preference {
     }
 
     protected boolean isDarkModeEnabled() {
-        Configuration config = getContext().getResources().getConfiguration();
-        final int currentNightMode = config.uiMode & Configuration.UI_MODE_NIGHT_MASK;
-        return currentNightMode == Configuration.UI_MODE_NIGHT_YES;
+        return Utils.isDarkModeEnabled(getContext());
     }
 
     /**

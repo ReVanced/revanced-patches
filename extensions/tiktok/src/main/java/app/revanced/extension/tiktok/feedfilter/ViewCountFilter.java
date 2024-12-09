@@ -1,17 +1,17 @@
 package app.revanced.extension.tiktok.feedfilter;
 
+import app.revanced.extension.tiktok.Utils;
 import app.revanced.extension.tiktok.settings.Settings;
 import com.ss.android.ugc.aweme.feed.model.Aweme;
 import com.ss.android.ugc.aweme.feed.model.AwemeStatistics;
 
-import static app.revanced.extension.tiktok.Utils.parseMinMax;
 
 public class ViewCountFilter implements IFilter {
     final long minView;
     final long maxView;
 
     ViewCountFilter() {
-        long[] minMax = parseMinMax(Settings.MIN_MAX_VIEWS);
+        long[] minMax = Utils.parseMinMax(Settings.MIN_MAX_VIEWS);
         minView = minMax[0];
         maxView = minMax[1];
     }
