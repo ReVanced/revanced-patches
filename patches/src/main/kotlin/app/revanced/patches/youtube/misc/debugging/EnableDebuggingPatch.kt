@@ -8,15 +8,17 @@ import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPref
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
+import app.revanced.patches.youtube.misc.playservice.is_19_16_or_greater
+import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/EnableDebuggingPatch;"
 
-@Suppress("unused")
 val enableDebuggingPatch = bytecodePatch(
     name = "Enable debugging",
     description = "Adds options for debugging.",
@@ -25,6 +27,7 @@ val enableDebuggingPatch = bytecodePatch(
         sharedExtensionPatch,
         settingsPatch,
         addResourcesPatch,
+        versionCheckPatch
     )
 
     compatibleWith(
@@ -35,6 +38,8 @@ val enableDebuggingPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
+            "19.45.38",
+            "19.46.42",
         ),
     )
 
@@ -89,23 +94,41 @@ val enableDebuggingPatch = bytecodePatch(
             )
         }
 
-        experimentalLongFeatureFlagFingerprint.match(
+        if (is_19_16_or_greater) {
+            experimentalLongFeatureFlagFingerprint.match(
+                experimentalFeatureFlagParentFingerprint.originalClassDef
+            ).method.apply {
+                val insertIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_WIDE)
+
+                addInstructions(
+                    insertIndex,
+                    """
+                        move-result-wide v0
+                        invoke-static/range { v0 .. v5 }, $EXTENSION_CLASS_DESCRIPTOR->isLongFeatureFlagEnabled(JJJ)J
+                        move-result-wide v0
+                        return-wide v0
+                    """
+                )
+            }
+        }
+
+        experimentalStringFeatureFlagFingerprint.match(
             experimentalFeatureFlagParentFingerprint.originalClassDef
         ).method.apply {
-            val insertIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_WIDE)
+            val insertIndex = indexOfFirstInstructionReversedOrThrow(Opcode.MOVE_RESULT_OBJECT)
 
             addInstructions(
                 insertIndex,
                 """
-                    move-result-wide v0
-                    invoke-static/range { v0 .. v5 }, $EXTENSION_CLASS_DESCRIPTOR->isLongFeatureFlagEnabled(JJJ)J
-                    move-result-wide v0
-                    return-wide v0
+                    move-result-object v0
+                    invoke-static { v0, p1, p2, p3 }, $EXTENSION_CLASS_DESCRIPTOR->isStringFeatureFlagEnabled(Ljava/lang/String;JLjava/lang/String;)Ljava/lang/String;
+                    move-result-object v0
+                    return-object v0
                 """
             )
         }
 
-        // There exists other experimental accessor methods for String, byte[], and wrappers for obfuscated classes,
-        // but currently none of those are hooked.
+        // There exists other experimental accessor methods for byte[]
+        // and wrappers for obfuscated classes, but currently none of those are hooked.
     }
 }

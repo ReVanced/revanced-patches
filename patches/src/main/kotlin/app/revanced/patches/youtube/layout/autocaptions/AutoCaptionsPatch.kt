@@ -10,7 +10,6 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.subtitleButtonControllerFingerprint
 
-@Suppress("unused")
 val autoCaptionsPatch = bytecodePatch(
     name = "Disable auto captions",
     description = "Adds an option to disable captions from being automatically enabled.",
@@ -29,6 +28,8 @@ val autoCaptionsPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
+            "19.45.38",
+            "19.46.42",
         ),
     )
 

@@ -63,20 +63,20 @@ val spoofClientPatch = spoofClientPatch(
         val randomName = (0..100000).random()
         val userAgent = "$randomName:app.revanced.$randomName:v1.0.0 (by /u/revanced)"
 
-        imgurImageAPIFingerprint.method.replaceInstruction(
+        getUserAgentFingerprint.method.replaceInstruction(
             0,
             """
-            const-string v0, "$userAgent"
-            return-object v0
-        """,
+                const-string v0, "$userAgent"
+                return-object v0
+            """,
         )
 
         // endregion
 
         // region Patch Imgur API URL.
 
-        val apiUrlIndex = getUserAgentFingerprint.stringMatches!!.first().index
-        getUserAgentFingerprint.method.replaceInstruction(
+        val apiUrlIndex = imgurImageAPIFingerprint.stringMatches!!.first().index
+        imgurImageAPIFingerprint.method.replaceInstruction(
             apiUrlIndex,
             "const-string v1, \"https://api.imgur.com/3/image\"",
         )

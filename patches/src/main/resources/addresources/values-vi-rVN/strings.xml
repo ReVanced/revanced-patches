@@ -60,7 +60,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">Lưu ý</string>
   <string name="revanced_settings_about_links_dev_body">Đây là phiên bản tiền phát hành và bạn có thể gặp phải sự cố không mong muốn</string>
   <string name="revanced_settings_about_links_header">Các liên kết chính thức</string>
-  <string name="revanced_settings_about_links_donate">Quyên góp</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -86,6 +87,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_12_video_title">Video</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <string name="revanced_shorts_disable_background_playback_title">Tắt phát nền cho Shorts</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Chạy nền cho Shorts được tắt</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Chạy nền cho Shorts được bật</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Gỡ lỗi</string>
@@ -267,6 +271,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Mốc thời gian và các nút biểu tượng cảm xúc được ẩn</string>
   <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Mốc thời gian và các nút biểu tượng cảm xúc được hiện</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
+  <string name="revanced_hide_doodles_title">Ẩn YouTube Doodles</string>
+  <string name="revanced_hide_doodles_summary_on">Thanh tìm kiếm Doodles được ẩn</string>
+  <string name="revanced_hide_doodles_summary_off">Thanh tìm kiếm Doodles được hiện</string>
+  <string name="revanced_hide_doodles_user_dialog_message">YouTube Doodles xuất hiện vài ngày mỗi năm.\n\nNếu YouTube Doodle đang hiển thị ở khu vực của bạn đồng thời tuỳ chọn ẩn này cũng đang bật, thì thanh bộ lọc ở thanh tìm kiếm cũng sẽ bị ẩn.</string>
   <string name="revanced_custom_filter_screen_title">Bộ lọc tùy chỉnh</string>
   <string name="revanced_custom_filter_screen_summary">Ẩn các thành phần dùng bộ lọc tùy chỉnh</string>
   <string name="revanced_custom_filter_title">Bật bộ lọc tùy chỉnh</string>
@@ -322,6 +330,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_products_banner_title">Ẩn biểu ngữ để xem sản phẩm</string>
   <string name="revanced_hide_products_banner_summary_on">Biểu ngữ được ẩn</string>
   <string name="revanced_hide_products_banner_summary_off">Biểu ngữ được hiện</string>
+  <string name="revanced_hide_player_store_shelf_title">Ẩn kệ cửa hàng</string>
+  <string name="revanced_hide_player_store_shelf_summary_on">Kệ cửa hàng được ẩn</string>
+  <string name="revanced_hide_player_store_shelf_summary_off">Kệ cửa hàng được hiện</string>
   <string name="revanced_hide_shopping_links_title">Ẩn các liên kết mua hàng trong mô tả video</string>
   <string name="revanced_hide_shopping_links_summary_on">Các liên kết mua hàng được ẩn</string>
   <string name="revanced_hide_shopping_links_summary_off">Các liên kết mua hàng được hiện</string>
@@ -497,6 +508,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_additional_settings_summary_on">Trình đơn cài đặt bổ sung được ẩn</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_off">Trình đơn cài đặt bổ sung được hiện</string>
   <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_sleep_timer_title">Ẩn Hẹn giờ ngủ</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_on">Trình đơn Hẹn giờ ngủ được ẩn</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_off">Trình đơn Hẹn giờ ngủ được hiện</string>
   <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_loop_video_title">Ẩn lặp video</string>
   <string name="revanced_hide_player_flyout_loop_video_summary_on">Trình đơn lặp video được ẩn</string>
@@ -505,6 +519,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_ambient_mode_title">Ẩn chế độ môi trường</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_on">Trình đơn chế độ môi trường được ẩn</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_off">Trình đơn chế độ môi trường được hiện</string>
+  <string name="revanced_hide_player_flyout_stable_volume_title">Ẩn Âm lượng ổn định</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_off">Trình đơn Âm lượng ổn định được hiện</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_on">Trình đơn Âm lượng ổn định được ẩn</string>
   <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_help_title">Ẩn Trợ giúp &amp; Phản hồi</string>
   <string name="revanced_hide_player_flyout_help_summary_on">Trình đơn trợ giúp &amp; phản hồi được ẩn</string>
@@ -530,7 +547,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Ẩn Xem trong thực tế ảo</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Trình đơn xem trong thực tế ảo được ẩn</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Trình đơn xem trong thực tế ảo được hiện</string>
-  <string name="revanced_hide_player_flyout_video_quality_footer_title">Ẩn ghi chú cuối mục chất lượng video</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_title">Ẩn trình đơn chất lượng video dưới</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Trình đơn chất lượng video bên dưới được ẩn</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Trình đơn chất lượng video bên dưới được hiện</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_player_previous_next_buttons_title">Ẩn các nút video trước đó &amp; tiếp theo</string>
@@ -576,6 +595,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Thanh tiến trình hình thu nhỏ được hiện</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <string name="revanced_shorts_player_screen_title">Trình phát Shorts</string>
+  <string name="revanced_shorts_player_screen_summary">Ẩn hoặc hiển thị các thành phần trong trình phát Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Ẩn Shorts trong bảng tin trang chính</string>
   <string name="revanced_hide_shorts_home_summary_on">Shorts trong bảng tin trang chính được ẩn</string>
@@ -611,6 +632,20 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_summary_on">Nhãn vị trí được ẩn</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Nhãn vị trí được hiện</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Ẩn nút lưu nhạc</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">Nút lưu nhạc được ẩn</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">Nút lưu nhạc được hiện</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Ẩn nút sử dụng mẫu</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Nút sử dụng mẫu được ẩn</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Nút sử dụng mẫu được hiện</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">Ẩn nút sắp tới</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">Nút sắp tới được ẩn</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">Nút sắp tới được hiện</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">Ẩn nút phông xanh</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_on">Nút phông xanh được ẩn</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_off">Nút phông xanh được hiện</string>
+  <string name="revanced_hide_shorts_hashtag_button_title">Ẩn nút hashtag</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_on">Nút hashtag được ẩn</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_off">Nút hashtag được hiện</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Ẩn đề xuất tìm kiếm</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Đề xuất tìm kiếm được ẩn</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Đề xuất tìm kiếm được hiện</string>
@@ -674,6 +709,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">Bảng bật lên trên trình phát được ẩn</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Bảng bật lên trên trình phát được hiện</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Độ mờ của lớp phủ trình phát</string>
   <string name="revanced_player_overlay_opacity_summary">Giá trị độ mờ của lớp phủ trình phát trong khoảng từ 0 đến 100, trong đó 0 là trong suốt</string>
@@ -729,6 +766,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_wide_searchbar_summary_off">Thanh tìm kiếm rộng được tắt</string>
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_title">Bật hình thu nhỏ chất lượng cao</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Hình thu nhỏ khi tua có chất lượng cao</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Hình thu nhỏ khi tua có chất lượng trung bình</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Hình thu nhỏ khi tua toàn màn hình có chất lượng cao</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Hình thu nhỏ khi tua toàn màn hình có chất lượng trung bình</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Việc này cũng khôi phục hình thu nhỏ trên phát trực tiếp do không có hình thu nhỏ khi tua.\n\nHình thu nhỏ khi tua cũng sẽ dùng cùng chất lượng với video hiện tại.\n\nTính năng này hoạt động tốt nhất với video có chất lượng 720p hoặc thấp hơn và khi dùng kết nối mạng nhanh.</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Khôi phục thanh tiến trình hình thu nhỏ kiểu cũ</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Thanh tiến trình hình thu nhỏ sẽ xuất hiện phía trên thanh tiến trình</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Thanh tiến trình hình thu nhỏ sẽ xuất hiện khi toàn màn hình</string>
@@ -922,21 +965,30 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Phiên bản giả mạo mục tiêu</string>
+  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Khôi phục biểu tượng trình phát Shorts cũ</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_entry_1">18.33.40 - Khôi phục RYD trong Shorts chế độ ẩn danh</string>
-  <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - Khôi phục trình đơn tốc độ &amp; chất lượng cho video rộng</string>
-  <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - Khôi phục thẻ thư viện</string>
-  <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Khôi phục kệ danh sách phát cũ</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Khôi phục RYD trong Shorts chế độ ẩn danh</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Khôi phục trình đơn tốc độ &amp; chất lượng cho video rộng</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Khôi phục thẻ thư viện</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Khôi phục kệ danh sách phát cũ</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Đặt trang bắt đầu</string>
   <string name="revanced_change_start_page_entry_default">Mặc định</string>
+  <string name="revanced_change_start_page_entry_browse">Duyệt kênh</string>
   <string name="revanced_change_start_page_entry_explore">Khám phá</string>
+  <string name="revanced_change_start_page_entry_gaming">Trò chơi</string>
   <string name="revanced_change_start_page_entry_history">Lịch sử</string>
+  <string name="revanced_change_start_page_entry_library">Thư viện</string>
   <string name="revanced_change_start_page_entry_liked_videos">Video đã thích</string>
+  <string name="revanced_change_start_page_entry_live">Trực tiếp</string>
+  <string name="revanced_change_start_page_entry_movies">Phim</string>
+  <string name="revanced_change_start_page_entry_music">Âm nhạc</string>
   <string name="revanced_change_start_page_entry_search">Tìm kiếm</string>
+  <string name="revanced_change_start_page_entry_sports">Thể thao</string>
   <string name="revanced_change_start_page_entry_subscriptions">Đăng ký</string>
   <string name="revanced_change_start_page_entry_trending">Xu hướng</string>
+  <string name="revanced_change_start_page_entry_watch_later">Xem sau</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Tắt tiếp tục trình phát Shorts</string>
@@ -944,6 +996,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_resuming_shorts_player_summary_off">Trinh phát Shorts sẽ tiếp tục khi ứng dụng khởi chạy</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <string name="revanced_shorts_autoplay_title">Tự động phát Shorts</string>
+  <string name="revanced_shorts_autoplay_summary_on">Shorts sẽ phát tự động</string>
+  <string name="revanced_shorts_autoplay_summary_off">Shorts sẽ phát lặp lại</string>
+  <string name="revanced_shorts_autoplay_background_title">Tự động phát nền cho Shorts</string>
+  <string name="revanced_shorts_autoplay_background_summary_on">Phát nền cho Shorts được phát tự động</string>
+  <string name="revanced_shorts_autoplay_background_summary_off">Phát nền cho Shorts được phát lặp lại</string>
   </patch>
   <patch id="layout.tablet.enableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Bật bố cục máy tính bảng</string>
@@ -955,19 +1013,40 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Trình phát thu nhỏ</string>
   <string name="revanced_miniplayer_screen_summary">Thay đổi kiểu trình phát thu nhỏ trong ứng dụng</string>
   <string name="revanced_miniplayer_type_title">Loại trình phát thu nhỏ</string>
+  <string name="revanced_miniplayer_type_entry_0">Đã tắt</string>
   <string name="revanced_miniplayer_type_entry_1">Nguyên bản</string>
-  <string name="revanced_miniplayer_type_entry_2">Điện thoại</string>
+  <string name="revanced_miniplayer_type_entry_2">Thu gọn</string>
   <string name="revanced_miniplayer_type_entry_3">Máy tính bảng</string>
   <string name="revanced_miniplayer_type_entry_4">Hiện đại 1</string>
   <string name="revanced_miniplayer_type_entry_5">Hiện đại 2</string>
   <string name="revanced_miniplayer_type_entry_6">Hiện đại 3</string>
+  <string name="revanced_miniplayer_rounded_corners_title">Bật góc bo tròn</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_on">Góc được bo tròn</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_off">Góc vuông</string>
+  <string name="revanced_miniplayer_double_tap_action_title">Bật nhấp đôi và chụm để thay đổi kích thước</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">Chạm đôi và chụm để thay đổi kích thước được bật.\n\n• Chạm đôi để tăng kích thước trình phát nhỏ\n• Chạm đôi lại lần nữa để khôi phục kích thước gốc</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_off">Chạm đôi và chụm để thay đổi kích thước được tắt</string>
+  <string name="revanced_miniplayer_drag_and_drop_title">Bật kéo và thả</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">Kéo và thả được bật\n\nTrình phát nhỏ có thể kéo đến bất kỳ góc nào của màn hình</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_off">Kéo và thả được tắt</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">Bật cử chỉ kéo ngang</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">Cử chỉ kéo ngang được bật\n\nTrình phát nhỏ có thể được kéo ra ngoài màn hình bên trái hoặc phải</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">Cử chỉ kéo ngang được tắt</string>
+  <string name="revanced_miniplayer_hide_expand_close_title">Ẩn nút đóng</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">Nút đóng được ẩn</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">Nút đóng được hiện</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_title">Ẩn các nút mở rộng và đóng</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Các nút được ẩn\n\nVuốt để mở rộng hoặc đóng</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Các nút mở rộng và đóng được hiện</string>
   <string name="revanced_miniplayer_hide_subtext_title">Ẩn văn bản phụ</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Văn bản phụ được ẩn</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Văn bản phụ được hiện</string>
   <string name="revanced_miniplayer_hide_rewind_forward_title">Ẩn các nút bỏ quả đến tiếp và trước đó </string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Các nút bỏ quả đến tiếp và trước đó được ẩn</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Các nút bỏ quả đến tiếp và trước đó được hiện</string>
+  <string name="revanced_miniplayer_width_dip_title">Kích thước ban đầu</string>
+  <string name="revanced_miniplayer_width_dip_summary">Kích thước ban đầu trên màn hình, bằng pixel</string>
+  <string name="revanced_miniplayer_width_dip_invalid_toast">Pixel phải nằm giữa %1$s và %2$s</string>
   <string name="revanced_miniplayer_opacity_title">Độ mờ lớp phủ</string>
   <string name="revanced_miniplayer_opacity_summary">Giá trị độ mờ của lớp phủ trình phát trong khoảng từ 0 đến 100, trong đó 0 là trong suốt</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Độ phủ mờ trình phát thu nhỏ phải nằm giữa 0-100</string>
@@ -983,6 +1062,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_summary_off">Màu gốc thanh tiến trình được hiện </string>
   <string name="revanced_seekbar_custom_color_value_title">Màu tùy chỉnh thanh tiến trình</string>
   <string name="revanced_seekbar_custom_color_value_summary">Màu của thanh tiến trình</string>
+  <string name="revanced_seekbar_custom_color_invalid">Giá trị màu thanh tiến trình không hợp lệ</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Vượt qua hạn chế khu vực cho hình ảnh</string>
@@ -1070,7 +1150,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">Phản hồi xúc giác được bật</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Chất lượng tự động</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">Tự động</string>
   <string name="revanced_remember_video_quality_last_selected_title">Nhớ các thay đổi chất lượng video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Thay đổi chất lượng áp dụng cho tất cả video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Thay đổi chất lượng chỉ áp dụng cho video hiện tại</string>
@@ -1086,9 +1167,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_playback_speed_dialog_button_summary_off">Nút không được hiện</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <string name="revanced_custom_speed_menu_title">Trình đơn tốc độ phát tùy chỉnh</string>
+  <string name="revanced_custom_speed_menu_summary_on">Trình đơn tốc độ phát tùy chỉnh được hiện</string>
+  <string name="revanced_custom_speed_menu_summary_off">Trình đơn tốc độ phát tùy chỉnh không được hiện</string>
   <string name="revanced_custom_playback_speeds_title">Tốc độ phát tùy chỉnh</string>
+  <string name="revanced_custom_playback_speeds_summary">Thêm hoặc thay đổi tốc độ phát tùy chỉnh</string>
   <string name="revanced_custom_playback_speeds_invalid">Tốc độ phát tuỳ chỉnh phải nhỏ hơn %s. Dùng giá trị mặc định.</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Tốc độ phát không hợp lệ. Dùng giá trị mặc định.</string>
+  <string name="revanced_custom_playback_speeds_auto">Tự động</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Nhớ các thay đổi tốc độ phát</string>
@@ -1116,14 +1202,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">Việc tắt cài đặt này có thể gây ra sự cố phát nền video.</string>
   <string name="revanced_spoof_video_streams_client_title">Máy khách mặc định</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">AVC (H.264) ép buộc</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Bộ giải mã là AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Bộ giải mã là VP9 hoặc AV1</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Thiết bị của bạn không có phần cứng giải mã VP9, và thiết lập này luôn bật khi Giả mạo máy khách bật</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Bật chức năng này có thể tăng cường thời lượng pin và sửa lỗi phát lặp.\n\nAVC có độ phân giải tối đa 1080p, và video phát sẽ dùng nhiều dữ liệu mạng hơn VP9 hoặc AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Tác dụng phụ của giả mạo iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Phim hoặc video trả tiền có thể không phát được\n• Luồng phát trực tiếp có thể phát từ đầu\n• Video có thể kết thúc sớm trước 1 giây\n• Không có bộ giải mã âm thanh opus</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Tác dụng phụ của giả mạo Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Trình đơn bản âm thanh bị mất\n• Âm lượng thích ứng không hữu dụng</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Video trẻ em có thể không phát được \n • Menu chọn bản âm thanh không khả dụng \n • Âm lượng ổn định không có sẵn</string>
+  <string name="revanced_spoof_video_streams_language_">Luồng video đã được giả mạo</string>
   </patch>
   </app>
   <app id="twitch">
@@ -1165,6 +1247,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">Cài đặt ReVanced</string>
+  <string name="revanced_about_title">Giới thiệu</string>
+  <string name="revanced_about_summary">Giới thiệu về ReVanced</string>
   <string name="revanced_ads_screen_title">Quảng cáo</string>
   <string name="revanced_ads_screen_summary">Cài đặt chặn quảng cáo</string>
   <string name="revanced_chat_screen_title">Trò chuyện</string>

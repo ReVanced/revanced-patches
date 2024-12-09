@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.misc.playercontrols
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
@@ -10,6 +11,8 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
+import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
+import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_35_or_greater
 import app.revanced.util.*
 import com.android.tools.smali.dexlib2.Opcode
@@ -212,15 +215,17 @@ private var visibilityImmediateInsertIndex: Int = 0
 val playerControlsPatch = bytecodePatch(
     description = "Manages the code for the player controls of the YouTube player.",
 ) {
-    dependsOn(playerControlsResourcePatch)
+    dependsOn(
+        playerControlsResourcePatch,
+        sharedExtensionPatch,
+    )
 
     execute {
-        fun MutableMethod.indexOfFirstViewInflateOrThrow() =
-            indexOfFirstInstructionOrThrow {
-                val reference = getReference<MethodReference>()
-                reference?.definingClass == "Landroid/view/ViewStub;" &&
-                    reference.name == "inflate"
-            }
+        fun MutableMethod.indexOfFirstViewInflateOrThrow() = indexOfFirstInstructionOrThrow {
+            val reference = getReference<MethodReference>()
+            reference?.definingClass == "Landroid/view/ViewStub;" &&
+                reference.name == "inflate"
+        }
 
         playerBottomControlsInflateFingerprint.method.apply {
             inflateBottomControlMethod = this
@@ -263,12 +268,36 @@ val playerControlsPatch = bytecodePatch(
 
         visibilityImmediateMethod = playerControlsExtensionHookFingerprint.method
 
-        // A/B test for a slightly different overlay controls,
+        // A/B test for a slightly different bottom overlay controls,
         // that uses layout file youtube_video_exploder_controls_bottom_ui_container.xml
         // The change to support this is simple and only requires adding buttons to both layout files,
         // but for now force this different layout off since it's still an experimental test.
         if (is_19_35_or_greater) {
-            playerControlsExploderFeatureFlagFingerprint.method.returnEarly()
+            playerBottomControlsExploderFeatureFlagFingerprint.method.returnEarly()
+        }
+
+        // A/B test of new top overlay controls. Two different layouts can be used:
+        // youtube_cf_navigation_improvement_controls_layout.xml
+        // youtube_cf_minimal_impact_controls_layout.xml
+        //
+        // Visually there is no noticeable difference between either of these compared to the default.
+        // There is additional logic that is active when youtube_cf_navigation_improvement_controls_layout
+        // is active, but what it does is not entirely clear.
+        //
+        // For now force this a/b feature off as it breaks the top player buttons.
+        if (is_19_25_or_greater) {
+            playerTopControlsExperimentalLayoutFeatureFlagFingerprint.method.apply {
+                val index = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_OBJECT)
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+                addInstructions(
+                    index + 1,
+                    """
+                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getPlayerTopControlsLayoutResourceName(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v$register
+                    """,
+                )
+            }
         }
     }
 }

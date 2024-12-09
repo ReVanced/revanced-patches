@@ -19,7 +19,6 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/AlternativeThumbnailsPatch;"
 
-@Suppress("unused")
 val alternativeThumbnailsPatch = bytecodePatch(
     name = "Alternative thumbnails",
     description = "Adds options to replace video thumbnails using the DeArrow API or image captures from the video.",
@@ -40,6 +39,8 @@ val alternativeThumbnailsPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
+            "19.45.38",
+            "19.46.42",
         ),
     )
 

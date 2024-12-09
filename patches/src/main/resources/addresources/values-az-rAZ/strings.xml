@@ -60,7 +60,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">Qeyd</string>
   <string name="revanced_settings_about_links_dev_body">Bu versiya ilkin buraxılışdır və gözlənilməz problemlərlə üzləşə bilərsiniz</string>
   <string name="revanced_settings_about_links_header">Rəsmi bağlantılar</string>
-  <string name="revanced_settings_about_links_donate">İanə ver</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -708,6 +709,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">Oynadıcı açılan pəncərə panelləri gizlidir</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Oynadıcı açılan pəncərə panelləri göstərilir</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Oynadıcı örtüyünün qeyri-şəffaflığı</string>
   <string name="revanced_player_overlay_opacity_summary">0-100 arasında qeyri-şəffaflıq dəyəri, burada 0 şəffafdır</string>
@@ -962,11 +965,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Saxta tətbiq versiyası hədəfi</string>
+  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Köhnə Shorts oynadıcı işarələrin bərpa et</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_entry_1">18.33.40 - Shorts gizli rejimində RYD-ni bərpa et</string>
-  <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - Geniş video sürəti &amp; keyfiyyət menyusunu bərpa et</string>
-  <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - Kitabxana panelini bərpa et</string>
-  <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Köhnə pleylist bölməsin bərpa et</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Shorts gizli rejimində RYD-ni bərpa et</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Geniş video sürəti &amp; keyfiyyət menyusunu bərpa et</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Kitabxana panelini bərpa et</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Köhnə pleylist bölməsin bərpa et</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Başlanğıc səhifəsini tənzimlə</string>
@@ -1009,8 +1013,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Kiçik oynadıcı</string>
   <string name="revanced_miniplayer_screen_summary">Tətbiqdə kiçildilən oynadıcı üslubunu dəyişdir</string>
   <string name="revanced_miniplayer_type_title">Kiçik oynadıcı növü</string>
+  <string name="revanced_miniplayer_type_entry_0">Qeyri-aktivdir</string>
   <string name="revanced_miniplayer_type_entry_1">Orijinal</string>
-  <string name="revanced_miniplayer_type_entry_2">Telefon</string>
+  <string name="revanced_miniplayer_type_entry_2">Ən kiçik</string>
   <string name="revanced_miniplayer_type_entry_3">Planşet</string>
   <string name="revanced_miniplayer_type_entry_4">Müasir 1</string>
   <string name="revanced_miniplayer_type_entry_5">Müasir 2</string>
@@ -1145,7 +1150,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">Toxunuş əks-əlaqəsi aktivdir</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Avtomatik keyfiyyət</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">Avtomatik</string>
   <string name="revanced_remember_video_quality_last_selected_title">Video keyfiyyəti dəyişikliklərini xatırla</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Keyfiyyət dəyişiklikləri bütün videolara tətbiq edilir</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Keyfiyyət dəyişiklikləri yalnız cari videoya tətbiq edilir</string>
@@ -1168,6 +1174,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_custom_playback_speeds_summary">Fərdi oynatma sürətlərini əlavə et və ya dəyiş</string>
   <string name="revanced_custom_playback_speeds_invalid">Fərdi sürətlər %s-dən az olmalıdır.  Standart dəyərlər istifadəsi.</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Etibarsız oynatma sürətləri. Standartlar istifadədədir.</string>
+  <string name="revanced_custom_playback_speeds_auto">Avtomatik</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Oynatma sürəti dəyişikliklərin xatırla</string>
@@ -1195,14 +1202,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">Bu seçimi bağlamaq, video oynatma problemlərinə səbəb olar.</string>
   <string name="revanced_spoof_video_streams_client_title">İlkin qəbuledici</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Məcburi AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodlaşdırma: AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodlaşdırma / VP9 və ya AV1</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Cihazınızın VP9 hardware decoding\'i yoxdur və bu seçim, \"Qəbuledicini saxtalaşdırma\" aktivləşdikdə həmişəlikdir</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Bunu aktivləşdirmə batareya ömrünü yaxşılaşdıra və oynatma donmasını düzəldə bilər.\n\nAVC maksimum 1080p görüntü imkanına malikdir və video oynadılması VP9 və ya AV1-dən daha çox internet məlumatı istifadə edəcək.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS saxtakarlığı yan təsirləri</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmlər və ya ödənişli videolar oynadılmaya bilər\n• Canlı yayımlar əvvəldən başlayır\n• Videolar 1 saniyə tez bitə bilər\n• Opus səs kodlama yoxdur</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Uşaq videoları oxudulmaya bilər\n• Canlı yayımlar başdan başlayır\n• Videolar 1 saniyə tez bitə bilər</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR saxtakarlığı yan təsirləri</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Səs axını menyusu əskikdir\n• Stabil səs səviyyəsi əlçatan deyil</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Uşaq videoları oynadılmaya bilər\n• Səs treki menyusu əskikdir\n• Sabit səs həcmi əlçatan deyil</string>
+  <string name="revanced_spoof_video_streams_language_">Video yayımları saxtalaşdırılır</string>
   </patch>
   </app>
   <app id="twitch">
@@ -1244,6 +1248,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">ReVanced Tənzimləmələri</string>
+  <string name="revanced_about_title">Haqqında</string>
+  <string name="revanced_about_summary">ReVanced haqqında</string>
   <string name="revanced_ads_screen_title">Reklamlar</string>
   <string name="revanced_ads_screen_summary">Reklam əngəlləmə tənzimləmələri</string>
   <string name="revanced_chat_screen_title">Söhbət</string>

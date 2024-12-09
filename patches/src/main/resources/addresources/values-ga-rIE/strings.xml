@@ -60,7 +60,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">Nóta</string>
   <string name="revanced_settings_about_links_dev_body">Is réamh-eisiúint é an leagan seo agus d\'fhéadfadh fadhbanna gan choinne a bheith agat</string>
   <string name="revanced_settings_about_links_header">Naisc oifigiúla</string>
-  <string name="revanced_settings_about_links_donate">Síntiúis</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -708,6 +709,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">Tá painéil aníos imreoirí i bhfolach</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Taispeántar painéil aníos imreoirí</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Trédhearcacht forleagtha an imreoir</string>
   <string name="revanced_player_overlay_opacity_summary">Luach trédhearcachta idir 0-100, áit a bhfuil 0 trédhearcach</string>
@@ -962,11 +965,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Sprioc leagan aip spoof</string>
+  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Athchóirigh sean-deilbhíní imreoir Shorts</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_entry_1">18.33.40 - Athchóirigh RYD ar mhodh incognito Shorts</string>
-  <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - Athchóirigh luas leathan físe &amp; roghchlár cáilíochta</string>
-  <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - Athchóirigh cluaisín leabharlainne</string>
-  <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Athchóirigh sean-seilf seinmliostaí</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Athchóirigh RYD ar mhodh incognito Shorts</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Athchóirigh luas leathan físe &amp; roghchlár cáilíochta</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Athchóirigh cluaisín leabharlainne</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Athchóirigh sean-seilf seinmliostaí</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Socraigh leathanach tosaigh</string>
@@ -1009,8 +1013,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Miniplayer</string>
   <string name="revanced_miniplayer_screen_summary">Athraigh stíl an imreora íoslaghdaithe san aip</string>
   <string name="revanced_miniplayer_type_title">Cineál Miniplayer</string>
+  <string name="revanced_miniplayer_type_entry_0">Díchumasaithe</string>
   <string name="revanced_miniplayer_type_entry_1">Bunaidh</string>
-  <string name="revanced_miniplayer_type_entry_2">Fón</string>
+  <string name="revanced_miniplayer_type_entry_2">Íosta</string>
   <string name="revanced_miniplayer_type_entry_3">Táibléad</string>
   <string name="revanced_miniplayer_type_entry_4">Nua-aimseartha 1</string>
   <string name="revanced_miniplayer_type_entry_5">Nua-Aimseartha 2</string>
@@ -1145,7 +1150,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">Tá Haptics cumasaithe</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Cáilíocht uathoibríoch</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">Auto</string>
   <string name="revanced_remember_video_quality_last_selected_title">Cuimhnigh athruithe ar cháilíocht</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Baineann athruithe cáilíochta le gach físeán</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Ní bhaineann athruithe cáilíochta ach leis an bhfíseán reatha</string>
@@ -1168,6 +1174,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_custom_playback_speeds_summary">Cuir leis nó athraigh na luasanna athsheinm saincheaptha</string>
   <string name="revanced_custom_playback_speeds_invalid">Caithfidh luasanna saincheaptha a bheith níos lú ná %s. Úsáid luachanna réamhshocraithe.</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Luasanna athsheinm saincheaptha neamhí Luachanna réamhshocraithe a úsáid.</string>
+  <string name="revanced_custom_playback_speeds_auto">Auto</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Cuimhnigh athruithe ar luas athsheinm</string>
@@ -1195,14 +1202,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">Seans go mbeidh fadhbanna athsheinm físe ag baint leis an socrú seo a mhúchadh.</string>
   <string name="revanced_spoof_video_streams_client_title">Cliant réamhshocraithe</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Fórsa AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Is é AVC (H.264) an codec físeán</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Is é VP9 nó AV1 an codec físeán</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Níl díchódú crua-earraí VP9 ar do ghléas, agus bíonn an socrú seo ar siúl i gcónaí nuair atá spoofing Cliant cumasaithe</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Má dhéantar é seo a chumasú, d\'fhéadfadh sé go bhfeabhsófaí saol na gceallraí agus go n-athshocraigh sé stopáil athsheinm.\n\nTá uas-taifeach 1080p ag AVC, agus úsáidfidh athsheinm físe níos mó sonraí idirlín ná mar a úsáideann VP9 nó AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Fo-iarsmaí spoofing iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Ní féidir le scannáin nó físeáin íoctha a sheinm\n• Tosaíonn sruthanna beo ón tús\n• Seans go gcríochnóidh físeáin 1 soicind go luath\n• Gan codec fuaime opus</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">Ní féidir físeáin phríobháideacha do pháistí a sheinm\n• Tosaíonn sruthanna beo ón tús\n• Féadfaidh físeáin críochnú 1 soicind go luath</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Fo-iarsmaí spoofing Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Tá roghchlár rian fuaime in easnamh\n• Níl an toirt cobhsaí ar fáil</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Ní fhéadfaidh físeáin leanaí a sheinm\n• Tá an roghchlár rian fuaime ar iarraidh\n• Níl an toirt cobhsaí ar fáil</string>
+  <string name="revanced_spoof_video_streams_language_">Tá sruthanna físe spoofed</string>
   </patch>
   </app>
   <app id="twitch">
@@ -1244,6 +1248,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">Socruithe ReVanced</string>
+  <string name="revanced_about_title">Maidir</string>
+  <string name="revanced_about_summary">Maidir ReVanced</string>
   <string name="revanced_ads_screen_title">Fógraí</string>
   <string name="revanced_ads_screen_summary">Socruithe blocála fógraí</string>
   <string name="revanced_chat_screen_title">Comhrá</string>

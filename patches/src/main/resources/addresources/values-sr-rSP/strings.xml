@@ -36,7 +36,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_check_environment_failed_title">Провере нису успеле</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Отвори званични веб-сајт</string>
   <string name="revanced_check_environment_dialog_ignore_button">Занемари</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Изгледа да нисте печовали ову апликацију.&lt;/h5&gt;&lt;br&gt;Ова апликација можда неће исправно радити, &lt;b&gt;може бити штетна или чак опасна за коришћење&lt;/b&gt;&lt;br&gt;&lt;br&gt;Ове провере подразумевају да је ова апликација унапред печована или добијена од неког другог:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Изричито се препоручује да &lt;b&gt;деинсталирате ову апликацију и сами је печујете&lt;/b&gt; да бисте били сигурни да користите проверену и безбедну апликацију.&lt;p&gt;&lt;br&gt;;Ако се занемари, ово упозорење ће бити приказано само два пута.</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Изгледа да нисте ви печовали ову апликацију.&lt;/h5&gt;&lt;br&gt;Ова апликација можда неће исправно радити, &lt;b&gt;може бити штетна или чак опасна за коришћење.&lt;/b&gt;&lt;br&gt;&lt;br&gt;Ове провере подразумевају да је ова апликација унапред печована или добијена од неког другог:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Изричито се препоручује да &lt;b&gt;деинсталирате ову апликацију и сами је печујете&lt;/b&gt; да бисте били сигурни да користите проверену и безбедну апликацију.&lt;p&gt;&lt;br&gt;Ако се занемари, ово упозорење ће бити приказано само два пута.</string>
   <string name="revanced_check_environment_not_same_patching_device">Печовано на другом уређају</string>
   <string name="revanced_check_environment_manager_not_expected_installer">Није инсталирано у ReVanced Manager-у</string>
   <string name="revanced_check_environment_not_near_patch_time">Печовано пре више од 10 минута</string>
@@ -61,7 +61,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">Напомена</string>
   <string name="revanced_settings_about_links_dev_body">Ова верзија је предиздање и можда ћете имати неочекиване проблеме</string>
   <string name="revanced_settings_about_links_header">Званични линкови</string>
-  <string name="revanced_settings_about_links_donate">Донација</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -272,8 +273,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Дугмад за временску ознаку и емоџије су приказана</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Сакриј YouTube Doodles</string>
-  <string name="revanced_hide_doodles_summary_on">YouTube Doodles у траци за претрагу су скривени</string>
-  <string name="revanced_hide_doodles_summary_off">YouTube Doodles у траци за претрагу су приказани</string>
+  <string name="revanced_hide_doodles_summary_on">YouTube Doodles у траци за претрагу је скривен</string>
+  <string name="revanced_hide_doodles_summary_off">YouTube Doodles у траци за претрагу је приказан</string>
   <string name="revanced_hide_doodles_user_dialog_message">YouTube Doodles се појављује неколико дана сваке године.\n\nАко се Doodle тренутно приказује у вашем региону и ово подешавање скривања је укључено, трака за филтрирање испод траке за претрагу такође ће бити скривена.</string>
   <string name="revanced_custom_filter_screen_title">Прилагођени филтер</string>
   <string name="revanced_custom_filter_screen_summary">Сакријте компоненте користећи прилагођене филтере</string>
@@ -500,17 +501,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_title">Падајући мени</string>
   <string name="revanced_hide_player_flyout_summary">Сакријте или прикажите предмете у падајућем менију плејера</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_captions_title">Сакриј дугме „Титл”</string>
+  <string name="revanced_hide_player_flyout_captions_title">Сакриј мени „Титл”</string>
   <string name="revanced_hide_player_flyout_captions_summary_on">Мени „Титл” је скривен</string>
   <string name="revanced_hide_player_flyout_captions_summary_off">Мени „Титл” је приказан</string>
   <!-- 'Additional settings' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_additional_settings_title">Сакриј дугме „Додатна подешавања”</string>
+  <string name="revanced_hide_player_flyout_additional_settings_title">Сакриј мени „Додатна подешавања”</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_on">Мени „Додатна подешавања” је скривен</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_off">Мени „Додатна подешавања” је приказан</string>
   <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_sleep_timer_title">Сакриј тајмер за спавање</string>
-  <string name="revanced_hide_player_flyout_sleep_timer_summary_on">Мени тајмера за спавање је скривен</string>
-  <string name="revanced_hide_player_flyout_sleep_timer_summary_off">Мени тајмера за спавање је приказан</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_title">Сакриј мени „Тајмер за спавање”</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_on">Мени „Тајмер за спавање” је скривен</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_off">Мени „Тајмер за спавање” је приказан</string>
   <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_loop_video_title">Сакриј дугме „Понављај видео”</string>
   <string name="revanced_hide_player_flyout_loop_video_summary_on">Дугме „Понављај видео” је скривено</string>
@@ -527,7 +528,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_help_summary_on">Дугме „Помоћ и повратне информације” је скривено</string>
   <string name="revanced_hide_player_flyout_help_summary_off">Дугме „Помоћ и повратне информације” је приказано</string>
   <!-- 'Playback speed' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_speed_title">Сакриј дугме „Брзина репродукције”</string>
+  <string name="revanced_hide_player_flyout_speed_title">Сакриј мени „Брзина репродукције”</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Мени „Брзина репродукције” је скривен</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Мени „Брзина репродукције” је приказан</string>
   <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
@@ -540,7 +541,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Дугме „Закључај екран” је скривено</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Дугме „Закључај екран” је приказано</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_audio_track_title">Сакриј дугме „Аудио снимак”</string>
+  <string name="revanced_hide_player_flyout_audio_track_title">Сакриј мени „Аудио снимак”</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Мени „Аудио снимак” је скривен</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Мени „Аудио снимак” је приказан</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -709,6 +710,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">Искачуће табле у плејеру су скривене</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Искачуће табле у плејеру су приказане</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Непрозирност преклопа плејера</string>
   <string name="revanced_player_overlay_opacity_summary">Вредност непрозирности између 0 и 100, где је 0 прозирно</string>
@@ -739,7 +742,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Искачуће обавештење је приказано, ако Return YouTube Dislike није доступан</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Искачуће обавештење није приказано, ако Return YouTube Dislike није доступан</string>
   <string name="revanced_ryd_about">О програму</string>
-  <string name="revanced_ryd_attribution_summary">Податке обезбеђује Return YouTube Dislike API. Додирните овде да бисте сазнали више</string>
+  <string name="revanced_ryd_attribution_summary">Податке обезбеђује Return YouTube Dislike API. Додирните овде да сазнате више</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">Статистике ReturnYouTubeDislike API-ја за овај уређај</string>
   <string name="revanced_ryd_statistics_getFetchCallResponseTimeAverage_title">Време одговора API-ја, просечно</string>
@@ -953,7 +956,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_reset_color">Ресетуј боју</string>
   <string name="revanced_sb_reset">Ресетуј</string>
   <string name="revanced_sb_about">О програму</string>
-  <string name="revanced_sb_about_api_sum">Податке обезбеђује SponsorBlock API. Додирните овде да бисте сазнали више и видели преузимања за друге платформе</string>
+  <string name="revanced_sb_about_api_sum">Податке обезбеђује SponsorBlock API. Додирните овде да сазнате више и видите преузимања за друге платформе</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Лажирана верзија апликације</string>
@@ -963,11 +966,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Циљна верзија апликације за лажирање</string>
+  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Враћа старе иконице Shorts плејера</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_entry_1">18.33.40 - Враћа Return YouTube Dislike у Shorts видеима у режиму без архивирања</string>
-  <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - Враћа широк мени за брзину и квалитет видеа</string>
-  <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - Враћа картицу збирке</string>
-  <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Враћа стару полицу плејлисте</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Враћа Return YouTube Dislike у Shorts видеима у режиму без архивирања</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Враћа широк мени за брзину и квалитет видеа</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Враћа картицу збирке</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Враћа стару полицу плејлисте</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Подешавање почетне странице</string>
@@ -985,7 +989,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_change_start_page_entry_sports">Спорт</string>
   <string name="revanced_change_start_page_entry_subscriptions">Праћења</string>
   <string name="revanced_change_start_page_entry_trending">У тренду</string>
-  <string name="revanced_change_start_page_entry_watch_later">Гледај касније</string>
+  <string name="revanced_change_start_page_entry_watch_later">За касније</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Онемогући наставак репродукције Shorts плејера</string>
@@ -1010,8 +1014,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Мини-плејер</string>
   <string name="revanced_miniplayer_screen_summary">Промените стил минимизираног плејера у апликацији</string>
   <string name="revanced_miniplayer_type_title">Тип мини-плејера</string>
+  <string name="revanced_miniplayer_type_entry_0">Онемогућено</string>
   <string name="revanced_miniplayer_type_entry_1">Оригинални</string>
-  <string name="revanced_miniplayer_type_entry_2">Телефон</string>
+  <string name="revanced_miniplayer_type_entry_2">Минималан</string>
   <string name="revanced_miniplayer_type_entry_3">Таблет</string>
   <string name="revanced_miniplayer_type_entry_4">Модеран 1</string>
   <string name="revanced_miniplayer_type_entry_5">Модеран 2</string>
@@ -1078,7 +1083,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow и оригиналне сличице</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow и захвати кадра</string>
   <string name="revanced_alt_thumbnail_options_entry_4">Захвати кадра</string>
-  <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow пружа сличице за YouTube видее прикупљене од заједнице. Ове сличице су често релевантније од оних које пружа YouTube\n\nАко је омогућено, линкови видеа ће бити послати на API сервер и никакви други подаци се неће слати. Ако видео нема DeArrow сличице, тада се приказују оригиналне сличице или сличице захвата кадра\n\nДодирните овде да бисте сазнали више о DeArrow-у</string>
+  <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow пружа сличице за YouTube видее прикупљене од заједнице. Ове сличице су често релевантније од оних које пружа YouTube\n\nАко је омогућено, линкови видеа ће бити послати на API сервер и никакви други подаци се неће слати. Ако видео нема DeArrow сличице, тада се приказују оригиналне сличице или сличице захвата кадра\n\nДодирните овде да сазнате више о DeArrow-у</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Прикажи искачуће обавештење ако API није доступан</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Искачуће обавештење је приказано, ако DeArrow није доступан</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Искачуће обавештење није приказано, ако DeArrow није доступан</string>
@@ -1146,15 +1151,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">Вибрација при увеличавању је омогућена</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Аутоматски квалитет</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">Аутоматски</string>
   <string name="revanced_remember_video_quality_last_selected_title">Запамти промене квалитета видеа</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Промене квалитета се примењују на све видее</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Промене квалитета се примењују само на тренутни видео</string>
   <string name="revanced_video_quality_default_wifi_title">Подразумевани квалитет видеа на Wi-Fi мрежи</string>
-  <string name="revanced_video_quality_default_mobile_title">Подразумевани квалитет видеа на мобилним подацима</string>
-  <string name="revanced_remember_video_quality_mobile">на мобилним подацима</string>
-  <string name="revanced_remember_video_quality_wifi">на Wi-Fi мрежи</string>
-  <string name="revanced_remember_video_quality_toast">Промењен подразумевани квалитет %1$s на: %2$s</string>
+  <string name="revanced_video_quality_default_mobile_title">Подразумевани квалитет видеа на мобилној мрежи</string>
+  <string name="revanced_remember_video_quality_mobile">мобилној мрежи</string>
+  <string name="revanced_remember_video_quality_wifi">Wi-Fi мрежи</string>
+  <string name="revanced_remember_video_quality_toast">Квалитет на %1$s промењен на: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Прикажи дугме дијалога за брзину</string>
@@ -1169,6 +1175,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_custom_playback_speeds_summary">Додајте или промените прилагођене брзине репродукције</string>
   <string name="revanced_custom_playback_speeds_invalid">Прилагођене брзине репродукције морају бити мање од %s. Коришћење подразумеваних вредности.</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Неважеће прилагођене брзине репродукције. Коришћење подразумеваних вредности.</string>
+  <string name="revanced_custom_playback_speeds_auto">Аутоматски</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Запамти промене брзине репродукције</string>
@@ -1196,14 +1203,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">Искључивање ове опције ће можда изазвати проблеме са репродукцијом видеа.</string>
   <string name="revanced_spoof_video_streams_client_title">Подразумевани клијент</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Присили AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Видео кодек је AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Видео кодек је VP9 или AV1</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Ваш уређај нема VP9 хардверско декодирање, и ова опција је увек укључена када је омогућено лажирање клијента</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Ако ово омогућите, можда ће се продужити трајање батерије и поправити застој при репродукцији.\n\nAVC има максималну резолуцију од 1080p, а репродукција видеа ће користити више интернет података него VP9 или AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Нежељени ефекти лажирања на iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Филмови или плаћени видеи се можда неће пуштати\n• Стримови уживо почињу од почетка\n• Видеи ће се можда завршити 1 секунду раније\n• Нема аудио кодека opus</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Приватни дечји видеи се можда неће пуштати\n• Стримови уживо почињу од почетка\n• Видеи ће се можда завршити 1 секунду раније</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Нежељени ефекти лажирања на Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Мени „Аудио снимак” недостаје\n• Опција „Уједначена јачина звука” није доступна</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Дечји видеи се можда неће пуштати\n• Мени „Аудио снимак” недостаје\n• Уједначена јачина звука није доступна</string>
+  <string name="revanced_spoof_video_streams_language_">Видео стримови су лажирани</string>
+  <string name="revanced_spoof_video_streams_language_EN">енглески</string>
   </patch>
   </app>
   <app id="twitch">
@@ -1245,6 +1250,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">Подешавања ReVanced-а</string>
+  <string name="revanced_about_title">О програму</string>
+  <string name="revanced_about_summary">О ReVanced-у</string>
   <string name="revanced_ads_screen_title">Огласи</string>
   <string name="revanced_ads_screen_summary">Подешавања блокирања огласа</string>
   <string name="revanced_chat_screen_title">Ћаскање</string>

@@ -135,8 +135,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/
 @Suppress("unused")
 val miniplayerPatch = bytecodePatch(
     name = "Miniplayer",
-    description = "Adds options to change the in app minimized player. " +
-        "Patching target 19.16+ adds modern miniplayers.",
+    description = "Adds options to change the in app minimized player."
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -147,8 +146,7 @@ val miniplayerPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "18.38.44",
-            "18.49.37",
+            // 18.49.37 // Could be supported, but no reason when 19.16 exists and has modern types.
             // 19.14.43 // Incomplete code for modern miniplayers.
             // 19.15.36 // Different code for handling subtitle texts and not worth supporting.
             "19.16.39", // First with modern miniplayers.
@@ -170,6 +168,8 @@ val miniplayerPatch = bytecodePatch(
             // 19.33.35
             "19.34.42",
             "19.43.41",
+            "19.45.38",
+            "19.46.42",
         ),
     )
 
@@ -178,57 +178,59 @@ val miniplayerPatch = bytecodePatch(
 
         val preferences = mutableSetOf<BasePreference>()
 
-        if (!is_19_16_or_greater) {
-            preferences += ListPreference(
-                "revanced_miniplayer_type",
-                summaryKey = null,
-                entriesKey = "revanced_miniplayer_type_legacy_entries",
-                entryValuesKey = "revanced_miniplayer_type_legacy_entry_values",
-            )
-        } else {
-            preferences += ListPreference(
-                "revanced_miniplayer_type",
-                summaryKey = null,
-            )
 
-            if (is_19_25_or_greater) {
-                if (!is_19_29_or_greater) {
-                    preferences += SwitchPreference("revanced_miniplayer_double_tap_action")
-                }
-                preferences += SwitchPreference("revanced_miniplayer_drag_and_drop")
-            }
-
+        preferences +=
             if (is_19_43_or_greater) {
-                preferences += SwitchPreference("revanced_miniplayer_horizontal_drag")
-            }
-
-            if (is_19_36_or_greater) {
-                preferences += SwitchPreference("revanced_miniplayer_rounded_corners")
-            }
-
-            preferences += SwitchPreference("revanced_miniplayer_hide_subtext")
-
-            preferences += if (is_19_26_or_greater) {
-                SwitchPreference("revanced_miniplayer_hide_expand_close")
+                ListPreference(
+                    "revanced_miniplayer_type",
+                    summaryKey = null,
+                )
             } else {
-                SwitchPreference(
-                    key = "revanced_miniplayer_hide_expand_close",
-                    titleKey = "revanced_miniplayer_hide_expand_close_legacy_title",
-                    summaryOnKey = "revanced_miniplayer_hide_expand_close_legacy_summary_on",
-                    summaryOffKey = "revanced_miniplayer_hide_expand_close_legacy_summary_off",
+                ListPreference(
+                    "revanced_miniplayer_type",
+                    summaryKey = null,
+                    entriesKey = "revanced_miniplayer_type_legacy_entries",
+                    entryValuesKey = "revanced_miniplayer_type_legacy_entry_values",
                 )
             }
 
-            if (!is_19_26_or_greater) {
-                preferences += SwitchPreference("revanced_miniplayer_hide_rewind_forward")
+        if (is_19_25_or_greater) {
+            if (!is_19_29_or_greater) {
+                preferences += SwitchPreference("revanced_miniplayer_double_tap_action")
             }
-
-            if (is_19_26_or_greater) {
-                preferences += TextPreference("revanced_miniplayer_width_dip", inputType = InputType.NUMBER)
-            }
-
-            preferences += TextPreference("revanced_miniplayer_opacity", inputType = InputType.NUMBER)
+            preferences += SwitchPreference("revanced_miniplayer_drag_and_drop")
         }
+
+        if (is_19_43_or_greater) {
+            preferences += SwitchPreference("revanced_miniplayer_horizontal_drag")
+        }
+
+        if (is_19_36_or_greater) {
+            preferences += SwitchPreference("revanced_miniplayer_rounded_corners")
+        }
+
+        preferences += SwitchPreference("revanced_miniplayer_hide_subtext")
+
+        preferences += if (is_19_26_or_greater) {
+            SwitchPreference("revanced_miniplayer_hide_expand_close")
+        } else {
+            SwitchPreference(
+                key = "revanced_miniplayer_hide_expand_close",
+                titleKey = "revanced_miniplayer_hide_expand_close_legacy_title",
+                summaryOnKey = "revanced_miniplayer_hide_expand_close_legacy_summary_on",
+                summaryOffKey = "revanced_miniplayer_hide_expand_close_legacy_summary_off",
+            )
+        }
+
+        if (!is_19_26_or_greater) {
+            preferences += SwitchPreference("revanced_miniplayer_hide_rewind_forward")
+        }
+
+        if (is_19_26_or_greater) {
+            preferences += TextPreference("revanced_miniplayer_width_dip", inputType = InputType.NUMBER)
+        }
+
+        preferences += TextPreference("revanced_miniplayer_opacity", inputType = InputType.NUMBER)
 
         PreferenceScreen.PLAYER.addPreferences(
             PreferenceScreenPreference(
@@ -238,14 +240,14 @@ val miniplayerPatch = bytecodePatch(
             ),
         )
 
-        fun MutableMethod.insertBooleanOverride(index: Int, methodName: String) {
+        fun MutableMethod.insertMiniplayerBooleanOverride(index: Int, methodName: String) {
             val register = getInstruction<OneRegisterInstruction>(index).registerA
             addInstructions(
                 index,
                 """
-                invoke-static {v$register}, $EXTENSION_CLASS_DESCRIPTOR->$methodName(Z)Z
-                move-result v$register
-            """,
+                    invoke-static {v$register}, $EXTENSION_CLASS_DESCRIPTOR->$methodName(Z)Z
+                    move-result v$register
+                """
             )
         }
 
@@ -255,29 +257,25 @@ val miniplayerPatch = bytecodePatch(
          * Adds an override to force legacy tablet miniplayer to be used or not used.
          */
         fun MutableMethod.insertLegacyTabletMiniplayerOverride(index: Int) {
-            insertBooleanOverride(index, "getLegacyTabletMiniplayerOverride")
+            insertMiniplayerBooleanOverride(index, "getLegacyTabletMiniplayerOverride")
         }
 
         /**
          * Adds an override to force modern miniplayer to be used or not used.
          */
         fun MutableMethod.insertModernMiniplayerOverride(index: Int) {
-            insertBooleanOverride(index, "getModernMiniplayerOverride")
+            insertMiniplayerBooleanOverride(index, "getModernMiniplayerOverride")
         }
 
-        fun Fingerprint.insertLiteralValueBooleanOverride(
+        fun Fingerprint.insertMiniplayerFeatureFlagBooleanOverride(
             literal: Long,
             extensionMethod: String,
-        ) {
-            method.apply {
-                val literalIndex = indexOfFirstLiteralInstructionOrThrow(literal)
-                val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
+        ) = method.insertFeatureFlagBooleanOverride(
+            literal,
+            "$EXTENSION_CLASS_DESCRIPTOR->$extensionMethod(Z)Z"
+        )
 
-                insertBooleanOverride(targetIndex + 1, extensionMethod)
-            }
-        }
-
-        fun Fingerprint.insertLiteralValueFloatOverride(
+        fun Fingerprint.insertMiniplayerFeatureFlagFloatOverride(
             literal: Long,
             extensionMethod: String,
         ) {
@@ -349,11 +347,6 @@ val miniplayerPatch = bytecodePatch(
             it.method.insertLegacyTabletMiniplayerOverride(it.patternMatch!!.endIndex)
         }
 
-        if (!is_19_16_or_greater) {
-            // Return here, as patch below is only for the current versions of the app.
-            return@execute
-        }
-
         // endregion
 
         // region Enable modern miniplayer.
@@ -373,31 +366,24 @@ val miniplayerPatch = bytecodePatch(
         }
 
         if (is_19_23_or_greater) {
-            miniplayerModernConstructorFingerprint.insertLiteralValueBooleanOverride(
+            miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
                 MINIPLAYER_DRAG_DROP_FEATURE_KEY,
                 "enableMiniplayerDragAndDrop",
             )
         }
 
-        if (is_19_43_or_greater) {
-            miniplayerModernConstructorFingerprint.insertLiteralValueBooleanOverride(
-                MINIPLAYER_HORIZONTAL_DRAG_FEATURE_KEY,
-                "setHorizontalDrag",
-            )
-        }
-
         if (is_19_25_or_greater) {
-            miniplayerModernConstructorFingerprint.insertLiteralValueBooleanOverride(
+            miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
                 MINIPLAYER_MODERN_FEATURE_LEGACY_KEY,
                 "getModernMiniplayerOverride",
             )
 
-            miniplayerModernConstructorFingerprint.insertLiteralValueBooleanOverride(
+            miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
                 MINIPLAYER_MODERN_FEATURE_KEY,
                 "getModernFeatureFlagsActiveOverride",
             )
 
-            miniplayerModernConstructorFingerprint.insertLiteralValueBooleanOverride(
+            miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
                 MINIPLAYER_DOUBLE_TAP_FEATURE_KEY,
                 "enableMiniplayerDoubleTapAction",
             )
@@ -436,9 +422,21 @@ val miniplayerPatch = bytecodePatch(
         }
 
         if (is_19_36_or_greater) {
-            miniplayerModernConstructorFingerprint.insertLiteralValueBooleanOverride(
+            miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
                 MINIPLAYER_ROUNDED_CORNERS_FEATURE_KEY,
                 "setRoundedCorners",
+            )
+        }
+
+        if (is_19_43_or_greater) {
+            miniplayerOnCloseHandlerFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
+                MINIPLAYER_DISABLED_FEATURE_KEY,
+                "getMiniplayerOnCloseHandler"
+            )
+
+            miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
+                MINIPLAYER_HORIZONTAL_DRAG_FEATURE_KEY,
+                "setHorizontalDrag",
             )
         }
 

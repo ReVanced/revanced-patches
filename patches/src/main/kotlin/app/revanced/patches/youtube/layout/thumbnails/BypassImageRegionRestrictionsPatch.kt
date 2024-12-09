@@ -13,7 +13,6 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/BypassImageRegionRestrictionsPatch;"
 
-@Suppress("unused")
 val bypassImageRegionRestrictionsPatch = bytecodePatch(
     name = "Bypass image region restrictions",
     description = "Adds an option to use a different host for user avatar and channel images " +
@@ -34,6 +33,8 @@ val bypassImageRegionRestrictionsPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
+            "19.45.38",
+            "19.46.42",
         ),
     )
 

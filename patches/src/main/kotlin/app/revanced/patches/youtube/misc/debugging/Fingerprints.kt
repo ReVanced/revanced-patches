@@ -28,3 +28,9 @@ internal val experimentalLongFeatureFlagFingerprint = fingerprint {
     parameters("J", "J")
 }
 
+internal val experimentalStringFeatureFlagFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Ljava/lang/String;")
+    parameters("J", "Ljava/lang/String;")
+}
+

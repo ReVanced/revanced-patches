@@ -31,7 +31,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
-import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/ReturnYouTubeDislikePatch;"
@@ -39,7 +38,6 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 private const val FILTER_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/components/ReturnYouTubeDislikeFilterPatch;"
 
-@Suppress("unused")
 val returnYouTubeDislikePatch = bytecodePatch(
     name = "Return YouTube Dislike",
     description = "Adds an option to show the dislike count of videos with Return YouTube Dislike.",
@@ -61,6 +59,8 @@ val returnYouTubeDislikePatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
+            "19.45.38",
+            "19.46.42",
         ),
     )
 
@@ -125,8 +125,8 @@ val returnYouTubeDislikePatch = bytecodePatch(
 
             if (is_19_33_or_greater) {
                 insertIndex = indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.INVOKE_STATIC_RANGE &&
-                        getReference<MethodReference>()?.returnType == textDataClassType
+                    (opcode == Opcode.INVOKE_STATIC || opcode == Opcode.INVOKE_STATIC_RANGE)
+                            && getReference<MethodReference>()?.returnType == textDataClassType
                 }
 
                 tempRegister = getInstruction<OneRegisterInstruction>(insertIndex + 1).registerA

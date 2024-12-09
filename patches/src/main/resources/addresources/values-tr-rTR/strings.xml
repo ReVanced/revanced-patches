@@ -34,14 +34,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <app id="shared">
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Kontroller başarısız</string>
-  <string name="revanced_check_environment_dialog_open_official_source_button">Resmi websiteyi aç</string>
+  <string name="revanced_check_environment_dialog_open_official_source_button">Resmi internet sitesini aç</string>
   <string name="revanced_check_environment_dialog_ignore_button">Yok say</string>
   <string name="revanced_check_environment_failed_message">&lt;h5&gt;Bu uygulama sizin tarafınızdan yamalanmış gibi görünmüyor.&lt;/h5&gt;&lt;br&gt;Bu uygulama düzgün çalışmayabilir, &lt;b&gt;kullanması zararlı veya tehlikeli bile olabilir&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Şu kontroller, bu uygulamanın hali hazırda yamalanmış olduğunu veya başka birinden edinildiğini gösteriyor:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Doğrulanmış ve güvenli bir uygulama kullandığınızdan emin olmak için, &lt;b&gt;bu uygulamayı kaldırmanız ve kendiniz yamalamanız&lt;/b&gt; şiddetle tavsiye edilir.&lt;p&gt;&lt;br&gt;Bu uyarı yok sayıldığında sadece iki kez gösterilecektir.</string>
   <string name="revanced_check_environment_not_same_patching_device">Başka bir cihazda yamalanmış</string>
   <string name="revanced_check_environment_manager_not_expected_installer">ReVanced Manager tarafından yüklenmemiş</string>
   <string name="revanced_check_environment_not_near_patch_time">10 dakikadan daha uzun bir süre önce yamalanmış</string>
   <string name="revanced_check_environment_not_near_patch_time_days">%s gün önce yamalanmış</string>
-  <string name="revanced_check_environment_not_near_patch_time_invalid">APK derleme tarihi bozuk</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">APK derleme tarihi yanlış</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_confirm_user_dialog_title">Devam etmek istiyor musunuz?</string>
@@ -60,7 +60,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">Not</string>
   <string name="revanced_settings_about_links_dev_body">Bu bir ön-sürümdür ve beklenmeyen sorunlar yaşayabilirsiniz</string>
   <string name="revanced_settings_about_links_header">Resmi bağlantılar</string>
-  <string name="revanced_settings_about_links_donate">Bağış yap</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -91,26 +92,26 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_shorts_disable_background_playback_summary_off">Shorts\'un arka planda oynatılması etkin</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">Debugging</string>
-  <string name="revanced_debug_screen_summary">Debugging seçeneklerini etkinleştir veya devre dışı bırak</string>
-  <string name="revanced_debug_title">Debug logları</string>
-  <string name="revanced_debug_summary_on">Debug logları etkin</string>
-  <string name="revanced_debug_summary_off">Debug logları devre dışı</string>
-  <string name="revanced_debug_protobuffer_title">Protocol buffer\'ın logunu tut</string>
-  <string name="revanced_debug_protobuffer_summary_on">Debug logları proto bufffer\'ı içeriyor</string>
-  <string name="revanced_debug_protobuffer_summary_off">Debug logları proto buffer\'ı içermiyor</string>
-  <string name="revanced_debug_stacktrace_title">Stack traces\'in logunu tut</string>
-  <string name="revanced_debug_stacktrace_summary_on">Debug logları stack traces\'i içeriyor</string>
-  <string name="revanced_debug_stacktrace_summary_off">Debug logları stack traces\'i içermiyor</string>
-  <string name="revanced_debug_toast_on_error_title">ReVanced hatasında tost bildirimi göster</string>
+  <string name="revanced_debug_screen_title">Hata ayıklama</string>
+  <string name="revanced_debug_screen_summary">Hata ayıklama seçeneklerini etkinleştir veya devre dışı bırak</string>
+  <string name="revanced_debug_title">Hata ayıklama kayıtları</string>
+  <string name="revanced_debug_summary_on">Hata ayıklama kayıtları etkin</string>
+  <string name="revanced_debug_summary_off">Hata ayıklama kayıtları devre dışı</string>
+  <string name="revanced_debug_protobuffer_title">Protocol buffer\'ın kaydını tut</string>
+  <string name="revanced_debug_protobuffer_summary_on">Hata ayıklama kayıtları proto bufffer\'ı içeriyor</string>
+  <string name="revanced_debug_protobuffer_summary_off">Hata ayıklama kayıtları proto buffer\'ı içermiyor</string>
+  <string name="revanced_debug_stacktrace_title">Stack traces\'in kaydını tut</string>
+  <string name="revanced_debug_stacktrace_summary_on">Hata ayıklama kayıtları stack traces\'i içeriyor</string>
+  <string name="revanced_debug_stacktrace_summary_off">Hata ayıklama kayıtları stack traces\'i içermiyor</string>
+  <string name="revanced_debug_toast_on_error_title">ReVanced hatası oluştuğunda tost bildirimi göster</string>
   <string name="revanced_debug_toast_on_error_summary_on">Hata oluştuğunda tost bildirimi gösteriliyor</string>
   <string name="revanced_debug_toast_on_error_summary_off">Hata oluştuğunda tost bildirimi gösterilmiyor</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">Hata tost bildirimlerini gizlemek bütün ReVanced hata bildirimlerini gizler.\n\nBeklenmeyen olaylar hakkında bilgilendirilmeyeceksiniz.</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">Hata tost bildirimlerini kapatmak bütün ReVanced hata bildirimlerini kapatır.\n\nBeklenmeyen olaylar hakkında bilgilendirilmeyeceksiniz.</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_disable_like_subscribe_glow_title">Beğen / Abone ol düğmesi parlamasını devre dışı bırak</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Beğen ve abone ol düğmesi bahsedildiğinde parlamayacak</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Beğen ve abone ol düğmesi bahsedildiğinde parlayacak</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">Beğen ve abone ol butonu, üzerine gelindiğinde parlamayacak</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">Beğen ve abone ol butonu, üzerine gelindiğinde parlayacak</string>
   <string name="revanced_hide_album_cards_title">Albüm kartlarını gizle</string>
   <string name="revanced_hide_album_cards_summary_on">Albüm kartları gizleniyor</string>
   <string name="revanced_hide_album_cards_summary_off">Albüm kartları gösteriliyor </string>
@@ -220,20 +221,20 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_artist_cards_summary_off">Sanatçı kartları gösteriliyor</string>
   <string name="revanced_hide_attributes_section_title">Nitelikler bölümünü gizle</string>
   <string name="revanced_hide_attributes_section_summary_on">Öne çıkan yerler, Oyunlar ve Müzik bölümleri gizli</string>
-  <string name="revanced_hide_attributes_section_summary_off">Öne çıkan yerler, Oyunlar ve Müzik bölümleri görünür</string>
+  <string name="revanced_hide_attributes_section_summary_off">Öne çıkan yerler, Oyunlar ve Müzik bölümleri görünüyor</string>
   <string name="revanced_hide_chapters_section_title">Bölümler kısmını gizle</string>
   <string name="revanced_hide_chapters_section_summary_on">Bölümler kısmı gizli</string>
-  <string name="revanced_hide_chapters_section_summary_off">Bölümler kısmı görünür</string>
-  <string name="revanced_hide_podcast_section_title">\"Podcast\'i keşfedin\" kısmını gizle</string>
-  <string name="revanced_hide_podcast_section_summary_on">\"Podcast\'ı keşfedin\" kısmı gizli</string>
-  <string name="revanced_hide_podcast_section_summary_off">\"Podcast\'ı keşfedin\" bölümü görünür</string>
+  <string name="revanced_hide_chapters_section_summary_off">Bölümler kısmı görünüyor</string>
+  <string name="revanced_hide_podcast_section_title">\"Podcast\'i keşfedin\" bölümünü gizle</string>
+  <string name="revanced_hide_podcast_section_summary_on">\"Podcast\'ı keşfedin\" bölümünü gizli</string>
+  <string name="revanced_hide_podcast_section_summary_off">\"Podcast\'ı keşfedin\" bölümü görünüyor</string>
   <string name="revanced_hide_info_cards_section_title">Bilgi kartları kısmını gizle</string>
   <string name="revanced_hide_info_cards_section_summary_on">Bilgi kartları kısmı gizleniyor</string>
   <string name="revanced_hide_info_cards_section_summary_off">Bilgi kartları kısmı gösteriliyor</string>
   <string name="revanced_hide_key_concepts_section_title">\'Anahtar kavramlar\' bölümünü gizle</string>
   <string name="revanced_hide_key_concepts_section_summary_on">\'Anahtar kavramlar\' bölümü gizli</string>
-  <string name="revanced_hide_key_concepts_section_summary_off">\'Anahtar kavramlar\' bölümü görünür</string>
-  <string name="revanced_hide_transcript_section_title">Transkript kısmını gizle</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">\'Anahtar kavramlar\' bölümü görünüyor</string>
+  <string name="revanced_hide_transcript_section_title">Transkript bölümünü gizle</string>
   <string name="revanced_hide_transcript_section_summary_on">Transkript kısmı gizleniyor</string>
   <string name="revanced_hide_transcript_section_summary_off">Transkript kısmı gösteriliyor</string>
   <string name="revanced_hide_description_components_screen_title">Video açıklaması</string>
@@ -253,13 +254,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_comments_screen_summary">Yorumlar kısmındaki öğeleri gizle veya göster</string>
   <string name="revanced_hide_comments_by_members_header_title">\'Üyeler tarafından yapılan yorumlar\' başlığını gizle</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">\'Üyeler tarafından yapılan yorumlar\' başlığı gizli</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">\'Üyeler tarafından yapılan yorumlar\' başlığı görünür</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">\'Üyeler tarafından yapılan yorumlar\' başlığı görünüyor</string>
   <string name="revanced_hide_comments_section_title">Yorumlar kısmını gizle</string>
-  <string name="revanced_hide_comments_section_summary_on">Yorumlar kısmı gizli</string>
-  <string name="revanced_hide_comments_section_summary_off">Yorumlar kısmı görünür</string>
+  <string name="revanced_hide_comments_section_summary_on">Yorumlar bölümü gizli</string>
+  <string name="revanced_hide_comments_section_summary_off">Yorumlar bölümü gösteriliyor</string>
   <string name="revanced_hide_comments_create_a_short_button_title">\'Short oluştur\' düğmesini gizle</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">\'Short oluştur\' düğmesi gizli</string>
-  <string name="revanced_hide_comments_create_a_short_button_summary_off">\'Short oluştur\' düğmesi görünür</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">\'Short oluştur\' butonu gösteriliyor</string>
   <string name="revanced_hide_comments_preview_comment_title">Önizlenen yorumu gizle</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Önizlenen yorum gizleniyor</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Önizlenen yorum gösteriliyor </string>
@@ -300,7 +301,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_content_phrases_summary">Yeni satırlarla ayrılmış gizlenecek anahtar kelimeler ve ifadeler\n\nAnahtar kelimeler, kanal adları veya video başlığındaki herhangi bir metin olabilir\n\nOrtasında büyük harf olan kelimeler büyük harfle girilmelidir (örn: iPhone, TikTok, TepkiKolik)</string>
   <string name="revanced_hide_keyword_content_about_title">Anahtar kelimeyle filtreleme hakkında</string>
   <string name="revanced_hide_keyword_content_about_summary">Ana sayfa/Abonelikler/Arama sonuçları anahtar kelime ifadeleriyle eşleşen içeriği gizlemek için filtrelenir\n\nKısıtlamalar:\n• Shorts, kanal adına göre filtrelenemez\n• Bazı arayüz öğeleri gizlenmeyebilir\n• Bir anahtar kelimeyi aratmak hiçbir sonuç göstermeyebilir</string>
-  <string name="revanced_hide_keyword_content_about_whole_words_title">Bütün kelimeyi eşle</string>
+  <string name="revanced_hide_keyword_content_about_whole_words_title">Tam kelimeleri eşleştir</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Bir anahtar kelimeyi veya ifadeyi tırnak işareti içine almak, video başlıkları ve kanal adlarının kısmi eşleşmelerini önleyecektir&lt;br&gt;&lt;br&gt;Örneğin,&lt;br&gt;&lt;br&gt;\"ai\"&lt;/b&gt;, &lt;b&gt;AI nasıl çalışır?&lt;/b&gt; başlıklı videoyu gizleyecektir&lt;br&gt;ama &lt;b&gt;Air süspansiyon inceleme&lt;/b&gt; başlıklı videoyu gizlemeyecektir</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -551,7 +552,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Video kalite menüsü alt bilgisi görünür</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Önceki ve Sonraki video butonlarını gizle</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Önceki &amp; Sonraki video butonlarını gizle</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Önceki ve Sonraki video butonları gizleniyor</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Önceki ve Sonraki video butonları gösteriliyor</string>
   <string name="revanced_hide_cast_button_title">Yansıtma butonunu gizle</string>
@@ -708,6 +709,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">Oynatıcı açılır panelleri gizleniyor</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Oynatıcı açılır panelleri gösteriliyor</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Oynatıcı opaklığı</string>
   <string name="revanced_player_overlay_opacity_summary">0-100 arasında opaklık değeri, 0 şeffaftır</string>
@@ -720,7 +723,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_failure_client_rate_limit_requested">Beğenmeme sayıları kullanılamıyor API sınırına ulaşıldı</string>
   <string name="revanced_ryd_failure_generic">Beğenmeme sayıları kullanılamıyor (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
-  <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">ReturnYouTubeDislike\'ı kullanarak oy vermek için videoyu yeniden yükleyin</string>
+  <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">ReturnYouTubeDislike ile oylamak için yeniden yükleyin</string>
   <string name="revanced_ryd_enable_summary_on">Beğenmeme sayıları gösteriliyor</string>
   <string name="revanced_ryd_enable_summary_off">Beğenmeme sayıları gösterilmiyor</string>
   <string name="revanced_ryd_shorts_title">Shorts\'ta beğenmeme sayılarını göster</string>
@@ -768,6 +771,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Zaman çubuğu küçük resimleri orta kalitede</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Tam ekran zaman çubuğu küçük resimleri yüksek kalitede</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Tam ekran zaman çubuğu küçük resimleri orta kalitede</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Bu aynı zamanda zaman çubuğu küçük resimleri olmayan canlı yayınlar için küçük resimleri geri getirecektir.\n\nZaman çubuğu küçük resimleri, şu anki video ile aynı kaliteyi kullanacaktır.\n\nBu özellik 720p video kalitesinde ve çok hızlı bir internet bağlantısında en iyi şekilde çalışır.</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Eski zaman çubuğu küçük resimlerini geri getir</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Zaman çubuğu küçük resimleri zaman çubuğunun üzerinde görünecek</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Zaman çubuğu küçük resimleri tam ekran olarak gösterilecek</string>
@@ -895,7 +899,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_submit_failed_duplicate">Kısım gönderilemedi.\nAynısı mevcut</string>
   <string name="revanced_sb_submit_succeeded">Bölüm başarıyla gönderildi</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
-  <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock zaman aşımına uğradı</string>
+  <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock geçici kullanılamıyor (API zaman aşımı)</string>
   <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock geçici olarak kullanılamıyor (durum %d)</string>
   <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock geçici olarak kullanılamıyor</string>
   <string name="revanced_sb_vote_failed_timeout">Bölüm oylanamıyor (API zaman aşımına uğradı)</string>
@@ -906,7 +910,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_vote_category">Kategori değiştir</string>
   <string name="revanced_sb_vote_no_segments">Oylanılacak bir bölüm yok</string>
   <string name="revanced_sb_new_segment_choose_category">Bölümün kategorisini seçin</string>
-  <string name="revanced_sb_new_segment_disabled_category">Kategori, ayarlarda devre dışı bırakıldı. Göndermek için kategoriyi etkinleştirin.</string>
+  <string name="revanced_sb_new_segment_disabled_category">Kategori, ayarlarda etkin değil. Göndermek için etkinleştirin.</string>
   <string name="revanced_sb_new_segment_title">Yeni SponsorBlock bölümü</string>
   <string name="revanced_sb_new_segment_mark_time_as_question">%s bu kısmın başlangıcı mı, bitişi mi olarak ayarlansın?</string>
   <string name="revanced_sb_new_segment_mark_start">başlangıç</string>
@@ -917,7 +921,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_confirm_title">Süreler doğru mu?</string>
   <string name="revanced_sb_new_segment_confirm_content">Segment\n\n%1$s\niçin\n%2$s\n\n(%3$s)\n\nGöndermeye hazır mısınız?</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Başlangıç bitişten önce olmalıdır</string>
-  <string name="revanced_sb_new_segment_mark_locations_first">Öncelikle zaman çubuğunda iki yer işaretleyin</string>
+  <string name="revanced_sb_new_segment_mark_locations_first">Önce zaman çubuğunda iki yer işaretleyin</string>
   <string name="revanced_sb_new_segment_preview_segment_first">Bölümü önizleyin ve sorunsuz bir şekilde atladığından emin olun</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Bölümün zamanlamasını el ile ayarlayın</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Bölümün başlangıcını mı, bitişini mi düzenlemek istiyorsunuz?</string>
@@ -961,11 +965,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Taklit edilecek uygulama sürümü</string>
+  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Eski Shorts oynatıcı simgelerini geri getir</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_entry_1">18.33.40 - Gizli modda Shorts için RYD\'yi onar</string>
-  <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - Geniş video hızı &amp; kalite menüsünü geri getir</string>
-  <string name="revanced_spoof_app_version_target_entry_3">18.08.39 - Kitaplık sekmesini geri getir</string>
-  <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Eski oynatma listesi rafını geri getir</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Gizli modda Shorts için RYD\'yi onar</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Geniş video hızı &amp; kalite menüsünü geri getir</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.08.39 - Kitaplık sekmesini geri getir</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Eski oynatma listesi rafını geri getir</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Başlangıç sayfasını seç</string>
@@ -1008,8 +1013,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Mini oynatıcı</string>
   <string name="revanced_miniplayer_screen_summary">Uygulama içi küçültülmüş oynatıcının tarzını değiştir</string>
   <string name="revanced_miniplayer_type_title">Mini oynatıcı tipi</string>
+  <string name="revanced_miniplayer_type_entry_0">Devre dışı</string>
   <string name="revanced_miniplayer_type_entry_1">Orijinal</string>
-  <string name="revanced_miniplayer_type_entry_2">Telefon</string>
+  <string name="revanced_miniplayer_type_entry_2">Minimal</string>
   <string name="revanced_miniplayer_type_entry_3">Tablet</string>
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
@@ -1023,6 +1029,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_drag_and_drop_title">Sürükleyip bırakmayı etkinleştir</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">Sürükleyip bırakma etkin\n\nMini oynatıcı ekranın herhangi bir köşesine sürüklenebilir</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">Sürükleyip bırakma devre dışı</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">Yatay sürükleme hareketini etkinleştir</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">Yatay sürükleme hareketi etkin\n\nMini oynatıcı ekranın dışına doğru sağa veya sola sürüklenebilir</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">Yatay sürükleme hareketi devre dışı</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Kapatma düğmesini gizle</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">Kapatma düğmesi gizli</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">Kapatma düğmesi görünür</string>
@@ -1057,7 +1066,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Resimlerin bölge kısıtlamalarını atla</string>
-  <string name="revanced_bypass_image_region_restrictions_summary_on">yt4.ggpht.com resim sunucusu kullanılıyor</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_on">Resim sunucusu kullanılıyor: yt4.ggpht.com</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">Orijinal resim sunucusu kullanılıyor\n\nBunu etkinleştirmek bazı bölgelerde engellenen eksik resimleri düzeltebilir</string>
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">
@@ -1071,7 +1080,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_alt_thumbnail_search_title">Arama sonuçlarında</string>
   <string name="revanced_alt_thumbnail_options_entry_1">Orijinal küçük resimler</string>
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow ve Orijinal küçük resimleri</string>
-  <string name="revanced_alt_thumbnail_options_entry_3">DeArrow ve Hareketsiz Yakalamalar</string>
+  <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Hareketsiz Yakalamalar</string>
   <string name="revanced_alt_thumbnail_options_entry_4">Hareketsiz yakalamalar</string>
   <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow, YouTube videoları için topluluk kaynaklı kapak resimleri sağlar. Bu kapak resimleri, genellikle YouTube\'nin sağladığından daha alakalıdır\n\nEtkinleştirildiğinde, video URLleri API sunucusuna gönderilecektir ve başka hiçbir veri gönderilmeyecektir. Eğer bir videonun DeArrow kapak resimleri yoksa, orijinal veya video içinden kareler gösterilir.\n\nDeArrow hakkında daha fazla öğrenmek için dokunun</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">API kullanılamadığında bir tost bildirimi göster</string>
@@ -1141,7 +1150,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">Titreşim etkin</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Otomatik kalite</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">Oto</string>
   <string name="revanced_remember_video_quality_last_selected_title">Video kalitesi değişikliklerini hatırla</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Kalite değişiklikleri tüm videolara uygulanacak</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Kalite değişiklikleri yalnızca mevcut videoya uygulanacak</string>
@@ -1149,7 +1159,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_video_quality_default_mobile_title">Mobil ağdaki varsayılan video kalitesi</string>
   <string name="revanced_remember_video_quality_mobile">mobil ağ</string>
   <string name="revanced_remember_video_quality_wifi">wifi</string>
-  <string name="revanced_remember_video_quality_toast">Varsayılan %1$s kalitesi, %2$s olarak değiştirildi</string>
+  <string name="revanced_remember_video_quality_toast">Varsayılan %1$s kalitesi, %2$s olarak değişti</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Hız diyaloğu düğmesini göster</string>
@@ -1164,6 +1174,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_custom_playback_speeds_summary">Özel oynatma hızları ekle veya değiştir</string>
   <string name="revanced_custom_playback_speeds_invalid">Özel hızlar %s\'dan az olmalıdır. Varsayılanlar kullanılıyor.</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Geçersiz özel oynatma hızları. Varsayılanlar seçildi.</string>
+  <string name="revanced_custom_playback_speeds_auto">Oto</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Oynatma hızı değişikliklerini hatırla</string>
@@ -1191,14 +1202,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">Bu ayarı devre dışı bırakmak video oynatma sorunlarına yol açabilir.</string>
   <string name="revanced_spoof_video_streams_client_title">Varsayılan istemci</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">AVC\'yi (H.264) zorla</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodeği AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodeği VP9 ya da AV1</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Cihazınız VP9 donanım çözme özelliği yok ve bu ayar istemci taklit etme açık iken her zaman açıktır</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Bunu etkinleştirmek batarya ömrünü uzatabilir ve oynatma takılmalarını çözebilir.\n\nAVC en fazla 1080p çözünürlüğe sahiptir ve video oynatımı VP9 veya AV1\'e göre daha fazla internet harcayacaktır.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS taklidi yan etkileri</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmler ve paralı videolar oynatılmayabilir\n• Canlı yayınlar baştan başlar\n• Videolar 1 saniye erken bitebilir\n• Opus ses kodeği yok</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR taklidi yan etkileri</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Ses parçası menüsü eksik\n• Sabit ses kullanılamaz</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Çocuklara özel videolar oynatılamayabilir\n• Ses parçası menüsü eksik\n• Sabit ses özelliği kullanılamaz</string>
+  <string name="revanced_spoof_video_streams_language_">Video akışları taklit ediliyor</string>
   </patch>
   </app>
   <app id="twitch">
@@ -1208,7 +1215,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_block_audio_ads_summary_off">Ses reklamları engellenmiyor</string>
   </patch>
   <patch id="ad.embedded.embeddedAdsPatch">
-  <string name="revanced_embedded_ads_service_unavailable">%s kullanılamıyor. Reklamlar görünebilir. Ayarlardan başka bir reklam engelleme hizmetine geçmeyi deneyin.</string>
+  <string name="revanced_embedded_ads_service_unavailable">%s kullanılamıyor. Reklamlar görünebilir. Ayarlardan başka bir reklam engelleme hizmetini deneyin.</string>
   <string name="revanced_embedded_ads_service_failed">%s sunucusu hata verdi. Reklamlar görünebilir. Ayarlardan başka bir reklam engelleme hizmetine geçmeyi deneyin.</string>
   <string name="revanced_block_embedded_ads_title">Gömülü video reklamlarını engelle</string>
   <string name="revanced_block_embedded_ads_entry_1">Devre dışı</string>
@@ -1234,12 +1241,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="debug.debugModePatch">
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
-  <string name="revanced_twitch_debug_mode_title">Twitch debug modunu etkinleştir</string>
-  <string name="revanced_twitch_debug_mode_summary_on">Twitch debug modu etkin (önerilmez)</string>
-  <string name="revanced_twitch_debug_mode_summary_off">Twitch debug modu devre dışı</string>
+  <string name="revanced_twitch_debug_mode_title">Twitch hata ayıklama modunu etkinleştir</string>
+  <string name="revanced_twitch_debug_mode_summary_on">Twitch hata ayıklama modu etkin (önerilmez)</string>
+  <string name="revanced_twitch_debug_mode_summary_off">Twitch hata ayıklama modu devre dışı</string>
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">ReVanced Ayarları</string>
+  <string name="revanced_about_title">Hakkında</string>
+  <string name="revanced_about_summary">ReVanced hakkında</string>
   <string name="revanced_ads_screen_title">Reklamlar</string>
   <string name="revanced_ads_screen_summary">Reklam engelleme ayarları</string>
   <string name="revanced_chat_screen_title">Sohbet</string>
@@ -1250,9 +1259,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_other_category_title">Diğer ayarlar</string>
   <string name="revanced_client_ads_category_title">İstemci taraflı reklamlar</string>
   <string name="revanced_surestream_ads_category_title">Sunucu taraflı kesin akışlı reklamlar</string>
-  <string name="revanced_twitch_debug_title">Debug logları</string>
-  <string name="revanced_twitch_debug_summary_on">Debug logları etkin</string>
-  <string name="revanced_twitch_debug_summary_off">Debug logları devre dışı</string>
+  <string name="revanced_twitch_debug_title">Hata ayıklama kayıtları</string>
+  <string name="revanced_twitch_debug_summary_on">Hata ayıklama kayıtları etkin</string>
+  <string name="revanced_twitch_debug_summary_off">Hata ayıklama kayıtları devre dışı</string>
   </patch>
   </app>
 </resources>

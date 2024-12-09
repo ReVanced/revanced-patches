@@ -2,7 +2,9 @@ package app.revanced.patches.all.misc.packagename
 
 import app.revanced.patcher.patch.*
 import app.revanced.util.asSequence
+import app.revanced.util.getNode
 import org.w3c.dom.Element
+import java.util.logging.Logger
 
 lateinit var packageNameOption: Option<String>
 
@@ -58,12 +60,32 @@ val changePackageNamePatch = resourcePatch(
     )
 
     finalize {
+        /**
+         * Apps that are confirmed to not work correctly with this patch.
+         * This is not an exhaustive list, and is only the apps with
+         * ReVanced specific patches and are confirmed incompatible with this patch.
+         */
+        val incompatibleAppPackages = setOf(
+            // Cannot log in, settings menu is broken.
+            "com.reddit.frontpage",
+
+            // Patches and installs but crashes on launch.
+            "com.duolingo",
+            "com.twitter.android",
+            "tv.twitch.android.app",
+        )
+
         document("AndroidManifest.xml").use { document ->
+            val manifest = document.getNode("manifest") as Element
+            val packageName = manifest.getAttribute("package")
+
+            if (incompatibleAppPackages.contains(packageName)) {
+                return@finalize Logger.getLogger(this::class.java.name).severe(
+                    "'$packageName' does not work correctly with \"Change package name\"",
+                )
+            }
 
             val replacementPackageName = packageNameOption.value
-
-            val manifest = document.getElementsByTagName("manifest").item(0) as Element
-            val packageName = manifest.getAttribute("package")
             val newPackageName = if (replacementPackageName != packageNameOption.default) {
                 replacementPackageName!!
             } else {

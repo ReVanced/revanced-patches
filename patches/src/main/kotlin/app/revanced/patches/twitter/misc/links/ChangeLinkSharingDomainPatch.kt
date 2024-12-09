@@ -9,6 +9,7 @@ import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
+import app.revanced.patches.twitter.misc.extension.sharedExtensionPatch
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
@@ -39,7 +40,10 @@ val changeLinkSharingDomainPatch = bytecodePatch(
     name = "Change link sharing domain",
     description = "Replaces the domain name of Twitter links when sharing them.",
 ) {
-    dependsOn(changeLinkSharingDomainResourcePatch)
+    dependsOn(
+        changeLinkSharingDomainResourcePatch,
+        sharedExtensionPatch,
+    )
 
     compatibleWith("com.twitter.android")
 
@@ -52,7 +56,6 @@ val changeLinkSharingDomainPatch = bytecodePatch(
     )
 
     execute {
-
         val replacementIndex =
             linkSharingDomainFingerprint.stringMatches!!.first().index
         val domainRegister =

@@ -14,13 +14,33 @@ import java.util.jar.JarFile
 
 internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/shared/Utils;"
 
+/**
+ * A patch to extend with an extension shared with multiple patches.
+ *
+ * @param extensionName The name of the extension to extend with.
+ */
+fun sharedExtensionPatch(
+    extensionName: String,
+    vararg hooks: ExtensionHook,
+) = bytecodePatch {
+    dependsOn(sharedExtensionPatch(*hooks))
+
+    extendWith("extensions/$extensionName.rve")
+}
+
+/**
+ * A patch to extend with the "shared" extension.
+ *
+ * @param hooks The hooks to get the application context for use in the extension,
+ * commonly for the onCreate method of exported activities.
+ */
 fun sharedExtensionPatch(
     vararg hooks: ExtensionHook,
 ) = bytecodePatch {
     extendWith("extensions/shared.rve")
 
     execute {
-        if (classBy { EXTENSION_CLASS_DESCRIPTOR in it.type } == null) {
+        if (classes.none { EXTENSION_CLASS_DESCRIPTOR == it.type }) {
             throw PatchException(
                 "Shared extension has not been merged yet. This patch can not succeed without merging it.",
             )
@@ -35,7 +55,7 @@ fun sharedExtensionPatch(
              */
             fun getCurrentJarFilePath(): String {
                 val className = object {}::class.java.enclosingClass.name.replace('.', '/') + ".class"
-                val classUrl = object {}::class.java.classLoader.getResource(className)
+                val classUrl = object {}::class.java.classLoader?.getResource(className)
                 if (classUrl != null) {
                     val urlString = classUrl.toString()
 

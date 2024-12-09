@@ -3,9 +3,12 @@ package app.revanced.patches.youtube.layout.branding.header
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
+import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
+import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.copyResources
+import app.revanced.util.findElementByAttributeValueOrThrow
 import java.io.File
 
 private const val HEADER_FILE_NAME = "yt_wordmark_header"
@@ -34,7 +37,20 @@ val changeHeaderPatch = resourcePatch(
     description = "Applies a custom header in the top left corner within the app. Defaults to the ReVanced header.",
     use = false,
 ) {
-    compatibleWith("com.google.android.youtube")
+    dependsOn(versionCheckPatch)
+
+    compatibleWith(
+        "com.google.android.youtube"(
+            "18.38.44",
+            "18.49.37",
+            "19.16.39",
+            "19.25.37",
+            "19.34.42",
+            "19.43.41",
+            "19.45.38",
+            "19.46.42",
+        )
+    )
 
     val header by stringOption(
         key = "header",
@@ -79,7 +95,7 @@ val changeHeaderPatch = resourcePatch(
         /**
          * A function that overwrites both header variants in the target resource directories.
          */
-        val overwriteFromTo: (String, String) -> Unit = { from: String, to: String ->
+        fun overwriteFromTo(from: String, to: String) {
             targetResourceDirectories.forEach { directory ->
                 variants.forEach { variant ->
                     val fromPath = directory.resolve("${from}_$variant.png")
@@ -91,23 +107,28 @@ val changeHeaderPatch = resourcePatch(
         }
 
         // Functions to overwrite the header to the different variants.
-        val toPremium = { overwriteFromTo(PREMIUM_HEADER_FILE_NAME, HEADER_FILE_NAME) }
-        val toHeader = { overwriteFromTo(HEADER_FILE_NAME, PREMIUM_HEADER_FILE_NAME) }
-        val toReVanced = {
+        fun toPremium() { overwriteFromTo(PREMIUM_HEADER_FILE_NAME, HEADER_FILE_NAME) }
+        fun toHeader() { overwriteFromTo(HEADER_FILE_NAME, PREMIUM_HEADER_FILE_NAME) }
+        fun toReVanced() {
             // Copy the ReVanced header to the resource directories.
             targetResourceFiles.forEach { copyResources("change-header/revanced", it) }
 
             // Overwrite the premium with the custom header as well.
             toHeader()
         }
-        val toReVancedBorderless = {
+        fun toReVancedBorderless() {
             // Copy the ReVanced borderless header to the resource directories.
-            targetResourceFiles.forEach { copyResources("change-header/revanced-borderless", it) }
+            targetResourceFiles.forEach {
+                copyResources(
+                    "change-header/revanced-borderless",
+                    it
+                )
+            }
 
             // Overwrite the premium with the custom header as well.
             toHeader()
         }
-        val toCustom = {
+        fun toCustom() {
             val sourceFolders = File(header!!).listFiles { file -> file.isDirectory }
                 ?: throw PatchException("The provided path is not a directory: $header")
 
@@ -136,11 +157,42 @@ val changeHeaderPatch = resourcePatch(
         }
 
         when (header) {
-            HEADER_OPTION -> toHeader
-            PREMIUM_HEADER_OPTION -> toPremium
-            REVANCED_HEADER_OPTION -> toReVanced
-            REVANCED_BORDERLESS_HEADER_OPTION -> toReVancedBorderless
-            else -> toCustom
-        }()
+            HEADER_OPTION -> toHeader()
+            PREMIUM_HEADER_OPTION -> toPremium()
+            REVANCED_HEADER_OPTION -> toReVanced()
+            REVANCED_BORDERLESS_HEADER_OPTION -> toReVancedBorderless()
+            else -> toCustom()
+        }
+
+        // Fix 19.25+ A/B layout with different header icons:
+        // yt_ringo2_wordmark_header, yt_ringo2_premium_wordmark_header
+        //
+        // These images are webp and not png, so overwriting them is not so simple.
+        // Instead change styles.xml to use the old drawable resources.
+        if (is_19_25_or_greater) {
+            document("res/values/styles.xml").use { document ->
+                arrayOf(
+                    "CairoLightThemeRingo2Updates" to variants[0],
+                    "CairoDarkThemeRingo2Updates" to variants[1]
+                ).forEach { (styleName, theme) ->
+                    val style = document.childNodes.findElementByAttributeValueOrThrow(
+                        "name",
+                        styleName,
+                    )
+
+                    val drawable = "@drawable/${HEADER_FILE_NAME}_${theme}"
+
+                    arrayOf(
+                        "ytWordmarkHeader",
+                        "ytPremiumWordmarkHeader"
+                    ).forEach { itemName ->
+                        style.childNodes.findElementByAttributeValueOrThrow(
+                            "name",
+                            itemName,
+                        ).textContent = drawable
+                    }
+                }
+            }
+        }
     }
 }

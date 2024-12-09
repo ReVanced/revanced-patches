@@ -9,11 +9,11 @@ import app.revanced.patches.shared.misc.settings.preference.IntentPreference
 import app.revanced.patches.shared.primeMethodFingerprint
 import app.revanced.patches.youtube.layout.buttons.overlay.hidePlayerOverlayButtonsPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
-import app.revanced.patches.youtube.misc.fix.playback.spoofVideoStreamsPatch
 import app.revanced.patches.youtube.misc.gms.Constants.REVANCED_YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.gms.Constants.YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.patches.youtube.misc.spoof.spoofVideoStreamsPatch
 import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 
 @Suppress("unused")
@@ -41,6 +41,8 @@ val gmsCoreSupportPatch = gmsCoreSupportPatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
+            "19.45.38",
+            "19.46.42",
         ),
     )
 }

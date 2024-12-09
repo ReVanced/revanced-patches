@@ -17,12 +17,10 @@ import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
 
 internal const val EXTENSION_METHOD_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/SlideToSeekPatch;->isSlideToSeekDisabled(Z)Z"
 
-@Suppress("unused")
 val enableSlideToSeekPatch = bytecodePatch(
     name = "Enable slide to seek",
     description = "Adds an option to enable slide to seek " +
@@ -44,6 +42,8 @@ val enableSlideToSeekPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
+            "19.45.38",
+            "19.46.42",
         ),
     )
 

@@ -9,7 +9,6 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 
-@Suppress("unused")
 val hideTimestampPatch = bytecodePatch(
     name = "Hide timestamp",
     description = "Adds an option to hide the timestamp in the bottom left of the video player.",
@@ -28,6 +27,8 @@ val hideTimestampPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
+            "19.45.38",
+            "19.46.42",
         ),
     )
 

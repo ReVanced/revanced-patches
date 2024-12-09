@@ -7,7 +7,7 @@ import app.revanced.patcher.patch.bytecodePatch
 val unlockProPatch = bytecodePatch(
     name = "Unlock pro",
 ) {
-    compatibleWith("org.totschnig.myexpenses")
+    compatibleWith("org.totschnig.myexpenses"("3.4.9"))
 
     execute {
         isEnabledFingerprint.method.addInstructions(

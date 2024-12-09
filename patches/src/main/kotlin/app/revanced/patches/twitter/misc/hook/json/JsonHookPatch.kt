@@ -5,7 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.reddit.misc.extension.sharedExtensionPatch
+import app.revanced.patches.twitter.misc.extension.sharedExtensionPatch
 import java.io.InvalidClassException
 
 /**
@@ -47,18 +47,22 @@ val jsonHookPatch = bytecodePatch(
     dependsOn(sharedExtensionPatch)
 
     execute {
-        val jsonFactoryClassDef = jsonHookPatchFingerprint.apply {
+        jsonHookPatchFingerprint.apply {
             // Make sure the extension is present.
             val jsonHookPatch = classBy { classDef -> classDef.type == JSON_HOOK_PATCH_CLASS_DESCRIPTOR }
                 ?: throw PatchException("Could not find the extension.")
 
             matchOrNull(jsonHookPatch.immutableClass)
                 ?: throw PatchException("Unexpected extension.")
-        }.originalClassDef // Conveniently find the type to hook a method in, via a named field.
-            .fields
-            .firstOrNull { it.name == "JSON_FACTORY" }
-            ?.type
-            .let { type -> classes.find { it.type == type } } ?: throw PatchException("Could not find required class.")
+        }
+
+        val jsonFactoryClassDef =
+            loganSquareFingerprint.originalClassDef // Conveniently find the type to hook a method in, via a named field.
+                .fields
+                .firstOrNull { it.name == "JSON_FACTORY" }
+                ?.type
+                .let { type -> classes.find { it.type == type } }
+                ?: throw PatchException("Could not find required class.")
 
         // Hook the methods first parameter.
         jsonInputStreamFingerprint.match(jsonFactoryClassDef).method.addInstructions(

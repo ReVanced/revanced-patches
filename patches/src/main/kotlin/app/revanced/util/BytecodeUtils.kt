@@ -17,6 +17,7 @@ import app.revanced.patches.shared.misc.mapping.resourceMappings
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.reference.Reference
@@ -311,6 +312,17 @@ fun Method.indexOfFirstInstructionReversed(startIndex: Int? = null, filter: Inst
 
 /**
  * Get the index of matching instruction,
+ * starting from the end of the method and searching down.
+ *
+ * @return -1 if the instruction is not found.
+ */
+fun Method.indexOfFirstInstructionReversed(targetOpcode: Opcode): Int =
+    indexOfFirstInstructionReversed {
+        opcode == targetOpcode
+    }
+
+/**
+ * Get the index of matching instruction,
  * starting from and [startIndex] and searching down.
  *
  * @param startIndex Optional starting index to search down from. Searching includes the start index.
@@ -322,6 +334,16 @@ fun Method.indexOfFirstInstructionReversedOrThrow(startIndex: Int? = null, targe
         opcode == targetOpcode
     }
 
+/**
+ * Get the index of matching instruction,
+ * starting from the end of the method and searching down.
+ *
+ * @return -1 if the instruction is not found.
+ */
+fun Method.indexOfFirstInstructionReversedOrThrow(targetOpcode: Opcode): Int =
+    indexOfFirstInstructionReversedOrThrow {
+        opcode == targetOpcode
+    }
 /**
  * Get the index of matching instruction,
  * starting from and [startIndex] and searching down.
@@ -379,6 +401,20 @@ fun Method.findInstructionIndicesReversedOrThrow(opcode: Opcode): List<Int> {
     if (instructions.isEmpty()) throw PatchException("Could not find opcode: $opcode in: $this")
 
     return instructions
+}
+
+internal fun MutableMethod.insertFeatureFlagBooleanOverride(literal: Long, extensionsMethod: String) {
+    val literalIndex = indexOfFirstLiteralInstructionOrThrow(literal)
+    val index = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
+    val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+    addInstructions(
+        index + 1,
+        """
+            invoke-static { v$register }, $extensionsMethod
+            move-result v$register
+        """
+    )
 }
 
 /**

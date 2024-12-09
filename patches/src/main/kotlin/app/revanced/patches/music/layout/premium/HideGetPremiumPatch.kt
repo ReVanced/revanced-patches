@@ -7,7 +7,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
-@Suppress("unused")
 val hideGetPremiumPatch = bytecodePatch(
     name = "Hide 'Get Music Premium' label",
     description = "Hides the \"Get Music Premium\" label from the account menu and settings.",

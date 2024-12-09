@@ -60,7 +60,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">Catatan</string>
   <string name="revanced_settings_about_links_dev_body">Versi ini adalah pra-rilis dan Anda mungkin mengalami masalah yang tidak terduga</string>
   <string name="revanced_settings_about_links_header">Tautan resmi</string>
-  <string name="revanced_settings_about_links_donate">Donasi</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -77,7 +78,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_00_about_title">Tentang</string>
   <string name="revanced_settings_screen_01_ads_title">Iklan</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Thumbnail alternatif</string>
-  <string name="revanced_settings_screen_03_feed_title">Umpan</string>
+  <string name="revanced_settings_screen_03_feed_title">Feed</string>
   <string name="revanced_settings_screen_04_player_title">Pemutar</string>
   <string name="revanced_settings_screen_05_general_title">Layout umum</string>
   <string name="revanced_settings_screen_07_seekbar_title">Seekbar</string>
@@ -230,9 +231,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">Sembunyikan kartu info</string>
   <string name="revanced_hide_info_cards_section_summary_on">Bagian kartu info disembunyikan</string>
   <string name="revanced_hide_info_cards_section_summary_off">Bagian kartu info ditampilkan</string>
-  <string name="revanced_hide_key_concepts_section_title">Sembunyikan bagian \'Konsep kunci\'</string>
-  <string name="revanced_hide_key_concepts_section_summary_on">Bagian \'Konsep kunci\' disembunyikan</string>
-  <string name="revanced_hide_key_concepts_section_summary_off">Bagian \'Konsep kunci\' ditampilkan</string>
+  <string name="revanced_hide_key_concepts_section_title">Sembunyikan bagian \'Konsep Utama\'</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">Bagian \'Konsep Utama\' disembunyikan</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">Bagian \'Konsep Utama\' ditampilkan</string>
   <string name="revanced_hide_transcript_section_title">Sembunyikan bagian transkrip</string>
   <string name="revanced_hide_transcript_section_summary_on">Bagian transkrip disembunyikan</string>
   <string name="revanced_hide_transcript_section_summary_off">Bagian transkrip ditampilkan</string>
@@ -708,6 +709,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">Panel popup pemutar disembunyikan</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Panel popup pemutar ditampilkan</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Opasitas hamparan pemutar</string>
   <string name="revanced_player_overlay_opacity_summary">Nilai opasitas antara 0-100, dimana 0 adalah transparan</string>
@@ -734,7 +737,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_compact_layout_title">Tombol suka ringkas</string>
   <string name="revanced_ryd_compact_layout_summary_on">Tombol suka ditata untuk lebar minimum</string>
   <string name="revanced_ryd_compact_layout_summary_off">Tombol suka ditata untuk tampilan terbaik</string>
-  <string name="revanced_ryd_toast_on_connection_error_title">Tampilkan dialog jika API tidak tersedia</string>
+  <string name="revanced_ryd_toast_on_connection_error_title">Tampilkan pesan timbul jika API tidak tersedia</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Pesan timbul tidak ditampilkan jika Return YouTube Dislike tidak tersedia</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Pesan timbul tidak ditampilkan jika Return YouTube Dislike tidak tersedia</string>
   <string name="revanced_ryd_about">Tentang</string>
@@ -787,9 +790,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_enable_auto_hide_skip_segment_button">Tombol lewati disembunyikan secara otomatis</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Tombol lewati disembunyikan setelah beberapa detik</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Tombol lewati ditampilkan untuk seluruh segmen</string>
-  <string name="revanced_sb_general_skiptoast">Tampilkan dialog ketika melewati segmen otomatis</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">Dialog ditampilkan saat segmen dilewati secara otomatis. Tekan di sini untuk melihat contohnya</string>
-  <string name="revanced_sb_general_skiptoast_sum_off">Dialog tidak ditampilkan. Tekan di sini untuk melihat contohnya</string>
+  <string name="revanced_sb_general_skiptoast">Tampilkan pesan timbul ketika melewati segmen otomatis</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">Pesan timbul ditampilkan saat segmen dilewati secara otomatis. Tekan di sini untuk melihat contohnya</string>
+  <string name="revanced_sb_general_skiptoast_sum_off">Pesan timbul tidak ditampilkan. Tekan di sini untuk melihat contohnya</string>
   <string name="revanced_sb_general_time_without">Tampilkan durasi video tanpa segmen</string>
   <string name="revanced_sb_general_time_without_sum_on">Durasi video dikurangi semua segmen, ditampilkan dalam tanda kurung di samping durasi video penuh</string>
   <string name="revanced_sb_general_time_without_sum_off">Durasi video penuh ditampilkan</string>
@@ -816,9 +819,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_general_min_duration">Durasi minimum segmen</string>
   <string name="revanced_sb_general_min_duration_sum">Segmen yang lebih pendek pada dari nilai ini (detik) tidak akan ditampilkan atau dilewati</string>
   <string name="revanced_sb_general_min_duration_invalid">Durasi waktu tidak sah</string>
-  <string name="revanced_sb_general_uuid">ID user pribadi Anda</string>
+  <string name="revanced_sb_general_uuid">ID pengguna pribadi Anda</string>
   <string name="revanced_sb_general_uuid_sum">Ini harus dijaga kerahasiaannya. Seperti kata sandi dan tidak disarankan untuk dibagikan dengan siapa pun. Jika seseorang mendapatkan ini, mereka dapat menyamar sebagai Anda</string>
-  <string name="revanced_sb_general_uuid_invalid">ID user harus tidak lebih dari 30 karakter</string>
+  <string name="revanced_sb_general_uuid_invalid">ID pengguna tidak boleh lebih dari 30 karakter</string>
   <string name="revanced_sb_general_api_url">Ubah URL API</string>
   <string name="revanced_sb_general_api_url_sum">Alamat yang digunakan SponsorBlock untuk membuat panggilan ke server</string>
   <string name="revanced_sb_api_url_reset">Atur ulang URL API</string>
@@ -827,7 +830,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_settings_ie">Impor/Ekspor pengaturan</string>
   <string name="revanced_sb_settings_copy">Salin</string>
   <string name="revanced_sb_settings_ie_sum">Konfigurasi JSON SponsorBlock Anda yang dapat diimpor/diekspor ke ReVanced dan platform SponsorBlock lainnya</string>
-  <string name="revanced_sb_settings_ie_sum_warning">Konfigurasi JSON SponsorBlock Anda yang dapat diimpor/diekspor ke ReVanced dan platform SponsorBlock lainnya, termasuk ID user Anda. Pastikan untuk membagikannya dengan bijak</string>
+  <string name="revanced_sb_settings_ie_sum_warning">Konfigurasi JSON SponsorBlock Anda yang dapat diimpor/diekspor ke ReVanced dan platform SponsorBlock lainnya, termasuk ID pengguna Anda. Pastikan untuk membagikannya dengan bijak</string>
   <string name="revanced_sb_settings_import_successful">Pengaturan berhasil diimpor</string>
   <string name="revanced_sb_settings_import_failed">Gagal mengimpor: %s</string>
   <string name="revanced_sb_settings_export_failed">Gagal mengekspor: %s</string>
@@ -962,11 +965,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Target versi app yang dipalsukan</string>
+  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Pulihkan ikon pemutar Shorts lama</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_entry_1">18.33.40 - Pulihkan RYD pada mode penyamaran Shorts</string>
-  <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - Pulihkan menu kecepatan &amp; kualitas video lebar</string>
-  <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - Pulihkan tab pustaka</string>
-  <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Pulihkan rak daftar putar lama</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Pulihkan RYD pada mode penyamaran Shorts</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Pulihkan menu kecepatan &amp; kualitas video lebar</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Pulihkan tab pustaka</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Pulihkan rak daftar putar lama</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Tetapkan halaman awal</string>
@@ -1003,14 +1007,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_tablet_layout_title">Aktifkan tata letak tablet</string>
   <string name="revanced_tablet_layout_summary_on">Tata letak tablet diaktifkan</string>
   <string name="revanced_tablet_layout_summary_off">Tata letak tablet dinonaktifkan</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Tidak ada postingan komunitas untuk tablet</string>
+  <string name="revanced_tablet_layout_user_dialog_message">Postingan komunitas tidak muncul pada tata letak tablet</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Pemutar Mini</string>
   <string name="revanced_miniplayer_screen_summary">Mengubah gaya pemutar aplikasi saat diciuitkan</string>
   <string name="revanced_miniplayer_type_title">Jenis pemutar mini</string>
+  <string name="revanced_miniplayer_type_entry_0">Nonaktif</string>
   <string name="revanced_miniplayer_type_entry_1">Asli</string>
-  <string name="revanced_miniplayer_type_entry_2">Ponsel</string>
+  <string name="revanced_miniplayer_type_entry_2">Minimal</string>
   <string name="revanced_miniplayer_type_entry_3">Tablet</string>
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
@@ -1043,7 +1048,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_width_dip_summary">Awal pada ukuran layar, dalam piksel</string>
   <string name="revanced_miniplayer_width_dip_invalid_toast">Ukuran piksel harus antara %1$s dan %2$s</string>
   <string name="revanced_miniplayer_opacity_title">Opasitas hamparan</string>
-  <string name="revanced_miniplayer_opacity_summary">Nilai opasitas antara 0-100, di mana 0 adalah transparan</string>
+  <string name="revanced_miniplayer_opacity_summary">Nilai opasitas antara 0-100, dimana 0 adalah transparan</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Opasitas hamparan pemutar mini antara 0-100</string>
   </patch>
   <patch id="layout.theme.themePatch">
@@ -1145,7 +1150,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">Sentuh getar diaktifkan</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Kualitas otomatis</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">Otomatis</string>
   <string name="revanced_remember_video_quality_last_selected_title">Ingat perubahan kualitas video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Perubahan kualitas diatur ke semua video</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Perubahan kualitas hanya diatur di video saat ini</string>
@@ -1168,6 +1174,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_custom_playback_speeds_summary">Tambah atau ubah kecepatan pemutaran khusus</string>
   <string name="revanced_custom_playback_speeds_invalid">Kecepatan khusus harus kurang dari %s. Menggunakan nilai bawaan.</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Kecepatan pemutaran khusus tidak sah.</string>
+  <string name="revanced_custom_playback_speeds_auto">Otomatis</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Ingat perubahan kecepatan pemutaran</string>
@@ -1195,14 +1202,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">Mematikan pengaturan ini dapat menyebabkan masalah pemutaran video.</string>
   <string name="revanced_spoof_video_streams_client_title">Klien bawaan</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Paksa AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Kodek video adalah AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodek video adalah VP9 atau AV1</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Perangkat Anda tidak memiliki dekode perangkat keras VP9, ​​dan pengaturan ini selalu aktif saat pemalsuan Klien diaktifkan</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Menyalakan ini dapat meningkatkan masa pakai baterai dan memperbaiki gangguan pemutaran.\n\nAVC memiliki resolusi maksimum 1080p, dan pemutaran video akan menggunakan lebih banyak data internet daripada VP9 atau AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Efek samping pemalsuan iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Film atau video berbayar mungkin tidak dapat diputar\n• Siaran langsung dimulai dari awal\n• Video mungkin berakhir 1 detik lebih awal\n• Tidak ada codec audio opus</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Video privat anak-anak tidak dapat diputar\n• Siaran langsung dimulai dari awal\n• Video akan berakhir 1 detik lebih awal</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Efek samping pemalsuan Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Menu trek audio hilang\n• Volume stabil tidak tersedia</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Video anak-anak mungkin tidak dapat diputar\n• Menu trek audio tidak ada\n• Volume stabil tidak tersedia</string>
+  <string name="revanced_spoof_video_streams_language_">Aliran video dipalsukan</string>
   </patch>
   </app>
   <app id="twitch">
@@ -1244,6 +1248,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">Pengaturan ReVanced</string>
+  <string name="revanced_about_title">Tentang</string>
+  <string name="revanced_about_summary">Tentang ReVanced</string>
   <string name="revanced_ads_screen_title">Iklan</string>
   <string name="revanced_ads_screen_summary">Pengaturan pemblokir iklan</string>
   <string name="revanced_chat_screen_title">Obrolan</string>

@@ -11,7 +11,6 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 
-@Suppress("unused")
 val videoAdsPatch = bytecodePatch(
     name = "Video ads",
     description = "Adds an option to remove ads in the video player.",
@@ -30,6 +29,8 @@ val videoAdsPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
+            "19.45.38",
+            "19.46.42",
         ),
     )
 

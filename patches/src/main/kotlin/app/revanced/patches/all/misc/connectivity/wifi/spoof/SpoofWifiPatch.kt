@@ -5,7 +5,8 @@ import app.revanced.patches.all.misc.transformation.IMethodCall
 import app.revanced.patches.all.misc.transformation.filterMapInstruction35c
 import app.revanced.patches.all.misc.transformation.transformInstructionsPatch
 
-internal const val EXTENSION_CLASS_DESCRIPTOR_PREFIX = "Lapp/revanced/extension/all/connectivity/wifi/spoof/SpoofWifiPatch"
+internal const val EXTENSION_CLASS_DESCRIPTOR_PREFIX =
+    "Lapp/revanced/extension/all/connectivity/wifi/spoof/SpoofWifiPatch"
 
 internal const val EXTENSION_CLASS_DESCRIPTOR = "$EXTENSION_CLASS_DESCRIPTOR_PREFIX;"
 
@@ -15,7 +16,7 @@ val spoofWifiPatch = bytecodePatch(
     description = "Spoofs an existing Wi-Fi connection.",
     use = false,
 ) {
-    extendWith("extensions/all/connectivity/wifi/spoof/spoof-wifi.rve")
+    extendWith("extensions/all/misc/connectivity/wifi/spoof/spoof-wifi.rve")
 
     dependsOn(
         transformInstructionsPatch(

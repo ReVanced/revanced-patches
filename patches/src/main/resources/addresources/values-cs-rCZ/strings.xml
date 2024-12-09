@@ -36,32 +36,33 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_check_environment_failed_title">Kontroly selhaly</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Otevřít oficiální webovou stránku</string>
   <string name="revanced_check_environment_dialog_ignore_button">Ignorovat</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Zdá se, že tuto aplikaci neupravujete.&lt;/h5&gt;&lt;br&gt;Tato aplikace nemusí fungovat správně, &lt;b&gt;může být škodlivá nebo dokonce nebezpečná pro použití&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Z těchto kontrol vyplývá, že tato aplikace je předem upravena nebo získána od někoho jiného:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Je důrazně doporučeno &lt;b&gt;odinstalovat tuto aplikaci a opravit ji sami&lt;/b&gt; , abyste se ujistili, že používáte ověřenou a bezpečnou aplikaci.&lt;p&gt;&lt;br&gt;Pokud je ignorováno, toto varování se zobrazí pouze dvakrát.</string>
-  <string name="revanced_check_environment_not_same_patching_device">Upraveno na jiném zařízení</string>
-  <string name="revanced_check_environment_manager_not_expected_installer">Není nainstalován ReVanced Manager</string>
-  <string name="revanced_check_environment_not_near_patch_time">Upraveno před více než 10 minutami</string>
-  <string name="revanced_check_environment_not_near_patch_time_days">Patchnuto před %s dny</string>
-  <string name="revanced_check_environment_not_near_patch_time_invalid">APK datum sestavení je poškozeno</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Zdá se, že jste tuto upravenou verzi aplikace nevygenerovali vy.&lt;/h5&gt;&lt;br&gt;Aplikace nemusí fungovat správně, &lt;b&gt;může být škodlivá nebo nebezpečná&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Z následujících kontrol vyplývá, že úpravy této aplikace byly provedeny někým jiným:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Je důrazně doporučeno &lt;b&gt;odinstalovat tuto aplikaci a vygenerovat ji sami&lt;/b&gt;, abyste měli jistotu, že je aplikace ověřená a bezpečná.&lt;p&gt;&lt;br&gt;Pokud zvolíte Ignorovat, toto varování se zobrazí pouze dvakrát.</string>
+  <string name="revanced_check_environment_not_same_patching_device">Vygenerována na jiném zařízení</string>
+  <string name="revanced_check_environment_manager_not_expected_installer">Nebyla nainstalována skrze ReVanced Manager</string>
+  <string name="revanced_check_environment_not_near_patch_time">Vygenerována před více než 10 minutami</string>
+  <string name="revanced_check_environment_not_near_patch_time_days">Vygenerována před %s dny</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">Datum sestavení souboru APK je poškozeno</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Přejete si pokračovat?</string>
-  <string name="revanced_settings_reset">Resetovat</string>
+  <string name="revanced_settings_reset">Výchozí</string>
   <string name="revanced_settings_restart_title">Obnovit a restartovat</string>
   <string name="revanced_settings_restart">Restartovat</string>
   <string name="revanced_settings_import">Importovat</string>
   <string name="revanced_settings_import_copy">Kopírovat</string>
-  <string name="revanced_settings_import_reset">Nastavení Revanced resetováno do výchozího stavu</string>
+  <string name="revanced_settings_import_reset">Nastavení ReVanced obnoveno do výchozího stavu</string>
   <string name="revanced_settings_import_success">Importováno %d nastavení</string>
   <string name="revanced_settings_import_failure_parse">Importováni selhalo: %s</string>
   <string name="revanced_pref_import_export_title">Import / Export</string>
-  <string name="revanced_pref_import_export_summary">Importovat/ exportovat nastavení ReVanced</string>
+  <string name="revanced_pref_import_export_summary">Importovat/exportovat nastavení ReVanced</string>
   <!-- Settings about dialog. -->
   <string name="revanced_settings_about_links_body">Používáte ReVanced Patches verze &lt;i&gt;%s&lt;/i&gt;</string>
   <string name="revanced_settings_about_links_dev_header">Poznámka</string>
   <string name="revanced_settings_about_links_dev_body">Tato verze je předběžná verze a můžete zaznamenat neočekávané problémy</string>
   <string name="revanced_settings_about_links_header">Oficiální odkazy</string>
-  <string name="revanced_settings_about_links_donate">Přispět</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -258,6 +259,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_section_title">Skrýt sekci komentáře</string>
   <string name="revanced_hide_comments_section_summary_on">Sekce komentářů je skrytá</string>
   <string name="revanced_hide_comments_section_summary_off">Část Komentáře je zobrazena</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">Skrýt tlačítko \"Vytvořit Short\"</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">Tlačítko \"Vytvořit Short\" je skryté</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">Tlačítko \"Vytvořit Short\" je viditelné</string>
   <string name="revanced_hide_comments_preview_comment_title">Skrýt náhled komentáře</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Náhled komentáře je skrytý</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Náhled komentáře je zobrazen</string>
@@ -297,6 +301,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <string name="revanced_hide_keyword_content_phrases_summary">klíčová slova a fráze ke skrytí, odděleno novými řádky\n\nKlíčová slova mohou být jména kanálů nebo jakýkoli text zobrazený v nadpisech videa\n\nSlova s velkými písmeny uprostřed musí být zadána se skříní (např: iPhone, iPhone, TikTok, LeBlanc)</string>
   <string name="revanced_hide_keyword_content_about_title">O filtrování klíčových slov</string>
+  <string name="revanced_hide_keyword_content_about_summary">Domů/Předplatné/Výsledky vyhledávání jsou filtrovány tak, aby se skryl obsah, který odpovídá klíčovým slovům\n\nOmezení\n- Shorts nelze skrýt podle názvu kanálu\n- Některé součásti uživatelského rozhraní se nemusí skrýt\n- Při vyhledávání klíčového slova se nemusí zobrazit žádné výsledky</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Porovnat celá slova</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Zaokrouhlení klíčového slova/fráze s dvojitými uvozovkami zabrání částečným shodám s názvy videí a kanálů&lt;br&gt;&lt;br&gt;Například&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; skryje video: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;, ale nebude skrýt: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
@@ -594,8 +599,18 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_shorts_player_screen_title">Přehrávač Shorts</string>
   <string name="revanced_shorts_player_screen_summary">Skrýt nebo zobrazit komponenty v přehrávači Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
+  <string name="revanced_hide_shorts_home_title">Skrýt Shorts v Domů</string>
+  <string name="revanced_hide_shorts_home_summary_on">Shorts jsou schovány v Domů</string>
+  <string name="revanced_hide_shorts_home_summary_off">Shorts jsou zobrazeny v Domů</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
+  <string name="revanced_hide_shorts_subscriptions_title">Schovat Shorts v odběrovém feedu</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts jsou v odběrovém feedu schovány</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts jsou v odběrovém feedu zobazeny</string>
+  <string name="revanced_hide_shorts_search_title">Skrýt Shorts ve výsledcích vyhledávání</string>
+  <string name="revanced_hide_shorts_search_summary_on">Shorts jsou ve výsledcích vyhledávání skryté</string>
+  <string name="revanced_hide_shorts_search_summary_off">Shorts jsou ve výsledcích vyhledávání viditelné</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
+  <string name="revanced_hide_shorts_join_button_title">Skrýt tlačítko Připojit se</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Tlačítko spojení je skryté</string>
   <string name="revanced_hide_shorts_join_button_summary_off">Zobrazí se tlačítko pro připojení</string>
   <!-- 'subscribe' should be translated using the same localized wording YouTube displays for the button. -->
@@ -694,6 +709,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_title">Skrýt vyskakovací panely přehrávače</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Vyskakovací panely přehrávače jsou skryty</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Zobrazí se vyskakovací panely přehrávače</string>
+  </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <string name="revanced_open_videos_fullscreen_portrait_title">Otevřít videa na výšku na celou obrazovku</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_on">Videa otevřená na celou obrazovku</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_off">Videa neotevírají celou obrazovku</string>
   </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Neprůhlednost překrytí přehrávače</string>
@@ -949,11 +969,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Cíl pro spontánní verzi aplikace</string>
+  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Obnovuje staré ikony Shorts přehrávače</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_entry_1">18.33.40 - Obnovení RYD v krátkém anonymním režimu</string>
-  <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - Obnovení široké rychlosti videa &amp; kvalitní menu</string>
-  <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - Obnovení záložky knihovny</string>
-  <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Obnovit starou skladbu</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Obnovení RYD v krátkém anonymním režimu</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Obnovení široké rychlosti videa &amp; kvalitní menu</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Obnovení záložky knihovny</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Obnovit starou skladbu</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Nastavit úvodní stránku</string>
@@ -974,6 +995,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_change_start_page_entry_watch_later">Sledujte později</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
+  <string name="revanced_disable_resuming_shorts_player_title">Zakázat obnovení přehrávače Shorts</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_on">Přehrávač Shorts nebude obnoven při spuštění aplikace</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Krátký přehrávač bude pokračovat při spuštění aplikace</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
@@ -994,8 +1017,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Minipřehrávač</string>
   <string name="revanced_miniplayer_screen_summary">Změnit styl přehrávače minimalizovaného nastavení</string>
   <string name="revanced_miniplayer_type_title">Typ minipřehrávače</string>
+  <string name="revanced_miniplayer_type_entry_0">Vypnuto</string>
   <string name="revanced_miniplayer_type_entry_1">Původní</string>
-  <string name="revanced_miniplayer_type_entry_2">Telefon</string>
+  <string name="revanced_miniplayer_type_entry_2">Minimální</string>
   <string name="revanced_miniplayer_type_entry_3">Tablet</string>
   <string name="revanced_miniplayer_type_entry_4">Moderní 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderní 2</string>
@@ -1130,7 +1154,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">Hmatové úlohy jsou povoleny</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Automatická kvalita</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">Automaticky</string>
   <string name="revanced_remember_video_quality_last_selected_title">Zapamatovat změny kvality videa</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Změny kvality platí pro všechna videa</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Změny kvality se vztahují pouze na aktuální video</string>
@@ -1153,6 +1178,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_custom_playback_speeds_summary">Přidat nebo změnit vlastní rychlosti přehrávání</string>
   <string name="revanced_custom_playback_speeds_invalid">Vlastní rychlosti musí být menší než %s. Použití výchozích hodnot.</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Neplatné vlastní rychlosti přehrávání. Použití výchozích hodnot.</string>
+  <string name="revanced_custom_playback_speeds_auto">Automaticky</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Zapamatovat změny rychlosti přehrávání</string>
@@ -1180,14 +1206,68 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">Vypnutí tohoto nastavení může způsobit problémy při přehrávání videa.</string>
   <string name="revanced_spoof_video_streams_client_title">Výchozí klient</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Síla AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodek je AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodek je VP9 nebo AV1</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Vaše zařízení nemá hardwarové dekódování VP9 a toto nastavení je vždy zapnuto, když je aktivní spoofování klienta</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Povolení této funkce může zlepšit životnost baterie a opravit stahování přehrávání.\n\nAVC má maximální rozlišení 1080p a video přehrávání bude používat více dat než VP9 nebo AV1.</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Kodek videa je nucen k AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodek videa je určen automaticky</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Povolení této funkce může zlepšit životnost baterie a opravit stahování přehrávání.\n\nAVC má maximální rozlišení 1080p, Opus audio kodek není k dispozici, a přehrávání videa bude používat více dat na internetu než VP9 nebo AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Boční efekty iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmy nebo placená videa nemusí přehrávat\n• Živočišné rekony začínající od začátku\n• Videa mohou skončit 1 sekundu na začátku\n• Žádný opus audio kodek</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Soukromé děti videa nemusí přehrávat\n• Živočišné rekony začínající od začátku\n• Videa mohou skončit 1 sekundu</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Boční efekty Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Menu zvukové stopy chybí\n• Stabilní hlasitost není k dispozici</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Dětská videa nemusí přehrát\n• Menu zvukové stopy chybí\n• Stabilní hlasitost není k dispozici</string>
+  <string name="revanced_spoof_video_streams_language_">Video streamy jsou falešné</string>
+  <string name="revanced_spoof_video_streams_language_title">Preferovaný jazyk audio streamu</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">Jazyk aplikace</string>
+  <string name="revanced_spoof_video_streams_language_AR">Arabština</string>
+  <string name="revanced_spoof_video_streams_language_AZ">Ázerbájdžán</string>
+  <string name="revanced_spoof_video_streams_language_BG">Bulharština</string>
+  <string name="revanced_spoof_video_streams_language_BN">bengálština</string>
+  <string name="revanced_spoof_video_streams_language_CA">Katalánština</string>
+  <string name="revanced_spoof_video_streams_language_CS">Čeština</string>
+  <string name="revanced_spoof_video_streams_language_DA">Dánština</string>
+  <string name="revanced_spoof_video_streams_language_DE">Němčina</string>
+  <string name="revanced_spoof_video_streams_language_EL">Řečtina</string>
+  <string name="revanced_spoof_video_streams_language_EN">Angličtina</string>
+  <string name="revanced_spoof_video_streams_language_ES">Španělština</string>
+  <string name="revanced_spoof_video_streams_language_ET">Estonština</string>
+  <string name="revanced_spoof_video_streams_language_FA">Perština</string>
+  <string name="revanced_spoof_video_streams_language_FI">Finština</string>
+  <string name="revanced_spoof_video_streams_language_FR">Francouzština</string>
+  <string name="revanced_spoof_video_streams_language_GU">Gujarati</string>
+  <string name="revanced_spoof_video_streams_language_HI">Hindština</string>
+  <string name="revanced_spoof_video_streams_language_HR">Chorvatština</string>
+  <string name="revanced_spoof_video_streams_language_HU">Maďarština</string>
+  <string name="revanced_spoof_video_streams_language_ID">Indonéština</string>
+  <string name="revanced_spoof_video_streams_language_IT">Italština</string>
+  <string name="revanced_spoof_video_streams_language_JA">Japonština</string>
+  <string name="revanced_spoof_video_streams_language_KK">Kazakh</string>
+  <string name="revanced_spoof_video_streams_language_KO">Korejština</string>
+  <string name="revanced_spoof_video_streams_language_LT">Litevština</string>
+  <string name="revanced_spoof_video_streams_language_LV">lotyšština</string>
+  <string name="revanced_spoof_video_streams_language_MK">makedonština</string>
+  <string name="revanced_spoof_video_streams_language_MN">Mongolština</string>
+  <string name="revanced_spoof_video_streams_language_MR">Maráthština</string>
+  <string name="revanced_spoof_video_streams_language_MS">Malajština</string>
+  <string name="revanced_spoof_video_streams_language_MY">Burmese</string>
+  <string name="revanced_spoof_video_streams_language_NL">Holandština</string>
+  <string name="revanced_spoof_video_streams_language_OR">Odia</string>
+  <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
+  <string name="revanced_spoof_video_streams_language_PL">Polština</string>
+  <string name="revanced_spoof_video_streams_language_PT_BR">Portugalština (Brazílie)</string>
+  <string name="revanced_spoof_video_streams_language_PT_PT">Portugalština (Portugalsko)</string>
+  <string name="revanced_spoof_video_streams_language_RO">Rumunština</string>
+  <string name="revanced_spoof_video_streams_language_RU">Ruština</string>
+  <string name="revanced_spoof_video_streams_language_SK">Slovenština</string>
+  <string name="revanced_spoof_video_streams_language_SL">Slovene</string>
+  <string name="revanced_spoof_video_streams_language_SR">Srbština</string>
+  <string name="revanced_spoof_video_streams_language_SV">Švédština</string>
+  <string name="revanced_spoof_video_streams_language_SW">Svahilština</string>
+  <string name="revanced_spoof_video_streams_language_TA">Tamil</string>
+  <string name="revanced_spoof_video_streams_language_TE">Telugu</string>
+  <string name="revanced_spoof_video_streams_language_TH">Thajština</string>
+  <string name="revanced_spoof_video_streams_language_TR">Turecký</string>
+  <string name="revanced_spoof_video_streams_language_UK">Ukrajinština</string>
+  <string name="revanced_spoof_video_streams_language_UR">Urdština</string>
+  <string name="revanced_spoof_video_streams_language_VI">Vietnamese</string>
+  <string name="revanced_spoof_video_streams_language_ZH">Čínština</string>
   </patch>
   </app>
   <app id="twitch">
@@ -1229,6 +1309,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">Rozšířené nastavení</string>
+  <string name="revanced_about_title">O aplikaci</string>
+  <string name="revanced_about_summary">O ReVanced</string>
   <string name="revanced_ads_screen_title">Reklamy</string>
   <string name="revanced_ads_screen_summary">Nastavení blokování reklamy</string>
   <string name="revanced_chat_screen_title">Chat</string>

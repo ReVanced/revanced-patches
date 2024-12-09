@@ -11,7 +11,6 @@ import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 
-@Suppress("unused")
 val hidePlayerFlyoutMenuPatch = bytecodePatch(
     name = "Hide player flyout menu items",
     description = "Adds options to hide menu items that appear when pressing the gear icon in the video player.",
@@ -31,6 +30,8 @@ val hidePlayerFlyoutMenuPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
+            "19.45.38",
+            "19.46.42",
         ),
     )
 

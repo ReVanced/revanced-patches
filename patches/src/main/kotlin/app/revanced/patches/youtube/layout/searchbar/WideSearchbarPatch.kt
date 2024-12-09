@@ -17,7 +17,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/WideSearchbarPatch;"
 
-@Suppress("unused")
 val wideSearchbarPatch = bytecodePatch(
     name = "Wide searchbar",
     description = "Adds an option to replace the search icon with a wide search bar. This will hide the YouTube logo when active.",
@@ -36,6 +35,8 @@ val wideSearchbarPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
+            "19.45.38",
+            "19.46.42",
         ),
     )
 

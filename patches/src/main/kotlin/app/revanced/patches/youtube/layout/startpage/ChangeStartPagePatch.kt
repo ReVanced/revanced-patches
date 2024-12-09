@@ -17,7 +17,6 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/ChangeStartPagePatch;"
 
-@Suppress("unused")
 val changeStartPagePatch = bytecodePatch(
     name = "Change start page",
     description = "Adds an option to set which page the app opens in instead of the homepage.",
@@ -36,6 +35,8 @@ val changeStartPagePatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
+            "19.45.38",
+            "19.46.42",
         ),
     )
 

@@ -11,7 +11,6 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
-@Suppress("unused")
 val removeViewerDiscretionDialogPatch = bytecodePatch(
     name = "Remove viewer discretion dialog",
     description = "Adds an option to remove the dialog that appears when opening a video that has been age-restricted " +
@@ -31,6 +30,8 @@ val removeViewerDiscretionDialogPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
+            "19.45.38",
+            "19.46.42",
         ),
     )
 

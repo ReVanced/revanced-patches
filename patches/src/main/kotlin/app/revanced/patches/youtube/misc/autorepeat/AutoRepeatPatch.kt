@@ -11,10 +11,8 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.shared.autoRepeatFingerprint
 import app.revanced.patches.youtube.shared.autoRepeatParentFingerprint
-import org.stringtemplate.v4.compiler.Bytecode.instructions
 
 // TODO: Rename this patch to AlwaysRepeatPatch (as well as strings and references in the extension).
-@Suppress("unused")
 val autoRepeatPatch = bytecodePatch(
     name = "Always repeat",
     description = "Adds an option to always repeat videos when they end.",
@@ -32,6 +30,8 @@ val autoRepeatPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
+            "19.45.38",
+            "19.46.42",
         ),
     )
 

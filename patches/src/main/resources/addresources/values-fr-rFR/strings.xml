@@ -40,14 +40,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_check_environment_not_same_patching_device">Patché depuis un appareil différent</string>
   <string name="revanced_check_environment_manager_not_expected_installer">Non installé depuis ReVanced Manager</string>
   <string name="revanced_check_environment_not_near_patch_time">Patché il y a plus de 10 minutes</string>
-  <string name="revanced_check_environment_not_near_patch_time_days">Patché il y as %s jours</string>
+  <string name="revanced_check_environment_not_near_patch_time_days">Patché il y a %s jours</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">La date de compilation de l\'APK est corrompue</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_title">ReVanced</string>
-  <string name="revanced_settings_confirm_user_dialog_title">Souhaitez-vous continuer ?</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Voulez-vous continuer ?</string>
   <string name="revanced_settings_reset">Réinitialiser</string>
-  <string name="revanced_settings_restart_title">Appliquer et redémarrer ?</string>
+  <string name="revanced_settings_restart_title">Appliquer et redémarrer</string>
   <string name="revanced_settings_restart">Redémarrer</string>
   <string name="revanced_settings_import">Importer</string>
   <string name="revanced_settings_import_copy">Copier</string>
@@ -61,7 +61,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">Note</string>
   <string name="revanced_settings_about_links_dev_body">Cette version est une pré-version et vous pourriez rencontrer des problèmes inattendus</string>
   <string name="revanced_settings_about_links_header">Liens officiels</string>
-  <string name="revanced_settings_about_links_donate">Faire un don</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -709,6 +710,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">Les fenêtres pop-up sont masquées</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Les fenêtres pop-up sont affichées</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <string name="revanced_open_videos_fullscreen_portrait_title">Ouvrir les vidéos en mode portrait plein écran</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_on">Vidéos ouvertes en plein écran</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_off">Les vidéos ne s\'ouvrent pas en plein écran</string>
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Opacité de l\'overlay du joueur</string>
   <string name="revanced_player_overlay_opacity_summary">Valeur d\'opacité entre 0 et 100, où 0 est transparent</string>
@@ -769,6 +775,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Les vignettes de la barre de recherche sont de qualité moyenne</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Les vignettes de la barre de recherche plein écran sont de haute qualité</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Les vignettes de barre de recherche plein écran ont une qualité moyenne</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Cela restaurera aussi les vignettes sur les diffusions en direct qui n\'ont pas la fonctionnalité de vignette de prévisualisation.\n\nLes vignettes de prévisualisation utiliseront la même qualité que la vidéo actuelle.\n\nCette fonctionnalité fonctionne mieux avec une qualité vidéo de 720p ou moins et lorsque vous utilisez une connexion Internet très rapide.</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Restaurer les anciennes miniatures de la barre de recherche</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Les vignettes de la barre de recherche apparaîtront au-dessus de la barre de recherche</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Les vignettes de la barre de recherche apparaîtront en plein écran</string>
@@ -962,11 +969,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Falsifier la cible de version de l\'application</string>
+  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Restauration des anciennes icônes du lecteur de Shorts </string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_entry_1">18.33.40 - Restaurer RYD en mode incognito Shorts</string>
-  <string name="revanced_spoof_app_version_target_entry_2">18.20.39 - Restaurer une grande vitesse vidéo &amp; menu qualité</string>
-  <string name="revanced_spoof_app_version_target_entry_3">18.09.39 - Restaurer l\'onglet bibliothèque</string>
-  <string name="revanced_spoof_app_version_target_entry_4">17.41.37 - Restaurer l\'ancienne tablette de la liste de lecture</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Restaurer RYD en mode incognito Shorts</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Restaurer une grande vitesse vidéo &amp; menu qualité</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Restaurer l\'onglet bibliothèque</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Restaurer l\'ancienne tablette de la liste de lecture</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Définir la page de démarrage</string>
@@ -988,6 +996,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Désactiver la reprise du joueur Shorts</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_on">Le lecteur de Shorts ne se relancera pas au démarrage de l\'application</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Le lecteur court reprendra au démarrage de l\'application</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
@@ -1008,8 +1017,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Lecteur réduit</string>
   <string name="revanced_miniplayer_screen_summary">Changer le style du lecteur réduit dans l\'application</string>
   <string name="revanced_miniplayer_type_title">Type de Miniplayer</string>
+  <string name="revanced_miniplayer_type_entry_0">Désactivé</string>
   <string name="revanced_miniplayer_type_entry_1">Original</string>
-  <string name="revanced_miniplayer_type_entry_2">Téléphone</string>
+  <string name="revanced_miniplayer_type_entry_2">Minimal</string>
   <string name="revanced_miniplayer_type_entry_3">Tablette</string>
   <string name="revanced_miniplayer_type_entry_4">Moderne 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderne 2</string>
@@ -1144,7 +1154,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">Haptics sont activés</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Qualité automatique</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">Automatique</string>
   <string name="revanced_remember_video_quality_last_selected_title">Mémoriser les changements de qualité vidéo</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Les changements de qualité s\'appliquent à toutes les vidéos</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Les changements de qualité ne s\'appliquent qu\'à la vidéo actuelle</string>
@@ -1167,6 +1178,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_custom_playback_speeds_summary">Ajouter ou modifier les vitesses de lecture personnalisées</string>
   <string name="revanced_custom_playback_speeds_invalid">Les vitesses personnalisées doivent être inférieures à %s. Utiliser les valeurs par défaut.</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Vitesses de lecture personnalisées invalides. Utilisation des valeurs par défaut.</string>
+  <string name="revanced_custom_playback_speeds_auto">Automatique</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Se souvenir des changements de vitesse de lecture</string>
@@ -1194,14 +1206,68 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">Désactiver ce paramètre peut causer des problèmes de lecture vidéo.</string>
   <string name="revanced_spoof_video_streams_client_title">Client par défaut</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Forcer AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Le codec vidéo est AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Le codec vidéo est VP9 ou AV1</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Votre appareil ne possède pas de décodage matériel VP9, et ce paramètre est toujours activé lorsque la falsification du client est activée</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Activer ceci peut améliorer la durée de vie de la batterie et corriger les erreurs de lecture.\n\nAVC a une résolution maximale de 1080p, et la lecture vidéo utilisera plus de données internet que VP9 ou AV1.</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Le codec vidéo est forcé à AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Le codec vidéo est déterminé automatiquement</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Activer ceci peut améliorer la durée de vie de la batterie et corriger les erreurs de lecture.\n\nAVC a une résolution maximale de 1080p, le codec audio Opus n\'est pas disponible, et la lecture vidéo utilisera plus de données Internet que VP9 ou AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Effets secondaires d\'usurpation iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Les films ou les vidéos payantes ne peuvent pas lire\n• Les Livestreams commencent depuis le début\n• Les vidéos peuvent se terminer 1 seconde tôt\n• Pas de codec audio opus</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Les vidéos privées des enfants peuvent ne pas jouer à\n• Les live reams commencent dès le début\n• Les vidéos peuvent se terminer 1 seconde plus tôt</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Effets secondaires de l\'usurpation VR Android</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Le menu de la piste audio manque\n• Le volume stable n\'est pas disponible</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Les vidéos des enfants peuvent ne pas lire\n• Le menu de la piste audio manque\n• Le volume stable n\'est pas disponible</string>
+  <string name="revanced_spoof_video_streams_language_">Les flux vidéo sont falsifiés</string>
+  <string name="revanced_spoof_video_streams_language_title">Langue préférée du flux audio</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">Langue de l\'application</string>
+  <string name="revanced_spoof_video_streams_language_AR">Arabe</string>
+  <string name="revanced_spoof_video_streams_language_AZ">Azerbaïdjan</string>
+  <string name="revanced_spoof_video_streams_language_BG">Bulgare</string>
+  <string name="revanced_spoof_video_streams_language_BN">Bengalais</string>
+  <string name="revanced_spoof_video_streams_language_CA">Catalan</string>
+  <string name="revanced_spoof_video_streams_language_CS">Tchèque</string>
+  <string name="revanced_spoof_video_streams_language_DA">Danois</string>
+  <string name="revanced_spoof_video_streams_language_DE">Allemand</string>
+  <string name="revanced_spoof_video_streams_language_EL">Grecque</string>
+  <string name="revanced_spoof_video_streams_language_EN">Anglais</string>
+  <string name="revanced_spoof_video_streams_language_ES">Espagnol</string>
+  <string name="revanced_spoof_video_streams_language_ET">estonien</string>
+  <string name="revanced_spoof_video_streams_language_FA">Perse</string>
+  <string name="revanced_spoof_video_streams_language_FI">Finlandais</string>
+  <string name="revanced_spoof_video_streams_language_FR">Français</string>
+  <string name="revanced_spoof_video_streams_language_GU">Gujarati</string>
+  <string name="revanced_spoof_video_streams_language_HI">Hindi</string>
+  <string name="revanced_spoof_video_streams_language_HR">Croate</string>
+  <string name="revanced_spoof_video_streams_language_HU">Hongrois</string>
+  <string name="revanced_spoof_video_streams_language_ID">Indonésien</string>
+  <string name="revanced_spoof_video_streams_language_IT">Italien</string>
+  <string name="revanced_spoof_video_streams_language_JA">Japonais</string>
+  <string name="revanced_spoof_video_streams_language_KK">Kazakh</string>
+  <string name="revanced_spoof_video_streams_language_KO">Coréen</string>
+  <string name="revanced_spoof_video_streams_language_LT">lituanien</string>
+  <string name="revanced_spoof_video_streams_language_LV">Lettonie</string>
+  <string name="revanced_spoof_video_streams_language_MK">Macédonien</string>
+  <string name="revanced_spoof_video_streams_language_MN">Mongol</string>
+  <string name="revanced_spoof_video_streams_language_MR">Marathi</string>
+  <string name="revanced_spoof_video_streams_language_MS">Malais</string>
+  <string name="revanced_spoof_video_streams_language_MY">Burmese</string>
+  <string name="revanced_spoof_video_streams_language_NL">Néerlandais</string>
+  <string name="revanced_spoof_video_streams_language_OR">Odia</string>
+  <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
+  <string name="revanced_spoof_video_streams_language_PL">Polonais</string>
+  <string name="revanced_spoof_video_streams_language_PT_BR">Portugais (Brésil)</string>
+  <string name="revanced_spoof_video_streams_language_PT_PT">Portugais (Portugal)</string>
+  <string name="revanced_spoof_video_streams_language_RO">Roumain</string>
+  <string name="revanced_spoof_video_streams_language_RU">Russe</string>
+  <string name="revanced_spoof_video_streams_language_SK">Slovaque</string>
+  <string name="revanced_spoof_video_streams_language_SL">Slovene</string>
+  <string name="revanced_spoof_video_streams_language_SR">Serbe</string>
+  <string name="revanced_spoof_video_streams_language_SV">Suédois</string>
+  <string name="revanced_spoof_video_streams_language_SW">Swahili</string>
+  <string name="revanced_spoof_video_streams_language_TA">Tamil</string>
+  <string name="revanced_spoof_video_streams_language_TE">Telugu</string>
+  <string name="revanced_spoof_video_streams_language_TH">Thaï</string>
+  <string name="revanced_spoof_video_streams_language_TR">Turc</string>
+  <string name="revanced_spoof_video_streams_language_UK">Ukrainien</string>
+  <string name="revanced_spoof_video_streams_language_UR">Ourdou</string>
+  <string name="revanced_spoof_video_streams_language_VI">Vietnamese</string>
+  <string name="revanced_spoof_video_streams_language_ZH">Chinois</string>
   </patch>
   </app>
   <app id="twitch">
@@ -1243,6 +1309,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">Réglages ReVanced</string>
+  <string name="revanced_about_title">À propos</string>
+  <string name="revanced_about_summary">À propos de ReVanced</string>
   <string name="revanced_ads_screen_title">Publicités</string>
   <string name="revanced_ads_screen_summary">Paramètres de blocage des publicités</string>
   <string name="revanced_chat_screen_title">Discuter</string>

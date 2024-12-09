@@ -1,7 +1,6 @@
 package app.revanced.patches.youtube.layout.theme
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
@@ -17,10 +16,7 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.forEachChildElement
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import app.revanced.util.insertFeatureFlagBooleanOverride
 import org.w3c.dom.Element
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
@@ -28,7 +24,6 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 
 internal const val GRADIENT_LOADING_SCREEN_AB_CONSTANT = 45412406L
 
-@Suppress("unused")
 val themePatch = bytecodePatch(
     name = "Theme",
     description = "Adds options for theming and applies a custom background theme (dark background theme defaults to amoled black).",
@@ -201,6 +196,8 @@ val themePatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
+            "19.45.38",
+            "19.46.42",
         ),
     )
 
@@ -211,19 +208,10 @@ val themePatch = bytecodePatch(
             SwitchPreference("revanced_gradient_loading_screen"),
         )
 
-        useGradientLoadingScreenFingerprint.method.apply {
-            val literalIndex = indexOfFirstLiteralInstructionOrThrow(GRADIENT_LOADING_SCREEN_AB_CONSTANT)
-            val isEnabledIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
-            val isEnabledRegister = getInstruction<OneRegisterInstruction>(isEnabledIndex).registerA
-
-            addInstructions(
-                isEnabledIndex + 1,
-                """
-                    invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->gradientLoadingScreenEnabled()Z
-                    move-result v$isEnabledRegister
-                """,
-            )
-        }
+        useGradientLoadingScreenFingerprint.method.insertFeatureFlagBooleanOverride(
+            GRADIENT_LOADING_SCREEN_AB_CONSTANT,
+            "$EXTENSION_CLASS_DESCRIPTOR->gradientLoadingScreenEnabled(Z)Z"
+        )
 
         mapOf(
             themeHelperLightColorFingerprint to lightThemeBackgroundColor,

@@ -114,7 +114,6 @@ fun String.copyXmlNode(
     target: Document,
 ): AutoCloseable {
     val hostNodes = source.getElementsByTagName(this).item(0).childNodes
-
     val destinationNode = target.getElementsByTagName(this).item(0)
 
     for (index in 0 until hostNodes.length) {

@@ -20,6 +20,8 @@ import app.revanced.patches.shared.misc.settings.preference.*
 import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
+import app.revanced.patches.youtube.misc.playservice.is_19_47_or_greater
+import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.findInstructionIndicesReversedOrThrow
@@ -107,7 +109,6 @@ private const val CUSTOM_FILTER_CLASS_NAME =
 private const val KEYWORD_FILTER_CLASS_NAME =
     "Lapp/revanced/extension/youtube/patches/components/KeywordContentFilter;"
 
-@Suppress("unused")
 val hideLayoutComponentsPatch = bytecodePatch(
     name = "Hide layout components",
     description = "Adds options to hide general layout components.",
@@ -119,6 +120,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
         addResourcesPatch,
         hideLayoutComponentsResourcePatch,
         navigationBarHookPatch,
+        versionCheckPatch
     )
 
     compatibleWith(
@@ -129,6 +131,8 @@ val hideLayoutComponentsPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
+            "19.45.38",
+            "19.46.42",
         ),
     )
 
@@ -242,22 +246,27 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         // region Mix playlists
 
-        val startIndex = parseElementFromBufferFingerprint.patternMatch!!.startIndex
-
         parseElementFromBufferFingerprint.method.apply {
-            val freeRegister = "v0"
+            val startIndex = parseElementFromBufferFingerprint.patternMatch!!.startIndex
+            // Target code is a mess with a lot of register moves.
+            // There is no simple way to find a free register for all versions so this is hard coded.
+            val freeRegister = if (is_19_47_or_greater) 6 else 0
             val byteArrayParameter = "p3"
             val conversionContextRegister = getInstruction<TwoRegisterInstruction>(startIndex).registerA
             val returnEmptyComponentInstruction = instructions.last { it.opcode == Opcode.INVOKE_STATIC }
+            val returnEmptyComponentRegister = (returnEmptyComponentInstruction as FiveRegisterInstruction).registerC
 
             addInstructionsWithLabels(
                 startIndex + 1,
                 """
-                        invoke-static { v$conversionContextRegister, $byteArrayParameter }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->filterMixPlaylists(Ljava/lang/Object;[B)Z
-                        move-result $freeRegister 
-                        if-nez $freeRegister, :return_empty_component
-                        const/4 $freeRegister, 0x0  # Restore register, required for 19.16
-                    """,
+                    invoke-static { v$conversionContextRegister, $byteArrayParameter }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->filterMixPlaylists(Ljava/lang/Object;[B)Z
+                    move-result v$freeRegister 
+                    if-eqz v$freeRegister, :show
+                    move-object v$returnEmptyComponentRegister, p1   # Required for 19.47
+                    goto :return_empty_component
+                    :show
+                    const/4 v$freeRegister, 0x0   # Restore register, required for 19.16
+                """,
                 ExternalLabel("return_empty_component", returnEmptyComponentInstruction),
             )
         }
