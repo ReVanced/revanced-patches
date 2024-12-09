@@ -154,6 +154,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.panels.popup.playerPopupPanelsPatch">
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   </patch>
   <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
@@ -238,6 +240,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_language_EN">ஆங்கிலம்</string>
+  <string name="revanced_spoof_video_streams_language_FR">பிரெஞ்சு</string>
   </patch>
   </app>
   <app id="twitch">

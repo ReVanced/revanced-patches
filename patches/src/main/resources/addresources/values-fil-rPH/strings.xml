@@ -640,6 +640,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">Nakatago ang mga popup panel ng player</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Ipinapakita ang mga popup panel ng player</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Opacity ng overlay ng player</string>
   <string name="revanced_player_overlay_opacity_summary">Ang halaga ng opacity sa pagitan ng 0-100, kung saan ang 0 ay transparent</string>
@@ -1056,6 +1058,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_user_dialog_message">Ang pag-off sa setting na ito ay maaaring magdulot ng mga isyu sa pag-playback ng video.</string>
+  <string name="revanced_spoof_video_streams_language_EN">Ingles</string>
+  <string name="revanced_spoof_video_streams_language_FR">Pranses</string>
   </patch>
   </app>
   <app id="twitch">
