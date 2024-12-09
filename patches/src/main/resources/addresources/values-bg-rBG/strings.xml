@@ -1206,8 +1206,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_about_android_vr_title">Странични ефекти от подправяне на Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">• Детските видеоклипове може да не се възпроизвеждат\n• Липсва менюто за аудио запис\n• Не е налична стабилна сила на звука</string>
   <string name="revanced_spoof_video_streams_language_">Видео потоците са подправени</string>
-  <string name="revanced_spoof_video_streams_language_EN">Английски</string>
-  <string name="revanced_spoof_video_streams_language_FR">Френски</string>
   </patch>
   </app>
   <app id="twitch">

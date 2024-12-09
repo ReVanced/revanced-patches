@@ -1074,8 +1074,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_user_dialog_message">Адключэнне гэтай налады можа выклікаць праблемы з прайграваннем відэа.</string>
-  <string name="revanced_spoof_video_streams_language_EN">Англійская</string>
-  <string name="revanced_spoof_video_streams_language_FR">Французская</string>
   </patch>
   </app>
   <app id="twitch">
