@@ -48,3 +48,17 @@ internal val lithoLinearGradientFingerprint = fingerprint {
     returns("Landroid/graphics/LinearGradient;")
     parameters("F", "F", "F", "F", "[I", "[F")
 }
+
+internal const val launchScreenLayoutTypeLotteFeatureFlag = 268507948L
+
+internal val launchScreenLayoutTypeFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    returns("V")
+    custom { method, _ ->
+        val firstParameter = method.parameterTypes.firstOrNull()
+        // 19.25 - 19.45
+        (firstParameter == "Lcom/google/android/apps/youtube/app/watchwhile/MainActivity;"
+                || firstParameter == "Landroid/app/Activity;") // 19.46+
+                && method.containsLiteralInstruction(launchScreenLayoutTypeLotteFeatureFlag)
+    }
+}

@@ -60,7 +60,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">Megjegyzés</string>
   <string name="revanced_settings_about_links_dev_body">Ez a verzió egy előzetes kiadás, és nem kívánt hibákat tapasztalhat</string>
   <string name="revanced_settings_about_links_header">Hivatalos linkek</string>
-  <string name="revanced_settings_about_links_donate">Támogatás</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -708,6 +709,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">A lejátszó előugró panelei el vannak rejtve</string>
   <string name="revanced_hide_player_popup_panels_summary_off">A lejátszó előugró panelei megjelennek</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Lejátszó fedőrétegének átlátszatlansága</string>
   <string name="revanced_player_overlay_opacity_summary">Az átlátszatlanság értéke 0 és 100 között van, ahol a 0 átlátszó</string>
@@ -962,7 +965,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Hamisított alkalmazásverzió célja</string>
-  <string name="revanced_spoof_app_version_target_entry_1">18.38.44 - A régi Shorts lejátszó ikonok visszaállítása</string>
+  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - A régi Shorts lejátszó ikonok visszaállítása</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - RYD visszaállítása Shorts inkognitó módban</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Széles videósebesség és minőség menü visszaállítása</string>
@@ -1010,8 +1013,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Minilejátszó</string>
   <string name="revanced_miniplayer_screen_summary">Módosítsa az alkalmazáson belüli kisméretű lejátszó stílusát</string>
   <string name="revanced_miniplayer_type_title">Minilejátszó típus</string>
+  <string name="revanced_miniplayer_type_entry_0">Kikapcsolva</string>
   <string name="revanced_miniplayer_type_entry_1">Eredeti</string>
-  <string name="revanced_miniplayer_type_entry_2">Telefon</string>
+  <string name="revanced_miniplayer_type_entry_2">Minimális</string>
   <string name="revanced_miniplayer_type_entry_3">Tablet</string>
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
@@ -1146,7 +1150,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">A haptikus zoom engedélyezve</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Automatikus felbontás</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">Automatikus</string>
   <string name="revanced_remember_video_quality_last_selected_title">Felbontás változtatások mentése</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Felbontás változtatások alkalmazása az összes videóra</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Felbontás változtatások alkalmazása a jelenlegi videóra</string>
@@ -1197,14 +1202,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">A beállítás kikapcsolása videolejátszási problémákat okozhat.</string>
   <string name="revanced_spoof_video_streams_client_title">Alapértelmezett kliens</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">AVC (H.264) kényszerítése</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">A videokodek AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">A videokodek VP9 vagy AV1</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Eszközén nincs VP9 hardveres dekódolás, és ez a beállítás mindig be van kapcsolva, ha az ügyfélhamisítás engedélyezve van</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Ennek engedélyezése javíthatja az akkumulátor élettartamát, és kijavíthatja a lejátszás akadozását.\n\nAz AVC maximális felbontása 1080p, és a videolejátszás több internetadatot használ, mint a VP9 vagy az AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS hamisítási mellékhatások</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Előfordulhat, hogy a filmeket és a fizetős videókat nem lehet lejátszani\n• Az élő közvetítések elölről kezdődnek.\n• A videók 1 másodperccel korábban véget érhetnek\n• Nincs opus audiokodek</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Előfordulhat, hogy a privát gyerekeknek szóló videók nem játszhatók le\n• Az élő közvetítések elölről kezdődnek\n• A videók 1 másodperccel korábban véget érhetnek</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR-hamisítási mellékhatások</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Hiányzik a hangsáv menü\n• A stabil hangerő nem érhető el</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Előfordulhat, hogy a gyerekvideókat nem lehet lejátszani\n• Hiányzik a hangsáv menü\n• A stabil hangerő nem érhető el</string>
+  <string name="revanced_spoof_video_streams_language_">A videó stream hamisítva</string>
   </patch>
   </app>
   <app id="twitch">
@@ -1246,6 +1248,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">ReVanced beállítások</string>
+  <string name="revanced_about_title">Rólunk</string>
+  <string name="revanced_about_summary">ReVanced névjegy</string>
   <string name="revanced_ads_screen_title">Hirdetések</string>
   <string name="revanced_ads_screen_summary">Hirdetés blokkolás beállításai</string>
   <string name="revanced_chat_screen_title">Csevegés</string>

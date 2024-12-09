@@ -17,7 +17,6 @@ import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-@Suppress("unused")
 val bypassURLRedirectsPatch = bytecodePatch(
     name = "Bypass URL redirects",
     description = "Adds an option to bypass URL redirects and open the original URL directly.",
@@ -37,6 +36,8 @@ val bypassURLRedirectsPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
+            "19.45.38",
+            "19.46.42",
         ),
     )
 

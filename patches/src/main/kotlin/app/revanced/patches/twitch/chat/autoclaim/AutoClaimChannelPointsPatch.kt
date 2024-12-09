@@ -11,7 +11,6 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.twitch.misc.settings.PreferenceScreen
 import app.revanced.patches.twitch.misc.settings.settingsPatch
 
-@Suppress("unused")
 val autoClaimChannelPointsPatch = bytecodePatch(
     name = "Auto claim channel points",
     description = "Automatically claim Channel Points.",

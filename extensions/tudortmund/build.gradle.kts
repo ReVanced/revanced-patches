@@ -1,0 +1,3 @@
+dependencies {
+    compileOnly(libs.appcompat)
+}

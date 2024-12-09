@@ -61,7 +61,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">Huomautus</string>
   <string name="revanced_settings_about_links_dev_body">Tämä versio on ennakkojulkaisuversio, joten voit kokea odottamattomia ongelmia</string>
   <string name="revanced_settings_about_links_header">Viralliset linkit</string>
-  <string name="revanced_settings_about_links_donate">Lahjoita</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -293,7 +294,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_content_subscriptions_title">Piilota tilaukset-videoita avainsanojen mukaan</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">Tilaukset-välilehden videoita suodatetaan avainsanojen mukaan</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_off">Tilaukset-välilehden videoita ei suodateta avainsanojen mukaan</string>
-  <string name="revanced_hide_keyword_content_search_title">Piilota hakutuloksia avainsanojen muakan</string>
+  <string name="revanced_hide_keyword_content_search_title">Piilota hakutuloksia avainsanojen mukaan</string>
   <string name="revanced_hide_keyword_content_search_summary_on">Hakutuloksia suodatetaan avainsanojen mukaan</string>
   <string name="revanced_hide_keyword_content_search_summary_off">Hakutuloksia ei suodateta avainsanojen mukaan</string>
   <string name="revanced_hide_keyword_content_phrases_title">Piilotettavat avainsanat</string>
@@ -710,6 +711,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">Soittimen ponnahdusikkunat on piilotettu</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Soittimen ponnahdusikkunat näytetään</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <string name="revanced_open_videos_fullscreen_portrait_title">Avaa videot koko näytön muotokuvassa</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_on">Videot avataan kokoruututilassa</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_off">Videot eivät avaa kokoruututilaa</string>
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Soittimen peittoalueen läpinäkyvyys</string>
   <string name="revanced_player_overlay_opacity_summary">Läpinäkyvyysarvo välillä 0–100, jossa 0 on läpinäkyvä</string>
@@ -964,7 +970,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Naamioitava kohdeversio</string>
-  <string name="revanced_spoof_app_version_target_entry_1">18.38.44 - Vanhojen Shorts-pelaajan kuvakkeiden palauttaminen</string>
+  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Palauta vanhat Shorts-pelaajan kuvakkeet</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Palauita RYD Shorts-videoissa incognito-tilassa</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Palauta laaja videonopeus- ja laatuvalikko</string>
@@ -1012,8 +1018,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Minisoitin</string>
   <string name="revanced_miniplayer_screen_summary">Muuta sovelluksen tyyliä pienennetyssä soittimessa</string>
   <string name="revanced_miniplayer_type_title">Minisoittimen tyyppi</string>
+  <string name="revanced_miniplayer_type_entry_0">Pois käytöstä</string>
   <string name="revanced_miniplayer_type_entry_1">Alkuperäinen</string>
-  <string name="revanced_miniplayer_type_entry_2">Puhelin</string>
+  <string name="revanced_miniplayer_type_entry_2">Minimaali</string>
   <string name="revanced_miniplayer_type_entry_3">Tabletti</string>
   <string name="revanced_miniplayer_type_entry_4">Moderni 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderni 2</string>
@@ -1148,7 +1155,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">Tärinä on käytössä</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Automaattinen laatu</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">Automaattinen</string>
   <string name="revanced_remember_video_quality_last_selected_title">Muista videolaadun muutokset</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Laatumuutokset koskevat kaikkia videoita</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Laatumuutokset koskevat vain nykyistä videota</string>
@@ -1164,11 +1172,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_playback_speed_dialog_button_summary_off">Painiketta ei näytetä</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
-  <string name="revanced_custom_speed_menu_title">Mukautettu soiton nopeusvalikko</string>
+  <string name="revanced_custom_speed_menu_title">Mukautetun toistonopeuden valikko</string>
   <string name="revanced_custom_speed_menu_summary_on">Mukautettu nopeusvalikko näkyy</string>
   <string name="revanced_custom_speed_menu_summary_off">Mukautettua nopeusvalikkoa ei näytetä</string>
   <string name="revanced_custom_playback_speeds_title">Mukautetut toistonopeudet</string>
-  <string name="revanced_custom_playback_speeds_summary">Lisää tai muuta mukautettuja soiton nopeuksia</string>
+  <string name="revanced_custom_playback_speeds_summary">Lisää tai muuta mukautettuja toistonopeuksia</string>
   <string name="revanced_custom_playback_speeds_invalid">Mukautettujen nopeuksien on oltava alle %s. Käytetään oletusarvoja.</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Virheelliset mukautetut toistonopeudet. Käytetään oletusarvoja.</string>
   <string name="revanced_custom_playback_speeds_auto">Automaattinen</string>
@@ -1199,14 +1207,68 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">Tämän asetuksen poistaminen käytöstä voi aiheuttaa ongelmia videotoistossa.</string>
   <string name="revanced_spoof_video_streams_client_title">Oletusasiakasohjelma</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Pakota AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Videokoodekki on AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Videokoodekki on VP9 tai AV1</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Laitteessasi ei ole VP9-laitteiston dekoodausta, ja tämä asetus on aina päällä, kun asiakkaan spoofing on käytössä</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Tämän käyttöönotto voi parantaa akun kestoa ja korjata toistoa stuttering.\n\nAVC on suurin resoluutio 1080p, ja videon toisto käyttää enemmän internet-tietoja kuin VP9 tai AV1.</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Videon koodekki pakotetaan AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Videokoodekki määritetään automaattisesti</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Tämän käyttöönotto voi parantaa akun kestoa ja korjata toistoa stuttering.\n\nAVC on enintään 1080p, Opus audio koodekki ei ole käytettävissä, ja videon toisto käyttää enemmän internet-tietoja kuin VP9 tai AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS-naamioinnin haittavaikutukset</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Elokuvat tai maksetut videot eivät välttämättä toistu\n• Suoratoistot alkavat alusta\n• Videot saattavat päättyä 1 sekuntia etuajassa\n• Ei Opus-äänikoodekkia</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Yksityiset lapset videot eivät välttämättä pelaa\n• Livestreams alkaa alusta\n• Videot saattavat päättyä 1 sekunti aikaisin</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR -naamioinnin haittavaikutukset</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Ääniraitavalikko puuttuu\n• Tasainen äänenvoimakkuus ei ole käytettävissä</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Lapset videot eivät välttämättä soita\n• Ääniraidan valikko puuttuu\n• Vakaa äänenvoimakkuus ei ole käytettävissä</string>
+  <string name="revanced_spoof_video_streams_language_">Videostriimit naamioidaan</string>
+  <string name="revanced_spoof_video_streams_language_title">Ensisijainen äänen suoratoistokieli</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">Sovelluksen kieli</string>
+  <string name="revanced_spoof_video_streams_language_AR">Arabia</string>
+  <string name="revanced_spoof_video_streams_language_AZ">Azerbaidžan</string>
+  <string name="revanced_spoof_video_streams_language_BG">Bulgaria</string>
+  <string name="revanced_spoof_video_streams_language_BN">Bengali</string>
+  <string name="revanced_spoof_video_streams_language_CA">Katalaani</string>
+  <string name="revanced_spoof_video_streams_language_CS">Tšekki</string>
+  <string name="revanced_spoof_video_streams_language_DA">Tanska</string>
+  <string name="revanced_spoof_video_streams_language_DE">Saksa</string>
+  <string name="revanced_spoof_video_streams_language_EL">Kreikka</string>
+  <string name="revanced_spoof_video_streams_language_EN">Englanti</string>
+  <string name="revanced_spoof_video_streams_language_ES">Espanja</string>
+  <string name="revanced_spoof_video_streams_language_ET">Viro</string>
+  <string name="revanced_spoof_video_streams_language_FA">Persia</string>
+  <string name="revanced_spoof_video_streams_language_FI">Suomi</string>
+  <string name="revanced_spoof_video_streams_language_FR">Ranska</string>
+  <string name="revanced_spoof_video_streams_language_GU">Gujarati</string>
+  <string name="revanced_spoof_video_streams_language_HI">Hindi</string>
+  <string name="revanced_spoof_video_streams_language_HR">Kroatia</string>
+  <string name="revanced_spoof_video_streams_language_HU">Unkari</string>
+  <string name="revanced_spoof_video_streams_language_ID">Indonesialainen</string>
+  <string name="revanced_spoof_video_streams_language_IT">Italia</string>
+  <string name="revanced_spoof_video_streams_language_JA">Japani</string>
+  <string name="revanced_spoof_video_streams_language_KK">Kazakh</string>
+  <string name="revanced_spoof_video_streams_language_KO">Korealainen</string>
+  <string name="revanced_spoof_video_streams_language_LT">Liettua</string>
+  <string name="revanced_spoof_video_streams_language_LV">Latvia</string>
+  <string name="revanced_spoof_video_streams_language_MK">Makedonia</string>
+  <string name="revanced_spoof_video_streams_language_MN">Mongolia</string>
+  <string name="revanced_spoof_video_streams_language_MR">Marathi</string>
+  <string name="revanced_spoof_video_streams_language_MS">Malaiji</string>
+  <string name="revanced_spoof_video_streams_language_MY">Burmese</string>
+  <string name="revanced_spoof_video_streams_language_NL">Hollanti</string>
+  <string name="revanced_spoof_video_streams_language_OR">Odia</string>
+  <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
+  <string name="revanced_spoof_video_streams_language_PL">Puola</string>
+  <string name="revanced_spoof_video_streams_language_PT_BR">Portugali (Brasilia)</string>
+  <string name="revanced_spoof_video_streams_language_PT_PT">Portugali (Portugali)</string>
+  <string name="revanced_spoof_video_streams_language_RO">Romania</string>
+  <string name="revanced_spoof_video_streams_language_RU">Venäjä</string>
+  <string name="revanced_spoof_video_streams_language_SK">Slovakki</string>
+  <string name="revanced_spoof_video_streams_language_SL">Slovene</string>
+  <string name="revanced_spoof_video_streams_language_SR">Serbia</string>
+  <string name="revanced_spoof_video_streams_language_SV">Ruotsi</string>
+  <string name="revanced_spoof_video_streams_language_SW">Swahili</string>
+  <string name="revanced_spoof_video_streams_language_TA">Tamil</string>
+  <string name="revanced_spoof_video_streams_language_TE">Telugu</string>
+  <string name="revanced_spoof_video_streams_language_TH">Thaimaalainen</string>
+  <string name="revanced_spoof_video_streams_language_TR">Turkki</string>
+  <string name="revanced_spoof_video_streams_language_UK">Ukraina</string>
+  <string name="revanced_spoof_video_streams_language_UR">Urdu</string>
+  <string name="revanced_spoof_video_streams_language_VI">Vietnamese</string>
+  <string name="revanced_spoof_video_streams_language_ZH">Kiina</string>
   </patch>
   </app>
   <app id="twitch">
@@ -1248,6 +1310,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">ReVanced-asetukset</string>
+  <string name="revanced_about_title">Tietoja</string>
+  <string name="revanced_about_summary">Tietoja Keskeytetyistä</string>
   <string name="revanced_ads_screen_title">Mainokset</string>
   <string name="revanced_ads_screen_summary">Mainosestoasetukset</string>
   <string name="revanced_chat_screen_title">Keskustelu</string>

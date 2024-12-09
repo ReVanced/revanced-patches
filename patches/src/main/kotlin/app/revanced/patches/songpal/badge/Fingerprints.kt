@@ -21,7 +21,7 @@ internal val createTabsFingerprint = fingerprint {
             if (reference.definingClass != ACTIVITY_TAB_DESCRIPTOR) return@any false
             if (reference.returnType != "[${ACTIVITY_TAB_DESCRIPTOR}") return@any false
             true
-        } ?: false
+        } == true
     }
 }
 
@@ -42,7 +42,7 @@ internal val showNotificationFingerprint = fingerprint {
                 }
             }
             true
-        } ?: false
+        } == true
     }
 }
 

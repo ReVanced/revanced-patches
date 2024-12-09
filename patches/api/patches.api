@@ -325,6 +325,10 @@ public final class app/revanced/patches/music/misc/gms/GmsCoreSupportPatchKt {
 	public static final fun getGmsCoreSupportPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/music/misc/spoof/SpoofVideoStreamsPatchKt {
+	public static final fun getSpoofVideoStreamsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/myexpenses/misc/pro/UnlockProPatchKt {
 	public static final fun getUnlockProPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -508,6 +512,10 @@ public final class app/revanced/patches/reddit/customclients/sync/syncforreddit/
 	public static final fun getUseUserEndpointPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/reddit/customclients/sync/syncforreddit/fix/video/FixVideoDownloadsPatchKt {
+	public static final fun getFixVideoDownloadsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/reddit/customclients/syncforreddit/fix/video/FixVideoDownloadsPatchKt {
 	public static final fun getFixVideoDownloadsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -544,6 +552,7 @@ public final class app/revanced/patches/shared/misc/extension/ExtensionHook {
 public final class app/revanced/patches/shared/misc/extension/SharedExtensionPatchKt {
 	public static final fun extensionHook (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patches/shared/misc/extension/ExtensionHook;
 	public static synthetic fun extensionHook$default (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patches/shared/misc/extension/ExtensionHook;
+	public static final fun sharedExtensionPatch (Ljava/lang/String;[Lapp/revanced/patches/shared/misc/extension/ExtensionHook;)Lapp/revanced/patcher/patch/BytecodePatch;
 	public static final fun sharedExtensionPatch ([Lapp/revanced/patches/shared/misc/extension/ExtensionHook;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
@@ -751,6 +760,11 @@ public final class app/revanced/patches/shared/misc/settings/preference/TextPref
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patches/shared/misc/settings/preference/InputType;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun getInputType ()Lapp/revanced/patches/shared/misc/settings/preference/InputType;
 	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
+}
+
+public final class app/revanced/patches/shared/misc/spoof/SpoofVideoStreamsPatchKt {
+	public static final fun spoofVideoStreamsPatch (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/BytecodePatch;
+	public static synthetic fun spoofVideoStreamsPatch$default (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/solidexplorer2/functionality/filesize/RemoveFileSizeLimitPatchKt {
@@ -1155,6 +1169,10 @@ public final class app/revanced/patches/youtube/layout/player/background/PlayerC
 	public static final fun getPlayerControlsBackgroundPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
+public final class app/revanced/patches/youtube/layout/player/fullscreen/OpenVideosFullscreenKt {
+	public static final fun getOpenVideosFullscreenPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/layout/player/overlay/CustomPlayerOverlayOpacityPatchKt {
 	public static final fun getCustomPlayerOverlayOpacityPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1199,10 +1217,6 @@ public final class app/revanced/patches/youtube/layout/startpage/ChangeStartPage
 
 public final class app/revanced/patches/youtube/layout/startupshortsreset/DisableResumingShortsOnStartupPatchKt {
 	public static final fun getDisableResumingShortsOnStartupPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/youtube/layout/startupshortsreset/FingerprintsKt {
-	public static final fun indexOfOptionalInstruction (Lcom/android/tools/smali/dexlib2/iface/Method;)I
 }
 
 public final class app/revanced/patches/youtube/layout/tablet/EnableTabletLayoutPatchKt {
@@ -1329,6 +1343,8 @@ public final class app/revanced/patches/youtube/misc/playservice/VersionCheckPat
 	public static final fun is_19_36_or_greater ()Z
 	public static final fun is_19_41_or_greater ()Z
 	public static final fun is_19_43_or_greater ()Z
+	public static final fun is_19_46_or_greater ()Z
+	public static final fun is_19_47_or_greater ()Z
 }
 
 public final class app/revanced/patches/youtube/misc/privacy/RemoveTrackingQueryParameterPatchKt {
@@ -1361,6 +1377,14 @@ public final class app/revanced/patches/youtube/misc/settings/SettingsPatchKt {
 	public static final fun newIntent (Ljava/lang/String;)Lapp/revanced/patches/shared/misc/settings/preference/IntentPreference$Intent;
 }
 
+public final class app/revanced/patches/youtube/misc/spoof/SpoofVideoStreamsPatchKt {
+	public static final fun getSpoofVideoStreamsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/misc/spoof/UserAgentClientSpoofPatchKt {
+	public static final fun getUserAgentClientSpoofPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/misc/zoomhaptics/ZoomHapticsPatchKt {
 	public static final fun getZoomHapticsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1370,11 +1394,9 @@ public final class app/revanced/patches/youtube/shared/FingerprintsKt {
 }
 
 public final class app/revanced/patches/youtube/video/information/VideoInformationPatchKt {
-	public static final fun getSetPlaybackSpeedClassFieldReference ()Ljava/lang/String;
-	public static final fun getSetPlaybackSpeedContainerClassFieldReference ()Ljava/lang/String;
-	public static final fun getSetPlaybackSpeedMethodReference ()Ljava/lang/String;
 	public static final fun getVideoInformationPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 	public static final fun userSelectedPlaybackSpeedHook (Ljava/lang/String;Ljava/lang/String;)V
+	public static final fun videoSpeedChangedHook (Ljava/lang/String;Ljava/lang/String;)V
 	public static final fun videoTimeHook (Ljava/lang/String;Ljava/lang/String;)V
 }
 

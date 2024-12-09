@@ -51,6 +51,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">Poznámka</string>
   <string name="revanced_settings_about_links_dev_body">Táto verzia je predbežná a môžu sa vyskytnúť neočakávané problémy</string>
   <string name="revanced_settings_about_links_header">Oficiálne odkazy</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -640,6 +642,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">Vyskakovacie panely prehrávača sú skryté</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Zobrazia sa vyskakovacie panely prehrávača</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Nepriehľadnosť prekrytia prehrávača</string>
   <string name="revanced_player_overlay_opacity_summary">Hodnota nepriehľadnosti medzi 0-100, kde 0 je transparentné</string>
@@ -918,8 +922,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Miniprehrávač</string>
   <string name="revanced_miniplayer_screen_summary">Zmeňte štýl minimalizovaného prehrávača v aplikácii</string>
   <string name="revanced_miniplayer_type_title">Typ miniprehrávača</string>
+  <string name="revanced_miniplayer_type_entry_0">Vypnuté</string>
   <string name="revanced_miniplayer_type_entry_1">Originál</string>
-  <string name="revanced_miniplayer_type_entry_2">Telefón</string>
   <string name="revanced_miniplayer_type_entry_4">Moderné 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderné 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderné 3</string>
@@ -1029,7 +1033,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">Haptika je povolená</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Automatická kvalita</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_remember_video_quality_last_selected_title">Pamätajte na zmeny kvality videa</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Zmeny kvality sa vzťahujú na všetky videá</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Zmeny kvality sa vzťahujú iba na aktuálne video</string>
@@ -1107,6 +1111,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_twitch_debug_mode_summary_off">Režim ladenia Twitch je zakázaný</string>
   </patch>
   <patch id="misc.settings.settingsPatch">
+  <string name="revanced_about_title">O</string>
   <string name="revanced_ads_screen_title">Reklamy</string>
   <string name="revanced_ads_screen_summary">Nastavenia blokovania reklám</string>
   <string name="revanced_chat_screen_summary">Nastavenia chatu</string>

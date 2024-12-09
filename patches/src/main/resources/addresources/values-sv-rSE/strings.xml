@@ -61,7 +61,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">Anteckning</string>
   <string name="revanced_settings_about_links_dev_body">Denna version är en pre-release och du kan uppleva oväntade problem</string>
   <string name="revanced_settings_about_links_header">Officiella länkar</string>
-  <string name="revanced_settings_about_links_donate">Donera</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -709,6 +710,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">Spelare popup-paneler är dolda</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Spelarens popup-paneler visas</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <string name="revanced_open_videos_fullscreen_portrait_title">Öppna videor i helskärmsporträtt</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_on">Videor öppna helskärm</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_off">Videor öppnar inte fullskärm</string>
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Överlagring av spelarens opacitet</string>
   <string name="revanced_player_overlay_opacity_summary">Opacitetsvärde mellan 0-100, där 0 är transparent</string>
@@ -1010,8 +1016,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Minispelare</string>
   <string name="revanced_miniplayer_screen_summary">Ändra stilen på appen minimerad spelare</string>
   <string name="revanced_miniplayer_type_title">Miniplayer typ</string>
+  <string name="revanced_miniplayer_type_entry_0">Inaktiverad</string>
   <string name="revanced_miniplayer_type_entry_1">Ursprunglig</string>
-  <string name="revanced_miniplayer_type_entry_2">Telefon</string>
+  <string name="revanced_miniplayer_type_entry_2">Minimal</string>
   <string name="revanced_miniplayer_type_entry_3">Surfplatta</string>
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
@@ -1146,7 +1153,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">Haptikerna är aktiverade</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Automatisk kvalitet</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">Automatiskt</string>
   <string name="revanced_remember_video_quality_last_selected_title">Kom ihåg förändringar i videokvaliteten</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Kvalitetsändringar gäller för alla videor</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Kvalitetsförändringar gäller endast för den aktuella videon</string>
@@ -1197,14 +1205,68 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">Att stänga av den här inställningen kan orsaka videouppspelningsproblem.</string>
   <string name="revanced_spoof_video_streams_client_title">Standard klient</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Tvinga AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Videocodec är AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video-codec är VP9 eller AV1</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Din enhet har inte VP9 hårdvaruavkodning, och denna inställning är alltid på när klientförfalskning är aktiverad</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Aktivering av detta kan förbättra batteriets livslängd och åtgärda uppspelningshjälp.\n\nAVC har en maximal upplösning på 1080p, och videouppspelning kommer att använda mer internetdata än VP9 eller AV1.</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video-codec tvingas till AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video-codec bestäms automatiskt</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Aktivering av detta kan förbättra batteriets livslängd och åtgärda uppspelningshjälp.\n\nAVC har en maximal upplösning på 1080p, Opus audio codec är inte tillgänglig, och videouppspelning kommer att använda mer internetdata än VP9 eller AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS förfalskning biverkningar</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmer eller betalda videor kanske inte spelar\n• Livestreams startar från början\n• Videor kan sluta 1 sekund tidigt\n• Ingen opus-ljud-codec</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Privata barn videor får inte spela\n• Livestreams börjar från början\n• Videor kan sluta 1 sekund tidigt</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR förfalskning biverkningar</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Ljudspårsmenyn saknar\n• Stabil volym är inte tillgänglig</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Barnvideor kanske inte spelar\n• Ljudspårsmenyn saknas\n• Stabil volym är inte tillgänglig</string>
+  <string name="revanced_spoof_video_streams_language_">Videoströmmar är förfalskade</string>
+  <string name="revanced_spoof_video_streams_language_title">Föredraget ljudströmspråk</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">Appens språk</string>
+  <string name="revanced_spoof_video_streams_language_AR">Arabiska</string>
+  <string name="revanced_spoof_video_streams_language_AZ">Azerbajdzjanska</string>
+  <string name="revanced_spoof_video_streams_language_BG">Bulgariska</string>
+  <string name="revanced_spoof_video_streams_language_BN">Bengaliska</string>
+  <string name="revanced_spoof_video_streams_language_CA">Katalanska</string>
+  <string name="revanced_spoof_video_streams_language_CS">Tjeckiska</string>
+  <string name="revanced_spoof_video_streams_language_DA">Danska</string>
+  <string name="revanced_spoof_video_streams_language_DE">Tyska</string>
+  <string name="revanced_spoof_video_streams_language_EL">Grekiska</string>
+  <string name="revanced_spoof_video_streams_language_EN">Engelska</string>
+  <string name="revanced_spoof_video_streams_language_ES">Spanska</string>
+  <string name="revanced_spoof_video_streams_language_ET">Estniska</string>
+  <string name="revanced_spoof_video_streams_language_FA">Persiska</string>
+  <string name="revanced_spoof_video_streams_language_FI">Finska</string>
+  <string name="revanced_spoof_video_streams_language_FR">Franska</string>
+  <string name="revanced_spoof_video_streams_language_GU">Gujarati</string>
+  <string name="revanced_spoof_video_streams_language_HI">Hindi</string>
+  <string name="revanced_spoof_video_streams_language_HR">Kroatiska</string>
+  <string name="revanced_spoof_video_streams_language_HU">Ungerska</string>
+  <string name="revanced_spoof_video_streams_language_ID">Indonesiska</string>
+  <string name="revanced_spoof_video_streams_language_IT">Italienska</string>
+  <string name="revanced_spoof_video_streams_language_JA">Japanska</string>
+  <string name="revanced_spoof_video_streams_language_KK">Kazakh</string>
+  <string name="revanced_spoof_video_streams_language_KO">Koreanska</string>
+  <string name="revanced_spoof_video_streams_language_LT">Litauiska</string>
+  <string name="revanced_spoof_video_streams_language_LV">Lettiska</string>
+  <string name="revanced_spoof_video_streams_language_MK">Makedonska</string>
+  <string name="revanced_spoof_video_streams_language_MN">Mongoliska</string>
+  <string name="revanced_spoof_video_streams_language_MR">Marathi</string>
+  <string name="revanced_spoof_video_streams_language_MS">Malajiska</string>
+  <string name="revanced_spoof_video_streams_language_MY">Burmese</string>
+  <string name="revanced_spoof_video_streams_language_NL">Holländska</string>
+  <string name="revanced_spoof_video_streams_language_OR">Odia</string>
+  <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
+  <string name="revanced_spoof_video_streams_language_PL">Polska</string>
+  <string name="revanced_spoof_video_streams_language_PT_BR">Portugisiska (Brasilien)</string>
+  <string name="revanced_spoof_video_streams_language_PT_PT">Portugisiska (Portugal)</string>
+  <string name="revanced_spoof_video_streams_language_RO">Rumänska</string>
+  <string name="revanced_spoof_video_streams_language_RU">Ryska</string>
+  <string name="revanced_spoof_video_streams_language_SK">Slovakiska</string>
+  <string name="revanced_spoof_video_streams_language_SL">Slovene</string>
+  <string name="revanced_spoof_video_streams_language_SR">Serbiska</string>
+  <string name="revanced_spoof_video_streams_language_SV">Svenska</string>
+  <string name="revanced_spoof_video_streams_language_SW">Swahili</string>
+  <string name="revanced_spoof_video_streams_language_TA">Tamil</string>
+  <string name="revanced_spoof_video_streams_language_TE">Telugu</string>
+  <string name="revanced_spoof_video_streams_language_TH">Thailändska</string>
+  <string name="revanced_spoof_video_streams_language_TR">Turkiska</string>
+  <string name="revanced_spoof_video_streams_language_UK">Ukrainska</string>
+  <string name="revanced_spoof_video_streams_language_UR">Urdu</string>
+  <string name="revanced_spoof_video_streams_language_VI">Vietnamese</string>
+  <string name="revanced_spoof_video_streams_language_ZH">Kinesiska</string>
   </patch>
   </app>
   <app id="twitch">
@@ -1246,6 +1308,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">ReVanced-inställningar</string>
+  <string name="revanced_about_title">Om</string>
+  <string name="revanced_about_summary">Om ReVanced</string>
   <string name="revanced_ads_screen_title">Annonser</string>
   <string name="revanced_ads_screen_summary">Inställningar för annonsblockering</string>
   <string name="revanced_chat_screen_title">Chatt</string>

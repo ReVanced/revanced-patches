@@ -60,7 +60,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">Σημείωση</string>
   <string name="revanced_settings_about_links_dev_body">Αυτή η έκδοση είναι σε πρώιμο στάδιο, επομένως πιθανότατα να αντιμετωπίσετε απρόοπτα προβλήματα</string>
   <string name="revanced_settings_about_links_header">Επίσημοι σύνδεσμοι</string>
-  <string name="revanced_settings_about_links_donate">Δωρεά</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -708,6 +709,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">Κρυμμένα</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Εμφανίζονται</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <string name="revanced_open_videos_fullscreen_portrait_title">Άνοιγμα των βίντεο σε πλήρη οθόνη με κατακόρυφη προβολή</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_on">Τα βίντεο ανοίγουν σε λειτουργία πλήρους οθόνης</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_off">Τα βίντεο δεν ανοίγουν σε λειτουργία πλήρους οθόνης</string>
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Αδιαφάνεια φόντου οθόνης αναπαραγωγής</string>
   <string name="revanced_player_overlay_opacity_summary">Τιμή αδιαφάνειας μεταξύ 0-100, όπου το 0 είναι διαφανές</string>
@@ -962,7 +968,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Έκδοση τροποποίησης της εφαρμογής</string>
-  <string name="revanced_spoof_app_version_target_entry_1">18.38.44 - Επαναφορά των παλαιών κουμπιών της οθόνης αναπαραγωγής των Shorts</string>
+  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Επαναφορά των παλιών εικονιδίων της οθόνης αναπαραγωγής Shorts</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Επαναφορά λειτουργικότητας του RYD στα Shorts σε λειτουργία ανώνυμης περιήγησης</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Επαναφορά ευρύτερου μενού ταχύτητας &amp; ποιότητας βίντεο</string>
@@ -1010,12 +1016,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Ελαχιστοποιημένη οθόνη αναπαραγωγής</string>
   <string name="revanced_miniplayer_screen_summary">Αλλάξτε το στυλ της ελαχιστοποιημένης οθόνης αναπαραγωγής</string>
   <string name="revanced_miniplayer_type_title">Τύπος ελαχιστοποιημένης οθόνης αναπαραγωγής</string>
+  <string name="revanced_miniplayer_type_entry_0">Ανενεργή</string>
   <string name="revanced_miniplayer_type_entry_1">Αρχικός</string>
-  <string name="revanced_miniplayer_type_entry_2">Τηλεφώνου</string>
+  <string name="revanced_miniplayer_type_entry_2">Ελάχιστη</string>
   <string name="revanced_miniplayer_type_entry_3">Ταμπλετ</string>
-  <string name="revanced_miniplayer_type_entry_4">Μοντέρνος 1</string>
-  <string name="revanced_miniplayer_type_entry_5">Μοντέρνος 2</string>
-  <string name="revanced_miniplayer_type_entry_6">Μοντέρνος 3</string>
+  <string name="revanced_miniplayer_type_entry_4">Μοντέρνα 1</string>
+  <string name="revanced_miniplayer_type_entry_5">Μοντέρνα 2</string>
+  <string name="revanced_miniplayer_type_entry_6">Μοντέρνα 3</string>
   <string name="revanced_miniplayer_rounded_corners_title">Στρογγυλεμένες γωνίες</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Οι γωνίες είναι στρογγυλεμένες</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Οι γωνίες είναι τετράγωνες</string>
@@ -1146,7 +1153,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">Η απόκριση δόνησης είναι ενεργοποιημένη</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Αυτόματη ποιότητα</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">Αυτόματη</string>
   <string name="revanced_remember_video_quality_last_selected_title">Απομνημόνευση αλλαγών ποιότητας βίντεο</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Οι αλλαγές ποιότητας θα ισχύουν για όλα τα βίντεο</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Οι αλλαγές ποιότητας θα ισχύουν μόνο για το τρέχον βίντεο</string>
@@ -1197,14 +1205,68 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">Η απενεργοποίηση αυτής της ρύθμισης ενδέχεται να προκαλέσει προβλήματα αναπαραγωγής βίντεο.</string>
   <string name="revanced_spoof_video_streams_client_title">Προεπιλεγμένο πρόγραμμα πελάτη</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Εξαναγκασμός AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Ο κωδικοποιητής βίντεο είναι ο AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Ο κωδικοποιητής βίντεο είναι ο VP9 ή ο AV1</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Η συσκευή σας δεν διαθέτει αποκωδικοποίηση υλικού VP9, και αυτή η ρύθμιση είναι πάντα ενεργή όταν είναι ενεργοποιημένη η παραποίηση προγράμματος πελάτη</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Ενεργοποιώντας αυτόν τον κωδικοποιητή ίσως να βελτιώσει κατανάλωση ενέργειας και ίσως διορθώσει κολλήματα αναπαραγωγής.\n\nΟ AVC έχει μέγιστη ανάλυση 1080p, και καταναλώνει περισσότερα δεδομένα internet από τον VP9 ή τον AV1.</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Ο κωδικοποιητής βίντεο έχει οριστεί υποχρεωτικά σε AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Ο κωδικοποιητής βίντεο ορίζεται αυτόματα</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Η ενεργοποίηση αυτού μπορεί να βελτιώσει τη διάρκεια ζωής της μπαταρίας και να διορθώσει κολλήματα αναπαραγωγής.\n\nΟ AVC έχει μέγιστη ανάλυση 1080p, ο κωδικοποιητής ήχου Opus δεν είναι διαθέσιμος και η αναπαραγωγή βίντεο θα καταναλώνει περισσότερα δεδομένα internet από τον VP9 ή τον AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Παρενέργειες παραποίησης σε iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Οι ταινίες ή τα επί πληρωμή βίντεο ενδέχεται να μην αναπαράγονται\n• Οι ζωντανές μεταδόσεις ξεκινούν από την αρχή κατά την αναπαραγωγή\n• Τα βίντεο μπορεί να τελειώνουν 1 δευτερόλεπτο νωρίτερα\n• Ο κωδικοποιητής ήχου opus δεν είναι διαθέσιμος</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Ιδιωτικά βίντεο για παιδιά ενδεχομένως να μην αναπαράγονται\n• Οι ζωντανές μεταδόσεις ξεκινούν από την αρχή\n• Τα βίντεο ενδέχεται να λήξουν 1 δευτερόλεπτο νωρίτερα</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Παρενέργειες παραποίησης σε Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Το μενού «Κομμάτι ήχου» λείπει\n• Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Τα βίντεο για παιδιά ενδέχεται να μην αναπαράγονται\n• Το μενού «Κομμάτι ήχου» λείπει\n• Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη</string>
+  <string name="revanced_spoof_video_streams_language_">Οι ροές βίντεο παραποιούνται</string>
+  <string name="revanced_spoof_video_streams_language_title">Προτιμώμενη γλώσσα ροής ήχου</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">Γλώσσα εφαρμογής</string>
+  <string name="revanced_spoof_video_streams_language_AR">Αραβικά</string>
+  <string name="revanced_spoof_video_streams_language_AZ">Αζερμπαϊτζανικά</string>
+  <string name="revanced_spoof_video_streams_language_BG">Βουλγαρικά</string>
+  <string name="revanced_spoof_video_streams_language_BN">Βεγγαλικά</string>
+  <string name="revanced_spoof_video_streams_language_CA">Καταλανικά</string>
+  <string name="revanced_spoof_video_streams_language_CS">Τσέχικα</string>
+  <string name="revanced_spoof_video_streams_language_DA">Δανέζικα</string>
+  <string name="revanced_spoof_video_streams_language_DE">Γερμανικά</string>
+  <string name="revanced_spoof_video_streams_language_EL">Ελληνικά</string>
+  <string name="revanced_spoof_video_streams_language_EN">Αγγλικά</string>
+  <string name="revanced_spoof_video_streams_language_ES">Ισπανικά</string>
+  <string name="revanced_spoof_video_streams_language_ET">Εσθονικά</string>
+  <string name="revanced_spoof_video_streams_language_FA">Περσικά</string>
+  <string name="revanced_spoof_video_streams_language_FI">Φινλανδικά</string>
+  <string name="revanced_spoof_video_streams_language_FR">Γαλλικά</string>
+  <string name="revanced_spoof_video_streams_language_GU">Γκουτζαρατικά</string>
+  <string name="revanced_spoof_video_streams_language_HI">Χίντι</string>
+  <string name="revanced_spoof_video_streams_language_HR">Κροατικά</string>
+  <string name="revanced_spoof_video_streams_language_HU">Ουγγρικά</string>
+  <string name="revanced_spoof_video_streams_language_ID">Ινδονησιακά</string>
+  <string name="revanced_spoof_video_streams_language_IT">Ιταλικά</string>
+  <string name="revanced_spoof_video_streams_language_JA">Ιαπωνικά</string>
+  <string name="revanced_spoof_video_streams_language_KK">Καζακικά</string>
+  <string name="revanced_spoof_video_streams_language_KO">Κορεάτικα</string>
+  <string name="revanced_spoof_video_streams_language_LT">Λιθουανικά</string>
+  <string name="revanced_spoof_video_streams_language_LV">Λετονικά</string>
+  <string name="revanced_spoof_video_streams_language_MK">Σλαβομακεδονικά</string>
+  <string name="revanced_spoof_video_streams_language_MN">Μογγολικά</string>
+  <string name="revanced_spoof_video_streams_language_MR">Μαραθικά</string>
+  <string name="revanced_spoof_video_streams_language_MS">Μαλαισιανά</string>
+  <string name="revanced_spoof_video_streams_language_MY">Βιρμανικά</string>
+  <string name="revanced_spoof_video_streams_language_NL">Ολλανδικά</string>
+  <string name="revanced_spoof_video_streams_language_OR">Όντια</string>
+  <string name="revanced_spoof_video_streams_language_PA">Παντζάμπι</string>
+  <string name="revanced_spoof_video_streams_language_PL">Πολωνικά</string>
+  <string name="revanced_spoof_video_streams_language_PT_BR">Πορτογαλικά (Βραζιλίας)</string>
+  <string name="revanced_spoof_video_streams_language_PT_PT">Πορτογαλικά (Πορτογαλίας)</string>
+  <string name="revanced_spoof_video_streams_language_RO">Ρουμανικά</string>
+  <string name="revanced_spoof_video_streams_language_RU">Ρωσικά</string>
+  <string name="revanced_spoof_video_streams_language_SK">Σλοβακικά</string>
+  <string name="revanced_spoof_video_streams_language_SL">Σλοβενικά</string>
+  <string name="revanced_spoof_video_streams_language_SR">Σερβικά</string>
+  <string name="revanced_spoof_video_streams_language_SV">Σουηδικά</string>
+  <string name="revanced_spoof_video_streams_language_SW">Σουαχίλι</string>
+  <string name="revanced_spoof_video_streams_language_TA">Ταμιλικά</string>
+  <string name="revanced_spoof_video_streams_language_TE">Τελούγκου</string>
+  <string name="revanced_spoof_video_streams_language_TH">Ταϊλανδικά</string>
+  <string name="revanced_spoof_video_streams_language_TR">Τουρκικά</string>
+  <string name="revanced_spoof_video_streams_language_UK">Ουκρανικά</string>
+  <string name="revanced_spoof_video_streams_language_UR">Ουρντού</string>
+  <string name="revanced_spoof_video_streams_language_VI">Βιετναμέζικα</string>
+  <string name="revanced_spoof_video_streams_language_ZH">Κινέζικα</string>
   </patch>
   </app>
   <app id="twitch">
@@ -1246,6 +1308,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">Ρυθμίσεις ReVanced</string>
+  <string name="revanced_about_title">Ομάδα προγραμματιστών</string>
+  <string name="revanced_about_summary">Σχετικά με το ReVanced</string>
   <string name="revanced_ads_screen_title">Διαφημίσεις</string>
   <string name="revanced_ads_screen_summary">Ρυθμίσεις αποκλεισμού διαφημίσεων</string>
   <string name="revanced_chat_screen_title">Συνομιλία</string>

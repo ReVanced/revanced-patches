@@ -12,7 +12,6 @@ import app.revanced.patches.twitch.misc.extension.sharedExtensionPatch
 import app.revanced.patches.twitch.misc.settings.PreferenceScreen
 import app.revanced.patches.twitch.misc.settings.settingsPatch
 
-@Suppress("unused")
 val showDeletedMessagesPatch = bytecodePatch(
     name = "Show deleted messages",
     description = "Shows deleted chat messages behind a clickable spoiler.",

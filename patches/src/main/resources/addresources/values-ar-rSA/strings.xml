@@ -60,7 +60,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">ملاحظة</string>
   <string name="revanced_settings_about_links_dev_body">هذا الإصدار هو إصدار مسبق، وقد تواجه مشاكل غير متوقعة</string>
   <string name="revanced_settings_about_links_header">الروابط الرسمية</string>
-  <string name="revanced_settings_about_links_donate">تبرع</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -708,6 +709,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">تم إخفاء لوحات المشغل المنبثقة</string>
   <string name="revanced_hide_player_popup_panels_summary_off">يتم عرض لوحات المشغل المنبثقة</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <string name="revanced_open_videos_fullscreen_portrait_title">فتح مقاطع الفيديو في ملء الشاشة</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_on">الفيديو فتح ملء الشاشة</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_off">الفيديو لا تفتح ملء الشاشة</string>
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">شفافية تراكب المشغل</string>
   <string name="revanced_player_overlay_opacity_summary">قيمة الشفافية بين 0-100، حيث يكون 0 شفاف</string>
@@ -962,7 +968,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">الهدف من تغيير إصدار التطبيق</string>
-  <string name="revanced_spoof_app_version_target_entry_1">18.38.44 - استعادة أيقونات مشغل Shorts القديمة</string>
+  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - استعادة أيقونات مشغل Shorts القديمة</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - استعادة RYD على Shorts بوضع التخفي</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - استعادة قائمة سرعة الفيديو العريضة &amp; الجودة</string>
@@ -1010,8 +1016,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">المشغل المصغر</string>
   <string name="revanced_miniplayer_screen_summary">تغيير نمط المشغل المصغر داخل التطبيق</string>
   <string name="revanced_miniplayer_type_title">نوع المشغل المصغر</string>
+  <string name="revanced_miniplayer_type_entry_0">معطّل</string>
   <string name="revanced_miniplayer_type_entry_1">الأصلي</string>
-  <string name="revanced_miniplayer_type_entry_2">الجوّال</string>
+  <string name="revanced_miniplayer_type_entry_2">الحد الأدنى</string>
   <string name="revanced_miniplayer_type_entry_3">الجهاز اللوحي</string>
   <string name="revanced_miniplayer_type_entry_4">حديث 1</string>
   <string name="revanced_miniplayer_type_entry_5">حديث 2</string>
@@ -1146,7 +1153,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">تم تمكين الاهتزاز</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">جودة تلقائية</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">تلقائي</string>
   <string name="revanced_remember_video_quality_last_selected_title">تذكر تغييرات جودة الفيديو</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">تنطبق تغييرات الجودة على جميع مقاطع الفيديو</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">تنطبق تغييرات الجودة على الفيديو الحالي فقط</string>
@@ -1197,14 +1205,68 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">إيقاف تشغيل هذا الإعداد قد يسبب مشاكل في تشغيل الفيديو.</string>
   <string name="revanced_spoof_video_streams_client_title">العميل الافتراضي</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">فرض AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">ترميز الفيديو هو AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">ترميز الفيديو هو VP9 أو AV1</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">لا يحتوي جهازك على فك تشفير الأجهزة VP9، وهذا الإعداد يعمل دائما عند تمكين تزييف العميل</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">قد يؤدي تمكين هذا إلى تحسين عمر البطارية وإصلاح مشكلة تقطيع التشغيل.\n\nيتمتع تنسيق AVC بدقة قصوى تبلغ 1080P، وسيستخدم تشغيل الفيديو المزيد من بيانات الإنترنت مقارنةً بتنسيق VP9 أو AV1.</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">كود الفيديو مرغم على AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">يتم تحديد رمز الفيديو تلقائياً</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">تمكين هذا قد يحسّن عمر البطارية وإصلاح تشغيل التشغيل.\n\nAVC لها حد أقصى قدره 1080p، رمز الصوت Opus غير متوفر. وسيستخدم تشغيل الفيديو بيانات إنترنت أكثر من VP9 أو AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">التأثيرات الجانبية لمحاكاة iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• قد لا يتم تشغيل الأفلام أو الفيديوهات المدفوعة\n• تبدأ البثوث المباشرة من البداية\n• قد تنتهي الفيديوهات قبل النهاية بثانية واحدة\n• لا يوجد ترميز الصوت Opus</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• قد لا يتم تشغيل فيديوهات الأطفال الخاصة\n• تبدأ البثوث المباشرة من البداية\n• قد تنتهي الفيديوهات قبل النهاية بثانية واحدة</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">التأثيرات الجانبية لمحاكاة Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• قائمة المقطع الصوتي مفقودة\n• مستوى الصوت الثابت غير متوفر</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• قد لا يتم تشغيل فيديوهات الأطفال\n• قائمة المقطع الصوتي مفقودة\n• مستوى الصوت الثابت غير متوفر</string>
+  <string name="revanced_spoof_video_streams_language_">يتم تزييف تدفقات الفيديو</string>
+  <string name="revanced_spoof_video_streams_language_title">لغة البث الصوتي المفضلة</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">لغة التطبيق</string>
+  <string name="revanced_spoof_video_streams_language_AR">العربية</string>
+  <string name="revanced_spoof_video_streams_language_AZ">الأذربيجانية</string>
+  <string name="revanced_spoof_video_streams_language_BG">البلغاري</string>
+  <string name="revanced_spoof_video_streams_language_BN">البنغالي</string>
+  <string name="revanced_spoof_video_streams_language_CA">الكاتالونية</string>
+  <string name="revanced_spoof_video_streams_language_CS">التشيكية</string>
+  <string name="revanced_spoof_video_streams_language_DA">الدانماركية</string>
+  <string name="revanced_spoof_video_streams_language_DE">الألمانية</string>
+  <string name="revanced_spoof_video_streams_language_EL">اليونانية</string>
+  <string name="revanced_spoof_video_streams_language_EN">الإنجليزية</string>
+  <string name="revanced_spoof_video_streams_language_ES">الإسبانية</string>
+  <string name="revanced_spoof_video_streams_language_ET">الإستونية</string>
+  <string name="revanced_spoof_video_streams_language_FA">الفارسية</string>
+  <string name="revanced_spoof_video_streams_language_FI">الفنلندية</string>
+  <string name="revanced_spoof_video_streams_language_FR">الفرنسية</string>
+  <string name="revanced_spoof_video_streams_language_GU">Gujarati</string>
+  <string name="revanced_spoof_video_streams_language_HI">الهندية</string>
+  <string name="revanced_spoof_video_streams_language_HR">الكرواتية</string>
+  <string name="revanced_spoof_video_streams_language_HU">الهنغارية</string>
+  <string name="revanced_spoof_video_streams_language_ID">الإندونيسية</string>
+  <string name="revanced_spoof_video_streams_language_IT">الإيطالية</string>
+  <string name="revanced_spoof_video_streams_language_JA">يابانية</string>
+  <string name="revanced_spoof_video_streams_language_KK">Kazakh</string>
+  <string name="revanced_spoof_video_streams_language_KO">الكورية</string>
+  <string name="revanced_spoof_video_streams_language_LT">ليتوانية</string>
+  <string name="revanced_spoof_video_streams_language_LV">لاتفيا</string>
+  <string name="revanced_spoof_video_streams_language_MK">مقدونية</string>
+  <string name="revanced_spoof_video_streams_language_MN">منغولي</string>
+  <string name="revanced_spoof_video_streams_language_MR">الماراثي</string>
+  <string name="revanced_spoof_video_streams_language_MS">الملايو</string>
+  <string name="revanced_spoof_video_streams_language_MY">Burmese</string>
+  <string name="revanced_spoof_video_streams_language_NL">الهولندية</string>
+  <string name="revanced_spoof_video_streams_language_OR">Odia</string>
+  <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
+  <string name="revanced_spoof_video_streams_language_PL">البولندية</string>
+  <string name="revanced_spoof_video_streams_language_PT_BR">البرتغالية (البرازيل)</string>
+  <string name="revanced_spoof_video_streams_language_PT_PT">البرتغالية (البرتغال)</string>
+  <string name="revanced_spoof_video_streams_language_RO">الرومانية</string>
+  <string name="revanced_spoof_video_streams_language_RU">الروسية</string>
+  <string name="revanced_spoof_video_streams_language_SK">السلوفاكية</string>
+  <string name="revanced_spoof_video_streams_language_SL">Slovene</string>
+  <string name="revanced_spoof_video_streams_language_SR">الصربية</string>
+  <string name="revanced_spoof_video_streams_language_SV">السويدية</string>
+  <string name="revanced_spoof_video_streams_language_SW">سواحيلية</string>
+  <string name="revanced_spoof_video_streams_language_TA">Tamil</string>
+  <string name="revanced_spoof_video_streams_language_TE">Telugu</string>
+  <string name="revanced_spoof_video_streams_language_TH">التايلندية</string>
+  <string name="revanced_spoof_video_streams_language_TR">تركية</string>
+  <string name="revanced_spoof_video_streams_language_UK">أوكراني</string>
+  <string name="revanced_spoof_video_streams_language_UR">الأردو</string>
+  <string name="revanced_spoof_video_streams_language_VI">Vietnamese</string>
+  <string name="revanced_spoof_video_streams_language_ZH">الصينية</string>
   </patch>
   </app>
   <app id="twitch">
@@ -1246,6 +1308,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">إعدادات ReVanced</string>
+  <string name="revanced_about_title">لمحة</string>
+  <string name="revanced_about_summary">لمحة عن ReVanced</string>
   <string name="revanced_ads_screen_title">الإعلانات</string>
   <string name="revanced_ads_screen_summary">إعدادات حجب الإعلانات</string>
   <string name="revanced_chat_screen_title">الدردشة</string>

@@ -37,6 +37,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_reset">रीसेट करें</string>
   <!-- Settings about dialog. -->
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -147,6 +149,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.panels.popup.playerPopupPanelsPatch">
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   </patch>
   <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
@@ -183,6 +187,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.tablet.enableTabletLayoutPatch">
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
+  <string name="revanced_miniplayer_type_entry_0">निष्क्रिय</string>
   </patch>
   <patch id="layout.theme.themePatch">
   </patch>
@@ -217,6 +222,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="misc.zoomhaptics.zoomHapticsPatch">
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   </patch>
@@ -247,6 +253,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   </patch>
   <patch id="misc.settings.settingsPatch">
+  <string name="revanced_about_title">विवरण</string>
   </patch>
   </app>
 </resources>

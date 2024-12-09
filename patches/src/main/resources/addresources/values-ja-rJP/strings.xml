@@ -58,7 +58,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">メモ</string>
   <string name="revanced_settings_about_links_dev_body">このバージョンはプレリリースで、予期しない問題が発生する可能性があります。</string>
   <string name="revanced_settings_about_links_header">公式リンク</string>
-  <string name="revanced_settings_about_links_donate">寄付</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -694,6 +695,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">プレーヤーのポップアップパネルが非表示になります</string>
   <string name="revanced_hide_player_popup_panels_summary_off">プレーヤーのポップアップパネルが表示されます</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <string name="revanced_open_videos_fullscreen_portrait_title">全画面表示で動画を開く</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_on">動画を全画面表示で開く</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_off">動画が全画面表示されません</string>
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">プレイヤーオーバーレイの透明度</string>
   <string name="revanced_player_overlay_opacity_summary">透明度の値は 0〜100 の範囲で、0 が透明です</string>
@@ -990,8 +996,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">ミニプレイヤー</string>
   <string name="revanced_miniplayer_screen_summary">アプリの最小化プレイヤーのスタイルを変更する</string>
   <string name="revanced_miniplayer_type_title">ミニプレーヤータイプ</string>
+  <string name="revanced_miniplayer_type_entry_0">無効</string>
   <string name="revanced_miniplayer_type_entry_1">オリジナル</string>
-  <string name="revanced_miniplayer_type_entry_2">携帯</string>
+  <string name="revanced_miniplayer_type_entry_2">最小</string>
   <string name="revanced_miniplayer_type_entry_3">タブレット</string>
   <string name="revanced_miniplayer_type_entry_4">モダン 1</string>
   <string name="revanced_miniplayer_type_entry_5">モダン 2</string>
@@ -1124,7 +1131,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">触覚機能は有効です</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">自動品質</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">自動</string>
   <string name="revanced_remember_video_quality_last_selected_title">ビデオ画質の変更を記憶する</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">品質の変更はすべてのビデオに適用されます</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">品質の変更は現在のビデオにのみ適用されます</string>
@@ -1175,14 +1183,66 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">この設定をオフにすると、ビデオ再生の問題が発生する可能性があります。</string>
   <string name="revanced_spoof_video_streams_client_title">デフォルトのクライアント</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">強制AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">ビデオコーデックは AVC (H.264) です</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">ビデオコーデックはVP9またはAV1です</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">お使いのデバイスにはVP9ハードウェアデコードがありません。この設定はクライアントのスプーフィングが有効になっているときに常に有効になります</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">これを有効にするとバッテリー寿命と再生の途切れが改善する可能性があります。\n\nAVCの最大解像度は1080pで、ビデオ再生はVP9やAV1よりも多くの通信量を使用します。</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">ビデオコーデックはAVCに強制されました (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">ビデオコーデックが自動的に決定されます</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">これを有効にするとバッテリー寿命が延長され、再生が停止する可能性があります。\n\nAVCの最大解像度は1080pで、Opusオーディオコーデックは利用できません。 動画再生は、VP9やAV1よりも多くのインターネットデータを使用します。</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOSのクライアント偽装での副作用</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• 映画や有料動画は再生できない場合があります\n•ライブは最初から再生されます\n• 動画が 1 秒早く終了する場合があります\n• Opus オーディオは使用できません。</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android-VR クライアント偽装の副作用</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">•「音声トラック」メニューは表示されません\n•「一定音量」は使用できません</string>
+  <string name="revanced_spoof_video_streams_language_">ビデオストリームはなりすましています</string>
+  <string name="revanced_spoof_video_streams_language_title">優先オーディオストリーム言語</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">アプリの言語</string>
+  <string name="revanced_spoof_video_streams_language_AR">アラビア文字</string>
+  <string name="revanced_spoof_video_streams_language_AZ">アゼルバイジャン語</string>
+  <string name="revanced_spoof_video_streams_language_BG">ブルガリア語</string>
+  <string name="revanced_spoof_video_streams_language_BN">ベンガル語</string>
+  <string name="revanced_spoof_video_streams_language_CA">カタロニア語</string>
+  <string name="revanced_spoof_video_streams_language_CS">チェコ語</string>
+  <string name="revanced_spoof_video_streams_language_DA">デンマーク語</string>
+  <string name="revanced_spoof_video_streams_language_DE">ドイツ語</string>
+  <string name="revanced_spoof_video_streams_language_EL">ギリシア語</string>
+  <string name="revanced_spoof_video_streams_language_EN">英語</string>
+  <string name="revanced_spoof_video_streams_language_ES">スペイン語</string>
+  <string name="revanced_spoof_video_streams_language_ET">エストニア語</string>
+  <string name="revanced_spoof_video_streams_language_FA">ペルシャ語</string>
+  <string name="revanced_spoof_video_streams_language_FI">フィンランド語</string>
+  <string name="revanced_spoof_video_streams_language_FR">Français</string>
+  <string name="revanced_spoof_video_streams_language_GU">Gujarati</string>
+  <string name="revanced_spoof_video_streams_language_HI">ヒンディー語</string>
+  <string name="revanced_spoof_video_streams_language_HR">クロアチア語</string>
+  <string name="revanced_spoof_video_streams_language_HU">ハンガリー語</string>
+  <string name="revanced_spoof_video_streams_language_ID">インドネシア語</string>
+  <string name="revanced_spoof_video_streams_language_IT">イタリア語</string>
+  <string name="revanced_spoof_video_streams_language_JA">日本語</string>
+  <string name="revanced_spoof_video_streams_language_KK">Kazakh</string>
+  <string name="revanced_spoof_video_streams_language_KO">Korean</string>
+  <string name="revanced_spoof_video_streams_language_LT">リトアニア語</string>
+  <string name="revanced_spoof_video_streams_language_LV">ラトビア語</string>
+  <string name="revanced_spoof_video_streams_language_MK">マケドニア語</string>
+  <string name="revanced_spoof_video_streams_language_MN">モンゴル語</string>
+  <string name="revanced_spoof_video_streams_language_MR">Marathi</string>
+  <string name="revanced_spoof_video_streams_language_MS">マレー語</string>
+  <string name="revanced_spoof_video_streams_language_MY">Burmese</string>
+  <string name="revanced_spoof_video_streams_language_NL">オランダ語</string>
+  <string name="revanced_spoof_video_streams_language_OR">Odia</string>
+  <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
+  <string name="revanced_spoof_video_streams_language_PL">ポーランド語</string>
+  <string name="revanced_spoof_video_streams_language_PT_BR">ポルトガル語 (ブラジル)</string>
+  <string name="revanced_spoof_video_streams_language_PT_PT">ポルトガル語 (ポルトガル)</string>
+  <string name="revanced_spoof_video_streams_language_RO">ルーマニア語</string>
+  <string name="revanced_spoof_video_streams_language_RU">ロシア語</string>
+  <string name="revanced_spoof_video_streams_language_SK">スロバキア語</string>
+  <string name="revanced_spoof_video_streams_language_SL">Slovene</string>
+  <string name="revanced_spoof_video_streams_language_SR">セルビア語</string>
+  <string name="revanced_spoof_video_streams_language_SV">スウェーデン語</string>
+  <string name="revanced_spoof_video_streams_language_SW">スワヒリ語</string>
+  <string name="revanced_spoof_video_streams_language_TA">Tamil</string>
+  <string name="revanced_spoof_video_streams_language_TE">Telugu</string>
+  <string name="revanced_spoof_video_streams_language_TH">タイ語</string>
+  <string name="revanced_spoof_video_streams_language_TR">トルコ語</string>
+  <string name="revanced_spoof_video_streams_language_UK">ウクライナ語</string>
+  <string name="revanced_spoof_video_streams_language_UR">ウルドゥー語</string>
+  <string name="revanced_spoof_video_streams_language_VI">Vietnamese</string>
+  <string name="revanced_spoof_video_streams_language_ZH">中国語</string>
   </patch>
   </app>
   <app id="twitch">
@@ -1224,6 +1284,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">Revancedの設定</string>
+  <string name="revanced_about_title">情報</string>
+  <string name="revanced_about_summary">ReVancedについて</string>
   <string name="revanced_ads_screen_title">広告</string>
   <string name="revanced_ads_screen_summary">広告ブロックの設定</string>
   <string name="revanced_chat_screen_title">チャット</string>

@@ -10,7 +10,6 @@ import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 
-@Suppress("unused")
 val hideButtonsPatch = resourcePatch(
     name = "Hide video action buttons",
     description = "Adds options to hide action buttons (such as the Download button) under videos.",
@@ -29,6 +28,8 @@ val hideButtonsPatch = resourcePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
+            "19.45.38",
+            "19.46.42",
         ),
     )
 

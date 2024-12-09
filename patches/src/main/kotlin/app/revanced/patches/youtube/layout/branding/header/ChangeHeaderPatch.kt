@@ -39,7 +39,18 @@ val changeHeaderPatch = resourcePatch(
 ) {
     dependsOn(versionCheckPatch)
 
-    compatibleWith("com.google.android.youtube")
+    compatibleWith(
+        "com.google.android.youtube"(
+            "18.38.44",
+            "18.49.37",
+            "19.16.39",
+            "19.25.37",
+            "19.34.42",
+            "19.43.41",
+            "19.45.38",
+            "19.46.42",
+        )
+    )
 
     val header by stringOption(
         key = "header",

@@ -59,7 +59,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">দ্রষ্টব্য</string>
   <string name="revanced_settings_about_links_dev_body">এই সংস্করণ একটি প্রাক-প্রকাশনা এবং এতে আপনি অনাকাঙ্খিত সমস্যার সম্মুখিন হতে পারেন</string>
   <string name="revanced_settings_about_links_header">অফিশ্যাল লিংকসমূহ</string>
-  <string name="revanced_settings_about_links_donate">দান করুন</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -628,6 +629,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">প্লেয়ার পপআপ প্যানেলগুলো লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_player_popup_panels_summary_off">প্লেয়ার পপআপ প্যানেলগুলো প্রদর্শিত হয়েছে</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">প্লেয়ার ওভারলে অস্বচ্ছতা</string>
   <string name="revanced_player_overlay_opacity_summary">অসচ্ছতা মান ০-১০০ এর মধ্যে, যেখানে ০ হল সম্পূর্ণ স্বচ্ছ</string>
@@ -906,8 +909,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">মিনিপ্লেয়ার</string>
   <string name="revanced_miniplayer_screen_summary">অ্যাপের মধ্যকার মিনিমাইজড প্লেয়ার এর ধরণ পরিবর্তন করুন</string>
   <string name="revanced_miniplayer_type_title">মিনিপ্লেয়ার ধরণ</string>
+  <string name="revanced_miniplayer_type_entry_0">নিষ্ক্রিয় হয়েছে</string>
   <string name="revanced_miniplayer_type_entry_1">আসল</string>
-  <string name="revanced_miniplayer_type_entry_2">ফোন</string>
   <string name="revanced_miniplayer_type_entry_3">ট্যাবলেট</string>
   <string name="revanced_miniplayer_type_entry_4">মর্ডান ১</string>
   <string name="revanced_miniplayer_type_entry_5">মর্ডান ২</string>
@@ -1017,7 +1020,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">কম্পন সক্রিয় করা হয়েছে</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">স্বয়ংক্রিয় গুণমান</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">স্বতস্ফূর্তভাবে</string>
   <string name="revanced_remember_video_quality_last_selected_title">ভিডিও গুণমান পরিবর্তন মনে রাখুন</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">গুণমান পরিবর্তন সব ভিডিওতে প্রয়োগ করা হয়েছে</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">গুণমান পরিবর্তন বর্তমান ভিডিওতে প্রয়োগ করা হয়েছে</string>
@@ -1064,8 +1068,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">এই সেটিংটি বন্ধ করার ফলে ভিডিও প্লেব্যাক ত্রুটি হতে পারে।</string>
   <string name="revanced_spoof_video_streams_client_title">ডিফল্ট ক্লায়েন্ট</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">AVC (H.264) ফোর্স করুন</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">ভিডিও কোডেক AVC (H.264) ব্যবহৃত হচ্ছে</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">ভিডিও কোডেক VP9 বা AV1 ব্যবহৃত হচ্ছে</string>
+  <string name="revanced_spoof_video_streams_language_">ভিডিও স্ট্রিম স্পুফ করা হয়েছে</string>
   </patch>
   </app>
   <app id="twitch">
@@ -1107,6 +1110,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">ReVanced সেটিং</string>
+  <string name="revanced_about_title">সম্পর্কিত</string>
   <string name="revanced_ads_screen_title">বিজ্ঞাপন</string>
   <string name="revanced_ads_screen_summary">বিজ্ঞাপন বন্ধ করার সেটিং</string>
   <string name="revanced_chat_screen_title">আলাপচারি</string>

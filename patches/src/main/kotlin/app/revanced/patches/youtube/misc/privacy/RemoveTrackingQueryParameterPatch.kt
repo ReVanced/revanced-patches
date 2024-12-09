@@ -18,7 +18,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/RemoveTrackingQueryParameterPatch;"
 
-@Suppress("unused")
 val removeTrackingQueryParameterPatch = bytecodePatch(
     name = "Remove tracking query parameter",
     description = "Adds an option to remove the tracking info from links you share.",
@@ -37,6 +36,8 @@ val removeTrackingQueryParameterPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
+            "19.45.38",
+            "19.46.42",
         ),
     )
 

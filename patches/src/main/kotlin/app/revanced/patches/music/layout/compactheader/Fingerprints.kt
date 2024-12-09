@@ -15,8 +15,6 @@ internal val constructCategoryBarFingerprint = fingerprint {
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.IPUT_OBJECT,
         Opcode.CONST,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.NEW_INSTANCE,
-        Opcode.INVOKE_DIRECT,
+        Opcode.INVOKE_VIRTUAL
     )
 }

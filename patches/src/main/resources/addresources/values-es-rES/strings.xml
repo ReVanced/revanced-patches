@@ -60,7 +60,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">Nota</string>
   <string name="revanced_settings_about_links_dev_body">Esta versión es un pre-lanzamiento y puede que experimentes problemas inesperados</string>
   <string name="revanced_settings_about_links_header">Enlaces oficiales</string>
-  <string name="revanced_settings_about_links_donate">Donar</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -68,7 +69,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="gms_core_dialog_title">Acción necesaria</string>
   <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">MicroG GmsCore no tiene permiso para ejecutarse en segundo plano.\n\nSigue la guía \"No cerrar mi aplicación\" para tu teléfono y aplica las instrucciones a tu instalación de MicroG.\n\nEsto es necesario para que la aplicación funcione.</string>
   <string name="gms_core_dialog_open_website_text">Abrir sitio web</string>
-  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">Las optimizaciones de la batería de MicroG GmsCore deben estar deshabilitadas para evitar problemas.\n\nPulse el botón continuar y desactive las optimizaciones de la batería.</string>
+  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">Las optimizaciones de batería de MicroG GmsCore deben estar deshabilitadas para evitar problemas.\n\nPulse el botón continuar y desactive las optimizaciones de la batería.</string>
   <string name="gms_core_dialog_continue_text">Continuar</string>
   </patch>
   </app>
@@ -342,9 +343,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_web_search_results_title">Ocultar resultados de búsqueda web</string>
   <string name="revanced_hide_web_search_results_summary_on">Los resultados de búsqueda web están ocultos</string>
   <string name="revanced_hide_web_search_results_summary_off">Se muestran los resultados de la búsqueda web</string>
-  <string name="revanced_hide_merchandise_banners_title">Ocultar banners de mercandise</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">Los banners de mercadería están ocultos</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">Se muestran los banners de Mercandise</string>
+  <string name="revanced_hide_merchandise_banners_title">Ocultar banners publicitarios</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">Los banners publicitarios están ocultos</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">Se muestran los banners publicitarios</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Ocultar anuncio solo con dispositivos viejos</string>
   </patch>
@@ -395,8 +396,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
   <string name="revanced_seekbar_tapping_title">Habilitar toque en la barra de búsqueda</string>
-  <string name="revanced_seekbar_tapping_summary_on">Seekbar toping está habilitado</string>
-  <string name="revanced_seekbar_tapping_summary_off">Seekbar toping está desactivado</string>
+  <string name="revanced_seekbar_tapping_summary_on">Toque de barra de búsqueda está habilitado</string>
+  <string name="revanced_seekbar_tapping_summary_off">Toque de barra de búsqueda está desactivado</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Activar gesto de brillo</string>
@@ -436,8 +437,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_buttons_screen_title">Botones de acción</string>
   <string name="revanced_hide_buttons_screen_summary">Ocultar o mostrar botones en videos</string>
   <string name="revanced_hide_like_dislike_button_title">Ocultar me gusta y no me gusta</string>
-  <string name="revanced_hide_like_dislike_button_summary_on">Botones \"Me gusta\" y \"no me gusta\" están ocultos</string>
-  <string name="revanced_hide_like_dislike_button_summary_off">Se muestran botones \"Me gusta\" y \"no me gusta\"</string>
+  <string name="revanced_hide_like_dislike_button_summary_on">Botones \"Me gusta\" y \"No me gusta\" están ocultos</string>
+  <string name="revanced_hide_like_dislike_button_summary_off">Se muestran botones \"Me gusta\" y \"No me gusta\"</string>
   <!-- 'Share' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_share_button_title">Ocultar Compartir</string>
   <string name="revanced_hide_share_button_summary_on">El botón Compartir está oculto</string>
@@ -469,7 +470,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playlist_button_summary_off">Mostrar el botón Guardar a la lista</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
-  <string name="revanced_navigation_buttons_screen_title">Navigation buttons</string>
+  <string name="revanced_navigation_buttons_screen_title">Botones de navegación</string>
   <string name="revanced_navigation_buttons_screen_summary">Ocultar o cambiar botones en la barra de navegación</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
   <string name="revanced_hide_home_button_title">Ocultar Principal</string>
@@ -482,13 +483,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- The Create button has no display name. Translate normally. -->
   <string name="revanced_hide_create_button_title">Ocultar Crear</string>
   <string name="revanced_hide_create_button_summary_on">El botón Crear está oculto</string>
-  <string name="revanced_hide_create_button_summary_off">Se muestra el botón de crear</string>
+  <string name="revanced_hide_create_button_summary_off">Se muestra el botón Crear</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays the tab. -->
-  <string name="revanced_hide_subscriptions_button_title">Ocultar suscripciones</string>
-  <string name="revanced_hide_subscriptions_button_summary_on">El botón de suscripciones está oculto</string>
-  <string name="revanced_hide_subscriptions_button_summary_off">Se muestra el botón de suscripciones</string>
+  <string name="revanced_hide_subscriptions_button_title">Ocultar Suscripciones</string>
+  <string name="revanced_hide_subscriptions_button_summary_on">El botón Suscripciones está oculto</string>
+  <string name="revanced_hide_subscriptions_button_summary_off">Se muestra el botón Suscripciones</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
-  <string name="revanced_switch_create_with_notifications_button_title">Cambiar Create con notificaciones</string>
+  <string name="revanced_switch_create_with_notifications_button_title">Cambiar Crear con Notificaciones</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">El botón Crear cambia con el botón de Notificaciones\n\nNota: Activar esto también oculta anuncios de vídeo por la fuerza</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">El botón Crear no se cambia con el botón de notificaciones</string>
   <string name="revanced_hide_navigation_button_labels_title">Ocultar etiquetas de botón de navegación</string>
@@ -496,12 +497,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_navigation_button_labels_summary_off">Las etiquetas se muestran</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
-  <string name="revanced_hide_player_flyout_title">Flyout menu</string>
-  <string name="revanced_hide_player_flyout_summary">Ocultar o mostrar elementos del menú de vuelo del jugador</string>
+  <string name="revanced_hide_player_flyout_title">Menú desplegable</string>
+  <string name="revanced_hide_player_flyout_summary">Ocultar o mostrar elementos del menú desplegable del reproductor</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_captions_title">Ocultar leyendas</string>
+  <string name="revanced_hide_player_flyout_captions_title">Ocultar Subtítulos</string>
   <string name="revanced_hide_player_flyout_captions_summary_on">Menú de subtítulos oculto</string>
-  <string name="revanced_hide_player_flyout_captions_summary_off">Menú de subtítulos mostrado</string>
+  <string name="revanced_hide_player_flyout_captions_summary_off">Se muestra el menú de subtítulos</string>
   <!-- 'Additional settings' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_additional_settings_title">Ocultar ajustes adicionales</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_on">Menú de configuración adicional oculto</string>
@@ -512,18 +513,18 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_sleep_timer_summary_off">El menú de temporizador de sueño se muestra</string>
   <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_loop_video_title">Ocultar video de bucle</string>
-  <string name="revanced_hide_player_flyout_loop_video_summary_on">El menú de video Loop está oculto</string>
-  <string name="revanced_hide_player_flyout_loop_video_summary_off">El menú de Loop video se muestra</string>
+  <string name="revanced_hide_player_flyout_loop_video_summary_on">El menú de video en bucle está oculto</string>
+  <string name="revanced_hide_player_flyout_loop_video_summary_off">El menú de vídeo en bucle se muestra</string>
   <!-- 'Ambient mode' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_ambient_mode_title">Ocultar modo ambiente</string>
-  <string name="revanced_hide_player_flyout_ambient_mode_summary_on">Menú de modo ambiente oculto</string>
-  <string name="revanced_hide_player_flyout_ambient_mode_summary_off">Se muestra el menú de modo ambiente</string>
+  <string name="revanced_hide_player_flyout_ambient_mode_title">Ocultar Modo ambiente</string>
+  <string name="revanced_hide_player_flyout_ambient_mode_summary_on">Menú de Modo ambiente oculto</string>
+  <string name="revanced_hide_player_flyout_ambient_mode_summary_off">Se muestra el menú de Modo ambiente</string>
   <string name="revanced_hide_player_flyout_stable_volume_title">Ocultar volumen estable</string>
   <string name="revanced_hide_player_flyout_stable_volume_summary_off">Se muestra el menú de volumen estable</string>
   <string name="revanced_hide_player_flyout_stable_volume_summary_on">El menú de volumen estable está oculto</string>
   <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_help_title">Ocultar Ayuda &amp; Comentarios</string>
-  <string name="revanced_hide_player_flyout_help_summary_on">El menú de ayuda &amp; comentarios está oculto</string>
+  <string name="revanced_hide_player_flyout_help_title">Ocultar Ayuda &amp; comentarios</string>
+  <string name="revanced_hide_player_flyout_help_summary_on">El menú Ayuda &amp; comentarios está oculto</string>
   <string name="revanced_hide_player_flyout_help_summary_off">Se muestra el menú Ayuda &amp; comentarios</string>
   <!-- 'Playback speed' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_speed_title">Ocultar velocidad de reproducción</string>
@@ -531,9 +532,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_speed_summary_off">Mostrar menú de velocidad de reproducción</string>
   <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Ocultar más información</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">El menú de más información está oculto</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Se muestra el menú de más información</string>
+  <string name="revanced_hide_player_flyout_more_info_title">Ocultar Más información</string>
+  <string name="revanced_hide_player_flyout_more_info_summary_on">El menú Más información está oculto</string>
+  <string name="revanced_hide_player_flyout_more_info_summary_off">Se muestra el menú Más información</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Ocultar pantalla de bloqueo</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">El menú de la pantalla de bloqueo está oculto</string>
@@ -554,7 +555,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_previous_next_buttons_title">Ocultar botones de vídeo anteriores &amp; siguiente</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Los botones están ocultos</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Los botones se muestran</string>
-  <string name="revanced_hide_cast_button_title">Ocultar botón de reparto</string>
+  <string name="revanced_hide_cast_button_title">Ocultar botón Transmitir</string>
   <string name="revanced_hide_cast_button_summary_on">El botón de envío a otros dispositivos está oculto</string>
   <string name="revanced_hide_cast_button_summary_off">El botón de envío a otros dispositivos es visible</string>
   <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
@@ -707,6 +708,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_title">Ocultar paneles emergentes del jugador</string>
   <string name="revanced_hide_player_popup_panels_summary_on">Los paneles emergentes del jugador están ocultos</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Se muestran paneles emergentes del jugador</string>
+  </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <string name="revanced_open_videos_fullscreen_portrait_title">Abrir vídeos en el retrato de pantalla completa</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_on">Videos abiertos a pantalla completa</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_off">Los videos no se abren en pantalla completa</string>
   </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Opacidad de superposición del jugador</string>
@@ -939,7 +945,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_stats_saved">Has salvado personas de segmentos &lt;b&gt;%s&lt;/b&gt;</string>
   <string name="revanced_sb_stats_saved_sum_zero">Pulsa aquí para ver las estadísticas globales y los mejores colaboradores</string>
   <string name="revanced_sb_stats_saved_sum">Eso es &lt;b&gt;%s&lt;/b&gt; de sus vidas.&lt;br&gt;Toca aquí para ver la tabla de clasificación</string>
-  <string name="revanced_sb_stats_self_saved">Te has saltado segmentos &lt;b&gt;%s&lt;/b&gt;</string>
+  <string name="revanced_sb_stats_self_saved">Has omitido &lt;b&gt;%s&lt;/b&gt; segmentos </string>
   <string name="revanced_sb_stats_self_saved_sum">Eso es &lt;b&gt;%s&lt;/b&gt;</string>
   <string name="revanced_sb_stats_self_saved_reset_title">¿Restablecer contador de segmentos saltados?</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s horas %2$s minutos</string>
@@ -962,7 +968,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Destino de versión de la aplicación Spoof</string>
-  <string name="revanced_spoof_app_version_target_entry_1">18.38.44 - Restaurar iconos antiguos del reproductor de Shorts</string>
+  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Restaurar iconos antiguos del reproductor de Shorts</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Restaurar RYD en Shorts de modo incógnito</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Restaurar la velocidad de vídeo ancha &amp; menú de calidad</string>
@@ -1010,8 +1016,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Minireproductor</string>
   <string name="revanced_miniplayer_screen_summary">Cambiar el estilo del reproductor minimizado de la aplicación</string>
   <string name="revanced_miniplayer_type_title">Tipo de minreproductor</string>
+  <string name="revanced_miniplayer_type_entry_0">Desactivado</string>
   <string name="revanced_miniplayer_type_entry_1">Original</string>
-  <string name="revanced_miniplayer_type_entry_2">Teléfono</string>
+  <string name="revanced_miniplayer_type_entry_2">Mínimo</string>
   <string name="revanced_miniplayer_type_entry_3">Tablet</string>
   <string name="revanced_miniplayer_type_entry_4">Moderna 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderna 2</string>
@@ -1084,7 +1091,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Toast no se muestra si DeFlecha no está disponible</string>
   <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API endpoint</string>
   <string name="revanced_alt_thumbnail_dearrow_api_url_summary">La URL del final de la caché en miniatura de DeArrow</string>
-  <string name="revanced_alt_thumbnail_stills_about_title">Todavía captura de vídeo</string>
+  <string name="revanced_alt_thumbnail_stills_about_title">Capturas estáticas de vídeo</string>
   <string name="revanced_alt_thumbnail_stills_about_summary">Las capturas se toman desde el principio/medio/final de cada vídeo. Estas imágenes están incorporadas en YouTube y no se utiliza ninguna API externa</string>
   <string name="revanced_alt_thumbnail_stills_fast_title">Usar capturas aún rápidas</string>
   <string name="revanced_alt_thumbnail_stills_fast_summary_on">Usar captura de calidad media todavía. Las miniaturas se cargarán más rápido, pero streams en vivo, no liberados o vídeos muy antiguos pueden mostrar miniaturas en blanco</string>
@@ -1146,7 +1153,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">Haptics están habilitados</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Calidad automática</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">Auto</string>
   <string name="revanced_remember_video_quality_last_selected_title">Recordar cambios de calidad de vídeo</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Los cambios de calidad se aplican a todos los vídeos</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Los cambios de calidad sólo se aplican al vídeo actual</string>
@@ -1197,14 +1205,68 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">Desactivar esta configuración puede causar problemas de reproducción de vídeo.</string>
   <string name="revanced_spoof_video_streams_client_title">Cliente por defecto</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Forzar AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Codec de vídeo AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">El códec de vídeo es VP9 o AV1</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Su dispositivo no tiene decodificación de hardware VP9, y esta configuración siempre está encendida cuando el cliente spoofing está habilitado</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Activar esto puede mejorar la vida de la batería y corregir el retraso en la reproducción.\n\nAVC tiene una resolución máxima de 1080p, y la reproducción de vídeo utilizará más datos de Internet que VP9 o AV1.</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Códec de vídeo se ve obligado a AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">El códec de vídeo se determina automáticamente</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Activar esto puede mejorar la vida de la batería y corregir el retraso en la reproducción.\n\nAVC tiene una resolución máxima de 1080p, el código de audio Opus no está disponible. y la reproducción de vídeo utilizará más datos de Internet que VP9 o AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Efectos secundarios para la falsificación de iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Las películas o vídeos de pago pueden no reproducirse\n• Los directos empiezan desde el principio\n• Los vídeos pueden terminar 1 segundo antes\n• No hay códec de audio de Opus</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Los vídeos de niños privados no pueden reproducir\n• Livestreams comienzan desde el principio\n• Los vídeos pueden terminar temprano 1 segundo</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Efectos secundarios para la falsificación de Android RV</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Falta el menú de pista de audio\n• El volumen estable no está disponible</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Los vídeos infantiles no pueden reproducir\n• Falta el menú de pista de audio\n• El volumen estable no está disponible</string>
+  <string name="revanced_spoof_video_streams_language_">El stream de vídeo está falsificado</string>
+  <string name="revanced_spoof_video_streams_language_title">Idioma de flujo de audio preferido</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">Idioma de la aplicación</string>
+  <string name="revanced_spoof_video_streams_language_AR">Árabe</string>
+  <string name="revanced_spoof_video_streams_language_AZ">Бессия</string>
+  <string name="revanced_spoof_video_streams_language_BG">Búlgaro</string>
+  <string name="revanced_spoof_video_streams_language_BN">Bengalí</string>
+  <string name="revanced_spoof_video_streams_language_CA">Catalán</string>
+  <string name="revanced_spoof_video_streams_language_CS">Checo</string>
+  <string name="revanced_spoof_video_streams_language_DA">Danés</string>
+  <string name="revanced_spoof_video_streams_language_DE">Alemán</string>
+  <string name="revanced_spoof_video_streams_language_EL">Griego</string>
+  <string name="revanced_spoof_video_streams_language_EN">Inglés</string>
+  <string name="revanced_spoof_video_streams_language_ES">Español</string>
+  <string name="revanced_spoof_video_streams_language_ET">Estonio</string>
+  <string name="revanced_spoof_video_streams_language_FA">Persa</string>
+  <string name="revanced_spoof_video_streams_language_FI">Finlandés</string>
+  <string name="revanced_spoof_video_streams_language_FR">Francés</string>
+  <string name="revanced_spoof_video_streams_language_GU">Gujarati</string>
+  <string name="revanced_spoof_video_streams_language_HI">Hindú</string>
+  <string name="revanced_spoof_video_streams_language_HR">Croata</string>
+  <string name="revanced_spoof_video_streams_language_HU">Húngaro</string>
+  <string name="revanced_spoof_video_streams_language_ID">Indonesio/a</string>
+  <string name="revanced_spoof_video_streams_language_IT">Italiano</string>
+  <string name="revanced_spoof_video_streams_language_JA">Japonés</string>
+  <string name="revanced_spoof_video_streams_language_KK">Kazakh</string>
+  <string name="revanced_spoof_video_streams_language_KO">Coreano</string>
+  <string name="revanced_spoof_video_streams_language_LT">Lituano</string>
+  <string name="revanced_spoof_video_streams_language_LV">Letón</string>
+  <string name="revanced_spoof_video_streams_language_MK">Macedonio</string>
+  <string name="revanced_spoof_video_streams_language_MN">Mongol</string>
+  <string name="revanced_spoof_video_streams_language_MR">Maratí</string>
+  <string name="revanced_spoof_video_streams_language_MS">Malayo</string>
+  <string name="revanced_spoof_video_streams_language_MY">Burmese</string>
+  <string name="revanced_spoof_video_streams_language_NL">Holandés</string>
+  <string name="revanced_spoof_video_streams_language_OR">Odia</string>
+  <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
+  <string name="revanced_spoof_video_streams_language_PL">Polaco</string>
+  <string name="revanced_spoof_video_streams_language_PT_BR">Portugués (Brasil)</string>
+  <string name="revanced_spoof_video_streams_language_PT_PT">Portugués (R)</string>
+  <string name="revanced_spoof_video_streams_language_RO">Rumano</string>
+  <string name="revanced_spoof_video_streams_language_RU">Ruso</string>
+  <string name="revanced_spoof_video_streams_language_SK">Eslovaco</string>
+  <string name="revanced_spoof_video_streams_language_SL">Slovene</string>
+  <string name="revanced_spoof_video_streams_language_SR">Serbio</string>
+  <string name="revanced_spoof_video_streams_language_SV">Sueco</string>
+  <string name="revanced_spoof_video_streams_language_SW">Swahili</string>
+  <string name="revanced_spoof_video_streams_language_TA">Tamil</string>
+  <string name="revanced_spoof_video_streams_language_TE">Telugu</string>
+  <string name="revanced_spoof_video_streams_language_TH">Tailandés</string>
+  <string name="revanced_spoof_video_streams_language_TR">Turco</string>
+  <string name="revanced_spoof_video_streams_language_UK">Ucraniano</string>
+  <string name="revanced_spoof_video_streams_language_UR">Urdu</string>
+  <string name="revanced_spoof_video_streams_language_VI">Vietnamese</string>
+  <string name="revanced_spoof_video_streams_language_ZH">Chino</string>
   </patch>
   </app>
   <app id="twitch">
@@ -1246,6 +1308,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">Ajustes de ReVanced</string>
+  <string name="revanced_about_title">Acerca de</string>
+  <string name="revanced_about_summary">Acerca de ReVanced</string>
   <string name="revanced_ads_screen_title">Anuncios</string>
   <string name="revanced_ads_screen_summary">Ajustes de bloqueo de anuncios</string>
   <string name="revanced_chat_screen_title">Chatear</string>

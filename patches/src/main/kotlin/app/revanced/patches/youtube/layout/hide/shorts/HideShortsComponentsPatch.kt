@@ -29,7 +29,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import com.sun.org.apache.bcel.internal.generic.InstructionConst.getInstruction
 
 internal var reelMultipleItemShelfId = -1L
     private set
@@ -189,8 +188,13 @@ val hideShortsComponentsPatch = bytecodePatch(
             "19.25.37",
             "19.34.42",
             "19.43.41",
+            "19.45.38",
+            "19.46.42",
         ),
     )
+
+    hideShortsAppShortcutOption()
+    hideShortsWidgetOption()
 
     execute {
         // region Hide the Shorts shelf.

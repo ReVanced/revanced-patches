@@ -60,7 +60,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">Забележка</string>
   <string name="revanced_settings_about_links_dev_body">Тази версия е предварителна, така че може да срещнете неочаквани проблеми</string>
   <string name="revanced_settings_about_links_header">Официални линкове</string>
-  <string name="revanced_settings_about_links_donate">Дарение</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -87,6 +88,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Възпроизвеждане на  Shorts в фонов режим</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Фоновото възпроизвеждане на Shorts е деактивирано</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Фоновото възпроизвеждане на Shorts е активирано</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Отстраняване на грешки</string>
@@ -706,6 +709,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">Изскачащите панели на плейъра са скрити</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Изскачащите панели на плейъра се показват</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Прозрачност на настройките в Плеара</string>
   <string name="revanced_player_overlay_opacity_summary">Стойност на прозрачност между 0-100, където 0 е прозрачно</string>
@@ -960,6 +965,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Подлъгване за версията на</string>
+  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Възстановете старите икони на Shorts в плейъра</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Възстановете RYD в режим „инкогнито“ на Shorts</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Възстановяване на видео скорост &amp; в менюто за качество</string>
@@ -1007,8 +1013,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Минимизиран екран за възпроизвеждане</string>
   <string name="revanced_miniplayer_screen_summary">Променете стила на минимизирания екран за възпроизвеждане</string>
   <string name="revanced_miniplayer_type_title">Минимизиран тип екран за гледане</string>
+  <string name="revanced_miniplayer_type_entry_0">Деактивирано</string>
   <string name="revanced_miniplayer_type_entry_1">Оригинал</string>
-  <string name="revanced_miniplayer_type_entry_2">Телефон</string>
+  <string name="revanced_miniplayer_type_entry_2">Минимално</string>
   <string name="revanced_miniplayer_type_entry_3">Таблет</string>
   <string name="revanced_miniplayer_type_entry_4">Модерен 1</string>
   <string name="revanced_miniplayer_type_entry_5">Модерен 2</string>
@@ -1143,7 +1150,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">Вибрациите са активирани</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Автоматично качество</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">Авто</string>
   <string name="revanced_remember_video_quality_last_selected_title">Запомни промените в качеството на видеото</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Промените в качеството се отнасят за всички видеоклипове</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Промените в качеството се отнасят само за текущия видеоклип</string>
@@ -1194,14 +1202,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">Деактивирането на тази настройка ще доведе до проблеми с възпроизвеждането на видео.</string>
   <string name="revanced_spoof_video_streams_client_title">Клиент по подразбиране</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Принудително AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Видеокодека е AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Видеокодека е VP9 или AV1</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Вашето устройство няма хардуерно VP9 декодиране и тази настройка винаги е активирана, когато е активно подправяне на клиента</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Активирането на това може да подобри живота на батерията и да коригира прекъсванията при възпроизвеждане.\n\nAVC има максимална разделителна способност от 1080p и възпроизвеждането на видео ще използва повече интернет данни от VP9 или AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Cтранични ефекти от подмяната на iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Филми или платени видеоклипове може да не се възпроизвеждат\n• Потоците на живо започват отначало\n• Видеоклиповете може да завършват 1 секунда по-рано\n• Няма аудиокодек Opus</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Странични ефекти от подправяне на Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Липсва менюто за избор аудио\n• Не е налична стабилна сила на звука</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Детските видеоклипове може да не се възпроизвеждат\n• Липсва менюто за аудио запис\n• Не е налична стабилна сила на звука</string>
+  <string name="revanced_spoof_video_streams_language_">Видео потоците са подправени</string>
   </patch>
   </app>
   <app id="twitch">
@@ -1243,6 +1247,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">Настройки на ReVanced</string>
+  <string name="revanced_about_title">Относно</string>
+  <string name="revanced_about_summary">За ReVanced</string>
   <string name="revanced_ads_screen_title">Реклами</string>
   <string name="revanced_ads_screen_summary">Настройки за блокиране на реклами</string>
   <string name="revanced_chat_screen_title">Чатове</string>

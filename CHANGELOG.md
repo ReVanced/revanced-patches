@@ -1,3 +1,284 @@
+# [5.3.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.3.0-dev.6...v5.3.0-dev.7) (2024-12-09)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Add missing preferred language preference to the settings ([630633c](https://github.com/ReVanced/revanced-patches/commit/630633cf57c65c65e5578046413e17670ae336e8))
+
+# [5.3.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.3.0-dev.5...v5.3.0-dev.6) (2024-12-09)
+
+
+### Features
+
+* **YouTube - Spoof video streams:** Allow picking a default audio language track ([#4050](https://github.com/ReVanced/revanced-patches/issues/4050)) ([ede666b](https://github.com/ReVanced/revanced-patches/commit/ede666b5cb64fcbaa1334ad8bef79e2634ced113))
+
+# [5.3.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.3.0-dev.4...v5.3.0-dev.5) (2024-12-09)
+
+
+### Bug Fixes
+
+* **Change package name:** Prevent applying the patch to known incompatible apps ([#3943](https://github.com/ReVanced/revanced-patches/issues/3943)) ([44936e7](https://github.com/ReVanced/revanced-patches/commit/44936e71e846f72f7279950232a5dba37765ceb3))
+* **YouTube Music - Permanent shuffle:** Remove obsolete and non functional patch ([#4073](https://github.com/ReVanced/revanced-patches/issues/4073)) ([fbc6ab6](https://github.com/ReVanced/revanced-patches/commit/fbc6ab6a357b351f02d4d486ddc2072cf53199c3))
+
+
+### Features
+
+* **YouTube:** Add `Open videos fullscreen` patch ([#4069](https://github.com/ReVanced/revanced-patches/issues/4069)) ([296d63b](https://github.com/ReVanced/revanced-patches/commit/296d63bd42c338a01efbcb2df702e5822d05a5f1))
+
+# [5.3.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.3.0-dev.3...v5.3.0-dev.4) (2024-12-09)
+
+
+### Features
+
+* **Nyx:** Remove broken `Unlock pro` patch ([1fe8b16](https://github.com/ReVanced/revanced-patches/commit/1fe8b164eab0c4fa80ab2da2581977f5111a2858))
+
+# [5.3.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.3.0-dev.2...v5.3.0-dev.3) (2024-12-09)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Update `Force AVC` client data ([#4064](https://github.com/ReVanced/revanced-patches/issues/4064)) ([7d537dd](https://github.com/ReVanced/revanced-patches/commit/7d537ddff4bb5421fa320741275131a66ef5c7bb))
+
+# [5.3.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.3.0-dev.1...v5.3.0-dev.2) (2024-12-08)
+
+
+### Bug Fixes
+
+* **Reddit:** Fix patches by using correct extension class ([70bdc68](https://github.com/ReVanced/revanced-patches/commit/70bdc6840d465399625aa1ae0259f49e72711955))
+
+# [5.3.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.2.4-dev.3...v5.3.0-dev.1) (2024-12-08)
+
+
+### Features
+
+* **YouTube Music:** Add `Spoof video streams` patch to fix playback ([#4065](https://github.com/ReVanced/revanced-patches/issues/4065)) ([cf3116a](https://github.com/ReVanced/revanced-patches/commit/cf3116a7583d09c25c798a85687a056f143656f0))
+
+## [5.2.4-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.2.4-dev.2...v5.2.4-dev.3) (2024-12-07)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Enable opus codec by updating iOS client version ([#4063](https://github.com/ReVanced/revanced-patches/issues/4063)) ([0af156f](https://github.com/ReVanced/revanced-patches/commit/0af156f18972c5f089af4bb69824968d2a47d18f))
+
+## [5.2.4-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.2.4-dev.1...v5.2.4-dev.2) (2024-12-07)
+
+
+### Bug Fixes
+
+* **Sync for Reddit:** Fix patches by using correct extension name ([030093e](https://github.com/ReVanced/revanced-patches/commit/030093e913aab3fab43935eedbaeba0f6c0491bb))
+
+## [5.2.4-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.2.3...v5.2.4-dev.1) (2024-12-07)
+
+
+### Bug Fixes
+
+* **Twitter:** Merge correct extension by depending on correct extension patch ([8281cf6](https://github.com/ReVanced/revanced-patches/commit/8281cf6a3eead8cc25a277371e0b0ab2be982497))
+
+## [5.2.3](https://github.com/ReVanced/revanced-patches/compare/v5.2.2...v5.2.3) (2024-12-06)
+
+
+### Bug Fixes
+
+* **YouTube Music - GmsCore support:** Resolve patching errors ([#4056](https://github.com/ReVanced/revanced-patches/issues/4056)) ([38a4bad](https://github.com/ReVanced/revanced-patches/commit/38a4bad5b890e3906d77d22efeabd8f38653508b))
+
+## [5.2.3-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.2.2...v5.2.3-dev.1) (2024-12-06)
+
+
+### Bug Fixes
+
+* **YouTube Music - GmsCore support:** Resolve patching errors ([#4056](https://github.com/ReVanced/revanced-patches/issues/4056)) ([38a4bad](https://github.com/ReVanced/revanced-patches/commit/38a4bad5b890e3906d77d22efeabd8f38653508b))
+
+## [5.2.2](https://github.com/ReVanced/revanced-patches/compare/v5.2.1...v5.2.2) (2024-12-06)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Use system language as default iOS audio stream ([#4042](https://github.com/ReVanced/revanced-patches/issues/4042)) ([4017185](https://github.com/ReVanced/revanced-patches/commit/4017185e760c0569e6644b94bbe66a84fa245b4b))
+
+## [5.2.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.2.1...v5.2.2-dev.1) (2024-12-05)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Use system language as default iOS audio stream ([#4042](https://github.com/ReVanced/revanced-patches/issues/4042)) ([4017185](https://github.com/ReVanced/revanced-patches/commit/4017185e760c0569e6644b94bbe66a84fa245b4b))
+
+## [5.2.1](https://github.com/ReVanced/revanced-patches/compare/v5.2.0...v5.2.1) (2024-12-04)
+
+
+### Bug Fixes
+
+* **Twitch:** Resolve setting menu crashes ([#4025](https://github.com/ReVanced/revanced-patches/issues/4025)) ([62df596](https://github.com/ReVanced/revanced-patches/commit/62df5965d7331e47b3143425d169a79a19eac447))
+* **YouTube - Spoof app version:** Update spoof target to resolve library tab crashes ([#4014](https://github.com/ReVanced/revanced-patches/issues/4014)) ([c8eced5](https://github.com/ReVanced/revanced-patches/commit/c8eced54704017df4e91e536dbef1e9514306f67))
+* **YouTube - Spoof app version:** Update spoof target to resolve library tab crashes ([#4019](https://github.com/ReVanced/revanced-patches/issues/4019)) ([d89ad65](https://github.com/ReVanced/revanced-patches/commit/d89ad6501a7cdb3c074c6204dac7960ca3e252f1))
+* **YouTube Music - Hide category bar:** Add support for latest release ([#3968](https://github.com/ReVanced/revanced-patches/issues/3968)) ([b63fdeb](https://github.com/ReVanced/revanced-patches/commit/b63fdeb10b504468307a77bd5de69407906848bf))
+
+
+### Performance Improvements
+
+* Move variables to local scope ([43c0421](https://github.com/ReVanced/revanced-patches/commit/43c04216c6e647eaf6ad7e813eb5f0df0c108b77))
+
+## [5.2.1-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.2.1-dev.4...v5.2.1-dev.5) (2024-12-01)
+
+
+### Performance Improvements
+
+* Move variables to local scope ([43c0421](https://github.com/ReVanced/revanced-patches/commit/43c04216c6e647eaf6ad7e813eb5f0df0c108b77))
+
+## [5.2.1-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.2.1-dev.3...v5.2.1-dev.4) (2024-11-30)
+
+
+### Bug Fixes
+
+* **Twitch:** Resolve setting menu crashes ([#4025](https://github.com/ReVanced/revanced-patches/issues/4025)) ([62df596](https://github.com/ReVanced/revanced-patches/commit/62df5965d7331e47b3143425d169a79a19eac447))
+
+## [5.2.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.2.1-dev.2...v5.2.1-dev.3) (2024-11-29)
+
+
+### Bug Fixes
+
+* **YouTube Music - Hide category bar:** Add support for latest release ([#3968](https://github.com/ReVanced/revanced-patches/issues/3968)) ([b63fdeb](https://github.com/ReVanced/revanced-patches/commit/b63fdeb10b504468307a77bd5de69407906848bf))
+
+## [5.2.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.2.1-dev.1...v5.2.1-dev.2) (2024-11-28)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof app version:** Update spoof target to resolve library tab crashes ([#4019](https://github.com/ReVanced/revanced-patches/issues/4019)) ([d89ad65](https://github.com/ReVanced/revanced-patches/commit/d89ad6501a7cdb3c074c6204dac7960ca3e252f1))
+
+## [5.2.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.2.0...v5.2.1-dev.1) (2024-11-28)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof app version:** Update spoof target to resolve library tab crashes ([#4014](https://github.com/ReVanced/revanced-patches/issues/4014)) ([c8eced5](https://github.com/ReVanced/revanced-patches/commit/c8eced54704017df4e91e536dbef1e9514306f67))
+
+# [5.2.0](https://github.com/ReVanced/revanced-patches/compare/v5.1.0...v5.2.0) (2024-11-27)
+
+
+### Bug Fixes
+
+* **My Expenses - Unlock pro:** Constrain compatible version to working version ([#3974](https://github.com/ReVanced/revanced-patches/issues/3974)) ([ba3bf69](https://github.com/ReVanced/revanced-patches/commit/ba3bf69df07ec8dab46868c3940ebd56db0cd137))
+* **YouTube - Hide Shorts components:** Add missing options to patch ([65f62fc](https://github.com/ReVanced/revanced-patches/commit/65f62fcd5ac340616a96542c64faf2af2a60df28))
+* **YouTube - Playback speed:** Allow long press 2x speed when using custom playback speeds ([#3990](https://github.com/ReVanced/revanced-patches/issues/3990)) ([79a543a](https://github.com/ReVanced/revanced-patches/commit/79a543a57470638f983862c61270e046f3ac5cb7))
+* **YouTube - Settings:** Do not clip settings menus when using an Android 15 device ([#3999](https://github.com/ReVanced/revanced-patches/issues/3999)) ([7382a02](https://github.com/ReVanced/revanced-patches/commit/7382a020b8322a7abc016a4569bc15f9caf05546))
+* **YouTube - Settings:** Show navigation back button in setting sub menus ([#3991](https://github.com/ReVanced/revanced-patches/issues/3991)) ([e61686c](https://github.com/ReVanced/revanced-patches/commit/e61686c1039ae29e443273e4da4ec63956216841))
+* **YouTube - Spoof video streams:** Log out the iOS client to restore kids videos playback ([#4000](https://github.com/ReVanced/revanced-patches/issues/4000)) ([cc2ac4e](https://github.com/ReVanced/revanced-patches/commit/cc2ac4e4cd15ca2a23d60abd160d915bc98f99b4))
+
+
+### Features
+
+* **TikTok:** Add ReVanced settings about screen ([#4009](https://github.com/ReVanced/revanced-patches/issues/4009)) ([12ea26b](https://github.com/ReVanced/revanced-patches/commit/12ea26b10ddea5ad39da1d35e2b8fd0b48c15d88))
+* **VSCO:** Remove non functional `Unlock pro` patch ([4fddb19](https://github.com/ReVanced/revanced-patches/commit/4fddb1930bc7adeee3b60ae9cd346b143e88bd42))
+* **YouTube - Theme:** Apply custom seekbar color to splash screen animation ([#3978](https://github.com/ReVanced/revanced-patches/issues/3978)) ([98d57e2](https://github.com/ReVanced/revanced-patches/commit/98d57e28af7206099867474b7aa3760cd4fe333f))
+* **YouTube:** Support version `19.46.42` ([#4010](https://github.com/ReVanced/revanced-patches/issues/4010)) ([122aac6](https://github.com/ReVanced/revanced-patches/commit/122aac6aee8ef0737f18564f11bbc2a6addf4a6b))
+
+# [5.2.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.2.0-dev.6...v5.2.0-dev.7) (2024-11-27)
+
+
+### Bug Fixes
+
+* **YouTube - Settings:** Do not clip settings menus when using an Android 15 device ([#3999](https://github.com/ReVanced/revanced-patches/issues/3999)) ([7382a02](https://github.com/ReVanced/revanced-patches/commit/7382a020b8322a7abc016a4569bc15f9caf05546))
+
+# [5.2.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.2.0-dev.5...v5.2.0-dev.6) (2024-11-27)
+
+
+### Features
+
+* **YouTube:** Support version `19.46.42` ([#4010](https://github.com/ReVanced/revanced-patches/issues/4010)) ([122aac6](https://github.com/ReVanced/revanced-patches/commit/122aac6aee8ef0737f18564f11bbc2a6addf4a6b))
+
+# [5.2.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.2.0-dev.4...v5.2.0-dev.5) (2024-11-27)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Log out the iOS client to restore kids videos playback ([#4000](https://github.com/ReVanced/revanced-patches/issues/4000)) ([cc2ac4e](https://github.com/ReVanced/revanced-patches/commit/cc2ac4e4cd15ca2a23d60abd160d915bc98f99b4))
+
+
+### Features
+
+* **TikTok:** Add ReVanced settings about screen ([#4009](https://github.com/ReVanced/revanced-patches/issues/4009)) ([12ea26b](https://github.com/ReVanced/revanced-patches/commit/12ea26b10ddea5ad39da1d35e2b8fd0b48c15d88))
+
+# [5.2.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.2.0-dev.3...v5.2.0-dev.4) (2024-11-26)
+
+
+### Bug Fixes
+
+* **YouTube - Playback speed:** Allow long press 2x speed when using custom playback speeds ([#3990](https://github.com/ReVanced/revanced-patches/issues/3990)) ([79a543a](https://github.com/ReVanced/revanced-patches/commit/79a543a57470638f983862c61270e046f3ac5cb7))
+
+# [5.2.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.2.0-dev.2...v5.2.0-dev.3) (2024-11-26)
+
+
+### Features
+
+* **VSCO:** Remove non functional `Unlock pro` patch ([4fddb19](https://github.com/ReVanced/revanced-patches/commit/4fddb1930bc7adeee3b60ae9cd346b143e88bd42))
+
+# [5.2.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.2.0-dev.1...v5.2.0-dev.2) (2024-11-26)
+
+
+### Bug Fixes
+
+* **YouTube - Settings:** Show navigation back button in setting sub menus ([#3991](https://github.com/ReVanced/revanced-patches/issues/3991)) ([e61686c](https://github.com/ReVanced/revanced-patches/commit/e61686c1039ae29e443273e4da4ec63956216841))
+
+# [5.2.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.1.1-dev.2...v5.2.0-dev.1) (2024-11-25)
+
+
+### Features
+
+* **YouTube - Theme:** Apply custom seekbar color to splash screen animation ([#3978](https://github.com/ReVanced/revanced-patches/issues/3978)) ([98d57e2](https://github.com/ReVanced/revanced-patches/commit/98d57e28af7206099867474b7aa3760cd4fe333f))
+
+## [5.1.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.1.1-dev.1...v5.1.1-dev.2) (2024-11-25)
+
+
+### Bug Fixes
+
+* **YouTube - Hide Shorts components:** Add missing options to patch ([65f62fc](https://github.com/ReVanced/revanced-patches/commit/65f62fcd5ac340616a96542c64faf2af2a60df28))
+
+## [5.1.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.1.0...v5.1.1-dev.1) (2024-11-24)
+
+
+### Bug Fixes
+
+* **My Expenses - Unlock pro:** Constrain compatible version to working version ([#3974](https://github.com/ReVanced/revanced-patches/issues/3974)) ([ba3bf69](https://github.com/ReVanced/revanced-patches/commit/ba3bf69df07ec8dab46868c3940ebd56db0cd137))
+
+# [5.1.0](https://github.com/ReVanced/revanced-patches/compare/v5.0.2...v5.1.0) (2024-11-24)
+
+
+### Bug Fixes
+
+* **YouTube - Change header:** Apply header changes to A/B layout ([#3907](https://github.com/ReVanced/revanced-patches/issues/3907)) ([6ccf114](https://github.com/ReVanced/revanced-patches/commit/6ccf11426ec9e9cd9c8e89a2443f0d0645cc78b1))
+* **YouTube - Hide Shorts components:** Do not hide Shorts action buttons on app first launch ([#3933](https://github.com/ReVanced/revanced-patches/issues/3933)) ([0d78815](https://github.com/ReVanced/revanced-patches/commit/0d78815e33bf2ae216e519f067fb773df0f2084e))
+* **YouTube - Playback speed:** Add 'Auto' speed. Always override speed if default is set to 1.0x ([#3914](https://github.com/ReVanced/revanced-patches/issues/3914)) ([497739e](https://github.com/ReVanced/revanced-patches/commit/497739e8ce6933c1f1ea46edffc102e56b985623))
+* **YouTube - SponsorBlock:** Fix create new segment crash on tablet custom roms ([#3946](https://github.com/ReVanced/revanced-patches/issues/3946)) ([a0da377](https://github.com/ReVanced/revanced-patches/commit/a0da377ba8f90ba39e905ed9730b3e819633bd50))
+* **YouTube - Spoof app version:** Adjust legacy spoof targets ([#3934](https://github.com/ReVanced/revanced-patches/issues/3934)) ([f5794c1](https://github.com/ReVanced/revanced-patches/commit/f5794c1f896c331d76fdfc299e31a2773f2209ca))
+* **YouTube - Spoof app version:** Remove broken spoof targets when patching 19.25+ ([#3915](https://github.com/ReVanced/revanced-patches/issues/3915)) ([9e18eca](https://github.com/ReVanced/revanced-patches/commit/9e18ecab1877dd33a3ad0fe216e6b91a8daaf1f8))
+
+
+### Features
+
+* **YouTube - Miniplayer:** Add option to disable miniplayer ([#3961](https://github.com/ReVanced/revanced-patches/issues/3961)) ([e565cdb](https://github.com/ReVanced/revanced-patches/commit/e565cdb583aacfc0052d12c430f56fd9abd5bf00))
+* **YouTube:** Support version `19.45.38` ([#3938](https://github.com/ReVanced/revanced-patches/issues/3938)) ([7c4e3fe](https://github.com/ReVanced/revanced-patches/commit/7c4e3fe97e8cbbb8cf16a2fb95f64223ca2bd7ef))
+
+# [5.1.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.1.0-dev.2...v5.1.0-dev.3) (2024-11-22)
+
+
+### Features
+
+* **YouTube - Miniplayer:** Add option to disable miniplayer ([#3961](https://github.com/ReVanced/revanced-patches/issues/3961)) ([e565cdb](https://github.com/ReVanced/revanced-patches/commit/e565cdb583aacfc0052d12c430f56fd9abd5bf00))
+
+# [5.1.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.1.0-dev.1...v5.1.0-dev.2) (2024-11-21)
+
+
+### Bug Fixes
+
+* **YouTube - SponsorBlock:** Fix create new segment crash on tablet custom roms ([#3946](https://github.com/ReVanced/revanced-patches/issues/3946)) ([a0da377](https://github.com/ReVanced/revanced-patches/commit/a0da377ba8f90ba39e905ed9730b3e819633bd50))
+
+# [5.1.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.0.3-dev.5...v5.1.0-dev.1) (2024-11-20)
+
+
+### Features
+
+* **YouTube:** Support version `19.45.38` ([#3938](https://github.com/ReVanced/revanced-patches/issues/3938)) ([7c4e3fe](https://github.com/ReVanced/revanced-patches/commit/7c4e3fe97e8cbbb8cf16a2fb95f64223ca2bd7ef))
+
 ## [5.0.3-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.0.3-dev.4...v5.0.3-dev.5) (2024-11-18)
 
 

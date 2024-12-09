@@ -51,6 +51,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">Нататка</string>
   <string name="revanced_settings_about_links_dev_body">Гэтая версія з\"яўляецца папярэдняй версіяй, і вы можаце сутыкнуцца з непрадбачанымі праблемамі</string>
   <string name="revanced_settings_about_links_header">Афіцыйныя спасылкі</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -635,6 +637,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">Усплывальныя панэлі прайгравальніка схаваныя</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Паказваюцца ўсплывальныя панэлі прайгравальніка</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Непразрыстасць накладання прайгравальніка</string>
   <string name="revanced_player_overlay_opacity_summary">Значэнне непразрыстасці паміж 0-100, дзе 0 - празрысты</string>
@@ -914,8 +918,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Міні-плэер</string>
   <string name="revanced_miniplayer_screen_summary">Змяніце стыль мінімізаванага плэера ў праграме</string>
   <string name="revanced_miniplayer_type_title">Тып мініплэера</string>
+  <string name="revanced_miniplayer_type_entry_0">Інваліды</string>
   <string name="revanced_miniplayer_type_entry_1">Арыгінал</string>
-  <string name="revanced_miniplayer_type_entry_2">Тэлефон</string>
   <string name="revanced_miniplayer_type_entry_3">Планшэт</string>
   <string name="revanced_miniplayer_type_entry_4">Сучасны 1</string>
   <string name="revanced_miniplayer_type_entry_5">Сучасны 2</string>
@@ -1029,7 +1033,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">Тактыльныя сігналы ўключаны</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Аўтаматычнае якасць</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">Аўто</string>
   <string name="revanced_remember_video_quality_last_selected_title">Запомніце змены якасці відэа</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Змены якасці распаўсюджваюцца на ўсе відэа</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Змены якасці прымяняюцца толькі да бягучага відэа</string>
@@ -1110,6 +1115,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">Налады ReVanced</string>
+  <string name="revanced_about_title">Пра нас</string>
   <string name="revanced_ads_screen_title">Аб\"явы</string>
   <string name="revanced_ads_screen_summary">Налады блакіроўкі рэкламы</string>
   <string name="revanced_chat_screen_title">Чат</string>

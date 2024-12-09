@@ -33,7 +33,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
 <resources>
   <app id="shared">
   <patch id="misc.checks.checkEnvironmentPatch">
-  <string name="revanced_check_environment_failed_title">Überprüfungen fehlgeschlagen</string>
+  <string name="revanced_check_environment_failed_title">Überprüfung fehlgeschlagen</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Offizielle Webseite öffnen</string>
   <string name="revanced_check_environment_dialog_ignore_button">Ignorieren</string>
   <string name="revanced_check_environment_failed_message">&lt;h5&gt;Diese App wurde offenbar nicht von Ihnen gepatcht.&lt;/h5&gt;&lt;br&gt;Diese App funktioniert möglicherweise nicht richtig, &lt;b&gt;könnte schädlich oder sogar gefährlich in der Verwendung sein&lt;/b&gt;.&lt; br&gt;&lt;br&gt;Diese Prüfungen deuten darauf hin, dass diese App vorab gepatcht wurde oder von jemandem bezogen wurde sonst:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Es wird dringend empfohlen, &lt;b&gt;diese App zu deinstallieren und selbst zu patchen&lt;/b&gt; um sicherzustellen, dass Sie eine validierte und sichere App verwenden.&lt;p&gt;&lt;br&gt;Wenn Sie diese Warnung ignorieren, wird sie nur zweimal angezeigt.</string>
@@ -61,7 +61,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_about_links_dev_header">Notiz</string>
   <string name="revanced_settings_about_links_dev_body">Diese Version ist eine Vorabversion und du könntest unerwartete Probleme haben</string>
   <string name="revanced_settings_about_links_header">Offizielle Links</string>
-  <string name="revanced_settings_about_links_donate">Spenden</string>
+  <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
+                 and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
@@ -709,6 +710,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">Player-Popup-Fenster sind ausgeblendet</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Player-Popup-Fenster werden angezeigt</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <string name="revanced_open_videos_fullscreen_portrait_title">Videos im Vollbild-Hochformat öffnen</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_on">Videos im Vollbild öffnen</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_off">Videos öffnen nicht Vollbild</string>
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Spieler-Überlagerung Deckkraft</string>
   <string name="revanced_player_overlay_opacity_summary">Deckkraft Wert zwischen 0-100, wobei 0 transparent ist</string>
@@ -963,7 +969,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Spoof-App-Versionsziel</string>
-  <string name="revanced_spoof_app_version_target_entry_1">18.38.44 - Alte Shorts Spielersymbole wiederherstellen</string>
+  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Alte Shorts Spielersymbole wiederherstellen</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - RYD auf Shorts Inkognito-Modus wiederherstellen</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Wiederherstellen der breiten Videogeschwindigkeit &amp; Qualitätsmenü</string>
@@ -1011,8 +1017,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_title">Miniplayer</string>
   <string name="revanced_miniplayer_screen_summary">Ändere den Stil des in App minimierten Players</string>
   <string name="revanced_miniplayer_type_title">Minispielertyp</string>
+  <string name="revanced_miniplayer_type_entry_0">Deaktiviert</string>
   <string name="revanced_miniplayer_type_entry_1">Original</string>
-  <string name="revanced_miniplayer_type_entry_2">Telefon</string>
+  <string name="revanced_miniplayer_type_entry_2">Minimal</string>
   <string name="revanced_miniplayer_type_entry_3">Tablets</string>
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
@@ -1147,7 +1154,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_zoom_haptics_summary_off">Haptik ist aktiviert</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
-  <string name="revanced_video_quality_default_entry_1">Automatische Qualität</string>
+  <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">Auto</string>
   <string name="revanced_remember_video_quality_last_selected_title">Änderungen der Videoqualität merken</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Qualitätsänderungen gelten für alle Videos</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Qualitätsänderungen gelten nur für das aktuelle Video</string>
@@ -1198,14 +1206,68 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">Das Deaktivieren dieser Einstellung kann zu Videowiedergabeproblemen führen.</string>
   <string name="revanced_spoof_video_streams_client_title">Standard-Client</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">AVC erzwingen (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video Codec ist AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video Codec ist VP9 oder AV1</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">Ihr Gerät hat keine VP9-Hardware-Dekodierung, und diese Einstellung ist immer aktiviert, wenn Client-Spoofing aktiviert ist</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Das Aktivieren kann die Akkulaufzeit verbessern und die Wiedergabe-Stutting beheben.\n\nAVC hat eine maximale Auflösung von 1080p, und die Videowiedergabe wird mehr Internet-Daten als VP9 oder AV1 verwenden.</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video-Codec ist zu AVC gezwungen (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video-Codec wird automatisch bestimmt</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Das Aktivieren kann die Akkulaufzeit verbessern und die Wiedergabe-Stutting beheben.\n\nAVC hat eine maximale Auflösung von 1080p, Opus Audio Codec ist nicht verfügbar und Video-Wiedergabe wird mehr Internet-Daten als VP9 oder AV1 verwenden.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS Spoofing Nebeneffekte</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Filme oder bezahlte Videos werden möglicherweise nicht abgespielt\n• Livestreams starten von Anfang an\n• Videos enden möglicherweise 1 Sekunde früher\n• kein Opus-Audiocodec</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Videos für private Kinder dürfen nicht\nabspielen • Livestreams beginnen von Anfang an\n• Videos können 1 Sekunde früher enden</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR Spoofing Nebeneffekte</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Audio Track Menü fehlt\n• Stabile Lautstärke ist nicht verfügbar</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Kindervideos dürfen nicht\nabspielen • Audiospurmenü fehlt\n• Stabile Lautstärke ist nicht verfügbar</string>
+  <string name="revanced_spoof_video_streams_language_">Video-Streams sind gefälscht</string>
+  <string name="revanced_spoof_video_streams_language_title">Bevorzugte Audio-Stream-Sprache</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">App-Sprache</string>
+  <string name="revanced_spoof_video_streams_language_AR">Arabisch</string>
+  <string name="revanced_spoof_video_streams_language_AZ">Aserbaidschan</string>
+  <string name="revanced_spoof_video_streams_language_BG">Bulgarisch</string>
+  <string name="revanced_spoof_video_streams_language_BN">Bengalisch</string>
+  <string name="revanced_spoof_video_streams_language_CA">Katalanisch</string>
+  <string name="revanced_spoof_video_streams_language_CS">Tschechisch</string>
+  <string name="revanced_spoof_video_streams_language_DA">Dänisch</string>
+  <string name="revanced_spoof_video_streams_language_DE">Deutsch</string>
+  <string name="revanced_spoof_video_streams_language_EL">Griechisch</string>
+  <string name="revanced_spoof_video_streams_language_EN">Englisch</string>
+  <string name="revanced_spoof_video_streams_language_ES">Spanisch</string>
+  <string name="revanced_spoof_video_streams_language_ET">Estnisch</string>
+  <string name="revanced_spoof_video_streams_language_FA">Persisch</string>
+  <string name="revanced_spoof_video_streams_language_FI">Finnisch</string>
+  <string name="revanced_spoof_video_streams_language_FR">Französisch</string>
+  <string name="revanced_spoof_video_streams_language_GU">Gujarati</string>
+  <string name="revanced_spoof_video_streams_language_HI">Hannah</string>
+  <string name="revanced_spoof_video_streams_language_HR">Kroatisch</string>
+  <string name="revanced_spoof_video_streams_language_HU">Ungarisch</string>
+  <string name="revanced_spoof_video_streams_language_ID">Indonesisch</string>
+  <string name="revanced_spoof_video_streams_language_IT">Italienisch</string>
+  <string name="revanced_spoof_video_streams_language_JA">Japanisch</string>
+  <string name="revanced_spoof_video_streams_language_KK">Kazakh</string>
+  <string name="revanced_spoof_video_streams_language_KO">Koreanisch</string>
+  <string name="revanced_spoof_video_streams_language_LT">Litauisch</string>
+  <string name="revanced_spoof_video_streams_language_LV">Lettisch</string>
+  <string name="revanced_spoof_video_streams_language_MK">Makedonisch</string>
+  <string name="revanced_spoof_video_streams_language_MN">Mongolisch</string>
+  <string name="revanced_spoof_video_streams_language_MR">Marathi</string>
+  <string name="revanced_spoof_video_streams_language_MS">Malaiisch</string>
+  <string name="revanced_spoof_video_streams_language_MY">Burmese</string>
+  <string name="revanced_spoof_video_streams_language_NL">Niederländisch</string>
+  <string name="revanced_spoof_video_streams_language_OR">Odia</string>
+  <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
+  <string name="revanced_spoof_video_streams_language_PL">Polnisch</string>
+  <string name="revanced_spoof_video_streams_language_PT_BR">Portugiesisch (Brasilien)</string>
+  <string name="revanced_spoof_video_streams_language_PT_PT">Portugiesisch (Portugal)</string>
+  <string name="revanced_spoof_video_streams_language_RO">Rumänisch</string>
+  <string name="revanced_spoof_video_streams_language_RU">Russisch</string>
+  <string name="revanced_spoof_video_streams_language_SK">Slowakisch</string>
+  <string name="revanced_spoof_video_streams_language_SL">Slovene</string>
+  <string name="revanced_spoof_video_streams_language_SR">Serbisch</string>
+  <string name="revanced_spoof_video_streams_language_SV">Schwedisch</string>
+  <string name="revanced_spoof_video_streams_language_SW">Swahili</string>
+  <string name="revanced_spoof_video_streams_language_TA">Tamil</string>
+  <string name="revanced_spoof_video_streams_language_TE">Telugu</string>
+  <string name="revanced_spoof_video_streams_language_TH">Thailändisch</string>
+  <string name="revanced_spoof_video_streams_language_TR">Türkisch</string>
+  <string name="revanced_spoof_video_streams_language_UK">Ukrainische</string>
+  <string name="revanced_spoof_video_streams_language_UR">Urdu</string>
+  <string name="revanced_spoof_video_streams_language_VI">Vietnamese</string>
+  <string name="revanced_spoof_video_streams_language_ZH">Chinesisch</string>
   </patch>
   </app>
   <app id="twitch">
@@ -1247,6 +1309,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">Verbesserte Einstellungen</string>
+  <string name="revanced_about_title">Über</string>
+  <string name="revanced_about_summary">Über ReVanced</string>
   <string name="revanced_ads_screen_title">Werbung</string>
   <string name="revanced_ads_screen_summary">Werbeblocker-Einstellungen</string>
   <string name="revanced_chat_screen_title">Chat</string>
