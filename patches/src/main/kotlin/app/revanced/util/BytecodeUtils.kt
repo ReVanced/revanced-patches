@@ -17,6 +17,7 @@ import app.revanced.patches.shared.misc.mapping.resourceMappings
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.reference.Reference
@@ -400,6 +401,20 @@ fun Method.findInstructionIndicesReversedOrThrow(opcode: Opcode): List<Int> {
     if (instructions.isEmpty()) throw PatchException("Could not find opcode: $opcode in: $this")
 
     return instructions
+}
+
+internal fun MutableMethod.insertFeatureFlagBooleanOverride(literal: Long, extensionsMethod: String) {
+    val literalIndex = indexOfFirstLiteralInstructionOrThrow(literal)
+    val index = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
+    val register = getInstruction<OneRegisterInstruction>(index).registerA
+
+    addInstructions(
+        index + 1,
+        """
+            invoke-static { v$register }, $extensionsMethod
+            move-result v$register
+        """
+    )
 }
 
 /**

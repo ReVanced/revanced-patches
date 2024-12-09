@@ -24,6 +24,7 @@ import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import app.revanced.util.inputStreamFromBundledResource
+import app.revanced.util.insertFeatureFlagBooleanOverride
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -228,19 +229,10 @@ val seekbarColorPatch = bytecodePatch(
 
         // 19.25+ changes
 
-        playerSeekbarGradientConfigFingerprint.method.apply {
-            val literalIndex = indexOfFirstLiteralInstructionOrThrow(PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG)
-            val resultIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
-            val register = getInstruction<OneRegisterInstruction>(resultIndex).registerA
-
-            addInstructions(
-                resultIndex + 1,
-                """
-                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->playerSeekbarGradientEnabled(Z)Z
-                    move-result v$register
-                """
-            )
-        }
+        playerSeekbarGradientConfigFingerprint.method.insertFeatureFlagBooleanOverride(
+            PLAYER_SEEKBAR_GRADIENT_FEATURE_FLAG,
+            "$EXTENSION_CLASS_DESCRIPTOR->playerSeekbarGradientEnabled(Z)Z"
+        )
 
         lithoLinearGradientFingerprint.method.addInstruction(
             0,
@@ -255,19 +247,10 @@ val seekbarColorPatch = bytecodePatch(
             launchScreenLayoutTypeFingerprint,
             mainActivityOnCreateFingerprint
         ).forEach { fingerprint ->
-            fingerprint.method.apply {
-                val literalIndex = indexOfFirstLiteralInstructionOrThrow(launchScreenLayoutTypeLotteFeatureFlag)
-                val resultIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
-                val register = getInstruction<OneRegisterInstruction>(resultIndex).registerA
-
-                addInstructions(
-                    resultIndex + 1,
-                    """
-                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->useLotteLaunchSplashScreen(Z)Z
-                        move-result v$register
-                    """
-                )
-            }
+            fingerprint.method.insertFeatureFlagBooleanOverride(
+                launchScreenLayoutTypeLotteFeatureFlag,
+                "$EXTENSION_CLASS_DESCRIPTOR->useLotteLaunchSplashScreen(Z)Z"
+            )
         }
 
         // Hook the splash animation drawable to set the a seekbar color theme.
