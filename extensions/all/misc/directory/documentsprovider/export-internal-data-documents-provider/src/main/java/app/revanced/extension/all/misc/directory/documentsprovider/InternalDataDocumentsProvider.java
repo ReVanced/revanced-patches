@@ -1,4 +1,4 @@
-package app.revanced.extension.all.directory.documentsprovider;
+package app.revanced.extension.all.misc.directory.documentsprovider;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
@@ -14,11 +14,10 @@ import android.system.Os;
 import android.system.StructStat;
 import android.util.Log;
 import android.webkit.MimeTypeMap;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.StandardCopyOption;
 import java.util.Objects;
 
 /**
@@ -34,6 +33,59 @@ public class InternalDataDocumentsProvider extends DocumentsProvider {
 
     private String packageName;
     private File dataDirectory;
+
+    /**
+     * Recursively delete a file or directory and all its children.
+     *
+     * @param root The file or directory to delete.
+     * @return True if the file or directory and all its children were successfully deleted.
+     */
+    private static boolean deleteRecursively(File root) {
+        // If root is a directory, delete all children first
+        if (root.isDirectory()) {
+            try {
+                // Only delete recursively if the directory is not a symlink
+                if ((Os.lstat(root.getPath()).st_mode & S_IFLNK) != S_IFLNK) {
+                    File[] files = root.listFiles();
+                    if (files != null) {
+                        for (File file : files) {
+                            if (!deleteRecursively(file)) {
+                                return false;
+                            }
+                        }
+                    }
+                }
+            } catch (ErrnoException e) {
+                Log.e("InternalDocumentsProvider", "Failed to lstat " + root.getPath(), e);
+            }
+        }
+
+        // Delete file or empty directory
+        return root.delete();
+    }
+
+    /**
+     * Resolve the MIME type of a file based on its extension.
+     *
+     * @param file The file to resolve the MIME type for.
+     * @return The MIME type of the file.
+     */
+    private static String resolveMimeType(File file) {
+        if (file.isDirectory()) {
+            return DocumentsContract.Document.MIME_TYPE_DIR;
+        }
+
+        String name = file.getName();
+        int indexOfExtDot = name.lastIndexOf('.');
+        if (indexOfExtDot < 0) {
+            // No extension
+            return "application/octet-stream";
+        }
+
+        String extension = name.substring(indexOfExtDot + 1).toLowerCase();
+        String mimeType = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
+        return mimeType != null ? mimeType : "application/octet-stream";
+    }
 
     @Override
     public final boolean onCreate() {
@@ -190,59 +242,6 @@ public class InternalDataDocumentsProvider extends DocumentsProvider {
     }
 
     /**
-     * Recursively delete a file or directory and all its children.
-     *
-     * @param root The file or directory to delete.
-     * @return True if the file or directory and all its children were successfully deleted.
-     */
-    private static boolean deleteRecursively(File root) {
-        // If root is a directory, delete all children first
-        if (root.isDirectory()) {
-            try {
-                // Only delete recursively if the directory is not a symlink
-                if ((Os.lstat(root.getPath()).st_mode & S_IFLNK) != S_IFLNK) {
-                    File[] files = root.listFiles();
-                    if (files != null) {
-                        for (File file : files) {
-                            if (!deleteRecursively(file)) {
-                                return false;
-                            }
-                        }
-                    }
-                }
-            } catch (ErrnoException e) {
-                Log.e("InternalDocumentsProvider", "Failed to lstat " + root.getPath(), e);
-            }
-        }
-
-        // Delete file or empty directory
-        return root.delete();
-    }
-
-    /**
-     * Resolve the MIME type of a file based on its extension.
-     *
-     * @param file The file to resolve the MIME type for.
-     * @return The MIME type of the file.
-     */
-    private static String resolveMimeType(File file) {
-        if (file.isDirectory()) {
-            return DocumentsContract.Document.MIME_TYPE_DIR;
-        }
-
-        String name = file.getName();
-        int indexOfExtDot = name.lastIndexOf('.');
-        if (indexOfExtDot < 0) {
-            // No extension
-            return "application/octet-stream";
-        }
-
-        String extension = name.substring(indexOfExtDot + 1).toLowerCase();
-        String mimeType = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
-        return mimeType != null ? mimeType : "application/octet-stream";
-    }
-
-    /**
      * Resolve a file instance for a given document ID.
      *
      * @param fullContentPath The document ID to resolve.
@@ -265,7 +264,7 @@ public class InternalDataDocumentsProvider extends DocumentsProvider {
             file = new File(this.dataDirectory, relativePath);
         }
 
-        if(!file.exists()) {
+        if (!file.exists()) {
             throw new FileNotFoundException(fullContentPath + " not found");
         }
         return file;
@@ -274,9 +273,9 @@ public class InternalDataDocumentsProvider extends DocumentsProvider {
     /**
      * Add a row containing all file properties to a MatrixCursor for a given document ID.
      *
-     * @param cursor The cursor to add the row to.
+     * @param cursor     The cursor to add the row to.
      * @param documentId The document ID to add the row for.
-     * @param file The file to add the row for. If null, the file will be resolved from the document ID.
+     * @param file       The file to add the row for. If null, the file will be resolved from the document ID.
      * @throws FileNotFoundException If the file does not exist.
      */
     private void addRowForDocument(MatrixCursor cursor, String documentId, File file) throws FileNotFoundException {

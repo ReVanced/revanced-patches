@@ -60,9 +60,8 @@ public final class app/revanced/patches/all/misc/directory/ChangeDataDirectoryLo
 	public static final fun getChangeDataDirectoryLocationPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/all/misc/directory/documentsprovider/AddInternalDataDocumentsProviderKt {
-	public static final fun getInternalDataDocumentsProviderExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-	public static final fun getInternalDataDocumentsProviderPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+public final class app/revanced/patches/all/misc/directory/documentsprovider/ExportInternalDataDocumentsProviderPatchKt {
+	public static final fun getExportInternalDataDocumentsProviderPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
 public final class app/revanced/patches/all/misc/hex/HexPatchKt {

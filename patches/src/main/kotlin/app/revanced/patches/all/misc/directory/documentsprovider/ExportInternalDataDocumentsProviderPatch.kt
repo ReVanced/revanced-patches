@@ -3,43 +3,44 @@ package app.revanced.patches.all.misc.directory.documentsprovider
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.util.asSequence
-
-internal const val DOCUMENTS_PROVIDER_CLASS =
-    "app.revanced.extension.all.directory.documentsprovider.InternalDataDocumentsProvider"
+import app.revanced.util.getNode
 
 @Suppress("unused")
-val internalDataDocumentsProviderExtensionPatch = bytecodePatch {
-    extendWith("extensions/all/directory/documentsprovider.rve")
-}
-
-@Suppress("unused")
-val internalDataDocumentsProviderPatch = resourcePatch(
-    name = "Internal data documents provider",
-    description = "Exports an documents provider that grants access to the internal data directory of this app" +
-            "to file managers and other apps that support the Storage Access Framework.",
+val exportInternalDataDocumentsProviderPatch = resourcePatch(
+    name = "Export internal data documents provider",
+    description = "Exports a documents provider that grants access to the internal data directory of this app " +
+        "to file managers and other apps that support the Storage Access Framework.",
     use = false,
 ) {
-    dependsOn(internalDataDocumentsProviderExtensionPatch)
+    dependsOn(
+        bytecodePatch {
+            extendWith("extensions/all/misc/directory/export-internal-data-documents-provider.rve")
+        },
+    )
 
     execute {
+        val documentsProviderClass =
+            "app.revanced.extension.all.misc.directory.documentsprovider.InternalDataDocumentsProvider"
+
         document("AndroidManifest.xml").use { document ->
             // Check if the provider is already declared
-            if(document.getElementsByTagName("provider")
-                .asSequence()
-                .any { it.attributes.getNamedItem("android:name")?.nodeValue == DOCUMENTS_PROVIDER_CLASS }) {
+            if (document.getElementsByTagName("provider")
+                    .asSequence()
+                    .any { it.attributes.getNamedItem("android:name")?.nodeValue == documentsProviderClass }
+            ) {
                 return@execute
             }
 
             val authority =
-                document.getElementsByTagName("manifest").item(0).attributes.getNamedItem("package").let {
+                document.getNode("manifest").attributes.getNamedItem("package").let {
                     // Select a URI authority name that is unique to the current app
-                    "${it.nodeValue}.${DOCUMENTS_PROVIDER_CLASS}"
+                    "${it.nodeValue}.$documentsProviderClass"
                 }
 
             // Register the documents provider
-            with(document.getElementsByTagName("application").item(0)) {
+            with(document.getNode("application")) {
                 document.createElement("provider").apply {
-                    setAttribute("android:name", DOCUMENTS_PROVIDER_CLASS)
+                    setAttribute("android:name", documentsProviderClass)
                     setAttribute("android:authorities", authority)
                     setAttribute("android:exported", "true")
                     setAttribute("android:grantUriPermissions", "true")
@@ -55,4 +56,3 @@ val internalDataDocumentsProviderPatch = resourcePatch(
         }
     }
 }
-
