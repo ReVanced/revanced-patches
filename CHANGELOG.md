@@ -1,3 +1,10 @@
+# [5.4.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.3.0...v5.4.0-dev.1) (2024-12-09)
+
+
+### Features
+
+* **Change package name:** Add options to change provider and permission package names to handle installation conflicts ([75c740c](https://github.com/ReVanced/revanced-patches/commit/75c740c6ba2e0c62e567f7dc90cdad368fc4f372))
+
 # [5.3.0](https://github.com/ReVanced/revanced-patches/compare/v5.2.3...v5.3.0) (2024-12-09)
 
 
