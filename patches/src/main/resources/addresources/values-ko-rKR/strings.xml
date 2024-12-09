@@ -221,8 +221,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_artist_cards_summary_on">아티스트 카드가 숨겨집니다</string>
   <string name="revanced_hide_artist_cards_summary_off">아티스트 카드가 표시됩니다</string>
   <string name="revanced_hide_attributes_section_title">속성 섹션 숨기기</string>
-  <string name="revanced_hide_attributes_section_summary_on">게임 섹션, 음악 섹션 그리고 동영상 속 장소 섹션이 숨겨집니다</string>
-  <string name="revanced_hide_attributes_section_summary_off">게임 섹션, 음악 섹션 그리고 동영상 속 장소 섹션이 표시됩니다</string>
+  <string name="revanced_hide_attributes_section_summary_on">게임, 음악, 동영상 속 장소 그리고 언급된 인물 섹션이 숨겨집니다</string>
+  <string name="revanced_hide_attributes_section_summary_off">게임, 음악, 동영상 속 장소 그리고 언급된 인물 섹션이 표시됩니다</string>
   <string name="revanced_hide_chapters_section_title">챕터 섹션 숨기기</string>
   <string name="revanced_hide_chapters_section_summary_on">챕터 섹션이 숨겨집니다</string>
   <string name="revanced_hide_chapters_section_summary_off">챕터 섹션이 표시됩니다</string>
@@ -304,7 +304,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_content_about_summary">홈 / 구독 / 검색 결과가 필터링되어 키워드 구문과 일치하는 콘텐츠가 숨겨집니다\n\n알려진 문제점:\n• 채널 이름으로 Shorts는 숨길 수 없습니다\n• 일부 화면 구성요소는 숨겨지지 않을 수 있습니다\n• 필터링 키워드를 검색하면 검색 결과가 표시되지 않을 수 있습니다</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">전체 단어 일치시키기</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
-  <string name="revanced_hide_keyword_content_about_whole_words_summary">필터링할 키워드 및 구문을 큰따옴표로 묶으면 동영상 제목과 채널 이름이 부분적으로 일치하지 않도록 방지할 수 있습니다&lt;br&gt;&lt;br&gt;예를 들어,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt;라는 키워드로 &lt;b&gt;AI 커리어 완벽 가이드&lt;/b&gt;라는 제목의 동영상을 숨길 수 있지만, &lt;b&gt;생성형AI가 바꿔놓은 세계&lt;/b&gt; 또는 &lt;b&gt;What does fair use mean?&lt;/b&gt;라는 제목의 동영상은 숨길 수 없습니다</string>
+  <string name="revanced_hide_keyword_content_about_whole_words_summary">필터링할 키워드 및 구문을 큰따옴표로 묶으면 동영상 제목과 채널 이름이 부분적으로 일치하지 않도록 방지할 수 있습니다&lt;br&gt;&lt;br&gt;• 예를 들어, &lt;b&gt;\"ai\"&lt;/b&gt;라는 키워드로 &lt;b&gt;AI 커리어 완벽 가이드&lt;/b&gt;라는 동영상을 숨길 수 있지만, &lt;b&gt;생성형AI가 바꿔놓은 세계&lt;/b&gt; 또는 &lt;b&gt;What does fair use mean?&lt;/b&gt;라는 동영상은 숨길 수 없습니다&lt;br&gt;• 그리고 구두점을 단어의 경계로 간주하기 때문에 &lt;b&gt;인공지능(AI)의 원리&lt;/b&gt;라는 동영상은 숨길 수 있습니다. 큰따옴표는 다른 단어 내부의 하위 문자열만 무시합니다 (예: &lt;b&gt;fair&lt;/b&gt;는 숨길 수 없지만, &lt;b&gt;f(ai)r&lt;/b&gt;는 숨김)</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">키워드를 사용할 수 없습니다: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">따옴표를 추가하여 키워드를 사용합니다: %s</string>
@@ -364,11 +364,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_share_copy_url_success">URL을 클립보드에 복사하였습니다</string>
   <string name="revanced_share_copy_url_timestamp_success">타임스탬프를 표기한 URL을 클립보드에 복사하였습니다</string>
   <string name="revanced_copy_video_url_title">동영상 URL 복사 버튼 표시하기</string>
-  <string name="revanced_copy_video_url_summary_on">버튼을 표시합니다. 버튼을 눌러서 동영상 URL을 복사할 수 있습니다. 길게 누르면 타임스탬프를 표기한 동영상 URL이 복사됩니다</string>
-  <string name="revanced_copy_video_url_summary_off">버튼을 표시하지 않습니다</string>
+  <string name="revanced_copy_video_url_summary_on">버튼을 눌러서 동영상 URL을 복사할 수 있습니다\n길게 누르면 타임스탬프를 표기한 동영상 URL이 복사됩니다</string>
+  <string name="revanced_copy_video_url_summary_off">버튼을 눌러서 동영상 URL을 복사할 수 있습니다\n길게 누르면 타임스탬프를 표기한 동영상 URL이 복사됩니다</string>
   <string name="revanced_copy_video_url_timestamp_title">타임스탬프를 표기한 URL 복사 버튼 표시하기</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">버튼을 표시합니다. 버튼을 눌러서 타임스탬프를 표기한 동영상 URL을 복사할 수 있습니다. 길게 누르면 타임스탬프를 표기하지 않은 동영상 URL이 복사됩니다</string>
-  <string name="revanced_copy_video_url_timestamp_summary_off">버튼을 표시하지 않습니다</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">버튼을 눌러서 타임스탬프를 표기한 동영상 URL을 복사할 수 있습니다\n길게 누르면 타임스탬프를 표기하지 않은 동영상 URL이 복사됩니다</string>
+  <string name="revanced_copy_video_url_timestamp_summary_off">버튼을 눌러서 타임스탬프를 표기한 동영상 URL을 복사할 수 있습니다\n길게 누르면 타임스탬프를 표기하지 않은 동영상 URL이 복사됩니다</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">시청 경고 다이얼로그 제거하기</string>
@@ -710,6 +710,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">플레이어 팝업 패널이 숨겨집니다\n• 재생목록, 실시간 채팅, etc.</string>
   <string name="revanced_hide_player_popup_panels_summary_off">플레이어 팝업 패널이 표시됩니다\n• 재생목록, 실시간 채팅, etc.</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">플레이어 오버레이 불투명도</string>
   <string name="revanced_player_overlay_opacity_summary">불투명도 값은 0-100 사이이며, 0은 투명입니다</string>
@@ -1029,7 +1031,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_drag_and_drop_summary_on">드래그 &amp; 드롭을 활성화합니다\n\n• 미니 플레이어를 화면의 어느 곳이든 드래그할 수 있습니다</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">드래그 &amp; 드롭을 비활성화합니다</string>
   <string name="revanced_miniplayer_horizontal_drag_title">수평 드래그 제스처 활성화하기</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">수평 드래그 제스처를 활성화합니다\n\n미니 플레이어를 화면에서 왼쪽 또는 오른쪽으로 드래그할 수 있습니다</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">수평 드래그 제스처를 활성화합니다\n\n미니 플레이어 절반 정도를 왼쪽 밖 또는 오른쪽 밖으로 드래그하여 숨길 수 있습니다</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">수평 드래그 제스처를 비활성화합니다</string>
   <string name="revanced_miniplayer_hide_expand_close_title">닫기 버튼 숨기기</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">닫기 버튼이 숨겨집니다</string>
@@ -1201,14 +1203,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">이 설정을 비활성화하면 동영상 재생 문제가 발생할 수 있습니다</string>
   <string name="revanced_spoof_video_streams_client_title">기본 클라이언트</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">AVC (H.264) 강제로 활성화하기</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">동영상 코덱을 AVC (H.264)로 활성화합니다\n\n• 일부 VP9 코덱 동영상에서 제거되었던 화질 값들이 표시될 수 있습니다.\n• 최대 화질 값이 1080p이므로 초고화질 동영상을 재생할 수 없습니다.\n• HDR 동영상을 재생할 수 없습니다</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">동영상 코덱을 VP9 또는 AV1으로 활성화합니다\n\n• 예전에 업로드된 동영상을 재생했는데 VP9 코덱 응답을 받았을 경우, 일부 화질 값들이 제거되어 360p와 1080p(Premium 기능)만 선택할 수 있거나 화질 메뉴를 선택할 수 없을 수 있습니다</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_no_hardware_vp9_summary_on">이 기기는 VP9 하드웨어 디코딩을 지원하지 않습니다. 그러므로 \'클라이언트 변경하기\'가 활성화된 경우에는 이 설정은 항상 켜져 있습니다</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">이 설정을 활성화하면 배터리 수명이 향상되고 재생 끊김 현상이 해결될 수 있습니다\n\nAVC의 최대 화질 값은 1080p이며 동영상을 재생하면 VP9 또는 AV1보다 더 많은 모바일 데이터가 사용되오니 주의하세요.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">\'iOS로 변경\'의 알려진 문제점</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• 비공개 Kids 동영상이 재생되지 않을 수 있습니다\n• 일부 실시간 스트림이 처음부터 시작될 수 있습니다\n• 동영상이 1초 일찍 종료될 수 있습니다\n• OPUS 오디오 코덱이 지원되지 않습니다</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• 비공개 Kids 동영상이 재생되지 않을 수 있습니다\n• 일부 실시간 스트림이 처음부터 재생될 수 있습니다\n• 동영상이 1초 일찍 종료될 수 있습니다</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">\'Android VR로 변경\'의 알려진 문제점</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">• Kids 동영상이 재생되지 않을 수 있습니다\n• 오디오 트랙 메뉴가 표시되지 않습니다\n• 안정적인 볼륨 메뉴가 비활성화된 채로 잠겨있습니다</string>
+  <string name="revanced_spoof_video_streams_language_">스트리밍 데이터를 변경합니다</string>
   </patch>
   </app>
   <app id="twitch">

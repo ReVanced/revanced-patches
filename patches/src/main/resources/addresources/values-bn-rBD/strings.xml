@@ -629,6 +629,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">প্লেয়ার পপআপ প্যানেলগুলো লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_player_popup_panels_summary_off">প্লেয়ার পপআপ প্যানেলগুলো প্রদর্শিত হয়েছে</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">প্লেয়ার ওভারলে অস্বচ্ছতা</string>
   <string name="revanced_player_overlay_opacity_summary">অসচ্ছতা মান ০-১০০ এর মধ্যে, যেখানে ০ হল সম্পূর্ণ স্বচ্ছ</string>
@@ -1066,8 +1068,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">এই সেটিংটি বন্ধ করার ফলে ভিডিও প্লেব্যাক ত্রুটি হতে পারে।</string>
   <string name="revanced_spoof_video_streams_client_title">ডিফল্ট ক্লায়েন্ট</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">AVC (H.264) ফোর্স করুন</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">ভিডিও কোডেক AVC (H.264) ব্যবহৃত হচ্ছে</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">ভিডিও কোডেক VP9 বা AV1 ব্যবহৃত হচ্ছে</string>
+  <string name="revanced_spoof_video_streams_language_">ভিডিও স্ট্রিম স্পুফ করা হয়েছে</string>
   </patch>
   </app>
   <app id="twitch">
