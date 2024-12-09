@@ -55,7 +55,7 @@ public class ThemePatch {
     /**
      * Injection point.
      */
-    public static boolean gradientLoadingScreenEnabled() {
+    public static boolean gradientLoadingScreenEnabled(boolean original) {
         return GRADIENT_LOADING_SCREEN_ENABLED;
     }
 }

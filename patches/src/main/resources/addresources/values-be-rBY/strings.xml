@@ -637,6 +637,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_on">Усплывальныя панэлі прайгравальніка схаваныя</string>
   <string name="revanced_hide_player_popup_panels_summary_off">Паказваюцца ўсплывальныя панэлі прайгравальніка</string>
   </patch>
+  <patch id="layout.player.fullscreen.openVideosFullscreen">
+  </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Непразрыстасць накладання прайгравальніка</string>
   <string name="revanced_player_overlay_opacity_summary">Значэнне непразрыстасці паміж 0-100, дзе 0 - празрысты</string>

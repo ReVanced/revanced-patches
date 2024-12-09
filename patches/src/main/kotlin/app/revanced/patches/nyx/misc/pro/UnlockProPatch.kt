@@ -3,10 +3,9 @@ package app.revanced.patches.nyx.misc.pro
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 
+@Deprecated("This patch will be removed in the future.")
 @Suppress("unused")
-val unlockProPatch = bytecodePatch(
-    name = "Unlock pro",
-) {
+val unlockProPatch = bytecodePatch {
     compatibleWith("com.awedea.nyx")
 
     execute {

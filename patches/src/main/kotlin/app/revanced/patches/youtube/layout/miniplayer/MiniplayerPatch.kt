@@ -240,14 +240,14 @@ val miniplayerPatch = bytecodePatch(
             ),
         )
 
-        fun MutableMethod.insertBooleanOverride(index: Int, methodName: String) {
+        fun MutableMethod.insertMiniplayerBooleanOverride(index: Int, methodName: String) {
             val register = getInstruction<OneRegisterInstruction>(index).registerA
             addInstructions(
                 index,
                 """
-                invoke-static {v$register}, $EXTENSION_CLASS_DESCRIPTOR->$methodName(Z)Z
-                move-result v$register
-            """,
+                    invoke-static {v$register}, $EXTENSION_CLASS_DESCRIPTOR->$methodName(Z)Z
+                    move-result v$register
+                """
             )
         }
 
@@ -257,29 +257,25 @@ val miniplayerPatch = bytecodePatch(
          * Adds an override to force legacy tablet miniplayer to be used or not used.
          */
         fun MutableMethod.insertLegacyTabletMiniplayerOverride(index: Int) {
-            insertBooleanOverride(index, "getLegacyTabletMiniplayerOverride")
+            insertMiniplayerBooleanOverride(index, "getLegacyTabletMiniplayerOverride")
         }
 
         /**
          * Adds an override to force modern miniplayer to be used or not used.
          */
         fun MutableMethod.insertModernMiniplayerOverride(index: Int) {
-            insertBooleanOverride(index, "getModernMiniplayerOverride")
+            insertMiniplayerBooleanOverride(index, "getModernMiniplayerOverride")
         }
 
-        fun Fingerprint.insertLiteralValueBooleanOverride(
+        fun Fingerprint.insertMiniplayerFeatureFlagBooleanOverride(
             literal: Long,
             extensionMethod: String,
-        ) {
-            method.apply {
-                val literalIndex = indexOfFirstLiteralInstructionOrThrow(literal)
-                val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.MOVE_RESULT)
+        ) = method.insertFeatureFlagBooleanOverride(
+            literal,
+            "$EXTENSION_CLASS_DESCRIPTOR->$extensionMethod(Z)Z"
+        )
 
-                insertBooleanOverride(targetIndex + 1, extensionMethod)
-            }
-        }
-
-        fun Fingerprint.insertLiteralValueFloatOverride(
+        fun Fingerprint.insertMiniplayerFeatureFlagFloatOverride(
             literal: Long,
             extensionMethod: String,
         ) {
@@ -370,24 +366,24 @@ val miniplayerPatch = bytecodePatch(
         }
 
         if (is_19_23_or_greater) {
-            miniplayerModernConstructorFingerprint.insertLiteralValueBooleanOverride(
+            miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
                 MINIPLAYER_DRAG_DROP_FEATURE_KEY,
                 "enableMiniplayerDragAndDrop",
             )
         }
 
         if (is_19_25_or_greater) {
-            miniplayerModernConstructorFingerprint.insertLiteralValueBooleanOverride(
+            miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
                 MINIPLAYER_MODERN_FEATURE_LEGACY_KEY,
                 "getModernMiniplayerOverride",
             )
 
-            miniplayerModernConstructorFingerprint.insertLiteralValueBooleanOverride(
+            miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
                 MINIPLAYER_MODERN_FEATURE_KEY,
                 "getModernFeatureFlagsActiveOverride",
             )
 
-            miniplayerModernConstructorFingerprint.insertLiteralValueBooleanOverride(
+            miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
                 MINIPLAYER_DOUBLE_TAP_FEATURE_KEY,
                 "enableMiniplayerDoubleTapAction",
             )
@@ -426,19 +422,19 @@ val miniplayerPatch = bytecodePatch(
         }
 
         if (is_19_36_or_greater) {
-            miniplayerModernConstructorFingerprint.insertLiteralValueBooleanOverride(
+            miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
                 MINIPLAYER_ROUNDED_CORNERS_FEATURE_KEY,
                 "setRoundedCorners",
             )
         }
 
         if (is_19_43_or_greater) {
-            miniplayerOnCloseHandlerFingerprint.insertLiteralValueBooleanOverride(
+            miniplayerOnCloseHandlerFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
                 MINIPLAYER_DISABLED_FEATURE_KEY,
                 "getMiniplayerOnCloseHandler"
             )
 
-            miniplayerModernConstructorFingerprint.insertLiteralValueBooleanOverride(
+            miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
                 MINIPLAYER_HORIZONTAL_DRAG_FEATURE_KEY,
                 "setHorizontalDrag",
             )

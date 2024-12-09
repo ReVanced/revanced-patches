@@ -320,6 +320,10 @@ public final class app/revanced/patches/music/misc/gms/GmsCoreSupportPatchKt {
 	public static final fun getGmsCoreSupportPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/music/misc/spoof/SpoofVideoStreamsPatchKt {
+	public static final fun getSpoofVideoStreamsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/myexpenses/misc/pro/UnlockProPatchKt {
 	public static final fun getUnlockProPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -753,6 +757,11 @@ public final class app/revanced/patches/shared/misc/settings/preference/TextPref
 	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
 }
 
+public final class app/revanced/patches/shared/misc/spoof/SpoofVideoStreamsPatchKt {
+	public static final fun spoofVideoStreamsPatch (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/BytecodePatch;
+	public static synthetic fun spoofVideoStreamsPatch$default (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/solidexplorer2/functionality/filesize/RemoveFileSizeLimitPatchKt {
 	public static final fun getRemoveFileSizeLimitPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1155,6 +1164,10 @@ public final class app/revanced/patches/youtube/layout/player/background/PlayerC
 	public static final fun getPlayerControlsBackgroundPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
+public final class app/revanced/patches/youtube/layout/player/fullscreen/OpenVideosFullscreenKt {
+	public static final fun getOpenVideosFullscreenPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/layout/player/overlay/CustomPlayerOverlayOpacityPatchKt {
 	public static final fun getCustomPlayerOverlayOpacityPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1357,6 +1370,14 @@ public final class app/revanced/patches/youtube/misc/settings/SettingsPatchKt {
 	public static final fun addSettingPreference (Lapp/revanced/patches/shared/misc/settings/preference/BasePreference;)V
 	public static final fun getSettingsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 	public static final fun newIntent (Ljava/lang/String;)Lapp/revanced/patches/shared/misc/settings/preference/IntentPreference$Intent;
+}
+
+public final class app/revanced/patches/youtube/misc/spoof/SpoofVideoStreamsPatchKt {
+	public static final fun getSpoofVideoStreamsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/misc/spoof/UserAgentClientSpoofPatchKt {
+	public static final fun getUserAgentClientSpoofPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/misc/zoomhaptics/ZoomHapticsPatchKt {

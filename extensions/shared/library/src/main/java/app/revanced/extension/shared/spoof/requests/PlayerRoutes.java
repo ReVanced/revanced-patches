@@ -1,4 +1,4 @@
-package app.revanced.extension.youtube.patches.spoof.requests;
+package app.revanced.extension.shared.spoof.requests;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -7,10 +7,10 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.requests.Requester;
 import app.revanced.extension.shared.requests.Route;
-import app.revanced.extension.youtube.patches.spoof.ClientType;
+import app.revanced.extension.shared.settings.BaseSettings;
+import app.revanced.extension.shared.spoof.ClientType;
 
 final class PlayerRoutes {
     static final Route.CompiledRoute GET_STREAMING_DATA = new Route(
@@ -25,9 +25,6 @@ final class PlayerRoutes {
      */
     private static final int CONNECTION_TIMEOUT_MILLISECONDS = 10 * 1000; // 10 Seconds.
 
-    private static final String LOCALE_LANGUAGE = Utils.getContext().getResources()
-            .getConfiguration().locale.getLanguage();
-
     private PlayerRoutes() {
     }
 
@@ -38,8 +35,7 @@ final class PlayerRoutes {
             JSONObject context = new JSONObject();
 
             JSONObject client = new JSONObject();
-            // Required to use correct default audio channel with iOS.
-            client.put("hl", LOCALE_LANGUAGE);
+            client.put("hl", BaseSettings.SPOOF_VIDEO_STREAMS_LANGUAGE.get().getIso639_1());
             client.put("clientName", clientType.name());
             client.put("clientVersion", clientType.clientVersion);
             client.put("deviceModel", clientType.deviceModel);
