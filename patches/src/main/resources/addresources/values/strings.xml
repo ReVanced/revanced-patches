@@ -1028,7 +1028,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_miniplayer_screen_summary">Change the style of the in app minimized player</string>
             <string name="revanced_miniplayer_type_title">Miniplayer type</string>
             <string name="revanced_miniplayer_type_entry_0">Disabled</string>
-            <string name="revanced_miniplayer_type_entry_1">Original</string>
+            <string name="revanced_miniplayer_type_entry_1">Default</string>
             <string name="revanced_miniplayer_type_entry_2">Minimal</string>
             <string name="revanced_miniplayer_type_entry_3">Tablet</string>
             <string name="revanced_miniplayer_type_entry_4">Modern 1</string>

@@ -18,7 +18,7 @@ public final class ChangeStartPagePatch {
         /**
          * Unmodified type, and same as un-patched.
          */
-        ORIGINAL("", null),
+        DEFAULT("", null),
 
         /**
          * Browse id.
