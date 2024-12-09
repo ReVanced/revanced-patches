@@ -1,3 +1,10 @@
+# [5.4.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.4.0-dev.2...v5.4.0-dev.3) (2024-12-09)
+
+
+### Bug Fixes
+
+* **TikTok - Settings:** Use correct colors for dark mode ([#4087](https://github.com/ReVanced/revanced-patches/issues/4087)) ([6bd22ff](https://github.com/ReVanced/revanced-patches/commit/6bd22ffa7e8af4d8f5d2d3b1711bd92c44b4e4aa))
+
 # [5.4.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.4.0-dev.1...v5.4.0-dev.2) (2024-12-09)
 
 
