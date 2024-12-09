@@ -1207,8 +1207,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR saxtakarlığı yan təsirləri</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">• Uşaq videoları oynadılmaya bilər\n• Səs treki menyusu əskikdir\n• Sabit səs həcmi əlçatan deyil</string>
   <string name="revanced_spoof_video_streams_language_">Video yayımları saxtalaşdırılır</string>
-  <string name="revanced_spoof_video_streams_language_EN">İngiliscə</string>
-  <string name="revanced_spoof_video_streams_language_FR">Fransızca</string>
   </patch>
   </app>
   <app id="twitch">

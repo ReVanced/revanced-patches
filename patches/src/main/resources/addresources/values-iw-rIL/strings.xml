@@ -300,8 +300,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_language_EN">אנגלית</string>
-  <string name="revanced_spoof_video_streams_language_FR">צרפתית</string>
   </patch>
   </app>
   <app id="twitch">

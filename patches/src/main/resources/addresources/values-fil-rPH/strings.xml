@@ -1058,8 +1058,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_user_dialog_message">Ang pag-off sa setting na ito ay maaaring magdulot ng mga isyu sa pag-playback ng video.</string>
-  <string name="revanced_spoof_video_streams_language_EN">Ingles</string>
-  <string name="revanced_spoof_video_streams_language_FR">Pranses</string>
   </patch>
   </app>
   <app id="twitch">

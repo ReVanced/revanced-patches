@@ -1207,8 +1207,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR-hamisítási mellékhatások</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">• Előfordulhat, hogy a gyerekvideókat nem lehet lejátszani\n• Hiányzik a hangsáv menü\n• A stabil hangerő nem érhető el</string>
   <string name="revanced_spoof_video_streams_language_">A videó stream hamisítva</string>
-  <string name="revanced_spoof_video_streams_language_EN">Angol</string>
-  <string name="revanced_spoof_video_streams_language_FR">Francia (French)</string>
   </patch>
   </app>
   <app id="twitch">
