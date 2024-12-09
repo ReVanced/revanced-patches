@@ -1,3 +1,10 @@
+# [5.3.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.3.0-dev.6...v5.3.0-dev.7) (2024-12-09)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Add missing preferred language preference to the settings ([630633c](https://github.com/ReVanced/revanced-patches/commit/630633cf57c65c65e5578046413e17670ae336e8))
+
 # [5.3.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.3.0-dev.5...v5.3.0-dev.6) (2024-12-09)
 
 
