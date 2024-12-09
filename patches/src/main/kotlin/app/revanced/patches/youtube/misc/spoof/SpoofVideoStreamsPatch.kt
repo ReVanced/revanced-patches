@@ -40,6 +40,10 @@ val spoofVideoStreamsPatch = spoofVideoStreamsPatch({
                     "revanced_spoof_video_streams_client",
                     summaryKey = null,
                 ),
+                ListPreference(
+                    "revanced_spoof_video_streams_language",
+                    summaryKey = null
+                ),
                 SwitchPreference("revanced_spoof_video_streams_ios_force_avc"),
                 NonInteractivePreference("revanced_spoof_video_streams_about_android_vr"),
                 NonInteractivePreference("revanced_spoof_video_streams_about_ios"),
