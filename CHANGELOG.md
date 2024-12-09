@@ -1,3 +1,16 @@
+# [5.3.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.3.0-dev.4...v5.3.0-dev.5) (2024-12-09)
+
+
+### Bug Fixes
+
+* **Change package name:** Prevent applying the patch to known incompatible apps ([#3943](https://github.com/ReVanced/revanced-patches/issues/3943)) ([44936e7](https://github.com/ReVanced/revanced-patches/commit/44936e71e846f72f7279950232a5dba37765ceb3))
+* **YouTube Music - Permanent shuffle:** Remove obsolete and non functional patch ([#4073](https://github.com/ReVanced/revanced-patches/issues/4073)) ([fbc6ab6](https://github.com/ReVanced/revanced-patches/commit/fbc6ab6a357b351f02d4d486ddc2072cf53199c3))
+
+
+### Features
+
+* **YouTube:** Add `Open videos fullscreen` patch ([#4069](https://github.com/ReVanced/revanced-patches/issues/4069)) ([296d63b](https://github.com/ReVanced/revanced-patches/commit/296d63bd42c338a01efbcb2df702e5822d05a5f1))
+
 # [5.3.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.3.0-dev.3...v5.3.0-dev.4) (2024-12-09)
 
 
