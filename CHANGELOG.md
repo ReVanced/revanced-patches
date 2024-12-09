@@ -1,3 +1,10 @@
+# [5.3.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.3.0-dev.2...v5.3.0-dev.3) (2024-12-09)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Update `Force AVC` client data ([#4064](https://github.com/ReVanced/revanced-patches/issues/4064)) ([7d537dd](https://github.com/ReVanced/revanced-patches/commit/7d537ddff4bb5421fa320741275131a66ef5c7bb))
+
 # [5.3.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.3.0-dev.1...v5.3.0-dev.2) (2024-12-08)
 
 
