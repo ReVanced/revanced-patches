@@ -1,3 +1,15 @@
+# [5.4.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.4.0-dev.1...v5.4.0-dev.2) (2024-12-09)
+
+
+### Bug Fixes
+
+* **TikTok - SIM Spoof:** Change patch to default off to fix login ([#4084](https://github.com/ReVanced/revanced-patches/issues/4084)) ([f4659a3](https://github.com/ReVanced/revanced-patches/commit/f4659a328eaf600e1e5f02a66fa2af4b6d8dc7c1))
+
+
+### Features
+
+* Add Internal data documents provider patch ([#3830](https://github.com/ReVanced/revanced-patches/issues/3830)) ([cb22f65](https://github.com/ReVanced/revanced-patches/commit/cb22f652ed678d81ffda9ece659b3971225d6931))
+
 # [5.4.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.3.0...v5.4.0-dev.1) (2024-12-09)
 
 
