@@ -1,3 +1,10 @@
+# [5.3.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.3.0-dev.3...v5.3.0-dev.4) (2024-12-09)
+
+
+### Features
+
+* **Nyx:** Remove broken `Unlock pro` patch ([1fe8b16](https://github.com/ReVanced/revanced-patches/commit/1fe8b164eab0c4fa80ab2da2581977f5111a2858))
+
 # [5.3.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.3.0-dev.2...v5.3.0-dev.3) (2024-12-09)
 
 
