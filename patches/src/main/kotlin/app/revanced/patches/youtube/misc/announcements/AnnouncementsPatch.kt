@@ -11,6 +11,7 @@ import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 val announcementsPatch = announcementsPatch(
     mainActivityOnCreateFingerprint,
     sharedExtensionPatch,
+    "Lapp/revanced/extension/youtube/patches/announcements/AnnouncementsPatch;",
     {
         dependsOn(settingsPatch)
 

@@ -9,14 +9,15 @@ import java.net.HttpURLConnection;
 import static app.revanced.extension.shared.requests.Route.Method.GET;
 
 public class AnnouncementsRoutes {
-    public static final Route GET_LATEST_ANNOUNCEMENT_IDS = new Route(GET, "/announcements/latest/id?tag=youtube");
-    public static final Route GET_LATEST_ANNOUNCEMENTS = new Route(GET, "/announcements/latest?tag=youtube");
-    private static final String ANNOUNCEMENTS_PROVIDER = "https://api.revanced.app/v4";
+    public final Route GET_LATEST_ANNOUNCEMENTS;
+    public final Route GET_LATEST_ANNOUNCEMENT_IDS;
 
-    private AnnouncementsRoutes() {
+    public AnnouncementsRoutes(String tag) {
+        this.GET_LATEST_ANNOUNCEMENTS = new Route(GET, "/announcements/latest?tag=" + tag);
+        this.GET_LATEST_ANNOUNCEMENT_IDS = new Route(GET, "/announcements/latest/ids?tag=" + tag);
     }
 
-    public static HttpURLConnection getAnnouncementsConnectionFromRoute(Route route, String... params) throws IOException {
-        return Requester.getConnectionFromRoute(ANNOUNCEMENTS_PROVIDER, route, params);
+    public HttpURLConnection getAnnouncementsConnectionFromRoute(Route route, String... params) throws IOException {
+        return Requester.getConnectionFromRoute("https://api.revanced.app/v4", route, params);
     }
 }

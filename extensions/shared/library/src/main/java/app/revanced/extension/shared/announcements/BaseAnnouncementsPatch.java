@@ -2,8 +2,6 @@ package app.revanced.extension.shared.announcements;
 
 import static android.text.Html.FROM_HTML_MODE_COMPACT;
 import static app.revanced.extension.shared.StringRef.str;
-import static app.revanced.extension.shared.announcements.requests.AnnouncementsRoutes.GET_LATEST_ANNOUNCEMENTS;
-import static app.revanced.extension.shared.announcements.requests.AnnouncementsRoutes.GET_LATEST_ANNOUNCEMENT_IDS;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -26,15 +24,17 @@ import app.revanced.extension.shared.requests.Requester;
 import app.revanced.extension.shared.announcements.requests.AnnouncementsRoutes;
 import app.revanced.extension.shared.settings.BaseSettings;
 
-@SuppressWarnings("unused")
-public final class AnnouncementsPatch {
-    private AnnouncementsPatch() {
+public abstract class BaseAnnouncementsPatch {
+    private final AnnouncementsRoutes announcementsRoutes;
+
+    public BaseAnnouncementsPatch(String tag) {
+        this.announcementsRoutes = new AnnouncementsRoutes(tag);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    private static boolean isLatestAlready() throws IOException {
+    private boolean isLatestAlready() throws IOException {
         HttpURLConnection connection =
-                AnnouncementsRoutes.getAnnouncementsConnectionFromRoute(GET_LATEST_ANNOUNCEMENT_IDS);
+                announcementsRoutes.getAnnouncementsConnectionFromRoute(announcementsRoutes.GET_LATEST_ANNOUNCEMENT_IDS);
 
         Logger.printDebug(() -> "Get latest announcement IDs route connection url: " + connection.getURL());
 
@@ -71,7 +71,7 @@ public final class AnnouncementsPatch {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public static void showAnnouncement(final Activity context) {
+    public void _showAnnouncement(final Activity context) {
         if (!BaseSettings.ANNOUNCEMENTS.get()) return;
 
         // Check if there is internet connection
@@ -81,8 +81,8 @@ public final class AnnouncementsPatch {
             try {
                 if (isLatestAlready()) return;
 
-                HttpURLConnection connection = AnnouncementsRoutes
-                        .getAnnouncementsConnectionFromRoute(GET_LATEST_ANNOUNCEMENTS);
+                HttpURLConnection connection = announcementsRoutes
+                        .getAnnouncementsConnectionFromRoute(announcementsRoutes.GET_LATEST_ANNOUNCEMENTS);
 
                 Logger.printDebug(() -> "Get latest announcements route connection url: " + connection.getURL());
 
