@@ -1,3 +1,10 @@
+# [5.3.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.3.0-dev.5...v5.3.0-dev.6) (2024-12-09)
+
+
+### Features
+
+* **YouTube - Spoof video streams:** Allow picking a default audio language track ([#4050](https://github.com/ReVanced/revanced-patches/issues/4050)) ([ede666b](https://github.com/ReVanced/revanced-patches/commit/ede666b5cb64fcbaa1334ad8bef79e2634ced113))
+
 # [5.3.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.3.0-dev.4...v5.3.0-dev.5) (2024-12-09)
 
 
