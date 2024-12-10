@@ -69,7 +69,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="gms_core_dialog_title">Action needed</string>
             <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">MicroG GmsCore does not have permission to run in the background.\n\nFollow the \"Don\'t kill my app\" guide for your phone, and apply the instructions to your MicroG installation.\n\nThis is required for the app to work.</string>
             <string name="gms_core_dialog_open_website_text">Open website</string>
-            <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">MicroG GmsCore battery optimizations must be disabled to prevent issues.\n\nDisabling battery optimizations for MicroG will not negatively affect your device.\n\nTap the continue button and allow optimization changes.</string>
+            <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">MicroG GmsCore battery optimizations must be disabled to prevent issues.\n\nDisabling battery optimizations for MicroG will not negatively affect battery usage.\n\nTap the continue button and allow optimization changes.</string>
             <string name="gms_core_dialog_continue_text">Continue</string>
         </patch>
     </app>
