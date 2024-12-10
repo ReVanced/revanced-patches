@@ -1,3 +1,10 @@
+# [5.4.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.4.0-dev.5...v5.4.0-dev.6) (2024-12-10)
+
+
+### Bug Fixes
+
+* **YouTube Music - Spoof video streams:** Disable stable volume ([#4097](https://github.com/ReVanced/revanced-patches/issues/4097)) ([16bb9df](https://github.com/ReVanced/revanced-patches/commit/16bb9dfc299612f3922724c136878606987ab132))
+
 # [5.4.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.4.0-dev.4...v5.4.0-dev.5) (2024-12-10)
 
 
