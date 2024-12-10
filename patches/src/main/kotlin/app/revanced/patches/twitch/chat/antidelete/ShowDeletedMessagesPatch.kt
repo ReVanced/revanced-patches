@@ -22,7 +22,7 @@ val showDeletedMessagesPatch = bytecodePatch(
         addResourcesPatch,
     )
 
-    compatibleWith("tv.twitch.android.app"("15.4.1", "16.1.0", "16.9.1"))
+    compatibleWith("tv.twitch.android.app")
 
     fun createSpoilerConditionInstructions(register: String = "v0") = """
         invoke-static {}, Lapp/revanced/extension/twitch/patches/ShowDeletedMessagesPatch;->shouldUseSpoiler()Z
