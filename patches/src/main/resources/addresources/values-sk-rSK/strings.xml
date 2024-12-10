@@ -923,7 +923,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">Zmeňte štýl minimalizovaného prehrávača v aplikácii</string>
   <string name="revanced_miniplayer_type_title">Typ miniprehrávača</string>
   <string name="revanced_miniplayer_type_entry_0">Vypnuté</string>
-  <string name="revanced_miniplayer_type_entry_1">Originál</string>
+  <string name="revanced_miniplayer_type_entry_1">Predvolené</string>
   <string name="revanced_miniplayer_type_entry_4">Moderné 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderné 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderné 3</string>

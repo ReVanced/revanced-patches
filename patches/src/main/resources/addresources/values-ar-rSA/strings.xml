@@ -1017,7 +1017,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">تغيير نمط المشغل المصغر داخل التطبيق</string>
   <string name="revanced_miniplayer_type_title">نوع المشغل المصغر</string>
   <string name="revanced_miniplayer_type_entry_0">معطّل</string>
-  <string name="revanced_miniplayer_type_entry_1">الأصلي</string>
+  <string name="revanced_miniplayer_type_entry_1">إفتراضي</string>
   <string name="revanced_miniplayer_type_entry_2">الحد الأدنى</string>
   <string name="revanced_miniplayer_type_entry_3">الجهاز اللوحي</string>
   <string name="revanced_miniplayer_type_entry_4">حديث 1</string>
@@ -1209,11 +1209,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">يتم تحديد رمز الفيديو تلقائياً</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">تمكين هذا قد يحسّن عمر البطارية وإصلاح تشغيل التشغيل.\n\nAVC لها حد أقصى قدره 1080p، رمز الصوت Opus غير متوفر. وسيستخدم تشغيل الفيديو بيانات إنترنت أكثر من VP9 أو AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">التأثيرات الجانبية لمحاكاة iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• قد لا يتم تشغيل فيديوهات الأطفال الخاصة\n• تبدأ البثوث المباشرة من البداية\n• قد تنتهي الفيديوهات قبل النهاية بثانية واحدة</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• قد لا تشغل مقاطع فيديو الأطفال الخاصون\n• قد لا تشغل مقاطع الفيديو المقيدة العمر\n• تبدأ Livestreams من بداية\n• تنتهي مقاطع الفيديو 1 ثانية في وقت مبكر</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">التأثيرات الجانبية لمحاكاة Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• قد لا يتم تشغيل فيديوهات الأطفال\n• قائمة المقطع الصوتي مفقودة\n• مستوى الصوت الثابت غير متوفر</string>
-  <string name="revanced_spoof_video_streams_language_">يتم تزييف تدفقات الفيديو</string>
-  <string name="revanced_spoof_video_streams_language_title">لغة البث الصوتي المفضلة</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• قد لا تشغل مقاطع فيديو الأطفال\n• قد لا تشغل مقاطع الفيديو المقيدة العمر\n• تبدأ Livestreams من بداية\n• تنتهي مقاطع الفيديو 1 ثانية في وقت مبكر</string>
+  <string name="revanced_spoof_video_streams_language_title">لغة البث الصوتي الافتراضية</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">لغة التطبيق</string>
   <string name="revanced_spoof_video_streams_language_AR">العربية</string>
   <string name="revanced_spoof_video_streams_language_AZ">الأذربيجانية</string>

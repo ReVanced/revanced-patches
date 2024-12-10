@@ -253,6 +253,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_type_entry_0">ปิดการใช้งานอยู่</string>
+  <string name="revanced_miniplayer_type_entry_1">ค่าเริ่มต้น</string>
   </patch>
   <patch id="layout.theme.themePatch">
   </patch>

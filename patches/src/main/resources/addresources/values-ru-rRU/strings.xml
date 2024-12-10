@@ -1018,7 +1018,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">Стиль свернутого мини-плеера </string>
   <string name="revanced_miniplayer_type_title">Тип мини-плеера</string>
   <string name="revanced_miniplayer_type_entry_0">Отключено</string>
-  <string name="revanced_miniplayer_type_entry_1">Оригинал</string>
+  <string name="revanced_miniplayer_type_entry_1">По умолчанию</string>
   <string name="revanced_miniplayer_type_entry_2">Минимальный</string>
   <string name="revanced_miniplayer_type_entry_3">Планшет</string>
   <string name="revanced_miniplayer_type_entry_4">Современный 1</string>
@@ -1210,11 +1210,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Видео кодек определяется автоматически</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Активация данной опции может улучшить время работы батареи и исправить задержки воспроизведения.\n\nAVC имеет максимальное разрешение 1080p, аудио кодек Opus недоступен, и воспроизведение видео будет использовать больше интернет данных в сравнении с VP9 или AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Побочные эффекты подмены на iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Частные детские видео могут не воспроизводиться\n• Прямые трансляции начинаются с самого начала\n• Видео могут заканчиваться на 1 секунду раньше</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Побочные эффекты подмены на Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Детские видео могут не воспроизводиться\n• Пункт меню \"Звуковая дорожка\" отсутвтует\n• Пункт меню \"Постоянный уровень громкости\" недоступен</string>
-  <string name="revanced_spoof_video_streams_language_">Видеопотоки подменены</string>
-  <string name="revanced_spoof_video_streams_language_title">Предпочитаемый язык аудиопотока</string>
+  <string name="revanced_spoof_video_streams_language_title">Язык аудио потока по умолчанию</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Язык приложения</string>
   <string name="revanced_spoof_video_streams_language_AR">Арабский</string>
   <string name="revanced_spoof_video_streams_language_AZ">Азербайджанский</string>
