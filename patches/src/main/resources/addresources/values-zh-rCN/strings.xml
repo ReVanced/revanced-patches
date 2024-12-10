@@ -1000,7 +1000,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">更改应用最小化播放器中的样式</string>
   <string name="revanced_miniplayer_type_title">最小播放器类型</string>
   <string name="revanced_miniplayer_type_entry_0">已禁用</string>
-  <string name="revanced_miniplayer_type_entry_1">原始文件</string>
+  <string name="revanced_miniplayer_type_entry_1">默认</string>
   <string name="revanced_miniplayer_type_entry_2">最小化</string>
   <string name="revanced_miniplayer_type_entry_3">平板电脑</string>
   <string name="revanced_miniplayer_type_entry_4">现代1</string>
@@ -1191,11 +1191,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">视频编解码器自动确定</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">启用这可能会改善电池寿命并修复播放停顿。\n\nAVC 最大分辨率为1080p, Opus 音频编解码器不可用。 视频播放将使用比VP9或AV1更多的网络数据。</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS 伪装副作用</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• 私人孩子视频可能无法播放\n• 生命线从开头开始\n• 视频可能提前结束 1 秒</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• 私人孩子视频可能无法播放\n• 受年龄限制的视频可能无法播放\n• Livestreams 开始于开头\n• 视频结束后1秒。</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR 伪装副作用</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• 儿童视频可能无法播放\n• 音轨菜单丢失\n• 稳定音量</string>
-  <string name="revanced_spoof_video_streams_language_">视频流已被破坏了</string>
-  <string name="revanced_spoof_video_streams_language_title">首选音频流语言</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• 儿童视频可能无法播放\n• 年龄限制视频可能无法播放\n• Livestreams 开始于开始于\n• 视频结束1</string>
+  <string name="revanced_spoof_video_streams_language_title">默认音频流语言</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">应用语言</string>
   <string name="revanced_spoof_video_streams_language_AR">阿拉伯语</string>
   <string name="revanced_spoof_video_streams_language_AZ">阿塞拜疆文</string>

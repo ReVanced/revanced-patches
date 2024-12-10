@@ -990,7 +990,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">Endre stil på appen til den minimerte spilleren</string>
   <string name="revanced_miniplayer_type_title">Type Minispiller</string>
   <string name="revanced_miniplayer_type_entry_0">Deaktivert</string>
-  <string name="revanced_miniplayer_type_entry_1">Opprinnelig</string>
   <string name="revanced_miniplayer_type_entry_2">Minimalt</string>
   <string name="revanced_miniplayer_type_entry_3">Nettbrett</string>
   <string name="revanced_miniplayer_type_entry_4">Moderne 1</string>
@@ -1179,11 +1178,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Videokodek bestemmes automatisk</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Aktivering av dette kan forbedre batterilevetiden og korrigere avspilling med avvik.\n\nAVC har en maksimal oppløsning på 1080p, Opus lydkodek er ikke tilgjengelig. og videoavspilling vil bruke flere Internett-data enn VP9 eller AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS med bivirkninger</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Private kids-videoer spiller kanskje ikke\n• Livestreams start fra begynnelsen\n• Videoer kan ende med 1 andre tidlig</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Private kids-videoer spiller kanskje ikke\n• Alder begrensede videoer spiller kanskje ikke\n• direktestrømming starter på begynnelsen\n• Videoer slutter 1 sekund tidlig</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR opplever bivirkninger</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Barn kan ikke spille\n• Lydspormeny mangler\n• Stabilt volum er ikke tilgjengelig</string>
-  <string name="revanced_spoof_video_streams_language_">Videostrømmer er skjevet</string>
-  <string name="revanced_spoof_video_streams_language_title">Foretrukket lydstrømsspråk</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Barn som ikke spiller\n• Alder begrensede videoer kan kanskje ikke spille\n• direktestrømming starter på begynnelsen\n• Videoer slutten 1 sekund tidlig</string>
+  <string name="revanced_spoof_video_streams_language_title">Standard lydstrømmespråk</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">App språk</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabisk</string>
   <string name="revanced_spoof_video_streams_language_AZ">Aserbajdsjansk</string>

@@ -1000,7 +1000,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">Ændre stilen for den i app minimeret afspiller</string>
   <string name="revanced_miniplayer_type_title">Type af miniplayer</string>
   <string name="revanced_miniplayer_type_entry_0">Deaktiveret</string>
-  <string name="revanced_miniplayer_type_entry_1">Oprindelig</string>
+  <string name="revanced_miniplayer_type_entry_1">Standard</string>
   <string name="revanced_miniplayer_type_entry_2">Minimal</string>
   <string name="revanced_miniplayer_type_entry_3">Tablet</string>
   <string name="revanced_miniplayer_type_entry_4">Moderne 1</string>
@@ -1192,11 +1192,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video-codec bestemmes automatisk</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Aktivering af dette kan forbedre batteriets levetid og rette afspilningsstuttering.\n\nAVC har en maksimal opløsning på 1080p, Opus audio codec er ikke tilgængelig, og videoafspilning vil bruge flere internetdata end VP9 eller AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS forfalskning bivirkninger</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Private børn videoer kan ikke afspille\n• Livestreams starter fra begyndelsen\n• Videoer kan ende 1 sekund tidlig</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Private børn videoer kan ikke afspille\n• Aldersbegrænsede videoer kan ikke afspille\n• Livestreams starter fra begyndelsen\n• Videoer slutter 1 sekund tidlig</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR spoofing bivirkninger</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Kids videoer afspiller muligvis ikke\n• Menuen for lydspor mangler\n• Stabil lydstyrke er ikke tilgængelig</string>
-  <string name="revanced_spoof_video_streams_language_">Video streams er spoofed</string>
-  <string name="revanced_spoof_video_streams_language_title">Foretrukket lyd-stream sprog</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Kids videoer spiller muligvis ikke\n• Aldersbegrænsede videoer spiller muligvis ikke\n• Livestreams starter fra begyndelsen\n• Videoer slutter 1 sekund tidlig</string>
+  <string name="revanced_spoof_video_streams_language_title">Standard lyd-stream sprog</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">App sprog</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabisk</string>
   <string name="revanced_spoof_video_streams_language_AZ">Aserbajdsjansk</string>

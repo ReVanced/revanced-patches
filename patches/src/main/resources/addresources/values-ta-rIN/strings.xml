@@ -194,6 +194,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_type_entry_0">முடக்கப்பட்டது</string>
+  <string name="revanced_miniplayer_type_entry_1">இயல்புநிலை</string>
   </patch>
   <patch id="layout.theme.themePatch">
   </patch>

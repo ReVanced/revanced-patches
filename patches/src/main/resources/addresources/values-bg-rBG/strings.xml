@@ -1017,7 +1017,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">Променете стила на минимизирания екран за възпроизвеждане</string>
   <string name="revanced_miniplayer_type_title">Минимизиран тип екран за гледане</string>
   <string name="revanced_miniplayer_type_entry_0">Деактивирано</string>
-  <string name="revanced_miniplayer_type_entry_1">Оригинал</string>
+  <string name="revanced_miniplayer_type_entry_1">По подразбиране</string>
   <string name="revanced_miniplayer_type_entry_2">Минимално</string>
   <string name="revanced_miniplayer_type_entry_3">Таблет</string>
   <string name="revanced_miniplayer_type_entry_4">Модерен 1</string>
@@ -1209,11 +1209,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Видео кодекът се определя автоматично</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Активирането на това може да подобри живота на батерията и да коригира прекъсванията при възпроизвеждане.\n\nAVC има максимална разделителна способност от 1080p, аудиокодек Opus не е наличен и възпроизвеждането на видео ще използва повече интернет данни от VP9 или AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Cтранични ефекти от подмяната на iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Частните видеоклипове за деца може да не се възпроизвеждат\n• Потоците на живо започват отначало\n• Видеоклиповете може да свършват 1 секунда по-рано</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Странични ефекти от подправяне на Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Детските видеоклипове може да не се възпроизвеждат\n• Липсва менюто за аудио запис\n• Не е налична стабилна сила на звука</string>
-  <string name="revanced_spoof_video_streams_language_">Видео потоците са подправени</string>
-  <string name="revanced_spoof_video_streams_language_title">Предпочитан език за аудио поток</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Език на приложението</string>
   <string name="revanced_spoof_video_streams_language_BG">Български</string>
   </patch>

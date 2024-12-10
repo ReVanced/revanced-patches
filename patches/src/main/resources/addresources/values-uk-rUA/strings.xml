@@ -1017,7 +1017,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">Змінити стиль згорнутого мініплеєра</string>
   <string name="revanced_miniplayer_type_title">Тип мініплеєра</string>
   <string name="revanced_miniplayer_type_entry_0">Вимкнуто</string>
-  <string name="revanced_miniplayer_type_entry_1">Оригінальний</string>
+  <string name="revanced_miniplayer_type_entry_1">Стандартний</string>
   <string name="revanced_miniplayer_type_entry_2">Мінімальний</string>
   <string name="revanced_miniplayer_type_entry_3">Планшетний</string>
   <string name="revanced_miniplayer_type_entry_4">Новітній 1</string>
@@ -1209,11 +1209,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Відеокодек визначається автоматично</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Увімкнення цієї опції може збільшити час роботи від акумулятора та виправити затримки відтворення.\n\nAVC має максимальну роздільну здатність 1080p, відсутній аудіо кодек OPUS, а відтворення відео використовуватиме більше інтернет-даних, ніж на кодеках VP9 або AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Побічні ефекти підробки iOS:</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Приватні дитячі відео можуть не відтворюватися\n• Прямі трансляції починаються з початку\n• Відео можуть закінчуватися на 1 секунду раніше</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Побічні ефекти підробки Android VR:</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Дитячі відео можуть не відтворюватися\n• Меню звукової доріжки відсутнє\n• Меню стабілізації гучності недоступне</string>
-  <string name="revanced_spoof_video_streams_language_">Відеопотоки підроблено</string>
-  <string name="revanced_spoof_video_streams_language_title">Бажана мова аудіопотоку</string>
+  <string name="revanced_spoof_video_streams_language_title">Мова аудіо-потоків за замовчуванням</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Мова застосунку</string>
   <string name="revanced_spoof_video_streams_language_AR">Арабська</string>
   <string name="revanced_spoof_video_streams_language_AZ">Азербайджанська</string>

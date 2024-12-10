@@ -1017,7 +1017,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">Tətbiqdə kiçildilən oynadıcı üslubunu dəyişdir</string>
   <string name="revanced_miniplayer_type_title">Kiçik oynadıcı növü</string>
   <string name="revanced_miniplayer_type_entry_0">Qeyri-aktivdir</string>
-  <string name="revanced_miniplayer_type_entry_1">Orijinal</string>
+  <string name="revanced_miniplayer_type_entry_1">İlkin</string>
   <string name="revanced_miniplayer_type_entry_2">Ən kiçik</string>
   <string name="revanced_miniplayer_type_entry_3">Planşet</string>
   <string name="revanced_miniplayer_type_entry_4">Müasir 1</string>
@@ -1209,11 +1209,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodlama birbaşa yoxlanılır</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Bunu aktivləşdirmə batareya ömrün yaxşılaşdıra və oynatma donmasını düzəldə bilər.\n\nAVC maksimum 1080p görüntü imkanına malikdir, Opus səs kodlama əlçatan deyil və video oynatma VP9 və ya AV1-dən daha çox internet resursu işlədəcək.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS saxtakarlığı yan təsirləri</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Uşaq videoları oynadılmaya bilər\n• Canlı yayımlar başdan başlayır\n• Videolar 1 saniyə tez bitə bilər</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">Şəxsi uşaq videoları oynadıla bilməz\n• Yaş məhdudiyyətli videolar oynadıla bilməz\n• Canlı yayımlar əvvəldən başlayır\n• Videolar 1 saniyə tez bitir</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR saxtakarlığı yan təsirləri</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Uşaq videoları oynadılmaya bilər\n• Səs treki menyusu əskikdir\n• Sabit səs həcmi əlçatan deyil</string>
-  <string name="revanced_spoof_video_streams_language_">Video yayımları saxtalaşdırılır</string>
-  <string name="revanced_spoof_video_streams_language_title">Üstünlük verilən səs yayımı dili</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">Uşaq videoları oynadıla bilməz\n• Yaş məhdudiyyətli videolar oynadıla bilməz\n• Canlı yayımlar əvvəldən başlayır\n• Videolar 1 saniyə tez bitir</string>
+  <string name="revanced_spoof_video_streams_language_title">İlkin səs yayımı dili</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Tətbiq dili</string>
   <string name="revanced_spoof_video_streams_language_AR">Ərəbcə</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azərbaycanca</string>

@@ -1017,7 +1017,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">Módosítsa az alkalmazáson belüli kisméretű lejátszó stílusát</string>
   <string name="revanced_miniplayer_type_title">Minilejátszó típus</string>
   <string name="revanced_miniplayer_type_entry_0">Kikapcsolva</string>
-  <string name="revanced_miniplayer_type_entry_1">Eredeti</string>
+  <string name="revanced_miniplayer_type_entry_1">Alapértelmezett</string>
   <string name="revanced_miniplayer_type_entry_2">Minimális</string>
   <string name="revanced_miniplayer_type_entry_3">Tablet</string>
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
@@ -1209,11 +1209,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">A videokodek meghatározása automatikusan történik</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Ennek engedélyezése javíthatja az akkumulátor élettartamát, és kijavíthatja a lejátszás akadozását.\n\nAz AVC maximális felbontása 1080p, az Opus audiokodek nem érhető el, és a videolejátszás több internetadatot használ, mint a VP9 vagy az AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS hamisítási mellékhatások</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Előfordulhat, hogy a privát gyerekeknek szóló videók nem játszhatók le\n• Az élő közvetítések elölről kezdődnek\n• A videók 1 másodperccel korábban véget érhetnek</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR-hamisítási mellékhatások</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Előfordulhat, hogy a gyerekvideókat nem lehet lejátszani\n• Hiányzik a hangsáv menü\n• A stabil hangerő nem érhető el</string>
-  <string name="revanced_spoof_video_streams_language_">A videó stream hamisítva</string>
-  <string name="revanced_spoof_video_streams_language_title">Előnyben részesített hangfolyam nyelv</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Alkalmazás nyelve</string>
   <string name="revanced_spoof_video_streams_language_AR">Arab</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbajdzsáni</string>
