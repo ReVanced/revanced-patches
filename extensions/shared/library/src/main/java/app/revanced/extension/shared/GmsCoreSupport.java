@@ -101,7 +101,17 @@ public class GmsCoreSupport {
                 return;
             }
 
-            // Check if GmsCore is running in the background.
+            // Check if GmsCore is whitelisted from battery optimizations.
+            if (batteryOptimizationsEnabled(context)) {
+                Logger.printInfo(() -> "GmsCore is not whitelisted from battery optimizations");
+                showBatteryOptimizationDialog(context,
+                        "gms_core_dialog_not_whitelisted_using_battery_optimizations_message",
+                        "gms_core_dialog_continue_text",
+                        (dialog, id) -> openGmsCoreDisableBatteryOptimizationsIntent(context));
+                return;
+            }
+
+            // Check if GmsCore is currently running in the background.
             try (var client = context.getContentResolver().acquireContentProviderClient(GMS_CORE_PROVIDER)) {
                 if (client == null) {
                     Logger.printInfo(() -> "GmsCore is not running in the background");
@@ -110,17 +120,7 @@ public class GmsCoreSupport {
                             "gms_core_dialog_not_whitelisted_not_allowed_in_background_message",
                             "gms_core_dialog_open_website_text",
                             (dialog, id) -> open(DONT_KILL_MY_APP_LINK));
-                    return;
                 }
-            }
-
-            // Check if GmsCore is whitelisted from battery optimizations.
-            if (batteryOptimizationsEnabled(context)) {
-                Logger.printInfo(() -> "GmsCore is not whitelisted from battery optimizations");
-                showBatteryOptimizationDialog(context,
-                        "gms_core_dialog_not_whitelisted_using_battery_optimizations_message",
-                        "gms_core_dialog_continue_text",
-                        (dialog, id) -> openGmsCoreDisableBatteryOptimizationsIntent(context));
             }
         } catch (Exception ex) {
             Logger.printException(() -> "checkGmsCore failure", ex);
