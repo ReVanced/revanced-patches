@@ -24,7 +24,9 @@ import java.net.URL;
  * @noinspection unused
  */
 public class GmsCoreSupport {
-    public static final String ORIGINAL_UNPATCHED_PACKAGE_NAME = "com.google.android.youtube";
+    private static final String PACKAGE_NAME_YOUTUBE = "com.google.android.youtube";
+    private static final String PACKAGE_NAME_YOUTUBE_MUSIC = "com.google.android.apps.youtube.music";
+
     private static final String GMS_CORE_PACKAGE_NAME
             = getGmsCoreVendorGroupId() + ".android.gms";
     private static final Uri GMS_CORE_PROVIDER
@@ -74,7 +76,8 @@ public class GmsCoreSupport {
             // Verify the user has not included GmsCore for a root installation.
             // GmsCore Support changes the package name, but with a mounted installation
             // all manifest changes are ignored and the original package name is used.
-            if (context.getPackageName().equals(ORIGINAL_UNPATCHED_PACKAGE_NAME)) {
+            String packageName = context.getPackageName();
+            if (packageName.equals(PACKAGE_NAME_YOUTUBE) || packageName.equals(PACKAGE_NAME_YOUTUBE_MUSIC)) {
                 Logger.printInfo(() -> "App is mounted with root, but GmsCore patch was included");
                 // Cannot use localize text here, since the app will load
                 // resources from the unpatched app and all patch strings are missing.
@@ -143,12 +146,10 @@ public class GmsCoreSupport {
     private static String getGmsCoreDownload() {
         final var vendorGroupId = getGmsCoreVendorGroupId();
         //noinspection SwitchStatementWithTooFewBranches
-        switch (vendorGroupId) {
-            case "app.revanced":
-                return "https://github.com/revanced/gmscore/releases/latest";
-            default:
-                return vendorGroupId + ".android.gms";
-        }
+        return switch (vendorGroupId) {
+            case "app.revanced" -> "https://github.com/revanced/gmscore/releases/latest";
+            default -> vendorGroupId + ".android.gms";
+        };
     }
 
     // Modified by a patch. Do not touch.
