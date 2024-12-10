@@ -21,7 +21,7 @@ val audioAdsPatch = bytecodePatch(
         addResourcesPatch,
     )
 
-    compatibleWith("tv.twitch.android.app"("15.4.1", "16.1.0", "16.9.1"))
+    compatibleWith("tv.twitch.android.app")
 
     execute {
         addResources("twitch", "ad.audio.audioAdsPatch")
