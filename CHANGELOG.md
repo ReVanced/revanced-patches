@@ -1,3 +1,10 @@
+# [5.4.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.4.0-dev.4...v5.4.0-dev.5) (2024-12-10)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Resolve playback of age restricted videos ([#4096](https://github.com/ReVanced/revanced-patches/issues/4096)) ([839a404](https://github.com/ReVanced/revanced-patches/commit/839a4045f1bb1759d89047834e0b7695781e82a3))
+
 # [5.4.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.4.0-dev.3...v5.4.0-dev.4) (2024-12-10)
 
 
