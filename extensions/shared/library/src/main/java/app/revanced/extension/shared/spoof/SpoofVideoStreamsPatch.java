@@ -6,7 +6,6 @@ import androidx.annotation.Nullable;
 
 import java.nio.ByteBuffer;
 import java.util.Map;
-import java.util.Objects;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
@@ -87,14 +86,22 @@ public class SpoofVideoStreamsPatch {
             try {
                 Uri uri = Uri.parse(url);
                 String path = uri.getPath();
+
                 // 'heartbeat' has no video id and appears to be only after playback has started.
-                if (path != null && path.contains("player") && !path.contains("heartbeat")) {
-                    String videoId = Objects.requireNonNull(uri.getQueryParameter("id"));
-                    StreamingDataRequest.fetchRequest(videoId, requestHeaders);
+                // 'refresh' has no video id and appears to happen when waiting for a livestream to start.
+                if (path != null && path.contains("player") && !path.contains("heartbeat")
+                        && !path.contains("refresh")) {
+                    String id = uri.getQueryParameter("id");
+                    if (id == null) {
+                        Logger.printException(() -> "Ignoring request that has no video id." +
+                                " Url: " + url + " headers: " + requestHeaders);
+                        return;
+                    }
+
+                    StreamingDataRequest.fetchRequest(id, requestHeaders);
                 }
             } catch (Exception ex) {
-                Logger.printException(() -> "buildRequest failure. Url: " + url
-                        + " headers: " + requestHeaders, ex);
+                Logger.printException(() -> "buildRequest failure", ex);
             }
         }
     }
