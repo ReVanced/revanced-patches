@@ -53,15 +53,15 @@ public class GmsCoreSupport {
     }
 
     private static void showBatteryOptimizationDialog(Activity context,
-                                                      String dialogMessageRef,
-                                                      String positiveButtonStringRef,
+                                                      String dialogMessage,
+                                                      String positiveButtonText,
                                                       DialogInterface.OnClickListener onPositiveClickListener) {
         // Do not set cancelable to false, to allow using back button to skip the action,
         // just in case the check can never be satisfied.
         var dialog = new AlertDialog.Builder(context)
                 .setTitle(str("gms_core_dialog_title"))
-                .setMessage(str(dialogMessageRef))
-                .setPositiveButton(str(positiveButtonStringRef), onPositiveClickListener)
+                .setMessage(dialogMessage)
+                .setPositiveButton(positiveButtonText, onPositiveClickListener)
                 .create();
         Utils.showDialog(context, dialog);
     }
@@ -104,9 +104,14 @@ public class GmsCoreSupport {
             // Check if GmsCore is whitelisted from battery optimizations.
             if (batteryOptimizationsEnabled(context)) {
                 Logger.printInfo(() -> "GmsCore is not whitelisted from battery optimizations");
-                showBatteryOptimizationDialog(context,
+
+                String message = str(
                         "gms_core_dialog_not_whitelisted_using_battery_optimizations_message",
-                        "gms_core_dialog_continue_text",
+                        Utils.getApplicationName()
+                );
+                showBatteryOptimizationDialog(context,
+                        message,
+                        str("gms_core_dialog_continue_text"),
                         (dialog, id) -> openGmsCoreDisableBatteryOptimizationsIntent(context));
                 return;
             }
@@ -117,8 +122,8 @@ public class GmsCoreSupport {
                     Logger.printInfo(() -> "GmsCore is not running in the background");
 
                     showBatteryOptimizationDialog(context,
-                            "gms_core_dialog_not_whitelisted_not_allowed_in_background_message",
-                            "gms_core_dialog_open_website_text",
+                            str("gms_core_dialog_not_whitelisted_not_allowed_in_background_message"),
+                            str("gms_core_dialog_open_website_text"),
                             (dialog, id) -> open(DONT_KILL_MY_APP_LINK));
                 }
             }
