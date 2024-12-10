@@ -711,6 +711,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_off">플레이어 팝업 패널이 표시됩니다\n• 재생목록, 실시간 채팅, etc.</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <string name="revanced_open_videos_fullscreen_portrait_title">동영상을 전체 화면 세로 모드로 열기</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_on">동영상을 전체 화면으로 엽니다</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_off">동영상을 전체 화면으로 열지 않습니다</string>
   </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">플레이어 오버레이 불투명도</string>
@@ -965,7 +968,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_user_dialog_message">앱 버전을 YouTube 이전 앱 버전으로 변경합니다\n\n이 경우 앱 레이아웃과 기능이 변경되지만 알려지지 않은 문제점이 발생할 수 있습니다\n\n나중에 이 설정을 비활성화하면 앱 레이아웃 버그를 방지하기 위해 앱 데이터를 지우는 것이 좋습니다</string>
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
-  <string name="revanced_spoof_app_version_target_title">변경할 앱 버전 설정</string>
+  <string name="revanced_spoof_app_version_target_title">변경할 앱 버전</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - 이전 Shorts 플레이어 아이콘을 복원합니다</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - 시크릿 모드에서 Shorts RYD를 복원합니다</string>
@@ -1013,9 +1016,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">미니 플레이어</string>
   <string name="revanced_miniplayer_screen_summary">앱 내에서 최소화된 플레이어의 스타일을 변경할 수 있습니다</string>
-  <string name="revanced_miniplayer_type_title">미니 플레이어 유형 설정</string>
+  <string name="revanced_miniplayer_type_title">미니 플레이어 유형</string>
   <string name="revanced_miniplayer_type_entry_0">비활성화됨</string>
-  <string name="revanced_miniplayer_type_entry_1">기기 기본값 사용</string>
+  <string name="revanced_miniplayer_type_entry_1">홈 (기본값)</string>
   <string name="revanced_miniplayer_type_entry_2">최소화</string>
   <string name="revanced_miniplayer_type_entry_3">태블릿</string>
   <string name="revanced_miniplayer_type_entry_4">최신 스타일 1</string>
@@ -1024,18 +1027,18 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_rounded_corners_title">둥근 모서리 활성화하기</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">모서리를 둥글게 활성화합니다</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">모서리를 각지게 활성화합니다</string>
-  <string name="revanced_miniplayer_double_tap_action_title">두 번 누르기 및 핀치하여 크기 조정 활성화하기</string>
-  <string name="revanced_miniplayer_double_tap_action_summary_on">두 번 누르기 동작 및 핀치하여 크기 조정을 활성화합니다\n\n• 두 번 눌러서 미니 플레이어 크기를 확대합니다\n• 다시 두 번 눌러서 원래 크기로 복원합니다</string>
-  <string name="revanced_miniplayer_double_tap_action_summary_off">두 번 누르기 동작 및 핀치하여 크기 조정을 비활성화합니다</string>
+  <string name="revanced_miniplayer_double_tap_action_title">\'두 번 누르기\' 및 \'핀치하여 크기 조정\' 활성화하기</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">\'두 번 누르기 동작\' 및 \'핀치하여 크기 조정\'을 활성화합니다\n\n• 두 번 눌러서 미니 플레이어 크기를 늘릴 수 있습니다\n• 다시 두 번 누르면 원래 크기로 복원됩니다</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_off">\'두 번 누르기 동작\' 및 \'핀치하여 크기 조정\'을 비활성화합니다</string>
   <string name="revanced_miniplayer_drag_and_drop_title">드래그 &amp; 드롭 활성화하기</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">드래그 &amp; 드롭을 활성화합니다\n\n• 미니 플레이어를 화면의 어느 곳이든 드래그할 수 있습니다</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">드래그 &amp; 드롭을 비활성화합니다</string>
   <string name="revanced_miniplayer_horizontal_drag_title">수평 드래그 제스처 활성화하기</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_on">수평 드래그 제스처를 활성화합니다\n\n미니 플레이어 절반 정도를 왼쪽 밖 또는 오른쪽 밖으로 드래그하여 숨길 수 있습니다</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">수평 드래그 제스처를 비활성화합니다</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">닫기 버튼 숨기기</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">닫기 버튼이 숨겨집니다</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">닫기 버튼이 표시됩니다</string>
+  <string name="revanced_miniplayer_hide_expand_close_title">\'닫기\' 버튼 숨기기</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">\'닫기\' 버튼이 숨겨집니다</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">\'닫기\' 버튼이 표시됩니다</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_title">\'펼치기\' &amp; \'닫기\' 버튼 숨기기</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">\'펼치기\' &amp; \'닫기\' 버튼이 숨겨집니다\n\n• 스와이프하여 미니 플레이어를 펼치거나 닫을 수 있습니다</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">\'펼치기\' &amp; \'닫기\' 버튼이 표시됩니다</string>
@@ -1061,7 +1064,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_title">사용자 정의 재생바 색상 활성화하기</string>
   <string name="revanced_seekbar_custom_color_summary_on">사용자 정의 재생바 색상을 활성화합니다</string>
   <string name="revanced_seekbar_custom_color_summary_off">기본 재생바 색상을 활성화합니다</string>
-  <string name="revanced_seekbar_custom_color_value_title">사용자 정의 재생바 색상 설정</string>
+  <string name="revanced_seekbar_custom_color_value_title">사용자 정의 재생바 색상</string>
   <string name="revanced_seekbar_custom_color_value_summary">재생바 색상</string>
   <string name="revanced_seekbar_custom_color_invalid">잘못된 재생바 색상값입니다</string>
   </patch>
@@ -1083,14 +1086,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; 기본 썸네일</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; 스틸 컷 썸네일</string>
   <string name="revanced_alt_thumbnail_options_entry_4">스틸 컷 썸네일</string>
-  <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow는 YouTube 동영상에 크라우드 소싱된 썸네일을 제공합니다. 이러한 썸네일은 YouTube에서 제공하는 썸네일보다 관련성이 높은 경우가 많습니다\n\n이 설정을 활성화하면 동영상 URL이 API 서버로 전송되며 다른 데이터는 전송되지 않습니다. 동영상에 DeArrow 썸네일이 없는 경우에는 기본 썸네일 또는 스틸 컷 썸네일이 표시됩니다\n\nDeArrow에 대해 자세히 알아보려면 여기를 누르세요</string>
+  <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow는 YouTube 동영상에 크라우드 소싱된 썸네일을 제공합니다. 이러한 썸네일은 YouTube에서 제공하는 썸네일보다 관련성이 높은 경우가 많습니다\n\n이 설정을 활성화하면 동영상 URL이 API 서버로 전송되며, 다른 데이터는 전송되지 않습니다. 동영상에 DeArrow 썸네일이 없는 경우에는 기본 썸네일 또는 스틸 컷 썸네일이 표시됩니다\n\nDeArrow에 대해 자세히 알아보려면 여기를 누르세요</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">API를 사용할 수 없을 때, 팝업 메시지 표시하기</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">DeArrow를 사용할 수 없을 때, 팝업 메시지를 표시합니다</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">DeArrow를 사용할 수 없을 때, 팝업 메시지를 표시하지 않습니다</string>
   <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API 엔드포인트</string>
   <string name="revanced_alt_thumbnail_dearrow_api_url_summary">DeArrow 썸네일 캐시 엔드포인트 URL입니다. 이것이 무슨 역할을 하는지 모르는 경우에는 이 URL을 변경하지 마세요</string>
   <string name="revanced_alt_thumbnail_stills_about_title">스틸 컷 썸네일</string>
-  <string name="revanced_alt_thumbnail_stills_about_summary">스틸 컷 썸네일은 각 동영상의 시작 / 중간 / 끝 부분에서 캡쳐된 이미지입니다. 이러한 이미지는 YouTube에 내장되어 있으며 외부 API는 사용되지 않습니다</string>
+  <string name="revanced_alt_thumbnail_stills_about_summary">스틸 컷 썸네일은 각 동영상의 시작 / 중간 / 끝 부분에서 캡쳐된 이미지입니다. 이러한 이미지는 YouTube에 내장되어 있으며, 외부 API는 사용되지 않습니다</string>
   <string name="revanced_alt_thumbnail_stills_fast_title">일반화질 스틸 컷 썸네일 표시하기</string>
   <string name="revanced_alt_thumbnail_stills_fast_summary_on">일반화질 스틸 컷 썸네일을 표시합니다. 썸네일을 빠르게 불러오지만 실시간 스트림, 비공개, 오래된 동영상에서는 아무것도 표시되지 않은 썸네일이 표시될 수 있습니다</string>
   <string name="revanced_alt_thumbnail_stills_fast_summary_off">고화질 스틸 컷 썸네일을 표시합니다</string>
@@ -1122,7 +1125,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">기기 크기 정보 변경하기</string>
-  <string name="revanced_spoof_device_dimensions_summary_on">기기 크기 정보를 변경합니다\n\n이 설정을 활성화하면 더 높은 화질 동영상 값을 잠금 해제할 수 있지만, 동영상 재생이 끊기거나 배터리 수명이 단축될 수 있으며 알려지지 않은 문제점도 발생할 수 있습니다</string>
+  <string name="revanced_spoof_device_dimensions_summary_on">기기 크기 정보를 변경합니다\n\n이 설정을 활성화하면 더 높은 화질 동영상 값을 잠금 해제할 수 있지만, 동영상 재생이 끊기거나 배터리 수명이 단축될 수 있으며, 알려지지 않은 문제점도 발생할 수 있습니다</string>
   <string name="revanced_spoof_device_dimensions_summary_off">기기 크기 정보를 변경하지 않습니다\n\n이 설정을 활성화하면 더 높은 화질 동영상 값을 잠금 해제할 수 있습니다</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">이 설정을 활성화하면 동영상 재생이 끊기거나 배터리 수명이 단축되고 알려지지 않은 문제점이 발생할 수 있습니다</string>
   </patch>
@@ -1203,11 +1206,67 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">이 설정을 비활성화하면 동영상 재생 문제가 발생할 수 있습니다</string>
   <string name="revanced_spoof_video_streams_client_title">기본 클라이언트</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">AVC (H.264) 강제로 활성화하기</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">동영상 코덱을 AVC (H.264)로 강제 활성화합니다</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">동영상 코덱을 자동으로 활성화합니다</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">이 기능을 활성화하면 배터리 수명이 향상되고 재생 끊김 현상이 해결될 수 있습니다\n\nAVC (H.264)의 최대 화질 값은 1080p이며, OPUS 오디오 코덱을 사용할 수 없고, 동영상 재생 시 VP9 또는 AV1보다 더 많은 모바일 데이터가 사용되오니 주의하세요</string>
   <string name="revanced_spoof_video_streams_about_ios_title">\'iOS로 변경\'의 알려진 문제점</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• 비공개 Kids 동영상이 재생되지 않을 수 있습니다\n• 일부 실시간 스트림이 처음부터 재생될 수 있습니다\n• 동영상이 1초 일찍 종료될 수 있습니다</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• 비공개 Kids 동영상이 재생되지 않을 수 있습니다\n• 연령 제한 동영상이 재생되지 않을 수 있습니다\n• 일부 라이브 스트림이 처음부터 재생될 수 있습니다\n• 동영상이 1초 일찍 종료될 수 있습니다</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">\'Android VR로 변경\'의 알려진 문제점</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Kids 동영상이 재생되지 않을 수 있습니다\n• 오디오 트랙 메뉴가 표시되지 않습니다\n• 안정적인 볼륨 메뉴가 비활성화된 채로 잠겨있습니다</string>
-  <string name="revanced_spoof_video_streams_language_">스트리밍 데이터를 변경합니다</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Kids 동영상이 재생되지 않을 수 있습니다\n• 연령 제한 동영상이 재생되지 않을 수 있습니다\n• 일부 라이브 스트림이 처음부터 재생될 수 있습니다\n• 동영상이 1초 일찍 종료될 수 있습니다</string>
+  <string name="revanced_spoof_video_streams_language_title">기본 오디오 트랙 언어</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">앱 언어</string>
+  <string name="revanced_spoof_video_streams_language_AR">아랍어</string>
+  <string name="revanced_spoof_video_streams_language_AZ">아제르바니잔어</string>
+  <string name="revanced_spoof_video_streams_language_BG">불가리아어</string>
+  <string name="revanced_spoof_video_streams_language_BN">뱅골어</string>
+  <string name="revanced_spoof_video_streams_language_CA">카타로니아어</string>
+  <string name="revanced_spoof_video_streams_language_CS">체코어</string>
+  <string name="revanced_spoof_video_streams_language_DA">덴마크어</string>
+  <string name="revanced_spoof_video_streams_language_DE">독일어</string>
+  <string name="revanced_spoof_video_streams_language_EL">그리스어</string>
+  <string name="revanced_spoof_video_streams_language_EN">영어</string>
+  <string name="revanced_spoof_video_streams_language_ES">스페인어</string>
+  <string name="revanced_spoof_video_streams_language_ET">에스토니아어</string>
+  <string name="revanced_spoof_video_streams_language_FA">페르시아어</string>
+  <string name="revanced_spoof_video_streams_language_FI">핀란드어</string>
+  <string name="revanced_spoof_video_streams_language_FR">프랑스어</string>
+  <string name="revanced_spoof_video_streams_language_GU">구자라트어</string>
+  <string name="revanced_spoof_video_streams_language_HI">힌디어</string>
+  <string name="revanced_spoof_video_streams_language_HR">크로아티아어</string>
+  <string name="revanced_spoof_video_streams_language_HU">헝가리어</string>
+  <string name="revanced_spoof_video_streams_language_ID">인도네시아어</string>
+  <string name="revanced_spoof_video_streams_language_IT">이틸리아어</string>
+  <string name="revanced_spoof_video_streams_language_JA">일본어</string>
+  <string name="revanced_spoof_video_streams_language_KK">키자흐스탄어</string>
+  <string name="revanced_spoof_video_streams_language_KO">한국어</string>
+  <string name="revanced_spoof_video_streams_language_LT">리투아니아어</string>
+  <string name="revanced_spoof_video_streams_language_LV">라트비아어</string>
+  <string name="revanced_spoof_video_streams_language_MK">마케도니아어</string>
+  <string name="revanced_spoof_video_streams_language_MN">몽골어</string>
+  <string name="revanced_spoof_video_streams_language_MR">마라티어</string>
+  <string name="revanced_spoof_video_streams_language_MS">말레이어</string>
+  <string name="revanced_spoof_video_streams_language_MY">버마어</string>
+  <string name="revanced_spoof_video_streams_language_NL">네덜란드어</string>
+  <string name="revanced_spoof_video_streams_language_OR">오리야어</string>
+  <string name="revanced_spoof_video_streams_language_PA">펀잡어</string>
+  <string name="revanced_spoof_video_streams_language_PL">폴란드어</string>
+  <string name="revanced_spoof_video_streams_language_PT_BR">포르투갈어 (브라질)</string>
+  <string name="revanced_spoof_video_streams_language_PT_PT">포르투갈어 (포르트갈)</string>
+  <string name="revanced_spoof_video_streams_language_RO">루마니아어</string>
+  <string name="revanced_spoof_video_streams_language_RU">러시아어</string>
+  <string name="revanced_spoof_video_streams_language_SK">슬로바키아어</string>
+  <string name="revanced_spoof_video_streams_language_SL">슬로베니아어</string>
+  <string name="revanced_spoof_video_streams_language_SR">세르비아어</string>
+  <string name="revanced_spoof_video_streams_language_SV">스웨덴어</string>
+  <string name="revanced_spoof_video_streams_language_SW">스와힐리어</string>
+  <string name="revanced_spoof_video_streams_language_TA">타밀어</string>
+  <string name="revanced_spoof_video_streams_language_TE">텔루구어</string>
+  <string name="revanced_spoof_video_streams_language_TH">태국어</string>
+  <string name="revanced_spoof_video_streams_language_TR">터키어</string>
+  <string name="revanced_spoof_video_streams_language_UK">우크라이나어</string>
+  <string name="revanced_spoof_video_streams_language_UR">우르두어</string>
+  <string name="revanced_spoof_video_streams_language_VI">베트남어</string>
+  <string name="revanced_spoof_video_streams_language_ZH">중국어</string>
   </patch>
   </app>
   <app id="twitch">

@@ -1,13 +1,15 @@
 package app.revanced.extension.tiktok.settings.preference;
 
 import android.content.Context;
-import android.util.AttributeSet;
+import android.view.View;
 
 import java.util.Map;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.settings.preference.ReVancedAboutPreference;
+import app.revanced.extension.tiktok.Utils;
 
+@SuppressWarnings("deprecation")
 public class ReVancedTikTokAboutPreference extends ReVancedAboutPreference {
 
     /**
@@ -23,22 +25,11 @@ public class ReVancedTikTokAboutPreference extends ReVancedAboutPreference {
             "revanced_settings_about_links_header", "Official links"
     );
 
-    {
-        //noinspection deprecation
-        setTitle("About");
-    }
-
-    public ReVancedTikTokAboutPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-    }
-    public ReVancedTikTokAboutPreference(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-    }
-    public ReVancedTikTokAboutPreference(Context context, AttributeSet attrs) {
-        super(context, attrs);
-    }
     public ReVancedTikTokAboutPreference(Context context) {
         super(context);
+
+        setTitle("About");
+        setSummary("About ReVanced");
     }
 
     @Override
@@ -51,5 +42,12 @@ public class ReVancedTikTokAboutPreference extends ReVancedAboutPreference {
         }
 
         return String.format(format, args);
+    }
+
+    @Override
+    protected void onBindView(View view) {
+        super.onBindView(view);
+
+        Utils.setTitleAndSummaryColor(getContext(), view);
     }
 }

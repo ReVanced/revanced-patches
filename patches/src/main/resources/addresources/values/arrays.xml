@@ -155,7 +155,7 @@
             <string-array name="revanced_miniplayer_type_entry_values">
                 <!-- Enum names from the extension. -->
                 <item>DISABLED</item>
-                <item>ORIGINAL</item>
+                <item>DEFAULT</item>
                 <item>MINIMAL</item>
                 <item>TABLET</item>
                 <item>MODERN_1</item>
@@ -172,7 +172,7 @@
             </string-array>
             <string-array name="revanced_miniplayer_type_legacy_entry_values">
                 <!-- Enum names from the extension. -->
-                <item>ORIGINAL</item>
+                <item>DEFAULT</item>
                 <item>MINIMAL</item>
                 <item>TABLET</item>
                 <item>MODERN_1</item>
@@ -201,7 +201,7 @@
             </string-array>
             <string-array name="revanced_change_start_page_entry_values">
                 <!-- Enum names from extension -->
-                <item>ORIGINAL</item>
+                <item>DEFAULT</item>
                 <!-- Intent Action -->
                 <item>SEARCH</item>
                 <item>SHORTS</item>

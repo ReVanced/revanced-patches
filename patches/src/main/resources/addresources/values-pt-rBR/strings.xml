@@ -1015,7 +1015,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">Alterar o estilo do player minimizado no aplicativo</string>
   <string name="revanced_miniplayer_type_title">Tipo de miniplayer</string>
   <string name="revanced_miniplayer_type_entry_0">Desativado</string>
-  <string name="revanced_miniplayer_type_entry_1">Original</string>
+  <string name="revanced_miniplayer_type_entry_1">Padrão</string>
   <string name="revanced_miniplayer_type_entry_2">Mínimo</string>
   <string name="revanced_miniplayer_type_entry_3">Tablet</string>
   <string name="revanced_miniplayer_type_entry_4">Moderno 1</string>
@@ -1204,10 +1204,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_client_title">Cliente padrão</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Forçar AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Efeitos colaterais do spoofing de iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Vídeos privados para crianças não podem ser reproduzidos\n• As transmissões ao vivo começam do início\n• Os vídeos podem terminar 1 segundo antes</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Efeitos colaterais do spoofing de Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Os vídeos infantis podem não ser reproduzidos\n• O menu da faixa de áudio está ausente\n• O volume estável não está disponível</string>
-  <string name="revanced_spoof_video_streams_language_">Fluxo de vídeo spoofado</string>
   <string name="revanced_spoof_video_streams_language_EN">Inglês</string>
   </patch>
   </app>

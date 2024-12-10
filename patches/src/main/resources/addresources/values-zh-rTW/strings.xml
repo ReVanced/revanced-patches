@@ -1014,7 +1014,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">更改應用程式內縮小播放器的樣式</string>
   <string name="revanced_miniplayer_type_title">迷你播放器類型</string>
   <string name="revanced_miniplayer_type_entry_0">已停用</string>
-  <string name="revanced_miniplayer_type_entry_1">原始</string>
+  <string name="revanced_miniplayer_type_entry_1">預設</string>
   <string name="revanced_miniplayer_type_entry_2">最小化</string>
   <string name="revanced_miniplayer_type_entry_3">平板</string>
   <string name="revanced_miniplayer_type_entry_4">現代樣式 1</string>
@@ -1203,11 +1203,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">關閉此設定可能會導致影片播放發生問題</string>
   <string name="revanced_spoof_video_streams_client_title">預設用戶端</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">強制 AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">強制以 AVC (H.264) 作為影片解碼器</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">自動選擇影片解碼器</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">啟用此功能可能會改善電池續航力並修復播放卡頓問題。\n\nAVC 的最大解析度為 1080p，且影片播放將使用比 VP9 或 AV1 更多的網路數據（音源解碼器暫不可用）。</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS 欺騙副作用</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• 私人的兒童影片有可能不會播放\n• 從直播起始處播放\n• 影片可能會提早一秒結束</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR 欺騙副作用</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• 私人的兒童影片有可能不會播放\n• 找不到音樂曲目選單\n• 音量平衡不可用</string>
-  <string name="revanced_spoof_video_streams_language_">已欺騙影片串流</string>
   <string name="revanced_spoof_video_streams_language_EN">英文</string>
   </patch>
   </app>

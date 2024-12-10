@@ -1019,7 +1019,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">Muuta sovelluksen tyyliä pienennetyssä soittimessa</string>
   <string name="revanced_miniplayer_type_title">Minisoittimen tyyppi</string>
   <string name="revanced_miniplayer_type_entry_0">Pois käytöstä</string>
-  <string name="revanced_miniplayer_type_entry_1">Alkuperäinen</string>
+  <string name="revanced_miniplayer_type_entry_1">Oletus</string>
   <string name="revanced_miniplayer_type_entry_2">Minimaali</string>
   <string name="revanced_miniplayer_type_entry_3">Tabletti</string>
   <string name="revanced_miniplayer_type_entry_4">Moderni 1</string>
@@ -1211,11 +1211,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Videokoodekki määritetään automaattisesti</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Tämän käyttöönotto voi parantaa akun kestoa ja korjata toistoa stuttering.\n\nAVC on enintään 1080p, Opus audio koodekki ei ole käytettävissä, ja videon toisto käyttää enemmän internet-tietoja kuin VP9 tai AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS-naamioinnin haittavaikutukset</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Yksityiset lapset videot eivät välttämättä pelaa\n• Livestreams alkaa alusta\n• Videot saattavat päättyä 1 sekunti aikaisin</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Yksityiset lapset videot eivät välttämättä pelaa\n• Ikä rajoitettu videoita ei voi pelata\n• Livestreams alkaa alusta\n• Videot päättyy 1 sekunti aikaisin</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR -naamioinnin haittavaikutukset</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Lapset videot eivät välttämättä soita\n• Ääniraidan valikko puuttuu\n• Vakaa äänenvoimakkuus ei ole käytettävissä</string>
-  <string name="revanced_spoof_video_streams_language_">Videostriimit naamioidaan</string>
-  <string name="revanced_spoof_video_streams_language_title">Ensisijainen äänen suoratoistokieli</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Lapset videot eivät välttämättä pelaa\n• Ikä rajoitettu videot eivät voi pelata\n• Livestreams alkaa alusta\n• Videot päättyy 1 sekunti aikaisin</string>
+  <string name="revanced_spoof_video_streams_language_title">Äänivirran oletuskieli</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Sovelluksen kieli</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabia</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbaidžan</string>

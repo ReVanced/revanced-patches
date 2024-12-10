@@ -24,7 +24,9 @@ import java.net.URL;
  * @noinspection unused
  */
 public class GmsCoreSupport {
-    public static final String ORIGINAL_UNPATCHED_PACKAGE_NAME = "com.google.android.youtube";
+    private static final String PACKAGE_NAME_YOUTUBE = "com.google.android.youtube";
+    private static final String PACKAGE_NAME_YOUTUBE_MUSIC = "com.google.android.apps.youtube.music";
+
     private static final String GMS_CORE_PACKAGE_NAME
             = getGmsCoreVendorGroupId() + ".android.gms";
     private static final Uri GMS_CORE_PROVIDER
@@ -52,17 +54,20 @@ public class GmsCoreSupport {
 
     private static void showBatteryOptimizationDialog(Activity context,
                                                       String dialogMessageRef,
-                                                      String positiveButtonStringRef,
+                                                      String positiveButtonTextRef,
                                                       DialogInterface.OnClickListener onPositiveClickListener) {
-        // Do not set cancelable to false, to allow using back button to skip the action,
-        // just in case the check can never be satisfied.
-        var dialog = new AlertDialog.Builder(context)
-                .setIconAttribute(android.R.attr.alertDialogIcon)
-                .setTitle(str("gms_core_dialog_title"))
-                .setMessage(str(dialogMessageRef))
-                .setPositiveButton(str(positiveButtonStringRef), onPositiveClickListener)
-                .create();
-        Utils.showDialog(context, dialog);
+        // Use a delay to allow the activity to finish initializing.
+        // Otherwise, if device is in dark mode the dialog is shown with wrong color scheme.
+        Utils.runOnMainThreadDelayed(() -> {
+            // Do not set cancelable to false, to allow using back button to skip the action,
+            // just in case the battery change can never be satisfied.
+            var dialog = new AlertDialog.Builder(context)
+                    .setTitle(str("gms_core_dialog_title"))
+                    .setMessage(str(dialogMessageRef))
+                    .setPositiveButton(str(positiveButtonTextRef), onPositiveClickListener)
+                    .create();
+            Utils.showDialog(context, dialog);
+        }, 100);
     }
 
     /**
@@ -74,7 +79,8 @@ public class GmsCoreSupport {
             // Verify the user has not included GmsCore for a root installation.
             // GmsCore Support changes the package name, but with a mounted installation
             // all manifest changes are ignored and the original package name is used.
-            if (context.getPackageName().equals(ORIGINAL_UNPATCHED_PACKAGE_NAME)) {
+            String packageName = context.getPackageName();
+            if (packageName.equals(PACKAGE_NAME_YOUTUBE) || packageName.equals(PACKAGE_NAME_YOUTUBE_MUSIC)) {
                 Logger.printInfo(() -> "App is mounted with root, but GmsCore patch was included");
                 // Cannot use localize text here, since the app will load
                 // resources from the unpatched app and all patch strings are missing.
@@ -99,7 +105,18 @@ public class GmsCoreSupport {
                 return;
             }
 
-            // Check if GmsCore is running in the background.
+            // Check if GmsCore is whitelisted from battery optimizations.
+            if (batteryOptimizationsEnabled(context)) {
+                Logger.printInfo(() -> "GmsCore is not whitelisted from battery optimizations");
+
+                showBatteryOptimizationDialog(context,
+                        "gms_core_dialog_not_whitelisted_using_battery_optimizations_message",
+                        "gms_core_dialog_continue_text",
+                        (dialog, id) -> openGmsCoreDisableBatteryOptimizationsIntent(context));
+                return;
+            }
+
+            // Check if GmsCore is currently running in the background.
             try (var client = context.getContentResolver().acquireContentProviderClient(GMS_CORE_PROVIDER)) {
                 if (client == null) {
                     Logger.printInfo(() -> "GmsCore is not running in the background");
@@ -108,17 +125,7 @@ public class GmsCoreSupport {
                             "gms_core_dialog_not_whitelisted_not_allowed_in_background_message",
                             "gms_core_dialog_open_website_text",
                             (dialog, id) -> open(DONT_KILL_MY_APP_LINK));
-                    return;
                 }
-            }
-
-            // Check if GmsCore is whitelisted from battery optimizations.
-            if (batteryOptimizationsEnabled(context)) {
-                Logger.printInfo(() -> "GmsCore is not whitelisted from battery optimizations");
-                showBatteryOptimizationDialog(context,
-                        "gms_core_dialog_not_whitelisted_using_battery_optimizations_message",
-                        "gms_core_dialog_continue_text",
-                        (dialog, id) -> openGmsCoreDisableBatteryOptimizationsIntent(context));
             }
         } catch (Exception ex) {
             Logger.printException(() -> "checkGmsCore failure", ex);
@@ -143,12 +150,10 @@ public class GmsCoreSupport {
     private static String getGmsCoreDownload() {
         final var vendorGroupId = getGmsCoreVendorGroupId();
         //noinspection SwitchStatementWithTooFewBranches
-        switch (vendorGroupId) {
-            case "app.revanced":
-                return "https://github.com/revanced/gmscore/releases/latest";
-            default:
-                return vendorGroupId + ".android.gms";
-        }
+        return switch (vendorGroupId) {
+            case "app.revanced" -> "https://github.com/revanced/gmscore/releases/latest";
+            default -> vendorGroupId + ".android.gms";
+        };
     }
 
     // Modified by a patch. Do not touch.

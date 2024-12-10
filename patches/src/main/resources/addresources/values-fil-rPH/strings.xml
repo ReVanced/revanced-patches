@@ -912,7 +912,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">Baguhin ang istilo ng in app minimized na player</string>
   <string name="revanced_miniplayer_type_title">Uri ng miniplayer</string>
   <string name="revanced_miniplayer_type_entry_0">Hindi</string>
-  <string name="revanced_miniplayer_type_entry_1">Orihinal</string>
+  <string name="revanced_miniplayer_type_entry_1">Regular</string>
   <string name="revanced_miniplayer_type_entry_3">Tableta</string>
   <string name="revanced_miniplayer_type_entry_4">Moderno 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderno 2</string>

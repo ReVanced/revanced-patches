@@ -40,22 +40,53 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_restart_title">Osvežitev in ponovni zagon</string>
   <string name="revanced_settings_restart">Ponovni zagon</string>
   <string name="revanced_settings_import">Uvoz</string>
+  <string name="revanced_pref_import_export_title">Uvoz in izvoz</string>
+  <string name="revanced_pref_import_export_summary">Uvoz oz. izvoz nastavitev za ReVanced</string>
   <!-- Settings about dialog. -->
+  <string name="revanced_settings_about_links_body">Uporabljate verzijo &lt;i&gt;%s&lt;/i&gt; ReVanced popravkov</string>
+  <string name="revanced_settings_about_links_dev_header">Opomba</string>
+  <string name="revanced_settings_about_links_dev_body">Ta verzija je predrazličica, posledično vas lahko doletijo nepričakovane težave</string>
+  <string name="revanced_settings_about_links_header">Uradne povezave</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="gms_core_toast_not_installed_message">MicroG GmsCore ni nameščen. Namestite ga.</string>
+  <string name="gms_core_dialog_title">Ukrepanje je potrebno</string>
+  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">MicroG GmsCore nima dovoljenj za poganjanje v ozadju.\n\nSledite navodilom \"Don\'t kill my app\" za vaš telefon in jih opravite za vašo MicroG namestitev.\n\nTo je zahtevano za večino aplikacij, da lahko delujejo.</string>
+  <string name="gms_core_dialog_open_website_text">Odprite spletno stran</string>
+  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">Optimizacije baterije za MicroG GmsCore morajo biti izklopljene, da se prepreči težave.\n\nKliknite na gumb za nadaljevanje in izklopite optimizacije baterije.</string>
+  <string name="gms_core_dialog_continue_text">Naprej</string>
   </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">O programu</string>
+  <string name="revanced_settings_screen_01_ads_title">Oglasi</string>
+  <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternativne sličice</string>
+  <string name="revanced_settings_screen_03_feed_title">Pregled</string>
+  <string name="revanced_settings_screen_04_player_title">Predvajalnik</string>
+  <string name="revanced_settings_screen_05_general_title">Splošna postavitev</string>
+  <string name="revanced_settings_screen_07_seekbar_title">Časovna vrstica</string>
+  <string name="revanced_settings_screen_08_swipe_controls_title">Nastavitve drsanja</string>
+  <string name="revanced_settings_screen_11_misc_title">Razno</string>
+  <string name="revanced_settings_screen_12_video_title">Video</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <string name="revanced_shorts_disable_background_playback_title">Izključite predvajanje Shortsev v ozadju</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Predvajanje Shortsev v ozadju je izključeno</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Predvajanje Shortsev v ozadju je vključeno</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Razhroščevanje</string>
+  <string name="revanced_debug_screen_summary">Vključite oz. izključite razvijalske možnosti</string>
+  <string name="revanced_debug_title">Razhroščevalno beleženje</string>
+  <string name="revanced_debug_summary_on">Razhroščevalno beleženje je vključeno</string>
+  <string name="revanced_debug_summary_off">Razhroščevalno beleženje je izključeno</string>
+  <string name="revanced_debug_protobuffer_title">Beleženje protocol bufferjev</string>
+  <string name="revanced_debug_protobuffer_summary_on">Razhroščevalne beležnice vključujejo protocol bufferje</string>
+  <string name="revanced_debug_protobuffer_summary_off">Razhroščevalne beležnice ne vključujejo protocol bufferjev</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
@@ -194,6 +225,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_type_entry_0">Onemogočeno</string>
+  <string name="revanced_miniplayer_type_entry_1">Privzeto</string>
   </patch>
   <patch id="layout.theme.themePatch">
   </patch>

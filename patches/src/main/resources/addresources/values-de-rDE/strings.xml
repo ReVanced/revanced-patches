@@ -1018,7 +1018,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">Ändere den Stil des in App minimierten Players</string>
   <string name="revanced_miniplayer_type_title">Minispielertyp</string>
   <string name="revanced_miniplayer_type_entry_0">Deaktiviert</string>
-  <string name="revanced_miniplayer_type_entry_1">Original</string>
+  <string name="revanced_miniplayer_type_entry_1">Standard</string>
   <string name="revanced_miniplayer_type_entry_2">Minimal</string>
   <string name="revanced_miniplayer_type_entry_3">Tablets</string>
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
@@ -1210,11 +1210,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video-Codec wird automatisch bestimmt</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Das Aktivieren kann die Akkulaufzeit verbessern und die Wiedergabe-Stutting beheben.\n\nAVC hat eine maximale Auflösung von 1080p, Opus Audio Codec ist nicht verfügbar und Video-Wiedergabe wird mehr Internet-Daten als VP9 oder AV1 verwenden.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS Spoofing Nebeneffekte</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Videos für private Kinder dürfen nicht\nabspielen • Livestreams beginnen von Anfang an\n• Videos können 1 Sekunde früher enden</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Private Kindervideos dürfen nicht\nabspielen • Altersbeschränkte Videos dürfen nicht\n• Livestreams beginnen von Anfang an\n• Videos enden 1 Sekunde früh</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR Spoofing Nebeneffekte</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Kindervideos dürfen nicht\nabspielen • Audiospurmenü fehlt\n• Stabile Lautstärke ist nicht verfügbar</string>
-  <string name="revanced_spoof_video_streams_language_">Video-Streams sind gefälscht</string>
-  <string name="revanced_spoof_video_streams_language_title">Bevorzugte Audio-Stream-Sprache</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Kindervideos dürfen nicht\nabspielen • Altersbeschränkte Videos dürfen nicht\n• Livestreams beginnen von Anfang an\n• Videos enden 1 Sekunde früh</string>
+  <string name="revanced_spoof_video_streams_language_title">Standard Audio Streamsprache</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">App-Sprache</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabisch</string>
   <string name="revanced_spoof_video_streams_language_AZ">Aserbaidschan</string>

@@ -4,8 +4,10 @@ import android.annotation.SuppressLint;
 import android.app.*;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.net.ConnectivityManager;
 import android.os.Build;
@@ -47,6 +49,7 @@ public class Utils {
     private static Context context;
 
     private static String versionName;
+    private static String applicationLabel;
 
     private Utils() {
     } // utility class
@@ -61,28 +64,30 @@ public class Utils {
         return ""; // Value is replaced during patching.
     }
 
+    private static PackageInfo getPackageInfo() throws PackageManager.NameNotFoundException {
+        final var packageName = Objects.requireNonNull(getContext()).getPackageName();
+
+        PackageManager packageManager = context.getPackageManager();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            return packageManager.getPackageInfo(
+                    packageName,
+                    PackageManager.PackageInfoFlags.of(0)
+            );
+        }
+
+        return packageManager.getPackageInfo(
+                packageName,
+                0
+        );
+    }
+
     /**
      * @return The version name of the app, such as 19.11.43
      */
     public static String getAppVersionName() {
         if (versionName == null) {
             try {
-                final var packageName = Objects.requireNonNull(getContext()).getPackageName();
-
-                PackageManager packageManager = context.getPackageManager();
-                PackageInfo packageInfo;
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                    packageInfo = packageManager.getPackageInfo(
-                            packageName,
-                            PackageManager.PackageInfoFlags.of(0)
-                    );
-                } else {
-                    packageInfo = packageManager.getPackageInfo(
-                            packageName,
-                            0
-                    );
-                }
-                versionName = packageInfo.versionName;
+                versionName = getPackageInfo().versionName;
             } catch (Exception ex) {
                 Logger.printException(() -> "Failed to get package info", ex);
                 versionName = "Unknown";
@@ -92,6 +97,19 @@ public class Utils {
         return versionName;
     }
 
+    public static String getApplicationName() {
+        if (applicationLabel == null) {
+            try {
+                ApplicationInfo applicationInfo = getPackageInfo().applicationInfo;
+                applicationLabel = (String) applicationInfo.loadLabel(context.getPackageManager());
+            } catch (Exception ex) {
+                Logger.printException(() -> "Failed to get application name", ex);
+                applicationLabel = "Unknown";
+            }
+        }
+
+        return applicationLabel;
+    }
 
     /**
      * Hide a view by setting its layout height and width to 1dp.
@@ -325,7 +343,7 @@ public class Utils {
 
     public static void restartApp(@NonNull Context context) {
         String packageName = context.getPackageName();
-        Intent intent = context.getPackageManager().getLaunchIntentForPackage(packageName);
+        Intent intent = Objects.requireNonNull(context.getPackageManager().getLaunchIntentForPackage(packageName));
         Intent mainIntent = Intent.makeRestartActivityTask(intent.getComponent());
         // Required for API 34 and later
         // Ref: https://developer.android.com/about/versions/14/behavior-changes-14#safer-intents
@@ -497,6 +515,12 @@ public class Utils {
                     }
                 }
         );
+    }
+
+    public static boolean isDarkModeEnabled(Context context) {
+        Configuration config = context.getResources().getConfiguration();
+        final int currentNightMode = config.uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        return currentNightMode == Configuration.UI_MODE_NIGHT_YES;
     }
 
     /**

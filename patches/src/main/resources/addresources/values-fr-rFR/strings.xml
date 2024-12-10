@@ -1018,7 +1018,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">Changer le style du lecteur réduit dans l\'application</string>
   <string name="revanced_miniplayer_type_title">Type de Miniplayer</string>
   <string name="revanced_miniplayer_type_entry_0">Désactivé</string>
-  <string name="revanced_miniplayer_type_entry_1">Original</string>
+  <string name="revanced_miniplayer_type_entry_1">Par défaut</string>
   <string name="revanced_miniplayer_type_entry_2">Minimal</string>
   <string name="revanced_miniplayer_type_entry_3">Tablette</string>
   <string name="revanced_miniplayer_type_entry_4">Moderne 1</string>
@@ -1210,11 +1210,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Le codec vidéo est déterminé automatiquement</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Activer ceci peut améliorer la durée de vie de la batterie et corriger les erreurs de lecture.\n\nAVC a une résolution maximale de 1080p, le codec audio Opus n\'est pas disponible, et la lecture vidéo utilisera plus de données Internet que VP9 ou AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Effets secondaires d\'usurpation iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Les vidéos privées des enfants peuvent ne pas jouer à\n• Les live reams commencent dès le début\n• Les vidéos peuvent se terminer 1 seconde plus tôt</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Les vidéos privées des enfants peuvent ne pas jouer à\n• Les vidéos à l\'âge restreint peuvent ne pas lire\n• Les vidéos en direct commencent dès le début\n• Les vidéos se terminent 1 seconde plus tôt</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Effets secondaires de l\'usurpation VR Android</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Les vidéos des enfants peuvent ne pas lire\n• Le menu de la piste audio manque\n• Le volume stable n\'est pas disponible</string>
-  <string name="revanced_spoof_video_streams_language_">Les flux vidéo sont falsifiés</string>
-  <string name="revanced_spoof_video_streams_language_title">Langue préférée du flux audio</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Les vidéos pour enfants ne peuvent pas lire\n• Les vidéos à l\'âge restreint peuvent ne pas lire\n• Les vidéos en direct commencent dès le début\n• Les vidéos se terminent 1 seconde plus tôt</string>
+  <string name="revanced_spoof_video_streams_language_title">Langue du flux audio par défaut</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Langue de l\'application</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabe</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbaïdjan</string>

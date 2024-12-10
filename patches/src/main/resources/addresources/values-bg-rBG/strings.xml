@@ -710,6 +710,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_off">Изскачащите панели на плейъра се показват</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <string name="revanced_open_videos_fullscreen_portrait_title">Отваряне на видеоклипове в портретен режим на цял екран</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_on">Видеоклиповете се отварят на цял екран</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_off">Видеоклиповете Не се отварят на цял екран</string>
   </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Прозрачност на настройките в Плеара</string>
@@ -1014,7 +1017,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">Променете стила на минимизирания екран за възпроизвеждане</string>
   <string name="revanced_miniplayer_type_title">Минимизиран тип екран за гледане</string>
   <string name="revanced_miniplayer_type_entry_0">Деактивирано</string>
-  <string name="revanced_miniplayer_type_entry_1">Оригинал</string>
+  <string name="revanced_miniplayer_type_entry_1">По подразбиране</string>
   <string name="revanced_miniplayer_type_entry_2">Минимално</string>
   <string name="revanced_miniplayer_type_entry_3">Таблет</string>
   <string name="revanced_miniplayer_type_entry_4">Модерен 1</string>
@@ -1202,10 +1205,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">Деактивирането на тази настройка ще доведе до проблеми с възпроизвеждането на видео.</string>
   <string name="revanced_spoof_video_streams_client_title">Клиент по подразбиране</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Принудително AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Видео кодек по подразбиране AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Видео кодекът се определя автоматично</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Активирането на това може да подобри живота на батерията и да коригира прекъсванията при възпроизвеждане.\n\nAVC има максимална разделителна способност от 1080p, аудиокодек Opus не е наличен и възпроизвеждането на видео ще използва повече интернет данни от VP9 или AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Cтранични ефекти от подмяната на iOS</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Странични ефекти от подправяне на Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Детските видеоклипове може да не се възпроизвеждат\n• Липсва менюто за аудио запис\n• Не е налична стабилна сила на звука</string>
-  <string name="revanced_spoof_video_streams_language_">Видео потоците са подправени</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">Език на приложението</string>
+  <string name="revanced_spoof_video_streams_language_BG">Български</string>
   </patch>
   </app>
   <app id="twitch">

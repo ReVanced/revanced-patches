@@ -991,7 +991,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">Schimbă stilul aplicaţiei minimizat jucătorul</string>
   <string name="revanced_miniplayer_type_title">Tip minijucător</string>
   <string name="revanced_miniplayer_type_entry_0">Dezactivat</string>
-  <string name="revanced_miniplayer_type_entry_1">Originală</string>
+  <string name="revanced_miniplayer_type_entry_1">Implicit</string>
   <string name="revanced_miniplayer_type_entry_2">Minimă</string>
   <string name="revanced_miniplayer_type_entry_3">Tabletă</string>
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
@@ -1170,10 +1170,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Codecul video este forţat să facă AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Codecul video este determinat automat</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Activarea acestei funcții ar putea îmbunătăți durata de viață a bateriei și repara blocajul de redare.\n\nAVC are o rezoluție maximă de 1080p, codec audio Opus nu este disponibil, iar redarea video va utiliza mai multe date internet decât VP9 sau AV1.</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Este posibil ca videoclipurile private pentru copii să nu se redea\n• Livestream-urile încep de la începutul\n• Videoclipurile se pot termina cu o secundă mai devreme</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Videoclipurile private pentru copii ar putea să nu redea\n• Vârsta limitată a videoclipurilor ar putea să nu redea\n• Livestreams începe de la începutul\n• Videoclipuri sfârșit cu 1 secundă mai devreme</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Reacţii adverse de spoofing Android VR</string>
-  <string name="revanced_spoof_video_streams_language_">Fluxurile video sunt falsificate</string>
-  <string name="revanced_spoof_video_streams_language_title">Limba de transmisiune audio preferată</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Este posibil ca videoclipurile cu copii să nu redea\n• Vârsta limitată a videoclipurilor ar putea să nu redea\n• Livestreams începe de la începutul\n• Videoclipuri sfârșit de 1 secundă mai devreme</string>
+  <string name="revanced_spoof_video_streams_language_title">Limbă implicită flux audio</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Limba aplicației</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabă</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbaidjan</string>

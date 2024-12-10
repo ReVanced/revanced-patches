@@ -45,8 +45,11 @@ val spoofVideoStreamsPatch = spoofVideoStreamsPatch({
                     summaryKey = null
                 ),
                 SwitchPreference("revanced_spoof_video_streams_ios_force_avc"),
-                NonInteractivePreference("revanced_spoof_video_streams_about_android_vr"),
-                NonInteractivePreference("revanced_spoof_video_streams_about_ios"),
+                // Preference requires a title but the actual text is chosen at runtime.
+                NonInteractivePreference(
+                    key = "revanced_spoof_video_streams_about_android_vr",
+                    tag = "app.revanced.extension.youtube.settings.preference.SpoofStreamingDataSideEffectsPreference"
+                ),
             ),
         ),
     )

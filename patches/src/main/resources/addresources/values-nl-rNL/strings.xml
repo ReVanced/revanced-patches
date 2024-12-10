@@ -1002,7 +1002,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">De stijl van de in de app geminimaliseerde speler wijzigen</string>
   <string name="revanced_miniplayer_type_title">Miniplayer type</string>
   <string name="revanced_miniplayer_type_entry_0">Uitgeschakeld</string>
-  <string name="revanced_miniplayer_type_entry_1">Origineel</string>
+  <string name="revanced_miniplayer_type_entry_1">Standaard</string>
   <string name="revanced_miniplayer_type_entry_2">Minimaal</string>
   <string name="revanced_miniplayer_type_entry_3">Telefoon</string>
   <string name="revanced_miniplayer_type_entry_4">Moderne 1</string>
@@ -1194,11 +1194,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Videocodec wordt automatisch bepaald</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Het inschakelen hiervan kan de batterijduur verbeteren en het terugspringen corrigeren.\n\nAVC heeft een maximale resolutie van 1080p, Opus audiocodec is niet beschikbaar. en afspelen van video\'s zal meer internetgegevens gebruiken dan VP9 of AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS vervalste bijwerkingen</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Privé-kinderen video\'s mogen niet afspelen\n• Livestreams beginnen vanaf het begin\n• Video\'s kunnen 1 seconde vroeg eindigen</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Privé-kinderen video\'s kunnen mogelijk niet afspelen\n• Leeftijd beperkte video\'s kunnen mogelijk niet afspelen\n• Livestreams starten vanaf het begin\n• Video\'s eindigen 1 seconde eerder</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR vervalste bijeffecten</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Kids video\'s mogen niet afspelen\n• Audio track menu ontbreekt\n• Stabiel volume is niet beschikbaar</string>
-  <string name="revanced_spoof_video_streams_language_">Videostreams zijn vervalst</string>
-  <string name="revanced_spoof_video_streams_language_title">Voorkeurstaal audio stream</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Kids video\'s mogen niet afspelen\n• Leeftijd beperkte video\'s mogen niet afspelen\n• Livestreams beginnen vanaf het begin\n• Video\'s eindigen 1 seconde eerder</string>
+  <string name="revanced_spoof_video_streams_language_title">Standaard taal audio stream</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">App taal</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabisch</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbeidzjaans</string>

@@ -30,7 +30,7 @@ public final class MiniplayerPatch {
          */
         DISABLED(false, null),
         /** Unmodified type, and same as un-patched. */
-        ORIGINAL(null, null),
+        DEFAULT(null, null),
         /**
          * Exactly the same as MINIMAL and only here for migration of user settings.
          * Eventually this should be deleted.
@@ -182,7 +182,7 @@ public final class MiniplayerPatch {
      * effectively disabling the miniplayer.
      */
     public static boolean getMiniplayerOnCloseHandler(boolean original) {
-        return CURRENT_TYPE == ORIGINAL
+        return CURRENT_TYPE == DEFAULT
                 ? original
                 : CURRENT_TYPE == DISABLED;
     }
@@ -201,7 +201,7 @@ public final class MiniplayerPatch {
      * Injection point.
      */
     public static boolean getModernMiniplayerOverride(boolean original) {
-        return CURRENT_TYPE == ORIGINAL
+        return CURRENT_TYPE == DEFAULT
                 ? original
                 : CURRENT_TYPE.isModern();
     }
@@ -229,7 +229,7 @@ public final class MiniplayerPatch {
      * Injection point.
      */
     public static boolean getModernFeatureFlagsActiveOverride(boolean original) {
-        if (CURRENT_TYPE == ORIGINAL) {
+        if (CURRENT_TYPE == DEFAULT) {
             return original;
         }
 
@@ -240,7 +240,7 @@ public final class MiniplayerPatch {
      * Injection point.
      */
     public static boolean enableMiniplayerDoubleTapAction(boolean original) {
-        if (CURRENT_TYPE == ORIGINAL) {
+        if (CURRENT_TYPE == DEFAULT) {
             return original;
         }
 
@@ -251,7 +251,7 @@ public final class MiniplayerPatch {
      * Injection point.
      */
     public static boolean enableMiniplayerDragAndDrop(boolean original) {
-        if (CURRENT_TYPE == ORIGINAL) {
+        if (CURRENT_TYPE == DEFAULT) {
             return original;
         }
 

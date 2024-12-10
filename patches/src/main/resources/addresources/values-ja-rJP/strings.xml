@@ -997,7 +997,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">アプリの最小化プレイヤーのスタイルを変更する</string>
   <string name="revanced_miniplayer_type_title">ミニプレーヤータイプ</string>
   <string name="revanced_miniplayer_type_entry_0">無効</string>
-  <string name="revanced_miniplayer_type_entry_1">オリジナル</string>
+  <string name="revanced_miniplayer_type_entry_1">既定</string>
   <string name="revanced_miniplayer_type_entry_2">最小</string>
   <string name="revanced_miniplayer_type_entry_3">タブレット</string>
   <string name="revanced_miniplayer_type_entry_4">モダン 1</string>
@@ -1188,8 +1188,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">これを有効にするとバッテリー寿命が延長され、再生が停止する可能性があります。\n\nAVCの最大解像度は1080pで、Opusオーディオコーデックは利用できません。 動画再生は、VP9やAV1よりも多くのインターネットデータを使用します。</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOSのクライアント偽装での副作用</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android-VR クライアント偽装の副作用</string>
-  <string name="revanced_spoof_video_streams_language_">ビデオストリームはなりすましています</string>
-  <string name="revanced_spoof_video_streams_language_title">優先オーディオストリーム言語</string>
+  <string name="revanced_spoof_video_streams_language_title">デフォルトのオーディオストリーム言語</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">アプリの言語</string>
   <string name="revanced_spoof_video_streams_language_AR">アラビア文字</string>
   <string name="revanced_spoof_video_streams_language_AZ">アゼルバイジャン語</string>

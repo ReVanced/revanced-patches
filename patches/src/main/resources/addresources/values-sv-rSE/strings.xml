@@ -1017,7 +1017,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">Ändra stilen på appen minimerad spelare</string>
   <string name="revanced_miniplayer_type_title">Miniplayer typ</string>
   <string name="revanced_miniplayer_type_entry_0">Inaktiverad</string>
-  <string name="revanced_miniplayer_type_entry_1">Ursprunglig</string>
+  <string name="revanced_miniplayer_type_entry_1">Standard</string>
   <string name="revanced_miniplayer_type_entry_2">Minimal</string>
   <string name="revanced_miniplayer_type_entry_3">Surfplatta</string>
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
@@ -1209,11 +1209,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video-codec bestäms automatiskt</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Aktivering av detta kan förbättra batteriets livslängd och åtgärda uppspelningshjälp.\n\nAVC har en maximal upplösning på 1080p, Opus audio codec är inte tillgänglig, och videouppspelning kommer att använda mer internetdata än VP9 eller AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS förfalskning biverkningar</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Privata barn videor får inte spela\n• Livestreams börjar från början\n• Videor kan sluta 1 sekund tidigt</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Privata barnvideor kanske inte spelar\n• Åldersbegränsade videor kanske inte spelar\n• Livestreams börjar från början\n• Videor slutar 1 sekund tidigt</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR förfalskning biverkningar</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Barnvideor kanske inte spelar\n• Ljudspårsmenyn saknas\n• Stabil volym är inte tillgänglig</string>
-  <string name="revanced_spoof_video_streams_language_">Videoströmmar är förfalskade</string>
-  <string name="revanced_spoof_video_streams_language_title">Föredraget ljudströmspråk</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Barnvideor kanske inte spelar\n• Åldersbegränsade videor kanske inte spelar\n• Livestreams börjar från början\n• Videor slutar 1 sekund tidigt</string>
+  <string name="revanced_spoof_video_streams_language_title">Standard ljudströmningsspråk</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Appens språk</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabiska</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbajdzjanska</string>

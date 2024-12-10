@@ -1017,7 +1017,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">Αλλάξτε το στυλ της ελαχιστοποιημένης οθόνης αναπαραγωγής</string>
   <string name="revanced_miniplayer_type_title">Τύπος ελαχιστοποιημένης οθόνης αναπαραγωγής</string>
   <string name="revanced_miniplayer_type_entry_0">Ανενεργή</string>
-  <string name="revanced_miniplayer_type_entry_1">Αρχικός</string>
+  <string name="revanced_miniplayer_type_entry_1">Προεπιλογή</string>
   <string name="revanced_miniplayer_type_entry_2">Ελάχιστη</string>
   <string name="revanced_miniplayer_type_entry_3">Ταμπλετ</string>
   <string name="revanced_miniplayer_type_entry_4">Μοντέρνα 1</string>
@@ -1209,11 +1209,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Ο κωδικοποιητής βίντεο ορίζεται αυτόματα</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Η ενεργοποίηση αυτού μπορεί να βελτιώσει τη διάρκεια ζωής της μπαταρίας και να διορθώσει κολλήματα αναπαραγωγής.\n\nΟ AVC έχει μέγιστη ανάλυση 1080p, ο κωδικοποιητής ήχου Opus δεν είναι διαθέσιμος και η αναπαραγωγή βίντεο θα καταναλώνει περισσότερα δεδομένα internet από τον VP9 ή τον AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Παρενέργειες παραποίησης σε iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Ιδιωτικά βίντεο για παιδιά ενδεχομένως να μην αναπαράγονται\n• Οι ζωντανές μεταδόσεις ξεκινούν από την αρχή\n• Τα βίντεο ενδέχεται να λήξουν 1 δευτερόλεπτο νωρίτερα</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Τα ιδιωτικά βίντεο για παιδιά μπορεί να μην παίζουν\n• Τα βίντεο περιορισμένης ηλικίας μπορεί να μην παίζουν\n• Livestreams ξεκινούν από την αρχή\n• Τα βίντεο λήγουν 1 δευτερόλεπτο νωρίς</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Παρενέργειες παραποίησης σε Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Τα βίντεο για παιδιά ενδέχεται να μην αναπαράγονται\n• Το μενού «Κομμάτι ήχου» λείπει\n• Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη</string>
-  <string name="revanced_spoof_video_streams_language_">Οι ροές βίντεο παραποιούνται</string>
-  <string name="revanced_spoof_video_streams_language_title">Προτιμώμενη γλώσσα ροής ήχου</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Τα βίντεο για παιδιά μπορεί να μην παίζουν\n• Τα βίντεο με περιορισμένη ηλικία δεν μπορούν να παίξουν\n• Livestreams ξεκινούν από την αρχή\n• Τα βίντεο λήγουν 1 δευτερόλεπτο νωρίς</string>
+  <string name="revanced_spoof_video_streams_language_title">Προεπιλεγμένη γλώσσα ροής ήχου</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Γλώσσα εφαρμογής</string>
   <string name="revanced_spoof_video_streams_language_AR">Αραβικά</string>
   <string name="revanced_spoof_video_streams_language_AZ">Αζερμπαϊτζανικά</string>
@@ -1241,9 +1240,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_language_KO">Κορεάτικα</string>
   <string name="revanced_spoof_video_streams_language_LT">Λιθουανικά</string>
   <string name="revanced_spoof_video_streams_language_LV">Λετονικά</string>
-  <string name="revanced_spoof_video_streams_language_MK">Σλαβομακεδονικά</string>
+  <string name="revanced_spoof_video_streams_language_MK">Μακεδονικά</string>
   <string name="revanced_spoof_video_streams_language_MN">Μογγολικά</string>
-  <string name="revanced_spoof_video_streams_language_MR">Μαραθικά</string>
+  <string name="revanced_spoof_video_streams_language_MR">Μαράτι</string>
   <string name="revanced_spoof_video_streams_language_MS">Μαλαισιανά</string>
   <string name="revanced_spoof_video_streams_language_MY">Βιρμανικά</string>
   <string name="revanced_spoof_video_streams_language_NL">Ολλανδικά</string>

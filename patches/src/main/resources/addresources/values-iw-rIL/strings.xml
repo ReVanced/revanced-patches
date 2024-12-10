@@ -35,32 +35,20 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="misc.checks.checkEnvironmentPatch">
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
-  <string name="revanced_settings_reset">איפוס</string>
-  <string name="revanced_settings_restart">הפעלה מחדש</string>
-  <string name="revanced_settings_import">ייבוא</string>
-  <string name="revanced_settings_import_copy">העתק</string>
-  <string name="revanced_settings_import_reset">הגדרות ReVanced אופסו לברירת המחדל</string>
-  <string name="revanced_pref_import_export_title">יבוא/ ייצוא</string>
-  <string name="revanced_pref_import_export_summary">יבוא/ ייצוא הגדרות ReVanced</string>
   <!-- Settings about dialog. -->
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="gms_core_dialog_continue_text">המשך</string>
   </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
-  <string name="revanced_settings_screen_00_about_title">אודות</string>
-  <string name="revanced_settings_screen_11_misc_title">שונות</string>
-  <string name="revanced_settings_screen_12_video_title">וידאו</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">איתור באגים</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
@@ -98,7 +86,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">אוטומטי</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   </patch>
@@ -134,8 +121,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_cast_button_summary_on">לחצן שידור מסך מוסתר</string>
-  <string name="revanced_hide_cast_button_summary_off">לחצן שידור מסך מוצג</string>
   <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
@@ -143,8 +128,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
   </patch>
   <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
-  <string name="revanced_hide_info_cards_summary_on">כרטיסי המידע מוסתרים</string>
-  <string name="revanced_hide_info_cards_summary_off">כרטיסי המידע מוצגים</string>
   </patch>
   <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
   </patch>
@@ -172,7 +155,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
-  <string name="revanced_ryd_about">אודות</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   </patch>
   <patch id="layout.searchbar.wideSearchbarPatch">

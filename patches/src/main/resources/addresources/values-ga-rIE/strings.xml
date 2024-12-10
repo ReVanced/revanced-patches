@@ -1014,7 +1014,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">Athraigh stíl an imreora íoslaghdaithe san aip</string>
   <string name="revanced_miniplayer_type_title">Cineál Miniplayer</string>
   <string name="revanced_miniplayer_type_entry_0">Díchumasaithe</string>
-  <string name="revanced_miniplayer_type_entry_1">Bunaidh</string>
+  <string name="revanced_miniplayer_type_entry_1">Réamhshocraithe</string>
   <string name="revanced_miniplayer_type_entry_2">Íosta</string>
   <string name="revanced_miniplayer_type_entry_3">Táibléad</string>
   <string name="revanced_miniplayer_type_entry_4">Nua-aimseartha 1</string>
@@ -1203,10 +1203,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_client_title">Cliant réamhshocraithe</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Fórsa AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Fo-iarsmaí spoofing iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">Ní féidir físeáin phríobháideacha do pháistí a sheinm\n• Tosaíonn sruthanna beo ón tús\n• Féadfaidh físeáin críochnú 1 soicind go luath</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Fo-iarsmaí spoofing Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Ní fhéadfaidh físeáin leanaí a sheinm\n• Tá an roghchlár rian fuaime ar iarraidh\n• Níl an toirt cobhsaí ar fáil</string>
-  <string name="revanced_spoof_video_streams_language_">Tá sruthanna físe spoofed</string>
   </patch>
   </app>
   <app id="twitch">

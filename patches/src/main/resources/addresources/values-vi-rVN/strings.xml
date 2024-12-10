@@ -1014,7 +1014,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">Thay đổi kiểu trình phát thu nhỏ trong ứng dụng</string>
   <string name="revanced_miniplayer_type_title">Loại trình phát thu nhỏ</string>
   <string name="revanced_miniplayer_type_entry_0">Đã tắt</string>
-  <string name="revanced_miniplayer_type_entry_1">Nguyên bản</string>
+  <string name="revanced_miniplayer_type_entry_1">Mặc định</string>
   <string name="revanced_miniplayer_type_entry_2">Thu gọn</string>
   <string name="revanced_miniplayer_type_entry_3">Máy tính bảng</string>
   <string name="revanced_miniplayer_type_entry_4">Hiện đại 1</string>
@@ -1204,8 +1204,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_title">AVC (H.264) ép buộc</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Tác dụng phụ của giả mạo iOS</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Tác dụng phụ của giả mạo Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Video trẻ em có thể không phát được \n • Menu chọn bản âm thanh không khả dụng \n • Âm lượng ổn định không có sẵn</string>
-  <string name="revanced_spoof_video_streams_language_">Luồng video đã được giả mạo</string>
   </patch>
   </app>
   <app id="twitch">

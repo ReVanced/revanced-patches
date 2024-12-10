@@ -82,7 +82,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_03_feed_title">Лента</string>
   <string name="revanced_settings_screen_04_player_title">Плеер</string>
   <string name="revanced_settings_screen_05_general_title">Основной интерфейс</string>
-  <string name="revanced_settings_screen_07_seekbar_title">Прогресс воспроизведения</string>
+  <string name="revanced_settings_screen_07_seekbar_title">Полоса прогресса</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Управление жестами</string>
   <string name="revanced_settings_screen_11_misc_title">Прочие</string>
   <string name="revanced_settings_screen_12_video_title">Видео</string>
@@ -275,7 +275,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_doodles_title">YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Doodles на панели поиска скрыты</string>
   <string name="revanced_hide_doodles_summary_off">Doodles на панели поиска отображены</string>
-  <string name="revanced_hide_doodles_user_dialog_message">YouTube Doodles появляются несколько дней в году.\n\nЕсли в Вашем регионе в настоящее время показывается Doodle, и этот параметр скрытия включен, то панель фильтров под панелью поиска будет также скрыта.</string>
+  <string name="revanced_hide_doodles_user_dialog_message">YouTube Doodles появляются несколько дней в году.\n\nЕсли в Вашем регионе в настоящее время показывается Doodle, и данная опция скрытия активна, то панель фильтров под панелью поиска будет также скрыта.</string>
   <string name="revanced_custom_filter_screen_title">Пользовательский фильтр</string>
   <string name="revanced_custom_filter_screen_summary">Скрыть компоненты с помощью пользовательских фильтров</string>
   <string name="revanced_custom_filter_title">Пользовательский фильтр</string>
@@ -397,8 +397,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
   <string name="revanced_seekbar_tapping_title">Перемотка нажатием</string>
-  <string name="revanced_seekbar_tapping_summary_on">Перемотка нажатием на прогресс воспроизведения включена</string>
-  <string name="revanced_seekbar_tapping_summary_off">Перемотка нажатием на прогресс воспроизведения отключена</string>
+  <string name="revanced_seekbar_tapping_summary_on">Перемотка нажатием на полосу прогресса включена</string>
+  <string name="revanced_seekbar_tapping_summary_off">Перемотка нажатием на полосу прогресса отключена</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Регулировка яркости жестом</string>
@@ -588,12 +588,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_rolling_number_animations_summary_off">Анимированные счетчики просмотров, лайков и дизлайков включены</string>
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
-  <string name="revanced_hide_seekbar_title">Прогресс воспроизведения</string>
-  <string name="revanced_hide_seekbar_summary_on">Прогресс воспроизведения в плеере скрыт</string>
-  <string name="revanced_hide_seekbar_summary_off">Прогресс воспроизведения в плеере отображен</string>
-  <string name="revanced_hide_seekbar_thumbnail_title">Миниатюры</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_on">Миниатюры прогресса воспроизведения скрыты</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_off">Миниатюры прогресса воспроизведения отображены</string>
+  <string name="revanced_hide_seekbar_title">Полоса прогресса в плеере</string>
+  <string name="revanced_hide_seekbar_summary_on">Полоса прогресса в плеере скрыта</string>
+  <string name="revanced_hide_seekbar_summary_off">Полоса прогресса в плеере отображена</string>
+  <string name="revanced_hide_seekbar_thumbnail_title">Полоса прогресса в миниатюрах</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">Полоса прогресса в миниатюрах скрыта</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_off">Полоса прогресса в миниатюрах отображена</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Плеер Shorts</string>
@@ -623,7 +623,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_shop_button_title">Кнопка \"Магазин\"</string>
   <string name="revanced_hide_shorts_shop_button_summary_on">Кнопка \"Магазин\" в Shorts скрыта</string>
   <string name="revanced_hide_shorts_shop_button_summary_off">Кнопка \"Магазин\" в Shorts отображена</string>
-  <string name="revanced_hide_shorts_super_thanks_button_title">Скрыть кнопку \"Супер спасибо\"</string>
+  <string name="revanced_hide_shorts_super_thanks_button_title">Кнопка \"Супер спасибо\"</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_on">Кнопка \"Супер спасибо\" скрыта</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_off">Кнопка \"Супер спасибо\" показывается</string>
   <string name="revanced_hide_shorts_tagged_products_title">Товары с тегом</string>
@@ -711,9 +711,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_off">Автоматически всплывающие панели (плейлист или живой чат) в плеере отображены</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
-  <string name="revanced_open_videos_fullscreen_portrait_title">Открыть видео в полноэкранном портрете</string>
-  <string name="revanced_open_videos_fullscreen_portrait_summary_on">Видео открыть полноэкранный режим</string>
-  <string name="revanced_open_videos_fullscreen_portrait_summary_off">Видео не открывают полноэкранный режим</string>
+  <string name="revanced_open_videos_fullscreen_portrait_title">Видео в полноэкранном портрете</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_on">Видео открываются в полноэкранном портретном режиме</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_off">Видео не открываются в полноэкранном портретном режиме</string>
   </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Непрозрачность оверлея плеера</string>
@@ -771,14 +771,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
   <string name="revanced_seekbar_thumbnails_high_quality_title">Миниатюры высокого качества</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Миниатюры прогресса воспроизведения высокого качества</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Миниатюры прогресса воспроизведения среднего качества</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Полноэкранные миниатюры прогресса воспроизведения высокого качества</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Полноэкранные миниатюры прогресса воспроизведения среднего качества</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Данная опция также восстановит миниатюры в прямых трансляциях, у которых они отсутствуют в прогрессе воспроизведения.\n\nМиниатюры прогресса воспроизведения будут использовать такое же качество, как и текущее видео.\n\nДанная опция работает лучше с качеством видео 720p или ниже, и при использовании очень быстрого подключения к Интернету.</string>
-  <string name="revanced_restore_old_seekbar_thumbnails_title">Восстановление старых миниатюр</string>
-  <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Старые миниатюры восстановлены - миниатюры прогресса воспроизведения отображаются над ним</string>
-  <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Миниатюры прогресса воспроизведения отображаются в полноэкранном режиме</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Миниатюры полосы прогресса высокого качества</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Миниатюры полосы прогресса среднего качества</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Полноэкранные миниатюры полосы прогресса высокого качества</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Полноэкранные миниатюры полосы прогресса среднего качества</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Данная опция также восстановит миниатюры в прямых трансляциях, которые не имеют миниатюр полосы прогресса.\n\nМиниатюры полосы прогресса будут использовать такое же качество, как и текущее видео.\n\nДанная опция работает лучше с качеством видео 720p или ниже, и при использовании очень быстрого подключения к Интернету.</string>
+  <string name="revanced_restore_old_seekbar_thumbnails_title">Старые миниатюры</string>
+  <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Миниатюры полосы прогресса отображаются над полосой прогресса</string>
+  <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Миниатюры полосы прогресса отображаются в полноэкранном режиме</string>
   </patch>
   <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
   <string name="revanced_sb_enable_sb">Включить SponsorBlock</string>
@@ -893,7 +893,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_skip_automatically">Пропускать автоматически</string>
   <string name="revanced_sb_skip_automatically_once">Пропускать автоматически один раз</string>
   <string name="revanced_sb_skip_showbutton">Кнопка пропуска</string>
-  <string name="revanced_sb_skip_seekbaronly">Отображать в прогрессе воспроизведения</string>
+  <string name="revanced_sb_skip_seekbaronly">Отображать в полосе прогресса</string>
   <string name="revanced_sb_skip_ignore">Отключить</string>
   <string name="revanced_sb_submit_failed_invalid">Не удалось отправить сегмент: %s</string>
   <string name="revanced_sb_submit_failed_timeout">SponsorBlock временно не работает</string>
@@ -1018,7 +1018,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">Стиль свернутого мини-плеера </string>
   <string name="revanced_miniplayer_type_title">Тип мини-плеера</string>
   <string name="revanced_miniplayer_type_entry_0">Отключено</string>
-  <string name="revanced_miniplayer_type_entry_1">Оригинал</string>
+  <string name="revanced_miniplayer_type_entry_1">По умолчанию</string>
   <string name="revanced_miniplayer_type_entry_2">Минимальный</string>
   <string name="revanced_miniplayer_type_entry_3">Планшет</string>
   <string name="revanced_miniplayer_type_entry_4">Современный 1</string>
@@ -1042,9 +1042,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_hide_expand_close_legacy_title">Кнопки \"Развернуть\" и \"Закрыть\"</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Кнопки скрыты\n\nПроведите по мини-плееру для разворачивания или закрытия</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Кнопки разворачивания и закрытия отображены</string>
-  <string name="revanced_miniplayer_hide_subtext_title">Скрыть подтексты</string>
-  <string name="revanced_miniplayer_hide_subtext_summary_on">Субтексты скрыты</string>
-  <string name="revanced_miniplayer_hide_subtext_summary_off">Подтексты показаны</string>
+  <string name="revanced_miniplayer_hide_subtext_title">Подтексты</string>
+  <string name="revanced_miniplayer_hide_subtext_summary_on">Подтексты скрыты</string>
+  <string name="revanced_miniplayer_hide_subtext_summary_off">Подтексты отображены</string>
   <string name="revanced_miniplayer_hide_rewind_forward_title">Кнопки перемотки</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Кнопки перемотки вперед и назад скрыты</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Кнопки перемотки вперед и назад отображены</string>
@@ -1061,12 +1061,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_gradient_loading_screen_summary_off">Экран загрузки имеет сплошной фон</string>
   </patch>
   <patch id="layout.theme.themeResourcePatch">
-  <string name="revanced_seekbar_custom_color_title">Цвет прогресса воспроизведения</string>
-  <string name="revanced_seekbar_custom_color_summary_on">Пользовательский цвет прогресса воспроизведения отображен</string>
-  <string name="revanced_seekbar_custom_color_summary_off">Оригинальный цвет прогресса воспроизведения отображен</string>
+  <string name="revanced_seekbar_custom_color_title">Цвет полосы прогресса</string>
+  <string name="revanced_seekbar_custom_color_summary_on">Пользовательский цвет полосы прогресса отображен</string>
+  <string name="revanced_seekbar_custom_color_summary_off">Оригинальный цвет полосы прогресса отображен</string>
   <string name="revanced_seekbar_custom_color_value_title">Пользовательский цвет</string>
-  <string name="revanced_seekbar_custom_color_value_summary">Редактировать цвет прогресса воспроизведения</string>
-  <string name="revanced_seekbar_custom_color_invalid">Неверное значение цвета прогресса воспроизведения</string>
+  <string name="revanced_seekbar_custom_color_value_summary">Редактировать цвет полосы прогресса</string>
+  <string name="revanced_seekbar_custom_color_invalid">Неверное значение цвета полосы прогресса</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Обход ограничений региона</string>
@@ -1115,7 +1115,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
   <string name="revanced_check_watch_history_domain_name_dialog_title">Внимание</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Ваша история просмотра не сохраняется.&lt;br&gt;&lt;br&gt;Скорее всего, это из-за блокировщика рекламы DNS или сетевого прокси.&lt;br&gt;&lt;br&gt;Чтобы это исправить, добавьте &lt;b&gt;s.youtube.com&lt;/b&gt; в белый список блокировщика или отключите все блокировщики DNS и прокси.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Ваша история просмотра не сохраняется.&lt;br&gt;&lt;br&gt;Вероятнее всего это вызвано DNS блокировщиком рекламы или сетевым прокси.&lt;br&gt;&lt;br&gt;Чтобы это исправить, добавьте &lt;b&gt;s.youtube.com&lt;/b&gt; в белый список блокировщика рекламы или отключите все блокировщики DNS и прокси.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Не показывать снова</string>
   </patch>
   <patch id="misc.autorepeat.autoRepeatPatch">
@@ -1206,21 +1206,18 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">Отключение этой настройки может вызвать проблемы с воспроизведением видео.</string>
   <string name="revanced_spoof_video_streams_client_title">Клиент по умолчанию</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Принудительно AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Видео кодек привязан к AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Видео кодек принудительно установлен на AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Видео кодек определяется автоматически</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Включение этого параметра может улучшить время работы батареи и исправить затяжку воспроизведения.\n\nAVC имеет максимальное разрешение 1080p, аудио кодек Opus недоступен, и воспроизведение видео будет использовать больше интернет-данных, чем VP9 или AV1.</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Активация данной опции может улучшить время работы батареи и исправить задержки воспроизведения.\n\nAVC имеет максимальное разрешение 1080p, аудио кодек Opus недоступен, и воспроизведение видео будет использовать больше интернет данных в сравнении с VP9 или AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Побочные эффекты подмены на iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Видео частных детей не могут играть\n• Livestreams начинается с начала\n• Видео может закончиться 1 секунду рано</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Побочные эффекты подмены на Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Детские видео могут не воспроизводиться\n• Пункт меню \"Звуковая дорожка\" отсутвтует\n• Пункт меню \"Постоянный уровень громкости\" недоступен</string>
-  <string name="revanced_spoof_video_streams_language_">Видеопотоки подменены</string>
-  <string name="revanced_spoof_video_streams_language_title">Предпочитаемый язык аудио потока</string>
+  <string name="revanced_spoof_video_streams_language_title">Язык аудио потока по умолчанию</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Язык приложения</string>
   <string name="revanced_spoof_video_streams_language_AR">Арабский</string>
-  <string name="revanced_spoof_video_streams_language_AZ">Азербайджан</string>
+  <string name="revanced_spoof_video_streams_language_AZ">Азербайджанский</string>
   <string name="revanced_spoof_video_streams_language_BG">Болгарский</string>
   <string name="revanced_spoof_video_streams_language_BN">Бенгальский</string>
-  <string name="revanced_spoof_video_streams_language_CA">Каталанский</string>
+  <string name="revanced_spoof_video_streams_language_CA">Каталонский</string>
   <string name="revanced_spoof_video_streams_language_CS">Чешский</string>
   <string name="revanced_spoof_video_streams_language_DA">Датский</string>
   <string name="revanced_spoof_video_streams_language_DE">Немецкий</string>
@@ -1231,42 +1228,42 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_language_FA">Персидский</string>
   <string name="revanced_spoof_video_streams_language_FI">Финский</string>
   <string name="revanced_spoof_video_streams_language_FR">Французский</string>
-  <string name="revanced_spoof_video_streams_language_GU">Gujarati</string>
+  <string name="revanced_spoof_video_streams_language_GU">Гуджарати</string>
   <string name="revanced_spoof_video_streams_language_HI">Хинди</string>
   <string name="revanced_spoof_video_streams_language_HR">Хорватский</string>
   <string name="revanced_spoof_video_streams_language_HU">Венгерский</string>
   <string name="revanced_spoof_video_streams_language_ID">Индонезийский</string>
   <string name="revanced_spoof_video_streams_language_IT">Итальянский</string>
   <string name="revanced_spoof_video_streams_language_JA">Японский</string>
-  <string name="revanced_spoof_video_streams_language_KK">Kazakh</string>
+  <string name="revanced_spoof_video_streams_language_KK">Казахский</string>
   <string name="revanced_spoof_video_streams_language_KO">Корейский</string>
   <string name="revanced_spoof_video_streams_language_LT">Литовский</string>
   <string name="revanced_spoof_video_streams_language_LV">Латышский</string>
   <string name="revanced_spoof_video_streams_language_MK">Македонский</string>
   <string name="revanced_spoof_video_streams_language_MN">Монгольский</string>
-  <string name="revanced_spoof_video_streams_language_MR">Маратти</string>
-  <string name="revanced_spoof_video_streams_language_MS">Малай</string>
-  <string name="revanced_spoof_video_streams_language_MY">Burmese</string>
+  <string name="revanced_spoof_video_streams_language_MR">Маратхи</string>
+  <string name="revanced_spoof_video_streams_language_MS">Малайский</string>
+  <string name="revanced_spoof_video_streams_language_MY">Бирманский</string>
   <string name="revanced_spoof_video_streams_language_NL">Голландский</string>
-  <string name="revanced_spoof_video_streams_language_OR">Odia</string>
-  <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
+  <string name="revanced_spoof_video_streams_language_OR">Одиа</string>
+  <string name="revanced_spoof_video_streams_language_PA">Панджаби</string>
   <string name="revanced_spoof_video_streams_language_PL">Польский</string>
   <string name="revanced_spoof_video_streams_language_PT_BR">Португальский (Бразилия)</string>
   <string name="revanced_spoof_video_streams_language_PT_PT">Португальский (Португалия)</string>
   <string name="revanced_spoof_video_streams_language_RO">Румынский</string>
   <string name="revanced_spoof_video_streams_language_RU">Русский</string>
   <string name="revanced_spoof_video_streams_language_SK">Словацкий</string>
-  <string name="revanced_spoof_video_streams_language_SL">Slovene</string>
+  <string name="revanced_spoof_video_streams_language_SL">Словенский</string>
   <string name="revanced_spoof_video_streams_language_SR">Сербский</string>
   <string name="revanced_spoof_video_streams_language_SV">Шведский</string>
   <string name="revanced_spoof_video_streams_language_SW">Суахили</string>
-  <string name="revanced_spoof_video_streams_language_TA">Tamil</string>
-  <string name="revanced_spoof_video_streams_language_TE">Telugu</string>
+  <string name="revanced_spoof_video_streams_language_TA">Тамильский</string>
+  <string name="revanced_spoof_video_streams_language_TE">Телугу</string>
   <string name="revanced_spoof_video_streams_language_TH">Тайский</string>
   <string name="revanced_spoof_video_streams_language_TR">Турецкий</string>
   <string name="revanced_spoof_video_streams_language_UK">Украинский</string>
   <string name="revanced_spoof_video_streams_language_UR">Урду</string>
-  <string name="revanced_spoof_video_streams_language_VI">Vietnamese</string>
+  <string name="revanced_spoof_video_streams_language_VI">Вьетнамский</string>
   <string name="revanced_spoof_video_streams_language_ZH">Китайский</string>
   </patch>
   </app>
