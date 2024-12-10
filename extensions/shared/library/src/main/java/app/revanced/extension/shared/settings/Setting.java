@@ -7,7 +7,6 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.StringRef;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.SharedPrefCategory;
-import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -330,7 +329,7 @@ public abstract class Setting<T> {
         return value.equals(defaultValue);
     }
 
-    @NotNull
+    @NonNull
     @Override
     public String toString() {
         return key + "=" + get();
