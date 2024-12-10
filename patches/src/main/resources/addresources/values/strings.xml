@@ -1229,11 +1229,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video codec is determined automatically</string>
             <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Enabling this might improve battery life and fix playback stuttering.\n\nAVC has a maximum resolution of 1080p, Opus audio codec is not available, and video playback will use more internet data than VP9 or AV1.</string>
             <string name="revanced_spoof_video_streams_about_ios_title">iOS spoofing side effects</string>
-            <string name="revanced_spoof_video_streams_about_ios_summary">• Private kids videos may not play\n• Livestreams start from the beginning\n• Videos may end 1 second early</string>
+            <string name="revanced_spoof_video_streams_about_ios_summary">• Private kids videos may not play\n• Age restricted videos may not play\n• Livestreams start from the beginning\n• Videos end 1 second early</string>
             <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR spoofing side effects</string>
-            <string name="revanced_spoof_video_streams_about_android_vr_summary">• Kids videos may not play\n• Audio track menu is missing\n• Stable volume is not available</string>
-            <string name="revanced_spoof_video_streams_language_">Video streams are spoofed</string>
-            <string name="revanced_spoof_video_streams_language_title">Preferred audio stream language</string>
+            <string name="revanced_spoof_video_streams_about_android_vr_summary">• Kids videos may not play\n• Age restricted videos may not play\n• Livestreams start from the beginning\n• Videos end 1 second early</string>
+            <string name="revanced_spoof_video_streams_language_title">Default audio stream language</string>
             <string name="revanced_spoof_video_streams_language_DEFAULT">App language</string>
             <string name="revanced_spoof_video_streams_language_AR">Arabic</string>
             <string name="revanced_spoof_video_streams_language_AZ">Azerbaijani</string>
