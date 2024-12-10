@@ -1,3 +1,10 @@
+# [5.4.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.4.0-dev.6...v5.4.0-dev.7) (2024-12-10)
+
+
+### Bug Fixes
+
+* **GmsCore support:** Adjust presentation of battery optimization dialog  ([#4091](https://github.com/ReVanced/revanced-patches/issues/4091)) ([5d8fc1b](https://github.com/ReVanced/revanced-patches/commit/5d8fc1bcd4e453298cfac086cdbdf279612bfb63))
+
 # [5.4.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.4.0-dev.5...v5.4.0-dev.6) (2024-12-10)
 
 
