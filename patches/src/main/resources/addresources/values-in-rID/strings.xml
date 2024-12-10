@@ -1017,7 +1017,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">Mengubah gaya pemutar aplikasi saat diciuitkan</string>
   <string name="revanced_miniplayer_type_title">Jenis pemutar mini</string>
   <string name="revanced_miniplayer_type_entry_0">Nonaktif</string>
-  <string name="revanced_miniplayer_type_entry_1">Asli</string>
+  <string name="revanced_miniplayer_type_entry_1">Bawaan</string>
   <string name="revanced_miniplayer_type_entry_2">Minimal</string>
   <string name="revanced_miniplayer_type_entry_3">Tablet</string>
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
@@ -1209,11 +1209,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodek video ditentukan otomatis</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Mengaktifkan ini dapat meningkatkan daya tahan baterai dan memperbaiki pemutaran yang tersendat-sendat.\n\nAVC memiliki resolusi maksimum 1080p, kodek audio Opus tidak tersedia, dan pemutaran video akan menggunakan lebih banyak data internet daripada VP9 atau AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Efek samping pemalsuan iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Video privat anak-anak tidak dapat diputar\n• Siaran langsung dimulai dari awal\n• Video akan berakhir 1 detik lebih awal</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Efek samping pemalsuan Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Video anak-anak mungkin tidak dapat diputar\n• Menu trek audio tidak ada\n• Volume stabil tidak tersedia</string>
-  <string name="revanced_spoof_video_streams_language_">Aliran video dipalsukan</string>
-  <string name="revanced_spoof_video_streams_language_title">Bahasa aliran audio yang disukai</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Bahasa aplikasi</string>
   <string name="revanced_spoof_video_streams_language_AR">Arab</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbaijan</string>

@@ -919,7 +919,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">Змяніце стыль мінімізаванага плэера ў праграме</string>
   <string name="revanced_miniplayer_type_title">Тып мініплэера</string>
   <string name="revanced_miniplayer_type_entry_0">Інваліды</string>
-  <string name="revanced_miniplayer_type_entry_1">Арыгінал</string>
+  <string name="revanced_miniplayer_type_entry_1">Па змаўчанні</string>
   <string name="revanced_miniplayer_type_entry_3">Планшэт</string>
   <string name="revanced_miniplayer_type_entry_4">Сучасны 1</string>
   <string name="revanced_miniplayer_type_entry_5">Сучасны 2</string>

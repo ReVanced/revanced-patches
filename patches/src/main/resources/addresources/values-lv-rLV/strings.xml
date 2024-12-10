@@ -182,6 +182,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_type_entry_0">Atspējots</string>
+  <string name="revanced_miniplayer_type_entry_1">Noklusējums</string>
   </patch>
   <patch id="layout.theme.themePatch">
   </patch>

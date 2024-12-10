@@ -910,7 +910,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">অ্যাপের মধ্যকার মিনিমাইজড প্লেয়ার এর ধরণ পরিবর্তন করুন</string>
   <string name="revanced_miniplayer_type_title">মিনিপ্লেয়ার ধরণ</string>
   <string name="revanced_miniplayer_type_entry_0">নিষ্ক্রিয় হয়েছে</string>
-  <string name="revanced_miniplayer_type_entry_1">আসল</string>
+  <string name="revanced_miniplayer_type_entry_1">পূর্ব-নির্ধারিত</string>
   <string name="revanced_miniplayer_type_entry_3">ট্যাবলেট</string>
   <string name="revanced_miniplayer_type_entry_4">মর্ডান ১</string>
   <string name="revanced_miniplayer_type_entry_5">মর্ডান ২</string>
@@ -1068,7 +1068,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_user_dialog_message">এই সেটিংটি বন্ধ করার ফলে ভিডিও প্লেব্যাক ত্রুটি হতে পারে।</string>
   <string name="revanced_spoof_video_streams_client_title">ডিফল্ট ক্লায়েন্ট</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">AVC (H.264) ফোর্স করুন</string>
-  <string name="revanced_spoof_video_streams_language_">ভিডিও স্ট্রিম স্পুফ করা হয়েছে</string>
   </patch>
   </app>
   <app id="twitch">

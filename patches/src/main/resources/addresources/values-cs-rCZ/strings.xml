@@ -1018,7 +1018,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">Změnit styl přehrávače minimalizovaného nastavení</string>
   <string name="revanced_miniplayer_type_title">Typ minipřehrávače</string>
   <string name="revanced_miniplayer_type_entry_0">Vypnuto</string>
-  <string name="revanced_miniplayer_type_entry_1">Původní</string>
+  <string name="revanced_miniplayer_type_entry_1">Výchozí</string>
   <string name="revanced_miniplayer_type_entry_2">Minimální</string>
   <string name="revanced_miniplayer_type_entry_3">Tablet</string>
   <string name="revanced_miniplayer_type_entry_4">Moderní 1</string>
@@ -1210,11 +1210,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodek videa je určen automaticky</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Povolení této funkce může zlepšit životnost baterie a opravit stahování přehrávání.\n\nAVC má maximální rozlišení 1080p, Opus audio kodek není k dispozici, a přehrávání videa bude používat více dat na internetu než VP9 nebo AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Boční efekty iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Soukromé děti videa nemusí přehrávat\n• Živočišné rekony začínající od začátku\n• Videa mohou skončit 1 sekundu</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Soukromé děti videa nemusí přehrávat\n• Věkově omezená videa nemusí přehrát\n• Živočišné sny začínající od začátku\n• Videa končí 1 sekundu na začátku</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Boční efekty Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Dětská videa nemusí přehrát\n• Menu zvukové stopy chybí\n• Stabilní hlasitost není k dispozici</string>
-  <string name="revanced_spoof_video_streams_language_">Video streamy jsou falešné</string>
-  <string name="revanced_spoof_video_streams_language_title">Preferovaný jazyk audio streamu</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Dětská videa nemusí přehrávat\n• Věkově omezená videa nemusí přehrát\n• Životní sny začínající od začátku\n• Videa ukončí 1 sekundu</string>
+  <string name="revanced_spoof_video_streams_language_title">Výchozí jazyk audio streamu</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Jazyk aplikace</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabština</string>
   <string name="revanced_spoof_video_streams_language_AZ">Ázerbájdžán</string>

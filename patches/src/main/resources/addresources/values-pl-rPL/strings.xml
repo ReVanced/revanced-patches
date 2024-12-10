@@ -1018,7 +1018,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">Zmień styl zminimalizowanego odtwarzacza aplikacji</string>
   <string name="revanced_miniplayer_type_title">Typ miniodtwarzacza</string>
   <string name="revanced_miniplayer_type_entry_0">Wyłączony</string>
-  <string name="revanced_miniplayer_type_entry_1">Oryginalny</string>
+  <string name="revanced_miniplayer_type_entry_1">Domyślny</string>
   <string name="revanced_miniplayer_type_entry_2">Minimalny</string>
   <string name="revanced_miniplayer_type_entry_3">Tabletowy</string>
   <string name="revanced_miniplayer_type_entry_4">Nowoczesny 1</string>
@@ -1210,11 +1210,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodek filmu jest ustawiany automatycznie</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Włączenie tej opcji może poprawić żywotność baterii i wyeliminować zacinanie się odtwarzania.\n\nAVC ma maksymalną rozdzielczość 1080p, kodek Opus nie jest dostępny, a odtwarzanie wideo zużywa więcej danych internetowych niż VP9 czy AV1.</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Efekty uboczne spoofingu iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Prywatne filmy dla dzieci mogą się nie odtwarzać\n• Transmisje na żywo rozpoczynają się od początku\n• Filmy mogą zakończyć się o sekundę wcześniej</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">• Filmy prywatne dzieci mogą nie odtwarzać\n• Filmy ograniczone wiekiem mogą nie odtwarzać\n• Livestreams zaczynają się od początku\n• Filmy kończą się 1 sekundą na początku</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Efekty uboczne spoofingu Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Filmy dla dzieci mogą się nie odtwarzać\n• Brakuje menu od ścieżki dźwiękowej\n• Stabilna głośność jest niedostępna</string>
-  <string name="revanced_spoof_video_streams_language_">Oszukiwanie strumienia jest włączone</string>
-  <string name="revanced_spoof_video_streams_language_title">Preferowany język ścieżki dźwięku</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Filmy dziecięce mogą nie odtwarzać\n• Filmy ograniczone wiekiem mogą nie odtwarzać\n• Livestreams zaczynają się od początku\n• Filmy kończą się 1 sekundą na początku</string>
+  <string name="revanced_spoof_video_streams_language_title">Domyślny język strumienia dźwięku</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Język aplikacji</string>
   <string name="revanced_spoof_video_streams_language_AR">arabski</string>
   <string name="revanced_spoof_video_streams_language_AZ">azerbejdżański</string>
