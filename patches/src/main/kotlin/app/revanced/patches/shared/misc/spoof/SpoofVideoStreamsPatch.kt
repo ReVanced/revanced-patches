@@ -23,7 +23,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
-private const val EXTENSION_CLASS_DESCRIPTOR =
+internal const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/shared/spoof/SpoofVideoStreamsPatch;"
 
 fun spoofVideoStreamsPatch(
