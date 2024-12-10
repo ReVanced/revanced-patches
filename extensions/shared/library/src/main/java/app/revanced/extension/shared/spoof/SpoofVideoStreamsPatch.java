@@ -86,11 +86,14 @@ public class SpoofVideoStreamsPatch {
             try {
                 Uri uri = Uri.parse(url);
                 String path = uri.getPath();
+
                 // 'heartbeat' has no video id and appears to be only after playback has started.
-                if (path != null && path.contains("player") && !path.contains("heartbeat")) {
+                // 'refresh' has no video id and appears to happen when waiting for a livestream to start.
+                if (path != null && path.contains("player") && !path.contains("heartbeat")
+                        && !path.contains("refresh")) {
                     String id = uri.getQueryParameter("id");
                     if (id == null) {
-                        Logger.printDebug(() -> "Ignoring request that has no video id." +
+                        Logger.printException(() -> "Ignoring request that has no video id." +
                                 " Url: " + url + " headers: " + requestHeaders);
                         return;
                     }
