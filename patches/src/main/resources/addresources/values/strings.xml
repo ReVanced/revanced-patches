@@ -1231,7 +1231,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
             <string name="revanced_spoof_video_streams_about_ios_title">iOS spoofing side effects</string>
             <string name="revanced_spoof_video_streams_about_ios_summary">• Private kids videos may not play\n• Livestreams start from the beginning\n• Videos may end 1 second early</string>
             <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR spoofing side effects</string>
-            <string name="revanced_spoof_video_streams_about_android_vr_summary">• Kids videos may not play\n• Livestreams start from the beginning\n• Videos may end 1 second early\n• Stable volume is not available</string>
+            <string name="revanced_spoof_video_streams_about_android_vr_summary">• Kids videos may not play\n• Livestreams start from the beginning\n• Videos may end 1 second early</string>
             <string name="revanced_spoof_video_streams_language_">Video streams are spoofed</string>
             <string name="revanced_spoof_video_streams_language_title">Preferred audio stream language</string>
             <string name="revanced_spoof_video_streams_language_DEFAULT">App language</string>
