@@ -1,3 +1,10 @@
+# [5.4.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.4.0-dev.3...v5.4.0-dev.4) (2024-12-10)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Fix error toast that is sometimes shown ([#4090](https://github.com/ReVanced/revanced-patches/issues/4090)) ([4c46cb2](https://github.com/ReVanced/revanced-patches/commit/4c46cb27a02c6f29626cd769b6a8e825645d5b16))
+
 # [5.4.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.4.0-dev.2...v5.4.0-dev.3) (2024-12-09)
 
 
