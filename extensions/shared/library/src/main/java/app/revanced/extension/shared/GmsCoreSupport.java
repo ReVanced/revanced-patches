@@ -56,14 +56,18 @@ public class GmsCoreSupport {
                                                       String dialogMessage,
                                                       String positiveButtonText,
                                                       DialogInterface.OnClickListener onPositiveClickListener) {
-        // Do not set cancelable to false, to allow using back button to skip the action,
-        // just in case the check can never be satisfied.
-        var dialog = new AlertDialog.Builder(context)
-                .setTitle(str("gms_core_dialog_title"))
-                .setMessage(dialogMessage)
-                .setPositiveButton(positiveButtonText, onPositiveClickListener)
-                .create();
-        Utils.showDialog(context, dialog);
+        // Use a delay to allow the activity to finish initializing.
+        // Otherwise, if device is in dark mode the dialog is shown with wrong color scheme.
+        Utils.runOnMainThreadDelayed(() -> {
+            // Do not set cancelable to false, to allow using back button to skip the action,
+            // just in case the battery change can never be satisfied.
+            var dialog = new AlertDialog.Builder(context)
+                    .setTitle(str("gms_core_dialog_title"))
+                    .setMessage(dialogMessage)
+                    .setPositiveButton(positiveButtonText, onPositiveClickListener)
+                    .create();
+            Utils.showDialog(context, dialog);
+        }, 100);
     }
 
     /**
