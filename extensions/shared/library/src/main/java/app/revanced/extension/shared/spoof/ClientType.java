@@ -43,7 +43,7 @@ public enum ClientType {
             true),
     /**
      * Android VR with no language code.
-     * Used for age restricted videos and YouTube Music to disable stable volume.
+     * Used for age restricted videos.
      */
     ANDROID_VR_NO_HL(
             ANDROID_VR.id,
@@ -54,7 +54,18 @@ public enum ClientType {
             ANDROID_VR.androidSdkVersion,
             ANDROID_VR.clientVersion,
             ANDROID_VR.canLogin,
-            false);
+            false),
+    IOS_MUSIC(
+            26,
+            "IOS_MUSIC",
+            "iPhone16,2",
+            "18.1.0.22B83",
+            "com.google.ios.youtubemusic/7.27.0 (iPhone16,2; U; CPU iOS 18_1_0 like Mac OS X;)",
+            null,
+            "7.27.0",
+            true,
+            true
+    );
 
     private static boolean forceAVC() {
         return BaseSettings.SPOOF_VIDEO_STREAMS_IOS_FORCE_AVC.get();

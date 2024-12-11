@@ -10,6 +10,6 @@ val spoofVideoStreamsPatch = spoofVideoStreamsPatch({
 }, {
     musicActivityOnCreateFingerprint.method.addInstruction(
         0,
-        "invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->setClientTypeToAndroidVrNoHl()V"
+        "invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->setClientTypeToIOSMusic()V"
     )
 })
