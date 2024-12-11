@@ -1,3 +1,10 @@
+# [5.4.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.4.0-dev.7...v5.4.0-dev.8) (2024-12-11)
+
+
+### Bug Fixes
+
+* **YouTube Music - Bypass certificate checks:** Add a recommended target version ([#4104](https://github.com/ReVanced/revanced-patches/issues/4104)) ([17a5a6c](https://github.com/ReVanced/revanced-patches/commit/17a5a6c1691b0c23f601d3355b72f122c2bd5dcb))
+
 # [5.4.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.4.0-dev.6...v5.4.0-dev.7) (2024-12-10)
 
 
