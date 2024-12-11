@@ -249,14 +249,14 @@
         <patch id="video.quality.rememberVideoQualityPatch">
             <string-array name="revanced_video_quality_default_entries">
                 <item>@string/revanced_video_quality_default_entry_1</item>
-                <item>@string/revanced_video_quality_default_entry_2</item>
-                <item>@string/revanced_video_quality_default_entry_3</item>
-                <item>@string/revanced_video_quality_default_entry_4</item>
-                <item>@string/revanced_video_quality_default_entry_5</item>
-                <item>@string/revanced_video_quality_default_entry_6</item>
-                <item>@string/revanced_video_quality_default_entry_7</item>
-                <item>@string/revanced_video_quality_default_entry_8</item>
-                <item>@string/revanced_video_quality_default_entry_9</item>
+                <item>2160p</item>
+                <item>1440p</item>
+                <item>1080p</item>
+                <item>720p</item>
+                <item>480p</item>
+                <item>360p</item>
+                <item>240p</item>
+                <item>144p</item>
             </string-array>
             <string-array name="revanced_video_quality_default_entry_values">
                 <item>-2</item>

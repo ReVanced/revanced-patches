@@ -1167,14 +1167,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
         <patch id="video.quality.rememberVideoQualityPatch">
             <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
             <string name="revanced_video_quality_default_entry_1">Auto</string>
-            <string name="revanced_video_quality_default_entry_2">2160p</string>
-            <string name="revanced_video_quality_default_entry_3">1440p</string>
-            <string name="revanced_video_quality_default_entry_4">1080p</string>
-            <string name="revanced_video_quality_default_entry_5">720p</string>
-            <string name="revanced_video_quality_default_entry_6">480p</string>
-            <string name="revanced_video_quality_default_entry_7">360p</string>
-            <string name="revanced_video_quality_default_entry_8">240p</string>
-            <string name="revanced_video_quality_default_entry_9">144p</string>
             <string name="revanced_remember_video_quality_last_selected_title">Remember video quality changes</string>
             <string name="revanced_remember_video_quality_last_selected_summary_on">Quality changes apply to all videos</string>
             <string name="revanced_remember_video_quality_last_selected_summary_off">Quality changes only apply to the current video</string>
