@@ -28,4 +28,10 @@ jobs:
       - name: Build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: ./gradlew build --no-daemon
+        run: ./gradlew :patches:buildAndroid --no-daemon
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: revanced-patches
+          path: patches/build/libs
