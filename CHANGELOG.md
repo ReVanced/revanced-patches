@@ -1,3 +1,10 @@
+# [5.4.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.4.0-dev.8...v5.4.0-dev.9) (2024-12-12)
+
+
+### Features
+
+* **YouTube - Comments:** Add `Hide 'Chat summary'` ([#4110](https://github.com/ReVanced/revanced-patches/issues/4110)) ([269493c](https://github.com/ReVanced/revanced-patches/commit/269493cd198604f1438ea2850fb68fe900d0e56f))
+
 # [5.4.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.4.0-dev.7...v5.4.0-dev.8) (2024-12-11)
 
 
