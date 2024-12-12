@@ -1,41 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
-Note: All strings must have a unique path, even if the same string is declared in two different apps.
-This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+    All strings must have a unique path, even if the same string is declared in two different apps.
+    This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-# General guidelines and information for translating
 
-## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
+    Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
+    Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
-    For example, the patches string:
-        <string name="revanced_patches_string">You will arrive at %1$s in %2$s hours from now</string>
-    Could be translated to another language using a rearranged grammar:
-        <string name="revanced_patches_string">You will arrive %2$s hours from now at %1$s</string>
+    Raw strings are required because Crowdin AI translations regularly gets confused and
+    replace \n with an encoded new line character.
 
-     For Manager strings:
-        You will arrive at ${destination} in ${count} hours from now
-     Could be rearranged by changing the order of the ${} parameters:
-        You will arrive ${count} hours from now at ${destination}
+    Bad:
+        <string name="summary_key">First \'item\' text\nSecond \"item\" text</string>
 
-    Reordering is particularly relevant when translating into right to left languages, or for any language with grammar that is noticeably different from English.
+    Good:
+        <string name="summary_key">"First 'item' text
+Second \"item\" text"</string>
 
-## Single and double quotation marks must be escaped for patch strings (Manager does not require escaping any quotes).
-
-    All _patches_ single and double quotation marks must be escaped as \"  or \'
-    Forgetting to do this will cause that string to appear in app with no quotation characters.
-
-    Correct:
-        <string name="revanced_string">You\'re correct. This is the \"correct\" way and this text will appear as expected in the app</string>
-    Not correct:
-        <string name="revanced_string">You're not correct. This is not the "correct" way and this text will not appear as expected the in app</string>
 -->
 <resources>
   <app id="shared">
   <patch id="misc.checks.checkEnvironmentPatch">
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
-  <string name="revanced_settings_reset">रीसेट करें</string>
   <!-- Settings about dialog. -->
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
@@ -46,7 +34,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
-  <string name="revanced_settings_screen_00_about_title">विवरण</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   </patch>
@@ -157,7 +144,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
-  <string name="revanced_ryd_about">विवरण</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   </patch>
   <patch id="layout.searchbar.wideSearchbarPatch">
@@ -165,13 +151,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
   </patch>
   <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
-  <string name="revanced_sb_appearance_category">स्वरूप</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <!-- Shown in the settings preferences, and translations can be any text length. -->
-  <string name="revanced_sb_stats_loading">लोड हो रहा है...</string>
-  <string name="revanced_sb_reset">रीसेट करें</string>
-  <string name="revanced_sb_about">विवरण</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
@@ -187,7 +169,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.tablet.enableTabletLayoutPatch">
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
-  <string name="revanced_miniplayer_type_entry_0">निष्क्रिय</string>
   </patch>
   <patch id="layout.theme.themePatch">
   </patch>
@@ -202,10 +183,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   </patch>
   <patch id="misc.announcements.announcementsPatch">
-  <string name="revanced_announcements_dialog_dismiss">बंद करें</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">चेतावनी</string>
   </patch>
   <patch id="misc.autorepeat.autoRepeatPatch">
   </patch>
@@ -241,7 +220,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="ad.audio.audioAdsPatch">
   </patch>
   <patch id="ad.embedded.embeddedAdsPatch">
-  <string name="revanced_block_embedded_ads_entry_1">निष्क्रिय</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">
   </patch>
@@ -253,7 +231,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
   </patch>
   <patch id="misc.settings.settingsPatch">
-  <string name="revanced_about_title">विवरण</string>
   </patch>
   </app>
 </resources>

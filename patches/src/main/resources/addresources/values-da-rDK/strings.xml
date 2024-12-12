@@ -1,34 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
-Note: All strings must have a unique path, even if the same string is declared in two different apps.
-This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+    All strings must have a unique path, even if the same string is declared in two different apps.
+    This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-# General guidelines and information for translating
 
-## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
+    Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
+    Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
-    For example, the patches string:
-        <string name="revanced_patches_string">You will arrive at %1$s in %2$s hours from now</string>
-    Could be translated to another language using a rearranged grammar:
-        <string name="revanced_patches_string">You will arrive %2$s hours from now at %1$s</string>
+    Raw strings are required because Crowdin AI translations regularly gets confused and
+    replace \n with an encoded new line character.
 
-     For Manager strings:
-        You will arrive at ${destination} in ${count} hours from now
-     Could be rearranged by changing the order of the ${} parameters:
-        You will arrive ${count} hours from now at ${destination}
+    Bad:
+        <string name="summary_key">First \'item\' text\nSecond \"item\" text</string>
 
-    Reordering is particularly relevant when translating into right to left languages, or for any language with grammar that is noticeably different from English.
+    Good:
+        <string name="summary_key">"First 'item' text
+Second \"item\" text"</string>
 
-## Single and double quotation marks must be escaped for patch strings (Manager does not require escaping any quotes).
-
-    All _patches_ single and double quotation marks must be escaped as \"  or \'
-    Forgetting to do this will cause that string to appear in app with no quotation characters.
-
-    Correct:
-        <string name="revanced_string">You\'re correct. This is the \"correct\" way and this text will appear as expected in the app</string>
-    Not correct:
-        <string name="revanced_string">You're not correct. This is not the "correct" way and this text will not appear as expected the in app</string>
 -->
 <resources>
   <app id="shared">
@@ -44,7 +33,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK byggedato er ødelagt</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
-  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Ønsker du at fortsætte?</string>
   <string name="revanced_settings_reset">Nulstil</string>
   <string name="revanced_settings_restart_title">Opdater og genstart</string>
@@ -68,9 +56,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore er ikke installeret. Installér den.</string>
   <string name="gms_core_dialog_title">Behov for handling</string>
-  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">MicroG GmsCore har ikke tilladelse til at køre i baggrunden.\n\nFølg vejledningen \"Må ikke dræbe min app\" til din telefon, og anvend vejledningen til din MicroG-installation.\n\nDette er nødvendigt for at appen kan fungere.</string>
+  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore har ikke tilladelse til at køre i baggrunden.
+
+Følg guiden \"Dræb ikke min app\" for din telefon, og følg vejledningen for din MicroG-installation.
+
+Dette er påkrævet, for at appen kan fungere."</string>
   <string name="gms_core_dialog_open_website_text">Åbn hjemmeside</string>
-  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">MicroG GmsCore batterioptimeringer skal være deaktiveret for at forhindre problemer.\n\nTryk på knappen fortsæt og deaktiver batterioptimeringer.</string>
+  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"MicroG GmsCores batterioptimering skal deaktiveres for at forhindre problemer.
+
+Deaktivering af batterioptimering for MicroG vil ikke påvirke batteriforbruget negativt.
+
+Tryk på fortsætknappen, og tillad ændringer af optimering."</string>
   <string name="gms_core_dialog_continue_text">Fortsæt</string>
   </patch>
   </app>
@@ -79,7 +75,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_00_about_title">Om</string>
   <string name="revanced_settings_screen_01_ads_title">Annoncer</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternative miniaturer</string>
-  <string name="revanced_settings_screen_03_feed_title">Feed</string>
+  <string name="revanced_settings_screen_03_feed_title">Fodring</string>
   <string name="revanced_settings_screen_04_player_title">Spiller</string>
   <string name="revanced_settings_screen_05_general_title">Generelt layout</string>
   <string name="revanced_settings_screen_07_seekbar_title">Søgebjælke</string>
@@ -88,6 +84,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_12_video_title">Video</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <string name="revanced_shorts_disable_background_playback_title">Deaktiver afspilning af Shorts i baggrunden</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Afspilning af Shorts i baggrunden er deaktiveret</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Afspilning af Shorts i baggrunden er aktiveret</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Fejlfinding</string>
@@ -104,7 +103,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_debug_toast_on_error_title">Vis toast på ReVanced fejl</string>
   <string name="revanced_debug_toast_on_error_summary_on">Toast vist, hvis der opstår fejl</string>
   <string name="revanced_debug_toast_on_error_summary_off">Toast ikke vist, hvis der opstår fejl</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">Slår fejl-toasts fra skjuler alle ReVanced fejlmeddelelser.\n\nDu vil ikke blive underrettet om nogen uventede begivenheder.</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"Deaktivering af fejl-toasts skjuler alle ReVanced-fejlmeddelelser.
+
+Du vil ikke blive underrettet om uventede hændelser."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_disable_like_subscribe_glow_title">Deaktivér som / abonnér knap glow</string>
@@ -123,7 +124,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_watermark_summary_on">Vandmærke er skjult</string>
   <string name="revanced_hide_channel_watermark_summary_off">Vandmærke er vist</string>
   <string name="revanced_hide_horizontal_shelves_title">Skjul vandrette hylder</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">Hylder er skjult såsom:\n• Breaking news\n• Fortsæt med at se\n• Udforsk flere kanaler\n• Shopping\n• Se det igen</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"Hylder er skjult, f.eks.:
+• Nye nyheder
+• Se videre
+• Udforsk flere kanaler
+• Indkøb
+• Se det igen"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Hylder er vist</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
@@ -256,6 +262,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_section_title">Skjul kommentarsektion</string>
   <string name="revanced_hide_comments_section_summary_on">Kommentarer sektion er skjult</string>
   <string name="revanced_hide_comments_section_summary_off">Kommentarer sektion er vist</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">Skjul knappen \"Opret en Short\"</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">Knappen \"Opret en Short\" er skjult</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">Knappen \"Opret en Short\" vises</string>
   <string name="revanced_hide_comments_preview_comment_title">Skjul forhåndsvisning kommentar</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Forhåndsvisning kommentar er skjult</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Forhåndsvis kommentar er vist</string>
@@ -269,7 +278,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_doodles_title">Skjul YouTube-Doudler</string>
   <string name="revanced_hide_doodles_summary_on">Søgebjælke Doudler er skjult</string>
   <string name="revanced_hide_doodles_summary_off">Søgebjælke Doudler vises</string>
-  <string name="revanced_hide_doodles_user_dialog_message">YouTube Doodles dukker op et par dage hvert år.\n\nHvis en Doodle i øjeblikket vises i din region og denne skjul-indstilling er slået til, så vil filterbjælken under søgelinjen også være skjult.</string>
+  <string name="revanced_hide_doodles_user_dialog_message">"YouTube-doodles vises et par dage om året.
+
+Hvis et Doodle vises i øjeblikket i din region, og denne skjuleindstilling er aktiveret, skjules filterfeltet under søgefeltet også."</string>
   <string name="revanced_custom_filter_screen_title">Tilpasset filter</string>
   <string name="revanced_custom_filter_screen_summary">Skjul komponenter ved hjælp af brugerdefinerede filtre</string>
   <string name="revanced_custom_filter_title">Aktiver brugerdefineret filter</string>
@@ -293,8 +304,18 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_content_phrases_title">Nøgleord at skjule</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
-  <string name="revanced_hide_keyword_content_phrases_summary">Nøgleord og sætninger at skjule, adskilt af nye linjer\n\nSøgeord kan være kanalnavne eller enhver tekst vist i video titler\n\nOrd med store bogstaver i midten skal indtastes med casing (dvs. iPhone, TikTok, LeBlanc)</string>
+  <string name="revanced_hide_keyword_content_phrases_summary">"Søgeord og sætninger, der skal skjules, adskilt af nye linjer
+
+Søgeord kan være kanalnavne eller tekst, der vises i videotitler
+
+Ord med store bogstaver i midten skal indtastes med store og små bogstaver (f.eks.: iPhone, TikTok, LeBlanc)"</string>
   <string name="revanced_hide_keyword_content_about_title">Om søgeord filtrering</string>
+  <string name="revanced_hide_keyword_content_about_summary">"Hjem-/abonnement-/søgeresultater filtreres for at skjule indhold, der svarer til søgeordssætninger
+
+Begrænsninger
+● Shorts kan ikke skjules efter kanalnavn
+● Nogle UI-komponenter skjules muligvis ikke
+● Søgning efter et søgeord viser muligvis ingen resultater"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Match hele ord</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Omkring et nøgleord/sætning med dobbelt-citater vil forhindre partielle kampe af videotitler og kanalnavne&lt;br&gt;&lt;br&gt;For eksempel&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; vil skjule videoen: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;, men skjuler ikke: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
@@ -302,6 +323,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_toast_invalid_common">Kan ikke bruge søgeord: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Tilføj tilbud for at bruge søgeord: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_conflicting">Nøgleord har modstridende erklæringer: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_length">Søgeordet er for kort og kræver anførselstegn: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_broad">Nøgleord vil skjule alle videoer: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
@@ -309,7 +331,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_general_ads_summary_on">Generelle annoncer er skjult</string>
   <string name="revanced_hide_general_ads_summary_off">Generelle annoncer vises</string>
   <string name="revanced_hide_fullscreen_ads_title">Skjul fuldskærmsannoncer</string>
-  <string name="revanced_hide_fullscreen_ads_summary_on">Fuldskærmsannoncer er skjult\n\nDenne funktion er kun tilgængelig for ældre enheder</string>
+  <string name="revanced_hide_fullscreen_ads_summary_on">"Fuldsskærmsannoncer er skjult
+
+Denne funktion er kun tilgængelig for ældre enheder"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Fuldskærms annoncer vises</string>
   <string name="revanced_hide_buttoned_ads_title">Skjul knapfyldte annoncer</string>
   <string name="revanced_hide_buttoned_ads_summary_on">Knappede annoncer er skjult</string>
@@ -454,6 +478,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_thanks_button_summary_on">Tak knappen er skjult</string>
   <string name="revanced_hide_thanks_button_summary_off">Tak knappen er vist</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_clip_button_title">Skjul klip</string>
   <string name="revanced_hide_clip_button_summary_on">Klip knappen er skjult</string>
   <string name="revanced_hide_clip_button_summary_off">Klip knappen er vist</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
@@ -462,7 +487,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playlist_button_summary_off">Gem i afspilningslisteknappen vises</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
-  <string name="revanced_navigation_buttons_screen_title">Navigation buttons</string>
+  <string name="revanced_navigation_buttons_screen_title">Navigationsknapper</string>
   <string name="revanced_navigation_buttons_screen_summary">Skjul eller skift knapper i navigationsbjælken</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
   <string name="revanced_hide_home_button_title">Skjul Hjem</string>
@@ -482,14 +507,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_subscriptions_button_summary_off">Abonnementer knappen vises</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Skift Opret med notifikationer</string>
-  <string name="revanced_switch_create_with_notifications_button_summary_on">Opret knap er skiftet med Notifikationsknappen\n\nBemærk: Aktivering af dette skjuler også med magt videoannoncer</string>
+  <string name="revanced_switch_create_with_notifications_button_summary_on">"Opret-knappen er skiftet med knappen Meddelelser
+
+Bemærk: Aktivering af dette skjuler også videoannoncer"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Opret knappen er ikke skiftet med Notifikationer knappen</string>
   <string name="revanced_hide_navigation_button_labels_title">Skjul navigationsknappens etiketter</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Etiketter er skjult</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Etiketter er vist</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
-  <string name="revanced_hide_player_flyout_title">Flyout menu</string>
+  <string name="revanced_hide_player_flyout_title">Udfyldningsmenu</string>
   <string name="revanced_hide_player_flyout_summary">Skjul eller vis spiller flyout menupunkter</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_captions_title">Skjul Billedtekster</string>
@@ -560,7 +587,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Skjul slutskærmkort</string>
-  <string name="revanced_hide_endscreen_cards_summary_on">End screen cards are hidden</string>
+  <string name="revanced_hide_endscreen_cards_summary_on">Slutskærmskortene er skjult</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Kort til slutskærm vises</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
@@ -587,6 +614,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Miniaturesøgelinjen vises</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <string name="revanced_shorts_player_screen_title">Shorts-afspiller</string>
+  <string name="revanced_shorts_player_screen_summary">Skjul eller vis komponenter i Shorts-afspilleren</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Skjul Shorts i hjemmefeed</string>
   <string name="revanced_hide_shorts_home_summary_on">Shorts i hjemmet feed er skjult</string>
@@ -721,7 +750,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_enable_summary_off">Dislikationer vises ikke</string>
   <string name="revanced_ryd_shorts_title">Vis ikke på Shorts</string>
   <string name="revanced_ryd_shorts_summary_on">Dislikationer vist på Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">Dislikationer vist på Shorts\n\nBegrænsning: Dislikes vises muligvis ikke i inkognito-tilstand</string>
+  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Dislikes vises på Shorts
+
+Begrænsning: Dislikes vises muligvis ikke i inkognitotilstand"</string>
   <string name="revanced_ryd_shorts_summary_off">Synes ikke skjult på Shorts</string>
   <string name="revanced_ryd_dislike_percentage_title">Synes ikke som procent</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">Dislikationer vist som procent</string>
@@ -764,7 +795,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Seekbar miniaturer er af middel kvalitet</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Fuldskærmssøgerbar miniaturer er af høj kvalitet</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Fuldskærmssøgerbar miniaturer er af middel kvalitet</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Dette vil også gendanne miniaturer på livestreams, der ikke har søgbar miniaturebilleder.\n\nSeekbar miniaturer vil bruge samme kvalitet som den aktuelle video.\n\nDenne funktion fungerer bedst med en videokvalitet på 720p eller lavere og ved brug af en meget hurtig internetforbindelse.</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Dette vil også gendanne miniaturebilleder på livestreams, der ikke har miniaturebilleder i søgefeltet.
+
+Miniaturebilleder i søgefeltet bruger den samme kvalitet som den aktuelle video.
+
+Denne funktion fungerer bedst med en videokvalitet på 720p eller lavere og ved brug af en meget hurtig internetforbindelse."</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Gendan gamle miniaturer på søgelinjen</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Seekbar miniaturer vises over søgelinjen</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Seekbar miniaturer vises i fuld skærm</string>
@@ -817,7 +852,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_general_uuid_invalid">Privat bruger-id skal være mindst 30 tegn langt</string>
   <string name="revanced_sb_general_api_url">Skift API-URL</string>
   <string name="revanced_sb_general_api_url_sum">Adressen SponsorBlock bruger til at foretage opkald til serveren</string>
-  <string name="revanced_sb_api_url_reset">API URL reset</string>
+  <string name="revanced_sb_api_url_reset">API-URL nulstillet</string>
   <string name="revanced_sb_api_url_invalid">API URL er ugyldig</string>
   <string name="revanced_sb_api_url_changed">API URL ændret</string>
   <string name="revanced_sb_settings_ie">Importér/eksport indstillinger</string>
@@ -827,7 +862,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_settings_import_successful">Indstillinger importeret med succes</string>
   <string name="revanced_sb_settings_import_failed">Mislykkedes at importere: %s</string>
   <string name="revanced_sb_settings_export_failed">Mislykkedes at eksportere: %s</string>
-  <string name="revanced_sb_settings_revanced_export_user_id_warning">Dine indstillinger indeholder et privat SponsorBloker bruger-id.\n\nDit bruger-id er som en adgangskode, og det bør aldrig deles.\n</string>
+  <string name="revanced_sb_settings_revanced_export_user_id_warning">"Dine indstillinger indeholder et privat SponsorBlock-bruger-id.
+
+Dit bruger-id er som en adgangskode, og det må aldrig deles.
+"</string>
   <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">Vis ikke igen</string>
   <string name="revanced_sb_diff_segments">Ændr segmentadfærd</string>
   <string name="revanced_sb_segments_sponsor">Sponsor</string>
@@ -838,13 +876,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_segments_interaction_sum">En kort påmindelse om at lide, abonnere eller følge dem midt i indholdet. Hvis den er lang eller om noget specifik, bør den i stedet være under selvforfremmelse</string>
   <string name="revanced_sb_segments_highlight">Fremhæv</string>
   <string name="revanced_sb_segments_highlight_sum">Den del af videoen, som de fleste mennesker er på udkig efter</string>
-  <string name="revanced_sb_segments_intro">Intermission/Intro Animation</string>
+  <string name="revanced_sb_segments_intro">Pause/Intro-animation</string>
   <string name="revanced_sb_segments_intro_sum">Et interval uden reelt indhold. Kunne være en pause, statisk ramme eller gentagelse af animation. Omfatter ikke overgange indeholdende information</string>
   <string name="revanced_sb_segments_outro">Slutkort/Kredit</string>
   <string name="revanced_sb_segments_outro_sum">Medvirkende eller når YouTube-endcards vises. Ikke for konklusioner med information</string>
   <string name="revanced_sb_segments_preview">Forhåndsvisning/Genoptag/Krog</string>
   <string name="revanced_sb_segments_preview_sum">Indsamling af klip, der viser, hvad der kommer op, eller hvad der skete i videoen eller i andre videoer af en serie, hvor alle oplysninger gentages andetsteds</string>
-  <string name="revanced_sb_segments_filler">Filler Tangent/Jokes</string>
+  <string name="revanced_sb_segments_filler">Fyldstof-tangent/jokes</string>
   <string name="revanced_sb_segments_filler_sum">Tangential scener tilføjet kun for fyldstof eller humor, der ikke er forpligtet til at forstå hovedindholdet af videoen. Omfatter ikke segmenter, der giver kontekst- eller baggrundsoplysninger</string>
   <string name="revanced_sb_segments_nomusic">Musik: Ikke-Musik Sektion</string>
   <string name="revanced_sb_segments_nomusic_sum">Kun til brug i musikvideoer. Sektioner af musikvideoer uden musik, der ikke allerede er dækket af en anden kategori</string>
@@ -857,14 +895,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_skip_button_intro_beginning">Spring intro over</string>
   <string name="revanced_sb_skip_button_intro_middle">Spring intermission over</string>
   <string name="revanced_sb_skip_button_intro_end">Spring intermission over</string>
-  <string name="revanced_sb_skip_button_outro">Skip outro</string>
+  <string name="revanced_sb_skip_button_outro">Spring outro over</string>
   <string name="revanced_sb_skip_button_preview_beginning">Spring forhåndsvisning over</string>
   <string name="revanced_sb_skip_button_preview_middle">Spring forhåndsvisning over</string>
   <string name="revanced_sb_skip_button_preview_end">Spring resumé over</string>
   <string name="revanced_sb_skip_button_filler">Spring filler over</string>
   <string name="revanced_sb_skip_button_nomusic">Spring over ikke-musik</string>
   <string name="revanced_sb_skip_button_unsubmitted">Overspring segment</string>
-  <string name="revanced_sb_skipped_sponsor">sponsor sprunget over</string>
+  <string name="revanced_sb_skipped_sponsor">Sponsor sprunget over</string>
   <string name="revanced_sb_skipped_selfpromo">Selv-forfremmelse sprunget over</string>
   <string name="revanced_sb_skipped_interaction">Sprunget over irriterende påmindelse</string>
   <string name="revanced_sb_skipped_highlight">Sprunget over for at fremhæve</string>
@@ -887,9 +925,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_submit_failed_invalid">Kan ikke indsende segment: %s</string>
   <string name="revanced_sb_submit_failed_timeout">SponsorBlock er midlertidigt nede</string>
   <string name="revanced_sb_submit_failed_unknown_error">Kan ikke indsende segment (status: %1$d %2$s)</string>
-  <string name="revanced_sb_submit_failed_rate_limit">Kan ikke indsende segment.\nRate Limited (for mange fra samme bruger eller IP)</string>
+  <string name="revanced_sb_submit_failed_rate_limit">Kan ikke indsende segment. Hastighedsbegrænset (for mange fra den samme bruger eller IP-adresse)</string>
   <string name="revanced_sb_submit_failed_forbidden">Kan ikke indsende segmentet: %s</string>
-  <string name="revanced_sb_submit_failed_duplicate">Kan ikke indsende segmentet.\nfindes allerede</string>
+  <string name="revanced_sb_submit_failed_duplicate">"Kan ikke indsende segmentet.
+Eksisterer allerede"</string>
   <string name="revanced_sb_submit_succeeded">Segment indsendt med succes</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBloker midlertidigt ikke tilgængelig (API-tid ud)</string>
@@ -898,8 +937,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_vote_failed_timeout">Kan ikke stemme på segment (API-timede ud)</string>
   <string name="revanced_sb_vote_failed_unknown_error">Kan ikke stemme på segment (status: %1$d %2$s)</string>
   <string name="revanced_sb_vote_failed_forbidden">Ikke i stand til at stemme på segmentet: %s</string>
-  <string name="revanced_sb_vote_upvote">Upvote</string>
-  <string name="revanced_sb_vote_downvote">Downvote</string>
+  <string name="revanced_sb_vote_upvote">Op</string>
+  <string name="revanced_sb_vote_downvote">Ned</string>
   <string name="revanced_sb_vote_category">Skift kategori</string>
   <string name="revanced_sb_vote_no_segments">Der er ingen segmenter at stemme for</string>
   <string name="revanced_sb_new_segment_choose_category">Vælg segmentkategori</string>
@@ -912,7 +951,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">Tidspunkt for segmentet begynder på</string>
   <string name="revanced_sb_new_segment_time_end">Tidspunkt for segmentet slutter på</string>
   <string name="revanced_sb_new_segment_confirm_title">Er tiderne korrekte?</string>
-  <string name="revanced_sb_new_segment_confirm_content">Segmentet er fra\n\n%1$s\ntil\n%2$s\n\n(%3$s)\n\nKlar til at indsende?</string>
+  <string name="revanced_sb_new_segment_confirm_content">"Segmentet er fra
+
+%1$s
+til
+%2$s
+
+(%3$s)
+
+Er du klar til at indsende?"</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Start skal være før slutningen</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Markér to steder på tidsbjælken først</string>
   <string name="revanced_sb_new_segment_preview_segment_first">Forhåndsvisning af segmentet, og sikre, at det springer glat</string>
@@ -951,10 +998,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_about_api_sum">Data leveres af SponsorBlock API. Tryk her for at få flere oplysninger og se downloads til andre platforme</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
-  <string name="revanced_spoof_app_version_title">Spoof app version</string>
+  <string name="revanced_spoof_app_version_title">Spoof app-version</string>
   <string name="revanced_spoof_app_version_summary_on">Version spoofed</string>
   <string name="revanced_spoof_app_version_summary_off">Version ikke spoofed</string>
-  <string name="revanced_spoof_app_version_user_dialog_message">App version vil blive spoofed til en ældre version af YouTube.\n\nDette vil ændre udseendet og funktionerne i appen, men der kan forekomme ukendte bivirkninger.\n\nHvis senere slået fra, anbefales det at rydde app-data for at forhindre UI-fejl.</string>
+  <string name="revanced_spoof_app_version_user_dialog_message">"App-versionen forfalskes til en ældre version af YouTube.
+
+Dette ændrer appens udseende og funktioner, men ukendte bivirkninger kan forekomme.
+
+Hvis det senere slås fra, anbefales det at rydde app-dataene for at forhindre UI-fejl."</string>
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Spoof app version mål</string>
@@ -985,9 +1036,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Deaktivér genoptagelse af Shorts spiller</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts-afspilleren genoptages ikke ved app-start</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Kortspilleren vil genoptage ved app-opstart</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <string name="revanced_shorts_autoplay_title">Automatisk afspilning af Shorts</string>
+  <string name="revanced_shorts_autoplay_summary_on">Shorts afspilles automatisk</string>
+  <string name="revanced_shorts_autoplay_summary_off">Shorts gentages</string>
+  <string name="revanced_shorts_autoplay_background_title">Automatisk afspilning af Shorts i baggrunden</string>
+  <string name="revanced_shorts_autoplay_background_summary_on">Shorts i baggrunden afspilles automatisk</string>
+  <string name="revanced_shorts_autoplay_background_summary_off">Shorts i baggrunden gentages</string>
   </patch>
   <patch id="layout.tablet.enableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Aktivér tabletlayout</string>
@@ -996,7 +1054,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_tablet_layout_user_dialog_message">Fællesskabsindlæg vises ikke på tabletlayouts</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
-  <string name="revanced_miniplayer_screen_title">Miniplayer</string>
   <string name="revanced_miniplayer_screen_summary">Ændre stilen for den i app minimeret afspiller</string>
   <string name="revanced_miniplayer_type_title">Type af miniplayer</string>
   <string name="revanced_miniplayer_type_entry_0">Deaktiveret</string>
@@ -1010,19 +1067,28 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_rounded_corners_summary_on">Hjørner er afrundede</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Hjørner er firkantede</string>
   <string name="revanced_miniplayer_double_tap_action_title">Aktiver dobbelttryk og klemme for at ændre størrelse</string>
-  <string name="revanced_miniplayer_double_tap_action_summary_on">Dobbelttryk handling og klemme for at ændre størrelse er aktiveret\n\n• Dobbelttryk for at øge miniplayer størrelse\n• Dobbelttryk igen for at gendanne original størrelse</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">"Dobbelttrykshandling og knib for at ændre størrelse er aktiveret
+
+● Dobbelttryk for at øge miniafspillerstørrelsen
+● Dobbelttryk igen for at gendanne den oprindelige størrelse"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Dobbelttryk handling og klemme for at ændre størrelse er deaktiveret</string>
   <string name="revanced_miniplayer_drag_and_drop_title">Aktiver træk og slip</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">Træk og slip er aktiveret\n\nMiniplayer kan trækkes til ethvert hjørne af skærmen</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Træk og slip er aktiveret
+
+Miniafspiller kan trækkes til et hvilket som helst hjørne af skærmen"</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">Træk og slip er deaktiveret</string>
   <string name="revanced_miniplayer_horizontal_drag_title">Aktiver vandret træk-bevægelse</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">Vandret træk gestus aktiveret\n\nMiniplayer kan trækkes fra skærmen til venstre eller højre</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Vandret træk-bevægelse aktiveret
+
+Miniafspiller kan trækkes ud over skærmen til venstre eller højre"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Vandret trækbevægelse deaktiveret</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Skjul lukkeknap</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">Luk knappen er skjult</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">Luk knappen vises</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_title">Skjul udvid og luk knapper</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Knapper er skjult\n\nStryg for at udvide eller lukke</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Knapper er skjult
+
+Stryg for at udvide eller lukke"</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Udvid og luk knapper vises</string>
   <string name="revanced_miniplayer_hide_subtext_title">Skjul undertekster</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Undertekster er skjult</string>
@@ -1053,7 +1119,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Bypass billede region restriktioner</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Bruger billedvært yt4.ggpht.com</string>
-  <string name="revanced_bypass_image_region_restrictions_summary_off">Brug af original billedvært\n\nAktivering af dette kan rette manglende billeder, der er blokeret i nogle regioner</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">"Bruger original billedevært
+
+Aktivering af dette kan løse manglende billeder, der er blokeret i nogle regioner"</string>
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -1064,15 +1132,19 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_alt_thumbnail_library_title">Dig fane</string>
   <string name="revanced_alt_thumbnail_player_title">Afspiller afspilningslister, anbefalinger</string>
   <string name="revanced_alt_thumbnail_search_title">Søgeresultater</string>
-  <string name="revanced_alt_thumbnail_options_entry_1">Original thumbnails</string>
+  <string name="revanced_alt_thumbnail_options_entry_1">Originale miniaturebilleder</string>
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Originale miniaturer</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; stadig fanger</string>
   <string name="revanced_alt_thumbnail_options_entry_4">Fangster stadig</string>
-  <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow giver crowd-sourcede miniaturer til YouTube-videoer. Disse miniaturer er ofte mere relevante end dem, YouTube\n\nHvis aktiveret, video URL\'er vil blive sendt til API-serveren og ingen andre data bliver sendt. Hvis en video ikke har miniaturer til DeArrow, så er de originale eller stadig optagelser vist\n\nTryk her for at få mere at vide om DeArrow</string>
+  <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow leverer crowdsourcede miniaturebilleder til YouTube-videoer. Disse miniaturebilleder er ofte mere relevante end dem, der er tilgængelige fra YouTube
+
+Hvis aktiveret, sendes videolinks til API-serveren, og ingen andre data sendes. Hvis en video ikke har DeArrow-miniaturebilleder, vises de originale eller stillbilleder
+
+Tryk her for at lære mere om DeArrow"</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Vis en toast hvis API ikke er tilgængelig</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Toast vises hvis DeArrow ikke er tilgængelig</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Toast er ikke vist hvis DeArrow ikke er tilgængelig</string>
-  <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API endpoint</string>
+  <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API-slutpunkt</string>
   <string name="revanced_alt_thumbnail_dearrow_api_url_summary">Webadressen på DeArrow thumbnail cache endpoint</string>
   <string name="revanced_alt_thumbnail_stills_about_title">Stadig video indfanger</string>
   <string name="revanced_alt_thumbnail_stills_about_summary">Stadig optagelser er taget fra begyndelsen / midten / slutningen af hver video. Disse billeder er indbygget i YouTube og ingen ekstern API bruges</string>
@@ -1107,8 +1179,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Spoof enhedens dimensioner</string>
-  <string name="revanced_spoof_device_dimensions_summary_on">Enhedsmål spoofed\n\nHøjere video kvaliteter kan låses op, men du kan opleve videoafspilning stuttering, værre batterilevetid og ukendte bivirkninger</string>
-  <string name="revanced_spoof_device_dimensions_summary_off">Enheds dimensioner ikke forfalsket\n\nAktivering af dette kan låse op for højere videokvaliteter</string>
+  <string name="revanced_spoof_device_dimensions_summary_on">"Enhedens dimensioner er forfalsket
+
+Højere videokvalitet kan låses op, men du kan opleve videoafspilningshakkethed, dårligere batterilevetid og ukendte bivirkninger"</string>
+  <string name="revanced_spoof_device_dimensions_summary_off">"Enhedens dimensioner forfalskes ikke
+
+Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Aktivering af dette kan forårsage videoafspilning stuttering, værre batterilevetid og ukendte bivirkninger.</string>
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
@@ -1144,7 +1220,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_video_quality_default_wifi_title">Standard videokvalitet på Wi-Fi-netværk</string>
   <string name="revanced_video_quality_default_mobile_title">Standard videokvalitet på mobilnetværk</string>
   <string name="revanced_remember_video_quality_mobile">mobil</string>
-  <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Ændrede standard %1$s kvalitet til: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
@@ -1158,8 +1233,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_custom_speed_menu_summary_off">Brugerdefineret hastighedsmenu vises ikke</string>
   <string name="revanced_custom_playback_speeds_title">Tilpasset afspilningshastighed</string>
   <string name="revanced_custom_playback_speeds_summary">Tilføj eller ændr den brugerdefinerede afspilningshastighed</string>
-  <string name="revanced_custom_playback_speeds_invalid">Brugerdefinerede hastigheder skal være mindre end %s. Bruger standardværdier.</string>
-  <string name="revanced_custom_playback_speeds_parse_exception">Ugyldig brugerdefineret afspilningshastighed. Brug af standardværdier.</string>
+  <string name="revanced_custom_playback_speeds_invalid">Brugerdefinerede hastigheder skal være mindre end %s</string>
+  <string name="revanced_custom_playback_speeds_parse_exception">Ugyldige brugerdefinerede afspilningshastigheder</string>
   <string name="revanced_custom_playback_speeds_auto">Automatisk</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
@@ -1180,21 +1255,29 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_off">Dias til søgning er ikke aktiveret</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">Spoof video streams</string>
+  <string name="revanced_spoof_video_streams_screen_title">Spoof videostreams</string>
   <string name="revanced_spoof_video_streams_screen_summary">Spoof klienten video streams for at forhindre afspilning problemer</string>
-  <string name="revanced_spoof_video_streams_title">Spoof video streams</string>
+  <string name="revanced_spoof_video_streams_title">Spoof videostreams</string>
   <string name="revanced_spoof_video_streams_summary_on">Video streams er spoofed</string>
-  <string name="revanced_spoof_video_streams_summary_off">Videostreams er ikke forfalskede\n\nVideoafspilning fungerer muligvis ikke</string>
+  <string name="revanced_spoof_video_streams_summary_off">"Videostreams forfalskes ikke
+
+Videoafspilning virker muligvis ikke"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">At slå denne indstilling fra kan forårsage problemer med videoafspilning.</string>
   <string name="revanced_spoof_video_streams_client_title">Standard klient</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Gennemtving AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video-codec er tvunget til AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video-codec bestemmes automatisk</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Aktivering af dette kan forbedre batteriets levetid og rette afspilningsstuttering.\n\nAVC har en maksimal opløsning på 1080p, Opus audio codec er ikke tilgængelig, og videoafspilning vil bruge flere internetdata end VP9 eller AV1.</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Aktivering af dette kan forbedre batterilevetiden og løse afspilningshakkethed.
+
+AVC har en maksimal opløsning på 1080p, Opus lydcodec er ikke tilgængelig, og videoafspilning bruger mere internetdata end VP9 eller AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS forfalskning bivirkninger</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Private børn videoer kan ikke afspille\n• Aldersbegrænsede videoer kan ikke afspille\n• Livestreams starter fra begyndelsen\n• Videoer slutter 1 sekund tidlig</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"● Private børnevideoer kan ikke afspilles
+● Livestreams starter forfra
+● Videoer slutter 1 sekund tidligere"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR spoofing bivirkninger</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Kids videoer spiller muligvis ikke\n• Aldersbegrænsede videoer spiller muligvis ikke\n• Livestreams starter fra begyndelsen\n• Videoer slutter 1 sekund tidlig</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"● Børnevideoer kan ikke afspilles
+● Livestreams starter forfra
+● Videoer slutter 1 sekund tidligere"</string>
   <string name="revanced_spoof_video_streams_language_title">Standard lyd-stream sprog</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">App sprog</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabisk</string>
@@ -1219,15 +1302,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_language_ID">Indonesisk</string>
   <string name="revanced_spoof_video_streams_language_IT">Italiensk</string>
   <string name="revanced_spoof_video_streams_language_JA">Japansk</string>
-  <string name="revanced_spoof_video_streams_language_KK">Kazakh</string>
+  <string name="revanced_spoof_video_streams_language_KK">Kasakhisk</string>
   <string name="revanced_spoof_video_streams_language_KO">Koreansk</string>
   <string name="revanced_spoof_video_streams_language_LT">Litauisk</string>
   <string name="revanced_spoof_video_streams_language_LV">Lettisk</string>
   <string name="revanced_spoof_video_streams_language_MK">Makedonsk</string>
   <string name="revanced_spoof_video_streams_language_MN">Mongolsk</string>
-  <string name="revanced_spoof_video_streams_language_MR">Marathi</string>
+  <string name="revanced_spoof_video_streams_language_MR">Marathisk</string>
   <string name="revanced_spoof_video_streams_language_MS">Malaysisk</string>
-  <string name="revanced_spoof_video_streams_language_MY">Burmese</string>
+  <string name="revanced_spoof_video_streams_language_MY">Burmesisk</string>
   <string name="revanced_spoof_video_streams_language_NL">Hollandsk</string>
   <string name="revanced_spoof_video_streams_language_OR">Odia</string>
   <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
@@ -1237,7 +1320,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_language_RO">Rumænsk</string>
   <string name="revanced_spoof_video_streams_language_RU">Russisk</string>
   <string name="revanced_spoof_video_streams_language_SK">Slovakisk</string>
-  <string name="revanced_spoof_video_streams_language_SL">Slovene</string>
+  <string name="revanced_spoof_video_streams_language_SL">Slovensk</string>
   <string name="revanced_spoof_video_streams_language_SR">Serbisk</string>
   <string name="revanced_spoof_video_streams_language_SV">Svensk</string>
   <string name="revanced_spoof_video_streams_language_SW">Swahili</string>
@@ -1247,7 +1330,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_language_TR">Tyrkisk</string>
   <string name="revanced_spoof_video_streams_language_UK">Ukrainsk</string>
   <string name="revanced_spoof_video_streams_language_UR">Urdu</string>
-  <string name="revanced_spoof_video_streams_language_VI">Vietnamese</string>
+  <string name="revanced_spoof_video_streams_language_VI">Vietnamesisk</string>
   <string name="revanced_spoof_video_streams_language_ZH">Kinesisk</string>
   </patch>
   </app>
@@ -1258,12 +1341,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_block_audio_ads_summary_off">Lydannoncer er ublokeret</string>
   </patch>
   <patch id="ad.embedded.embeddedAdsPatch">
-  <string name="revanced_embedded_ads_service_unavailable">%s er ikke tilgængelig. Annoncer kan vises. Prøv at skifte til en anden annonceblok tjeneste i indstillinger.</string>
-  <string name="revanced_embedded_ads_service_failed">%s server returnerede en fejl. Annoncer kan vises. Prøv at skifte til en anden annonceblok tjeneste i indstillinger.</string>
+  <string name="revanced_embedded_ads_service_unavailable">%s er ikke tilgængelig, annoncer vises muligvis. Prøv at skifte annonceblokeringstjeneste i indstillinger.</string>
+  <string name="revanced_embedded_ads_service_failed">%s returnerede en fejl, annoncer vises muligvis. Prøv at skifte annonceblokeringstjeneste i indstillinger.</string>
   <string name="revanced_block_embedded_ads_title">Bloker indlejrede videoannoncer</string>
   <string name="revanced_block_embedded_ads_entry_1">Deaktiveret</string>
   <string name="revanced_block_embedded_ads_entry_2">Lysende proxy</string>
-  <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock proxy</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">
   <string name="revanced_block_video_ads_title">Blokér videoannoncer</string>
