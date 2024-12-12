@@ -282,7 +282,7 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_doodles_title">Hide YouTube Doodles</string>
             <string name="revanced_hide_doodles_summary_on">Search bar Doodles are hidden</string>
             <string name="revanced_hide_doodles_summary_off">Search bar Doodles are shown</string>
-            <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodles show up a few days each year.
+            <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodles are shown a few days each year.
 
 If a Doodle is currently showing in your region and this hide setting is on, then the filter bar below the search bar will also be hidden."</string>
             <string name="revanced_custom_filter_screen_title">Custom filter</string>
