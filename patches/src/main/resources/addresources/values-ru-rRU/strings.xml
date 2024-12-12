@@ -1,34 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
-Note: All strings must have a unique path, even if the same string is declared in two different apps.
-This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+    All strings must have a unique path, even if the same string is declared in two different apps.
+    This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-# General guidelines and information for translating
 
-## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
+    Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
+    Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
-    For example, the patches string:
-        <string name="revanced_patches_string">You will arrive at %1$s in %2$s hours from now</string>
-    Could be translated to another language using a rearranged grammar:
-        <string name="revanced_patches_string">You will arrive %2$s hours from now at %1$s</string>
+    Raw strings are required because Crowdin AI translations regularly gets confused and
+    replace \n with an encoded new line character.
 
-     For Manager strings:
-        You will arrive at ${destination} in ${count} hours from now
-     Could be rearranged by changing the order of the ${} parameters:
-        You will arrive ${count} hours from now at ${destination}
+    Bad:
+        <string name="summary_key">First \'item\' text\nSecond \"item\" text</string>
 
-    Reordering is particularly relevant when translating into right to left languages, or for any language with grammar that is noticeably different from English.
+    Good:
+        <string name="summary_key">"First 'item' text
+Second \"item\" text"</string>
 
-## Single and double quotation marks must be escaped for patch strings (Manager does not require escaping any quotes).
-
-    All _patches_ single and double quotation marks must be escaped as \"  or \'
-    Forgetting to do this will cause that string to appear in app with no quotation characters.
-
-    Correct:
-        <string name="revanced_string">You\'re correct. This is the \"correct\" way and this text will appear as expected in the app</string>
-    Not correct:
-        <string name="revanced_string">You're not correct. This is not the "correct" way and this text will not appear as expected the in app</string>
 -->
 <resources>
   <app id="shared">
@@ -36,7 +25,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_check_environment_failed_title">Проверка не удалась</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Открыть официальный сайт</string>
   <string name="revanced_check_environment_dialog_ignore_button">Пропустить</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Похоже, что это приложение пропатчено не вами.&lt;/h5&gt;&lt;br&gt;Оно может работать неправильно, &lt;b&gt;быть вредным или даже опасным.&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Эти проверки предполагают, что это приложение пропатчено или получено от кого-то другого:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Настоятельно рекомендуется &lt;b&gt;удалить это приложение и пропатчить его самостоятельно,&lt;/b&gt; чтобы быть уверенным, что вы используете проверенное и безопасное приложение.&lt;p&gt;&lt;br&gt;Если нажать \"Пропустить\", то это предупреждение будет показано только дважды.</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Похоже, что это приложение пропатчено не Вами.&lt;/h5&gt;&lt;br&gt;Оно может работать неправильно, &lt;b&gt;быть вредным или даже опасным.&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Эти проверки предполагают, что это приложение пропатчено или получено от кого-то другого:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Настоятельно рекомендуется &lt;b&gt;удалить это приложение и пропатчить его самостоятельно,&lt;/b&gt; чтобы быть уверенным, что вы используете проверенное и безопасное приложение.&lt;p&gt;&lt;br&gt;Если нажать \"Пропустить\", то это предупреждение будет показано только дважды.</string>
   <string name="revanced_check_environment_not_same_patching_device">Пропатчено на другом устройстве</string>
   <string name="revanced_check_environment_manager_not_expected_installer">Установлено не через ReVanced Manager</string>
   <string name="revanced_check_environment_not_near_patch_time">Пропатчено более 10 минут назад</string>
@@ -44,7 +33,6 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_check_environment_not_near_patch_time_invalid">Дата сборки APK повреждена</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
-  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Вы хотите продолжить?</string>
   <string name="revanced_settings_reset">Сбросить</string>
   <string name="revanced_settings_restart_title">Перезапустить для применения?</string>
@@ -68,9 +56,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore не установлен. Установите его.</string>
   <string name="gms_core_dialog_title">Требуется действие</string>
-  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">MicroG GmsCore не имеет разрешения на работу в фоновом режиме.\n\nНастройте MicroG согласно инструкции \"Don\'t kill my app\" для Вашего телефона.\n\nЭто необходимо для работы приложения.</string>
+  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore не имеет разрешения на работу в фоновом режиме.
+
+Настройте MicroG согласно инструкции \"Don't kill my app\" для Вашего телефона.
+
+Это необходимо для работы приложения."</string>
   <string name="gms_core_dialog_open_website_text">Открыть сайт</string>
-  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">Во избежание проблем необходимо отключить оптимизацию батареи для MicroG GmsCore.\n\nНажмите кнопку \"Продолжить\" и отключите оптимизацию батареи.</string>
+  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Для избежания проблем оптимизация батареи для MicroG GmsCore должна быть отключена.
+
+Отключение оптимизации батареи для MicroG не окажет отрицательного влияния на использование батареи.
+
+Нажмите кнопку \"Продолжить\" и разрешите изменения оптимизации."</string>
   <string name="gms_core_dialog_continue_text">Продолжить</string>
   </patch>
   </app>
@@ -107,7 +103,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_debug_toast_on_error_title">Уведомление при ошибке</string>
   <string name="revanced_debug_toast_on_error_summary_on">Всплывающее уведомление при ошибке Revanced отображено</string>
   <string name="revanced_debug_toast_on_error_summary_off">Всплывающее уведомление при ошибке Revanced скрыто</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">Отключение всплывающих уведомлений об ошибках скрывает все сообщения об ошибках ReVanced.\n\nВы не будете получать уведомления о каких-либо непредвиденных событиях.</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"Отключение всплывающих уведомлений об ошибках скрывает все сообщения об ошибках ReVanced.
+
+Вы не будете получать уведомления о каких-либо непредвиденных событиях."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_disable_like_subscribe_glow_title">Подсветка кнопок</string>
@@ -126,7 +124,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_watermark_summary_on">Водяной знак канала в плеере скрыт</string>
   <string name="revanced_hide_channel_watermark_summary_off">Водяной знак канала в плеере отображен</string>
   <string name="revanced_hide_horizontal_shelves_title">Горизонтальные секции</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">Горизонтальные секции скрыты:\n• Срочные новости\n• Продолжить просмотр\n• Исследовать больше каналов\n• Покупки\n• Смотреть снова</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"Горизонтальные секции скрыты:
+• Срочные новости
+• Продолжить просмотр
+• Исследовать больше каналов
+• Покупки
+• Смотреть снова"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Горизонтальные секции отображены</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
@@ -275,7 +278,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_doodles_title">YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Doodles на панели поиска скрыты</string>
   <string name="revanced_hide_doodles_summary_off">Doodles на панели поиска отображены</string>
-  <string name="revanced_hide_doodles_user_dialog_message">YouTube Doodles появляются несколько дней в году.\n\nЕсли в Вашем регионе в настоящее время показывается Doodle, и данная опция скрытия активна, то панель фильтров под панелью поиска будет также скрыта.</string>
+  <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodles показываются несколько дней в году.
+
+Если в Вашем регионе в настоящее время показывается Doodle, и данная опция скрытия активна, то панель фильтров под панелью поиска будет также скрыта."</string>
   <string name="revanced_custom_filter_screen_title">Пользовательский фильтр</string>
   <string name="revanced_custom_filter_screen_summary">Скрыть компоненты с помощью пользовательских фильтров</string>
   <string name="revanced_custom_filter_title">Пользовательский фильтр</string>
@@ -299,9 +304,18 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_content_phrases_title">Ключевые слова для скрытия</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
-  <string name="revanced_hide_keyword_content_phrases_summary">Ключевые слова и фразы для скрытия, разделенные новой строкой\n\nКлючевыми словами могут быть названия каналов или любой текст, отображаемый в заголовках видео\n\nСлова с заглавными буквами в середине должны содержать регистр (например: iPhone, TikTok, LeBlanc)</string>
+  <string name="revanced_hide_keyword_content_phrases_summary">"Ключевые слова и фразы для скрытия, разделенные новой строкой
+
+Ключевыми словами могут быть названия каналов или любой текст, отображаемый в заголовках видео
+
+Слова с заглавными буквами в середине должны содержать регистр (например: iPhone, TikTok, LeBlanc)"</string>
   <string name="revanced_hide_keyword_content_about_title">О фильтре ключевых слов</string>
-  <string name="revanced_hide_keyword_content_about_summary">Вкладки \"Главная\", \"Подписки\" и результаты поиска фильтруются для скрытия контента, соответствующего ключевым фразам\n\nОграничения\n• Shorts нельзя скрыть по имени канала\n• Некоторые компоненты пользовательского интерфейса могут быть не скрыты\n• Поиск по ключевому слову может не дать результатов</string>
+  <string name="revanced_hide_keyword_content_about_summary">"Вкладки \"Главная\", \"Подписки\" и результаты поиска фильтруются для скрытия контента, соответствующего ключевым фразам
+
+Ограничения
+• Shorts нельзя скрыть по имени канала
+• Некоторые компоненты пользовательского интерфейса могут быть не скрыты
+• Поиск по ключевому слову может не дать результатов"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Только целые слова</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Заключение ключевого слова/фразы в двойные кавычки предотвратит частичное совпадение названий видео и каналов&lt;br&gt;&lt;br&gt;Например,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; скроет видео: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;но не скроет: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
@@ -317,7 +331,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_general_ads_summary_on">Реклама общего формата скрыта</string>
   <string name="revanced_hide_general_ads_summary_off">Реклама общего формата отображена</string>
   <string name="revanced_hide_fullscreen_ads_title">Полноэкранная реклама</string>
-  <string name="revanced_hide_fullscreen_ads_summary_on">Полноэкранная реклама при запуске приложения скрыта\n\nДанная опция доступна только для старых устройств</string>
+  <string name="revanced_hide_fullscreen_ads_summary_on">"Полноэкранная реклама при запуске приложения скрыта
+
+Данная опция доступна только для старых устройств"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Полноэкранная реклама при запуске приложения отображена</string>
   <string name="revanced_hide_buttoned_ads_title">Видеообъявления</string>
   <string name="revanced_hide_buttoned_ads_summary_on">Видеообъявления скрыты</string>
@@ -491,7 +507,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_subscriptions_button_summary_off">Кнопка \"Подписки\" в панели навигации отображена</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Инверсия \"Создать\" и \"Уведомления\"</string>
-  <string name="revanced_switch_create_with_notifications_button_summary_on">Кнопки \"Создать\" и \"Уведомления\" заменены местами\n\nПримечание: активация данной опции также принудительно скрывает видеорекламу</string>
+  <string name="revanced_switch_create_with_notifications_button_summary_on">"Кнопки \"Создать\" и \"Уведомления\" заменены местами
+
+Примечание: активация данной опции также принудительно скрывает видеорекламу"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Кнопки \"Создать\" и \"Уведомления\" не заменены местами</string>
   <string name="revanced_hide_navigation_button_labels_title">Подписи кнопок навигации</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Подписи кнопок навигации скрыты</string>
@@ -732,7 +750,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_enable_summary_off">Дизлайки скрыты</string>
   <string name="revanced_ryd_shorts_title">Дизлайки в Shorts</string>
   <string name="revanced_ryd_shorts_summary_on">Дизлайки в Shorts отображены</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">Дизлайки в Shorts отображены\n\nОграничение: Дизлайки могут не отображаться в режиме инкогнито</string>
+  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Дизлайки в Shorts отображены
+
+Ограничение: Дизлайки могут не отображаться в режиме инкогнито"</string>
   <string name="revanced_ryd_shorts_summary_off">Дизлайки в Shorts скрыты</string>
   <string name="revanced_ryd_dislike_percentage_title">Варианты отображения дизлайков</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">Дизлайки отображаются как проценты</string>
@@ -775,7 +795,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Миниатюры полосы прогресса среднего качества</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Полноэкранные миниатюры полосы прогресса высокого качества</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Полноэкранные миниатюры полосы прогресса среднего качества</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Данная опция также восстановит миниатюры в прямых трансляциях, которые не имеют миниатюр полосы прогресса.\n\nМиниатюры полосы прогресса будут использовать такое же качество, как и текущее видео.\n\nДанная опция работает лучше с качеством видео 720p или ниже, и при использовании очень быстрого подключения к Интернету.</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Данная опция также восстановит миниатюры в прямых трансляциях, которые не имеют миниатюр полосы прогресса.
+
+Миниатюры полосы прогресса будут использовать такое же качество, как и текущее видео.
+
+Данная опция работает лучше с качеством видео 720p или ниже, и при использовании очень быстрого подключения к Интернету."</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Старые миниатюры</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Миниатюры полосы прогресса отображаются над полосой прогресса</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Миниатюры полосы прогресса отображаются в полноэкранном режиме</string>
@@ -838,7 +862,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_settings_import_successful">Настройки успешно импортированы</string>
   <string name="revanced_sb_settings_import_failed">Не удалось импортировать: %s</string>
   <string name="revanced_sb_settings_export_failed">Не удалось экспортировать: %s</string>
-  <string name="revanced_sb_settings_revanced_export_user_id_warning">Ваши настройки SponsorBlock содержат уникальный идентификатор пользователя.\n\nВаш идентификатор пользователя как пароль, им не стоит ни с кем делиться\n</string>
+  <string name="revanced_sb_settings_revanced_export_user_id_warning">"Ваши настройки SponsorBlock содержат уникальный идентификатор пользователя.
+
+Ваш идентификатор пользователя как пароль, им не стоит ни с кем делиться.
+"</string>
   <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">Не показывать снова</string>
   <string name="revanced_sb_diff_segments">Изменить поведение сегмента</string>
   <string name="revanced_sb_segments_sponsor">Спонсорская реклама</string>
@@ -895,12 +922,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_skip_showbutton">Кнопка пропуска</string>
   <string name="revanced_sb_skip_seekbaronly">Отображать в полосе прогресса</string>
   <string name="revanced_sb_skip_ignore">Отключить</string>
-  <string name="revanced_sb_submit_failed_invalid">Не удалось отправить сегмент: %s</string>
+  <string name="revanced_sb_submit_failed_invalid">Невозможно отправить сегмент: %s</string>
   <string name="revanced_sb_submit_failed_timeout">SponsorBlock временно не работает</string>
-  <string name="revanced_sb_submit_failed_unknown_error">Не удалось отправить сегмент (статус: %1$d %2$s)</string>
-  <string name="revanced_sb_submit_failed_rate_limit">Невозможно отправить сегмент.\nЧастота ограничена (слишком много от одного пользователя или IP)</string>
+  <string name="revanced_sb_submit_failed_unknown_error">Невозможно отправить сегмент (статус: %1$d %2$s)</string>
+  <string name="revanced_sb_submit_failed_rate_limit">Невозможно отправить сегмент. Частота ограничена (слишком много от одного пользователя или IP)</string>
   <string name="revanced_sb_submit_failed_forbidden">Невозможно отправить сегмент: %s</string>
-  <string name="revanced_sb_submit_failed_duplicate">Невозможно отправить сегмент.\nУже существует</string>
+  <string name="revanced_sb_submit_failed_duplicate">"Невозможно отправить сегмент.
+Уже существует"</string>
   <string name="revanced_sb_submit_succeeded">Сегмент успешно отправлен</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock временно недоступен (время API истекло)</string>
@@ -923,7 +951,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">Время начала сегмента</string>
   <string name="revanced_sb_new_segment_time_end">Время окончания сегмента</string>
   <string name="revanced_sb_new_segment_confirm_title">Верно ли выбрано время?</string>
-  <string name="revanced_sb_new_segment_confirm_content">Сегмент от\n\n%1$s\nдо\n%2$s\n\n(%3$s)\n\nГотов к отправке?</string>
+  <string name="revanced_sb_new_segment_confirm_content">"Сегмент из
+
+%1$s
+в
+%2$s
+
+(%3$s)
+
+Готовы отправить?"</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Начало должно быть перед окончанием</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Сначала отметьте два места на шкале времени</string>
   <string name="revanced_sb_new_segment_preview_segment_first">Просмотрите сегмент и убедитесь, что пропуск происходит плавно</string>
@@ -965,7 +1001,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_title">Подмена версии приложения</string>
   <string name="revanced_spoof_app_version_summary_on">Версия приложения подменена</string>
   <string name="revanced_spoof_app_version_summary_off">Версия приложения не подменена</string>
-  <string name="revanced_spoof_app_version_user_dialog_message">Версия приложения будет подменена на более раннюю версию YouTube.\n\nЭто изменит вид и функции приложения, но могут случиться неизвестные побочные эффекты.\n\nЕсли позже данный параметр будет отключен, рекомендуется очистить данные приложения для предотвращения проблем с пользовательским интерфейсом.</string>
+  <string name="revanced_spoof_app_version_user_dialog_message">"Версия приложения будет подменена на более раннюю версию YouTube.
+
+Это изменит вид и функции приложения, но могут случиться неизвестные побочные эффекты.
+
+Если позже данный параметр будет отключен, рекомендуется очистить данные приложения для предотвращения проблем с пользовательским интерфейсом."</string>
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Подмена версии приложения на</string>
@@ -1028,19 +1068,28 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_rounded_corners_summary_on">Углы закруглены</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Углы квадратны</string>
   <string name="revanced_miniplayer_double_tap_action_title">Двойное нажатие и щипок для изменения размера</string>
-  <string name="revanced_miniplayer_double_tap_action_summary_on">Двойное нажатие и щипок для изменения размера включено\n\n• Двойное нажатие для увеличения размера мини-плеера\n• Двойное нажатие еще раз для восстановления исходного размера</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">"Двойное нажатие и щипок для изменения размера включено
+
+• Двойное нажатие для увеличения размера мини-плеера
+• Двойное нажатие еще раз для восстановления исходного размера"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Двойное нажатие и щипок для изменения размера отключены</string>
   <string name="revanced_miniplayer_drag_and_drop_title">Перетаскивание</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">Перетаскивание включено\n\nМини-плеер можно перетащить в любой угол экрана</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Перетаскивание включено
+
+Мини-плеер можно перетащить в любой угол экрана"</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">Перетаскивание отключено</string>
   <string name="revanced_miniplayer_horizontal_drag_title">Жест горизонтального перетаскивания</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">Жест горизонтального перетаскивания включен\n\nМини-плеер можно перетаскивать за пределы экрана влево или вправо</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Жест горизонтального перетаскивания включен
+
+Мини-плеер можно перетаскивать за пределы экрана влево или вправо"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Жест горизонтального перетаскивания отключен</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Кнопка закрытия</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">Кнопка закрытия скрыта</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">Кнопка закрытия отображена</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_title">Кнопки \"Развернуть\" и \"Закрыть\"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Кнопки скрыты\n\nПроведите по мини-плееру для разворачивания или закрытия</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Кнопки скрыты
+
+Проведите по мини-плееру для разворачивания или закрытия"</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Кнопки разворачивания и закрытия отображены</string>
   <string name="revanced_miniplayer_hide_subtext_title">Подтексты</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Подтексты скрыты</string>
@@ -1071,7 +1120,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Обход ограничений региона</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Использование хоста изображений yt4.ggpht.com</string>
-  <string name="revanced_bypass_image_region_restrictions_summary_off">Использование оригинального хоста изображений\n\nАктивация данной опции может исправить недостающие изображения, которые заблокированы в некоторых регионах </string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">"Использование оригинального хоста изображений
+
+Активация данной опции может исправить недостающие изображения, которые заблокированы в некоторых регионах "</string>
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -1086,7 +1137,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow и оригинальные миниатюры</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow и захват кадра</string>
   <string name="revanced_alt_thumbnail_options_entry_4">Захват кадра</string>
-  <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow предоставляет краудсорсинговые миниатюры (часто более релевантные) для видео YouTube\n\nПри активации URL-адреса видео (и никакие другие данные) будут отправлены на сервер API. При отсутствии миниатюр DeArrow в видео отображаются оригинальные или миниатюры захвата кадра\n\nНажмите для получения дополнительной информации о DeArrow</string>
+  <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow предоставляет краудсорсинговые миниатюры (часто более релевантные) для видео YouTube
+
+При активации URL-адреса видео (и никакие другие данные) будут отправлены на сервер API. При отсутствии миниатюр DeArrow в видео отображаются оригинальные или миниатюры захвата кадра
+
+Нажмите для получения дополнительной информации о DeArrow"</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Уведомление при недоступности API</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Всплывающее уведомление при недоступности DeArrow отображено</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Всплывающее уведомление при недоступности DeArrow скрыто</string>
@@ -1125,8 +1180,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Подмена размеров устройства</string>
-  <string name="revanced_spoof_device_dimensions_summary_on">Размеры устройства подменены\n\nБолее высокие качества видео могут быть разблокированы, однако при этом возможны заикания видео при воспроизведении, высокое потребление батареи и неизвестные побочные эффекты</string>
-  <string name="revanced_spoof_device_dimensions_summary_off">Размеры устройства не подменены\n\nАктивация данной опции может разблокировать более высокие качества видео</string>
+  <string name="revanced_spoof_device_dimensions_summary_on">"Размеры устройства подменены
+
+Более высокие качества видео могут быть разблокированы, однако при этом возможны заикания видео при воспроизведении, высокое потребление батареи и неизвестные побочные эффекты"</string>
+  <string name="revanced_spoof_device_dimensions_summary_off">"Размеры устройства не подменены
+
+Активация данной опции может разблокировать более высокие качества видео"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Активация данной опции может привести к заиканиям видео при воспроизведении, высокому потреблению батареи и неизвестным побочным эффектам.</string>
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
@@ -1176,8 +1235,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_custom_speed_menu_summary_off">Пользовательское меню скорости воспроизведения скрыто</string>
   <string name="revanced_custom_playback_speeds_title">Скорости воспроизведения</string>
   <string name="revanced_custom_playback_speeds_summary">Добавить или изменить пользовательские скорости воспроизведения</string>
-  <string name="revanced_custom_playback_speeds_invalid">Пользовательские скорости должны быть меньше, чем %s. Использование значений по умолчанию.</string>
-  <string name="revanced_custom_playback_speeds_parse_exception">Недопустимая пользовательская скорость воспроизведения. Использование значений по умолчанию.</string>
+  <string name="revanced_custom_playback_speeds_invalid">Пользовательские скорости должны быть меньше, чем %s</string>
+  <string name="revanced_custom_playback_speeds_parse_exception">Недопустимые пользовательские скорости воспроизведения</string>
   <string name="revanced_custom_playback_speeds_auto">Автоматически</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
@@ -1202,15 +1261,25 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_screen_summary">Подмена видеопотоков клиента для предотвращения проблем с воспроизведением видео</string>
   <string name="revanced_spoof_video_streams_title">Подмена видеопотоков</string>
   <string name="revanced_spoof_video_streams_summary_on">Видеопотоки подменены</string>
-  <string name="revanced_spoof_video_streams_summary_off">Видеопотоки не подменены\n\nВоспроизведение видео может не работать</string>
+  <string name="revanced_spoof_video_streams_summary_off">"Видеопотоки не подменены
+
+Воспроизведение видео может не работать"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Отключение этой настройки может вызвать проблемы с воспроизведением видео.</string>
   <string name="revanced_spoof_video_streams_client_title">Клиент по умолчанию</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Принудительно AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Видео кодек принудительно установлен на AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Видео кодек определяется автоматически</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Активация данной опции может улучшить время работы батареи и исправить задержки воспроизведения.\n\nAVC имеет максимальное разрешение 1080p, аудио кодек Opus недоступен, и воспроизведение видео будет использовать больше интернет данных в сравнении с VP9 или AV1.</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Активация данной опции может улучшить время работы батареи и исправить задержки воспроизведения.
+
+AVC имеет максимальное разрешение 1080p, аудио кодек Opus недоступен, и воспроизведение видео будет использовать больше интернет данных в сравнении с VP9 или AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Побочные эффекты подмены на iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Частные детские видео могут не воспроизводиться
+• Прямые трансляции начинаются с самого начала
+• Видео заканчиваются на 1 секунду раньше"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Побочные эффекты подмены на Android VR</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Детские видео могут не воспроизводиться
+• Прямые трансляции начинаются с самого начала
+• Видео заканчиваются на 1 секунду раньше"</string>
   <string name="revanced_spoof_video_streams_language_title">Язык аудио потока по умолчанию</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Язык приложения</string>
   <string name="revanced_spoof_video_streams_language_AR">Арабский</string>
@@ -1274,8 +1343,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_block_audio_ads_summary_off">Аудиореклама разблокирована</string>
   </patch>
   <patch id="ad.embedded.embeddedAdsPatch">
-  <string name="revanced_embedded_ads_service_unavailable">%s недоступен. Реклама может отображаться. Попробуйте переключиться на другую службу блокировки рекламы в настройках.</string>
-  <string name="revanced_embedded_ads_service_failed">%s сервер вернул ошибку. Реклама может отображаться. Попробуйте переключиться на другую службу блокировки рекламы в настройках.</string>
+  <string name="revanced_embedded_ads_service_unavailable">%s недоступен, реклама может показываться. Попробуйте изменить службу блокировки рекламы в настройках.</string>
+  <string name="revanced_embedded_ads_service_failed">%s вернул ошибку, реклама может показываться. Попробуйте изменить службу блокировки рекламы в настройках.</string>
   <string name="revanced_block_embedded_ads_title">Встроенная реклама в видео</string>
   <string name="revanced_block_embedded_ads_entry_1">Отключено</string>
   <string name="revanced_block_embedded_ads_entry_2">Luminous прокси</string>

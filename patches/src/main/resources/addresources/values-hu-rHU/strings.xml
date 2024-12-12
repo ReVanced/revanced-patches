@@ -1,34 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
-Note: All strings must have a unique path, even if the same string is declared in two different apps.
-This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+    All strings must have a unique path, even if the same string is declared in two different apps.
+    This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-# General guidelines and information for translating
 
-## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
+    Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
+    Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
-    For example, the patches string:
-        <string name="revanced_patches_string">You will arrive at %1$s in %2$s hours from now</string>
-    Could be translated to another language using a rearranged grammar:
-        <string name="revanced_patches_string">You will arrive %2$s hours from now at %1$s</string>
+    Raw strings are required because Crowdin AI translations regularly gets confused and
+    replace \n with an encoded new line character.
 
-     For Manager strings:
-        You will arrive at ${destination} in ${count} hours from now
-     Could be rearranged by changing the order of the ${} parameters:
-        You will arrive ${count} hours from now at ${destination}
+    Bad:
+        <string name="summary_key">First \'item\' text\nSecond \"item\" text</string>
 
-    Reordering is particularly relevant when translating into right to left languages, or for any language with grammar that is noticeably different from English.
+    Good:
+        <string name="summary_key">"First 'item' text
+Second \"item\" text"</string>
 
-## Single and double quotation marks must be escaped for patch strings (Manager does not require escaping any quotes).
-
-    All _patches_ single and double quotation marks must be escaped as \"  or \'
-    Forgetting to do this will cause that string to appear in app with no quotation characters.
-
-    Correct:
-        <string name="revanced_string">You\'re correct. This is the \"correct\" way and this text will appear as expected in the app</string>
-    Not correct:
-        <string name="revanced_string">You're not correct. This is not the "correct" way and this text will not appear as expected the in app</string>
 -->
 <resources>
   <app id="shared">
@@ -67,9 +56,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore nincs telepítve. Telepítse.</string>
   <string name="gms_core_dialog_title">Művelet szükséges</string>
-  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">A MicroG GmsCore nem rendelkezik engedéllyel, hogy a háttérben futhasson.\n\nKövesse a \"Don\'t kill my app\" útmutatót a telefonjához és alkalmazza a leírtakat a MicroG telepítésre.\n\nEz szükséges az alkalmazás működéséhez.</string>
+  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"A MicroG GmsCore nem rendelkezik engedéllyel a háttérben történő futáshoz.
+
+Kövesse a \"Ne ölj meg az alkalmazásomat\" útmutatót a telefonján, és alkalmazza az utasításokat a MicroG telepítésére.
+
+Ez szükséges az alkalmazás működéséhez."</string>
   <string name="gms_core_dialog_open_website_text">Webhely megnyitása</string>
-  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">A hibák megelőzése érdekében a MicroG GmsCore akkuoptimalizálását ki kell kapcsolni.\n\nKoppintson a folytatás gombra és kapcsolja ki az akkuoptimalizálást.</string>
+  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"A MicroG GmsCore akkumulátor-optimalizálását le kell tiltani a problémák elkerülése érdekében.
+
+A MicroG akkumulátor-optimalizálásának letiltása nem befolyásolja negatívan az akkumulátor használatát.
+
+Kattintson a folytatás gombra, és engedélyezze az optimalizálási módosításokat."</string>
   <string name="gms_core_dialog_continue_text">Folytatás</string>
   </patch>
   </app>
@@ -106,7 +103,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_debug_toast_on_error_title">Üzenet megjelenítése ReVanced hiba esetén</string>
   <string name="revanced_debug_toast_on_error_summary_on">Üzenet jelenik meg, ha hiba történik</string>
   <string name="revanced_debug_toast_on_error_summary_off">Nem jelenik meg üzenet, ha hiba történik</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">A hibaüzenetek kikapcsolása elrejti az összes ReVanced hibaértesítést.\n\nNem kap értesítést semmilyen váratlan eseményről.</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"A hibaüzenetek kikapcsolása elrejti az összes ReVanced hibaértesítést.
+
+Nem fog értesülni semmilyen váratlan eseményről."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_disable_like_subscribe_glow_title">Like / feliratkozás gomb ragyogásának kikapcsolása</string>
@@ -125,7 +124,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_watermark_summary_on">A vízjel el van rejtve</string>
   <string name="revanced_hide_channel_watermark_summary_off">Vízjel látható</string>
   <string name="revanced_hide_horizontal_shelves_title">Vízszintes polcok elrejtése</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">A polcok rejtve lesznek, mint a:\n• Rendkívüli hírek\n• Tovább néznéd?\n• Még több csatorna felfedezése\n• Vásárlás\n• Megnézem mégegyszer</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"A következő polcok vannak elrejtve:
+• Friss hírek
+• Folytatás a nézés
+• További csatornák felfedezése
+• Vásárlás
+• Nézd meg újra"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">A polcok láthatóak</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
@@ -155,22 +159,22 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_timed_reactions_summary_off">Az időzített reakciók megjelenítve</string>
   <string name="revanced_hide_search_result_shelf_header_title">Keresési eredmények polcfejlécének elrejtése</string>
   <string name="revanced_hide_search_result_shelf_header_summary_on">A polcfejléc el van rejtve</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">A polcfejléc megjelenik</string>
+  <string name="revanced_hide_search_result_shelf_header_summary_off">Polcsínfej van eltűnve</string>
   <string name="revanced_hide_channel_guidelines_title">Csatornák irányelveinek elrejtése</string>
-  <string name="revanced_hide_channel_guidelines_summary_on">A csatorna irányelvei elrejtve</string>
-  <string name="revanced_hide_channel_guidelines_summary_off">A csatorna irányelvei megjelenítve</string>
+  <string name="revanced_hide_channel_guidelines_summary_on">A csatornaírők el vannak rejtve</string>
+  <string name="revanced_hide_channel_guidelines_summary_off">A csatornaírők meg vannak jelenítve</string>
   <string name="revanced_hide_chips_shelf_title">Vágások polc elrejtése</string>
   <string name="revanced_hide_chips_shelf_summary_on">A vágások polc el van rejtve</string>
   <string name="revanced_hide_chips_shelf_summary_off">A részletek polc meg van jelenítve</string>
   <string name="revanced_hide_expandable_chip_title">Kiterjeszthető részletek elrejtése a videók alatt</string>
-  <string name="revanced_hide_expandable_chip_summary_on">A kiterjeszthető vágások el vannak rejtve</string>
-  <string name="revanced_hide_expandable_chip_summary_off">A kiterjeszthető vágások megjelennek</string>
+  <string name="revanced_hide_expandable_chip_summary_on">A bővíthető chipek el vannak rejtve</string>
+  <string name="revanced_hide_expandable_chip_summary_off">A bővíthető chipek meg vannak jelenítve</string>
   <string name="revanced_hide_community_posts_title">Közösségi posztok elrejtése</string>
-  <string name="revanced_hide_community_posts_summary_on">A közösségi posztok el vannak rejtve</string>
-  <string name="revanced_hide_community_posts_summary_off">A közösségi posztok meg fognak jelenni</string>
+  <string name="revanced_hide_community_posts_summary_on">A közösségi bejegyzések el vannak rejtve</string>
+  <string name="revanced_hide_community_posts_summary_off">A közösségi bejegyzések meg vannak jelenítve</string>
   <string name="revanced_hide_compact_banner_title">Kompakt szalagképek elrejtése</string>
-  <string name="revanced_hide_compact_banner_summary_on">A kompakt szalagképek el vannak rejtve</string>
-  <string name="revanced_hide_compact_banner_summary_off">A kompakt szalagképek láthatók</string>
+  <string name="revanced_hide_compact_banner_summary_on">A kompakt bannerek el vannak rejtve</string>
+  <string name="revanced_hide_compact_banner_summary_off">A kompakt bannerek meg vannak jelenítve</string>
   <string name="revanced_hide_movies_section_title">Filmek szakasz elrejtése</string>
   <string name="revanced_hide_movies_section_summary_on">A filmek szakasz el van rejtve</string>
   <string name="revanced_hide_movies_section_summary_off">A filmek szakasz látható</string>
@@ -191,7 +195,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_emergency_box_summary_off">A vészhelyzeti dobozok láthatóak</string>
   <string name="revanced_hide_info_panels_title">Információs panelek elrejtése</string>
   <string name="revanced_hide_info_panels_summary_on">Az információs panelek el vannak rejtve</string>
-  <string name="revanced_hide_info_panels_summary_off">Az információs panelek meg fognak jelenni</string>
+  <string name="revanced_hide_info_panels_summary_off">Az információs táblák meg vannak jelenítve</string>
   <string name="revanced_hide_medical_panels_title">Egészségügyi panel elrejtése</string>
   <string name="revanced_hide_medical_panels_summary_on">Az egészségügyi panelek el vannak rejtve</string>
   <string name="revanced_hide_medical_panels_summary_off">Az egészségügyi panelek láthatóak</string>
@@ -202,14 +206,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playables_summary_on">A játékszoba rejtett</string>
   <string name="revanced_hide_playables_summary_off">A játékszoba megjelenik</string>
   <string name="revanced_hide_quick_actions_title">Gyorsműveletek elrejtése teljes képernyős módban</string>
-  <string name="revanced_hide_quick_actions_summary_on">A gyorsműveletek el vannak rejtve</string>
+  <string name="revanced_hide_quick_actions_summary_on">A gyors műveletek el vannak rejtve</string>
   <string name="revanced_hide_quick_actions_summary_off">A gyorsműveletek megjelennek</string>
   <string name="revanced_hide_related_videos_title">Kapcsolódó videók elrejtése a gyorsműveletekben</string>
   <string name="revanced_hide_related_videos_summary_on">A kapcsolódó videók el vannak rejtve</string>
-  <string name="revanced_hide_related_videos_summary_off">A kapcsolódó videók láthatóak</string>
+  <string name="revanced_hide_related_videos_summary_off">A kapcsoloódó videók meg vannak jelenítve</string>
   <string name="revanced_hide_image_shelf_title">Képek elrejtése a keresési eredményekben</string>
   <string name="revanced_hide_image_shelf_summary_on">A képek el vannak rejtve</string>
-  <string name="revanced_hide_image_shelf_summary_off">A képek megjelennek</string>
+  <string name="revanced_hide_image_shelf_summary_off">A képes polc meg van jelenítve</string>
   <string name="revanced_hide_latest_posts_ads_title">Legutóbbi bejegyzések elrejtése</string>
   <string name="revanced_hide_latest_posts_ads_summary_on">A legutóbbi bejegyzések rejtve vannak</string>
   <string name="revanced_hide_latest_posts_ads_summary_off">A legutóbbi bejegyzések láthatóak</string>
@@ -223,11 +227,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_attributes_section_summary_on">A „Kiemelt helyek”, a Játékok és a Zene szakaszok el vannak rejtve</string>
   <string name="revanced_hide_attributes_section_summary_off">Megjelennek a „Kiemelt helyek”, a Játékok és a Zene szakaszok</string>
   <string name="revanced_hide_chapters_section_title">Fejezetek elrejtése</string>
-  <string name="revanced_hide_chapters_section_summary_on">A fejezetek szakasz el van rejtve</string>
-  <string name="revanced_hide_chapters_section_summary_off">Megjelenik a Fejezetek rész</string>
+  <string name="revanced_hide_chapters_section_summary_on">A fejezetcó szakasz el van rejtve</string>
+  <string name="revanced_hide_chapters_section_summary_off">A fejezetcó szakasz meg van jelenítve</string>
   <string name="revanced_hide_podcast_section_title">A „Podcast felfedezése” szakasz elrejtése</string>
-  <string name="revanced_hide_podcast_section_summary_on">A „Podcast felfedezése” rész el van rejtve</string>
-  <string name="revanced_hide_podcast_section_summary_off">Megjelenik az „Explore the podcast” rész</string>
+  <string name="revanced_hide_podcast_section_summary_on">\"A podcast felfedezése\" szakasz el van rejtve</string>
+  <string name="revanced_hide_podcast_section_summary_off">\"A podcast felfedezése\" szakasz meg van jelenítve</string>
   <string name="revanced_hide_info_cards_section_title">Infó kártyák rész elrejtése</string>
   <string name="revanced_hide_info_cards_section_summary_on">Az infó kártyák rész el van rejtve</string>
   <string name="revanced_hide_info_cards_section_summary_off">Az infó kártyák rész látható</string>
@@ -253,8 +257,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_comments_screen_title">Megjegyzések</string>
   <string name="revanced_comments_screen_summary">Megjegyzések rész elrejtése vagy megjelenítése</string>
   <string name="revanced_hide_comments_by_members_header_title">A „Tagok megjegyzései” fejléc elrejtése</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">A „tagok megjegyzései” fejléc el van rejtve</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">Megjelenik a „Tagok megjegyzései” fejléc</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">A \"Megjegyzések a tagoktól\" fejlec el van rejtve</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">A \"Megjegyzések a tagoktól\" fejlec meg van jelenítve</string>
   <string name="revanced_hide_comments_section_title">A megjegyzések szekció elrejtése</string>
   <string name="revanced_hide_comments_section_summary_on">A komment szekció el van rejtve</string>
   <string name="revanced_hide_comments_section_summary_off">A megjegyzések szekció megjelenik</string>
@@ -268,13 +272,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_thanks_button_summary_on">A köszönet gomb el van rejtve</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">A köszönet gomb látható</string>
   <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Időbélyeg és az emoji gombok elrejtése</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Az időbélyeg és az emoji gombok el vannak rejtve</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Megjelennek az időbélyeg és az emoji gombok</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Az időbélyegzők és emoji gombok el vannak rejtve</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Az időbélyegzők és emoji gombok meg vannak jelenítve</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">YouTube Doodles elrejtése</string>
   <string name="revanced_hide_doodles_summary_on">A Doodles Keresősáv el van rejtve</string>
   <string name="revanced_hide_doodles_summary_off">A Doodles Keresősáv megjelenik</string>
-  <string name="revanced_hide_doodles_user_dialog_message">A YouTube Doodles minden évben néhány napra megjelenik.\n\nHa a régiódban jelenleg látható egy embléma, és ez az elrejtési beállítás be van kapcsolva, akkor a keresősáv alatti szűrősáv is el van rejtve.</string>
+  <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodles minden évben néhány napig láthatóak.
+
+Ha a Doodle jelenleg a régiódában látható, és ez a rejtés beállítás be van kapcsolva, akkor a keresősáv alatti szűrősáv is el lesz rejtve."</string>
   <string name="revanced_custom_filter_screen_title">Egyedi szűrő</string>
   <string name="revanced_custom_filter_screen_summary">Komponensek elrejtése egyedi szűrők használatával</string>
   <string name="revanced_custom_filter_title">Egyedi szűrők engedélyezése</string>
@@ -298,9 +304,18 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_content_phrases_title">Elrejtendő kulcsszavak</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
-  <string name="revanced_hide_keyword_content_phrases_summary">Elrejteni kívánt kulcsszavak és kifejezések, új sorokkal elválasztva\n\nA kulcsszavak lehetnek csatornanevek vagy bármilyen szöveg, amely a videók címében látható\n\nA középen nagybetűs szavakat a kis- és nagybetűkkel együtt kell megadni (pl. iPhone, TikTok, LeBlanc)</string>
+  <string name="revanced_hide_keyword_content_phrases_summary">"Kulcsszavak és kifejezések a rejtéshez, új sorokkal elválasztva
+
+Kulcsszavak lehetnek csatorna nevek vagy bármilyen szöveg, amely videó címekben szerepel
+
+Nagybetűs szavakat a középső betűkkel együtt kell megadni (pl.: iPhone, TikTok, LeBlanc)"</string>
   <string name="revanced_hide_keyword_content_about_title">A kulcsszó alapú szűrésről</string>
-  <string name="revanced_hide_keyword_content_about_summary">A Főoldal/Feliratkozás/Keresési eredményeket a rendszer kiszűri, hogy elrejtse a kulcsszókifejezéseknek megfelelő tartalmat.\n\nKorlátozások\n• A rövidfilmeket nem lehet elrejteni a csatornanév alapján\n• Előfordulhat, hogy egyes kezelőfelület-összetevők nincsenek elrejtve\n• A kulcsszó keresése nem ad eredményt</string>
+  <string name="revanced_hide_keyword_content_about_summary">"A kezdőlap/előfizetések/keresési eredmények szűrve vannak, hogy elrejtsék a kulcsszó-kifejezéseknek megfelelő tartalmat
+
+Korlátozások
+• A Shorts nem rejthető el csatorna névvel
+• Egyes felület elemek nem rejtőknek el
+• A kulcsszó keresése nem eredményezhet eredményt"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Párosítson egész szavakat</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Ha egy kulcsszót/kifejezést dupla idézőjelekkel vesz körül, akkor elkerülhető a videócímek és a csatornanevek részleges egyezése&lt;br&gt;&lt;br&gt;Például:&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; elrejti a videót: &lt;b&gt;Hogyan működik az AI?&lt;/b&gt;&lt;br&gt;de nem rejti el: &lt;b&gt;Mit jelent a fair use?&lt;/b&gt;</string>
@@ -316,14 +331,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_general_ads_summary_on">Az általános hirdetések el vannak rejtve</string>
   <string name="revanced_hide_general_ads_summary_off">Az általános hirdetések megjelennek</string>
   <string name="revanced_hide_fullscreen_ads_title">Teljes képernyős hirdetések elrejtése</string>
-  <string name="revanced_hide_fullscreen_ads_summary_on">A teljes képernyős hirdetések el vannak rejtve\n\nCsak régebbi készüléken elérhető</string>
+  <string name="revanced_hide_fullscreen_ads_summary_on">"A teljes képernyős hirdetések el vannak rejtve
+
+Ez a funkció csak régebbi eszközökön érhető el"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">A teljes képernyős hirdetések láthatók</string>
   <string name="revanced_hide_buttoned_ads_title">Gomb hirdetések elrejtése</string>
   <string name="revanced_hide_buttoned_ads_summary_on">A gomb hirdetések el vannak rejtve</string>
   <string name="revanced_hide_buttoned_ads_summary_off">A gomb hirdetések láthatók</string>
   <string name="revanced_hide_paid_promotion_label_title">Fizetett promóció címke elrejtése</string>
-  <string name="revanced_hide_paid_promotion_label_summary_on">A fizetett promóció címke rejtve van</string>
-  <string name="revanced_hide_paid_promotion_label_summary_off">A fizetett promóció címke látható</string>
+  <string name="revanced_hide_paid_promotion_label_summary_on">A fizetett promóciós címke el van rejtve</string>
+  <string name="revanced_hide_paid_promotion_label_summary_off">A fizetett promóciós címke meg van jelenítve</string>
   <string name="revanced_hide_self_sponsor_ads_title">Önpromóciós kártyák elrejtése</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">Az önpromóciós kártyák rejtve vannak</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">Az önpromóciós kártyák megjelennek</string>
@@ -490,11 +507,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_subscriptions_button_summary_off">A feliratkozások gomb megjelenítve</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Létrehozás felcserélése az értesítésekkel</string>
-  <string name="revanced_switch_create_with_notifications_button_summary_on">A Létrehozás gomb megcserélése az Értesítések gombbal\n\nMegjegyzés: Engedélyezés esetén a videó hirdetéseket is elrejti</string>
+  <string name="revanced_switch_create_with_notifications_button_summary_on">"A Létrehozás gomb kicserélve az Értesítések gombbal
+
+Megjegyzés: Ez a beállítás a videóhirdetések kényszerű elrejtését is magában foglalja"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">A létrehozás gomb nincs felcserélve az értesítések gombbal</string>
   <string name="revanced_hide_navigation_button_labels_title">A navigációs gombok címkéinek elrejtése</string>
-  <string name="revanced_hide_navigation_button_labels_summary_on">A címkék el vannak rejtve</string>
-  <string name="revanced_hide_navigation_button_labels_summary_off">A címkék megjelennek</string>
+  <string name="revanced_hide_navigation_button_labels_summary_on">A címke el vannak rejtve</string>
+  <string name="revanced_hide_navigation_button_labels_summary_off">A címke meg vannak jelenítve</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Előugró menü</string>
@@ -626,11 +645,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_super_thanks_button_summary_on">A szuper köszönöm gomb el van rejtve</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_off">A szuper köszönöm gomb megjelenik</string>
   <string name="revanced_hide_shorts_tagged_products_title">Címkézett termékek elrejtése</string>
-  <string name="revanced_hide_shorts_tagged_products_summary_on">A címkézett termékek el vannak rejtve</string>
-  <string name="revanced_hide_shorts_tagged_products_summary_off">A címkézett termékek megjelennek</string>
+  <string name="revanced_hide_shorts_tagged_products_summary_on">A megjelölt termékek el vannak rejtve</string>
+  <string name="revanced_hide_shorts_tagged_products_summary_off">A megjelölt termékek meg vannak jelenítve</string>
   <string name="revanced_hide_shorts_location_label_title">Helycímke elrejtése</string>
-  <string name="revanced_hide_shorts_location_label_summary_on">A helycímke el van rejtve</string>
-  <string name="revanced_hide_shorts_location_label_summary_off">A helycímke megjelenik</string>
+  <string name="revanced_hide_shorts_location_label_summary_on">A helycízke címke el van rejtve</string>
+  <string name="revanced_hide_shorts_location_label_summary_off">A helycízke címke meg van jelenítve</string>
   <string name="revanced_hide_shorts_save_sound_button_title">Zene mentés gomb elrejtése</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">A zene mentés gomb el van rejtve</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">A zene mentés gomb látható</string>
@@ -648,7 +667,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_hashtag_button_summary_off">A Hashtag gomb látható</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Keresési javaslatok elrejtése</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">A keresési javaslatok el vannak rejtve</string>
-  <string name="revanced_hide_shorts_search_suggestions_summary_off">A keresési javaslatok megjelennek</string>
+  <string name="revanced_hide_shorts_search_suggestions_summary_off">A keresési javaslatok meg vannak jelenítve</string>
   <string name="revanced_hide_shorts_stickers_title">Matricák elrejtése</string>
   <string name="revanced_hide_shorts_stickers_summary_on">A matricák el vannak rejtve</string>
   <string name="revanced_hide_shorts_stickers_summary_off">A matricák láthatóak</string>
@@ -723,7 +742,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_ryd_failure_connection_timeout">A nem tetszik funkció átmenetileg nem elérhető</string>
   <string name="revanced_ryd_failure_connection_status_code">A nem tetszik funkció nem elérhető (állapot: %d)</string>
-  <string name="revanced_ryd_failure_client_rate_limit_requested">A nem tetszik funkció nem elérhető</string>
+  <string name="revanced_ryd_failure_client_rate_limit_requested">A Dislike számláló jelenleg nem érhető el (Kliens API limit elérve)</string>
   <string name="revanced_ryd_failure_generic">A nem tetszik funkció nem elérhető (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
   <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Töltse újra a videót a Return YouTube Dislike-hoz</string>
@@ -731,7 +750,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_enable_summary_off">A nem tetszések nem jelennek meg</string>
   <string name="revanced_ryd_shorts_title">A nem tetszések megjelenítése a Shorts videóknál</string>
   <string name="revanced_ryd_shorts_summary_on">A nem tetszések megjelennek a Shorts videóknál</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">A nem tetszések megjelennek a Shorts videóknál\n\nKorlátozás: A nem tetszések lehet nem jelennek meg inkognitó módban</string>
+  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Nem tetszik jelzések láthatóak a Shorts-on
+
+Korlátozás: A Nem tetszik jelzések nem jelennek meg inkognitó módban"</string>
   <string name="revanced_ryd_shorts_summary_off">A nem tetszések el vannak rejtve a Shorts videóknál</string>
   <string name="revanced_ryd_dislike_percentage_title">Nem tetszések százalékban</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">A nem tetszések százalékban jelennek meg</string>
@@ -774,7 +795,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">A keresősáv bélyegképei közepes minőségűek</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">A teljes képernyős keresősáv bélyegképei kiváló minőségűek</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">A teljes képernyős keresősáv bélyegképei közepes minőségűek</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Ezzel az élő közvetítések miniatűrjeit is visszaállítja, amelyek nem rendelkeznek keresősáv-bélyegképekkel.\n\nA keresősáv bélyegképei ugyanazt a minőséget fogják használni, mint az aktuális videó.\n\nEz a funkció 720p vagy annál alacsonyabb videóminőség esetén működik a legjobban, és nagyon gyors videót használ. internet kapcsolat.</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Ez visszaállítja a miniatűr képeket az élő közvetítéseknél, amelyeknek nincsenek keresősáv miniatűr képei.
+
+A keresősáv miniatűr képei ugyanazt a minőséget fogják használni, mint az aktuális videó.
+
+Ez a funkció a legjobban 720p vagy annál alacsonyabb videóminőség mellett és nagyon gyors internetkapcsolat használatakor működik."</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Régi keresősáv bélyegképek visszaállítása</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">A keresősáv bélyegképei megjelennek a keresősáv felett</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">A keresősáv bélyegképei megjelennek a teljes képernyőn</string>
@@ -837,7 +862,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_settings_import_successful">A beállítások sikeresen importálva</string>
   <string name="revanced_sb_settings_import_failed">Nem sikerült importálni ezt: %s</string>
   <string name="revanced_sb_settings_export_failed">Nem sikerült exportálni ezt: %s</string>
-  <string name="revanced_sb_settings_revanced_export_user_id_warning">A beállításai tartalmazzák a privát SponsorBlock felhasználói azonosítót.\n\nA felhasználói azonosító olyan, mint egy jelszó, és soha nem szabad megosztani.\n</string>
+  <string name="revanced_sb_settings_revanced_export_user_id_warning">"A beállítások tartalmaznak egy privát SponsorBlock felhasználói azonosítót.
+
+A felhasználói azonosítója olyan, mint egy jelszó, és soha nem szabad megosztani.
+"</string>
   <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">Ne jelenjen meg többet</string>
   <string name="revanced_sb_diff_segments">A szegmens viselkedésének módosítása</string>
   <string name="revanced_sb_segments_sponsor">Szponzor</string>
@@ -897,9 +925,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_submit_failed_invalid">Nem lehet beküldeni a szegmenst: %s</string>
   <string name="revanced_sb_submit_failed_timeout">A SponsorBlock átmenetileg nem működik</string>
   <string name="revanced_sb_submit_failed_unknown_error">Nem lehet beküldeni a szegmenst (állapot: %1$d %2$s)</string>
-  <string name="revanced_sb_submit_failed_rate_limit">Nem sikerült beküldeni a szegmenst.\nGyakorisági korlát (Túl sok beküldés)</string>
+  <string name="revanced_sb_submit_failed_rate_limit">A szegmens nem küldhető be. Korlátozva (túl sok ugyanazon felhasználótól vagy IP-címről)</string>
   <string name="revanced_sb_submit_failed_forbidden">Nem lehet beküldeni a szegmenst: %s</string>
-  <string name="revanced_sb_submit_failed_duplicate">Nem sikerült beküldeni a szakaszt.\nMár létezik</string>
+  <string name="revanced_sb_submit_failed_duplicate">"A szegmens nem küldhető be.
+Már létezik"</string>
   <string name="revanced_sb_submit_succeeded">A szakasz sikeresen beküldve</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_sb_sponsorblock_connection_failure_timeout">A SponsorBlock jelenleg nem elérhető (API időtúllépés)</string>
@@ -919,10 +948,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_mark_start">kezdőpont</string>
   <string name="revanced_sb_new_segment_mark_end">végpont</string>
   <string name="revanced_sb_new_segment_now">most</string>
-  <string name="revanced_sb_new_segment_time_start">A szakasz kezdetének időpontja:</string>
-  <string name="revanced_sb_new_segment_time_end">A szakasz végének időpontja:</string>
+  <string name="revanced_sb_new_segment_time_start">A rész kezdetének ideje</string>
+  <string name="revanced_sb_new_segment_time_end">A rész végének ideje</string>
   <string name="revanced_sb_new_segment_confirm_title">Helyesek az időpontok?</string>
-  <string name="revanced_sb_new_segment_confirm_content">A szegmens:\n\n%1$s\n\n%2$s\n\n(%3$s)\n\nKészen áll a beküldésre?</string>
+  <string name="revanced_sb_new_segment_confirm_content">"A szegmens a
+
+%1$s -tól a
+%2$s -ig terjed
+
+(%3$s)
+
+Készen állsz a beküldésre?"</string>
   <string name="revanced_sb_new_segment_start_is_before_end">A kezdetnek a vége előtt kell lennie</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Előbb jelöljön meg két pontot az idősávon</string>
   <string name="revanced_sb_new_segment_preview_segment_first">Szakasz előnézete a zökkenőmentesen kihagyás érdekében</string>
@@ -964,7 +1000,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_title">Alkalmazásverzió hamisítása</string>
   <string name="revanced_spoof_app_version_summary_on">A verzió hamisítva</string>
   <string name="revanced_spoof_app_version_summary_off">A verzió nincs hamisítva</string>
-  <string name="revanced_spoof_app_version_user_dialog_message">Az alkalmazás verziója hamisítva lesz a YouTube egy régebbi verziójára.\n\nEz meg fogja változtatni az alkalmazás megjelenését és funkcióit, de váratlan hatásai is lehetnek.\n\nHa később kikapcsolja, ajánlott az alkalmazás adatainak törlése a hibák megelőzése érdekében.</string>
+  <string name="revanced_spoof_app_version_user_dialog_message">"Az alkalmazás verziója egy régebbi YouTube-verzióra lesz hamisítva.
+
+Ez megváltoztatja az alkalmazás megjelenését és funkcióit, de előfordulhatnak nem várt mellékhatások.
+
+Ha később kikapcsolja, akkor ajánlott az alkalmazás adatait törölni, hogy megakadályozza a felhasználói felület hibáit."</string>
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Hamisított alkalmazásverzió célja</string>
@@ -1027,26 +1067,35 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_rounded_corners_summary_on">A sarkok lekerekítettek</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">A sarkok négyzet alakúak</string>
   <string name="revanced_miniplayer_double_tap_action_title">Az átméretezéshez engedélyezze a dupla koppintást és az összehúzást</string>
-  <string name="revanced_miniplayer_double_tap_action_summary_on">A művelet duplán koppintva és az átméretezéshez csípéssel engedélyezve van\n\n• Koppintson duplán a minilejátszó méretének növeléséhez\n• Koppintson duplán az eredeti méret visszaállításához</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">"A dupla koppintásos művelet és a csippentés a méretezéshez engedélyezve van
+
+• Dupla koppintás a miniatűr képernyő méretének növeléséhez
+• Dupla koppintás az eredeti méret visszaállításához"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">A dupla koppintás művelet és az átméretezéshez csípés le van tiltva</string>
   <string name="revanced_miniplayer_drag_and_drop_title">Fogd és vidd engedélyezése</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">A fogd és vidd be van kapcsolva\n\nA minilejátszó a képernyő bármely sarkába húzható</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">"A húzás és elengedés engedélyezve van
+
+A miniatűr képernyőt a képernyő bármely sarkába húzhatja"</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">A Fogd és vidd letiltva</string>
   <string name="revanced_miniplayer_horizontal_drag_title">Vízszintes húzási kézmozdulat engedélyezése</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">A vízszintes húzási kézmozdulat engedélyezve\n\nA minilejátszó a képernyőről balra vagy jobbra húzható</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">"A vízszintes húzás gesztus engedélyezve van
+
+A miniatűr képernyőt a képernyő bal vagy jobb szélére húzhatja"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">A vízszintes húzómozdulat letiltva</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Bezárás gomb elrejtése</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">A Bezárás gomb el van rejtve</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">A Bezárás gomb látható</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_title">Kibontás és bezárás gombok elrejtése</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">A gombok el vannak rejtve\n\nCsúsztassa ujját a kibontáshoz vagy bezáráshoz</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"A gombok el vannak rejtve
+
+Húzza el a képernyőt a kibontáshoz vagy bezáráshoz"</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">A Kibontás és Bezárás gombok láthatók</string>
   <string name="revanced_miniplayer_hide_subtext_title">Alszövegek elrejtése</string>
-  <string name="revanced_miniplayer_hide_subtext_summary_on">Az alszövegek el vannak rejtve</string>
-  <string name="revanced_miniplayer_hide_subtext_summary_off">Alszövegek megjelennek</string>
+  <string name="revanced_miniplayer_hide_subtext_summary_on">Az alfeliratok el vannak rejtve</string>
+  <string name="revanced_miniplayer_hide_subtext_summary_off">Az alfeliratok meg vannak jelenítve</string>
   <string name="revanced_miniplayer_hide_rewind_forward_title">Az előre és vissza ugrás gombok elrejtése</string>
-  <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Az előre és hátra ugrás rejtve van</string>
-  <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Az előre és hátra ugrás látható</string>
+  <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Az előre és hátra ugrás el van rejtve</string>
+  <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Az előre és hátra ugrás meg van jelenítve</string>
   <string name="revanced_miniplayer_width_dip_title">Kezdeti méret</string>
   <string name="revanced_miniplayer_width_dip_summary">Kezdeti méret a képernyőn, pixelben</string>
   <string name="revanced_miniplayer_width_dip_invalid_toast">A képpont méretének %1$s és %2$s között kell lennie</string>
@@ -1070,7 +1119,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Területi kép-korlátozások megkerülése</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">A yt4.ggpht.com képtár használata</string>
-  <string name="revanced_bypass_image_region_restrictions_summary_off">Az eredeti képgazda használata\n\nEnnek engedélyezése javíthatja a hiányzó képeket, amelyek bizonyos régiókban le vannak tiltva</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">"Az eredeti képgazdagép használatával
+
+Ez a beállítás megoldhatja a hiányzó képek problémáját, amelyek blokkolva vannak egyes régiókban"</string>
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -1085,7 +1136,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow és eredeti miniatűrök</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow és pillanatképek</string>
   <string name="revanced_alt_thumbnail_options_entry_4">Pillanatképek</string>
-  <string name="revanced_alt_thumbnail_dearrow_about_summary">A DeArrow közösségi bélyegképeket biztosít a YouTube videókhoz. Ezek a bélyegképek gyakran helytállóbbak, mint a YouTube által biztosítottak\n\nHa engedélyezve van, a videó URL-je elküldésre kerül az API szerverre, de más adat nem lesz elküldve. Ha egy videónak nincs DeArrow bélyegképe, akkor az eredeti vagy egy pillanatkép jelenik meg\n\nKoppintson ide, ha többet szeretne megtudni a DeArrow-ról</string>
+  <string name="revanced_alt_thumbnail_dearrow_about_summary">"A DeArrow tömegforrásból származó miniatűr képeket biztosít a YouTube-videókhoz. Ezek a miniatűr képek gyakran relevánsabbak, mint a YouTube által biztosítottak
+
+Ha engedélyezve van, akkor a videók URL-jeit elküldjük az API kiszolgálónak, és más adatokat nem küldünk. Ha egy videónak nincs DeArrow miniatűr képe, akkor az eredeti vagy állókép miniatűr kép lesz megjelenítve
+
+Érintse meg itt, hogy többet megtudjon a DeArrow-ról"</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Üzenet megjelenítése, ha az API nem elérhető</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Üzenet megjelenítése, ha a DeArrow nem elérhető</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Nem jelenik meg üzenet, ha a DeArrow nem elérhető</string>
@@ -1124,8 +1179,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Eszközméret hamisítása</string>
-  <string name="revanced_spoof_device_dimensions_summary_on">Az eszköz méretei hamisítottak\n\nMagasabb videóminőség lehet elérhető, de tapasztalhat akadást lejátszás közben, rosszabb akkuidőt és egyéb, ismeretlen hatásokat</string>
-  <string name="revanced_spoof_device_dimensions_summary_off">Az eszköz méretei nincsenek hamisítva\n\nAz engedélyezéssel magasabb videóminőség érhető el</string>
+  <string name="revanced_spoof_device_dimensions_summary_on">"Az eszköz méretei hamisítva vannak
+
+Lehet, hogy magasabb videóminőségek válnak elérhetővé, de a videólejátszás dadoghat, rosszabb lehet az akkumulátor üzemideje, és előfordulhatnak nem várt mellékhatások"</string>
+  <string name="revanced_spoof_device_dimensions_summary_off">"Az eszköz méretei nem hamisítva vannak
+
+Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Ennek engedélyezése a videólejátszás akadozását, rosszabb akkuidőt és ismeretlen hatásokat okozhat.</string>
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
@@ -1175,8 +1234,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_custom_speed_menu_summary_off">Az egyéni sebesség menü nem jelenik meg</string>
   <string name="revanced_custom_playback_speeds_title">Egyedi lejátszási sebesség</string>
   <string name="revanced_custom_playback_speeds_summary">Egyéni lejátszási sebesség hozzáadása vagy módosítása</string>
-  <string name="revanced_custom_playback_speeds_invalid">Ennek kevesebbnek kell lenniük, mint %s. Alap értékek használata.</string>
-  <string name="revanced_custom_playback_speeds_parse_exception">Érvénytelen sebesség. Az alap értékek használata.</string>
+  <string name="revanced_custom_playback_speeds_invalid">Az egyéni sebességeknek kevesebbnek kell lenniük, mint %s</string>
+  <string name="revanced_custom_playback_speeds_parse_exception">Érvénytelen egyéni lejátszási sebességek</string>
   <string name="revanced_custom_playback_speeds_auto">Automatikus</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
@@ -1201,15 +1260,26 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_screen_summary">Hamisítsa meg az ügyfél videó streamet a lejátszási problémák elkerülése érdekében</string>
   <string name="revanced_spoof_video_streams_title">Hamis videó stream</string>
   <string name="revanced_spoof_video_streams_summary_on">A videó stream hamisítva</string>
-  <string name="revanced_spoof_video_streams_summary_off">A videó stream nincs hamisítva\n\nLehet, hogy a videólejátszás nem működik</string>
+  <string name="revanced_spoof_video_streams_summary_off">"A videó streamek nem hamisítva vannak
+
+A videólejátszás nem működhet"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">A beállítás kikapcsolása videolejátszási problémákat okozhat.</string>
   <string name="revanced_spoof_video_streams_client_title">Alapértelmezett kliens</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">AVC (H.264) kényszerítése</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">A videokodek AVC-re kényszerítve (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">A videokodek meghatározása automatikusan történik</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Ennek engedélyezése javíthatja az akkumulátor élettartamát, és kijavíthatja a lejátszás akadozását.\n\nAz AVC maximális felbontása 1080p, az Opus audiokodek nem érhető el, és a videolejátszás több internetadatot használ, mint a VP9 vagy az AV1.</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Ennek engedélyezése javíthatja az akkumulátor üzemidejét, és megoldhatja a lejátszás dadogását.
+
+Az AVC maximális felbontása 1080p, az Opus audio kodek nem érhető el, és a videólejátszás több internetes adatot fog használni, mint a VP9 vagy az AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS hamisítási mellékhatások</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• A privát gyermekeknek szóló videók nem játszódhatnak le
+• Az élő közvetítések a kezdettől kezdődnek
+• A videók 1 másodperccel korábban érnek véget"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR-hamisítási mellékhatások</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• A gyermekeknek szóló videók nem játszódhatnak le
+• Az élő közvetítések a kezdettől kezdődnek
+• A videók 1 másodperccel korábban érnek véget"</string>
+  <string name="revanced_spoof_video_streams_language_title">Alapértelmezett hangfolyam nyelve</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Alkalmazás nyelve</string>
   <string name="revanced_spoof_video_streams_language_AR">Arab</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbajdzsáni</string>
@@ -1272,8 +1342,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_block_audio_ads_summary_off">Az audiohirdetések letiltása fel van oldva</string>
   </patch>
   <patch id="ad.embedded.embeddedAdsPatch">
-  <string name="revanced_embedded_ads_service_unavailable">A(z) %s nem érhető el. A reklámok megjelenhetnek. Próbáljon egy másik reklámblokkolóra váltani.</string>
-  <string name="revanced_embedded_ads_service_failed">A(z) %s szerver hibát jelzett. A reklámok megjelenhetnek. Próbáljon egy másik reklámblokkolóra váltani.</string>
+  <string name="revanced_embedded_ads_service_unavailable">%s nem érhető el, a hirdetések megjelennek. Próbáljon meg más hirdetésblokkoló szolgáltatást választani a beállításokban.</string>
+  <string name="revanced_embedded_ads_service_failed">%s hiba történt, a hirdetések megjelennek. Próbáljon meg más hirdetésblokkoló szolgáltatást választani a beállításokban.</string>
   <string name="revanced_block_embedded_ads_title">Beágyazott videóhirdetések blokkolása</string>
   <string name="revanced_block_embedded_ads_entry_1">Letiltva</string>
   <string name="revanced_block_embedded_ads_entry_2">Luminous proxy</string>

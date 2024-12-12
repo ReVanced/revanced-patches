@@ -1,34 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
-Note: All strings must have a unique path, even if the same string is declared in two different apps.
-This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+    All strings must have a unique path, even if the same string is declared in two different apps.
+    This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-# General guidelines and information for translating
 
-## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
+    Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
+    Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
-    For example, the patches string:
-        <string name="revanced_patches_string">You will arrive at %1$s in %2$s hours from now</string>
-    Could be translated to another language using a rearranged grammar:
-        <string name="revanced_patches_string">You will arrive %2$s hours from now at %1$s</string>
+    Raw strings are required because Crowdin AI translations regularly gets confused and
+    replace \n with an encoded new line character.
 
-     For Manager strings:
-        You will arrive at ${destination} in ${count} hours from now
-     Could be rearranged by changing the order of the ${} parameters:
-        You will arrive ${count} hours from now at ${destination}
+    Bad:
+        <string name="summary_key">First \'item\' text\nSecond \"item\" text</string>
 
-    Reordering is particularly relevant when translating into right to left languages, or for any language with grammar that is noticeably different from English.
+    Good:
+        <string name="summary_key">"First 'item' text
+Second \"item\" text"</string>
 
-## Single and double quotation marks must be escaped for patch strings (Manager does not require escaping any quotes).
-
-    All _patches_ single and double quotation marks must be escaped as \"  or \'
-    Forgetting to do this will cause that string to appear in app with no quotation characters.
-
-    Correct:
-        <string name="revanced_string">You\'re correct. This is the \"correct\" way and this text will appear as expected in the app</string>
-    Not correct:
-        <string name="revanced_string">You're not correct. This is not the "correct" way and this text will not appear as expected the in app</string>
 -->
 <resources>
   <app id="shared">
@@ -67,9 +56,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore quraşdırılmayıb. Bunu quraşdır.</string>
   <string name="gms_core_dialog_title">Fəaliyyət lazımdır</string>
-  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">MicroG GmsCore arxa planda işləməyə icazə almayıb.\n\nTelefonunuz üçün \"Tətbiqim bağlanılmasın\" bələdçisin izləyin və təlimatları MicroG quraşdırmasına tətbiq edin.\n\nBu tətbiq işləyən müddətdə tələb olunur.</string>
+  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore-un arxa planda işləməsi üçün icazəsi yoxdur.
+
+Telefonunuz üçün \"Tətbiqimi öldürmə\" bələdçisinə əməl edin və təlimatları MicroG quraşdırmanıza tətbiq edin.
+
+Bu, tətbiqin işləməsi üçün tələb olunur."</string>
   <string name="gms_core_dialog_open_website_text">Veb saytı aç</string>
-  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">Problemlərin olmaması üçün MicroG GmsCore batareya optimallaşdırması qeyri-aktiv edilməlidir.\n\nDavam düyməsinə toxun və batareya optimallaşdırmasını qeyri-aktiv et.</string>
+  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Problemlərin olmaması üçün MicroG GmsCore batareya optimallaşması qapadılmalıdır.
+
+MicroG üçün batareya optimallaşmasın qapatmaq batareya istifadəsinə mənfi təsir etməyəcək.
+
+Davam düyməsinə toxun və optimallaşdırma dəyişikliklərin qəbul et."</string>
   <string name="gms_core_dialog_continue_text">Davam et</string>
   </patch>
   </app>
@@ -106,7 +103,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_debug_toast_on_error_title">ReVanced xətasında ani bildiriş göstər</string>
   <string name="revanced_debug_toast_on_error_summary_on">Xəta baş verərsə bildiriş göstər</string>
   <string name="revanced_debug_toast_on_error_summary_off">Xəta baş verərsə bildiriş göstərmə</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">Ani bildirişləri söndürəndə, bütün ReVanced xəta bildirişləri gizlənir.\n\nGözlənilməz hallardan xəbərdar olmayacaqsınız.</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"Xəta \"toasts\"unu söndürmək bütün ReVanced xəta bildirişlərini gizlədir.
+
+Gözlənilməz hadisələrdən xəbərdar olunmayacaqsınız."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_disable_like_subscribe_glow_title">Bəyən/abunə ol düymə parıltısın söndür</string>
@@ -125,7 +124,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_watermark_summary_on">Su nişanı gizlidir</string>
   <string name="revanced_hide_channel_watermark_summary_off">Su nişanı göstərilir</string>
   <string name="revanced_hide_horizontal_shelves_title">Üfüqi hissələri gizlət</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">Belə hissələr gizlidir:\n• Son xəbərlər\n• Baxmağa davam et\n• Daha çox kanal kəşf et\n• Bazarlıq\n• Təkrar izlə</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"Rəflər gizlidir, məsələn:
+• Son xəbərlər
+• İzləməyə davam et
+• Daha çox kanallar kəşf edin
+• Alış-veriş
+• Yenidən izlə"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Hissələr göstərilir</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
@@ -274,7 +278,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_doodles_title">YouTube Doodle-ları gizlət</string>
   <string name="revanced_hide_doodles_summary_on">Axtarış çubuğu Doodle-ları gizlidir</string>
   <string name="revanced_hide_doodles_summary_off">Axtarış çubuğu Doodle-ları göstərilir</string>
-  <string name="revanced_hide_doodles_user_dialog_message">YouTube Doodle-lar hər il bir neçə gün göstərilir.\n\nDoodle hazırda bölgənizdə görünür və bu gizlətmə seçimi aktivdirsə, axtarış çubuğu altındakı filtr paneli də gizlədiləcək.</string>
+  <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodles ilinin bir neçə günü göstərilir.
+
+Əgər Doodle hazırda sizin bölgənizdə göstərilirsə və bu gizlətmə parametr açıqdırsa, axtarış çubuğunun altındakı filtr çubuğu da gizlənəcək."</string>
   <string name="revanced_custom_filter_screen_title">Şəxsi filtr</string>
   <string name="revanced_custom_filter_screen_summary">Fərdi filtrlər ilə elementləri gizlət</string>
   <string name="revanced_custom_filter_title">Fərdi filtri aktivləşdir</string>
@@ -298,9 +304,18 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_content_phrases_title">Gizlədiləcək açar sözlər</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
-  <string name="revanced_hide_keyword_content_phrases_summary">Yeni sətirlərlə ayrılmış gizlədiləcək açar sözlər və frazalar\n\nAçar sözlər kanal adları və ya video adlarında göstərilən istənilən mətn ola bilər\n\nOrtada böyük hərf olan sözlər korpusla birlikdə qeyd edilməlidir (yəni: iPhone, TikTok, LeBlanc)</string>
+  <string name="revanced_hide_keyword_content_phrases_summary">"Kənarda qoyulacaq açar sözlər və cümlələr, yeni sətirlərlə ayrılmışdır
+
+Açar sözlər kanal adları və ya video başlıqlarında göstərilən hər hansı mətn ola bilər.
+
+Orta hərfləri böyük hərflərlə olan sözlər böyük hərflərlə yazılmalıdır (məsələn: iPhone, TikTok, LeBlanc)"</string>
   <string name="revanced_hide_keyword_content_about_title">Açar söz filtrləməsi haqqında</string>
-  <string name="revanced_hide_keyword_content_about_summary">Əsas səhifə/Abunəlik/Axtarış nəticələri açar söz ifadələrinə uyğunlaşan məzmunu gizlətmək üçün filtrlənir\n\nMəhdudiyyətlər\n• Shorts-lar kanal adına görə gizlənə bilməz\n• Bəzi UI hissəcikləri gizlədilə bilməz\n• Açar söz axtarışında nəticə olmaya bilər</string>
+  <string name="revanced_hide_keyword_content_about_summary">"Ana səhifə/Abunəlik/Axtarış nəticələri açar söz ifadələrinə uyğun olan məzmunu gizlətmək üçün süzülür
+
+Məhdudiyyətlər
+• Şortlar kanal adı ilə gizlənə bilməz
+• Bəzi UI komponentləri gizlənə bilməz
+• Açar söz axtarmaq heç bir nəticə verməyə bilər"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Bütün sözləri uyğunlaşdır</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Açar söz/frazanın qoşa dırnaqlarla əhatə olunması video adları və kanal adlarının qismən uyğunlaşmasına mane olacaq &lt;br&gt;&lt;br&gt;Məsələn,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; videonu gizlədəcək:&lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt; lakin gizlətməyəcək: Düzgün;&lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
@@ -316,7 +331,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_general_ads_summary_on">Ümumi reklamlar gizlidir</string>
   <string name="revanced_hide_general_ads_summary_off">Ümumi reklamlar göstərilir</string>
   <string name="revanced_hide_fullscreen_ads_title">Tam ekran reklamlarını gizlət</string>
-  <string name="revanced_hide_fullscreen_ads_summary_on">Tam ekran reklamları gizlidir\n\nBu funksiya yalnız köhnə cihazlar üçün əlçatandır</string>
+  <string name="revanced_hide_fullscreen_ads_summary_on">"Tam ekran reklam gizlidir
+
+Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Tam ekran reklamları göstərilir</string>
   <string name="revanced_hide_buttoned_ads_title">Düyməli reklamları gizlət</string>
   <string name="revanced_hide_buttoned_ads_summary_on">Düyməli reklamlar gizlədilir</string>
@@ -490,7 +507,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_subscriptions_button_summary_off">Abunəliklər düyməsi göstərilir</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">\"Yarat\"ı \"Bildirişlər\" ilə dəyişdir</string>
-  <string name="revanced_switch_create_with_notifications_button_summary_on">Yarat düyməsi Bildirişlər düyməsi ilə dəyişdirilir\n\nQeyd: Bunu aktivləşdirmə video reklamları da məcburən gizlədir</string>
+  <string name="revanced_switch_create_with_notifications_button_summary_on">"Yarat düyməsi Bildirişlər düyməsi ilə dəyişdirilir
+
+Qeyd: Bunu aktivləşdirmək video reklamları da məcburi olaraq gizlədir"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">\"Yarat\" düyməsi, \"Bildirişlər\" düyməsi ilə dəyişdirilmir</string>
   <string name="revanced_hide_navigation_button_labels_title">Fəaliyyət düymə etiketlərini gizlət</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Etiketlər gizlidir</string>
@@ -731,7 +750,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_enable_summary_off">Bəyənməmələr göstərilmir</string>
   <string name="revanced_ryd_shorts_title">\"Shorts\"da bəyənməmə sayını göstər</string>
   <string name="revanced_ryd_shorts_summary_on">Bəyənməmə sayı \"Shorts\"da göstərilir</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">\"Bəyənməmə\"lər \"Shorts\"da göstərilir\n\nMəhdudiyyət: \"Bəyənməmə\"lər gizli rejimdə görünməyə bilər</string>
+  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Şortlarda görünən bəyənməmələr
+
+Məhdudiyyət: Bəyənməmələr gizli rejimdə görünə bilməz"</string>
   <string name="revanced_ryd_shorts_summary_off">\"Bəyənməmə\"lər \"Shorts\"da gizlidir</string>
   <string name="revanced_ryd_dislike_percentage_title">\"Bəyənməmə\"lər faiz olaraq</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">\"Bəyənməmə\"lər faiz olaraq göstərilir</string>
@@ -774,7 +795,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Axtarış çubuğu miniatürləri orta keyfiyyətlidir</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Tam ekran axtarış çubuğu miniatürləri yüksək keyfiyyətlidir</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Tam ekran axtarış çubuğu miniatürləri orta keyfiyyətlidir</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Bu, həm də axtarış cizgisi üzrə miniatürləri olmayan canlı yayımlarda miniatürləri qaytaracaq.\n\nAxtarış cizgisi miniatürləri, cari video kimi eyni keyfiyyəti işlədəcək.\n\nBu xüsusiyyət, 720p və ya daha aşağı video keyfiyyəti və çox sürətli internet bağlantısı istifadə edərkən daha yaxşı işləyir.</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Bu, həmçinin axtarış çubuğu kiçik görüntüləri olmayan canlı yayımlarda kiçik şəkilləri bərpa edəcək.
+
+Axtarış çubuğu kiçik şəkilləri cari videonun keyfiyyəti ilə eyni keyfiyyətdən istifadə edəcək.
+
+Bu xüsusiyyət ən yaxşı 720p və ya daha aşağı video keyfiyyəti və çox sürətli internet bağlantısından istifadə edərkən işləyir."</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Köhnə axtarış çubuğu miniatürlərin al</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Axtarış çubuğu miniatürləri axtarış çubuğu üstündə görünəcək</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Axtarış çubuğu miniatürləri tam ekranda görünəcək</string>
@@ -837,7 +862,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_settings_import_successful">Tənzimləmələr uğurla idxal edildi</string>
   <string name="revanced_sb_settings_import_failed">%s idxal uğursuz</string>
   <string name="revanced_sb_settings_export_failed">%s ixrac uğursuz</string>
-  <string name="revanced_sb_settings_revanced_export_user_id_warning">Tənzimləmələr şəxsi SponsorBlock istifadəçi kimliyi ehtiva edir.\n\nİstifadəçi kimliyiniz parol kimidir və bu paylaşılmamalıdır.\n</string>
+  <string name="revanced_sb_settings_revanced_export_user_id_warning">"Parametrlərdə özəl SponsorBlock istifadəçi IDniz var.
+
+Sizə istifadəçi IDniz parol kimidir və heç vaxt başqasına verilməməlidir.
+"</string>
   <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">Təkrar göstərmə</string>
   <string name="revanced_sb_diff_segments">Bölüm davranışını dəyişdir</string>
   <string name="revanced_sb_segments_sponsor">Sponsor</string>
@@ -897,9 +925,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_submit_failed_invalid">Bölüm göndərilmir: %s</string>
   <string name="revanced_sb_submit_failed_timeout">SponsorBlock müvəqqəti olaraq cavab vermir</string>
   <string name="revanced_sb_submit_failed_unknown_error">Bölüm göndərilmir (status: %1$d %2$s)</string>
-  <string name="revanced_sb_submit_failed_rate_limit">Bölüm göndərilmir.\nSürət məhdudlaşıb (eyni istifadəçi və ya IP-dən pik sayda)</string>
+  <string name="revanced_sb_submit_failed_rate_limit">Segment təqdim edə bilmədiniz. Həddən artıq istifadə (eyni istifadəçi və ya IP ünvanından çox)</string>
   <string name="revanced_sb_submit_failed_forbidden">Bölüm göndərilmir: %s</string>
-  <string name="revanced_sb_submit_failed_duplicate">Bölüm göndərilmir.\nArtıq var</string>
+  <string name="revanced_sb_submit_failed_duplicate">"Segment təqdim edə bilmirsiniz.
+Artıq mövcuddur"</string>
   <string name="revanced_sb_submit_succeeded">Bölüm uğurla göndərildi</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock müvəqqəti əlçatmazdır (API vaxtı bitdi)</string>
@@ -922,7 +951,18 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">Bölüm başladığı vaxt</string>
   <string name="revanced_sb_new_segment_time_end">Bölümün bitmə vaxtı</string>
   <string name="revanced_sb_new_segment_confirm_title">Vaxtlar düzgündür?</string>
-  <string name="revanced_sb_new_segment_confirm_content">Bölüm \n\n%1$s\n\n%2$s\n\n(%3$s)\n\nTəqdim etməyə hazırsınız?</string>
+  <string name="revanced_sb_new_segment_confirm_content">"Segment
+
+%1$s
+sə
+%2$s
+
+(%3$s)
+dədir
+
+Hazırsınızmı?
+
+%4$s nömrəli düzəlişləri yeniləmək istəyirsinizmi?"</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Başlanğıc sondan əvvəl olmalıdır</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Əvvəlcə vaxt çubuğunda iki yeri doldur</string>
   <string name="revanced_sb_new_segment_preview_segment_first">Bölümü izləyin, rahatlıqla ötürdüyünə əmin olun</string>
@@ -964,7 +1004,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_title">Tətbiq versiyasını saxtalaşdır</string>
   <string name="revanced_spoof_app_version_summary_on">Versiya saxtalaşdırıldı</string>
   <string name="revanced_spoof_app_version_summary_off">Versiya saxtalaşdırılmadı</string>
-  <string name="revanced_spoof_app_version_user_dialog_message">Tətbiq versiyası, YouTube-un daha köhnə versiyası şəklində saxtalaşdırılacaq.\n\nBu, tətbiqin görünüşünü və funksiyalarını dəyişdirəcək, ancaq bilinməyən yan təsirlər ola bilər.\n\nDaha sonra söndürsəniz, UI səhvlərini önləmək üçün tətbiq məlumatını təmizləmək tövsiyə olunur.</string>
+  <string name="revanced_spoof_app_version_user_dialog_message">"Tətbiq versiyası köhnə bir YouTube versiyasına oxşayacaq.
+
+Bu tətbiqin görünüşünü və xüsusiyyətlərini dəyişdirəcək, lakin bilinməyən yan təsirlər yarana bilər.
+
+Sonradan söndürülərsə, UI səhvlərini qarşısını almaq üçün tətbiqin məlumatlarını silmək tövsiyə olunur."</string>
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Saxta tətbiq versiyası hədəfi</string>
@@ -1027,19 +1071,28 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_rounded_corners_summary_on">Künclər dairəvidir</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Künclər kvadratdır</string>
   <string name="revanced_miniplayer_double_tap_action_title">Ölçüsünü dəyişmək üçün cüt toxunmanı və çimdikləməni aktivləşdir</string>
-  <string name="revanced_miniplayer_double_tap_action_summary_on">Ölçüsünü dəyişdirmək üçün cüt toxunma fəaliyyəti və çimdikləmə aktivləşdirildi\n\n• Mini oynadıcı ölçüsün artırmaq üçün cüt toxunun\n• Orijinal ölçünü bərpa etmək üçün təkrar cüt toxun</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">"İkiqat vuruş hərəkəti və çimdikleyərək yenidən ölçmək aktivdir
+
+• Miniplayer ölçüsünü artırmaq üçün iki dəfə vurun
+• Orijinal ölçüsünə qayıtmaq üçün yenidən iki dəfə vurun"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Ölçüsünü dəyişdirmək üçün cüt toxunma fəaliyyəti və çimdikləmə yoxdur</string>
   <string name="revanced_miniplayer_drag_and_drop_title">\"Sürüklə və burax\"ı aktivləşdir</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">\"Sürüklə və burax\" aktivdir\n\nMini oynadıcı, ekranın istənilən küncünə sürüklənə bilər</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Sürüklə və burax aktivdir
+
+Miniplayer ekranın istənilən küncünə sürüklənə bilər"</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">\"Sürüklə və burax\" aktiv deyil</string>
   <string name="revanced_miniplayer_horizontal_drag_title">Üfüqi sürükləmə jestini aktivləşdir</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">Üfüqi sürükləmə jesti aktivdir\n\nKiçik Oynadıcı ekranın soluna və ya sağına sürüklənə bilər</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Üfüqi sürükləmə jesti aktivdir
+
+Miniplayer ekrandan sola və ya sağa sürüklənə bilər"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Üfüqi sürükləmə jesti qapatıldı</string>
   <string name="revanced_miniplayer_hide_expand_close_title">\"Bağla\" düyməsini gizlət</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">\"Bağla\" düyməsi gizlidir</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">\"Bağla\" düyməsi göstərilir</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_title">Genişləndir və bağla düymələrini gizlət</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Düymələr gizlədilib\n\nGenişləndirmək və ya bağlamaq üçün sürüşdür</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Düymələr gizlidir
+
+Açmaq və ya bağlamaq barmaqla sürüşdürün"</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Genişləndir və bağla düymələri göstərilir</string>
   <string name="revanced_miniplayer_hide_subtext_title">Alt mətnləri gizlət</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Alt mətnlər gizlədilir</string>
@@ -1070,7 +1123,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Təsvir bölgə məhdudiyyətlərini ötür</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">yt4.ggpht.com təsvir host-u istifadə edilir</string>
-  <string name="revanced_bypass_image_region_restrictions_summary_off">Orijinal təsvir host-u istifadə edilir\n\nBunu aktivləşdirmə, bəzi bölgələrdə əngəllənən, ağ təsvirləri düzəldə bilər</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">"Orijinal şəkil hostundan istifadə
+
+Bunu aktivləşdirmək, bəzi regionlarda bloklanmışdırılmış itkin şəkilləri düzəldə bilər"</string>
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -1085,7 +1140,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Orijinal miniatürlər</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Kadr çəkilişlər</string>
   <string name="revanced_alt_thumbnail_options_entry_4">Kadr çəkilişləri</string>
-  <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow YouTube videoları üçün bölük mənbəli miniatürlər təchiz edir. Bu miniatürlər hər zaman YouTube tərəfindən təmin edilənlərdən daha uyğun olur\n\nƏgər aktivləşdirilərsə, video URL-lər API serverinə göndəriləcək və başqa heç bir məlumat göndərilməyəcək. Videoda DeArrow miniatürləri yoxdursa, orijinal və ya hələ də kadr çəkilişləri göstərilir\n\nDeArrow haqqında ətraflı öyrənmək üçün bura toxun</string>
+  <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow, YouTube videoları üçün kütlədən alınan kiçik görüntülər təqdim edir. Bu kiçik görüntülər YouTube tərəfindən təqdim edilənlərdən daha uyğun ola bilər
+
+Aktivləşdirilərsə, video URLləri API serverinə göndəriləcək və başqa heç bir məlumat göndərilməyəcək. Bir videoda DeArrow kiçik şəkilləri yoxdursa, onda orijinal və ya hərəkətsiz çəkilişlər göstərilir
+
+DeArrow haqqında ətraflı məlumat üçün buraya vurun"</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">API əlçatan deyilsə ani bildiriş göstər</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">DeArrow əlçatan deyilsə bildiriş göstərilir</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">DeArrow əlçatan deyilsə bildiriş göstərilmir</string>
@@ -1124,8 +1183,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Cihaz ölçülərini saxtalaşdır</string>
-  <string name="revanced_spoof_device_dimensions_summary_on">Cihaz ölçüləri saxtalaşdı\n\nDaha yüksək video keyfiyyətləri göstərilə bilər, ancaq video oynatma donmaları, daha pis batareya istismarı və bilinməyən yan təsirləri görə bilərsiniz</string>
-  <string name="revanced_spoof_device_dimensions_summary_off">Cihaz ölçüləri saxtalaşmır\n\nBunu aktivləşdirmə, daha yüksək video keyfiyyətlərinin olmasın təmin edə bilir</string>
+  <string name="revanced_spoof_device_dimensions_summary_on">"Cihaz ölçüləri təhrif edilmişdir
+
+Daha yüksək video keyfiyyətləri açıla bilər, ancaq video oynatma takılması, batareyanın daha tez tükənməsi və bilinməyən yan təsirlər yaşaya bilərsiniz"</string>
+  <string name="revanced_spoof_device_dimensions_summary_off">"Cihaz ölçüləri təhrif edilməmişdir
+
+Bunu aktivləşdirmək daha yüksək video keyfiyyətləri açabilir"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Bunu aktivləşdirmə, video oynatma donmalarına, daha pis batareya istismarına və bilinməyən yan təsirlərə səbəb ola bilər.</string>
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
@@ -1175,8 +1238,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_custom_speed_menu_summary_off">Fərdi sürət menyusu göstərilmir</string>
   <string name="revanced_custom_playback_speeds_title">Fərdi oynatma sürəti</string>
   <string name="revanced_custom_playback_speeds_summary">Fərdi oynatma sürətlərini əlavə et və ya dəyiş</string>
-  <string name="revanced_custom_playback_speeds_invalid">Fərdi sürətlər %s-dən az olmalıdır.  Standart dəyərlər istifadəsi.</string>
-  <string name="revanced_custom_playback_speeds_parse_exception">Etibarsız oynatma sürətləri. Standartlar istifadədədir.</string>
+  <string name="revanced_custom_playback_speeds_invalid">Xüsusi sürətlər %s-dən aşağı olmalıdır</string>
+  <string name="revanced_custom_playback_speeds_parse_exception">Səhv xüsusi oynatma sürəti</string>
   <string name="revanced_custom_playback_speeds_auto">Avtomatik</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
@@ -1201,17 +1264,25 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_screen_summary">Oynatma problemlərin önləmək üçün qəbuledici video yayımların saxtalaşdır</string>
   <string name="revanced_spoof_video_streams_title">Video yayımları saxtalaşdır</string>
   <string name="revanced_spoof_video_streams_summary_on">Video yayımları saxtalaşdırılır</string>
-  <string name="revanced_spoof_video_streams_summary_off">Video yayımları saxtalaşmır\n\nVideo oynatma işləməyə bilər</string>
+  <string name="revanced_spoof_video_streams_summary_off">"Video axınları təhrif edilməmişdir
+
+Video oynatma işləməyə bilər"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Bu seçimi bağlamaq, video oynatma problemlərinə səbəb olar.</string>
   <string name="revanced_spoof_video_streams_client_title">İlkin qəbuledici</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Məcburi AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodlama AVC (H.264) -yə məcbur edilir</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodlama birbaşa yoxlanılır</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Bunu aktivləşdirmə batareya ömrün yaxşılaşdıra və oynatma donmasını düzəldə bilər.\n\nAVC maksimum 1080p görüntü imkanına malikdir, Opus səs kodlama əlçatan deyil və video oynatma VP9 və ya AV1-dən daha çox internet resursu işlədəcək.</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Bunu aktivləşdirmə batareya ömrün yaxşılaşdıra və oynatma donmasını düzəldə bilər.
+
+AVC maksimum 1080p görüntü imkanına malikdir, Opus səs kodlama əlçatan deyil və video oynatma VP9 və ya AV1-dən daha çox internet resursu işlədəcək."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS saxtakarlığı yan təsirləri</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">Şəxsi uşaq videoları oynadıla bilməz\n• Yaş məhdudiyyətli videolar oynadıla bilməz\n• Canlı yayımlar əvvəldən başlayır\n• Videolar 1 saniyə tez bitir</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Şəxsi uşaq videoları oynadıla bilməz
+• Canlı yayımlar əvvəldən başlayır
+• Videolar 1 saniyə tez bitir"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR saxtakarlığı yan təsirləri</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">Uşaq videoları oynadıla bilməz\n• Yaş məhdudiyyətli videolar oynadıla bilməz\n• Canlı yayımlar əvvəldən başlayır\n• Videolar 1 saniyə tez bitir</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"Uşaq videoları oynadıla bilməz
+• Canlı yayımlar əvvəldən başlayır
+• Videolar 1 saniyə tez bitir"</string>
   <string name="revanced_spoof_video_streams_language_title">İlkin səs yayımı dili</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Tətbiq dili</string>
   <string name="revanced_spoof_video_streams_language_AR">Ərəbcə</string>
@@ -1275,8 +1346,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_block_audio_ads_summary_off">Səsli reklamlar bloklanmayıb</string>
   </patch>
   <patch id="ad.embedded.embeddedAdsPatch">
-  <string name="revanced_embedded_ads_service_unavailable">%s əlçatmazdır. Reklamlar görünə bilər. Seçimlərdə başqa reklam bloku xidmətinə keçirməyə cəhd et.</string>
-  <string name="revanced_embedded_ads_service_failed">%s serveri xəta sorğusu verdi. Reklam görünə bilər. Seçimlərdə başqa reklam bloku xidmətinə keçir.</string>
+  <string name="revanced_embedded_ads_service_unavailable">%s mövcud deyil, reklamlar görünə bilər. Parametrlərdə reklam bloku xidmətini dəyişməyi sınayın.</string>
+  <string name="revanced_embedded_ads_service_failed">%s bir səhv qaytardı, reklamlar görünə bilər. Parametrlərdə reklam bloku xidmətini dəyişməyi sınayın.</string>
   <string name="revanced_block_embedded_ads_title">Yerləşdirilən video reklamlarını əngəllə</string>
   <string name="revanced_block_embedded_ads_entry_1">Qeyri-aktiv edildi</string>
   <string name="revanced_block_embedded_ads_entry_2">Dəqiq proksi</string>
