@@ -1,38 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
-Note: All strings must have a unique path, even if the same string is declared in two different apps.
-This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+    All strings must have a unique path, even if the same string is declared in two different apps.
+    This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-# General guidelines and information for translating
 
-## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
+    Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
+    Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
-    For example, the patches string:
-        <string name="revanced_patches_string">You will arrive at %1$s in %2$s hours from now</string>
-    Could be translated to another language using a rearranged grammar:
-        <string name="revanced_patches_string">You will arrive %2$s hours from now at %1$s</string>
+    Raw strings are required because Crowdin AI translations regularly gets confused and
+    replace \n with an encoded new line character.
 
-     For Manager strings:
-        You will arrive at ${destination} in ${count} hours from now
-     Could be rearranged by changing the order of the ${} parameters:
-        You will arrive ${count} hours from now at ${destination}
+    Bad:
+        <string name="summary_key">First \'item\' text\nSecond \"item\" text</string>
 
-    Reordering is particularly relevant when translating into right to left languages, or for any language with grammar that is noticeably different from English.
+    Good:
+        <string name="summary_key">"First 'item' text
+Second \"item\" text"</string>
 
-## Single and double quotation marks must be escaped for patch strings (Manager does not require escaping any quotes).
-
-    All _patches_ single and double quotation marks must be escaped as \"  or \'
-    Forgetting to do this will cause that string to appear in app with no quotation characters.
-
-    Correct:
-        <string name="revanced_string">You\'re correct. This is the \"correct\" way and this text will appear as expected in the app</string>
-    Not correct:
-        <string name="revanced_string">You're not correct. This is not the "correct" way and this text will not appear as expected the in app</string>
 -->
 <resources>
   <app id="shared">
   <patch id="misc.checks.checkEnvironmentPatch">
+  <string name="revanced_check_environment_failed_title">Kontrola zlyhala</string>
+  <string name="revanced_check_environment_dialog_open_official_source_button">Otvoriť oficiálnu webovú stránku</string>
+  <string name="revanced_check_environment_dialog_ignore_button">Ignorovať</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Táto aplikácia sa javí, že nie je upravená.&lt;/h5&gt;&lt;br&gt;Táto aplikácia nemusí fungovať správne, &lt;b&gt;môže byť škodlivá alebo dokonca nebezpečná na použitie&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Tieto kontroly znamenajú, že táto aplikácia je predpripravená alebo získaná od niekoho iného:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Odporúčame &lt;b&gt;odstrániť túto aplikáciu a upraviť ju sami&lt;/b&gt;, aby ste sa uistili, že používate overenú a bezpečnú aplikáciu.&lt;p&gt;&lt;br&gt;Ak sa bude ignorovať, toto upozornenie sa zobrazí už len dvakrát.</string>
+  <string name="revanced_check_environment_not_same_patching_device">Upravené na inom zariadení</string>
+  <string name="revanced_check_environment_manager_not_expected_installer">Nie je nainštalovaný pomocou ReVanced Manager</string>
+  <string name="revanced_check_environment_not_near_patch_time">Upravené pred viac ako 10 minútami</string>
+  <string name="revanced_check_environment_not_near_patch_time_days">Upravené pred %s dňami</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">Dátum zostavenia APK je poškodený</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_confirm_user_dialog_title">Chcete pokračovať?</string>
@@ -58,9 +56,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore nie je nainštalovaný. Nainštalujte ho.</string>
   <string name="gms_core_dialog_title">Potrebná akcia</string>
-  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">MicroG GmsCore nemá povolenie na spustenie na pozadí.\n\nPostupujte podľa návodu \"Nezabíjajte moju aplikáciu\" pre váš telefón a použite pokyny na inštaláciu MicroG.\n\nJe to potrebné pre aplikácia do práce.</string>
+  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"Aplikácia MicroG GmsCore nemá povolenie na spúšťanie na pozadí.
+
+Postupujte podľa pokynov \"Nechaj moju aplikáciu spustenú\" pre váš telefón a použite ich v aplikácii MicroG GmsCore."</string>
   <string name="gms_core_dialog_open_website_text">Otvorte webovú stránku</string>
-  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">Optimalizácie batérie MicroG GmsCore musia byť vypnuté, aby sa predišlo problémom.\n\nKlepnite na tlačidlo pokračovať a vypnite optimalizáciu batérie.</string>
+  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Pre optimalizáciu MicroG GmsCore je potrebné vypnúť optimalizáciu batérie, aby sa predišlo problémom.
+
+Vypnutie optimalizácie batérie pre MicroG nebude mať negatívny vplyv na spotrebu batérie.
+
+Ťuknite na tlačidlo Pokračovať a povoľte zmeny optimalizácie."</string>
   <string name="gms_core_dialog_continue_text">Ďalej</string>
   </patch>
   </app>
@@ -69,12 +73,18 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_00_about_title">Informácie</string>
   <string name="revanced_settings_screen_01_ads_title">Reklamy</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternatívne miniatúry</string>
+  <string name="revanced_settings_screen_03_feed_title">Feed</string>
   <string name="revanced_settings_screen_04_player_title">Hráč</string>
   <string name="revanced_settings_screen_05_general_title">Všeobecné rozloženie</string>
   <string name="revanced_settings_screen_07_seekbar_title">Panel vyhľadávania</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Ovládanie potiahnutím</string>
+  <string name="revanced_settings_screen_11_misc_title">Rôzne</string>
+  <string name="revanced_settings_screen_12_video_title">Video</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <string name="revanced_shorts_disable_background_playback_title">Zakázať prehrávanie Shorts na pozadí</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Prehrávanie Shorts na pozadí je zakázané</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Prehrávanie Shorts na pozadí je povolené</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Ladenie</string>
@@ -91,7 +101,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_debug_toast_on_error_title">Zobraziť toast pri chybe ReVanced</string>
   <string name="revanced_debug_toast_on_error_summary_on">Ak dôjde k chybe, zobrazí sa toast</string>
   <string name="revanced_debug_toast_on_error_summary_off">Toast sa nezobrazuje, ak sa vyskytne chyba</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">Vypnutím chybových toastov skryjete všetky chybové upozornenia ReVanced.\n\nNebudete upozornení na žiadne neočakávané udalosti.</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"Vypnutie upozornení o chybách skryje všetky upozornenia o chybách v ReVanced.
+
+Nebudete informovaní o žiadnych nepredvídaných udalostiach."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_disable_like_subscribe_glow_title">Zakázať podsvietenie tlačidla Páči sa mi/Prihlásiť sa na odber</string>
@@ -110,7 +122,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_watermark_summary_on">Vodoznak je skrytý</string>
   <string name="revanced_hide_channel_watermark_summary_off">Zobrazí sa vodoznak</string>
   <string name="revanced_hide_horizontal_shelves_title">Skryť horizontálne police</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">Poličky sú skryté, napríklad:\n• Najnovšie správy\n• Pokračovať v pozeraní\n• Preskúmať ďalšie kanály\n• Nakupovanie\n• Pozrieť znova</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"Police budú skryté, ako napríklad:
+• Aktuálne správy
+• Pokračovať v sledovaní
+• Preskúmať ďalšie kanály
+• Nákupy
+• Sledovať znova"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Sú zobrazené police</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
@@ -216,6 +233,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_info_cards_section_title">Skryť sekciu informačných kariet</string>
   <string name="revanced_hide_info_cards_section_summary_on">Sekcia informačných kariet je skrytá</string>
   <string name="revanced_hide_info_cards_section_summary_off">Zobrazí sa sekcia informačných kariet</string>
+  <string name="revanced_hide_key_concepts_section_title">Skryť sekciu „Kľúčové koncepty“</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">Sekcia „Kľúčové koncepty“ je skrytá</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">Sekcia „Kľúčové koncepty“ sa zobrazuje</string>
   <string name="revanced_hide_transcript_section_title">Skryť sekciu Prepis</string>
   <string name="revanced_hide_transcript_section_summary_on">Časť prepisu je skrytá</string>
   <string name="revanced_hide_transcript_section_summary_off">Zobrazí sa sekcia prepisu</string>
@@ -240,6 +260,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_section_title">Skryť sekciu komentárov</string>
   <string name="revanced_hide_comments_section_summary_on">Sekcia komentárov je skrytá</string>
   <string name="revanced_hide_comments_section_summary_off">Zobrazí sa sekcia komentárov</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">Skryť tlačidlo „Vytvoriť krátke video“</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">Tlačidlo „Vytvoriť krátke video“ je skryté</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">Tlačidlo „Vytvoriť krátke video“ sa zobrazuje</string>
   <string name="revanced_hide_comments_preview_comment_title">Skryť ukážkový komentár</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Komentár ukážky je skrytý</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Zobrazí sa ukážka komentára</string>
@@ -250,6 +273,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Tlačidlá časovej pečiatky a emotikonov sú skryté</string>
   <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Zobrazia sa tlačidlá časovej pečiatky a emoji</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
+  <string name="revanced_hide_doodles_title">Skryť YouTube Doodles</string>
+  <string name="revanced_hide_doodles_summary_on">Doodles vo vyhľadávacom paneli sú skryté</string>
+  <string name="revanced_hide_doodles_summary_off">Doodles vo vyhľadávacom paneli sa zobrazujú</string>
+  <string name="revanced_hide_doodles_user_dialog_message">"Doodles sa zobrazujú niekoľko dní v roku.
+
+Ak sa Doodle v súčasnosti zobrazuje vo vašom regióne a toto nastavenie skrytia je zapnuté, tak sa tiež skryje filter pod vyhľadávacím panelom."</string>
   <string name="revanced_custom_filter_screen_title">Vlastný filter</string>
   <string name="revanced_custom_filter_screen_summary">Skryť komponenty pomocou vlastných filtrov</string>
   <string name="revanced_custom_filter_title">Povoliť vlastný filter</string>
@@ -273,16 +302,31 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_content_phrases_title">Kľúčové slová na skrytie</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
+  <string name="revanced_hide_keyword_content_phrases_summary">"Kľúčové slová a frázy, ktoré sa majú skryť, oddelené novými riadkami
+
+Kľúčové slová môžu byť názvy kanálov alebo akýkoľvek text zobrazený v názvoch videí
+
+Slová s veľkými písmenami v strede musia byť zadané s použitím veľkých a malých písmen (napr.: iPhone, TikTok, LeBlanc)"</string>
   <string name="revanced_hide_keyword_content_about_title">O filtrovaní kľúčových slov</string>
+  <string name="revanced_hide_keyword_content_about_summary">"Výsledky vyhľadávania domovskej stránky/odberov/hľadania sa filtrujú, aby sa skryli"</string>
+  <string name="revanced_hide_keyword_content_about_whole_words_title">Zhodovať celé slová</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <string name="revanced_hide_keyword_content_about_whole_words_summary">Obkľúčenie kľúčového slova/frázy dvojitými úvodzovkami zabráni čiastočným zhodám názvov videí a mien kanálov&lt;br&gt;&lt;br&gt;Napríklad,&lt;br&gt;&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; skryje video: &lt;b&gt;Ako funguje AI?&lt;/b&gt;&lt;br&gt;ale neskryje: &lt;b&gt;Čo znamená férové používanie?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_keyword_toast_invalid_common">Nemožno použiť kľúčové slovo: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Na použitie kľúčového slova pridajte úvodzovky: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_conflicting">Kľúčové slovo má konfliktné deklarácie: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_length">Kľúčové slovo je príliš krátke a vyžaduje úvodzovky: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">Kľúčové slovo skryje všetky videá: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Skryť všeobecné reklamy</string>
   <string name="revanced_hide_general_ads_summary_on">Všeobecné reklamy sú skryté</string>
   <string name="revanced_hide_general_ads_summary_off">Zobrazujú sa všeobecné reklamy</string>
   <string name="revanced_hide_fullscreen_ads_title">Skryť reklamy na celú obrazovku</string>
-  <string name="revanced_hide_fullscreen_ads_summary_on">Reklamy na celú obrazovku sú skryté\n\nTáto funkcia je k dispozícii iba pre staršie zariadenia</string>
+  <string name="revanced_hide_fullscreen_ads_summary_on">"Celoobrazovkové reklamy sú skryté
+
+Táto funkcia je dostupná len pre staršie zariadenia"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Zobrazujú sa reklamy na celú obrazovku</string>
   <string name="revanced_hide_buttoned_ads_title">Skryť zapnuté reklamy</string>
   <string name="revanced_hide_buttoned_ads_summary_on">Zapnuté reklamy sú skryté</string>
@@ -296,6 +340,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_products_banner_title">Skryť banner pre zobrazenie produktov</string>
   <string name="revanced_hide_products_banner_summary_on">Banner je skrytý</string>
   <string name="revanced_hide_products_banner_summary_off">Zobrazuje sa banner</string>
+  <string name="revanced_hide_player_store_shelf_title">Skryť nákupnú poličku prehrávača</string>
+  <string name="revanced_hide_player_store_shelf_summary_on">Nákupná polička je skrytá</string>
+  <string name="revanced_hide_player_store_shelf_summary_off">Nákupná polička sa zobrazuje</string>
   <string name="revanced_hide_shopping_links_title">Skryť odkazy na nákupy v popise videa</string>
   <string name="revanced_hide_shopping_links_summary_on">Odkazy na nákupy sú skryté</string>
   <string name="revanced_hide_shopping_links_summary_off">Zobrazujú sa odkazy na nákupy</string>
@@ -381,6 +428,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Povoliť gesto automatického jasu</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Potiahnutím nadol na najnižšiu hodnotu gesta jasu aktivujete automatický jas</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Potiahnutie prstom nadol na najnižšiu hodnotu nezapne automatický jas</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Auto</string>
   <string name="revanced_swipe_overlay_timeout_title">Časový limit prekrytia potiahnutím prstom vypršal</string>
   <string name="revanced_swipe_overlay_timeout_summary">Počet milisekúnd, počas ktorých je prekrytie viditeľné</string>
   <string name="revanced_swipe_text_overlay_size_title">Veľkosť textu prekrytia prstom</string>
@@ -452,7 +500,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_subscriptions_button_summary_off">Zobrazí sa tlačidlo odberov</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Prepnite na položku Vytvoriť s upozorneniami</string>
-  <string name="revanced_switch_create_with_notifications_button_summary_on">Tlačidlo Vytvoriť sa prepína s tlačidlom Upozornenia\n\nPoznámka: Povolením tejto možnosti sa násilne skryjú aj videoreklamy</string>
+  <string name="revanced_switch_create_with_notifications_button_summary_on">"Tlačidlo Vytvoriť sa prepne s tlačidlom Upozornenia
+
+Poznámka: Povolením tejto možnosti sa tiež vynútene skryjú video reklamy"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Tlačidlo Vytvoriť sa neprepína s tlačidlom Upozornenia</string>
   <string name="revanced_hide_navigation_button_labels_title">Skryť štítky navigačných tlačidiel</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Štítky sú skryté</string>
@@ -470,6 +520,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_additional_settings_summary_on">Ponuka ďalších nastavení je skrytá</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_off">Zobrazí sa ponuka ďalších nastavení</string>
   <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_sleep_timer_title">Skryť časovač spánku</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_on">Menu s časovačom spánku je skryté</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_off">Menu s časovačom spánku sa zobrazuje</string>
   <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_loop_video_title">Skryť video slučky</string>
   <string name="revanced_hide_player_flyout_loop_video_summary_on">Ponuka slučkového videa je skrytá</string>
@@ -478,6 +531,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_ambient_mode_title">Skryť okolitý režim</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_on">Ponuka ambientného režimu je skrytá</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_off">Zobrazí sa ponuka ambientného režimu</string>
+  <string name="revanced_hide_player_flyout_stable_volume_title">Skryť stály zvuk</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_off">Menu so stálym zvukom sa zobrazuje</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_on">Menu so stálym zvukom je skryté</string>
   <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_help_title">Skryť Pomocník &amp; spätná väzba</string>
   <string name="revanced_hide_player_flyout_help_summary_on">Pomocník &amp; ponuka spätnej väzby je skrytá</string>
@@ -551,6 +607,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_seekbar_thumbnail_summary_off">Zobrazí sa panel vyhľadávania miniatúr</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <string name="revanced_shorts_player_screen_title">Prehrávač Shorts</string>
+  <string name="revanced_shorts_player_screen_summary">Skryť alebo zobraziť komponenty v prehrávači Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">Skryť Shorts v domácom informačnom kanáli</string>
   <string name="revanced_hide_shorts_home_summary_on">Shorts v domácom feede sú skryté</string>
@@ -585,9 +643,30 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_title">Skryť štítok polohy</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Štítok miesta je skrytý</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Zobrazí sa štítok s umiestnením</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Skryť tlačidlo na uloženie hudby</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">Tlačidlo na uloženie hudby je skryté</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">Tlačidlo na uloženie hudby sa zobrazuje</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Skryť tlačidlo na použitie šablóny</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Tlačidlo na použitie šablóny je skryté</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Tlačidlo na použitie šablóny sa zobrazuje</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">Skryť prichádzajúce tlačidlo</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">Tlačidlo pre časté videá bude skryté</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">Tlačidlo pre časté videá bude zobrazené</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">Skryť tlačidlo pre zelené pozadie</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_on">Tlačidlo pre zelené pozadie bude skryté</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_off">Tlačidlo pre zelené pozadie bude zobrazené</string>
+  <string name="revanced_hide_shorts_hashtag_button_title">Skryť tlačidlo pre hashtag</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_on">Tlačidlo pre hashtag bude skryté</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_off">Tlačidlo pre hashtag bude zobrazené</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Skryť návrhy vyhľadávania</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Návrhy vyhľadávania sú skryté</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Zobrazia sa návrhy vyhľadávania</string>
+  <string name="revanced_hide_shorts_stickers_title">Skryť samolepky</string>
+  <string name="revanced_hide_shorts_stickers_summary_on">Samolepky sú skryté</string>
+  <string name="revanced_hide_shorts_stickers_summary_off">Samolepky sú zobrazené</string>
+  <string name="revanced_hide_shorts_like_fountain_title">Skryť fontánu like</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_on">Animácia fontány like bude skrytá</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_off">Animácia fontány like bude zobrazená</string>
   <string name="revanced_hide_shorts_like_button_title">Tlačidlo Skryť páči sa mi</string>
   <string name="revanced_hide_shorts_like_button_summary_on">Tlačidlo Páči sa mi je skryté</string>
   <string name="revanced_hide_shorts_like_button_summary_off">Zobrazí sa tlačidlo Páči sa mi</string>
@@ -643,6 +722,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_off">Zobrazia sa vyskakovacie panely prehrávača</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <string name="revanced_open_videos_fullscreen_portrait_title">Otvoriť videá v celoobrazovkovom portréte</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_on">Videá sa otvoria na celú obrazovku</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_off">Videá sa neotvoria na celú obrazovku</string>
   </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Nepriehľadnosť prekrytia prehrávača</string>
@@ -661,7 +743,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_enable_summary_off">Nepáči sa mi nie sú zobrazené</string>
   <string name="revanced_ryd_shorts_title">Zobrazovať, že sa mi nepáči v Shorts videách</string>
   <string name="revanced_ryd_shorts_summary_on">Nepáči sa mi zobrazené v Shorts videách</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">Nepáči sa mi v Shorts videách\n\nObmedzenie: Nepáči sa mi v režime inkognito</string>
+  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Nepáči sa mi sa zobrazujú na Shorts
+
+Obmedzenie: Nepáči sa mi sa nemusí zobraziť v režime inkognito"</string>
   <string name="revanced_ryd_shorts_summary_off">Nepáči sa skryté v Shorts videách</string>
   <string name="revanced_ryd_dislike_percentage_title">Nepáči sa v percentách</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">Nepáči sa zobrazujú v percentách</string>
@@ -699,6 +783,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_wide_searchbar_summary_off">Široký panel vyhľadávania je vypnutý</string>
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_title">Povoliť miniatúry vo vysokej kvalite</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Miniatúry seekbaru sú vo vysokej kvalite</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Miniatúry seekbaru sú v strednej kvalite</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Miniatúry seekbaru na celej obrazovke sú vo vysokej kvalite</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Miniatúry seekbaru na celej obrazovke sú v strednej kvalite</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Tým sa tiež obnovia miniatúry živých prenosov, ktoré nemajú miniatúry panela vyhľadávania.
+
+Miniatúry panela vyhľadávania budú používať rovnakú kvalitu ako aktuálne video.
+
+Táto funkcia najlepšie funguje s kvalitou videa 720p alebo nižšou a pri použití veľmi rýchleho internetového pripojenia."</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Obnovte staré miniatúry vyhľadávacieho panela</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Miniatúry panela vyhľadávania sa zobrazia nad panelom vyhľadávania</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Miniatúry panela vyhľadávania sa zobrazia na celej obrazovke</string>
@@ -745,6 +839,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_general_skipcount_sum_off">Sledovanie počtu preskočení nie je povolené</string>
   <string name="revanced_sb_general_min_duration">Minimálna dĺžka segmentu</string>
   <string name="revanced_sb_general_min_duration_sum">Segmenty kratšie ako táto hodnota (v sekundách) sa nezobrazia ani preskočia</string>
+  <string name="revanced_sb_general_min_duration_invalid">Neplatné trvanie</string>
   <string name="revanced_sb_general_uuid">Vaše súkromné ​​ID používateľa</string>
   <string name="revanced_sb_general_uuid_sum">Toto by ste mali držať v súkromí. Je to ako heslo a nemali by ste ho s nikým zdieľať. Pokiaľ ho niekto má, môže sa za vás vydávať</string>
   <string name="revanced_sb_general_uuid_invalid">ID súkromného používateľa musí mať aspoň 30 znakov</string>
@@ -760,7 +855,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_settings_import_successful">Nastavenia boli úspešne importované</string>
   <string name="revanced_sb_settings_import_failed">Nepodarilo sa importovať: %s</string>
   <string name="revanced_sb_settings_export_failed">Export zlyhal: %s</string>
-  <string name="revanced_sb_settings_revanced_export_user_id_warning">Vaše nastavenia obsahujú súkromné ​​ID používateľa SponsorBlock.\n\nVaše ID používateľa je ako heslo a nikdy by sa nemalo zdieľať.\n</string>
+  <string name="revanced_sb_settings_revanced_export_user_id_warning">"Vaše nastavenia patria k SponsorBlocku. \n\nVaše používateľské ID je ako heslo a nikdy by sa nemalo zdieľať."</string>
   <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">Neukazuj znovu</string>
   <string name="revanced_sb_diff_segments">Zmeňte správanie segmentov</string>
   <string name="revanced_sb_segments_sponsor">Sponzor</string>
@@ -820,9 +915,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_submit_failed_invalid">Nie je možné odoslať segment: %s</string>
   <string name="revanced_sb_submit_failed_timeout">SponsorBlock je dočasne mimo prevádzky</string>
   <string name="revanced_sb_submit_failed_unknown_error">Segment nie je možné odoslať (stav: %1$d %2$s)</string>
-  <string name="revanced_sb_submit_failed_rate_limit">Segment nie je možné odoslať.\nHodnota je obmedzená (príliš veľa od rovnakého používateľa alebo adresy IP)</string>
+  <string name="revanced_sb_submit_failed_rate_limit">Segment sa nedá odoslať. Limit počtu (príliš veľa od rovnakého používateľa alebo IP)</string>
   <string name="revanced_sb_submit_failed_forbidden">Nie je možné odoslať segment: %s</string>
-  <string name="revanced_sb_submit_failed_duplicate">Segment nie je možné odoslať.\nUž existuje</string>
+  <string name="revanced_sb_submit_failed_duplicate">"Segment sa nedá odoslať.
+Už existuje"</string>
   <string name="revanced_sb_submit_succeeded">Segment bol úspešne odoslaný</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock je dočasne nedostupný (vypršal časový limit rozhrania API)</string>
@@ -838,13 +934,22 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">Vyberte kategóriu segmentu</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategória je v nastaveniach zakázaná. Povoľte odoslanie kategórie.</string>
   <string name="revanced_sb_new_segment_title">Nový SponsorBlock segment</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">Nastaviť „%s“ ako začiatok alebo koniec nového segmentu?</string>
   <string name="revanced_sb_new_segment_mark_start">štart</string>
   <string name="revanced_sb_new_segment_mark_end">koniec</string>
   <string name="revanced_sb_new_segment_now">teraz</string>
   <string name="revanced_sb_new_segment_time_start">Čas, kedy segment začína</string>
   <string name="revanced_sb_new_segment_time_end">Čas, kedy segment končí</string>
   <string name="revanced_sb_new_segment_confirm_title">Sú časy správne?</string>
-  <string name="revanced_sb_new_segment_confirm_content">Segment je od\n\n%1$s\ndo\n%2$s\n\n(%3$s)\n\nSte pripravený na odoslanie?</string>
+  <string name="revanced_sb_new_segment_confirm_content">"Segment je z
+
+%1$s
+do
+%2$s
+
+(%3$s)
+
+Pripravené na odoslanie?"</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Začiatok musí byť pred koncom</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Najprv označte dve miesta na časovej lište</string>
   <string name="revanced_sb_new_segment_preview_segment_first">Ukážte segment a uistite sa, že preskakuje plynulo</string>
@@ -862,6 +967,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_stats_username_changed">Používateľské meno bolo úspešne zmenené</string>
   <string name="revanced_sb_stats_reputation">Vaša reputácia je &lt;b&gt;%.2f&lt;/b&gt;</string>
   <string name="revanced_sb_stats_submissions">Vytvorili ste &lt;b&gt;%s&lt;/b&gt; segmentov</string>
+  <string name="revanced_sb_stats_submissions_sum">Klepnite sem a zobrazte si svoje segmenty</string>
   <string name="revanced_sb_stats_saved_zero">Rebríček SponsorBlock</string>
   <string name="revanced_sb_stats_saved">Zachránili ste ľudí z &lt;b&gt;%s&lt;/b&gt; segmentov</string>
   <string name="revanced_sb_stats_saved_sum_zero">Klepnutím sem zobrazíte globálne štatistiky a hlavných prispievateľov</string>
@@ -885,10 +991,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_title">Verzia aplikácie Spoof</string>
   <string name="revanced_spoof_app_version_summary_on">Verzia sfalšovaná</string>
   <string name="revanced_spoof_app_version_summary_off">Verzia nie je sfalšovaná</string>
-  <string name="revanced_spoof_app_version_user_dialog_message">Verzia aplikácie bude sfalšovaná na staršiu verziu YouTube.\n\nTýmto sa zmení vzhľad a funkcie aplikácie, ale môžu sa vyskytnúť neznáme vedľajšie účinky.\n\nAk ju neskôr vypnete, odporúčame vymazať údaje aplikácie zabrániť chybám používateľského rozhrania.</string>
+  <string name="revanced_spoof_app_version_user_dialog_message">"Verzia aplikácie bude falošne zmenená na staršiu verziu služby YouTube.
+
+Zmení sa vzhľad a funkcie aplikácie, ale môžu sa vyskytnúť neznáme vedľajšie účinky.
+
+Ak sa neskôr vypne, odporúča sa vymazať údaje aplikácie, aby sa zabránilo chybám používateľského rozhrania."</string>
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Falošná cieľová verzia aplikácie</string>
+  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Obnoviť staré ikony Shorts prehrávača</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Obnovenie režimu inkognito RYD na Shorts</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Obnovenie rýchlosti širokouhlého videa &amp; kvalitné menu</string>
@@ -898,12 +1009,20 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Nastaviť úvodnú stránku</string>
   <string name="revanced_change_start_page_entry_default">Predvolené</string>
+  <string name="revanced_change_start_page_entry_browse">Prehliadať kanály</string>
   <string name="revanced_change_start_page_entry_explore">Preskúmajte</string>
+  <string name="revanced_change_start_page_entry_gaming">Hry</string>
   <string name="revanced_change_start_page_entry_history">História</string>
+  <string name="revanced_change_start_page_entry_library">Knižnica</string>
   <string name="revanced_change_start_page_entry_liked_videos">Videá, ktoré sa vám páčia</string>
+  <string name="revanced_change_start_page_entry_live">Live</string>
+  <string name="revanced_change_start_page_entry_movies">Filmy</string>
+  <string name="revanced_change_start_page_entry_music">Hudba</string>
   <string name="revanced_change_start_page_entry_search">Vyhľadávanie</string>
+  <string name="revanced_change_start_page_entry_sports">Šport</string>
   <string name="revanced_change_start_page_entry_subscriptions">Predplatné</string>
   <string name="revanced_change_start_page_entry_trending">Trendy</string>
+  <string name="revanced_change_start_page_entry_watch_later">Pozrieť neskôr</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Zakázať obnovenie prehrávača Shorts</string>
@@ -911,6 +1030,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_resuming_shorts_player_summary_off">Prehrávač Shorts videí sa obnoví pri spustení aplikácie</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <string name="revanced_shorts_autoplay_title">Automaticky prehrávať Shorts</string>
+  <string name="revanced_shorts_autoplay_summary_on">Shorts sa automaticky prehrajú</string>
+  <string name="revanced_shorts_autoplay_summary_off">Shorts sa budú opakovať</string>
+  <string name="revanced_shorts_autoplay_background_title">Automatické prehrávanie Shorts</string>
+  <string name="revanced_shorts_autoplay_background_summary_on">Prehrávanie Shorts bude automaticky prebiehať v pozadí</string>
+  <string name="revanced_shorts_autoplay_background_summary_off">Prehrávanie Shorts bude opakovane prebiehať v pozadí</string>
   </patch>
   <patch id="layout.tablet.enableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">Povoliť rozloženie tabletu</string>
@@ -924,10 +1049,35 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_type_title">Typ miniprehrávača</string>
   <string name="revanced_miniplayer_type_entry_0">Vypnuté</string>
   <string name="revanced_miniplayer_type_entry_1">Predvolené</string>
+  <string name="revanced_miniplayer_type_entry_2">Minimálne</string>
+  <string name="revanced_miniplayer_type_entry_3">Tablet</string>
   <string name="revanced_miniplayer_type_entry_4">Moderné 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderné 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderné 3</string>
+  <string name="revanced_miniplayer_rounded_corners_title">Povoliť zaoblené rohy</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_on">Rohy sú zaoblené</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_off">Rohy sú štvorcové</string>
+  <string name="revanced_miniplayer_double_tap_action_title">Povoliť dvojite klepnutie a štípanie na zmenu veľkosti</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">"Akcia dvojitého ťuknutia a zmenšenie prstami je povolená
+
+• Dvojité ťuknutie na zväčšenie veľkosti miniprehrávača
+• Dvojité ťuknutie znova na obnovenie pôvodnej veľkosti"</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_off">Funkcia dvojklépanie a štípanie na zmenu veľkosti je zakázaná</string>
+  <string name="revanced_miniplayer_drag_and_drop_title">Povoliť potiahnutie a pustenie</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Pretiahnutie a"</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_off">Potiahnutie a pustenie je zakázané</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">Povoliť horizontálne posunutie</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Gesto horizontálneho potiahnutia je povolené
+
+Miniprehrávač sa dá potiahnuť mimo obrazovky doľava alebo doprava"</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">Zakázané je horizontálne posunutie</string>
+  <string name="revanced_miniplayer_hide_expand_close_title">Skryť tlačidlo pre zatvorenie</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">Tlačidlo pre zatvorenie je skryté</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">Tlačidlo pre zatvorenie je zobrazené</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_title">Skryť tlačidlá rozbalenia a zatvorenia</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Tlačidlá sú skryté
+
+Potiahnite prstom na rozbalenie alebo zatvorenie"</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Zobrazia sa tlačidlá rozbalenia a zatvorenia</string>
   <string name="revanced_miniplayer_hide_subtext_title">Skryť podtexty</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Podtexty sú skryté</string>
@@ -935,6 +1085,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_hide_rewind_forward_title">Skryť tlačidlá na preskočenie dopredu a dozadu</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Preskočenie dopredu a dozadu je skryté</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Zobrazia sa skoky dopredu a dozadu</string>
+  <string name="revanced_miniplayer_width_dip_title">Počiatočná veľkosť</string>
+  <string name="revanced_miniplayer_width_dip_summary">Počiatočná veľkosť na obrazovke v pixloch</string>
+  <string name="revanced_miniplayer_width_dip_invalid_toast">Veľkosť pixelov musí byť byť medzi %1$s a %2$s</string>
   <string name="revanced_miniplayer_opacity_title">Nepriehľadnosť prekrytia</string>
   <string name="revanced_miniplayer_opacity_summary">Hodnota nepriehľadnosti medzi 0-100, kde 0 je transparentné</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Nepriehľadnosť prekrytia miniprehrávača musí byť medzi 0-100</string>
@@ -950,8 +1103,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_summary_off">Zobrazí sa pôvodná farba vyhľadávacieho panela</string>
   <string name="revanced_seekbar_custom_color_value_title">Vlastná farba vyhľadávacieho panela</string>
   <string name="revanced_seekbar_custom_color_value_summary">Farba vyhľadávacieho panela</string>
+  <string name="revanced_seekbar_custom_color_invalid">Neplatná farba vyhľadávania panela</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
+  <string name="revanced_bypass_image_region_restrictions_title">Obíď ignorovanie obmedzení obrazovaého regiónu</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_on">Pouíž sa hostiteľ obrázkov yt4.ggpht.com</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">"Používanie pôvodného hostiteľa obrázkov
+
+Povolením tejto možnosti môžete opraviť chýbajúce obrázky, ktoré sú v niektorých regiónoch blokované"</string>
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -966,7 +1125,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Pôvodné miniatúry</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Stále zachytáva</string>
   <string name="revanced_alt_thumbnail_options_entry_4">Stále zachytáva</string>
-  <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow poskytuje zástupné miniatúry pre videá YouTube. Tieto miniatúry sú často relevantnejšie ako miniatúry poskytované službou YouTube\n\nAk je táto možnosť povolená, webové adresy videí sa odošlú na server API a neodošlú sa žiadne ďalšie údaje. Ak video nemá miniatúry DeArrow, zobrazia sa pôvodné alebo statické zábery\n\nKlepnutím tu sa dozviete viac o DeArrow</string>
+  <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow poskytuje miniatúry z YouTube videí od komunity. Tieto miniatúry sú často relevantnejšie ako tie, ktoré poskytuje YouTube
+
+Ak je táto možnosť povolená, adresy URL videí sa odošlú na server API a neodošlú sa žiadne iné údaje. Ak video nemá miniatúry DeArrow, zobrazia sa pôvodné alebo statické snímky
+
+Ťuknite sem a dozviete sa viac o DeArrow"</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Ukážte prípitok, ak API nie je k dispozícii</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Ak DeArrow nie je k dispozícii, zobrazí sa toast</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Toast sa nezobrazí, ak DeArrow nie je k dispozícii</string>
@@ -995,6 +1158,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
   <string name="revanced_check_watch_history_domain_name_dialog_title">Upozornenie</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Vaša história pozeraného sa neuchováva.&lt;br&gt;&lt;br&gt;Toto je pravdepodobne spôsobené blokovaním reklám pomocou DNS alebo sieťového proxy.&lt;br&gt;&lt;br&gt;Pre vyriešenie tohto problému povoľte &lt;b&gt;s.youtube.com&lt;/b&gt; alebo vypnite všetky blokátory reklám pomocou DNS a proxy.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Neukazuj znovu</string>
   </patch>
   <patch id="misc.autorepeat.autoRepeatPatch">
@@ -1004,8 +1168,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Rozmery spoof zariadenia</string>
-  <string name="revanced_spoof_device_dimensions_summary_on">Sfalšované rozmery zariadenia\n\nMôžu byť odomknuté vyššie kvality videa, ale môžete zaznamenať zasekávanie prehrávania videa, horšiu výdrž batérie a neznáme vedľajšie účinky</string>
-  <string name="revanced_spoof_device_dimensions_summary_off">Rozmery zariadenia nie sú sfalšované\n\nAk to povolíte, môžete odomknúť vyššiu kvalitu videa</string>
+  <string name="revanced_spoof_device_dimensions_summary_on">"Rozmery zariadenia sú falošné
+
+Môžu sa odomknúť vyššie kvality videa, ale môže dôjsť k zadrhávaniu prehrávania videa, horšej výdrži batérie a neznámym vedľajším účinkom"</string>
+  <string name="revanced_spoof_device_dimensions_summary_off">"Rozmery zariadenia nie sú falošné
+
+Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Povolenie môže spôsobiť zasekávanie prehrávania videa, horšiu výdrž batérie a neznáme vedľajšie účinky.</string>
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
@@ -1034,6 +1202,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">Automaticky</string>
   <string name="revanced_remember_video_quality_last_selected_title">Pamätajte na zmeny kvality videa</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Zmeny kvality sa vzťahujú na všetky videá</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Zmeny kvality sa vzťahujú iba na aktuálne video</string>
@@ -1048,9 +1217,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_playback_speed_dialog_button_summary_off">Tlačidlo nie je zobrazené</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <string name="revanced_custom_speed_menu_title">Menu vlastnej rýchlosti prehrávania</string>
+  <string name="revanced_custom_speed_menu_summary_on">Menu vlastnej rýchlosti sa zobrazuje</string>
+  <string name="revanced_custom_speed_menu_summary_off">Menu vlastnej rýchlosti sa nezobrazuje</string>
   <string name="revanced_custom_playback_speeds_title">Vlastné rýchlosti prehrávania</string>
-  <string name="revanced_custom_playback_speeds_invalid">Vlastné rýchlosti musia byť nižšie ako %s. Použitie predvolených hodnôt.</string>
-  <string name="revanced_custom_playback_speeds_parse_exception">Neplatné vlastné rýchlosti prehrávania. Použitie predvolených hodnôt.</string>
+  <string name="revanced_custom_playback_speeds_summary">Pridať alebo zmeň vlastné rýchlosti prehrávania</string>
+  <string name="revanced_custom_playback_speeds_invalid">Vlastné rýchlosti musia byť menšie ako %s</string>
+  <string name="revanced_custom_playback_speeds_parse_exception">Neplatné vlastné rýchlosti prehrávania</string>
+  <string name="revanced_custom_playback_speeds_auto">Automaticky</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Pamätajte na zmeny rýchlosti prehrávania</string>
@@ -1070,7 +1244,83 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_slide_to_seek_summary_off">Nie je povolené posúvanie</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Falošné video strémy</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Falošné video strémy klienta, aby sa predišlo problémom s prehrávaním</string>
+  <string name="revanced_spoof_video_streams_title">Falošné video strémy</string>
+  <string name="revanced_spoof_video_streams_summary_on">Video strémy sú falošné</string>
+  <string name="revanced_spoof_video_streams_summary_off">"Video streamy nie sú falošné
+
+Prehrávanie videa nemusí fungovať"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Vypnutie tohto nastavenia môže spôsobiť problémy s prehrávaním videa.</string>
+  <string name="revanced_spoof_video_streams_client_title">Predvolený klient</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">Vynútiť AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodek je vynútený na AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodek je urçovaný automaticky</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Povolením tejto možnosti sa môže zlepšiť výdrž batérie a opraviť zadrhávanie prehrávania.
+
+AVC má maximálne rozlíšenie 1080p, zvukový kodek Opus nie je dostupný a prehrávanie videa bude používať viac internetových dát ako VP9 alebo AV1."</string>
+  <string name="revanced_spoof_video_streams_about_ios_title">Vedľajšie účinky falošného prehrávača pre iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Súkromné detské videá sa nemusia prehrávať
+• Živé prenosy sa spúšťajú od začiatku
+• Videá končia o 1 sekundu skôr"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_title">Vedľajťie účinky falošného prehrávača pre VR na Androide</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Detské videá sa nemusia prehrávať
+• Živé prenosy sa spúšťajú od začiatku
+• Videá končia o 1 sekundu skôr"</string>
+  <string name="revanced_spoof_video_streams_language_title">Predvolený jazyk zvukového streamu</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">Jazyk aplikácie</string>
+  <string name="revanced_spoof_video_streams_language_AR">Arabčina</string>
+  <string name="revanced_spoof_video_streams_language_AZ">Azerbajdžančina</string>
+  <string name="revanced_spoof_video_streams_language_BG">Bulharčina</string>
+  <string name="revanced_spoof_video_streams_language_BN">Bengálčina</string>
+  <string name="revanced_spoof_video_streams_language_CA">Katalánčina</string>
+  <string name="revanced_spoof_video_streams_language_CS">Čeština</string>
+  <string name="revanced_spoof_video_streams_language_DA">Dánčina</string>
+  <string name="revanced_spoof_video_streams_language_DE">Nemčina</string>
+  <string name="revanced_spoof_video_streams_language_EL">Gréčtina</string>
+  <string name="revanced_spoof_video_streams_language_EN">Anglicky</string>
+  <string name="revanced_spoof_video_streams_language_ES">Španielčina</string>
+  <string name="revanced_spoof_video_streams_language_ET">Estónčina</string>
+  <string name="revanced_spoof_video_streams_language_FA">Perzština</string>
+  <string name="revanced_spoof_video_streams_language_FI">Fínčina</string>
+  <string name="revanced_spoof_video_streams_language_FR">Francúzsky</string>
+  <string name="revanced_spoof_video_streams_language_GU">Gudžarátčina</string>
+  <string name="revanced_spoof_video_streams_language_HI">Hindčina</string>
+  <string name="revanced_spoof_video_streams_language_HR">Chorvátčina</string>
+  <string name="revanced_spoof_video_streams_language_HU">Maďarčina</string>
+  <string name="revanced_spoof_video_streams_language_ID">Indonézština</string>
+  <string name="revanced_spoof_video_streams_language_IT">Talijančina</string>
+  <string name="revanced_spoof_video_streams_language_JA">Japončina</string>
+  <string name="revanced_spoof_video_streams_language_KK">Kazaština</string>
+  <string name="revanced_spoof_video_streams_language_KO">Kórejčina</string>
+  <string name="revanced_spoof_video_streams_language_LT">Litovčina</string>
+  <string name="revanced_spoof_video_streams_language_LV">Lotyština</string>
+  <string name="revanced_spoof_video_streams_language_MK">Macedónčina</string>
+  <string name="revanced_spoof_video_streams_language_MN">Mongolčina</string>
+  <string name="revanced_spoof_video_streams_language_MR">Maráthčina</string>
+  <string name="revanced_spoof_video_streams_language_MS">Malajčina</string>
+  <string name="revanced_spoof_video_streams_language_MY">Barmčina</string>
+  <string name="revanced_spoof_video_streams_language_NL">Holandčina</string>
+  <string name="revanced_spoof_video_streams_language_OR">Orijčina</string>
+  <string name="revanced_spoof_video_streams_language_PA">Pandžábčina</string>
+  <string name="revanced_spoof_video_streams_language_PL">Poľština</string>
+  <string name="revanced_spoof_video_streams_language_PT_BR">Portugalčina (Brazília)</string>
+  <string name="revanced_spoof_video_streams_language_PT_PT">Portugalčina (Portugalsko)</string>
+  <string name="revanced_spoof_video_streams_language_RO">Rumunčina</string>
+  <string name="revanced_spoof_video_streams_language_RU">Ruština</string>
+  <string name="revanced_spoof_video_streams_language_SK">Slovenčina</string>
+  <string name="revanced_spoof_video_streams_language_SL">Slovénčina</string>
+  <string name="revanced_spoof_video_streams_language_SR">Srbčina</string>
+  <string name="revanced_spoof_video_streams_language_SV">Švédčina</string>
+  <string name="revanced_spoof_video_streams_language_SW">Svahilčina</string>
+  <string name="revanced_spoof_video_streams_language_TA">Tamilčina</string>
+  <string name="revanced_spoof_video_streams_language_TE">Telugčina</string>
+  <string name="revanced_spoof_video_streams_language_TH">Thajčina</string>
+  <string name="revanced_spoof_video_streams_language_TR">Turečtina</string>
+  <string name="revanced_spoof_video_streams_language_UK">Ukrajinčina</string>
+  <string name="revanced_spoof_video_streams_language_UR">Urdčina</string>
+  <string name="revanced_spoof_video_streams_language_VI">Vietnamčina</string>
+  <string name="revanced_spoof_video_streams_language_ZH">Čínština</string>
   </patch>
   </app>
   <app id="twitch">
@@ -1080,8 +1330,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_block_audio_ads_summary_off">Zvukové reklamy sú odblokované</string>
   </patch>
   <patch id="ad.embedded.embeddedAdsPatch">
-  <string name="revanced_embedded_ads_service_unavailable">%s nie je k dispozícii. Môžu sa zobrazovať reklamy. Skúste v nastaveniach prejsť na inú službu blokovania reklám.</string>
-  <string name="revanced_embedded_ads_service_failed">%s server vrátil chybu. Môžu sa zobrazovať reklamy. Skúste v nastaveniach prejsť na inú službu blokovania reklám.</string>
+  <string name="revanced_embedded_ads_service_unavailable">%s nedostupné, reklamy sa môžu zobraziť. Skúste zmeniť službu blokovania reklám v nastaveniach.</string>
+  <string name="revanced_embedded_ads_service_failed">%s vrátil chybu, reklamy sa môžu zobraziť. Skúste zmeniť službu blokovania reklám v nastaveniach.</string>
   <string name="revanced_block_embedded_ads_title">Blokovať vložené videoreklamy</string>
   <string name="revanced_block_embedded_ads_entry_1">Vypnuté</string>
   <string name="revanced_block_embedded_ads_entry_2">Svetelný proxy</string>
@@ -1111,10 +1361,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_twitch_debug_mode_summary_off">Režim ladenia Twitch je zakázaný</string>
   </patch>
   <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings">Nastavenia ReVanced</string>
   <string name="revanced_about_title">O</string>
+  <string name="revanced_about_summary">O ReVanced</string>
   <string name="revanced_ads_screen_title">Reklamy</string>
   <string name="revanced_ads_screen_summary">Nastavenia blokovania reklám</string>
+  <string name="revanced_chat_screen_title">Chat</string>
   <string name="revanced_chat_screen_summary">Nastavenia chatu</string>
+  <string name="revanced_misc_screen_title">Rôzne</string>
   <string name="revanced_misc_screen_summary">Rôzne nastavenia</string>
   <string name="revanced_general_category_title">Všeobecné nastavenia</string>
   <string name="revanced_other_category_title">Iné nastavenia</string>
