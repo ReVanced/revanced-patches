@@ -1,8 +1,8 @@
 package app.revanced.util.resource
 
-import app.revanced.patcher.patch.PatchException
 import org.w3c.dom.Document
 import org.w3c.dom.Node
+import java.util.logging.Logger
 
 /**
  * A string value.
@@ -19,13 +19,36 @@ class StringResource(
 ) : BaseResource(name, "string") {
     override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =
         super.serialize(ownerDocument, resourceCallback).apply {
+
+            fun String.validateAndroidStringEscaping() : String {
+                if (value.startsWith('"') && value.endsWith('"')) {
+                    // Raw strings allow unescaped single quote but not double quote.
+                    if (!value.substring(1, value.length - 1).contains(Regex("(?<!\\\\)[\"]"))) {
+                        return this;
+                    }
+                } else {
+                    if (value.contains('\n')) {
+                        // Don't throw an exception, otherwise unnoticed mistakes
+                        // in Crowdin can cause patching failures.
+                        // Incorrectly escaped strings still work but do not display as intended.
+                        Logger.getLogger(StringResource.javaClass.name).severe(
+                            "String $name is not raw but contains encoded new line characters: $value")
+                    }
+                    if (!value.contains(Regex("(?<!\\\\)['\"]"))) {
+                        return this;
+                    }
+                }
+
+                Logger.getLogger(StringResource.javaClass.name).severe(
+                    "String $name cannot contain unescaped quotes in value: $value")
+
+                return this;
+            }
+
             // if the string is un-formatted, explicitly add the formatted attribute
             if (!formatted) setAttribute("formatted", "false")
 
-            if (value.contains(Regex("(?<!\\\\)['\"]")))
-                throw PatchException("String $name cannot contain unescaped quotes in value \"$value\".")
-
-            textContent = value
+            textContent = value.validateAndroidStringEscaping();
         }
 
     companion object {
