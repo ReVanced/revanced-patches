@@ -256,6 +256,8 @@ Hindi ka aabisuhan ng anumang hindi inaasahang mga kaganapan."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Ipinapakita sa mga kaugnay na video</string>
   <string name="revanced_comments_screen_title">Mga komento</string>
   <string name="revanced_comments_screen_summary">Itago o ipakita ang mga bahagi ng seksyon ng komento</string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">Nakatago ang \'buod ng chat\'</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">Ipinapakita ang \'buod ng chat\'</string>
   <string name="revanced_hide_comments_by_members_header_title">Itago ang header ng \"Mga komento ng mga miyembro\"</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Nakatago ang header ng \"Mga komento ng mga miyembro\"</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Ipinapakita ang header ng \"Mga komento ng mga miyembro\"</string>

@@ -256,6 +256,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">在相关视频中显示</string>
   <string name="revanced_comments_screen_title">评论</string>
   <string name="revanced_comments_screen_summary">隐藏或显示评论部分</string>
+  <string name="revanced_hide_comments_chat_summary_title">隐藏“聊天摘要”</string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">\'聊天摘要\' 已隐藏</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">\'聊天摘要\' 已显示</string>
   <string name="revanced_hide_comments_by_members_header_title">隐藏 \'会员留言\' 标题</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">“会员评论”标题已隐藏</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">显示“会员评论”标题</string>

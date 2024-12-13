@@ -256,6 +256,8 @@ Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">I dukshme në video të lidhura</string>
   <string name="revanced_comments_screen_title">Komentet</string>
   <string name="revanced_comments_screen_summary">Fshi ose shfaq komponentët e seksionit të komenteve</string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">\'Rezumat i bisedës\' është fshehur</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">\'Rezumat i bisedës\' është shfaqur</string>
   <string name="revanced_hide_comments_by_members_header_title">Fshi kokën \"Komentet nga anëtarët\"</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Koka \"Komentet nga anëtarët\" është e fshehur</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Koka \"Komentet nga anëtarët\" është e dukshme</string>

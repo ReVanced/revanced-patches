@@ -256,6 +256,8 @@ Ne boste obveščeni o nobenih nepričakovanih dogodkih."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Prikazana v povezanih videoposnetkih</string>
   <string name="revanced_comments_screen_title">Komentarji</string>
   <string name="revanced_comments_screen_summary">Skrij ali prikaži komponente oddelka s komentarji</string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">\'\' Povzetek klepeta\'\' je skrit</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">\'\' Povzetek klepeta\'\' je prikazan</string>
   <string name="revanced_hide_comments_by_members_header_title">Skrij naslov \"Komentarji članov\"</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Naslov \"Komentarji članov\" je skrit</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Naslov \"Komentarji članov\" je prikazan</string>

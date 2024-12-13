@@ -256,6 +256,8 @@ Bạn sẽ không được thông báo về bất kỳ sự kiện bất ngờ n
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Đã hiện trong video liên quan</string>
   <string name="revanced_comments_screen_title">Bình luận</string>
   <string name="revanced_comments_screen_summary">Ẩn hoặc hiện các thành phần bình luận</string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">\'Tóm tắt trò chuyện\' bị ẩn</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">\'Tóm tắt trò chuyện\' được hiển thị</string>
   <string name="revanced_hide_comments_by_members_header_title">Ẩn tiêu đề \'Bình luận bởi hội viên\'</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Tiêu đề \'Bình luận bởi hội viên\' được ẩn</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Tiêu đề \'Bình luận bởi hội viên\' được hiện</string>

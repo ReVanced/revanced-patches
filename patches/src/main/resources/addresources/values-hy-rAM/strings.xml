@@ -256,6 +256,8 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Ցույց է տրվում կապված տեսանյութերում</string>
   <string name="revanced_comments_screen_title">Մեկնաբանություններ</string>
   <string name="revanced_comments_screen_summary">Թաքցնել կամ ցույց տալ մեկնաբանությունների բաժնի բաղադրամասերը</string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">««Երկխոսության ամփոփումը»» թաքնված է</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">««Երկխոսության ամփոփումը»» ցուցադրված է</string>
   <string name="revanced_hide_comments_by_members_header_title">Թաքցնել \"Մեկնաբանություններ անդամների կողմից\" վերնագիրը</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">\"Մեկնաբանություններ անդամների կողմից\" վերնագիրը թաքցված է</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">\"Մեկնաբանություններ անդամների կողմից\" վերնագիրը երևում է</string>

@@ -256,6 +256,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Панель фільтрів у пов\'язаних відео показується</string>
   <string name="revanced_comments_screen_title">Коментарі</string>
   <string name="revanced_comments_screen_summary">Приховати або показувати компоненти секції коментарів</string>
+  <string name="revanced_hide_comments_chat_summary_title">Приховати \"Огляд чату\"</string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">\"Огляд чату\" приховано</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">\"Огляд чату\" показується</string>
   <string name="revanced_hide_comments_by_members_header_title">Приховати \"Коментарі від спонсорів\"</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Заголовок \"Коментарі від спонсорів\" приховано</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Заголовок \"Коментарі від спонсорів\" показується</string>

@@ -56,17 +56,17 @@ Second \"item\" text"</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore quraşdırılmayıb. Bunu quraşdır.</string>
   <string name="gms_core_dialog_title">Fəaliyyət lazımdır</string>
-  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore-un arxa planda işləməsi üçün icazəsi yoxdur.
+  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore-un arxaplanda işləməsi üçün icazəsi yoxdur.
 
 Telefonunuz üçün \"Tətbiqimi öldürmə\" bələdçisinə əməl edin və təlimatları MicroG quraşdırmanıza tətbiq edin.
 
 Bu, tətbiqin işləməsi üçün tələb olunur."</string>
   <string name="gms_core_dialog_open_website_text">Veb saytı aç</string>
-  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Problemlərin olmaması üçün MicroG GmsCore batareya optimallaşması qapadılmalıdır.
+  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Problemsiz işləməsi üçün MicroG GmsCore batareya optimallaşdırmaları sıradan çıxarılmalıdır.
 
-MicroG üçün batareya optimallaşmasın qapatmaq batareya istifadəsinə mənfi təsir etməyəcək.
+MicroG üçün batareya optimallaşdırmasını sıradan çıxartmaq, batareya istifadəsinə mənfi təsir etməyəcək.
 
-Davam düyməsinə toxun və optimallaşdırma dəyişikliklərin qəbul et."</string>
+Davam düyməsinə toxunun və optimallaşdırma dəyişikliklərinə icazə verin."</string>
   <string name="gms_core_dialog_continue_text">Davam et</string>
   </patch>
   </app>
@@ -103,9 +103,9 @@ Davam düyməsinə toxun və optimallaşdırma dəyişikliklərin qəbul et."</s
   <string name="revanced_debug_toast_on_error_title">ReVanced xətasında ani bildiriş göstər</string>
   <string name="revanced_debug_toast_on_error_summary_on">Xəta baş verərsə bildiriş göstər</string>
   <string name="revanced_debug_toast_on_error_summary_off">Xəta baş verərsə bildiriş göstərmə</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">"Xəta \"toasts\"unu söndürmək bütün ReVanced xəta bildirişlərini gizlədir.
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"Xəta bildirişlərini söndürmək, bütün ReVanced xəta bildirişlərini gizlədir.
 
-Gözlənilməz hadisələrdən xəbərdar olunmayacaqsınız."</string>
+Gözlənilməz tədbirlər barədə bildiriş almayacaqsınız."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_disable_like_subscribe_glow_title">Bəyən/abunə ol düymə parıltısın söndür</string>
@@ -256,6 +256,9 @@ Gözlənilməz hadisələrdən xəbərdar olunmayacaqsınız."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Əlaqəli videolarda görünür</string>
   <string name="revanced_comments_screen_title">Şərhlər</string>
   <string name="revanced_comments_screen_summary">Şərhlər bölməsi elementlərin gizlət və ya göstər</string>
+  <string name="revanced_hide_comments_chat_summary_title">\'Söhbət yekunun\' gizlət </string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">\"Söhbət yekunu\" gizlədilir</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">\'Söhbət yekunu\' göstərilir</string>
   <string name="revanced_hide_comments_by_members_header_title">\'Üzvlərin şərhləri\' başlığını gizlət</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">\"Üzvlərin şərhləri\" başlığı gizlədilib</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">\"Üzvlərin şərhləri\" başlığı göstərilir</string>
@@ -951,18 +954,15 @@ Artıq mövcuddur"</string>
   <string name="revanced_sb_new_segment_time_start">Bölüm başladığı vaxt</string>
   <string name="revanced_sb_new_segment_time_end">Bölümün bitmə vaxtı</string>
   <string name="revanced_sb_new_segment_confirm_title">Vaxtlar düzgündür?</string>
-  <string name="revanced_sb_new_segment_confirm_content">"Segment
+  <string name="revanced_sb_new_segment_confirm_content">"Bölüm
 
-%1$s
-sə
-%2$s
+%1$s 
+ilə
+%2$s arasıdır
 
-(%3$s)
-dədir
+ (%3$s)
 
-Hazırsınızmı?
-
-%4$s nömrəli düzəlişləri yeniləmək istəyirsinizmi?"</string>
+Təqdim etməyə hazırdır?"</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Başlanğıc sondan əvvəl olmalıdır</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Əvvəlcə vaxt çubuğunda iki yeri doldur</string>
   <string name="revanced_sb_new_segment_preview_segment_first">Bölümü izləyin, rahatlıqla ötürdüyünə əmin olun</string>
@@ -1183,12 +1183,12 @@ DeArrow haqqında ətraflı məlumat üçün buraya vurun"</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Cihaz ölçülərini saxtalaşdır</string>
-  <string name="revanced_spoof_device_dimensions_summary_on">"Cihaz ölçüləri təhrif edilmişdir
+  <string name="revanced_spoof_device_dimensions_summary_on">"Cihaz ölçüləri saxtalaşdırıldı
 
-Daha yüksək video keyfiyyətləri açıla bilər, ancaq video oynatma takılması, batareyanın daha tez tükənməsi və bilinməyən yan təsirlər yaşaya bilərsiniz"</string>
-  <string name="revanced_spoof_device_dimensions_summary_off">"Cihaz ölçüləri təhrif edilməmişdir
+Yüksək video keyfiyyətlər görünə bilər, ancaq videonun oynadılmasında qırılma, daha pis batareya ömrü və bilinməyən yan təsirləri sezə bilərsiniz"</string>
+  <string name="revanced_spoof_device_dimensions_summary_off">"Cihaz ölçüləri saxtalaşdırılmayıb
 
-Bunu aktivləşdirmək daha yüksək video keyfiyyətləri açabilir"</string>
+Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Bunu aktivləşdirmə, video oynatma donmalarına, daha pis batareya istismarına və bilinməyən yan təsirlərə səbəb ola bilər.</string>
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
@@ -1238,8 +1238,8 @@ Bunu aktivləşdirmək daha yüksək video keyfiyyətləri açabilir"</string>
   <string name="revanced_custom_speed_menu_summary_off">Fərdi sürət menyusu göstərilmir</string>
   <string name="revanced_custom_playback_speeds_title">Fərdi oynatma sürəti</string>
   <string name="revanced_custom_playback_speeds_summary">Fərdi oynatma sürətlərini əlavə et və ya dəyiş</string>
-  <string name="revanced_custom_playback_speeds_invalid">Xüsusi sürətlər %s-dən aşağı olmalıdır</string>
-  <string name="revanced_custom_playback_speeds_parse_exception">Səhv xüsusi oynatma sürəti</string>
+  <string name="revanced_custom_playback_speeds_invalid">Fərdi sürətlər %s dəyərindən az olmalıdır</string>
+  <string name="revanced_custom_playback_speeds_parse_exception">Fərdi oynatma sürətləri etibarsızdır</string>
   <string name="revanced_custom_playback_speeds_auto">Avtomatik</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
@@ -1264,7 +1264,7 @@ Bunu aktivləşdirmək daha yüksək video keyfiyyətləri açabilir"</string>
   <string name="revanced_spoof_video_streams_screen_summary">Oynatma problemlərin önləmək üçün qəbuledici video yayımların saxtalaşdır</string>
   <string name="revanced_spoof_video_streams_title">Video yayımları saxtalaşdır</string>
   <string name="revanced_spoof_video_streams_summary_on">Video yayımları saxtalaşdırılır</string>
-  <string name="revanced_spoof_video_streams_summary_off">"Video axınları təhrif edilməmişdir
+  <string name="revanced_spoof_video_streams_summary_off">"Video yayımlar saxtalaşdırılmır
 
 Video oynatma işləməyə bilər"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Bu seçimi bağlamaq, video oynatma problemlərinə səbəb olar.</string>
@@ -1272,16 +1272,16 @@ Video oynatma işləməyə bilər"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Məcburi AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodlama AVC (H.264) -yə məcbur edilir</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodlama birbaşa yoxlanılır</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Bunu aktivləşdirmə batareya ömrün yaxşılaşdıra və oynatma donmasını düzəldə bilər.
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Bunu fəallaşdırma, batareya ömrünü yaxşılaşdıra və oxutma ilişmələrini düzəldə bilər.
 
-AVC maksimum 1080p görüntü imkanına malikdir, Opus səs kodlama əlçatan deyil və video oynatma VP9 və ya AV1-dən daha çox internet resursu işlədəcək."</string>
+AVC-nin maksimum dəqiqliyi 1080p-dir, Opus səs kodek əlçatan deyil və video oxutma, VP9 və ya AV1-dən daha çox internet datası istifadə edəcək."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS saxtakarlığı yan təsirləri</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Şəxsi uşaq videoları oynadıla bilməz
-• Canlı yayımlar əvvəldən başlayır
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Şəxsi uşaq videoları oxudulmaya bilər
+• Canlı yayımlar başdan başlayır
 • Videolar 1 saniyə tez bitir"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR saxtakarlığı yan təsirləri</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"Uşaq videoları oynadıla bilməz
-• Canlı yayımlar əvvəldən başlayır
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Uşaq videoları oxudulmaya bilər
+• Canlı yayımlar başdan başlayır
 • Videolar 1 saniyə tez bitir"</string>
   <string name="revanced_spoof_video_streams_language_title">İlkin səs yayımı dili</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Tətbiq dili</string>
@@ -1346,8 +1346,8 @@ AVC maksimum 1080p görüntü imkanına malikdir, Opus səs kodlama əlçatan de
   <string name="revanced_block_audio_ads_summary_off">Səsli reklamlar bloklanmayıb</string>
   </patch>
   <patch id="ad.embedded.embeddedAdsPatch">
-  <string name="revanced_embedded_ads_service_unavailable">%s mövcud deyil, reklamlar görünə bilər. Parametrlərdə reklam bloku xidmətini dəyişməyi sınayın.</string>
-  <string name="revanced_embedded_ads_service_failed">%s bir səhv qaytardı, reklamlar görünə bilər. Parametrlərdə reklam bloku xidmətini dəyişməyi sınayın.</string>
+  <string name="revanced_embedded_ads_service_unavailable">%s əlçatmazdır, reklamlar göstərilə bilər. Ayarlarda reklam əngəlləmə xidmətini dəyişdirməyə çalışın.</string>
+  <string name="revanced_embedded_ads_service_failed">%s bir xəta qaytardı, reklamlar göstərilə bilər. Ayarlarda reklam əngəlləmə xidmətini dəyişdirməyə çalışın.</string>
   <string name="revanced_block_embedded_ads_title">Yerləşdirilən video reklamlarını əngəllə</string>
   <string name="revanced_block_embedded_ads_entry_1">Qeyri-aktiv edildi</string>
   <string name="revanced_block_embedded_ads_entry_2">Dəqiq proksi</string>

@@ -256,6 +256,8 @@ Et saa ilmoitusta odottamattomista tapahtumista."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Näytetään liittyvissä videoissa</string>
   <string name="revanced_comments_screen_title">Kommentit</string>
   <string name="revanced_comments_screen_summary">Piilota tai näytä kommenttiosion komponentteja</string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">‘Chat-yhteenveto’ on piilotettu</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">‘Chat-yhteenveto’ on näytetty</string>
   <string name="revanced_hide_comments_by_members_header_title">Piilota \"Jäsenten kommentit\" -ylätunniste</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">\"Jäsenten kommentit\" -ylätunniste on piilotettu</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">\"Jäsenten kommentit\"-ylätunniste näytetään</string>

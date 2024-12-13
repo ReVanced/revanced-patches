@@ -25,7 +25,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_failed_title">Αποτυχία ελέγχων</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Άνοιγμα επίσημης ιστοσελίδας</string>
   <string name="revanced_check_environment_dialog_ignore_button">Παράλειψη</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Αυτή η εφαρμογή δεν φαίνεται να έχει τροποποιηθεί από εσάς.&lt;/h5&gt;&lt;br&gt;Αυτή η εφαρμογή μπορεί να μην λειτουργεί σωστά, &lt;b&gt;θα μπορούσε να είναι επιβλαβής ή ακόμα και επικίνδυνη για χρήση&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Αυτοί οι έλεγχοι υποδηλώνουν ότι αυτή η εφαρμογή έχει τροποποιηθεί στο παρελθόν ή λήφθηκε από κάποιον άλλο:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Συνιστάται έντονα να απεγκαταστήσετε την εφαρμογή &lt;br&gt;και να την τροποποιήσετε μόνοι σας&lt;br&gt; για να διασφαλίσετε ότι χρησιμοποιείτε μια επικυρωμένη και ασφαλή εφαρμογή.&lt;p&gt;&lt;br&gt;Εάν αγνοηθεί, αυτή η προειδοποίηση θα εμφανιστεί μόνο δύο φορές.</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Αυτή η εφαρμογή δεν φαίνεται να έχει τροποποιηθεί από εσάς.&lt;/h5&gt;&lt;br&gt;Η εφαρμογή μπορεί να μη λειτουργεί σωστά, &lt;b&gt;θα μπορούσε να είναι επιβλαβής ή ακόμα και επικίνδυνη για χρήση&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Αυτοί οι έλεγχοι υποδηλώνουν ότι αυτή η εφαρμογή έχει τροποποιηθεί στο παρελθόν ή λήφθηκε από κάποιον άλλο:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Συνιστάται έντονα να απεγκαταστήσετε την εφαρμογή &lt;br&gt;και να την τροποποιήσετε μόνοι σας&lt;br&gt; για να διασφαλίσετε ότι χρησιμοποιείτε μια επικυρωμένη και ασφαλή εφαρμογή.&lt;p&gt;&lt;br&gt;Εάν αγνοηθεί, αυτή η προειδοποίηση θα εμφανιστεί μόνο δύο φορές.</string>
   <string name="revanced_check_environment_not_same_patching_device">Τροποποιήθηκε σε διαφορετική συσκευή</string>
   <string name="revanced_check_environment_manager_not_expected_installer">Δεν έχει εγκατασταθεί μέσω του ReVanced Manager</string>
   <string name="revanced_check_environment_not_near_patch_time">Τροποποιήθηκε πάνω από 10 λεπτά πριν</string>
@@ -58,11 +58,11 @@ Second \"item\" text"</string>
   <string name="gms_core_dialog_title">Απαιτείται ενέργεια</string>
   <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"Το MicroG GmsCore δεν έχει άδεια να εκτελείται στο παρασκήνιο.
 
-Ακολουθήστε τον οδηγό \"Don't kill my app\" για το τηλέφωνό σας και εφαρμόστε τις οδηγίες στην εγκατάσταση MicroG.
+Ακολουθήστε τον οδηγό \"Don't kill my app\" για το τηλέφωνό σας και εφαρμόστε τις οδηγίες στο MicroG.
 
 Αυτό είναι απαραίτητο για τη λειτουργία της εφαρμογής."</string>
   <string name="gms_core_dialog_open_website_text">Άνοιγμα ιστοσελίδας</string>
-  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Οι βελτιστοποιήσεις μπαταρίας πρέπει να απενεργοποιηθούν για το MicroG GmsCore για να αποφευχθούν προβλήματα.
+  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Οι βελτιστοποιήσεις μπαταρίας πρέπει να απενεργοποιηθούν για το MicroG GmsCore ώστε να αποφευχθούν προβλήματα.
 
 Η απενεργοποίηση των βελτιστοποιήσεων μπαταρίας για το MicroG δεν θα επηρεάσει αρνητικά τη χρήση της μπαταρίας.
 
@@ -124,13 +124,14 @@ Second \"item\" text"</string>
   <string name="revanced_hide_channel_watermark_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_channel_watermark_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_horizontal_shelves_title">Οριζόντιες ενότητες προτάσεων</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"Οι ενότητες προτάσεων όπως:
+  <string name="revanced_hide_horizontal_shelves_summary_on">"Κρυμμένες 
+
+Αφορά τις ενότητες προτάσεων όπως:
 • Έκτακτη είδηση
 • Συνέχεια παρακολούθησης
 • Εξερευνήστε περισσότερα κανάλια
 • Αγορές
-• Παρακολουθήστε ξανά
-είναι κρυμμένες"</string>
+• Παρακολουθήστε ξανά"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Εμφανίζονται</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
@@ -257,6 +258,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Εμφανίζεται</string>
   <string name="revanced_comments_screen_title">Σχόλια</string>
   <string name="revanced_comments_screen_summary">Απόκρυψη ή εμφάνιση στοιχείων στα σχόλια</string>
+  <string name="revanced_hide_comments_chat_summary_title">Σύνοψη συνομιλίας</string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">Κρυμμένη</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_comments_by_members_header_title">Ετικέτα «Σχόλια από μέλη»</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Εμφανίζεται</string>
@@ -281,7 +285,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_doodles_summary_off">Εμφανίζονται</string>
   <string name="revanced_hide_doodles_user_dialog_message">"Τα YouTube Doodles εμφανίζονται για μερικές μέρες κάθε χρόνο.
 
-Αν ένα YouTube Doodle εμφανίζεται αυτή τη στιγμή στην περιοχή σας και αυτή η ρύθμιση είναι ενεργοποιημένη, τότε η γραμμή κατηγοριών κάτω από τη γραμμή αναζήτησης θα είναι κρυμμένη επίσης."</string>
+Αν ένα YouTube Doodle εμφανίζεται αυτή τη στιγμή στην περιοχή σας και αυτή η ρύθμιση είναι ενεργοποιημένη, τότε η γραμμή φίλτρων κάτω από τη γραμμή αναζήτησης θα είναι κρυμμένη επίσης."</string>
   <string name="revanced_custom_filter_screen_title">Προσαρμοσμένο φίλτρο</string>
   <string name="revanced_custom_filter_screen_summary">Απόκρυψη στοιχείων χρησιμοποιώντας προσαρμοσμένα φίλτρα</string>
   <string name="revanced_custom_filter_title">Χρήση προσαρμοσμένου φίλτρου</string>
@@ -289,7 +293,7 @@ Second \"item\" text"</string>
   <string name="revanced_custom_filter_summary_off">Το προσαρμοσμένο φίλτρο είναι απενεργοποιημένο</string>
   <string name="revanced_custom_filter_strings_title">Προσαρμοσμένο φίλτρο</string>
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="revanced_custom_filter_strings_summary">Λίστα από συμβολοσειρές στοιχείων για φιλτράρισμα, διαχωρισμένες η μία κάτω από την άλλη</string>
+  <string name="revanced_custom_filter_strings_summary">Λίστα από συμβολοσειρές στοιχείων για φιλτράρισμα, διαχωρισμένες σε νέες γραμμές</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Μη έγκυρο προσαρμοσμένο φίλτρο: %s</string>
   <string name="revanced_hide_keyword_content_screen_title">Απόκρυψη περιεχομένου λέξεων-κλειδιών</string>
   <string name="revanced_hide_keyword_content_screen_summary">Απόκρυψη βίντεο ροής και αναζήτησης χρησιμοποιώντας φίλτρα λέξεων-κλειδιών</string>
@@ -305,7 +309,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_keyword_content_phrases_title">Λέξεις-κλειδιά για απόκρυψη</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
-  <string name="revanced_hide_keyword_content_phrases_summary">"Λέξεις-κλειδιά και φράσεις προς απόκρυψη, διαχωρισμένες με νέες γραμμές
+  <string name="revanced_hide_keyword_content_phrases_summary">"Λέξεις-κλειδιά και φράσεις προς απόκρυψη, διαχωρισμένες σε νέες γραμμές
 
 Οι λέξεις-κλειδιά μπορεί να είναι ονόματα καναλιών ή κείμενο που εμφανίζεται σε τίτλους των βίντεο
 
@@ -334,7 +338,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_fullscreen_ads_title">Διαφημίσεις πλήρους οθόνης</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"Κρυμμένες
 
-Αυτή η λειτουργία είναι διαθέσιμη μόνο για παλαιότερες συσκευές"</string>
+Αυτή η λειτουργία είναι διαθέσιμη μόνο για παλιότερες συσκευές"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Οι διαφημίσεις πλήρους οθόνης εμφανίζονται</string>
   <string name="revanced_hide_buttoned_ads_title">Διαφημίσεις κουμπιών</string>
   <string name="revanced_hide_buttoned_ads_summary_on">Κρυμμένες</string>
@@ -712,7 +716,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_sound_button_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_shorts_navigation_bar_title">Γραμμή πλοήγησης</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Η γραμμή πλοήγησης θα είναι κρυμμένη κατά την αναπαραγωγή Shorts</string>
-  <string name="revanced_hide_shorts_navigation_bar_summary_off">Η γραμμή πλοήγησης θα εμφανίζεται κατά την αναπαραγωγή Shorts</string>
+  <string name="revanced_hide_shorts_navigation_bar_summary_off">Η γραμμή πλοήγησης εμφανίζεται κατά την αναπαραγωγή Shorts</string>
   </patch>
   <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
   <string name="revanced_disable_suggested_video_end_screen_title">Τελική οθόνη προτεινόμενων βίντεο</string>
@@ -800,7 +804,7 @@ Second \"item\" text"</string>
 
 Οι μικρογραφίες γραμμής αναζήτησης θα χρησιμοποιούν την ίδια ποιότητα με το τρέχον βίντεο.
 
-Αυτή η δυνατότητα λειτουργεί καλύτερα με ποιότητα βίντεο 720p ή χαμηλότερη και όταν χρησιμοποιείται μία πολύ γρήγορη σύνδεση internet."</string>
+Αυτή η δυνατότητα λειτουργεί καλύτερα με ποιότητα βίντεο 720p ή χαμηλότερη και όταν χρησιμοποιείται πολύ γρήγορη σύνδεση στο διαδίκτυο."</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Παλιές μικρογραφίες γραμμής προόδου</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Οι μικρογραφίες προεπισκόπησης θα εμφανίζονται πάνω από τη γραμμή προόδου</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Οι μικρογραφίες προεπισκόπησης θα εμφανίζονται σε πλήρη οθόνη</string>
@@ -865,8 +869,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_settings_export_failed">Η εξαγωγή απέτυχε: %s</string>
   <string name="revanced_sb_settings_revanced_export_user_id_warning">"Οι ρυθμίσεις σας περιέχουν ένα ιδιωτικό αναγνωριστικό χρήστη SponsorBlock.
 
-Το αναγνωριστικό χρήστη σας είναι σαν κωδικός πρόσβασης και δεν πρέπει ποτέ να μοιράζεται.
-"</string>
+Το αναγνωριστικό χρήστη σας είναι σαν κωδικός πρόσβασης και δεν πρέπει ποτέ να μοιράζεται."</string>
   <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">Να μην εμφανιστεί ξανά</string>
   <string name="revanced_sb_diff_segments">Αλλαγή συμπεριφοράς τμημάτων</string>
   <string name="revanced_sb_segments_sponsor">Χορηγός</string>
@@ -955,7 +958,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_new_segment_confirm_content">"Το τμήμα είναι από το
 
 %1$s
-στο
+έως το
 %2$s
 
 (%3$s)
@@ -1075,7 +1078,7 @@ Second \"item\" text"</string>
 • Πατήστε ξανά δύο φορές για επαναφορά στο αρχικό της μέγεθος"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Η λειτουργία διπλού πατήματος και τσιμπήματος για αλλαγή μεγέθους είναι απενεργοποιημένη</string>
   <string name="revanced_miniplayer_drag_and_drop_title">Λειτουργία μεταφοράς και απόθεσης</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Η λειτουργία μεταφοράς και απόθεσης είναι ενεργοποιημένη.
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Η λειτουργία μεταφοράς και απόθεσης είναι ενεργοποιημένη
 
 Η ελαχιστοποιημένη οθόνη αναπαραγωγής μπορεί να μετακινηθεί σε οποιαδήποτε γωνία της οθόνης"</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">Η λειτουργία μεταφοράς και απόθεσης είναι απενεργοποιημένη</string>
@@ -1138,7 +1141,7 @@ Second \"item\" text"</string>
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Αρχικές μικρογραφίες</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Ακίνητα καρέ</string>
   <string name="revanced_alt_thumbnail_options_entry_4">Ακίνητα καρέ</string>
-  <string name="revanced_alt_thumbnail_dearrow_about_summary">"Το DeArrow παρέχει μικρογραφίες από το κοινό για τα βίντεο. Οι μικρογραφίες αυτές είναι συχνά πιο σχετικές από εκείνες που παρέχει το ίδιο το YouTube. Αν ενεργοποιηθεί, οι διευθύνσεις URL των βίντεο θα στέλνονται στον διακομιστή API χωρίς να στέλνονται άλλα δεδομένα. Αν κάποιο βίντεο δεν έχει μικρογραφίες DeArrow, θα εμφανιστούν είτε οι αρχικές του μικρογραφίες είτε λήψεις ακίνητων καρέ
+  <string name="revanced_alt_thumbnail_dearrow_about_summary">"Το DeArrow παρέχει μικρογραφίες από το κοινό για τα βίντεο. Οι μικρογραφίες αυτές είναι συχνά πιο σχετικές από εκείνες που παρέχει το ίδιο το YouTube. Αν ενεργοποιηθεί, οι διευθύνσεις URL των βίντεο θα στέλνονται στον διακομιστή API χωρίς να στέλνονται άλλα δεδομένα. Αν κάποιο βίντεο δεν έχει μικρογραφίες DeArrow, θα εμφανιστούν είτε οι αρχικές του μικρογραφίες είτε λήψεις ακίνητων καρέ.
 
 Πατήστε για να μάθετε περισσότερα για το DeArrow"</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Εμφάνιση μηνύματος αν το API δεν είναι διαθέσιμο</string>
@@ -1184,7 +1187,7 @@ Second \"item\" text"</string>
 Ενδέχεται να ξεκλειδωθούν υψηλότερες ποιότητες βίντεο, αλλά μπορεί να αντιμετωπίσετε κολλήματα αναπαραγωγής βίντεο, χειρότερη διάρκεια ζωής μπαταρίας και άλλες άγνωστες παρενέργειες"</string>
   <string name="revanced_spoof_device_dimensions_summary_off">"Οι διαστάσεις συσκευής δεν παραποιούνται
 
-Η ενεργοποίηση αυτής της λετουργίας μπορεί να ξεκλειδώσει υψηλότερες ποιότητες βίντεο"</string>
+Η ενεργοποίηση αυτής της λειτουργίας μπορεί να ξεκλειδώσει υψηλότερες ποιότητες βίντεο"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Η ενεργοποίηση αυτής της λειτουργίας μπορεί να προκαλέσει μικρο-κολλήματα κατά την αναπαραγωγή, χειρότερη διάρκεια ζωής μπαταρίας, και άλλες άγνωστες παρενέργειες.</string>
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
@@ -1207,7 +1210,7 @@ Second \"item\" text"</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">Η παράμετρος παρακολούθησης δεν αφαιρείται από τους συνδέσμους στην κοινοποίηση</string>
   </patch>
   <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Κατάργηση απόκρισης δόνησης στο ζουμ</string>
+  <string name="revanced_disable_zoom_haptics_title">Απενεργοποίηση απόκρισης δόνησης χειρονομίας ζουμ</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Η απόκριση δόνησης είναι απενεργοποιημένη</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Η απόκριση δόνησης είναι ενεργοποιημένη</string>
   </patch>
@@ -1215,8 +1218,8 @@ Second \"item\" text"</string>
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Αυτόματη</string>
   <string name="revanced_remember_video_quality_last_selected_title">Απομνημόνευση αλλαγών ποιότητας βίντεο</string>
-  <string name="revanced_remember_video_quality_last_selected_summary_on">Οι αλλαγές ποιότητας θα ισχύουν για όλα τα βίντεο</string>
-  <string name="revanced_remember_video_quality_last_selected_summary_off">Οι αλλαγές ποιότητας θα ισχύουν μόνο για το τρέχον βίντεο</string>
+  <string name="revanced_remember_video_quality_last_selected_summary_on">Οι αλλαγές ποιότητας ισχύουν για όλα τα βίντεο</string>
+  <string name="revanced_remember_video_quality_last_selected_summary_off">Οι αλλαγές ποιότητας ισχύουν μόνο για το τρέχον βίντεο</string>
   <string name="revanced_video_quality_default_wifi_title">Προεπιλεγμένη ποιότητα βίντεο με Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Προεπιλεγμένη ποιότητα βίντεο με δεδομένα κινητής τηλεφωνίας</string>
   <string name="revanced_remember_video_quality_mobile">δεδομένων</string>
@@ -1235,25 +1238,25 @@ Second \"item\" text"</string>
   <string name="revanced_custom_playback_speeds_title">Προσαρμοσμένες ταχύτητες αναπαραγωγής</string>
   <string name="revanced_custom_playback_speeds_summary">Προσθέστε ή αλλάξτε τις προσαρμοσμένες ταχύτητες αναπαραγωγής</string>
   <string name="revanced_custom_playback_speeds_invalid">Οι ταχύτητες πρέπει να είναι μικρότερες από %sx</string>
-  <string name="revanced_custom_playback_speeds_parse_exception">Μη έγκυρες ταχύτητες αναπαραγωγής</string>
+  <string name="revanced_custom_playback_speeds_parse_exception">Μη έγκυρες προσαρμοσμένες ταχύτητες αναπαραγωγής</string>
   <string name="revanced_custom_playback_speeds_auto">Αυτόματη</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Απομνημόνευση αλλαγών ταχύτητας αναπαραγωγής</string>
-  <string name="revanced_remember_playback_speed_last_selected_summary_on">Οι αλλαγές ταχύτητας αναπαραγωγής θα ισχύουν για όλα τα βίντεο</string>
-  <string name="revanced_remember_playback_speed_last_selected_summary_off">Οι αλλαγές ταχύτητας αναπαραγωγής θα ισχύουν μόνο για το τρέχον βίντεο</string>
+  <string name="revanced_remember_playback_speed_last_selected_summary_on">Οι αλλαγές ταχύτητας αναπαραγωγής ισχύουν για όλα τα βίντεο</string>
+  <string name="revanced_remember_playback_speed_last_selected_summary_off">Οι αλλαγές ταχύτητας αναπαραγωγής ισχύουν μόνο για το τρέχον βίντεο</string>
   <string name="revanced_playback_speed_default_title">Προεπιλεγμένη ταχύτητα αναπαραγωγής</string>
   <string name="revanced_remember_playback_speed_toast">Η προεπιλεγμένη ταχύτητα άλλαξε σε: %s</string>
   </patch>
   <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
   <string name="revanced_restore_old_video_quality_menu_title">Επαναφορά παλιού μενού ποιότητας βίντεο</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Το μενού ποιότητας βίντεο θα εμφανίζεται με το παλιό στυλ</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Το μενού ποιότητας βίντεο θα εμφανίζεται με το νέο στυλ</string>
+  <string name="revanced_restore_old_video_quality_menu_summary_on">Το μενού ποιότητας βίντεο εμφανίζεται με το παλιό στυλ</string>
+  <string name="revanced_restore_old_video_quality_menu_summary_off">Το μενού ποιότητας βίντεο εμφανίζεται με το νέο στυλ</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
-  <string name="revanced_slide_to_seek_title">Χειρονομία οριζόντιας σάρωσης για αναζήτηση</string>
-  <string name="revanced_slide_to_seek_summary_on">Η αναζήτηση στη γραμμή προόδου με χειρονομία οριζόντιας σάρωσης είναι ενεργοποιημένη</string>
-  <string name="revanced_slide_to_seek_summary_off">Η αναζήτηση στη γραμμή προόδου με χειρονομία σάρωσης είναι απενεργοποιημένη</string>
+  <string name="revanced_slide_to_seek_title">Χειρονομία συρσίματος για αναζήτηση</string>
+  <string name="revanced_slide_to_seek_summary_on">Η χειρονομία συρσίματος για αναζήτηση στη γραμμή προόδου είναι ενεργοποιημένη</string>
+  <string name="revanced_slide_to_seek_summary_off">Η χειρονομία συρσίματος για αναζήτηση στη γραμμή προόδου είναι απενεργοποιημένη</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_screen_title">Παραποίηση ροών βίντεο</string>
@@ -1270,7 +1273,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Ο κωδικοποιητής βίντεο ορίζεται αυτόματα</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Η ενεργοποίηση αυτής της λειτουργίας μπορεί να βελτιώσει τη διάρκεια ζωής της μπαταρίας και να διορθώσει κολλήματα αναπαραγωγής.
 
-Ο AVC έχει μέγιστη ανάλυση 1080p, ο κωδικοποιητής ήχου Opus δεν είναι διαθέσιμος και η αναπαραγωγή βίντεο θα χρησιμοποιεί περισσότερα δεδομένα internet από τον κωδικοποιητή VP9 ή τον AV1."</string>
+Ο AVC ωστόσο έχει μέγιστη ανάλυση 1080p, ο κωδικοποιητής ήχου Opus δεν είναι διαθέσιμος και η αναπαραγωγή βίντεο θα χρησιμοποιεί περισσότερα δεδομένα internet από τον κωδικοποιητή VP9 ή τον AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Παρενέργειες παραποίησης σε iOS</string>
   <string name="revanced_spoof_video_streams_about_ios_summary">"• Τα ιδιωτικά βίντεο για παιδιά ενδέχεται να μην αναπαράγονται
 • Οι ζωντανές μεταδόσεις ξεκινούν από την αρχή
@@ -1342,8 +1345,8 @@ Second \"item\" text"</string>
   <string name="revanced_block_audio_ads_summary_off">Οι διαφημίσεις ήχου δεν έχουν αποκλειστεί</string>
   </patch>
   <patch id="ad.embedded.embeddedAdsPatch">
-  <string name="revanced_embedded_ads_service_unavailable">%s δεν είναι διαθέσιμο, οι διαφημίσεις ενδέχεται να εμφανιστούν. Δοκιμάστε να αλλάξετε την υπηρεσία αποκλεισμού διαφημίσεων στις ρυθμίσεις.</string>
-  <string name="revanced_embedded_ads_service_failed">%s επέστρεψε ένα σφάλμα, οι διαφημίσεις ενδέχεται να εμφανιστούν. Δοκιμάστε να αλλάξετε την υπηρεσία αποκλεισμού διαφημίσεων στις ρυθμίσεις.</string>
+  <string name="revanced_embedded_ads_service_unavailable">%s δεν είναι διαθέσιμο, ενδέχεται να εμφανιστούν διαφημίσεις. Δοκιμάστε να αλλάξετε την υπηρεσία αποκλεισμού διαφημίσεων στις ρυθμίσεις.</string>
+  <string name="revanced_embedded_ads_service_failed">%s επέστρεψε ένα σφάλμα, ενδέχεται να εμφανιστούν διαφημίσεις. Δοκιμάστε να αλλάξετε την υπηρεσία αποκλεισμού διαφημίσεων στις ρυθμίσεις.</string>
   <string name="revanced_block_embedded_ads_title">Αποκλεισμός ενσωματωμένων διαφημίσεων βίντεο</string>
   <string name="revanced_block_embedded_ads_entry_1">Ανενεργό</string>
   <string name="revanced_block_embedded_ads_entry_2">Διαμεσολαβητής Luminous</string>

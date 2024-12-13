@@ -256,6 +256,9 @@ Teid ei teavitata ühestki ootamatust sündmusest."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Näidatakse seotud videotes</string>
   <string name="revanced_comments_screen_title">Kommentaarid</string>
   <string name="revanced_comments_screen_summary">Peida või kuva kommentaaride sektsiooni komponendid</string>
+  <string name="revanced_hide_comments_chat_summary_title">Peida \'Chat kokkuv\u00f5te\' </string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">\'Vestluse kokkuvõte\' on peidetud</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">\'Vestluse kokkuvõte\' on näidatud</string>
   <string name="revanced_hide_comments_by_members_header_title">Peida päis \'Liikmete kommentaarid\'</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">\"Kommentaarid liikmetelt\" pealkiri on peidetud</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">\"Kommentaarid liikmetelt\" pealkiri on näidatud</string>
