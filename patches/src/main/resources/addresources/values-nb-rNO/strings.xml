@@ -73,6 +73,8 @@ Du vil ikke bli varslet om uventede hendelser."</string>
   <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
+  <string name="revanced_hide_comments_chat_summary_summary_on">\"\'Chat-sammendrag\' er skjult\"</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">\"\'Chat-sammendrag\' vises\"</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodles vises noen dager i året.
 

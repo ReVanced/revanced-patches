@@ -256,6 +256,9 @@ U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Weergegeven in gerelateerde video\'s</string>
   <string name="revanced_comments_screen_title">Reacties</string>
   <string name="revanced_comments_screen_summary">Reacties verbergen of tonen</string>
+  <string name="revanced_hide_comments_chat_summary_title">verberg \'Chatoverzicht\' </string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">\"Chatoverzicht is verborgen\".</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">\"Chat overzicht\" wordt weergegeven.</string>
   <string name="revanced_hide_comments_by_members_header_title">Verberg kop \'Comments by members\'</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">\'Comments by members\' kop is verborgen</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">\'Comments by members\' kop is getoond</string>

@@ -254,6 +254,9 @@ Nebudete informovaní o žiadnych nepredvídaných udalostiach."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Zobrazuje sa v súvisiacich videách</string>
   <string name="revanced_comments_screen_title">Komentáre</string>
   <string name="revanced_comments_screen_summary">Skryť alebo zobraziť komponenty sekcie komentárov</string>
+  <string name="revanced_hide_comments_chat_summary_title">Skryť \'Zhrnutie rozhovoru\' </string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">\'Zhrnutie chatu\' je skryté</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">\'Zhrnutie chatu\' sa zobrazí</string>
   <string name="revanced_hide_comments_by_members_header_title">Skryť hlavičku \"Komentáre členov\"</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Hlavička \"Komentáre členov\" je skrytá</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Zobrazí sa hlavička \"Komentáre členov\"</string>

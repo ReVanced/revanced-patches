@@ -256,6 +256,9 @@ Apie netikėtus įvykius nebus pranešta."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Rodoma susijusiuose vaizdo įrašuose</string>
   <string name="revanced_comments_screen_title">Komentarai</string>
   <string name="revanced_comments_screen_summary">Slėpti arba rodyti komentarų skyriaus komponentus</string>
+  <string name="revanced_hide_comments_chat_summary_title">Slėpti \"Pokalbio santrauką\" </string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">\"Pokalbio santrauka\" yra pasl\u0117pta</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">\"Pokalbio santrauka\" rodoma</string>
   <string name="revanced_hide_comments_by_members_header_title">Slėpti antraštę \"Narių komentarai\"</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Antraštė \"Narių komentarai\" yra paslėpta</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Antraštė \"Narių komentarai\" yra rodoma</string>

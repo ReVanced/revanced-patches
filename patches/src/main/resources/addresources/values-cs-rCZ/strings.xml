@@ -256,6 +256,9 @@ Nebudete informováni o žádné neočekávané události."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">V souvisejících videích zobrazeno</string>
   <string name="revanced_comments_screen_title">Komentáře</string>
   <string name="revanced_comments_screen_summary">Skrýt nebo zobrazit komponenty sekce komentářů</string>
+  <string name="revanced_hide_comments_chat_summary_title">Skrýt \'Souhrn chatu\'</string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">   \'Souhrn chatu\' je skrytý</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">\'Souhrn chatu\' je zobrazen</string>
   <string name="revanced_hide_comments_by_members_header_title">Skrýt záhlaví \"Komentáře od členů\"</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Záhlaví \"Komentáře od členů\" je skryto</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Záhlaví \"Komentáře od členů\" je zobrazeno</string>

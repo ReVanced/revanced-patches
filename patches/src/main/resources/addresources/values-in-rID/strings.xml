@@ -256,6 +256,9 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Ditampilkan di video terkait</string>
   <string name="revanced_comments_screen_title">Komentar</string>
   <string name="revanced_comments_screen_summary">Sembunyikan atau tampilkan komponen bagian komentar</string>
+  <string name="revanced_hide_comments_chat_summary_title">Sembunyikan \'Ringkasan Obrolan\' </string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">\'Ringkasan obrolan\' disembunyikan</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">\'Ringkasan obrolan\' ditampilkan</string>
   <string name="revanced_hide_comments_by_members_header_title">Sembunyikan header \'Komentar oleh anggota\'</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Header \'Komentar oleh anggota\' disembunyikan</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Header \'Komentar oleh anggota\' disembunyikan</string>
@@ -502,14 +505,14 @@ Fitur ini hanya tersedia untuk perangkat yang lebih lama"</string>
   <string name="revanced_hide_create_button_summary_on">Tombol buat disembunyikan</string>
   <string name="revanced_hide_create_button_summary_off">Tombol buat ditampilkan</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays the tab. -->
-  <string name="revanced_hide_subscriptions_button_title">Sembunyikan Subscription</string>
-  <string name="revanced_hide_subscriptions_button_summary_on">Tombol subscription disembunyikan</string>
-  <string name="revanced_hide_subscriptions_button_summary_off">Tombol subscription ditampilkan</string>
+  <string name="revanced_hide_subscriptions_button_title">Sembunyikan Langganan</string>
+  <string name="revanced_hide_subscriptions_button_summary_on">Tombol langganan disembunyikan</string>
+  <string name="revanced_hide_subscriptions_button_summary_off">Tombol langganan ditampilkan</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Ganti Buat dengan Notifikasi</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"Tombol buat diganti dengan tombol Notifikasi
 
-Catatan: Mengaktifkan ini juga akan secara paksa menyembunyikan iklan video"</string>
+Catatan: Mengaktifkan ini juga akan memaksa menyembunyikan iklan video"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Tombol buat tidak diganti dengan tombol Notifikasi</string>
   <string name="revanced_hide_navigation_button_labels_title">Sembunyikan label tombol navigasi</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Label disembunyikan</string>
@@ -547,8 +550,8 @@ Catatan: Mengaktifkan ini juga akan secara paksa menyembunyikan iklan video"</st
   <string name="revanced_hide_player_flyout_help_summary_off">Bantuan &amp; menu masukan ditampilkan</string>
   <!-- 'Playback speed' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_speed_title">Sembunyikan Kecepatan pemutaran</string>
-  <string name="revanced_hide_player_flyout_speed_summary_on">Menu kecepatan pemutar video disembunyikan</string>
-  <string name="revanced_hide_player_flyout_speed_summary_off">Menu kecepatan pemutar video ditampilkan</string>
+  <string name="revanced_hide_player_flyout_speed_summary_on">Menu kecepatan pemutaran disembunyikan</string>
+  <string name="revanced_hide_player_flyout_speed_summary_off">Menu kecepatan pemutaran ditampilkan</string>
   <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
   <string name="revanced_hide_player_flyout_more_info_title">Sembunyikan Info selengkapnya</string>
@@ -617,13 +620,13 @@ Catatan: Mengaktifkan ini juga akan secara paksa menyembunyikan iklan video"</st
   <string name="revanced_shorts_player_screen_title">Pemutar Shorts</string>
   <string name="revanced_shorts_player_screen_summary">Sembunyikan atau tampilkan komponen di pemutar Shorts</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_hide_shorts_home_title">Sembunyikan Shorts di umpan beranda</string>
-  <string name="revanced_hide_shorts_home_summary_on">Shorts di umpan beranda disembunyikan</string>
-  <string name="revanced_hide_shorts_home_summary_off">Shorts di umpan beranda ditampilkan</string>
+  <string name="revanced_hide_shorts_home_title">Sembunyikan Shorts di feed beranda</string>
+  <string name="revanced_hide_shorts_home_summary_on">Shorts di feed beranda disembunyikan</string>
+  <string name="revanced_hide_shorts_home_summary_off">Shorts di feed beranda ditampilkan</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
-  <string name="revanced_hide_shorts_subscriptions_title">Sembunyikan Shorts di umpan langganan</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts di umpan langganan disembunyikan</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts di umpan langganan ditampilkan</string>
+  <string name="revanced_hide_shorts_subscriptions_title">Sembunyikan Shorts di feed langganan</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts di feed langganan disembunyikan</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts di feed langganan ditampilkan</string>
   <string name="revanced_hide_shorts_search_title">Sembunyikan Shorts di hasil pencarian</string>
   <string name="revanced_hide_shorts_search_summary_on">Shorts di hasil pencarian disembunyikan</string>
   <string name="revanced_hide_shorts_search_summary_off">Shorts di hasil pencarian ditampilkan</string>
@@ -644,7 +647,7 @@ Catatan: Mengaktifkan ini juga akan secara paksa menyembunyikan iklan video"</st
   <string name="revanced_hide_shorts_super_thanks_button_title">Sembunyikan tombol super thanks</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_on">Tombol super thanks disembunyikan</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_off">Tombol super thanks ditampilkan</string>
-  <string name="revanced_hide_shorts_tagged_products_title">Sembunyikan produk yang ditag</string>
+  <string name="revanced_hide_shorts_tagged_products_title">Sembunyikan produk yang ditandai</string>
   <string name="revanced_hide_shorts_tagged_products_summary_on">Produk yang ditandai disembunyikan</string>
   <string name="revanced_hide_shorts_tagged_products_summary_off">Produk yang ditandai ditampilkan</string>
   <string name="revanced_hide_shorts_location_label_title">Sembunyikan label lokasi</string>
@@ -691,9 +694,9 @@ Catatan: Mengaktifkan ini juga akan secara paksa menyembunyikan iklan video"</st
   <string name="revanced_hide_shorts_share_button_title">Sembunyikan tombol bagikan</string>
   <string name="revanced_hide_shorts_share_button_summary_on">Tombol bagikan disembunyikan</string>
   <string name="revanced_hide_shorts_share_button_summary_off">Tombol bagikan ditampilkan</string>
-  <string name="revanced_hide_shorts_info_panel_title">Sembunyikan panel informasi</string>
-  <string name="revanced_hide_shorts_info_panel_summary_on">Panel informasi disembunyikan</string>
-  <string name="revanced_hide_shorts_info_panel_summary_off">Panel informasi ditampilkan</string>
+  <string name="revanced_hide_shorts_info_panel_title">Sembunyikan panel info</string>
+  <string name="revanced_hide_shorts_info_panel_summary_on">Panel info disembunyikan</string>
+  <string name="revanced_hide_shorts_info_panel_summary_off">Panel info ditampilkan</string>
   <string name="revanced_hide_shorts_channel_bar_title">Sembunyikan bilah saluran</string>
   <string name="revanced_hide_shorts_channel_bar_summary_on">Bilah saluran disembunyikan</string>
   <string name="revanced_hide_shorts_channel_bar_summary_off">Bilah saluran ditampilkan</string>
@@ -750,9 +753,9 @@ Catatan: Mengaktifkan ini juga akan secara paksa menyembunyikan iklan video"</st
   <string name="revanced_ryd_enable_summary_off">Dislike tidak ditampilkan</string>
   <string name="revanced_ryd_shorts_title">Tampilkan dislike di Shorts</string>
   <string name="revanced_ryd_shorts_summary_on">Dislike ditampilkan di Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Tidak suka ditampilkan di Shorts
+  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Dislike ditampilkan di Shorts
 
-Keterbatasan: Tidak suka mungkin tidak muncul dalam mode penyamaran"</string>
+Keterbatasan: Dislike mungkin tidak muncul dalam mode penyamaran"</string>
   <string name="revanced_ryd_shorts_summary_off">Dislike disembunyikan di Shorts</string>
   <string name="revanced_ryd_dislike_percentage_title">Dislike sebagai persentase</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">Dislike ditampilkan sebagai persentase</string>
@@ -795,11 +798,11 @@ Keterbatasan: Tidak suka mungkin tidak muncul dalam mode penyamaran"</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Thumbnail seekbar berkualitas sedang</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Layar penuh thumbnail seekbar berkualitas tinggi</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Layar penuh thumbnail seekbar berkualitas sedang</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Ini juga akan memulihkan gambar mini pada livestream yang tidak memiliki gambar mini seekbar.
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Ini juga akan memulihkan thumbnail pada livestream yang tidak memiliki gambar mini seekbar.
 
-Gambar mini seekbar akan menggunakan kualitas yang sama dengan video saat ini.
+Thumbnail seekbar akan menggunakan kualitas yang sama dengan video saat ini.
 
-Fitur ini bekerja paling baik dengan kualitas video 720p atau lebih rendah dan saat menggunakan koneksi internet yang sangat cepat."</string>
+Fitur ini bekerja paling baik dengan kualitas video 720p atau lebih rendah dan saat menggunakan sambungan internet yang sangat cepat."</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Kembalikan thumbnail seekbar yang lama</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Thumbnail seekbar akan muncul di atas seekbar</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Thumbnail seekbar akan muncul di layar penuh</string>
@@ -814,7 +817,7 @@ Fitur ini bekerja paling baik dengan kualitas video 720p atau lebih rendah dan s
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">Gunakan tombol lewati ringkas</string>
   <string name="revanced_sb_enable_compact_skip_button_sum_on">Tombol lewati ditata untuk lebar minimum</string>
-  <string name="revanced_sb_enable_compact_skip_button_sum_off">Tombol gaya lewati untuk penampilan terbaik</string>
+  <string name="revanced_sb_enable_compact_skip_button_sum_off">Tombol lewati ditata untuk penampilan terbaik</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button">Tombol lewati disembunyikan secara otomatis</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Tombol lewati disembunyikan setelah beberapa detik</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Tombol lewati ditampilkan untuk seluruh segmen</string>
@@ -832,7 +835,7 @@ Fitur ini bekerja paling baik dengan kualitas video 720p atau lebih rendah dan s
   <string name="revanced_sb_general_adjusting_sum">Jumlah milidetik tombol penyesuaian waktu bergerak saat membuat segmen baru</string>
   <string name="revanced_sb_general_adjusting_invalid">Nilainya harus berupa angka positif</string>
   <string name="revanced_sb_guidelines_preference_title">Lihat pedoman</string>
-  <string name="revanced_sb_guidelines_preference_sum">Pedoman berisi aturan dan tips untuk membuat segmen baru</string>
+  <string name="revanced_sb_guidelines_preference_sum">Pedoman berisi aturan dan saran untuk membuat segmen baru</string>
   <string name="revanced_sb_guidelines_popup_title">Ikuti pedoman</string>
   <string name="revanced_sb_guidelines_popup_content">Bacalah panduan SponsorBlock sebelum membuat segmen baru</string>
   <string name="revanced_sb_guidelines_popup_already_read">Sudah dibaca</string>
@@ -842,7 +845,7 @@ Fitur ini bekerja paling baik dengan kualitas video 720p atau lebih rendah dan s
   <string name="revanced_sb_toast_on_connection_error_summary_on">Pesan timbul ditampilkan jika SponsorBlock tidak tersedia</string>
   <string name="revanced_sb_toast_on_connection_error_summary_off">Pesan timbul tidak ditampilkan jika SponsorBlock tidak tersedia</string>
   <string name="revanced_sb_general_skipcount">Aktifkan pelacakan melewati hitungan</string>
-  <string name="revanced_sb_general_skipcount_sum_on">Mengizinkan leaderboard SponsorBlock mengetahui berapa banyak waktu yang diselamatkan. Sebuah pesan dikirim ke leaderboard setiap kali sebuah segmen dilewati</string>
+  <string name="revanced_sb_general_skipcount_sum_on">Mengizinkan papan peringkat SponsorBlock mengetahui berapa banyak waktu yang dihemat. Pesan dikirim ke papan peringkat setiap kali sebuah segmen dilewati</string>
   <string name="revanced_sb_general_skipcount_sum_off">Lewati pelacakan jumlah tidak diaktifkan </string>
   <string name="revanced_sb_general_min_duration">Durasi minimum segmen</string>
   <string name="revanced_sb_general_min_duration_sum">Segmen yang lebih pendek pada dari nilai ini (detik) tidak akan ditampilkan atau dilewati</string>
@@ -862,13 +865,13 @@ Fitur ini bekerja paling baik dengan kualitas video 720p atau lebih rendah dan s
   <string name="revanced_sb_settings_import_successful">Pengaturan berhasil diimpor</string>
   <string name="revanced_sb_settings_import_failed">Gagal mengimpor: %s</string>
   <string name="revanced_sb_settings_export_failed">Gagal mengekspor: %s</string>
-  <string name="revanced_sb_settings_revanced_export_user_id_warning">"Pengaturan Anda berisi SponsorBlock userId pribadi.
+  <string name="revanced_sb_settings_revanced_export_user_id_warning">"Pengaturan Anda berisi Id pengguna pribadi SponsorBlock.
 
-Id pengguna Anda seperti kata sandi dan tidak boleh dibagikan."</string>
+Id pengguna Anda seperti kata sandi dan jangan pernah dibagikan."</string>
   <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">Jangan tampilkan lagi</string>
   <string name="revanced_sb_diff_segments">Ubah perilaku segmen</string>
   <string name="revanced_sb_segments_sponsor">Sponsor</string>
-  <string name="revanced_sb_segments_sponsor_sum">Promosi dibayar, tautan dibayar dan iklan langsung. Tidak untuk promosi diri sendiri atau dukungan gratis untuk gerakan/kreator/website/produk yang mereka sukai</string>
+  <string name="revanced_sb_segments_sponsor_sum">Promosi berbayar, rujukan berbayar, dan iklan langsung. Bukan untuk promosi diri atau promosi gratis untuk gerakan/kreator/situs web/produk yang mereka sukai</string>
   <string name="revanced_sb_segments_selfpromo">Tidak Dibayar/Promosi Diri Sendiri</string>
   <string name="revanced_sb_segments_selfpromo_sum">Serupa dengan \'Sponsor\' namun untuk yang tidak bebayar atau promosi diri. Ini termasuk bagian tentang merchandise, donasi, atau informasi mengenai mitra kolaborasi</string>
   <string name="revanced_sb_segments_interaction">Pengingat Interaksi (Berlangganan)</string>
@@ -950,6 +953,15 @@ Sudah ada"</string>
   <string name="revanced_sb_new_segment_time_start">Waktu segmen dimulai pada</string>
   <string name="revanced_sb_new_segment_time_end">Waktu segmen diakhiri pada</string>
   <string name="revanced_sb_new_segment_confirm_title">Apakah waktunya benar?</string>
+  <string name="revanced_sb_new_segment_confirm_content">"Bagian ini terdiri dari
+
+%1$s
+sampai
+%2$s
+
+(%3$s)
+
+Siap mengirim?"</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Awal harus sebelum akhir</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Tandai dua lokasi pada bilah waktu terlebih dahulu</string>
   <string name="revanced_sb_new_segment_preview_segment_first">Pratinjau segmen, dan pastikan segmen dilewati dengan lancar</string>

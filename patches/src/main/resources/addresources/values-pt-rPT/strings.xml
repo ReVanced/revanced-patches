@@ -256,6 +256,9 @@ Bạn sẽ không được thông báo về bất kỳ sự kiện bất ngờ n
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Mostrar em vídeos relacionados</string>
   <string name="revanced_comments_screen_title">Comentários</string>
   <string name="revanced_comments_screen_summary">Esconder ou mostrar componentes da seção de comentários</string>
+  <string name="revanced_hide_comments_chat_summary_title">Ocultar \'Resumo do bate-papo\' </string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">\'Resumo do Chat\' está oculto</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">\'Resumo do Chat\' está mostrado</string>
   <string name="revanced_hide_comments_by_members_header_title">Ocultar cabeçalho \'Comentários por membros\'</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">O cabeçalho \'Comentários dos membros\' está oculto</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">O cabeçalho \'Comentários dos membros\' é exibido</string>

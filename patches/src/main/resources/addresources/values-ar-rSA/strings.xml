@@ -56,7 +56,7 @@ Second \"item\" text"</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">لم يتم تثبيت MicroG GmsCore. قم بتثبيته.</string>
   <string name="gms_core_dialog_title">الإجراء مطلوب</string>
-  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"لا تملك MicroG GmsCore صلاحية التشغيل في الخلفية.
+  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"لا يملك MicroG GmsCore صلاحية التشغيل في الخلفية.
 
 اتبع دليل \"لا تقتل تطبيقي\" لهاتفك، وطبّق التعليمات لتثبيت MicroG.
 
@@ -103,7 +103,7 @@ Second \"item\" text"</string>
   <string name="revanced_debug_toast_on_error_title">عرض ملاحظة عند وجود خطأ في ReVanced</string>
   <string name="revanced_debug_toast_on_error_summary_on">يتم عرض ملاحظة في حالة حدوث خطأ</string>
   <string name="revanced_debug_toast_on_error_summary_off">لا يتم عرض ملاحظة في حالة حدوث خطأ</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">"يؤدي إيقاف تشغيل ملاحظات الأخطاء إلى إخفاء كافة إشعارات الاخطاء ReVanced.
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"يؤدي إيقاف تشغيل ملاحظات الأخطاء إلى إخفاء كافة إشعارات أخطاء ReVanced.
 
 لن يتم إعلامك بأي أخطاء غير متوقعة."</string>
   </patch>
@@ -256,6 +256,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">يعرض في الفيديوهات ذات الصلة</string>
   <string name="revanced_comments_screen_title">التعليقات</string>
   <string name="revanced_comments_screen_summary">إخفاء أو عرض مكونات قسم التعليقات</string>
+  <string name="revanced_hide_comments_chat_summary_title">إخفاء \"ملخص الدردشة\" </string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">تم إخفاء “ملخص الدردشة”</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">يتم عرض “ملخص الدردشة”</string>
   <string name="revanced_hide_comments_by_members_header_title">إخفاء رأس \'تعليقات الأعضاء\'</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">تم إخفاء رأس \'تعليقات الأعضاء\'</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">يتم عرض رأس \'تعليقات الأعضاء\'</string>
@@ -310,10 +313,10 @@ Second \"item\" text"</string>
 
 يجب إدخال الكلمات التي تحتوي على أحرف كبيرة في المنتصف بنفس الحالة (على سبيل المثال: iPhone, TikTok, LeBlanc)"</string>
   <string name="revanced_hide_keyword_content_about_title">حول تصفية الكلمات المفتاحية</string>
-  <string name="revanced_hide_keyword_content_about_summary">"نتائج البحث/المشتركات/الرئيسية يتم تصفيتها لإخفاء المحتوى الذي يتطابق مع كلمات البحث
+  <string name="revanced_hide_keyword_content_about_summary">"الصفحة الرئيسية/الاشتراكات/نتائج البحث يتم تصفيتها لإخفاء المحتوى الذي يتطابق مع كلمات البحث
 
 القيود
-• Shorts لا يمكن إخفاؤها من اسم القناة
+• فيديوهات Shorts لا يمكن إخفاؤها بواسطة اسم القناة
 • قد لا يتم إخفاء بعض مكونات واجهة المستخدم
 • البحث عن كلمة ما قد لا يعطي نتائج"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">مطابقة الكلمات بأكملها</string>
@@ -864,7 +867,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_settings_export_failed">فشل تصدير: %s</string>
   <string name="revanced_sb_settings_revanced_export_user_id_warning">"تحتوي إعداداتك على معرف مستخدم خاص لـ SponsorBlock.
 
- معرف المستخدم الخاص بك يشبه كلمة المرور ويجب عدم مشاركته أبدًا.
+معرف المستخدم الخاص بك يشبه كلمة المرور ويجب عدم مشاركته أبدًا.
 "</string>
   <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">لا تعرض مرة أخرى</string>
   <string name="revanced_sb_diff_segments">تغيير سلوك المقطع</string>
@@ -951,15 +954,15 @@ Second \"item\" text"</string>
   <string name="revanced_sb_new_segment_time_start">الوقت الذي يبدأ عنده المقطع</string>
   <string name="revanced_sb_new_segment_time_end">الوقت الذي ينتهي عنده المقطع</string>
   <string name="revanced_sb_new_segment_confirm_title">هل الأوقات صحيحة؟</string>
-  <string name="revanced_sb_new_segment_confirm_content">"الطرف هو من
+  <string name="revanced_sb_new_segment_confirm_content">"المقطع من
 
 %1$s
-الى
+إلى
 %2$s
 
 (%3$s)
 
-هل أنت تقدم الإرسال؟"</string>
+هل أنت مستعد للإرسال؟"</string>
   <string name="revanced_sb_new_segment_start_is_before_end">يجب أن تكون البداية قبل النهاية</string>
   <string name="revanced_sb_new_segment_mark_locations_first">ضع علامة على موقعين في شريط الوقت أولًا</string>
   <string name="revanced_sb_new_segment_preview_segment_first">معاينة المقطع، والتأكد من تخطيه بسلاسة</string>
@@ -1005,7 +1008,7 @@ Second \"item\" text"</string>
 
 سيؤدي هذا إلى تغيير مظهر ومميزات التطبيق، ولكن قد تحدث تأثيرات جانبية غير معروفة.
 
-إذا تم إيقاف تشغيله لاحقا، من المستحسن مسح بيانات التطبيق لمنع حدوث أخطاء في واجهة المستخدم."</string>
+إذا تم إيقاف تشغيله لاحقًا، من المستحسن مسح بيانات التطبيق لمنع حدوث أخطاء في واجهة المستخدم."</string>
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">الهدف من تغيير إصدار التطبيق</string>
@@ -1139,7 +1142,7 @@ Second \"item\" text"</string>
   <string name="revanced_alt_thumbnail_options_entry_4">اللقطات الثابتة</string>
   <string name="revanced_alt_thumbnail_dearrow_about_summary">"يوفر DeArrow مصغرات فيديو من مصادر جماعية لفيديوهات YouTube. هذه المصغرات غالبا ما تكون أكثر صلة من تلك المقدمة من YouTube
 
-إذا تم تفعيلها، سيتم إرسال روابط الفيديو إلى خادم API ولن يتم إرسال أي بيانات أخرى. إذا كان الفيديو لا يحتوي على مصغرات DArrow ، سيتم عرض المقاطع الأصلية أو اللقطات الثابتة
+إذا تم تفعيلها، سيتم إرسال روابط الفيديو إلى خادم API ولن يتم إرسال أي بيانات أخرى. إذا كان الفيديو لا يحتوي على مصغرات DArrow، سيتم عرض المقاطع الأصلية أو اللقطات الثابتة
 
 اضغط هنا لمعرفة المزيد عن DArrow"</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">عرض ملاحظة إذا كان API غير متاح</string>

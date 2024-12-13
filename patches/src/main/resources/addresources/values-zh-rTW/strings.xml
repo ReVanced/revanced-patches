@@ -256,6 +256,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">在相關影片中顯示</string>
   <string name="revanced_comments_screen_title">留言區</string>
   <string name="revanced_comments_screen_summary">隱藏或顯示影片留言區內容</string>
+  <string name="revanced_hide_comments_chat_summary_title">隱藏「聊天摘要」 </string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">「聊天摘要」已隱藏</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">「聊天摘要」已顯示</string>
   <string name="revanced_hide_comments_by_members_header_title">隱藏「會員留言」標題</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">已隱藏「由會員留言」標題</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">已顯示「由會員留言」標題</string>

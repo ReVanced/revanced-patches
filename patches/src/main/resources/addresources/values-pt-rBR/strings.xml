@@ -257,6 +257,9 @@ Você não será notificado sobre nenhum evento inesperado."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Não está oculto nos vídeos relacionados</string>
   <string name="revanced_comments_screen_title">Comentários</string>
   <string name="revanced_comments_screen_summary">Ocultar ou mostrar componentes da seção de comentários</string>
+  <string name="revanced_hide_comments_chat_summary_title">Ocultar \'Resumos de chat\' </string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">\"Resumo do chat\" está oculto</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">\"Resumo do chat\" é mostrado</string>
   <string name="revanced_hide_comments_by_members_header_title">Ocultar cabeçalho \'Comentários por membros\'</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">O cabeçalho \'Comentários dos membros\' está oculto</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">O cabeçalho \'Comentários dos membros\' é mostrado</string>

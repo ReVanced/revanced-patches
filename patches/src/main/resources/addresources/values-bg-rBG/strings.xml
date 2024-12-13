@@ -256,6 +256,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Показано в сродни видеоклипове</string>
   <string name="revanced_comments_screen_title">Коментари</string>
   <string name="revanced_comments_screen_summary">Скриване или показване на секцията за коментари</string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">\'Резюме на чата\' е скрито</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">\'Резюме на чата\' е показано</string>
   <string name="revanced_hide_comments_by_members_header_title">Скриване на „Коментари, направени от членове“</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">„Коментари от членове“ са скрити</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">„Коментари от членове“ се показват</string>

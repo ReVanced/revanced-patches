@@ -256,6 +256,8 @@ Nie będziesz informowany o żadnych nieoczekiwanych zdarzeniach."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Widoczne w powiązanych filmach</string>
   <string name="revanced_comments_screen_title">Komentarze</string>
   <string name="revanced_comments_screen_summary">Ukryj lub pokazuj komentarze</string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">\'Podsumowanie czatu\' jest ukryte</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">\'Podsumowanie czatu\' jest widoczne</string>
   <string name="revanced_hide_comments_by_members_header_title">Nagłówki z komentarzami sponsorów</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Nagłówki z komentarzami sponsorów są ukryte</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Nagłówki z komentarzami sponsorów są widoczne</string>

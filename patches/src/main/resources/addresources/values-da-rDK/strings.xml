@@ -256,6 +256,9 @@ Du vil ikke blive underrettet om uventede hændelser."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Vist i relaterede videoer</string>
   <string name="revanced_comments_screen_title">Kommentarer</string>
   <string name="revanced_comments_screen_summary">Skjul eller vis kommentarer sektion komponenter</string>
+  <string name="revanced_hide_comments_chat_summary_title">Skjul \'Chat-oversigt\' </string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">\'Chatsammenfatning\' er skjult</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">\'Chatsammenfatning\' er vist</string>
   <string name="revanced_hide_comments_by_members_header_title">Skjul \'Kommentarer fra medlemmer\' header</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">\'Kommentarer fra medlemmer\' overskrift er skjult</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">\'Kommentarer fra medlemmer\' overskrift vises</string>
@@ -1271,13 +1274,13 @@ Videoafspilning virker muligvis ikke"</string>
 
 AVC har en maksimal opløsning på 1080p, Opus lydcodec er ikke tilgængelig, og videoafspilning bruger mere internetdata end VP9 eller AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS forfalskning bivirkninger</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"● Private børnevideoer kan ikke afspilles
-● Livestreams starter forfra
-● Videoer slutter 1 sekund tidligere"</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Private børnevideoer kan ikke afspilles
+• Livestreams starter fra begyndelsen
+• Videoer slutter 1 sekund tidligere"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR spoofing bivirkninger</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"● Børnevideoer kan ikke afspilles
-● Livestreams starter forfra
-● Videoer slutter 1 sekund tidligere"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Børnevideoer kan ikke afspilles
+• Livestreams starter fra begyndelsen
+• Videoer slutter 1 sekund tidligere"</string>
   <string name="revanced_spoof_video_streams_language_title">Standard lyd-stream sprog</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">App sprog</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabisk</string>

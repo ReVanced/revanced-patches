@@ -256,6 +256,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">แสดงในวิดีโอที่เกี่ยวข้อง</string>
   <string name="revanced_comments_screen_title">ความคิดเห็น</string>
   <string name="revanced_comments_screen_summary">ซ่อนหรือแสดงส่วนประกอบของส่วนความคิดเห็น</string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">ซ่อน \'Chat summary\'</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">แสดง \'Chat summary\'</string>
   <string name="revanced_hide_comments_by_members_header_title">ซ่อนส่วนหัว \'ความคิดเห็นโดยสมาชิก\'</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">ส่วนหัว \'ความคิดเห็นโดยสมาชิก\' ถูกซ่อนไว้</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">ส่วนหัว \'ความคิดเห็นโดยสมาชิก\' แสดงอยู่</string>

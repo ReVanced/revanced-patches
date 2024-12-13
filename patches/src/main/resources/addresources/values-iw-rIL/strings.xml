@@ -155,6 +155,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_community_posts_summary_off">פוסטים קהילתיים מוצגים</string>
   <string name="revanced_hide_compact_banner_title">הסתר כרזות קומפקטיות</string>
   <string name="revanced_hide_compact_banner_summary_on">כרזות קומפקטיות מוסתרות</string>
+  <string name="revanced_hide_comments_chat_summary_title">הסתרת \'סיכום צ\'אט\' </string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">\'\'\'סיכום צ’אט\'\' מוסתר</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">\'\'סיכום צ’אט\'\' מוצג</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_user_dialog_message">"Doodles של YouTube מוצגים כמה ימים בשנה.
 
