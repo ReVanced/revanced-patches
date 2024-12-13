@@ -256,6 +256,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Панель фильтров в похожих видео отображена</string>
   <string name="revanced_comments_screen_title">Комментарии</string>
   <string name="revanced_comments_screen_summary">Скрыть или отобразить компоненты раздела комментариев</string>
+  <string name="revanced_hide_comments_chat_summary_title">Обзор чата</string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">Обзор чата скрыт</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">Обзор чата отображен</string>
   <string name="revanced_hide_comments_by_members_header_title">Заголовок \"Комментарии спонсоров\"</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Заголовок \"Комментарии спонсоров\" скрыт</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Заголовок \"Комментарии спонсоров\" отображен</string>
@@ -951,15 +954,15 @@ Second \"item\" text"</string>
   <string name="revanced_sb_new_segment_time_start">Время начала сегмента</string>
   <string name="revanced_sb_new_segment_time_end">Время окончания сегмента</string>
   <string name="revanced_sb_new_segment_confirm_title">Верно ли выбрано время?</string>
-  <string name="revanced_sb_new_segment_confirm_content">"Сегмент из
+  <string name="revanced_sb_new_segment_confirm_content">"Сегмент от
 
 %1$s
-в
+до
 %2$s
 
 (%3$s)
 
-Готовы отправить?"</string>
+Готов к отправке?"</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Начало должно быть перед окончанием</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Сначала отметьте два места на шкале времени</string>
   <string name="revanced_sb_new_segment_preview_segment_first">Просмотрите сегмент и убедитесь, что пропуск происходит плавно</string>

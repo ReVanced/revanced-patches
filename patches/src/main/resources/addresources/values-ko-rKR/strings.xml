@@ -259,6 +259,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">플레이어 하단에 있는 관련 동영상에서 카테고리 바가 표시됩니다</string>
   <string name="revanced_comments_screen_title">댓글</string>
   <string name="revanced_comments_screen_summary">댓글 섹션에서 구성요소가 숨기거나 표시할 수 있습니다</string>
+  <string name="revanced_hide_comments_chat_summary_title">\'채팅 요약\' 숨기기</string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">\'채팅 요약\'이 숨겨집니다</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">\'채팅 요약\'이 표시됩니다</string>
   <string name="revanced_hide_comments_by_members_header_title">\'회원별 댓글\' 헤더 숨기기</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">\'회원별 댓글\' 헤더가 숨겨집니다</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">\'회원별 댓글\' 헤더가 표시됩니다</string>

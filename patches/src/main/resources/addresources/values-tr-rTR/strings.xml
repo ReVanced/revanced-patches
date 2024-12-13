@@ -256,6 +256,9 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Alakalı videolardaki gösteriliyor </string>
   <string name="revanced_comments_screen_title">Yorumlar</string>
   <string name="revanced_comments_screen_summary">Yorumlar kısmındaki öğeleri gizle veya göster</string>
+  <string name="revanced_hide_comments_chat_summary_title">\"Sohbet özetini\" Gizle </string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">\'Sohbet özeti\' gizlendi</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">\'Sohbet özeti\' gösteriliyor</string>
   <string name="revanced_hide_comments_by_members_header_title">\'Üyeler tarafından yapılan yorumlar\' başlığını gizle</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">\'Üyelerin yorumları\' başlığı gizli</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">\'Üyeler tarafından yapılan yorumlar\' başlığı görünüyor</string>

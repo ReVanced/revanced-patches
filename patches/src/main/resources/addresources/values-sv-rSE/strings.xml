@@ -256,6 +256,9 @@ Du kommer inte att bli meddelad om oväntade händelser."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Visas i relaterade videor</string>
   <string name="revanced_comments_screen_title">Kommentarer</string>
   <string name="revanced_comments_screen_summary">Dölj eller visa kommentarskomponenter</string>
+  <string name="revanced_hide_comments_chat_summary_title">Dölj \'Chattöversikt\' </string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">\"Översikt av chatt\" är dold</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">\"Översikt av chatt\" visas</string>
   <string name="revanced_hide_comments_by_members_header_title">Dölj \'Kommentarer från medlemmar\' header</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">\'Kommentarer från medlemmar\' huvudet är dolt</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">\'Kommentarer från medlemmar\' header visas</string>

@@ -256,6 +256,8 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">সম্পর্কিত ভিডিওতে প্রদর্শিত হয়েছে</string>
   <string name="revanced_comments_screen_title">মন্তব্য</string>
   <string name="revanced_comments_screen_summary">মন্তব্য বিভাগের উপাদানগুলি লুকান বা দেখান৷</string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">“চ্যাট সারাংশ” লুকানো আছে</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">“চ্যাট সারাংশ” দেখানো হচ্ছে</string>
   <string name="revanced_hide_comments_by_members_header_title">\'মেম্বারদের মন্তব্য\' হেডার লুকান</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">\'মেম্বারদের মন্তব্য\' হেডার লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">\'মেম্বারদের মন্তব্য\' হেডার প্রদর্শিত হয়েছে</string>

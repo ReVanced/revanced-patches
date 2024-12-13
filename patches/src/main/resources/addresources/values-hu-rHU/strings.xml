@@ -256,6 +256,9 @@ Nem fog értesülni semmilyen váratlan eseményről."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Megjelenik a kapcsolódó videók között</string>
   <string name="revanced_comments_screen_title">Megjegyzések</string>
   <string name="revanced_comments_screen_summary">Megjegyzések rész elrejtése vagy megjelenítése</string>
+  <string name="revanced_hide_comments_chat_summary_title">\"Csevegés összefoglaló\" elrejtése </string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">\"A csevegési összefoglaló\" rejtve van</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">\"A csevegési összefoglaló\" megjelenik</string>
   <string name="revanced_hide_comments_by_members_header_title">A „Tagok megjegyzései” fejléc elrejtése</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">A \"Megjegyzések a tagoktól\" fejlec el van rejtve</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">A \"Megjegyzések a tagoktól\" fejlec meg van jelenítve</string>

@@ -58,9 +58,9 @@ Second \"item\" text"</string>
   <string name="gms_core_dialog_title">Azione necessaria</string>
   <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore non ha l'autorizzazione per essere eseguito in background.
 
-Segui la guida \"Non uccidere la mia app\" per il tuo telefono e applica le istruzioni alla tua installazione di MicroG.
+Segui la guida \"Don't kill my app\" per il tuo telefono e applica le istruzioni all'installazione di MicroG.
 
-Questo è necessario affinché l'app funzioni."</string>
+Questo è necessario per il funzionamento dell'app."</string>
   <string name="gms_core_dialog_open_website_text">Apri sito web</string>
   <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Le ottimizzazioni della batteria di MicroG GmsCore devono essere disabilitate per evitare problemi.
 
@@ -124,12 +124,12 @@ Non sarai notificato di eventi imprevisti."</string>
   <string name="revanced_hide_channel_watermark_summary_on">La filigrana è nascosta</string>
   <string name="revanced_hide_channel_watermark_summary_off">La filigrana è visibile</string>
   <string name="revanced_hide_horizontal_shelves_title">Nascondi sezioni orizzontali</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"Gli scaffali sono nascosti come:
+  <string name="revanced_hide_horizontal_shelves_summary_on">"Le sezioni sono nascoste come ad esempio:
 • Notizie in primo piano
 • Continua a guardare
 • Esplora altri canali
 • Shopping
-• Rivisita"</string>
+• Guarda di nuovo"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Le sezioni sono visibili</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
@@ -256,6 +256,9 @@ Non sarai notificato di eventi imprevisti."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">È visibile nei video correlati</string>
   <string name="revanced_comments_screen_title">Commenti</string>
   <string name="revanced_comments_screen_summary">Mostra o nascondi i componenti della sezione commenti</string>
+  <string name="revanced_hide_comments_chat_summary_title">Nascondi \'Riepilogo chat\' </string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">\'Riepilogo chat\' è nascosto</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">\'Riepilogo chat\' è visibile</string>
   <string name="revanced_hide_comments_by_members_header_title">Nascondi l\'intestazione \'Commenti dai membri\'</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">L\'intestazione \'Commenti dai membri\' è nascosta</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">L\'intestazione \'Commenti dai membri\' è visibile</string>
@@ -280,7 +283,7 @@ Non sarai notificato di eventi imprevisti."</string>
   <string name="revanced_hide_doodles_summary_off">I Doodle nella barra di ricerca sono visibili</string>
   <string name="revanced_hide_doodles_user_dialog_message">"I Doodle di YouTube vengono visualizzati alcuni giorni all'anno.
 
-Se al momento un Doodle è visibile nella tua regione e questa impostazione di nascondimento è attiva, la barra dei filtri sotto la barra di ricerca verrà anche nascosta."</string>
+Se al momento un Doodle è visibile nella tua regione e questa impostazione nascondi è attiva, la barra dei filtri sotto la barra di ricerca verrà anch'essa nascosta."</string>
   <string name="revanced_custom_filter_screen_title">Filtro personalizzato</string>
   <string name="revanced_custom_filter_screen_summary">Nascondi i componenti usando i filtri personalizzati</string>
   <string name="revanced_custom_filter_title">Attiva il filtro personalizzato</string>
@@ -950,6 +953,15 @@ Esiste già"</string>
   <string name="revanced_sb_new_segment_time_start">Minutaggio dell\'inizio del segmento</string>
   <string name="revanced_sb_new_segment_time_end">Minutaggio della fine del segmento</string>
   <string name="revanced_sb_new_segment_confirm_title">I valori sono corretti?</string>
+  <string name="revanced_sb_new_segment_confirm_content">"Il segmento va da
+
+%1$s
+a
+%2$s
+
+(%3$s)
+
+Pronto per l'invio?"</string>
   <string name="revanced_sb_new_segment_start_is_before_end">L\'inizio deve essere prima della fine</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Segna prima due posizioni sulla barra di avanzamento</string>
   <string name="revanced_sb_new_segment_preview_segment_first">Guarda l\'anteprima del segmento e verifica che lo salti senza problemi</string>
@@ -1169,10 +1181,10 @@ Tocca qui per saperne di più su DeArrow"</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Simula le dimensioni del dispositivo</string>
-  <string name="revanced_spoof_device_dimensions_summary_on">"Dimensioni del dispositivo falsificate
+  <string name="revanced_spoof_device_dimensions_summary_on">"Dimensioni del dispositivo simulate
 
 Potrebbero essere sbloccate qualità video più elevate, ma potresti riscontrare rallentamenti nella riproduzione video, una durata della batteria peggiore ed effetti collaterali sconosciuti"</string>
-  <string name="revanced_spoof_device_dimensions_summary_off">"Dimensioni del dispositivo non falsificate
+  <string name="revanced_spoof_device_dimensions_summary_off">"Dimensioni del dispositivo non simulate
 
 Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Abilitando questo può causare stuttering nella riproduzione del video, peggiorare la durata della batteria e causare effetti collaterali sconosciuti.</string>
@@ -1249,7 +1261,7 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   <string name="revanced_spoof_video_streams_screen_summary">Simula il client del flusso video per evitare problemi di riproduzione</string>
   <string name="revanced_spoof_video_streams_title">Simula il client del flusso video</string>
   <string name="revanced_spoof_video_streams_summary_on">Il client del flusso video è simulato</string>
-  <string name="revanced_spoof_video_streams_summary_off">"I flussi video non sono falsificati
+  <string name="revanced_spoof_video_streams_summary_off">"I flussi video non sono simulati
 
 La riproduzione video potrebbe non funzionare"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Disattivando questa impostazione potrebbe causare problemi di riproduzione video.</string>
@@ -1259,9 +1271,9 @@ La riproduzione video potrebbe non funzionare"</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Il codec video viene determinato automaticamente</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Abilitare questa opzione potrebbe migliorare la durata della batteria e risolvere i rallentamenti nella riproduzione.
 
-AVC ha una risoluzione massima di 1080p, il codec audio Opus non è disponibile e la riproduzione video utilizzerà più dati Internet rispetto a VP9 o AV1."</string>
+AVC ha una risoluzione massima di 1080p, il codec audio Opus non è disponibile e la riproduzione video utilizzerà più dati rispetto a VP9 o AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Effetti collaterali simulazione iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• I video privati per bambini potrebbero non essere riprodotti
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• I video per bambini privati potrebbero non essere riprodotti
 • Le dirette iniziano dall'inizio
 • I video terminano 1 secondo prima"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Effetti collaterali simulazione Android VR</string>
@@ -1331,8 +1343,8 @@ AVC ha una risoluzione massima di 1080p, il codec audio Opus non è disponibile 
   <string name="revanced_block_audio_ads_summary_off">Le pubblicità audio sono sbloccate</string>
   </patch>
   <patch id="ad.embedded.embeddedAdsPatch">
-  <string name="revanced_embedded_ads_service_unavailable">%s non disponibile, gli annunci potrebbero essere visualizzati. Prova a modificare il servizio di blocco degli annunci nelle impostazioni.</string>
-  <string name="revanced_embedded_ads_service_failed">%s ha restituito un errore, gli annunci potrebbero essere visualizzati. Prova a modificare il servizio di blocco degli annunci nelle impostazioni.</string>
+  <string name="revanced_embedded_ads_service_unavailable">%s non disponibile, le pubblicità potrebbero essere visualizzate. Prova a modificare il servizio di blocco delle pubblicità nelle impostazioni.</string>
+  <string name="revanced_embedded_ads_service_failed">%s ha restituito un errore, le pubblicità potrebbero essere visualizzate. Prova a modificare il servizio di blocco delle pubblicità nelle impostazioni.</string>
   <string name="revanced_block_embedded_ads_title">Blocca pubblicità video incorporata</string>
   <string name="revanced_block_embedded_ads_entry_1">Disabilitato</string>
   <string name="revanced_block_embedded_ads_entry_2">Luminous proxy</string>

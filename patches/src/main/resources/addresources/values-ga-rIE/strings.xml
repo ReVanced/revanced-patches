@@ -256,6 +256,9 @@ Ní bheidh a fhios agat faoi aon imeachtaí neamhghnácha."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Taispeántar i bhfíseáin ghaolmhara</string>
   <string name="revanced_comments_screen_title">Tuairimí</string>
   <string name="revanced_comments_screen_summary">Folaigh nó taispeáin comhpháirteanna na rannóige tuairimí</string>
+  <string name="revanced_hide_comments_chat_summary_title">Cuir \'Achoimre tráchta\' i bhfolach</string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">\'\'Folaíodh \'Achoimre cainte\'</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">\'\'Taispeántar \'Achoimre cainte\'</string>
   <string name="revanced_hide_comments_by_members_header_title">Folaigh ceanntásc \'Tuairimí ag baill \'</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Tá ceanntásc \'Tuairimí ag comhaltaí \'i bhfolach</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Taispeántar ceanntásc \'Tuairimí ag comhaltaí\'</string>

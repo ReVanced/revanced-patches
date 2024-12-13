@@ -256,6 +256,8 @@ MicroG のバッテリー最適化を無効にしても、バッテリーの使�
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">関連動画で表示されます</string>
   <string name="revanced_comments_screen_title">コメント</string>
   <string name="revanced_comments_screen_summary">コメントセクションのコンポーネントを非表示または表示</string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">\'チャット概要\' は非表示</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">\'チャット概要\' は表示</string>
   <string name="revanced_hide_comments_by_members_header_title">「メンバーによるコメント」ヘッダーを非表示</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">「メンバーによるコメント」ヘッダーは非表示です</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">「メンバーによるコメント」ヘッダーは表示されています</string>

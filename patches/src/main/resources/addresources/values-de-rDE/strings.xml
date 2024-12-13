@@ -251,6 +251,9 @@ Sie werden nicht über unerwartete Ereignisse informiert."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">In verwandten Videos angezeigt</string>
   <string name="revanced_comments_screen_title">Kommentare</string>
   <string name="revanced_comments_screen_summary">Komponenten der Kommentar-Sektion ausblenden oder anzeigen</string>
+  <string name="revanced_hide_comments_chat_summary_title">\'Chat-Zusammenfassung\' ausblenden </string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">\'Chat-Übersichtsanzeige\' ist ausgeblendet</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">\'Chat-Übersichtsanzeige\' wird angezeigt</string>
   <string name="revanced_hide_comments_by_members_header_title">\'Kommentare von Mitglieder\' im Kopfbereich ausblenden</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">\'Kommentare von Mitglieder\' Header ist ausgeblendet</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">\'Kommentare von Mitgliedern\' wird angezeigt</string>

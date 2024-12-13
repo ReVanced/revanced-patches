@@ -246,6 +246,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Mostrar en vídeos relacionados</string>
   <string name="revanced_comments_screen_title">Comentarios</string>
   <string name="revanced_comments_screen_summary">Ocultar o mostrar los componentes de sección de comentarios</string>
+  <string name="revanced_hide_comments_chat_summary_title">Ocultar \'Resumen del chat\'</string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">El resumen de chat está oculto</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">El resumen del chat se muestra</string>
   <string name="revanced_hide_comments_by_members_header_title">Ocultar encabezado \'Comentarios por miembros\'</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">El encabezado \'Comentarios por miembros\' está oculto</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">La cabecera \'Comentarios por miembros\' se muestra</string>
@@ -940,6 +943,7 @@ Ya existe"</string>
   <string name="revanced_sb_new_segment_time_start">Segundo en el que el segmento comienza</string>
   <string name="revanced_sb_new_segment_time_end">Segundo en el que el segmento finaliza</string>
   <string name="revanced_sb_new_segment_confirm_title">¿Los tiempos son correctos?</string>
+  <string name="revanced_sb_new_segment_confirm_content">"El segmento es de %1$s a %2$s (%3$s) ¿Listo para enviar?"</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Inicio debe ser antes del final</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Primero, marca dos instantes en la barra de tiempo</string>
   <string name="revanced_sb_new_segment_preview_segment_first">Previsualizar el segmento y asegurarse de que se salta sin problemas</string>

@@ -256,6 +256,9 @@ Jūs netiksit informēts par neparedzētiem notikumiem."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Redzams saistītajos videoklipos</string>
   <string name="revanced_comments_screen_title">Komentāri</string>
   <string name="revanced_comments_screen_summary">Slēpt vai parādīt komentāru sadaļas komponentus</string>
+  <string name="revanced_hide_comments_chat_summary_title">Slēpt \"Tērzēšanas kopsavilkums\"</string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">\'Čata kopsavilkums\' ir paslēpts</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">\'Čata kopsavilkums\' ir redzams</string>
   <string name="revanced_hide_comments_by_members_header_title">Slēpt virsrakstu \"Dalībnieku komentāri\"</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Virsraksts \"Dalībnieku komentāri\" ir paslēpts</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Virsraksts \"Dalībnieku komentāri\" ir redzams</string>
