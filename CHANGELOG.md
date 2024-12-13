@@ -1,3 +1,10 @@
+# [5.4.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.4.0-dev.9...v5.4.0-dev.10) (2024-12-13)
+
+
+### Bug Fixes
+
+* **YouTube - Hide ads:** Hide new type of featured promotions ([#4113](https://github.com/ReVanced/revanced-patches/issues/4113)) ([13c7592](https://github.com/ReVanced/revanced-patches/commit/13c7592b21defd27e3a7aa9b219ffc0247bb5914))
+
 # [5.4.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.4.0-dev.8...v5.4.0-dev.9) (2024-12-12)
 
 
