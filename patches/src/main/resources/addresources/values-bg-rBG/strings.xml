@@ -1,34 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
-Note: All strings must have a unique path, even if the same string is declared in two different apps.
-This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+    All strings must have a unique path, even if the same string is declared in two different apps.
+    This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-# General guidelines and information for translating
 
-## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
+    Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
+    Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
-    For example, the patches string:
-        <string name="revanced_patches_string">You will arrive at %1$s in %2$s hours from now</string>
-    Could be translated to another language using a rearranged grammar:
-        <string name="revanced_patches_string">You will arrive %2$s hours from now at %1$s</string>
+    Raw strings are required because Crowdin AI translations regularly gets confused and
+    replace \n with an encoded new line character.
 
-     For Manager strings:
-        You will arrive at ${destination} in ${count} hours from now
-     Could be rearranged by changing the order of the ${} parameters:
-        You will arrive ${count} hours from now at ${destination}
+    Bad:
+        <string name="summary_key">First \'item\' text\nSecond \"item\" text</string>
 
-    Reordering is particularly relevant when translating into right to left languages, or for any language with grammar that is noticeably different from English.
+    Good:
+        <string name="summary_key">"First 'item' text
+Second \"item\" text"</string>
 
-## Single and double quotation marks must be escaped for patch strings (Manager does not require escaping any quotes).
-
-    All _patches_ single and double quotation marks must be escaped as \"  or \'
-    Forgetting to do this will cause that string to appear in app with no quotation characters.
-
-    Correct:
-        <string name="revanced_string">You\'re correct. This is the \"correct\" way and this text will appear as expected in the app</string>
-    Not correct:
-        <string name="revanced_string">You're not correct. This is not the "correct" way and this text will not appear as expected the in app</string>
 -->
 <resources>
   <app id="shared">
@@ -45,11 +34,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_confirm_user_dialog_title">Искате ли да продължите?</string>
-  <string name="revanced_settings_reset">Нулиране</string>
+  <string name="revanced_settings_reset">Възстанови</string>
   <string name="revanced_settings_restart_title">Рестартирай и опресни</string>
   <string name="revanced_settings_restart">Рестартиране</string>
   <string name="revanced_settings_import">Импортиране</string>
-  <string name="revanced_settings_import_copy">Копиране</string>
+  <string name="revanced_settings_import_copy">Копирай</string>
   <string name="revanced_settings_import_reset">Настройките на ReVanced бяха нулирани</string>
   <string name="revanced_settings_import_success">Следните настройки бяха импортирани успешно: %d</string>
   <string name="revanced_settings_import_failure_parse">Импортирането беше неуспешно: %s</string>
@@ -67,15 +56,23 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">GmsCore не е инсталиран. Инсталирайте го.</string>
   <string name="gms_core_dialog_title">Нужно е действие</string>
-  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">MicroG GmsCore не може да работи във фонов режим.\n\nМоля, следвайте ръководството \"Don\'t kill my app“ за вашия телефон и приложете инструкциите на MicroG.\n\nТова е необходимо, за да работи приложението.</string>
+  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore няма разрешение да работи във фонов режим.
+
+Следвайте ръководството \"Не убивай моето приложение\" за вашия телефон и приложете инструкциите към вашата инсталация на MicroG.
+
+Това е необходимо, за да работи приложението."</string>
   <string name="gms_core_dialog_open_website_text">Отвори сайта</string>
-  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">За да избегнете проблеми е необходимо да изключите оптимизацията на батерията за GmsCore.\n\nНатиснете \"Продолжи\" и изкючере оптимизацията на батерията.</string>
+  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Оптимизациите на батерията за MicroG GmsCore трябва да бъдат деактивирани, за да се избегнат проблеми.
+
+Деактивирането на оптимизациите на батерията за MicroG няма да повлияе отрицателно на използването на батерията.
+
+Докоснете бутона за продължаване и разрешете промени в оптимизацията."</string>
   <string name="gms_core_dialog_continue_text">Продължи</string>
   </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
-  <string name="revanced_settings_screen_00_about_title">Относно</string>
+  <string name="revanced_settings_screen_00_about_title">За програмата</string>
   <string name="revanced_settings_screen_01_ads_title">Реклами</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Алтернативни миниатюри</string>
   <string name="revanced_settings_screen_03_feed_title">Поток</string>
@@ -106,7 +103,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_debug_toast_on_error_title">Покажи системно съобщение при ReVanced грешка</string>
   <string name="revanced_debug_toast_on_error_summary_on">Системно съобщение ще бъде показано, ако се появи грешка</string>
   <string name="revanced_debug_toast_on_error_summary_off">Системно съобщение няма да бъде показано, ако се появи грешка</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">Ако изключите системните съобщения, ще скриете всички уведомления за ReVanced грешки. \n\nНяма да бъдете уведомени, ако настъпят неочаквани събития.</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"Изключването на изскачащи съобщения за грешки крие всички известия за грешки на ReVanced.
+
+Няма да бъдете уведомени за неочаквани събития."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_disable_like_subscribe_glow_title">Деактивирайте подсветката на бутона Харесвам /Абонамент</string>
@@ -121,74 +120,79 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_floating_microphone_button_title">Плаващ бутон за микрофона</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Бутонът на микрофона е скрит</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Показан е бутон на микрофона</string>
-  <string name="revanced_hide_channel_watermark_title">Скриване на водния знак на канала</string>
-  <string name="revanced_hide_channel_watermark_summary_on">Водният знак е скрит</string>
-  <string name="revanced_hide_channel_watermark_summary_off">Водният знак е показан</string>
+  <string name="revanced_hide_channel_watermark_title">Воден знак на канала</string>
+  <string name="revanced_hide_channel_watermark_summary_on">Водният знак на канала е скрит</string>
+  <string name="revanced_hide_channel_watermark_summary_off">Водният знак на канала се показва</string>
   <string name="revanced_hide_horizontal_shelves_title">Хоризонтални секции</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">Хоризонталните секции са скрити:\n• Извънредни новини\n• Продължете да гледате\n• Разгледайте още канали\n• Пазаруване\n• Гледайте отново</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"Рафтовете са скрити, такива като:
+• Актуални новини
+• Продължавай да гледаш
+• Разгледай още канали
+• Пазаруване
+• Гледай отново"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Хоризонтални секции се показват</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
   <string name="revanced_hide_join_membership_button_title">Скриване на бутона \'Присъедини се\'</string>
-  <string name="revanced_hide_join_membership_button_summary_on">Бутонът е скрит</string>
-  <string name="revanced_hide_join_membership_button_summary_off">Бутонът е показан</string>
+  <string name="revanced_hide_join_membership_button_summary_on">Бутона Покажи още е скрит</string>
+  <string name="revanced_hide_join_membership_button_summary_off">Бутона \"Уведоми ме\" се показва</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_for_you_shelf_title">Скриване на секцията \'За вас\' в страницата на канала</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">Рафтът е скрит</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">Рафтът е показан</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">Секцията \'За Вас\' е скрита</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">Секцията \'За Вас\' се показва</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">Скриване на бутона \"Уведоми ме\"</string>
-  <string name="revanced_hide_notify_me_button_summary_on">Бутонът е скрит</string>
-  <string name="revanced_hide_notify_me_button_summary_off">Бутонът е показан</string>
+  <string name="revanced_hide_notify_me_button_summary_on">Бутона \"Уведоми ме\" е скрит</string>
+  <string name="revanced_hide_notify_me_button_summary_off">Бутона \"Уведоми ме\" се показва</string>
   <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_search_result_recommendations_title">Скриване на препоръките \'Други харесват също\'</string>
   <string name="revanced_hide_search_result_recommendations_summary_on">Препоръките са скрити</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Препоръките са показани</string>
+  <string name="revanced_hide_search_result_recommendations_summary_off">Препоръките се показват</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">Скриване на бутона \"Покажи още\"</string>
-  <string name="revanced_hide_show_more_button_summary_on">Бутонът е скрит</string>
-  <string name="revanced_hide_show_more_button_summary_off">Бутонът е показан</string>
+  <string name="revanced_hide_show_more_button_summary_on">Бутона Покажи още е скрит</string>
+  <string name="revanced_hide_show_more_button_summary_off">Бутона Покажи още се показва</string>
   <string name="revanced_hide_timed_reactions_title">Скриване на времевите реакции</string>
   <string name="revanced_hide_timed_reactions_summary_on">Времевите реакции са скрити</string>
-  <string name="revanced_hide_timed_reactions_summary_off">Времевите реакции са показани</string>
+  <string name="revanced_hide_timed_reactions_summary_off">Времевите реакции се показват</string>
   <string name="revanced_hide_search_result_shelf_header_title">Скриване на заглавието на рафта с резултатите от търсенето</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">Заглавието на рафта е скрито</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">Заглавието е показано</string>
+  <string name="revanced_hide_search_result_shelf_header_summary_on">Заглавката на рафта е скрита</string>
+  <string name="revanced_hide_search_result_shelf_header_summary_off">Заглавката на рафта е показана</string>
   <string name="revanced_hide_channel_guidelines_title">Скриване на насоките на канала</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Насоките на канала са скрити</string>
-  <string name="revanced_hide_channel_guidelines_summary_off">Насоките на канала са показани</string>
-  <string name="revanced_hide_chips_shelf_title">Скриване на рафта за чипове</string>
-  <string name="revanced_hide_chips_shelf_summary_on">Рафтът за чипове е скрит</string>
-  <string name="revanced_hide_chips_shelf_summary_off">Рафтът за чипове е показан</string>
-  <string name="revanced_hide_expandable_chip_title">Скриване на разширяемия чип под видеоклиповете</string>
-  <string name="revanced_hide_expandable_chip_summary_on">Разширяващите се чипове са скрити</string>
-  <string name="revanced_hide_expandable_chip_summary_off">Разширяващите се чипове са показани</string>
+  <string name="revanced_hide_channel_guidelines_summary_off">Насоките на канала се показват</string>
+  <string name="revanced_hide_chips_shelf_title">Скриване на филмовите рафтове</string>
+  <string name="revanced_hide_chips_shelf_summary_on">Рафтът \"Chip\" е скрит</string>
+  <string name="revanced_hide_chips_shelf_summary_off">Рафтовете със снимки се показват</string>
+  <string name="revanced_hide_expandable_chip_title">Скриване на показващи се раздели под видеоклипове</string>
+  <string name="revanced_hide_expandable_chip_summary_on">Падащите менюта са скрити</string>
+  <string name="revanced_hide_expandable_chip_summary_off">Показват се</string>
   <string name="revanced_hide_community_posts_title">Скриване на публикациите от общността</string>
-  <string name="revanced_hide_community_posts_summary_on">Публикациите от общността са скрити</string>
-  <string name="revanced_hide_community_posts_summary_off">Публикациите от общността са показани</string>
+  <string name="revanced_hide_community_posts_summary_on">Насоките на общността са скрити</string>
+  <string name="revanced_hide_community_posts_summary_off">Последните публикации са показани</string>
   <string name="revanced_hide_compact_banner_title">Скриване на компактните банери</string>
-  <string name="revanced_hide_compact_banner_summary_on">Компактните банери са скрити</string>
-  <string name="revanced_hide_compact_banner_summary_off">Компактните банери са показани</string>
+  <string name="revanced_hide_compact_banner_summary_on">Информационните панели са скрити</string>
+  <string name="revanced_hide_compact_banner_summary_off">Информационните панели се показват</string>
   <string name="revanced_hide_movies_section_title">Скриване на раздела за филми</string>
-  <string name="revanced_hide_movies_section_summary_on">Разделът за филми е скрит</string>
+  <string name="revanced_hide_movies_section_summary_on">Секцията с коментари е скрита</string>
   <string name="revanced_hide_movies_section_summary_off">Разделът за филми е показан</string>
-  <string name="revanced_hide_feed_survey_title">Скриване на анкетите в новинарския поток</string>
-  <string name="revanced_hide_feed_survey_summary_on">Aнкетите в новинарския поток са скрити</string>
-  <string name="revanced_hide_feed_survey_summary_off">Aнкетите в новинарския поток са показани</string>
+  <string name="revanced_hide_feed_survey_title">Скриване на анкети в емисиите</string>
+  <string name="revanced_hide_feed_survey_summary_on">Анкетите за емисии са скрити</string>
+  <string name="revanced_hide_feed_survey_summary_off">Анкетите за емисии се показват</string>
   <string name="revanced_hide_community_guidelines_title">Скриване на насоките на общността</string>
   <string name="revanced_hide_community_guidelines_summary_on">Насоките на общността са скрити</string>
-  <string name="revanced_hide_community_guidelines_summary_off">Насоките на общността са показани</string>
+  <string name="revanced_hide_community_guidelines_summary_off">Скриване на насоките за общността на абонатите</string>
   <string name="revanced_hide_subscribers_community_guidelines_title">Скриване на насоките за общността на абонатите</string>
-  <string name="revanced_hide_subscribers_community_guidelines_summary_on">Насоките за общността на абонатите са скрити</string>
-  <string name="revanced_hide_subscribers_community_guidelines_summary_off">Насоките за общността на абонатите са показани</string>
-  <string name="revanced_hide_channel_member_shelf_title">Скриване на рафта на канала</string>
-  <string name="revanced_hide_channel_member_shelf_summary_on">Рафтът на канала е скрит</string>
-  <string name="revanced_hide_channel_member_shelf_summary_off">Рафтът на канала е показан</string>
+  <string name="revanced_hide_subscribers_community_guidelines_summary_on">Насоките за общността са скрити</string>
+  <string name="revanced_hide_subscribers_community_guidelines_summary_off">Насоките за общността са показани</string>
+  <string name="revanced_hide_channel_member_shelf_title">Скриване на секцията с членуващи</string>
+  <string name="revanced_hide_channel_member_shelf_summary_on">Рафта с членуващи е скрит</string>
+  <string name="revanced_hide_channel_member_shelf_summary_off">Рафта с членуващи се показва</string>
   <string name="revanced_hide_emergency_box_title">Скриване аварийните кутии</string>
-  <string name="revanced_hide_emergency_box_summary_on">Аварийните кутии са скрити</string>
-  <string name="revanced_hide_emergency_box_summary_off">Аварийните кутии са показани</string>
+  <string name="revanced_hide_emergency_box_summary_on">Спешни кутии са скрити</string>
+  <string name="revanced_hide_emergency_box_summary_off">Спешни кутии са показани</string>
   <string name="revanced_hide_info_panels_title">Скриване на информационните панели</string>
   <string name="revanced_hide_info_panels_summary_on">Информационните панели са скрити</string>
   <string name="revanced_hide_info_panels_summary_off">Информационните панели са показани</string>
@@ -201,24 +205,24 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playables_title">Игри в YouTube</string>
   <string name="revanced_hide_playables_summary_on">Игри в YouTube са скрити</string>
   <string name="revanced_hide_playables_summary_off">Игрите в YouTube се показват</string>
-  <string name="revanced_hide_quick_actions_title">Скриване на бързите действия в режим на цял екран</string>
-  <string name="revanced_hide_quick_actions_summary_on">Бързите действия в режим на цял екран са скрити</string>
-  <string name="revanced_hide_quick_actions_summary_off">Бързите действия в режим на цял екран са показани</string>
+  <string name="revanced_hide_quick_actions_title">Скриване на меню с Бързи действия</string>
+  <string name="revanced_hide_quick_actions_summary_on">Бързи действия са скрити</string>
+  <string name="revanced_hide_quick_actions_summary_off">Бързи действия се показват</string>
   <string name="revanced_hide_related_videos_title">Скриване на свързаните видеоклипове в бързите действия</string>
-  <string name="revanced_hide_related_videos_summary_on">Свързаните видеоклипове в бързите действия са скирти</string>
-  <string name="revanced_hide_related_videos_summary_off">Свързаните видеоклипове в бързите действия са показани</string>
-  <string name="revanced_hide_image_shelf_title">Скриване на рафта с изображения в резултатите от търсенето</string>
-  <string name="revanced_hide_image_shelf_summary_on">Рафтът с изображения в резултатите от търсенето е скрит</string>
-  <string name="revanced_hide_image_shelf_summary_off">Рафтът с изображения в резултатите от търсенето е показан</string>
+  <string name="revanced_hide_related_videos_summary_on">Сродни видео са скрити</string>
+  <string name="revanced_hide_related_videos_summary_off">Сродни видео са показани</string>
+  <string name="revanced_hide_image_shelf_title">Скриване на рафтовете със снимки</string>
+  <string name="revanced_hide_image_shelf_summary_on">Рафтовете със снимки са скрити</string>
+  <string name="revanced_hide_image_shelf_summary_off">Рафтовете със снимки се показват</string>
   <string name="revanced_hide_latest_posts_ads_title">Скриване на последните публикации</string>
-  <string name="revanced_hide_latest_posts_ads_summary_on">Последните публикации са скрити</string>
+  <string name="revanced_hide_latest_posts_ads_summary_on">Най-новите публикации са скрити</string>
   <string name="revanced_hide_latest_posts_ads_summary_off">Последните публикации са показани</string>
-  <string name="revanced_hide_mix_playlists_title">Скриване на разбърканите плейлисти</string>
-  <string name="revanced_hide_mix_playlists_summary_on">Разбърканите плейлисти са скрити</string>
-  <string name="revanced_hide_mix_playlists_summary_off">Разбърканите плейлисти са показани</string>
+  <string name="revanced_hide_mix_playlists_title">Скриване на микс плейлист</string>
+  <string name="revanced_hide_mix_playlists_summary_on">Плейлист микса е скрит</string>
+  <string name="revanced_hide_mix_playlists_summary_off">Плейлист микса се показва</string>
   <string name="revanced_hide_artist_cards_title">Скриване на картите на артистите</string>
-  <string name="revanced_hide_artist_cards_summary_on">Картите на артистите са скрити</string>
-  <string name="revanced_hide_artist_cards_summary_off">Картите на артистите са показани</string>
+  <string name="revanced_hide_artist_cards_summary_on">Картите на изпълнителите са скрити</string>
+  <string name="revanced_hide_artist_cards_summary_off">Показват се карти на артисти</string>
   <string name="revanced_hide_attributes_section_title">Скриване на секцията с атрибути</string>
   <string name="revanced_hide_attributes_section_summary_on">„Популярни места“, „Игри“ и „Музика“ под описанието са скрити</string>
   <string name="revanced_hide_attributes_section_summary_off">„Популярни места“, „Игри“ и „Музика“ под описанието се показват</string>
@@ -252,6 +256,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Показано в сродни видеоклипове</string>
   <string name="revanced_comments_screen_title">Коментари</string>
   <string name="revanced_comments_screen_summary">Скриване или показване на секцията за коментари</string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">\'Резюме на чата\' е скрито</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">\'Резюме на чата\' е показано</string>
   <string name="revanced_hide_comments_by_members_header_title">Скриване на „Коментари, направени от членове“</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">„Коментари от членове“ са скрити</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">„Коментари от членове“ се показват</string>
@@ -274,7 +280,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_doodles_title">YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Doodles в лентата за търсене са скрити</string>
   <string name="revanced_hide_doodles_summary_off">Doodles в лентата за търсене се показват</string>
-  <string name="revanced_hide_doodles_user_dialog_message">YouTube Doodles се появяват няколко дни в годината.\n\nАко Doodle в момента се показва във вашия регион и тази опция за скриване е активирана, филтърната лента под лентата за търсене също ще бъде скрита.</string>
+  <string name="revanced_hide_doodles_user_dialog_message">"Doodles в YouTube се показват няколко дни в годината.
+
+Ако в момента се показва Doodle във вашия регион и тази настройка за скриване е включена, тогава лентата за филтриране под лентата за търсене също ще бъде скрита."</string>
   <string name="revanced_custom_filter_screen_title">Потребителски филтър</string>
   <string name="revanced_custom_filter_screen_summary">Скриване на компоненти с помощта на потребителски филтри</string>
   <string name="revanced_custom_filter_title">Активиране на потребителските филтри</string>
@@ -286,21 +294,30 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_custom_filter_toast_invalid_syntax">Невалиден потребителски филтър: %s</string>
   <string name="revanced_hide_keyword_content_screen_title">Скриване на съдържанието с ключови думи</string>
   <string name="revanced_hide_keyword_content_screen_summary">Скриване на видеоклипове в резултатите от търсенуя и в новинарския поток с помощта на филтри с ключови думи</string>
-  <string name="revanced_hide_keyword_content_home_title">Скриване на видеоклипове на началната страница с ключови думи</string>
-  <string name="revanced_hide_keyword_content_home_summary_on">Видеоклиповете на началния екран са филтрирани с ключови думи</string>
-  <string name="revanced_hide_keyword_content_home_summary_off">Видеоклиповете на началния екран не са филтрирани с ключови думи</string>
+  <string name="revanced_hide_keyword_content_home_title">Скриване на видеоклипове в началната страница с ключови думи</string>
+  <string name="revanced_hide_keyword_content_home_summary_on">Видеоклиповете в раздела Начало се филтрират с помощта на ключови думи</string>
+  <string name="revanced_hide_keyword_content_home_summary_off">Видеоклиповете в раздела Начало не се филтрират по ключови думи</string>
   <string name="revanced_hide_keyword_content_subscriptions_title">Скриване на видеоклипове от абонаменти с ключови думи</string>
   <string name="revanced_hide_keyword_content_subscriptions_summary_on">Видеоклиповете в раздела за абонаменти са са филтрирани с ключови думи</string>
-  <string name="revanced_hide_keyword_content_subscriptions_summary_off">Видеоклиповете в раздела за абонаменти са са филтрирани с ключови думи</string>
+  <string name="revanced_hide_keyword_content_subscriptions_summary_off">Видеоклиповете в емисията за абонаменти не се филтрират</string>
   <string name="revanced_hide_keyword_content_search_title">Скриване на резултати от търсения с ключови думи</string>
-  <string name="revanced_hide_keyword_content_search_summary_on">Резултатите от търсения са филтрирани с ключови думи</string>
-  <string name="revanced_hide_keyword_content_search_summary_off">Резултатите от търсения не са филтрирани с ключови думи</string>
+  <string name="revanced_hide_keyword_content_search_summary_on">Резултатите от търсенето се филтрират с помощта на ключови думи</string>
+  <string name="revanced_hide_keyword_content_search_summary_off">Резултатите от търсенето не се филтрират по ключови думи</string>
   <string name="revanced_hide_keyword_content_phrases_title">Ключови думи, които да бъдат скрити</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
-  <string name="revanced_hide_keyword_content_phrases_summary">Ключови думи и фрази за скриване, разделени с нови редове\n\nКлючовите думи могат да бъдат имена на канали или всеки текст, показан в заглавията на видеоклиповете\n\nДумите с главни букви в средата трябва да бъдат въведени с малки букви (напр.: iPhone, TikTok, LeBlanc)</string>
+  <string name="revanced_hide_keyword_content_phrases_summary">"Ключови думи и фрази за скриване, разделени от нов ред
+
+Ключовите думи могат да бъдат имена на канали или всякакъв текст, показан в заглавията на видеоклиповете
+
+Думите с главни букви в средата трябва да бъдат въведени с главни букви (напр.: iPhone, TikTok, LeBlanc)"</string>
   <string name="revanced_hide_keyword_content_about_title">За филтриране с ключови думи</string>
-  <string name="revanced_hide_keyword_content_about_summary">Начало/Абонамент/Резултатите от търсенето се филтрират, за да се скрие съдържание, което съответства на ключови фрази\n\nОграничения\n• Shorts не могат да бъдат скрити от името на канала\n• Някои компоненти на потребителския интерфейс може да не са скрити\n• Търсенето по ключова дума може да не покаже резултати</string>
+  <string name="revanced_hide_keyword_content_about_summary">"Резултатите от търсенето в Начало/Абонамент/Търсене се филтрират, за да се скрие съдържанието, което съвпада с фрази с ключови думи
+
+Ограничения
+• Шорти не могат да бъдат скрити по име на канала
+• Някои UI компоненти може да не са скрити
+• Търсенето на ключова дума може да не покаже резултати"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Съвпадение на всички думи</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Ограждането на ключова дума/фраза с двойни кавички ще предотврати частични съвпадения на заглавия на видеоклипове и имена на канали&lt;br&gt;&lt;br&gt;Например,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; ще скрие видеоклипа: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;но няма да скрие: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
@@ -314,13 +331,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="ad.general.hideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">Скриване на общите реклами</string>
   <string name="revanced_hide_general_ads_summary_on">Общите реклами са скрити</string>
-  <string name="revanced_hide_general_ads_summary_off">Общите реклами са показани</string>
+  <string name="revanced_hide_general_ads_summary_off">Общите реклами се показват</string>
   <string name="revanced_hide_fullscreen_ads_title">Скриване на рекламите в режим на цял екран</string>
-  <string name="revanced_hide_fullscreen_ads_summary_on">Рекламите на цял екран са скрити\n\in Тази функция е достъпна само за по-стари устройства</string>
+  <string name="revanced_hide_fullscreen_ads_summary_on">"Всички реклами на цял екран са скрити
+
+Тази функция е налична само за по-стари устройства"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Рекламите в режим на цял екран са показани</string>
   <string name="revanced_hide_buttoned_ads_title">Скриване на рекламни бутони</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Рекламите като бутон са скрити</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Рекламите като бутон са показани</string>
+  <string name="revanced_hide_buttoned_ads_summary_on">Бутонираните реклами са скрити</string>
+  <string name="revanced_hide_buttoned_ads_summary_off">Бутонираните реклами са показани</string>
   <string name="revanced_hide_paid_promotion_label_title">Скриване на платените промоции</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Промоционалните етикети са скрити</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Промоционалните етикети се показват</string>
@@ -333,35 +352,35 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_store_shelf_title">Скриване на рафта за пазаруване</string>
   <string name="revanced_hide_player_store_shelf_summary_on">Рафта за пазаруване е скрит</string>
   <string name="revanced_hide_player_store_shelf_summary_off">Рафта за пазаруване се показва</string>
-  <string name="revanced_hide_shopping_links_title">Скриване на връзките за пазаруване в описанието на видеоклипа</string>
+  <string name="revanced_hide_shopping_links_title">Скриване на връзки за пазаруване</string>
   <string name="revanced_hide_shopping_links_summary_on">Връзките за пазаруване са скрити</string>
-  <string name="revanced_hide_shopping_links_summary_off">Връзките за пазаруване са показани</string>
+  <string name="revanced_hide_shopping_links_summary_off">Връзките за пазаруване се показват</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_store_button_title">Скрийте бутона „Посетете магазина“ на страниците на каналите</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Бутонът е скрит</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Бутонът е показан</string>
+  <string name="revanced_hide_visit_store_button_summary_on">Бутона Покажи още е скрит</string>
+  <string name="revanced_hide_visit_store_button_summary_off">Бутона \"Уведоми ме\" се показва</string>
   <string name="revanced_hide_web_search_results_title">Скриване на резултатите от уеб търсенето</string>
   <string name="revanced_hide_web_search_results_summary_on">Резултатите от уеб търсенето са скрити</string>
-  <string name="revanced_hide_web_search_results_summary_off">Резултатите от уеб търсенето са показани</string>
+  <string name="revanced_hide_web_search_results_summary_off">Резултатите от уеб търсенето са показани.</string>
   <string name="revanced_hide_merchandise_banners_title">Скриване на банерите за стоки</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">Банерите за стоки са скрити</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">Банерите за стоки са показани</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">Рекламните банери за стоки са скрити</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">Банерите за стоки се показват</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Скр. на реклами на цял екран, за по-стари устройства</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
-  <string name="revanced_hide_get_premium_title">Скриване на YouTube Premium промоции</string>
-  <string name="revanced_hide_get_premium_summary_on">YouTube Premium промоциите под видео плейъра са скрити</string>
-  <string name="revanced_hide_get_premium_summary_off">YouTube Premium промоциите под видео плейъра са показани</string>
+  <string name="revanced_hide_get_premium_title">Скриване на YouTube Premium промоциите</string>
+  <string name="revanced_hide_get_premium_summary_on">YouTube Premium промоциите са скрити.</string>
+  <string name="revanced_hide_get_premium_summary_off">YouTube Premium промоциите се показват.</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">
   <string name="revanced_hide_video_ads_title">Скриване на видео рекламите</string>
-  <string name="revanced_hide_video_ads_summary_on">Видео рекламите са скрити</string>
-  <string name="revanced_hide_video_ads_summary_off">Видео рекламите са показани</string>
+  <string name="revanced_hide_video_ads_summary_on">Видео рекламите са скрити.</string>
+  <string name="revanced_hide_video_ads_summary_off">Видео рекламите се показват.</string>
   </patch>
   <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
-  <string name="revanced_share_copy_url_success">URL адресът е копиран в клипборда</string>
-  <string name="revanced_share_copy_url_timestamp_success">URL адресът с времеви отпечатък е копиран</string>
+  <string name="revanced_share_copy_url_success">Връзката е копирана в клипборда.</string>
+  <string name="revanced_share_copy_url_timestamp_success">URL адрес с отметка за време, копиран в клипборда.</string>
   <string name="revanced_copy_video_url_title">Показване на бутона за копиране на URL адреса на видеоклипа</string>
   <string name="revanced_copy_video_url_summary_on">Показан е бутон. Докоснете, за да копирате URL на видеото. Докоснете и задръжте, за да копирате URL адреса на видеоклипа с клеймо за време</string>
   <string name="revanced_copy_video_url_summary_off">Бутонът не е показан</string>
@@ -370,7 +389,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_copy_video_url_timestamp_summary_off">Бутонът не е показан</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
-  <string name="revanced_remove_viewer_discretion_dialog_title">Скриване на прозореца за възрастово ограничение</string>
+  <string name="revanced_remove_viewer_discretion_dialog_title">Прозорец за възрастово ограничение</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_on">Диалоговият прозорец ще бъде премахнат</string>
   <string name="revanced_remove_viewer_discretion_dialog_summary_off">Диалоговият прозорец ще бъде показан</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Тази функция не заобикаля възрастовото ограничение. Тя просто приема възрастовата граница автоматично.</string>
@@ -391,27 +410,27 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
   <string name="revanced_disable_precise_seeking_gesture_title">Деактивиране на жеста за точно търсене</string>
-  <string name="revanced_disable_precise_seeking_gesture_summary_on">Жестът е деактивиран</string>
-  <string name="revanced_disable_precise_seeking_gesture_summary_off">Жестът е активиран</string>
+  <string name="revanced_disable_precise_seeking_gesture_summary_on">Жест отключен</string>
+  <string name="revanced_disable_precise_seeking_gesture_summary_off">Жест включен</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
   <string name="revanced_seekbar_tapping_title">Активиране на докосването на лентата за време</string>
-  <string name="revanced_seekbar_tapping_summary_on">Докосването на лентата за време е включено</string>
-  <string name="revanced_seekbar_tapping_summary_off">Докосването на лентата за време е изключено</string>
+  <string name="revanced_seekbar_tapping_summary_on">Функцията „Докосване до лентата за търсене“ е активирана</string>
+  <string name="revanced_seekbar_tapping_summary_off">Функцията „Докосване до лентата за търсене“ е деактивирана</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
   <string name="revanced_swipe_brightness_title">Задаване на яркост чрез плъзгане</string>
-  <string name="revanced_swipe_brightness_summary_on">Задаването на яркост чрез плъзгане е включено</string>
-  <string name="revanced_swipe_brightness_summary_off">Задаването на яркост чрез плъзгане е изключено</string>
+  <string name="revanced_swipe_brightness_summary_on">Опцията за превъртане с плъзгане за промяна на яркостта е активирана</string>
+  <string name="revanced_swipe_brightness_summary_off">Опцията за превъртане с плъзгане за промяна на яркостта е деактивирана</string>
   <string name="revanced_swipe_volume_title">Настройване на звука чрез плъзгане</string>
-  <string name="revanced_swipe_volume_summary_on">Настройването на звука чрез плъзгане е включено</string>
-  <string name="revanced_swipe_volume_summary_off">Настройването на звука чрез плъзгане е изключено</string>
+  <string name="revanced_swipe_volume_summary_on">Обемът чрез плъзване е активен</string>
+  <string name="revanced_swipe_volume_summary_off">Обемът чрез плъзване е деактивиран</string>
   <string name="revanced_swipe_press_to_engage_title">Активиране на жеста натискане за преместване</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">Натискането при плъзгане е включено</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">Натискането при плъзгане е изключено</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">Плъзгането чрез натискане е активирано</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">Плъзгането чрез натискане е деактивирано</string>
   <string name="revanced_swipe_haptic_feedback_title">Активиране на хептичната обратна връзка</string>
-  <string name="revanced_swipe_haptic_feedback_summary_on">Хептичната обратна връзка е активирана</string>
-  <string name="revanced_swipe_haptic_feedback_summary_off">Хептичната обратна връзка е деактивирана</string>
+  <string name="revanced_swipe_haptic_feedback_summary_on">Тактилната обратна връзка е активирана</string>
+  <string name="revanced_swipe_haptic_feedback_summary_off">Тактилната обратна връзка е деактивирана</string>
   <string name="revanced_swipe_save_and_restore_brightness_title">Запазване и възстановяване на яркостта</string>
   <string name="revanced_swipe_save_and_restore_brightness_summary_on">Запазване и възстаовяване яркостта при включване или изключване на цял екран</string>
   <string name="revanced_swipe_save_and_restore_brightness_summary_off">Не се запазва или възстаовява яркостта при включване или изключване на цял екран</string>
@@ -419,12 +438,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Плъзгането надолу до най-ниската стойност на жеста за яркост, за да се активира автоматичната яркост</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Плъзгането надолу до най-ниската стойност на жеста за яркост, без дасе активира автоматичната яркост</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Авто</string>
-  <string name="revanced_swipe_overlay_timeout_title">Задръжка на плъзгащата контрола</string>
-  <string name="revanced_swipe_overlay_timeout_summary">Време за което плъзгащата контрола е видима</string>
+  <string name="revanced_swipe_overlay_timeout_title">Задръжка на плъзгащата контрола за показване</string>
+  <string name="revanced_swipe_overlay_timeout_summary">Време за което плъзгащата контрола е видима.</string>
   <string name="revanced_swipe_text_overlay_size_title">Размер на текста при плъзгане</string>
   <string name="revanced_swipe_text_overlay_size_summary">Размера на текста на плъзгащите контроли</string>
   <string name="revanced_swipe_overlay_background_alpha_title">Видимост на фона на плъзгащите контроли</string>
-  <string name="revanced_swipe_overlay_background_alpha_summary">Видимостта на фона на плъзгащите контроли</string>
+  <string name="revanced_swipe_overlay_background_alpha_summary">Видимостта на фона на плъзгащите контроли.</string>
   <string name="revanced_swipe_threshold_title">Праг на величината на плъзгане</string>
   <string name="revanced_swipe_threshold_summary">Праг преди да се осъществи плъзгането</string>
   </patch>
@@ -490,7 +509,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_subscriptions_button_summary_off">Бутона за абонаменти се показва</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Заменете бутона „Създаване“ с бутона „Известия“</string>
-  <string name="revanced_switch_create_with_notifications_button_summary_on">Бутонът за създаване се заменя с бутона за известия\n\nЗабележка: Активирането на тази опция също скрива видеореклами</string>
+  <string name="revanced_switch_create_with_notifications_button_summary_on">"Бутонът за създаване е сменен с бутона Известия
+
+Забележка: Активирането на това също принудително скрива видео рекламите"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Бутоните \"Създаване\" и \"Известия\" не са разменени</string>
   <string name="revanced_hide_navigation_button_labels_title">Имена на бутоните на лентата за навигация</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Етикетите са скрити</string>
@@ -676,8 +697,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_info_panel_summary_on">Информационните панели са скрити</string>
   <string name="revanced_hide_shorts_info_panel_summary_off">Информационните панели се показват</string>
   <string name="revanced_hide_shorts_channel_bar_title">Скриване на лентата на канала</string>
-  <string name="revanced_hide_shorts_channel_bar_summary_on">Лентата на канала е скрита</string>
-  <string name="revanced_hide_shorts_channel_bar_summary_off">Лентата на канала е показана</string>
+  <string name="revanced_hide_shorts_channel_bar_summary_on">Лентата на канала е скрита.</string>
+  <string name="revanced_hide_shorts_channel_bar_summary_off">Лентата на канала е показана.</string>
   <string name="revanced_hide_shorts_video_title_title">Заглавие на видеото</string>
   <string name="revanced_hide_shorts_video_title_summary_on">Заглавието е скрито</string>
   <string name="revanced_hide_shorts_video_title_summary_off">Заглавието се показва</string>
@@ -710,6 +731,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_off">Изскачащите панели на плейъра се показват</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <string name="revanced_open_videos_fullscreen_portrait_title">Отваряне на видеоклипове в портретен режим на цял екран</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_on">Видеоклиповете се отварят на цял екран</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_off">Видеоклиповете Не се отварят на цял екран</string>
   </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Прозрачност на настройките в Плеара</string>
@@ -728,7 +752,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_enable_summary_off">Нехаресванията не се показват</string>
   <string name="revanced_ryd_shorts_title">Пок. нехаресвания в кратките клипове</string>
   <string name="revanced_ryd_shorts_summary_on">Нехаресванията се показват в кратките клипове</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">Нехаресвания, показани в Shorts\n\nОграничение: Нехаресванията може да не се показват в режим „инкогнито“</string>
+  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Нехаресванията се показват на шорти
+
+Ограничение: Нехаресванията може да не се появят в режим инкогнито"</string>
   <string name="revanced_ryd_shorts_summary_off">Нехаресванията са скрити в кратките клипове</string>
   <string name="revanced_ryd_dislike_percentage_title">Нехаресвания като процент</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">Нехаресванията се показват като процент</string>
@@ -740,7 +766,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_toast_on_connection_error_title">Показване на известие, ако API не е наличен</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Показва известие, ако Return YouTube Dislike не е наличен</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_off">Не се показва известие, ако ReturnYouTube Dislike не е наличен</string>
-  <string name="revanced_ryd_about">Относно</string>
+  <string name="revanced_ryd_about">За програмата</string>
   <string name="revanced_ryd_attribution_summary">Данните за нехаресване са от Return YouTube Dislike API. Докоснете за да научите повече</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">Статистика Return YouTube Dislike API на това устройство</string>
@@ -771,7 +797,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Миниатюри с средно качество в лентата на възпроизвеждане</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Миниатюри с високо качество в лентата на прогреса на цял екран</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Миниатюри със средно качество в лентата на прогреса на цял екран</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Това също така ще възстанови миниатюри на потоци на живо, които нямат миниатюри на лентата на прогреса.\n\nМиниизображенията на лентата на прогреса ще използват същото качество като текущия видеоклип.\n\nТази функция работи най-добре с качество на видеото 720p или по-ниско и когато използвате много бързо интернет връзка.</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Това също ще възстанови миниатюрите на предавания на живо, които нямат миниатюри на плъзгача.
+
+Миниатюрите на плъзгача ще използват същото качество като текущото видео.
+
+Тази функция работи най-добре с видео качество от 720p или по-ниско и при използване на много бърза интернет връзка."</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Стари миниатюри на времевата линия</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Над лентата за възпроизвеждане се появяват миниатюри</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Миниатюрите се показват в режим на цял екран</string>
@@ -779,7 +809,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
   <string name="revanced_sb_enable_sb">Включване на SponsorBlock</string>
   <string name="revanced_sb_enable_sb_sum">SponsorBlock е система за прескачане на досадни части и реклами от видеоклиповете в YouTube</string>
-  <string name="revanced_sb_appearance_category">Облик</string>
+  <string name="revanced_sb_appearance_category">Външен вид</string>
   <string name="revanced_sb_enable_voting">Бутона за гласуване</string>
   <string name="revanced_sb_enable_voting_sum_on">Бутона за гласуване на част се показва</string>
   <string name="revanced_sb_enable_voting_sum_off">Бутона за гласуване на част е скрит</string>
@@ -803,13 +833,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_general_adjusting">Настройване стъпка на новата част</string>
   <string name="revanced_sb_general_adjusting_sum">Милисекундите с който се преместват бутоните за настройка при създаване на част</string>
   <string name="revanced_sb_general_adjusting_invalid">Стойността трябва да е положително число</string>
-  <string name="revanced_sb_guidelines_preference_title">Преглед на ръководните линии</string>
+  <string name="revanced_sb_guidelines_preference_title">Вижте указанията</string>
   <string name="revanced_sb_guidelines_preference_sum">Указанията съдържат правила и съвети за създаване на нови части</string>
   <string name="revanced_sb_guidelines_popup_title">Следвайте указанията</string>
   <string name="revanced_sb_guidelines_popup_content">Прочетете указанията на SponsorBlock преди да създадете нови части</string>
-  <string name="revanced_sb_guidelines_popup_already_read">Вече прочетох</string>
+  <string name="revanced_sb_guidelines_popup_already_read">Вече ги прочетох</string>
   <string name="revanced_sb_guidelines_popup_open">Покажи ми</string>
-  <string name="revanced_sb_general">Общи</string>
+  <string name="revanced_sb_general">Основен</string>
   <string name="revanced_sb_toast_on_connection_error_title">Показване на известие, ако API не е наличен</string>
   <string name="revanced_sb_toast_on_connection_error_summary_on">Показва се известие, ако SponsorBlock не е наличен</string>
   <string name="revanced_sb_toast_on_connection_error_summary_off">Показва се известие, ако SponsorBlock не е наличен</string>
@@ -820,24 +850,27 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_general_min_duration_sum">Части, по-кратки от тази стойност (в секунди) няма да бъдат пропускани или показвани</string>
   <string name="revanced_sb_general_min_duration_invalid">Невалидна времетраене</string>
   <string name="revanced_sb_general_uuid">Вашият уникален потребителски id</string>
-  <string name="revanced_sb_general_uuid_sum">Това трябва да се държи тайно. То е като парола и не трябва да се споделя с никого. Ако някой го има, то той може да се представи вместо вас</string>
+  <string name="revanced_sb_general_uuid_sum">Това трябва да се пази тайно. То е като парола и не трябва да се споделя с никого. Ако някой го притежава, той може да се представи вместо вас.</string>
   <string name="revanced_sb_general_uuid_invalid">Личният Id трябва да е с дължина поне 30 знака</string>
   <string name="revanced_sb_general_api_url">Промяна URL на API</string>
   <string name="revanced_sb_general_api_url_sum">Адресът, който SponsorBlock използва за свързване към сървъра</string>
-  <string name="revanced_sb_api_url_reset">Нулиране URL адреса на API</string>
+  <string name="revanced_sb_api_url_reset">Нулиране URL адреса, на API.</string>
   <string name="revanced_sb_api_url_invalid">URL адресът е невалиден</string>
-  <string name="revanced_sb_api_url_changed">URL адресът на API е променен</string>
-  <string name="revanced_sb_settings_ie">Настройки за внасяне и изнасяне</string>
-  <string name="revanced_sb_settings_copy">Копиране</string>
+  <string name="revanced_sb_api_url_changed">URL API е променен.</string>
+  <string name="revanced_sb_settings_ie">Импортиране / Експортиране на настройките</string>
+  <string name="revanced_sb_settings_copy">Копирай</string>
   <string name="revanced_sb_settings_ie_sum">Вашата JSON конфигурация на SponsorBlock може да бъде импортирана/експортирана в ReVanced и други платформи на SponsorBlock</string>
   <string name="revanced_sb_settings_ie_sum_warning">Вашата SponsorBlock JSON конфигурация която може да се импортира/експортира до ReVanced или други платформи ползващи SponsorBlock. Това включва вашия потребителски id. Споделяйте това разумно</string>
   <string name="revanced_sb_settings_import_successful">Настройките са успешно въстановени</string>
   <string name="revanced_sb_settings_import_failed">Неуспешно импортиране: %s</string>
   <string name="revanced_sb_settings_export_failed">Неуспешно експортиране на %s</string>
-  <string name="revanced_sb_settings_revanced_export_user_id_warning">Вашите настройки на SponsorBlock съдържат лично Id.\n\nВашето Id е като парола и не трябва да се споделя с никого\n</string>
+  <string name="revanced_sb_settings_revanced_export_user_id_warning">"Вашите настройки съдържат поверителен идентификатор на потребител на SponsorBlock.
+
+Идентификаторът на потребителя е като парола и никога не трябва да се споделя.
+"</string>
   <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">Не показвай отново</string>
   <string name="revanced_sb_diff_segments">Промени поведението на сигмента</string>
-  <string name="revanced_sb_segments_sponsor">Спонсор</string>
+  <string name="revanced_sb_segments_sponsor">Спонсори</string>
   <string name="revanced_sb_segments_sponsor_sum">Платена промоция, платени препоръки и директни реклами. Не за самореклама или безплатни препоръки за каузи/създатели/уебсайтове/продукти, които се харесват на автора</string>
   <string name="revanced_sb_segments_selfpromo">Неплатена/Самореклама</string>
   <string name="revanced_sb_segments_selfpromo_sum">Подобно на „Спонсор“, с изключение на неплатено или самореклама. Включва раздели за стоки, дарения или информация за това с кого са си сътрудничили</string>
@@ -886,17 +919,18 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_skipped_nomusic">Пропусната част без музика</string>
   <string name="revanced_sb_skipped_unsubmitted">Пропуснат неизпратен сегмент</string>
   <string name="revanced_sb_skipped_multiple_segments">Пропуснати множество части</string>
-  <string name="revanced_sb_skip_automatically">Да се прескача от само себе си</string>
+  <string name="revanced_sb_skip_automatically">Автоматично пропускане</string>
   <string name="revanced_sb_skip_automatically_once">Авт. пропускане веднъж</string>
   <string name="revanced_sb_skip_showbutton">Показвай бутон за пропускане</string>
   <string name="revanced_sb_skip_seekbaronly">Показв. в лентата за време</string>
-  <string name="revanced_sb_skip_ignore">Изключване</string>
+  <string name="revanced_sb_skip_ignore">Деактивиране</string>
   <string name="revanced_sb_submit_failed_invalid">Не може да се изпрати сегмент: %s</string>
   <string name="revanced_sb_submit_failed_timeout">SponsorBlock временно не работи</string>
   <string name="revanced_sb_submit_failed_unknown_error">Не могат да се изпратят сигменти: (статус:%1$d %2$s)</string>
-  <string name="revanced_sb_submit_failed_rate_limit">Не може да се изпрати частта.\nБроят е ограничен (Твърде много от един и същ потребител, IP)</string>
+  <string name="revanced_sb_submit_failed_rate_limit">Неуспешно изпращане на сегмент. Ограничена скорост (твърде много от един и същ потребител или IP)</string>
   <string name="revanced_sb_submit_failed_forbidden">Не може да се изпрати частта: %s</string>
-  <string name="revanced_sb_submit_failed_duplicate">Не може да се изпрати частта.\nВече съществува</string>
+  <string name="revanced_sb_submit_failed_duplicate">"Не може да се изпрати сегментът.
+Вече съществува"</string>
   <string name="revanced_sb_submit_succeeded">Частта е изпратена успешно</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock временно не е наличен (API timed out)</string>
@@ -919,7 +953,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">Частта започва от</string>
   <string name="revanced_sb_new_segment_time_end">Частта свършва до</string>
   <string name="revanced_sb_new_segment_confirm_title">Времената точни ли са?</string>
-  <string name="revanced_sb_new_segment_confirm_content">Сегментът продължава от\n\n%1$s\nдо\n%2$s\n\n(%3$s)\n\nГотов ли е за изпращане?</string>
+  <string name="revanced_sb_new_segment_confirm_content">"Сегментът е от
+
+\"%1$s\"
+до
+\"%2$s\"
+
+(\"%3$s\")
+
+Готови ли сте да го изпратите?"</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Началото трябва да бъде преди края</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Първо маркирайте две места в лентата за времето</string>
   <string name="revanced_sb_new_segment_preview_segment_first">Преглед и проверка на частта за нормално пропускане</string>
@@ -930,11 +972,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- Shown in the settings preferences, and translations can be any text length. -->
   <string name="revanced_sb_stats_connection_failure">Статистиката е враменно недостъпна (API не работи)</string>
   <string name="revanced_sb_stats_loading">Зареждане...</string>
-  <string name="revanced_sb_stats_sb_disabled">SponsorBlock е изключено</string>
+  <string name="revanced_sb_stats_sb_disabled">SponsorBlock е деактивиран.</string>
   <string name="revanced_sb_stats_username">Вашето потреб. име: &lt;b&gt;%s&lt;/b&gt;</string>
   <string name="revanced_sb_stats_username_change">Докоснете за промяна потребителското име</string>
   <string name="revanced_sb_stats_username_change_unknown_error">Не може да се промени потреб. име: Състояние: %1$d%2$s</string>
-  <string name="revanced_sb_stats_username_changed">Потребителското име е успешно променено</string>
+  <string name="revanced_sb_stats_username_changed">Потребителското име е успешно променено.</string>
   <string name="revanced_sb_stats_reputation">Репутацията ви е &lt;b&gt;%.2f&lt;/b&gt;</string>
   <string name="revanced_sb_stats_submissions">Създадохте &lt;b&gt;%s&lt;/b&gt; части</string>
   <string name="revanced_sb_stats_submissions_sum">Докоснете тук, за да видите вашите сегменти</string>
@@ -953,15 +995,19 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_color_reset">Възстанови цвета</string>
   <string name="revanced_sb_color_invalid">Невалидна стойност за цвета</string>
   <string name="revanced_sb_reset_color">Възстановяване на цвят</string>
-  <string name="revanced_sb_reset">Нулиране</string>
-  <string name="revanced_sb_about">Относно</string>
+  <string name="revanced_sb_reset">Възстанови</string>
+  <string name="revanced_sb_about">За програмата</string>
   <string name="revanced_sb_about_api_sum">Данните са предоставени от SponsorBlock API. Докоснете тук за повече информация и изтеглияния</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Подлъгване за версията на приложението</string>
   <string name="revanced_spoof_app_version_summary_on">Подправена версия</string>
   <string name="revanced_spoof_app_version_summary_off">Не подправена версия</string>
-  <string name="revanced_spoof_app_version_user_dialog_message">Версията на приложението YouTube ще бъде променена на по-стара.\n\nТова ще промени външния вид и функциите на приложението.\n\nно ако по-късно се деактивира, се препоръчва да изчистите данните на приложението, за да избегнете грешки в потребителския интерфейс.</string>
+  <string name="revanced_spoof_app_version_user_dialog_message">"Версията на приложението ще бъде фалшифицирана по-стара версия на YouTube.
+
+Това ще промени външния вид и функциите на приложението, но може да възникнат неизвестни странични ефекти.
+
+Ако по-късно бъде изключено, препоръчително е да изчистите данните на приложението, за да предотвратите грешки в потребителския интерфейс."</string>
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Подлъгване за версията на</string>
@@ -1014,7 +1060,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">Променете стила на минимизирания екран за възпроизвеждане</string>
   <string name="revanced_miniplayer_type_title">Минимизиран тип екран за гледане</string>
   <string name="revanced_miniplayer_type_entry_0">Деактивирано</string>
-  <string name="revanced_miniplayer_type_entry_1">Оригинал</string>
+  <string name="revanced_miniplayer_type_entry_1">По подразбиране</string>
   <string name="revanced_miniplayer_type_entry_2">Минимално</string>
   <string name="revanced_miniplayer_type_entry_3">Таблет</string>
   <string name="revanced_miniplayer_type_entry_4">Модерен 1</string>
@@ -1024,19 +1070,28 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_rounded_corners_summary_on">Ъглите са заоблени</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Ъглите са нормални</string>
   <string name="revanced_miniplayer_double_tap_action_title">Активирайте двойното докосване и щипване за преоразмеряване</string>
-  <string name="revanced_miniplayer_double_tap_action_summary_on">Действието с двойно докосване и щипване за преоразмеряване е активирано\n\n• Докоснете двукратно, за да увеличите размера на миниплейъра\n• Докоснете два пъти отново, за да възстановите оригиналния размер</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">"Активирано е двойно докосване и щипка за преоразмеряване
+
+• Двойно докосване за увеличаване на размера на мини плейъра
+• Двойно докосване отново, за да възстановите оригиналния размер"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Двойно докосване и щипване за преоразмеряване е деактивирано</string>
   <string name="revanced_miniplayer_drag_and_drop_title">Разрешете плъзгане и местене</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">Плъзгане и местенето е активирано\n\nМиниплейърът може да се плъзга до всеки ъгъл на екрана</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Включено е плъзгане и пускане
+
+Мини плейърът може да бъде плъзган до всеки ъгъл на екрана"</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">Плъзгането и преместването е деактивирано</string>
   <string name="revanced_miniplayer_horizontal_drag_title">Активиране на хоризонтално плъзгане</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">Жестът за хоризонтално плъзгане е активиран\n\nМиниплейърът може да се плъзга извън екрана наляво или надясно</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Активиран е хоризонтален жест за плъзгане
+
+Мини плейърът може да бъде плъзган извън екрана наляво или надясно"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Жестът за хоризонтално плъзгане е деактивиран</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Скриване на бутона за затваряне</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">Бутонът за затваряне е скрит</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">Показан е бутон за затваряне</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_title">Бутони за разширяване и свиване на екрана</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Бутоните са скрити\n\nПлъзнете за разгъване или затваряне</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Бутоните са скрити
+
+Плъзнете, за да разгънете или затворите"</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Бутони за разширяване и свиване на екрана са видими</string>
   <string name="revanced_miniplayer_hide_subtext_title">Екранни текстове, етикети</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Скрити</string>
@@ -1067,7 +1122,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Прескочете забраната за зареждане на изображение</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Домейнът yt4.ggpht.com се използва за зареждане на изображения</string>
-  <string name="revanced_bypass_image_region_restrictions_summary_off">Оригиналният домейн се използва за зареждане на изображения\n\nАктивирането на тази настройка може да коригира зареждането на изображения, които са блокирани в някои региони</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">"Използва се оригинален хост на изображения
+
+Активирането на това може да поправи липсващите изображения, които са блокирани в някои региони"</string>
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -1082,7 +1139,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; оригинални миниатюри</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Неподвижни кадри</string>
   <string name="revanced_alt_thumbnail_options_entry_4">Неподвижни кадри</string>
-  <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow предоставя миниатюри на публиката за видеоклипове. Тези миниатюри често са по-подходящи от тези, предоставени от самия YouTube. Ако е активирано, URL адресите на видео ще бъдат изпратени до API сървъра, без да се изпращат други данни. Ако видеоклипът няма миниатюри на DeArrow, ще се покажат или неговите оригинални миниатюри, или заснети кадри. Щракнете, за да научите повече за DeArrow</string>
+  <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow предоставя миниатюри от краудсорсинг за видеоклипове в YouTube. Тези миниатюри често са по-подходящи от тези, предоставени от YouTube
+
+Ако е разрешено, URL адресите на видеоклиповете ще бъдат изпратени до API сървъра и няма да бъдат изпращани други данни. Ако един видеоклип няма миниатюри на DeArrow, тогава се показват оригиналните или заснемащите кадри
+
+Докоснете тук, за да научите повече за DeArrow"</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Показване на известие, ако API не е наличен</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Показва се известие, ако DeArrow не е наличен</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Показва се известие, ако DeArrow не е наличен</string>
@@ -1121,8 +1182,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Лъжливи параметри на устройството</string>
-  <string name="revanced_spoof_device_dimensions_summary_on">Подправената резолюция на устройството\n\nМоже да се отключи по-високо качество на видеото, но може да изпитате засичане при възпроизвеждане на видео, по-лош живот на батерията и неизвестни странични ефекти</string>
-  <string name="revanced_spoof_device_dimensions_summary_off">Резолюцията на устройството не е подправена\n\nАктивирането на това не може да отключи по-високо качество на видеото</string>
+  <string name="revanced_spoof_device_dimensions_summary_on">"Размерите на устройството са фалшифицирани
+
+По-високите видео качества може да бъдат отключени, но може да изпитате заекване на видеовъзпроизвеждане, по-лоша издръжливост на батерията и неизвестни странични ефекти"</string>
+  <string name="revanced_spoof_device_dimensions_summary_off">"Размерите на устройството не са фалшифицирани
+
+Активирането на това може да отключи по-високи видео качества"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Разрешаването на това може да причини прекъсване на възпроизвеждането на видео, влошен живот на батерията и неизвестни странични ефекти.</string>
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
@@ -1163,7 +1228,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Показване бутон за скорост</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Бутонът е показан</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Бутона \"Уведоми ме\" се показва.</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Бутонът не е показан</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1172,8 +1237,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_custom_speed_menu_summary_off">Менюто за потребителска скорост не се показва</string>
   <string name="revanced_custom_playback_speeds_title">Персонализирани скорости на възпроизвеждане</string>
   <string name="revanced_custom_playback_speeds_summary">Добавете или променете скоростa на възпроизвеждане</string>
-  <string name="revanced_custom_playback_speeds_invalid">Персоналната скорост трябва да е по-малка от %s. Използване на стойности по подразбиране.</string>
-  <string name="revanced_custom_playback_speeds_parse_exception">Невалидни персонализирани скорости на възпроизвеждане. Използване на стойности по подразбиране.</string>
+  <string name="revanced_custom_playback_speeds_invalid">Персонализираните скорости трябва да са по-малки от %s</string>
+  <string name="revanced_custom_playback_speeds_parse_exception">Невалидни персонализирани скорости на възпроизвеждане</string>
   <string name="revanced_custom_playback_speeds_auto">Авто</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
@@ -1198,14 +1263,79 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_screen_summary">Подправете клиентските видео потоци, за да предотвратите проблеми с възпроизвеждането</string>
   <string name="revanced_spoof_video_streams_title">Подправяне на видео потоци</string>
   <string name="revanced_spoof_video_streams_summary_on">Видео потоците са подправени</string>
-  <string name="revanced_spoof_video_streams_summary_off">Видео потоците не са подправени\n\nВъзпроизвеждането на видео може да не работи</string>
+  <string name="revanced_spoof_video_streams_summary_off">"Потоците на видеоклипове не са фалшифицирани
+
+Възпроизвеждането на видеоклипове може да не работи"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Деактивирането на тази настройка ще доведе до проблеми с възпроизвеждането на видео.</string>
   <string name="revanced_spoof_video_streams_client_title">Клиент по подразбиране</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Принудително AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Видео кодек по подразбиране AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Видео кодекът се определя автоматично</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Активирането на това може да подобри живота на батерията и да поправи заекването на възпроизвеждането.
+
+AVC има максимална разделителна способност от 1080p, аудио кодекът Opus не е наличен, а видеовъзпроизвеждането ще използва повече интернет данни от VP9 или AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Cтранични ефекти от подмяната на iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Частните детски видеоклипове може да не се възпроизвеждат
+• Предаванията на живо започват от началото
+• Видеоклиповете завършват 1 секунда по-рано"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Странични ефекти от подправяне на Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Детските видеоклипове може да не се възпроизвеждат\n• Липсва менюто за аудио запис\n• Не е налична стабилна сила на звука</string>
-  <string name="revanced_spoof_video_streams_language_">Видео потоците са подправени</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Детските видеоклипове може да не се възпроизвеждат
+• Предаванията на живо започват от началото
+• Видеоклиповете завършват 1 секунда по-рано"</string>
+  <string name="revanced_spoof_video_streams_language_title">Език по подразбиране на аудио потока</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">Език на приложението</string>
+  <string name="revanced_spoof_video_streams_language_AR">Арабски</string>
+  <string name="revanced_spoof_video_streams_language_AZ">Азербайджански</string>
+  <string name="revanced_spoof_video_streams_language_BG">Български</string>
+  <string name="revanced_spoof_video_streams_language_BN">Бенгалски</string>
+  <string name="revanced_spoof_video_streams_language_CA">Каталонски</string>
+  <string name="revanced_spoof_video_streams_language_CS">Чешки</string>
+  <string name="revanced_spoof_video_streams_language_DA">Датски</string>
+  <string name="revanced_spoof_video_streams_language_DE">Немски</string>
+  <string name="revanced_spoof_video_streams_language_EL">Гръцки</string>
+  <string name="revanced_spoof_video_streams_language_EN">Английски</string>
+  <string name="revanced_spoof_video_streams_language_ES">Испански</string>
+  <string name="revanced_spoof_video_streams_language_ET">Естонски</string>
+  <string name="revanced_spoof_video_streams_language_FA">Персийски</string>
+  <string name="revanced_spoof_video_streams_language_FI">Финландски</string>
+  <string name="revanced_spoof_video_streams_language_FR">Френски</string>
+  <string name="revanced_spoof_video_streams_language_GU">Гуджарати</string>
+  <string name="revanced_spoof_video_streams_language_HI">Хинди</string>
+  <string name="revanced_spoof_video_streams_language_HR">Хърватски</string>
+  <string name="revanced_spoof_video_streams_language_HU">Унгарски</string>
+  <string name="revanced_spoof_video_streams_language_ID">Индонезийски</string>
+  <string name="revanced_spoof_video_streams_language_IT">Италиански</string>
+  <string name="revanced_spoof_video_streams_language_JA">Японски</string>
+  <string name="revanced_spoof_video_streams_language_KK">Казахски</string>
+  <string name="revanced_spoof_video_streams_language_KO">Корейски</string>
+  <string name="revanced_spoof_video_streams_language_LT">Литовски</string>
+  <string name="revanced_spoof_video_streams_language_LV">Латвийски</string>
+  <string name="revanced_spoof_video_streams_language_MK">Македонски</string>
+  <string name="revanced_spoof_video_streams_language_MN">Монголски</string>
+  <string name="revanced_spoof_video_streams_language_MR">Маратхи</string>
+  <string name="revanced_spoof_video_streams_language_MS">Малайски</string>
+  <string name="revanced_spoof_video_streams_language_MY">Бирмански</string>
+  <string name="revanced_spoof_video_streams_language_NL">Холандски</string>
+  <string name="revanced_spoof_video_streams_language_OR">Ория</string>
+  <string name="revanced_spoof_video_streams_language_PA">Пенджабски</string>
+  <string name="revanced_spoof_video_streams_language_PL">Полски</string>
+  <string name="revanced_spoof_video_streams_language_PT_BR">Португалски (Бразилия)</string>
+  <string name="revanced_spoof_video_streams_language_PT_PT">Португалски (Португалия)</string>
+  <string name="revanced_spoof_video_streams_language_RO">Румънски</string>
+  <string name="revanced_spoof_video_streams_language_RU">Руски</string>
+  <string name="revanced_spoof_video_streams_language_SK">Словашки</string>
+  <string name="revanced_spoof_video_streams_language_SL">Словенски</string>
+  <string name="revanced_spoof_video_streams_language_SR">Сръбски</string>
+  <string name="revanced_spoof_video_streams_language_SV">Шведски</string>
+  <string name="revanced_spoof_video_streams_language_SW">Суахили</string>
+  <string name="revanced_spoof_video_streams_language_TA">Тамилски</string>
+  <string name="revanced_spoof_video_streams_language_TE">Телугу</string>
+  <string name="revanced_spoof_video_streams_language_TH">Тайландски</string>
+  <string name="revanced_spoof_video_streams_language_TR">Турски</string>
+  <string name="revanced_spoof_video_streams_language_UK">Украински</string>
+  <string name="revanced_spoof_video_streams_language_UR">Урду</string>
+  <string name="revanced_spoof_video_streams_language_VI">Виетнамски</string>
+  <string name="revanced_spoof_video_streams_language_ZH">Китайски</string>
   </patch>
   </app>
   <app id="twitch">
@@ -1215,8 +1345,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_block_audio_ads_summary_off">Аудио рекламата е разблокирана</string>
   </patch>
   <patch id="ad.embedded.embeddedAdsPatch">
-  <string name="revanced_embedded_ads_service_unavailable">%s е недостъпен. Може да се показват реклами. Опитайте друга услуга за блокиране на реклами.</string>
-  <string name="revanced_embedded_ads_service_failed">%s сървърът върна грешка. Може да се показват реклами. Опитайте да превключите друга услуга за блокиране на реклами.</string>
+  <string name="revanced_embedded_ads_service_unavailable">%s не е наличен, може да се появят реклами. Опитайте да промените услугата за блокиране на реклами в настройките.</string>
+  <string name="revanced_embedded_ads_service_failed">%s върна грешка, може да се появят реклами. Опитайте да промените услугата за блокиране на реклами в настройките.</string>
   <string name="revanced_block_embedded_ads_title">Блокиране на вградени видеореклами</string>
   <string name="revanced_block_embedded_ads_entry_1">Деактивирано</string>
   <string name="revanced_block_embedded_ads_entry_2">Luminous прокси</string>

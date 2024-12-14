@@ -14,6 +14,11 @@ final class CommentsFilter extends Filter {
     private final ByteArrayFilterGroup emojiPickerBufferGroup;
     
     public CommentsFilter() {
+        var chatSummary = new StringFilterGroup(
+                Settings.HIDE_COMMENTS_CHAT_SUMMARY,
+                "live_chat_summary_banner.eml"
+        );
+
         var commentsByMembers = new StringFilterGroup(
                 Settings.HIDE_COMMENTS_BY_MEMBERS_HEADER,
                 "sponsorships_comments_header.eml",
@@ -54,6 +59,7 @@ final class CommentsFilter extends Filter {
         );
 
         addPathCallbacks(
+                chatSummary,
                 commentsByMembers,
                 comments,
                 createAShort,

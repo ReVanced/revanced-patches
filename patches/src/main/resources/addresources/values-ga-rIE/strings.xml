@@ -1,34 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
-Note: All strings must have a unique path, even if the same string is declared in two different apps.
-This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+    All strings must have a unique path, even if the same string is declared in two different apps.
+    This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-# General guidelines and information for translating
 
-## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
+    Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
+    Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
-    For example, the patches string:
-        <string name="revanced_patches_string">You will arrive at %1$s in %2$s hours from now</string>
-    Could be translated to another language using a rearranged grammar:
-        <string name="revanced_patches_string">You will arrive %2$s hours from now at %1$s</string>
+    Raw strings are required because Crowdin AI translations regularly gets confused and
+    replace \n with an encoded new line character.
 
-     For Manager strings:
-        You will arrive at ${destination} in ${count} hours from now
-     Could be rearranged by changing the order of the ${} parameters:
-        You will arrive ${count} hours from now at ${destination}
+    Bad:
+        <string name="summary_key">First \'item\' text\nSecond \"item\" text</string>
 
-    Reordering is particularly relevant when translating into right to left languages, or for any language with grammar that is noticeably different from English.
+    Good:
+        <string name="summary_key">"First 'item' text
+Second \"item\" text"</string>
 
-## Single and double quotation marks must be escaped for patch strings (Manager does not require escaping any quotes).
-
-    All _patches_ single and double quotation marks must be escaped as \"  or \'
-    Forgetting to do this will cause that string to appear in app with no quotation characters.
-
-    Correct:
-        <string name="revanced_string">You\'re correct. This is the \"correct\" way and this text will appear as expected in the app</string>
-    Not correct:
-        <string name="revanced_string">You're not correct. This is not the "correct" way and this text will not appear as expected the in app</string>
 -->
 <resources>
   <app id="shared">
@@ -67,9 +56,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">Níl microG GMScore suiteáilte. Suiteáil é.</string>
   <string name="gms_core_dialog_title">Gníomhaíocht a theast</string>
-  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">Níl cead ag MicroG GMScore reáchtáil sa chúlra. \n\ n Lean an treoir “Ná maraigh mo aip” do do ghuthán, agus cuir na treoracha i bhfeidhm ar do shuiteáil MicroG. \n\ n Tá sé seo ag teastáil chun go n-oibreoidh an aip.</string>
+  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"Níl cead ag MicroG GmsCore rith sa chúlra.
+
+Lean an treoir \"Ná maraigh mo aip\" do do ghuthán, agus cuir na treoracha i bhfeidhm ar do shuiteáil MicroG.
+
+Is gá seo chun go n-oibreoidh an aip."</string>
   <string name="gms_core_dialog_open_website_text">Suíomh Gréasáin oscailte</string>
-  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">Ní mór barrfheabhsú ceallraí microG GMScore a dhíchumasú chun saincheisteanna a chosc. \n\ n Tapáil ar an gcnaipe leanúint agus déan barrfheabhsú ceallraí a dhíchumasú.</string>
+  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Caithfidh tú optúimíochtaí ceallraí MicroG GmsCore a dhíchumasú chun fadhbanna a sheachaint.
+
+Ní chuirfidh díghníomhachtú optúimíochtaí ceallraí do MicroG isteach ar úsáid ceallraí ar bhealach diúltach.
+
+Brúigh an cnaipe leanúnaí agus ligean athruithe optúimíochta."</string>
   <string name="gms_core_dialog_continue_text">Lean ar aghaidh</string>
   </patch>
   </app>
@@ -106,7 +103,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_debug_toast_on_error_title">Taispeáin tósta ar earráid ReVanced</string>
   <string name="revanced_debug_toast_on_error_summary_on">Taispeántar tósta má tharlaíonn earráid</string>
   <string name="revanced_debug_toast_on_error_summary_off">Ní thaispeántar tósta má tharlaíonn earráid</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">Folaíonn toastanna earráide a mhúchadh gach fógra earráide ReVanced. \n\n Ní chuirfear in iúl duit faoi aon imeachtaí gan choinne.</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"Díchumasaíonn an rogha toasts earráide fógraí earráide ReVanced go léir.
+
+Ní bheidh a fhios agat faoi aon imeachtaí neamhghnácha."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_disable_like_subscribe_glow_title">Díchumasaigh cosúil/liostáil chnaipe glow</string>
@@ -125,7 +124,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_watermark_summary_on">Tá comhartha uisce i bhfolach</string>
   <string name="revanced_hide_channel_watermark_summary_off">Taispeántar comhartha uisce</string>
   <string name="revanced_hide_horizontal_shelves_title">Folaigh seilfeanna cothromán</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">Tá na seilfeanna i bhfolach ar nós:\n• Nuacht nua\n• Lean ort ag féachaint\n• Déan iniúchadh ar níos mó cainéal\n• Siopadóireacht\n• Féach air arís</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"Tá seilfeanna folaithe mar shampla:
+• Nuacht bhriste
+• Lean ar aghaidh ag féachaint
+• Tuilleadh cainéal a iniúchadh
+• Siopadóireacht
+• Féach arís é"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Taispeántar seilfeanna</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
@@ -252,6 +256,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Taispeántar i bhfíseáin ghaolmhara</string>
   <string name="revanced_comments_screen_title">Tuairimí</string>
   <string name="revanced_comments_screen_summary">Folaigh nó taispeáin comhpháirteanna na rannóige tuairimí</string>
+  <string name="revanced_hide_comments_chat_summary_title">Cuir \'Achoimre tráchta\' i bhfolach</string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">\'\'Folaíodh \'Achoimre cainte\'</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">\'\'Taispeántar \'Achoimre cainte\'</string>
   <string name="revanced_hide_comments_by_members_header_title">Folaigh ceanntásc \'Tuairimí ag baill \'</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Tá ceanntásc \'Tuairimí ag comhaltaí \'i bhfolach</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Taispeántar ceanntásc \'Tuairimí ag comhaltaí\'</string>
@@ -274,7 +281,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_doodles_title">Folaigh YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Barra cuardaigh Tá Doodles i bhfolach</string>
   <string name="revanced_hide_doodles_summary_off">Barra cuardaigh Taispeántar Doodles</string>
-  <string name="revanced_hide_doodles_user_dialog_message">Taispeántar Doodles YouTube cúpla lá gach bliain.\n\nMá tá Doodle á thaispeáint i do réigiún faoi láthair agus an socrú folaithe seo ar siúl, ansin beidh an barra scagaire faoin mbarra cuardaigh i bhfolach freisin.</string>
+  <string name="revanced_hide_doodles_user_dialog_message">"Taispeántar Doodles ó YouTube cúpla lá gach bliain.
+
+Má tá Doodle á thaispeáint faoi láthair i do réigiún agus má tá an tsuíomh seo a chumasc, ansin cuirfear an barra scagaire faoin bharra cuardaigh i bhfolach freisin."</string>
   <string name="revanced_custom_filter_screen_title">Scagaire saincheaptha</string>
   <string name="revanced_custom_filter_screen_summary">Folaigh comhpháirteanna ag baint úsáide as</string>
   <string name="revanced_custom_filter_title">Cumasaigh scagaire saincheaptha</string>
@@ -298,9 +307,18 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_content_phrases_title">Eochairfhocail le cur i bhfolach</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
-  <string name="revanced_hide_keyword_content_phrases_summary">Eochairfhocail agus frásaí le cur i bhfolach, scartha le línte nua\n\nIs féidir le heochairfhocail a bheith ina n-ainmneacha cainéal nó in aon téacs a thaispeántar i dteideal físeáin\n\nNí mór focail a bhfuil litreacha móra sa lár a chur isteach leis an gcásáil (. i. iPhone, TikTok, LeBlanc)</string>
+  <string name="revanced_hide_keyword_content_phrases_summary">"Focail agus frásaí le cur i bhfolach, ar leithligh le líne nua
+
+Is féidir le focail a bheith ina ainmneacha cainéil nó aon fhocal a thaispeántar i dteidil físeán
+
+Ní mór focail le litreacha móra sa lár a chur isteach leis an gcású (ie: iPhone, TikTok, LeBlanc)"</string>
   <string name="revanced_hide_keyword_content_about_title">Maidir le scagadh eochairfhocal</string>
-  <string name="revanced_hide_keyword_content_about_summary">Déantar torthaí Baile/Síntiúis/Cuardaigh a scagadh chun inneachar a mheaitseálann frásaí eochairfhocail a chur i bhfolach\n\nTeorainneacha\n• Ní féidir Shorts a chur i bhfolach le hainm an chainéil\n• Seans nach mbeidh roinnt comhpháirteanna Chomhéadain i bhfolach\n• Seans nach dtaispeánfar torthaí nuair a chuardaítear eochairfhocal</string>
+  <string name="revanced_hide_keyword_content_about_summary">"Scagaire a chuirtear ar thorthaí Baile / Liostáil / Cuardaigh chun ábhar a fhreagraíonn frásaí focail a chur i bhfolach
+
+Teorainneacha
+• Ní féidir Shorts a chur i bhfolach de réir ainm cainéil
+• Ní fhéadfar cuid de chomhpháirteanna UI a chur i bhfolach
+• D'fhéadfadh gan aon torthaí a thaispeáint má chuirtear cuardach ar fhocal eochair"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Meaitseáil focail iomlána</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Má bhaineann tú eochairfhocal/frása le comharthaí athfhriotail dhúbailte, cuirfear cosc ​​ar mheaitseáil pháirteach de theidil físeáin agus ainmneacha cainéal&lt;br&gt;&lt;br&gt;Mar shampla,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; ceilteoidh sé an físeán: &lt;b&gt;Conas a oibríonn AI?&lt;/b&gt;&lt;br&gt;ach ní cheiltfidh sé: &lt;b&gt;Cad is brí le hainm féinig?&lt;/b&gt;</string>
@@ -316,7 +334,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_general_ads_summary_on">Tá fógraí ginearálta i bhfolach</string>
   <string name="revanced_hide_general_ads_summary_off">Taispeántar fógraí ginearálta</string>
   <string name="revanced_hide_fullscreen_ads_title">Folaigh fógraí lánscáileáin</string>
-  <string name="revanced_hide_fullscreen_ads_summary_on">Tá fógraí lánscáileáin i bhfolach\n\in Níl an ghné seo ar fáil ach do ghléasanna níos sine</string>
+  <string name="revanced_hide_fullscreen_ads_summary_on">"Tá fógraí lána scáileáin i bhfolach
+
+Níl an ghné seo ar fáil ach do ghléasanna níos sine"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Taispeántar fógraí lánscáileáin</string>
   <string name="revanced_hide_buttoned_ads_title">Folaigh fógraí cnaipe</string>
   <string name="revanced_hide_buttoned_ads_summary_on">Tá fógraí cnaipe i bhfolach</string>
@@ -490,7 +510,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_subscriptions_button_summary_off">Taispeántar cnaipe síntiúis</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Athraigh Cruthaigh le Fógraí</string>
-  <string name="revanced_switch_create_with_notifications_button_summary_on">Athraítear cnaipe Cruthaigh le cnaipe Fógraí\n\nNóta: Folaíonn sé seo fógraí físe go foréigeantach freisin</string>
+  <string name="revanced_switch_create_with_notifications_button_summary_on">"Cnaipe Cruthaigh athraithe le cnaipe Fógraí
+
+Nóta: Trí é seo a chumasú, cuirtear fógraí físeáin i bhfolach freisin"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Ní athraítear cnaipe Cruthaigh le cnaipe Fógraí</string>
   <string name="revanced_hide_navigation_button_labels_title">Folaigh lipéid cnaipe nascleanú</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Tá lipéid i bhfolach</string>
@@ -710,6 +732,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_off">Taispeántar painéil aníos imreoirí</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <string name="revanced_open_videos_fullscreen_portrait_title">Oscail físeáin i módh scáileáin iomláin portráit</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_on">Osclaítear físeáin i scáileán iomlán</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_off">Ní osclaítear físeáin i scáileán iomlán</string>
   </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">Trédhearcacht forleagtha an imreoir</string>
@@ -728,7 +753,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_enable_summary_off">Ní thaispeántar nach dtaitníonn leat</string>
   <string name="revanced_ryd_shorts_title">Taispeáin neamhthaitníonn ar Shorts</string>
   <string name="revanced_ryd_shorts_summary_on">Naitníonn a thaispeántar ar Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">Na rudaí nach dtaitníonn leo a thaispeántar ar Shorts\n\nTeorainn: Seans nach dtaispeánfar na rudaí nach dtaitníonn leo sa mhód anaithnid</string>
+  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Míthaití a thaispeántar ar Shorts
+
+Teorainneach: D'fhéadfadh nach dtaispeánfaí míthaití i mód incognito"</string>
   <string name="revanced_ryd_shorts_summary_off">Ní thaitníonn sé i bhfolach ar Shorts</string>
   <string name="revanced_ryd_dislike_percentage_title">Ní dtaitníonn mar chéatadán</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">Ná dtaitníonn a thaispeántar</string>
@@ -771,7 +798,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Tá mionsamhlacha barra cuardaigh de chaighdeán meánach</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Tá mionsamhlacha an bharra cuardaigh lánscáileáin ar ardchaighdeán</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Tá mionsamhlacha an bharra cuardaigh lánscáileáin de chaighdeán meánach</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Athchóireoidh sé seo mionsamhlacha ar shruthanna beo nach bhfuil mionsamhlacha ar an mbarra cuardaigh acu.\n\nÚsáidfidh mionsamhlacha an bharra cuardaigh atá ar an gcaighdeán céanna leis an bhfíseán reatha.\n\nIs fearr a oibríonn an ghné seo le cáilíocht físeáin 720p nó níos ísle agus nuair a úsáideann sé an-tapa nasc idirlín.</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Cuirfidh sé seo na miontaispeántais ar ais ar shruth beo nach bhfuil miontaispeántais cuardaigh acu.
+
+Úsáidfidh miontaispeántais cuardaigh an caighdeán céanna leis an bhfíseán reatha.
+
+Oibríonn an ghné seo is fearr le caighdeán físeáin 720p nó níos ísle agus nuair a úsáidtear nasc idirlín an-tapa."</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Cuir sean-mionsamhlacha barra cuardaigh ar ais</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Beidh mionsamhlacha Seekbar le feiceáil os cionn an barra cuardaigh</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Beidh mionsamhlacha Seekbar le feiceáil ar an scáileán</string>
@@ -834,7 +865,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_settings_import_successful">D\'éirigh leis na socruithe a iompórtáil</string>
   <string name="revanced_sb_settings_import_failed">Theip ar iompórtáil: %s</string>
   <string name="revanced_sb_settings_export_failed">Theip ar easpórtáil: %s</string>
-  <string name="revanced_sb_settings_revanced_export_user_id_warning">Tá aitheantas úsáideora príobháideach SponsorBlock i do shocruithe.\n\nTá d\'aitheantas úsáideora cosúil le pasfhocal agus níor cheart é a roinnt choíche.\n</string>
+  <string name="revanced_sb_settings_revanced_export_user_id_warning">"Tá ID úsáideora príobháideach SponsorBlock i do shocruithe.
+
+Is cosúil le pasfhocal é do ID úsáideora agus níor cheart é a roinnt riamh.
+"</string>
   <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">Ná taispeáin arís</string>
   <string name="revanced_sb_diff_segments">Athraigh iompar deighleog</string>
   <string name="revanced_sb_segments_sponsor">Urraitheoir</string>
@@ -894,9 +928,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_submit_failed_invalid">Ní féidir deighleog a chur isteach: %s</string>
   <string name="revanced_sb_submit_failed_timeout">Tá SponsorBlock síos go sealadach</string>
   <string name="revanced_sb_submit_failed_unknown_error">Ní féidir deighleog a chur isteach (stádas: %1$d %2$s)</string>
-  <string name="revanced_sb_submit_failed_rate_limit">Ní féidir deighleog a chur isteach. \nRáta Teoranta (an iomarca ón úsáideoir céanna nó ón IP céanna)</string>
+  <string name="revanced_sb_submit_failed_rate_limit">Ní féidir an chuid a chur isteach. Teoranta (ró-iomadú ó úsáideoir nó ó IP céanna)</string>
   <string name="revanced_sb_submit_failed_forbidden">Ní féidir an deighleog a chur isteach: %s</string>
-  <string name="revanced_sb_submit_failed_duplicate">Ní féidir an deighleog a chur isteach. \nTá ann cheana féin</string>
+  <string name="revanced_sb_submit_failed_duplicate">"Ní féidir an chuid a chur isteach.
+Tá sé ann cheana féin"</string>
   <string name="revanced_sb_submit_succeeded">Déileog curtha isteach go rathúil</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_sb_sponsorblock_connection_failure_timeout">Níl SponsorBlock ar fáil go sealadach (API amuigh amach)</string>
@@ -919,7 +954,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">Am a thosaíonn an deighleog ag</string>
   <string name="revanced_sb_new_segment_time_end">Am a chríochnaíonn an deighleog ag</string>
   <string name="revanced_sb_new_segment_confirm_title">An bhfuil na hamanna ceart?</string>
-  <string name="revanced_sb_new_segment_confirm_content">Tá an deighleog ó\n\n%1$s\nchun\n%2$s\n\n(%3$s)\n\nRéidh le cur isteach?</string>
+  <string name="revanced_sb_new_segment_confirm_content">"Tagann an clipe
+
+%1$s
+gu chuig
+%2$s
+
+(%3$s)
+
+Maithe chun cur isteach?"</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Caithfidh an tús a bheith roimh an deireadh</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Marcáil dhá shuíomh ar an mbarra ama ar dtús</string>
   <string name="revanced_sb_new_segment_preview_segment_first">Réamhamharc ar an deighleog, agus cinntigh go scipeánann sé</string>
@@ -961,7 +1004,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_title">Leagan aip spoof</string>
   <string name="revanced_spoof_app_version_summary_on">Leagan spoofed</string>
   <string name="revanced_spoof_app_version_summary_off">Leagan gan bhfoláiste</string>
-  <string name="revanced_spoof_app_version_user_dialog_message">Déanfar an leagan aipe a chur in oiriúint do leagan níos sine de YouTube.\n\nAthróidh sé seo cuma agus gnéithe na haipe, ach seans go dtarlóidh fo-iarmhairtí anaithnide.\n\nMá tá sé múchta níos déanaí, moltar sonraí na haipe a ghlanadh go dtí cosc a chur ar fhabhtanna Chomhéadain.</string>
+  <string name="revanced_spoof_app_version_user_dialog_message">"Déanfar leagan an aip a spoofadh go leagan níos sine de YouTube.
+
+Athróidh sé seo cuma agus gnéithe an aip, ach d'fhéadfadh fo-iarsmaí anaithnid a bheith ann.
+
+Má dhiúltaítear é níos déanaí, moltar sonraí an aip a ghlanadh chun buganna UI a chosc."</string>
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Sprioc leagan aip spoof</string>
@@ -1014,7 +1061,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">Athraigh stíl an imreora íoslaghdaithe san aip</string>
   <string name="revanced_miniplayer_type_title">Cineál Miniplayer</string>
   <string name="revanced_miniplayer_type_entry_0">Díchumasaithe</string>
-  <string name="revanced_miniplayer_type_entry_1">Bunaidh</string>
+  <string name="revanced_miniplayer_type_entry_1">Réamhshocraithe</string>
   <string name="revanced_miniplayer_type_entry_2">Íosta</string>
   <string name="revanced_miniplayer_type_entry_3">Táibléad</string>
   <string name="revanced_miniplayer_type_entry_4">Nua-aimseartha 1</string>
@@ -1024,19 +1071,28 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_rounded_corners_summary_on">Déantar coirnéil a shlánú</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Tá coirnéil cearnach</string>
   <string name="revanced_miniplayer_double_tap_action_title">Cumasaigh sconna dúbailte agus pinch chun méid a athrú</string>
-  <string name="revanced_miniplayer_double_tap_action_summary_on">Tá gníomh tapáil faoi dhó agus pinch chun méid a athrú cumasaithe\n\n• Tapáil faoi dhó chun méid mion-imreora a mhéadú\n• Tapáil faoi dhó arís chun an bunmhéid a aischur</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">"Gníomh tap dúbailte agus pinch le méid a athrú cumasaithe
+
+• Tap dúbailte chun méid an mhion-imreora a mhéadú
+• Tap dúbailte arís chun an méid bunaidh a athchóiriú"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Díchumasaíodh gníomh tapáil faoi dhó agus pinch chun méid a athrú</string>
   <string name="revanced_miniplayer_drag_and_drop_title">Cumasaigh tarraing agus scaoil</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">Cumasaítear tarraing agus scaoil\n\nIs féidir mion-imreoir a tharraingt go cúinne ar bith den scáileán</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Tá drag-and-drop cumasaithe
+
+Is féidir an mhion-imreoir a tharraingt go haon chúinne den scáileán"</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">Tá tarraing agus scaoil díchumasaithe</string>
   <string name="revanced_miniplayer_horizontal_drag_title">Cumasaigh gotha ​​tarraingthe cothrománach</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">Gothaí tarraingthe cothrománach cumasaithe\n\nIs féidir mion-imreoir a tharraingt den scáileán ar chlé nó ar dheis</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Cumasaithe geastú tarraingthe cothrománach
+
+Is féidir an mhion-imreoir a tharraingt as an scáileán ar chlé nó ar dheis"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Díchumasaíodh an comhartha tarraingthe cothrománach</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Folaigh cnaipe dúnta</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">Tá an cnaipe dúnta i bhfolach</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">Taispeántar an cnaipe dúnta</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_title">Folaigh cnaipí leathnú agus dún</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Tá cnaipí i bhfolach\n\nSwipe chun leathnú nó dúnadh</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Tá cnaipí i bhfolach
+
+Swipe chun leathnú nó dúnadh"</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Taispeántar cnaipí leathnaigh agus dún</string>
   <string name="revanced_miniplayer_hide_subtext_title">Folaigh fothéacsanna</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Tá fothéacsanna i bhfolach</string>
@@ -1067,7 +1123,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Seachbhóthar srianta réigiún íomhá</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Ag baint úsáide as óstach íomhá yt4.ggpht.com</string>
-  <string name="revanced_bypass_image_region_restrictions_summary_off">Ag baint úsáide as óstach íomhá bunaidh\n\nAg cumasú seo is féidir íomhánna atá ar iarraidh a shocrú atá bac orthu</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">"Óstáil íomhá bhunaidh á úsáid
+
+Is féidir le seo íomhánna atá blocáilte i roinnt réigiún a dheisiú"</string>
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -1082,7 +1140,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Mionsamhlacha bunaidh</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Gabhálacha fós</string>
   <string name="revanced_alt_thumbnail_options_entry_4">Gabhann fós</string>
-  <string name="revanced_alt_thumbnail_dearrow_about_summary">Soláthraíonn DeArrow mionsamhlacha foinse slua-fhoinse do físeáin YouTube. Is minic a bhíonn na mionsamhlacha seo níos ábhartha ná iad siúd a sholáthraíonn YouTube\n\nMá tá sé cumasaithe, seolfar URLanna físe chuig an bhfreastalaí API agus ní sheoltar aon sonraí eile. Mura bhfuil mionsamhlacha DeArrow ag físeán, taispeántar na gabhálacha bunaidh nó na gabhála fós\n\nTapáil anseo chun tuilleadh a fhoghlaim faoi DeArrow</string>
+  <string name="revanced_alt_thumbnail_dearrow_about_summary">"Soláthraíonn DeArrow miontaispeántais foinse-phobail do fhíseáin YouTube. Bíonn na miontaispeántais seo níos ábhartha go minic ná na cinn a sholáthraíonn YouTube
+
+Má tá sé cumasaithe, cuirfear URLanna físeán chuig an bhfreastalaí API agus ní sheolfar aon sonraí eile. Má níl aon mhiontaisspeántais DeArrow ag físeán, ansin taispeántar na miontaispeántais bunaidh nó na gafaí fós
+
+Brúigh anseo chun tuilleadh eolais a fháil faoi DeArrow"</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Taispeáin tósta mura bhfuil API ar fáil</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Taispeántar tósta mura bhfuil DeArrow ar fáil</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Ní thaispeántar tósta mura bhfuil DeArrow ar fáil</string>
@@ -1121,13 +1183,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Toisí feiste spoof</string>
-  <string name="revanced_spoof_device_dimensions_summary_on">D\'fhéadfaí toisí feiste a dhíghlasáil\n\nD\'fhéadfaí cáilíochtaí físe níos airde a dhíghlasáil ach d\'fhéadfadh go mbeadh stuttering athsheinm físe agat, saol ceallraí níos measa, agus fo-iars</string>
-  <string name="revanced_spoof_device_dimensions_summary_off">Toisí feiste nach ndéantar spoofed\n\nA chumasú seo is féidir cáilíochtaí físe níos airde a dhíghlasáil</string>
+  <string name="revanced_spoof_device_dimensions_summary_on">"Toisí gléise spoofed
+
+D'fhéadfadh go gcuirfí caighdeáin físeáin níos airde ar fáil ach d'fhéadfá stuttering athsheinm físeáin, saol ceallraí níos measa, agus fo-iarsmaí anaithnid a fháil"</string>
+  <string name="revanced_spoof_device_dimensions_summary_off">"Níl toisí gléise spoofed
+
+Is féidir le seo caighdeáin físeáin níos airde a dhíghlasáil"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">D\'fhéadfadh sé seo a bheith ina chúis le stuttering athsheinm físe, saol ceallraí níos measa, agus fo-iarmhairtí anaithnid.</string>
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
-  <string name="microg_settings_title">Socruithe GMScore</string>
-  <string name="microg_settings_summary">Socruithe le haghaidh GMScore</string>
+  <string name="microg_settings_title">Socruithe GmsCore</string>
+  <string name="microg_settings_summary">Socruithe le haghaidh GmsCore</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Atreoracha seachbhóthar URL</string>
@@ -1172,8 +1238,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_custom_speed_menu_summary_off">Ní thaispeántar roghchlár luais saincheaptha</string>
   <string name="revanced_custom_playback_speeds_title">Luas athsheinm saincheaptha</string>
   <string name="revanced_custom_playback_speeds_summary">Cuir leis nó athraigh na luasanna athsheinm saincheaptha</string>
-  <string name="revanced_custom_playback_speeds_invalid">Caithfidh luasanna saincheaptha a bheith níos lú ná %s. Úsáid luachanna réamhshocraithe.</string>
-  <string name="revanced_custom_playback_speeds_parse_exception">Luasanna athsheinm saincheaptha neamhí Luachanna réamhshocraithe a úsáid.</string>
+  <string name="revanced_custom_playback_speeds_invalid">Ní mór luas saincheaptha a bheith níos lú ná %s</string>
+  <string name="revanced_custom_playback_speeds_parse_exception">Luasanna athsheinm saincheaptha neamhbhailí</string>
   <string name="revanced_custom_playback_speeds_auto">Auto</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
@@ -1198,15 +1264,79 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_screen_summary">Spoof na sruthanna físeáin cliant chun saincheisteanna athsheinm a chosc</string>
   <string name="revanced_spoof_video_streams_title">Sruthanna físeán spoof</string>
   <string name="revanced_spoof_video_streams_summary_on">Tá sruthanna físe spoofed</string>
-  <string name="revanced_spoof_video_streams_summary_off">Níl sruthanna físeáin meallta\n\nSeans nach n-oibreoidh athsheinm físe</string>
+  <string name="revanced_spoof_video_streams_summary_off">"Níl sruthanna físeáin spoofed
+
+D'fhéadfadh nach n-oibreoidh athsheinm físeáin"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Seans go mbeidh fadhbanna athsheinm físe ag baint leis an socrú seo a mhúchadh.</string>
   <string name="revanced_spoof_video_streams_client_title">Cliant réamhshocraithe</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Fórsa AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Tá códú físeáin á fhorchur ar AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Cinneadh go huathoibríoch an códú físeáin</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"D'fhéadfadh go mbainfeadh feabhas ar shaol ceallraí agus go ndéanfadh sé stuttering athsheinm a dheisiú trí é seo a chumasú.
+
+Tá uasmhéid réiteach 1080p ag AVC, níl an cód fuaime Opus ar fáil, agus úsáidfidh athsheinm físeáin níos mó sonraí idirlín ná VP9 nó AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Fo-iarsmaí spoofing iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">Ní féidir físeáin phríobháideacha do pháistí a sheinm\n• Tosaíonn sruthanna beo ón tús\n• Féadfaidh físeáin críochnú 1 soicind go luath</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• D'fhéadfadh nach n-imreoidh físeáin pháistí príobháideacha
+• Tosóidh shruth beo ón tús
+• Críochnóidh físeáin 1 soicind go luath"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Fo-iarsmaí spoofing Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Ní fhéadfaidh físeáin leanaí a sheinm\n• Tá an roghchlár rian fuaime ar iarraidh\n• Níl an toirt cobhsaí ar fáil</string>
-  <string name="revanced_spoof_video_streams_language_">Tá sruthanna físe spoofed</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• D'fhéadfadh nach n-imreoidh físeáin pháistí
+• Tosóidh shruth beo ón tús
+• Críochnóidh físeáin 1 soicind go luath"</string>
+  <string name="revanced_spoof_video_streams_language_title">Teanga réamhshocraithe sruth fuaime</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">Teanga na feidhmchláir</string>
+  <string name="revanced_spoof_video_streams_language_AR">Araibis</string>
+  <string name="revanced_spoof_video_streams_language_AZ">Asarbaiseáinis</string>
+  <string name="revanced_spoof_video_streams_language_BG">Bulgáiris</string>
+  <string name="revanced_spoof_video_streams_language_BN">Beangáilis</string>
+  <string name="revanced_spoof_video_streams_language_CA">Catalóinis</string>
+  <string name="revanced_spoof_video_streams_language_CS">Seicis</string>
+  <string name="revanced_spoof_video_streams_language_DA">Danmhairgis</string>
+  <string name="revanced_spoof_video_streams_language_DE">Gearmáinis</string>
+  <string name="revanced_spoof_video_streams_language_EL">Gréigis</string>
+  <string name="revanced_spoof_video_streams_language_EN">Béarla</string>
+  <string name="revanced_spoof_video_streams_language_ES">Spáinnis</string>
+  <string name="revanced_spoof_video_streams_language_ET">Eastóinis</string>
+  <string name="revanced_spoof_video_streams_language_FA">Peirsis</string>
+  <string name="revanced_spoof_video_streams_language_FI">Fionlainnis</string>
+  <string name="revanced_spoof_video_streams_language_FR">Fraincis</string>
+  <string name="revanced_spoof_video_streams_language_GU">Gujarati</string>
+  <string name="revanced_spoof_video_streams_language_HI">Hiondúis</string>
+  <string name="revanced_spoof_video_streams_language_HR">Cróitis</string>
+  <string name="revanced_spoof_video_streams_language_HU">Ungáiris</string>
+  <string name="revanced_spoof_video_streams_language_ID">Indinéisis</string>
+  <string name="revanced_spoof_video_streams_language_IT">Iodáilis</string>
+  <string name="revanced_spoof_video_streams_language_JA">Seapáinis</string>
+  <string name="revanced_spoof_video_streams_language_KK">Casacais</string>
+  <string name="revanced_spoof_video_streams_language_KO">Cóiréis</string>
+  <string name="revanced_spoof_video_streams_language_LT">Liotuáinis</string>
+  <string name="revanced_spoof_video_streams_language_LV">Laotháinis</string>
+  <string name="revanced_spoof_video_streams_language_MK">Macadóinis</string>
+  <string name="revanced_spoof_video_streams_language_MN">Mongóilis</string>
+  <string name="revanced_spoof_video_streams_language_MR">Marathi</string>
+  <string name="revanced_spoof_video_streams_language_MS">Malaíseach</string>
+  <string name="revanced_spoof_video_streams_language_MY">Burmais</string>
+  <string name="revanced_spoof_video_streams_language_NL">Ollainnis</string>
+  <string name="revanced_spoof_video_streams_language_OR">Odia</string>
+  <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
+  <string name="revanced_spoof_video_streams_language_PL">Polainnis</string>
+  <string name="revanced_spoof_video_streams_language_PT_BR">Portaingéilis (Brasail)</string>
+  <string name="revanced_spoof_video_streams_language_PT_PT">Portaingéilis (An Phortaingéal)</string>
+  <string name="revanced_spoof_video_streams_language_RO">Rúmáinis</string>
+  <string name="revanced_spoof_video_streams_language_RU">Rúisis</string>
+  <string name="revanced_spoof_video_streams_language_SK">Slovaicis</string>
+  <string name="revanced_spoof_video_streams_language_SL">Sloivéinis</string>
+  <string name="revanced_spoof_video_streams_language_SR">Seirbis</string>
+  <string name="revanced_spoof_video_streams_language_SV">Sualainnis</string>
+  <string name="revanced_spoof_video_streams_language_SW">Svahillis</string>
+  <string name="revanced_spoof_video_streams_language_TA">Tamoilis</string>
+  <string name="revanced_spoof_video_streams_language_TE">Teileagúis</string>
+  <string name="revanced_spoof_video_streams_language_TH">Téalainnis</string>
+  <string name="revanced_spoof_video_streams_language_TR">Tuircis</string>
+  <string name="revanced_spoof_video_streams_language_UK">Úcráinis</string>
+  <string name="revanced_spoof_video_streams_language_UR">Urdais</string>
+  <string name="revanced_spoof_video_streams_language_VI">Vítneamais</string>
+  <string name="revanced_spoof_video_streams_language_ZH">Sínis</string>
   </patch>
   </app>
   <app id="twitch">
@@ -1216,8 +1346,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_block_audio_ads_summary_off">Déantar fógraí fuaime díbhocáilte</string>
   </patch>
   <patch id="ad.embedded.embeddedAdsPatch">
-  <string name="revanced_embedded_ads_service_unavailable">Níl %s ar fáil. Is féidir fógraí a thaispeáint Bain triail as aistriú chuig seirbhís bloc fógraí eile i socruithe.</string>
-  <string name="revanced_embedded_ads_service_failed">Chuir freastalaí %s earráid ar ais. Is féidir fógraí a thaispeáint Bain triail as aistriú chuig seirbhís bloc fógraí eile i socruithe.</string>
+  <string name="revanced_embedded_ads_service_unavailable">%s neamh-infheidhme, d\'fhéadfadh go dtaispeánfadh fógraí. Bain triail as seirbhís blocála fógraí a athrú sna socruithe.</string>
+  <string name="revanced_embedded_ads_service_failed">Tháinig earráid ar %s, d\'fhéadfadh go dtaispeánfadh fógraí. Bain triail as seirbhís blocála fógraí a athrú sna socruithe.</string>
   <string name="revanced_block_embedded_ads_title">Bloc ar fhógraí físe leabaithe</string>
   <string name="revanced_block_embedded_ads_entry_1">Díchumasaithe</string>
   <string name="revanced_block_embedded_ads_entry_2">Proxy lonrúil</string>

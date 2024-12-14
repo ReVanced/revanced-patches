@@ -10,15 +10,17 @@ public enum ClientType {
     // Specific purpose for age restricted, or private videos, because the iOS client is not logged in.
     // https://dumps.tadiphone.dev/dumps/oculus/eureka
     ANDROID_VR(28,
+            "ANDROID_VR",
             "Quest 3",
             "12",
             "com.google.android.apps.youtube.vr.oculus/1.56.21 (Linux; U; Android 12; GB) gzip",
             "32", // Android 12.1
             "1.56.21",
-            true
-    ),
+            true,
+            true),
     // Specific for kids videos.
     IOS(5,
+            "IOS",
             forceAVC()
                     ? "iPhone12,5"  // 11 Pro Max (last device with iOS 13)
                     : "iPhone16,2", // 15 Pro Max
@@ -37,8 +39,22 @@ public enum ClientType {
                     // but 17.40 is the last version that supports iOS 13.
                     ? "17.40.5"
                     : "19.47.7",
-            false
-    );
+            false,
+            true),
+    /**
+     * Android VR with no language code.
+     * Used for age restricted videos and YouTube Music to disable stable volume.
+     */
+    ANDROID_VR_NO_HL(
+            ANDROID_VR.id,
+            ANDROID_VR.clientName,
+            ANDROID_VR.deviceModel,
+            ANDROID_VR.osVersion,
+            ANDROID_VR.userAgent,
+            ANDROID_VR.androidSdkVersion,
+            ANDROID_VR.clientVersion,
+            ANDROID_VR.canLogin,
+            false);
 
     private static boolean forceAVC() {
         return BaseSettings.SPOOF_VIDEO_STREAMS_IOS_FORCE_AVC.get();
@@ -49,6 +65,8 @@ public enum ClientType {
      * <a href="https://github.com/zerodytrash/YouTube-Internal-Clients?tab=readme-ov-file#clients">client type</a>
      */
     public final int id;
+
+    public final String clientName;
 
     /**
      * Device model, equivalent to {@link Build#MODEL} (System property: ro.product.model)
@@ -82,20 +100,28 @@ public enum ClientType {
      */
     public final boolean canLogin;
 
+    /**
+     * If a language code should be used.
+     */
+    public final boolean useLanguageCode;
+
     ClientType(int id,
+               String clientName,
                String deviceModel,
                String osVersion,
                String userAgent,
                @Nullable String androidSdkVersion,
                String clientVersion,
-               boolean canLogin
-    ) {
+               boolean canLogin,
+               boolean useLanguageCode) {
         this.id = id;
+        this.clientName = clientName;
         this.deviceModel = deviceModel;
         this.osVersion = osVersion;
         this.userAgent = userAgent;
         this.androidSdkVersion = androidSdkVersion;
         this.clientVersion = clientVersion;
         this.canLogin = canLogin;
+        this.useLanguageCode = useLanguageCode;
     }
 }

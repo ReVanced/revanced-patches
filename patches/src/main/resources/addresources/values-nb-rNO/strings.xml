@@ -1,588 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
-Note: All strings must have a unique path, even if the same string is declared in two different apps.
-This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+    All strings must have a unique path, even if the same string is declared in two different apps.
+    This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-# General guidelines and information for translating
 
-## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
+    Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
+    Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
-    For example, the patches string:
-        <string name="revanced_patches_string">You will arrive at %1$s in %2$s hours from now</string>
-    Could be translated to another language using a rearranged grammar:
-        <string name="revanced_patches_string">You will arrive %2$s hours from now at %1$s</string>
+    Raw strings are required because Crowdin AI translations regularly gets confused and
+    replace \n with an encoded new line character.
 
-     For Manager strings:
-        You will arrive at ${destination} in ${count} hours from now
-     Could be rearranged by changing the order of the ${} parameters:
-        You will arrive ${count} hours from now at ${destination}
+    Bad:
+        <string name="summary_key">First \'item\' text\nSecond \"item\" text</string>
 
-    Reordering is particularly relevant when translating into right to left languages, or for any language with grammar that is noticeably different from English.
+    Good:
+        <string name="summary_key">"First 'item' text
+Second \"item\" text"</string>
 
-## Single and double quotation marks must be escaped for patch strings (Manager does not require escaping any quotes).
-
-    All _patches_ single and double quotation marks must be escaped as \"  or \'
-    Forgetting to do this will cause that string to appear in app with no quotation characters.
-
-    Correct:
-        <string name="revanced_string">You\'re correct. This is the \"correct\" way and this text will appear as expected in the app</string>
-    Not correct:
-        <string name="revanced_string">You're not correct. This is not the "correct" way and this text will not appear as expected the in app</string>
 -->
 <resources>
   <app id="shared">
   <patch id="misc.checks.checkEnvironmentPatch">
-  <string name="revanced_check_environment_failed_title">Sjekker mislyktes</string>
-  <string name="revanced_check_environment_dialog_open_official_source_button">Åpne offisiell nettside</string>
   <string name="revanced_check_environment_dialog_ignore_button">Ignorer</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Denne appen ser ikke ut til å bli patchet av deg.&lt;/h5&gt;&lt;br&gt;Denne appen kan kanskje ikke fungere riktig, &lt;b&gt;kan være skadelig eller til og med farlig å bruke&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Disse sjekker innebærer at denne appen blir videresendt eller innhentet fra noen annet:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Det er sterkt anbefalt for &lt;b&gt;ved avinstallering av denne appen, og send den selv&lt;/b&gt; for å forsikre deg om at du bruker en validert og sikker app.&lt;p&gt;&lt;br&gt;Hvis ignorert, vil denne advarselen bare bli vist to ganger.</string>
-  <string name="revanced_check_environment_not_same_patching_device">Patchet på en annen enhet</string>
   <string name="revanced_check_environment_manager_not_expected_installer">Ikke installert av ReVanced Manager</string>
-  <string name="revanced_check_environment_not_near_patch_time">Patchet for over 10 minutter siden</string>
-  <string name="revanced_check_environment_not_near_patch_time_days">Patched %s dager siden</string>
-  <string name="revanced_check_environment_not_near_patch_time_invalid">APK byggedato er skadet</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">APK-byggedato er ødelagt</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
-  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Ønsker du å fortsette?</string>
-  <string name="revanced_settings_restart_title">Oppdater og start på nytt</string>
-  <string name="revanced_settings_restart">Omstart</string>
-  <string name="revanced_settings_import">Importer</string>
-  <string name="revanced_settings_import_copy">Kopier</string>
-  <string name="revanced_settings_import_reset">Forbedrede innstillinger tilbakestilt til standard</string>
-  <string name="revanced_settings_import_success">Importerte %d innstillinger</string>
-  <string name="revanced_settings_import_failure_parse">Import mislyktes: %s</string>
-  <string name="revanced_pref_import_export_title">Import / Eksport</string>
-  <string name="revanced_pref_import_export_summary">Import / Export ReVanced Settings</string>
+  <string name="revanced_settings_reset">Tilbakestill</string>
+  <string name="revanced_settings_restart">Start på nytt</string>
   <!-- Settings about dialog. -->
-  <string name="revanced_settings_about_links_body">Du bruker Revananserte Patches versjon &lt;i&gt;%s&lt;/i&gt;</string>
-  <string name="revanced_settings_about_links_dev_header">Notat</string>
-  <string name="revanced_settings_about_links_dev_body">Denne versjonen er en forhåndsutgivelse, og du kan oppleve uventede problemer</string>
-  <string name="revanced_settings_about_links_header">Offisielle lenker</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="gms_core_toast_not_installed_message">MicroG GmsCore er ikke installert. Installer den.</string>
-  <string name="gms_core_dialog_title">Handling nødvendig</string>
-  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">MicroG GmsCore har ikke tillatelse til å kjøre i bakgrunnen.\n\nFølg \"Ikke drep min app\"-veiledningen for telefonen din og bruk instruksjonene på MicroG installasjonen.\n\nDette er nødvendig for at appen skal fungere.</string>
-  <string name="gms_core_dialog_open_website_text">Åpne nettsted</string>
-  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">MicroG GmsCore batterioptimalisering må deaktiveres for å forhindre problemer.\n\nTrykk på fortsett knappen og deaktiver batterioptimaliseringer.</string>
-  <string name="gms_core_dialog_continue_text">Fortsett</string>
+  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore har ikke tillatelse til å kjøre i bakgrunnen.
+
+Følg \"Ikke drep appen min\"-guiden for telefonen din og bruk instruksjonene på MicroG-installasjonen.
+
+Dette er nødvendig for at appen skal fungere."</string>
+  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Batterioptimaliseringer for MicroG GmsCore må deaktiveres for å forhindre problemer.
+
+Deaktivering av batterioptimaliseringer for MicroG vil ikke påvirke batteribruken negativt.
+
+Trykk på fortsett-knappen og tillat optimalisering av endringer."</string>
   </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
-  <string name="revanced_settings_screen_00_about_title">Om</string>
-  <string name="revanced_settings_screen_01_ads_title">Reklame</string>
-  <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternative miniatyrbilder</string>
-  <string name="revanced_settings_screen_03_feed_title">MATE</string>
-  <string name="revanced_settings_screen_04_player_title">Spiller</string>
-  <string name="revanced_settings_screen_05_general_title">Generelt oppsett</string>
-  <string name="revanced_settings_screen_07_seekbar_title">Søkbar</string>
-  <string name="revanced_settings_screen_08_swipe_controls_title">Sveip kontroller</string>
-  <string name="revanced_settings_screen_11_misc_title">Diverse</string>
-  <string name="revanced_settings_screen_12_video_title">Video</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
-  <string name="revanced_shorts_disable_background_playback_title">Deaktiver Shorts bakgrunn spill</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">Feilsøking</string>
-  <string name="revanced_debug_screen_summary">Aktivere eller deaktivere feilsøkingsalternativer</string>
-  <string name="revanced_debug_title">Feilsøk logging</string>
-  <string name="revanced_debug_summary_on">Feilsøkingslogger er aktivert</string>
-  <string name="revanced_debug_summary_off">Feilsøkingslogger er deaktivert</string>
-  <string name="revanced_debug_protobuffer_title">Logg protokollbuffer</string>
-  <string name="revanced_debug_protobuffer_summary_on">Feilsøkingslogger inkluderer proto-buffer</string>
-  <string name="revanced_debug_protobuffer_summary_off">Feilsøkingslogger inkluderer ikke proto-buffer</string>
-  <string name="revanced_debug_stacktrace_title">Logge stacketspor</string>
-  <string name="revanced_debug_stacktrace_summary_on">Feilsøkingslogger inkluderer stablingsspor</string>
-  <string name="revanced_debug_stacktrace_summary_off">Feilsøkingslogger inkluderer ikke stablingsspor</string>
-  <string name="revanced_debug_toast_on_error_title">Vis toast på ReVanced error</string>
-  <string name="revanced_debug_toast_on_error_summary_on">Toast vises ved feil</string>
-  <string name="revanced_debug_toast_on_error_summary_off">Toast ikke vist ved feil</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">Slår av feil i altfor å skjule alle ReVanced feilmeldinger.\n\nDu vil ikke bli varslet om noen uventede hendelser.</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"Å slå av feilmeldinger skjuler alle ReVanced-feilvarsler.
+
+Du vil ikke bli varslet om uventede hendelser."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
-  <string name="revanced_disable_like_subscribe_glow_title">Deaktiver \'liker\' / abonnér på glød</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_on">Som og abonner-knappen vil ikke glød når den nevnes</string>
-  <string name="revanced_disable_like_subscribe_glow_summary_off">Som og abbonér vil glød når det nevnes</string>
-  <string name="revanced_hide_album_cards_title">Skjul albumkort</string>
-  <string name="revanced_hide_album_cards_summary_on">Albumkort er skjult</string>
-  <string name="revanced_hide_album_cards_summary_off">Albumkort vises</string>
-  <string name="revanced_hide_crowdfunding_box_title">Skjul crowdfunding boks</string>
-  <string name="revanced_hide_crowdfunding_box_summary_on">Crowdfunding box er skjult</string>
-  <string name="revanced_hide_crowdfunding_box_summary_off">Det er vist dekningsboks</string>
-  <string name="revanced_hide_floating_microphone_button_title">Skjul flytende mikrofonknapp</string>
-  <string name="revanced_hide_floating_microphone_button_summary_on">Mikrofonknappen er skjult</string>
-  <string name="revanced_hide_floating_microphone_button_summary_off">Mikrofon knapp vist</string>
-  <string name="revanced_hide_channel_watermark_title">Skjul kanalvannmerke</string>
-  <string name="revanced_hide_channel_watermark_summary_on">Vannmerket er skjult</string>
-  <string name="revanced_hide_channel_watermark_summary_off">Vannmerke er vist</string>
-  <string name="revanced_hide_horizontal_shelves_title">Skjul horisontale hyller</string>
-  <string name="revanced_hide_horizontal_shelves_summary_off">Hyller er vist</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"Hyller er skjult, for eksempel:
+• Siste nytt
+• Fortsett å se
+• Utforsk flere kanaler
+• Handle
+• Se det igjen"</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
-  <string name="revanced_hide_join_membership_button_title">Skjul \'Bli med\' knapp</string>
-  <string name="revanced_hide_join_membership_button_summary_on">Knappen er skjult</string>
-  <string name="revanced_hide_join_membership_button_summary_off">Knappen vises</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_for_you_shelf_title">Skjul «For deg» hylle på kanalside</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">Sokkelen er skjult</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">Holdbarhet er vist</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
-  <string name="revanced_hide_notify_me_button_title">Skjul \"Varsle meg\"-knapp</string>
-  <string name="revanced_hide_notify_me_button_summary_on">Knappen er skjult</string>
-  <string name="revanced_hide_notify_me_button_summary_off">Knappen vises</string>
   <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
-  <string name="revanced_hide_search_result_recommendations_title">Skjul \'Personer også overvåket\' anbefalinger</string>
-  <string name="revanced_hide_search_result_recommendations_summary_on">Anbefalinger er skjult</string>
-  <string name="revanced_hide_search_result_recommendations_summary_off">Anbefalinger er vist</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
-  <string name="revanced_hide_show_more_button_title">Skjul \'Vis mer\' knapp</string>
-  <string name="revanced_hide_show_more_button_summary_on">Knappen er skjult</string>
-  <string name="revanced_hide_show_more_button_summary_off">Knappen vises</string>
-  <string name="revanced_hide_timed_reactions_title">Skjul tidsbestemte reaksjoner</string>
-  <string name="revanced_hide_timed_reactions_summary_on">Tidsbestemte reaksjoner er skjult</string>
-  <string name="revanced_hide_timed_reactions_summary_off">Tidsbestemte reaksjoner er vist</string>
-  <string name="revanced_hide_search_result_shelf_header_title">Skjul søkeresultat topptekst på hyllen</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">Sokkeltoppen er skjult</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">Sokkelhode er vist</string>
-  <string name="revanced_hide_channel_guidelines_title">Skjul kanalretningslinjer</string>
-  <string name="revanced_hide_channel_guidelines_summary_on">Kanal retningslinjer er skjult</string>
-  <string name="revanced_hide_channel_guidelines_summary_off">Kanal retningslinjer er vist</string>
-  <string name="revanced_hide_chips_shelf_title">Skjul brikker hylle</string>
-  <string name="revanced_hide_chips_shelf_summary_on">Chips shelf er gjemt</string>
-  <string name="revanced_hide_chips_shelf_summary_off">Chips shelf er vist</string>
-  <string name="revanced_hide_expandable_chip_title">Skjul ekspanderbar chip under videoer</string>
-  <string name="revanced_hide_expandable_chip_summary_on">Utvidbare brikker er skjult</string>
-  <string name="revanced_hide_expandable_chip_summary_off">Utvidbare brikker vises</string>
-  <string name="revanced_hide_community_posts_title">Skjul samfunnsinnlegg</string>
-  <string name="revanced_hide_community_posts_summary_on">Samfunnets innlegg er skjult</string>
-  <string name="revanced_hide_community_posts_summary_off">Samfunnsinnlegg vises</string>
-  <string name="revanced_hide_compact_banner_title">Skjul kompakte bannere</string>
-  <string name="revanced_hide_compact_banner_summary_on">Kompakte bannere er skjult</string>
-  <string name="revanced_hide_compact_banner_summary_off">Kompakte bannere er vist</string>
-  <string name="revanced_hide_movies_section_title">Skjul filmseksjonen</string>
-  <string name="revanced_hide_movies_section_summary_on">Deler av filmer er skjult</string>
-  <string name="revanced_hide_movies_section_summary_off">Deler av filmer vises</string>
-  <string name="revanced_hide_feed_survey_title">Skjul feed undersøkelser</string>
-  <string name="revanced_hide_feed_survey_summary_on">Feed-undersøkelser er skjult</string>
-  <string name="revanced_hide_feed_survey_summary_off">Feed undersøkelser vises</string>
-  <string name="revanced_hide_community_guidelines_title">Skjul samfunnets retningslinjer</string>
-  <string name="revanced_hide_community_guidelines_summary_on">Retningslinjer for fellesskap er skjult</string>
-  <string name="revanced_hide_community_guidelines_summary_off">Retningslinjer for fellesskap er vist</string>
-  <string name="revanced_hide_subscribers_community_guidelines_title">Skjul samfunnsretningslinjer fra abonnenter</string>
-  <string name="revanced_hide_subscribers_community_guidelines_summary_on">Retningslinjer for abonnenter er skjult</string>
-  <string name="revanced_hide_subscribers_community_guidelines_summary_off">Nettstedsveiledninger for abonnenter vises</string>
-  <string name="revanced_hide_channel_member_shelf_title">Skjul kanalens hylle</string>
-  <string name="revanced_hide_channel_member_shelf_summary_on">Kanal medlem hylle er skjult</string>
-  <string name="revanced_hide_channel_member_shelf_summary_off">Kanal medlem hylle er vist</string>
-  <string name="revanced_hide_emergency_box_title">Skjul nødbokser</string>
-  <string name="revanced_hide_emergency_box_summary_on">Nødbokser er skjult</string>
-  <string name="revanced_hide_emergency_box_summary_off">Nødbokser er vist</string>
-  <string name="revanced_hide_info_panels_title">Skjul informasjonspaneler</string>
-  <string name="revanced_hide_info_panels_summary_on">Info paneler er skjult</string>
-  <string name="revanced_hide_info_panels_summary_off">Info paneler vises</string>
-  <string name="revanced_hide_medical_panels_title">Skjul medisinske paneler</string>
-  <string name="revanced_hide_medical_panels_summary_on">Medisinske paneler er skjult</string>
-  <string name="revanced_hide_medical_panels_summary_off">Medisinske paneler er vist</string>
-  <string name="revanced_hide_channel_bar_title">Skjul kanallinje</string>
-  <string name="revanced_hide_channel_bar_summary_on">Kanal bar er skjult</string>
-  <string name="revanced_hide_channel_bar_summary_off">Kanalbar vises</string>
-  <string name="revanced_hide_playables_title">Skjul spillbare</string>
-  <string name="revanced_hide_playables_summary_on">Spillbare er skjult</string>
-  <string name="revanced_hide_playables_summary_off">Spillbare vises</string>
-  <string name="revanced_hide_quick_actions_title">Skjul hurtighandlinger i fullskjerm</string>
-  <string name="revanced_hide_quick_actions_summary_on">Raske handlinger er skjult</string>
-  <string name="revanced_hide_quick_actions_summary_off">Hurtighandlinger er vist</string>
-  <string name="revanced_hide_related_videos_title">Skjul relaterte videoer i raske handlinger</string>
-  <string name="revanced_hide_related_videos_summary_on">Relaterte videoer er skjult</string>
-  <string name="revanced_hide_related_videos_summary_off">Relaterte videoer vises</string>
-  <string name="revanced_hide_image_shelf_title">Skjul bildets hylle i søkeresultater</string>
-  <string name="revanced_hide_image_shelf_summary_on">Bilde hylle er skjult</string>
-  <string name="revanced_hide_image_shelf_summary_off">Bilde shelf is shown</string>
-  <string name="revanced_hide_latest_posts_ads_title">Skjul siste innlegg</string>
-  <string name="revanced_hide_latest_posts_ads_summary_on">Siste innlegg er skjult</string>
-  <string name="revanced_hide_latest_posts_ads_summary_off">Siste innlegg vises</string>
-  <string name="revanced_hide_mix_playlists_title">Skjul miks spillelister</string>
-  <string name="revanced_hide_mix_playlists_summary_on">Blandet spillelister er skjult</string>
-  <string name="revanced_hide_mix_playlists_summary_off">Blandet spillelister er vist</string>
-  <string name="revanced_hide_artist_cards_title">Skjul artistkort</string>
-  <string name="revanced_hide_artist_cards_summary_on">Kunstnerkort er skjult</string>
-  <string name="revanced_hide_artist_cards_summary_off">Artistkort vises</string>
-  <string name="revanced_hide_attributes_section_title">Skjul attributter del</string>
-  <string name="revanced_hide_attributes_section_summary_on">\'Utvalgte steder\', leker og musikkseksjoner er skjult</string>
-  <string name="revanced_hide_attributes_section_summary_off">\'Utvalgte steder\', spill og musikk seksjoner av spill blir vist</string>
-  <string name="revanced_hide_chapters_section_title">Skjul kapitler i seksjonen</string>
-  <string name="revanced_hide_chapters_section_summary_on">Kapittel delen er skjult</string>
-  <string name="revanced_hide_chapters_section_summary_off">Kapittel delen er vist</string>
-  <string name="revanced_hide_podcast_section_title">Skjul «Utforsk podcast»-seksjonen</string>
-  <string name="revanced_hide_podcast_section_summary_on">«Utforsk podcast»-delen er skjult</string>
-  <string name="revanced_hide_podcast_section_summary_off">«Utforsk podcast»-delen vises</string>
-  <string name="revanced_hide_info_cards_section_title">Skjule seksjonen for informasjonskort</string>
-  <string name="revanced_hide_info_cards_section_summary_on">Informasjonskort seksjonen er skjult</string>
-  <string name="revanced_hide_info_cards_section_summary_off">Informasjonskort delen vises</string>
-  <string name="revanced_hide_key_concepts_section_title">Skjul seksjonen «Key concepts»</string>
-  <string name="revanced_hide_transcript_section_title">Skjul transkripsjonsseksjonen</string>
-  <string name="revanced_hide_transcript_section_summary_on">Transkripsjonsseksjonen er skjult</string>
-  <string name="revanced_hide_transcript_section_summary_off">Transskripsjonsseksjonen vises</string>
-  <string name="revanced_hide_description_components_screen_title">Beskrivelse av videoen</string>
-  <string name="revanced_hide_description_components_screen_summary">Skjul eller vis video-beskrivelse komponenter</string>
-  <string name="revanced_hide_filter_bar_screen_title">Filtrer bar</string>
-  <string name="revanced_hide_filter_bar_screen_summary">Skjul eller vis filterlinjen i matingen, søk og relaterte videoer</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_title">Skjul i feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">Skjult i feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">Vist i feed</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_title">Skjul i søk</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">Skjult i søk</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">Vist i søk</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">Skjul i relaterte videoer</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">Skjult i relaterte videoer</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Vises i relaterte videoer</string>
-  <string name="revanced_comments_screen_title">Kommentarer</string>
-  <string name="revanced_comments_screen_summary">Skjul eller vis kommentar-deler komponenter</string>
-  <string name="revanced_hide_comments_by_members_header_title">Skjul \'Kommentarer etter medlemmer\' topptekst</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">\'Kommentarer av medlemmer\' topptekst er skjult</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">\'Kommentarer etter medlemmer\' topptekst er vist</string>
-  <string name="revanced_hide_comments_section_title">Skjul kommentarfeltet</string>
-  <string name="revanced_hide_comments_section_summary_on">Kommentarer seksjonen er skjult</string>
-  <string name="revanced_hide_comments_section_summary_off">Kommentarer er vist</string>
-  <string name="revanced_hide_comments_preview_comment_title">Skjul forhåndsvisningskommentar</string>
-  <string name="revanced_hide_comments_preview_comment_summary_on">Forhåndsvisningskommentaren er skjult</string>
-  <string name="revanced_hide_comments_preview_comment_summary_off">Forhåndsvisningskommentar vises</string>
-  <string name="revanced_hide_comments_thanks_button_title">Skjul takks-knappen</string>
-  <string name="revanced_hide_comments_thanks_button_summary_on">Tusen takk er skjult</string>
-  <string name="revanced_hide_comments_thanks_button_summary_off">Tusen takk vises</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">Skjul knapper for tidsstempel og emoji</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">Tidsstempel og emoji-knapper er skjult</string>
-  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Det vises tidsstempel og emoji-knapper</string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">\"\'Chat-sammendrag\' er skjult\"</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">\"\'Chat-sammendrag\' vises\"</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
-  <string name="revanced_hide_doodles_title">Skjul YouTube dører</string>
-  <string name="revanced_hide_doodles_summary_on">Søk i barnerøvinger er skjult</string>
-  <string name="revanced_hide_doodles_summary_off">Søk i barnetjener vises</string>
-  <string name="revanced_hide_doodles_user_dialog_message">YouTube Doodles dukker opp noen dager hvert år.\n\nHvis en Doodle viser for øyeblikket i ditt fylke, og denne skjul-innstillingen er på deretter vil filterlinjen under søkefeltet også bli skjult.</string>
-  <string name="revanced_custom_filter_screen_title">Egne filtre</string>
-  <string name="revanced_custom_filter_screen_summary">Skjul komponenter ved hjelp av tilpassede filtre</string>
-  <string name="revanced_custom_filter_title">Aktiver tilpasset filter</string>
-  <string name="revanced_custom_filter_summary_on">Egendefinert filter er aktivert</string>
-  <string name="revanced_custom_filter_summary_off">Egendefinert filter er deaktivert</string>
-  <string name="revanced_custom_filter_strings_title">Egne filtre</string>
+  <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodles vises noen dager i året.
+
+Hvis en Doodle vises i din region for øyeblikket, og denne innstillingen er aktivert, vil filterlinjen under søkefeltet også være skjult."</string>
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="revanced_custom_filter_strings_summary">Liste over komponentstier byggere for å filtrere atskilt med ny linje</string>
-  <string name="revanced_custom_filter_toast_invalid_syntax">Ugyldig tilpasset filter: %s</string>
-  <string name="revanced_hide_keyword_content_screen_title">Skjul nøkkelordinnhold</string>
-  <string name="revanced_hide_keyword_content_screen_summary">Skjul søk og feed videoer ved hjelp av nøkkelordfiltre</string>
-  <string name="revanced_hide_keyword_content_home_title">Skjul startvideoer med nøkkelord</string>
-  <string name="revanced_hide_keyword_content_home_summary_on">Videoer i hjem-fanen filtreres med nøkkelord</string>
-  <string name="revanced_hide_keyword_content_home_summary_off">Videoer på hjem-fanen filtreres ikke med nøkkelord</string>
-  <string name="revanced_hide_keyword_content_subscriptions_title">Skjul abonnementsvideoer med nøkkelord</string>
-  <string name="revanced_hide_keyword_content_subscriptions_summary_on">Videoer på abonnementsfanen filtreres med nøkkelord</string>
-  <string name="revanced_hide_keyword_content_subscriptions_summary_off">Videoer på abonnementsfanen filtreres ikke med nøkkelord</string>
-  <string name="revanced_hide_keyword_content_search_title">Skjul søkeresultater med nøkkelord</string>
-  <string name="revanced_hide_keyword_content_search_summary_on">Søkeresultatene filtreres etter nøkkelord</string>
-  <string name="revanced_hide_keyword_content_search_summary_off">Søkeresultater filtreres ikke med nøkkelord</string>
-  <string name="revanced_hide_keyword_content_phrases_title">Nøkkelord for å skjule</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
-  <string name="revanced_hide_keyword_content_phrases_summary">Nøkkelord og fraser å gjemme seg; atskilt med nye linjer\n\nnøkkelord kan være kanalnavn eller tekst som vises i videotitler\n\nord med store bokstaver i midten må angis med kasus (ie: iPhone, TikTok, bland</string>
-  <string name="revanced_hide_keyword_content_about_title">Om nøkkelordfiltrering</string>
-  <string name="revanced_hide_keyword_content_about_whole_words_title">Sammenlign hele ord</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Å sirkulere en søkeord/frase med doble sitater vil hindre delvis treff med videotitler og kanalnavn&lt;br&gt;&lt;br&gt;For eksempel,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; vil skjule videoen: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;men vil ikke gjemme: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_keyword_toast_invalid_common">Kan ikke bruke nøkkelord: %s</string>
-  <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Legg til tilbud for å bruke nøkkelord: %s</string>
-  <string name="revanced_hide_keyword_toast_invalid_conflicting">Nøkkelord har motstridende deklarasjoner: %s</string>
-  <string name="revanced_hide_keyword_toast_invalid_length">Nøkkelordet er for kort og krever atferd: %s</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">Søkeord vil skjule alle videoer: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
-  <string name="revanced_hide_general_ads_title">Skjul generelle annonser</string>
-  <string name="revanced_hide_general_ads_summary_on">Generelle annonser er skjult</string>
-  <string name="revanced_hide_general_ads_summary_off">Generelle annonser er vist</string>
-  <string name="revanced_hide_fullscreen_ads_title">Skjul fullskjerm annonser</string>
-  <string name="revanced_hide_fullscreen_ads_summary_on">Fullskjermsannonser er skjult\n\nDenne funksjonen er kun tilgjengelig for eldre enheter</string>
-  <string name="revanced_hide_fullscreen_ads_summary_off">Fullskjerm annonser vises</string>
-  <string name="revanced_hide_buttoned_ads_title">Skjul knapper annonser</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">Knappede annonser er skjult</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">Knappede annonser blir vist</string>
-  <string name="revanced_hide_paid_promotion_label_title">Skjul merket for betalt kampanje</string>
-  <string name="revanced_hide_paid_promotion_label_summary_on">Betalt kampanje etikett er skjult</string>
-  <string name="revanced_hide_paid_promotion_label_summary_off">Etikett for betalt kampanje vises</string>
-  <string name="revanced_hide_self_sponsor_ads_title">Skjul egne sponsede kort</string>
-  <string name="revanced_hide_self_sponsor_ads_summary_on">Selvsponsede kort er skjult</string>
-  <string name="revanced_hide_self_sponsor_ads_summary_off">Selvsponsede oppgavelapper vises</string>
-  <string name="revanced_hide_products_banner_title">Skjul banner for å se produkter</string>
-  <string name="revanced_hide_products_banner_summary_on">Banner er skjult</string>
-  <string name="revanced_hide_products_banner_summary_off">Banner vises</string>
-  <string name="revanced_hide_player_store_shelf_title">Skjul spiller shopping hylle</string>
-  <string name="revanced_hide_player_store_shelf_summary_on">Handlehylle er skjult</string>
-  <string name="revanced_hide_player_store_shelf_summary_off">Handlehold/hylle vises</string>
-  <string name="revanced_hide_shopping_links_title">Skjul innkjøpslenker i videobeskrivelse</string>
-  <string name="revanced_hide_shopping_links_summary_on">Handlelenker er skjult</string>
-  <string name="revanced_hide_shopping_links_summary_off">Lenker for handlekurv vises</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Skjul knappen \"Besøk butikk\" på kanalsider</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Knappen er skjult</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Knappen vises</string>
-  <string name="revanced_hide_web_search_results_title">Skjul søkeresultater</string>
-  <string name="revanced_hide_web_search_results_summary_on">Søkeresultater for web-søk er skjult</string>
-  <string name="revanced_hide_web_search_results_summary_off">Søkeresultater for Web-søk vises</string>
-  <string name="revanced_hide_merchandise_banners_title">Skjul vare-bannere</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">Handelsvare bannere er skjult</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">Varsel-bannere vises</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">Skjul fullskjermsannonser bare som fungerer med eldre enheter</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
-  <string name="revanced_hide_get_premium_title">Skjul YouTube Premium kampanjer</string>
-  <string name="revanced_hide_get_premium_summary_on">YouTube Premium kampanjer under videospiller er skjult</string>
-  <string name="revanced_hide_get_premium_summary_off">YouTube Premium kampanjer under videospiller er vist</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">
-  <string name="revanced_hide_video_ads_title">Skjul video annonser</string>
-  <string name="revanced_hide_video_ads_summary_on">Videoannonser er skjult</string>
-  <string name="revanced_hide_video_ads_summary_off">Videoannonser vises</string>
   </patch>
   <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
-  <string name="revanced_share_copy_url_success">URL kopiert til utklippstavlen</string>
-  <string name="revanced_share_copy_url_timestamp_success">URL med tidsstempel kopiert</string>
-  <string name="revanced_copy_video_url_title">Vis knapp for \"Kopier video-URL\"</string>
-  <string name="revanced_copy_video_url_summary_on">Knappen er vist. Trykk for å kopiere videoadresse. Trykk og hold inne for å kopiere video-URL med tidsstempel</string>
-  <string name="revanced_copy_video_url_summary_off">Knappen vises ikke</string>
-  <string name="revanced_copy_video_url_timestamp_title">Vis knapp for \'Kopier tidsstempel\'-URL</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Knappen er vist. Trykk for å kopiere videoURL med tidsstempel. Trykk og hold for å kopiere video uten tidsstempel</string>
-  <string name="revanced_copy_video_url_timestamp_summary_off">Knappen vises ikke</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
-  <string name="revanced_remove_viewer_discretion_dialog_title">Fjern dialogboksen for viserdiskresjon</string>
-  <string name="revanced_remove_viewer_discretion_dialog_summary_on">Dialogvindu vil bli fjernet</string>
-  <string name="revanced_remove_viewer_discretion_dialog_summary_off">Dialogvindu vil bli vist</string>
-  <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Dette forbigår ikke aldersbegrensningen. Det godtar bare den automatisk.</string>
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
-  <string name="revanced_external_downloader_screen_title">Eksterne nedlastinger</string>
-  <string name="revanced_external_downloader_screen_summary">Innstillinger for å bruke ekstern nedlasting</string>
-  <string name="revanced_external_downloader_title">Vis ekstern nedlastingsknapp</string>
-  <string name="revanced_external_downloader_summary_on">Laste ned knappen som vises i spilleren</string>
-  <string name="revanced_external_downloader_summary_off">Laste ned knappen som ikke vises i spiller</string>
   <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
-  <string name="revanced_external_downloader_action_button_title">Overstyr handlingsknappen for nedlasting</string>
-  <string name="revanced_external_downloader_action_button_summary_on">Nedlasting knappen åpner din eksterne nedlaster</string>
-  <string name="revanced_external_downloader_action_button_summary_off">Nedlastingsknappen åpner den innebygde nedlasteren</string>
-  <string name="revanced_external_downloader_name_title">Last ned pakkenavn</string>
-  <string name="revanced_external_downloader_name_summary">Pakkenavn på din installerte eksterne nedlastingsapp, slik som NewPipe eller Seal</string>
-  <string name="revanced_external_downloader_not_installed_warning">%s er ikke installert. Installer den.</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
-  <string name="revanced_disable_precise_seeking_gesture_title">Deaktivere presis søkefelt</string>
-  <string name="revanced_disable_precise_seeking_gesture_summary_on">Bevegelse er deaktivert</string>
-  <string name="revanced_disable_precise_seeking_gesture_summary_off">Gest er aktivert</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
-  <string name="revanced_seekbar_tapping_title">Aktiver søkerklikk</string>
-  <string name="revanced_seekbar_tapping_summary_on">Seekbar tapping er aktivert</string>
-  <string name="revanced_seekbar_tapping_summary_off">Seekbar kartlegging er deaktivert</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
-  <string name="revanced_swipe_brightness_title">Aktiver lysstyrkebevegelser</string>
-  <string name="revanced_swipe_brightness_summary_on">Lysstyrke swipe er aktivert</string>
-  <string name="revanced_swipe_brightness_summary_off">Lysstyrke swipe er deaktivert</string>
-  <string name="revanced_swipe_volume_title">Aktiver volumbevegelser</string>
-  <string name="revanced_swipe_volume_summary_on">Volum swipe er aktivert</string>
-  <string name="revanced_swipe_volume_summary_off">Volum swipe er deaktivert</string>
-  <string name="revanced_swipe_press_to_engage_title">Aktiver trykk-til-sveipe-bevegelse</string>
-  <string name="revanced_swipe_press_to_engage_summary_on">Trykk-til-sveip er aktivert</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">Trykk-til-sveip er deaktivert</string>
-  <string name="revanced_swipe_haptic_feedback_title">Aktiver haptisk tilbakemelding</string>
-  <string name="revanced_swipe_haptic_feedback_summary_on">Haptisk tilbakemelding er aktivert</string>
-  <string name="revanced_swipe_haptic_feedback_summary_off">Haptisk tilbakemelding er deaktivert</string>
-  <string name="revanced_swipe_save_and_restore_brightness_title">Lagre og gjenopprett lysstyrke</string>
-  <string name="revanced_swipe_save_and_restore_brightness_summary_on">Lagre og gjenopprett lysstyrke når du avslutter eller skriver inn fullskjerm</string>
-  <string name="revanced_swipe_save_and_restore_brightness_summary_off">Ikke lagre eller gjenopprett lysstyrke når du avslutter eller åpner fullskjerm</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Aktiver auto-lysstyrkebevegelse</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Sveip ned til den laveste verdien for lysstyrkebevegelser aktiverer automatisk lysstyrke</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Sveip ned til laveste verdi aktiverer ikke automatisk lysstyrke</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automatisk</string>
-  <string name="revanced_swipe_overlay_timeout_title">Sveip overlegg tidsavbrudd</string>
-  <string name="revanced_swipe_overlay_timeout_summary">Mengden av millisekunder overlegget er synlig</string>
-  <string name="revanced_swipe_text_overlay_size_title">Sveip overlegg tekststørrelse</string>
-  <string name="revanced_swipe_text_overlay_size_summary">Tekststørrelsen for sveipeoverlegg</string>
-  <string name="revanced_swipe_overlay_background_alpha_title">Sveip bakgrunnssynlighet</string>
-  <string name="revanced_swipe_overlay_background_alpha_summary">Bakgrunn for sveipeoverlegg er synlig</string>
-  <string name="revanced_swipe_threshold_title">Sveip størrelse terskel</string>
-  <string name="revanced_swipe_threshold_summary">Mengden terskel du må bruke</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
-  <string name="revanced_auto_captions_title">Deaktiver bildetekst</string>
-  <string name="revanced_auto_captions_summary_on">Automatisk bildetekst er deaktivert</string>
-  <string name="revanced_auto_captions_summary_off">Automatisk bildetekst er aktivert</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
-  <string name="revanced_hide_buttons_screen_title">Handlingsknapper</string>
-  <string name="revanced_hide_buttons_screen_summary">Skjul eller vis knapper under videoer</string>
-  <string name="revanced_hide_like_dislike_button_title">Skjul \'Like and Disliker\'</string>
-  <string name="revanced_hide_like_dislike_button_summary_on">Liker og liker ikke knapper er skjult</string>
-  <string name="revanced_hide_like_dislike_button_summary_off">Liker og feilaktige knapper blir vist</string>
   <!-- 'Share' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_share_button_title">Skjul deling</string>
-  <string name="revanced_hide_share_button_summary_on">Dele-knappen er skjult</string>
-  <string name="revanced_hide_share_button_summary_off">Dele-knappen vises</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
-  <string name="revanced_hide_report_button_title">Skjul rapport</string>
-  <string name="revanced_hide_report_button_summary_on">Rapport-knappen er skjult</string>
-  <string name="revanced_hide_report_button_summary_off">Rapport-knappen vises</string>
   <!-- 'Remix' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_remix_button_title">Skjul Remiks</string>
-  <string name="revanced_hide_remix_button_summary_on">Remiks-knappen er skjult</string>
-  <string name="revanced_hide_remix_button_summary_off">Remiks-knappen vises</string>
   <!-- 'Download' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_download_button_title">Skjul nedlasting</string>
-  <string name="revanced_hide_download_button_summary_on">Nedlastingsknappen er skjult</string>
-  <string name="revanced_hide_download_button_summary_off">Last ned-knappen vises</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_thanks_button_title">Skjul takk</string>
-  <string name="revanced_hide_thanks_button_summary_on">Tusen takk er skjult</string>
-  <string name="revanced_hide_thanks_button_summary_off">Tusen takk vises</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_clip_button_summary_on">Klipp knappen er skjult</string>
-  <string name="revanced_hide_clip_button_summary_off">Klipp knappen vises</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_playlist_button_title">Skjul lagring til spilleliste</string>
-  <string name="revanced_hide_playlist_button_summary_on">Lagre i spilleliste-knappen er skjult</string>
-  <string name="revanced_hide_playlist_button_summary_off">Lagre i spilleliste-knappen vises</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
-  <string name="revanced_navigation_buttons_screen_title">Navigation buttons</string>
-  <string name="revanced_navigation_buttons_screen_summary">Skjul eller endre knapper i navigasjonslinjen</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
-  <string name="revanced_hide_home_button_title">Skjul startsiden</string>
-  <string name="revanced_hide_home_button_summary_on">Hjem-knappen er skjult</string>
-  <string name="revanced_hide_home_button_summary_off">Hjem knappen vises</string>
   <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_hide_shorts_button_title">Skjul Shorts</string>
   <string name="revanced_hide_shorts_button_summary_on">Shorts-knappen er skjult</string>
   <string name="revanced_hide_shorts_button_summary_off">Shorts-knappen vises</string>
   <!-- The Create button has no display name. Translate normally. -->
-  <string name="revanced_hide_create_button_title">Skjul Lag</string>
-  <string name="revanced_hide_create_button_summary_on">Lage knappen er skjult</string>
-  <string name="revanced_hide_create_button_summary_off">Opprett knapp er vist</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays the tab. -->
-  <string name="revanced_hide_subscriptions_button_title">Skjul abonnementer</string>
-  <string name="revanced_hide_subscriptions_button_summary_on">Abonnementer-knappen er skjult</string>
-  <string name="revanced_hide_subscriptions_button_summary_off">Abonnementer-knappen er vist</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
-  <string name="revanced_switch_create_with_notifications_button_title">Bytt ved opprettelse av varsler</string>
-  <string name="revanced_switch_create_with_notifications_button_summary_on">Opprette knapp er slått på med Varslingsknappen\n\nMerk: Aktivering av dette også tvangsskjuler video-annonser</string>
-  <string name="revanced_switch_create_with_notifications_button_summary_off">Opprette knapp er ikke slått på med varslingsknapp</string>
-  <string name="revanced_hide_navigation_button_labels_title">Skjul navigasjonsknapp etiketter</string>
-  <string name="revanced_hide_navigation_button_labels_summary_on">Etiketter er skjult</string>
-  <string name="revanced_hide_navigation_button_labels_summary_off">Etiketter er vist</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
-  <string name="revanced_hide_player_flyout_title">Flyout menu</string>
-  <string name="revanced_hide_player_flyout_summary">Skjul eller vis spillere flukte menyelementer</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_captions_title">Skjul tekst</string>
-  <string name="revanced_hide_player_flyout_captions_summary_on">Tekstmenyen er skjult</string>
-  <string name="revanced_hide_player_flyout_captions_summary_off">Tekstmeny er vist</string>
   <!-- 'Additional settings' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_additional_settings_title">Skjul tilleggsinnstillinger</string>
-  <string name="revanced_hide_player_flyout_additional_settings_summary_on">Ytterlige innstillingsmeny er skjult</string>
-  <string name="revanced_hide_player_flyout_additional_settings_summary_off">Flere innstillingsmeny er vist</string>
   <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_sleep_timer_title">Skjul sovtidtaker</string>
-  <string name="revanced_hide_player_flyout_sleep_timer_summary_on">Dvale-tidtakermenyen er skjult</string>
-  <string name="revanced_hide_player_flyout_sleep_timer_summary_off">Sleep Timer meny er vist</string>
   <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_loop_video_title">Skjul video på løkke</string>
-  <string name="revanced_hide_player_flyout_loop_video_summary_on">Video-menyen en loop er skjult</string>
-  <string name="revanced_hide_player_flyout_loop_video_summary_off">Sløyfe video-menyen vises</string>
   <!-- 'Ambient mode' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_ambient_mode_title">Skjul Ambient modus</string>
-  <string name="revanced_hide_player_flyout_ambient_mode_summary_on">Meny for omgivelsesmodus er skjult</string>
-  <string name="revanced_hide_player_flyout_ambient_mode_summary_off">Ambient modus meny er vist</string>
-  <string name="revanced_hide_player_flyout_stable_volume_title">Skjul Stabil volum</string>
-  <string name="revanced_hide_player_flyout_stable_volume_summary_off">Stabil volummeny er vist</string>
-  <string name="revanced_hide_player_flyout_stable_volume_summary_on">Stabil volummeny er skjult</string>
   <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_help_title">Skjul hjelp &amp; tilbakemelding</string>
-  <string name="revanced_hide_player_flyout_help_summary_on">Hjelp &amp; Tilbakemeldingsmenyen er skjult</string>
-  <string name="revanced_hide_player_flyout_help_summary_off">Hjelp &amp; Tilbakemeldingsmeny vises</string>
   <!-- 'Playback speed' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_speed_title">Skjul avspillingshastighet</string>
-  <string name="revanced_hide_player_flyout_speed_summary_on">Menyen avspillingshastighet er gjemt</string>
-  <string name="revanced_hide_player_flyout_speed_summary_off">Menyen for avspillingshastighet er vist</string>
   <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Skjul mer informasjon</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Mer informasjonsmeny er skjult</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Mer informasjonsmeny vises</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_lock_screen_title">Skjul låseskjermen</string>
-  <string name="revanced_hide_player_flyout_lock_screen_summary_on">Låseskjermmenyen er skjult</string>
-  <string name="revanced_hide_player_flyout_lock_screen_summary_off">Låseskjermmeny vises</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_audio_track_title">Skjul lydspor</string>
-  <string name="revanced_hide_player_flyout_audio_track_summary_on">Lydspor-meny er skjult</string>
-  <string name="revanced_hide_player_flyout_audio_track_summary_off">Lydspor-meny er vist</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_watch_in_vr_title">Skjul klokke i VR</string>
-  <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Se i VR-menyen er skjult</string>
-  <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Se i VR-meny for å vise</string>
-  <string name="revanced_hide_player_flyout_video_quality_footer_title">Skjul meny for bildekvalitet bunntekst</string>
-  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Menybunntekst for videokvalitet er skjult</string>
-  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Menybunntekst for videokvalitet vises</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_player_previous_next_buttons_title">Skjul forrige &amp; neste videoknapper</string>
-  <string name="revanced_hide_player_previous_next_buttons_summary_on">Knappene er skjult</string>
-  <string name="revanced_hide_player_previous_next_buttons_summary_off">Det vises knapper</string>
-  <string name="revanced_hide_cast_button_title">Skjul kast knapp</string>
-  <string name="revanced_hide_cast_button_summary_on">Støp-knappen er skjult</string>
-  <string name="revanced_hide_cast_button_summary_off">Oversiktsknappen er vist</string>
   <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
-  <string name="revanced_hide_captions_button_title">Skjul undertekst-knappen</string>
-  <string name="revanced_hide_captions_button_summary_on">Tekstknappen er skjult</string>
-  <string name="revanced_hide_captions_button_summary_off">Tekst-knappen vises</string>
-  <string name="revanced_hide_autoplay_button_title">Skjul automatisk avspillingsknapp</string>
-  <string name="revanced_hide_autoplay_button_summary_on">Autospill-knappen er skjult</string>
-  <string name="revanced_hide_autoplay_button_summary_off">Autospill-knappen vises</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
-  <string name="revanced_hide_endscreen_cards_title">Skjul avsluttende skjerm-kort</string>
-  <string name="revanced_hide_endscreen_cards_summary_on">Sluttskjerm kort er skjult</string>
-  <string name="revanced_hide_endscreen_cards_summary_off">Sluttskjerm vises</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
-  <string name="revanced_disable_fullscreen_ambient_mode_title">Deaktiver omgivelsesmodus i fullskjerm</string>
-  <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Ambient modus deaktivert</string>
-  <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Ambient modus aktivert</string>
   </patch>
   <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
-  <string name="revanced_hide_info_cards_title">Skjul informasjonskort</string>
-  <string name="revanced_hide_info_cards_summary_on">Informasjonskort er skjult</string>
-  <string name="revanced_hide_info_cards_summary_off">Informasjonskort vises</string>
   </patch>
   <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
-  <string name="revanced_disable_rolling_number_animations_title">Deaktiver animasjoner i rullende tall</string>
-  <string name="revanced_disable_rolling_number_animations_summary_on">Rullende nummer er ikke animert</string>
-  <string name="revanced_disable_rolling_number_animations_summary_off">Rullende nummer er animert</string>
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
-  <string name="revanced_hide_seekbar_title">Skjul søkefelt i videospiller</string>
-  <string name="revanced_hide_seekbar_summary_on">Videospillers søkefelt er skjult</string>
-  <string name="revanced_hide_seekbar_summary_off">Vises Videospiller-søkefelt</string>
-  <string name="revanced_hide_seekbar_thumbnail_title">Skjul søkefelt i video-miniatyrbilder</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_on">Miniatyrbilde søkefeltet er skjult</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_off">Miniatyrbilde søkefelt vises</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -597,702 +169,126 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_search_summary_on">Shorts i søkeresultatene er skjult</string>
   <string name="revanced_hide_shorts_search_summary_off">Shorts i søkeresultatene vises</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_join_button_title">Skjul join knapp</string>
-  <string name="revanced_hide_shorts_join_button_summary_on">Bli-med knappen er skjult</string>
-  <string name="revanced_hide_shorts_join_button_summary_off">Bli-med knapp vises</string>
   <!-- 'subscribe' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_subscribe_button_title">Skjul abbontknapp</string>
-  <string name="revanced_hide_shorts_subscribe_button_summary_on">Abonner knappen er skjult</string>
-  <string name="revanced_hide_shorts_subscribe_button_summary_off">Abonner er vist</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_title">Skjul pausede overleggsknapper</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Malete dekningsknapper er skjult</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Malte knapper for dekking er vist</string>
-  <string name="revanced_hide_shorts_shop_button_title">Skjul butikkknapp</string>
-  <string name="revanced_hide_shorts_shop_button_summary_on">Butikkknappen er skjult</string>
-  <string name="revanced_hide_shorts_shop_button_summary_off">Butikkknappen vises</string>
-  <string name="revanced_hide_shorts_super_thanks_button_title">Gjem supertakknapp</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_on">Super takk-knappen er skjult</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_off">Super takk knappen er vist</string>
-  <string name="revanced_hide_shorts_tagged_products_title">Skjul merkede produkter</string>
-  <string name="revanced_hide_shorts_tagged_products_summary_on">Merkede produkter er skjult</string>
-  <string name="revanced_hide_shorts_tagged_products_summary_off">Merkede produkter blir vist</string>
-  <string name="revanced_hide_shorts_location_label_title">Skjul merkelapp for plassering</string>
-  <string name="revanced_hide_shorts_location_label_summary_on">Posisjonsetiketten er skjult</string>
-  <string name="revanced_hide_shorts_location_label_summary_off">Posisjonsetikett vises</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Skjul \"Lagre musikk\"-knapp</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Lagre-knappen er skjult</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Lagre musikkknapp vises</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Skjul knapp for bruk av mal</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Bruk malknappen er skjult</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Bruk malknapp er vist</string>
-  <string name="revanced_hide_shorts_upcoming_button_title">Skjul kommende knapp</string>
-  <string name="revanced_hide_shorts_upcoming_button_summary_on">Kommende knapp er skjult</string>
-  <string name="revanced_hide_shorts_upcoming_button_summary_off">Kommende knapp er vist</string>
-  <string name="revanced_hide_shorts_green_screen_button_title">Skjul grønn skjermknapp</string>
-  <string name="revanced_hide_shorts_green_screen_button_summary_on">Grønn skjermknapp er skjult</string>
-  <string name="revanced_hide_shorts_green_screen_button_summary_off">Grønn skjermknapp vises</string>
-  <string name="revanced_hide_shorts_hashtag_button_title">Skjul hashtag knapp</string>
-  <string name="revanced_hide_shorts_hashtag_button_summary_on">Hashtag knappen er skjult</string>
-  <string name="revanced_hide_shorts_hashtag_button_summary_off">Hashtag knappen er vist</string>
-  <string name="revanced_hide_shorts_search_suggestions_title">Skjul søkeforslag</string>
-  <string name="revanced_hide_shorts_search_suggestions_summary_on">Søkeforslag er skjult</string>
-  <string name="revanced_hide_shorts_search_suggestions_summary_off">Søk forslag vises</string>
-  <string name="revanced_hide_shorts_stickers_title">Skjul klistremerker</string>
-  <string name="revanced_hide_shorts_stickers_summary_on">Klistremerker er skjult</string>
-  <string name="revanced_hide_shorts_stickers_summary_off">Klistremerker vises</string>
-  <string name="revanced_hide_shorts_like_fountain_title">Skjul som kilde</string>
-  <string name="revanced_hide_shorts_like_fountain_summary_on">Lik knappens kildeanimasjon er skjult</string>
-  <string name="revanced_hide_shorts_like_fountain_summary_off">Lik knappens animasjon vises</string>
-  <string name="revanced_hide_shorts_like_button_title">Skjul som knappen</string>
-  <string name="revanced_hide_shorts_like_button_summary_on">Lik knappen er skjult</string>
-  <string name="revanced_hide_shorts_like_button_summary_off">Liker-knappen vises</string>
-  <string name="revanced_hide_shorts_dislike_button_title">Skjul mislik knapp</string>
-  <string name="revanced_hide_shorts_dislike_button_summary_on">Mislik knappen er skjult</string>
-  <string name="revanced_hide_shorts_dislike_button_summary_off">Mislik knappen blir vist</string>
-  <string name="revanced_hide_shorts_comments_button_title">Skjul kommentar-knappen</string>
-  <string name="revanced_hide_shorts_comments_button_summary_on">Kommentarknappen er skjult</string>
-  <string name="revanced_hide_shorts_comments_button_summary_off">Kommentarer er vist</string>
   <!-- 'remix' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_remix_button_title">Skjule remiksknappen</string>
-  <string name="revanced_hide_shorts_remix_button_summary_on">Remiks-knappen er skjult</string>
-  <string name="revanced_hide_shorts_remix_button_summary_off">Remiks-knappen vises</string>
   <!-- 'share' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_share_button_title">Skjul delingsknappen</string>
-  <string name="revanced_hide_shorts_share_button_summary_on">Dele-knappen er skjult</string>
-  <string name="revanced_hide_shorts_share_button_summary_off">Dele-knappen vises</string>
-  <string name="revanced_hide_shorts_info_panel_title">Skjul informasjonspanelet</string>
-  <string name="revanced_hide_shorts_info_panel_summary_on">Info panelet er skjult</string>
-  <string name="revanced_hide_shorts_info_panel_summary_off">Informasjonspanelet vises</string>
-  <string name="revanced_hide_shorts_channel_bar_title">Skjul kanallinje</string>
-  <string name="revanced_hide_shorts_channel_bar_summary_on">Kanal bar er skjult</string>
-  <string name="revanced_hide_shorts_channel_bar_summary_off">Kanalbar vises</string>
-  <string name="revanced_hide_shorts_video_title_title">Skjul videotittel</string>
-  <string name="revanced_hide_shorts_video_title_summary_on">Tittelen er skjult</string>
-  <string name="revanced_hide_shorts_video_title_summary_off">Tittelen vises</string>
-  <string name="revanced_hide_shorts_sound_metadata_label_title">Skjul metadata for lyd</string>
-  <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Metadata etikett er skjult</string>
-  <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Metadata etikett vises</string>
-  <string name="revanced_hide_shorts_full_video_link_label_title">Skjul etikett for full videokobling</string>
-  <string name="revanced_hide_shorts_full_video_link_label_summary_on">Etikett for videolenke er skjult</string>
-  <string name="revanced_hide_shorts_full_video_link_label_summary_off">Etikett for videolenke vises</string>
-  <string name="revanced_hide_shorts_sound_button_title">Skjul lydknapp</string>
-  <string name="revanced_hide_shorts_sound_button_summary_on">Lydknappen er skjult</string>
-  <string name="revanced_hide_shorts_sound_button_summary_off">Lydknappen vises</string>
-  <string name="revanced_hide_shorts_navigation_bar_title">Skjul navigasjonsfelt</string>
-  <string name="revanced_hide_shorts_navigation_bar_summary_on">Navigasjonslinjen er skjult</string>
-  <string name="revanced_hide_shorts_navigation_bar_summary_off">Navigasjonslinjen vises</string>
   </patch>
   <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
-  <string name="revanced_disable_suggested_video_end_screen_title">Deaktiver foreslått videoslutskjerm</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_on">Foreslåtte videoer blir deaktivert</string>
-  <string name="revanced_disable_suggested_video_end_screen_summary_off">Foreslåtte videoer vises</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
-  <string name="revanced_hide_timestamp_title">Skjul video tidsstempel</string>
-  <string name="revanced_hide_timestamp_summary_on">Tidsstempel er skjult</string>
-  <string name="revanced_hide_timestamp_summary_off">Tidsstempel vises</string>
   </patch>
   <patch id="layout.panels.popup.playerPopupPanelsPatch">
-  <string name="revanced_hide_player_popup_panels_title">Skjul spiller popup-panel</string>
-  <string name="revanced_hide_player_popup_panels_summary_on">Spillerens popup-paneler er skjult</string>
-  <string name="revanced_hide_player_popup_panels_summary_off">Spillerpopup-paneler vises</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
-  <string name="revanced_open_videos_fullscreen_portrait_title">Åpne videoer i fullskjerm portrett</string>
-  <string name="revanced_open_videos_fullscreen_portrait_summary_on">Videoer åpnes fullskjerm</string>
-  <string name="revanced_open_videos_fullscreen_portrait_summary_off">Videoer åpner ikke fullskjerm</string>
   </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
-  <string name="revanced_player_overlay_opacity_title">Spiller overlegg ugjennomsiktighet</string>
-  <string name="revanced_player_overlay_opacity_summary">Gjennomsiktighet mellom 0-100, der 0 er gjennomsiktig</string>
-  <string name="revanced_player_overlay_opacity_invalid_toast">Spiller overlegg opasitet må være mellom 0-100</string>
   </patch>
   <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
-  <string name="revanced_ryd_failure_generic">Misliker ikke tilgjengelig (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
-  <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Oppdater video for å stemme ved å bruke YouTube Retur</string>
-  <string name="revanced_ryd_enable_summary_on">Misliker vises</string>
-  <string name="revanced_ryd_enable_summary_off">Misliker vises ikke</string>
-  <string name="revanced_ryd_shorts_title">Vis mislykte på Shorts</string>
   <string name="revanced_ryd_shorts_summary_on">Misliker vist på Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">Misliker som vises på Shorts\n\nLimitasjon: Misdannelser kan hende i inkognito-modus ikke vises i inkognito-modus</string>
   <string name="revanced_ryd_shorts_summary_off">Misliker skjult på Shorts</string>
-  <string name="revanced_ryd_dislike_percentage_title">Misliker som prosent</string>
-  <string name="revanced_ryd_dislike_percentage_summary_on">Misliker vises som prosent</string>
-  <string name="revanced_ryd_dislike_percentage_summary_off">Misliker som vist som tall</string>
   <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
-  <string name="revanced_ryd_compact_layout_title">Kompakt som knappen</string>
-  <string name="revanced_ryd_compact_layout_summary_on">Lik knappen stilet for minimumsbredde</string>
-  <string name="revanced_ryd_compact_layout_summary_off">Lik knappen stilen for å få best utseende</string>
-  <string name="revanced_ryd_toast_on_connection_error_title">Vis en toast hvis API ikke er tilgjengelig</string>
-  <string name="revanced_ryd_toast_on_connection_error_summary_on">Toast er vist hvis Retur YouTube Mislike ikke er tilgjengelig</string>
-  <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast er ikke vist hvis YouTube Returner er ikke tilgjengelig</string>
-  <string name="revanced_ryd_about">Om</string>
-  <string name="revanced_ryd_attribution_summary">Data er gitt av YouTube Returner Dislike API. Trykk her for å lære mer</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
-  <string name="revanced_ryd_statistics_category_title">ReturnYouTubeDislike API statistikk for denne enheten</string>
-  <string name="revanced_ryd_statistics_getFetchCallResponseTimeAverage_title">API responstid, gjennomsnittlig</string>
-  <string name="revanced_ryd_statistics_getFetchCallResponseTimeMin_title">API responstid, minimum</string>
-  <string name="revanced_ryd_statistics_getFetchCallResponseTimeMax_title">API responstid, maksimum</string>
-  <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_title">API svartid, siste video</string>
-  <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_rate_limit_summary">Misliker midlertidig ikke tilgjengelig - klient API grense i effekt</string>
-  <string name="revanced_ryd_statistics_getFetchCallCount_title">API henting av stemmer, antall samtaler</string>
-  <string name="revanced_ryd_statistics_getFetchCallCount_zero_summary">Ingen nettverksanrop er utført</string>
-  <string name="revanced_ryd_statistics_getFetchCallCount_non_zero_summary">%d nettverk samtaler</string>
-  <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_title">API henting av stemmer, antall tidsavbrudd</string>
-  <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_zero_summary">Ingen nettverkssamtaler ble tidsavbrutt</string>
-  <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_non_zero_summary">%d nettverk samtaler ble tidsavbrutt</string>
-  <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_title">API klient sats grense</string>
-  <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">Ingen klient rate grense funnet</string>
-  <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Klientrate grense oppdaget %d ganger</string>
-  <string name="revanced_ryd_statistics_millisecond_text">%d millisekunder</string>
   </patch>
   <patch id="layout.searchbar.wideSearchbarPatch">
-  <string name="revanced_wide_searchbar_title">Aktiver bredt søkefelt</string>
-  <string name="revanced_wide_searchbar_summary_on">Bred søkefeltet er aktivert</string>
-  <string name="revanced_wide_searchbar_summary_off">Bred søkefeltet er deaktivert</string>
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
-  <string name="revanced_seekbar_thumbnails_high_quality_title">Aktiver miniatyrbilder av høy kvalitet</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Seekbar miniatyrbilder er av høy kvalitet</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Seekbar miniatyrbilder er middels høy kvalitet</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Fullskjerm søkbar miniatyrbilder er høy kvalitet</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Fullskjerm søkbar miniatyrbilder er middels kvalitet</string>
-  <string name="revanced_restore_old_seekbar_thumbnails_title">Gjenopprett gamle miniatyrbilder for søkefelt</string>
-  <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Seekbar miniatyrbilder vil vises over søkefeltet</string>
-  <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Seekbar miniatyrbilder vil vises i fullskjerm</string>
   </patch>
   <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
-  <string name="revanced_sb_enable_sb">Aktiver SponsorBlock</string>
-  <string name="revanced_sb_enable_sb_sum">SponsorBlock er et crowsourced system for å hoppe over irriterende deler av YouTube-videoer</string>
-  <string name="revanced_sb_appearance_category">Utseende</string>
-  <string name="revanced_sb_enable_voting">Vis stemmeknapp</string>
-  <string name="revanced_sb_enable_voting_sum_on">Segment Vises</string>
-  <string name="revanced_sb_enable_voting_sum_off">Segment Avstemning-knappen er ikke vist</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
-  <string name="revanced_sb_enable_compact_skip_button">Bruk kompakt sprang-knappen</string>
-  <string name="revanced_sb_enable_compact_skip_button_sum_on">Hopp over stilen for minimumsbredde</string>
-  <string name="revanced_sb_enable_compact_skip_button_sum_off">Hopp over knappen som er stylet for best utseende</string>
-  <string name="revanced_sb_enable_auto_hide_skip_segment_button">Skjul knappen automatisk</string>
-  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Hopp over knappen skjuler etter noen sekunder</string>
-  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Hopp over knappen som vises for hele segmentet</string>
-  <string name="revanced_sb_general_skiptoast">Vis en toast når du hopper over automatisk</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">Toast vises når et segment hoppes over automatisk. Trykk her for å se et eksempel</string>
-  <string name="revanced_sb_general_skiptoast_sum_off">Toast er ikke vist. Trykk her for å se et eksempel</string>
-  <string name="revanced_sb_general_time_without">Vis videolengde uten segmenter</string>
-  <string name="revanced_sb_general_time_without_sum_on">Videolengde minus alle segmenter, vist i parentes ved siden av full videolengde</string>
-  <string name="revanced_sb_general_time_without_sum_off">Full videolengde vist</string>
-  <string name="revanced_sb_create_segment_category">Oppretter nye segmenter</string>
-  <string name="revanced_sb_enable_create_segment">Vis opprett nytt segment knapp</string>
-  <string name="revanced_sb_enable_create_segment_sum_on">Lage ny segmentknapp vises</string>
-  <string name="revanced_sb_enable_create_segment_sum_off">Lage ny segmentknapp er ikke vist</string>
-  <string name="revanced_sb_general_adjusting">Juster nye segmenttrinn</string>
-  <string name="revanced_sb_general_adjusting_sum">Antall millisekunder tiden justeringsknappene flytter når nye segmenter lages</string>
-  <string name="revanced_sb_general_adjusting_invalid">Verdien må være et positivt tall</string>
-  <string name="revanced_sb_guidelines_preference_title">Se retningslinjer</string>
-  <string name="revanced_sb_guidelines_preference_sum">Retningslinjer inneholder regler og tips for å opprette nye segmenter</string>
-  <string name="revanced_sb_guidelines_popup_title">Følg retningslinjene</string>
-  <string name="revanced_sb_guidelines_popup_content">Les SponsorBlock retningslinjer før du oppretter nye segmenter</string>
-  <string name="revanced_sb_guidelines_popup_already_read">Allerede lest</string>
-  <string name="revanced_sb_guidelines_popup_open">Vis meg</string>
-  <string name="revanced_sb_general">Generelt</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Vis en toast hvis API ikke er tilgjengelig</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Toast vises dersom SponsorBlock ikke er tilgjengelig</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Toast vises ikke dersom SponsorBlock ikke er tilgjengelig</string>
-  <string name="revanced_sb_general_skipcount">Aktiver hopp over tellersporing</string>
-  <string name="revanced_sb_general_skipcount_sum_on">Lar SponsorBlock ledertavlen vite hvor lang tid som blir lagret. En melding sendes til ledertavlen hver gang et segment blir hoppet over</string>
-  <string name="revanced_sb_general_skipcount_sum_off">Hopp over tellersporing er ikke aktivert</string>
-  <string name="revanced_sb_general_min_duration">Minste segmentvarighet</string>
-  <string name="revanced_sb_general_min_duration_sum">Segmenter kortere enn denne verdien (i sekunder) vil ikke bli vist eller hoppet over</string>
-  <string name="revanced_sb_general_min_duration_invalid">Ugyldig tidsvarighet</string>
-  <string name="revanced_sb_general_uuid">Din private bruker-ID</string>
-  <string name="revanced_sb_general_uuid_sum">Dette burde holdes privat. Dette er som et passord og burde ikke deles med noen. Hvis noen har dette, kan de impersonere deg</string>
-  <string name="revanced_sb_general_uuid_invalid">Privat bruker-ID må være minst 30 tegn</string>
-  <string name="revanced_sb_general_api_url">Endre API URL</string>
-  <string name="revanced_sb_general_api_url_sum">Adressen SponsorBlock bruker til å ringe til serveren</string>
-  <string name="revanced_sb_api_url_reset">API URL reset</string>
-  <string name="revanced_sb_api_url_invalid">API-adressen er ugyldig</string>
-  <string name="revanced_sb_api_url_changed">API URL endret</string>
-  <string name="revanced_sb_settings_ie">Importér/Eksport innstillinger</string>
-  <string name="revanced_sb_settings_copy">Kopier</string>
-  <string name="revanced_sb_settings_ie_sum">Din SponsorBlock JSON-konfigurasjon som kan importeres/eksporteres til ReVanced og andre SponsorBlock plattformer</string>
-  <string name="revanced_sb_settings_ie_sum_warning">Din SponsorBlock JSON-konfigurasjon som kan importeres/eksporteres til ReVanced og andre SponsorBlock plattformer. Dette inkluderer din private bruker-id. Husk å dele denne klokt</string>
-  <string name="revanced_sb_settings_import_successful">Innstillingene ble importert</string>
-  <string name="revanced_sb_settings_import_failed">Kan ikke importere: %s</string>
-  <string name="revanced_sb_settings_export_failed">Kunne ikke eksportere: %s</string>
-  <string name="revanced_sb_settings_revanced_export_user_id_warning">Innstillingene inneholder en privat SponsorBlock brukerid.\n\nBruker-id er som et passord og det skal aldri deles.\n</string>
-  <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">Ikke vis dette igjen</string>
-  <string name="revanced_sb_diff_segments">Endre segmentatferd</string>
-  <string name="revanced_sb_segments_sponsor">Spons</string>
-  <string name="revanced_sb_segments_sponsor_sum">Betalt kampanje, betalte henvisninger og direkte annonser. Ikke for selvpromotering eller gratis utrop for årsaker/skapere/websider/produkter som de liker</string>
-  <string name="revanced_sb_segments_selfpromo">Ubetalt/Selv forfremmelse</string>
-  <string name="revanced_sb_segments_selfpromo_sum">Lik \"Sponsor\" unntatt ubetalt eller selvforfremmelse. Inkluderer seksjoner om vare, donasjoner eller informasjon om hvem de samarbeider med</string>
-  <string name="revanced_sb_segments_interaction">Interaksjonspåminnelse (Delebrev)</string>
-  <string name="revanced_sb_segments_interaction_sum">En kort påminnelse om å ønske, abonnere på eller følge dem midt i innholdet. Hvis det er lang eller om noe spesifikk, må det i stedet være under selvforfremmelse</string>
-  <string name="revanced_sb_segments_highlight">Uthev</string>
-  <string name="revanced_sb_segments_highlight_sum">Den delen av videoen flest ser etter</string>
-  <string name="revanced_sb_segments_intro">Intermission/Introduksjon Animasjon</string>
-  <string name="revanced_sb_segments_intro_sum">Angi intervall uten faktisk innhold. Kan være en pause, en statisk ramme eller gjenta animasjon. Inneholder ikke overganger som inneholder informasjon</string>
-  <string name="revanced_sb_segments_outro">Endekort/Kreditt</string>
-  <string name="revanced_sb_segments_outro_sum">Kreditt eller når YouTube sluttkort vises. Ikke for konklusjoner med informasjon</string>
-  <string name="revanced_sb_segments_preview">Forhåndsvisning/oppslag/krok</string>
-  <string name="revanced_sb_segments_preview_sum">Samling av klipp som viser hva som kommer eller hva som har skjedd i videoen eller i andre videoer av en serie, der all informasjon gjentas andre steder</string>
-  <string name="revanced_sb_segments_filler">Filtre Tangent/Jokes</string>
-  <string name="revanced_sb_segments_filler_sum">Tangensielle scener tilsatt bare for filler eller humor som ikke er nødvendig for å forstå hovedinnholdet i videoen. Inkluderer ikke segmenter som gir kontekst eller bakgrunnsopplysninger</string>
-  <string name="revanced_sb_segments_nomusic">Musikk: ikke-musikkseksjon</string>
-  <string name="revanced_sb_segments_nomusic_sum">Bare for bruk i musikkvideoer. Seksjoner av musikkvideoer uten musikk, som ikke allerede dekkes av en annen kategori</string>
-  <string name="revanced_sb_skip_button_compact">Hopp</string>
-  <string name="revanced_sb_skip_button_compact_highlight">Uthev</string>
-  <string name="revanced_sb_skip_button_sponsor">Hopp over sponsor</string>
-  <string name="revanced_sb_skip_button_selfpromo">Hopp over promo</string>
-  <string name="revanced_sb_skip_button_interaction">Hopp over samhandling</string>
-  <string name="revanced_sb_skip_button_highlight">Hopp over å fremheve</string>
-  <string name="revanced_sb_skip_button_intro_beginning">Hopp over introduksjon</string>
-  <string name="revanced_sb_skip_button_intro_middle">Hopp over oppdrag</string>
-  <string name="revanced_sb_skip_button_intro_end">Hopp over oppdrag</string>
-  <string name="revanced_sb_skip_button_outro">Skip outro</string>
-  <string name="revanced_sb_skip_button_preview_beginning">Hopp over forhåndsvisning</string>
-  <string name="revanced_sb_skip_button_preview_middle">Hopp over forhåndsvisning</string>
-  <string name="revanced_sb_skip_button_preview_end">Hopp over recap</string>
-  <string name="revanced_sb_skip_button_filler">Hopp over fylling</string>
-  <string name="revanced_sb_skip_button_nomusic">Hopp over ikke-musikk</string>
-  <string name="revanced_sb_skip_button_unsubmitted">Hopp over segment</string>
-  <string name="revanced_sb_skipped_sponsor">Hoppet over sponsor</string>
-  <string name="revanced_sb_skipped_selfpromo">Hoppet over selv-kampanje</string>
-  <string name="revanced_sb_skipped_interaction">Hoppet over irriterende påminnelse</string>
-  <string name="revanced_sb_skipped_highlight">Hoppet til fremheving</string>
-  <string name="revanced_sb_skipped_intro_beginning">Hoppet over intro</string>
-  <string name="revanced_sb_skipped_intro_middle">Hoppet over opptak</string>
-  <string name="revanced_sb_skipped_intro_end">Hoppet over opptak</string>
-  <string name="revanced_sb_skipped_outro">Hoppet over kupong</string>
-  <string name="revanced_sb_skipped_preview_beginning">Hoppet over forhåndsvisning</string>
-  <string name="revanced_sb_skipped_preview_middle">Hoppet over forhåndsvisning</string>
-  <string name="revanced_sb_skipped_preview_end">Hoppet over recap</string>
-  <string name="revanced_sb_skipped_filler">Hoppet over fylleren</string>
-  <string name="revanced_sb_skipped_nomusic">Hoppet over en ikke-musikkseksjon</string>
-  <string name="revanced_sb_skipped_unsubmitted">Hoppet uspesifisert segment</string>
-  <string name="revanced_sb_skipped_multiple_segments">Hoppet over flere segmenter</string>
-  <string name="revanced_sb_skip_automatically">Hopp over automatisk</string>
-  <string name="revanced_sb_skip_automatically_once">Hopp over automatisk én gang</string>
-  <string name="revanced_sb_skip_showbutton">Vis en hoppe</string>
-  <string name="revanced_sb_skip_seekbaronly">Vis i søkefelt</string>
-  <string name="revanced_sb_skip_ignore">Deaktiver</string>
-  <string name="revanced_sb_submit_failed_invalid">Kan ikke sende segment: %s</string>
-  <string name="revanced_sb_submit_failed_timeout">SponsorBlock er midlertidig nede</string>
-  <string name="revanced_sb_submit_failed_unknown_error">Kan ikke sende segment (status: %1$d %2$s)</string>
-  <string name="revanced_sb_submit_failed_rate_limit">Kan ikke sende segment.\nRate Limited (for mange fra samme bruker eller IP)</string>
-  <string name="revanced_sb_submit_failed_forbidden">Kan ikke sende segmentet: %s</string>
-  <string name="revanced_sb_submit_failed_duplicate">Kan ikke sende segmentet.\nfinnes allerede</string>
-  <string name="revanced_sb_submit_succeeded">Segment vellykket sendt</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
-  <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock er midlertidig ikke tilgjengelig</string>
-  <string name="revanced_sb_vote_failed_timeout">Kan ikke stemme på segment (API tidsavbrutt)</string>
-  <string name="revanced_sb_vote_failed_unknown_error">Kan ikke stemme på segment (status: %1$d %2$s)</string>
-  <string name="revanced_sb_vote_failed_forbidden">Kan ikke stemme på segmentet: %s</string>
-  <string name="revanced_sb_vote_upvote">Upvote</string>
-  <string name="revanced_sb_vote_downvote">Nedstemme</string>
-  <string name="revanced_sb_vote_category">Endre kategori</string>
-  <string name="revanced_sb_vote_no_segments">Det er ingen segmenter å stemme på</string>
-  <string name="revanced_sb_new_segment_choose_category">Velg segmentkategori</string>
-  <string name="revanced_sb_new_segment_disabled_category">Kategorien er deaktivert i innstillinger. Aktiver kategori for å sende.</string>
-  <string name="revanced_sb_new_segment_title">Nytt sponsorBlock segment</string>
-  <string name="revanced_sb_new_segment_mark_start">start</string>
-  <string name="revanced_sb_new_segment_mark_end">slutt</string>
-  <string name="revanced_sb_new_segment_now">nå</string>
-  <string name="revanced_sb_new_segment_time_start">Tidsrom segmentet begynner ved</string>
-  <string name="revanced_sb_new_segment_time_end">Tid segmentet slutter ved</string>
-  <string name="revanced_sb_new_segment_confirm_title">Er tidene riktig?</string>
-  <string name="revanced_sb_new_segment_confirm_content">Segmentet er fra\n\n%1$s\ntil\n%2$s\n\n(%3$s)\n\nklar til å sende?</string>
-  <string name="revanced_sb_new_segment_start_is_before_end">Start må være før slutten</string>
-  <string name="revanced_sb_new_segment_mark_locations_first">Marker to lokasjoner på tidslinjen først</string>
-  <string name="revanced_sb_new_segment_preview_segment_first">Forhåndsvis segmentet, og sikre at det hopper jevnt over</string>
-  <string name="revanced_sb_new_segment_edit_by_hand_title">Rediger tidspunkt for segment manuelt</string>
-  <string name="revanced_sb_new_segment_edit_by_hand_content">Vil du redigere tidspunktet for start eller slutten av segmentet?</string>
-  <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Ugyldig tid gitt</string>
-  <string name="revanced_sb_stats">Statistikk</string>
+  <string name="revanced_sb_new_segment_confirm_content">"Segmentet er fra
+
+%1$s
+til
+%2$s
+
+(%3$s)
+
+Klar til å sende inn?"</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
-  <string name="revanced_sb_stats_connection_failure">Statistikk er midlertidig ikke tilgjengelig (API er nede)</string>
-  <string name="revanced_sb_stats_loading">Laster...</string>
-  <string name="revanced_sb_stats_sb_disabled">SponsorBlock er deaktivert</string>
-  <string name="revanced_sb_stats_username">Ditt brukernavn: &lt;b&gt;%s&lt;/b&gt;</string>
-  <string name="revanced_sb_stats_username_change">Trykk her for å endre brukernavnet</string>
-  <string name="revanced_sb_stats_username_change_unknown_error">Kan ikke endre brukernavn: Status: %1$d %2$s</string>
-  <string name="revanced_sb_stats_username_changed">Brukernavnet ble endret</string>
-  <string name="revanced_sb_stats_reputation">Ditt omdømme er &lt;b&gt;%.2f&lt;/b&gt;</string>
-  <string name="revanced_sb_stats_submissions">Du har opprettet segmenter for &lt;b&gt;%s&lt;/b&gt;</string>
-  <string name="revanced_sb_stats_submissions_sum">Trykk her for å se segmentene dine</string>
-  <string name="revanced_sb_stats_saved_zero">SponsorBlock leaderboard</string>
-  <string name="revanced_sb_stats_saved">Du har lagret folk fra &lt;b&gt;%s&lt;/b&gt; segmenter</string>
-  <string name="revanced_sb_stats_saved_sum_zero">Trykk her for å se den globale statistikken og de øverste bidragsyterne</string>
-  <string name="revanced_sb_stats_self_saved">Du har hoppet over &lt;b&gt;%s&lt;/b&gt; segmenter</string>
-  <string name="revanced_sb_stats_self_saved_reset_title">Tilbakestille segmentene teller?</string>
-  <string name="revanced_sb_stats_saved_hour_format">%1$s timer %2$s minutter</string>
-  <string name="revanced_sb_stats_saved_minute_format">%1$s minutter %2$s sekunder</string>
-  <string name="revanced_sb_stats_saved_second_format">%s sekunder</string>
-  <string name="revanced_sb_color_dot_label">Farge:</string>
-  <string name="revanced_sb_color_changed">Farge endret</string>
-  <string name="revanced_sb_color_reset">Farge tilbakestilt</string>
-  <string name="revanced_sb_color_invalid">Ugyldig fargekode</string>
-  <string name="revanced_sb_reset_color">Tilbakestill farge</string>
   <string name="revanced_sb_reset">Tilbakestill</string>
-  <string name="revanced_sb_about">Om</string>
-  <string name="revanced_sb_about_api_sum">Data leveres av SponsorBlock API. Trykk her for å lære mer og se nedlastinger for andre plattformer</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
-  <string name="revanced_spoof_app_version_title">Spoof app versjon</string>
-  <string name="revanced_spoof_app_version_summary_on">Versjon skremt</string>
-  <string name="revanced_spoof_app_version_summary_off">Versjon ikke skremt</string>
-  <string name="revanced_spoof_app_version_user_dialog_message">App-versjon vil bli spoofet til en eldre versjon av YouTube.\n\nDette vil endre utseende og egenskaper til appen, men det kan oppstå ukjente bivirkninger.\n\nhvis senere er slått av, anbefales det å fjerne appdataene for å forhindre nedsatt brukergrensesnitt.</string>
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
-  <string name="revanced_spoof_app_version_target_title">Spoof app-versjonen mål</string>
   <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Gjenopprett gamle Shorts-spillerikoner</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
-  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - Gjenopprett RYD på Shorts incognito-modus</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - Gjenopprette bred videokastighet &amp; kvalitetsmeny</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - Gjenopprett bibliotek-fane</string>
-  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Gjenopprette gammel spilleliste</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Angi startside</string>
-  <string name="revanced_change_start_page_entry_default">Standard</string>
-  <string name="revanced_change_start_page_entry_browse">Bla gjennom kanaler</string>
-  <string name="revanced_change_start_page_entry_explore">Utforsk</string>
-  <string name="revanced_change_start_page_entry_gaming">Spilling</string>
-  <string name="revanced_change_start_page_entry_history">Historikk</string>
-  <string name="revanced_change_start_page_entry_library">Bibliotek</string>
-  <string name="revanced_change_start_page_entry_liked_videos">Likte videoer</string>
-  <string name="revanced_change_start_page_entry_live">Direkte</string>
-  <string name="revanced_change_start_page_entry_movies">Filmer</string>
-  <string name="revanced_change_start_page_entry_music">Musikk</string>
-  <string name="revanced_change_start_page_entry_search">Søk</string>
-  <string name="revanced_change_start_page_entry_sports">Sport</string>
-  <string name="revanced_change_start_page_entry_subscriptions">Abonnementer</string>
-  <string name="revanced_change_start_page_entry_trending">Populært</string>
-  <string name="revanced_change_start_page_entry_watch_later">Se senere</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
-  <string name="revanced_disable_resuming_shorts_player_title">Deaktiver gjenopptakelse av Shorts spiller</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts spiller vil ikke gjenoppta ved oppstart av app</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts spiller vil gjenoppta ved oppstart av app</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   </patch>
   <patch id="layout.tablet.enableTabletLayoutPatch">
-  <string name="revanced_tablet_layout_title">Aktiver oppsett for nettbrett</string>
-  <string name="revanced_tablet_layout_summary_on">Nettbrettets oppsett er aktivert</string>
-  <string name="revanced_tablet_layout_summary_off">Nettbrett-oppsett er deaktivert</string>
-  <string name="revanced_tablet_layout_user_dialog_message">Samfunnsinnlegg dukker ikke opp på nettbrett-oppsett</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
-  <string name="revanced_miniplayer_screen_title">Smittespiller</string>
-  <string name="revanced_miniplayer_screen_summary">Endre stil på appen til den minimerte spilleren</string>
-  <string name="revanced_miniplayer_type_title">Type Minispiller</string>
-  <string name="revanced_miniplayer_type_entry_0">Deaktivert</string>
-  <string name="revanced_miniplayer_type_entry_1">Opprinnelig</string>
-  <string name="revanced_miniplayer_type_entry_2">Minimalt</string>
-  <string name="revanced_miniplayer_type_entry_3">Nettbrett</string>
-  <string name="revanced_miniplayer_type_entry_4">Moderne 1</string>
-  <string name="revanced_miniplayer_type_entry_5">Moderne 2</string>
-  <string name="revanced_miniplayer_type_entry_6">Moderne 3</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Aktiver avrundede hjørner</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Hjørnene er avrundet</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Hjørnene er firkantede</string>
-  <string name="revanced_miniplayer_double_tap_action_title">Aktiver dobbeltrykk og knip for å endre størrelse</string>
-  <string name="revanced_miniplayer_double_tap_action_summary_off">Dobbelttrykk handling og klemme for å endre størrelse er deaktivert</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Aktiver dra og slipp</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">Dra og slipp er aktivert\n\nHjelperavspiller kan flyttes til et hvilken som helst hjørne av skjermen</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Dra og slipp er deaktivert</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Aktiver horisontal dra bevegelse</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">Horisontal dra bevegelse aktivert\n\nMiniplayer kan flyttes av skjermen til venstre eller høyre</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Horisontal dra bevegelse deaktivert</string>
-  <string name="revanced_miniplayer_hide_expand_close_title">Skjul lukkeknapp</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_on">Lukk-knappen er skjult</string>
-  <string name="revanced_miniplayer_hide_expand_close_summary_off">Lukk-knappen vises</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Skjul utvid og lukk-knapper</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Knappene er gjemte\n\nSveip for å utvide eller lukke</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Utvid og lukk knapper vises</string>
-  <string name="revanced_miniplayer_hide_subtext_title">Skjul undertekster</string>
-  <string name="revanced_miniplayer_hide_subtext_summary_on">Undertekster er skjult</string>
-  <string name="revanced_miniplayer_hide_subtext_summary_off">Undertekster er vist</string>
-  <string name="revanced_miniplayer_hide_rewind_forward_title">Skjul hopp forover og tilbake knapper</string>
-  <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Hopp over og tilbake er skjult</string>
-  <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Hopp over og tilbake vises</string>
-  <string name="revanced_miniplayer_width_dip_title">Innledende størrelse</string>
-  <string name="revanced_miniplayer_width_dip_summary">Opprinnelig størrelse på skjermen i piksler</string>
-  <string name="revanced_miniplayer_width_dip_invalid_toast">Pikselstørrelse må være mellom %1$s og %2$s</string>
-  <string name="revanced_miniplayer_opacity_summary">Gjennomsiktighet mellom 0-100, der 0 er gjennomsiktig</string>
-  <string name="revanced_miniplayer_opacity_invalid_toast">Minispiller overlegg opasitet må være mellom 0-100</string>
   </patch>
   <patch id="layout.theme.themePatch">
-  <string name="revanced_gradient_loading_screen_title">Aktiver gradient lastingsskjerm</string>
-  <string name="revanced_gradient_loading_screen_summary_on">Lasting av skjerm vil ha en gradert bakgrunn</string>
-  <string name="revanced_gradient_loading_screen_summary_off">Lasting av skjerm har en solid bakgrunn</string>
   </patch>
   <patch id="layout.theme.themeResourcePatch">
-  <string name="revanced_seekbar_custom_color_title">Aktiver egendefinert søkelinje-farge</string>
-  <string name="revanced_seekbar_custom_color_summary_on">Tilpasset søkelinjefarge vises</string>
-  <string name="revanced_seekbar_custom_color_summary_off">Opprinnelig søkelinjens farge vises</string>
-  <string name="revanced_seekbar_custom_color_value_title">Egendefinert søkelinjefarge</string>
-  <string name="revanced_seekbar_custom_color_value_summary">Farge på søkefeltet</string>
-  <string name="revanced_seekbar_custom_color_invalid">Ugyldig søkelinjens fargeverdi</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
-  <string name="revanced_bypass_image_region_restrictions_title">Forbigå bilde-restriksjoner</string>
-  <string name="revanced_bypass_image_region_restrictions_summary_on">Bruk bildesvertyt4.ggpht.com</string>
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
-  <string name="revanced_alt_thumbnail_home_title">Hjem fane</string>
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
-  <string name="revanced_alt_thumbnail_subscription_title">Abonnementsfanen</string>
   <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
-  <string name="revanced_alt_thumbnail_library_title">Du har fane</string>
-  <string name="revanced_alt_thumbnail_player_title">Spillerspillelister, anbefalinger</string>
-  <string name="revanced_alt_thumbnail_search_title">Søk i resultater</string>
-  <string name="revanced_alt_thumbnail_options_entry_1">Original thumbnails</string>
-  <string name="revanced_alt_thumbnail_options_entry_2">Depil &amp; Opprinnelige miniatyrbilder</string>
-  <string name="revanced_alt_thumbnail_options_entry_3">Depil &amp; fremdeles fanger</string>
-  <string name="revanced_alt_thumbnail_options_entry_4">Fremdeles fangster</string>
-  <string name="revanced_alt_thumbnail_dearrow_about_summary">DePil tilbyr crowdssourced thumbnails for YouTube-videoer. Disse miniatyrbildene er ofte mer relevante enn de som er angitt av YouTube\n\nHvis aktivert, Video-URL-er vil bli sendt til API-serveren og ingen andre data blir sendt. Hvis en video ikke har miniatyrbilder fra DeArrow og original eller fortsatt trekk er vist\n\nTrykk her for å lære mer om DePil</string>
-  <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Vis en toast hvis API ikke er tilgjengelig</string>
-  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Toast vises dersom DeArrow ikke er tilgjengelig</string>
-  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Toast blir ikke vist hvis DeArrow ikke er tilgjengelig</string>
-  <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API endpoint</string>
-  <string name="revanced_alt_thumbnail_dearrow_api_url_summary">URL-adressen for miniatyrbilde av DeArrow (bruker-mellomlager)</string>
-  <string name="revanced_alt_thumbnail_stills_about_title">Fremdeles videofanger</string>
-  <string name="revanced_alt_thumbnail_stills_about_summary">Fremdeles fanger er tatt fra begynnels/middels/slutten av hver video. Disse bildene er bygd inn i YouTube, og ingen ekstern API er brukt</string>
-  <string name="revanced_alt_thumbnail_stills_fast_title">Bruk raske kaptinger</string>
-  <string name="revanced_alt_thumbnail_stills_fast_summary_on">Ved hjelp av middels kvalitet bilder. Miniatyrbilder lastes fortsatt raskere, men direktesendinger, avgløslet, eller svært gamle videoer kan vise tomme miniatyrbilder</string>
-  <string name="revanced_alt_thumbnail_stills_fast_summary_off">Bruker høy kvalitet fanger fortsatt</string>
-  <string name="revanced_alt_thumbnail_stills_time_title">Videotid for å ta fortsatt bilder fra</string>
-  <string name="revanced_alt_thumbnail_stills_time_entry_1">Begynnelsen av video</string>
-  <string name="revanced_alt_thumbnail_stills_time_entry_2">Midten av video</string>
-  <string name="revanced_alt_thumbnail_stills_time_entry_3">Slutt på video</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_alt_thumbnail_dearrow_error">Pil er midlertidig ikke tilgjengelig (statuskode: %s)</string>
-  <string name="revanced_alt_thumbnail_dearrow_error_generic">Pil midlertidig ikke tilgjengelig</string>
   </patch>
   <patch id="misc.announcements.announcementsPatch">
-  <string name="revanced_announcements_title">Vis rehabiliterte kunngjøringer</string>
-  <string name="revanced_announcements_summary_on">Kunngjøringer er vist ved oppstart</string>
-  <string name="revanced_announcements_summary_off">Kunngjøringer er ikke vist ved oppstart</string>
-  <string name="revanced_announcements_enabled_summary">Vis kunngjøringer ved oppstart</string>
-  <string name="revanced_announcements_connection_failed">Kan ikke koble til kunngjøringstjenesten</string>
-  <string name="revanced_announcements_dialog_dismiss">Avvis</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Advarsel</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Overvåkningshistorikken din lagres.&lt;br&gt;&lt;br&gt;Dette er mest sannsynlig forårsaket av en DNS-annonseblokkering eller nettverksproxy.&lt;br&gt;&lt;br&gt;For å fikse dette, hviteliste &lt;b&gt;s.youtube.com&lt;/b&gt; eller slå av alle DNS-blokkere og proxyer.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ikke vis dette igjen</string>
   </patch>
   <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Aktiver automatisk gjenta</string>
-  <string name="revanced_auto_repeat_summary_on">Auto-Repetering er aktivert</string>
-  <string name="revanced_auto_repeat_summary_off">Auto-Repetering er deaktivert</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
-  <string name="revanced_spoof_device_dimensions_title">Utforming av enheten</string>
-  <string name="revanced_spoof_device_dimensions_summary_on">Enhetens dimensjoner skremt\n\nHøyere videokvaliteter kan låses opp, men du kan oppleve videospillingsstilling, forverret batterilevetid og ukjente bivirkninger</string>
-  <string name="revanced_spoof_device_dimensions_summary_off">Enhetdimensjonene ikke spoofed\n\nAktivering av dette kan låse opp høyere videokvaliteter</string>
-  <string name="revanced_spoof_device_dimensions_user_dialog_message">Aktivering av dette kan forårsake utsettelse av videospilling, dårligere batteritid og ukjente bivirkninger.</string>
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
-  <string name="microg_settings_title">GmsCore Innstillinger</string>
-  <string name="microg_settings_summary">Innstillinger for GmsCore</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
-  <string name="revanced_bypass_url_redirects_title">Omgå for omdirigeringer</string>
-  <string name="revanced_bypass_url_redirects_summary_on">Omadressering av URL-adresser skjer forbipassert</string>
-  <string name="revanced_bypass_url_redirects_summary_off">URL-omdirigeringer blir ikke omgått</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
-  <string name="revanced_external_browser_title">Åpne linker i nettleser</string>
-  <string name="revanced_external_browser_summary_on">Åpne koblinger eksternt</string>
-  <string name="revanced_external_browser_summary_off">Åpner lenker i appen</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Fjern sporingsspørringens parameter</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Spores parameteren for spørring fjernes fra linker</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Spores parameteren for spørring fjernes ikke fra lenker</string>
   </patch>
   <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Deaktiver zoom-haptics</string>
-  <string name="revanced_disable_zoom_haptics_summary_on">Hapetikk er deaktivert</string>
-  <string name="revanced_disable_zoom_haptics_summary_off">Hapetikk er aktivert</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_default_entry_1">Automatisk</string>
-  <string name="revanced_remember_video_quality_last_selected_title">Husk endringer i videokvalitet</string>
-  <string name="revanced_remember_video_quality_last_selected_summary_on">Kvalitetsendringer gjelder for alle videoer</string>
-  <string name="revanced_remember_video_quality_last_selected_summary_off">Kvalitetsendringer gjelder kun for gjeldende video</string>
-  <string name="revanced_video_quality_default_wifi_title">Standard videokvalitet på Wi-Fi-nettverk</string>
-  <string name="revanced_video_quality_default_mobile_title">Standard videokvalitet på mobilnettverk</string>
-  <string name="revanced_remember_video_quality_mobile">mobil</string>
-  <string name="revanced_remember_video_quality_wifi">wifi</string>
-  <string name="revanced_remember_video_quality_toast">Endret standard %1$s kvalitet til: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
-  <string name="revanced_playback_speed_dialog_button_title">Vis hastighetsdialogknapp</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Knappen vises</string>
-  <string name="revanced_playback_speed_dialog_button_summary_off">Knappen vises ikke</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
-  <string name="revanced_custom_speed_menu_title">Egendefinert avspillingshastighetsmeny</string>
-  <string name="revanced_custom_speed_menu_summary_on">Egendefinert hastighetsmeny vises</string>
-  <string name="revanced_custom_speed_menu_summary_off">Egendefinert hastighetsmeny vises ikke</string>
-  <string name="revanced_custom_playback_speeds_title">Egendefinert avspillingshastighet</string>
-  <string name="revanced_custom_playback_speeds_summary">Legg til eller endre egendefinert avspillingshastighet</string>
-  <string name="revanced_custom_playback_speeds_invalid">Tilpassede hastigheter må være mindre enn %s. Bruker standardverdier.</string>
-  <string name="revanced_custom_playback_speeds_parse_exception">Ugyldige tilpassede avspillingshastigheter. Bruker standardverdier.</string>
-  <string name="revanced_custom_playback_speeds_auto">Automatisk</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
-  <string name="revanced_remember_playback_speed_last_selected_title">Husk endringer i avspillingshastighet</string>
-  <string name="revanced_remember_playback_speed_last_selected_summary_on">Avspillingshastighet endringer gjelder for alle videoer</string>
-  <string name="revanced_remember_playback_speed_last_selected_summary_off">Hastighetsendringer for avspilling gjelder kun for gjeldende video</string>
-  <string name="revanced_playback_speed_default_title">Standard avspillingshastighet</string>
-  <string name="revanced_remember_playback_speed_toast">Endret standard hastighet til: %s</string>
   </patch>
   <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
-  <string name="revanced_restore_old_video_quality_menu_title">Gjenopprett gammel video kvalitet meny</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Gammel video kvalitet meny er vist</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Gammel video kvalitet meny er ikke vist</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
-  <string name="revanced_slide_to_seek_title">Aktiver lysbilde for å søke</string>
-  <string name="revanced_slide_to_seek_summary_on">Slide for å søke er aktivert</string>
-  <string name="revanced_slide_to_seek_summary_off">Slide for å søke er ikke aktivert</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">Spoof video strømmer</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Forkort klientens videostrømmer for å forhindre avspillingsproblemer</string>
-  <string name="revanced_spoof_video_streams_title">Spoof video strømmer</string>
-  <string name="revanced_spoof_video_streams_summary_on">Videostrømmer er skjevet</string>
-  <string name="revanced_spoof_video_streams_summary_off">Videostrømmer er ikke skummet\n\nVideoavspilling vil kanskje ikke virke</string>
-  <string name="revanced_spoof_video_streams_user_dialog_message">Ved å slå av denne innstillingen kan problemer med videoavspilling.</string>
-  <string name="revanced_spoof_video_streams_client_title">Standard klient</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Tving AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Videokodek tvinges til AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Videokodek bestemmes automatisk</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Aktivering av dette kan forbedre batterilevetiden og korrigere avspilling med avvik.\n\nAVC har en maksimal oppløsning på 1080p, Opus lydkodek er ikke tilgjengelig. og videoavspilling vil bruke flere Internett-data enn VP9 eller AV1.</string>
-  <string name="revanced_spoof_video_streams_about_ios_title">iOS med bivirkninger</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Private kids-videoer spiller kanskje ikke\n• Livestreams start fra begynnelsen\n• Videoer kan ende med 1 andre tidlig</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR opplever bivirkninger</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Barn kan ikke spille\n• Lydspormeny mangler\n• Stabilt volum er ikke tilgjengelig</string>
-  <string name="revanced_spoof_video_streams_language_">Videostrømmer er skjevet</string>
-  <string name="revanced_spoof_video_streams_language_title">Foretrukket lydstrømsspråk</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">App språk</string>
-  <string name="revanced_spoof_video_streams_language_AR">Arabisk</string>
-  <string name="revanced_spoof_video_streams_language_AZ">Aserbajdsjansk</string>
-  <string name="revanced_spoof_video_streams_language_BG">Bulgarsk</string>
-  <string name="revanced_spoof_video_streams_language_BN">Bengalsk</string>
-  <string name="revanced_spoof_video_streams_language_CA">Katalansk</string>
-  <string name="revanced_spoof_video_streams_language_CS">Tsjekkisk</string>
-  <string name="revanced_spoof_video_streams_language_DA">Dansk</string>
-  <string name="revanced_spoof_video_streams_language_DE">Tysk</string>
-  <string name="revanced_spoof_video_streams_language_EL">Gresk</string>
-  <string name="revanced_spoof_video_streams_language_EN">Engelsk</string>
-  <string name="revanced_spoof_video_streams_language_ES">Spansk</string>
-  <string name="revanced_spoof_video_streams_language_ET">Estisk</string>
-  <string name="revanced_spoof_video_streams_language_FA">Persisk</string>
-  <string name="revanced_spoof_video_streams_language_FI">Finsk</string>
-  <string name="revanced_spoof_video_streams_language_FR">Fransk</string>
-  <string name="revanced_spoof_video_streams_language_GU">Gujarati</string>
-  <string name="revanced_spoof_video_streams_language_HI">hindi</string>
-  <string name="revanced_spoof_video_streams_language_HR">Kroatisk</string>
-  <string name="revanced_spoof_video_streams_language_HU">Ungarsk</string>
-  <string name="revanced_spoof_video_streams_language_ID">Indonesisk</string>
-  <string name="revanced_spoof_video_streams_language_IT">Italiensk</string>
-  <string name="revanced_spoof_video_streams_language_JA">Japansk</string>
-  <string name="revanced_spoof_video_streams_language_KK">Kazakh</string>
-  <string name="revanced_spoof_video_streams_language_KO">Koreansk</string>
-  <string name="revanced_spoof_video_streams_language_LT">Litauisk</string>
-  <string name="revanced_spoof_video_streams_language_LV">Latvisk</string>
-  <string name="revanced_spoof_video_streams_language_MK">Makedonsk</string>
-  <string name="revanced_spoof_video_streams_language_MN">Mongolsk</string>
-  <string name="revanced_spoof_video_streams_language_MR">Marathi</string>
-  <string name="revanced_spoof_video_streams_language_MS">Malayisk</string>
-  <string name="revanced_spoof_video_streams_language_MY">Burmese</string>
-  <string name="revanced_spoof_video_streams_language_NL">Nederlandsk</string>
-  <string name="revanced_spoof_video_streams_language_OR">Odia</string>
-  <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
-  <string name="revanced_spoof_video_streams_language_PL">Polsk</string>
-  <string name="revanced_spoof_video_streams_language_PT_BR">Portugisisk (Brasil)</string>
-  <string name="revanced_spoof_video_streams_language_PT_PT">Portugisisk (Portugal)</string>
-  <string name="revanced_spoof_video_streams_language_RO">Rumensk</string>
-  <string name="revanced_spoof_video_streams_language_RU">Russisk</string>
-  <string name="revanced_spoof_video_streams_language_SK">Slovakisk</string>
-  <string name="revanced_spoof_video_streams_language_SL">Slovene</string>
-  <string name="revanced_spoof_video_streams_language_SR">Serbisk</string>
-  <string name="revanced_spoof_video_streams_language_SV">Svensk</string>
-  <string name="revanced_spoof_video_streams_language_SW">Swahili</string>
-  <string name="revanced_spoof_video_streams_language_TA">Tamil</string>
-  <string name="revanced_spoof_video_streams_language_TE">Telugu</string>
-  <string name="revanced_spoof_video_streams_language_TH">Thailandsk</string>
-  <string name="revanced_spoof_video_streams_language_TR">Tyrkisk</string>
-  <string name="revanced_spoof_video_streams_language_UK">Ukrainsk</string>
-  <string name="revanced_spoof_video_streams_language_UR">Urdu</string>
-  <string name="revanced_spoof_video_streams_language_VI">Vietnamese</string>
-  <string name="revanced_spoof_video_streams_language_ZH">Kinesisk</string>
   </patch>
   </app>
   <app id="twitch">
   <patch id="ad.audio.audioAdsPatch">
-  <string name="revanced_block_audio_ads_title">Blokker lydannonser</string>
-  <string name="revanced_block_audio_ads_summary_on">Lydannonser er blokkert</string>
-  <string name="revanced_block_audio_ads_summary_off">Lydannonser er ikke blokkert</string>
   </patch>
   <patch id="ad.embedded.embeddedAdsPatch">
-  <string name="revanced_embedded_ads_service_unavailable">%s er utilgjengelig. Annonser kan vise. Prøv å bytte til en annen annonseblokkerings tjeneste i innstillingene.</string>
-  <string name="revanced_embedded_ads_service_failed">%s -serveren returnerte en feil. Annonser kan vise. Prøv å bytte til en annen annonseblokkerings tjeneste i innstillingene.</string>
-  <string name="revanced_block_embedded_ads_title">Blokker innebygde videoannonser</string>
-  <string name="revanced_block_embedded_ads_entry_1">Deaktivert</string>
-  <string name="revanced_block_embedded_ads_entry_2">Lysrør proxy</string>
-  <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock proxy</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">
-  <string name="revanced_block_video_ads_title">Blokker video annonser</string>
-  <string name="revanced_block_video_ads_summary_on">Videoannonser er blokkert</string>
-  <string name="revanced_block_video_ads_summary_off">Videoannonser er ublokkert</string>
   </patch>
   <patch id="chat.antidelete.showDeletedMessagesPatch">
-  <string name="revanced_deleted_msg">melding slettet</string>
-  <string name="revanced_show_deleted_messages_title">Vis slettede meldinger</string>
-  <string name="revanced_show_deleted_messages_entry_1">Ikke vis slettede meldinger</string>
-  <string name="revanced_show_deleted_messages_entry_2">Skjul slettede meldinger bak en spoiler</string>
-  <string name="revanced_show_deleted_messages_entry_3">Vis slettede meldinger som utfylt tekst</string>
   </patch>
   <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
-  <string name="revanced_auto_claim_channel_points_title">Krev automatisk kanalpoeng</string>
-  <string name="revanced_auto_claim_channel_points_summary_on">Kanalpoeng blir hentet automatisk</string>
-  <string name="revanced_auto_claim_channel_points_summary_off">Kanalpoeng blir ikke hentet automatisk</string>
   </patch>
   <patch id="debug.debugModePatch">
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
-  <string name="revanced_twitch_debug_mode_title">Aktiver Twitch feilsøkingsmodus</string>
-  <string name="revanced_twitch_debug_mode_summary_on">Twitch debug modus er aktivert (ikke anbefalt)</string>
-  <string name="revanced_twitch_debug_mode_summary_off">Twitch debug modus er deaktivert</string>
   </patch>
   <patch id="misc.settings.settingsPatch">
-  <string name="revanced_settings">Forbedret innstillinger</string>
-  <string name="revanced_about_title">Om</string>
-  <string name="revanced_about_summary">Om ReVanced</string>
-  <string name="revanced_ads_screen_title">Reklame</string>
-  <string name="revanced_ads_screen_summary">Innstillinger for annonseblokkering</string>
-  <string name="revanced_chat_screen_title">Samtale</string>
-  <string name="revanced_chat_screen_summary">Chat innstillinger</string>
-  <string name="revanced_misc_screen_title">Diverse</string>
-  <string name="revanced_misc_screen_summary">Andre innstillinger</string>
-  <string name="revanced_general_category_title">Generelle innstillinger</string>
-  <string name="revanced_other_category_title">Andre instillinger</string>
-  <string name="revanced_client_ads_category_title">Klientside annonser</string>
-  <string name="revanced_surestream_ads_category_title">Serverside surestream annonser</string>
-  <string name="revanced_twitch_debug_title">Feilsøk logging</string>
-  <string name="revanced_twitch_debug_summary_on">Feilsøkingslogger er aktivert</string>
-  <string name="revanced_twitch_debug_summary_off">Feilsøkingslogger er deaktivert</string>
   </patch>
   </app>
 </resources>

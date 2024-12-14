@@ -115,8 +115,7 @@ public class StreamingDataRequest {
         Objects.requireNonNull(playerHeaders);
 
         final long startTime = System.currentTimeMillis();
-        String clientTypeName = clientType.name();
-        Logger.printDebug(() -> "Fetching video streams for: " + videoId + " using client: " + clientType.name());
+        Logger.printDebug(() -> "Fetching video streams for: " + videoId + " using client: " + clientType);
 
         try {
             HttpURLConnection connection = PlayerRoutes.getPlayerResponseConnectionFromRoute(GET_STREAMING_DATA, clientType);
@@ -124,12 +123,16 @@ public class StreamingDataRequest {
             connection.setReadTimeout(HTTP_TIMEOUT_MILLISECONDS);
 
             for (String key : REQUEST_HEADER_KEYS) {
-                if (!clientType.canLogin && key.equals(AUTHORIZATION_HEADER)) {
-                    continue;
-                }
-
                 String value = playerHeaders.get(key);
                 if (value != null) {
+                    if (key.equals(AUTHORIZATION_HEADER)) {
+                        if (!clientType.canLogin) {
+                            Logger.printDebug(() -> "Not including request header: " + key);
+                            continue;
+                        }
+                    }
+
+                    Logger.printDebug(() -> "Including request header: " + key);
                     connection.setRequestProperty(key, value);
                 }
             }
@@ -142,8 +145,10 @@ public class StreamingDataRequest {
             final int responseCode = connection.getResponseCode();
             if (responseCode == 200) return connection;
 
-            handleConnectionError(clientTypeName + " not available with response code: "
-                            + responseCode + " message: " + connection.getResponseMessage(),
+            // This situation likely means the patches are outdated.
+            // Use a toast message that suggests updating.
+            handleConnectionError("Playback error (App is outdated?) " + clientType + ": "
+                            + responseCode + " response: " + connection.getResponseMessage(),
                     null, showErrorToasts);
         } catch (SocketTimeoutException ex) {
             handleConnectionError("Connection timeout", ex, showErrorToasts);
@@ -172,17 +177,19 @@ public class StreamingDataRequest {
                 try {
                     // gzip encoding doesn't response with content length (-1),
                     // but empty response body does.
-                    if (connection.getContentLength() != 0) {
-                        try (InputStream inputStream = new BufferedInputStream(connection.getInputStream())) {
-                            try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-                                byte[] buffer = new byte[2048];
-                                int bytesRead;
-                                while ((bytesRead = inputStream.read(buffer)) >= 0) {
-                                    baos.write(buffer, 0, bytesRead);
-                                }
+                    if (connection.getContentLength() == 0) {
+                        Logger.printDebug(() -> "Received empty response for video: " + videoId);
+                    } else {
+                        try (InputStream inputStream = new BufferedInputStream(connection.getInputStream());
+                             ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
 
-                                return ByteBuffer.wrap(baos.toByteArray());
+                            byte[] buffer = new byte[2048];
+                            int bytesRead;
+                            while ((bytesRead = inputStream.read(buffer)) >= 0) {
+                                baos.write(buffer, 0, bytesRead);
                             }
+
+                            return ByteBuffer.wrap(baos.toByteArray());
                         }
                     }
                 } catch (IOException ex) {
