@@ -377,9 +377,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_get_premium_summary_off">Промоције за YouTube Premium испод видео плејера су приказане</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">
-  <string name="revanced_hide_video_ads_title">Сакриј огласе у видеу</string>
-  <string name="revanced_hide_video_ads_summary_on">Огласи у видеу су скривени</string>
-  <string name="revanced_hide_video_ads_summary_off">Огласи у видеу су приказани</string>
+  <string name="revanced_hide_video_ads_title">Сакриј видео огласе</string>
+  <string name="revanced_hide_video_ads_summary_on">Видео огласи су скривени</string>
+  <string name="revanced_hide_video_ads_summary_off">Видео огласи су приказани</string>
   </patch>
   <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
   <string name="revanced_share_copy_url_success">Линк је копиран у привремену меморију</string>
@@ -514,7 +514,7 @@ Second \"item\" text"</string>
   <string name="revanced_switch_create_with_notifications_button_title">Замени дугме „Направи” дугметом „Обавештења”</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"Дугме „Направи” је замењено дугметом „Обавештења”
 
-Напомена: Омогућавање овога присилно сакрива огласе у видеу"</string>
+Напомена: Омогућавање овога присилно сакрива и видео огласе"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Дугме „Направи” није замењено дугметом „Обавештења”</string>
   <string name="revanced_hide_navigation_button_labels_title">Сакриј ознаке дугмади за навигацију</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Ознаке дугмади за навигацију су скривене</string>
@@ -755,9 +755,9 @@ Second \"item\" text"</string>
   <string name="revanced_ryd_enable_summary_off">Несвиђања нису приказана</string>
   <string name="revanced_ryd_shorts_title">Прикажи несвиђања на Shorts видеима</string>
   <string name="revanced_ryd_shorts_summary_on">Несвиђања су приказана на Shorts видеима</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Nepopularni prikazani na Shorts
+  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Несвиђања су приказана на Shorts видеима
 
-Ograničenje: Nepopularni se možda neće prikazati u inkognito režimu"</string>
+Ограничење: Несвиђања се можда неће појавити у режиму без архивирања"</string>
   <string name="revanced_ryd_shorts_summary_off">Несвиђања су скривена на Shorts видеима</string>
   <string name="revanced_ryd_dislike_percentage_title">Несвиђања у процентима</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">Несвиђања приказана у процентима</string>
@@ -800,11 +800,11 @@ Ograničenje: Nepopularni se možda neće prikazati u inkognito režimu"</string
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Сличице на траци за премотавање су средњег квалитета</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Сличице на траци за премотавање у режиму целог екрана су високог квалитета</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Сличице на траци за премотавање у режиму целог екрана су средњег квалитета</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Ovo će takođe vratiti minijature na livestreamovima koji nemaju minijature sa trakom za premotavanje.
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Ово ће такође вратити сличице на стримовима уживо који немају сличице на траци за премотавање.
 
-Minijature sa trakom za premotavanje koristiće isti kvalitet kao i trenutni video.
+Сличице на траци за премотавање ће користити исти квалитет као тренутни видео.
 
-Ova funkcija najbolje radi sa kvalitetom videa od 720p ili niže i kada se koristi veoma brza internet veza."</string>
+Ова функција најбоље ради са квалитетом видеа од 720p или нижим и када користите веома брзу интернет везу."</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Врати старе сличице на траци за премотавање</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Сличице траке за премотавање ће се појавити изнад ње</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Сличице траке за премотавање ће се појавити у режиму целог екрана</string>
@@ -867,9 +867,9 @@ Ova funkcija najbolje radi sa kvalitetom videa od 720p ili niže i kada se koris
   <string name="revanced_sb_settings_import_successful">Подешавања су успешно увезена</string>
   <string name="revanced_sb_settings_import_failed">Неуспешан увоз: %s</string>
   <string name="revanced_sb_settings_export_failed">Неуспешан извоз: %s</string>
-  <string name="revanced_sb_settings_revanced_export_user_id_warning">"Vaše postavke sadrže privatni ID korisnika SponsorBlocka.
+  <string name="revanced_sb_settings_revanced_export_user_id_warning">"Ваша подешавања садрже приватни SponsorBlock кориснички ID.
 
-Vaš ID korisnika je kao lozinka i nikada se ne sme deliti."</string>
+Ваш кориснички ID је као лозинка и никада га не треба делити."</string>
   <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">Не приказуј поново</string>
   <string name="revanced_sb_diff_segments">Промена понашања сегмента</string>
   <string name="revanced_sb_segments_sponsor">Спонзор</string>
@@ -929,10 +929,10 @@ Vaš ID korisnika je kao lozinka i nikada se ne sme deliti."</string>
   <string name="revanced_sb_submit_failed_invalid">Није могуће поднети сегмент: %s</string>
   <string name="revanced_sb_submit_failed_timeout">SponsorBlock привремено не ради</string>
   <string name="revanced_sb_submit_failed_unknown_error">Није могуће поднети сегмент (статус: %1$d %2$s)</string>
-  <string name="revanced_sb_submit_failed_rate_limit">Segment se ne može poslati. Bilo je previše pokušaja (previše sa istog korisnika ili IP adrese)</string>
+  <string name="revanced_sb_submit_failed_rate_limit">Није могуће поднети сегмент. Прекорачено ограничење стопе (превише од истог корисника или IP адресе)</string>
   <string name="revanced_sb_submit_failed_forbidden">Није могуће поднети сегмент: %s</string>
-  <string name="revanced_sb_submit_failed_duplicate">"Segment se ne može poslati.
-Već postoji"</string>
+  <string name="revanced_sb_submit_failed_duplicate">"Није могуће поднети сегмент.
+Већ постоји"</string>
   <string name="revanced_sb_submit_succeeded">Сегмент је успешно поднет</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock привремено није доступан (API истекао)</string>
@@ -955,15 +955,15 @@ Već postoji"</string>
   <string name="revanced_sb_new_segment_time_start">Време почетка сегмента</string>
   <string name="revanced_sb_new_segment_time_end">Време краја сегмента</string>
   <string name="revanced_sb_new_segment_confirm_title">Да ли су времена тачна?</string>
-  <string name="revanced_sb_new_segment_confirm_content">"Segment ide od
+  <string name="revanced_sb_new_segment_confirm_content">"Сегмент је од
 
 %1$s
-do
+до
 %2$s
 
 (%3$s)
 
-Spremni da podnesete zahtev?"</string>
+Спреман за подношење?"</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Почетак мора бити пре краја</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Прво означите два места на временској траци</string>
   <string name="revanced_sb_new_segment_preview_segment_first">Прегледајте сегмент и уверите се да глатко прескаче</string>
@@ -1005,11 +1005,11 @@ Spremni da podnesete zahtev?"</string>
   <string name="revanced_spoof_app_version_title">Лажирана верзија апликације</string>
   <string name="revanced_spoof_app_version_summary_on">Верзија је лажирана</string>
   <string name="revanced_spoof_app_version_summary_off">Верзија није лажирана</string>
-  <string name="revanced_spoof_app_version_user_dialog_message">"Verzija aplikacije će biti lažno prikazana kao starija verzija YouTube-a.
+  <string name="revanced_spoof_app_version_user_dialog_message">"Верзија апликације ће бити лажирана на старију верзију YouTube-а.
 
-Ovo će promeniti izgled i funkcije aplikacije, ali se mogu pojaviti nepoznate nuspojave.
+Ово ће променити изглед и функције апликације, али се могу појавити непознати нежељени ефекти.
 
-Ako se kasnije isključi, preporučuje se da se obrišu podaci aplikacije kako bi se sprečili greške u UI-ju."</string>
+Ако се касније искључи, препоручује се да избришете податке апликације да бисте спречили грешке у корисничком интерфејсу."</string>
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Циљна верзија апликације за лажирање</string>
@@ -1061,8 +1061,8 @@ Ako se kasnije isključi, preporučuje se da se obrišu podaci aplikacije kako b
   <string name="revanced_miniplayer_screen_title">Мини-плејер</string>
   <string name="revanced_miniplayer_screen_summary">Промените стил минимизираног плејера у апликацији</string>
   <string name="revanced_miniplayer_type_title">Тип мини-плејера</string>
-  <string name="revanced_miniplayer_type_entry_0">Онемогућено</string>
-  <string name="revanced_miniplayer_type_entry_1">Подразумевана</string>
+  <string name="revanced_miniplayer_type_entry_0">Онемогућен</string>
+  <string name="revanced_miniplayer_type_entry_1">Подразумеван</string>
   <string name="revanced_miniplayer_type_entry_2">Минималан</string>
   <string name="revanced_miniplayer_type_entry_3">Таблет</string>
   <string name="revanced_miniplayer_type_entry_4">Модеран 1</string>
@@ -1072,29 +1072,29 @@ Ako se kasnije isključi, preporučuje se da se obrišu podaci aplikacije kako b
   <string name="revanced_miniplayer_rounded_corners_summary_on">Углови су заобљени</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Углови нису заобљени</string>
   <string name="revanced_miniplayer_double_tap_action_title">Омогући двоструки додир и штипање за промену величине</string>
-  <string name="revanced_miniplayer_double_tap_action_summary_on">"Dvostruki dodir i potez za promenu veličine su omogućeni
+  <string name="revanced_miniplayer_double_tap_action_summary_on">"Радња двоструког додира и штипања за промену величине је омогућена
 
-• Dvostruko dodirnite da biste povećali veličinu miniprejera
-• Dvostruko dodirnite opet da biste povratili originalnu veličinu"</string>
-  <string name="revanced_miniplayer_double_tap_action_summary_off">Радња двоструког додира и штипање за промену величине су онемогућени</string>
+• Двапут додирните да бисте повећали величину мини-плејера
+• Двапут додирните поново да бисте вратили оригиналну величину"</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_off">Радња двоструког додира и штипања за промену величине су онемогућени</string>
   <string name="revanced_miniplayer_drag_and_drop_title">Омогући превлачење и отпуштање</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Povlačenje i puštanje je omogućeno
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Превлачење и отпуштање је омогућено
 
-Miniprejer se može povući u bilo koji ugao ekrana"</string>
+Мини-плејер се може превући у било који угао екрана"</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">Превлачење и отпуштање је онемогућено</string>
   <string name="revanced_miniplayer_horizontal_drag_title">Омогући покрет хоризонталног превлачења</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Horizontalni potez omogućen
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Покрет хоризонталног превлачења је омогућен
 
-Miniprejer se može povući van ekrana levo ili desno"</string>
+Мини-плејер се може превући са екрана улево или удесно"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Покрет хоризонталног превлачења је онемогућен</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Сакриј дугме за затварање</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">Дугме за затварање је скривено</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">Дугме за затварање је приказано</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Сакриј дугмад за проширивање и затварање</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Dugmad su skrivena
+  <string name="revanced_miniplayer_hide_expand_close_legacy_title">Сакриј дугмад за проширење и затварање</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Дугмад су скривена
 
-Provucite da biste proširili ili zatvorili"</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Дугмад за проширивање и затварање су приказана</string>
+Превуците за проширење или затварање"</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Дугмад за проширење и затварање су приказана</string>
   <string name="revanced_miniplayer_hide_subtext_title">Сакриј подтекстове</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Подтекстови су скривени</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Подтекстови су приказани</string>
@@ -1124,9 +1124,9 @@ Provucite da biste proširili ili zatvorili"</string>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Заобиђи ограничења региона слике</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Коришћење хоста слике yt4.ggpht.com</string>
-  <string name="revanced_bypass_image_region_restrictions_summary_off">"Korišćenje originalnog hosta slika
+  <string name="revanced_bypass_image_region_restrictions_summary_off">"Коришћење оригиналног хоста слика
 
-Omogućavanje ovoga može da popravi nedostajuće slike koje su blokirane u nekim regionima"</string>
+Ако ово омогућите, могу се поправити недостајуће слике које су блокиране у неким регионима"</string>
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -1142,11 +1142,11 @@ Omogućavanje ovoga može da popravi nedostajuće slike koje su blokirane u neki
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow и захвати кадра</string>
   <string name="revanced_alt_thumbnail_options_entry_4">Захвати кадра</string>
   <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
-  <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow pruža minijature za YouTube video zapise koje je kreirala zajednica. Ove minijature su često relevantnije od onih koje pruža YouTube
+  <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow пружа сличице за YouTube видее прикупљене од заједнице корисника. Ове сличице су често релевантније од оних које пружа YouTube
 
-Ako je omogućeno, adrese video zapisa biće poslate na server API-ja i neće se slati drugi podaci. Ako video zapis nema DeArrow minijature, onda se prikazuju originalne ili fiksne snimke
+Ако је омогућено, линкови видеа ће бити послати на API сервер и никакви други подаци се неће слати. Ако видео нема DeArrow сличице, онда се приказују оригиналне или захвати кадра
 
-Dodirnite ovde da biste saznali više o DeArrow"</string>
+Додирните овде да сазнате више о DeArrow-у"</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Прикажи искачуће обавештење ако API није доступан</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Искачуће обавештење је приказано, ако DeArrow није доступан</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Искачуће обавештење није приказано, ако DeArrow није доступан</string>
@@ -1185,13 +1185,13 @@ Dodirnite ovde da biste saznali više o DeArrow"</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Лажиране димензије уређаја</string>
-  <string name="revanced_spoof_device_dimensions_summary_on">"Dimenzije uređaja su lažno prikazane
+  <string name="revanced_spoof_device_dimensions_summary_on">"Димензије уређаја су лажиране
 
-Možda će biti otključeni viši kvaliteti videa, ali možete doživeti trzanje prilikom reprodukcije videa, lošiji rad baterije i nepoznate nuspojave"</string>
-  <string name="revanced_spoof_device_dimensions_summary_off">"Dimenzije uređaja nisu lažno prikazane
+Виши квалитети видеа могу бити откључани, али може доћи до застоја при репродукцији видеа, краћег трајања батерије и непознатих нежељених ефеката"</string>
+  <string name="revanced_spoof_device_dimensions_summary_off">"Димензије уређаја нису лажиране
 
-Omogućavanje ovoga može da otključa više kvalitete videa"</string>
-  <string name="revanced_spoof_device_dimensions_user_dialog_message">Ако ово омогућите, можда ће доћи до застоја при репродукцији видеа, краћег трајања батерије и непознатих нежељених ефеката.</string>
+Ако ово омогућите, могу бити откључани виши квалитети видеа"</string>
+  <string name="revanced_spoof_device_dimensions_user_dialog_message">Ако ово омогућите, може доћи до застоја при репродукцији видеа, краћег трајања батерије и непознатих нежељених ефеката.</string>
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">Подешавања GmsCore-а</string>
@@ -1239,8 +1239,8 @@ Omogućavanje ovoga može da otključa više kvalitete videa"</string>
   <string name="revanced_custom_speed_menu_summary_off">Мени прилагођене брзине репродукције није приказан</string>
   <string name="revanced_custom_playback_speeds_title">Прилагођене брзине репродукције</string>
   <string name="revanced_custom_playback_speeds_summary">Додајте или промените прилагођене брзине репродукције</string>
-  <string name="revanced_custom_playback_speeds_invalid">Brzine po meri moraju biti manje od %s</string>
-  <string name="revanced_custom_playback_speeds_parse_exception">Nevažeće brzine reprodukcije po meri</string>
+  <string name="revanced_custom_playback_speeds_invalid">Прилагођене брзине морају бити мање од %s</string>
+  <string name="revanced_custom_playback_speeds_parse_exception">Неважеће прилагођене брзине репродукције</string>
   <string name="revanced_custom_playback_speeds_auto">Аутоматски</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
@@ -1261,29 +1261,29 @@ Omogućavanje ovoga može da otključa više kvalitete videa"</string>
   <string name="revanced_slide_to_seek_summary_off">Превлачење за премотавање није омогућено</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">Лажиран видео стрим</string>
+  <string name="revanced_spoof_video_streams_screen_title">Лажирани видео стримови</string>
   <string name="revanced_spoof_video_streams_screen_summary">Лажирање клијента видео стримова да би се спречили проблеми са репродукцијом</string>
   <string name="revanced_spoof_video_streams_title">Лажирани видео стримови</string>
   <string name="revanced_spoof_video_streams_summary_on">Видео стримови су лажирани</string>
-  <string name="revanced_spoof_video_streams_summary_off">"Tokovi videa nisu lažno prikazani
+  <string name="revanced_spoof_video_streams_summary_off">"Видео стримови нису лажирани
 
-Reprodukcija videa možda neće raditi"</string>
+Репродукција видеа можда неће радити"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Искључивање ове опције ће можда изазвати проблеме са репродукцијом видеа.</string>
   <string name="revanced_spoof_video_streams_client_title">Подразумевани клијент</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Присили AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Видео кодек је присилно подешен на AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Видео кодек је одређен аутоматски</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Omogućavanje ovoga može da poboljša rad baterije i popravi trzanje prilikom reprodukcije.
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Ако ово омогућите, можда ће се продужити трајање батерије и поправити застој при репродукцији.
 
-AVC ima maksimalnu rezoluciju od 1080p, Opus audio kodek nije dostupan, a reprodukcija videa će koristiti više internet podataka nego VP9 ili AV1."</string>
+AVC има максималну резолуцију од 1080p, аудио кодек Opus није доступан, а репродукција видеа ће користити више интернет података него VP9 или AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Нежељени ефекти лажирања на iOS</string>
   <string name="revanced_spoof_video_streams_about_ios_summary">"• Приватни дечји видеи се можда неће пуштати
 • Стримови уживо почињу од почетка
 • Видеи ће се завршити 1 секунду раније"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Нежељени ефекти лажирања на Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Dečji video zapisi možda se neće prikazati
-• Livestreamovi počinju od početka
-• Video zapisi se završavaju 1 sekundu ranije"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Дечји видеи се можда неће пуштати
+• Стримови уживо почињу од почетка
+• Видеи ће се завршити 1 секунду раније"</string>
   <string name="revanced_spoof_video_streams_language_title">Подразумевани језик аудио стрима</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Језик апликације</string>
   <string name="revanced_spoof_video_streams_language_AR">Арапски</string>
@@ -1291,7 +1291,7 @@ AVC ima maksimalnu rezoluciju od 1080p, Opus audio kodek nije dostupan, a reprod
   <string name="revanced_spoof_video_streams_language_BG">Бугарски</string>
   <string name="revanced_spoof_video_streams_language_BN">Бенгалски</string>
   <string name="revanced_spoof_video_streams_language_CA">Каталонски</string>
-  <string name="revanced_spoof_video_streams_language_CS">Чешка</string>
+  <string name="revanced_spoof_video_streams_language_CS">Чешки</string>
   <string name="revanced_spoof_video_streams_language_DA">Дански</string>
   <string name="revanced_spoof_video_streams_language_DE">Немачки</string>
   <string name="revanced_spoof_video_streams_language_EL">Грчки</string>
@@ -1314,12 +1314,12 @@ AVC ima maksimalnu rezoluciju od 1080p, Opus audio kodek nije dostupan, a reprod
   <string name="revanced_spoof_video_streams_language_LV">Летонски</string>
   <string name="revanced_spoof_video_streams_language_MK">Македонски</string>
   <string name="revanced_spoof_video_streams_language_MN">Монголски</string>
-  <string name="revanced_spoof_video_streams_language_MR">Маратхи</string>
+  <string name="revanced_spoof_video_streams_language_MR">Марати</string>
   <string name="revanced_spoof_video_streams_language_MS">Малајски</string>
   <string name="revanced_spoof_video_streams_language_MY">Бурмански</string>
   <string name="revanced_spoof_video_streams_language_NL">Холандски</string>
-  <string name="revanced_spoof_video_streams_language_OR">Одиа</string>
-  <string name="revanced_spoof_video_streams_language_PA">Панџаби</string>
+  <string name="revanced_spoof_video_streams_language_OR">Одија</string>
+  <string name="revanced_spoof_video_streams_language_PA">Панџапски</string>
   <string name="revanced_spoof_video_streams_language_PL">Пољски</string>
   <string name="revanced_spoof_video_streams_language_PT_BR">Португалcки (Бразил)</string>
   <string name="revanced_spoof_video_streams_language_PT_PT">Португалски (Португалија)</string>
@@ -1330,9 +1330,9 @@ AVC ima maksimalnu rezoluciju od 1080p, Opus audio kodek nije dostupan, a reprod
   <string name="revanced_spoof_video_streams_language_SR">Српски</string>
   <string name="revanced_spoof_video_streams_language_SV">Шведски</string>
   <string name="revanced_spoof_video_streams_language_SW">Свахили</string>
-  <string name="revanced_spoof_video_streams_language_TA">Тамил</string>
+  <string name="revanced_spoof_video_streams_language_TA">Тамилски</string>
   <string name="revanced_spoof_video_streams_language_TE">Телугу</string>
-  <string name="revanced_spoof_video_streams_language_TH">Тајландски</string>
+  <string name="revanced_spoof_video_streams_language_TH">Тајски</string>
   <string name="revanced_spoof_video_streams_language_TR">Турски</string>
   <string name="revanced_spoof_video_streams_language_UK">Украјински</string>
   <string name="revanced_spoof_video_streams_language_UR">Урду</string>
@@ -1347,9 +1347,9 @@ AVC ima maksimalnu rezoluciju od 1080p, Opus audio kodek nije dostupan, a reprod
   <string name="revanced_block_audio_ads_summary_off">Аудио огласи су одблокирани</string>
   </patch>
   <patch id="ad.embedded.embeddedAdsPatch">
-  <string name="revanced_embedded_ads_service_unavailable">%s nije dostupan, reklame se možda prikazuju. Pokušajte da promenite servis za blokiranje reklama u postavkama.</string>
-  <string name="revanced_embedded_ads_service_failed">%s je vratio grešku, reklame se možda prikazuju. Pokušajte da promenite servis za blokiranje reklama u postavkama.</string>
-  <string name="revanced_block_embedded_ads_title">Блокирање уграђених видео огласа</string>
+  <string name="revanced_embedded_ads_service_unavailable">%s није доступан, огласи се можда приказују. Покушајте да промените услугу блокирања огласа у подешавањима.</string>
+  <string name="revanced_embedded_ads_service_failed">%s је вратио грешку, огласи се можда приказују. Покушајте да промените услугу блокирања огласа у подешавањима.</string>
+  <string name="revanced_block_embedded_ads_title">Блокирај уграђене видео огласе</string>
   <string name="revanced_block_embedded_ads_entry_1">Онемогућено</string>
   <string name="revanced_block_embedded_ads_entry_2">Luminous прокси</string>
   <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock прокси</string>
