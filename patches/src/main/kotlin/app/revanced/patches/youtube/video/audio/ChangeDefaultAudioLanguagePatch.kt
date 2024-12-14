@@ -93,7 +93,11 @@ val changeDefaultAudioLanguagePatch = bytecodePatch(
                     type,
                     helperFieldName,
                     "Ljava/lang/Boolean;",
-                    AccessFlags.PRIVATE.value,
+                    // Boolean is a 100% immutable class (all fields are final)
+                    // and safe to write to a shared field without volatile/synchronization,
+                    // but without volatile the field can show stale data
+                    // and it's calculated by more than one thread.
+                    AccessFlags.PRIVATE.value or AccessFlags.VOLATILE.value,
                     null,
                     null,
                     null
