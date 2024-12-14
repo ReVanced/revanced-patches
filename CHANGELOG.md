@@ -1,3 +1,10 @@
+## [5.4.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.4.0...v5.4.1-dev.1) (2024-12-14)
+
+
+### Bug Fixes
+
+* **Twitch:** Change recommended target to the latest app version ([fb32972](https://github.com/ReVanced/revanced-patches/commit/fb32972f4de92dac1fc5d73f56a392a671c4e94b))
+
 # [5.4.0](https://github.com/ReVanced/revanced-patches/compare/v5.3.0...v5.4.0) (2024-12-14)
 
 
