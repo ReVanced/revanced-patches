@@ -5,11 +5,11 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
+import java.util.Locale;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.requests.Requester;
 import app.revanced.extension.shared.requests.Route;
-import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.spoof.ClientType;
 
 final class PlayerRoutes {
@@ -35,9 +35,9 @@ final class PlayerRoutes {
             JSONObject context = new JSONObject();
 
             JSONObject client = new JSONObject();
-            if (clientType.useLanguageCode) {
-                client.put("hl", BaseSettings.SPOOF_VIDEO_STREAMS_LANGUAGE.get().getIso639_1());
-            }
+            // Changing the app language does not force the app to completely restart,
+            // so the default needs to be the current language and not a static field.
+            client.put("hl", Locale.getDefault().toLanguageTag());
             client.put("clientName", clientType.clientName);
             client.put("clientVersion", clientType.clientVersion);
             client.put("deviceModel", clientType.deviceModel);

@@ -48,35 +48,44 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
 
     /**
      * Sorts a preference list by menu entries, but preserves the first value as the first entry.
+     *
+     * @noinspection SameParameterValue
      */
-    private static void sortListPreferenceByValues(ListPreference listPreference) {
+    private static void sortListPreferenceByValues(ListPreference listPreference, int firstEntriesToPreserve) {
         CharSequence[] entries = listPreference.getEntries();
         CharSequence[] entryValues = listPreference.getEntryValues();
         final int entrySize = entries.length;
 
         if (entrySize != entryValues.length) {
+            // Xml array declaration has a missing/extra entry.
             throw new IllegalStateException();
         }
 
-        // Ensure the first entry remains the first after sorting.
-        CharSequence firstEntry = entries[0];
-        CharSequence firstEntryValue = entryValues[0];
+        List<Pair<String, String>> firstPairs = new ArrayList<>(firstEntriesToPreserve);
+        List<Pair<String, String>> pairsToSort = new ArrayList<>(entrySize);
 
-        List<Pair<String, String>> entryPairs = new ArrayList<>(entrySize);
-        for (int i = 1; i < entrySize; i++) {
-            entryPairs.add(new Pair<>(entries[i].toString(), entryValues[i].toString()));
+        for (int i = 0; i < entrySize; i++) {
+            Pair<String, String> pair = new Pair<>(entries[i].toString(), entryValues[i].toString());
+            if (i < firstEntriesToPreserve) {
+                firstPairs.add(pair);
+            } else {
+                pairsToSort.add(pair);
+            }
         }
 
-        Collections.sort(entryPairs, (pair1, pair2) -> pair1.first.compareToIgnoreCase(pair2.first));
+        Collections.sort(pairsToSort, (pair1, pair2) -> pair1.first.compareToIgnoreCase(pair2.first));
 
         CharSequence[] sortedEntries = new CharSequence[entrySize];
         CharSequence[] sortedEntryValues = new CharSequence[entrySize];
 
-        sortedEntries[0] = firstEntry;
-        sortedEntryValues[0] = firstEntryValue;
+        int i = 0;
+        for (Pair<String, String> pair : firstPairs) {
+            sortedEntries[i] = pair.first;
+            sortedEntryValues[i] = pair.second;
+            i++;
+        }
 
-        int i = 1;
-        for (Pair<String, String> pair : entryPairs) {
+        for (Pair<String, String> pair : pairsToSort) {
             sortedEntries[i] = pair.first;
             sortedEntryValues[i] = pair.second;
             i++;
@@ -100,9 +109,9 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                 CustomPlaybackSpeedPatch.initializeListPreference(playbackPreference);
             }
 
-            preference = findPreference(Settings.SPOOF_VIDEO_STREAMS_LANGUAGE.key);
+            preference = findPreference(Settings.AUDIO_DEFAULT_LANGUAGE.key);
             if (preference instanceof ListPreference languagePreference) {
-                sortListPreferenceByValues(languagePreference);
+                sortListPreferenceByValues(languagePreference, 3);
             }
         } catch (Exception ex) {
             Logger.printException(() -> "initialize failure", ex);

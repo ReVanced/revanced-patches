@@ -1392,6 +1392,10 @@ public final class app/revanced/patches/youtube/shared/FingerprintsKt {
 	public static final fun getRollingNumberTextViewAnimationUpdateFingerprint ()Lapp/revanced/patcher/Fingerprint;
 }
 
+public final class app/revanced/patches/youtube/video/audio/ChangeDefaultAudioLanguagePatchKt {
+	public static final fun getChangeDefaultAudioLanguagePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/video/information/VideoInformationPatchKt {
 	public static final fun getVideoInformationPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 	public static final fun userSelectedPlaybackSpeedHook (Ljava/lang/String;Ljava/lang/String;)V
