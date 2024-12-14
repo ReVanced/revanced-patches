@@ -16,10 +16,10 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import app.revanced.extension.shared.settings.StringSetting;
+import app.revanced.extension.tiktok.Utils;
 
 @SuppressWarnings("deprecation")
 public class DownloadPathPreference extends DialogPreference {
-    private final Context context;
     private final String[] entryValues = {"DCIM", "Movies", "Pictures"};
     private String mValue;
 
@@ -29,11 +29,10 @@ public class DownloadPathPreference extends DialogPreference {
 
     public DownloadPathPreference(Context context, String title, StringSetting setting) {
         super(context);
-        this.context = context;
-        this.setTitle(title);
-        this.setSummary(Environment.getExternalStorageDirectory().getPath() + "/" + setting.get());
-        this.setKey(setting.key);
-        this.setValue(setting.get());
+        setTitle(title);
+        setSummary(Environment.getExternalStorageDirectory().getPath() + "/" + setting.get());
+        setKey(setting.key);
+        setValue(setting.get());
     }
 
     public String getValue() {
@@ -59,6 +58,7 @@ public class DownloadPathPreference extends DialogPreference {
         childDownloadPath = getValue().substring(getValue().indexOf("/") + 1);
         mediaPathIndex = findIndexOf(currentMedia);
 
+        Context context = getContext();
         LinearLayout dialogView = new LinearLayout(context);
         RadioGroup mediaPath = new RadioGroup(context);
         mediaPath.setLayoutParams(new RadioGroup.LayoutParams(-1, -2));
@@ -79,12 +79,10 @@ public class DownloadPathPreference extends DialogPreference {
         downloadPath.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
             }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
             }
 
             @Override
@@ -97,6 +95,13 @@ public class DownloadPathPreference extends DialogPreference {
         dialogView.addView(mediaPath);
         dialogView.addView(downloadPath);
         return dialogView;
+    }
+
+    @Override
+    protected void onBindView(View view) {
+        super.onBindView(view);
+
+        Utils.setTitleAndSummaryColor(getContext(), view);
     }
 
     @Override

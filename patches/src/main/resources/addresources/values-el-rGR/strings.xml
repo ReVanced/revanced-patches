@@ -1,34 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
-Note: All strings must have a unique path, even if the same string is declared in two different apps.
-This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+    All strings must have a unique path, even if the same string is declared in two different apps.
+    This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-# General guidelines and information for translating
 
-## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
+    Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
+    Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
-    For example, the patches string:
-        <string name="revanced_patches_string">You will arrive at %1$s in %2$s hours from now</string>
-    Could be translated to another language using a rearranged grammar:
-        <string name="revanced_patches_string">You will arrive %2$s hours from now at %1$s</string>
+    Raw strings are required because Crowdin AI translations regularly gets confused and
+    replace \n with an encoded new line character.
 
-     For Manager strings:
-        You will arrive at ${destination} in ${count} hours from now
-     Could be rearranged by changing the order of the ${} parameters:
-        You will arrive ${count} hours from now at ${destination}
+    Bad:
+        <string name="summary_key">First \'item\' text\nSecond \"item\" text</string>
 
-    Reordering is particularly relevant when translating into right to left languages, or for any language with grammar that is noticeably different from English.
+    Good:
+        <string name="summary_key">"First 'item' text
+Second \"item\" text"</string>
 
-## Single and double quotation marks must be escaped for patch strings (Manager does not require escaping any quotes).
-
-    All _patches_ single and double quotation marks must be escaped as \"  or \'
-    Forgetting to do this will cause that string to appear in app with no quotation characters.
-
-    Correct:
-        <string name="revanced_string">You\'re correct. This is the \"correct\" way and this text will appear as expected in the app</string>
-    Not correct:
-        <string name="revanced_string">You're not correct. This is not the "correct" way and this text will not appear as expected the in app</string>
 -->
 <resources>
   <app id="shared">
@@ -36,7 +25,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_check_environment_failed_title">Αποτυχία ελέγχων</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Άνοιγμα επίσημης ιστοσελίδας</string>
   <string name="revanced_check_environment_dialog_ignore_button">Παράλειψη</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Αυτή η εφαρμογή δεν φαίνεται να έχει τροποποιηθεί από εσάς.&lt;/h5&gt;&lt;br&gt;Αυτή η εφαρμογή μπορεί να μην λειτουργεί σωστά, &lt;b&gt;θα μπορούσε να είναι επιβλαβής ή ακόμα και επικίνδυνη για χρήση&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Αυτοί οι έλεγχοι υποδηλώνουν ότι αυτή η εφαρμογή έχει τροποποιηθεί στο παρελθόν ή λήφθηκε από κάποιον άλλο:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Συνιστάται έντονα να απεγκαταστήσετε την εφαρμογή &lt;br&gt;και να την τροποποιήσετε μόνοι σας&lt;br&gt; για να διασφαλίσετε ότι χρησιμοποιείτε μια επικυρωμένη και ασφαλή εφαρμογή.&lt;p&gt;&lt;br&gt;Εάν αγνοηθεί, αυτή η προειδοποίηση θα εμφανιστεί μόνο δύο φορές.</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Αυτή η εφαρμογή δεν φαίνεται να έχει τροποποιηθεί από εσάς.&lt;/h5&gt;&lt;br&gt;Η εφαρμογή μπορεί να μη λειτουργεί σωστά, &lt;b&gt;θα μπορούσε να είναι επιβλαβής ή ακόμα και επικίνδυνη για χρήση&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Αυτοί οι έλεγχοι υποδηλώνουν ότι αυτή η εφαρμογή έχει τροποποιηθεί στο παρελθόν ή λήφθηκε από κάποιον άλλο:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Συνιστάται έντονα να απεγκαταστήσετε την εφαρμογή &lt;br&gt;και να την τροποποιήσετε μόνοι σας&lt;br&gt; για να διασφαλίσετε ότι χρησιμοποιείτε μια επικυρωμένη και ασφαλή εφαρμογή.&lt;p&gt;&lt;br&gt;Εάν αγνοηθεί, αυτή η προειδοποίηση θα εμφανιστεί μόνο δύο φορές.</string>
   <string name="revanced_check_environment_not_same_patching_device">Τροποποιήθηκε σε διαφορετική συσκευή</string>
   <string name="revanced_check_environment_manager_not_expected_installer">Δεν έχει εγκατασταθεί μέσω του ReVanced Manager</string>
   <string name="revanced_check_environment_not_near_patch_time">Τροποποιήθηκε πάνω από 10 λεπτά πριν</string>
@@ -67,9 +56,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">Το MicroG GmsCore δεν έχει εγκατασταθεί. Εγκαταστήστε το.</string>
   <string name="gms_core_dialog_title">Απαιτείται ενέργεια</string>
-  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">Το MicroG GmsCore δεν έχει άδεια να τρέξει στο παρασκήνιο.\n\nΑκολουθήστε τον οδηγό \"Don\'t kill my app\" για το τηλέφωνό σας και εφαρμόστε τις οδηγίες στο MicroG.\n\nΑυτό απαιτείται για να λειτουργήσει η εφαρμογή.</string>
+  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"Το MicroG GmsCore δεν έχει άδεια να εκτελείται στο παρασκήνιο.
+
+Ακολουθήστε τον οδηγό \"Don't kill my app\" για το τηλέφωνό σας και εφαρμόστε τις οδηγίες στο MicroG.
+
+Αυτό είναι απαραίτητο για τη λειτουργία της εφαρμογής."</string>
   <string name="gms_core_dialog_open_website_text">Άνοιγμα ιστοσελίδας</string>
-  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">Οι βελτιστοποιήσεις μπαταρίας στο MicroG GmsCore πρέπει να απενεργοποιηθούν για την αποφυγή προβλημάτων.\n\nΠατήστε το κουμπί «Συνέχεια» και απενεργοποιήστε τις βελτιστοποιήσεις μπαταρίας για το MicroG.</string>
+  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Οι βελτιστοποιήσεις μπαταρίας πρέπει να απενεργοποιηθούν για το MicroG GmsCore ώστε να αποφευχθούν προβλήματα.
+
+Η απενεργοποίηση των βελτιστοποιήσεων μπαταρίας για το MicroG δεν θα επηρεάσει αρνητικά τη χρήση της μπαταρίας.
+
+Πατήστε το κουμπί «Συνέχεια» και επιτρέψτε τις αλλαγές βελτιστοποίησης."</string>
   <string name="gms_core_dialog_continue_text">Συνέχεια</string>
   </patch>
   </app>
@@ -106,7 +103,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_debug_toast_on_error_title">Εμφάνιση μηνυμάτων σφαλμάτων ReVanced</string>
   <string name="revanced_debug_toast_on_error_summary_on">Να εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης σε περιπτώσεις σφαλμάτων</string>
   <string name="revanced_debug_toast_on_error_summary_off">Να μην εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης σε περιπτώσεις σφαλμάτων</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">Η απενεργοποίηση των μηνυμάτων σφαλμάτων κρύβει όλες τις ειδοποιήσεις σφαλμάτων που αφορούν το ReVanced.\n\nΔεν θα ειδοποιήστε για τυχόν απρόβλεπτα γεγονότα.</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"Η απενεργοποίηση των μηνυμάτων σφαλμάτων κρύβει όλες τις ειδοποιήσεις σφαλμάτων που αφορούν το ReVanced.
+
+Δεν θα ειδοποιηθείτε για τυχόν απρόβλεπτα γεγονότα."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_disable_like_subscribe_glow_title">Απενεργοποίηση λάμψης των κουμπιών «Μου αρέσει» και «Εγγραφή»</string>
@@ -125,7 +124,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_watermark_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_channel_watermark_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_horizontal_shelves_title">Οριζόντιες ενότητες προτάσεων</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">Οι ενότητες προτάσεων όπως:\n• Έκτακτη είδηση\n• Συνέχεια παρακολούθησης\n• Εξερευνήστε περισσότερα κανάλια\n• Αγορές\n•Παρακολουθήστε ξανά\nείναι κρυμμένες</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"Κρυμμένες 
+
+Αφορά τις ενότητες προτάσεων όπως:
+• Έκτακτη είδηση
+• Συνέχεια παρακολούθησης
+• Εξερευνήστε περισσότερα κανάλια
+• Αγορές
+• Παρακολουθήστε ξανά"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">Εμφανίζονται</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
@@ -202,7 +208,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playables_summary_on">Κρυμμένα</string>
   <string name="revanced_hide_playables_summary_off">Εμφανίζονται</string>
   <string name="revanced_hide_quick_actions_title">Γρήγορες ενέργειες σε πλήρη οθόνη</string>
-  <string name="revanced_hide_quick_actions_summary_on">Κρυμμένες</string>
+  <string name="revanced_hide_quick_actions_summary_on">Εμφανίζονται</string>
   <string name="revanced_hide_quick_actions_summary_off">Εμφανίζονται</string>
   <string name="revanced_hide_related_videos_title">Σχετικά βίντεο στις γρήγορες ενέργειες</string>
   <string name="revanced_hide_related_videos_summary_on">Κρυμμένα</string>
@@ -252,6 +258,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Εμφανίζεται</string>
   <string name="revanced_comments_screen_title">Σχόλια</string>
   <string name="revanced_comments_screen_summary">Απόκρυψη ή εμφάνιση στοιχείων στα σχόλια</string>
+  <string name="revanced_hide_comments_chat_summary_title">Σύνοψη συνομιλίας</string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">Κρυμμένη</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_comments_by_members_header_title">Ετικέτα «Σχόλια από μέλη»</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Εμφανίζεται</string>
@@ -274,7 +283,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_doodles_title">YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Κρυμμένα</string>
   <string name="revanced_hide_doodles_summary_off">Εμφανίζονται</string>
-  <string name="revanced_hide_doodles_user_dialog_message">Τα YouTube Doodles εμφανίζονται για μερικές μέρες κάθε χρόνο.\n\nΑν ένα Doodle εμφανίζεται αυτόν τον καιρό στην περιοχή σας και η ρύθμιση απόκρυψης τους είναι ενεργοποιημένη, τότε η γραμμή φίλτρου κάτω από τη γραμμή αναζήτησης θα είναι επίσης κρυμμένη.</string>
+  <string name="revanced_hide_doodles_user_dialog_message">"Τα YouTube Doodles εμφανίζονται για μερικές μέρες κάθε χρόνο.
+
+Αν ένα YouTube Doodle εμφανίζεται αυτή τη στιγμή στην περιοχή σας και αυτή η ρύθμιση είναι ενεργοποιημένη, τότε η γραμμή φίλτρων κάτω από τη γραμμή αναζήτησης θα είναι κρυμμένη επίσης."</string>
   <string name="revanced_custom_filter_screen_title">Προσαρμοσμένο φίλτρο</string>
   <string name="revanced_custom_filter_screen_summary">Απόκρυψη στοιχείων χρησιμοποιώντας προσαρμοσμένα φίλτρα</string>
   <string name="revanced_custom_filter_title">Χρήση προσαρμοσμένου φίλτρου</string>
@@ -282,7 +293,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_custom_filter_summary_off">Το προσαρμοσμένο φίλτρο είναι απενεργοποιημένο</string>
   <string name="revanced_custom_filter_strings_title">Προσαρμοσμένο φίλτρο</string>
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="revanced_custom_filter_strings_summary">Λίστα από συμβολοσειρές στοιχείων για φιλτράρισμα, διαχωρισμένες η μία κάτω από την άλλη</string>
+  <string name="revanced_custom_filter_strings_summary">Λίστα από συμβολοσειρές στοιχείων για φιλτράρισμα, διαχωρισμένες σε νέες γραμμές</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Μη έγκυρο προσαρμοσμένο φίλτρο: %s</string>
   <string name="revanced_hide_keyword_content_screen_title">Απόκρυψη περιεχομένου λέξεων-κλειδιών</string>
   <string name="revanced_hide_keyword_content_screen_summary">Απόκρυψη βίντεο ροής και αναζήτησης χρησιμοποιώντας φίλτρα λέξεων-κλειδιών</string>
@@ -298,9 +309,18 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_content_phrases_title">Λέξεις-κλειδιά για απόκρυψη</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
-  <string name="revanced_hide_keyword_content_phrases_summary">Λέξεις-κλειδιά και φράσεις προς απόκρυψη, διαχωρισμένες η μία κάτω από την άλλη\n\nΛέξεις-κλειδιά μπορεί να είναι ονόματα καναλιών ή οποιοδήποτε κείμενο εμφανίζεται σε τίτλους βίντεο\n\nΔώστε προσοχή στα πεζά και κεφάλαια γράμματα διότι ισχύει ευαισθησία πεζότητας (π.χ.: iPhone, TikTok, LeBlanc)</string>
+  <string name="revanced_hide_keyword_content_phrases_summary">"Λέξεις-κλειδιά και φράσεις προς απόκρυψη, διαχωρισμένες σε νέες γραμμές
+
+Οι λέξεις-κλειδιά μπορεί να είναι ονόματα καναλιών ή κείμενο που εμφανίζεται σε τίτλους των βίντεο
+
+Οι λέξεις με κεφαλαία γράμματα στη μέση πρέπει να είναι ευαίσθητες στην πεζότητα (π.χ: iPhone, TikTok, LeBlanc)"</string>
   <string name="revanced_hide_keyword_content_about_title">Σχετικά με το φιλτράρισμα λέξεων-κλειδιών</string>
-  <string name="revanced_hide_keyword_content_about_summary">Οι καρτέλες «Αρχική», «Εγγραφές» και τα αποτελέσματα αναζήτησης φιλτράρονται για απόκρυψη περιεχομένου που ταιριάζει με τις λέξεις-κλειδιά\n\nΠεριορισμοί\n• Τα Shorts δε γίνεται να κρυφτούν με βάση το όνομα καναλιού\n• Κάποια στοιχεία UI ενδέχεται να μην κρύβονται\n• Η αναζήτηση για μια λέξη-κλειδί ενδέχεται να μην εμφανίζει κανένα αποτέλεσμα</string>
+  <string name="revanced_hide_keyword_content_about_summary">"Οι καρτέλες «Αρχική», «Εγγραφές» και τα αποτελέσματα αναζήτησης φιλτράρονται για απόκρυψη περιεχομένου που ταιριάζει με τις λέξεις-κλειδιά
+
+Περιορισμοί:
+• Τα Shorts δεν γίνεται να κρύβονται με βάση το όνομα καναλιού
+• Κάποια στοιχεία UI ενδέχεται να μην κρύβονται
+• Η αναζήτηση για μια λέξη-κλειδί ενδέχεται να μην εμφανίζει κανένα αποτέλεσμα"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Ταίριασμα ολόκληρων λέξεων</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">Περιβάλλοντας μια λέξη-κλειδί / φράση με διπλά εισαγωγικά θα αποτρέψει μερικές αντιστοιχίες των τίτλων βίντεο και των ονομάτων καναλιών&lt;br&gt;&lt;br&gt;Για παράδειγμα,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; θα κρύψει το βίντεο: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;αλλά δεν θα κρύψει: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
@@ -316,7 +336,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_general_ads_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_general_ads_summary_off">Εμφανίζονται</string>
   <string name="revanced_hide_fullscreen_ads_title">Διαφημίσεις πλήρους οθόνης</string>
-  <string name="revanced_hide_fullscreen_ads_summary_on">Οι διαφημίσεις πλήρους οθόνης είναι κρυμμένες\n\nΑυτή η δυνατότητα είναι διαθέσιμη μόνο για παλαιότερες συσκευές</string>
+  <string name="revanced_hide_fullscreen_ads_summary_on">"Κρυμμένες
+
+Αυτή η λειτουργία είναι διαθέσιμη μόνο για παλιότερες συσκευές"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">Οι διαφημίσεις πλήρους οθόνης εμφανίζονται</string>
   <string name="revanced_hide_buttoned_ads_title">Διαφημίσεις κουμπιών</string>
   <string name="revanced_hide_buttoned_ads_summary_on">Κρυμμένες</string>
@@ -490,7 +512,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_subscriptions_button_summary_off">Εμφανίζεται</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">Εναλλαγή κουμπιού «Δημιουργία» με κουμπί «Ειδοποιήσεις»</string>
-  <string name="revanced_switch_create_with_notifications_button_summary_on">Γίνεται εναλλαγή του κουμπιού δημιουργίας σε κουμπί ειδοποιήσεων\n\nΣημείωση: Ενεργοποιώντας την εναλλαγή θα κρύβονται και οι διαφημίσεις βίντεο</string>
+  <string name="revanced_switch_create_with_notifications_button_summary_on">"Γίνεται εναλλαγή θέσεων των κουμπιών «Δημιουργία» και «Ειδοποιήσεις»
+
+Σημείωση: Η ενεργοποίηση αυτής της ρύθμισης εξαναγκάζει επίσης την απόκρυψη των διαφημίσεων βίντεο"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">Δε γίνεται εναλλαγή του κουμπιού δημιουργίας σε κουμπί ειδοποιήσεων</string>
   <string name="revanced_hide_navigation_button_labels_title">Ονομασίες κουμπιών γραμμής πλοήγησης</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Κρυμμένες</string>
@@ -692,7 +716,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_sound_button_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_shorts_navigation_bar_title">Γραμμή πλοήγησης</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Η γραμμή πλοήγησης θα είναι κρυμμένη κατά την αναπαραγωγή Shorts</string>
-  <string name="revanced_hide_shorts_navigation_bar_summary_off">Η γραμμή πλοήγησης θα εμφανίζεται κατά την αναπαραγωγή Shorts</string>
+  <string name="revanced_hide_shorts_navigation_bar_summary_off">Η γραμμή πλοήγησης εμφανίζεται κατά την αναπαραγωγή Shorts</string>
   </patch>
   <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
   <string name="revanced_disable_suggested_video_end_screen_title">Τελική οθόνη προτεινόμενων βίντεο</string>
@@ -731,7 +755,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_enable_summary_off">Τα «Δεν μου αρέσει» δεν εμφανίζονται</string>
   <string name="revanced_ryd_shorts_title">Εμφάνιση στα Shorts</string>
   <string name="revanced_ryd_shorts_summary_on">Τα «Δεν μου αρέσει» εμφανίζονται στα Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">Τα «Δεν μου αρέσει» εμφανίζονται στα Shorts\n\nΠεριορισμός: Τα «Δεν μου αρέσει» ενδέχεται να μην εμφανίζονται σε λειτουργία ανώνυμης περιήγησης</string>
+  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Τα «Δεν μου αρέσει» εμφανίζονται στα Shorts
+
+Περιορισμός: Τα «Δεν μου αρέσει» ενδέχεται να μην εμφανίζονται σε λειτουργία ανώνυμης περιήγησης"</string>
   <string name="revanced_ryd_shorts_summary_off">Τα «Δεν μου αρέσει» δεν εμφανίζονται στα Shorts</string>
   <string name="revanced_ryd_dislike_percentage_title">Εμφάνιση ως ποσοστό</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">Τα «Δεν μου αρέσει» εμφανίζονται ως ποσοστό</string>
@@ -774,7 +800,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Οι μικρογραφίες της γραμμής προόδου είναι μέτριας ποιότητας</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Οι μικρογραφίες πλήρους οθόνης της γραμμής προόδου είναι υψηλής ποιότητας</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Οι μικρογραφίες πλήρους οθόνης της γραμμής προόδου είναι μέτριας ποιότητας</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">Αυτό θα επαναφέρει επίσης τις μικρογραφίες σε ζωντανές μεταδόσεις που δεν έχουν μικρογραφίες γραμμής προόδου.\n\nΟι μικρογραφίες της γραμμής προόδου θα χρησιμοποιούν την ίδια ποιότητα με το τρέχον βίντεο.\n\nΑυτή η ρύθμιση λειτουργεί καλύτερα με ποιότητα βίντεο 720p ή χαμηλότερη και όταν χρησιμοποιείτε μια πολύ γρήγορη σύνδεση στο διαδίκτυο.</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Αυτό θα επαναφέρει επίσης τις μικρογραφίες σε ζωντανές μεταδόσεις που δεν έχουν μικρογραφίες γραμμής προόδου.
+
+Οι μικρογραφίες γραμμής αναζήτησης θα χρησιμοποιούν την ίδια ποιότητα με το τρέχον βίντεο.
+
+Αυτή η δυνατότητα λειτουργεί καλύτερα με ποιότητα βίντεο 720p ή χαμηλότερη και όταν χρησιμοποιείται πολύ γρήγορη σύνδεση στο διαδίκτυο."</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Παλιές μικρογραφίες γραμμής προόδου</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Οι μικρογραφίες προεπισκόπησης θα εμφανίζονται πάνω από τη γραμμή προόδου</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Οι μικρογραφίες προεπισκόπησης θα εμφανίζονται σε πλήρη οθόνη</string>
@@ -837,7 +867,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_settings_import_successful">Οι ρυθμίσεις εισήχθησαν επιτυχώς</string>
   <string name="revanced_sb_settings_import_failed">Η εισαγωγή απέτυχε: %s</string>
   <string name="revanced_sb_settings_export_failed">Η εξαγωγή απέτυχε: %s</string>
-  <string name="revanced_sb_settings_revanced_export_user_id_warning">Οι ρυθμίσεις σας περιέχουν ένα ιδιωτικό αναγνωριστικό χρήστη SponsorBlock.\n\nΑυτό είναι σαν έναν κωδικό πρόσβασης και δεν πρέπει ποτέ να το μοιραστείτε.\n</string>
+  <string name="revanced_sb_settings_revanced_export_user_id_warning">"Οι ρυθμίσεις σας περιέχουν ένα ιδιωτικό αναγνωριστικό χρήστη SponsorBlock.
+
+Το αναγνωριστικό χρήστη σας είναι σαν κωδικός πρόσβασης και δεν πρέπει ποτέ να μοιράζεται."</string>
   <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">Να μην εμφανιστεί ξανά</string>
   <string name="revanced_sb_diff_segments">Αλλαγή συμπεριφοράς τμημάτων</string>
   <string name="revanced_sb_segments_sponsor">Χορηγός</string>
@@ -897,9 +929,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_submit_failed_invalid">Αδυναμία υποβολής τμήματος: %s</string>
   <string name="revanced_sb_submit_failed_timeout">Το SponsorBlock είναι προσωρινά εκτός λειτουργίας</string>
   <string name="revanced_sb_submit_failed_unknown_error">Αδυναμία υποβολής τμήματος (κατάσταση: %1$d %2$s)</string>
-  <string name="revanced_sb_submit_failed_rate_limit">Αδυναμία υποβολής τμήματος.\nΌριο συχνότητας (πάρα πολλά από τον ίδιο χρήστη ή την ίδια IP)</string>
+  <string name="revanced_sb_submit_failed_rate_limit">Αδυναμία υποβολής τμήματος. Όριο Συχνότητας (πάρα πολλά από τον ίδιο χρήστη ή την IP)</string>
   <string name="revanced_sb_submit_failed_forbidden">Αδυναμία υποβολής του τμήματος: %s</string>
-  <string name="revanced_sb_submit_failed_duplicate">Αδυναμία αποστολής του τμήματος.\nΥπάρχει ήδη</string>
+  <string name="revanced_sb_submit_failed_duplicate">"Δεν είναι δυνατή η υποβολή του τμήματος.
+Υπάρχει ήδη"</string>
   <string name="revanced_sb_submit_succeeded">Το τμήμα υποβλήθηκε επιτυχώς</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock προσωρινά μη διαθέσιμο (καθυστέρηση API)</string>
@@ -922,7 +955,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">Χρόνος έναρξης του τμήματος</string>
   <string name="revanced_sb_new_segment_time_end">Χρόνος λήξης του τμήματος</string>
   <string name="revanced_sb_new_segment_confirm_title">Είναι σωστοί οι χρόνοι;</string>
-  <string name="revanced_sb_new_segment_confirm_content">Το τμήμα είναι από\n\n%1$s\nσε\n%2$s\n\n(%3$s)\n\nΈτοιμο για υποβολή;</string>
+  <string name="revanced_sb_new_segment_confirm_content">"Το τμήμα είναι από το
+
+%1$s
+έως το
+%2$s
+
+(%3$s)
+
+Είστε έτοιμοι για υποβολή;"</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Η αρχή πρέπει να είναι πριν από το τέλος</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Σημειώστε δύο σημεία στην γραμμή προόδου πρώτα</string>
   <string name="revanced_sb_new_segment_preview_segment_first">Κάντε προεπισκόπηση του τμήματος, και σιγουρευτείτε ότι παραλείπεται σωστά</string>
@@ -964,7 +1005,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_title">Τροποποίηση έκδοσης εφαρμογής</string>
   <string name="revanced_spoof_app_version_summary_on">Η έκδοση τροποποιείται</string>
   <string name="revanced_spoof_app_version_summary_off">Η έκδοση δεν τροποποιείται</string>
-  <string name="revanced_spoof_app_version_user_dialog_message">Η έκδοση της εφαρμογής YouTube θα τροποποιηθεί σε παλιότερη.\n\nΑυτό θα αλλάξει την εμφάνιση και τα χαρακτηριστικά της εφαρμογής, αλλά ενδέχεται να εμφανιστούν άγνωστες παρενέργειες.\n\nΑν αργότερα απενεργοποιηθεί, συνιστάται η εκκαθάριση των δεδομένων της εφαρμογής για την αποφυγή σφαλμάτων UI.</string>
+  <string name="revanced_spoof_app_version_user_dialog_message">"Η έκδοση της εφαρμογής YouTube θα παραποιηθεί σε παλιότερη.
+
+Αυτό θα αλλάξει την εμφάνιση και τα χαρακτηριστικά της εφαρμογής, αλλά ενδέχεται να εμφανιστούν άγνωστες παρενέργειες.
+
+Αν αργότερα απενεργοποιηθεί, συνιστάται η εκκαθάριση δεδομένων της εφαρμογής για την αποφυγή σφαλμάτων UI."</string>
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">Έκδοση τροποποίησης της εφαρμογής</string>
@@ -976,7 +1021,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Επαναφορά ενότητας λίστας αναπαραγωγής παλιού στυλ</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Ορισμός αρχικής σελίδας</string>
+  <string name="revanced_change_start_page_title">Αλλαγή της αρχικής σελίδας</string>
   <string name="revanced_change_start_page_entry_default">Προεπιλογή</string>
   <string name="revanced_change_start_page_entry_browse">Περιήγηση καναλιών</string>
   <string name="revanced_change_start_page_entry_explore">Εξερεύνηση</string>
@@ -1017,7 +1062,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">Αλλάξτε το στυλ της ελαχιστοποιημένης οθόνης αναπαραγωγής</string>
   <string name="revanced_miniplayer_type_title">Τύπος ελαχιστοποιημένης οθόνης αναπαραγωγής</string>
   <string name="revanced_miniplayer_type_entry_0">Ανενεργή</string>
-  <string name="revanced_miniplayer_type_entry_1">Αρχικός</string>
+  <string name="revanced_miniplayer_type_entry_1">Προεπιλογή</string>
   <string name="revanced_miniplayer_type_entry_2">Ελάχιστη</string>
   <string name="revanced_miniplayer_type_entry_3">Ταμπλετ</string>
   <string name="revanced_miniplayer_type_entry_4">Μοντέρνα 1</string>
@@ -1027,19 +1072,28 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_rounded_corners_summary_on">Οι γωνίες είναι στρογγυλεμένες</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Οι γωνίες είναι τετράγωνες</string>
   <string name="revanced_miniplayer_double_tap_action_title">Διπλό πάτημα &amp; τσίμπημα για αλλαγή μεγέθους</string>
-  <string name="revanced_miniplayer_double_tap_action_summary_on">Η λειτουργία διπλού πατήματος και τσιμπήματος για αλλαγή μεγέθους είναι ενεργοποιημένη\n\n• Πατήστε δύο φορές για να αυξήσετε το μέγεθος της ελαχιστοποιημένης οθόνης\n• Πατήστε ξανά δύο φορές για επαναφορά στο αρχικό της μέγεθος</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">"Η λειτουργία διπλού πατήματος και τσιμπήματος για αλλαγή μεγέθους είναι ενεργοποιημένη
+
+• Πατήστε δύο φορές για να αυξήσετε το μέγεθος της ελαχιστοποιημένης οθόνης
+• Πατήστε ξανά δύο φορές για επαναφορά στο αρχικό της μέγεθος"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Η λειτουργία διπλού πατήματος και τσιμπήματος για αλλαγή μεγέθους είναι απενεργοποιημένη</string>
   <string name="revanced_miniplayer_drag_and_drop_title">Λειτουργία μεταφοράς και απόθεσης</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">Η λειτουργία μεταφοράς και απόθεσης είναι ενεργοποιημένη\n\nΗ ελαχιστοποιημένη οθόνη αναπαραγωγής μπορεί να μετακινηθεί σε οποιαδήποτε γωνία της οθόνης</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Η λειτουργία μεταφοράς και απόθεσης είναι ενεργοποιημένη
+
+Η ελαχιστοποιημένη οθόνη αναπαραγωγής μπορεί να μετακινηθεί σε οποιαδήποτε γωνία της οθόνης"</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">Η λειτουργία μεταφοράς και απόθεσης είναι απενεργοποιημένη</string>
   <string name="revanced_miniplayer_horizontal_drag_title">Ενεργοποίηση οριζόντιας χειρονομίας απόρριψης</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">Η οριζόντια χειρονομία είναι ενεργή\n\nΗ ελαχιστοποιημένη οθόνη μπορεί να συρθεί εκτός οθόνης προς τα αριστερά ή δεξιά</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Η χειρονομία οριζόντιας σύρσης είναι ενεργοποιημένη
+
+Η ελαχιστοποιημένη οθόνη μπορεί να συρθεί εκτός οθόνης προς τα αριστερά ή δεξιά"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">Η οριζόντια χειρονομία είναι ανενεργή</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Κουμπί κλεισίματος</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">Κρυμμένο</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">Εμφανίζεται</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_title">Κουμπιά επέκτασης και κλεισίματος</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">Κρυμμένα\n\nΣύρετε για επέκταση ή κλείσιμο</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"Κρυμμένα
+
+Σύρετε την ελαχιστοποιημένη οθόνη αναπαραγωγής για επέκταση ή κλείσιμο του βίντεο"</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Εμφανίζονται</string>
   <string name="revanced_miniplayer_hide_subtext_title">Κείμενα στην οθόνη αναπαραγωγής</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Κρυμμένα</string>
@@ -1070,7 +1124,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">Παράκαμψη μπλοκαρίσματος φόρτωσης εικόνων</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">Χρησιμοποιείται το domain yt4.ggpht.com για την φόρτωση εικόνων</string>
-  <string name="revanced_bypass_image_region_restrictions_summary_off">Χρησιμοποιείται το αρχικό domain για την φόρτωση εικόνων\n\nΗ ενεργοποίηση αυτής της ρύθμισης μπορεί να διορθώσει την φόρτωση εικόνων που είναι μπλοκαρισμένες σε κάποιες περιοχές</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">"Χρησιμοποιείται το αρχικό domain για την φόρτωση εικόνων
+
+Η ενεργοποίηση αυτής της ρύθμισης μπορεί να διορθώσει την φόρτωση εικόνων που είναι μπλοκαρισμένες σε ορισμένες περιοχές"</string>
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -1085,7 +1141,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Αρχικές μικρογραφίες</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Ακίνητα καρέ</string>
   <string name="revanced_alt_thumbnail_options_entry_4">Ακίνητα καρέ</string>
-  <string name="revanced_alt_thumbnail_dearrow_about_summary">Το DeArrow παρέχει μικρογραφίες από το κοινό για τα βίντεο. Οι μικρογραφίες αυτές είναι συχνά πιο σχετικές από εκείνες που παρέχει το ίδιο το YouTube. Εάν ενεργοποιηθεί, οι διευθύνσεις URL των βίντεο θα στέλνονται στον διακομιστή API χωρίς να στέλνονται άλλα δεδομένα. Αν ένα βίντεο δεν έχει μικρογραφίες DeArrow, θα εμφανιστούν είτε οι αρχικές του μικρογραφίες είτε λήψεις ακίνητων καρέ.\n\nΠατήστε για να μάθετε περισσότερα για το DeArrow</string>
+  <string name="revanced_alt_thumbnail_dearrow_about_summary">"Το DeArrow παρέχει μικρογραφίες από το κοινό για τα βίντεο. Οι μικρογραφίες αυτές είναι συχνά πιο σχετικές από εκείνες που παρέχει το ίδιο το YouTube. Αν ενεργοποιηθεί, οι διευθύνσεις URL των βίντεο θα στέλνονται στον διακομιστή API χωρίς να στέλνονται άλλα δεδομένα. Αν κάποιο βίντεο δεν έχει μικρογραφίες DeArrow, θα εμφανιστούν είτε οι αρχικές του μικρογραφίες είτε λήψεις ακίνητων καρέ.
+
+Πατήστε για να μάθετε περισσότερα για το DeArrow"</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Εμφάνιση μηνύματος αν το API δεν είναι διαθέσιμο</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Να εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το DeArrow δεν είναι διαθέσιμο</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Να μην εμφανίζεται μήνυμα στο κάτω μέρος της οθόνης αν το DeArrow δεν είναι διαθέσιμο</string>
@@ -1124,8 +1182,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Παραποίηση διαστάσεων συσκευής</string>
-  <string name="revanced_spoof_device_dimensions_summary_on">Οι διαστάσεις συσκευής παραποιούνται\n\nΜπορεί να γίνουν διαθέσιμες υψηλότερες ποιότητες βίντεο, αλλά πιθανότατα να αντιμετωπίσετε μικρο-κολλήματα κατά την αναπαραγωγή, χειρότερη διάρκεια ζωής μπαταρίας και άλλες άγνωστες παρενέργειες</string>
-  <string name="revanced_spoof_device_dimensions_summary_off">Οι διαστάσεις συσκευής δεν παραποιούνται\n\nΕνεργοποιώντας αυτή τη ρύθμιση μπορούν να γίνουν διαθέσιμες υψηλότερες ποιότητες βίντεο</string>
+  <string name="revanced_spoof_device_dimensions_summary_on">"Οι διαστάσεις συσκευής παραποιούνται
+
+Ενδέχεται να ξεκλειδωθούν υψηλότερες ποιότητες βίντεο, αλλά μπορεί να αντιμετωπίσετε κολλήματα αναπαραγωγής βίντεο, χειρότερη διάρκεια ζωής μπαταρίας και άλλες άγνωστες παρενέργειες"</string>
+  <string name="revanced_spoof_device_dimensions_summary_off">"Οι διαστάσεις συσκευής δεν παραποιούνται
+
+Η ενεργοποίηση αυτής της λειτουργίας μπορεί να ξεκλειδώσει υψηλότερες ποιότητες βίντεο"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Η ενεργοποίηση αυτής της λειτουργίας μπορεί να προκαλέσει μικρο-κολλήματα κατά την αναπαραγωγή, χειρότερη διάρκεια ζωής μπαταρίας, και άλλες άγνωστες παρενέργειες.</string>
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
@@ -1148,7 +1210,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_remove_tracking_query_parameter_summary_off">Η παράμετρος παρακολούθησης δεν αφαιρείται από τους συνδέσμους στην κοινοποίηση</string>
   </patch>
   <patch id="misc.zoomhaptics.zoomHapticsPatch">
-  <string name="revanced_disable_zoom_haptics_title">Κατάργηση απόκρισης δόνησης στο ζουμ</string>
+  <string name="revanced_disable_zoom_haptics_title">Απενεργοποίηση απόκρισης δόνησης χειρονομίας ζουμ</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Η απόκριση δόνησης είναι απενεργοποιημένη</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Η απόκριση δόνησης είναι ενεργοποιημένη</string>
   </patch>
@@ -1156,8 +1218,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Αυτόματη</string>
   <string name="revanced_remember_video_quality_last_selected_title">Απομνημόνευση αλλαγών ποιότητας βίντεο</string>
-  <string name="revanced_remember_video_quality_last_selected_summary_on">Οι αλλαγές ποιότητας θα ισχύουν για όλα τα βίντεο</string>
-  <string name="revanced_remember_video_quality_last_selected_summary_off">Οι αλλαγές ποιότητας θα ισχύουν μόνο για το τρέχον βίντεο</string>
+  <string name="revanced_remember_video_quality_last_selected_summary_on">Οι αλλαγές ποιότητας ισχύουν για όλα τα βίντεο</string>
+  <string name="revanced_remember_video_quality_last_selected_summary_off">Οι αλλαγές ποιότητας ισχύουν μόνο για το τρέχον βίντεο</string>
   <string name="revanced_video_quality_default_wifi_title">Προεπιλεγμένη ποιότητα βίντεο με Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Προεπιλεγμένη ποιότητα βίντεο με δεδομένα κινητής τηλεφωνίας</string>
   <string name="revanced_remember_video_quality_mobile">δεδομένων</string>
@@ -1175,45 +1237,52 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_custom_speed_menu_summary_off">Το μενού προσαρμοσμένης ταχύτητας αναπαραγωγής δεν εμφανίζεται</string>
   <string name="revanced_custom_playback_speeds_title">Προσαρμοσμένες ταχύτητες αναπαραγωγής</string>
   <string name="revanced_custom_playback_speeds_summary">Προσθέστε ή αλλάξτε τις προσαρμοσμένες ταχύτητες αναπαραγωγής</string>
-  <string name="revanced_custom_playback_speeds_invalid">Οι ταχύτητες πρέπει να είναι μικρότερες από %sx. Επαναφορά...</string>
-  <string name="revanced_custom_playback_speeds_parse_exception">Μη έγκυρες ταχύτητες αναπαραγωγής. Επαναφορά...</string>
+  <string name="revanced_custom_playback_speeds_invalid">Οι ταχύτητες πρέπει να είναι μικρότερες από %sx</string>
+  <string name="revanced_custom_playback_speeds_parse_exception">Μη έγκυρες προσαρμοσμένες ταχύτητες αναπαραγωγής</string>
   <string name="revanced_custom_playback_speeds_auto">Αυτόματη</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Απομνημόνευση αλλαγών ταχύτητας αναπαραγωγής</string>
-  <string name="revanced_remember_playback_speed_last_selected_summary_on">Οι αλλαγές ταχύτητας αναπαραγωγής θα ισχύουν για όλα τα βίντεο</string>
-  <string name="revanced_remember_playback_speed_last_selected_summary_off">Οι αλλαγές ταχύτητας αναπαραγωγής θα ισχύουν μόνο για το τρέχον βίντεο</string>
+  <string name="revanced_remember_playback_speed_last_selected_summary_on">Οι αλλαγές ταχύτητας αναπαραγωγής ισχύουν για όλα τα βίντεο</string>
+  <string name="revanced_remember_playback_speed_last_selected_summary_off">Οι αλλαγές ταχύτητας αναπαραγωγής ισχύουν μόνο για το τρέχον βίντεο</string>
   <string name="revanced_playback_speed_default_title">Προεπιλεγμένη ταχύτητα αναπαραγωγής</string>
   <string name="revanced_remember_playback_speed_toast">Η προεπιλεγμένη ταχύτητα άλλαξε σε: %s</string>
   </patch>
   <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
   <string name="revanced_restore_old_video_quality_menu_title">Επαναφορά παλιού μενού ποιότητας βίντεο</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_on">Το μενού ποιότητας βίντεο θα εμφανίζεται με το παλιό στυλ</string>
-  <string name="revanced_restore_old_video_quality_menu_summary_off">Το μενού ποιότητας βίντεο θα εμφανίζεται με το νέο στυλ</string>
+  <string name="revanced_restore_old_video_quality_menu_summary_on">Το μενού ποιότητας βίντεο εμφανίζεται με το παλιό στυλ</string>
+  <string name="revanced_restore_old_video_quality_menu_summary_off">Το μενού ποιότητας βίντεο εμφανίζεται με το νέο στυλ</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
-  <string name="revanced_slide_to_seek_title">Χειρονομία οριζόντιας σάρωσης για αναζήτηση</string>
-  <string name="revanced_slide_to_seek_summary_on">Η αναζήτηση στη γραμμή προόδου με χειρονομία οριζόντιας σάρωσης είναι ενεργοποιημένη</string>
-  <string name="revanced_slide_to_seek_summary_off">Η αναζήτηση στη γραμμή προόδου με χειρονομία σάρωσης είναι απενεργοποιημένη</string>
+  <string name="revanced_slide_to_seek_title">Χειρονομία συρσίματος για αναζήτηση</string>
+  <string name="revanced_slide_to_seek_summary_on">Η χειρονομία συρσίματος για αναζήτηση στη γραμμή προόδου είναι ενεργοποιημένη</string>
+  <string name="revanced_slide_to_seek_summary_off">Η χειρονομία συρσίματος για αναζήτηση στη γραμμή προόδου είναι απενεργοποιημένη</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_screen_title">Παραποίηση ροών βίντεο</string>
   <string name="revanced_spoof_video_streams_screen_summary">Παραποίηση ροών βίντεο του προγράμματος πελάτη για την αποφυγή προβλημάτων αναπαραγωγής</string>
   <string name="revanced_spoof_video_streams_title">Παραποίηση ροών βίντεο</string>
   <string name="revanced_spoof_video_streams_summary_on">Οι ροές βίντεο παραποιούνται</string>
-  <string name="revanced_spoof_video_streams_summary_off">Οι ροές βίντεο δεν παραποιούνται\n\nΗ αναπαραγωγή βίντεο ενδέχεται να μην λειτουργεί</string>
+  <string name="revanced_spoof_video_streams_summary_off">"Οι ροές βίντεο δεν παραποιούνται
+
+Η αναπαραγωγή βίντεο ενδέχεται να μην λειτουργεί"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Η απενεργοποίηση αυτής της ρύθμισης ενδέχεται να προκαλέσει προβλήματα αναπαραγωγής βίντεο.</string>
   <string name="revanced_spoof_video_streams_client_title">Προεπιλεγμένο πρόγραμμα πελάτη</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Εξαναγκασμός AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Ο κωδικοποιητής βίντεο έχει οριστεί υποχρεωτικά σε AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Ο κωδικοποιητής βίντεο ορίζεται αυτόματα</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">Η ενεργοποίηση αυτού μπορεί να βελτιώσει τη διάρκεια ζωής της μπαταρίας και να διορθώσει κολλήματα αναπαραγωγής.\n\nΟ AVC έχει μέγιστη ανάλυση 1080p, ο κωδικοποιητής ήχου Opus δεν είναι διαθέσιμος και η αναπαραγωγή βίντεο θα καταναλώνει περισσότερα δεδομένα internet από τον VP9 ή τον AV1.</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Η ενεργοποίηση αυτής της λειτουργίας μπορεί να βελτιώσει τη διάρκεια ζωής της μπαταρίας και να διορθώσει κολλήματα αναπαραγωγής.
+
+Ο AVC ωστόσο έχει μέγιστη ανάλυση 1080p, ο κωδικοποιητής ήχου Opus δεν είναι διαθέσιμος και η αναπαραγωγή βίντεο θα χρησιμοποιεί περισσότερα δεδομένα internet από τον κωδικοποιητή VP9 ή τον AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Παρενέργειες παραποίησης σε iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• Ιδιωτικά βίντεο για παιδιά ενδεχομένως να μην αναπαράγονται\n• Οι ζωντανές μεταδόσεις ξεκινούν από την αρχή\n• Τα βίντεο ενδέχεται να λήξουν 1 δευτερόλεπτο νωρίτερα</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Τα ιδιωτικά βίντεο για παιδιά ενδέχεται να μην αναπαράγονται
+• Οι ζωντανές μεταδόσεις ξεκινούν από την αρχή
+• Τα βίντεο τελειώνουν 1 δευτερόλεπτο νωρίτερα"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Παρενέργειες παραποίησης σε Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• Τα βίντεο για παιδιά ενδέχεται να μην αναπαράγονται\n• Το μενού «Κομμάτι ήχου» λείπει\n• Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη</string>
-  <string name="revanced_spoof_video_streams_language_">Οι ροές βίντεο παραποιούνται</string>
-  <string name="revanced_spoof_video_streams_language_title">Προτιμώμενη γλώσσα ροής ήχου</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Τα βίντεο για παιδιά ενδέχεται να μην αναπαράγονται
+• Οι ζωντανές μεταδόσεις ξεκινούν από την αρχή
+• Τα βίντεο τελειώνουν 1 δευτερόλεπτο νωρίτερα"</string>
+  <string name="revanced_spoof_video_streams_language_title">Προεπιλεγμένη γλώσσα ροής ήχου</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Γλώσσα εφαρμογής</string>
   <string name="revanced_spoof_video_streams_language_AR">Αραβικά</string>
   <string name="revanced_spoof_video_streams_language_AZ">Αζερμπαϊτζανικά</string>
@@ -1241,9 +1310,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_language_KO">Κορεάτικα</string>
   <string name="revanced_spoof_video_streams_language_LT">Λιθουανικά</string>
   <string name="revanced_spoof_video_streams_language_LV">Λετονικά</string>
-  <string name="revanced_spoof_video_streams_language_MK">Σλαβομακεδονικά</string>
+  <string name="revanced_spoof_video_streams_language_MK">Μακεδονικά</string>
   <string name="revanced_spoof_video_streams_language_MN">Μογγολικά</string>
-  <string name="revanced_spoof_video_streams_language_MR">Μαραθικά</string>
+  <string name="revanced_spoof_video_streams_language_MR">Μαράτι</string>
   <string name="revanced_spoof_video_streams_language_MS">Μαλαισιανά</string>
   <string name="revanced_spoof_video_streams_language_MY">Βιρμανικά</string>
   <string name="revanced_spoof_video_streams_language_NL">Ολλανδικά</string>
@@ -1276,8 +1345,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_block_audio_ads_summary_off">Οι διαφημίσεις ήχου δεν έχουν αποκλειστεί</string>
   </patch>
   <patch id="ad.embedded.embeddedAdsPatch">
-  <string name="revanced_embedded_ads_service_unavailable">%s μη διαθέσιμο. Οι διαφημίσεις θα εμφανίζονται. Δοκιμάστε άλλη υπηρεσία αποκλεισμού διαφημίσεων.</string>
-  <string name="revanced_embedded_ads_service_failed">Σφάλμα διακομιστή %s. Οι διαφημίσεις ενδέχεται να εμφανίζονται. Δοκιμάστε κάποια άλλη υπηρεσία αποκλεισμού διαφημίσεων.</string>
+  <string name="revanced_embedded_ads_service_unavailable">%s δεν είναι διαθέσιμο, ενδέχεται να εμφανιστούν διαφημίσεις. Δοκιμάστε να αλλάξετε την υπηρεσία αποκλεισμού διαφημίσεων στις ρυθμίσεις.</string>
+  <string name="revanced_embedded_ads_service_failed">%s επέστρεψε ένα σφάλμα, ενδέχεται να εμφανιστούν διαφημίσεις. Δοκιμάστε να αλλάξετε την υπηρεσία αποκλεισμού διαφημίσεων στις ρυθμίσεις.</string>
   <string name="revanced_block_embedded_ads_title">Αποκλεισμός ενσωματωμένων διαφημίσεων βίντεο</string>
   <string name="revanced_block_embedded_ads_entry_1">Ανενεργό</string>
   <string name="revanced_block_embedded_ads_entry_2">Διαμεσολαβητής Luminous</string>

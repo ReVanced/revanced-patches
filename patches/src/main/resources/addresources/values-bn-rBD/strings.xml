@@ -1,34 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
-Note: All strings must have a unique path, even if the same string is declared in two different apps.
-This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+    All strings must have a unique path, even if the same string is declared in two different apps.
+    This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-# General guidelines and information for translating
 
-## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
+    Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
+    Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
-    For example, the patches string:
-        <string name="revanced_patches_string">You will arrive at %1$s in %2$s hours from now</string>
-    Could be translated to another language using a rearranged grammar:
-        <string name="revanced_patches_string">You will arrive %2$s hours from now at %1$s</string>
+    Raw strings are required because Crowdin AI translations regularly gets confused and
+    replace \n with an encoded new line character.
 
-     For Manager strings:
-        You will arrive at ${destination} in ${count} hours from now
-     Could be rearranged by changing the order of the ${} parameters:
-        You will arrive ${count} hours from now at ${destination}
+    Bad:
+        <string name="summary_key">First \'item\' text\nSecond \"item\" text</string>
 
-    Reordering is particularly relevant when translating into right to left languages, or for any language with grammar that is noticeably different from English.
+    Good:
+        <string name="summary_key">"First 'item' text
+Second \"item\" text"</string>
 
-## Single and double quotation marks must be escaped for patch strings (Manager does not require escaping any quotes).
-
-    All _patches_ single and double quotation marks must be escaped as \"  or \'
-    Forgetting to do this will cause that string to appear in app with no quotation characters.
-
-    Correct:
-        <string name="revanced_string">You\'re correct. This is the \"correct\" way and this text will appear as expected in the app</string>
-    Not correct:
-        <string name="revanced_string">You're not correct. This is not the "correct" way and this text will not appear as expected the in app</string>
 -->
 <resources>
   <app id="shared">
@@ -36,6 +25,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_check_environment_failed_title">চেক ফেইল করেছে</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">অফিশ্যাল ওয়েবসাইট খুলুন</string>
   <string name="revanced_check_environment_dialog_ignore_button">অবজ্ঞা করুন</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;এই অ্যাপটি আপনার দ্বারা প্যাচ করা হয়েছে বলে মনে হচ্ছে না।&lt;/h5&gt;&lt;br&gt;এই অ্যাপটি সঠিকভাবে কাজ নাও করতে পারে, &lt;b&gt;ক্ষতিকারক বা এমনকি ব্যবহারের জন্য বিপজ্জনক হতে পারে&lt;/b&gt;।&lt;br&gt;&lt;br&gt;এই চেকগুলি ইঙ্গিত দেয় যে এই অ্যাপটি পূর্ববর্তীভাবে প্যাচ করা হয়েছে বা অন্য কাউকে থেকে পাওয়া গেছে:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;এটি দৃঢ়ভাবে সুপারিশ করা হয় যে &lt;b&gt;এই অ্যাপটি আনইনস্টল করা হোক এবং নিজেই প্যাচ করা হোক&lt;/b&gt; যাতে নিশ্চিত করা হয় যে আপনি একটি যাচাইকৃত এবং সুরক্ষিত অ্যাপ ব্যবহার করছেন।&lt;p&gt;&lt;br&gt;যদি উপেক্ষা করা হয়, তাহলে এই সতর্কতাটি শুধুমাত্র দু\'বার দেখানো হবে।</string>
   <string name="revanced_check_environment_not_same_patching_device">অন্য ডিভাইসে প্যাচ করা হয়েছে</string>
   <string name="revanced_check_environment_manager_not_expected_installer">ReVanced Manager দ্বারা প্যাচ করা হয়নি</string>
   <string name="revanced_check_environment_not_near_patch_time">১০ মিনিটেরও বেশি আগে প্যাচ করা হয়েছে</string>
@@ -66,9 +56,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore ইনস্টল করা হয়নি। ইনস্টল করুন।</string>
   <string name="gms_core_dialog_title">পদক্ষেপ প্রয়োজন</string>
-  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">MicroG GmsCore এর ব্যাকগ্রাউন্ডে চলমান থাকার অনুমতি নেই।\n\nআপনার ডিভাইসের জন্য \"Don\'t kill my app\" এ  থাকা নির্দেশাবলী অনুসরণ করুন, এবং আপনার ইনস্টলকৃত MicroG তে তা প্রয়োগ করুন।\n\nঅ্যাপ সঠিকভাবে চলতে এটি অবশ্যই প্রয়োজন।</string>
+  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore-এর পটভূমিতে চালানোর অনুমতি নেই।
+
+আপনার ফোনের জন্য \"Don't kill my app\" গাইড অনুসরণ করুন এবং MicroG ইনস্টলেশনের জন্য নির্দেশাবলী প্রয়োগ করুন।
+
+এটি অ্যাপ্লিকেশনটি কাজ করার জন্য প্রয়োজন।"</string>
   <string name="gms_core_dialog_open_website_text">ওয়েবসাইট খুলুন</string>
-  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">ত্রুটি এড়াতে MicroG GmsCore এর ব্যাটারি অপটিমাইজেশন অবশ্যই নিষ্ক্রিয় করতে হবে।\n\nএগিয়ে যান বোতামে ট্যাপ করুন এবং ব্যাটারি অপটিমাইজেশন নিস্ক্রিয় করুন।</string>
+  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"সমস্যা এড়াতে MicroG GmsCore-এর ব্যাটারি অপ্টিমাইজেশন অক্ষম করতে হবে।
+
+MicroG-এর জন্য ব্যাটারি অপ্টিমাইজেশন অক্ষম করা ব্যাটারি ব্যবহারকে নেতিবাচকভাবে প্রভাবিত করবে না।
+
+চালিয়ে যান বোতামটি ট্যাপ করুন এবং অপ্টিমাইজেশন পরিবর্তনগুলি অনুমোদন করুন।"</string>
   <string name="gms_core_dialog_continue_text">এগিয়ে যান</string>
   </patch>
   </app>
@@ -86,6 +84,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_settings_screen_12_video_title">ভিডিও</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <string name="revanced_shorts_disable_background_playback_title">Shorts ব্যাকগ্রাউন্ড প্লে অক্ষম করুন</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Shorts ব্যাকগ্রাউন্ড প্লে অক্ষম করা হয়েছে</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Shorts ব্যাকগ্রাউন্ড প্লে সক্ষম করা হয়েছে</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">ডিবাগিং</string>
@@ -102,7 +103,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_debug_toast_on_error_title">ReVanced এর ত্রুটির ক্ষেত্রে টোস্ট দেখান</string>
   <string name="revanced_debug_toast_on_error_summary_on">কোন ত্রুটি দেখা গেলে টোস্ট দেখায়</string>
   <string name="revanced_debug_toast_on_error_summary_off">কোন ত্রুটি দেখা গেলে টোস্ট দেখায় না</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">ত্রুটির টোস্ট দেখানো বন্ধ করলে তা ReVanced এর সকল ত্রুটির বিজ্ঞপ্তি লুকিয়ে রাখবে।\n\nআপনি কোন অনাকাঙ্ক্ষিত ঘটনার বিজ্ঞপ্তি পাবেন না।</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"ত্রুটি \"toast\" বন্ধ করে ReVanced ত্রুটি বিজ্ঞপ্তিগুলি লুকানো হয়।
+
+আপনি কোনও অপ্রত্যাশিত ঘটনার বিষয়ে অবহিত হবেন না।"</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_disable_like_subscribe_glow_title">পছন্দ / সদস্যতা বোতামের উজ্জ্বলতা নিষ্ক্রিয় করুন</string>
@@ -121,7 +124,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_watermark_summary_on">জলছাপ লুকানো আছে</string>
   <string name="revanced_hide_channel_watermark_summary_off">জলছাপ দেখানো আছে</string>
   <string name="revanced_hide_horizontal_shelves_title">আনুভূমিক শেলফ লুকান</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">যে সকল শেলফ লুকানো হবে:\n• সর্বমেষ খবর\n• দেখা অবিরত রাখুন\n• আরও চ্যানেল দেখুন\n• কেনাকাটা\n• এটি আবার দেখুন</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"শেল্ফগুলি লুকানো হয় যেমন:
+• তাজা সংবাদ
+• দেখা চালিয়ে যান
+• আরও চ্যানেল অন্বেষণ করুন
+• কেনাকাটা
+• আবার দেখুন"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">শেলফ প্রদর্শিত হয়েছে</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
@@ -221,9 +229,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_chapters_section_title">চ্যাপ্টার বিভাগ লুকান</string>
   <string name="revanced_hide_chapters_section_summary_on">চ্যাপ্টার বিভাগ লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_chapters_section_summary_off">চ্যাপ্টার বিভাগ প্রদর্শিত হয়েছে</string>
+  <string name="revanced_hide_podcast_section_title">‘পডকাস্ট বিভাগ লুকান’</string>
+  <string name="revanced_hide_podcast_section_summary_on">‘পডকাস্ট বিভাগ’ লুকানো আছে</string>
+  <string name="revanced_hide_podcast_section_summary_off">‘পডকাস্ট বিভাগ’ প্রদর্শিত হয়েছে</string>
   <string name="revanced_hide_info_cards_section_title">তথ্য কার্ড সেকশন লুকান</string>
   <string name="revanced_hide_info_cards_section_summary_on">তথ্য কার্ড সেকশন লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_info_cards_section_summary_off">তথ্য কার্ড সেকশন প্রদর্শিত হয়েছে</string>
+  <string name="revanced_hide_key_concepts_section_title">‘মূল বিষয়বস্তু’ বিভাগ লুকানো আছে</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">‘মূল বিষয়বস্তু’ বিভাগ লুকিয়ে রয়েছে</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">‘मुख्य संकल्पना’ अनुभाग प्रदर्शित होता है</string>
+  <string name="revanced_hide_transcript_section_title">ट्रांसक्रिप्ट अनुभाग छिपाएँ</string>
   <string name="revanced_hide_transcript_section_summary_on">ট্রান্সস্ক্রিপ্ট বিভাগ লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_transcript_section_summary_off">ট্রান্সস্ক্রিপ্ট বিভাগ প্রদর্শিত হয়েছে</string>
   <string name="revanced_hide_description_components_screen_title">ভিডিওর বিবরণ</string>
@@ -241,6 +256,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">সম্পর্কিত ভিডিওতে প্রদর্শিত হয়েছে</string>
   <string name="revanced_comments_screen_title">মন্তব্য</string>
   <string name="revanced_comments_screen_summary">মন্তব্য বিভাগের উপাদানগুলি লুকান বা দেখান৷</string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">“চ্যাট সারাংশ” লুকানো আছে</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">“চ্যাট সারাংশ” দেখানো হচ্ছে</string>
   <string name="revanced_hide_comments_by_members_header_title">\'মেম্বারদের মন্তব্য\' হেডার লুকান</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">\'মেম্বারদের মন্তব্য\' হেডার লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">\'মেম্বারদের মন্তব্য\' হেডার প্রদর্শিত হয়েছে</string>
@@ -260,6 +277,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">টাইমস্ট্যাম্প ও ইমোজি বোতাম লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">টাইমস্ট্যাম্প ও ইমোজি বোতাম প্রদর্শিত হয়েছে</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
+  <string name="revanced_hide_doodles_title">YouTube Doodles छिपाएँ</string>
+  <string name="revanced_hide_doodles_summary_on">सर्च बार Doodles छिपे हुए हैं</string>
+  <string name="revanced_hide_doodles_summary_off">সার্চ বারে Doodles প্রদর্শিত হয়</string>
+  <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodles প্রতি বছর কয়েক দিনের জন্য দেখানো হয়।
+
+আপনার অঞ্চলে যদি কোনও Doodle বর্তমানে দেখানো হচ্ছে এবং এই লুকানো সেটিং চালু থাকে, তাহলে সার্চ বারের নীচে ফিল্টার বারটিও লুকানো থাকবে।"</string>
   <string name="revanced_custom_filter_screen_title">কাস্টম ফিল্টার</string>
   <string name="revanced_custom_filter_screen_summary">কাস্টম ফিল্টার ব্যবহার করে বিভিন্ন উপাদান লুকান</string>
   <string name="revanced_custom_filter_title">কাস্টম ফিল্টার সক্রিয় করুন</string>
@@ -283,16 +306,36 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_content_phrases_title">লুকানোর জন্য কীওয়ার্ড</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
+  <string name="revanced_hide_keyword_content_phrases_summary">"নতুন লাইন দ্বারা পৃথক করা লুকানোর জন্য কিওয়ার্ড এবং বাক্যাংশ
+
+কিওয়ার্ড চ্যানেলের নাম বা ভিডিও শিরোনামে দেখানো কোনও পাঠ্য হতে পারে
+
+মাঝখানে বড় হাতের অক্ষর সম্বলিত শব্দগুলি কেসিং দিয়ে প্রবেশ করতে হবে (যেমন: iPhone, TikTok, LeBlanc)"</string>
   <string name="revanced_hide_keyword_content_about_title">কীওয়ার্ড ফিল্টারিং সম্পর্কে</string>
+  <string name="revanced_hide_keyword_content_about_summary">"হোম / সাবস্ক্রিপশন / অনুসন্ধানের ফলাফলগুলি কিওয়ার্ড বাক্যাংশের সাথে মিলে যাওয়া সামগ্রী লুকানোর জন্য ফিল্টার করা হয়
+
+সীমাবদ্ধতা
+• চ্যানেলের নাম দ্বারা Shorts লুকানো যাবে না
+• কিছু UI উপাদান লুকানো নাও হতে পারে
+• কোনও কিওয়ার্ড অনুসন্ধান করলে কোনও ফলাফল নাও দেখাতে পারে"</string>
+  <string name="revanced_hide_keyword_content_about_whole_words_title">সম্পূর্ণ শব্দ মেলাও</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <string name="revanced_hide_keyword_content_about_whole_words_summary">ডাবল কোটের মধ্যে একটি কীওয়ার্ড/ফ্রেজ রাখলে ভিডিও শিরোনাম এবং চ্যানেলের নামের আংশিক মিল সনাক্ত করা বন্ধ হয়ে যাবে&lt;br&gt;&lt;br&gt;উদাহরণস্বরূপ,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; ভিডিওটি লুকিয়ে দেবে: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;কিন্তু লুকিয়ে দেবে না: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_keyword_toast_invalid_common">কিওয়ার্ড ব্যবহার করা যাবে না: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">কিওয়ার্ড ব্যবহার করার জন্য উদ্ধৃতি যোগ করুন: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_conflicting">কিওয়ার্ডের দ্বন্দ্বপূর্ণ ঘোষণা আছে: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_length">কিওয়ার্ড খুব ছোট এবং উদ্ধৃতি প্রয়োজন: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">কিওয়ার্ড সমস্ত ভিডিও লুকিয়ে রাখবে: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">সাধারণ বিজ্ঞাপন লুকান</string>
   <string name="revanced_hide_general_ads_summary_on">সাধারণ বিজ্ঞাপন লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_general_ads_summary_off">সাধারণ বিজ্ঞাপন প্রদর্শিত হয়েছে</string>
   <string name="revanced_hide_fullscreen_ads_title">পূর্ণ স্ক্রীন প্যানেল লুকান</string>
-  <string name="revanced_hide_fullscreen_ads_summary_on">পূর্ণ স্ক্রীণ বিজ্ঞাপন লুকিয়ে রয়েছে\n\nএই ফিচারটি শুধুমাত্র পুরোনো ডিভাইসের জন্য উপলভ্য</string>
+  <string name="revanced_hide_fullscreen_ads_summary_on">"পূর্ণ পর্দার বিজ্ঞাপন লুকানো হয়
+
+এই বৈশিষ্ট্যটি কেবল পুরনো ডিভাইসের জন্য উপলব্ধ"</string>
   <string name="revanced_hide_fullscreen_ads_summary_off">পূর্ণ স্ক্রীন বিজ্ঞাপন প্রদর্শিত হয়েছে</string>
   <string name="revanced_hide_buttoned_ads_title">বোতামযুক্ত বিজ্ঞাপন লুকান</string>
   <string name="revanced_hide_buttoned_ads_summary_on">বোতামযুক্ত বিজ্ঞাপন লুকিয়ে রয়েছে</string>
@@ -306,6 +349,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_products_banner_title">প্রোডাক্ট দেখার ব্যানার লুকান</string>
   <string name="revanced_hide_products_banner_summary_on">ব্যানার লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_products_banner_summary_off">ব্যানার প্রদর্শিত হয়েছে</string>
+  <string name="revanced_hide_player_store_shelf_title">প্লেয়ার শপিং শেলফ লুকান</string>
+  <string name="revanced_hide_player_store_shelf_summary_on">শপিং শেলফ লুকানো আছে</string>
+  <string name="revanced_hide_player_store_shelf_summary_off">শপিং শেলফ দেখানো হচ্ছে</string>
   <string name="revanced_hide_shopping_links_title">ভিডিওর বিবরণে কেনাকাটার লিঙ্ক লুকান</string>
   <string name="revanced_hide_shopping_links_summary_on">কেনাকাটার লিঙ্ক লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_shopping_links_summary_off">কেনাকাটার লিঙ্ক প্রদর্শিত হয়েছে</string>
@@ -389,6 +435,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_swipe_save_and_restore_brightness_summary_on">পূর্ণস্ক্রিনে প্রবেশ বা পূর্ণস্ক্রিন থেকে বাহির হওয়ার সময়, উজ্জ্বলতা সংরক্ষণ এবং পুনরুদ্ধার করবে</string>
   <string name="revanced_swipe_save_and_restore_brightness_summary_off">পূর্ণস্ক্রিনে প্রবেশ বা পূর্ণস্ক্রিন থেকে বাহির হওয়ার সময়, উজ্জ্বলতা সংরক্ষণ এবং পুনরুদ্ধার করবে না</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">স্বয়ংক্রিয়-উজ্জ্বলতার অঙ্গভঙ্গি সক্রিয় করুন</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">উজ্জ্বলতার অঙ্গভঙ্গির সর্বনিম্ন মানে সোয়াইপ ডাউন করলে অটো-উজ্জ্বলতা সক্ষম হয়</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">সর্বনিম্ন মানে সোয়াইপ ডাউন করলে অটো-উজ্জ্বলতা সক্ষম হয় না</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">স্বতস্ফূর্তভাবে</string>
   <string name="revanced_swipe_overlay_timeout_title">ওভার-লে টাইম আউট</string>
   <string name="revanced_swipe_overlay_timeout_summary">কত মিলিসেকেন্ডের জন্য ওভারলে দৃশ্যমান হবে</string>
@@ -397,16 +445,34 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_swipe_overlay_background_alpha_title">সোয়াইপ ব্যাকগ্রাউন্ডের দৃশ্যমানতা</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">সোয়াইপ ওভারলে ব্যাকগ্রাউন্ডের দৃশ্যমানতা</string>
   <string name="revanced_swipe_threshold_title">সোয়াইপ থ্রেশহোল্ড এর মাত্রা</string>
+  <string name="revanced_swipe_threshold_summary">The amount of threshold for swipe to occur</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">স্বয়ংক্রিয় ক্যাপশন বন্ধ করুন</string>
+  <string name="revanced_auto_captions_summary_on">অটো ক্যাপশন বন্ধ করা হয়েছে</string>
+  <string name="revanced_auto_captions_summary_off">অটো ক্যাপশন চালু করা হয়েছে</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
+  <string name="revanced_hide_buttons_screen_title">অ্যাকশন বোতাম</string>
+  <string name="revanced_hide_buttons_screen_summary">ভিডিওর নীচে বোতাম লুকানো বা দেখানো</string>
+  <string name="revanced_hide_like_dislike_button_title">Like এবং Dislike লুকান</string>
+  <string name="revanced_hide_like_dislike_button_summary_on">Like এবং Dislike বোতাম লুকানো আছে</string>
+  <string name="revanced_hide_like_dislike_button_summary_off">Like এবং Dislike বোতাম দেখানো হচ্ছে</string>
   <!-- 'Share' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_share_button_title">Share লুকান</string>
+  <string name="revanced_hide_share_button_summary_on">শেয়ার করুন বোতাম লুকিয়ে রয়েছে</string>
+  <string name="revanced_hide_share_button_summary_off">শেয়ার বাটন প্রদর্শিত হয়েছে</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
+  <string name="revanced_hide_report_button_title">Report লুকান</string>
+  <string name="revanced_hide_report_button_summary_on">রিপোর্ট বাটন লুকিয়ে রয়েছে</string>
+  <string name="revanced_hide_report_button_summary_off">রিপোর্ট বাটন প্রদর্শিত</string>
   <!-- 'Remix' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_remix_button_title">Remix লুকান</string>
+  <string name="revanced_hide_remix_button_summary_on">রিমিক্স বাটন লুকিয়ে রয়েছে</string>
+  <string name="revanced_hide_remix_button_summary_off">রিমিক্স বাটন প্রদর্শিত হয়েছে</string>
   <!-- 'Download' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_download_button_title">ডাউনলোডগুলো হাইড করাও</string>
   <string name="revanced_hide_download_button_summary_on">ডাউনলোড বোতাম লুকানো আছে</string>
   <string name="revanced_hide_download_button_summary_off">ডাউনলোড বোতাম দেখানো হয়েছে</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
@@ -418,6 +484,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_clip_button_summary_on">ক্লিপ বোতাম লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_clip_button_summary_off">ক্লিপ বোতাম প্রদর্শিত হয়েছে</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_playlist_button_title">প্লেলিস্টে Save লুকান</string>
+  <string name="revanced_hide_playlist_button_summary_on">প্লেলিস্টে Save বোতাম লুকানো আছে</string>
+  <string name="revanced_hide_playlist_button_summary_off">প্লেলিস্টে Save বোতাম দেখানো হচ্ছে</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
   <string name="revanced_navigation_buttons_screen_title">নেভিগেশন বোতাম</string>
@@ -440,7 +509,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_subscriptions_button_summary_off">সদস্যতা নিন বোতাম প্রদর্শিত হয়েছে</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">তৈরি বোতামকে বিজ্ঞপ্তি বোতাম দ্বারা সুইচ করুন</string>
-  <string name="revanced_switch_create_with_notifications_button_summary_on">তৈরি করুন বোতাম বিজ্ঞপ্তিগুলো বোতাম দ্বারা স্থান পরিবর্তিত হয়েছে\n\nবিঃদ্রঃ এটি সক্রিয় করার ফলে ভিডিও বিজ্ঞাপন জোরপূর্বক বন্ধ থাকবে</string>
+  <string name="revanced_switch_create_with_notifications_button_summary_on">"তৈরি বোতামটি বিজ্ঞপ্তি বোতামের সাথে পরিবর্তন করা হয়
+
+মনে রাখবেন: এটি সক্রিয় করা ভিডিও বিজ্ঞাপনগুলিও জোর করে লুকিয়ে দেয়"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">তৈরি বোতামকে বিজ্ঞপ্তি বোতাম দ্বারা সুইচ করা হয়নি</string>
   <string name="revanced_hide_navigation_button_labels_title">নেভিগেশন বোতাম লেবেল লুকান</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">লেবেল লুকিয়ে রয়েছে</string>
@@ -458,6 +529,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_additional_settings_summary_on">আরও সেটিংস দেখুন মেনু লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_off">আরও সেটিংস দেখুন মেনু প্রদর্শিত হয়েছে</string>
   <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_sleep_timer_title">Sleep timer লুকান</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_on">Sleep timer মেনু লুকানো আছে</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_off">Sleep timer মেনু দেখানো হচ্ছে</string>
   <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_loop_video_title">ভিডিও লুপ করুন লুকান</string>
   <string name="revanced_hide_player_flyout_loop_video_summary_on">ভিডিও লুপ করুন মেনু লুকিয়ে রয়েছে</string>
@@ -466,6 +540,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_ambient_mode_title">অ্যাম্বিয়েন্ট মোড লুকান</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_on">অ্যাম্বিয়েন্ট মোড মেনু লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_off">অ্যাম্বিয়েন্ট মোড মেনু প্রদর্শিত হয়েছে</string>
+  <string name="revanced_hide_player_flyout_stable_volume_title">Stable volume লুকান</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_off">Stable volume মেনু দেখানো হচ্ছে</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_on">Stable volume মেনু লুকানো আছে</string>
   <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_help_title">সাহায্য এবং ফিডব্যাক মেনু লুকান</string>
   <string name="revanced_hide_player_flyout_help_summary_on">সহায়তা ও প্রতিক্রিয়া মেনু লুকিয়ে রয়েছে</string>
@@ -492,6 +569,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">ভিআর মেনুতে দেখুন লুকানো আছে</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">ভিআর মেনুতে দেখুন দেখানো হয়েছে</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">ভিডিও গুণমান মেনুর ফুটার লুকান</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">ভিডিও গুণমান মেনু ফুটার লুকানো আছে</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">ভিডিও গুণমান মেনু ফুটার দেখানো হচ্ছে</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_player_previous_next_buttons_title">পূর্ববর্তী লুকান &amp; পরবর্তী ভিডিও বোতাম</string>
@@ -501,6 +580,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_cast_button_summary_on">কাস্ট বাটন লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_cast_button_summary_off">কাস্ট বাটন প্রদর্শিত হয়েছে</string>
   <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
+  <string name="revanced_hide_captions_button_title">ক্যাপশন বোতাম লুকান</string>
+  <string name="revanced_hide_captions_button_summary_on">ক্যাপশন বোতাম লুকানো আছে</string>
+  <string name="revanced_hide_captions_button_summary_off">ক্যাপশন বোতাম দেখানো হচ্ছে</string>
+  <string name="revanced_hide_autoplay_button_title">autoplay বোতাম লুকান</string>
+  <string name="revanced_hide_autoplay_button_summary_on">autoplay বোতাম লুকানো আছে</string>
+  <string name="revanced_hide_autoplay_button_summary_off">autoplay বোতাম দেখানো হচ্ছে</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">শেষ স্ক্রীন কার্ড লুকান</string>
@@ -531,6 +616,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_seekbar_thumbnail_summary_off">থাম্বনেইলে সিকবার প্রদর্শিত হয়েছে</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <string name="revanced_shorts_player_screen_title">Shorts প্লেয়ার</string>
+  <string name="revanced_shorts_player_screen_summary">Shorts প্লেয়ারে উপাদান লুকানো বা দেখানো</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
   <string name="revanced_hide_shorts_home_title">প্রধান ফিডে Shorts লুকান</string>
   <string name="revanced_hide_shorts_home_summary_on">প্রধান ফিডে Shorts লুকিয়ে রয়েছে</string>
@@ -566,6 +653,20 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_location_label_summary_on">অবস্থান লেবেল লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_shorts_location_label_summary_off">অবস্থান লেবেল প্রদর্শিত হয়েছে</string>
   <string name="revanced_hide_shorts_save_sound_button_title">সঙ্গীত সেভ করুন বোতাম লুকান</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">Save music বোতাম লুকানো আছে</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">Save music বোতাম দেখানো হচ্ছে</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Use template বোতাম লুকান</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Use template বোতাম লুকানো আছে</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Use template বোতাম দেখানো হচ্ছে</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">Upcoming বোতাম লুকান</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">আগামী বোতাম লুকানো আছে</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">আগামী বোতাম দেখানো হচ্ছে</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">সবুজ পর্দা বোতাম লুকান</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_on">সবুজ পর্দা বোতাম লুকানো আছে</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_off">সবুজ পর্দা বোতাম দেখানো হচ্ছে</string>
+  <string name="revanced_hide_shorts_hashtag_button_title">হ্যাশট্যাগ বোতাম লুকান</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_on">হ্যাশট্যাগ বোতাম লুকানো আছে</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_off">হ্যাশট্যাগ বোতাম দেখানো হচ্ছে</string>
   <string name="revanced_hide_shorts_search_suggestions_title">অনুসন্ধান পরামর্শগুলি লুকান</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">অনুসন্ধান পরামর্শগুলি লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">অনুসন্ধান পরামর্শগুলি প্রদর্শিত হয়েছে</string>
@@ -630,6 +731,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_off">প্লেয়ার পপআপ প্যানেলগুলো প্রদর্শিত হয়েছে</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <string name="revanced_open_videos_fullscreen_portrait_title">পূর্ণ পর্দায় ভিডিও খুলুন</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_on">ভিডিও পূর্ণ পর্দায় খুলবে</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_off">ভিডিও পূর্ণ পর্দায় খুলবে না</string>
   </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">প্লেয়ার ওভারলে অস্বচ্ছতা</string>
@@ -648,7 +752,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_enable_summary_off">অপছন্দগুলো প্রদর্শিত হয়নি</string>
   <string name="revanced_ryd_shorts_title">Shorts এ অপছন্দ দেখান</string>
   <string name="revanced_ryd_shorts_summary_on">Shorts এ অপছন্দ পদর্শিত হয়েছে</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">Shorts এ অপছন্দ পদর্শিত হয়েছে\n\nসীমাবদ্ধতা: ছদ্মবেশী মোডে অপছন্দ নাও দেখাতে পারে</string>
+  <string name="revanced_ryd_shorts_summary_on_disclaimer">"Shorts-এ ডিসলাইক দেখানো হচ্ছে
+
+সীমাবদ্ধতা: গোপন মোডে ডিসলাইক প্রদর্শিত নাও হতে পারে"</string>
   <string name="revanced_ryd_shorts_summary_off">Shorts এ অপছন্দ লুকিয়ে রয়েছে</string>
   <string name="revanced_ryd_dislike_percentage_title">অপছন্দগুলো শতাংশ অনুযায়ী</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">অপছন্দগুলো শতাংশ অনুযায়ী প্রদর্শিত হয়েছে</string>
@@ -686,6 +792,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_wide_searchbar_summary_off">প্রশস্ত অনুসন্ধান বার নিষ্ক্রিয় হয়েছে</string>
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_title">উচ্চমানের থাম্বনেইল সক্ষম করুন</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">সিকবার থাম্বনেইল উচ্চমানের</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">সিকবার থাম্বনেইল মাঝারিমানের</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">পূর্ণ পর্দায় সিকবার থাম্বনেইল উচ্চমানের</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">পূর্ণ পর্দায় সিকবার থাম্বনেইল মাঝারিমানের</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"এটি সেই লাইভস্ট্রিমগুলিতে থাম্বনেইল পুনরুদ্ধার করবে যেখানে সিকবার থাম্বনেইল নেই।
+
+সিকবার থাম্বনেইল বর্তমান ভিডিওর একই মান ব্যবহার করবে।
+
+এই বৈশিষ্ট্যটি 720p অথবা তার চেয়ে কম ভিডিও মান এবং খুব দ্রুত ইন্টারনেট সংযোগ ব্যবহার করার সময় সবচেয়ে ভালো কাজ করে।"</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">পুরোনো সিকবার থাম্বনেইল পুনরুদ্ধার করুন</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">সিকবার এর উপরে সিকবার থাম্বনেইল দেখানো হবে</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">পূর্ণস্ক্রীণে সিকবার থাম্বনেইল দেখানো হবে</string>
@@ -732,6 +848,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_general_skipcount_sum_off">স্কিপ কাউন্ট ট্র্যাকিং সক্রিয় হয়নি</string>
   <string name="revanced_sb_general_min_duration">ন্যূনতম সেগমেন্ট সময়কাল</string>
   <string name="revanced_sb_general_min_duration_sum">এই মান (সেকেন্ড) হতে কম দৈর্ঘ্যের সেগমেন্ট প্রদর্শিত বা স্কিপ করা হবে না</string>
+  <string name="revanced_sb_general_min_duration_invalid">অবৈধ সময়কাল</string>
   <string name="revanced_sb_general_uuid">আপনার ব্যক্তিগত ব্যবহারকারী আইডি</string>
   <string name="revanced_sb_general_uuid_sum">এটি গোপন রাখা উচিত। এটি একটি পাসওয়ার্ডের মতো এবং কারও সাথে শেয়ার করা উচিত নয়। যদি কারও কাছে এটি থাকে, তবে তারা আপনার ছদ্মবেশ ধারণ করতে পারে</string>
   <string name="revanced_sb_general_uuid_invalid">ব্যক্তিগত ব্যবহাকারী আইডি অবশ্যই ৩০ অক্ষর লম্বা হতে হবে</string>
@@ -747,7 +864,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_settings_import_successful">সেটিং সফলভাবে আমদানি করা হয়েছে</string>
   <string name="revanced_sb_settings_import_failed">%s আমদানি করতে ব্যর্থ হয়েছে</string>
   <string name="revanced_sb_settings_export_failed">%s রপ্তানি করতে ব্যর্থ হয়েছে</string>
-  <string name="revanced_sb_settings_revanced_export_user_id_warning">আপনার সেটিংএ একটি প্রাইভেট SponsorBlock ব্যবহারকারী আইডি রয়েছে।\n\nআপনার ব্যবহারকারী আইডি অনেকটা পাসওয়ার্ডের মতো তাই এটি কখনোই শেয়ার করা উচিত নয়।\n</string>
+  <string name="revanced_sb_settings_revanced_export_user_id_warning">"আপনার সেটিংসে একটি ব্যক্তিগত SponsorBlock ব্যবহারকারী ID রয়েছে।
+
+আপনার ব্যবহারকারী ID একটি পাসওয়ার্ডের মতো এবং এটি কখনও ভাগ করা উচিত নয়।"</string>
   <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">আবার দেখাবেন না</string>
   <string name="revanced_sb_diff_segments">সেগমেন্ট আচরণ পরিবর্তন করুন</string>
   <string name="revanced_sb_segments_sponsor">স্পন্সর</string>
@@ -807,9 +926,10 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_submit_failed_invalid">%s সেগমেন্ট জমা দিতে সক্ষম হয়নি</string>
   <string name="revanced_sb_submit_failed_timeout">SponsorBlock সাময়িকভাবে বন্ধ আছে</string>
   <string name="revanced_sb_submit_failed_unknown_error">সেগমেন্ট জমা দিতে সক্ষম হয়নি (অবস্থা: %1$d %2$s)</string>
-  <string name="revanced_sb_submit_failed_rate_limit">সেগমেন্ট জমা করা সম্ভব হয়নি।\nরেট লিমিট (একই ব্যবহারকারী বা IP থেকে অনেক বেশি)</string>
+  <string name="revanced_sb_submit_failed_rate_limit">সেগমেন্ট জমা দিতে পারছি না। হার সীমাবদ্ধ (একই ব্যবহারকারী বা IP থেকে খুব বেশি)।</string>
   <string name="revanced_sb_submit_failed_forbidden">সেগমেন্ট জমা করা যাবে না: %s</string>
-  <string name="revanced_sb_submit_failed_duplicate">সেগমেন্ট জমা করা সম্ভব নয়।\nইতোমধ্যে রয়েছে</string>
+  <string name="revanced_sb_submit_failed_duplicate">"সেগমেন্ট জমা দিতে পারছি না।
+পূর্বেই বিদ্যমান"</string>
   <string name="revanced_sb_submit_succeeded">সেগমেন্ট সফলভাবে জমা হয়েছে</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock সাময়িকভাবে উপলভ্য নয় (API সময় শেষ হয়েছে)</string>
@@ -825,13 +945,23 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_choose_category">সেগমেন্টের বিভাগ নির্বাচন করুন</string>
   <string name="revanced_sb_new_segment_disabled_category">সেটিং থেকে বিভাগ নিস্ক্রিয় করা হয়েছে। জমা দিতে বিভাগ সক্রিয় করুন।</string>
   <string name="revanced_sb_new_segment_title">নতুন স্পন্সরব্লক সেগমেন্ট</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">%s কে নতুন সেগমেন্টের শুরু অথবা শেষ হিসেবে সেট করুন?</string>
   <string name="revanced_sb_new_segment_mark_start">শুরু</string>
   <string name="revanced_sb_new_segment_mark_end">শেষ</string>
   <string name="revanced_sb_new_segment_now">এখন</string>
   <string name="revanced_sb_new_segment_time_start">সেগমেন্টটি শুরু হওয়ার সময়</string>
   <string name="revanced_sb_new_segment_time_end">সেগমেন্টটি শেষ হওয়ার সময়</string>
   <string name="revanced_sb_new_segment_confirm_title">সময়কাল কি সঠিক?</string>
-  <string name="revanced_sb_new_segment_confirm_content">সেগমেন্ট সময়কাল\n\n%1$s\nথেকে\n%2$s\n\n(%3$s)\n\nজমা করার জন্য প্রস্তুত?</string>
+  <string name="revanced_sb_new_segment_confirm_content">"সেগমেন্টটি
+
+%1$s
+থেকে
+
+%2$s
+এবং
+
+(%3$s)
+জমা দিতে প্রস্তুত।"</string>
   <string name="revanced_sb_new_segment_start_is_before_end">শুরু অবশ্যই শেষের আগে হতে হবে</string>
   <string name="revanced_sb_new_segment_mark_locations_first">আগে সময় বারে দুটি অবস্থান চিহ্নিত করুন</string>
   <string name="revanced_sb_new_segment_preview_segment_first">সেগমেন্টটি পূর্বরূপ দেখুন এবং নিশ্চিত হোন যে এটি মসৃণভাবে এড়িয়ে যাচ্ছে</string>
@@ -849,6 +979,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_stats_username_changed">ব্যবহারকারীর নাম সফলভাবে পরিবর্তন হয়েছে</string>
   <string name="revanced_sb_stats_reputation">আপনার রিপুটেশন হল &lt;b&gt;%.2f&lt;/b&gt;</string>
   <string name="revanced_sb_stats_submissions">আপনি &lt;b&gt;%s&lt;/b&gt; সেগমেন্ট তৈরি করেছেন</string>
+  <string name="revanced_sb_stats_submissions_sum">আপনার সেগমেন্ট দেখতে এখানে ট্যাপ করুন</string>
   <string name="revanced_sb_stats_saved_zero">SponsorBlock লিডারবোর্ড</string>
   <string name="revanced_sb_stats_saved">আপনি মানুষকে &lt;b&gt;%s&lt;/b&gt; সেগমেন্ট থেকে বাঁচিয়েছেন</string>
   <string name="revanced_sb_stats_saved_sum_zero">বৈশ্বিক পরিসংখ্যান এবং শীর্ষ অবদানকারীদের দেখতে এখানে ট্যাপ করুন</string>
@@ -872,10 +1003,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_title">অ্যাপ সংস্করণ স্পুফ করুন</string>
   <string name="revanced_spoof_app_version_summary_on">সংস্করণ স্পুফ করা হয়েছে</string>
   <string name="revanced_spoof_app_version_summary_off">সংস্করণ স্পুফ করা হয়নি</string>
-  <string name="revanced_spoof_app_version_user_dialog_message">অ্যাপ সংস্করণ পুরোনো একটি সংস্করণে স্পুফ করা হবে।\n\nএটি অ্যাপের চেহারা এবং ফিচার পরিবর্তন করে, কিন্তু এতে অনাকাঙ্খিত পার্শ্বপ্রতিক্রিয়া দেখা দিতে পারে।\n\nপরবর্তীতে বন্ধ করা হলে, UI বাগ থেকে বাঁচতি অ্যাপের ডাটা ক্লিয়ার করার প্রস্তাবনা রইলো।</string>
+  <string name="revanced_spoof_app_version_user_dialog_message">"অ্যাপ্লিকেশন সংস্করণটি YouTube-এর পুরনো সংস্করণে ভুয়া হবে।
+
+এটি অ্যাপ্লিকেশনটির চেহারা এবং বৈশিষ্ট্য পরিবর্তন করবে, তবে অজানা পার্শ্ব প্রতিক্রিয়া হতে পারে।
+
+পরে যদি বন্ধ করা হয়, UI বাগ এড়াতে অ্যাপ্লিকেশন ডেটা পরিষ্কার করার পরামর্শ দেওয়া হয়।"</string>
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">স্পুফ অ্যাপ সংস্করণ লক্ষ্য</string>
+  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - পুরনো Shorts প্লেয়ার আইকন পুনরুদ্ধার করুন</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
   <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - ছদ্মবেশি মোডে RYD পুনরুদ্ধার করে</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - প্রশ্বস্ত ভিডিও স্পিড এবং গুণমান মেনু পুনরুদ্ধার করে</string>
@@ -885,12 +1021,20 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">শুরুর পৃষ্ঠা সেট করুন</string>
   <string name="revanced_change_start_page_entry_default">পূর্ব-নির্ধারিত</string>
+  <string name="revanced_change_start_page_entry_browse">চ্যানেল ব্রাউজ করুন</string>
   <string name="revanced_change_start_page_entry_explore">ঘুরে দেখুন</string>
+  <string name="revanced_change_start_page_entry_gaming">গেমিং</string>
   <string name="revanced_change_start_page_entry_history">ইতিহাস</string>
+  <string name="revanced_change_start_page_entry_library">লাইব্রেরি</string>
   <string name="revanced_change_start_page_entry_liked_videos">পছন্দ করা ভিডিওগুলি</string>
+  <string name="revanced_change_start_page_entry_live">লাইভ</string>
+  <string name="revanced_change_start_page_entry_movies">মুভি</string>
+  <string name="revanced_change_start_page_entry_music">সঙ্গীত</string>
   <string name="revanced_change_start_page_entry_search">অনুসন্ধান</string>
+  <string name="revanced_change_start_page_entry_sports">খেলাধুলা</string>
   <string name="revanced_change_start_page_entry_subscriptions">সদস্যতা</string>
   <string name="revanced_change_start_page_entry_trending">এখন জনপ্রিয়</string>
+  <string name="revanced_change_start_page_entry_watch_later">পরে দেখুন</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">Shorts প্লেয়ার আবার চালানো নিষ্ক্রিয় করুন</string>
@@ -898,6 +1042,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_disable_resuming_shorts_player_summary_off">অ্যাপের শুরুতে Shorts প্লেয়ার আবার চলবে</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <string name="revanced_shorts_autoplay_title">অটোপ্লে Shorts</string>
+  <string name="revanced_shorts_autoplay_summary_on">Shorts অটোপ্লে হবে</string>
+  <string name="revanced_shorts_autoplay_summary_off">Shorts পুনরাবৃত্তি হবে</string>
+  <string name="revanced_shorts_autoplay_background_title">পটভূমিতে Shorts অটোপ্লে</string>
+  <string name="revanced_shorts_autoplay_background_summary_on">পটভূমিতে Shorts অটোপ্লে হবে</string>
+  <string name="revanced_shorts_autoplay_background_summary_off">পটভূমিতে Shorts পুনরাবৃত্তি হবে</string>
   </patch>
   <patch id="layout.tablet.enableTabletLayoutPatch">
   <string name="revanced_tablet_layout_title">ট্যাবলেট লেআউট সক্রিয় করুন</string>
@@ -910,18 +1060,48 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">অ্যাপের মধ্যকার মিনিমাইজড প্লেয়ার এর ধরণ পরিবর্তন করুন</string>
   <string name="revanced_miniplayer_type_title">মিনিপ্লেয়ার ধরণ</string>
   <string name="revanced_miniplayer_type_entry_0">নিষ্ক্রিয় হয়েছে</string>
-  <string name="revanced_miniplayer_type_entry_1">আসল</string>
+  <string name="revanced_miniplayer_type_entry_1">পূর্ব-নির্ধারিত</string>
+  <string name="revanced_miniplayer_type_entry_2">ন্যূনতম</string>
   <string name="revanced_miniplayer_type_entry_3">ট্যাবলেট</string>
   <string name="revanced_miniplayer_type_entry_4">মর্ডান ১</string>
   <string name="revanced_miniplayer_type_entry_5">মর্ডান ২</string>
   <string name="revanced_miniplayer_type_entry_6">মর্ডান ৩</string>
+  <string name="revanced_miniplayer_rounded_corners_title">গোলাকার কোণ সক্ষম করুন</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_on">কোণগুলি গোলাকার</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_off">কোণগুলি বর্গাকার</string>
+  <string name="revanced_miniplayer_double_tap_action_title">ডাবল-ট্যাপ এবং পিঞ্চ টু রিসাইজ সক্ষম করুন</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">"ডাবল-ট্যাপ করার ক্রিয়া এবং আকার পরিবর্তন করার জন্য চিমটি দেওয়া সক্রিয়
+
+• miniplayer আকার বৃদ্ধি করতে ডাবল ট্যাপ করুন
+• মূল আকার পুনরুদ্ধার করতে আবার ডাবল ট্যাপ করুন"</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_off">ডাবল-ট্যাপ অ্যাকশন এবং পিঞ্চ টু রিসাইজ অক্ষম</string>
+  <string name="revanced_miniplayer_drag_and_drop_title">ড্র্যাগ এবং ড্রপ সক্ষম করুন</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">"ড্র্যাগ এবং ড্রপ সক্রিয়
+
+Miniplayer স্ক্রিনের যেকোনো কোণে টানা যাবে"</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_off">ড্র্যাগ এবং ড্রপ অক্ষম</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">অনুভূমিক ড্র্যাগ অঙ্গভঙ্গি সক্ষম করুন</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">"ক্ষैতিকভাবে টানার ভঙ্গি সক্রিয়
+
+Miniplayer স্ক্রিন থেকে বামে বা ডানে টানা যাবে"</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">অনুভূমিক ড্র্যাগ অঙ্গভঙ্গি অক্ষম</string>
+  <string name="revanced_miniplayer_hide_expand_close_title">বন্ধ বোতাম লুকান</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">বন্ধ বোতাম লুকানো আছে</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">বন্ধ বোতাম দেখানো হচ্ছে</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_title">বিস্তৃত ও বন্ধ করার বোতাম লুকান</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"বোতামগুলি লুকানো হয়
+
+বিস্তৃত করতে বা বন্ধ করতে সোয়াইপ করুন"</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">বিস্তৃত এবং বন্ধ বোতাম দেখানো হচ্ছে</string>
   <string name="revanced_miniplayer_hide_subtext_title">উপপাঠ লুকান</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">উপপাঠ লুকিয়ে রয়েছে</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">উপপাঠ প্রদর্শিত হয়েছে</string>
   <string name="revanced_miniplayer_hide_rewind_forward_title">সামনে বা পেছনে এড়িয়ে যাওয়ার বোতাম লুকান</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">সামনে বা পেছনে এড়িয়ে যাওয়ার বোতাম লুকিয়ে রয়েছে</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">সামনে বা পেছনে এড়িয়ে যাওয়ার বোতাম প্রদর্শিত হয়েছে</string>
+  <string name="revanced_miniplayer_width_dip_title">প্রাথমিক আকার</string>
+  <string name="revanced_miniplayer_width_dip_summary">প্রাথমিক পর্দার আকার, পিক্সেলে</string>
+  <string name="revanced_miniplayer_width_dip_invalid_toast">পিক্সেল আকার %1$s এবং %2$s এর মধ্যে হতে হবে</string>
   <string name="revanced_miniplayer_opacity_title">ওভারলে অস্বচ্ছতা</string>
   <string name="revanced_miniplayer_opacity_summary">অসচ্ছতা মান ০-১০০ এর মধ্যে, যেখানে ০ হল সম্পূর্ণ স্বচ্ছ</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">মিনিপ্লেয়ার ওভারলে অস্বচ্ছতা অবশ্যই ০-১০০ এর মধ্যে হতে হবে</string>
@@ -937,8 +1117,14 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_custom_color_summary_off">সিকবারে মূল রং প্রদর্শিত হয়েছে</string>
   <string name="revanced_seekbar_custom_color_value_title">নিজস্ব সিকবার রং</string>
   <string name="revanced_seekbar_custom_color_value_summary">সিকবারের রং</string>
+  <string name="revanced_seekbar_custom_color_invalid">অবৈধ সিকবার রঙ মান</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
+  <string name="revanced_bypass_image_region_restrictions_title">ছবি অঞ্চল সীমাবদ্ধতা বাইপাস করুন</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_on">yt4.ggpht.com ছবি হোস্ট ব্যবহার করে</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">"মূল ছবি হোস্ট ব্যবহার করে
+
+এটি সক্ষম করলে কিছু অঞ্চলে ব্লক করা থাকা অনুপস্থিত ছবিগুলি সংশোধন করতে পারে"</string>
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -953,7 +1139,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow এবং মূল থাম্বনেইল</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow এবং স্থির ছবি</string>
   <string name="revanced_alt_thumbnail_options_entry_4">স্থির ছবি</string>
-  <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow YouTube ভিডিওগুলির জন্য ক্রাউড-সোর্সড থাম্বনেল সরবরাহ করে। এই থাম্বনেলগুলি প্রায়ই YouTube দ্বারা প্রদত্ত থাম্বনেলগুলির চেয়ে বেশি প্রাসঙ্গিক\n\nঅন করলে, ভিডিও URLগুলি API সার্ভারে পাঠানো হবে এবং অন্য কোনও ডেটা পাঠানো হবে না৷ যদি একটি ভিডিওতে DeArrow থাম্বনেইল না থাকে, তাহলে আসল বা স্থির চিত্র দেখানো হয়\n\nDeArrow সম্পর্কে আরও জানতে এখানে চাপুন</string>
+  <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow YouTube ভিডিওগুলির জন্য জনগণের উৎস থেকে তৈরি থাম্বনেইল সরবরাহ করে। এই থাম্বনেইলগুলি প্রায়শই YouTube দ্বারা সরবরাহ করা থাম্বনেইলগুলির চেয়ে আরও প্রাসঙ্গিক।
+
+যদি সক্রিয় করা হয়, তাহলে ভিডিও URLগুলি API সার্ভারে পাঠানো হবে এবং অন্য কোনও ডেটা পাঠানো হবে না। যদি কোনও ভিডিওতে DeArrow থাম্বনেইল না থাকে, তাহলে মূল বা স্থির ক্যাপচার দেখানো হবে
+
+DeArrow সম্পর্কে আরও জানতে এখানে ট্যাপ করুন"</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">API উপলভ্য না থাকলে একটি টোস্ট দেখান</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">যদি DeArrow অনুপস্থিত থাকে তবে টোস্ট বার্তা প্রদর্শিত হয়</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">যদি DeArrow অনুপস্থিত থাকে তবে টোস্ট বার্তা প্রদর্শিত হয় না</string>
@@ -982,6 +1172,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
   <string name="revanced_check_watch_history_domain_name_dialog_title">সতর্কীকরণ</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">আপনার দেখার ইতিহাস সংরক্ষিত হচ্ছে না।&lt;br&gt;&lt;br&gt;এটি সম্ভবত DNS অ্যাড ব্লকার অথবা নেটওয়ার্ক প্রক্সির কারণে।&lt;br&gt;&lt;br&gt;এটি ঠিক করার জন্য, &lt;b&gt;s.youtube.com&lt;/b&gt;  সাদা তালিকাভুক্ত করুন অথবা সকল DNS ব্লকার এবং প্রক্সি বন্ধ করুন।</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">আবার দেখাবেন না</string>
   </patch>
   <patch id="misc.autorepeat.autoRepeatPatch">
@@ -991,8 +1182,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">ডিভাইস ডাইমেনশন স্পুফ করুন</string>
-  <string name="revanced_spoof_device_dimensions_summary_on">ডিভাইস ডাইমেনশন স্পুফ হয়েছে\n\nভিডিওর উন্নত গুণমান আনলক হয়েছে কিন্তু আপনি ভিডিও চলার ক্ষেত্রে আটকে চলা, খারাপ ব্যাটারি লাইফ এবং অজানা পার্শ্ব-প্রতিক্রিয়ার সম্মুখিন হতে পারেন</string>
-  <string name="revanced_spoof_device_dimensions_summary_off">ডিভাইস ডাইমেনশন স্পুফ হয়নি\n\nএটি সক্রিয় করার ফলে উন্নত ভিডিও গুণমান আনলক হবে</string>
+  <string name="revanced_spoof_device_dimensions_summary_on">"ডিভাইসের মাত্রা ভুয়া
+
+উচ্চ ভিডিও গুণমানগুলি আনলক করা যেতে পারে তবে আপনি ভিডিও প্লেব্যাক হোঁচট খাওয়া, খারাপ ব্যাটারি লাইফ এবং অজানা পার্শ্ব প্রতিক্রিয়া অনুভব করতে পারেন"</string>
+  <string name="revanced_spoof_device_dimensions_summary_off">"ডিভাইসের মাত্রা ভুয়া নয়
+
+এটি সক্রিয় করা উচ্চ ভিডিও গুণমানগুলি আনলক করতে পারে"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">এটি সক্রিয় করার ফলে আপনি ভিডিও চলার ক্ষেত্রে আটকে চলা, খারাপ ব্যাটারি লাইফ এবং অজানা পার্শ্ব-প্রতিক্রিয়ার সম্মুখিন হতে পারেন।</string>
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
@@ -1037,9 +1232,13 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_playback_speed_dialog_button_summary_off">বোতাম প্রদর্শিত হয়নি</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <string name="revanced_custom_speed_menu_title">কাস্টম প্লেব্যাক গতি মেনু</string>
+  <string name="revanced_custom_speed_menu_summary_on">কাস্টম স্পিড মেনু দেখানো হচ্ছে</string>
+  <string name="revanced_custom_speed_menu_summary_off">কাস্টম স্পিড মেনু দেখানো হচ্ছে না</string>
   <string name="revanced_custom_playback_speeds_title">নিজস্ব প্লেব্যাক স্পিড</string>
-  <string name="revanced_custom_playback_speeds_invalid">নিজস্ব স্পিড অবশ্যই %sগুণ থেকে কম হতে হবে। মূল ভ্যালু ব্যবহৃত হচ্ছে।</string>
-  <string name="revanced_custom_playback_speeds_parse_exception">ভুল নিজস্ব প্লেব্যাক স্পিড। মূল ভ্যালু ব্যবহৃত হচ্ছে।</string>
+  <string name="revanced_custom_playback_speeds_summary">কাস্টম প্লেব্যাক গতি যোগ করুন অথবা পরিবর্তন করুন</string>
+  <string name="revanced_custom_playback_speeds_invalid">কাস্টম গতি %s এর চেয়ে কম হতে হবে</string>
+  <string name="revanced_custom_playback_speeds_parse_exception">অবৈধ কাস্টম প্লেব্যাক গতি</string>
   <string name="revanced_custom_playback_speeds_auto">স্বতস্ফূর্তভাবে</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
@@ -1064,11 +1263,79 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_screen_summary">প্লেব্যাক সমস্যা প্রতিরোধ করতে ক্লায়েন্ট ভিডিও স্ট্রিম স্পুফ করুন</string>
   <string name="revanced_spoof_video_streams_title">ভিডিও স্ট্রিমিং স্পুফ করুন</string>
   <string name="revanced_spoof_video_streams_summary_on">ভিডিও স্ট্রিম স্পুফ করা হয়েছে</string>
-  <string name="revanced_spoof_video_streams_summary_off">ভিডিও স্ট্রিম স্পুফ করা হয়নি\n\nভিডিও প্লেব্যাক ঠিকমতো কাজ নাও করতে পারে</string>
+  <string name="revanced_spoof_video_streams_summary_off">"ভিডিও স্ট্রিম ভুয়া নয়
+
+ভিডিও প্লেব্যাক কাজ নাও করতে পারে"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">এই সেটিংটি বন্ধ করার ফলে ভিডিও প্লেব্যাক ত্রুটি হতে পারে।</string>
   <string name="revanced_spoof_video_streams_client_title">ডিফল্ট ক্লায়েন্ট</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">AVC (H.264) ফোর্স করুন</string>
-  <string name="revanced_spoof_video_streams_language_">ভিডিও স্ট্রিম স্পুফ করা হয়েছে</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">ভিডিও কোডেক AVC (H.264) তে বাধ্য করা হয়েছে</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">ভিডিও কোডেক স্বয়ংক্রিয়ভাবে নির্ধারিত হচ্ছে</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"এটি সক্রিয় করা ব্যাটারি লাইফ উন্নত করতে পারে এবং প্লেব্যাক হোঁচট খাওয়া ঠিক করতে পারে।
+
+AVC-এর সর্বোচ্চ রেজোলিউশন 1080p, Opus অডিও কোডেক উপলব্ধ নয় এবং ভিডিও প্লেব্যাক VP9 বা AV1 এর তুলনায় আরও ইন্টারনেট ডেটা ব্যবহার করবে।"</string>
+  <string name="revanced_spoof_video_streams_about_ios_title">iOS স্পুফিং এর পার্শ্ব প্রতিক্রিয়া</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• ব্যক্তিগত শিশু ভিডিওগুলি প্লে নাও হতে পারে
+• লাইভস্ট্রিম শুরু থেকে শুরু হয়
+• ভিডিও 1 সেকেন্ড আগে শেষ হয়"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR স্পুফিং এর পার্শ্ব প্রতিক্রিয়া</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• শিশু ভিডিওগুলি প্লে নাও হতে পারে
+• লাইভস্ট্রিম শুরু থেকে শুরু হয়
+• ভিডিও 1 সেকেন্ড আগে শেষ হয়"</string>
+  <string name="revanced_spoof_video_streams_language_title">ডিফল্ট অডিও স্ট্রিম ভাষা</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">অ্যাপ ভাষা</string>
+  <string name="revanced_spoof_video_streams_language_AR">আরবি</string>
+  <string name="revanced_spoof_video_streams_language_AZ">আজারবাইজানি</string>
+  <string name="revanced_spoof_video_streams_language_BG">বুলগেরিয়ান</string>
+  <string name="revanced_spoof_video_streams_language_BN">বাংলা</string>
+  <string name="revanced_spoof_video_streams_language_CA">কাতালান</string>
+  <string name="revanced_spoof_video_streams_language_CS">চেক</string>
+  <string name="revanced_spoof_video_streams_language_DA">ডেনিশ</string>
+  <string name="revanced_spoof_video_streams_language_DE">জার্মান</string>
+  <string name="revanced_spoof_video_streams_language_EL">গ্রীক</string>
+  <string name="revanced_spoof_video_streams_language_EN">ইংরেজি</string>
+  <string name="revanced_spoof_video_streams_language_ES">স্প্যানিশ</string>
+  <string name="revanced_spoof_video_streams_language_ET">এস্তোনিয়ান</string>
+  <string name="revanced_spoof_video_streams_language_FA">ফার্সি</string>
+  <string name="revanced_spoof_video_streams_language_FI">ফিনল্যান্ড</string>
+  <string name="revanced_spoof_video_streams_language_FR">ফরাসি</string>
+  <string name="revanced_spoof_video_streams_language_GU">গুজরাটি</string>
+  <string name="revanced_spoof_video_streams_language_HI">হিন্দি</string>
+  <string name="revanced_spoof_video_streams_language_HR">ক্রোয়েশিয়ান</string>
+  <string name="revanced_spoof_video_streams_language_HU">হাঙ্গেরিয়ান</string>
+  <string name="revanced_spoof_video_streams_language_ID">ইন্দোনেশিয়ান</string>
+  <string name="revanced_spoof_video_streams_language_IT">ইতালীয়</string>
+  <string name="revanced_spoof_video_streams_language_JA">জাপানি</string>
+  <string name="revanced_spoof_video_streams_language_KK">কাজাখ</string>
+  <string name="revanced_spoof_video_streams_language_KO">কোরিয়ান</string>
+  <string name="revanced_spoof_video_streams_language_LT">লিথুয়ানিয়ান</string>
+  <string name="revanced_spoof_video_streams_language_LV">লাতভিয়ান</string>
+  <string name="revanced_spoof_video_streams_language_MK">ম্যাসেডোনিয়ান</string>
+  <string name="revanced_spoof_video_streams_language_MN">মঙ্গোলিয়ান</string>
+  <string name="revanced_spoof_video_streams_language_MR">মারাঠি</string>
+  <string name="revanced_spoof_video_streams_language_MS">মালয়</string>
+  <string name="revanced_spoof_video_streams_language_MY">বার্মিজ</string>
+  <string name="revanced_spoof_video_streams_language_NL">ডাচ</string>
+  <string name="revanced_spoof_video_streams_language_OR">ওড়িয়া</string>
+  <string name="revanced_spoof_video_streams_language_PA">পঞ্জাবি</string>
+  <string name="revanced_spoof_video_streams_language_PL">পোলিশ</string>
+  <string name="revanced_spoof_video_streams_language_PT_BR">পর্তুগিজ (ব্রাজিল)</string>
+  <string name="revanced_spoof_video_streams_language_PT_PT">পর্তুগিজ (পর্তুগাল)</string>
+  <string name="revanced_spoof_video_streams_language_RO">রোমানীয়</string>
+  <string name="revanced_spoof_video_streams_language_RU">রাশিয়ান</string>
+  <string name="revanced_spoof_video_streams_language_SK">স্লোভাক</string>
+  <string name="revanced_spoof_video_streams_language_SL">স্লোভেনিয়ান</string>
+  <string name="revanced_spoof_video_streams_language_SR">সার্বিয়ান</string>
+  <string name="revanced_spoof_video_streams_language_SV">সুইডিশ</string>
+  <string name="revanced_spoof_video_streams_language_SW">সোয়াহিলি</string>
+  <string name="revanced_spoof_video_streams_language_TA">তামিল</string>
+  <string name="revanced_spoof_video_streams_language_TE">তেলুগু</string>
+  <string name="revanced_spoof_video_streams_language_TH">থাই</string>
+  <string name="revanced_spoof_video_streams_language_TR">তুর্কি</string>
+  <string name="revanced_spoof_video_streams_language_UK">ইউক্রেনীয়</string>
+  <string name="revanced_spoof_video_streams_language_UR">উর্দু</string>
+  <string name="revanced_spoof_video_streams_language_VI">ভিয়েতনামি</string>
+  <string name="revanced_spoof_video_streams_language_ZH">চীনা</string>
   </patch>
   </app>
   <app id="twitch">
@@ -1078,8 +1345,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_block_audio_ads_summary_off">অডিও বিজ্ঞাপন আনবব্লক করা হয়েছে</string>
   </patch>
   <patch id="ad.embedded.embeddedAdsPatch">
-  <string name="revanced_embedded_ads_service_unavailable">%s উপলভ্য নয়। বিজ্ঞাপন দেখাতে পারে। সেটিং থেকে অন্য কোন বিজ্ঞাপন আটকানো সেবায় সুইচ করুন।</string>
-  <string name="revanced_embedded_ads_service_failed">%s সার্ভার একটি ত্রুটি দেখাচ্ছে। বিজ্ঞাপন দেখাতে পারে। সেটিং থেকে অন্য কোন বিজ্ঞাপন আটকানো সেবায় সুইচ করুন।</string>
+  <string name="revanced_embedded_ads_service_unavailable">%s উপলব্ধ নয়, বিজ্ঞাপন দেখানো হতে পারে। সেটিংসে বিজ্ঞাপন ব্লক পরিষেবা পরিবর্তন করার চেষ্টা করুন।</string>
+  <string name="revanced_embedded_ads_service_failed">%s একটি ত্রুটি ফিরিয়েছে, বিজ্ঞাপন দেখানো হতে পারে। সেটিংসে বিজ্ঞাপন ব্লক পরিষেবা পরিবর্তন করার চেষ্টা করুন।</string>
   <string name="revanced_block_embedded_ads_title">এমবেড করা ভিডিও বিজ্ঞাপন আটকান</string>
   <string name="revanced_block_embedded_ads_entry_1">নিষ্ক্রিয় হয়েছে</string>
   <string name="revanced_block_embedded_ads_entry_2">Luminous প্রক্সি</string>
@@ -1111,6 +1378,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">ReVanced সেটিং</string>
   <string name="revanced_about_title">সম্পর্কিত</string>
+  <string name="revanced_about_summary">ReVanced সম্পর্কে</string>
   <string name="revanced_ads_screen_title">বিজ্ঞাপন</string>
   <string name="revanced_ads_screen_summary">বিজ্ঞাপন বন্ধ করার সেটিং</string>
   <string name="revanced_chat_screen_title">আলাপচারি</string>

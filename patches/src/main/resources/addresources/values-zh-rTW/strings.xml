@@ -1,34 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
-Note: All strings must have a unique path, even if the same string is declared in two different apps.
-This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+    All strings must have a unique path, even if the same string is declared in two different apps.
+    This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-# General guidelines and information for translating
 
-## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
+    Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
+    Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
-    For example, the patches string:
-        <string name="revanced_patches_string">You will arrive at %1$s in %2$s hours from now</string>
-    Could be translated to another language using a rearranged grammar:
-        <string name="revanced_patches_string">You will arrive %2$s hours from now at %1$s</string>
+    Raw strings are required because Crowdin AI translations regularly gets confused and
+    replace \n with an encoded new line character.
 
-     For Manager strings:
-        You will arrive at ${destination} in ${count} hours from now
-     Could be rearranged by changing the order of the ${} parameters:
-        You will arrive ${count} hours from now at ${destination}
+    Bad:
+        <string name="summary_key">First \'item\' text\nSecond \"item\" text</string>
 
-    Reordering is particularly relevant when translating into right to left languages, or for any language with grammar that is noticeably different from English.
+    Good:
+        <string name="summary_key">"First 'item' text
+Second \"item\" text"</string>
 
-## Single and double quotation marks must be escaped for patch strings (Manager does not require escaping any quotes).
-
-    All _patches_ single and double quotation marks must be escaped as \"  or \'
-    Forgetting to do this will cause that string to appear in app with no quotation characters.
-
-    Correct:
-        <string name="revanced_string">You\'re correct. This is the \"correct\" way and this text will appear as expected in the app</string>
-    Not correct:
-        <string name="revanced_string">You're not correct. This is not the "correct" way and this text will not appear as expected the in app</string>
 -->
 <resources>
   <app id="shared">
@@ -67,9 +56,17 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">未安裝 MicroG GmsCore。請前往安裝。</string>
   <string name="gms_core_dialog_title">需要採取行動</string>
-  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">MicroG GmsCore 沒有在背景執行的權限。\n\n請遵循適用於您手機的「Don\'t kill my app」嚮導，並將這些說明套用到您的 MicroG 安裝中。\n\n這是讓應用程式執行所必需做的。</string>
+  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore 沒有在後台運作的權限。
+
+根據您手機的「不要關閉我的應用程式」指南，將這些說明應用於您的 MicroG 安裝。
+
+這項設定是應用程式運作的必要條件。"</string>
   <string name="gms_core_dialog_open_website_text">開啟網站</string>
-  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">請務必停用 MicroG GmsCore 的最佳化電池以避免意外問題。\n\n輕觸 [繼續] 並停用最佳化電池。</string>
+  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"為了避免問題，必須停用 MicroG GmsCore 的電池最佳化。
+
+停用 MicroG 的電池最佳化不會對電池使用量造成負面影響。
+
+輕觸 [繼續] 按鈕並允許最佳化變更。"</string>
   <string name="gms_core_dialog_continue_text">繼續</string>
   </patch>
   </app>
@@ -106,7 +103,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_debug_toast_on_error_title">在 ReVacned 錯誤時顯示提示</string>
   <string name="revanced_debug_toast_on_error_summary_on">若發生錯誤，顯示提示</string>
   <string name="revanced_debug_toast_on_error_summary_off">若發生錯誤，不顯示提示</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">關閉錯誤提示並隱藏所有 ReVanced 錯誤通知。\n\n您將不會收到任何意外事件的通知。</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"關閉錯誤提示將隱藏所有 ReVanced 錯誤通知。
+
+您將不會收到任何意外事件的通知。"</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_disable_like_subscribe_glow_title">停用「喜歡」和「訂閱」按鈕的發光效果</string>
@@ -125,7 +124,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_channel_watermark_summary_on">已隱藏影片浮水印</string>
   <string name="revanced_hide_channel_watermark_summary_off">已顯示影片浮水印</string>
   <string name="revanced_hide_horizontal_shelves_title">隱藏水平櫃</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">已隱藏這些櫃子：\n• 即時新聞\n• 繼續觀看\n• 探索更多頻道\n• 商店\n• 再看一次</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"以下類型的資訊將被隱藏：
+• 最新消息
+• 繼續觀賞
+• 探索更多頻道
+• 購物
+• 再次觀賞"</string>
   <string name="revanced_hide_horizontal_shelves_summary_off">已顯示櫃子</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
@@ -157,22 +161,22 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_search_result_shelf_header_summary_on">已隱藏 [標頭匣]</string>
   <string name="revanced_hide_search_result_shelf_header_summary_off">已顯示 [標頭匣]</string>
   <string name="revanced_hide_channel_guidelines_title">隱藏頻道規範</string>
-  <string name="revanced_hide_channel_guidelines_summary_on">已隱藏頻道規範</string>
-  <string name="revanced_hide_channel_guidelines_summary_off">已顯示頻道規範</string>
+  <string name="revanced_hide_channel_guidelines_summary_on">已隱藏頻道指南</string>
+  <string name="revanced_hide_channel_guidelines_summary_off">已顯示節目指南</string>
   <string name="revanced_hide_chips_shelf_title">隱藏 [章節匣]</string>
   <string name="revanced_hide_chips_shelf_summary_on">已隱藏 [章節匣]</string>
   <string name="revanced_hide_chips_shelf_summary_off">已顯示 [章節匣]</string>
   <string name="revanced_hide_expandable_chip_title">隱藏影片下方的章節選擇欄</string>
-  <string name="revanced_hide_expandable_chip_summary_on">已隱藏影片下方的章節選擇欄</string>
-  <string name="revanced_hide_expandable_chip_summary_off">已顯示影片下方的章節選擇欄</string>
+  <string name="revanced_hide_expandable_chip_summary_on">可展開的晶片已隱藏</string>
+  <string name="revanced_hide_expandable_chip_summary_off">可展開的晶片已顯示</string>
   <string name="revanced_hide_community_posts_title">隱藏社群貼文</string>
   <string name="revanced_hide_community_posts_summary_on">已隱藏社群貼文</string>
-  <string name="revanced_hide_community_posts_summary_off">已顯示社群貼文</string>
+  <string name="revanced_hide_community_posts_summary_off">已顯示社區貼文</string>
   <string name="revanced_hide_compact_banner_title">隱藏小型橫幅</string>
-  <string name="revanced_hide_compact_banner_summary_on">已隱藏小型橫幅</string>
-  <string name="revanced_hide_compact_banner_summary_off">已顯示小型橫幅</string>
+  <string name="revanced_hide_compact_banner_summary_on">簡潔的橫幅已隱藏</string>
+  <string name="revanced_hide_compact_banner_summary_off">簡潔的橫幅已顯示</string>
   <string name="revanced_hide_movies_section_title">隱藏電影區</string>
-  <string name="revanced_hide_movies_section_summary_on">已隱藏電影區</string>
+  <string name="revanced_hide_movies_section_summary_on">已隱藏電影區塊</string>
   <string name="revanced_hide_movies_section_summary_off">已顯示電影區</string>
   <string name="revanced_hide_feed_survey_title">隱藏動態影片問卷調查</string>
   <string name="revanced_hide_feed_survey_summary_on">已隱藏動態影片問卷調查</string>
@@ -191,7 +195,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_emergency_box_summary_off">已顯示影片警告提醒</string>
   <string name="revanced_hide_info_panels_title">隱藏資訊面板</string>
   <string name="revanced_hide_info_panels_summary_on">已隱藏資訊面板</string>
-  <string name="revanced_hide_info_panels_summary_off">已顯示資訊面板</string>
+  <string name="revanced_hide_info_panels_summary_off">已顯示資訊板</string>
   <string name="revanced_hide_medical_panels_title">隱藏醫療資訊面板</string>
   <string name="revanced_hide_medical_panels_summary_on">已隱藏醫療資訊面板</string>
   <string name="revanced_hide_medical_panels_summary_off">已顯示醫療資訊面板</string>
@@ -202,11 +206,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_playables_summary_on">已隱藏遊戲角落</string>
   <string name="revanced_hide_playables_summary_off">已顯示遊戲角落</string>
   <string name="revanced_hide_quick_actions_title">隱藏全螢幕快捷功能欄</string>
-  <string name="revanced_hide_quick_actions_summary_on">已隱藏快捷功能欄</string>
+  <string name="revanced_hide_quick_actions_summary_on">已顯示快速操作</string>
   <string name="revanced_hide_quick_actions_summary_off">已顯示快捷功能欄</string>
   <string name="revanced_hide_related_videos_title">隱藏快捷功能欄相關影片</string>
   <string name="revanced_hide_related_videos_summary_on">已隱藏相關影片</string>
-  <string name="revanced_hide_related_videos_summary_off">已顯示相關影片</string>
+  <string name="revanced_hide_related_videos_summary_off">已開啟顯示近期影片</string>
   <string name="revanced_hide_image_shelf_title">在搜尋結果中隱藏 [圖片匣]</string>
   <string name="revanced_hide_image_shelf_summary_on">已隱藏 [圖片匣]</string>
   <string name="revanced_hide_image_shelf_summary_off">已顯示 [圖片匣]</string>
@@ -252,12 +256,15 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">在相關影片中顯示</string>
   <string name="revanced_comments_screen_title">留言區</string>
   <string name="revanced_comments_screen_summary">隱藏或顯示影片留言區內容</string>
+  <string name="revanced_hide_comments_chat_summary_title">隱藏「聊天摘要」 </string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">「聊天摘要」已隱藏</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">「聊天摘要」已顯示</string>
   <string name="revanced_hide_comments_by_members_header_title">隱藏「會員留言」標題</string>
-  <string name="revanced_hide_comments_by_members_header_summary_on">已隱藏「會員留言」標題</string>
-  <string name="revanced_hide_comments_by_members_header_summary_off">已顯示「會員留言」標題</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">已隱藏「由會員留言」標題</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">已顯示「由會員留言」標題</string>
   <string name="revanced_hide_comments_section_title">隱藏留言區</string>
   <string name="revanced_hide_comments_section_summary_on">已隱藏留言區塊</string>
-  <string name="revanced_hide_comments_section_summary_off">已顯示留言區塊</string>
+  <string name="revanced_hide_comments_section_summary_off">已開啟顯示留言區塊</string>
   <string name="revanced_hide_comments_create_a_short_button_title">隱藏「建立 Short」按鈕</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">已隱藏「建立 Short」按鈕</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">已顯示「建立 Short」按鈕</string>
@@ -274,7 +281,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_doodles_title">隱藏 YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">已隱藏位於搜尋欄的 Doodles </string>
   <string name="revanced_hide_doodles_summary_off">已顯示位於搜尋欄的 Doodles </string>
-  <string name="revanced_hide_doodles_user_dialog_message">YouTube Doodles 會在一年裡不定期顯現。\n\n如果您的 Doodles 目前正在您的地區中提供，且本設定為啟用，則位於搜尋攔下方的篩選器也會隱藏。</string>
+  <string name="revanced_hide_doodles_user_dialog_message">"YouTube 塗鴉每年會顯示幾天。
+
+如果塗鴉目前在您所在國家／地區顯示，而且此隱藏設定處於啟用狀態，搜尋列下方顯示的篩選列也會隱藏。"</string>
   <string name="revanced_custom_filter_screen_title">自訂篩選器</string>
   <string name="revanced_custom_filter_screen_summary">使用自訂篩選器隱藏欄位</string>
   <string name="revanced_custom_filter_title">啟用自訂篩選器</string>
@@ -298,9 +307,18 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_keyword_content_phrases_title">隱藏關鍵字</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
-  <string name="revanced_hide_keyword_content_phrases_summary">關鍵字和詞組（以換行符分隔）\n\n關鍵字可以是頻道名稱或影片標題中顯示的任何文字\n\n中間帶有大寫字母的詞必須按照其大小寫格式輸入（例如：iPhone、TikTok、LeBlanc）</string>
+  <string name="revanced_hide_keyword_content_phrases_summary">"要隱藏的關鍵字和詞組，請以新行分隔
+
+關鍵字可以是頻道名稱或顯示在影片標題中的任何文字
+
+中間有字母大寫的詞組必須使用大小寫輸入（即：iPhone、TikTok、LeBlanc）"</string>
   <string name="revanced_hide_keyword_content_about_title">關於關鍵字過濾</string>
-  <string name="revanced_hide_keyword_content_about_summary">主頁 / 訂閱 / 搜尋結果將過濾並隱藏符合關鍵字詞組的內容\n\n限制\n• 短片無法通過頻道名稱隱藏\n• 某些使用者介面元件可能無法被隱藏\n• 搜尋關鍵字時可能顯示無結果</string>
+  <string name="revanced_hide_keyword_content_about_summary">"首頁／訂閱／搜尋結果會根據篩選條件，隱藏包含關鍵字詞組的相關內容
+
+限制
+• YouTube Shorts 無法透過頻道名稱篩選隱藏
+• 某些使用者介面可能無法隱藏
+• 搜尋關鍵字可能顯示無結果"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">匹配整個詞彙</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
   <string name="revanced_hide_keyword_content_about_whole_words_summary">將關鍵字或詞組用雙引號括起來，可以防止影片標題和頻道名稱的部分匹配&lt;br&gt;&lt;br&gt;例如：&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; 會隱藏影片：&lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;但不會隱藏：&lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
@@ -314,16 +332,18 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="ad.general.hideAdsResourcePatch">
   <string name="revanced_hide_general_ads_title">隱藏一般廣告</string>
   <string name="revanced_hide_general_ads_summary_on">已隱藏一般廣告</string>
-  <string name="revanced_hide_general_ads_summary_off">已顯示一般廣告</string>
+  <string name="revanced_hide_general_ads_summary_off">已開啟顯示一般廣告</string>
   <string name="revanced_hide_fullscreen_ads_title">隱藏全螢幕廣告</string>
-  <string name="revanced_hide_fullscreen_ads_summary_on">已隱藏全螢幕廣告\n\n此功能只能在舊裝置上使用</string>
-  <string name="revanced_hide_fullscreen_ads_summary_off">已顯示全螢幕廣告</string>
+  <string name="revanced_hide_fullscreen_ads_summary_on">"全螢幕廣告已隱藏
+
+此功能僅適用於舊版裝置"</string>
+  <string name="revanced_hide_fullscreen_ads_summary_off">已開啟顯示全螢幕廣告</string>
   <string name="revanced_hide_buttoned_ads_title">隱藏按鈕廣告</string>
-  <string name="revanced_hide_buttoned_ads_summary_on">已隱藏按鈕廣告</string>
-  <string name="revanced_hide_buttoned_ads_summary_off">已顯示按鈕廣告</string>
+  <string name="revanced_hide_buttoned_ads_summary_on">已隱藏按鈕型廣告</string>
+  <string name="revanced_hide_buttoned_ads_summary_off">已開啟顯示按鈕化廣告</string>
   <string name="revanced_hide_paid_promotion_label_title">隱藏付費推廣標籤</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">已隱藏付費推廣標籤</string>
-  <string name="revanced_hide_paid_promotion_label_summary_off">已顯示付費推廣標籤</string>
+  <string name="revanced_hide_paid_promotion_label_summary_off">已開啟顯示付費推廣標籤</string>
   <string name="revanced_hide_self_sponsor_ads_title">隱藏自我贊助資訊卡</string>
   <string name="revanced_hide_self_sponsor_ads_summary_on">已隱藏自我贊助資訊卡</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">已顯示自我贊助資訊卡</string>
@@ -357,7 +377,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="ad.video.videoAdsPatch">
   <string name="revanced_hide_video_ads_title">隱藏影片廣告</string>
   <string name="revanced_hide_video_ads_summary_on">已隱藏影片廣告</string>
-  <string name="revanced_hide_video_ads_summary_off">已顯示影片廣告</string>
+  <string name="revanced_hide_video_ads_summary_off">已開啟顯示影片廣告</string>
   </patch>
   <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
   <string name="revanced_share_copy_url_success">已複製 URL 到剪貼簿</string>
@@ -490,7 +510,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_subscriptions_button_summary_off">已顯示訂閱按鈕</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
   <string name="revanced_switch_create_with_notifications_button_title">切換建立為通知</string>
-  <string name="revanced_switch_create_with_notifications_button_summary_on">「建立」按鈕已經與「通知」按鈕對調 \n\n 注意：啟用此功能還會強制隱藏影片廣告。</string>
+  <string name="revanced_switch_create_with_notifications_button_summary_on">"建立按鈕已與通知按鈕互換
+
+注意：啟用此設定也會強制隱藏影片廣告"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">建立按鈕未與通知按鈕對調</string>
   <string name="revanced_hide_navigation_button_labels_title">隱藏導覽列按鈕標籤</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">已隱藏標籤</string>
@@ -626,11 +648,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_super_thanks_button_summary_on">已隱藏 [超級感謝] 按鈕</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_off">已顯示 [超級感謝] 按鈕</string>
   <string name="revanced_hide_shorts_tagged_products_title">隱藏標記產品</string>
-  <string name="revanced_hide_shorts_tagged_products_summary_on">已隱藏標記產品</string>
-  <string name="revanced_hide_shorts_tagged_products_summary_off">已顯示標記產品</string>
+  <string name="revanced_hide_shorts_tagged_products_summary_on">已隱藏標註產品</string>
+  <string name="revanced_hide_shorts_tagged_products_summary_off">已開啟顯示標註產品</string>
   <string name="revanced_hide_shorts_location_label_title">隱藏地區標籤</string>
-  <string name="revanced_hide_shorts_location_label_summary_on">已隱藏地區標籤</string>
-  <string name="revanced_hide_shorts_location_label_summary_off">已顯示地區標籤</string>
+  <string name="revanced_hide_shorts_location_label_summary_on">已隱藏地點標籤</string>
+  <string name="revanced_hide_shorts_location_label_summary_off">已開啟顯示地點標籤</string>
   <string name="revanced_hide_shorts_save_sound_button_title">隱藏 [儲存音樂] 按鈕</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">已隱藏 [儲存音樂] 按鈕</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">已顯示 [顯示音樂] 按鈕</string>
@@ -648,7 +670,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_shorts_hashtag_button_summary_off">主題標籤按鈕已顯示</string>
   <string name="revanced_hide_shorts_search_suggestions_title">隱藏搜尋建議</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">已隱藏搜尋建議</string>
-  <string name="revanced_hide_shorts_search_suggestions_summary_off">已顯示搜尋建議</string>
+  <string name="revanced_hide_shorts_search_suggestions_summary_off">已開啟顯示搜尋建議</string>
   <string name="revanced_hide_shorts_stickers_title">隱藏「Stickers」</string>
   <string name="revanced_hide_shorts_stickers_summary_on">已隱藏「Stickers」</string>
   <string name="revanced_hide_shorts_stickers_summary_off">已顯示「Stickers」</string>
@@ -710,6 +732,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_hide_player_popup_panels_summary_off">已顯示播放器彈出面板</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <string name="revanced_open_videos_fullscreen_portrait_title">以全螢幕開啟影片</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_on">以全螢幕開啟影片</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_off">影片不會以全螢幕開啟</string>
   </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
   <string name="revanced_player_overlay_opacity_title">播放器覆蓋透明度</string>
@@ -728,7 +753,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_ryd_enable_summary_off">未顯示「不喜歡」數</string>
   <string name="revanced_ryd_shorts_title">在 Shorts 中顯示「不喜歡」數</string>
   <string name="revanced_ryd_shorts_summary_on">已在 Shorts 中顯示「不喜歡」數</string>
-  <string name="revanced_ryd_shorts_summary_on_disclaimer">顯示 Shorts「不喜歡」數\n\n限制：在無痕模式中可能不會出現「不喜歡」數</string>
+  <string name="revanced_ryd_shorts_summary_on_disclaimer">"不喜歡數值將顯示在 YouTube Shorts 上
+
+限制：不喜歡數值可能不會顯示在無痕模式下"</string>
   <string name="revanced_ryd_shorts_summary_off">已在 Shorts 中隱藏「不喜歡」數</string>
   <string name="revanced_ryd_dislike_percentage_title">「不喜歡」數比例</string>
   <string name="revanced_ryd_dislike_percentage_summary_on">顯示「不喜歡」數為比例</string>
@@ -771,7 +798,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_seekbar_thumbnails_high_quality_summary_off">已設定拖拽欄為中畫質縮圖</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">已設定全螢幕拖拽欄為高畫質縮圖</string>
   <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">已設定全螢幕拖拽欄為中畫質縮圖</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">此操作將復原沒有拖拽欄的即時串流縮圖\n\n拖拽欄縮圖將使用與目前影片的同等畫質。\n\n此功能在您使用高速網際網路，並使用在 720p 或更低的畫質時為最佳狀態。</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"這也會在沒有時間軸縮略圖的直播影片中恢復縮略圖。
+
+時間軸縮略圖將使用與目前影片相同的畫質。
+
+這項功能在影片畫質為 720p 或更低或使用高速網路連線時效果最佳。"</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">還原舊版拖拽欄縮圖</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">拖拽欄縮圖將出現在拖拽欄上</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">拖拽欄縮圖將出現在全螢幕畫面</string>
@@ -834,7 +865,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_settings_import_successful">已成功地匯入設定</string>
   <string name="revanced_sb_settings_import_failed">匯入失敗：%s</string>
   <string name="revanced_sb_settings_export_failed">匯出失敗：%s</string>
-  <string name="revanced_sb_settings_revanced_export_user_id_warning">您的設定中包含了個人 SponsorBlock 使用者 ID。\n\n您的使用者 ID 類似於密碼，絕不應該分享。\n</string>
+  <string name="revanced_sb_settings_revanced_export_user_id_warning">"您的設定包含私人 SponsorBlock 使用者 ID。
+
+您的使用者 ID 就像密碼，絕不要與他人分享。"</string>
   <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">不要再顯示</string>
   <string name="revanced_sb_diff_segments">變更片段操作</string>
   <string name="revanced_sb_segments_sponsor">贊助商廣告</string>
@@ -894,9 +927,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_submit_failed_invalid">無法提交片段：%s</string>
   <string name="revanced_sb_submit_failed_timeout">SponsorBlock 暫時離線</string>
   <string name="revanced_sb_submit_failed_unknown_error">無法提交片段（狀態：%1$d %2$s）</string>
-  <string name="revanced_sb_submit_failed_rate_limit">無法提交片段。\n頻率限制（來自同一個使用者或 IP 的次數過多）</string>
+  <string name="revanced_sb_submit_failed_rate_limit">無法提交片段。頻率限制（同一位使用者或 IP 的提交次數過多）</string>
   <string name="revanced_sb_submit_failed_forbidden">無法提交片段：%s</string>
-  <string name="revanced_sb_submit_failed_duplicate">無法提交片段。\n片段已經存在</string>
+  <string name="revanced_sb_submit_failed_duplicate">"無法提交片段。
+
+已存在"</string>
   <string name="revanced_sb_submit_succeeded">成功提交新片段</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
   <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock 暫時無法使用（API 超時）</string>
@@ -919,7 +954,16 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_sb_new_segment_time_start">片段開始時間</string>
   <string name="revanced_sb_new_segment_time_end">片段結束時間</string>
   <string name="revanced_sb_new_segment_confirm_title">時間是否正確？</string>
-  <string name="revanced_sb_new_segment_confirm_content">區段從\n\n%1$s\n至\n%2$s\n\n(%3$s)\n\n確定要提交？</string>
+  <string name="revanced_sb_new_segment_confirm_content">"片段選取範圍
+
+從
+%1$s
+到
+%2$s
+
+(%3$s)
+
+準備提交？"</string>
   <string name="revanced_sb_new_segment_start_is_before_end">起始點必須在終點之前</string>
   <string name="revanced_sb_new_segment_mark_locations_first">首先在時間欄上標記兩個位置</string>
   <string name="revanced_sb_new_segment_preview_segment_first">預覽片段，確保能順利跳過</string>
@@ -961,7 +1005,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_app_version_title">欺騙應用程式版本</string>
   <string name="revanced_spoof_app_version_summary_on">已欺騙版本</string>
   <string name="revanced_spoof_app_version_summary_off">未欺騙版本</string>
-  <string name="revanced_spoof_app_version_user_dialog_message">將欺騙 YouTube 應用程式版本為舊版。\n\n這將變更應用程式的外觀和功能，但可能會出現未知的副作用。\n\n若稍後才關閉，建議清除應用程式資料以防止 UI 錯誤。</string>
+  <string name="revanced_spoof_app_version_user_dialog_message">"應用程式版本將模擬為舊版 YouTube。
+
+這將改變應用程式的樣式和功能，但可能會發生未知的副作用。
+
+如果之後關閉此設定，建議清除應用程式資料以防止使用者介面錯誤。"</string>
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
   <string name="revanced_spoof_app_version_target_title">欺騙應用程式版本目標</string>
@@ -1014,7 +1062,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_screen_summary">更改應用程式內縮小播放器的樣式</string>
   <string name="revanced_miniplayer_type_title">迷你播放器類型</string>
   <string name="revanced_miniplayer_type_entry_0">已停用</string>
-  <string name="revanced_miniplayer_type_entry_1">原始</string>
+  <string name="revanced_miniplayer_type_entry_1">預設</string>
   <string name="revanced_miniplayer_type_entry_2">最小化</string>
   <string name="revanced_miniplayer_type_entry_3">平板</string>
   <string name="revanced_miniplayer_type_entry_4">現代樣式 1</string>
@@ -1024,24 +1072,32 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_miniplayer_rounded_corners_summary_on">已設定角落為圓角</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">已設定角落為方形</string>
   <string name="revanced_miniplayer_double_tap_action_title">啟用輕觸兩下和縮放手勢以調整大小</string>
-  <string name="revanced_miniplayer_double_tap_action_summary_on">已啟用輕觸兩下和縮放手勢以調整大小。\n\n•
-輕觸兩下以放大迷你播放器的大小\n• 再次輕觸兩下以復原至原始大小</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">"已啟用雙擊動作和縮放手勢
+
+• 雙擊以放大迷你播放器尺寸
+• 再次雙擊以回復原始尺寸"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">已停用輕觸兩下和縮放手勢以調整大小</string>
   <string name="revanced_miniplayer_drag_and_drop_title">啟用拖曳</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">已啟用拖曳\n\n現在迷你播放器可以拖曳至螢幕的任何角落</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">"已啟用拖放功能
+
+迷你播放器可以拖曳至螢幕的任何角落"</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">已停用拖曳</string>
   <string name="revanced_miniplayer_horizontal_drag_title">啟用水平拖拽手勢</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">已啟用水平拖拽手勢\n\n迷你播放器現可拖拽至螢幕的左側或右側外。</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">"已啟用水平拖曳手勢
+
+迷你播放器可以拖曳到螢幕的左側或右側隱藏"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">已停用水平拖拽手勢</string>
   <string name="revanced_miniplayer_hide_expand_close_title">隱藏 [關閉] 按鈕</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">已隱藏 [關閉] 按鈕</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">已顯示 [關閉] 按鈕</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_title">隱藏 [展開] 和 [關閉] 按鈕</string>
-  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">已隱藏按鈕\n\n撥動以 [展開] 或 [關閉]</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"按鈕已隱藏
+
+向上或向下滑動以展開或關閉"</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">已顯示 [展開] 和 [關閉] 按鈕</string>
   <string name="revanced_miniplayer_hide_subtext_title">隱藏副標</string>
-  <string name="revanced_miniplayer_hide_subtext_summary_on">副標已隱藏</string>
-  <string name="revanced_miniplayer_hide_subtext_summary_off">副標已顯示</string>
+  <string name="revanced_miniplayer_hide_subtext_summary_on">已隱藏字幕</string>
+  <string name="revanced_miniplayer_hide_subtext_summary_off">已開啟顯示字幕</string>
   <string name="revanced_miniplayer_hide_rewind_forward_title">隱藏快轉和倒帶按鈕</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">已隱藏快轉和倒帶按鈕</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">已顯示快轉和倒帶按鈕</string>
@@ -1068,7 +1124,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   <string name="revanced_bypass_image_region_restrictions_title">繞過圖片區域限制</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">使用圖片主機 yt4.ggpht.com</string>
-  <string name="revanced_bypass_image_region_restrictions_summary_off">使用原始圖片主機\n\n啟用此功能可以修正在某些區域被封鎖遺失圖片</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">"使用原圖主機
+
+啟用此設定可以修復某些地區封鎖的遺失圖片"</string>
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
@@ -1083,7 +1141,11 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; 原版縮圖</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow  &amp; 靜態擷取</string>
   <string name="revanced_alt_thumbnail_options_entry_4">靜態擷取</string>
-  <string name="revanced_alt_thumbnail_dearrow_about_summary">DeArrow 提供 YouTube 影片的外包縮圖。這些縮圖通常比 YouTube 提供的更為相關。\n\n若啟用，影片 URL 將會被傳送到 API 伺服器，但不會傳送任何其他資料。若影片沒有 DeArrow 縮圖，則會顯示原始縮圖或靜態擷取。\n\n點擊此處瞭解更多關於 DeArrow 的資訊</string>
+  <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow 為 YouTube 影片提供群眾協作的縮略圖。這些縮略圖通常比 YouTube 提供的縮略圖更相關
+
+如果啟用此設定，影片網址將傳送到 API 伺服器，不會傳送其他任何資料。如果影片沒有 DeArrow 縮略圖，則會顯示原始縮略圖或靜態捕捉
+
+點此瞭解有關 DeArrow 的更多資訊"</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">若 API 無法使用，顯示提示</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">若 DeArrow 無法使用，顯示提示</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">若 DeArrow 無法使用，不顯示提示</string>
@@ -1122,8 +1184,12 @@ This is because Crowdin requires temporarily flattening this file and removing t
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">欺騙裝置尺寸</string>
-  <string name="revanced_spoof_device_dimensions_summary_on">已欺騙裝置尺寸\n\n將可能會解鎖更高的影片畫質，但您可能會遇到影片播放不順暢、更差的電池續航和未知的副作用</string>
-  <string name="revanced_spoof_device_dimensions_summary_off">未欺騙裝置尺寸\n\n啟用此功能可以解鎖更高的影片畫質</string>
+  <string name="revanced_spoof_device_dimensions_summary_on">"裝置尺寸已模擬
+
+可能解鎖更高品質的影片，但您可能會遇到影片播放不流暢、電池續航時間變短，以及未知的副作用"</string>
+  <string name="revanced_spoof_device_dimensions_summary_off">"沒有模擬裝置尺寸
+
+啟用此設定可以解鎖更高品質的影片"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">啟用此功能可能會遇到影片播放不順暢、更差的電池續航和未知的副作用</string>
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
@@ -1141,7 +1207,7 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_external_browser_summary_off">在應用程式中開啟連結</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">移除追蹤查詢參數</string>
+  <string name="revanced_remove_tracking_query_parameter_title">刪除追蹤查詢參數</string>
   <string name="revanced_remove_tracking_query_parameter_summary_on">已從連結移除追蹤查詢參數</string>
   <string name="revanced_remove_tracking_query_parameter_summary_off">未從連結移除追蹤查詢參數</string>
   </patch>
@@ -1173,8 +1239,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_custom_speed_menu_summary_off">已隱藏自訂 [播放速度] 選單</string>
   <string name="revanced_custom_playback_speeds_title">自訂播放速度</string>
   <string name="revanced_custom_playback_speeds_summary">新增或更改自訂播放速度</string>
-  <string name="revanced_custom_playback_speeds_invalid">自訂速度必須小於 %s。已重設為預設值。</string>
-  <string name="revanced_custom_playback_speeds_parse_exception">無效的自訂播放速度。已重設為預設值。</string>
+  <string name="revanced_custom_playback_speeds_invalid">自訂速度必須小於 %s</string>
+  <string name="revanced_custom_playback_speeds_parse_exception">自訂播放速度格式不正確</string>
   <string name="revanced_custom_playback_speeds_auto">自動</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
@@ -1199,16 +1265,80 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_spoof_video_streams_screen_summary">欺騙用戶端影片串流以避免播放問題</string>
   <string name="revanced_spoof_video_streams_title">欺騙影片串流</string>
   <string name="revanced_spoof_video_streams_summary_on">已欺騙影片串流</string>
-  <string name="revanced_spoof_video_streams_summary_off">未欺騙影片串流\n\n可能無法播放影片</string>
+  <string name="revanced_spoof_video_streams_summary_off">"沒有模擬影片串流
+
+影片播放可能無法正常運作"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">關閉此設定可能會導致影片播放發生問題</string>
   <string name="revanced_spoof_video_streams_client_title">預設用戶端</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">強制 AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">強制以 AVC (H.264) 作為影片解碼器</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">自動選擇影片解碼器</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"啟用此設定可能會延長電池續航時間並解決播放不流暢等問題。
+
+AVC 的最高解析度為 1080p，不支援 Opus 音訊格式，影片播放會比 VP9 或 AV1 消耗更多網路流量。
+"</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS 欺騙副作用</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">• 私人的兒童影片有可能不會播放\n• 從直播起始處播放\n• 影片可能會提早一秒結束</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• 私人兒童影片可能無法播放
+• 直播從頭開始
+• 影片提前 1 秒結束"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR 欺騙副作用</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">• 私人的兒童影片有可能不會播放\n• 找不到音樂曲目選單\n• 音量平衡不可用</string>
-  <string name="revanced_spoof_video_streams_language_">已欺騙影片串流</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• 兒童影片可能無法播放
+• 直播從頭開始
+• 影片提前 1 秒結束"</string>
+  <string name="revanced_spoof_video_streams_language_title">預設音訊串流語言</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">應用程式語言</string>
+  <string name="revanced_spoof_video_streams_language_AR">Arabic</string>
+  <string name="revanced_spoof_video_streams_language_AZ">Azerbaijani</string>
+  <string name="revanced_spoof_video_streams_language_BG">Bulgarian</string>
+  <string name="revanced_spoof_video_streams_language_BN">Bengali</string>
+  <string name="revanced_spoof_video_streams_language_CA">Catalan</string>
+  <string name="revanced_spoof_video_streams_language_CS">Czech</string>
+  <string name="revanced_spoof_video_streams_language_DA">Danish</string>
+  <string name="revanced_spoof_video_streams_language_DE">German</string>
+  <string name="revanced_spoof_video_streams_language_EL">Greek</string>
   <string name="revanced_spoof_video_streams_language_EN">英文</string>
+  <string name="revanced_spoof_video_streams_language_ES">Spanish</string>
+  <string name="revanced_spoof_video_streams_language_ET">Estonian</string>
+  <string name="revanced_spoof_video_streams_language_FA">Persian</string>
+  <string name="revanced_spoof_video_streams_language_FI">Finnish</string>
+  <string name="revanced_spoof_video_streams_language_FR">French</string>
+  <string name="revanced_spoof_video_streams_language_GU">Gujarati</string>
+  <string name="revanced_spoof_video_streams_language_HI">Hindi</string>
+  <string name="revanced_spoof_video_streams_language_HR">Croatian</string>
+  <string name="revanced_spoof_video_streams_language_HU">Hungarian</string>
+  <string name="revanced_spoof_video_streams_language_ID">Indonesian</string>
+  <string name="revanced_spoof_video_streams_language_IT">Italian</string>
+  <string name="revanced_spoof_video_streams_language_JA">Japanese</string>
+  <string name="revanced_spoof_video_streams_language_KK">Kazakh</string>
+  <string name="revanced_spoof_video_streams_language_KO">Korean</string>
+  <string name="revanced_spoof_video_streams_language_LT">Lithuanian</string>
+  <string name="revanced_spoof_video_streams_language_LV">Latvian</string>
+  <string name="revanced_spoof_video_streams_language_MK">Macedonian</string>
+  <string name="revanced_spoof_video_streams_language_MN">Mongolian</string>
+  <string name="revanced_spoof_video_streams_language_MR">Marathi</string>
+  <string name="revanced_spoof_video_streams_language_MS">Malay</string>
+  <string name="revanced_spoof_video_streams_language_MY">Burmese</string>
+  <string name="revanced_spoof_video_streams_language_NL">Dutch</string>
+  <string name="revanced_spoof_video_streams_language_OR">Odia</string>
+  <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
+  <string name="revanced_spoof_video_streams_language_PL">Polish</string>
+  <string name="revanced_spoof_video_streams_language_PT_BR">Portuguese (Brazil)</string>
+  <string name="revanced_spoof_video_streams_language_PT_PT">Portuguese (Portugal)</string>
+  <string name="revanced_spoof_video_streams_language_RO">Romanian</string>
+  <string name="revanced_spoof_video_streams_language_RU">Russian</string>
+  <string name="revanced_spoof_video_streams_language_SK">Slovak</string>
+  <string name="revanced_spoof_video_streams_language_SL">Slovene</string>
+  <string name="revanced_spoof_video_streams_language_SR">Serbian</string>
+  <string name="revanced_spoof_video_streams_language_SV">Swedish</string>
+  <string name="revanced_spoof_video_streams_language_SW">Swahili</string>
+  <string name="revanced_spoof_video_streams_language_TA">Tamil</string>
+  <string name="revanced_spoof_video_streams_language_TE">Telugu</string>
+  <string name="revanced_spoof_video_streams_language_TH">Thai</string>
+  <string name="revanced_spoof_video_streams_language_TR">Turkish</string>
+  <string name="revanced_spoof_video_streams_language_UK">Ukrainian</string>
+  <string name="revanced_spoof_video_streams_language_UR">Urdu</string>
+  <string name="revanced_spoof_video_streams_language_VI">Vietnamese</string>
+  <string name="revanced_spoof_video_streams_language_ZH">中文</string>
   </patch>
   </app>
   <app id="twitch">
@@ -1218,8 +1348,8 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_block_audio_ads_summary_off">未阻擋音訊廣告</string>
   </patch>
   <patch id="ad.embedded.embeddedAdsPatch">
-  <string name="revanced_embedded_ads_service_unavailable">%s 暫時無法使用。所以可能會顯示廣告。請嘗試在設定中切換為另外一個廣告阻擋服務。</string>
-  <string name="revanced_embedded_ads_service_failed">%s 伺服器回傳錯誤。所以可能會顯示廣告。請嘗試在設定中切換為另外一個廣告阻擋服務。</string>
+  <string name="revanced_embedded_ads_service_unavailable">%s 無法使用，可能會顯示廣告。請嘗試在設定中變更廣告封鎖服務。</string>
+  <string name="revanced_embedded_ads_service_failed">%s 傳回錯誤，可能會顯示廣告。請嘗試在設定中變更廣告封鎖服務。</string>
   <string name="revanced_block_embedded_ads_title">阻擋嵌入式影片廣告</string>
   <string name="revanced_block_embedded_ads_entry_1">已停用</string>
   <string name="revanced_block_embedded_ads_entry_2">Luminous 代理</string>
@@ -1262,9 +1392,9 @@ This is because Crowdin requires temporarily flattening this file and removing t
   <string name="revanced_other_category_title">其他設定</string>
   <string name="revanced_client_ads_category_title">用戶端廣告</string>
   <string name="revanced_surestream_ads_category_title">伺服端 Surestream 廣告</string>
-  <string name="revanced_twitch_debug_title">除錯記錄檔</string>
-  <string name="revanced_twitch_debug_summary_on">已啟用除錯記錄檔</string>
-  <string name="revanced_twitch_debug_summary_off">已停用除錯記錄檔</string>
+  <string name="revanced_twitch_debug_title">偵錯記錄檔</string>
+  <string name="revanced_twitch_debug_summary_on">已啟用偵錯記錄檔</string>
+  <string name="revanced_twitch_debug_summary_off">已停用偵錯記錄檔</string>
   </patch>
   </app>
 </resources>

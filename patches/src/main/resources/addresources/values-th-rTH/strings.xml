@@ -1,321 +1,1395 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
-Note: All strings must have a unique path, even if the same string is declared in two different apps.
-This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
+    All strings must have a unique path, even if the same string is declared in two different apps.
+    This is because Crowdin requires temporarily flattening this file and removing the <app> and <patch> elements.
 
-# General guidelines and information for translating
 
-## Strings parameters can be reordered to allow more flexible translations if the grammar should be changed.
+    Strings with new lines must be raw strings where they're wrapped in quotes and new lines are not encoded.
+    Raw strings still requires escaping embedded double quotes but escaping embedded single quotes is optional.
 
-    For example, the patches string:
-        <string name="revanced_patches_string">You will arrive at %1$s in %2$s hours from now</string>
-    Could be translated to another language using a rearranged grammar:
-        <string name="revanced_patches_string">You will arrive %2$s hours from now at %1$s</string>
+    Raw strings are required because Crowdin AI translations regularly gets confused and
+    replace \n with an encoded new line character.
 
-     For Manager strings:
-        You will arrive at ${destination} in ${count} hours from now
-     Could be rearranged by changing the order of the ${} parameters:
-        You will arrive ${count} hours from now at ${destination}
+    Bad:
+        <string name="summary_key">First \'item\' text\nSecond \"item\" text</string>
 
-    Reordering is particularly relevant when translating into right to left languages, or for any language with grammar that is noticeably different from English.
+    Good:
+        <string name="summary_key">"First 'item' text
+Second \"item\" text"</string>
 
-## Single and double quotation marks must be escaped for patch strings (Manager does not require escaping any quotes).
-
-    All _patches_ single and double quotation marks must be escaped as \"  or \'
-    Forgetting to do this will cause that string to appear in app with no quotation characters.
-
-    Correct:
-        <string name="revanced_string">You\'re correct. This is the \"correct\" way and this text will appear as expected in the app</string>
-    Not correct:
-        <string name="revanced_string">You're not correct. This is not the "correct" way and this text will not appear as expected the in app</string>
 -->
 <resources>
   <app id="shared">
   <patch id="misc.checks.checkEnvironmentPatch">
+  <string name="revanced_check_environment_failed_title">การตรวจสอบล้มเหลว</string>
+  <string name="revanced_check_environment_dialog_open_official_source_button">เปิดเว็บไซต์อย่างเป็นทางการ</string>
+  <string name="revanced_check_environment_dialog_ignore_button">ละเว้น</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;แอปนี้ดูเหมือนจะไม่ได้รับการแก้ไขโดยคุณ&lt;/h5&gt;&lt;br&gt;แอปนี้อาจทำงานไม่ถูกต้อง &lt;b&gt;อาจเป็นอันตรายหรือแม้กระทั่งอันตรายในการใช้&lt;/b&gt;.&lt;br&gt;&lt;br&gt;การตรวจสอบเหล่านี้บ่งบอกว่าแอปนี้ได้รับการแก้ไขล่วงหน้าหรือได้รับมาจากบุคคลอื่น: &lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;ขอแนะนำอย่างยิ่งให้ &lt;b&gt;ถอนการติดตั้งแอปนี้และแก้ไขด้วยตัวเอง&lt;/b&gt; เพื่อให้แน่ใจว่าคุณกำลังใช้แอปที่ได้รับการตรวจสอบและปลอดภัย&lt;p&gt;&lt;br&gt;หากไม่สนใจ คำเตือนนี้จะแสดงเพียงสองครั้งเท่านั้น</string>
+  <string name="revanced_check_environment_not_same_patching_device">แก้ไขบนอุปกรณ์อื่น</string>
+  <string name="revanced_check_environment_manager_not_expected_installer">ไม่ได้ติดตั้งโดย ReVanced Manager</string>
+  <string name="revanced_check_environment_not_near_patch_time">แก้ไขเมื่อมากกว่า 10 นาทีที่แล้ว</string>
+  <string name="revanced_check_environment_not_near_patch_time_days">แก้ไขเมื่อ %s วันที่แล้ว</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">วันที่สร้าง APK เสียหาย</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_confirm_user_dialog_title">คุณต้องการดำเนินการต่อหรือไม่?</string>
+  <string name="revanced_settings_reset">รีเซ็ต</string>
+  <string name="revanced_settings_restart_title">รีเฟรชและเริ่มต้นใหม่</string>
+  <string name="revanced_settings_restart">เริ่มต้นใหม่</string>
+  <string name="revanced_settings_import">นำเข้า</string>
+  <string name="revanced_settings_import_copy">คัดลอก</string>
+  <string name="revanced_settings_import_reset">การตั้งค่า ReVanced ถูกตั้งค่าเป็นค่าเริ่มต้น</string>
+  <string name="revanced_settings_import_success">นำเข้าการตั้งค่า %d</string>
+  <string name="revanced_settings_import_failure_parse">การนำเข้าล้มเหลว: %s</string>
+  <string name="revanced_pref_import_export_title">นำเข้า / ส่งออก</string>
+  <string name="revanced_pref_import_export_summary">นำเข้า / ส่งออกการตั้งค่า ReVanced</string>
   <!-- Settings about dialog. -->
+  <string name="revanced_settings_about_links_body">คุณกำลังใช้ ReVanced Patches เวอร์ชัน &lt;i&gt;%s&lt;/i&gt;</string>
+  <string name="revanced_settings_about_links_dev_header">หมายเหตุ</string>
+  <string name="revanced_settings_about_links_dev_body">เวอร์ชันนี้เป็นเวอร์ชันก่อนวางจำหน่ายและคุณอาจพบปัญหาที่ไม่คาดคิด</string>
+  <string name="revanced_settings_about_links_header">ลิงก์อย่างเป็นทางการ</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="gms_core_toast_not_installed_message">MicroG GmsCore ไม่ได้ติดตั้ง ติดตั้ง</string>
+  <string name="gms_core_dialog_title">ต้องดำเนินการ</string>
+  <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore ไม่มีสิทธิ์รันในพื้นหลัง
+
+ทำตามคําแนะนํา \"อย่าฆ่าแอปของฉัน\" สําหรับโทรศัพท์ของคุณ และใช้คําแนะนําเหล่านั้นกับการติดตั้ง MicroG ของคุณ
+
+สิ่งนี้จําเป็นสําหรับแอปในการทํางาน"</string>
+  <string name="gms_core_dialog_open_website_text">เปิดเว็บไซต์</string>
+  <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"การปรับแต่งแบตเตอรี่ของ MicroG GmsCore ต้องถูกปิดใช้งานเพื่อป้องกันปัญหา
+
+การปิดใช้งานการปรับแต่งแบตเตอรี่สําหรับ MicroG จะไม่ส่งผลเสียต่อการใช้แบตเตอรี่
+
+แตะปุ่มตกลง และอนุญาตการเปลี่ยนแปลงการปรับแต่ง"</string>
+  <string name="gms_core_dialog_continue_text">ดำเนินการต่อ</string>
   </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings_screen_00_about_title">เกี่ยวกับ</string>
+  <string name="revanced_settings_screen_01_ads_title">โฆษณา</string>
+  <string name="revanced_settings_screen_02_alt_thumbnails_title">รูปขนาดย่อทางเลือก</string>
+  <string name="revanced_settings_screen_03_feed_title">ฟีด</string>
+  <string name="revanced_settings_screen_04_player_title">เครื่องเล่น</string>
+  <string name="revanced_settings_screen_05_general_title">เค้าโครงทั่วไป</string>
+  <string name="revanced_settings_screen_07_seekbar_title">แถบเลื่อน</string>
+  <string name="revanced_settings_screen_08_swipe_controls_title">ปัดเพื่อควบคุม</string>
+  <string name="revanced_settings_screen_11_misc_title">อื่นๆ</string>
+  <string name="revanced_settings_screen_12_video_title">วิดีโอ</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  <string name="revanced_shorts_disable_background_playback_title">ปิดการเล่นพื้นหลัง Shorts</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">การเล่นพื้นหลัง Shorts ถูกปิดใช้งาน</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">การเล่นพื้นหลัง Shorts ถูกเปิดใช้งาน</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_screen_title">Debugging</string>
+  <string name="revanced_debug_screen_summary">เปิดใช้งานหรือปิดใช้งานตัวเลือกการแก้ไขข้อบกพร่อง</string>
+  <string name="revanced_debug_title">การบันทึกการแก้ไขข้อบกพร่อง</string>
+  <string name="revanced_debug_summary_on">การบันทึกการแก้ไขข้อบกพร่องถูกเปิดใช้งาน</string>
+  <string name="revanced_debug_summary_off">การบันทึกการแก้ไขข้อบกพร่องถูกปิดใช้งาน</string>
+  <string name="revanced_debug_protobuffer_title">บันทึกโปรโตคอลบัฟเฟอร์</string>
+  <string name="revanced_debug_protobuffer_summary_on">การบันทึกการแก้ไขข้อบกพร่องรวมถึงโปรโตคอลบัฟเฟอร์</string>
+  <string name="revanced_debug_protobuffer_summary_off">การบันทึกการแก้ไขข้อบกพร่องไม่รวมโปรโตคอลบัฟเฟอร์</string>
+  <string name="revanced_debug_stacktrace_title">บันทึกการติดตามสแต็ก</string>
+  <string name="revanced_debug_stacktrace_summary_on">การบันทึกการแก้ไขข้อบกพร่องรวมถึงการติดตามสแต็ก</string>
+  <string name="revanced_debug_stacktrace_summary_off">การบันทึกการแก้ไขข้อบกพร่องไม่รวมการติดตามสแต็ก</string>
+  <string name="revanced_debug_toast_on_error_title">แสดง  toast  เมื่อเกิดข้อผิดพลาดของ ReVanced</string>
+  <string name="revanced_debug_toast_on_error_summary_on">แสดง  toast  หากเกิดข้อผิดพลาด</string>
+  <string name="revanced_debug_toast_on_error_summary_off">ไม่แสดง  toast  หากเกิดข้อผิดพลาด</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"การปิดการแจ้งเตือนข้อผิดพลาดจะซ่อนการแจ้งเตือนข้อผิดพลาดของ ReVanced ทั้งหมด
+
+คุณจะไม่ได้รับแจ้งเกี่ยวกับเหตุการณ์ที่ไม่คาดคิดใดๆ"</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <string name="revanced_disable_like_subscribe_glow_title">ปิดใช้งานแสงเรืองของปุ่มชอบ / สมัครสมาชิก</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_on">ปุ่มชอบและสมัครสมาชิกจะไม่เรืองแสงเมื่อกล่าวถึง</string>
+  <string name="revanced_disable_like_subscribe_glow_summary_off">ปุ่มชอบและสมัครสมาชิกจะเรืองแสงเมื่อกล่าวถึง</string>
+  <string name="revanced_hide_album_cards_title">ซ่อนการ์ดอัลบั้ม</string>
+  <string name="revanced_hide_album_cards_summary_on">การ์ดอัลบั้มถูกซ่อน</string>
+  <string name="revanced_hide_album_cards_summary_off">การ์ดอัลบั้มถูกแสดง</string>
+  <string name="revanced_hide_crowdfunding_box_title">ซ่อนกล่องระดมทุน</string>
+  <string name="revanced_hide_crowdfunding_box_summary_on">กล่องระดมทุนถูกซ่อน</string>
+  <string name="revanced_hide_crowdfunding_box_summary_off">กล่องระดมทุนถูกแสดง</string>
+  <string name="revanced_hide_floating_microphone_button_title">ซ่อนปุ่มไมโครโฟนแบบลอย</string>
+  <string name="revanced_hide_floating_microphone_button_summary_on">ปุ่มไมโครโฟนถูกซ่อน</string>
+  <string name="revanced_hide_floating_microphone_button_summary_off">ปุ่มไมโครโฟนถูกแสดง</string>
+  <string name="revanced_hide_channel_watermark_title">ซ่อนลายน้ำของช่อง</string>
+  <string name="revanced_hide_channel_watermark_summary_on">ลายน้ำถูกซ่อน</string>
+  <string name="revanced_hide_channel_watermark_summary_off">ลายน้ำถูกแสดง</string>
+  <string name="revanced_hide_horizontal_shelves_title">ซ่อนชั้นวางแนวนอน</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"ชั้นวางถูกซ่อน เช่น:
+• ข่าวเด่น
+• ดูต่อ
+• ค้นหาช่องทางเพิ่มเติม
+• ช้อปปิ้ง
+• ดูอีกครั้ง"</string>
+  <string name="revanced_hide_horizontal_shelves_summary_off">ชั้นวางถูกแสดง</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                  This appears in the video player for certain videos. -->
+  <string name="revanced_hide_join_membership_button_title">ซ่อนปุ่ม \"เข้าร่วม\"</string>
+  <string name="revanced_hide_join_membership_button_summary_on">ปุ่มถูกซ่อน</string>
+  <string name="revanced_hide_join_membership_button_summary_off">ปุ่มถูกแสดง</string>
   <!-- 'For you' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_for_you_shelf_title">ซ่อนชั้นวาง \"สำหรับคุณ\" ในหน้าช่อง</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">ชั้นวางถูกซ่อน</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">ชั้นวางถูกแสดง</string>
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                  This item appear in the subscription feed for future livestreams or unreleased videos. -->
+  <string name="revanced_hide_notify_me_button_title">ซ่อนปุ่ม \"แจ้งเตือนฉัน\"</string>
+  <string name="revanced_hide_notify_me_button_summary_on">ปุ่มถูกซ่อน</string>
+  <string name="revanced_hide_notify_me_button_summary_off">ปุ่มถูกแสดง</string>
   <!-- 'People also watch' should be translated using the same localized wording YouTube displays. -->
+  <string name="revanced_hide_search_result_recommendations_title">ซ่อนคำแนะนำ \"บุคคลที่ดูด้วย\"</string>
+  <string name="revanced_hide_search_result_recommendations_summary_on">คำแนะนำถูกซ่อน</string>
+  <string name="revanced_hide_search_result_recommendations_summary_off">คำแนะนำถูกแสดง</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
+  <string name="revanced_hide_show_more_button_title">ซ่อนปุ่ม \"แสดงเพิ่มเติม\"</string>
+  <string name="revanced_hide_show_more_button_summary_on">ปุ่มถูกซ่อน</string>
+  <string name="revanced_hide_show_more_button_summary_off">ปุ่มถูกแสดง</string>
+  <string name="revanced_hide_timed_reactions_title">ซ่อนปฏิกิริยาตามเวลา</string>
+  <string name="revanced_hide_timed_reactions_summary_on">ปฏิกิริยาตามเวลาถูกซ่อน</string>
+  <string name="revanced_hide_timed_reactions_summary_off">ปฏิกิริยาตามเวลาถูกแสดง</string>
+  <string name="revanced_hide_search_result_shelf_header_title">ซ่อนส่วนหัวของชั้นวางผลลัพธ์การค้นหา</string>
+  <string name="revanced_hide_search_result_shelf_header_summary_on">ส่วนหัวของชั้นวางถูกซ่อน</string>
+  <string name="revanced_hide_search_result_shelf_header_summary_off">ส่วนหัวของชั้นวางถูกแสดง</string>
+  <string name="revanced_hide_channel_guidelines_title">ซ่อนแนวทางการใช้งานของช่อง</string>
+  <string name="revanced_hide_channel_guidelines_summary_on">แนวทางการใช้งานของช่องถูกซ่อน</string>
+  <string name="revanced_hide_channel_guidelines_summary_off">แนวทางการใช้งานของช่องถูกแสดง</string>
+  <string name="revanced_hide_chips_shelf_title">ซ่อนชั้นวางชิป</string>
+  <string name="revanced_hide_chips_shelf_summary_on">ชั้นวางชิปถูกซ่อน</string>
+  <string name="revanced_hide_chips_shelf_summary_off">ชั้นวางชิปแสดงอยู่</string>
+  <string name="revanced_hide_expandable_chip_title">ซ่อนชิปที่ขยายได้ใต้วิดีโอ</string>
+  <string name="revanced_hide_expandable_chip_summary_on">ชิปที่ขยายได้ถูกซ่อนไว้</string>
+  <string name="revanced_hide_expandable_chip_summary_off">ชิปที่ขยายได้แสดงอยู่</string>
+  <string name="revanced_hide_community_posts_title">ซ่อนโพสต์ชุมชน</string>
+  <string name="revanced_hide_community_posts_summary_on">โพสต์ชุมชนถูกซ่อนไว้</string>
+  <string name="revanced_hide_community_posts_summary_off">โพสต์ชุมชนแสดงอยู่</string>
+  <string name="revanced_hide_compact_banner_title">ซ่อนแบนเนอร์ขนาดกะทัดรัด</string>
+  <string name="revanced_hide_compact_banner_summary_on">แบนเนอร์ขนาดกะทัดรัดถูกซ่อนไว้</string>
+  <string name="revanced_hide_compact_banner_summary_off">แบนเนอร์ขนาดกะทัดรัดแสดงอยู่</string>
+  <string name="revanced_hide_movies_section_title">ซ่อนส่วนภาพยนตร์</string>
+  <string name="revanced_hide_movies_section_summary_on">ส่วนภาพยนตร์ถูกซ่อนไว้</string>
+  <string name="revanced_hide_movies_section_summary_off">ส่วนภาพยนตร์แสดงอยู่</string>
+  <string name="revanced_hide_feed_survey_title">ซ่อนแบบสำรวจในฟีด</string>
+  <string name="revanced_hide_feed_survey_summary_on">แบบสำรวจในฟีดถูกซ่อนไว้</string>
+  <string name="revanced_hide_feed_survey_summary_off">แบบสำรวจในฟีดแสดงอยู่</string>
+  <string name="revanced_hide_community_guidelines_title">ซ่อนแนวทางชุมชน</string>
+  <string name="revanced_hide_community_guidelines_summary_on">แนวทางชุมชนถูกซ่อนไว้</string>
+  <string name="revanced_hide_community_guidelines_summary_off">แนวทางชุมชนแสดงอยู่</string>
+  <string name="revanced_hide_subscribers_community_guidelines_title">ซ่อนแนวทางชุมชนสำหรับสมาชิก</string>
+  <string name="revanced_hide_subscribers_community_guidelines_summary_on">แนวทางชุมชนสำหรับสมาชิกถูกซ่อนไว้</string>
+  <string name="revanced_hide_subscribers_community_guidelines_summary_off">แนวทางชุมชนสำหรับสมาชิกแสดงอยู่</string>
+  <string name="revanced_hide_channel_member_shelf_title">ซ่อนชั้นวางสมาชิกช่อง</string>
+  <string name="revanced_hide_channel_member_shelf_summary_on">ชั้นวางสมาชิกช่องถูกซ่อนไว้</string>
+  <string name="revanced_hide_channel_member_shelf_summary_off">ชั้นวางสมาชิกช่องแสดงอยู่</string>
+  <string name="revanced_hide_emergency_box_title">ซ่อนกล่องฉุกเฉิน</string>
+  <string name="revanced_hide_emergency_box_summary_on">กล่องฉุกเฉินถูกซ่อนไว้</string>
+  <string name="revanced_hide_emergency_box_summary_off">กล่องฉุกเฉินแสดงอยู่</string>
+  <string name="revanced_hide_info_panels_title">ซ่อนแผงข้อมูล</string>
+  <string name="revanced_hide_info_panels_summary_on">แผงข้อมูลถูกซ่อนไว้</string>
+  <string name="revanced_hide_info_panels_summary_off">แผงข้อมูลแสดงอยู่</string>
+  <string name="revanced_hide_medical_panels_title">ซ่อนแผงทางการแพทย์</string>
+  <string name="revanced_hide_medical_panels_summary_on">แผงทางการแพทย์ถูกซ่อนไว้</string>
+  <string name="revanced_hide_medical_panels_summary_off">แผงทางการแพทย์แสดงอยู่</string>
+  <string name="revanced_hide_channel_bar_title">ซ่อนแถบช่อง</string>
+  <string name="revanced_hide_channel_bar_summary_on">แถบช่องถูกซ่อนไว้</string>
+  <string name="revanced_hide_channel_bar_summary_off">แถบช่องแสดงอยู่</string>
+  <string name="revanced_hide_playables_title">ซ่อน Playables</string>
+  <string name="revanced_hide_playables_summary_on">Playables ถูกซ่อนไว้</string>
+  <string name="revanced_hide_playables_summary_off">Playables แสดงอยู่</string>
+  <string name="revanced_hide_quick_actions_title">ซ่อนการกระทำด่วนในแบบเต็มหน้าจอ</string>
+  <string name="revanced_hide_quick_actions_summary_on">การกระทำด่วนถูกซ่อนไว้</string>
+  <string name="revanced_hide_quick_actions_summary_off">การกระทำด่วนแสดงอยู่</string>
+  <string name="revanced_hide_related_videos_title">ซ่อนวิดีโอที่เกี่ยวข้องในการกระทำด่วน</string>
+  <string name="revanced_hide_related_videos_summary_on">วิดีโอที่เกี่ยวข้องถูกซ่อนไว้</string>
+  <string name="revanced_hide_related_videos_summary_off">วิดีโอที่เกี่ยวข้องแสดงอยู่</string>
+  <string name="revanced_hide_image_shelf_title">ซ่อนชั้นวางรูปภาพในผลการค้นหา</string>
+  <string name="revanced_hide_image_shelf_summary_on">ชั้นวางรูปภาพถูกซ่อนไว้</string>
+  <string name="revanced_hide_image_shelf_summary_off">ชั้นวางรูปภาพแสดงอยู่</string>
+  <string name="revanced_hide_latest_posts_ads_title">ซ่อนโพสต์ล่าสุด</string>
+  <string name="revanced_hide_latest_posts_ads_summary_on">โพสต์ล่าสุดถูกซ่อนไว้</string>
+  <string name="revanced_hide_latest_posts_ads_summary_off">โพสต์ล่าสุดแสดงอยู่</string>
+  <string name="revanced_hide_mix_playlists_title">ซ่อนเพลย์ลิสต์แบบผสม</string>
+  <string name="revanced_hide_mix_playlists_summary_on">เพลย์ลิสต์แบบผสมถูกซ่อนไว้</string>
+  <string name="revanced_hide_mix_playlists_summary_off">เพลย์ลิสต์แบบผสมแสดงอยู่</string>
+  <string name="revanced_hide_artist_cards_title">ซ่อนบัตรศิลปิน</string>
+  <string name="revanced_hide_artist_cards_summary_on">บัตรศิลปินถูกซ่อนไว้</string>
+  <string name="revanced_hide_artist_cards_summary_off">บัตรศิลปินแสดงอยู่</string>
+  <string name="revanced_hide_attributes_section_title">ซ่อนส่วนแอตทริบิวต์</string>
+  <string name="revanced_hide_attributes_section_summary_on">ส่วน \'สถานที่แนะนำ\', เกม และ เพลง ถูกซ่อนไว้</string>
+  <string name="revanced_hide_attributes_section_summary_off">ส่วน \'สถานที่แนะนำ\', เกม และ เพลง แสดงอยู่</string>
+  <string name="revanced_hide_chapters_section_title">ซ่อนส่วนบท</string>
+  <string name="revanced_hide_chapters_section_summary_on">ส่วนบทถูกซ่อนไว้</string>
+  <string name="revanced_hide_chapters_section_summary_off">ส่วนบทแสดงอยู่</string>
+  <string name="revanced_hide_podcast_section_title">ซ่อนส่วน \'สำรวจพอดแคสต์\'</string>
+  <string name="revanced_hide_podcast_section_summary_on">ส่วน \'สำรวจพอดแคสต์\' ถูกซ่อนไว้</string>
+  <string name="revanced_hide_podcast_section_summary_off">ส่วน \'สำรวจพอดแคสต์\' แสดงอยู่</string>
+  <string name="revanced_hide_info_cards_section_title">ซ่อนส่วนบัตรข้อมูล</string>
+  <string name="revanced_hide_info_cards_section_summary_on">ส่วนบัตรข้อมูลถูกซ่อนไว้</string>
+  <string name="revanced_hide_info_cards_section_summary_off">ส่วนบัตรข้อมูลแสดงอยู่</string>
+  <string name="revanced_hide_key_concepts_section_title">ซ่อนส่วน \'แนวคิดหลัก\'</string>
+  <string name="revanced_hide_key_concepts_section_summary_on">ส่วน \'แนวคิดหลัก\' ถูกซ่อนไว้</string>
+  <string name="revanced_hide_key_concepts_section_summary_off">ส่วน \'แนวคิดหลัก\' แสดงอยู่</string>
+  <string name="revanced_hide_transcript_section_title">ซ่อนส่วนคำอธิบาย</string>
+  <string name="revanced_hide_transcript_section_summary_on">ส่วนคำอธิบายถูกซ่อนไว้</string>
+  <string name="revanced_hide_transcript_section_summary_off">ส่วนคำอธิบายแสดงอยู่</string>
+  <string name="revanced_hide_description_components_screen_title">คำอธิบายวิดีโอ</string>
+  <string name="revanced_hide_description_components_screen_summary">ซ่อนหรือแสดงส่วนประกอบของคำอธิบายวิดีโอ</string>
+  <string name="revanced_hide_filter_bar_screen_title">แถบตัวกรอง</string>
+  <string name="revanced_hide_filter_bar_screen_summary">ซ่อนหรือแสดงแถบตัวกรองในฟีด การค้นหา และวิดีโอที่เกี่ยวข้อง</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_title">ซ่อนในฟีด</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">ซ่อนในฟีด</string>
+  <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">แสดงในฟีด</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_title">ซ่อนในการค้นหา</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">ซ่อนในการค้นหา</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">แสดงในการค้นหา</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_title">ซ่อนในวิดีโอที่เกี่ยวข้อง</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">ซ่อนในวิดีโอที่เกี่ยวข้อง</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">แสดงในวิดีโอที่เกี่ยวข้อง</string>
+  <string name="revanced_comments_screen_title">ความคิดเห็น</string>
+  <string name="revanced_comments_screen_summary">ซ่อนหรือแสดงส่วนประกอบของส่วนความคิดเห็น</string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">ซ่อน \'Chat summary\'</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">แสดง \'Chat summary\'</string>
+  <string name="revanced_hide_comments_by_members_header_title">ซ่อนส่วนหัว \'ความคิดเห็นโดยสมาชิก\'</string>
+  <string name="revanced_hide_comments_by_members_header_summary_on">ส่วนหัว \'ความคิดเห็นโดยสมาชิก\' ถูกซ่อนไว้</string>
+  <string name="revanced_hide_comments_by_members_header_summary_off">ส่วนหัว \'ความคิดเห็นโดยสมาชิก\' แสดงอยู่</string>
+  <string name="revanced_hide_comments_section_title">ซ่อนส่วนความคิดเห็น</string>
+  <string name="revanced_hide_comments_section_summary_on">ส่วนความคิดเห็นถูกซ่อนไว้</string>
+  <string name="revanced_hide_comments_section_summary_off">ส่วนความคิดเห็นแสดงอยู่</string>
+  <string name="revanced_hide_comments_create_a_short_button_title">ซ่อนปุ่ม \'สร้าง Shorts\'</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_on">ปุ่ม \'สร้าง Shorts\' ถูกซ่อนไว้</string>
+  <string name="revanced_hide_comments_create_a_short_button_summary_off">ปุ่ม \'สร้าง Shorts\' แสดงอยู่</string>
+  <string name="revanced_hide_comments_preview_comment_title">ซ่อนความคิดเห็นตัวอย่าง</string>
+  <string name="revanced_hide_comments_preview_comment_summary_on">ความคิดเห็นตัวอย่างถูกซ่อนไว้</string>
+  <string name="revanced_hide_comments_preview_comment_summary_off">ความคิดเห็นตัวอย่างแสดงอยู่</string>
+  <string name="revanced_hide_comments_thanks_button_title">ซ่อนปุ่มขอบคุณ</string>
+  <string name="revanced_hide_comments_thanks_button_summary_on">ปุ่มขอบคุณถูกซ่อนไว้</string>
+  <string name="revanced_hide_comments_thanks_button_summary_off">ปุ่มขอบคุณจะแสดง</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_title">ซ่อนปุ่มเวลาและอีโมจิ</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_on">ปุ่มเวลาและอีโมจิถูกซ่อน</string>
+  <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">ปุ่มเวลาและอีโมจิจะแสดง</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
+  <string name="revanced_hide_doodles_title">ซ่อน Doodles ของ YouTube</string>
+  <string name="revanced_hide_doodles_summary_on">Doodles แถบค้นหาถูกซ่อน</string>
+  <string name="revanced_hide_doodles_summary_off">Doodles แถบค้นหาจะแสดง</string>
+  <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodles ภาษาไทยจะปรากฏให้เห็นเพียงไม่กี่วันในแต่ละปี
+
+หาก Doodle กำลังแสดงอยู่ในภูมิภาคของคุณและการตั้งค่าการซ่อนนี้เปิดอยู่ แถบตัวกรองด้านล่างแถบค้นหาจะถูกซ่อนเช่นกัน"</string>
+  <string name="revanced_custom_filter_screen_title">ตัวกรองแบบกำหนดเอง</string>
+  <string name="revanced_custom_filter_screen_summary">ซ่อนส่วนประกอบโดยใช้ตัวกรองแบบกำหนดเอง</string>
+  <string name="revanced_custom_filter_title">เปิดใช้งานตัวกรองแบบกำหนดเอง</string>
+  <string name="revanced_custom_filter_summary_on">ตัวกรองแบบกำหนดเองเปิดใช้งาน</string>
+  <string name="revanced_custom_filter_summary_off">ตัวกรองแบบกำหนดเองปิดใช้งาน</string>
+  <string name="revanced_custom_filter_strings_title">ตัวกรองแบบกำหนดเอง</string>
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="revanced_custom_filter_strings_summary">รายการสตริงตัวสร้างเส้นทางส่วนประกอบที่จะกรองคั่นด้วยบรรทัดใหม่</string>
+  <string name="revanced_custom_filter_toast_invalid_syntax">ตัวกรองแบบกำหนดเองไม่ถูกต้อง: %s</string>
+  <string name="revanced_hide_keyword_content_screen_title">ซ่อนเนื้อหาคำสำคัญ</string>
+  <string name="revanced_hide_keyword_content_screen_summary">ซ่อนวิดีโอการค้นหาและฟีดโดยใช้ตัวกรองคำสำคัญ</string>
+  <string name="revanced_hide_keyword_content_home_title">ซ่อนวิดีโอหน้าแรกตามคำสำคัญ</string>
+  <string name="revanced_hide_keyword_content_home_summary_on">วิดีโอในแท็บหน้าแรกถูกกรองตามคำสำคัญ</string>
+  <string name="revanced_hide_keyword_content_home_summary_off">วิดีโอในแท็บหน้าแรกไม่ได้ถูกกรองตามคำสำคัญ</string>
+  <string name="revanced_hide_keyword_content_subscriptions_title">ซ่อนวิดีโอการสมัครสมาชิกตามคำสำคัญ</string>
+  <string name="revanced_hide_keyword_content_subscriptions_summary_on">วิดีโอในแท็บการสมัครสมาชิกถูกกรองตามคำสำคัญ</string>
+  <string name="revanced_hide_keyword_content_subscriptions_summary_off">วิดีโอในแท็บการสมัครสมาชิกไม่ได้ถูกกรองตามคำสำคัญ</string>
+  <string name="revanced_hide_keyword_content_search_title">ซ่อนผลลัพธ์การค้นหาตามคำสำคัญ</string>
+  <string name="revanced_hide_keyword_content_search_summary_on">ผลลัพธ์การค้นหาถูกกรองตามคำสำคัญ</string>
+  <string name="revanced_hide_keyword_content_search_summary_off">ผลลัพธ์การค้นหาไม่ได้ถูกกรองตามคำสำคัญ</string>
+  <string name="revanced_hide_keyword_content_phrases_title">คำสำคัญที่จะซ่อน</string>
   <!-- For localization it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
+  <string name="revanced_hide_keyword_content_phrases_summary">"คําหลักและวลีที่จะซ่อน แยกด้วยบรรทัดใหม่
+
+คําหลักอาจเป็นชื่อช่องหรือข้อความใดๆ ที่แสดงในชื่อวิดีโอ
+
+คําที่มีตัวอักษรตัวใหญ่ตรงกลางต้องป้อนพร้อมเคส (เช่น: iPhone, TikTok, LeBlanc)"</string>
+  <string name="revanced_hide_keyword_content_about_title">เกี่ยวกับการกรองคำสำคัญ</string>
+  <string name="revanced_hide_keyword_content_about_summary">"ผลลัพธ์ หน้าแรก/การสมัครสมาชิก/การค้นหา จะถูกกรองเพื่อซ่อนเนื้อหาที่ตรงกับวลีคําหลัก
+
+ข้อจํากัด
+• Shorts ไม่สามารถซ่อนได้ตามชื่อช่อง
+• บางส่วนของ UI อาจไม่ถูกซ่อน
+• การค้นหาคําหลักอาจไม่แสดงผลลัพธ์"</string>
+  <string name="revanced_hide_keyword_content_about_whole_words_title">จับคู่ทั้งคำ</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
+  <string name="revanced_hide_keyword_content_about_whole_words_summary">การล้อมรอบคีย์เวิร์ด/วลีด้วยเครื่องหมายคำพูดคู่จะป้องกันการจับคู่บางส่วนของชื่อวิดีโอและชื่อช่อง&lt;br&gt;&lt;br&gt;ตัวอย่างเช่น&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; จะซ่อนวิดีโอ: &lt;b&gt;AI ทำงานอย่างไร?&lt;/b&gt;&lt;br&gt;แต่จะไม่ซ่อน: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_keyword_toast_invalid_common">ไม่สามารถใช้คำสำคัญ: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">เพิ่มเครื่องหมายคำพูดเพื่อใช้คำสำคัญ: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_conflicting">คำสำคัญมีการประกาศที่ขัดแย้งกัน: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_length">คำสำคัญสั้นเกินไปและต้องใช้เครื่องหมายคำพูด: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">คำสำคัญจะซ่อนวิดีโอทั้งหมด: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
+  <string name="revanced_hide_general_ads_title">ซ่อนโฆษณาโดยทั่วไป</string>
+  <string name="revanced_hide_general_ads_summary_on">โฆษณาโดยทั่วไปถูกซ่อน</string>
+  <string name="revanced_hide_general_ads_summary_off">โฆษณาโดยทั่วไปจะแสดง</string>
+  <string name="revanced_hide_fullscreen_ads_title">ซ่อนโฆษณาแบบเต็มหน้าจอ</string>
+  <string name="revanced_hide_fullscreen_ads_summary_on">"โฆษณาแบบเต็มจอถูกซ่อน
+
+คุณสมบัตินี้มีเฉพาะสําหรับอุปกรณ์รุ่นเก่า"</string>
+  <string name="revanced_hide_fullscreen_ads_summary_off">โฆษณาแบบเต็มหน้าจอจะแสดง</string>
+  <string name="revanced_hide_buttoned_ads_title">ซ่อนโฆษณาแบบมีปุ่ม</string>
+  <string name="revanced_hide_buttoned_ads_summary_on">โฆษณาแบบมีปุ่มถูกซ่อน</string>
+  <string name="revanced_hide_buttoned_ads_summary_off">โฆษณาแบบมีปุ่มจะแสดง</string>
+  <string name="revanced_hide_paid_promotion_label_title">ซ่อนป้ายโฆษณาที่จ่ายเงิน</string>
+  <string name="revanced_hide_paid_promotion_label_summary_on">ป้ายโฆษณาที่จ่ายเงินถูกซ่อน</string>
+  <string name="revanced_hide_paid_promotion_label_summary_off">ป้ายโฆษณาที่จ่ายเงินจะแสดง</string>
+  <string name="revanced_hide_self_sponsor_ads_title">ซ่อนการ์ดที่สนับสนุนตัวเอง</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_on">การ์ดที่สนับสนุนตัวเองถูกซ่อน</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_off">การ์ดที่สนับสนุนตัวเองจะแสดง</string>
+  <string name="revanced_hide_products_banner_title">ซ่อนแบนเนอร์เพื่อดูผลิตภัณฑ์</string>
+  <string name="revanced_hide_products_banner_summary_on">แบนเนอร์ถูกซ่อน</string>
+  <string name="revanced_hide_products_banner_summary_off">แบนเนอร์จะแสดง</string>
+  <string name="revanced_hide_player_store_shelf_title">ซ่อนชั้นวางสินค้าในเครื่องเล่น</string>
+  <string name="revanced_hide_player_store_shelf_summary_on">ชั้นวางสินค้าถูกซ่อน</string>
+  <string name="revanced_hide_player_store_shelf_summary_off">ชั้นวางสินค้าจะแสดง</string>
+  <string name="revanced_hide_shopping_links_title">ซ่อนลิงก์การช็อปปิ้งในคำอธิบายวิดีโอ</string>
+  <string name="revanced_hide_shopping_links_summary_on">ลิงก์การช็อปปิ้งถูกซ่อน</string>
+  <string name="revanced_hide_shopping_links_summary_off">ลิงก์การช็อปปิ้งจะแสดง</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_visit_store_button_title">ซ่อนปุ่ม \'ไปที่ร้านค้า\' บนหน้าช่อง</string>
+  <string name="revanced_hide_visit_store_button_summary_on">ปุ่มถูกซ่อน</string>
+  <string name="revanced_hide_visit_store_button_summary_off">ปุ่มจะแสดง</string>
+  <string name="revanced_hide_web_search_results_title">ซ่อนผลลัพธ์การค้นหาบนเว็บ</string>
+  <string name="revanced_hide_web_search_results_summary_on">ผลลัพธ์การค้นหาบนเว็บถูกซ่อน</string>
+  <string name="revanced_hide_web_search_results_summary_off">ผลลัพธ์การค้นหาบนเว็บจะแสดง</string>
+  <string name="revanced_hide_merchandise_banners_title">ซ่อนแบนเนอร์สินค้า</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">แบนเนอร์สินค้าถูกซ่อน</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">แบนเนอร์สินค้าจะแสดง</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">ซ่อนโฆษณาแบบเต็มหน้าจอใช้งานได้กับอุปกรณ์รุ่นเก่าเท่านั้น</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
+  <string name="revanced_hide_get_premium_title">ซ่อนการโปรโมต YouTube Premium</string>
+  <string name="revanced_hide_get_premium_summary_on">การโปรโมต YouTube Premium ใต้เครื่องเล่นวิดีโอถูกซ่อน</string>
+  <string name="revanced_hide_get_premium_summary_off">การโปรโมต YouTube Premium ใต้เครื่องเล่นวิดีโอจะแสดง</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">
+  <string name="revanced_hide_video_ads_title">ซ่อนโฆษณาวิดีโอ</string>
+  <string name="revanced_hide_video_ads_summary_on">โฆษณาวิดีโอถูกซ่อน</string>
+  <string name="revanced_hide_video_ads_summary_off">โฆษณาวิดีโอจะแสดง</string>
   </patch>
   <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
+  <string name="revanced_share_copy_url_success">คัดลอก URL ไปยังคลิปบอร์ด</string>
+  <string name="revanced_share_copy_url_timestamp_success">คัดลอก URL พร้อมเวลาไปยังคลิปบอร์ด</string>
+  <string name="revanced_copy_video_url_title">แสดงปุ่มคัดลอก URL วิดีโอ</string>
+  <string name="revanced_copy_video_url_summary_on">ปุ่มจะแสดง แตะเพื่อคัดลอก URL วิดีโอ แตะค้างไว้เพื่อคัดลอก URL วิดีโอพร้อมเวลา</string>
+  <string name="revanced_copy_video_url_summary_off">ปุ่มไม่แสดง</string>
+  <string name="revanced_copy_video_url_timestamp_title">แสดงปุ่มคัดลอก URL เวลา</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">ปุ่มจะแสดง แตะเพื่อคัดลอก URL วิดีโอพร้อมเวลา แตะค้างไว้เพื่อคัดลอกวิดีโอโดยไม่ใช้เวลา</string>
+  <string name="revanced_copy_video_url_timestamp_summary_off">ปุ่มไม่แสดง</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
+  <string name="revanced_remove_viewer_discretion_dialog_title">ลบกล่องโต้ตอบการพิจารณาของผู้ชม</string>
+  <string name="revanced_remove_viewer_discretion_dialog_summary_on">กล่องโต้ตอบจะถูกลบ</string>
+  <string name="revanced_remove_viewer_discretion_dialog_summary_off">กล่องโต้ตอบจะแสดง</string>
+  <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">สิ่งนี้ไม่ได้ข้ามข้อจำกัดอายุ มันแค่ยอมรับอายุโดยอัตโนมัติ</string>
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
+  <string name="revanced_external_downloader_screen_title">การดาวน์โหลดภายนอก</string>
+  <string name="revanced_external_downloader_screen_summary">การตั้งค่าสำหรับการใช้โปรแกรมดาวน์โหลดภายนอก</string>
+  <string name="revanced_external_downloader_title">แสดงปุ่มดาวน์โหลดภายนอก</string>
+  <string name="revanced_external_downloader_summary_on">ปุ่มดาวน์โหลดแสดงในเครื่องเล่น</string>
+  <string name="revanced_external_downloader_summary_off">ปุ่มดาวน์โหลดไม่แสดงในเครื่องเล่น</string>
   <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
+  <string name="revanced_external_downloader_action_button_title">แทนที่ปุ่มการดาวน์โหลด</string>
+  <string name="revanced_external_downloader_action_button_summary_on">ปุ่มดาวน์โหลดเปิดโปรแกรมดาวน์โหลดภายนอกของคุณ</string>
+  <string name="revanced_external_downloader_action_button_summary_off">ปุ่มดาวน์โหลดเปิดโปรแกรมดาวน์โหลดในแอปแบบเนทีฟ</string>
+  <string name="revanced_external_downloader_name_title">ชื่อแพ็คเกจโปรแกรมดาวน์โหลด</string>
+  <string name="revanced_external_downloader_name_summary">ชื่อแพ็คเกจของโปรแกรมดาวน์โหลดภายนอกที่ติดตั้งของคุณ เช่น NewPipe หรือ Seal</string>
+  <string name="revanced_external_downloader_not_installed_warning">%s ไม่ได้ติดตั้ง โปรดติดตั้ง</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
+  <string name="revanced_disable_precise_seeking_gesture_title">ปิดใช้งานท่าทางการค้นหาแบบแม่นยำ</string>
+  <string name="revanced_disable_precise_seeking_gesture_summary_on">ท่าทางถูกปิดใช้งาน</string>
+  <string name="revanced_disable_precise_seeking_gesture_summary_off">ท่าทางถูกเปิดใช้งาน</string>
   </patch>
   <patch id="interaction.seekbar.enableSeekbarTappingPatch">
+  <string name="revanced_seekbar_tapping_title">เปิดใช้งานการแตะแถบเลื่อน</string>
+  <string name="revanced_seekbar_tapping_summary_on">การแตะแถบเลื่อนถูกเปิดใช้งาน</string>
+  <string name="revanced_seekbar_tapping_summary_off">การแตะแถบเลื่อนถูกปิดใช้งาน</string>
   </patch>
   <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
+  <string name="revanced_swipe_brightness_title">เปิดใช้งานท่าทางความสว่าง</string>
+  <string name="revanced_swipe_brightness_summary_on">การปัดความสว่างถูกเปิดใช้งาน</string>
+  <string name="revanced_swipe_brightness_summary_off">การปัดความสว่างถูกปิดใช้งาน</string>
+  <string name="revanced_swipe_volume_title">เปิดใช้งานท่าทางระดับเสียง</string>
+  <string name="revanced_swipe_volume_summary_on">การปัดระดับเสียงถูกเปิดใช้งาน</string>
+  <string name="revanced_swipe_volume_summary_off">การปัดระดับเสียงถูกปิดใช้งาน</string>
+  <string name="revanced_swipe_press_to_engage_title">เปิดใช้งานท่าทางการกดเพื่อปัด</string>
+  <string name="revanced_swipe_press_to_engage_summary_on">การกดเพื่อปัดถูกเปิดใช้งาน</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">การกดเพื่อปัดถูกปิดใช้งาน</string>
+  <string name="revanced_swipe_haptic_feedback_title">เปิดใช้งานการตอบสนองแบบสัมผัส</string>
+  <string name="revanced_swipe_haptic_feedback_summary_on">การตอบสนองแบบสัมผัสถูกเปิดใช้งาน</string>
+  <string name="revanced_swipe_haptic_feedback_summary_off">การตอบสนองแบบสัมผัสถูกปิดใช้งาน</string>
+  <string name="revanced_swipe_save_and_restore_brightness_title">บันทึกและคืนค่าความสว่าง</string>
+  <string name="revanced_swipe_save_and_restore_brightness_summary_on">บันทึกและคืนค่าความสว่างเมื่อออกจากหรือเข้าสู่โหมดเต็มหน้าจอ</string>
+  <string name="revanced_swipe_save_and_restore_brightness_summary_off">อย่าบันทึกและคืนค่าความสว่างเมื่อออกจากหรือเข้าสู่โหมดเต็มหน้าจอ</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">เปิดใช้งานท่าทางความสว่างอัตโนมัติ</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">การปัดลงไปที่ค่าต่ำสุดของท่าทางความสว่างจะเปิดใช้งานความสว่างอัตโนมัติ</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">การปัดลงไปที่ค่าต่ำสุดจะไม่เปิดใช้งานความสว่างอัตโนมัติ</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">อัตโนมัติ</string>
+  <string name="revanced_swipe_overlay_timeout_title">เวลาหมดอายุของการแสดงทับการปัด</string>
+  <string name="revanced_swipe_overlay_timeout_summary">จำนวนมิลลิวินาทีที่การแสดงทับจะมองเห็น</string>
+  <string name="revanced_swipe_text_overlay_size_title">ขนาดข้อความของการแสดงทับการปัด</string>
+  <string name="revanced_swipe_text_overlay_size_summary">ขนาดข้อความสำหรับการแสดงทับการปัด</string>
+  <string name="revanced_swipe_overlay_background_alpha_title">ความมองเห็นของพื้นหลังการปัด</string>
+  <string name="revanced_swipe_overlay_background_alpha_summary">ความมองเห็นของพื้นหลังการแสดงทับการปัด</string>
+  <string name="revanced_swipe_threshold_title">เกณฑ์ขนาดของการปัด</string>
+  <string name="revanced_swipe_threshold_summary">จำนวนเกณฑ์สำหรับการปัดที่จะเกิดขึ้น</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
+  <string name="revanced_auto_captions_title">ปิดใช้งานคำบรรยายอัตโนมัติ</string>
+  <string name="revanced_auto_captions_summary_on">คำบรรยายอัตโนมัติถูกปิดใช้งาน</string>
+  <string name="revanced_auto_captions_summary_off">คำบรรยายอัตโนมัติถูกเปิดใช้งาน</string>
   </patch>
   <patch id="layout.buttons.action.hideButtonsPatch">
+  <string name="revanced_hide_buttons_screen_title">ปุ่มการกระทำ</string>
+  <string name="revanced_hide_buttons_screen_summary">ซ่อนหรือแสดงปุ่มใต้วิดีโอ</string>
+  <string name="revanced_hide_like_dislike_button_title">ซ่อนชอบและไม่ชอบ</string>
+  <string name="revanced_hide_like_dislike_button_summary_on">ปุ่มชอบและไม่ชอบถูกซ่อน</string>
+  <string name="revanced_hide_like_dislike_button_summary_off">ปุ่มชอบและไม่ชอบถูกแสดง</string>
   <!-- 'Share' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_share_button_title">ซ่อนแบ่งปัน</string>
+  <string name="revanced_hide_share_button_summary_on">ปุ่มแบ่งปันถูกซ่อน</string>
+  <string name="revanced_hide_share_button_summary_off">ปุ่มแบ่งปันถูกแสดง</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                  This button usually appears only on live streams. -->
+  <string name="revanced_hide_report_button_title">ซ่อนรายงาน</string>
+  <string name="revanced_hide_report_button_summary_on">ปุ่มรายงานถูกซ่อน</string>
+  <string name="revanced_hide_report_button_summary_off">ปุ่มรายงานถูกแสดง</string>
   <!-- 'Remix' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_remix_button_title">ซ่อนรีมิกซ์</string>
+  <string name="revanced_hide_remix_button_summary_on">ปุ่มรีมิกซ์ถูกซ่อน</string>
+  <string name="revanced_hide_remix_button_summary_off">ปุ่มรีมิกซ์ถูกแสดง</string>
   <!-- 'Download' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_download_button_title">ซ่อนดาวน์โหลด</string>
+  <string name="revanced_hide_download_button_summary_on">ปุ่มดาวน์โหลดถูกซ่อน</string>
+  <string name="revanced_hide_download_button_summary_off">ปุ่มดาวน์โหลดถูกแสดง</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_thanks_button_title">ซ่อนขอบคุณ</string>
+  <string name="revanced_hide_thanks_button_summary_on">ปุ่มขอบคุณถูกซ่อน</string>
+  <string name="revanced_hide_thanks_button_summary_off">ปุ่มขอบคุณถูกแสดง</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_clip_button_title">ซ่อนคลิป</string>
+  <string name="revanced_hide_clip_button_summary_on">ปุ่มคลิปถูกซ่อน</string>
+  <string name="revanced_hide_clip_button_summary_off">ปุ่มคลิปถูกแสดง</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_playlist_button_title">ซ่อนบันทึกไปยังเพลย์ลิสต์</string>
+  <string name="revanced_hide_playlist_button_summary_on">ปุ่มบันทึกไปยังเพลย์ลิสต์ถูกซ่อน</string>
+  <string name="revanced_hide_playlist_button_summary_off">ปุ่มบันทึกไปยังเพลย์ลิสต์ถูกแสดง</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
+  <string name="revanced_navigation_buttons_screen_title">ปุ่มนำทาง</string>
+  <string name="revanced_navigation_buttons_screen_summary">ซ่อนหรือเปลี่ยนปุ่มในแถบนำทาง</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
+  <string name="revanced_hide_home_button_title">ซ่อนหน้าแรก</string>
+  <string name="revanced_hide_home_button_summary_on">ปุ่มหน้าแรกถูกซ่อน</string>
+  <string name="revanced_hide_home_button_summary_off">ปุ่มหน้าแรกถูกแสดง</string>
   <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
+  <string name="revanced_hide_shorts_button_title">ซ่อน Shorts</string>
+  <string name="revanced_hide_shorts_button_summary_on">ปุ่ม Shorts ถูกซ่อนอยู่</string>
+  <string name="revanced_hide_shorts_button_summary_off">ปุ่ม Shorts แสดงอยู่</string>
   <!-- The Create button has no display name. Translate normally. -->
+  <string name="revanced_hide_create_button_title">ซ่อนสร้าง</string>
+  <string name="revanced_hide_create_button_summary_on">ปุ่มสร้างถูกซ่อน</string>
+  <string name="revanced_hide_create_button_summary_off">ปุ่มสร้างถูกแสดง</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays the tab. -->
+  <string name="revanced_hide_subscriptions_button_title">ซ่อนการสมัครสมาชิก</string>
+  <string name="revanced_hide_subscriptions_button_summary_on">ปุ่มการสมัครสมาชิกถูกซ่อน</string>
+  <string name="revanced_hide_subscriptions_button_summary_off">ปุ่มการสมัครสมาชิกถูกแสดง</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
+  <string name="revanced_switch_create_with_notifications_button_title">สลับสร้างด้วยการแจ้งเตือน</string>
+  <string name="revanced_switch_create_with_notifications_button_summary_on">"ปุ่มสร้างถูกสลับกับปุ่มการแจ้งเตือน
+
+หมายเหตุ: การเปิดใช้งานสิ่งนี้จะซ่อนโฆษณาวิดีโอด้วย"</string>
+  <string name="revanced_switch_create_with_notifications_button_summary_off">ปุ่มสร้างไม่ได้ถูกสลับกับปุ่มการแจ้งเตือน</string>
+  <string name="revanced_hide_navigation_button_labels_title">ซ่อนป้ายกำกับปุ่มนำทาง</string>
+  <string name="revanced_hide_navigation_button_labels_summary_on">ป้ายกำกับถูกซ่อน</string>
+  <string name="revanced_hide_navigation_button_labels_summary_off">ป้ายกำกับถูกแสดง</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
+  <string name="revanced_hide_player_flyout_title">เมนูแบบเลื่อนลง</string>
+  <string name="revanced_hide_player_flyout_summary">ซ่อนหรือแสดงรายการเมนูแบบเลื่อนลงของเครื่องเล่น</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_captions_title">ซ่อนคำบรรยาย</string>
+  <string name="revanced_hide_player_flyout_captions_summary_on">เมนูคำบรรยายถูกซ่อน</string>
+  <string name="revanced_hide_player_flyout_captions_summary_off">เมนูคำบรรยายแสดงอยู่</string>
   <!-- 'Additional settings' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_additional_settings_title">ซ่อนการตั้งค่าเพิ่มเติม</string>
+  <string name="revanced_hide_player_flyout_additional_settings_summary_on">เมนูการตั้งค่าเพิ่มเติมซ่อนอยู่</string>
+  <string name="revanced_hide_player_flyout_additional_settings_summary_off">เมนูการตั้งค่าเพิ่มเติมแสดงอยู่</string>
   <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_sleep_timer_title">ซ่อนตัวจับเวลาพัก</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_on">เมนูตัวจับเวลาพักซ่อนอยู่</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_off">เมนูตัวจับเวลาพักแสดงอยู่</string>
   <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_loop_video_title">ซ่อนการวนซ้ำวิดีโอ</string>
+  <string name="revanced_hide_player_flyout_loop_video_summary_on">เมนูการวนซ้ำวิดีโอซ่อนอยู่</string>
+  <string name="revanced_hide_player_flyout_loop_video_summary_off">เมนูการวนซ้ำวิดีโอแสดงอยู่</string>
   <!-- 'Ambient mode' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_ambient_mode_title">ซ่อนโหมดพักผ่อน</string>
+  <string name="revanced_hide_player_flyout_ambient_mode_summary_on">เมนูโหมดพักผ่อนซ่อนอยู่</string>
+  <string name="revanced_hide_player_flyout_ambient_mode_summary_off">เมนูโหมดพักผ่อนแสดงอยู่</string>
+  <string name="revanced_hide_player_flyout_stable_volume_title">ซ่อนระดับเสียงคงที่</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_off">เมนูระดับเสียงคงที่แสดงอยู่</string>
+  <string name="revanced_hide_player_flyout_stable_volume_summary_on">เมนูระดับเสียงคงที่ซ่อนอยู่</string>
   <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_help_title">ซ่อนความช่วยเหลือและข้อเสนอแนะ</string>
+  <string name="revanced_hide_player_flyout_help_summary_on">เมนูความช่วยเหลือและข้อเสนอแนะซ่อนอยู่</string>
+  <string name="revanced_hide_player_flyout_help_summary_off">เมนูความช่วยเหลือและข้อเสนอแนะแสดงอยู่</string>
   <!-- 'Playback speed' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_speed_title">ซ่อนความเร็วในการเล่น</string>
+  <string name="revanced_hide_player_flyout_speed_summary_on">เมนูความเร็วในการเล่นซ่อนอยู่</string>
+  <string name="revanced_hide_player_flyout_speed_summary_off">เมนูความเร็วในการเล่นแสดงอยู่</string>
   <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
+  <string name="revanced_hide_player_flyout_more_info_title">ซ่อนข้อมูลเพิ่มเติม</string>
+  <string name="revanced_hide_player_flyout_more_info_summary_on">เมนูข้อมูลเพิ่มเติมซ่อนอยู่</string>
+  <string name="revanced_hide_player_flyout_more_info_summary_off">เมนูข้อมูลเพิ่มเติมแสดงอยู่</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_lock_screen_title">ซ่อนล็อกหน้าจอ</string>
+  <string name="revanced_hide_player_flyout_lock_screen_summary_on">เมนูล็อกหน้าจอซ่อนอยู่</string>
+  <string name="revanced_hide_player_flyout_lock_screen_summary_off">เมนูล็อกหน้าจอแสดงอยู่</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_audio_track_title">ซ่อนแทร็กเสียง</string>
+  <string name="revanced_hide_player_flyout_audio_track_summary_on">เมนูแทร็กเสียงซ่อนอยู่</string>
+  <string name="revanced_hide_player_flyout_audio_track_summary_off">เมนูแทร็กเสียงแสดงอยู่</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_watch_in_vr_title">ซ่อนดูใน VR</string>
+  <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">เมนูดูใน VR ซ่อนอยู่</string>
+  <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">เมนูดูใน VR แสดงอยู่</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_title">ซ่อนส่วนท้ายเมนูคุณภาพวิดีโอ</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">ส่วนท้ายเมนูคุณภาพวิดีโอซ่อนอยู่</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">ส่วนท้ายเมนูคุณภาพวิดีโอแสดงอยู่</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
+  <string name="revanced_hide_player_previous_next_buttons_title">ซ่อนปุ่มวิดีโอก่อนหน้าและถัดไป</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">ปุ่มซ่อนอยู่</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">ปุ่มแสดงอยู่</string>
+  <string name="revanced_hide_cast_button_title">ซ่อนปุ่มแคสต์</string>
+  <string name="revanced_hide_cast_button_summary_on">ปุ่มแคสต์ซ่อนอยู่</string>
+  <string name="revanced_hide_cast_button_summary_off">ปุ่มแคสต์แสดงอยู่</string>
   <!-- This button does not display any text, but 'captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title' -->
+  <string name="revanced_hide_captions_button_title">ซ่อนปุ่มคำบรรยาย</string>
+  <string name="revanced_hide_captions_button_summary_on">ปุ่มคำบรรยายซ่อนอยู่</string>
+  <string name="revanced_hide_captions_button_summary_off">ปุ่มคำบรรยายแสดงอยู่</string>
+  <string name="revanced_hide_autoplay_button_title">ซ่อนปุ่มเล่นอัตโนมัติ</string>
+  <string name="revanced_hide_autoplay_button_summary_on">ปุ่มเล่นอัตโนมัติซ่อนอยู่</string>
+  <string name="revanced_hide_autoplay_button_summary_off">ปุ่มเล่นอัตโนมัติแสดงอยู่</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <string name="revanced_hide_endscreen_cards_title">ซ่อนการ์ดหน้าจอสิ้นสุด</string>
+  <string name="revanced_hide_endscreen_cards_summary_on">การ์ดหน้าจอสิ้นสุดซ่อนอยู่</string>
+  <string name="revanced_hide_endscreen_cards_summary_off">การ์ดหน้าจอสิ้นสุดแสดงอยู่</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
+  <string name="revanced_disable_fullscreen_ambient_mode_title">ปิดใช้งานโหมดพักผ่อนในแบบเต็มหน้าจอ</string>
+  <string name="revanced_disable_fullscreen_ambient_mode_summary_on">โหมดพักผ่อนปิดใช้งาน</string>
+  <string name="revanced_disable_fullscreen_ambient_mode_summary_off">โหมดพักผ่อนเปิดใช้งาน</string>
   </patch>
   <patch id="layout.hide.infocards.hideInfocardsResourcePatch">
+  <string name="revanced_hide_info_cards_title">ซ่อนการ์ดข้อมูล</string>
+  <string name="revanced_hide_info_cards_summary_on">บัตรข้อมูลซ่อนอยู่</string>
+  <string name="revanced_hide_info_cards_summary_off">บัตรข้อมูลแสดงแล้ว</string>
   </patch>
   <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
+  <string name="revanced_disable_rolling_number_animations_title">ปิดใช้งานการเคลื่อนไหวตัวเลขแบบหมุน</string>
+  <string name="revanced_disable_rolling_number_animations_summary_on">ตัวเลขแบบหมุนไม่มีการเคลื่อนไหว</string>
+  <string name="revanced_disable_rolling_number_animations_summary_off">ตัวเลขแบบหมุนมีการเคลื่อนไหว</string>
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
+  <string name="revanced_hide_seekbar_title">ซ่อนแถบเลื่อนในเครื่องเล่นวิดีโอ</string>
+  <string name="revanced_hide_seekbar_summary_on">แถบเลื่อนเครื่องเล่นวิดีโอซ่อนอยู่</string>
+  <string name="revanced_hide_seekbar_summary_off">แถบเลื่อนเครื่องเล่นวิดีโอแสดงอยู่</string>
+  <string name="revanced_hide_seekbar_thumbnail_title">ซ่อนแถบเลื่อนในรูปขนาดย่อวิดีโอ</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">แถบเลื่อนรูปขนาดย่อซ่อนอยู่</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_off">แถบเลื่อนรูปขนาดย่อแสดงอยู่</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
+  <string name="revanced_shorts_player_screen_title">Shorts Player</string>
+  <string name="revanced_shorts_player_screen_summary">ซ่อนหรือแสดงส่วนประกอบใน Shorts Player</string>
   <!-- 'home' should be translated using the same localized wording YouTube displays for the home tab. -->
+  <string name="revanced_hide_shorts_home_title">ซ่อน Shorts ในหน้าฟีด</string>
+  <string name="revanced_hide_shorts_home_summary_on">Shorts ในหน้าฟีดซ่อนอยู่</string>
+  <string name="revanced_hide_shorts_home_summary_off">Shorts ในหน้าฟีดแสดงอยู่</string>
   <!-- 'subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
+  <string name="revanced_hide_shorts_subscriptions_title">ซ่อน Shorts ในฟีดการสมัครรับข้อมูล</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">Shorts ในฟีดการสมัครรับข้อมูลซ่อนอยู่</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">Shorts ในฟีดการสมัครรับข้อมูลแสดงอยู่</string>
+  <string name="revanced_hide_shorts_search_title">ซ่อน Shorts ในผลลัพธ์การค้นหา</string>
+  <string name="revanced_hide_shorts_search_summary_on">Shorts ในผลลัพธ์การค้นหาซ่อนอยู่</string>
+  <string name="revanced_hide_shorts_search_summary_off">Shorts ในผลลัพธ์การค้นหาแสดงอยู่</string>
   <!-- 'join' should be translated using the same localized wording YouTube displays for the button. -->
+  <string name="revanced_hide_shorts_join_button_title">ซ่อนปุ่มเข้าร่วม</string>
+  <string name="revanced_hide_shorts_join_button_summary_on">ปุ่มเข้าร่วมซ่อนอยู่</string>
+  <string name="revanced_hide_shorts_join_button_summary_off">ปุ่มเข้าร่วมแสดงอยู่</string>
   <!-- 'subscribe' should be translated using the same localized wording YouTube displays for the button. -->
+  <string name="revanced_hide_shorts_subscribe_button_title">ซ่อนปุ่มสมัครรับข้อมูล</string>
+  <string name="revanced_hide_shorts_subscribe_button_summary_on">ปุ่มสมัครรับข้อมูลซ่อนอยู่</string>
+  <string name="revanced_hide_shorts_subscribe_button_summary_off">ปุ่มสมัครรับข้อมูลแสดงอยู่</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_title">ซ่อนปุ่มซ้อนทับหยุดชั่วคราว</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">ปุ่มซ้อนทับหยุดชั่วคราวซ่อนอยู่</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">ปุ่มซ้อนทับหยุดชั่วคราวแสดงอยู่</string>
+  <string name="revanced_hide_shorts_shop_button_title">ซ่อนปุ่มร้านค้า</string>
+  <string name="revanced_hide_shorts_shop_button_summary_on">ปุ่มร้านค้าซ่อนอยู่</string>
+  <string name="revanced_hide_shorts_shop_button_summary_off">ปุ่มร้านค้าแสดงอยู่</string>
+  <string name="revanced_hide_shorts_super_thanks_button_title">ซ่อนปุ่มขอบคุณสุดยอด</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_on">ปุ่มซูเปอร์ขอบคุณถูกซ่อน</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_off">ปุ่มซูเปอร์ขอบคุณแสดงอยู่</string>
+  <string name="revanced_hide_shorts_tagged_products_title">ซ่อนผลิตภัณฑ์ที่มีแท็ก</string>
+  <string name="revanced_hide_shorts_tagged_products_summary_on">ผลิตภัณฑ์ที่มีแท็กถูกซ่อน</string>
+  <string name="revanced_hide_shorts_tagged_products_summary_off">ผลิตภัณฑ์ที่มีแท็กแสดงอยู่</string>
+  <string name="revanced_hide_shorts_location_label_title">ซ่อนป้ายกำกับสถานที่</string>
+  <string name="revanced_hide_shorts_location_label_summary_on">ป้ายกำกับสถานที่ถูกซ่อน</string>
+  <string name="revanced_hide_shorts_location_label_summary_off">ป้ายกำกับสถานที่แสดงอยู่</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">ซ่อนปุ่มบันทึกเพลง</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">ปุ่มบันทึกเพลงถูกซ่อน</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">ปุ่มบันทึกเพลงแสดงอยู่</string>
+  <string name="revanced_hide_shorts_use_template_button_title">ซ่อนปุ่มใช้เทมเพลต</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">ปุ่มใช้เทมเพลตถูกซ่อน</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">ปุ่มใช้เทมเพลตแสดงอยู่</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">ซ่อนปุ่มการแจ้งเตือน</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">ปุ่ม «Upcoming» ซ่อนอยู่</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">ปุ่ม «Upcoming» แสดงอยู่</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">ซ่อนปุ่ม Green Screen</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_on">ปุ่ม Green Screen ถูกซ่อน</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_off">ปุ่ม Green Screen  แสดงขึ้น</string>
+  <string name="revanced_hide_shorts_hashtag_button_title">ซ่อนปุ่ม Hashtag</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_on">ปุ่ม Hashtag ถูกซ่อน</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_off">ปุ่ม Hashtag  แสดงขึ้น</string>
+  <string name="revanced_hide_shorts_search_suggestions_title">ซ่อนคำแนะนำในการค้นหา</string>
+  <string name="revanced_hide_shorts_search_suggestions_summary_on">ซ่อนคำแนะนำในการค้นหา</string>
+  <string name="revanced_hide_shorts_search_suggestions_summary_off">แสดงคำแนะนำในการค้นหา</string>
+  <string name="revanced_hide_shorts_stickers_title">ซ่อนสติกเกอร์</string>
+  <string name="revanced_hide_shorts_stickers_summary_on">ซ่อนสติกเกอร์</string>
+  <string name="revanced_hide_shorts_stickers_summary_off">แสดงสติกเกอร์</string>
+  <string name="revanced_hide_shorts_like_fountain_title">ซ่อนปุ่มไลก์แบบน้ำพุ</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_on">เอฟเฟกต์น้ำพุของปุ่มไลก์ถูกซ่อนไว้</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_off">เอฟเฟกต์น้ำพุของปุ่มไลก์ถูกแสดงไว้</string>
+  <string name="revanced_hide_shorts_like_button_title">ซ่อนปุ่มไลก์</string>
+  <string name="revanced_hide_shorts_like_button_summary_on">ปุ่มไลก์ถูกซ่อนไว้</string>
+  <string name="revanced_hide_shorts_like_button_summary_off">ปุ่ม Like  เปิดใช้งาน</string>
+  <string name="revanced_hide_shorts_dislike_button_title">ซ่อนปุ่มไม่ชอบ</string>
+  <string name="revanced_hide_shorts_dislike_button_summary_on">ปุ่ม \'ไม่ชอบ\' ถูกซ่อนอยู่</string>
+  <string name="revanced_hide_shorts_dislike_button_summary_off">ปุ่ม \'ไม่ชอบ\' ถูกแสดงอยู่</string>
+  <string name="revanced_hide_shorts_comments_button_title">ซ่อนปุ่มความคิดเห็น</string>
+  <string name="revanced_hide_shorts_comments_button_summary_on">ปุ่มความคิดเห็นถูกซ่อนอยู่</string>
+  <string name="revanced_hide_shorts_comments_button_summary_off">ปุ่มความคิดเห็นถูกแสดงอยู่</string>
   <!-- 'remix' should be translated using the same localized wording YouTube displays for the button. -->
+  <string name="revanced_hide_shorts_remix_button_title">ซ่อนปุ่ม \'รีมิกซ์\'</string>
+  <string name="revanced_hide_shorts_remix_button_summary_on">ปุ่ม \'รีมิกซ์\' ถูกซ่อนอยู่</string>
+  <string name="revanced_hide_shorts_remix_button_summary_off">\"Remix\" ปุ่มแสดง</string>
   <!-- 'share' should be translated using the same localized wording YouTube displays for the button. -->
+  <string name="revanced_hide_shorts_share_button_title">ซ่อนปุ่มแชร์</string>
+  <string name="revanced_hide_shorts_share_button_summary_on">ปุ่มแชร์ถูกซ่อน</string>
+  <string name="revanced_hide_shorts_share_button_summary_off">\"แชร์\" ปุ่มแสดง</string>
+  <string name="revanced_hide_shorts_info_panel_title">ซ่อนแผงข้อมูล</string>
+  <string name="revanced_hide_shorts_info_panel_summary_on">แผงข้อมูลถูกซ่อน</string>
+  <string name="revanced_hide_shorts_info_panel_summary_off">แผงข้อมูลแสดง</string>
+  <string name="revanced_hide_shorts_channel_bar_title">ซ่อนแถบช่อง</string>
+  <string name="revanced_hide_shorts_channel_bar_summary_on">ซ่อนแถบช่อง</string>
+  <string name="revanced_hide_shorts_channel_bar_summary_off">แสดงแถบช่อง</string>
+  <string name="revanced_hide_shorts_video_title_title">ซ่อนชื่อวิดีโอ</string>
+  <string name="revanced_hide_shorts_video_title_summary_on">ซ่อนชื่อเรื่อง</string>
+  <string name="revanced_hide_shorts_video_title_summary_off">แสดงชื่อเรื่อง</string>
+  <string name="revanced_hide_shorts_sound_metadata_label_title">ซ่อนป้ายเมตามีเดียเสียง</string>
+  <string name="revanced_hide_shorts_sound_metadata_label_summary_on">ซ่อนป้ายเมตามีเดีย</string>
+  <string name="revanced_hide_shorts_sound_metadata_label_summary_off">แสดงป้ายชื่อเมทาดาต้า</string>
+  <string name="revanced_hide_shorts_full_video_link_label_title">ซ่อนป้ายชื่อลิงก์วิดีโอเต็ม</string>
+  <string name="revanced_hide_shorts_full_video_link_label_summary_on">ซ่อนป้ายชื่อลิงก์วิดีโอเต็ม</string>
+  <string name="revanced_hide_shorts_full_video_link_label_summary_off">แสดงป้ายชื่อลิงก์วิดีโอเต็ม</string>
+  <string name="revanced_hide_shorts_sound_button_title">ซ่อนปุ่มเสียง</string>
+  <string name="revanced_hide_shorts_sound_button_summary_on">ซ่อนปุ่มเสียง</string>
+  <string name="revanced_hide_shorts_sound_button_summary_off">แสดงปุ่มเสียง</string>
+  <string name="revanced_hide_shorts_navigation_bar_title">ซ่อนแถบนำทาง</string>
+  <string name="revanced_hide_shorts_navigation_bar_summary_on">ซ่อนแถบนำทางแล้ว</string>
+  <string name="revanced_hide_shorts_navigation_bar_summary_off">ไม่ซ่อนแถบนำทาง</string>
   </patch>
   <patch id="layout.hide.suggestedvideoendscreen.disableSuggestedVideoEndScreenResourcePatch">
+  <string name="revanced_disable_suggested_video_end_screen_title">ปิดใช้งานหน้าจอแนะนำวิดีโอท้าย</string>
+  <string name="revanced_disable_suggested_video_end_screen_summary_on">ปิดใช้งานแนะนำวิดีโอท้ายแล้ว</string>
+  <string name="revanced_disable_suggested_video_end_screen_summary_off">เปิดใช้งานแนะนำวิดีโอท้ายแล้ว</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
+  <string name="revanced_hide_timestamp_title">ซ่อนเวลาของวิดีโอ</string>
+  <string name="revanced_hide_timestamp_summary_on">เวลาถูกซ่อนอยู่</string>
+  <string name="revanced_hide_timestamp_summary_off">เวลาแสดงอยู่</string>
   </patch>
   <patch id="layout.panels.popup.playerPopupPanelsPatch">
+  <string name="revanced_hide_player_popup_panels_title">ซ่อนแผงป๊อปอัปของเครื่องเล่น</string>
+  <string name="revanced_hide_player_popup_panels_summary_on">แผงป๊อปอัปของเครื่องเล่นถูกซ่อนอยู่</string>
+  <string name="revanced_hide_player_popup_panels_summary_off">แผงป๊อปอัปของเครื่องเล่นแสดงอยู่</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
+  <string name="revanced_open_videos_fullscreen_portrait_title">เปิดวิดีโอในโหมดเต็มหน้าจอสแนวตั้ง</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_on">วิดีโอเปิดแบบเต็มหน้าจอ</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_off">วิดีโอไม่เปิดแบบเต็มหน้าจอ</string>
   </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
+  <string name="revanced_player_overlay_opacity_title">ความโปร่งใสของการซ้อนทับของเครื่องเล่น</string>
+  <string name="revanced_player_overlay_opacity_summary">ค่าความโปร่งใสระหว่าง 0-100, โดยที่ 0 คือโปร่งใส</string>
+  <string name="revanced_player_overlay_opacity_invalid_toast">ความทึบของเลเยอร์เล่นวิดีโอต้องอยู่ระหว่าง 0-100</string>
   </patch>
   <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
+  <string name="revanced_ryd_failure_connection_timeout">ไม่สามารถแสดงความไม่ชอบชั่วคราว (API หมดเวลา)</string>
+  <string name="revanced_ryd_failure_connection_status_code">ไม่สามารถแสดงความไม่ชอบได้ (รหัสสถานะ %d)</string>
+  <string name="revanced_ryd_failure_client_rate_limit_requested">ไม่สามารถแสดงความไม่ชอบได้ (ถึงขีดจำกัด API ของไคลเอ็นต์)</string>
+  <string name="revanced_ryd_failure_generic">ไม่สามารถใช้งาน \"ไม่ชอบ\" ได้ (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
+  <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">รีโหลดวิดีโอเพื่อลงคะแนนโดยใช้ Return YouTube Dislike</string>
+  <string name="revanced_ryd_enable_summary_on">แสดง \"ไม่ชอบ\"</string>
+  <string name="revanced_ryd_enable_summary_off">ไม่แสดง \"ไม่ชอบ\"</string>
+  <string name="revanced_ryd_shorts_title">แสดง \"ไม่ชอบ\" ใน Shorts</string>
+  <string name="revanced_ryd_shorts_summary_on">แสดง \"ไม่ชอบ\" ใน Shorts</string>
+  <string name="revanced_ryd_shorts_summary_on_disclaimer">"แสดงความไม่ชอบบน Shorts
+
+ข้อจํากัด: ความไม่ชอบอาจไม่ปรากฏในโหมดไม่ระบุตัวตน"</string>
+  <string name="revanced_ryd_shorts_summary_off">ซ่อน ไม่ชอบ บน Shorts</string>
+  <string name="revanced_ryd_dislike_percentage_title">ไม่ชอบ เป็น เปอร์เซ็นต์</string>
+  <string name="revanced_ryd_dislike_percentage_summary_on">แสดง ไม่ชอบ เป็น เปอร์เซ็นต์</string>
+  <string name="revanced_ryd_dislike_percentage_summary_off">แสดงจำนวน \"ไม่ชอบ\" เป็นตัวเลข</string>
   <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
+  <string name="revanced_ryd_compact_layout_title">ปุ่ม \"ถูกใจ\" ขนาดกะทัดรัด</string>
+  <string name="revanced_ryd_compact_layout_summary_on">ปุ่ม \"ถูกใจ\" ปรับให้มีขนาดเล็กที่สุด</string>
+  <string name="revanced_ryd_compact_layout_summary_off">ปุ่ม \"ถูกใจ\" ปรับให้แสดงผลได้ดีที่สุด</string>
+  <string name="revanced_ryd_toast_on_connection_error_title">แสดงคำอวยพรถ้า API ไม่พร้อมใช้งาน</string>
+  <string name="revanced_ryd_toast_on_connection_error_summary_on">ข้อความแจ้งเตือนแสดงขึ้น หาก Return YouTube Dislike ไม่พร้อมใช้งาน</string>
+  <string name="revanced_ryd_toast_on_connection_error_summary_off">Toast ไม่ปรากฏขึ้นหาก ไม่สามารถใช้งาน Return YouTube Dislike</string>
+  <string name="revanced_ryd_about">เกี่ยวกับ</string>
+  <string name="revanced_ryd_attribution_summary">ข้อมูลนี้ให้มาโดย Return YouTube Dislike API。 แตะที่นี่เพื่อเรียนรู้เพิ่มเติม</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
+  <string name="revanced_ryd_statistics_category_title">อุปกรณ์นี้</string>
+  <string name="revanced_ryd_statistics_getFetchCallResponseTimeAverage_title">เฉลี่ย</string>
+  <string name="revanced_ryd_statistics_getFetchCallResponseTimeMin_title">น้อยสุด</string>
+  <string name="revanced_ryd_statistics_getFetchCallResponseTimeMax_title">เวลาการตอบสนอง API สูงสุด</string>
+  <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_title">เวลาการตอบสนอง API วิดีโอสุดท้าย</string>
+  <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_rate_limit_summary">การแสดงจำนวน Dislikes ไม่พร้อมใช้งานชั่วคราว - ขีดจำกัดอัตราการเรียกใช้ API ของไคลเอ็นต์มีผล</string>
+  <string name="revanced_ryd_statistics_getFetchCallCount_title">API ดึงโหวต จำนวนการเรียก</string>
+  <string name="revanced_ryd_statistics_getFetchCallCount_zero_summary">ไม่มีการเรียกเครือข่าย</string>
+  <string name="revanced_ryd_statistics_getFetchCallCount_non_zero_summary">%d การเรียกเครือข่าย</string>
+  <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_title">API  ดึงคะแนนเสียง จำนวนการหมดเวลา</string>
+  <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_zero_summary">ไม่มีการเรียกเครือข่ายหมดเวลา</string>
+  <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_non_zero_summary">การเรียกเครือข่าย %d ครั้งหมดเวลา</string>
+  <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_title">ข้อจำกัดอัตราการเรียกใช้ API</string>
+  <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">เลือนต้องกายการบางาน</string>
+  <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">%d คุณ ที่ซีแต่องกายการบางาน</string>
+  <string name="revanced_ryd_statistics_millisecond_text">%d มิกเวฮราธี</string>
   </patch>
   <patch id="layout.searchbar.wideSearchbarPatch">
+  <string name="revanced_wide_searchbar_title">ทั้งหละเย้ยนตะโรกเลียด</string>
+  <string name="revanced_wide_searchbar_summary_on">ทั้งละเย้ยนตะโรกเลียด รตรอกลาดต้อง</string>
+  <string name="revanced_wide_searchbar_summary_off">ทั้งหละเย้ยนตะโรกเลียด รบกใหม่ยเทศไทย</string>
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
+  <string name="revanced_seekbar_thumbnails_high_quality_title">เปิดใช้งานรูปขนาดย่อคุณภาพสูง</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">รูปขนาดย่อแถบ Seek มีคุณภาพสูง</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">รูปขนาดย่อแถบ Seek มีคุณภาพปานกลาง</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">รูปขนาดย่อแถบ Seek แบบเต็มหน้าจอมีคุณภาพสูง</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">รูปขนาดย่อแถบ Seek แบบเต็มหน้าจอมีคุณภาพปานกลาง</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"สิ่งนี้จะคืนค่าภาพขนาดย่อบนการถ่ายทอดสดที่ไม่มีภาพขนาดย่อของแถบเลื่อนด้วย
+
+ภาพขนาดย่อของแถบเลื่อนจะใช้คุณภาพเดียวกับวิดีโอปัจจุบัน
+
+คุณสมบัตินี้ทํางานได้ดีที่สุดด้วยคุณภาพวิดีโอ 720p หรือต่ํากว่า และเมื่อใช้การเชื่อมต่ออินเทอร์เน็ตที่รวดเร็วมาก"</string>
+  <string name="revanced_restore_old_seekbar_thumbnails_title">คืนค่าภาพขนาดย่อสำหรับแถบเลื่อนแบบเก่า</string>
+  <string name="revanced_restore_old_seekbar_thumbnails_summary_on">ภาพขนาดย่อสำหรับแถบเลื่อนจะปรากฏเหนือแถบเลื่อน</string>
+  <string name="revanced_restore_old_seekbar_thumbnails_summary_off">ภาพขนาดย่อสำหรับแถบเลื่อนจะปรากฏในโหมดเต็มจอ</string>
   </patch>
   <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
   <string name="revanced_sb_enable_sb">เปิดใช้งาน SponsorBlock</string>
   <string name="revanced_sb_enable_sb_sum">SponsorBlock เป็นระบบที่ใครๆก็เข้าถึงได้ ใช้สำหรับการข้ามส่วนต่างๆของวิดีโอที่คุณไม่ต้องการ</string>
   <string name="revanced_sb_appearance_category">หน้าตา</string>
   <string name="revanced_sb_enable_voting">แสดงปุ่มโหวต</string>
+  <string name="revanced_sb_enable_voting_sum_on">ปุ่มการโหวตส่วนแสดงอยู่</string>
+  <string name="revanced_sb_enable_voting_sum_off">ปุ่มการโหวตส่วนไม่แสดงอยู่</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title' -->
   <string name="revanced_sb_enable_compact_skip_button">ใช้ปุ่มข้ามแบบกะทัดรัด</string>
+  <string name="revanced_sb_enable_compact_skip_button_sum_on">ปุ่มข้ามมีรูปแบบสำหรับความกว้างขั้นต่ำ</string>
+  <string name="revanced_sb_enable_compact_skip_button_sum_off">ปุ่มข้ามมีรูปแบบสำหรับรูปลักษณ์ที่ดีที่สุด</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button">ซ่อนปุ่มข้ามอัตโนมัติ</string>
+  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">ปุ่มข้ามซ่อนหลังจากผ่านไปไม่กี่วินาที</string>
+  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">ปุ่มข้ามแสดงตลอดทั้งส่วน</string>
+  <string name="revanced_sb_general_skiptoast">แสดง «toast» เมื่อข้ามโดยอัตโนมัติ</string>
   <string name="revanced_sb_general_skiptoast_sum_on">ขนมปังปิ้งจะปรากฏขึ้นเมื่อข้ามส่วนโดยอัตโนมัติ แตะที่นี่เพื่อดูตัวอย่าง</string>
+  <string name="revanced_sb_general_skiptoast_sum_off">«Toast» ไม่แสดง แตะที่นี่เพื่อดูตัวอย่าง</string>
   <string name="revanced_sb_general_time_without">แสดงความยาววิดีโอโดยไม่มีส่วนต่างๆ</string>
+  <string name="revanced_sb_general_time_without_sum_on">ความยาววิดีโอลบด้วยส่วนทั้งหมด แสดงในวงเล็บถัดจากความยาววิดีโอเต็ม</string>
+  <string name="revanced_sb_general_time_without_sum_off">แสดงความยาววิดีโอเต็ม</string>
   <string name="revanced_sb_create_segment_category">การสร้างกลุ่มใหม่</string>
   <string name="revanced_sb_enable_create_segment">แสดงปุ่มสร้างกลุ่มใหม่</string>
+  <string name="revanced_sb_enable_create_segment_sum_on">ปุ่มสร้างส่วนใหม่แสดงอยู่</string>
+  <string name="revanced_sb_enable_create_segment_sum_off">ปุ่มสร้างส่วนใหม่ไม่แสดงอยู่</string>
   <string name="revanced_sb_general_adjusting">ปรับขั้นตอนส่วนใหม่</string>
+  <string name="revanced_sb_general_adjusting_sum">จำนวนมิลลิวินาทีที่ปุ่มปรับเวลาเลื่อนเมื่อสร้างส่วนใหม่</string>
+  <string name="revanced_sb_general_adjusting_invalid">ค่าต้องเป็นจำนวนบวก</string>
   <string name="revanced_sb_guidelines_preference_title">ดูหลักเกณฑ์</string>
+  <string name="revanced_sb_guidelines_preference_sum">แนวทางประกอบด้วยกฎและเคล็ดลับสำหรับการสร้างส่วนใหม่</string>
+  <string name="revanced_sb_guidelines_popup_title">ปฏิบัติตามแนวทาง</string>
+  <string name="revanced_sb_guidelines_popup_content">อ่านแนวทางของ SponsorBlock ก่อนสร้างส่วนใหม่</string>
   <string name="revanced_sb_guidelines_popup_already_read">อ่านแล้ว</string>
   <string name="revanced_sb_guidelines_popup_open">แสดงให้ฉันดู</string>
   <string name="revanced_sb_general">ทั่วไป</string>
   <string name="revanced_sb_toast_on_connection_error_title">แสดงคำอวยพรถ้า API ไม่พร้อมใช้งาน</string>
+  <string name="revanced_sb_toast_on_connection_error_summary_on">แสดง «toast» หาก SponsorBlock ไม่พร้อมใช้งาน</string>
+  <string name="revanced_sb_toast_on_connection_error_summary_off">«Toast» ไม่แสดงหาก SponsorBlock ไม่พร้อมใช้งาน</string>
   <string name="revanced_sb_general_skipcount">เปิดใช้งานการติดตามการนับข้าม</string>
+  <string name="revanced_sb_general_skipcount_sum_on">แจ้งให้ SponsorBlock leaderboard ทราบว่าประหยัดเวลาได้มากเพียงใด ข้อความจะถูกส่งไปยัง leaderboard ทุกครั้งที่ข้ามส่วน</string>
+  <string name="revanced_sb_general_skipcount_sum_off">การติดตามจำนวนการข้ามไม่ได้เปิดใช้งาน</string>
   <string name="revanced_sb_general_min_duration">ระยะเวลาขั้นต่ำของเซ็กเมนต์</string>
+  <string name="revanced_sb_general_min_duration_sum">ส่วนที่มีความยาวน้อยกว่าค่านั้น (เป็นวินาที) จะไม่แสดงหรือข้าม</string>
+  <string name="revanced_sb_general_min_duration_invalid">ระยะเวลาไม่ถูกต้อง</string>
   <string name="revanced_sb_general_uuid">รหัสผู้ใช้ส่วนตัวของคุณ</string>
   <string name="revanced_sb_general_uuid_sum">สิ่งนี้จะต้องบันทึกเป็ส่วนตัว เช่นเดียวกับรหัสผ่าน และไม่ควรให้คนอื่นมองเห็น หากเปิดเผยออกไปคนอื่นสามารถสวมรอยเป็นคุณได้</string>
+  <string name="revanced_sb_general_uuid_invalid">รหัสผู้ใช้ส่วนตัวต้องมีความยาวอย่างน้อย 30 อักขระ</string>
   <string name="revanced_sb_general_api_url">เปลี่ยน URL ของ API</string>
+  <string name="revanced_sb_general_api_url_sum">ที่อยู่ที่ SponsorBlock ใช้ในการโทรหาเซิร์ฟเวอร์</string>
   <string name="revanced_sb_api_url_reset">API URL เปลื่ยนเป็นค่าเริ่มต้นแล้ว</string>
+  <string name="revanced_sb_api_url_invalid">API URL ไม่ถูกต้อง</string>
   <string name="revanced_sb_api_url_changed">API URL ถูกเปลื่ยนแล้ว</string>
   <string name="revanced_sb_settings_ie">การตั้งค่า นำเข้า/ส่งออก</string>
+  <string name="revanced_sb_settings_copy">คัดลอก</string>
+  <string name="revanced_sb_settings_ie_sum">การกำหนดค่า SponsorBlock JSON ของคุณที่สามารถนำเข้า/ส่งออกไปยัง ReVanced และแพลตฟอร์ม SponsorBlock อื่นๆ</string>
+  <string name="revanced_sb_settings_ie_sum_warning">การกำหนดค่า SponsorBlock JSON ของคุณที่สามารถนำเข้า/ส่งออกไปยัง ReVanced และแพลตฟอร์ม SponsorBlock อื่นๆ นี่รวมถึงรหัสผู้ใช้ส่วนตัวของคุณ ตรวจสอบให้แน่ใจว่าคุณแบ่งปันสิ่งนี้อย่างชาญฉลาด</string>
+  <string name="revanced_sb_settings_import_successful">การตั้งค่าถูกนำเข้าเรียบร้อยแล้ว</string>
+  <string name="revanced_sb_settings_import_failed">ไม่สามารถนำเข้าได้: %s</string>
+  <string name="revanced_sb_settings_export_failed">ไม่สามารถส่งออกได้: %s</string>
+  <string name="revanced_sb_settings_revanced_export_user_id_warning">"การตั้งค่าของคุณมี SponsorBlock userid ที่เป็นส่วนตัว
+
+User id ของคุณเหมือนกับรหัสผ่าน และไม่ควรแชร์
+"</string>
+  <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">อย่าแสดงอีก</string>
+  <string name="revanced_sb_diff_segments">เปลี่ยนพฤติกรรมของส่วน</string>
   <string name="revanced_sb_segments_sponsor">สปอนเซอร์</string>
+  <string name="revanced_sb_segments_sponsor_sum">การโปรโมตแบบชำระเงิน การแนะนำแบบชำระเงิน และโฆษณาโดยตรง ไม่ใช่สำหรับการโปรโมตตัวเองหรือการตะโกนฟรีให้กับสาเหตุ/ผู้สร้าง/เว็บไซต์/ผลิตภัณฑ์ที่พวกเขาชอบ</string>
   <string name="revanced_sb_segments_selfpromo">ไม่ได้จ่ายชำระ/โปรโมทตนเอง</string>
+  <string name="revanced_sb_segments_selfpromo_sum">คล้ายกับ \'Sponsor\' ยกเว้นสำหรับการโปรโมตแบบไม่เสียค่าใช้จ่ายหรือการโปรโมตตัวเอง รวมถึงส่วนที่เกี่ยวกับสินค้า การบริจาค หรือข้อมูลเกี่ยวกับผู้ที่พวกเขาร่วมมือด้วย</string>
   <string name="revanced_sb_segments_interaction">แจ้งเตือนการกด (ติดตาม)</string>
+  <string name="revanced_sb_segments_interaction_sum">การเตือนสั้นๆ เพื่อให้ชอบ สมัครรับข้อมูล หรือติดตามพวกเขาในช่วงกลางของเนื้อหา หากยาวหรือเกี่ยวกับบางสิ่งบางอย่างโดยเฉพาะ ควรอยู่ภายใต้การโปรโมตตัวเองแทน</string>
+  <string name="revanced_sb_segments_highlight">ไฮไลต์</string>
+  <string name="revanced_sb_segments_highlight_sum">ส่วนของวิดีโอที่คนส่วนใหญ่กำลังมองหา</string>
   <string name="revanced_sb_segments_intro">แอนิเมชั่นช่วงพัก/ช่วงต้น</string>
+  <string name="revanced_sb_segments_intro_sum">ช่วงเวลาที่ไม่มีเนื้อหาจริง อาจเป็นการหยุดชั่วคราว เฟรมนิ่ง หรือภาพเคลื่อนไหวซ้ำๆ ไม่รวมการเปลี่ยนแปลงที่มีข้อมูล</string>
   <string name="revanced_sb_segments_outro">ฉากจบ/เครดิต</string>
+  <string name="revanced_sb_segments_outro_sum">เครดิตหรือเมื่อบัตรสิ้นสุด YouTube ปรากฏขึ้น ไม่ใช่สำหรับข้อสรุปที่มีข้อมูล</string>
+  <string name="revanced_sb_segments_preview">ตัวอย่าง/สรุป/เบ็ดเตล็ด</string>
+  <string name="revanced_sb_segments_preview_sum">คอลเล็กชันของคลิปที่แสดงว่าจะมีอะไรเกิดขึ้นหรือเกิดอะไรขึ้นในวิดีโอหรือในวิดีโออื่นๆ ของซีรีส์ ซึ่งข้อมูลทั้งหมดจะถูกทำซ้ำในที่อื่นๆ</string>
   <string name="revanced_sb_segments_filler">ฟิลเลอร์แทนเจนต์/เรื่องตลก</string>
+  <string name="revanced_sb_segments_filler_sum">ฉากที่สัมผัสเฉพาะสำหรับการเติมเต็มหรืออารมณ์ขันที่ไม่จำเป็นต้องเข้าใจเนื้อหาหลักของวิดีโอ ไม่รวมส่วนที่ให้บริบทหรือรายละเอียดพื้นหลัง</string>
   <string name="revanced_sb_segments_nomusic">เพลง: ไม่พบเพลง</string>
+  <string name="revanced_sb_segments_nomusic_sum">สำหรับใช้ในมิวสิควิดีโอเท่านั้น ส่วนของมิวสิควิดีโอที่ไม่มีเพลง ซึ่งไม่ได้รับการครอบคลุมโดยหมวดหมู่อื่นๆ อยู่แล้ว</string>
+  <string name="revanced_sb_skip_button_compact">ข้าม</string>
+  <string name="revanced_sb_skip_button_compact_highlight">ไฮไลต์</string>
+  <string name="revanced_sb_skip_button_sponsor">ข้ามผู้สนับสนุน</string>
+  <string name="revanced_sb_skip_button_selfpromo">ข้ามโปรโมชั่น</string>
+  <string name="revanced_sb_skip_button_interaction">ข้ามการโต้ตอบ</string>
+  <string name="revanced_sb_skip_button_highlight">ข้ามไปยังไฮไลต์</string>
+  <string name="revanced_sb_skip_button_intro_beginning">ข้ามส่วนนำ</string>
+  <string name="revanced_sb_skip_button_intro_middle">ข้ามช่วงพัก</string>
+  <string name="revanced_sb_skip_button_intro_end">ข้ามช่วงพัก</string>
+  <string name="revanced_sb_skip_button_outro">ข้ามส่วนท้าย</string>
+  <string name="revanced_sb_skip_button_preview_beginning">ข้ามตัวอย่าง</string>
+  <string name="revanced_sb_skip_button_preview_middle">ข้ามตัวอย่าง</string>
+  <string name="revanced_sb_skip_button_preview_end">ข้ามสรุป</string>
+  <string name="revanced_sb_skip_button_filler">ข้ามส่วนที่เติมเต็ม</string>
+  <string name="revanced_sb_skip_button_nomusic">ข้ามส่วนที่ไม่มีเพลง</string>
   <string name="revanced_sb_skip_button_unsubmitted">ข้ามส่วนนี้</string>
   <string name="revanced_sb_skipped_sponsor">ข้ามสปอนเซอร์แล้ว</string>
   <string name="revanced_sb_skipped_selfpromo">ข้ามการโปรโมทตัวเองแล้ว</string>
   <string name="revanced_sb_skipped_interaction">ข้ามการแจ้งเตือนที่น่ารำคาญแล้ว</string>
+  <string name="revanced_sb_skipped_highlight">ข้ามไปยังไฮไลต์</string>
   <string name="revanced_sb_skipped_intro_beginning">ข้ามอินโทรแล้ว</string>
+  <string name="revanced_sb_skipped_intro_middle">ข้ามช่วงพัก</string>
+  <string name="revanced_sb_skipped_intro_end">ข้ามช่วงพัก</string>
   <string name="revanced_sb_skipped_outro">ข้ามเอ้าท์โทรแล้ว</string>
   <string name="revanced_sb_skipped_preview_beginning">ข้ามตัวอย่างแล้ว</string>
   <string name="revanced_sb_skipped_preview_middle">ข้ามตัวอย่างแล้ว</string>
+  <string name="revanced_sb_skipped_preview_end">ข้ามสรุป</string>
   <string name="revanced_sb_skipped_filler">ข้ามการคั่นแล้ว</string>
   <string name="revanced_sb_skipped_nomusic">ข้ามช่วงไม่มีเพลงแล้ว</string>
   <string name="revanced_sb_skipped_unsubmitted">ข้ามส่วนที่ไม่ได้รับการยืนยันแล้ว</string>
+  <string name="revanced_sb_skipped_multiple_segments">ข้ามหลายส่วน</string>
   <string name="revanced_sb_skip_automatically">ข้ามอัตโนมัติ</string>
+  <string name="revanced_sb_skip_automatically_once">ข้ามโดยอัตโนมัติหนึ่งครั้ง</string>
   <string name="revanced_sb_skip_showbutton">แสดงปุ่มกดข้าม</string>
+  <string name="revanced_sb_skip_seekbaronly">แสดงในแถบเลื่อน</string>
   <string name="revanced_sb_skip_ignore">ปิดการใช้งาน</string>
-  <string name="revanced_sb_submit_failed_duplicate">ส่งส่วนไม่ได้ \nมีอยู่แล้ว</string>
+  <string name="revanced_sb_submit_failed_invalid">ไม่สามารถส่งส่วน: %s</string>
+  <string name="revanced_sb_submit_failed_timeout">SponsorBlock ไม่พร้อมใช้งานชั่วคราว</string>
+  <string name="revanced_sb_submit_failed_unknown_error">ไม่สามารถส่งส่วน (สถานะ: %1$d %2$s)</string>
+  <string name="revanced_sb_submit_failed_rate_limit">ไม่สามารถส่งส่วนได้ จํากัดอัตรา (มากเกินไปจากผู้ใช้หรือ IP เดียวกัน)</string>
+  <string name="revanced_sb_submit_failed_forbidden">ไม่สามารถส่งส่วน: %s</string>
+  <string name="revanced_sb_submit_failed_duplicate">"ไม่สามารถส่งส่วนได้
+มีอยู่แล้ว"</string>
   <string name="revanced_sb_submit_succeeded">ส่งคำขอของคุณสำเร็จ</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
+  <string name="revanced_sb_sponsorblock_connection_failure_timeout">SponsorBlock ไม่พร้อมใช้งานชั่วคราว (API หมดเวลา)</string>
+  <string name="revanced_sb_sponsorblock_connection_failure_status">SponsorBlock ไม่พร้อมใช้งานชั่วคราว (สถานะ %d)</string>
+  <string name="revanced_sb_sponsorblock_connection_failure_generic">SponsorBlock ไม่พร้อมใช้งานชั่วคราว</string>
+  <string name="revanced_sb_vote_failed_timeout">ไม่สามารถโหวตส่วน (API หมดเวลา)</string>
+  <string name="revanced_sb_vote_failed_unknown_error">ไม่สามารถโหวตส่วน (สถานะ: %1$d %2$s)</string>
+  <string name="revanced_sb_vote_failed_forbidden">ไม่สามารถโหวตส่วน: %s</string>
   <string name="revanced_sb_vote_upvote">โหวตขึ้น</string>
   <string name="revanced_sb_vote_downvote">โหวตลง</string>
   <string name="revanced_sb_vote_category">เปลี่ยนหมวดหมู่</string>
   <string name="revanced_sb_vote_no_segments">ไม่มีส่วนใดจะให้โหวต</string>
   <string name="revanced_sb_new_segment_choose_category">กรุณาเลือกหมวดหมู่ของส่วน</string>
+  <string name="revanced_sb_new_segment_disabled_category">หมวดหมู่ถูกปิดใช้งานใน การตั้งค่า เปิดใช้งานหมวดหมู่เพื่อส่ง</string>
   <string name="revanced_sb_new_segment_title">SponsorBlockส่วนใหม่</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">ตั้ง %s เป็นจุดเริ่มต้นหรือจุดสิ้นสุดของส่วนใหม่?</string>
   <string name="revanced_sb_new_segment_mark_start">เริ่มต้น</string>
   <string name="revanced_sb_new_segment_mark_end">จบ</string>
   <string name="revanced_sb_new_segment_now">ขณะนี้</string>
   <string name="revanced_sb_new_segment_time_start">เวลาที่เริ่มต้นส่วนนี้</string>
   <string name="revanced_sb_new_segment_time_end">เวลาที่จบส่วนนี้</string>
   <string name="revanced_sb_new_segment_confirm_title">เวลานี้ถูกต้องไหม?</string>
+  <string name="revanced_sb_new_segment_confirm_content">"ส่วนนี้มาจาก
+
+%1$s
+ถึง
+%2$s
+
+(%3$s)
+
+พร้อมที่จะส่งหรือยัง?"</string>
+  <string name="revanced_sb_new_segment_start_is_before_end">จุดเริ่มต้นต้องอยู่ก่อนจุดสิ้นสุด</string>
   <string name="revanced_sb_new_segment_mark_locations_first">กำหนดจุดบนเส้นเวลาก่อน</string>
+  <string name="revanced_sb_new_segment_preview_segment_first">ดูตัวอย่างส่วน และตรวจสอบ</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">แก้ไขส่วนแบบมือ</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">คุณต้องการแก้ไขจุดเริ่มต้นและจุดจบของส่วนนี้ไหม?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">ค่าเวลาที่ให้มาผิดพลาด</string>
   <string name="revanced_sb_stats">สถิติ</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
+  <string name="revanced_sb_stats_connection_failure">สถิติไม่พร้อมใช้งานชั่วคราว (API ล่ม)</string>
   <string name="revanced_sb_stats_loading">กำลังโหลด...</string>
   <string name="revanced_sb_stats_sb_disabled">SponsorBlock ถูกปิดการใช้งาน</string>
+  <string name="revanced_sb_stats_username">ชื่อผู้ใช้ของคุณ: &lt;b&gt;%s&lt;/b&gt;</string>
+  <string name="revanced_sb_stats_username_change">แตะที่นี่เพื่อเปลี่ยนชื่อผู้ใช้ของคุณ</string>
   <string name="revanced_sb_stats_username_change_unknown_error">ไม่สามารถเปลื่ยนชื่อ: สถานะ: %1$d %2$s</string>
   <string name="revanced_sb_stats_username_changed">เปลื่ยนชื่อเรียบร้อยแล้ว</string>
+  <string name="revanced_sb_stats_reputation">ชื่อเสียงของคุณคือ &lt;b&gt;%.2f&lt;/b&gt;</string>
+  <string name="revanced_sb_stats_submissions">คุณสร้างส่วน &lt;b&gt;%s&lt;/b&gt;</string>
+  <string name="revanced_sb_stats_submissions_sum">แตะที่นี่เพื่อดูส่วนของคุณ</string>
+  <string name="revanced_sb_stats_saved_zero">กระดานผู้นำ SponsorBlock</string>
+  <string name="revanced_sb_stats_saved">คุณช่วยคนจากส่วน &lt;b&gt;%s&lt;/b&gt;</string>
+  <string name="revanced_sb_stats_saved_sum_zero">แตะที่นี่เพื่อดูสถิติทั่วโลกและผู้มีส่วนร่วมสูงสุด</string>
+  <string name="revanced_sb_stats_saved_sum">นั่นคือ &lt;b&gt;%s&lt;/b&gt; ของชีวิตของพวกเขา&lt;br&gt;แตะที่นี่เพื่อดูกระดานผู้นำ</string>
+  <string name="revanced_sb_stats_self_saved">คุณข้ามส่วน &lt;b&gt;%s&lt;/b&gt;</string>
+  <string name="revanced_sb_stats_self_saved_sum">นั่นคือ &lt;b&gt;%s&lt;/b&gt;</string>
+  <string name="revanced_sb_stats_self_saved_reset_title">รีเซ็ตตัวนับส่วนที่ข้ามไป?</string>
+  <string name="revanced_sb_stats_saved_hour_format">%1$s ชั่วโมง %2$s นาที</string>
+  <string name="revanced_sb_stats_saved_minute_format">%1$s นาที %2$s วินาที</string>
+  <string name="revanced_sb_stats_saved_second_format">%s วินาที</string>
+  <string name="revanced_sb_color_dot_label">สี:</string>
   <string name="revanced_sb_color_changed">เปลื่ยนสีแล้ว</string>
   <string name="revanced_sb_color_reset">สีเปลื่ยนเป็นค่าเริ่มต้นแล้ว</string>
+  <string name="revanced_sb_color_invalid">รหัสสีไม่ถูกต้อง</string>
+  <string name="revanced_sb_reset_color">รีเซ็ตสี</string>
   <string name="revanced_sb_reset">รีเซ็ต</string>
+  <string name="revanced_sb_about">เกี่ยวกับ</string>
+  <string name="revanced_sb_about_api_sum">ข้อมูลนี้มาจาก SponsorBlock API แตะที่นี่เพื่อเรียนรู้เพิ่มเติมและดูการดาวน์โหลดสำหรับแพลตฟอร์มอื่น ๆ</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
+  <string name="revanced_spoof_app_version_title">ปลอมแปลงเวอร์ชันแอป</string>
+  <string name="revanced_spoof_app_version_summary_on">เวอร์ชันปลอมแปลง</string>
+  <string name="revanced_spoof_app_version_summary_off">เวอร์ชันไม่ได้ปลอมแปลง</string>
+  <string name="revanced_spoof_app_version_user_dialog_message">"เวอร์ชันแอปจะถูกปลอมแปลงเป็นเวอร์ชันเก่าของ YouTube
+
+สิ่งนี้จะเปลี่ยนรูปลักษณ์และคุณสมบัติของแอป แต่ผลข้างเคียงที่ไม่คาดคิดอาจเกิดขึ้น
+
+ถ้าปิดในภายหลัง ขอแนะนําให้ล้างข้อมูลแอปเพื่อป้องกันข้อผิดพลาดของ UI"</string>
   <!-- It is ideal, but not required, if the text here appears is alphabetically after the text used for 'revanced_spoof_app_version_title'.
                  This is because the 'General layout' menu uses alphabetic sorting, and it functionally works better if the spoof target selector appears below the 'Spoof app version' UI switch -->
+  <string name="revanced_spoof_app_version_target_title">เป้าหมายการปลอมแปลงเวอร์ชันแอป</string>
+  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - คืนค่าไอคอนเครื่องเล่น Shorts เก่า</string>
   <!-- 'RYD' is 'Return YouTube Dislike' -->
+  <string name="revanced_spoof_app_version_target_legacy_entry_1">18.33.40 - คืนค่า RYD บนโหมดไม่ระบุตัวตน Shorts</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_2">18.20.39 - คืนค่าเมนูความเร็วและคุณภาพวิดีโอแบบกว้าง</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_3">18.09.39 - คืนค่าแท็บคลัง</string>
+  <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - คืนค่าชั้นวางเพลย์ลิสต์เก่า</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
+  <string name="revanced_change_start_page_title">ตั้งค่าหน้าเริ่มต้น</string>
   <string name="revanced_change_start_page_entry_default">ค่าเริ่มต้น</string>
+  <string name="revanced_change_start_page_entry_browse">เรียกดูช่อง</string>
+  <string name="revanced_change_start_page_entry_explore">สำรวจ</string>
+  <string name="revanced_change_start_page_entry_gaming">เกม</string>
+  <string name="revanced_change_start_page_entry_history">ประวัติ</string>
+  <string name="revanced_change_start_page_entry_library">คลัง</string>
+  <string name="revanced_change_start_page_entry_liked_videos">วิดีโอที่ชอบ</string>
+  <string name="revanced_change_start_page_entry_live">สด</string>
+  <string name="revanced_change_start_page_entry_movies">ภาพยนตร์</string>
+  <string name="revanced_change_start_page_entry_music">เพลง</string>
+  <string name="revanced_change_start_page_entry_search">ค้นหา</string>
+  <string name="revanced_change_start_page_entry_sports">กีฬา</string>
+  <string name="revanced_change_start_page_entry_subscriptions">สมัครสมาชิก</string>
+  <string name="revanced_change_start_page_entry_trending">กำลังมาแรง</string>
+  <string name="revanced_change_start_page_entry_watch_later">ดูต่อภายหลัง</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
+  <string name="revanced_disable_resuming_shorts_player_title">ปิดใช้งานการกลับมาทำงานต่อของเครื่องเล่น Shorts</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_on">เครื่องเล่น Shorts จะไม่กลับมาทำงานต่อเมื่อเริ่มต้นแอป</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_off">เครื่องเล่น Shorts จะกลับมาทำงานต่อเมื่อเริ่มต้นแอป</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
+  <string name="revanced_shorts_autoplay_title">เล่น Shorts อัตโนมัติ</string>
+  <string name="revanced_shorts_autoplay_summary_on">Shorts จะเล่นอัตโนมัติ</string>
+  <string name="revanced_shorts_autoplay_summary_off">Shorts จะวนซ้ำ</string>
+  <string name="revanced_shorts_autoplay_background_title">เล่น Shorts อัตโนมัติแบบพื้นหลัง</string>
+  <string name="revanced_shorts_autoplay_background_summary_on">การเล่น Shorts แบบพื้นหลังจะเล่นอัตโนมัติ</string>
+  <string name="revanced_shorts_autoplay_background_summary_off">การเล่น Shorts แบบพื้นหลังจะวนซ้ำ</string>
   </patch>
   <patch id="layout.tablet.enableTabletLayoutPatch">
+  <string name="revanced_tablet_layout_title">เปิดใช้งานรูปแบบแท็บเล็ต</string>
+  <string name="revanced_tablet_layout_summary_on">รูปแบบแท็บเล็ตเปิดใช้งานแล้ว</string>
+  <string name="revanced_tablet_layout_summary_off">รูปแบบแท็บเล็ตปิดใช้งานแล้ว</string>
+  <string name="revanced_tablet_layout_user_dialog_message">โพสต์ชุมชนไม่แสดงในรูปแบบแท็บเล็ต</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
+  <string name="revanced_miniplayer_screen_summary">เปลี่ยนสไตล์ของเครื่องเล่นย่อขนาดในแอป</string>
+  <string name="revanced_miniplayer_type_title">ประเภทของเครื่องเล่นย่อขนาด</string>
   <string name="revanced_miniplayer_type_entry_0">ปิดการใช้งานอยู่</string>
+  <string name="revanced_miniplayer_type_entry_1">ค่าเริ่มต้น</string>
+  <string name="revanced_miniplayer_type_entry_2">น้อยที่สุด</string>
+  <string name="revanced_miniplayer_type_entry_3">แท็บเล็ต</string>
+  <string name="revanced_miniplayer_type_entry_4">ทันสมัย 1</string>
+  <string name="revanced_miniplayer_type_entry_5">ทันสมัย 2</string>
+  <string name="revanced_miniplayer_type_entry_6">ทันสมัย 3</string>
+  <string name="revanced_miniplayer_rounded_corners_title">เปิดใช้งานมุมโค้งมน</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_on">มุมโค้งมน</string>
+  <string name="revanced_miniplayer_rounded_corners_summary_off">มุมเป็นสี่เหลี่ยม</string>
+  <string name="revanced_miniplayer_double_tap_action_title">เปิดใช้งานการแตะสองครั้งและการบีบเพื่อปรับขนาด</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">"การกระทำแตะสองครั้ง และการบีบเพื่อปรับขนาด เปิดใช้งาน
+
+• แตะสองครั้งเพื่อเพิ่มขนาด miniplayer
+• แตะสองครั้งอีกครั้งเพื่อคืนค่าขนาดเดิม"</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_off">การแตะสองครั้งและการบีบเพื่อปรับขนาดปิดใช้งานแล้ว</string>
+  <string name="revanced_miniplayer_drag_and_drop_title">เปิดใช้งานการลากและวาง</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_on">"ลากและวาง เปิดใช้งาน
+
+สามารถลาก miniplayer ไปยังมุมใดๆ ของหน้าจอ"</string>
+  <string name="revanced_miniplayer_drag_and_drop_summary_off">การลากและวางปิดใช้งานแล้ว</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">เปิดใช้งานท่าทางการลากแบบแนวนอน</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_on">"ท่าทางลากแนวนอน เปิดใช้งาน
+
+สามารถลาก miniplayer ออกจากหน้าจอไปทางซ้ายหรือขวา"</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">ท่าทางการลากแบบแนวนอนปิดใช้งานแล้ว</string>
+  <string name="revanced_miniplayer_hide_expand_close_title">ซ่อนปุ่มปิด</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_on">ปุ่มปิดถูกซ่อน</string>
+  <string name="revanced_miniplayer_hide_expand_close_summary_off">ปุ่มปิดแสดงอยู่</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_title">ซ่อนปุ่มขยายและปิด</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"ปุ่มถูกซ่อน
+
+ปัดเพื่อขยายหรือปิด"</string>
+  <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">ปุ่มขยายและปิดแสดงอยู่</string>
+  <string name="revanced_miniplayer_hide_subtext_title">ซ่อนข้อความย่อย</string>
+  <string name="revanced_miniplayer_hide_subtext_summary_on">ข้อความย่อยถูกซ่อน</string>
+  <string name="revanced_miniplayer_hide_subtext_summary_off">ข้อความย่อยแสดงอยู่</string>
+  <string name="revanced_miniplayer_hide_rewind_forward_title">ซ่อนปุ่มข้ามไปข้างหน้าและข้างหลัง</string>
+  <string name="revanced_miniplayer_hide_rewind_forward_summary_on">ข้ามไปข้างหน้าและข้างหลังถูกซ่อน</string>
+  <string name="revanced_miniplayer_hide_rewind_forward_summary_off">ข้ามไปข้างหน้าและข้างหลังแสดงอยู่</string>
+  <string name="revanced_miniplayer_width_dip_title">ขนาดเริ่มต้น</string>
+  <string name="revanced_miniplayer_width_dip_summary">ขนาดเริ่มต้นบนหน้าจอ เป็นพิกเซล</string>
+  <string name="revanced_miniplayer_width_dip_invalid_toast">ขนาดพิกเซลต้องอยู่ระหว่าง %1$s ถึง %2$s</string>
+  <string name="revanced_miniplayer_opacity_title">ความทึบแสงของโอเวอร์เลย์</string>
+  <string name="revanced_miniplayer_opacity_summary">ค่าความทึบแสงระหว่าง 0-100 โดย 0 คือโปร่งใส</string>
+  <string name="revanced_miniplayer_opacity_invalid_toast">ความทึบแสงของโอเวอร์เลย์เครื่องเล่นย่อขนาดต้องอยู่ระหว่าง 0-100</string>
   </patch>
   <patch id="layout.theme.themePatch">
+  <string name="revanced_gradient_loading_screen_title">เปิดใช้งานหน้าจอโหลดแบบไล่ระดับสี</string>
+  <string name="revanced_gradient_loading_screen_summary_on">หน้าจอโหลดจะมีพื้นหลังแบบไล่ระดับสี</string>
+  <string name="revanced_gradient_loading_screen_summary_off">หน้าจอโหลดจะมีพื้นหลังแบบทึบ</string>
   </patch>
   <patch id="layout.theme.themeResourcePatch">
+  <string name="revanced_seekbar_custom_color_title">เปิดใช้งานสีแถบเลื่อนแบบกำหนดเอง</string>
+  <string name="revanced_seekbar_custom_color_summary_on">แสดงสีแถบเลื่อนแบบกำหนดเอง</string>
+  <string name="revanced_seekbar_custom_color_summary_off">แสดงสีแถบเลื่อนดั้งเดิม</string>
+  <string name="revanced_seekbar_custom_color_value_title">สีแถบเลื่อนแบบกำหนดเอง</string>
+  <string name="revanced_seekbar_custom_color_value_summary">สีของแถบเลื่อน</string>
+  <string name="revanced_seekbar_custom_color_invalid">ค่าสีแถบเลื่อนไม่ถูกต้อง</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
+  <string name="revanced_bypass_image_region_restrictions_title">เลี่ยงข้อจำกัดด้านภูมิภาคของรูปภาพ</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_on">ใช้โฮสต์รูปภาพ yt4.ggpht.com</string>
+  <string name="revanced_bypass_image_region_restrictions_summary_off">"ใช้โฮสต์รูปภาพดั้งเดิม
+
+การเปิดใช้งานสิ่งนี้สามารถแก้ไขรูปภาพที่หายไปซึ่งถูกบล็อกในบางภูมิภาค"</string>
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the home tab. -->
+  <string name="revanced_alt_thumbnail_home_title">แท็บหน้าแรก</string>
   <!-- 'Subscription' should be translated using the same localized wording YouTube displays for the subscription tab. -->
+  <string name="revanced_alt_thumbnail_subscription_title">แท็บการสมัครรับข้อมูล</string>
   <!-- 'You' should be translated using the same localized wording YouTube displays for the You (library) tab. -->
+  <string name="revanced_alt_thumbnail_library_title">แท็บคุณ</string>
+  <string name="revanced_alt_thumbnail_player_title">เพลย์ลิสต์ของผู้เล่น ข้อเสนอแนะ</string>
+  <string name="revanced_alt_thumbnail_search_title">ผลลัพธ์การค้นหา</string>
+  <string name="revanced_alt_thumbnail_options_entry_1">รูปขนาดย่อดั้งเดิม</string>
+  <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; รูปขนาดย่อดั้งเดิม</string>
+  <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; ภาพนิ่ง</string>
+  <string name="revanced_alt_thumbnail_options_entry_4">ภาพนิ่ง</string>
+  <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow ให้ภาพขนาดย่อที่รวบรวมจากฝูงชนสําหรับวิดีโอ YouTube ภาพขนาดย่อเหล่านี้มักจะเกี่ยวข้องมากกว่าภาพขนาดย่อที่ให้โดย YouTube
+
+ถ้าเปิดใช้งาน URL ของวิดีโอจะถูกส่งไปยังเซิร์ฟเวอร์ API และไม่มีข้อมูลอื่นๆ ถูกส่งไป หากวิดีโอไม่มีภาพขนาดย่อ DeArrow ภาพขนาดย่อดั้งเดิมหรือภาพนิ่งจะถูกแสดง
+
+แตะที่นี่เพื่อเรียนรู้เพิ่มเติมเกี่ยวกับ DeArrow"</string>
+  <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">แสดงคำอวยพรถ้า API ไม่พร้อมใช้งาน</string>
+  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">แสดง\"toast\"หาก DeArrow ไม่พร้อมใช้งาน</string>
+  <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">ไม่แสดง\"toast\"หาก DeArrow ไม่พร้อมใช้งาน</string>
+  <string name="revanced_alt_thumbnail_dearrow_api_url_title">จุดสิ้นสุด API ของ DeArrow</string>
+  <string name="revanced_alt_thumbnail_dearrow_api_url_summary">URL ของจุดสิ้นสุดแคชรูปขนาดย่อ DeArrow</string>
+  <string name="revanced_alt_thumbnail_stills_about_title">ภาพนิ่งจากวิดีโอ</string>
+  <string name="revanced_alt_thumbnail_stills_about_summary">ภาพนิ่งถูกถ่ายจากจุดเริ่มต้น/กลาง/ท้ายของแต่ละวิดีโอ รูปภาพเหล่านี้ถูกสร้างไว้ใน YouTube และไม่มีการใช้ API ภายนอก</string>
+  <string name="revanced_alt_thumbnail_stills_fast_title">ใช้ภาพนิ่งรวดเร็ว</string>
+  <string name="revanced_alt_thumbnail_stills_fast_summary_on">ใช้ภาพนิ่งคุณภาพปานกลาง รูปขนาดย่อจะโหลดเร็วขึ้น แต่สตรีมสด วิดีโอที่ยังไม่เผยแพร่ หรือวิดีโอเก่ามากอาจแสดงรูปขนาดย่อว่างเปล่า</string>
+  <string name="revanced_alt_thumbnail_stills_fast_summary_off">ใช้ภาพนิ่งคุณภาพสูง</string>
+  <string name="revanced_alt_thumbnail_stills_time_title">เวลาในวิดีโอที่จะถ่ายภาพนิ่งจาก</string>
+  <string name="revanced_alt_thumbnail_stills_time_entry_1">จุดเริ่มต้นของวิดีโอ</string>
+  <string name="revanced_alt_thumbnail_stills_time_entry_2">กลางของวิดีโอ</string>
+  <string name="revanced_alt_thumbnail_stills_time_entry_3">ท้ายของวิดีโอ</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="revanced_alt_thumbnail_dearrow_error">DeArrow ชั่วคราวไม่พร้อมใช้งาน (รหัสสถานะ: %s)</string>
+  <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow ชั่วคราวไม่พร้อมใช้งาน</string>
   </patch>
   <patch id="misc.announcements.announcementsPatch">
+  <string name="revanced_announcements_title">แสดงการประกาศของ ReVanced</string>
+  <string name="revanced_announcements_summary_on">แสดงการประกาศเมื่อเริ่มต้น</string>
+  <string name="revanced_announcements_summary_off">ไม่แสดงการประกาศเมื่อเริ่มต้น</string>
+  <string name="revanced_announcements_enabled_summary">แสดงการประกาศเมื่อเริ่มต้น</string>
+  <string name="revanced_announcements_connection_failed">การเชื่อมต่อกับผู้ให้บริการการประกาศล้มเหลว</string>
+  <string name="revanced_announcements_dialog_dismiss">ปิด</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">คำเตือน</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">ประวัติการรับชมของคุณไม่ได้ถูกบันทึก&lt;br&gt;&lt;br&gt;สาเหตุที่เป็นไปได้มากที่สุดคือตัวบล็อกโฆษณา DNS หรือพร็อกซีเครือข่าย&lt;br&gt;&lt;br&gt;เพื่อแก้ไขปัญหานี้ ให้เพิ่ม &lt;b&gt;s.youtube.com&lt;/b&gt; ในรายการที่อนุญาต หรือปิดตัวบล็อกโฆษณา DNS และพร็อกซีทั้งหมด</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">อย่าแสดงอีก</string>
   </patch>
   <patch id="misc.autorepeat.autoRepeatPatch">
+  <string name="revanced_auto_repeat_title">เปิดใช้งานเล่นซ้ำอัตโนมัติ</string>
+  <string name="revanced_auto_repeat_summary_on">เล่นซ้ำอัตโนมัติเปิดใช้งาน</string>
+  <string name="revanced_auto_repeat_summary_off">เล่นซ้ำอัตโนมัติปิดใช้งาน</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
+  <string name="revanced_spoof_device_dimensions_title">ปลอมแปลงมิติของอุปกรณ์</string>
+  <string name="revanced_spoof_device_dimensions_summary_on">"มิติของอุปกรณ์ถูกปลอมแปลง
+
+คุณภาพวิดีโอที่สูงขึ้นอาจถูกปลดล็อก แต่คุณอาจพบปัญหาการสะดุดในการเล่นวิดีโอ อายุการใช้งานแบตเตอรี่แย่ลง และผลข้างเคียงที่ไม่คาดคิด"</string>
+  <string name="revanced_spoof_device_dimensions_summary_off">"มิติของอุปกรณ์ไม่ถูกปลอมแปลง
+
+การเปิดใช้งานสิ่งนี้สามารถปลดล็อกคุณภาพวิดีโอที่สูงขึ้น"</string>
+  <string name="revanced_spoof_device_dimensions_user_dialog_message">การเปิดใช้งานนี้สามารถทำให้การเล่นวิดีโอสะดุด อายุการใช้งานแบตเตอรี่แย่ลง และผลข้างเคียงที่ไม่ทราบสาเหตุ</string>
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <string name="microg_settings_title">การตั้งค่า GmsCore</string>
+  <string name="microg_settings_summary">การตั้งค่าสำหรับ GmsCore</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
+  <string name="revanced_bypass_url_redirects_title">เลี่ยงการเปลี่ยนเส้นทาง URL</string>
+  <string name="revanced_bypass_url_redirects_summary_on">การเปลี่ยนเส้นทาง URL ถูกเลี่ยง</string>
+  <string name="revanced_bypass_url_redirects_summary_off">การเปลี่ยนเส้นทาง URL ไม่ถูกเลี่ยง</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
+  <string name="revanced_external_browser_title">เปิดลิงก์ในเบราว์เซอร์</string>
+  <string name="revanced_external_browser_summary_on">เปิดลิงก์ภายนอก</string>
+  <string name="revanced_external_browser_summary_off">เปิดลิงก์ในแอป</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
+  <string name="revanced_remove_tracking_query_parameter_title">ลบพารามิเตอร์การติดตามแบบสอบถาม</string>
+  <string name="revanced_remove_tracking_query_parameter_summary_on">พารามิเตอร์การติดตามแบบสอบถามถูกลบออกจากลิงก์</string>
+  <string name="revanced_remove_tracking_query_parameter_summary_off">พารามิเตอร์การติดตามแบบสอบถามไม่ได้ถูกลบออกจากลิงก์</string>
   </patch>
   <patch id="misc.zoomhaptics.zoomHapticsPatch">
+  <string name="revanced_disable_zoom_haptics_title">ปิดใช้งานแฮปติกซูม</string>
+  <string name="revanced_disable_zoom_haptics_summary_on">แฮปติกถูกปิดใช้งาน</string>
+  <string name="revanced_disable_zoom_haptics_summary_off">แฮปติกเปิดใช้งาน</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
+  <string name="revanced_video_quality_default_entry_1">อัตโนมัติ</string>
+  <string name="revanced_remember_video_quality_last_selected_title">จำการเปลี่ยนแปลงคุณภาพวิดีโอ</string>
+  <string name="revanced_remember_video_quality_last_selected_summary_on">การเปลี่ยนแปลงคุณภาพใช้กับวิดีโอทั้งหมด</string>
+  <string name="revanced_remember_video_quality_last_selected_summary_off">การเปลี่ยนแปลงคุณภาพใช้กับวิดีโอปัจจุบันเท่านั้น</string>
+  <string name="revanced_video_quality_default_wifi_title">คุณภาพวิดีโอเริ่มต้นบนเครือข่าย Wi-Fi</string>
+  <string name="revanced_video_quality_default_mobile_title">คุณภาพวิดีโอเริ่มต้นบนเครือข่ายมือถือ</string>
+  <string name="revanced_remember_video_quality_mobile">มือถือ</string>
+  <string name="revanced_remember_video_quality_toast">เปลี่ยนคุณภาพ %1$s เริ่มต้นเป็น: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
+  <string name="revanced_playback_speed_dialog_button_title">แสดงปุ่มกล่องโต้ตอบความเร็ว</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">แสดงปุ่ม</string>
+  <string name="revanced_playback_speed_dialog_button_summary_off">ไม่แสดงปุ่ม</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
+  <string name="revanced_custom_speed_menu_title">เมนูกำหนดความเร็วในการเล่นแบบกำหนดเอง</string>
+  <string name="revanced_custom_speed_menu_summary_on">แสดงเมนูกำหนดความเร็ว</string>
+  <string name="revanced_custom_speed_menu_summary_off">ไม่แสดงเมนูกำหนดความเร็ว</string>
+  <string name="revanced_custom_playback_speeds_title">ความเร็วในการเล่นแบบกำหนดเอง</string>
+  <string name="revanced_custom_playback_speeds_summary">เพิ่มหรือเปลี่ยนความเร็วในการเล่นแบบกำหนดเอง</string>
+  <string name="revanced_custom_playback_speeds_invalid">ความเร็วที่กําหนดเองต้องน้อยกว่า %s</string>
+  <string name="revanced_custom_playback_speeds_parse_exception">ความเร็วในการเล่นที่กําหนดเองไม่ถูกต้อง</string>
+  <string name="revanced_custom_playback_speeds_auto">อัตโนมัติ</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
+  <string name="revanced_remember_playback_speed_last_selected_title">จำการเปลี่ยนแปลงความเร็วในการเล่น</string>
+  <string name="revanced_remember_playback_speed_last_selected_summary_on">การเปลี่ยนแปลงความเร็วในการเล่นใช้กับวิดีโอทั้งหมด</string>
+  <string name="revanced_remember_playback_speed_last_selected_summary_off">การเปลี่ยนแปลงความเร็วในการเล่นใช้กับวิดีโอปัจจุบันเท่านั้น</string>
+  <string name="revanced_playback_speed_default_title">ความเร็วในการเล่นเริ่มต้น</string>
+  <string name="revanced_remember_playback_speed_toast">เปลี่ยนความเร็วเริ่มต้นเป็น: %s</string>
   </patch>
   <patch id="video.videoqualitymenu.restoreOldVideoQualityMenuResourcePatch">
+  <string name="revanced_restore_old_video_quality_menu_title">คืนค่าเมนูกำหนดคุณภาพวิดีโอแบบเก่า</string>
+  <string name="revanced_restore_old_video_quality_menu_summary_on">แสดงเมนูกำหนดคุณภาพวิดีโอแบบเก่า</string>
+  <string name="revanced_restore_old_video_quality_menu_summary_off">ไม่แสดงเมนูกำหนดคุณภาพวิดีโอแบบเก่า</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
+  <string name="revanced_slide_to_seek_title">เปิดใช้งานเลื่อนเพื่อค้นหา</string>
+  <string name="revanced_slide_to_seek_summary_on">เลื่อนเพื่อค้นหาเปิดใช้งาน</string>
+  <string name="revanced_slide_to_seek_summary_off">เลื่อนเพื่อค้นหาไม่ได้เปิดใช้งาน</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">วิดีโอปลอม</string>
+  <string name="revanced_spoof_video_streams_screen_summary">ปลอมสตรีมวิดีโอของไคลเอ็นต์เพื่อป้องกันปัญหาการเล่น</string>
+  <string name="revanced_spoof_video_streams_title">วิดีโอปลอม</string>
+  <string name="revanced_spoof_video_streams_summary_on">สตรีมวิดีโอถูกปลอมแปลง</string>
+  <string name="revanced_spoof_video_streams_summary_off">"สตรีมวิดีโอไม่ถูกปลอมแปลง
+
+การเล่นวิดีโออาจไม่ทํางาน"</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">การปิดการตั้งค่านี้ อาจทำให้เกิดปัญหาในการเล่นวิดีโอ</string>
+  <string name="revanced_spoof_video_streams_client_title">ไคลเอ็นต์เริ่มต้น</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_title">บังคับใช้ AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">บังคับใช้โคเดกวิดีโอเป็น AVC (H.264)</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">โคเดกวิดีโอถูกกำหนดโดยอัตโนมัติ</string>
+  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"การเปิดใช้งานสิ่งนี้อาจปรับปรุงอายุการใช้งานแบตเตอรี่และแก้ไขปัญหาการสะดุดในการเล่น
+
+AVC มีความละเอียดสูงสุดที่ 1080p โคเดกเสียง Opus ไม่พร้อมใช้งาน และการเล่นวิดีโอจะใช้ข้อมูลอินเทอร์เน็ตมากกว่า VP9 หรือ AV1"</string>
+  <string name="revanced_spoof_video_streams_about_ios_title">ผลข้างเคียงของการปลอมแปลง iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• วิดีโอเด็กที่เป็นส่วนตัวอาจเล่นไม่ได้
+• การถ่ายทอดสดเริ่มต้นจากจุดเริ่มต้น
+• วิดีโอสิ้นสุดเร็ว 1 วินาที"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_title">ผลข้างเคียงของการปลอมแปลง VR สำหรับ Android</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• วิดีโอเด็กอาจเล่นไม่ได้
+• การถ่ายทอดสดเริ่มต้นจากจุดเริ่มต้น
+• วิดีโอสิ้นสุดเร็ว 1 วินาที"</string>
+  <string name="revanced_spoof_video_streams_language_title">ภาษาสตรีมเสียงเริ่มต้น</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">ภาษาแอป</string>
+  <string name="revanced_spoof_video_streams_language_AR">อาหรับ</string>
+  <string name="revanced_spoof_video_streams_language_AZ">อาเซอร์ไบจาน</string>
+  <string name="revanced_spoof_video_streams_language_BG">บัลแกเรีย</string>
+  <string name="revanced_spoof_video_streams_language_BN">เบงกาลี</string>
+  <string name="revanced_spoof_video_streams_language_CA">คาตาลัน</string>
+  <string name="revanced_spoof_video_streams_language_CS">เช็ก</string>
+  <string name="revanced_spoof_video_streams_language_DA">เดนมาร์ก</string>
+  <string name="revanced_spoof_video_streams_language_DE">เยอรมัน</string>
+  <string name="revanced_spoof_video_streams_language_EL">กรีก</string>
+  <string name="revanced_spoof_video_streams_language_EN">อังกฤษ</string>
+  <string name="revanced_spoof_video_streams_language_ES">สเปน</string>
+  <string name="revanced_spoof_video_streams_language_ET">เอสโตเนีย</string>
+  <string name="revanced_spoof_video_streams_language_FA">เปอร์เซีย</string>
+  <string name="revanced_spoof_video_streams_language_FI">ภาษาฟินแลนด์</string>
+  <string name="revanced_spoof_video_streams_language_FR">ฝรั่งเศส</string>
+  <string name="revanced_spoof_video_streams_language_GU">ภาษาคุชราต</string>
+  <string name="revanced_spoof_video_streams_language_HI">ภาษาฮินดี</string>
+  <string name="revanced_spoof_video_streams_language_HR">ภาษาโครเอเชีย</string>
+  <string name="revanced_spoof_video_streams_language_HU">ภาษาฮังการี</string>
+  <string name="revanced_spoof_video_streams_language_ID">ภาษาอินโดนีเซีย</string>
+  <string name="revanced_spoof_video_streams_language_IT">ภาษาอิตาลี</string>
+  <string name="revanced_spoof_video_streams_language_JA">ภาษาญี่ปุ่น</string>
+  <string name="revanced_spoof_video_streams_language_KK">ภาษากาซัค</string>
+  <string name="revanced_spoof_video_streams_language_KO">ภาษาเกาหลี</string>
+  <string name="revanced_spoof_video_streams_language_LT">ภาษาลิทัวเนีย</string>
+  <string name="revanced_spoof_video_streams_language_LV">ภาษาลัตเวีย</string>
+  <string name="revanced_spoof_video_streams_language_MK">ภาษามาซิโดเนีย</string>
+  <string name="revanced_spoof_video_streams_language_MN">ภาษามองโกเลีย</string>
+  <string name="revanced_spoof_video_streams_language_MR">ภาษามราฐี</string>
+  <string name="revanced_spoof_video_streams_language_MS">ภาษามาเลเซีย</string>
+  <string name="revanced_spoof_video_streams_language_MY">ภาษาพม่า</string>
+  <string name="revanced_spoof_video_streams_language_NL">ภาษาดัตช์</string>
+  <string name="revanced_spoof_video_streams_language_OR">โอเดีย</string>
+  <string name="revanced_spoof_video_streams_language_PA">ปัญจาบ</string>
+  <string name="revanced_spoof_video_streams_language_PL">โปแลนด์</string>
+  <string name="revanced_spoof_video_streams_language_PT_BR">(ภาษาโปรตุเกส (บราซิล))</string>
+  <string name="revanced_spoof_video_streams_language_PT_PT">(ภาษาโปรตุเกส (โปรตุเกส))</string>
+  <string name="revanced_spoof_video_streams_language_RO">โรมาเนีย</string>
+  <string name="revanced_spoof_video_streams_language_RU">รัสเซีย</string>
+  <string name="revanced_spoof_video_streams_language_SK">สโลวัก</string>
+  <string name="revanced_spoof_video_streams_language_SL">สโลวีเนีย</string>
+  <string name="revanced_spoof_video_streams_language_SR">เซอร์เบีย</string>
+  <string name="revanced_spoof_video_streams_language_SV">สวีเดน</string>
+  <string name="revanced_spoof_video_streams_language_SW">สวาฮิลี</string>
+  <string name="revanced_spoof_video_streams_language_TA">ทมิฬ</string>
+  <string name="revanced_spoof_video_streams_language_TE">เตลูกู</string>
+  <string name="revanced_spoof_video_streams_language_TH">ไทย</string>
+  <string name="revanced_spoof_video_streams_language_TR">ภาษาไทย</string>
+  <string name="revanced_spoof_video_streams_language_UK">ยูเครน</string>
+  <string name="revanced_spoof_video_streams_language_UR">อาหา</string>
+  <string name="revanced_spoof_video_streams_language_VI">เวลาร์ชา</string>
+  <string name="revanced_spoof_video_streams_language_ZH">จีน</string>
   </patch>
   </app>
   <app id="twitch">
   <patch id="ad.audio.audioAdsPatch">
+  <string name="revanced_block_audio_ads_title">ถางอารู้กินโออกืภล็อค่าออย่าง</string>
+  <string name="revanced_block_audio_ads_summary_on">เสียงโฆษณาถูกบล็อก</string>
+  <string name="revanced_block_audio_ads_summary_off">เสียงโฆษณาไม่ได้ถูกบล็อก</string>
   </patch>
   <patch id="ad.embedded.embeddedAdsPatch">
+  <string name="revanced_embedded_ads_service_unavailable">%s ไม่พร้อมใช้งาน โฆษณาอาจปรากฏ ลองเปลี่ยนบริการบล็อกโฆษณาใน การตั้งค่า</string>
+  <string name="revanced_embedded_ads_service_failed">%s เกิดข้อผิดพลาด โฆษณาอาจปรากฏ ลองเปลี่ยนบริการบล็อกโฆษณาใน การตั้งค่า</string>
+  <string name="revanced_block_embedded_ads_title">ปิดกั้นโฆษณาวิดีโอฝัง</string>
+  <string name="revanced_block_embedded_ads_entry_1">ปิดการใช้งานอยู่</string>
+  <string name="revanced_block_embedded_ads_entry_2">Luminous Proxy</string>
+  <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock Proxy</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">
+  <string name="revanced_block_video_ads_title">ปิดกั้นโฆษณาวิดีโอ</string>
+  <string name="revanced_block_video_ads_summary_on">วิดีโอโฆษณาถูกบล็อก</string>
+  <string name="revanced_block_video_ads_summary_off">วิดีโอโฆษณาไม่ได้รับการบล็อก</string>
   </patch>
   <patch id="chat.antidelete.showDeletedMessagesPatch">
+  <string name="revanced_deleted_msg">ข้อความถูกลบ</string>
+  <string name="revanced_show_deleted_messages_title">แสดงข้อความที่ถูกลบ</string>
+  <string name="revanced_show_deleted_messages_entry_1">ไม่แสดงข้อความที่ถูกลบ</string>
+  <string name="revanced_show_deleted_messages_entry_2">ซ่อนข้อความที่ถูกลบไว้หลังสปอยเลอร์</string>
+  <string name="revanced_show_deleted_messages_entry_3">แสดงข้อความที่ถูกลบเป็นข้อความที่ถูกขีดทับ</string>
   </patch>
   <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
+  <string name="revanced_auto_claim_channel_points_title">เรียก Channel Points โดยอัตโนมัติ</string>
+  <string name="revanced_auto_claim_channel_points_summary_on">เรียก Channel Points โดยอัตโนมัติ</string>
+  <string name="revanced_auto_claim_channel_points_summary_off">ไม่เรียก Channel Points โดยอัตโนมัติ</string>
   </patch>
   <patch id="debug.debugModePatch">
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
+  <string name="revanced_twitch_debug_mode_title">เปิดใช้งานโหมดดีบัก Twitch</string>
+  <string name="revanced_twitch_debug_mode_summary_on">โหมดดีบัก Twitch เปิดใช้งาน (ไม่แนะนำ)</string>
+  <string name="revanced_twitch_debug_mode_summary_off">โหมดดีบัก Twitch ปิดใช้งาน</string>
   </patch>
   <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings">ต้องค่า ReVanced เพิ่มเติม</string>
   <string name="revanced_about_title">เกี่ยวกับ</string>
+  <string name="revanced_about_summary">About ReVanced</string>
+  <string name="revanced_ads_screen_title">Ads</string>
+  <string name="revanced_ads_screen_summary">การตั้งค่าการบล็อกโฆษณา</string>
+  <string name="revanced_chat_screen_title">สนทนา</string>
+  <string name="revanced_chat_screen_summary">\"Chat \"settings\"</string>
+  <string name="revanced_misc_screen_title">หลากหลาย</string>
+  <string name="revanced_misc_screen_summary">การตั้งค่าหลากหลาย</string>
+  <string name="revanced_general_category_title">การตั้งค่าทั่วไป</string>
+  <string name="revanced_other_category_title">การตั้งค่าอื่นๆ</string>
+  <string name="revanced_client_ads_category_title">โฆษณาฝั่งไคลเอ็นต์</string>
+  <string name="revanced_surestream_ads_category_title">โฆษณา Surestream ฝั่งเซิร์ฟเวอร์</string>
+  <string name="revanced_twitch_debug_title">การบันทึกเพื่อแก้จุดบกพร่อง</string>
+  <string name="revanced_twitch_debug_summary_on">เปิดใช้งานการบันทึกเพื่อแก้จุดบกพร่อง</string>
+  <string name="revanced_twitch_debug_summary_off">การบันทึกข้อผิดพลาดถูกปิดใช้งาน</string>
   </patch>
   </app>
 </resources>
