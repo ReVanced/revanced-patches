@@ -19,7 +19,9 @@ final class PlayerRoutes {
                     "?fields=streamingData" +
                     "&alt=proto"
     ).compile();
+
     private static final String YT_API_URL = "https://youtubei.googleapis.com/youtubei/v1/";
+
     /**
      * TCP connection and HTTP read timeout
      */

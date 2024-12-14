@@ -25,7 +25,7 @@ public class ChangeDefaultAudioLanguagePatch {
     /**
      * Injection point.
      */
-    public static boolean isAudioStreamAsDefault(boolean isDefault, String audioTrackId, String audioTrackDisplayName) {
+    public static boolean isDefaultAudioStream(boolean isDefault, String audioTrackId, String audioTrackDisplayName) {
         try {
             if (audioTrackId.isEmpty()) {
                 // Older app targets can have empty audio tracks and these might be placeholders.

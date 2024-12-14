@@ -30,8 +30,8 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 
 @Suppress("unused")
 val changeDefaultAudioLanguagePatch = bytecodePatch(
-    name = "Change default audio track",
-    description = "Adds an option to set a video default audio language .",
+    name = "Change default audio language",
+    description = "Adds an option to set a default audio language.",
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -133,8 +133,9 @@ val changeDefaultAudioLanguagePatch = bytecodePatch(
                         invoke-virtual { p0 }, $audioTrackDisplayNameMethod
                         move-result-object v2
     
-                        invoke-static { p1, v1, v2 }, $EXTENSION_CLASS_DESCRIPTOR->isAudioStreamAsDefault(ZLjava/lang/String;Ljava/lang/String;)Z
+                        invoke-static { p1, v1, v2 }, $EXTENSION_CLASS_DESCRIPTOR->isDefaultAudioStream(ZLjava/lang/String;Ljava/lang/String;)Z
                         move-result v3
+                        
                         invoke-static { v3 }, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
                         move-result-object v0
                         iput-object v0, p0, $helperMethodClass->$helperFieldName:Ljava/lang/Boolean;
