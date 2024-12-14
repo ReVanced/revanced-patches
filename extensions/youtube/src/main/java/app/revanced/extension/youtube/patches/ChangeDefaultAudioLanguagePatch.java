@@ -22,33 +22,23 @@ public class ChangeDefaultAudioLanguagePatch {
     private static final Pattern AUDIO_TRACK_ID_PATTERN =
             Pattern.compile("^([a-z]{2})(-[A-Z]{2})?(\\.\\d+)");
 
-    private static void printDebug(Logger.LogMessage message) {
-        // Do not log by default as it's spammy.
-        final boolean logAudioStreams = false;
-
-        //noinspection ConstantConditions
-        if (logAudioStreams) {
-            Logger.printDebug(message);
-        }
-    }
-
     /**
      * Injection point.
      */
-    public static boolean setAudioStreamAsDefault(boolean isDefault, String audioTrackId, String audioTrackDisplayName) {
+    public static boolean isAudioStreamAsDefault(boolean isDefault, String audioTrackId, String audioTrackDisplayName) {
         try {
             AudioStreamLanguage defaultLanguage = Settings.AUDIO_DEFAULT_LANGUAGE.get();
             if (defaultLanguage == AudioStreamLanguage.DEFAULT) {
                 return isDefault; // Do nothing.
             }
 
-            printDebug(() -> "isDefault: " + isDefault + " audioTrackId: " + audioTrackId
+            Logger.printDebug(() -> "isDefault: " + String.format("%-5s", isDefault) + " audioTrackId: " + audioTrackId
                     + " audioTrackDisplayName:" + audioTrackDisplayName);
 
             if (defaultLanguage == AudioStreamLanguage.ORIGINAL) {
                 final boolean isOriginal = audioTrackDisplayName.contains(DEFAULT_AUDIO_TRACKS_IDENTIFIER);
                 if (isOriginal) {
-                    printDebug(() -> "Using original audio language: " + audioTrackId);
+                    Logger.printDebug(() -> "Using original audio language: " + audioTrackId);
                 }
 
                 return isOriginal;
@@ -63,7 +53,7 @@ public class ChangeDefaultAudioLanguagePatch {
             String desiredIso639 = defaultLanguage.getIso639_1();
             if (desiredIso639.equals(matcher.group(1))
                 || desiredIso639.equals(matcher.group(2))) {
-                printDebug(() -> "Using preferred audio language: " + audioTrackId);
+                Logger.printDebug(() -> "Using preferred audio language: " + audioTrackId);
                 return true;
             }
         } catch (Exception ex) {

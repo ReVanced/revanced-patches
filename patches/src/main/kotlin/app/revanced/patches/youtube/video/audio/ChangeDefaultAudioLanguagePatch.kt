@@ -1,8 +1,10 @@
 package app.revanced.patches.youtube.video.audio
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.resources.addResources
@@ -19,6 +21,7 @@ import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.immutable.ImmutableField
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
@@ -82,9 +85,24 @@ val changeDefaultAudioLanguagePatch = bytecodePatch(
         }).mutableClass
 
         formatStreamModelClass.apply {
+            // Add a new field to store the override, otherwise it's an
+            // extension call with regex parsing on every call.
+            val helperFieldName = "isDefaultAudioTrackOverride"
+            fields.add(
+                ImmutableField(
+                    type,
+                    helperFieldName,
+                    "Ljava/lang/Boolean;",
+                    AccessFlags.PRIVATE.value,
+                    null,
+                    null,
+                    null
+                ).toMutable()
+            )
+
             // Add a helper method because the isDefaultAudioTrack() has only 2 registers and 3 are needed.
             val helperMethodClass = type
-            val helperMethodName = "extensions_isDefaultAudioTrack"
+            val helperMethodName = "extension_isDefaultAudioTrack"
             val helperMethod = ImmutableMethod(
                 helperMethodClass,
                 helperMethodName,
@@ -93,25 +111,30 @@ val changeDefaultAudioLanguagePatch = bytecodePatch(
                 AccessFlags.PRIVATE.value,
                 null,
                 null,
-                MutableMethodImplementation(4),
+                MutableMethodImplementation(6),
             ).toMutable().apply {
-                // This is the equivalent of
-                //   String featureName = feature.toString()
-                //   <inject more instructions here later>
-                //   return null
-                addInstructions(
+                addInstructionsWithLabels(
                     0,
                     """
+                        iget-object v0, p0, $helperMethodClass->$helperFieldName:Ljava/lang/Boolean;
+                        if-eqz v0, :call_extension            
+                        invoke-virtual { v0 }, Ljava/lang/Boolean;->booleanValue()Z
+                        move-result v3
+                        return v3
+                        
+                        :call_extension
                         invoke-virtual { p0 }, $audioTrackIdMethod
-                        move-result-object v0
+                        move-result-object v1
                         
                         invoke-virtual { p0 }, $audioTrackDisplayNameMethod
-                        move-result-object v1
+                        move-result-object v2
     
-                        invoke-static { p1, v0, v1 }, $EXTENSION_CLASS_DESCRIPTOR->setAudioStreamAsDefault(ZLjava/lang/String;Ljava/lang/String;)Z
-                        move-result v0
-                        
-                        return v0
+                        invoke-static { p1, v1, v2 }, $EXTENSION_CLASS_DESCRIPTOR->isAudioStreamAsDefault(ZLjava/lang/String;Ljava/lang/String;)Z
+                        move-result v3
+                        invoke-static { v3 }, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+                        move-result-object v0
+                        iput-object v0, p0, $helperMethodClass->$helperFieldName:Ljava/lang/Boolean;
+                        return v3
                     """
                 )
             }
