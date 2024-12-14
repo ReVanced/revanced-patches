@@ -20,7 +20,7 @@ public class ChangeDefaultAudioLanguagePatch {
      *  it.10
      */
     private static final Pattern AUDIO_TRACK_ID_PATTERN =
-            Pattern.compile("^([a-z]{2})(-[A-Z]{2})?(\\.\\d+)");
+            Pattern.compile("^([a-z]{2})(-[A-Z]{2})?.*");
 
     /**
      * Injection point.
@@ -38,13 +38,13 @@ public class ChangeDefaultAudioLanguagePatch {
                 return isDefault; // Do nothing.
             }
 
-            Logger.printDebug(() -> "isDefault: " + String.format("%-5s", isDefault) + " audioTrackId: "
-                    + audioTrackId + " audioTrackDisplayName:" + audioTrackDisplayName);
+            Logger.printDebug(() -> "default: " + String.format("%-5s", isDefault) + " id: "
+                    + String.format("%-8s", audioTrackId) + " name:" + audioTrackDisplayName);
 
             if (defaultLanguage == AudioStreamLanguage.ORIGINAL) {
                 final boolean isOriginal = audioTrackDisplayName.contains(DEFAULT_AUDIO_TRACKS_IDENTIFIER);
                 if (isOriginal) {
-                    Logger.printDebug(() -> "Using original audio language: " + audioTrackId);
+                    Logger.printDebug(() -> "Using audio: " + audioTrackId);
                 }
 
                 return isOriginal;
@@ -59,11 +59,11 @@ public class ChangeDefaultAudioLanguagePatch {
             String desiredIso639 = defaultLanguage.getIso639_1();
             if (desiredIso639.equals(matcher.group(1))
                 || desiredIso639.equals(matcher.group(2))) {
-                Logger.printDebug(() -> "Using preferred audio language: " + audioTrackId);
+                Logger.printDebug(() -> "Using audio: " + audioTrackId);
                 return true;
             }
         } catch (Exception ex) {
-            Logger.printException(() -> "setAudioStreamAsDefault failure", ex);
+            Logger.printException(() -> "isAudioStreamAsDefault failure", ex);
         }
 
         return isDefault;
