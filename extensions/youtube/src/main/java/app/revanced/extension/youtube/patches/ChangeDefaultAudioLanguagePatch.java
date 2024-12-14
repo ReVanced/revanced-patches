@@ -27,13 +27,19 @@ public class ChangeDefaultAudioLanguagePatch {
      */
     public static boolean isAudioStreamAsDefault(boolean isDefault, String audioTrackId, String audioTrackDisplayName) {
         try {
+            if (audioTrackId.isEmpty()) {
+                // Older app targets can have empty audio tracks and these might be placeholders.
+                // The real audio tracks are called after these.
+                return isDefault;
+            }
+
             AudioStreamLanguage defaultLanguage = Settings.AUDIO_DEFAULT_LANGUAGE.get();
             if (defaultLanguage == AudioStreamLanguage.DEFAULT) {
                 return isDefault; // Do nothing.
             }
 
-            Logger.printDebug(() -> "isDefault: " + String.format("%-5s", isDefault) + " audioTrackId: " + audioTrackId
-                    + " audioTrackDisplayName:" + audioTrackDisplayName);
+            Logger.printDebug(() -> "isDefault: " + String.format("%-5s", isDefault) + " audioTrackId: "
+                    + audioTrackId + " audioTrackDisplayName:" + audioTrackDisplayName);
 
             if (defaultLanguage == AudioStreamLanguage.ORIGINAL) {
                 final boolean isOriginal = audioTrackDisplayName.contains(DEFAULT_AUDIO_TRACKS_IDENTIFIER);
