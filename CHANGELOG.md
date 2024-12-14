@@ -1,3 +1,10 @@
+# [5.4.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.4.0-dev.10...v5.4.0-dev.11) (2024-12-14)
+
+
+### Features
+
+* **Twitch:** Make patches compatible with latest versions ([#4099](https://github.com/ReVanced/revanced-patches/issues/4099)) ([eecfbb7](https://github.com/ReVanced/revanced-patches/commit/eecfbb7122a9072e55e687f2c003f63108654888))
+
 # [5.4.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.4.0-dev.9...v5.4.0-dev.10) (2024-12-13)
 
 
