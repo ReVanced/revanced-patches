@@ -1226,6 +1226,11 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_disable_zoom_haptics_summary_on">Haptics are disabled</string>
             <string name="revanced_disable_zoom_haptics_summary_off">Haptics are enabled</string>
         </patch>
+        <patch id="video.audio.forceOriginalAudioPatch">
+            <string name="revanced_force_original_audio_title">Forced original audio</string>
+            <string name="revanced_force_original_audio_summary_on">Using original audio</string>
+            <string name="revanced_force_original_audio_summary_off">Using default audio</string>
+        </patch>
         <patch id="video.quality.rememberVideoQualityPatch">
             <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
             <string name="revanced_video_quality_default_entry_1">Auto</string>
@@ -1292,8 +1297,8 @@ AVC has a maximum resolution of 1080p, Opus audio codec is not available, and vi
 • Videos end 1 second early"</string>
             <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR spoofing side effects</string>
             <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Kids videos may not play
-• Livestreams start from the beginning
-• Videos end 1 second early"</string>
+• Audio track menu is missing
+• Stable volume is not available"</string>
             <string name="revanced_spoof_video_streams_language_title">Default audio stream language</string>
             <string name="revanced_spoof_video_streams_language_DEFAULT">App language</string>
             <string name="revanced_spoof_video_streams_language_AR">Arabic</string>

@@ -17,7 +17,7 @@ public enum ClientType {
             "32", // Android 12.1
             "1.56.21",
             true,
-            true),
+            false),
     // Specific for kids videos.
     IOS(5,
             "IOS",
@@ -40,21 +40,8 @@ public enum ClientType {
                     ? "17.40.5"
                     : "19.47.7",
             false,
-            true),
-    /**
-     * Android VR with no language code.
-     * Used for age restricted videos and YouTube Music to disable stable volume.
-     */
-    ANDROID_VR_NO_HL(
-            ANDROID_VR.id,
-            ANDROID_VR.clientName,
-            ANDROID_VR.deviceModel,
-            ANDROID_VR.osVersion,
-            ANDROID_VR.userAgent,
-            ANDROID_VR.androidSdkVersion,
-            ANDROID_VR.clientVersion,
-            ANDROID_VR.canLogin,
-            false);
+            true
+    );
 
     private static boolean forceAVC() {
         return BaseSettings.SPOOF_VIDEO_STREAMS_IOS_FORCE_AVC.get();

@@ -23,14 +23,6 @@ public class SpoofVideoStreamsPatch {
     private static final Uri UNREACHABLE_HOST_URI = Uri.parse(UNREACHABLE_HOST_URI_STRING);
 
     /**
-     * Injection point. Used by YT Music to disable stable volume.
-     */
-    public static void setClientTypeToAndroidVrNoHl() {
-        Logger.printDebug(() -> "Setting stream spoofing to: " + ClientType.ANDROID_VR_NO_HL);
-        BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.save(ClientType.ANDROID_VR_NO_HL);
-    }
-
-    /**
      * Injection point.
      * Blocks /get_watch requests by returning an unreachable URI.
      *
@@ -173,10 +165,11 @@ public class SpoofVideoStreamsPatch {
         return postData;
     }
 
-    public static final class ForceiOSAVCAvailability implements Setting.Availability {
+    public static final class SpoofiOSAvailability implements Setting.Availability {
         @Override
         public boolean isAvailable() {
-            return BaseSettings.SPOOF_VIDEO_STREAMS.get() && BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.IOS;
+            return BaseSettings.SPOOF_VIDEO_STREAMS.get()
+                    && BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.IOS;
         }
     }
 }
