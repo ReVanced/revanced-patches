@@ -9,7 +9,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.settings.preference.ListPreference
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
@@ -26,12 +26,12 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
-    "Lapp/revanced/extension/youtube/patches/ChangeDefaultAudioLanguagePatch;"
+    "Lapp/revanced/extension/youtube/patches/DisableAutoAudioTracksPatch;"
 
 @Suppress("unused")
-val changeDefaultAudioLanguagePatch = bytecodePatch(
-    name = "Change default audio language",
-    description = "Adds an option to set a default audio language.",
+val disableAutoAudioTracksPatch = bytecodePatch(
+    name = "Disable auto audio tracks",
+    description = "Adds an option to disable audio tracks from being automatically enabled.",
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -53,13 +53,10 @@ val changeDefaultAudioLanguagePatch = bytecodePatch(
     )
 
     execute {
-        addResources("youtube", "video.audio.changeDefaultAudioTrackPatch")
+        addResources("youtube", "video.audio.disableAutoAudioTracksPatch")
 
         PreferenceScreen.VIDEO.addPreferences(
-            ListPreference(
-                "revanced_audio_default_language",
-                summaryKey = null
-            )
+            SwitchPreference("revanced_disable_auto_audio_tracks")
         )
 
         fun Method.firstFormatStreamingModelCall(

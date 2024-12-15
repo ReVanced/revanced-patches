@@ -40,6 +40,10 @@ val spoofVideoStreamsPatch = spoofVideoStreamsPatch({
                     "revanced_spoof_video_streams_client",
                     summaryKey = null,
                 ),
+                ListPreference(
+                    "revanced_spoof_video_streams_language",
+                    summaryKey = null
+                ),
                 SwitchPreference("revanced_spoof_video_streams_ios_force_avc"),
                 // Preference requires a title but the actual text is chosen at runtime.
                 NonInteractivePreference(

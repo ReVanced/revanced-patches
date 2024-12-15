@@ -34,7 +34,6 @@ import app.revanced.extension.shared.settings.LongSetting;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.StringSetting;
 import app.revanced.extension.shared.settings.preference.SharedPrefCategory;
-import app.revanced.extension.shared.spoof.AudioStreamLanguage;
 import app.revanced.extension.youtube.patches.AlternativeThumbnailsPatch.DeArrowAvailability;
 import app.revanced.extension.youtube.patches.AlternativeThumbnailsPatch.StillImagesAvailability;
 import app.revanced.extension.youtube.patches.AlternativeThumbnailsPatch.ThumbnailOption;
@@ -54,7 +53,7 @@ public class Settings extends BaseSettings {
     public static final StringSetting CUSTOM_PLAYBACK_SPEEDS = new StringSetting("revanced_custom_playback_speeds",
             "0.25\n0.5\n0.75\n0.9\n0.95\n1.0\n1.05\n1.1\n1.25\n1.5\n1.75\n2.0\n3.0\n4.0\n5.0", true);
     // Audio
-    public static final EnumSetting<AudioStreamLanguage> AUDIO_DEFAULT_LANGUAGE = new EnumSetting<>("revanced_audio_default_language", AudioStreamLanguage.DEFAULT);
+    public static final BooleanSetting DISABLE_AUTO_AUDIO_TRACKS = new BooleanSetting("revanced_disable_auto_audio_tracks", TRUE);
 
     // Ads
     public static final BooleanSetting HIDE_BUTTONED_ADS = new BooleanSetting("revanced_hide_buttoned_ads", TRUE);

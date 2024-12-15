@@ -9,11 +9,6 @@ public enum AudioStreamLanguage {
     DEFAULT,
 
     /**
-     * Original language of the video.
-     */
-    ORIGINAL,
-
-    /**
      * Current language the app is set to.
      */
     APP_LANGUAGE,

@@ -109,9 +109,9 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                 CustomPlaybackSpeedPatch.initializeListPreference(playbackPreference);
             }
 
-            preference = findPreference(Settings.AUDIO_DEFAULT_LANGUAGE.key);
+            preference = findPreference(Settings.SPOOF_VIDEO_STREAMS_LANGUAGE.key);
             if (preference instanceof ListPreference languagePreference) {
-                sortListPreferenceByValues(languagePreference, 3);
+                sortListPreferenceByValues(languagePreference, 2);
             }
         } catch (Exception ex) {
             Logger.printException(() -> "initialize failure", ex);
