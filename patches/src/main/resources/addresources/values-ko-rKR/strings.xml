@@ -796,11 +796,11 @@ Second \"item\" text"</string>
   <string name="revanced_wide_searchbar_summary_off">넓은 검색창을 비활성화합니다</string>
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
-  <string name="revanced_seekbar_thumbnails_high_quality_title">고화질 썸네일 활성화하기</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">재생바 썸네일이 고화질입니다</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">재생바 썸네일이 일반 화질입니다</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">전체 화면 재생바 썸네일이 고화질입니다</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">전체 화면 재생바 썸네일이 일반화질입니다</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_title">고화질 재생바 썸네일 활성화하기</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">고화질 재생바 썸네일을 활성화합니다</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">일반 화질 재생바 썸네일을 활성화합니다</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">전체 화면 고화질 재생바 썸네일을 활성화합니다</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">전체 화면 일반 화질 재생바 썸네일을 활성화합니다</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"이 설정을 활성화하면 재생바 썸네일이 없는 실시간 스트림의 썸네일도 복원됩니다
 
 재생바 썸네일에는 현재 동영상과 동일한 화질 값이 사용됩니다

@@ -25,12 +25,12 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_failed_title">Kontroller misslyckades</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Öppna officiell hemsida</string>
   <string name="revanced_check_environment_dialog_ignore_button">Ignorera</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Denna app verkar inte vara lappad av dig.&lt;/h5&gt;&lt;br&gt;Denna app kanske inte fungerar korrekt, &lt;b&gt;kan vara skadligt eller till och med farligt att använda&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Dessa kontroller innebär att appen är förlagad eller erhållen från någon annan:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Det rekommenderas starkt att &lt;b&gt;avinstallera denna app och patch den själv&lt;/b&gt; för att säkerställa att du använder en validerad och säker app.&lt;p&gt;&lt;br&gt;Om den ignoreras kommer denna varning endast visas två gånger.</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Appen verkar inte vara patchad av dig.&lt;/h5&gt;&lt;br&gt;Den kanske inte fungerar korrekt, &lt;b&gt;kan vara skadlig eller till och med farlig att använda&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Resultatet av kontrollerna innebär att appen är förlagad eller hämtad från någon annan:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Det rekommenderas starkt att &lt;b&gt;avinstallera appen och patcha den själv&lt;/b&gt; för att säkerställa att du använder en validerad och säker app.&lt;p&gt;&lt;br&gt;Om varningen ignoreras kommer den endast visas två gånger.</string>
   <string name="revanced_check_environment_not_same_patching_device">Patchad på en annan enhet</string>
   <string name="revanced_check_environment_manager_not_expected_installer">Inte installerad av ReVanced Manager</string>
-  <string name="revanced_check_environment_not_near_patch_time">Patchade mer än 10 minuter sedan</string>
-  <string name="revanced_check_environment_not_near_patch_time_days">Patchade %s dagar sedan</string>
-  <string name="revanced_check_environment_not_near_patch_time_invalid">APK byggdatum är skadat</string>
+  <string name="revanced_check_environment_not_near_patch_time">Patchad för mer än 10 minuter sedan</string>
+  <string name="revanced_check_environment_not_near_patch_time_days">Patchad för %s dagar sedan</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">Byggdatum för APK är skadat</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_confirm_user_dialog_title">Vill du fortsätta?</string>
@@ -54,7 +54,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="gms_core_toast_not_installed_message">MicroG GmsCore är inte installerat. Installera.</string>
+  <string name="gms_core_toast_not_installed_message">MicroG GmsCore är inte installerat. Installera den.</string>
   <string name="gms_core_dialog_title">Åtgärd krävs</string>
   <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"MicroG GmsCore saknar behörighet att köras i bakgrunden.
 
@@ -85,8 +85,8 @@ Tryck på Fortsätt-knappen och tillåt optimeringsändringar."</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Inaktivera Shorts bakgrundsuppspelning</string>
-  <string name="revanced_shorts_disable_background_playback_summary_on">Shorts bakgrundsspel är inaktiverat</string>
-  <string name="revanced_shorts_disable_background_playback_summary_off">Shorts bakgrundsuppspelning är aktiverad</string>
+  <string name="revanced_shorts_disable_background_playback_summary_on">Shorts bakgrundsuppspelning är inaktiverat</string>
+  <string name="revanced_shorts_disable_background_playback_summary_off">Shorts bakgrundsuppspelning är aktiverat</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Felsökning</string>
@@ -953,6 +953,15 @@ Redan finns"</string>
   <string name="revanced_sb_new_segment_time_start">Tid då segmentet börjar på</string>
   <string name="revanced_sb_new_segment_time_end">Tid då segmentet slutar på</string>
   <string name="revanced_sb_new_segment_confirm_title">Är tiderna korrekta?</string>
+  <string name="revanced_sb_new_segment_confirm_content">"Segmentet är från
+
+%1$s
+till
+%2$s
+
+(%3$s)
+
+Redo att skicka in?"</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Start måste vara innan slutet</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Markera två platser i tidsfältet först</string>
   <string name="revanced_sb_new_segment_preview_segment_first">Förhandsgranska segmentet och se till att det hoppar över smidigt</string>

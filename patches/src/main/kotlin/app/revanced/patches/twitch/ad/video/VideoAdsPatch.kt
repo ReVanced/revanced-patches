@@ -141,24 +141,21 @@ val videoAdsPatch = bytecodePatch(
                 )
 
                 // Spoof showAds JSON field.
-                contentConfigShowAdsFingerprint.method.addInstructions(
+                // Late versions of the app don't have the method anymore.
+                contentConfigShowAdsFingerprint.methodOrNull?.addInstructions(
                     0,
                     """
-                    ${createConditionInstructions("v0")}
-                    const/4 v0, 0
-                    :$skipLabelName
-                    return v0
-                """,
+                        ${createConditionInstructions("v0")}
+                        const/4 v0, 0
+                        :$skipLabelName
+                        return v0
+                    """,
                 )
             }
         },
     )
 
     compatibleWith(
-        "tv.twitch.android.app"(
-            "15.4.1",
-            "16.1.0",
-            "16.9.1",
-        ),
+        "tv.twitch.android.app",
     )
 }

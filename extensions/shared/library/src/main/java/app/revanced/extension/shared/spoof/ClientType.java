@@ -17,7 +17,7 @@ public enum ClientType {
             "32", // Android 12.1
             "1.56.21",
             true,
-            true),
+            false),
     // Specific for kids videos.
     IOS(5,
             "IOS",
@@ -40,11 +40,8 @@ public enum ClientType {
                     ? "17.40.5"
                     : "19.47.7",
             false,
-            true),
-    /**
-     * Android VR with no language code.
-     * Used for age restricted videos and YouTube Music to disable stable volume.
-     */
+            true
+    ),
     IOS_MUSIC(26,
             "IOS_MUSIC",
             "iPhone16,2",
@@ -53,40 +50,50 @@ public enum ClientType {
             null,
             "7.08.2",
             true,
-            false);
+            false
+    );
+
 
     /**
      * YouTube
      * <a href="https://github.com/zerodytrash/YouTube-Internal-Clients?tab=readme-ov-file#clients">client type</a>
      */
     public final int id;
+
     public final String clientName;
+
     /**
      * Device model, equivalent to {@link Build#MODEL} (System property: ro.product.model)
      */
     public final String deviceModel;
+
     /**
      * Device OS version.
      */
     public final String osVersion;
+
     /**
      * Player user-agent.
      */
     public final String userAgent;
+
     /**
      * Android SDK version, equivalent to {@link Build.VERSION#SDK} (System property: ro.build.version.sdk)
      * Field is null if not applicable.
      */
     @Nullable
     public final String androidSdkVersion;
+
     /**
      * App version.
      */
     public final String clientVersion;
+
     /**
      * If the client can access the API logged in.
      */
     public final boolean canLogin;
+
     /**
      * If a language code should be used.
      */
