@@ -4,14 +4,11 @@ import java.util.Locale;
 
 public enum AudioStreamLanguage {
     /**
-     * Change nothing, same as unpatched.
+     * YouTube default.
+     * Can be the original language or can be app language,
+     * depending on what YouTube decides to pick as the default.
      */
     DEFAULT,
-
-    /**
-     * Current language the app is set to.
-     */
-    APP_LANGUAGE,
 
     // Language codes found in locale_config.xml
     // Region specific variants of Chinese/English/Spanish/French have been removed.

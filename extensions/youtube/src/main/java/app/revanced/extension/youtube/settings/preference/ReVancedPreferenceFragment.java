@@ -111,7 +111,7 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
 
             preference = findPreference(Settings.SPOOF_VIDEO_STREAMS_LANGUAGE.key);
             if (preference instanceof ListPreference languagePreference) {
-                sortListPreferenceByValues(languagePreference, 2);
+                sortListPreferenceByValues(languagePreference, 1);
             }
         } catch (Exception ex) {
             Logger.printException(() -> "initialize failure", ex);
