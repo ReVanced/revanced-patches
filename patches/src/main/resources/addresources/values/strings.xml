@@ -1300,7 +1300,7 @@ AVC has a maximum resolution of 1080p, Opus audio codec is not available, and vi
 • Audio track menu is missing
 • Stable volume is not available"</string>
             <string name="revanced_spoof_video_streams_language_title">Default audio stream language</string>
-            <string name="revanced_spoof_video_streams_language_DEFAULT">Default</string>
+            <string name="revanced_spoof_video_streams_language_DEFAULT">App language</string>
             <string name="revanced_spoof_video_streams_language_AR">Arabic</string>
             <string name="revanced_spoof_video_streams_language_AZ">Azerbaijani</string>
             <string name="revanced_spoof_video_streams_language_BG">Bulgarian</string>
