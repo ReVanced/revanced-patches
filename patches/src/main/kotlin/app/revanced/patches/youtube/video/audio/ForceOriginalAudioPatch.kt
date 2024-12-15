@@ -26,12 +26,12 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
-    "Lapp/revanced/extension/youtube/patches/DisableAutoAudioTracksPatch;"
+    "Lapp/revanced/extension/youtube/patches/ForceOriginalAudioPatch;"
 
 @Suppress("unused")
-val disableAutoAudioTracksPatch = bytecodePatch(
-    name = "Disable auto audio tracks",
-    description = "Adds an option to disable audio tracks from being automatically enabled.",
+val forceOriginalAudioPatch = bytecodePatch(
+    name = "Force original audio",
+    description = "Adds an option to always use the original audio track.",
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -53,10 +53,10 @@ val disableAutoAudioTracksPatch = bytecodePatch(
     )
 
     execute {
-        addResources("youtube", "video.audio.disableAutoAudioTracksPatch")
+        addResources("youtube", "video.audio.forceOriginalAudioPatch")
 
         PreferenceScreen.VIDEO.addPreferences(
-            SwitchPreference("revanced_disable_auto_audio_tracks")
+            SwitchPreference("revanced_force_original_audio")
         )
 
         fun Method.firstFormatStreamingModelCall(

@@ -4,7 +4,7 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
-public class DisableAutoAudioTracksPatch {
+public class ForceOriginalAudioPatch {
 
     private static final String DEFAULT_AUDIO_TRACKS_IDENTIFIER = "original";
 
@@ -13,7 +13,7 @@ public class DisableAutoAudioTracksPatch {
      */
     public static boolean isDefaultAudioStream(boolean isDefault, String audioTrackId, String audioTrackDisplayName) {
         try {
-            if (!Settings.DISABLE_AUTO_AUDIO_TRACKS.get()) {
+            if (!Settings.FORCE_ORIGINAL_AUDIO.get()) {
                 return isDefault;
             }
 

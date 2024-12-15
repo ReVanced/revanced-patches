@@ -1226,10 +1226,10 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_disable_zoom_haptics_summary_on">Haptics are disabled</string>
             <string name="revanced_disable_zoom_haptics_summary_off">Haptics are enabled</string>
         </patch>
-        <patch id="video.audio.disableAutoAudioTracksPatch">
-            <string name="revanced_disable_auto_audio_tracks_title">Disable forced auto audio tracks</string>
-            <string name="revanced_disable_auto_audio_tracks_summary_on">Forced auto audio track are disabled</string>
-            <string name="revanced_disable_auto_audio_tracks_summary_off">Forced auto audio tracks are not disabled</string>
+        <patch id="video.audio.forceOriginalAudioPatch">
+            <string name="revanced_force_original_audio_title">Forced original audio</string>
+            <string name="revanced_force_original_audio_summary_on">Using original audio</string>
+            <string name="revanced_force_original_audio_summary_off">Using default audio</string>
         </patch>
         <patch id="video.quality.rememberVideoQualityPatch">
             <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->

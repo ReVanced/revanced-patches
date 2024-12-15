@@ -1392,8 +1392,8 @@ public final class app/revanced/patches/youtube/shared/FingerprintsKt {
 	public static final fun getRollingNumberTextViewAnimationUpdateFingerprint ()Lapp/revanced/patcher/Fingerprint;
 }
 
-public final class app/revanced/patches/youtube/video/audio/DisableAutoAudioTracksPatchKt {
-	public static final fun getDisableAutoAudioTracksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/revanced/patches/youtube/video/audio/ForceOriginalAudioPatchKt {
+	public static final fun getForceOriginalAudioPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/video/information/VideoInformationPatchKt {
