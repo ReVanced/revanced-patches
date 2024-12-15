@@ -1,3 +1,10 @@
+# [5.5.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.4.1-dev.1...v5.5.0-dev.1) (2024-12-15)
+
+
+### Features
+
+* **YouTube:** Add `Force original audio` patch ([#4122](https://github.com/ReVanced/revanced-patches/issues/4122)) ([f4aa440](https://github.com/ReVanced/revanced-patches/commit/f4aa4406080b91f01d623e54b11b99ea849ddcdf))
+
 ## [5.4.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.4.0...v5.4.1-dev.1) (2024-12-14)
 
 
