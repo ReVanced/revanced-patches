@@ -82,8 +82,7 @@ val disableAutoAudioTracksPatch = bytecodePatch(
         }).mutableClass
 
         formatStreamModelClass.apply {
-            // Add a new field to store the override, otherwise it's an
-            // extension call with regex parsing on every call.
+            // Add a new field to store the override.
             val helperFieldName = "isDefaultAudioTrackOverride"
             fields.add(
                 ImmutableField(
