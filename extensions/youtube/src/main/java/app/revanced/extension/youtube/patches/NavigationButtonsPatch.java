@@ -10,6 +10,8 @@ import java.util.EnumMap;
 import java.util.Map;
 
 import android.widget.TextView;
+
+import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
@@ -28,11 +30,16 @@ public final class NavigationButtonsPatch {
             = Settings.SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON.get();
 
     private static final Boolean TRANSLUCENT_STATUS_BAR
-            = Settings.TRANSLUCENT_STATUS_BAR.get();
-
-    private static final Boolean TRANSLUCENT_NAVIGATION_BUTTONS
             = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
-            && Settings.TRANSLUCENT_NAVIGATION_BUTTONS.get();
+            && Settings.TRANSLUCENT_STATUS_BAR.get();
+
+    private static final Boolean TRANSLUCENT_NAVIGATION_BUTTONS_LIGHT
+            = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
+            && Settings.TRANSLUCENT_NAVIGATION_BUTTONS_LIGHT.get();
+
+    private static final Boolean TRANSLUCENT_NAVIGATION_BUTTONS_DARK
+            = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
+            && Settings.TRANSLUCENT_NAVIGATION_BUTTONS_DARK.get();
 
     /**
      * Injection point.
@@ -68,6 +75,12 @@ public final class NavigationButtonsPatch {
      * Injection point.
      */
     public static boolean useTranslucentNavigationButtons(boolean original) {
-        return TRANSLUCENT_NAVIGATION_BUTTONS;
+        if (!TRANSLUCENT_NAVIGATION_BUTTONS_DARK && !TRANSLUCENT_NAVIGATION_BUTTONS_LIGHT) {
+            return false;
+        }
+
+        return Utils.isDarkModeEnabled(Utils.getContext())
+                ? TRANSLUCENT_NAVIGATION_BUTTONS_DARK
+                : TRANSLUCENT_NAVIGATION_BUTTONS_LIGHT;
     }
 }

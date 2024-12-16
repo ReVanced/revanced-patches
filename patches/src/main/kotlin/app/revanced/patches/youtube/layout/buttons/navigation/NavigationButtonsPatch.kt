@@ -65,7 +65,8 @@ val navigationButtonsPatch = bytecodePatch(
 
         if (is_19_25_or_greater) {
             preferences += SwitchPreference("revanced_translucent_status_bar")
-            preferences += SwitchPreference("revanced_translucent_navigation_buttons")
+            preferences += SwitchPreference("revanced_translucent_navigation_buttons_light")
+            preferences += SwitchPreference("revanced_translucent_navigation_buttons_dark")
         }
 
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(

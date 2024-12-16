@@ -217,7 +217,8 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_NAVIGATION_BUTTON_LABELS = new BooleanSetting("revanced_hide_navigation_button_labels", FALSE, true);
     public static final BooleanSetting SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON = new BooleanSetting("revanced_switch_create_with_notifications_button", TRUE, true);
     public static final BooleanSetting TRANSLUCENT_STATUS_BAR = new BooleanSetting("revanced_translucent_status_bar", TRUE, true);
-    public static final BooleanSetting TRANSLUCENT_NAVIGATION_BUTTONS = new BooleanSetting("revanced_translucent_navigation_buttons", FALSE, true);
+    public static final BooleanSetting TRANSLUCENT_NAVIGATION_BUTTONS_LIGHT = new BooleanSetting("revanced_translucent_navigation_buttons_light", FALSE, true);
+    public static final BooleanSetting TRANSLUCENT_NAVIGATION_BUTTONS_DARK = new BooleanSetting("revanced_translucent_navigation_buttons_dark", FALSE, true);
 
     // Shorts
     public static final BooleanSetting DISABLE_RESUMING_SHORTS_PLAYER = new BooleanSetting("revanced_disable_resuming_shorts_player", FALSE);
