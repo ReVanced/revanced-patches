@@ -517,9 +517,14 @@ Uwaga: Włączenie tej opcji również ukrywa reklamy wideo"</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Etykiety są ukryte</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Etykiety są widoczne</string>
   <string name="revanced_disable_translucent_status_bar_title">Wyłącz przezroczysty pasek statusu</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">Pasek statusu jest nieprzezroczysty</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">Pasek statusu jest nieprzezroczysty lub półprzezroczysty</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Wyłącz świetny, przezroczysty pasek</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Pasek nawigacyjny w trybie świetnym jest nieprzezroczysty</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Pasek nawigacji w trybie jasnym jest nieprzezroczysty lub półprzezroczysty</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Wyłącz ciemny półprzezroczysty pasek</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Pasek nawigacyjny w trybie ciemnym jest nieprzezroczysty</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Pasek nawigacji w trybie ciemnym jest nieprzezroczysty lub półprzezroczysty</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Menu ustawień</string>
@@ -1284,6 +1289,8 @@ Odtwarzanie wideo może nie działać"</string>
 
 AVC ma maksymalną rozdzielczość 1080p, kodek audio Opus nie jest dostępny, a odtwarzanie wideo będzie zużywać więcej danych internetowych niż VP9 lub AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Efekty uboczne spoofingu iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Prywatne filmy dla dzieci mogą nie być odtwarzane
+• Filmy kończą się 1 sekundę wcześniej"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Efekty uboczne spoofingu Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Filmy dla dzieci mogą się nie odtwarzać
 • Transmisje na żywo rozpoczynają się od początku

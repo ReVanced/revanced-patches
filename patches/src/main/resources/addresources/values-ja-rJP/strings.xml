@@ -515,9 +515,14 @@ MicroG のバッテリー最適化を無効にしても、バッテリーの使�
   <string name="revanced_hide_navigation_button_labels_summary_on">ラベルは非表示です</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">ラベルは表示されます</string>
   <string name="revanced_disable_translucent_status_bar_title">半透明ステータスバーを無効にする</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">ステータスバーは不透明です</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">ステータスバーは不透明または半透明です</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">明るい半透明のバーを無効にする</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">ライトモードのナビゲーションバーは不透明です</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">ライトモードのナビゲーションバーは不透明または半透明です</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">ダーク半透明バーを無効にする</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">ダークモードのナビゲーションバーは不透明です</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">ダークモードのナビゲーションバーは不透明または半透明です</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">フライアウトメニュー</string>

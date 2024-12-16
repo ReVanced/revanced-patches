@@ -1289,6 +1289,8 @@ Predvajanje videa morda ne bo delovalo"</string>
 
 AVC ima največjo ločljivost 1080p, zvočni kodek Opus ni na voljo, predvajanje videa pa bo porabilo več internetnih podatkov kot VP9 ali AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Neželeni učinki iOS pretvarjanja</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Zasebni videoposnetki za otroke morda ne bodo predvajani
+• Videoposnetki se končajo 1 sekundo prej"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Neželeni učinki pretvarjanja Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Otroški videoposnetki se morda ne bodo predvajali
 • Livestreami se začnejo od začetka

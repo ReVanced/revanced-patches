@@ -1224,8 +1224,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Присили оригинални звук</string>
-  <string name="revanced_force_original_audio_summary_on">Korišćenje originalnog zvuka</string>
-  <string name="revanced_force_original_audio_summary_off">Korišćenje zadatog zvuka</string>
+  <string name="revanced_force_original_audio_summary_on">Коришћење оригиналног звука</string>
+  <string name="revanced_force_original_audio_summary_off">Коришћење подразумеваног звука</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
@@ -1236,7 +1236,7 @@ Second \"item\" text"</string>
   <string name="revanced_video_quality_default_wifi_title">Подразумевани квалитет видеа на Wi-Fi мрежи</string>
   <string name="revanced_video_quality_default_mobile_title">Подразумевани квалитет видеа на мобилној мрежи</string>
   <string name="revanced_remember_video_quality_mobile">мобилној мрежи</string>
-  <string name="revanced_remember_video_quality_wifi">wifi</string>
+  <string name="revanced_remember_video_quality_wifi">Wi-Fi мрежи</string>
   <string name="revanced_remember_video_quality_toast">Квалитет на %1$s промењен на: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
@@ -1288,8 +1288,8 @@ Second \"item\" text"</string>
 
 AVC има максималну резолуцију од 1080p, аудио кодек Opus није доступан, а репродукција видеа ће користити више интернет података него VP9 или AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Нежељени ефекти лажирања на iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Privatni videozapisi za decu mogu da se ne reprodukuju
-• Videozapisi se završavaju 1 sekundu ranije"</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Приватни дечји видеи се можда неће пуштати
+• Видеи ће се завршити 1 секунду раније"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Нежељени ефекти лажирања на Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Дечји видеи се можда неће пуштати
 • Стримови уживо почињу од почетка

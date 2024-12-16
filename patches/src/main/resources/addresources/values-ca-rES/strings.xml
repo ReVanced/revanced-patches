@@ -517,9 +517,14 @@ Nota: si actives aquesta opció, també s'amaguen els anuncis de vídeo per for�
   <string name="revanced_hide_navigation_button_labels_summary_on">Les etiquetes estan amagades</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Les etiquetes es mostren</string>
   <string name="revanced_disable_translucent_status_bar_title">Desactiva la barra d\'estat translúcida</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">La barra d\'estat és opaca</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">La barra d\'estat és opaca o translúcida</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Desactiva la barra translúcida de navegació clara</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">La barra de navegació del mode clar és opaca</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">La barra de navegació del mode clar és opaca o translúcida</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Deshabilita la barra translúcida fosca</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">La barra de navegació del mode fosc és opaca</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">La barra de navegació del mode fosc és opaca o translúcida</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Menú desplegable</string>

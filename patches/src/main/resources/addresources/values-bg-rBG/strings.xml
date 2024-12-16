@@ -255,6 +255,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Показано в сродни видеоклипове</string>
   <string name="revanced_comments_screen_title">Коментари</string>
   <string name="revanced_comments_screen_summary">Скриване или показване на секцията за коментари</string>
+  <string name="revanced_hide_comments_chat_summary_title">Скрий „Резюме на чата“</string>
   <string name="revanced_hide_comments_chat_summary_summary_on">\'Резюме на чата\' е скрито</string>
   <string name="revanced_hide_comments_chat_summary_summary_off">\'Резюме на чата\' е показано</string>
   <string name="revanced_hide_comments_by_members_header_title">Скриване на „Коментари, направени от членове“</string>
@@ -516,9 +517,14 @@ Second \"item\" text"</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Етикетите са скрити</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Етикетите се показват</string>
   <string name="revanced_disable_translucent_status_bar_title">Деактивирай полупрозрачната лента на състоянието</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">Статусная лента е непрозрачна</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">Статусная лента е непрозрачна или прозрачна</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Деактивирай полупрозрачната светла лента за навигация</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Светлата лента за навигация е непрозрачна</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Светлата лента за навигация е непрозрачна или прозрачна</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Деактивиране на тъмната полупрозрачна лента</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Тъмната лента за навигация е непрозрачна</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Тъмната лента за навигация е непрозрачна или прозрачна</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Падащо меню</string>
@@ -1218,6 +1224,9 @@ Second \"item\" text"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Вибрациите са активирани</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Принудително оригинално аудио</string>
+  <string name="revanced_force_original_audio_summary_on">Използване на оригинално аудио</string>
+  <string name="revanced_force_original_audio_summary_off">Използване на аудио по подразбиране</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
@@ -1280,6 +1289,8 @@ Second \"item\" text"</string>
 
 AVC има максимална разделителна способност от 1080p, аудио кодекът Opus не е наличен, а видеовъзпроизвеждането ще използва повече интернет данни от VP9 или AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Cтранични ефекти от подмяната на iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Възможно е частните детски видеоклипове да не се възпроизвеждат
+• Видеоклиповете завършват 1 секунда по-рано"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Странични ефекти от подправяне на Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Детските видеоклипове може да не се възпроизвеждат
 • Предаванията на живо започват от началото

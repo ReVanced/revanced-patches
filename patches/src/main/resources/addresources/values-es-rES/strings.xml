@@ -507,9 +507,14 @@ Nota: Habilitar esto también oculta a la fuerza los anuncios de vídeo"</string
   <string name="revanced_hide_navigation_button_labels_summary_on">Las etiquetas están ocultas</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Las etiquetas se muestran</string>
   <string name="revanced_disable_translucent_status_bar_title">Desactivar la barra de estado translúcida</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">La barra de estado es opaca</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">La barra de estado es opaca o translúcida</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Desactivar la barra translúcida clara</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">La barra de navegación en modo claro es opaca</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">La barra de navegación del modo claro es opaca o translúcida</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Desactivar la barra translúcida oscura</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">La barra de navegación en modo oscuro es opaca</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">La barra de navegación del modo oscuro es opaca o translúcida</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Menú desplegable</string>

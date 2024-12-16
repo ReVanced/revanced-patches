@@ -1290,6 +1290,8 @@ Video taasesitus ei pruugi toimida"</string>
 
 AVC-l on maksimaalne resolutsioon 1080p, Opus-heli kodeerijat pole saadaval ja video taasesitus kasutab rohkem interneti andmeid kui VP9 või AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS-i võltsimise kõrvalmõjud</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Privaatseid lastevideoid ei pruugita esitada
+• Videod lõpevad 1 sekund varem"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR spoofing-i kõrvalmõjud</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Lastevideod ei pruugi mängida
 • Otseülekanded algavad algusest

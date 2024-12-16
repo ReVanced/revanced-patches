@@ -517,9 +517,14 @@ Second \"item\" text"</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Цэтлікі схаваныя</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Этыкеткі паказаны</string>
   <string name="revanced_disable_translucent_status_bar_title">Адключыць празрыстую панэль стану</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">Панэль стану непразрыстая.</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">Панэль стану няпразрыстая ці празрыстая.</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Адключыць светлую празрыстую панэль</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Панэль навігацыі ў светлым рэжыме непразрыстая</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Панэль навігацыі ў светлай тэме няпразрыстая ці празрыстая.</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Адключыць цёмную непразрыстую панэль.</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Панэль навігацыі ў цёмным рэжыме непразрыстая</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Панэль навігацыі ў цёмнай тэме няпразрыстая.</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Выпадаючае меню</string>
@@ -1285,6 +1290,8 @@ Second \"item\" text"</string>
 
 AVC мае максімальную раздзяляльнасць 1080p, аўдыякадэкар Opus недаступны, і відэа будзе выкарыстоўваць больш Інтэрнэт-даных, чым VP9 або AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Пабочныя эфекты падмены iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Прыватныя дзіцячыя відэа могуць не прайгравацца
+• Відэа заканчваюцца на 1 секунду раней"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Побочные эффекты подмены Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Дзіцячыя відэа могуць не прайгравацца
 • Трансляцыі ў прамым эфіры пачынаюцца з пачатку
