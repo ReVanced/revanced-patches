@@ -1,3 +1,10 @@
+# [5.5.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.5.0-dev.3...v5.5.0-dev.4) (2024-12-16)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Make livestreams start at the current time when using iOS client   ([#4137](https://github.com/ReVanced/revanced-patches/issues/4137)) ([140f484](https://github.com/ReVanced/revanced-patches/commit/140f484b4b251b0dfa94163a63f61f45f5302052))
+
 # [5.5.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.5.0-dev.2...v5.5.0-dev.3) (2024-12-16)
 
 
