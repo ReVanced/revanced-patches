@@ -91,7 +91,6 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_NOTIFY_ME_BUTTON = new BooleanSetting("revanced_hide_notify_me_button", TRUE);
     public static final BooleanSetting HIDE_PLAYABLES = new BooleanSetting("revanced_hide_playables", TRUE);
     public static final BooleanSetting HIDE_SEARCH_RESULT_RECOMMENDATIONS = new BooleanSetting("revanced_hide_search_result_recommendations", TRUE);
-    public static final BooleanSetting HIDE_SEARCH_RESULT_SHELF_HEADER = new BooleanSetting("revanced_hide_search_result_shelf_header", FALSE);
     public static final BooleanSetting HIDE_SHOW_MORE_BUTTON = new BooleanSetting("revanced_hide_show_more_button", TRUE, true);
     // Alternative thumbnails
     public static final EnumSetting<ThumbnailOption> ALT_THUMBNAIL_HOME = new EnumSetting<>("revanced_alt_thumbnail_home", ThumbnailOption.ORIGINAL);

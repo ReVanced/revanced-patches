@@ -158,9 +158,6 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_timed_reactions_title">Hide timed reactions</string>
             <string name="revanced_hide_timed_reactions_summary_on">Timed reactions are hidden</string>
             <string name="revanced_hide_timed_reactions_summary_off">Timed reactions are shown</string>
-            <string name="revanced_hide_search_result_shelf_header_title">Hide search result shelf header</string>
-            <string name="revanced_hide_search_result_shelf_header_summary_on">Shelf header is hidden</string>
-            <string name="revanced_hide_search_result_shelf_header_summary_off">Shelf header is shown</string>
             <string name="revanced_hide_channel_guidelines_title">Hide channel guidelines</string>
             <string name="revanced_hide_channel_guidelines_summary_on">Channel guidelines are hidden</string>
             <string name="revanced_hide_channel_guidelines_summary_off">Channel guidelines are shown</string>
