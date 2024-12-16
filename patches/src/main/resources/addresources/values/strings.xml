@@ -519,6 +519,15 @@ Note: Enabling this also forcibly hides video ads"</string>
             <string name="revanced_hide_navigation_button_labels_title">Hide navigation button labels</string>
             <string name="revanced_hide_navigation_button_labels_summary_on">Labels are hidden</string>
             <string name="revanced_hide_navigation_button_labels_summary_off">Labels are shown</string>
+            <string name="revanced_disable_translucent_status_bar_title">Disable translucent status bar</string>
+            <string name="revanced_disable_translucent_status_bar_summary_on">Status bar is opaque</string>
+            <string name="revanced_disable_translucent_status_bar_summary_off">Status bar is opaque or translucent</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_title">Disable light translucent bar</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Light mode navigation bar is opaque</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Light mode navigation bar is opaque or translucent</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_title">Disable dark translucent bar</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Dark mode navigation bar is opaque</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Dark mode navigation bar is opaque or translucent</string>
         </patch>
         <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
             <string name="revanced_hide_player_flyout_title">Flyout menu</string>

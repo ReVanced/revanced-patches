@@ -16,7 +16,6 @@ import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerT
 import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerType.MODERN_2;
 import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerType.MODERN_3;
 import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerType.MODERN_4;
-import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerType.PHONE;
 import static app.revanced.extension.youtube.patches.SeekbarThumbnailsPatch.SeekbarThumbnailsHighQualityAvailability;
 import static app.revanced.extension.youtube.patches.VersionCheckPatch.IS_19_17_OR_GREATER;
 import static app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour.IGNORE;
@@ -218,6 +217,9 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_SUBSCRIPTIONS_BUTTON = new BooleanSetting("revanced_hide_subscriptions_button", FALSE, true);
     public static final BooleanSetting HIDE_NAVIGATION_BUTTON_LABELS = new BooleanSetting("revanced_hide_navigation_button_labels", FALSE, true);
     public static final BooleanSetting SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON = new BooleanSetting("revanced_switch_create_with_notifications_button", TRUE, true);
+    public static final BooleanSetting DISABLE_TRANSLUCENT_STATUS_BAR = new BooleanSetting("revanced_disable_translucent_status_bar", FALSE, true);
+    public static final BooleanSetting DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT = new BooleanSetting("revanced_disable_translucent_navigation_bar_light", FALSE, true);
+    public static final BooleanSetting DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK = new BooleanSetting("revanced_disable_translucent_navigation_bar_dark", FALSE, true);
 
     // Shorts
     public static final BooleanSetting DISABLE_RESUMING_SHORTS_PLAYER = new BooleanSetting("revanced_disable_resuming_shorts_player", FALSE);
@@ -389,7 +391,8 @@ public class Settings extends BaseSettings {
         }
 
         // Migrate renamed enum.
-        if (MINIPLAYER_TYPE.get() == PHONE) {
+        //noinspection deprecation
+        if (MINIPLAYER_TYPE.get() == MiniplayerType.PHONE) {
             MINIPLAYER_TYPE.save(MINIMAL);
         }
 

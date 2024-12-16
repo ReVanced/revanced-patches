@@ -12,10 +12,13 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.navigation.hookNavigationButtonCreated
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
+import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
+import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.insertFeatureFlagBooleanOverride
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -32,6 +35,7 @@ val navigationButtonsPatch = bytecodePatch(
         settingsPatch,
         addResourcesPatch,
         navigationBarHookPatch,
+        versionCheckPatch
     )
 
     compatibleWith(
@@ -50,19 +54,27 @@ val navigationButtonsPatch = bytecodePatch(
     execute {
         addResources("youtube", "layout.buttons.navigation.navigationButtonsPatch")
 
+        val preferences = mutableSetOf(
+            SwitchPreference("revanced_hide_home_button"),
+            SwitchPreference("revanced_hide_shorts_button"),
+            SwitchPreference("revanced_hide_create_button"),
+            SwitchPreference("revanced_hide_subscriptions_button"),
+            SwitchPreference("revanced_switch_create_with_notifications_button"),
+            SwitchPreference("revanced_hide_navigation_button_labels"),
+        )
+
+        if (is_19_25_or_greater) {
+            preferences += SwitchPreference("revanced_disable_translucent_status_bar")
+            preferences += SwitchPreference("revanced_disable_translucent_navigation_bar_light")
+            preferences += SwitchPreference("revanced_disable_translucent_navigation_bar_dark")
+        }
+
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(
             PreferenceScreenPreference(
                 key = "revanced_navigation_buttons_screen",
                 sorting = Sorting.UNSORTED,
-                preferences = setOf(
-                    SwitchPreference("revanced_hide_home_button"),
-                    SwitchPreference("revanced_hide_shorts_button"),
-                    SwitchPreference("revanced_hide_create_button"),
-                    SwitchPreference("revanced_hide_subscriptions_button"),
-                    SwitchPreference("revanced_switch_create_with_notifications_button"),
-                    SwitchPreference("revanced_hide_navigation_button_labels"),
-                ),
-            ),
+                preferences = preferences
+            )
         )
 
         // Switch create with notifications button.
@@ -101,5 +113,24 @@ val navigationButtonsPatch = bytecodePatch(
 
         // Hook navigation button created, in order to hide them.
         hookNavigationButtonCreated(EXTENSION_CLASS_DESCRIPTOR)
+
+
+        // Force on/off translucent effect on status bar and navigation buttons.
+        if (is_19_25_or_greater) {
+            translucentNavigationStatusBarFeatureFlagFingerprint.method.insertFeatureFlagBooleanOverride(
+                TRANSLUCENT_NAVIGATION_STATUS_BAR_FEATURE_FLAG,
+                "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationStatusBar(Z)Z",
+            )
+
+            translucentNavigationButtonsFeatureFlagFingerprint.method.insertFeatureFlagBooleanOverride(
+                TRANSLUCENT_NAVIGATION_BUTTONS_FEATURE_FLAG,
+                "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationButtons(Z)Z",
+            )
+
+            translucentNavigationButtonsSystemFeatureFlagFingerprint.method.insertFeatureFlagBooleanOverride(
+                TRANSLUCENT_NAVIGATION_BUTTONS_SYSTEM_FEATURE_FLAG,
+                "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationButtons(Z)Z",
+            )
+        }
     }
 }
