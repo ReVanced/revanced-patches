@@ -1,3 +1,10 @@
+## [5.5.1](https://github.com/ReVanced/revanced-patches/compare/v5.5.0...v5.5.1) (2024-12-16)
+
+
+### Bug Fixes
+
+* **YouTube:** Fix string translations ([52e04d3](https://github.com/ReVanced/revanced-patches/commit/52e04d340c1a85f3d683c67a15ae96529432d5fe))
+
 ## [5.5.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.5.0...v5.5.1-dev.1) (2024-12-16)
 
 
