@@ -528,11 +528,11 @@ Note: Enabling this also forcibly hides video ads"</string>
             <string name="revanced_translucent_status_bar_summary_off">Status bar is opaque</string>
             <string name="revanced_translucent_navigation_buttons_light_title">Enable translucent light buttons</string>
             <string name="revanced_translucent_navigation_buttons_light_summary_on">"Light mode buttons are translucent
-(requires Android 12)"</string>
+(requires Android 13)"</string>
             <string name="revanced_translucent_navigation_buttons_light_summary_off">Light mode buttons are opaque</string>
             <string name="revanced_translucent_navigation_buttons_dark_title">Enable translucent dark buttons</string>
             <string name="revanced_translucent_navigation_buttons_dark_summary_on">"Dark mode buttons are translucent
-(requires Android 12)"</string>
+(requires Android 13)"</string>
             <string name="revanced_translucent_navigation_buttons_dark_summary_off">Dark mode buttons are opaque</string>
         </patch>
         <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">

@@ -30,16 +30,13 @@ public final class NavigationButtonsPatch {
             = Settings.SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON.get();
 
     private static final Boolean TRANSLUCENT_STATUS_BAR
-            = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
-            && Settings.TRANSLUCENT_STATUS_BAR.get();
+            = Settings.TRANSLUCENT_STATUS_BAR.get();
 
     private static final Boolean TRANSLUCENT_NAVIGATION_BUTTONS_LIGHT
-            = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
-            && Settings.TRANSLUCENT_NAVIGATION_BUTTONS_LIGHT.get();
+            = Settings.TRANSLUCENT_NAVIGATION_BUTTONS_LIGHT.get();
 
     private static final Boolean TRANSLUCENT_NAVIGATION_BUTTONS_DARK
-            = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
-            && Settings.TRANSLUCENT_NAVIGATION_BUTTONS_DARK.get();
+            = Settings.TRANSLUCENT_NAVIGATION_BUTTONS_DARK.get();
 
     /**
      * Injection point.
@@ -68,6 +65,11 @@ public final class NavigationButtonsPatch {
      * Injection point.
      */
     public static boolean useTranslucentNavigationStatusBar(boolean original) {
+        // Must check Android version, as forcing this on Android 11 or lower causes app hang and crash.
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
+            return original;
+        }
+
         return TRANSLUCENT_STATUS_BAR;
     }
 
@@ -75,6 +77,10 @@ public final class NavigationButtonsPatch {
      * Injection point.
      */
     public static boolean useTranslucentNavigationButtons(boolean original) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+            return original;
+        }
+
         if (!TRANSLUCENT_NAVIGATION_BUTTONS_DARK && !TRANSLUCENT_NAVIGATION_BUTTONS_LIGHT) {
             return false;
         }
