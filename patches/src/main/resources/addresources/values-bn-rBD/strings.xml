@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK তৈরির তারিখ ত্রুটিপূর্ণ</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">আপনি কি এগিয়ে যেতে ইচ্ছুক?</string>
   <string name="revanced_settings_reset">আবার সেট করুন</string>
   <string name="revanced_settings_restart_title">রিফ্রেশ করুন এবং আবার চালু করুন</string>
@@ -78,6 +79,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_settings_screen_03_feed_title">ফিড</string>
   <string name="revanced_settings_screen_04_player_title">প্লেয়ার</string>
   <string name="revanced_settings_screen_05_general_title">সাধারণ লে-আউট</string>
+  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">সিকবার</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">সোয়াইপ কন্ট্রোল</string>
   <string name="revanced_settings_screen_11_misc_title">বিবিধ</string>
@@ -157,9 +159,6 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_timed_reactions_title">সময় অনুযায়ী প্রতিক্রিয়া লুকান</string>
   <string name="revanced_hide_timed_reactions_summary_on">সময় অনুযায়ী প্রতিক্রিয়া লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_timed_reactions_summary_off">সময় অনুযায়ী প্রতিক্রিয়া প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_search_result_shelf_header_title">অনুসন্ধান ফলাফল শেলফের হেডার লুকান</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">শেলফ হেডার লুকিয়ে রয়েছে</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">শেলফ হেডার প্রদর্শিত হয়েছে</string>
   <string name="revanced_hide_channel_guidelines_title">চ্যানেল নির্দেশিকা লুকান</string>
   <string name="revanced_hide_channel_guidelines_summary_on">চ্যানেল নির্দেশিকা লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_channel_guidelines_summary_off">চ্যানেল নির্দেশিকা প্রদর্শিত হয়েছে</string>
@@ -256,6 +255,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">সম্পর্কিত ভিডিওতে প্রদর্শিত হয়েছে</string>
   <string name="revanced_comments_screen_title">মন্তব্য</string>
   <string name="revanced_comments_screen_summary">মন্তব্য বিভাগের উপাদানগুলি লুকান বা দেখান৷</string>
+  <string name="revanced_hide_comments_chat_summary_title"> \'চ্যাটের সারাংশ\' লুকান</string>
   <string name="revanced_hide_comments_chat_summary_summary_on">“চ্যাট সারাংশ” লুকানো আছে</string>
   <string name="revanced_hide_comments_chat_summary_summary_off">“চ্যাট সারাংশ” দেখানো হচ্ছে</string>
   <string name="revanced_hide_comments_by_members_header_title">\'মেম্বারদের মন্তব্য\' হেডার লুকান</string>
@@ -445,7 +445,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_swipe_overlay_background_alpha_title">সোয়াইপ ব্যাকগ্রাউন্ডের দৃশ্যমানতা</string>
   <string name="revanced_swipe_overlay_background_alpha_summary">সোয়াইপ ওভারলে ব্যাকগ্রাউন্ডের দৃশ্যমানতা</string>
   <string name="revanced_swipe_threshold_title">সোয়াইপ থ্রেশহোল্ড এর মাত্রা</string>
-  <string name="revanced_swipe_threshold_summary">The amount of threshold for swipe to occur</string>
+  <string name="revanced_swipe_threshold_summary">সোয়াইপ করার থ্রেশহোল্ডের পরিমাণ</string>
   </patch>
   <patch id="layout.autocaptions.autoCaptionsPatch">
   <string name="revanced_auto_captions_title">স্বয়ংক্রিয় ক্যাপশন বন্ধ করুন</string>
@@ -516,6 +516,15 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_navigation_button_labels_title">নেভিগেশন বোতাম লেবেল লুকান</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">লেবেল লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">লেবেল প্রদর্শিত হয়েছে</string>
+  <string name="revanced_disable_translucent_status_bar_title">অর্ধস্বচ্ছ স্থিতি বার নিষ্ক্রিয় করুন</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">স্ট্যাটাস বারটি অস্বচ্ছ</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">স্ট্যাটাস বারটি অস্বচ্ছ বা স্বচ্ছ</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">অর্ধস্বচ্ছ হালকা বার নিষ্ক্রিয় করুন</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">হালকা মোড নেভিগেশন বার অস্বচ্ছ</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">লাইট মোড ন্যাভিগেশন বারটি অস্বচ্ছ বা স্বচ্ছ</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">গাঢ় স্বচ্ছ বার অক্ষম করুন</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">গাঢ় মোড নেভিগেশন বার অস্বচ্ছ</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">গাঢ় মোড ন্যাভিগেশন বারটি অস্বচ্ছ বা স্বচ্ছ</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">ফ্লাইআউট মেনু</string>
@@ -1139,6 +1148,7 @@ Miniplayer স্ক্রিন থেকে বামে বা ডানে �
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow এবং মূল থাম্বনেইল</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow এবং স্থির ছবি</string>
   <string name="revanced_alt_thumbnail_options_entry_4">স্থির ছবি</string>
+  <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
   <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow YouTube ভিডিওগুলির জন্য জনগণের উৎস থেকে তৈরি থাম্বনেইল সরবরাহ করে। এই থাম্বনেইলগুলি প্রায়শই YouTube দ্বারা সরবরাহ করা থাম্বনেইলগুলির চেয়ে আরও প্রাসঙ্গিক।
 
 যদি সক্রিয় করা হয়, তাহলে ভিডিও URLগুলি API সার্ভারে পাঠানো হবে এবং অন্য কোনও ডেটা পাঠানো হবে না। যদি কোনও ভিডিওতে DeArrow থাম্বনেইল না থাকে, তাহলে মূল বা স্থির ক্যাপচার দেখানো হবে
@@ -1214,6 +1224,11 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_disable_zoom_haptics_summary_on">কম্পন নিষ্ক্রিয় করা হয়েছে</string>
   <string name="revanced_disable_zoom_haptics_summary_off">কম্পন সক্রিয় করা হয়েছে</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">মূল অডিও বলপূর্বক চালু করুন</string>
+  <string name="revanced_force_original_audio_summary_on">মূল অডিও ব্যবহার করছে</string>
+  <string name="revanced_force_original_audio_summary_off">ডিফল্ট অডিও ব্যবহার করছে</string>
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">স্বতস্ফূর্তভাবে</string>
@@ -1275,9 +1290,7 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
 
 AVC-এর সর্বোচ্চ রেজোলিউশন 1080p, Opus অডিও কোডেক উপলব্ধ নয় এবং ভিডিও প্লেব্যাক VP9 বা AV1 এর তুলনায় আরও ইন্টারনেট ডেটা ব্যবহার করবে।"</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS স্পুফিং এর পার্শ্ব প্রতিক্রিয়া</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• ব্যক্তিগত শিশু ভিডিওগুলি প্লে নাও হতে পারে
-• লাইভস্ট্রিম শুরু থেকে শুরু হয়
-• ভিডিও 1 সেকেন্ড আগে শেষ হয়"</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• বেসরকারি শিশু ভিডিও চলতে নাও পারে&lt;br&gt;• ভিডিওগুলি 1 সেকেন্ড আগে শেষ হয়"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR স্পুফিং এর পার্শ্ব প্রতিক্রিয়া</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• শিশু ভিডিওগুলি প্লে নাও হতে পারে
 • লাইভস্ট্রিম শুরু থেকে শুরু হয়

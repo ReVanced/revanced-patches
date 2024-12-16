@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK 構建日期已損壞</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">確定要繼續嗎？</string>
   <string name="revanced_settings_reset">重設</string>
   <string name="revanced_settings_restart_title">套用並重新啟動</string>
@@ -78,6 +79,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_03_feed_title">動態消息</string>
   <string name="revanced_settings_screen_04_player_title">播放器</string>
   <string name="revanced_settings_screen_05_general_title">通用版面</string>
+  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">拖拽欄</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">滑動控制</string>
   <string name="revanced_settings_screen_11_misc_title">其他</string>
@@ -157,9 +159,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_timed_reactions_title">隱藏直播即時反應</string>
   <string name="revanced_hide_timed_reactions_summary_on">已隱藏直播即時反應</string>
   <string name="revanced_hide_timed_reactions_summary_off">已顯示直播即時反應</string>
-  <string name="revanced_hide_search_result_shelf_header_title">隱藏位於搜尋結果中的 [標頭匣]</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">已隱藏 [標頭匣]</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">已顯示 [標頭匣]</string>
   <string name="revanced_hide_channel_guidelines_title">隱藏頻道規範</string>
   <string name="revanced_hide_channel_guidelines_summary_on">已隱藏頻道指南</string>
   <string name="revanced_hide_channel_guidelines_summary_off">已顯示節目指南</string>
@@ -517,6 +516,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_navigation_button_labels_title">隱藏導覽列按鈕標籤</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">已隱藏標籤</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">已顯示標籤</string>
+  <string name="revanced_disable_translucent_status_bar_title">停用半透明狀態列</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">狀態列為不透明</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">狀態列為不透明或半透明</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">禁用淺色半透明導覽列</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">淺色模式導覽列為不透明</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">淺色模式導航列為不透明或半透明</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">停用深色半透明欄</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">深色模式導覽列為不透明</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">深色模式導航列為不透明或半透明</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">介面選單</string>
@@ -1141,6 +1149,7 @@ Second \"item\" text"</string>
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; 原版縮圖</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow  &amp; 靜態擷取</string>
   <string name="revanced_alt_thumbnail_options_entry_4">靜態擷取</string>
+  <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
   <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow 為 YouTube 影片提供群眾協作的縮略圖。這些縮略圖通常比 YouTube 提供的縮略圖更相關
 
 如果啟用此設定，影片網址將傳送到 API 伺服器，不會傳送其他任何資料。如果影片沒有 DeArrow 縮略圖，則會顯示原始縮略圖或靜態捕捉
@@ -1216,6 +1225,11 @@ Second \"item\" text"</string>
   <string name="revanced_disable_zoom_haptics_summary_on">已停用震動</string>
   <string name="revanced_disable_zoom_haptics_summary_off">已啟用震動</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">強制使用原始音訊</string>
+  <string name="revanced_force_original_audio_summary_on">使用原始音訊</string>
+  <string name="revanced_force_original_audio_summary_off">使用預設音訊</string>
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">自動</string>
@@ -1225,7 +1239,7 @@ Second \"item\" text"</string>
   <string name="revanced_video_quality_default_wifi_title">使用 Wi-Fi 時的預設影片畫質</string>
   <string name="revanced_video_quality_default_mobile_title">使用行動數據時的預設影片畫質</string>
   <string name="revanced_remember_video_quality_mobile">行動數據</string>
-  <string name="revanced_remember_video_quality_wifi">wifi</string>
+  <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">變更畫質預設 %1$s 為 %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
@@ -1279,7 +1293,6 @@ AVC 的最高解析度為 1080p，不支援 Opus 音訊格式，影片播放會�
 "</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS 欺騙副作用</string>
   <string name="revanced_spoof_video_streams_about_ios_summary">"• 私人兒童影片可能無法播放
-• 直播從頭開始
 • 影片提前 1 秒結束"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR 欺騙副作用</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• 兒童影片可能無法播放
@@ -1287,57 +1300,57 @@ AVC 的最高解析度為 1080p，不支援 Opus 音訊格式，影片播放會�
 • 影片提前 1 秒結束"</string>
   <string name="revanced_spoof_video_streams_language_title">預設音訊串流語言</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">應用程式語言</string>
-  <string name="revanced_spoof_video_streams_language_AR">Arabic</string>
-  <string name="revanced_spoof_video_streams_language_AZ">Azerbaijani</string>
-  <string name="revanced_spoof_video_streams_language_BG">Bulgarian</string>
-  <string name="revanced_spoof_video_streams_language_BN">Bengali</string>
-  <string name="revanced_spoof_video_streams_language_CA">Catalan</string>
-  <string name="revanced_spoof_video_streams_language_CS">Czech</string>
-  <string name="revanced_spoof_video_streams_language_DA">Danish</string>
-  <string name="revanced_spoof_video_streams_language_DE">German</string>
-  <string name="revanced_spoof_video_streams_language_EL">Greek</string>
+  <string name="revanced_spoof_video_streams_language_AR">阿拉伯語</string>
+  <string name="revanced_spoof_video_streams_language_AZ">亞塞拜然語</string>
+  <string name="revanced_spoof_video_streams_language_BG">保加利亞語</string>
+  <string name="revanced_spoof_video_streams_language_BN">孟加拉語</string>
+  <string name="revanced_spoof_video_streams_language_CA">卡塔蘭語</string>
+  <string name="revanced_spoof_video_streams_language_CS">捷克語</string>
+  <string name="revanced_spoof_video_streams_language_DA">丹麥語</string>
+  <string name="revanced_spoof_video_streams_language_DE">德語</string>
+  <string name="revanced_spoof_video_streams_language_EL">希臘語</string>
   <string name="revanced_spoof_video_streams_language_EN">英文</string>
-  <string name="revanced_spoof_video_streams_language_ES">Spanish</string>
-  <string name="revanced_spoof_video_streams_language_ET">Estonian</string>
-  <string name="revanced_spoof_video_streams_language_FA">Persian</string>
-  <string name="revanced_spoof_video_streams_language_FI">Finnish</string>
-  <string name="revanced_spoof_video_streams_language_FR">French</string>
-  <string name="revanced_spoof_video_streams_language_GU">Gujarati</string>
-  <string name="revanced_spoof_video_streams_language_HI">Hindi</string>
-  <string name="revanced_spoof_video_streams_language_HR">Croatian</string>
-  <string name="revanced_spoof_video_streams_language_HU">Hungarian</string>
-  <string name="revanced_spoof_video_streams_language_ID">Indonesian</string>
-  <string name="revanced_spoof_video_streams_language_IT">Italian</string>
-  <string name="revanced_spoof_video_streams_language_JA">Japanese</string>
-  <string name="revanced_spoof_video_streams_language_KK">Kazakh</string>
-  <string name="revanced_spoof_video_streams_language_KO">Korean</string>
-  <string name="revanced_spoof_video_streams_language_LT">Lithuanian</string>
-  <string name="revanced_spoof_video_streams_language_LV">Latvian</string>
-  <string name="revanced_spoof_video_streams_language_MK">Macedonian</string>
-  <string name="revanced_spoof_video_streams_language_MN">Mongolian</string>
-  <string name="revanced_spoof_video_streams_language_MR">Marathi</string>
-  <string name="revanced_spoof_video_streams_language_MS">Malay</string>
-  <string name="revanced_spoof_video_streams_language_MY">Burmese</string>
-  <string name="revanced_spoof_video_streams_language_NL">Dutch</string>
-  <string name="revanced_spoof_video_streams_language_OR">Odia</string>
-  <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
-  <string name="revanced_spoof_video_streams_language_PL">Polish</string>
-  <string name="revanced_spoof_video_streams_language_PT_BR">Portuguese (Brazil)</string>
-  <string name="revanced_spoof_video_streams_language_PT_PT">Portuguese (Portugal)</string>
-  <string name="revanced_spoof_video_streams_language_RO">Romanian</string>
-  <string name="revanced_spoof_video_streams_language_RU">Russian</string>
-  <string name="revanced_spoof_video_streams_language_SK">Slovak</string>
-  <string name="revanced_spoof_video_streams_language_SL">Slovene</string>
-  <string name="revanced_spoof_video_streams_language_SR">Serbian</string>
-  <string name="revanced_spoof_video_streams_language_SV">Swedish</string>
-  <string name="revanced_spoof_video_streams_language_SW">Swahili</string>
-  <string name="revanced_spoof_video_streams_language_TA">Tamil</string>
-  <string name="revanced_spoof_video_streams_language_TE">Telugu</string>
-  <string name="revanced_spoof_video_streams_language_TH">Thai</string>
-  <string name="revanced_spoof_video_streams_language_TR">Turkish</string>
-  <string name="revanced_spoof_video_streams_language_UK">Ukrainian</string>
-  <string name="revanced_spoof_video_streams_language_UR">Urdu</string>
-  <string name="revanced_spoof_video_streams_language_VI">Vietnamese</string>
+  <string name="revanced_spoof_video_streams_language_ES">西班牙語</string>
+  <string name="revanced_spoof_video_streams_language_ET">愛沙尼亞語</string>
+  <string name="revanced_spoof_video_streams_language_FA">波斯語</string>
+  <string name="revanced_spoof_video_streams_language_FI">芬蘭語</string>
+  <string name="revanced_spoof_video_streams_language_FR">法語</string>
+  <string name="revanced_spoof_video_streams_language_GU">古吉拉特語</string>
+  <string name="revanced_spoof_video_streams_language_HI">印地語</string>
+  <string name="revanced_spoof_video_streams_language_HR">克羅埃西亞語</string>
+  <string name="revanced_spoof_video_streams_language_HU">匈牙利語</string>
+  <string name="revanced_spoof_video_streams_language_ID">印尼語</string>
+  <string name="revanced_spoof_video_streams_language_IT">義大利語</string>
+  <string name="revanced_spoof_video_streams_language_JA">日語</string>
+  <string name="revanced_spoof_video_streams_language_KK">哈薩克語</string>
+  <string name="revanced_spoof_video_streams_language_KO">韓語</string>
+  <string name="revanced_spoof_video_streams_language_LT">立陶宛語</string>
+  <string name="revanced_spoof_video_streams_language_LV">拉脫維亞語</string>
+  <string name="revanced_spoof_video_streams_language_MK">馬其頓語</string>
+  <string name="revanced_spoof_video_streams_language_MN">蒙古語</string>
+  <string name="revanced_spoof_video_streams_language_MR">馬拉提文</string>
+  <string name="revanced_spoof_video_streams_language_MS">馬來語</string>
+  <string name="revanced_spoof_video_streams_language_MY">緬甸語</string>
+  <string name="revanced_spoof_video_streams_language_NL">荷蘭語</string>
+  <string name="revanced_spoof_video_streams_language_OR">奧利亞語</string>
+  <string name="revanced_spoof_video_streams_language_PA">旁遮普語</string>
+  <string name="revanced_spoof_video_streams_language_PL">波蘭語</string>
+  <string name="revanced_spoof_video_streams_language_PT_BR">葡萄牙語 (巴西)</string>
+  <string name="revanced_spoof_video_streams_language_PT_PT">葡萄牙語 (葡萄牙)</string>
+  <string name="revanced_spoof_video_streams_language_RO">羅馬尼亞語</string>
+  <string name="revanced_spoof_video_streams_language_RU">俄語</string>
+  <string name="revanced_spoof_video_streams_language_SK">斯洛伐克語</string>
+  <string name="revanced_spoof_video_streams_language_SL">斯洛維尼亞語</string>
+  <string name="revanced_spoof_video_streams_language_SR">塞爾維亞語</string>
+  <string name="revanced_spoof_video_streams_language_SV">瑞典語</string>
+  <string name="revanced_spoof_video_streams_language_SW">斯瓦希里語</string>
+  <string name="revanced_spoof_video_streams_language_TA">泰米爾語</string>
+  <string name="revanced_spoof_video_streams_language_TE">泰盧固語</string>
+  <string name="revanced_spoof_video_streams_language_TH">泰語</string>
+  <string name="revanced_spoof_video_streams_language_TR">土耳其語</string>
+  <string name="revanced_spoof_video_streams_language_UK">烏克蘭語</string>
+  <string name="revanced_spoof_video_streams_language_UR">烏爾都語</string>
+  <string name="revanced_spoof_video_streams_language_VI">越南語</string>
   <string name="revanced_spoof_video_streams_language_ZH">中文</string>
   </patch>
   </app>

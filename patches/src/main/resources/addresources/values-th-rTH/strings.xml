@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">วันที่สร้าง APK เสียหาย</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">คุณต้องการดำเนินการต่อหรือไม่?</string>
   <string name="revanced_settings_reset">รีเซ็ต</string>
   <string name="revanced_settings_restart_title">รีเฟรชและเริ่มต้นใหม่</string>
@@ -78,6 +79,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_03_feed_title">ฟีด</string>
   <string name="revanced_settings_screen_04_player_title">เครื่องเล่น</string>
   <string name="revanced_settings_screen_05_general_title">เค้าโครงทั่วไป</string>
+  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">แถบเลื่อน</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">ปัดเพื่อควบคุม</string>
   <string name="revanced_settings_screen_11_misc_title">อื่นๆ</string>
@@ -89,7 +91,7 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">การเล่นพื้นหลัง Shorts ถูกเปิดใช้งาน</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">Debugging</string>
+  <string name="revanced_debug_screen_title">ดีบัก</string>
   <string name="revanced_debug_screen_summary">เปิดใช้งานหรือปิดใช้งานตัวเลือกการแก้ไขข้อบกพร่อง</string>
   <string name="revanced_debug_title">การบันทึกการแก้ไขข้อบกพร่อง</string>
   <string name="revanced_debug_summary_on">การบันทึกการแก้ไขข้อบกพร่องถูกเปิดใช้งาน</string>
@@ -157,9 +159,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_timed_reactions_title">ซ่อนปฏิกิริยาตามเวลา</string>
   <string name="revanced_hide_timed_reactions_summary_on">ปฏิกิริยาตามเวลาถูกซ่อน</string>
   <string name="revanced_hide_timed_reactions_summary_off">ปฏิกิริยาตามเวลาถูกแสดง</string>
-  <string name="revanced_hide_search_result_shelf_header_title">ซ่อนส่วนหัวของชั้นวางผลลัพธ์การค้นหา</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">ส่วนหัวของชั้นวางถูกซ่อน</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">ส่วนหัวของชั้นวางถูกแสดง</string>
   <string name="revanced_hide_channel_guidelines_title">ซ่อนแนวทางการใช้งานของช่อง</string>
   <string name="revanced_hide_channel_guidelines_summary_on">แนวทางการใช้งานของช่องถูกซ่อน</string>
   <string name="revanced_hide_channel_guidelines_summary_off">แนวทางการใช้งานของช่องถูกแสดง</string>
@@ -256,6 +255,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">แสดงในวิดีโอที่เกี่ยวข้อง</string>
   <string name="revanced_comments_screen_title">ความคิดเห็น</string>
   <string name="revanced_comments_screen_summary">ซ่อนหรือแสดงส่วนประกอบของส่วนความคิดเห็น</string>
+  <string name="revanced_hide_comments_chat_summary_title">ซ่อน \'สรุปการแชท\'</string>
   <string name="revanced_hide_comments_chat_summary_summary_on">ซ่อน \'Chat summary\'</string>
   <string name="revanced_hide_comments_chat_summary_summary_off">แสดง \'Chat summary\'</string>
   <string name="revanced_hide_comments_by_members_header_title">ซ่อนส่วนหัว \'ความคิดเห็นโดยสมาชิก\'</string>
@@ -516,6 +516,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_navigation_button_labels_title">ซ่อนป้ายกำกับปุ่มนำทาง</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">ป้ายกำกับถูกซ่อน</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">ป้ายกำกับถูกแสดง</string>
+  <string name="revanced_disable_translucent_status_bar_title">ปิดใช้งานแถบสถานะแบบโปร่งแสง</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">แถบสถานะไม่โปร่งแสง</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">แถบสถานะโปร่งแสงหรือไม่โปร่งแสง</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">ปิดใช้งานแถบนำทางแบบโปร่งแสงสีอ่อน</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">แถบนำทางโหมดสว่างเป็นแบบทึบแสง</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">แถบนำทางโหมดสว่างโปร่งแสงหรือไม่โปร่งแสง</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">ปิดใช้แถบโปร่งแสงสีเข้ม</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">แถบนำทางโหมดมืดเป็นแบบทึบแสง</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">แถบนำทางโหมดมืดโปร่งแสงหรือไม่โปร่งแสง</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">เมนูแบบเลื่อนลง</string>
@@ -1056,6 +1065,7 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_tablet_layout_user_dialog_message">โพสต์ชุมชนไม่แสดงในรูปแบบแท็บเล็ต</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
+  <string name="revanced_miniplayer_screen_title">มินิเพลเยอร์</string>
   <string name="revanced_miniplayer_screen_summary">เปลี่ยนสไตล์ของเครื่องเล่นย่อขนาดในแอป</string>
   <string name="revanced_miniplayer_type_title">ประเภทของเครื่องเล่นย่อขนาด</string>
   <string name="revanced_miniplayer_type_entry_0">ปิดการใช้งานอยู่</string>
@@ -1213,6 +1223,11 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_disable_zoom_haptics_summary_on">แฮปติกถูกปิดใช้งาน</string>
   <string name="revanced_disable_zoom_haptics_summary_off">แฮปติกเปิดใช้งาน</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">บังคับเสียงต้นฉบับ</string>
+  <string name="revanced_force_original_audio_summary_on">กำลังใช้ออดิโอดั้งเดิม</string>
+  <string name="revanced_force_original_audio_summary_off">กำลังใช้ออดิโอเริ่มต้น</string>
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">อัตโนมัติ</string>
@@ -1222,6 +1237,7 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_video_quality_default_wifi_title">คุณภาพวิดีโอเริ่มต้นบนเครือข่าย Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">คุณภาพวิดีโอเริ่มต้นบนเครือข่ายมือถือ</string>
   <string name="revanced_remember_video_quality_mobile">มือถือ</string>
+  <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">เปลี่ยนคุณภาพ %1$s เริ่มต้นเป็น: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
@@ -1273,9 +1289,6 @@ User id ของคุณเหมือนกับรหัสผ่าน �
 
 AVC มีความละเอียดสูงสุดที่ 1080p โคเดกเสียง Opus ไม่พร้อมใช้งาน และการเล่นวิดีโอจะใช้ข้อมูลอินเทอร์เน็ตมากกว่า VP9 หรือ AV1"</string>
   <string name="revanced_spoof_video_streams_about_ios_title">ผลข้างเคียงของการปลอมแปลง iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• วิดีโอเด็กที่เป็นส่วนตัวอาจเล่นไม่ได้
-• การถ่ายทอดสดเริ่มต้นจากจุดเริ่มต้น
-• วิดีโอสิ้นสุดเร็ว 1 วินาที"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">ผลข้างเคียงของการปลอมแปลง VR สำหรับ Android</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• วิดีโอเด็กอาจเล่นไม่ได้
 • การถ่ายทอดสดเริ่มต้นจากจุดเริ่มต้น
@@ -1376,8 +1389,8 @@ AVC มีความละเอียดสูงสุดที่ 1080p โ
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings">ต้องค่า ReVanced เพิ่มเติม</string>
   <string name="revanced_about_title">เกี่ยวกับ</string>
-  <string name="revanced_about_summary">About ReVanced</string>
-  <string name="revanced_ads_screen_title">Ads</string>
+  <string name="revanced_about_summary">เกี่ยวกับ ReVanced</string>
+  <string name="revanced_ads_screen_title">โฆษณา</string>
   <string name="revanced_ads_screen_summary">การตั้งค่าการบล็อกโฆษณา</string>
   <string name="revanced_chat_screen_title">สนทนา</string>
   <string name="revanced_chat_screen_summary">\"Chat \"settings\"</string>

@@ -1,3 +1,45 @@
+# [5.5.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.5.0-dev.4...v5.5.0-dev.5) (2024-12-16)
+
+
+### Features
+
+* **YouTube - Navigation buttons:** Add options to disable translucent status bar and navigation bar ([#4133](https://github.com/ReVanced/revanced-patches/issues/4133)) ([a2d2141](https://github.com/ReVanced/revanced-patches/commit/a2d2141cec9b0b4929e07a8010889b21c324b229))
+
+# [5.5.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.5.0-dev.3...v5.5.0-dev.4) (2024-12-16)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Make livestreams start at the current time when using iOS client   ([#4137](https://github.com/ReVanced/revanced-patches/issues/4137)) ([140f484](https://github.com/ReVanced/revanced-patches/commit/140f484b4b251b0dfa94163a63f61f45f5302052))
+
+# [5.5.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.5.0-dev.2...v5.5.0-dev.3) (2024-12-16)
+
+
+### Features
+
+* **YouTube - Hide feed components:** Remove obsolete `Hide search result shelf header` option ([#4134](https://github.com/ReVanced/revanced-patches/issues/4134)) ([c71443a](https://github.com/ReVanced/revanced-patches/commit/c71443a08883ab10ef2553213c03b00e7c580a43))
+
+# [5.5.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.5.0-dev.1...v5.5.0-dev.2) (2024-12-16)
+
+
+### Bug Fixes
+
+* **YouTube Music:** Add `Spoof client patch` to fix playback ([#4132](https://github.com/ReVanced/revanced-patches/issues/4132)) ([b092508](https://github.com/ReVanced/revanced-patches/commit/b0925088e8b41636e285cb234593d545604ce461))
+
+# [5.5.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.4.1-dev.1...v5.5.0-dev.1) (2024-12-15)
+
+
+### Features
+
+* **YouTube:** Add `Force original audio` patch ([#4122](https://github.com/ReVanced/revanced-patches/issues/4122)) ([f4aa440](https://github.com/ReVanced/revanced-patches/commit/f4aa4406080b91f01d623e54b11b99ea849ddcdf))
+
+## [5.4.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.4.0...v5.4.1-dev.1) (2024-12-14)
+
+
+### Bug Fixes
+
+* **Twitch:** Change recommended target to the latest app version ([fb32972](https://github.com/ReVanced/revanced-patches/commit/fb32972f4de92dac1fc5d73f56a392a671c4e94b))
+
 # [5.4.0](https://github.com/ReVanced/revanced-patches/compare/v5.3.0...v5.4.0) (2024-12-14)
 
 

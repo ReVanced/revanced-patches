@@ -138,9 +138,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_timed_reactions_title">הסתר תגובות מתזמנות</string>
   <string name="revanced_hide_timed_reactions_summary_on">תגובות מתזמנות מוסתרות</string>
   <string name="revanced_hide_timed_reactions_summary_off">תגובות מתזמנות מוצגות</string>
-  <string name="revanced_hide_search_result_shelf_header_title">הסתר כותרת מדף תוצאות חיפוש</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">כותרת מדף מוסתרת</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">כותרת מדף מוצגת</string>
   <string name="revanced_hide_channel_guidelines_title">הסתר הנחיות ערוץ</string>
   <string name="revanced_hide_channel_guidelines_summary_on">הנחיות ערוץ מוסתרות</string>
   <string name="revanced_hide_channel_guidelines_summary_off">הנחיות ערוץ מוצגות</string>
@@ -155,6 +152,19 @@ Second \"item\" text"</string>
   <string name="revanced_hide_community_posts_summary_off">פוסטים קהילתיים מוצגים</string>
   <string name="revanced_hide_compact_banner_title">הסתר כרזות קומפקטיות</string>
   <string name="revanced_hide_compact_banner_summary_on">כרזות קומפקטיות מוסתרות</string>
+  <string name="revanced_hide_compact_banner_summary_off">באנרים קומפקטיים מוצגים</string>
+  <string name="revanced_hide_movies_section_summary_on">אזור הסרטים מוסתר</string>
+  <string name="revanced_hide_feed_survey_title">הסתר חידון בעמוד ראשי</string>
+  <string name="revanced_hide_community_guidelines_summary_on">הנחיות הקהילה מוסתרות</string>
+  <string name="revanced_hide_community_guidelines_summary_off">הנחיות הקהילה מוצגות</string>
+  <string name="revanced_hide_channel_member_shelf_title">הסתר את מדף חברי הערוץ</string>
+  <string name="revanced_hide_info_panels_title">הסתר כרטיסי מידע</string>
+  <string name="revanced_hide_medical_panels_summary_on">כרטיסי המידע מוסתרים</string>
+  <string name="revanced_hide_medical_panels_summary_off">כרטיסי המידע מוצגים</string>
+  <string name="revanced_hide_latest_posts_ads_title">הסתר פרסומים אחרונים</string>
+  <string name="revanced_hide_latest_posts_ads_summary_off">הפוסטים האחרונים מוצגים</string>
+  <string name="revanced_hide_description_components_screen_title">תיאור סרטון</string>
+  <string name="revanced_comments_screen_title">הערות</string>
   <string name="revanced_hide_comments_chat_summary_title">הסתרת \'סיכום צ\'אט\' </string>
   <string name="revanced_hide_comments_chat_summary_summary_on">\'\'\'סיכום צ’אט\'\' מוסתר</string>
   <string name="revanced_hide_comments_chat_summary_summary_off">\'\'סיכום צ’אט\'\' מוצג</string>
@@ -280,6 +290,7 @@ Mלות עם אותיות גדולות באמצע צריכות להיכנס עם
 
 מגבלה: לא אהבתי לא ייתכן שיופיעו במצב גלישה אנונימית"</string>
   <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button' -->
+  <string name="revanced_ryd_toast_on_connection_error_title">הצג הודעה אם הממשק לא זמין</string>
   <string name="revanced_ryd_about">אודות</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   </patch>
@@ -301,6 +312,7 @@ Mלות עם אותיות גדולות באמצע צריכות להיכנס עם
   <string name="revanced_sb_guidelines_popup_already_read">כבר קראתי</string>
   <string name="revanced_sb_guidelines_popup_open">הראו לי</string>
   <string name="revanced_sb_general">הגדרות כלליות</string>
+  <string name="revanced_sb_toast_on_connection_error_title">הצג הודעה אם הממשק לא זמין</string>
   <string name="revanced_sb_general_api_url">שנה כתובת API</string>
   <string name="revanced_sb_api_url_reset">כתובת API אופסה</string>
   <string name="revanced_sb_api_url_changed">כתובת API שונתה</string>
@@ -426,6 +438,7 @@ Mלות עם אותיות גדולות באמצע צריכות להיכנס עם
 אם מופעל, כתובות URL של סרטונים יישלחו לשרת ה-API ושום נתונים אחרים לא יישלחו. אם לסרטון אין תמונות ממוזערות של DeArrow, אז מוצגות התמונות המקוריות או לוכדות תמונות נייחות
 
 לחץ כאן כדי ללמוד עוד על DeArrow"</string>
+  <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">הצג הודעה אם הממשק לא זמין</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   </patch>
   <patch id="misc.announcements.announcementsPatch">
@@ -455,6 +468,8 @@ Mלות עם אותיות גדולות באמצע צריכות להיכנס עם
   </patch>
   <patch id="misc.zoomhaptics.zoomHapticsPatch">
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   </patch>
@@ -477,9 +492,6 @@ Mלות עם אותיות גדולות באמצע צריכות להיכנס עם
   <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"הפעלת אפשרות זו עשויה לשפר את חיי הסוללה ולתקן קרטוע בהשמעת וידאו.
 
 AVC בעל רזולוציה מקסימלית של 1080p, קודק הסאונד Opus אינו זמין, והשמעת וידאו תשתמש בנתוני אינטרנט רבים יותר מ-VP9 או AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• סרטוני ילדים פרטיים ייתכן שלא יפעלו
-• שידורים חיים מתחילים מההתחלה
-• סרטונים מסתיימים 1 שנייה לפני הזמן"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• סרטוני ילדים ייתכן שלא יפעלו
 • שידורים חיים מתחילים מההתחלה
 • סרטונים מסתיימים 1 שנייה לפני הזמן"</string>

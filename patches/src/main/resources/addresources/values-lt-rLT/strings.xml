@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK sukurties data yra sugadinta</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Ar norite tęsti?</string>
   <string name="revanced_settings_reset">Atstatyti</string>
   <string name="revanced_settings_restart_title">Atnaujinti ir paleisti iš naujo</string>
@@ -78,6 +79,7 @@ Palieskite mygtuką Tęsti ir leiskite optimizavimo pakeitimus."</string>
   <string name="revanced_settings_screen_03_feed_title">Naujienos</string>
   <string name="revanced_settings_screen_04_player_title">Grotuvas</string>
   <string name="revanced_settings_screen_05_general_title">Bendras išdėstymas</string>
+  <string name="revanced_settings_screen_06_shorts_title">Šortai</string>
   <string name="revanced_settings_screen_07_seekbar_title">Paieškos juosta</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Braukimo valdikliai</string>
   <string name="revanced_settings_screen_11_misc_title">Įvairūs</string>
@@ -157,9 +159,6 @@ Apie netikėtus įvykius nebus pranešta."</string>
   <string name="revanced_hide_timed_reactions_title">Slėpti laiku įvykusias reakcijas</string>
   <string name="revanced_hide_timed_reactions_summary_on">Laiku įvykusios reakcijos yra paslėptos</string>
   <string name="revanced_hide_timed_reactions_summary_off">Laiku įvykusios reakcijos yra rodomos</string>
-  <string name="revanced_hide_search_result_shelf_header_title">Slėpti paieškos rezultatų lentynos antraštę</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">Lentynos antraštė yra paslėpta</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">Lentynos antraštė yra rodoma</string>
   <string name="revanced_hide_channel_guidelines_title">Slėpti kanalo gaires</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Kanalo gairės yra paslėptos</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Kanalo gairės yra rodomos</string>
@@ -517,6 +516,10 @@ Pastaba: įjungus šį nustatymą, vaizdo įrašų reklamos taip pat yra privers
   <string name="revanced_hide_navigation_button_labels_title">Slėpti naršymo mygtukų etiketes</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Etiketės yra paslėptos</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Etiketės yra rodomos</string>
+  <string name="revanced_disable_translucent_status_bar_title">Išjungti permatomą būsenos juostą</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Išjungti permatomą šviesią naršymo juostą</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Šviesios spalvos naršymo juosta yra nepermatoma</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Tamsios spalvos naršymo juosta yra nepermatoma</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Išskleidžiamasis meniu</string>
@@ -1140,6 +1143,7 @@ Braukite, kad išplėstumėte arba uždarytumėte"</string>
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Originalūs miniatiūriniai vaizdai</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Nejudantys kadrai</string>
   <string name="revanced_alt_thumbnail_options_entry_4">Nejudantys kadrai</string>
+  <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
   <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow pateikia miniatiūras, surinktas iš bendruomenės, „YouTube“ vaizdo įrašams. Šios miniatiūros dažnai yra tinkamesnės nei tos, kurias pateikia „YouTube“
 
 Įjungus šį nustatymą, vaizdo įrašų URL bus siunčiami į API serverį ir kiti duomenys nebus siunčiami. Jei vaizdo įraše nėra DeArrow miniatiūrų, tada rodomos originalios arba fiksuotos miniatiūros
@@ -1215,6 +1219,11 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_disable_zoom_haptics_summary_on">Vibracija išjungta</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Vibracija įjungta</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Priversti originalų garsą</string>
+  <string name="revanced_force_original_audio_summary_on">Naudojamas originalus garsas</string>
+  <string name="revanced_force_original_audio_summary_off">Naudojamas numatytasis garsas</string>
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Automatinis</string>
@@ -1224,6 +1233,7 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_video_quality_default_wifi_title">Numatytoji vaizdo įrašų kokybė „Wi-Fi“ tinkle</string>
   <string name="revanced_video_quality_default_mobile_title">Numatytoji vaizdo įrašų kokybė mobiliojo ryšio tinkle</string>
   <string name="revanced_remember_video_quality_mobile">mobilusis</string>
+  <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Pakeista numatytoji %1$s kokybė į: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
@@ -1275,9 +1285,6 @@ Vaizdo įrašo atkūrimas gali neveikti"</string>
 
 AVC maksimalus rezoliucija yra 1080p, Opus garso kodekas nėra prieinamas, o vaizdo įrašo atkūrimas naudoja daugiau interneto duomenų nei VP9 arba AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS apgaulės šalutiniai poveikiai</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Privatūs vaikų vaizdo įrašai gali neveikti
-• Tiesioginės transliacijos prasideda nuo pradžios
-• Vaizdo įrašai baigiasi 1 sekundę anksčiau"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR apgaulės šalutiniai poveikiai</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Vaikų vaizdo įrašai gali neveikti
 • Tiesioginės transliacijos prasideda nuo pradžios

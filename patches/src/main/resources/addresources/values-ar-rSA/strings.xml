@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">تاريخ إنشاء APK تالف</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">هل ترغب في المتابعة؟</string>
   <string name="revanced_settings_reset">إعادة التعيين</string>
   <string name="revanced_settings_restart_title">تحديث وإعادة تشغيل</string>
@@ -78,6 +79,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_03_feed_title">الموجز</string>
   <string name="revanced_settings_screen_04_player_title">المشغل</string>
   <string name="revanced_settings_screen_05_general_title">التصميم العام</string>
+  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">شريط تقدم الفيديو</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">التحكم عن طريق إيماءة التمرير</string>
   <string name="revanced_settings_screen_11_misc_title">إعدادات متنوعة</string>
@@ -157,9 +159,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_timed_reactions_title">إخفاء ردود الفعل المؤقتة</string>
   <string name="revanced_hide_timed_reactions_summary_on">تم إخفاء ردود الفعل المؤقتة</string>
   <string name="revanced_hide_timed_reactions_summary_off">يتم عرض ردود الفعل المؤقتة</string>
-  <string name="revanced_hide_search_result_shelf_header_title">إخفاء رأس رف نتائج البحث</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">تم إخفاء رأس الرف</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">يتم عرض رأس الرف</string>
   <string name="revanced_hide_channel_guidelines_title">إخفاء إرشادات القناة</string>
   <string name="revanced_hide_channel_guidelines_summary_on">تم إخفاء إرشادات القناة</string>
   <string name="revanced_hide_channel_guidelines_summary_off">يتم عرض إرشادات القناة</string>
@@ -517,6 +516,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_navigation_button_labels_title">إخفاء تسميات زر التنقل</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">تم إخفاء التسميات</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">يتم عرض التسميات</string>
+  <string name="revanced_disable_translucent_status_bar_title">تعطيل شريط الحالة الشفاف</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">تعطيل شريط التنقل الشفاف الفاتح</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">شريط التنقل في الوضع الفاتح معتم</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">شريط التنقل في الوضع الداكن معتم</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">القائمة المنبثقة</string>
@@ -1215,6 +1218,11 @@ Second \"item\" text"</string>
   <string name="revanced_disable_zoom_haptics_summary_on">تم تعطيل الاهتزاز</string>
   <string name="revanced_disable_zoom_haptics_summary_off">تم تمكين الاهتزاز</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">فرض الصوت الأصلي</string>
+  <string name="revanced_force_original_audio_summary_on">استخدام الصوت الأصلي</string>
+  <string name="revanced_force_original_audio_summary_off">استخدام الصوت الافتراضي</string>
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">تلقائي</string>
@@ -1276,9 +1284,8 @@ Second \"item\" text"</string>
 
 يتمتع تنسيق AVC بدقة قصوى تبلغ 1080P، برنامج ترميز الصوت Opus غير متوفر، وسيستخدم تشغيل الفيديو المزيد من بيانات الإنترنت مقارنةً بتنسيق VP9 أو AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">التأثيرات الجانبية لمحاكاة iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• قد لا يتم تشغيل فيديوهات الأطفال الخاصة
-• تبدأ البثوث المباشرة من البداية
-• قد تنتهي الفيديوهات قبل النهاية بثانية واحدة"</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• لا يمكن تشغيل مقاطع فيديو الأطفال الخاصة.
+• تنتهي مقاطع الفيديو مبكرًا بمقدار 1 ثانية."</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">التأثيرات الجانبية لمحاكاة Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• قد لا يتم تشغيل فيديوهات الأطفال
 • تبدأ البثوث المباشرة من البداية

@@ -30,9 +30,10 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_manager_not_expected_installer">Δεν έχει εγκατασταθεί μέσω του ReVanced Manager</string>
   <string name="revanced_check_environment_not_near_patch_time">Τροποποιήθηκε πάνω από 10 λεπτά πριν</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Τροποποιήθηκε πριν %s μέρες</string>
-  <string name="revanced_check_environment_not_near_patch_time_invalid">Ημερομηνία κατασκευής του APK είναι κατεστραμμένη</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">Η ημερομηνία κατασκευής του APK είναι κατεστραμμένη</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Θέλετε να συνεχίσετε;</string>
   <string name="revanced_settings_reset">Επαναφορά</string>
   <string name="revanced_settings_restart_title">Ανανέωση και επανεκκίνηση</string>
@@ -78,8 +79,9 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_03_feed_title">Ροή</string>
   <string name="revanced_settings_screen_04_player_title">Οθόνη αναπαραγωγής</string>
   <string name="revanced_settings_screen_05_general_title">Γενική διάταξη</string>
+  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Γραμμή προόδου βίντεο</string>
-  <string name="revanced_settings_screen_08_swipe_controls_title">Έλεγχος με κατακόρυφη σάρωση οθόνης</string>
+  <string name="revanced_settings_screen_08_swipe_controls_title">Έλεγχος με σάρωση οθόνης</string>
   <string name="revanced_settings_screen_11_misc_title">Διάφορα</string>
   <string name="revanced_settings_screen_12_video_title">Βίντεο</string>
   </patch>
@@ -159,9 +161,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_timed_reactions_title">Συγχρονισμένες αντιδράσεις</string>
   <string name="revanced_hide_timed_reactions_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_timed_reactions_summary_off">Εμφανίζονται</string>
-  <string name="revanced_hide_search_result_shelf_header_title">Ενότητα αποτελεσμάτων αναζήτησης</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">Κρυμμένη</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_channel_guidelines_title">Οδηγίες καναλιού</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Εμφανίζονται</string>
@@ -384,7 +383,7 @@ Second \"item\" text"</string>
   <patch id="interaction.copyvideourl.copyVideoUrlResourcePatch">
   <string name="revanced_share_copy_url_success">Η διεύθυνση URL αντιγράφηκε στο πρόχειρο</string>
   <string name="revanced_share_copy_url_timestamp_success">Η διεύθυνση URL αντιγράφηκε με χρονική σήμανση</string>
-  <string name="revanced_copy_video_url_title">Εμφάνιση κουμπιού αντιγραφής URL βίντεο</string>
+  <string name="revanced_copy_video_url_title">Εμφάνιση κουμπιού αντιγραφής URL του βίντεο</string>
   <string name="revanced_copy_video_url_summary_on">Το κουμπί εμφανίζεται. Πατήστε για αντιγραφή του συνδέσμου βίντεο ή πατήστε παρατεταμένα για αντιγραφή του συνδέσμου βίντεο με χρονική σήμανση</string>
   <string name="revanced_copy_video_url_summary_off">Το κουμπί δεν εμφανίζεται</string>
   <string name="revanced_copy_video_url_timestamp_title">Εμφάνιση κουμπιού αντιγραφής URL με χρονική σήμανση</string>
@@ -519,6 +518,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_navigation_button_labels_title">Ονομασίες κουμπιών γραμμής πλοήγησης</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Εμφανίζονται</string>
+  <string name="revanced_disable_translucent_status_bar_title">Απενεργοποίηση ημιδιαφανούς γραμμής κατάστασης</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Απενεργοποίηση ανοιχτόχρωμης ημιδιαφανούς γραμμής</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Η ανοιχτόχρωμη γραμμή πλοήγησης είναι αδιαφανής</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Η σκούρα γραμμή πλοήγησης είναι αδιαφανής</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Αναδυόμενο μενού ρυθμίσεων</string>
@@ -1029,7 +1032,7 @@ Second \"item\" text"</string>
   <string name="revanced_change_start_page_entry_history">Ιστορικό</string>
   <string name="revanced_change_start_page_entry_library">Βιβλιοθήκη</string>
   <string name="revanced_change_start_page_entry_liked_videos">Βίντεο που σας αρέσουν</string>
-  <string name="revanced_change_start_page_entry_live">Live</string>
+  <string name="revanced_change_start_page_entry_live">Άμεση</string>
   <string name="revanced_change_start_page_entry_movies">Ταινίες</string>
   <string name="revanced_change_start_page_entry_music">Μουσική</string>
   <string name="revanced_change_start_page_entry_search">Αναζήτηση</string>
@@ -1214,6 +1217,11 @@ Second \"item\" text"</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Η απόκριση δόνησης είναι απενεργοποιημένη</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Η απόκριση δόνησης είναι ενεργοποιημένη</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Εξαναγκασμός αρχικού ήχου</string>
+  <string name="revanced_force_original_audio_summary_on">Χρήση αρχικού ήχου</string>
+  <string name="revanced_force_original_audio_summary_off">Χρήση προεπιλεγμένου ήχου</string>
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Αυτόματη</string>
@@ -1275,13 +1283,12 @@ Second \"item\" text"</string>
 
 Ο AVC ωστόσο έχει μέγιστη ανάλυση 1080p, ο κωδικοποιητής ήχου Opus δεν είναι διαθέσιμος και η αναπαραγωγή βίντεο θα χρησιμοποιεί περισσότερα δεδομένα internet από τον κωδικοποιητή VP9 ή τον AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Παρενέργειες παραποίησης σε iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Τα ιδιωτικά βίντεο για παιδιά ενδέχεται να μην αναπαράγονται
-• Οι ζωντανές μεταδόσεις ξεκινούν από την αρχή
-• Τα βίντεο τελειώνουν 1 δευτερόλεπτο νωρίτερα"</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Στα ιδιωτικά βίντεο παιδικού περιεχομένου ίσως να μην αναπαράγεται βίντεο
+• Τα βίντεο ολοκληρώνονται 1 δευτερόλεπτο νωρίτερα."</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Παρενέργειες παραποίησης σε Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Τα βίντεο για παιδιά ενδέχεται να μην αναπαράγονται
-• Οι ζωντανές μεταδόσεις ξεκινούν από την αρχή
-• Τα βίντεο τελειώνουν 1 δευτερόλεπτο νωρίτερα"</string>
+• Το μενού «Κομμάτι ήχου» λείπει
+• Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη"</string>
   <string name="revanced_spoof_video_streams_language_title">Προεπιλεγμένη γλώσσα ροής ήχου</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Γλώσσα εφαρμογής</string>
   <string name="revanced_spoof_video_streams_language_AR">Αραβικά</string>

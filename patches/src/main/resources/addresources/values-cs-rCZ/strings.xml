@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Datum sestavení souboru APK je poškozeno</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Přejete si pokračovat?</string>
   <string name="revanced_settings_reset">Výchozí</string>
   <string name="revanced_settings_restart_title">Obnovit a restartovat</string>
@@ -42,7 +43,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Nastavení ReVanced obnoveno do výchozího stavu</string>
   <string name="revanced_settings_import_success">Importováno %d nastavení</string>
   <string name="revanced_settings_import_failure_parse">Importováni selhalo: %s</string>
-  <string name="revanced_pref_import_export_title">Import / Export</string>
+  <string name="revanced_pref_import_export_title">Importovat / Exportovat</string>
   <string name="revanced_pref_import_export_summary">Importovat/exportovat nastavení ReVanced</string>
   <!-- Settings about dialog. -->
   <string name="revanced_settings_about_links_body">Používáte verzi ReVanced Patches &lt;i&gt;%s&lt;/i&gt;</string>
@@ -78,6 +79,7 @@ Klepněte na tlačítko Pokračovat a povolte změny optimalizace."</string>
   <string name="revanced_settings_screen_03_feed_title">Přísun</string>
   <string name="revanced_settings_screen_04_player_title">Přehrávač</string>
   <string name="revanced_settings_screen_05_general_title">Celkové rozložení</string>
+  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Lišta</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Ovládání gesty</string>
   <string name="revanced_settings_screen_11_misc_title">Ostatní</string>
@@ -151,15 +153,12 @@ Nebudete informováni o žádné neočekávané události."</string>
   <string name="revanced_hide_search_result_recommendations_summary_off">Odporúčania sú zobrazené</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
-  <string name="revanced_hide_show_more_button_title">Hide \'Show more\' button</string>
+  <string name="revanced_hide_show_more_button_title">Skrýt tlačítko „Zobrazit více“</string>
   <string name="revanced_hide_show_more_button_summary_on">Tlačítko je skryto</string>
   <string name="revanced_hide_show_more_button_summary_off">Tlačítko je zobrazeno</string>
   <string name="revanced_hide_timed_reactions_title">Skrýt reakce zobrazené po čase</string>
   <string name="revanced_hide_timed_reactions_summary_on">Reakce zobrazené po čase jsou skryty</string>
   <string name="revanced_hide_timed_reactions_summary_off">Reakce se zobrazují po čase</string>
-  <string name="revanced_hide_search_result_shelf_header_title">Skrýt hlavičku poličky s výsledky vyhledávání</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">Hlavička poličky s výsledky vyhledávání je skryta</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">Hlavička poličky s výsledky vyhledávání se zobrazuje</string>
   <string name="revanced_hide_channel_guidelines_title">Skrýt pravidla kanálu</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Pokyny kanálu sa nezobrazujú</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Zobrazujú sa pokyny kanálu</string>
@@ -438,7 +437,7 @@ Tato funkce je dostupná pouze pro starší zařízení"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Povolit gesto pro automatický jas</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Přejetím dolů na nejnižší hodnotu gesta pro jas aktivujete automatický jas</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Přejetím dolů na nejnižší hodnotu neaktivujete automatický jas</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Auto</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automat</string>
   <string name="revanced_swipe_overlay_timeout_title">Timeout překrytí gesta</string>
   <string name="revanced_swipe_overlay_timeout_summary">Doba v milisekundách, po kterou je překrytí viditelné</string>
   <string name="revanced_swipe_text_overlay_size_title">Velikost textu překrytí gesta</string>
@@ -517,6 +516,10 @@ Poznámka: Povolení této funkce také vynuceně skryje video reklamy"</string>
   <string name="revanced_hide_navigation_button_labels_title">Skrýt štítky navigačních tlačítek</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Štítky jsou skryty</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Štítky jsou zobrazeny</string>
+  <string name="revanced_disable_translucent_status_bar_title">Deaktivovat průsvitný stavový řádek</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Deaktivovat světlý průsvitný navigační panel</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Navigační panel v světlém režimu je neprůhledný</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Navigační panel v tmavém režimu je neprůhledný</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Menu vyskakovacích oken</string>
@@ -1056,6 +1059,7 @@ Pokud bude později vypnuta, doporučujeme vymazat data aplikace, aby se zabrán
   <string name="revanced_tablet_layout_user_dialog_message">Příspěvky komunity se v rozvržení tabletu nezobrazují</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
+  <string name="revanced_miniplayer_screen_title">Mini přehrávač</string>
   <string name="revanced_miniplayer_screen_summary">Změnit styl minimalizovaného přehrávače v aplikaci</string>
   <string name="revanced_miniplayer_type_title">Typ přehrávače</string>
   <string name="revanced_miniplayer_type_entry_0">Vypnuto</string>
@@ -1213,6 +1217,11 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Haptika je zakázána</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Haptika je povolena</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Vynutit původní zvuk</string>
+  <string name="revanced_force_original_audio_summary_on">Používání původního zvuku</string>
+  <string name="revanced_force_original_audio_summary_off">Používání výchozího zvuku</string>
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Automaticky</string>
@@ -1222,6 +1231,7 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_video_quality_default_wifi_title">Výchozí kvalita videa v síti Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Výchozí kvalita videa v mobilní síti</string>
   <string name="revanced_remember_video_quality_mobile">mobilní</string>
+  <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">Výchozí kvalita %1$s změněna na: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
@@ -1273,9 +1283,6 @@ Přehrávání videa nemusí fungovat"</string>
 
 AVC má maximální rozlišení 1080p, audio kodek Opus není dostupný a přehrávání videa bude používat více internetových dat než VP9 nebo AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Vedlejší účinky napodobování iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Soukromá videa pro děti se nemusí přehrát
-• Livestreamy začínají od začátku
-• Videa končí o 1 sekundu dříve"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Vedlejší účinky napodobování Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Videa pro děti se nemusí přehrát
 • Livestreamy začínají od začátku
@@ -1347,6 +1354,8 @@ AVC má maximální rozlišení 1080p, audio kodek Opus není dostupný a přehr
   <string name="revanced_embedded_ads_service_failed">%s vrátil chybu, reklamy se mohou zobrazit. Zkuste změnit službu blokování reklam v nastavení.</string>
   <string name="revanced_block_embedded_ads_title">Blokovat vložené video reklamy</string>
   <string name="revanced_block_embedded_ads_entry_1">Vypnuto</string>
+  <string name="revanced_block_embedded_ads_entry_2">Proxy Luminous</string>
+  <string name="revanced_block_embedded_ads_entry_3">Proxy PurpleAdBlock</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">
   <string name="revanced_block_video_ads_title">Blokovat video reklamy</string>

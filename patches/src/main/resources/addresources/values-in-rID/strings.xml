@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Tanggal pembuatan APK rusak</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Apakah Anda ingin melanjutkan?</string>
   <string name="revanced_settings_reset">Setel ulang</string>
   <string name="revanced_settings_restart_title">Segarkan dan mulai ulang</string>
@@ -75,9 +76,10 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan."</string>
   <string name="revanced_settings_screen_00_about_title">Tentang</string>
   <string name="revanced_settings_screen_01_ads_title">Iklan</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Thumbnail alternatif</string>
-  <string name="revanced_settings_screen_03_feed_title">Feed</string>
+  <string name="revanced_settings_screen_03_feed_title">Umpan</string>
   <string name="revanced_settings_screen_04_player_title">Pemutar</string>
   <string name="revanced_settings_screen_05_general_title">Layout umum</string>
+  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Seekbar</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Kontrol geser</string>
   <string name="revanced_settings_screen_11_misc_title">Lain-lain</string>
@@ -89,7 +91,7 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan."</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Pemutaran Shorts di latar belakang diaktifkan</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">Debugging</string>
+  <string name="revanced_debug_screen_title">Debug</string>
   <string name="revanced_debug_screen_summary">Mengaktifkan atau menonaktifkan pilihan debugging</string>
   <string name="revanced_debug_title">Pencatatan debug</string>
   <string name="revanced_debug_summary_on">Pencatatan debug diaktifkan</string>
@@ -157,9 +159,6 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_hide_timed_reactions_title">Sembunyikan reaksi terjadwal</string>
   <string name="revanced_hide_timed_reactions_summary_on">Reaksi terjadwal disembunyikan</string>
   <string name="revanced_hide_timed_reactions_summary_off">Reaksi terjadwal ditampilkan</string>
-  <string name="revanced_hide_search_result_shelf_header_title">Sembunyikan judul rak hasil pencarian</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">Judul rak disembunyikan</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">Judul rak ditampilkan</string>
   <string name="revanced_hide_channel_guidelines_title">Sembunyikan panduan saluran</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Panduan saluran disembunyikan</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Panduan saluran ditampilkan</string>
@@ -517,6 +516,15 @@ Catatan: Mengaktifkan ini juga akan memaksa menyembunyikan iklan video"</string>
   <string name="revanced_hide_navigation_button_labels_title">Sembunyikan label tombol navigasi</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Label disembunyikan</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Label ditampilkan</string>
+  <string name="revanced_disable_translucent_status_bar_title">Nonaktifkan bilah status tembus cahaya</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">Bilah status buram</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">Bilah status buram atau tembus pandang</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Nonaktifkan bilah tembus cahaya terang</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Bilah navigasi mode terang tidak tembus cahaya</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Bilah navigasi mode terang buram atau tembus pandang</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Nonaktifkan bilah tembus pandang gelap</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Bilah navigasi mode gelap tidak tembus cahaya</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Bilah navigasi mode gelap buram atau tembus pandang</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Menu flyout</string>
@@ -1214,6 +1222,11 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Sentuh getar dinonaktifkan</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Sentuh getar diaktifkan</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Paksa audio asli</string>
+  <string name="revanced_force_original_audio_summary_on">Menggunakan audio asli</string>
+  <string name="revanced_force_original_audio_summary_off">Menggunakan audio default</string>
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Otomatis</string>
@@ -1275,8 +1288,7 @@ Playback video mungkin tidak berfungsi"</string>
 
 AVC memiliki resolusi maksimum 1080p, codec audio Opus tidak tersedia, dan playback video akan menggunakan lebih banyak data internet daripada VP9 atau AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Efek samping pemalsuan iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Video anak-anak pribadi mungkin tidak dapat diputar
-• Livestream dimulai dari awal
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Video pribadi anak-anak mungkin tidak diputar
 • Video berakhir 1 detik lebih awal"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Efek samping pemalsuan Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Video anak-anak mungkin tidak dapat diputar
@@ -1288,7 +1300,7 @@ AVC memiliki resolusi maksimum 1080p, codec audio Opus tidak tersedia, dan playb
   <string name="revanced_spoof_video_streams_language_AZ">Azerbaijan</string>
   <string name="revanced_spoof_video_streams_language_BG">Bulgaria</string>
   <string name="revanced_spoof_video_streams_language_BN">Bengali</string>
-  <string name="revanced_spoof_video_streams_language_CA">Catalan</string>
+  <string name="revanced_spoof_video_streams_language_CA">Katalan</string>
   <string name="revanced_spoof_video_streams_language_CS">Ceko</string>
   <string name="revanced_spoof_video_streams_language_DA">Denmark</string>
   <string name="revanced_spoof_video_streams_language_DE">Jerman</string>
@@ -1324,7 +1336,7 @@ AVC memiliki resolusi maksimum 1080p, codec audio Opus tidak tersedia, dan playb
   <string name="revanced_spoof_video_streams_language_RO">Rumania</string>
   <string name="revanced_spoof_video_streams_language_RU">Rusia</string>
   <string name="revanced_spoof_video_streams_language_SK">Slovakia</string>
-  <string name="revanced_spoof_video_streams_language_SL">Slovene</string>
+  <string name="revanced_spoof_video_streams_language_SL">Bahasa Slovenia</string>
   <string name="revanced_spoof_video_streams_language_SR">Serbia</string>
   <string name="revanced_spoof_video_streams_language_SV">Swedia</string>
   <string name="revanced_spoof_video_streams_language_SW">Swahili</string>

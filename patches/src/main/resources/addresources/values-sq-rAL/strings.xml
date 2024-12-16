@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Data e ndërtimit të APK është e korruptuar</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Dëshironi të vazhdoni?</string>
   <string name="revanced_settings_reset">Rivendos</string>
   <string name="revanced_settings_restart_title">Rifresko dhe rifillo</string>
@@ -78,6 +79,7 @@ Prekni butonin vazhdo dhe lejoni ndryshimet e optimizimit."</string>
   <string name="revanced_settings_screen_03_feed_title">Ushtrimi</string>
   <string name="revanced_settings_screen_04_player_title">Lujtësi</string>
   <string name="revanced_settings_screen_05_general_title">Dizajni i përgjithshëm</string>
+  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Shiriti i kërkimit</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Kontrolluesit e rrëshqitjes</string>
   <string name="revanced_settings_screen_11_misc_title">Të ndryshme</string>
@@ -157,9 +159,6 @@ Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
   <string name="revanced_hide_timed_reactions_title">Fshih reagimet e kohës</string>
   <string name="revanced_hide_timed_reactions_summary_on">Reagimet e kohës janë të fshehura</string>
   <string name="revanced_hide_timed_reactions_summary_off">Reagimet e kohës janë të dukshme</string>
-  <string name="revanced_hide_search_result_shelf_header_title">Fshi kokën e raftëve të rezultateve të kërkimit</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">Koka e raftëve është e fshehur</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">Koka e raftëve është e dukshme</string>
   <string name="revanced_hide_channel_guidelines_title">Fshi udhëzimet e kanalit</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Udhëzimet e kanalit janë të fshehura</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Udhëzimet e kanalit janë të dukshme</string>
@@ -256,6 +255,7 @@ Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">I dukshme në video të lidhura</string>
   <string name="revanced_comments_screen_title">Komentet</string>
   <string name="revanced_comments_screen_summary">Fshi ose shfaq komponentët e seksionit të komenteve</string>
+  <string name="revanced_hide_comments_chat_summary_title">Fshih \"Përmbledhjen e bisedës\"</string>
   <string name="revanced_hide_comments_chat_summary_summary_on">\'Rezumat i bisedës\' është fshehur</string>
   <string name="revanced_hide_comments_chat_summary_summary_off">\'Rezumat i bisedës\' është shfaqur</string>
   <string name="revanced_hide_comments_by_members_header_title">Fshi kokën \"Komentet nga anëtarët\"</string>
@@ -516,6 +516,15 @@ Shënim: Aktivizimi i kësaj gjëje gjithashtu fsheh me forcë reklamat video"</
   <string name="revanced_hide_navigation_button_labels_title">Fsheh etiketat e butonave të navigimit</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Etiketat janë të fshehura</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Etiketat janë të dukshme</string>
+  <string name="revanced_disable_translucent_status_bar_title">Çaktivizo barin transparent të statusit</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">Shiriti i statusit është opak</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">Shiriti i statusit është opak ose translucent</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Çaktivizo barin transparent të navigacionit të lehtë</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Barra e navigacionit në modalitetin e dritës është e paqartë</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Shiriti i navigimit në modalitetin e ndritshëm është opak ose translucent</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Çaktivizoni shiritin e errët translucent</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Barra e navigacionit në modalitetin e errët është e paqartë</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Shiriti i navigimit në modalitetin e errët është opak ose translucent</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Menyja \"Fshi\"</string>
@@ -1018,10 +1027,10 @@ Nëse më vonë është çaktivizuar, është e rekomanduar të fshiheni të dh�
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Vendos faqen e fillimit</string>
-  <string name="revanced_change_start_page_entry_default">Default</string>
+  <string name="revanced_change_start_page_entry_default">Paragjykja</string>
   <string name="revanced_change_start_page_entry_browse">Shfleto kanalet</string>
   <string name="revanced_change_start_page_entry_explore">Zbulo</string>
-  <string name="revanced_change_start_page_entry_gaming">Gaming</string>
+  <string name="revanced_change_start_page_entry_gaming">Lojëra</string>
   <string name="revanced_change_start_page_entry_history">Historia</string>
   <string name="revanced_change_start_page_entry_library">Biblioteka</string>
   <string name="revanced_change_start_page_entry_liked_videos">Videot e pëlqyera</string>
@@ -1054,10 +1063,11 @@ Nëse më vonë është çaktivizuar, është e rekomanduar të fshiheni të dh�
   <string name="revanced_tablet_layout_user_dialog_message">Postimet e komunitetit nuk shfaqen në pamjet e tabletës</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
+  <string name="revanced_miniplayer_screen_title">Miniplayer</string>
   <string name="revanced_miniplayer_screen_summary">Ndrysho stilin e lojtarit të minimizuar në aplikacion</string>
   <string name="revanced_miniplayer_type_title">Lloji i \"miniplayer\"</string>
   <string name="revanced_miniplayer_type_entry_0">I çaktivizuar</string>
-  <string name="revanced_miniplayer_type_entry_1">Default</string>
+  <string name="revanced_miniplayer_type_entry_1">Paragjykja</string>
   <string name="revanced_miniplayer_type_entry_2">Minimal</string>
   <string name="revanced_miniplayer_type_entry_3">Tabletë</string>
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
@@ -1211,6 +1221,11 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Haptikët janë të çaktivizuar</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Haptikët janë të aktivizuar</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Forco Zërin Origjinal</string>
+  <string name="revanced_force_original_audio_summary_on">Përdorimi i Zërit Origjinal</string>
+  <string name="revanced_force_original_audio_summary_off">Përdorimi i Zërit Parazgjedhur</string>
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Automatik</string>
@@ -1220,6 +1235,7 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_video_quality_default_wifi_title">Cilësia e videos parazgjedhëse në rrjetin Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Cilësia e videos parazgjedhëse në rrjetin celular</string>
   <string name="revanced_remember_video_quality_mobile">celular</string>
+  <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Ndryshuar cilësia parazgjedhëse %1$s në: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
@@ -1272,7 +1288,6 @@ Shikimi i videove mund të mos funksionojë"</string>
 AVC ka një rezolucion maksimum prej 1080p, kodeku audio Opus nuk është i disponueshëm dhe shikimi i videove do të përdorë më shumë të dhëna interneti sesa VP9 ose AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Efekte anësore të spoofimit të iOS</string>
   <string name="revanced_spoof_video_streams_about_ios_summary">"• Videot private për fëmijë mund të mos luhen
-• Transmetimet Live fillojnë nga fillimi
 • Videot përfundojnë 1 sekond më herët"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Efekte anësore të spoofimit të Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Videot për fëmijë mund të mos luhen
@@ -1345,6 +1360,8 @@ AVC ka një rezolucion maksimum prej 1080p, kodeku audio Opus nuk është i disp
   <string name="revanced_embedded_ads_service_failed">%s ktheu një gabim, mund të shfaqen reklama. Provoni të ndryshoni shërbimin e bllokimit të reklamave në settings.</string>
   <string name="revanced_block_embedded_ads_title">Blloko reklamat e videove të ngulitura</string>
   <string name="revanced_block_embedded_ads_entry_1">E çaktivizuar</string>
+  <string name="revanced_block_embedded_ads_entry_2">Proxy Luminous</string>
+  <string name="revanced_block_embedded_ads_entry_3">Proxy PurpleAdBlock</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">
   <string name="revanced_block_video_ads_title">Blloko reklamat e videove</string>

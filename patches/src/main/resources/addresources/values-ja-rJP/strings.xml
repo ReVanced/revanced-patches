@@ -157,9 +157,6 @@ MicroG のバッテリー最適化を無効にしても、バッテリーの使�
   <string name="revanced_hide_timed_reactions_title">Timed Reactions を非表示</string>
   <string name="revanced_hide_timed_reactions_summary_on">Timed Reactions は非表示です</string>
   <string name="revanced_hide_timed_reactions_summary_off">Timed Reactions は表示されます</string>
-  <string name="revanced_hide_search_result_shelf_header_title">検索結果のヘッダを非表示</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">ヘッダーは非表示です</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">ヘッダーは表示されます</string>
   <string name="revanced_hide_channel_guidelines_title">チャンネルガイドラインを非表示</string>
   <string name="revanced_hide_channel_guidelines_summary_on">チャンネルガイドラインは非表示です</string>
   <string name="revanced_hide_channel_guidelines_summary_off">チャンネルガイドラインは表示されます</string>
@@ -256,6 +253,7 @@ MicroG のバッテリー最適化を無効にしても、バッテリーの使�
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">関連動画で表示されます</string>
   <string name="revanced_comments_screen_title">コメント</string>
   <string name="revanced_comments_screen_summary">コメントセクションのコンポーネントを非表示または表示</string>
+  <string name="revanced_hide_comments_chat_summary_title">「チャットサマリー」を非表示にする </string>
   <string name="revanced_hide_comments_chat_summary_summary_on">\'チャット概要\' は非表示</string>
   <string name="revanced_hide_comments_chat_summary_summary_off">\'チャット概要\' は表示</string>
   <string name="revanced_hide_comments_by_members_header_title">「メンバーによるコメント」ヘッダーを非表示</string>
@@ -516,6 +514,10 @@ MicroG のバッテリー最適化を無効にしても、バッテリーの使�
   <string name="revanced_hide_navigation_button_labels_title">ナビゲーションボタンのラベルを隠す</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">ラベルは非表示です</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">ラベルは表示されます</string>
+  <string name="revanced_disable_translucent_status_bar_title">半透明ステータスバーを無効にする</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">明るい半透明のバーを無効にする</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">ライトモードのナビゲーションバーは不透明です</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">ダークモードのナビゲーションバーは不透明です</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">フライアウトメニュー</string>
@@ -1058,6 +1060,7 @@ MicroG のバッテリー最適化を無効にしても、バッテリーの使�
   <string name="revanced_tablet_layout_user_dialog_message">タブレットのレイアウトではコミュニティ投稿は表示されません</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
+  <string name="revanced_miniplayer_screen_title">ミニプレイヤー</string>
   <string name="revanced_miniplayer_screen_summary">アプリの最小化プレイヤーのスタイルを変更する</string>
   <string name="revanced_miniplayer_type_title">ミニプレーヤータイプ</string>
   <string name="revanced_miniplayer_type_entry_0">無効</string>
@@ -1215,6 +1218,11 @@ DeArrowの詳細については、ここをタップしてください。"</stri
   <string name="revanced_disable_zoom_haptics_summary_on">触覚機能は無効です</string>
   <string name="revanced_disable_zoom_haptics_summary_off">触覚機能は有効です</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">元の音声を強制的に使用する</string>
+  <string name="revanced_force_original_audio_summary_on">元の音声をを使用中</string>
+  <string name="revanced_force_original_audio_summary_off">デフォルトの音声をを使用中</string>
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">自動</string>
@@ -1224,6 +1232,7 @@ DeArrowの詳細については、ここをタップしてください。"</stri
   <string name="revanced_video_quality_default_wifi_title">Wi-Fiネットワーク上のデフォルトのビデオ品質</string>
   <string name="revanced_video_quality_default_mobile_title">モバイルネットワークの既定のビデオ品質</string>
   <string name="revanced_remember_video_quality_mobile">モバイル</string>
+  <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">デフォルトの %1$s 品質を %2$sに変更しました</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
@@ -1275,9 +1284,7 @@ DeArrowの詳細については、ここをタップしてください。"</stri
 
 AVCは、最大解像度が1080pであり、Opusオーディオコーデックは使用できません。また、動画再生はVP9またはAV1よりも多くのインターネットデータを使用します。"</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOSのクライアント偽装での副作用</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• プライベートなキッズ動画は再生されない場合があります
-• ライブストリームは最初から始まります
-• 動画は1秒早く終了します"</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• プライベートキッズの動画は再生されない場合があります。<br/>• 動画は1秒早く終了します"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android-VR クライアント偽装の副作用</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• キッズ動画は再生されない場合があります
 • ライブストリームは最初から始まります

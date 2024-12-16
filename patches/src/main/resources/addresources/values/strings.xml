@@ -158,9 +158,6 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_timed_reactions_title">Hide timed reactions</string>
             <string name="revanced_hide_timed_reactions_summary_on">Timed reactions are hidden</string>
             <string name="revanced_hide_timed_reactions_summary_off">Timed reactions are shown</string>
-            <string name="revanced_hide_search_result_shelf_header_title">Hide search result shelf header</string>
-            <string name="revanced_hide_search_result_shelf_header_summary_on">Shelf header is hidden</string>
-            <string name="revanced_hide_search_result_shelf_header_summary_off">Shelf header is shown</string>
             <string name="revanced_hide_channel_guidelines_title">Hide channel guidelines</string>
             <string name="revanced_hide_channel_guidelines_summary_on">Channel guidelines are hidden</string>
             <string name="revanced_hide_channel_guidelines_summary_off">Channel guidelines are shown</string>
@@ -522,6 +519,15 @@ Note: Enabling this also forcibly hides video ads"</string>
             <string name="revanced_hide_navigation_button_labels_title">Hide navigation button labels</string>
             <string name="revanced_hide_navigation_button_labels_summary_on">Labels are hidden</string>
             <string name="revanced_hide_navigation_button_labels_summary_off">Labels are shown</string>
+            <string name="revanced_disable_translucent_status_bar_title">Disable translucent status bar</string>
+            <string name="revanced_disable_translucent_status_bar_summary_on">Status bar is opaque</string>
+            <string name="revanced_disable_translucent_status_bar_summary_off">Status bar is opaque or translucent</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_title">Disable light translucent bar</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Light mode navigation bar is opaque</string>
+            <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Light mode navigation bar is opaque or translucent</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_title">Disable dark translucent bar</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Dark mode navigation bar is opaque</string>
+            <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Dark mode navigation bar is opaque or translucent</string>
         </patch>
         <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
             <string name="revanced_hide_player_flyout_title">Flyout menu</string>
@@ -1226,6 +1232,11 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_disable_zoom_haptics_summary_on">Haptics are disabled</string>
             <string name="revanced_disable_zoom_haptics_summary_off">Haptics are enabled</string>
         </patch>
+        <patch id="video.audio.forceOriginalAudioPatch">
+            <string name="revanced_force_original_audio_title">Force original audio</string>
+            <string name="revanced_force_original_audio_summary_on">Using original audio</string>
+            <string name="revanced_force_original_audio_summary_off">Using default audio</string>
+        </patch>
         <patch id="video.quality.rememberVideoQualityPatch">
             <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
             <string name="revanced_video_quality_default_entry_1">Auto</string>
@@ -1288,12 +1299,11 @@ Video playback may not work"</string>
 AVC has a maximum resolution of 1080p, Opus audio codec is not available, and video playback will use more internet data than VP9 or AV1."</string>
             <string name="revanced_spoof_video_streams_about_ios_title">iOS spoofing side effects</string>
             <string name="revanced_spoof_video_streams_about_ios_summary">"• Private kids videos may not play
-• Livestreams start from the beginning
 • Videos end 1 second early"</string>
             <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR spoofing side effects</string>
             <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Kids videos may not play
-• Livestreams start from the beginning
-• Videos end 1 second early"</string>
+• Audio track menu is missing
+• Stable volume is not available"</string>
             <string name="revanced_spoof_video_streams_language_title">Default audio stream language</string>
             <string name="revanced_spoof_video_streams_language_DEFAULT">App language</string>
             <string name="revanced_spoof_video_streams_language_AR">Arabic</string>

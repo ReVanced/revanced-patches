@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK käännöspäivä on vioittunut</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Haluatko jatkaa?</string>
   <string name="revanced_settings_reset">Nollaa</string>
   <string name="revanced_settings_restart_title">Päivitä ja käynnistä uudelleen</string>
@@ -78,6 +79,7 @@ Napauta jatka-painiketta ja salli optimoinnin muutokset."</string>
   <string name="revanced_settings_screen_03_feed_title">Syöte</string>
   <string name="revanced_settings_screen_04_player_title">Soitin</string>
   <string name="revanced_settings_screen_05_general_title">Yleinen asettelu</string>
+  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Liukusäädin</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Pyyhkäisyohjaus</string>
   <string name="revanced_settings_screen_11_misc_title">Sekalaiset</string>
@@ -157,9 +159,6 @@ Et saa ilmoitusta odottamattomista tapahtumista."</string>
   <string name="revanced_hide_timed_reactions_title">Piilota ajoitetut reaktiot</string>
   <string name="revanced_hide_timed_reactions_summary_on">Ajoitetut reaktiot on piilotettu</string>
   <string name="revanced_hide_timed_reactions_summary_off">Ajoitetut reaktiot näytetään</string>
-  <string name="revanced_hide_search_result_shelf_header_title">Piilota hakutuloshyllyn ylätunniste</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">Hyllyn ylätunniste on piilotettu</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">Hyllyn ylätunniste näytetään</string>
   <string name="revanced_hide_channel_guidelines_title">Piilota kanavan säännöt</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Kanavan säännöt on piilotettu</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Kanavan säännöt näytetään</string>
@@ -256,6 +255,7 @@ Et saa ilmoitusta odottamattomista tapahtumista."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Näytetään liittyvissä videoissa</string>
   <string name="revanced_comments_screen_title">Kommentit</string>
   <string name="revanced_comments_screen_summary">Piilota tai näytä kommenttiosion komponentteja</string>
+  <string name="revanced_hide_comments_chat_summary_title">Piilota \"Chat-yhteenveto\"</string>
   <string name="revanced_hide_comments_chat_summary_summary_on">‘Chat-yhteenveto’ on piilotettu</string>
   <string name="revanced_hide_comments_chat_summary_summary_off">‘Chat-yhteenveto’ on näytetty</string>
   <string name="revanced_hide_comments_by_members_header_title">Piilota \"Jäsenten kommentit\" -ylätunniste</string>
@@ -516,6 +516,10 @@ Huomaa: Tämä ottaa pakolla pois myös videomainokset"</string>
   <string name="revanced_hide_navigation_button_labels_title">Piilota navigointipainikkeiden tunnisteet</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Tunnisteet on piilotettu</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Tunnisteet näytetään</string>
+  <string name="revanced_disable_translucent_status_bar_title">Poista läpikuultava tilarivi</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Poista vaalea läpikuultava palkki</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Vaalea tilan navigaatiopalkki on läpinäkymätön</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Tumman tilan navigaatiopalkki on läpinäkymätön</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Flyout-valikko</string>
@@ -1214,6 +1218,11 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Tärinä ei ole käytössä</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Tärinä on käytössä</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Pakota alkuperäinen ääni</string>
+  <string name="revanced_force_original_audio_summary_on">Käytetään alkuperäistä ääntä</string>
+  <string name="revanced_force_original_audio_summary_off">Käytetään oletusääntä</string>
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Automaattinen</string>
@@ -1275,9 +1284,6 @@ Videon toisto ei välttämättä toimi"</string>
 
 AVC:llä on enimmäisresoluutio 1080p, Opus-äänikoodekkia ei ole käytettävissä ja videoiden toisto kuluttaa enemmän internet-dataa kuin VP9 tai AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS-naamioinnin haittavaikutukset</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Yksityiset lasten videot eivät välttämättä toistu
-• Suoratoistot alkavat alusta
-• Videot päättyvät 1 sekuntia aikaisemmin"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR -naamioinnin haittavaikutukset</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Lasten videot eivät välttämättä toistu
 • Suoratoistot alkavat alusta

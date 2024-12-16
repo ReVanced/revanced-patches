@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK quruluş tarixi pozulub</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_title">\"ReVanced\"</string>
   <string name="revanced_settings_confirm_user_dialog_title">Davam etmək istəyirsiniz?</string>
   <string name="revanced_settings_reset">Sıfırla</string>
   <string name="revanced_settings_restart_title">Yenilə və yenidən başlat</string>
@@ -78,10 +79,11 @@ Davam düyməsinə toxunun və optimallaşdırma dəyişikliklərinə icazə ver
   <string name="revanced_settings_screen_03_feed_title">Axın</string>
   <string name="revanced_settings_screen_04_player_title">Oynadıcı</string>
   <string name="revanced_settings_screen_05_general_title">Ümumi tərtibat</string>
+  <string name="revanced_settings_screen_06_shorts_title">\"Shorts\"</string>
   <string name="revanced_settings_screen_07_seekbar_title">Axtarış çubuğu</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Sürüşdürmə nəzarətçiləri</string>
   <string name="revanced_settings_screen_11_misc_title">Müxtəlif</string>
-  <string name="revanced_settings_screen_12_video_title">Video</string>
+  <string name="revanced_settings_screen_12_video_title">\"Video\"</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Shorts arxa plan oynatmasın bağla</string>
@@ -157,9 +159,6 @@ Gözlənilməz tədbirlər barədə bildiriş almayacaqsınız."</string>
   <string name="revanced_hide_timed_reactions_title">Vaxtlı reaksiyaları gizlət</string>
   <string name="revanced_hide_timed_reactions_summary_on">Zamanlanmış reaksiyalar gizlədilir</string>
   <string name="revanced_hide_timed_reactions_summary_off">Zamanlanmış reaksiyalar göstərilir</string>
-  <string name="revanced_hide_search_result_shelf_header_title">Axtarış nəticəsi bölmə başlığını gizlət</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">Bölmə başlığı gizlidir</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">Bölmə başlığı göstərilir</string>
   <string name="revanced_hide_channel_guidelines_title">Kanal təlimatlarını gizlət</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Kanal təlimatları gizlidir</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Kanal təlimatları göstərilir</string>
@@ -517,6 +516,15 @@ Qeyd: Bunu aktivləşdirmək video reklamları da məcburi olaraq gizlədir"</st
   <string name="revanced_hide_navigation_button_labels_title">Fəaliyyət düymə etiketlərini gizlət</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Etiketlər gizlidir</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Etiketlər göstərilir</string>
+  <string name="revanced_disable_translucent_status_bar_title">Yarımşəffaf status barı deaktiv et</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">Status çubuğu şəffaf deyil</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">Status çubuğu şəffaf və ya yarı şəffaf</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Açıq yarımşəffaf barı deaktiv et</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Açıq rejim navigasiya barı qeyri-şəffafdır</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Açıq rəngli naviqasiya çubuğu şəffaf və ya yarı şəffaf</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Tünd şəffaf çubuğu deaktiv edin</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Tünd rejim navigasiya barı qeyri-şəffafdır</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Tünd rəngli naviqasiya çubuğu şəffaf və ya yarı şəffaf</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Açılan menyu</string>
@@ -1140,6 +1148,7 @@ Bunu aktivləşdirmək, bəzi regionlarda bloklanmışdırılmış itkin şəkil
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Orijinal miniatürlər</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Kadr çəkilişlər</string>
   <string name="revanced_alt_thumbnail_options_entry_4">Kadr çəkilişləri</string>
+  <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
   <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow, YouTube videoları üçün kütlədən alınan kiçik görüntülər təqdim edir. Bu kiçik görüntülər YouTube tərəfindən təqdim edilənlərdən daha uyğun ola bilər
 
 Aktivləşdirilərsə, video URLləri API serverinə göndəriləcək və başqa heç bir məlumat göndərilməyəcək. Bir videoda DeArrow kiçik şəkilləri yoxdursa, onda orijinal və ya hərəkətsiz çəkilişlər göstərilir
@@ -1215,6 +1224,11 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_disable_zoom_haptics_summary_on">Toxunuş əks-əlaqəsi bağlandı</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Toxunuş əks-əlaqəsi aktivdir</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Orijinal səsi tələb et</string>
+  <string name="revanced_force_original_audio_summary_on">Orijinal səs istifadəsi</string>
+  <string name="revanced_force_original_audio_summary_off">İlkin səs istifadəsi</string>
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Avtomatik</string>
@@ -1276,9 +1290,8 @@ Video oynatma işləməyə bilər"</string>
 
 AVC-nin maksimum dəqiqliyi 1080p-dir, Opus səs kodek əlçatan deyil və video oxutma, VP9 və ya AV1-dən daha çox internet datası istifadə edəcək."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS saxtakarlığı yan təsirləri</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Şəxsi uşaq videoları oxudulmaya bilər
-• Canlı yayımlar başdan başlayır
-• Videolar 1 saniyə tez bitir"</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"◦ Xüsusi uşaq videoları bəlkə də oynanılmaya bilər
+◦ Videolar 1 saniyə tez bitir"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR saxtakarlığı yan təsirləri</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Uşaq videoları oxudulmaya bilər
 • Canlı yayımlar başdan başlayır

@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">La data de creació de l\'APK està corrupta</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Vols continuar?</string>
   <string name="revanced_settings_reset">Restablir</string>
   <string name="revanced_settings_restart_title">Actualitza i reinicia</string>
@@ -78,6 +79,7 @@ Toca el botó Continua i permet els canvis d'optimització."</string>
   <string name="revanced_settings_screen_03_feed_title">Canal</string>
   <string name="revanced_settings_screen_04_player_title">Reproductor</string>
   <string name="revanced_settings_screen_05_general_title">Disposició general</string>
+  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Barra de cerca</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Controls de gestos</string>
   <string name="revanced_settings_screen_11_misc_title">Misc</string>
@@ -157,9 +159,6 @@ No se t'informarà de cap esdeveniment inesperat."</string>
   <string name="revanced_hide_timed_reactions_title">Amaga les reaccions temporitzades</string>
   <string name="revanced_hide_timed_reactions_summary_on">S\'han amagat les reaccions temporitzades</string>
   <string name="revanced_hide_timed_reactions_summary_off">Es mostren les reaccions temporitzades</string>
-  <string name="revanced_hide_search_result_shelf_header_title">Amaga la capçalera del prestatge de resultats de cerca</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">S\'ha amagat la capçalera del prestatge</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">Es mostra la capçalera del prestatge</string>
   <string name="revanced_hide_channel_guidelines_title">Amaga les pautes del canal</string>
   <string name="revanced_hide_channel_guidelines_summary_on">S\'han amagat les pautes del canal</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Es mostren les pautes del canal</string>
@@ -256,6 +255,9 @@ No se t'informarà de cap esdeveniment inesperat."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Es mostren els vídeos relacionats</string>
   <string name="revanced_comments_screen_title">Comentaris</string>
   <string name="revanced_comments_screen_summary">Amaga o mostra els comentaris</string>
+  <string name="revanced_hide_comments_chat_summary_title">Amaga \"Resum del xat\"</string>
+  <string name="revanced_hide_comments_chat_summary_summary_on">El \"Resum del xat\" està amagat</string>
+  <string name="revanced_hide_comments_chat_summary_summary_off">Es mostra \"Resum del xat\"</string>
   <string name="revanced_hide_comments_by_members_header_title">Amaga el títol \'Comentaris dels membres\'</string>
   <string name="revanced_hide_comments_by_members_header_summary_on">S\'ha amagat el títol \"Comentaris dels membres\"</string>
   <string name="revanced_hide_comments_by_members_header_summary_off">Es mostra el títol \"Comentaris dels membres\"</string>
@@ -464,7 +466,7 @@ Aquesta funció només està disponible per a dispositius antics"</string>
                  This button usually appears only on live streams. -->
   <string name="revanced_hide_report_button_title">Amaga Denunciar</string>
   <string name="revanced_hide_report_button_summary_on">El botó Denunciar està ocult</string>
-  <string name="revanced_hide_report_button_summary_off">Report button is shown</string>
+  <string name="revanced_hide_report_button_summary_off">Es mostra el botó d\'informe</string>
   <!-- 'Remix' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_remix_button_title">Amaga Remix</string>
   <string name="revanced_hide_remix_button_summary_on">El botó de Remix està amagat</string>
@@ -514,6 +516,10 @@ Nota: si actives aquesta opció, també s'amaguen els anuncis de vídeo per for�
   <string name="revanced_hide_navigation_button_labels_title">Amagueu les etiquetes dels botons de navegació</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Les etiquetes estan amagades</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Les etiquetes es mostren</string>
+  <string name="revanced_disable_translucent_status_bar_title">Desactiva la barra d\'estat translúcida</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Desactiva la barra translúcida de navegació clara</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">La barra de navegació del mode clar és opaca</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">La barra de navegació del mode fosc és opaca</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Menú desplegable</string>
@@ -950,6 +956,15 @@ Ja existeix"</string>
   <string name="revanced_sb_new_segment_time_start">Temps en què comença el segment</string>
   <string name="revanced_sb_new_segment_time_end">Temps en què acaba el segment</string>
   <string name="revanced_sb_new_segment_confirm_title">Els temps són correctes?</string>
+  <string name="revanced_sb_new_segment_confirm_content">"El segment és de
+
+%1$s
+a
+%2$s
+
+(%3$s)
+
+Preparat per enviar?"</string>
   <string name="revanced_sb_new_segment_start_is_before_end">L\'inici ha de ser abans del final</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Primer, marqueu dues ubicacions a la barra de temps</string>
   <string name="revanced_sb_new_segment_preview_segment_first">Previsualitzeu el segment i assegureu-vos que s\'omet suaument</string>
@@ -1044,6 +1059,7 @@ Si després es desactiva, es recomana esborrar les dades de l'aplicació per evi
   <string name="revanced_tablet_layout_user_dialog_message">Les publicacions de la comunitat no apareixen en els dissenys de tauleta</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
+  <string name="revanced_miniplayer_screen_title">Minireproductor</string>
   <string name="revanced_miniplayer_screen_summary">Canvia l\'estil del reproductor minimitzat a l\'aplicació</string>
   <string name="revanced_miniplayer_type_title">Tipus de \"miniplayer\"</string>
   <string name="revanced_miniplayer_type_entry_0">Desactivat</string>
@@ -1126,6 +1142,7 @@ Si actives aquesta opció, es poden solucionar les imatges que falten que estan 
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; miniatures originals</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; captures estàtiques</string>
   <string name="revanced_alt_thumbnail_options_entry_4">Captures estàtiques</string>
+  <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
   <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow proporciona miniatures de vídeos de YouTube obtingudes de la col·laboració entre usuaris. Aquestes miniatures solen ser més rellevants que les que proporciona YouTube
 
 Si s'activa, les URL dels vídeos s'enviaran al servidor de l'API i no s'enviarà cap més dada. Si un vídeo no té miniatures de DeArrow, es mostraran les miniatures originals o les captures de pantalla
@@ -1201,6 +1218,11 @@ Si actives aquesta opció, es poden desbloquejar qualitats de vídeo més altes"
   <string name="revanced_disable_zoom_haptics_summary_on">Els hàptics estan desactivats</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Els hàptics estan habilitats</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Forçar àudio original</string>
+  <string name="revanced_force_original_audio_summary_on">Utilitzant àudio original</string>
+  <string name="revanced_force_original_audio_summary_off">Utilitzant àudio predeterminat</string>
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Automàtic</string>
@@ -1210,6 +1232,7 @@ Si actives aquesta opció, es poden desbloquejar qualitats de vídeo més altes"
   <string name="revanced_video_quality_default_wifi_title">Qualitat de vídeo predeterminada a la xarxa Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Qualitat de vídeo predeterminada a la xarxa mòbil</string>
   <string name="revanced_remember_video_quality_mobile">mòbil</string>
+  <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">S\'ha canviat la qualitat predeterminada de %1$s a: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
@@ -1261,9 +1284,8 @@ La reproducció de vídeo pot no funcionar"</string>
 
 AVC té una resolució màxima de 1080p, el còdec d'àudio Opus no està disponible i la reproducció de vídeo utilitzarà més dades d'Internet que VP9 o AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Efectes secundaris de la falsificació d\'iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Els vídeos privats de nens poden no reproduir-se
-• Les emissions en directe comencen des del principi
-• Els vídeos acaben 1 segon abans"</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Els vídeos privats per a nens potser no es reprodueixen
+• Els vídeos finalitzen 1 segon abans"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Efecte secundaris de la suplantació d\'Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Els vídeos de nens poden no reproduir-se
 • Les emissions en directe comencen des del principi
@@ -1335,6 +1357,8 @@ AVC té una resolució màxima de 1080p, el còdec d'àudio Opus no està dispon
   <string name="revanced_embedded_ads_service_failed">%s ha retornat un error, és possible que es mostrin anuncis. Prova de canviar el servei de bloqueig d\'anuncis a la configuració.</string>
   <string name="revanced_block_embedded_ads_title">Bloquejar anuncis de vídeo integrats</string>
   <string name="revanced_block_embedded_ads_entry_1">Desactivat</string>
+  <string name="revanced_block_embedded_ads_entry_2">Proxy lluminoso</string>
+  <string name="revanced_block_embedded_ads_entry_3">Proxy PurpleAdBlock</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">
   <string name="revanced_block_video_ads_title">Bloquejar anuncis de vídeo</string>
