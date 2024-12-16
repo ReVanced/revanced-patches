@@ -82,7 +82,11 @@ public final class MiniplayerPatch {
         final int WIDTH_DIP_MIN = 170; // Seems to be the smallest that works.
         final int HORIZONTAL_PADDING_DIP = 15; // Estimated padding.
         // Round down to the nearest 5 pixels, to keep any error toasts easier to read.
-        final int WIDTH_DIP_MAX = 5 * ((deviceDipWidth - HORIZONTAL_PADDING_DIP) / 5);
+        final int estimatedWidthDipMax = 5 * ((deviceDipWidth - HORIZONTAL_PADDING_DIP) / 5);
+        // On some ultra low end devices the pixel width and density are the same number,
+        // which causes the estimate to always give a value of 1.
+        // Fix this by using a fixed size of double the min width.
+        final int WIDTH_DIP_MAX = Math.max(2 * WIDTH_DIP_MIN, estimatedWidthDipMax);
         Logger.printDebug(() -> "Screen dip width: " + deviceDipWidth + " maxWidth: " + WIDTH_DIP_MAX);
 
         int dipWidth = Settings.MINIPLAYER_WIDTH_DIP.get();
@@ -145,6 +149,18 @@ public final class MiniplayerPatch {
 
     private static final int OPACITY_LEVEL;
 
+    static {
+        int opacity = Settings.MINIPLAYER_OPACITY.get();
+
+        if (opacity < 0 || opacity > 100) {
+            Utils.showToastLong(str("revanced_miniplayer_opacity_invalid_toast"));
+            Settings.MINIPLAYER_OPACITY.resetToDefault();
+            opacity = Settings.MINIPLAYER_OPACITY.defaultValue;
+        }
+
+        OPACITY_LEVEL = (opacity * 255) / 100;
+    }
+
     public static final class MiniplayerHorizontalDragAvailability implements Setting.Availability {
         @Override
         public boolean isAvailable() {
@@ -161,18 +177,6 @@ public final class MiniplayerPatch {
                     && !Settings.MINIPLAYER_DOUBLE_TAP_ACTION.get() && !Settings.MINIPLAYER_DRAG_AND_DROP.get())
                     || (IS_19_29_OR_GREATER && type == MODERN_3);
         }
-    }
-
-    static {
-        int opacity = Settings.MINIPLAYER_OPACITY.get();
-
-        if (opacity < 0 || opacity > 100) {
-            Utils.showToastLong(str("revanced_miniplayer_opacity_invalid_toast"));
-            Settings.MINIPLAYER_OPACITY.resetToDefault();
-            opacity = Settings.MINIPLAYER_OPACITY.defaultValue;
-        }
-
-        OPACITY_LEVEL = (opacity * 255) / 100;
     }
 
     /**
