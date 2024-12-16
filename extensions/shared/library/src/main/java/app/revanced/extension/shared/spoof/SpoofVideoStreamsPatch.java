@@ -165,6 +165,19 @@ public class SpoofVideoStreamsPatch {
         return postData;
     }
 
+    /**
+     * Injection point.
+     *
+     * Fixes iOS livestreams starting from the beginning.
+     */
+    public static boolean fixHLSCurrentTime(boolean original) {
+        if (!SPOOF_STREAMING_DATA) {
+            return original;
+        }
+
+        return false;
+    }
+
     public static final class SpoofiOSAvailability implements Setting.Availability {
         @Override
         public boolean isAvailable() {
