@@ -1,3 +1,10 @@
+# [5.5.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.5.0-dev.2...v5.5.0-dev.3) (2024-12-16)
+
+
+### Features
+
+* **YouTube - Hide feed components:** Remove obsolete `Hide search result shelf header` option ([#4134](https://github.com/ReVanced/revanced-patches/issues/4134)) ([c71443a](https://github.com/ReVanced/revanced-patches/commit/c71443a08883ab10ef2553213c03b00e7c580a43))
+
 # [5.5.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.5.0-dev.1...v5.5.0-dev.2) (2024-12-16)
 
 
