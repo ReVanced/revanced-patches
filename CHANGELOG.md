@@ -1,3 +1,10 @@
+# [5.5.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.5.0-dev.4...v5.5.0-dev.5) (2024-12-16)
+
+
+### Features
+
+* **YouTube - Navigation buttons:** Add options to disable translucent status bar and navigation bar ([#4133](https://github.com/ReVanced/revanced-patches/issues/4133)) ([a2d2141](https://github.com/ReVanced/revanced-patches/commit/a2d2141cec9b0b4929e07a8010889b21c324b229))
+
 # [5.5.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.5.0-dev.3...v5.5.0-dev.4) (2024-12-16)
 
 
