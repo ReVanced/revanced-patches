@@ -1,3 +1,10 @@
+# [5.5.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.5.0-dev.1...v5.5.0-dev.2) (2024-12-16)
+
+
+### Bug Fixes
+
+* **YouTube Music:** Add `Spoof client patch` to fix playback ([#4132](https://github.com/ReVanced/revanced-patches/issues/4132)) ([b092508](https://github.com/ReVanced/revanced-patches/commit/b0925088e8b41636e285cb234593d545604ce461))
+
 # [5.5.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.4.1-dev.1...v5.5.0-dev.1) (2024-12-15)
 
 
