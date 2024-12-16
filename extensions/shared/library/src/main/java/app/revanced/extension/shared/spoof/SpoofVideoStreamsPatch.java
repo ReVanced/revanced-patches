@@ -16,6 +16,10 @@ import app.revanced.extension.shared.spoof.requests.StreamingDataRequest;
 @SuppressWarnings("unused")
 public class SpoofVideoStreamsPatch {
     private static final boolean SPOOF_STREAMING_DATA = BaseSettings.SPOOF_VIDEO_STREAMS.get();
+
+    private static final boolean FIX_HLS_CURRENT_TIME = SPOOF_STREAMING_DATA
+            && BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.IOS;
+
     /**
      * Any unreachable ip address.  Used to intentionally fail requests.
      */
@@ -171,11 +175,11 @@ public class SpoofVideoStreamsPatch {
      * Fixes iOS livestreams starting from the beginning.
      */
     public static boolean fixHLSCurrentTime(boolean original) {
-        if (!SPOOF_STREAMING_DATA) {
-            return original;
+        if (FIX_HLS_CURRENT_TIME) {
+            return false;
         }
 
-        return false;
+        return original;
     }
 
     public static final class SpoofiOSAvailability implements Setting.Availability {
