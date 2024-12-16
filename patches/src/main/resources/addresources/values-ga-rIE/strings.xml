@@ -517,9 +517,14 @@ Nóta: Trí é seo a chumasú, cuirtear fógraí físeáin i bhfolach freisin"</
   <string name="revanced_hide_navigation_button_labels_summary_on">Tá lipéid i bhfolach</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Taispeántar lipéid</string>
   <string name="revanced_disable_translucent_status_bar_title">Díchumas trasúlacht staidéir a dhíchumas</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">Tá an barra stádais neamhshainiúil</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">Tá an barra stádais neamhshainiúil nó tríluchtúil</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Díchumas barra soiléir trasúlachta</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Tá barra nascleanúna mód soiléir dochrach</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Tá an barra nascleanúna sa mód solas neamhshainiúil nó tríluchtúil</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Díchoigearrd an barra tríluchtúil dorcha</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Tá barra nascleanúna mód dorcha dochrach</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Tá an barra nascleanúna sa mód dorcha neamhshainiúil nó tríluchtúil</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Roghchlár Flyout</string>
@@ -1285,6 +1290,8 @@ D'fhéadfadh nach n-oibreoidh athsheinm físeáin"</string>
 
 Tá uasmhéid réiteach 1080p ag AVC, níl an cód fuaime Opus ar fáil, agus úsáidfidh athsheinm físeáin níos mó sonraí idirlín ná VP9 nó AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Fo-iarsmaí spoofing iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Ní fhéadfaidh físeáin phríobháideacha leanaí a imirt
+• Críochnaíonn físeáin 1 soicind go luath"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Fo-iarsmaí spoofing Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• D'fhéadfadh nach n-imreoidh físeáin pháistí
 • Tosóidh shruth beo ón tús

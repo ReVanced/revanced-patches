@@ -1069,7 +1069,11 @@ Om det senare stängs av rekommenderas det att rensa appens data för att förhi
   <string name="revanced_miniplayer_type_title">Miniplayer typ</string>
   <string name="revanced_miniplayer_type_entry_0">Inaktiverad</string>
   <string name="revanced_miniplayer_type_entry_1">Standard</string>
+  <string name="revanced_miniplayer_type_entry_2">Minimal</string>
   <string name="revanced_miniplayer_type_entry_3">Surfplatta</string>
+  <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
+  <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
+  <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
   <string name="revanced_miniplayer_rounded_corners_title">Aktivera rundade hörn</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Hörnen är rundade</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Hörnen är kvadratiska</string>
@@ -1220,6 +1224,8 @@ Att aktivera detta kan låsa upp högre videokvalitet"</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Forcera originalljud</string>
+  <string name="revanced_force_original_audio_summary_on">Använder original ljudeffekter</string>
+  <string name="revanced_force_original_audio_summary_off">Använder standardljud</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
@@ -1230,6 +1236,7 @@ Att aktivera detta kan låsa upp högre videokvalitet"</string>
   <string name="revanced_video_quality_default_wifi_title">Standard videokvalitet på Wi-Fi-nätverk</string>
   <string name="revanced_video_quality_default_mobile_title">Standard videokvalitet på mobilt nätverk</string>
   <string name="revanced_remember_video_quality_mobile">mobil</string>
+  <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Ändrade standardkvalitet %1$s till: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
@@ -1304,29 +1311,42 @@ AVC har en maximal upplösning på 1080p, Opus-ljudcodec är inte tillgänglig o
   <string name="revanced_spoof_video_streams_language_FA">Persiska</string>
   <string name="revanced_spoof_video_streams_language_FI">Finska</string>
   <string name="revanced_spoof_video_streams_language_FR">Franska</string>
+  <string name="revanced_spoof_video_streams_language_GU">Gujarati</string>
+  <string name="revanced_spoof_video_streams_language_HI">Hindi</string>
   <string name="revanced_spoof_video_streams_language_HR">Kroatiska</string>
   <string name="revanced_spoof_video_streams_language_HU">Ungerska</string>
   <string name="revanced_spoof_video_streams_language_ID">Indonesiska</string>
   <string name="revanced_spoof_video_streams_language_IT">Italienska</string>
   <string name="revanced_spoof_video_streams_language_JA">Japanska</string>
+  <string name="revanced_spoof_video_streams_language_KK">Kazakiska</string>
   <string name="revanced_spoof_video_streams_language_KO">Koreanska</string>
   <string name="revanced_spoof_video_streams_language_LT">Litauiska</string>
   <string name="revanced_spoof_video_streams_language_LV">Lettiska</string>
   <string name="revanced_spoof_video_streams_language_MK">Makedonska</string>
   <string name="revanced_spoof_video_streams_language_MN">Mongoliska</string>
+  <string name="revanced_spoof_video_streams_language_MR">Marathi</string>
   <string name="revanced_spoof_video_streams_language_MS">Malajiska</string>
+  <string name="revanced_spoof_video_streams_language_MY">Burmesiska</string>
   <string name="revanced_spoof_video_streams_language_NL">Holländska</string>
+  <string name="revanced_spoof_video_streams_language_OR">Odia</string>
+  <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
   <string name="revanced_spoof_video_streams_language_PL">Polska</string>
   <string name="revanced_spoof_video_streams_language_PT_BR">Portugisiska (Brasilien)</string>
   <string name="revanced_spoof_video_streams_language_PT_PT">Portugisiska (Portugal)</string>
   <string name="revanced_spoof_video_streams_language_RO">Rumänska</string>
   <string name="revanced_spoof_video_streams_language_RU">Ryska</string>
   <string name="revanced_spoof_video_streams_language_SK">Slovakiska</string>
+  <string name="revanced_spoof_video_streams_language_SL">Slovenska</string>
   <string name="revanced_spoof_video_streams_language_SR">Serbiska</string>
   <string name="revanced_spoof_video_streams_language_SV">Svenska</string>
+  <string name="revanced_spoof_video_streams_language_SW">Swahili</string>
+  <string name="revanced_spoof_video_streams_language_TA">Tamil</string>
+  <string name="revanced_spoof_video_streams_language_TE">Telugu</string>
   <string name="revanced_spoof_video_streams_language_TH">Thailändska</string>
   <string name="revanced_spoof_video_streams_language_TR">Turkiska</string>
   <string name="revanced_spoof_video_streams_language_UK">Ukrainska</string>
+  <string name="revanced_spoof_video_streams_language_UR">Urdu</string>
+  <string name="revanced_spoof_video_streams_language_VI">Vietnamesiska</string>
   <string name="revanced_spoof_video_streams_language_ZH">Kinesiska</string>
   </patch>
   </app>
@@ -1341,7 +1361,8 @@ AVC har en maximal upplösning på 1080p, Opus-ljudcodec är inte tillgänglig o
   <string name="revanced_embedded_ads_service_failed">%s returnerade ett fel, annonser kan visas. Försök att ändra annonsblockeringstjänsten i inställningarna.</string>
   <string name="revanced_block_embedded_ads_title">Blockera inbäddade videoannonser</string>
   <string name="revanced_block_embedded_ads_entry_1">Inaktiverad</string>
-  <string name="revanced_block_embedded_ads_entry_2">Lysande proxy</string>
+  <string name="revanced_block_embedded_ads_entry_2">Luminous proxy</string>
+  <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock-proxy</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">
   <string name="revanced_block_video_ads_title">Blockera videoannonser</string>

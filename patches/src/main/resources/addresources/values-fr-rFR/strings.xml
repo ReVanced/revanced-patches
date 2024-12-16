@@ -517,9 +517,14 @@ Remarque : l'activation de cette option masque également de force les annonces
   <string name="revanced_hide_navigation_button_labels_summary_on">Les noms sont masqués</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Les noms sont affichés</string>
   <string name="revanced_disable_translucent_status_bar_title">Désactiver la barre d\'état translucide</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">La barre d\'état est opaque</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">La barre d\'état est opaque ou translucide</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Désactiver la barre de navigation translucide claire</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">La barre de navigation en mode clair est opaque</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">La barre de navigation en mode clair est opaque ou translucide</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Désactiver la barre de navigation translucide foncée</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">La barre de navigation en mode sombre est opaque</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">La barre de navigation en mode sombre est opaque ou translucide</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Menu déroulant</string>
@@ -1284,6 +1289,8 @@ La lecture vidéo peut ne pas fonctionner"</string>
 
 AVC a une résolution maximale de 1080p, le codec audio Opus n'est pas disponible et la lecture vidéo utilisera plus de données Internet que VP9 ou AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Effets secondaires d\'usurpation iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Les vidéos privées pour enfants ne peuvent pas être lues
+• Les vidéos se terminent 1 seconde plus tôt"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Effets secondaires de l\'usurpation VR Android</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Les vidéos pour enfants peuvent ne pas être lues
 • Les diffusions en direct commencent depuis le début

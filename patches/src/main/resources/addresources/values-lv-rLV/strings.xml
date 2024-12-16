@@ -1236,6 +1236,7 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   <string name="revanced_video_quality_default_wifi_title">Noklusējuma video kvalitāte Wi-Fi tīklā</string>
   <string name="revanced_video_quality_default_mobile_title">Noklusējuma video kvalitāte mobilajā tīklā</string>
   <string name="revanced_remember_video_quality_mobile">mobilais</string>
+  <string name="revanced_remember_video_quality_wifi">bezvadu tīkls</string>
   <string name="revanced_remember_video_quality_toast">Izmainīta noklusējuma %1$s kvalitāte uz: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
@@ -1311,6 +1312,7 @@ AVC maksimālā izšķirtspēja ir 1080p, Opus audio kodeks nav pieejams, un vid
   <string name="revanced_spoof_video_streams_language_FI">Somu</string>
   <string name="revanced_spoof_video_streams_language_FR">Franču</string>
   <string name="revanced_spoof_video_streams_language_GU">Gudžarati</string>
+  <string name="revanced_spoof_video_streams_language_HI">Hindi</string>
   <string name="revanced_spoof_video_streams_language_HR">Horvātu</string>
   <string name="revanced_spoof_video_streams_language_HU">Ungāru</string>
   <string name="revanced_spoof_video_streams_language_ID">Indonēziešu</string>
@@ -1339,9 +1341,11 @@ AVC maksimālā izšķirtspēja ir 1080p, Opus audio kodeks nav pieejams, un vid
   <string name="revanced_spoof_video_streams_language_SV">Zviedru</string>
   <string name="revanced_spoof_video_streams_language_SW">Svahili</string>
   <string name="revanced_spoof_video_streams_language_TA">Tamilu</string>
+  <string name="revanced_spoof_video_streams_language_TE">Telugu</string>
   <string name="revanced_spoof_video_streams_language_TH">Taizemes</string>
   <string name="revanced_spoof_video_streams_language_TR">Turku</string>
   <string name="revanced_spoof_video_streams_language_UK">Ukrainas</string>
+  <string name="revanced_spoof_video_streams_language_UR">Urdu</string>
   <string name="revanced_spoof_video_streams_language_VI">Vjetnamas</string>
   <string name="revanced_spoof_video_streams_language_ZH">Ķīniešu</string>
   </patch>
@@ -1357,6 +1361,8 @@ AVC maksimālā izšķirtspēja ir 1080p, Opus audio kodeks nav pieejams, un vid
   <string name="revanced_embedded_ads_service_failed">%s radās kļūda, var parādīties reklāmas. Mēģiniet mainīt reklāmu bloķēšanas pakalpojumu iestatījumos.</string>
   <string name="revanced_block_embedded_ads_title">Bloķēt iebūvētās video reklāmas</string>
   <string name="revanced_block_embedded_ads_entry_1">Atspējots</string>
+  <string name="revanced_block_embedded_ads_entry_2">Luminous starpniekserveris</string>
+  <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock starpniekserveris</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">
   <string name="revanced_block_video_ads_title">Bloķēt video reklāmas</string>
