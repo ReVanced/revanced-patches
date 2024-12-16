@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Дата стварэння APK пашкоджана</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Вы хочаце працягнуць?</string>
   <string name="revanced_settings_reset">Скінуць</string>
   <string name="revanced_settings_restart_title">Абнавіце і перазагрузіце</string>
@@ -78,6 +79,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_03_feed_title">Карміць</string>
   <string name="revanced_settings_screen_04_player_title">Гулец</string>
   <string name="revanced_settings_screen_05_general_title">Генеральная планіроўка</string>
+  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Панэль пошуку</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Элементы кіравання пальцам</string>
   <string name="revanced_settings_screen_11_misc_title">Рознае</string>
@@ -157,9 +159,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_timed_reactions_title">Схаваць рэакцыі па часе</string>
   <string name="revanced_hide_timed_reactions_summary_on">Часовыя рэакцыі схаваныя</string>
   <string name="revanced_hide_timed_reactions_summary_off">Паказваюцца рэакцыі па часе</string>
-  <string name="revanced_hide_search_result_shelf_header_title">Схаваць загаловак паліцы з вынікамі пошуку</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">Загаловак паліцы схаваны</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">Паказаны загаловак паліцы</string>
   <string name="revanced_hide_channel_guidelines_title">Схаваць рэкамендацыі канала</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Правілы канала схаваны</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Паказваюцца інструкцыі па каналах</string>
@@ -517,6 +516,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_navigation_button_labels_title">Схаваць меткі кнопак навігацыі</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Цэтлікі схаваныя</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Этыкеткі паказаны</string>
+  <string name="revanced_disable_translucent_status_bar_title">Адключыць празрыстую панэль стану</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Адключыць светлую празрыстую панэль</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Панэль навігацыі ў светлым рэжыме непразрыстая</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Панэль навігацыі ў цёмным рэжыме непразрыстая</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Выпадаючае меню</string>
@@ -1216,6 +1219,11 @@ Second \"item\" text"</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Тактыльныя функцыі адключаны</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Тактыльныя сігналы ўключаны</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Вымушанае арыгінальнае аўдыё</string>
+  <string name="revanced_force_original_audio_summary_on">Выкарыстанне арыгінальнага аўдыё</string>
+  <string name="revanced_force_original_audio_summary_off">Выкарыстанне аўдыё па змаўчанні</string>
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Аўто</string>
@@ -1225,6 +1233,7 @@ Second \"item\" text"</string>
   <string name="revanced_video_quality_default_wifi_title">Стандартная якасць відэа ў сетцы Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Стандартная якасць відэа ў мабільнай сетцы</string>
   <string name="revanced_remember_video_quality_mobile">мабільны</string>
+  <string name="revanced_remember_video_quality_wifi">wi-fi</string>
   <string name="revanced_remember_video_quality_toast">Стандартная якасць %1$s зменена на: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
@@ -1276,9 +1285,6 @@ Second \"item\" text"</string>
 
 AVC мае максімальную раздзяляльнасць 1080p, аўдыякадэкар Opus недаступны, і відэа будзе выкарыстоўваць больш Інтэрнэт-даных, чым VP9 або AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Пабочныя эфекты падмены iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Прыватныя дзіцячыя відэа могуць не прайгравацца
-• Трансляцыі ў прамым эфіры пачынаюцца з пачатку
-• Відэа заканчваюцца на 1 секунду раней"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Побочные эффекты подмены Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Дзіцячыя відэа могуць не прайгравацца
 • Трансляцыі ў прамым эфіры пачынаюцца з пачатку

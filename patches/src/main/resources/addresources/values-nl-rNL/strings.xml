@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK-bouwdatum is beschadigd</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Wilt u doorgaan?</string>
   <string name="revanced_settings_reset">Herstellen naar standaard</string>
   <string name="revanced_settings_restart_title">Vernieuwen en herstarten</string>
@@ -78,6 +79,7 @@ Tik op de knop Doorgaan en sta optimalisatieveranderingen toe."</string>
   <string name="revanced_settings_screen_03_feed_title">Feed</string>
   <string name="revanced_settings_screen_04_player_title">Speler</string>
   <string name="revanced_settings_screen_05_general_title">Algemene lay-out</string>
+  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Zoekbalk</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Veegbediening</string>
   <string name="revanced_settings_screen_11_misc_title">Diversen</string>
@@ -157,9 +159,6 @@ U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
   <string name="revanced_hide_timed_reactions_title">Verberg getimede reacties</string>
   <string name="revanced_hide_timed_reactions_summary_on">Gectimed reacties worden verborgen</string>
   <string name="revanced_hide_timed_reactions_summary_off">Gectimed reacties worden getoond</string>
-  <string name="revanced_hide_search_result_shelf_header_title">Verberg zoekresultaat-plankheader</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">Plankheader is verborgen</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">Plankheader is te zien</string>
   <string name="revanced_hide_channel_guidelines_title">Verberg kanaalrichtlijnen</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Kanaalrichtlijnen zijn verborgen</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Kan Richtlijnen Zichtbaar</string>
@@ -517,6 +516,10 @@ Opmerking: Als u dit inschakelt, worden videoadvertenties ook geforceerd verborg
   <string name="revanced_hide_navigation_button_labels_title">Navigatieknoppenlabels verbergen</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Labels zijn verborgen</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Labels worden weergegeven</string>
+  <string name="revanced_disable_translucent_status_bar_title">Transparante statusbalk uitschakelen</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Transparante lichte navigatiebalk uitschakelen</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">De lichte navigatiebalk is ondoorzichtig</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">De donkere navigatiebalk is ondoorzichtig</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Uitklapmenu</string>
@@ -940,8 +943,8 @@ Bestaat al"</string>
   <string name="revanced_sb_vote_failed_timeout">Kan niet voor segment stemmen (API-time-out)</string>
   <string name="revanced_sb_vote_failed_unknown_error">Kan niet voor segment stemmen (status: %1$d %2$s)</string>
   <string name="revanced_sb_vote_failed_forbidden">Kan niet voor segment stemmen: %s</string>
-  <string name="revanced_sb_vote_upvote">Upvote</string>
-  <string name="revanced_sb_vote_downvote">Downvote</string>
+  <string name="revanced_sb_vote_upvote">Stem omhoog</string>
+  <string name="revanced_sb_vote_downvote">Stem omlaag</string>
   <string name="revanced_sb_vote_category">Verander categorie</string>
   <string name="revanced_sb_vote_no_segments">Er zijn geen segmenten om voor te stemmen</string>
   <string name="revanced_sb_new_segment_choose_category">Kies de segmentcategorie</string>
@@ -1024,7 +1027,7 @@ Als het later wordt uitgeschakeld, wordt aanbevolen om de app-gegevens te wissen
   <string name="revanced_change_start_page_entry_default">Standaard</string>
   <string name="revanced_change_start_page_entry_browse">Kanalen browsen</string>
   <string name="revanced_change_start_page_entry_explore">Verkennen</string>
-  <string name="revanced_change_start_page_entry_gaming">Gaming</string>
+  <string name="revanced_change_start_page_entry_gaming">Gamen</string>
   <string name="revanced_change_start_page_entry_history">Geschiedenis</string>
   <string name="revanced_change_start_page_entry_library">Bibliotheek</string>
   <string name="revanced_change_start_page_entry_liked_videos">Gelikte video\'s</string>
@@ -1034,7 +1037,7 @@ Als het later wordt uitgeschakeld, wordt aanbevolen om de app-gegevens te wissen
   <string name="revanced_change_start_page_entry_search">Zoeken</string>
   <string name="revanced_change_start_page_entry_sports">Sport</string>
   <string name="revanced_change_start_page_entry_subscriptions">Abonnements</string>
-  <string name="revanced_change_start_page_entry_trending">Trending</string>
+  <string name="revanced_change_start_page_entry_trending">Trends</string>
   <string name="revanced_change_start_page_entry_watch_later">Later bekijken</string>
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
@@ -1057,6 +1060,7 @@ Als het later wordt uitgeschakeld, wordt aanbevolen om de app-gegevens te wissen
   <string name="revanced_tablet_layout_user_dialog_message">Berichten van de community worden niet weergegeven in tablet-indelingen</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
+  <string name="revanced_miniplayer_screen_title">Minispeler</string>
   <string name="revanced_miniplayer_screen_summary">Wijzig de stijl van de geminimaliseerde speler in de app</string>
   <string name="revanced_miniplayer_type_title">\"miniplayer\"-type</string>
   <string name="revanced_miniplayer_type_entry_0">Uitgeschakeld</string>
@@ -1214,6 +1218,11 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Haptics zijn uitgeschakeld</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Haptics zijn ingeschakeld</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Forceer originele audio</string>
+  <string name="revanced_force_original_audio_summary_on">Originele audio gebruiken</string>
+  <string name="revanced_force_original_audio_summary_off">Standaard audio gebruiken</string>
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Automatisch</string>
@@ -1223,6 +1232,7 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_video_quality_default_wifi_title">Standaard videokwaliteit op Wi-Fi-netwerk</string>
   <string name="revanced_video_quality_default_mobile_title">Standaard videokwaliteit op mobiel netwerk</string>
   <string name="revanced_remember_video_quality_mobile">mobiel</string>
+  <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Standaard %1$s-kwaliteit gewijzigd naar: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
@@ -1274,9 +1284,6 @@ Video-playback werkt mogelijk niet"</string>
 
 AVC heeft een maximale resolutie van 1080p, Opus audiocodec is niet beschikbaar en video-playback gebruikt meer internetgegevens dan VP9 of AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Neveneffecten van iOS-vervalsing</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Privé kindervideo's worden mogelijk niet afgespeeld
-• Livestreams beginnen vanaf het begin
-• Video's eindigen 1 seconde eerder"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Neveneffecten van Android VR-vervalsing</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Kindervideo's worden mogelijk niet afgespeeld
 • Livestreams beginnen vanaf het begin
@@ -1329,7 +1336,7 @@ AVC heeft een maximale resolutie van 1080p, Opus audiocodec is niet beschikbaar 
   <string name="revanced_spoof_video_streams_language_SW">Swahili</string>
   <string name="revanced_spoof_video_streams_language_TA">Tamil</string>
   <string name="revanced_spoof_video_streams_language_TE">Telugu</string>
-  <string name="revanced_spoof_video_streams_language_TH">Thai</string>
+  <string name="revanced_spoof_video_streams_language_TH">Thais</string>
   <string name="revanced_spoof_video_streams_language_TR">Turks</string>
   <string name="revanced_spoof_video_streams_language_UK">Oekraïens</string>
   <string name="revanced_spoof_video_streams_language_UR">Urdu</string>
@@ -1348,6 +1355,8 @@ AVC heeft een maximale resolutie van 1080p, Opus audiocodec is niet beschikbaar 
   <string name="revanced_embedded_ads_service_failed">%s heeft een fout geretourneerd, advertenties kunnen worden weergegeven. Probeer de advertentieblokkeerservice in de instellingen te wijzigen.</string>
   <string name="revanced_block_embedded_ads_title">Blokkeer ingesloten videoadvertenties</string>
   <string name="revanced_block_embedded_ads_entry_1">Uitgeschakeld</string>
+  <string name="revanced_block_embedded_ads_entry_2">Luminous-proxy</string>
+  <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock-proxy</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">
   <string name="revanced_block_video_ads_title">Blokkeer video-advertenties</string>

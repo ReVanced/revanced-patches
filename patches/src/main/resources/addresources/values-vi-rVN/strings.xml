@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Ngày dựng APK bị hỏng</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Bạn có muốn tiếp tục không?</string>
   <string name="revanced_settings_reset">Đặt lại</string>
   <string name="revanced_settings_restart_title">Làm mới và khởi động lại</string>
@@ -78,6 +79,7 @@ Nhấn nút tiếp tục và cho phép thay đổi tối ưu hóa."</string>
   <string name="revanced_settings_screen_03_feed_title">Bảng tin</string>
   <string name="revanced_settings_screen_04_player_title">Trình phát</string>
   <string name="revanced_settings_screen_05_general_title">Bố cục chung</string>
+  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Thanh tiến trình</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Cử chỉ vuốt</string>
   <string name="revanced_settings_screen_11_misc_title">Cài đặt khác</string>
@@ -157,9 +159,6 @@ Bạn sẽ không được thông báo về bất kỳ sự kiện bất ngờ n
   <string name="revanced_hide_timed_reactions_title">Ẩn phản ứng theo thời gian</string>
   <string name="revanced_hide_timed_reactions_summary_on">Phản ứng theo thời gian được ẩn</string>
   <string name="revanced_hide_timed_reactions_summary_off">Phản ứng theo thời gian được hiện</string>
-  <string name="revanced_hide_search_result_shelf_header_title">Ẩn tiêu đề giá kết quả tìm kiếm</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">Kệ tiêu đề được ẩn</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">Tiêu đề đã được hiển thị</string>
   <string name="revanced_hide_channel_guidelines_title">Ẩn nguyên tắc của kênh</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Nguyên tắc của kênh được ẩn</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Nguyên tắc của kênh được hiện</string>
@@ -256,6 +255,7 @@ Bạn sẽ không được thông báo về bất kỳ sự kiện bất ngờ n
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Đã hiện trong video liên quan</string>
   <string name="revanced_comments_screen_title">Bình luận</string>
   <string name="revanced_comments_screen_summary">Ẩn hoặc hiện các thành phần bình luận</string>
+  <string name="revanced_hide_comments_chat_summary_title">Ẩn \'Tóm tắt trò chuyện\' </string>
   <string name="revanced_hide_comments_chat_summary_summary_on">\'Tóm tắt trò chuyện\' bị ẩn</string>
   <string name="revanced_hide_comments_chat_summary_summary_off">\'Tóm tắt trò chuyện\' được hiển thị</string>
   <string name="revanced_hide_comments_by_members_header_title">Ẩn tiêu đề \'Bình luận bởi hội viên\'</string>
@@ -516,6 +516,15 @@ Lưu ý: Bật tính năng này cũng sẽ tự động ẩn quảng cáo video"
   <string name="revanced_hide_navigation_button_labels_title">Ẩn các nhãn nút điều hướng</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Các nhãn được ẩn</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Các nhãn được hiện</string>
+  <string name="revanced_disable_translucent_status_bar_title">Vô hiệu hóa thanh trạng thái trong suốt</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">Thanh trạng thái là đục</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">Thanh trạng thái là đục hoặc trong mờ</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Vô hiệu hóa thanh điều hướng trong suốt ở chế độ sáng</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Thanh điều hướng ở chế độ sáng không trong suốt</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Thanh điều hướng ở chế độ sáng là đục hoặc trong mờ</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Vô hiệu hoá thanh điều hướng trong mờ tối</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Thanh điều hướng ở chế độ tối không trong suốt</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Thanh điều hướng ở chế độ tối là đục hoặc trong mờ</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Trình đơn nổi</string>
@@ -952,15 +961,15 @@ ID người dùng của bạn giống như mật khẩu và không bao giờ đ�
   <string name="revanced_sb_new_segment_time_start">Thời gian phân đoạn bắt đầu lúc</string>
   <string name="revanced_sb_new_segment_time_end">Thời gian phân đoạn kết thúc lúc</string>
   <string name="revanced_sb_new_segment_confirm_title">Thời gian đã đúng chưa?</string>
-  <string name="revanced_sb_new_segment_confirm_content">"The segment is from
+  <string name="revanced_sb_new_segment_confirm_content">"Phân đoạn này bắt đầu từ
 
 %1$s
-to
+đến
 %2$s
 
 (%3$s)
 
-Ready to submit?"</string>
+Bạn đã sẵn sàng gửi?"</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Thời gian bắt đầu phải trước thời gian kết thúc</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Đánh dấu hai vị trí đầu - cuối trên thanh thời gian trước</string>
   <string name="revanced_sb_new_segment_preview_segment_first">Hãy xem trước phân đoạn để đảm bảo rằng nó bỏ qua suôn sẻ</string>
@@ -1138,6 +1147,7 @@ Bật tính năng này có thể khắc phục hình ảnh bị thiếu khi bị
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Hình thu nhỏ gốc</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Chụp tĩnh</string>
   <string name="revanced_alt_thumbnail_options_entry_4">Chụp tĩnh</string>
+  <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
   <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow cung cấp hình thu nhỏ có nguồn gốc từ cộng đồng cho video YouTube. Những hình thu nhỏ này thường liên quan hơn so với những hình thu nhỏ do YouTube cung cấp
 
 Nếu được bật, URL video sẽ được gửi đến máy chủ API và không có dữ liệu nào khác được gửi. Nếu video không có hình thu nhỏ DeArrow, thì hình thu nhỏ gốc hoặc ảnh chụp tĩnh sẽ được hiển thị
@@ -1213,6 +1223,11 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_disable_zoom_haptics_summary_on">Phản hồi xúc giác được tắt</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Phản hồi xúc giác được bật</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Buộc sử dụng âm thanh gốc</string>
+  <string name="revanced_force_original_audio_summary_on">Sử dụng âm thanh gốc</string>
+  <string name="revanced_force_original_audio_summary_off">Sử dụng âm thanh mặc định</string>
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Tự động</string>
@@ -1274,8 +1289,7 @@ Phát lại video có thể không hoạt động"</string>
 
 AVC có độ phân giải tối đa là 1080p, bộ giải mã âm thanh Opus không khả dụng và phát lại video sẽ sử dụng nhiều dữ liệu internet hơn VP9 hoặc AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Tác dụng phụ của giả mạo iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Video thiếu nhi riêng tư có thể không phát
-• Luồng trực tiếp bắt đầu từ đầu
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Video riêng tư của trẻ em có thể không phát
 • Video kết thúc sớm 1 giây"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Tác dụng phụ của giả mạo Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Video thiếu nhi có thể không phát

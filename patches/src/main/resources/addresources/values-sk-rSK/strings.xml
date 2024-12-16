@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Dátum zostavenia APK je poškodený</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Chcete pokračovať?</string>
   <string name="revanced_settings_reset">Resetovať</string>
   <string name="revanced_settings_restart_title">Obnovte a reštartujte</string>
@@ -42,7 +43,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Nastavenia ReVanced sa obnovia na predvolené</string>
   <string name="revanced_settings_import_success">Počet importovaných nastavení: %d</string>
   <string name="revanced_settings_import_failure_parse">Import zlyhal: %s</string>
-  <string name="revanced_pref_import_export_title">Import / Export</string>
+  <string name="revanced_pref_import_export_title">Importovať / Exportovať</string>
   <string name="revanced_pref_import_export_summary">Import / Export nastavení ReVanced</string>
   <!-- Settings about dialog. -->
   <string name="revanced_settings_about_links_body">Používate ReVanced Patches verziu &lt;i&gt;%s&lt;/i&gt;</string>
@@ -76,6 +77,7 @@ Vypnutie optimalizácie batérie pre MicroG nebude mať negatívny vplyv na spot
   <string name="revanced_settings_screen_03_feed_title">Feed</string>
   <string name="revanced_settings_screen_04_player_title">Hráč</string>
   <string name="revanced_settings_screen_05_general_title">Všeobecné rozloženie</string>
+  <string name="revanced_settings_screen_06_shorts_title">Kanály</string>
   <string name="revanced_settings_screen_07_seekbar_title">Panel vyhľadávania</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Ovládanie potiahnutím</string>
   <string name="revanced_settings_screen_11_misc_title">Rôzne</string>
@@ -155,9 +157,6 @@ Nebudete informovaní o žiadnych nepredvídaných udalostiach."</string>
   <string name="revanced_hide_timed_reactions_title">Skryť načasované reakcie</string>
   <string name="revanced_hide_timed_reactions_summary_on">Časované reakcie sú skryté</string>
   <string name="revanced_hide_timed_reactions_summary_off">Sú zobrazené načasované reakcie</string>
-  <string name="revanced_hide_search_result_shelf_header_title">Skryť hlavičku poličky s výsledkami vyhľadávania</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">Hlavička police je skrytá</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">Je zobrazená hlavička police</string>
   <string name="revanced_hide_channel_guidelines_title">Skryť pokyny pre kanál</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Pokyny kanála sú skryté</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Zobrazia sa vodítka kanálov</string>
@@ -510,6 +509,15 @@ Poznámka: Povolením tejto možnosti sa tiež vynútene skryjú video reklamy"<
   <string name="revanced_hide_navigation_button_labels_title">Skryť štítky navigačných tlačidiel</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Štítky sú skryté</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Zobrazia sa štítky</string>
+  <string name="revanced_disable_translucent_status_bar_title">Deaktivovať priesvitný stavový riadok</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">Stavový riadok je nepriehľadný</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">Stavový riadok je nepriehľadný alebo priesvitný</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Deaktivovať priesvitný panel s navigáciou</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Panel s navigáciou v svetlom režime je nepriehľadný</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Navigačný panel v svetlom režime je nepriehľadný alebo priesvitný</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Zakázať tmavý priesvitný panel</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Panel s navigáciou v tmavom režime je nepriehľadný</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Navigačný panel v tmavom režime je nepriehľadný alebo priesvitný</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Rozbaľovacie menu</string>
@@ -1018,7 +1026,7 @@ Ak sa neskôr vypne, odporúča sa vymazať údaje aplikácie, aby sa zabránilo
   <string name="revanced_change_start_page_entry_history">História</string>
   <string name="revanced_change_start_page_entry_library">Knižnica</string>
   <string name="revanced_change_start_page_entry_liked_videos">Videá, ktoré sa vám páčia</string>
-  <string name="revanced_change_start_page_entry_live">Live</string>
+  <string name="revanced_change_start_page_entry_live">Živé</string>
   <string name="revanced_change_start_page_entry_movies">Filmy</string>
   <string name="revanced_change_start_page_entry_music">Hudba</string>
   <string name="revanced_change_start_page_entry_search">Vyhľadávanie</string>
@@ -1203,6 +1211,11 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Haptika je vypnutá</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Haptika je povolená</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Vynútiť pôvodný zvuk</string>
+  <string name="revanced_force_original_audio_summary_on">Používanie pôvodného zvuku</string>
+  <string name="revanced_force_original_audio_summary_off">Používanie predvoleného zvuku</string>
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Automaticky</string>
@@ -1212,6 +1225,7 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <string name="revanced_video_quality_default_wifi_title">Predvolená kvalita videa v sieti Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Predvolená kvalita videa v mobilnej sieti</string>
   <string name="revanced_remember_video_quality_mobile">mobilné</string>
+  <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">Predvolená kvalita %1$s bola zmenená na: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
@@ -1263,9 +1277,8 @@ Prehrávanie videa nemusí fungovať"</string>
 
 AVC má maximálne rozlíšenie 1080p, zvukový kodek Opus nie je dostupný a prehrávanie videa bude používať viac internetových dát ako VP9 alebo AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Vedľajšie účinky falošného prehrávača pre iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Súkromné detské videá sa nemusia prehrávať
-• Živé prenosy sa spúšťajú od začiatku
-• Videá končia o 1 sekundu skôr"</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Soukromá videa pro děti se nemusí přehrát
+• Videa končí o 1 sekundu dříve"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Vedľajťie účinky falošného prehrávača pre VR na Androide</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Detské videá sa nemusia prehrávať
 • Živé prenosy sa spúšťajú od začiatku

@@ -79,6 +79,7 @@ Dodirnite dugme „Nastavi” i dozvolite promene optimizacije."</string>
   <string name="revanced_settings_screen_03_feed_title">Fid</string>
   <string name="revanced_settings_screen_04_player_title">Plejer</string>
   <string name="revanced_settings_screen_05_general_title">Opšti izgled</string>
+  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Traka za premotavanje</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Kontrole prevlačenja</string>
   <string name="revanced_settings_screen_11_misc_title">Razno</string>
@@ -158,9 +159,6 @@ Nećete biti obavešteni ni o kakvim neočekivanim događajima."</string>
   <string name="revanced_hide_timed_reactions_title">Sakrij vremenske reakcije</string>
   <string name="revanced_hide_timed_reactions_summary_on">Vremenske reakcije su skrivene</string>
   <string name="revanced_hide_timed_reactions_summary_off">Vremenske reakcije su prikazane</string>
-  <string name="revanced_hide_search_result_shelf_header_title">Sakrij zaglavlje police u rezultatima pretrage</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">Zaglavlje police u rezultatima pretrage je skriveno</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">Zaglavlje police u rezultatima pretrage je prikazano</string>
   <string name="revanced_hide_channel_guidelines_title">Sakrij smernice kanala</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Smernice kanala su skrivene</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Smernice kanala su prikazane</string>
@@ -518,6 +516,15 @@ Napomena: Omogućavanje ovoga prisilno sakriva i video oglase"</string>
   <string name="revanced_hide_navigation_button_labels_title">Sakrij oznake dugmadi za navigaciju</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Oznake dugmadi za navigaciju su skrivene</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Oznake dugmadi za navigaciju su prikazane</string>
+  <string name="revanced_disable_translucent_status_bar_title">Onemogući prozirnu traku stanja</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">Statusna traka je neprozirna</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">Statusna traka je neprozirna ili prozirna</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Onemogući prozirnu svetlu traku</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Svetla traka za navigaciju je neprozirna</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Navigacijska traka u svetlom modu je neprozirna ili prozirna</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Onemogući tamnu prozirnu traku</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Tamna traka za navigaciju je neprozirna</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Navigacijska traka u tamnom modu je neprozirna ili prozirna</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Padajući meni</string>
@@ -1215,6 +1222,11 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Vibracija pri uveličavanju je onemogućena</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Vibracija pri uveličavanju je omogućena</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Prisili originalni zvuk</string>
+  <string name="revanced_force_original_audio_summary_on">Korišćenje originalnog zvuka</string>
+  <string name="revanced_force_original_audio_summary_off">Korišćenje podrazumevanog zvuka</string>
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Automatski</string>
@@ -1276,9 +1288,6 @@ Reprodukcija videa možda neće raditi"</string>
 
 AVC ima maksimalnu rezoluciju od 1080p, audio kodek Opus nije dostupan, a reprodukcija videa će koristiti više internet podataka nego VP9 ili AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Neželjeni efekti lažiranja na iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Privatni dečji videi se možda neće puštati
-• Strimovi uživo počinju od početka
-• Videi će se završiti 1 sekundu ranije"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Neželjeni efekti lažiranja na Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Dečji videi se možda neće puštati
 • Strimovi uživo počinju od početka

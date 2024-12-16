@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Az APK build dátuma sérült</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Szeretné folytatni?</string>
   <string name="revanced_settings_reset">Visszaállítás</string>
   <string name="revanced_settings_restart_title">Frissítés és újraindítás</string>
@@ -42,7 +43,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">A ReVanced beállítások visszaállnak az alapértelmezettre</string>
   <string name="revanced_settings_import_success">%d beállítás importálva</string>
   <string name="revanced_settings_import_failure_parse">Sikertelen importálás: %s</string>
-  <string name="revanced_pref_import_export_title">Import / Export</string>
+  <string name="revanced_pref_import_export_title">Importálás / exportálás</string>
   <string name="revanced_pref_import_export_summary">ReVanced beállítások importálása / exportálása</string>
   <!-- Settings about dialog. -->
   <string name="revanced_settings_about_links_body">A ReVanced Patchek &lt;i&gt;%s&lt;i&gt; verzióját használja</string>
@@ -78,6 +79,7 @@ Kattintson a folytatás gombra, és engedélyezze az optimalizálási módosít�
   <string name="revanced_settings_screen_03_feed_title">Hírfolyam</string>
   <string name="revanced_settings_screen_04_player_title">Lejátszó</string>
   <string name="revanced_settings_screen_05_general_title">Általános elrendezés</string>
+  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Keresősáv</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Csúsztatási vezérlők</string>
   <string name="revanced_settings_screen_11_misc_title">Egyéb</string>
@@ -157,9 +159,6 @@ Nem fog értesülni semmilyen váratlan eseményről."</string>
   <string name="revanced_hide_timed_reactions_title">Időzített reakciók elrejtése</string>
   <string name="revanced_hide_timed_reactions_summary_on">Az időzített reakciók elrejtve</string>
   <string name="revanced_hide_timed_reactions_summary_off">Az időzített reakciók megjelenítve</string>
-  <string name="revanced_hide_search_result_shelf_header_title">Keresési eredmények polcfejlécének elrejtése</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">A polcfejléc el van rejtve</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">Polcsínfej van eltűnve</string>
   <string name="revanced_hide_channel_guidelines_title">Csatornák irányelveinek elrejtése</string>
   <string name="revanced_hide_channel_guidelines_summary_on">A csatornaírők el vannak rejtve</string>
   <string name="revanced_hide_channel_guidelines_summary_off">A csatornaírők meg vannak jelenítve</string>
@@ -517,6 +516,10 @@ Megjegyzés: Ez a beállítás a videóhirdetések kényszerű elrejtését is m
   <string name="revanced_hide_navigation_button_labels_title">A navigációs gombok címkéinek elrejtése</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">A címke el vannak rejtve</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">A címke meg vannak jelenítve</string>
+  <string name="revanced_disable_translucent_status_bar_title">Átlátszó állapotsor letiltása</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Világos, átlátszó sáv letiltása</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Világos módban az átlátszó navigációs sáv átlátszatlan</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Sötét módban az átlátszó navigációs sáv átlátszatlan</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Előugró menü</string>
@@ -1062,7 +1065,7 @@ Ha később kikapcsolja, akkor ajánlott az alkalmazás adatait törölni, hogy 
   <string name="revanced_miniplayer_type_entry_0">Kikapcsolva</string>
   <string name="revanced_miniplayer_type_entry_1">Alapértelmezett</string>
   <string name="revanced_miniplayer_type_entry_2">Minimális</string>
-  <string name="revanced_miniplayer_type_entry_3">Tablet</string>
+  <string name="revanced_miniplayer_type_entry_3">Táblagép</string>
   <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
   <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
@@ -1214,6 +1217,11 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="revanced_disable_zoom_haptics_summary_on">A haptikus zoom letiltva</string>
   <string name="revanced_disable_zoom_haptics_summary_off">A haptikus zoom engedélyezve</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Eredeti hang kikényszerítése</string>
+  <string name="revanced_force_original_audio_summary_on">Eredeti hang használata</string>
+  <string name="revanced_force_original_audio_summary_off">Alapértelmezett hang használata</string>
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Automatikus</string>
@@ -1275,8 +1283,7 @@ A videólejátszás nem működhet"</string>
 
 Az AVC maximális felbontása 1080p, az Opus audio kodek nem érhető el, és a videólejátszás több internetes adatot fog használni, mint a VP9 vagy az AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS hamisítási mellékhatások</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• A privát gyermekeknek szóló videók nem játszódhatnak le
-• Az élő közvetítések a kezdettől kezdődnek
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• A privát gyerekvideók nem játszhatók le
 • A videók 1 másodperccel korábban érnek véget"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR-hamisítási mellékhatások</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• A gyermekeknek szóló videók nem játszódhatnak le
@@ -1300,7 +1307,7 @@ Az AVC maximális felbontása 1080p, az Opus audio kodek nem érhető el, és a 
   <string name="revanced_spoof_video_streams_language_FI">Finn</string>
   <string name="revanced_spoof_video_streams_language_FR">Francia</string>
   <string name="revanced_spoof_video_streams_language_GU">Gudzsaráti</string>
-  <string name="revanced_spoof_video_streams_language_HI">Hindi</string>
+  <string name="revanced_spoof_video_streams_language_HI">hindi</string>
   <string name="revanced_spoof_video_streams_language_HR">Horvát</string>
   <string name="revanced_spoof_video_streams_language_HU">Magyar</string>
   <string name="revanced_spoof_video_streams_language_ID">Indonéz</string>
@@ -1316,7 +1323,7 @@ Az AVC maximális felbontása 1080p, az Opus audio kodek nem érhető el, és a 
   <string name="revanced_spoof_video_streams_language_MS">Maláj</string>
   <string name="revanced_spoof_video_streams_language_MY">Burmai</string>
   <string name="revanced_spoof_video_streams_language_NL">Holland</string>
-  <string name="revanced_spoof_video_streams_language_OR">Odia</string>
+  <string name="revanced_spoof_video_streams_language_OR">odia</string>
   <string name="revanced_spoof_video_streams_language_PA">Pandzsábi</string>
   <string name="revanced_spoof_video_streams_language_PL">Lengyel</string>
   <string name="revanced_spoof_video_streams_language_PT_BR">Portugál (Brazil)</string>
@@ -1328,12 +1335,12 @@ Az AVC maximális felbontása 1080p, az Opus audio kodek nem érhető el, és a 
   <string name="revanced_spoof_video_streams_language_SR">Szerb</string>
   <string name="revanced_spoof_video_streams_language_SV">Svéd</string>
   <string name="revanced_spoof_video_streams_language_SW">Szuahéli</string>
-  <string name="revanced_spoof_video_streams_language_TA">Tamil</string>
-  <string name="revanced_spoof_video_streams_language_TE">Telugu</string>
+  <string name="revanced_spoof_video_streams_language_TA">tamil</string>
+  <string name="revanced_spoof_video_streams_language_TE">telugu</string>
   <string name="revanced_spoof_video_streams_language_TH">Tháj</string>
   <string name="revanced_spoof_video_streams_language_TR">Török</string>
   <string name="revanced_spoof_video_streams_language_UK">Ukrán</string>
-  <string name="revanced_spoof_video_streams_language_UR">Urdu</string>
+  <string name="revanced_spoof_video_streams_language_UR">urdu</string>
   <string name="revanced_spoof_video_streams_language_VI">Vietnámi</string>
   <string name="revanced_spoof_video_streams_language_ZH">Kínai</string>
   </patch>
