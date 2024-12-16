@@ -36,7 +36,6 @@ public final class LayoutComponentsFilter extends Filter {
     );
 
     private final StringTrieSearch exceptions = new StringTrieSearch();
-    private final StringFilterGroup searchResultShelfHeader;
     private final StringFilterGroup inFeedSurvey;
     private final StringFilterGroup notifyMe;
     private final StringFilterGroup expandableMetadata;
@@ -194,11 +193,6 @@ public final class LayoutComponentsFilter extends Filter {
                 "timed_reaction"
         );
 
-        searchResultShelfHeader = new StringFilterGroup(
-                Settings.HIDE_SEARCH_RESULT_SHELF_HEADER,
-                "shelf_header.eml"
-        );
-
         notifyMe = new StringFilterGroup(
                 Settings.HIDE_NOTIFY_ME_BUTTON,
                 "set_reminder_button"
@@ -323,9 +317,6 @@ public final class LayoutComponentsFilter extends Filter {
 
             return false;
         }
-
-        // TODO: This also hides the feed Shorts shelf header
-        if (matchedGroup == searchResultShelfHeader && contentIndex != 0) return false;
 
         if (matchedGroup == horizontalShelves) {
             if (contentIndex == 0 && hideShelves()) {
