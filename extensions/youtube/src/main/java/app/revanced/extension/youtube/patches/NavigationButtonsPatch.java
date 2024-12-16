@@ -29,14 +29,14 @@ public final class NavigationButtonsPatch {
     private static final boolean SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON
             = Settings.SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON.get();
 
-    private static final Boolean TRANSLUCENT_STATUS_BAR
-            = Settings.TRANSLUCENT_STATUS_BAR.get();
+    private static final Boolean DISABLE_TRANSLUCENT_STATUS_BAR
+            = Settings.DISABLE_TRANSLUCENT_STATUS_BAR.get();
 
-    private static final Boolean TRANSLUCENT_NAVIGATION_BUTTONS_LIGHT
-            = Settings.TRANSLUCENT_NAVIGATION_BUTTONS_LIGHT.get();
+    private static final Boolean DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT
+            = Settings.DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT.get();
 
-    private static final Boolean TRANSLUCENT_NAVIGATION_BUTTONS_DARK
-            = Settings.TRANSLUCENT_NAVIGATION_BUTTONS_DARK.get();
+    private static final Boolean DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK
+            = Settings.DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK.get();
 
     /**
      * Injection point.
@@ -70,23 +70,32 @@ public final class NavigationButtonsPatch {
             return original;
         }
 
-        return TRANSLUCENT_STATUS_BAR;
+        if (DISABLE_TRANSLUCENT_STATUS_BAR) {
+            return false;
+        }
+
+        return original;
     }
 
     /**
      * Injection point.
      */
     public static boolean useTranslucentNavigationButtons(boolean original) {
+        // Feature requires Android 13+
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
             return original;
         }
 
-        if (!TRANSLUCENT_NAVIGATION_BUTTONS_DARK && !TRANSLUCENT_NAVIGATION_BUTTONS_LIGHT) {
+        if (!DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK && !DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT) {
+            return original;
+        }
+
+        if (DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK && DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT) {
             return false;
         }
 
         return Utils.isDarkModeEnabled(Utils.getContext())
-                ? TRANSLUCENT_NAVIGATION_BUTTONS_DARK
-                : TRANSLUCENT_NAVIGATION_BUTTONS_LIGHT;
+                ? !DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK
+                : !DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT;
     }
 }
