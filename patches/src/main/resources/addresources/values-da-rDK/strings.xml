@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK byggedato er ødelagt</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Ønsker du at fortsætte?</string>
   <string name="revanced_settings_reset">Nulstil</string>
   <string name="revanced_settings_restart_title">Opdater og genstart</string>
@@ -78,10 +79,11 @@ Tryk på fortsætknappen, og tillad ændringer af optimering."</string>
   <string name="revanced_settings_screen_03_feed_title">Fodring</string>
   <string name="revanced_settings_screen_04_player_title">Spiller</string>
   <string name="revanced_settings_screen_05_general_title">Generelt layout</string>
+  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Søgebjælke</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Stryg kontrolelementer</string>
   <string name="revanced_settings_screen_11_misc_title">Diverse</string>
-  <string name="revanced_settings_screen_12_video_title">Video</string>
+  <string name="revanced_settings_screen_12_video_title">Videoer</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Deaktiver afspilning af Shorts i baggrunden</string>
@@ -157,9 +159,6 @@ Du vil ikke blive underrettet om uventede hændelser."</string>
   <string name="revanced_hide_timed_reactions_title">Skjul tidsrelaterede reaktioner</string>
   <string name="revanced_hide_timed_reactions_summary_on">Tidsbegrænsede reaktioner er skjult</string>
   <string name="revanced_hide_timed_reactions_summary_off">Tidsbegrænsede reaktioner er vist</string>
-  <string name="revanced_hide_search_result_shelf_header_title">Skjul søgeresultat hylde header</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">Hylde header er skjult</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">Hylde header er vist</string>
   <string name="revanced_hide_channel_guidelines_title">Skjul kanalretningslinjer</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Kanalretningslinjer er skjult</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Kanalretningslinjer er vist</string>
@@ -517,6 +516,10 @@ Bemærk: Aktivering af dette skjuler også videoannoncer"</string>
   <string name="revanced_hide_navigation_button_labels_title">Skjul navigationsknappens etiketter</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Etiketter er skjult</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Etiketter er vist</string>
+  <string name="revanced_disable_translucent_status_bar_title">Deaktiver gennemsigtig statuslinje</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Deaktiver lys gennemsigtig linje</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Navigationslinjen i lys tilstand er ikke gennemsigtig</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Navigationslinjen i mørk tilstand er ikke gennemsigtig</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Udfyldningsmenu</string>
@@ -948,7 +951,7 @@ Eksisterer allerede"</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategori er deaktiveret i indstillinger. Aktivér kategori for at indsende.</string>
   <string name="revanced_sb_new_segment_title">Nyt SponsorBlock segment</string>
   <string name="revanced_sb_new_segment_mark_time_as_question">Sæt %s som start eller afslutning af et nyt segment?</string>
-  <string name="revanced_sb_new_segment_mark_start">start</string>
+  <string name="revanced_sb_new_segment_mark_start">begynd</string>
   <string name="revanced_sb_new_segment_mark_end">slut</string>
   <string name="revanced_sb_new_segment_now">nu</string>
   <string name="revanced_sb_new_segment_time_start">Tidspunkt for segmentet begynder på</string>
@@ -1002,7 +1005,7 @@ Er du klar til at indsende?"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
   <string name="revanced_spoof_app_version_title">Spoof app-version</string>
-  <string name="revanced_spoof_app_version_summary_on">Version spoofed</string>
+  <string name="revanced_spoof_app_version_summary_on">Version-manipulering</string>
   <string name="revanced_spoof_app_version_summary_off">Version ikke spoofed</string>
   <string name="revanced_spoof_app_version_user_dialog_message">"App-versionen forfalskes til en ældre version af YouTube.
 
@@ -1057,6 +1060,7 @@ Hvis det senere slås fra, anbefales det at rydde app-dataene for at forhindre U
   <string name="revanced_tablet_layout_user_dialog_message">Fællesskabsindlæg vises ikke på tabletlayouts</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
+  <string name="revanced_miniplayer_screen_title">Mini-afspiller</string>
   <string name="revanced_miniplayer_screen_summary">Ændre stilen for den i app minimeret afspiller</string>
   <string name="revanced_miniplayer_type_title">Type af miniplayer</string>
   <string name="revanced_miniplayer_type_entry_0">Deaktiveret</string>
@@ -1214,6 +1218,11 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Haptics er deaktiveret</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Haptics er aktiveret</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Tving original lyd</string>
+  <string name="revanced_force_original_audio_summary_on">Brug original lyd</string>
+  <string name="revanced_force_original_audio_summary_off">Brug standard lyd</string>
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Automatisk</string>
@@ -1223,6 +1232,7 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_video_quality_default_wifi_title">Standard videokvalitet på Wi-Fi-netværk</string>
   <string name="revanced_video_quality_default_mobile_title">Standard videokvalitet på mobilnetværk</string>
   <string name="revanced_remember_video_quality_mobile">mobil</string>
+  <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">Ændrede standard %1$s kvalitet til: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
@@ -1274,9 +1284,8 @@ Videoafspilning virker muligvis ikke"</string>
 
 AVC har en maksimal opløsning på 1080p, Opus lydcodec er ikke tilgængelig, og videoafspilning bruger mere internetdata end VP9 eller AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS forfalskning bivirkninger</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Private børnevideoer kan ikke afspilles
-• Livestreams starter fra begyndelsen
-• Videoer slutter 1 sekund tidligere"</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Private børnevideoer kan muligvis ikke afspilles
+• Videoer slutter 1 sekund før"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR spoofing bivirkninger</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Børnevideoer kan ikke afspilles
 • Livestreams starter fra begyndelsen
@@ -1349,6 +1358,7 @@ AVC har en maksimal opløsning på 1080p, Opus lydcodec er ikke tilgængelig, og
   <string name="revanced_block_embedded_ads_title">Bloker indlejrede videoannoncer</string>
   <string name="revanced_block_embedded_ads_entry_1">Deaktiveret</string>
   <string name="revanced_block_embedded_ads_entry_2">Lysende proxy</string>
+  <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock-proxy</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">
   <string name="revanced_block_video_ads_title">Blokér videoannoncer</string>

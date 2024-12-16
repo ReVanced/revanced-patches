@@ -79,6 +79,7 @@ Atingeți butonul de continuare și permiteți modificările de optimizare."</st
   <string name="revanced_settings_screen_03_feed_title">Flux</string>
   <string name="revanced_settings_screen_04_player_title">Jucător</string>
   <string name="revanced_settings_screen_05_general_title">Structura generală</string>
+  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Bară de căutare</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Controale glisare</string>
   <string name="revanced_settings_screen_11_misc_title">Diverse</string>
@@ -158,9 +159,6 @@ Nu veți fi notificat de niciun eveniment neașteptat."</string>
   <string name="revanced_hide_timed_reactions_title">Ascunde reacţiile cronizate</string>
   <string name="revanced_hide_timed_reactions_summary_on">Reacţiile cronologice sunt ascunse</string>
   <string name="revanced_hide_timed_reactions_summary_off">Reacţiile cronologice sunt evidenţiate</string>
-  <string name="revanced_hide_search_result_shelf_header_title">Ascunde antetul raftului rezultatului căutării</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">Antetul Shelf este ascuns</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">Se afișează antetul Shelf</string>
   <string name="revanced_hide_channel_guidelines_title">Ascunde ghidurile canalelor</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Regulile canalului sunt ascunse</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Ghidul canalului este afișat</string>
@@ -518,6 +516,10 @@ Notă: Activarea acestei opțiuni ascunde, de asemenea, forțat reclamele video"
   <string name="revanced_hide_navigation_button_labels_title">Ascunde etichetele butoanelor de navigare</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Etichetele sunt ascunse</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Etichetele sunt afișate</string>
+  <string name="revanced_disable_translucent_status_bar_title">Dezactivează bara de stare translucidă</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Dezactivează bara de navigare translucidă deschisă</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Bara de navigare în modul deschis este opacă</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Bara de navigare în modul întunecat este opacă</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Meniu flyout</string>
@@ -954,6 +956,15 @@ Există deja"</string>
   <string name="revanced_sb_new_segment_time_start">Timpul în care segmentul începe la</string>
   <string name="revanced_sb_new_segment_time_end">Timpul în care segmentul se termină la</string>
   <string name="revanced_sb_new_segment_confirm_title">Sunt vremurile corecte?</string>
+  <string name="revanced_sb_new_segment_confirm_content">"Segmentul este din
+
+%1$s
+până în
+%2$s
+
+(%3$s)
+
+Ești gata să trimiți?"</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Începe trebuie să fie înainte de sfârșit</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Marchează mai întâi două locații pe bara de timp</string>
   <string name="revanced_sb_new_segment_preview_segment_first">Previzualizați segmentul și asigurați-vă că sare fără probleme</string>
@@ -1127,10 +1138,11 @@ Activarea acestei opțiuni poate remedia imaginile lipsă care sunt blocate în 
   <string name="revanced_alt_thumbnail_library_title">Fila ta</string>
   <string name="revanced_alt_thumbnail_player_title">Liste de redare, recomandări</string>
   <string name="revanced_alt_thumbnail_search_title">Rezultatele căutării</string>
-  <string name="revanced_alt_thumbnail_options_entry_1">Original thumbnails</string>
+  <string name="revanced_alt_thumbnail_options_entry_1">Miniaturi originale</string>
   <string name="revanced_alt_thumbnail_options_entry_2">Săgeată &amp; Miniaturi originale</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Capturi statice</string>
   <string name="revanced_alt_thumbnail_options_entry_4">Capturi statice</string>
+  <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
   <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow oferă miniaturi crowdsourced pentru videoclipurile de pe YouTube. Aceste miniaturi sunt adesea mai relevante decât cele oferite de YouTube
 
 Dacă este activat, adresele URL ale videoclipurilor vor fi trimise la serverul API și nu vor fi trimise alte date. Dacă un videoclip nu are miniaturi DeArrow, atunci se afișează originalele sau capturile de ecran
@@ -1139,7 +1151,7 @@ Atingeți aici pentru a afla mai multe despre DeArrow"</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Arată un toast dacă API-ul nu este disponibil</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Toast este afișat dacă DeArrow nu este disponibil</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Toast nu este afișat dacă DeArrow nu este disponibil</string>
-  <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API endpoint</string>
+  <string name="revanced_alt_thumbnail_dearrow_api_url_title">Endpoint API DeArrow</string>
   <string name="revanced_alt_thumbnail_dearrow_api_url_summary">URL-ul punctului final al cache-ului DeArrow pentru miniaturi</string>
   <string name="revanced_alt_thumbnail_stills_about_title">Capturi video statice</string>
   <string name="revanced_alt_thumbnail_stills_about_summary">Capturile statice sunt preluate de la începutul/mijlocul/sfârșitul fiecărui videoclip. Aceste imagini sunt integrate în YouTube și nu se folosește nicio API externă</string>
@@ -1206,6 +1218,11 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Hapticele sunt dezactivate</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Haptic-urile sunt activate</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Forțați sunetul original</string>
+  <string name="revanced_force_original_audio_summary_on">Utilizează audio original</string>
+  <string name="revanced_force_original_audio_summary_off">Utilizează audio implicit</string>
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Automat</string>
@@ -1215,6 +1232,7 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_video_quality_default_wifi_title">Calitate video implicită în rețeaua Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Calitatea video implicită în rețeaua mobilă</string>
   <string name="revanced_remember_video_quality_mobile">mobil</string>
+  <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Calitate %1$s modificată implicit: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
@@ -1266,9 +1284,6 @@ Este posibil ca redarea video să nu funcționeze"</string>
 
 AVC are o rezoluție maximă de 1080p, codecul audio Opus nu este disponibil, iar redarea video va utiliza mai multe date de internet decât VP9 sau AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Efecte secundare ale falsificării iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Videoclipurile private pentru copii este posibil să nu fie redate
-• Transmisiunile live încep de la început
-• Videoclipurile se termină cu 1 secundă mai devreme"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Reacţii adverse de spoofing Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Videoclipurile pentru copii este posibil să nu fie redate
 • Transmisiunile live încep de la început
@@ -1341,6 +1356,7 @@ AVC are o rezoluție maximă de 1080p, codecul audio Opus nu este disponibil, ia
   <string name="revanced_block_embedded_ads_title">Blocare reclame video integrate</string>
   <string name="revanced_block_embedded_ads_entry_1">Dezactivat</string>
   <string name="revanced_block_embedded_ads_entry_2">Proxy luminos</string>
+  <string name="revanced_block_embedded_ads_entry_3">Proxy PurpleAdBlock</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">
   <string name="revanced_block_video_ads_title">Blocare reclame video</string>

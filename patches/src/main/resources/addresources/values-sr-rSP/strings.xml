@@ -79,7 +79,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_03_feed_title">Фид</string>
   <string name="revanced_settings_screen_04_player_title">Плејер</string>
   <string name="revanced_settings_screen_05_general_title">Општи изглед</string>
-  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
+  <string name="revanced_settings_screen_06_shorts_title">Шорцеви</string>
   <string name="revanced_settings_screen_07_seekbar_title">Трака за премотавање</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Контроле превлачења</string>
   <string name="revanced_settings_screen_11_misc_title">Разно</string>
@@ -159,9 +159,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_timed_reactions_title">Сакриј временске реакције</string>
   <string name="revanced_hide_timed_reactions_summary_on">Временске реакције су скривене</string>
   <string name="revanced_hide_timed_reactions_summary_off">Временске реакције су приказане</string>
-  <string name="revanced_hide_search_result_shelf_header_title">Сакриј заглавље полице у резултатима претраге</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">Заглавље полице у резултатима претраге је скривено</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">Заглавље полице у резултатима претраге је приказано</string>
   <string name="revanced_hide_channel_guidelines_title">Сакриј смернице канала</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Смернице канала су скривене</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Смернице канала су приказане</string>
@@ -519,6 +516,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_navigation_button_labels_title">Сакриј ознаке дугмади за навигацију</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Ознаке дугмади за навигацију су скривене</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Ознаке дугмади за навигацију су приказане</string>
+  <string name="revanced_disable_translucent_status_bar_title">Онемогући провидну статусну траку</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">Statusna traka je neprozirna</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">Statusna traka je neprozirna ili providna</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Онемогући светлу провидну траку</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Светли режим траке за навигацију је непрозиран</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Navigaciona traka u svetlom režimu je neprozirna ili providna</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Onemogući providnu tamnu traku</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Тамни режим траке за навигацију је непрозиран</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Navigaciona traka u tamnom režimu je neprozirna ili providna</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Падајући мени</string>
@@ -1141,7 +1147,6 @@ Second \"item\" text"</string>
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow и оригиналне сличице</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow и захвати кадра</string>
   <string name="revanced_alt_thumbnail_options_entry_4">Захвати кадра</string>
-  <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
   <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow пружа сличице за YouTube видее прикупљене од заједнице корисника. Ове сличице су често релевантније од оних које пружа YouTube
 
 Ако је омогућено, линкови видеа ће бити послати на API сервер и никакви други подаци се неће слати. Ако видео нема DeArrow сличице, онда се приказују оригиналне или захвати кадра
@@ -1217,6 +1222,11 @@ Second \"item\" text"</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Вибрација при увеличавању је онемогућена</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Вибрација при увеличавању је омогућена</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Присили оригинални звук</string>
+  <string name="revanced_force_original_audio_summary_on">Korišćenje originalnog zvuka</string>
+  <string name="revanced_force_original_audio_summary_off">Korišćenje zadatog zvuka</string>
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Аутоматски</string>
@@ -1226,6 +1236,7 @@ Second \"item\" text"</string>
   <string name="revanced_video_quality_default_wifi_title">Подразумевани квалитет видеа на Wi-Fi мрежи</string>
   <string name="revanced_video_quality_default_mobile_title">Подразумевани квалитет видеа на мобилној мрежи</string>
   <string name="revanced_remember_video_quality_mobile">мобилној мрежи</string>
+  <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Квалитет на %1$s промењен на: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
@@ -1277,9 +1288,8 @@ Second \"item\" text"</string>
 
 AVC има максималну резолуцију од 1080p, аудио кодек Opus није доступан, а репродукција видеа ће користити више интернет података него VP9 или AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Нежељени ефекти лажирања на iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Приватни дечји видеи се можда неће пуштати
-• Стримови уживо почињу од почетка
-• Видеи ће се завршити 1 секунду раније"</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Privatni videozapisi za decu mogu da se ne reprodukuju
+• Videozapisi se završavaju 1 sekundu ranije"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Нежељени ефекти лажирања на Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Дечји видеи се можда неће пуштати
 • Стримови уживо почињу од почетка

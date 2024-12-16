@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Data kompilacji APK jest uszkodzona</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Czy chcesz kontynuować?</string>
   <string name="revanced_settings_reset">Zresetuj</string>
   <string name="revanced_settings_restart_title">Odśwież i uruchom ponownie</string>
@@ -78,6 +79,7 @@ Naciśnij przycisk Kontynuuj i zezwól na zmiany optymalizacji."</string>
   <string name="revanced_settings_screen_03_feed_title">Strona główna</string>
   <string name="revanced_settings_screen_04_player_title">Odtwarzacz</string>
   <string name="revanced_settings_screen_05_general_title">Ogólny układ</string>
+  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Pasek postępu filmu</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Sterowanie przesuwaniem</string>
   <string name="revanced_settings_screen_11_misc_title">Pozostałe</string>
@@ -157,9 +159,6 @@ Nie będziesz informowany o żadnych nieoczekiwanych zdarzeniach."</string>
   <string name="revanced_hide_timed_reactions_title">Reakcje czasowe</string>
   <string name="revanced_hide_timed_reactions_summary_on">Reakcje czasowe są ukryte</string>
   <string name="revanced_hide_timed_reactions_summary_off">Reakcje czasowe są widoczne</string>
-  <string name="revanced_hide_search_result_shelf_header_title">Półki z nagłówkiem w wynikach wyszukiwania</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">Półki z nagłówkiem są ukryte</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">Półki z nagłówkiem są widoczne</string>
   <string name="revanced_hide_channel_guidelines_title">Wytyczne kanału</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Wytyczne kanału są ukryte</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Wytyczne kanału są widoczne</string>
@@ -256,6 +255,7 @@ Nie będziesz informowany o żadnych nieoczekiwanych zdarzeniach."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Widoczne w powiązanych filmach</string>
   <string name="revanced_comments_screen_title">Komentarze</string>
   <string name="revanced_comments_screen_summary">Ukryj lub pokazuj komentarze</string>
+  <string name="revanced_hide_comments_chat_summary_title">Ukryj \'Podsumowanie czatu\' </string>
   <string name="revanced_hide_comments_chat_summary_summary_on">\'Podsumowanie czatu\' jest ukryte</string>
   <string name="revanced_hide_comments_chat_summary_summary_off">\'Podsumowanie czatu\' jest widoczne</string>
   <string name="revanced_hide_comments_by_members_header_title">Nagłówki z komentarzami sponsorów</string>
@@ -516,6 +516,10 @@ Uwaga: Włączenie tej opcji również ukrywa reklamy wideo"</string>
   <string name="revanced_hide_navigation_button_labels_title">Etykiety przycisków nawigacji</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Etykiety są ukryte</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Etykiety są widoczne</string>
+  <string name="revanced_disable_translucent_status_bar_title">Wyłącz przezroczysty pasek statusu</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Wyłącz świetny, przezroczysty pasek</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Pasek nawigacyjny w trybie świetnym jest nieprzezroczysty</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Pasek nawigacyjny w trybie ciemnym jest nieprzezroczysty</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Menu ustawień</string>
@@ -1214,6 +1218,11 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Haptyka jest wyłączona</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Haptyka jest włączona</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Wymuś oryginalny dźwięk</string>
+  <string name="revanced_force_original_audio_summary_on">Używanie oryginalnego dźwięku</string>
+  <string name="revanced_force_original_audio_summary_off">Używanie domyślnego dźwięku</string>
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Automatycznie</string>
@@ -1223,6 +1232,7 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   <string name="revanced_video_quality_default_wifi_title">Domyślna jakość filmu w sieci Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Domyślna jakość filmu w sieci komórkowej</string>
   <string name="revanced_remember_video_quality_mobile">telefonu</string>
+  <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">Zmieniono domyślną jakość %1$s na: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
@@ -1238,7 +1248,7 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   <string name="revanced_custom_playback_speeds_summary">Dodaj lub zmień niestandardowe prędkości odtwarzania</string>
   <string name="revanced_custom_playback_speeds_invalid">Prędkości niestandardowe muszą być mniejsze niż %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Nieprawidłowe prędkości odtwarzania niestandardowego</string>
-  <string name="revanced_custom_playback_speeds_auto">Auto</string>
+  <string name="revanced_custom_playback_speeds_auto">Automatyczne</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Zapamiętuj zmiany prędkości odtwarzania</string>
@@ -1274,9 +1284,6 @@ Odtwarzanie wideo może nie działać"</string>
 
 AVC ma maksymalną rozdzielczość 1080p, kodek audio Opus nie jest dostępny, a odtwarzanie wideo będzie zużywać więcej danych internetowych niż VP9 lub AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Efekty uboczne spoofingu iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Prywatne filmy dla dzieci mogą się nie odtwarzać
-• Transmisje na żywo rozpoczynają się od początku
-• Filmy kończą się 1 sekundę wcześniej"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Efekty uboczne spoofingu Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Filmy dla dzieci mogą się nie odtwarzać
 • Transmisje na żywo rozpoczynają się od początku

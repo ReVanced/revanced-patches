@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Датата на компилация на APK е повредена</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Искате ли да продължите?</string>
   <string name="revanced_settings_reset">Възстанови</string>
   <string name="revanced_settings_restart_title">Рестартирай и опресни</string>
@@ -78,6 +79,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_03_feed_title">Поток</string>
   <string name="revanced_settings_screen_04_player_title">Плейър</string>
   <string name="revanced_settings_screen_05_general_title">Общо оформление</string>
+  <string name="revanced_settings_screen_06_shorts_title">Шорти</string>
   <string name="revanced_settings_screen_07_seekbar_title">Лента за прогрес на видеото</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Контроли с плъзгане</string>
   <string name="revanced_settings_screen_11_misc_title">Разни</string>
@@ -157,9 +159,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_timed_reactions_title">Скриване на времевите реакции</string>
   <string name="revanced_hide_timed_reactions_summary_on">Времевите реакции са скрити</string>
   <string name="revanced_hide_timed_reactions_summary_off">Времевите реакции се показват</string>
-  <string name="revanced_hide_search_result_shelf_header_title">Скриване на заглавието на рафта с резултатите от търсенето</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">Заглавката на рафта е скрита</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">Заглавката на рафта е показана</string>
   <string name="revanced_hide_channel_guidelines_title">Скриване на насоките на канала</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Насоките на канала са скрити</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Насоките на канала се показват</string>
@@ -516,6 +515,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_navigation_button_labels_title">Имена на бутоните на лентата за навигация</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Етикетите са скрити</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Етикетите се показват</string>
+  <string name="revanced_disable_translucent_status_bar_title">Деактивирай полупрозрачната лента на състоянието</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Деактивирай полупрозрачната светла лента за навигация</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Светлата лента за навигация е непрозрачна</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Тъмната лента за навигация е непрозрачна</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Падащо меню</string>
@@ -1214,6 +1217,8 @@ Second \"item\" text"</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Вибрациите са деактивирани</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Вибрациите са активирани</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Авто</string>
@@ -1275,9 +1280,6 @@ Second \"item\" text"</string>
 
 AVC има максимална разделителна способност от 1080p, аудио кодекът Opus не е наличен, а видеовъзпроизвеждането ще използва повече интернет данни от VP9 или AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Cтранични ефекти от подмяната на iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Частните детски видеоклипове може да не се възпроизвеждат
-• Предаванията на живо започват от началото
-• Видеоклиповете завършват 1 секунда по-рано"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Странични ефекти от подправяне на Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Детските видеоклипове може да не се възпроизвеждат
 • Предаванията на живо започват от началото
