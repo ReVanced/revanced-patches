@@ -3,6 +3,7 @@ package app.revanced.extension.youtube.patches;
 import static app.revanced.extension.shared.Utils.hideViewUnderCondition;
 import static app.revanced.extension.youtube.shared.NavigationBar.NavigationButton;
 
+import android.os.Build;
 import android.view.View;
 
 import java.util.EnumMap;
@@ -26,6 +27,13 @@ public final class NavigationButtonsPatch {
     private static final boolean SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON
             = Settings.SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON.get();
 
+    private static final Boolean TRANSLUCENT_STATUS_BAR
+            = Settings.TRANSLUCENT_STATUS_BAR.get();
+
+    private static final Boolean TRANSLUCENT_NAVIGATION_BUTTONS
+            = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
+            && Settings.TRANSLUCENT_NAVIGATION_BUTTONS.get();
+
     /**
      * Injection point.
      */
@@ -47,5 +55,19 @@ public final class NavigationButtonsPatch {
      */
     public static void hideNavigationButtonLabels(TextView navigationLabelsView) {
         hideViewUnderCondition(Settings.HIDE_NAVIGATION_BUTTON_LABELS, navigationLabelsView);
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean useTranslucentNavigationStatusBar(boolean original) {
+        return TRANSLUCENT_STATUS_BAR;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean useTranslucentNavigationButtons(boolean original) {
+        return TRANSLUCENT_NAVIGATION_BUTTONS;
     }
 }

@@ -522,6 +522,13 @@ Note: Enabling this also forcibly hides video ads"</string>
             <string name="revanced_hide_navigation_button_labels_title">Hide navigation button labels</string>
             <string name="revanced_hide_navigation_button_labels_summary_on">Labels are hidden</string>
             <string name="revanced_hide_navigation_button_labels_summary_off">Labels are shown</string>
+            <string name="revanced_translucent_status_bar_title">Use translucent status bar</string>
+            <string name="revanced_translucent_status_bar_summary_on">Status bar is translucent</string>
+            <string name="revanced_translucent_status_bar_summary_off">Status bar is opaque</string>
+            <string name="revanced_translucent_navigation_buttons_title">Use translucent buttons</string>
+            <string name="revanced_translucent_navigation_buttons_summary_on">"Buttons are translucent
+(Requires Android 12)"</string>
+            <string name="revanced_translucent_navigation_buttons_summary_off">Buttons are opaque</string>
         </patch>
         <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
             <string name="revanced_hide_player_flyout_title">Flyout menu</string>
