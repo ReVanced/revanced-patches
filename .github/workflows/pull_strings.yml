@@ -35,6 +35,7 @@ jobs:
         if: github.event_name == 'workflow_dispatch'
         uses: repo-sync/pull-request@v2
         with:
+          source_branch: feat/translations
           destination_branch: dev
           pr_title: "chore: Sync translations"
           pr_body: "Sync translations from [crowdin.com/project/revanced](https://crowdin.com/project/revanced)"
