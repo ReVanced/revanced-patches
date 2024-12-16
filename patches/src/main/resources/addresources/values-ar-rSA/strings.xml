@@ -517,9 +517,14 @@ Second \"item\" text"</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">تم إخفاء التسميات</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">يتم عرض التسميات</string>
   <string name="revanced_disable_translucent_status_bar_title">تعطيل شريط الحالة الشفاف</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">شريط الحالة غير معتمة</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">شريط الحالة غير شفافة أو عميقة</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">تعطيل شريط التنقل الشفاف الفاتح</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">شريط التنقل في الوضع الفاتح معتم</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">يكون شريط التنقل في الوضع الفاتح معتمًا أو نصف شفاف</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">تعطيل الشريط الداكنة</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">شريط التنقل في الوضع الداكن معتم</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">شريط التطبيق المصوري الشفاف غير عميقة أو عميقة</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">القائمة المنبثقة</string>

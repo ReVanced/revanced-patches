@@ -517,9 +517,14 @@ Poznámka: Povolení této funkce také vynuceně skryje video reklamy"</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Štítky jsou skryty</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Štítky jsou zobrazeny</string>
   <string name="revanced_disable_translucent_status_bar_title">Deaktivovat průsvitný stavový řádek</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">Statusový řádek je neprůhledný</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">Statusový řádek je neprůhledný nebo průsvitný</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Deaktivovat světlý průsvitný navigační panel</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Navigační panel v světlém režimu je neprůhledný</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Navigační lišta v světlém režimu je neprůhledná nebo průsvitná</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Zakázat tmavý průsvitný panel</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Navigační panel v tmavém režimu je neprůhledný</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Navigační lišta v tmavém režimu je neprůhledná nebo průsvitná</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Menu vyskakovacích oken</string>
@@ -1283,6 +1288,8 @@ Přehrávání videa nemusí fungovat"</string>
 
 AVC má maximální rozlišení 1080p, audio kodek Opus není dostupný a přehrávání videa bude používat více internetových dat než VP9 nebo AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Vedlejší účinky napodobování iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Soukromá dětská videa se nemusí přehrávat
+• Videa končí o 1 sekundu dříve"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Vedlejší účinky napodobování Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Videa pro děti se nemusí přehrát
 • Livestreamy začínají od začátku

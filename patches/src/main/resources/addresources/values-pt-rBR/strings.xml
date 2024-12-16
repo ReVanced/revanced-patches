@@ -1064,11 +1064,13 @@ Se posteriormente desativado, é recomendável limpar os dados do aplicativo par
   <string name="revanced_tablet_layout_user_dialog_message">Postagens da comunidade não aparecem nos layouts de tablet</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
+  <string name="revanced_miniplayer_screen_title">Minireprodutor</string>
   <string name="revanced_miniplayer_screen_summary">Alterar o estilo do player minimizado no aplicativo</string>
   <string name="revanced_miniplayer_type_title">Tipo de miniplayer</string>
   <string name="revanced_miniplayer_type_entry_0">Desativado</string>
   <string name="revanced_miniplayer_type_entry_1">Padrão</string>
   <string name="revanced_miniplayer_type_entry_2">Mínimo</string>
+  <string name="revanced_miniplayer_type_entry_3">Tablet</string>
   <string name="revanced_miniplayer_type_entry_4">Moderno 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderno 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderno 3</string>
@@ -1153,6 +1155,7 @@ Toque aqui para saber mais sobre DeArrow"</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Exibir uma notificação flutuante se a API não estiver disponível</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Notificação flutuante será exibida se DeArrow não estiver disponível</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Notificação flutuante não será exibida se DeArrow não estiver disponível</string>
+  <string name="revanced_alt_thumbnail_dearrow_api_url_title">Endpoint da API DeArrow</string>
   <string name="revanced_alt_thumbnail_dearrow_api_url_summary">Cache endpoint da URL das miniaturas DeArrow</string>
   <string name="revanced_alt_thumbnail_stills_about_title">Captura estática</string>
   <string name="revanced_alt_thumbnail_stills_about_summary">Captura estática são tiradas do começo/meio/fim de cada vídeo. Estas imagens são construídas no YouTube e nenhuma API externa é usada</string>
@@ -1220,6 +1223,9 @@ Habilitar isso pode desbloquear qualidades de vídeo mais altas"</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Zoom tátil está desativado</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Forçar áudio original</string>
+  <string name="revanced_force_original_audio_summary_on">Usando áudio original</string>
+  <string name="revanced_force_original_audio_summary_off">Usando áudio padrão</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
@@ -1230,6 +1236,7 @@ Habilitar isso pode desbloquear qualidades de vídeo mais altas"</string>
   <string name="revanced_video_quality_default_wifi_title">Qualidade padrão do vídeo no Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Qualidade padrão do vídeo nos dados móveis</string>
   <string name="revanced_remember_video_quality_mobile">dados móveis</string>
+  <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">Qualidade padrão %1$s alterada para: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
@@ -1304,6 +1311,8 @@ AVC tem uma resolução máxima de 1080p, o codec de áudio Opus não está disp
   <string name="revanced_spoof_video_streams_language_FA">Persa</string>
   <string name="revanced_spoof_video_streams_language_FI">Finlandês</string>
   <string name="revanced_spoof_video_streams_language_FR">Francês</string>
+  <string name="revanced_spoof_video_streams_language_GU">Gujarati</string>
+  <string name="revanced_spoof_video_streams_language_HI">Hindi</string>
   <string name="revanced_spoof_video_streams_language_HR">Croata</string>
   <string name="revanced_spoof_video_streams_language_HU">Húngaro</string>
   <string name="revanced_spoof_video_streams_language_ID">Indonésio</string>
@@ -1320,6 +1329,7 @@ AVC tem uma resolução máxima de 1080p, o codec de áudio Opus não está disp
   <string name="revanced_spoof_video_streams_language_MY">Birmanês</string>
   <string name="revanced_spoof_video_streams_language_NL">Holandês</string>
   <string name="revanced_spoof_video_streams_language_OR">Oriá</string>
+  <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
   <string name="revanced_spoof_video_streams_language_PL">Polonês</string>
   <string name="revanced_spoof_video_streams_language_PT_BR">Português (Brasil)</string>
   <string name="revanced_spoof_video_streams_language_PT_PT">Português (Portugal)</string>
@@ -1330,10 +1340,12 @@ AVC tem uma resolução máxima de 1080p, o codec de áudio Opus não está disp
   <string name="revanced_spoof_video_streams_language_SR">Sérvio</string>
   <string name="revanced_spoof_video_streams_language_SV">Sueco</string>
   <string name="revanced_spoof_video_streams_language_SW">Suaíli</string>
+  <string name="revanced_spoof_video_streams_language_TA">Tâmil</string>
   <string name="revanced_spoof_video_streams_language_TE">Télugo</string>
   <string name="revanced_spoof_video_streams_language_TH">Tailandês</string>
   <string name="revanced_spoof_video_streams_language_TR">Turco</string>
   <string name="revanced_spoof_video_streams_language_UK">Ucraniano</string>
+  <string name="revanced_spoof_video_streams_language_UR">Urdu</string>
   <string name="revanced_spoof_video_streams_language_VI">Vietnamita</string>
   <string name="revanced_spoof_video_streams_language_ZH">Chinês</string>
   </patch>
@@ -1349,6 +1361,8 @@ AVC tem uma resolução máxima de 1080p, o codec de áudio Opus não está disp
   <string name="revanced_embedded_ads_service_failed">%s retornou um erro, os anúncios podem ser exibidos. Tente alterar o serviço de bloqueio de anúncios nas configurações.</string>
   <string name="revanced_block_embedded_ads_title">Bloquear anúncios de vídeo incorporados</string>
   <string name="revanced_block_embedded_ads_entry_1">Desativado</string>
+  <string name="revanced_block_embedded_ads_entry_2">Proxy Luminous</string>
+  <string name="revanced_block_embedded_ads_entry_3">Proxy PurpleAdBlock</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">
   <string name="revanced_block_video_ads_title">Bloquear anúncios em vídeo</string>
