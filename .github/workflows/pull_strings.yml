@@ -1,6 +1,8 @@
 name: Pull strings
 
 on:
+  schedule:
+    - cron: "0 */8 * * *"
   workflow_dispatch:
 
 jobs:
@@ -23,14 +25,17 @@ jobs:
           config: crowdin.yml
           download_translations: true
           localization_branch_name: feat/translations
-          create_pull_request: true
-          pull_request_title: "chore: Sync translations"
-          pull_request_body: "Sync translations from [crowdin.com/project/revanced](https://crowdin.com/project/revanced)"
-          pull_request_base_branch_name: "dev"
-          commit_message: "chore: Sync translations"
-          github_user_name: revanced-bot
-          github_user_email: github@revanced.app
+          create_pull_request: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
           CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
+
+      - name: Open pull request
+        if: github.event_name == 'workflow_dispatch'
+        uses: repo-sync/pull-request@v2
+        with:
+          destination_branch: dev
+          pr_title: "chore: Sync translations"
+          pr_body: "Sync translations from [crowdin.com/project/revanced](https://crowdin.com/project/revanced)"
+          pr_draft: true
