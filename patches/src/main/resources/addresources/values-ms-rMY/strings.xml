@@ -200,6 +200,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.zoomhaptics.zoomHapticsPatch">
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   </patch>

@@ -79,6 +79,7 @@ Toque no botão continuar e permita as mudanças de otimização. "</string>
   <string name="revanced_settings_screen_03_feed_title">Feed</string>
   <string name="revanced_settings_screen_04_player_title">Reprodutor</string>
   <string name="revanced_settings_screen_05_general_title">Layout geral</string>
+  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Barra de busca</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Controles deslizantes</string>
   <string name="revanced_settings_screen_11_misc_title">Outras configurações</string>
@@ -158,9 +159,6 @@ Você não será notificado sobre nenhum evento inesperado."</string>
   <string name="revanced_hide_timed_reactions_title">Ocultar reações cronometradas</string>
   <string name="revanced_hide_timed_reactions_summary_on">Reações cronometradas estão ocultas</string>
   <string name="revanced_hide_timed_reactions_summary_off">Reações cronometradas não estão ocultas</string>
-  <string name="revanced_hide_search_result_shelf_header_title">Ocultar a prateleira de imagens no resultado da pesquisa</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">A prateleira de imagens está oculta</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">A prateleira de imagens é mostrada</string>
   <string name="revanced_hide_channel_guidelines_title">Ocultar diretrizes de canal</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Diretrizes de canal está oculto</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Diretrizes de canal não estão ocultos</string>
@@ -518,6 +516,15 @@ Nota: Habilitar isso também oculta os anúncios em vídeo"</string>
   <string name="revanced_hide_navigation_button_labels_title">Ocultar rótulos dos botões de navegação</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Rótulos são ocultos</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Rótulos são mostrados</string>
+  <string name="revanced_disable_translucent_status_bar_title">Desabilitar barra de status translúcida</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">A barra de status é opaca</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">A barra de status é opaca ou translúcida</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Desabilitar barra de navegação translúcida clara</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">A barra de navegação no modo claro é opaca</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">A barra de navegação do modo claro é opaca ou translúcida</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Desabilitar barra translúcida escura</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">A barra de navegação no modo escuro é opaca</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">A barra de navegação do modo escuro é opaca ou translúcida</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Menu flutuante</string>
@@ -1057,13 +1064,11 @@ Se posteriormente desativado, é recomendável limpar os dados do aplicativo par
   <string name="revanced_tablet_layout_user_dialog_message">Postagens da comunidade não aparecem nos layouts de tablet</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
-  <string name="revanced_miniplayer_screen_title">Miniplayer</string>
   <string name="revanced_miniplayer_screen_summary">Alterar o estilo do player minimizado no aplicativo</string>
   <string name="revanced_miniplayer_type_title">Tipo de miniplayer</string>
   <string name="revanced_miniplayer_type_entry_0">Desativado</string>
   <string name="revanced_miniplayer_type_entry_1">Padrão</string>
   <string name="revanced_miniplayer_type_entry_2">Mínimo</string>
-  <string name="revanced_miniplayer_type_entry_3">Tablet</string>
   <string name="revanced_miniplayer_type_entry_4">Moderno 1</string>
   <string name="revanced_miniplayer_type_entry_5">Moderno 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderno 3</string>
@@ -1148,7 +1153,6 @@ Toque aqui para saber mais sobre DeArrow"</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Exibir uma notificação flutuante se a API não estiver disponível</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Notificação flutuante será exibida se DeArrow não estiver disponível</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Notificação flutuante não será exibida se DeArrow não estiver disponível</string>
-  <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API endpoint</string>
   <string name="revanced_alt_thumbnail_dearrow_api_url_summary">Cache endpoint da URL das miniaturas DeArrow</string>
   <string name="revanced_alt_thumbnail_stills_about_title">Captura estática</string>
   <string name="revanced_alt_thumbnail_stills_about_summary">Captura estática são tiradas do começo/meio/fim de cada vídeo. Estas imagens são construídas no YouTube e nenhuma API externa é usada</string>
@@ -1215,6 +1219,8 @@ Habilitar isso pode desbloquear qualidades de vídeo mais altas"</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Zoom tátil está ativado</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Zoom tátil está desativado</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Automático</string>
@@ -1224,7 +1230,6 @@ Habilitar isso pode desbloquear qualidades de vídeo mais altas"</string>
   <string name="revanced_video_quality_default_wifi_title">Qualidade padrão do vídeo no Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Qualidade padrão do vídeo nos dados móveis</string>
   <string name="revanced_remember_video_quality_mobile">dados móveis</string>
-  <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Qualidade padrão %1$s alterada para: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
@@ -1276,9 +1281,8 @@ A reprodução de vídeo pode não funcionar"</string>
 
 AVC tem uma resolução máxima de 1080p, o codec de áudio Opus não está disponível e a reprodução de vídeo usará mais dados da Internet do que VP9 ou AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Efeitos colaterais do spoofing de iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Vídeos infantis privados podem não ser reproduzidos 
-• As transmissões ao vivo começam do início 
-• Os vídeos terminam 1 segundo antes"</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Vídeos privados para crianças podem não ser reproduzidos
+• Os vídeos terminam 1 segundo mais cedo"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Efeitos colaterais do spoofing de Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Vídeos infantis podem não ser reproduzidos 
 • As transmissões ao vivo começam do início 
@@ -1300,8 +1304,6 @@ AVC tem uma resolução máxima de 1080p, o codec de áudio Opus não está disp
   <string name="revanced_spoof_video_streams_language_FA">Persa</string>
   <string name="revanced_spoof_video_streams_language_FI">Finlandês</string>
   <string name="revanced_spoof_video_streams_language_FR">Francês</string>
-  <string name="revanced_spoof_video_streams_language_GU">Gujarati</string>
-  <string name="revanced_spoof_video_streams_language_HI">Hindi</string>
   <string name="revanced_spoof_video_streams_language_HR">Croata</string>
   <string name="revanced_spoof_video_streams_language_HU">Húngaro</string>
   <string name="revanced_spoof_video_streams_language_ID">Indonésio</string>
@@ -1318,7 +1320,6 @@ AVC tem uma resolução máxima de 1080p, o codec de áudio Opus não está disp
   <string name="revanced_spoof_video_streams_language_MY">Birmanês</string>
   <string name="revanced_spoof_video_streams_language_NL">Holandês</string>
   <string name="revanced_spoof_video_streams_language_OR">Oriá</string>
-  <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
   <string name="revanced_spoof_video_streams_language_PL">Polonês</string>
   <string name="revanced_spoof_video_streams_language_PT_BR">Português (Brasil)</string>
   <string name="revanced_spoof_video_streams_language_PT_PT">Português (Portugal)</string>
@@ -1329,12 +1330,10 @@ AVC tem uma resolução máxima de 1080p, o codec de áudio Opus não está disp
   <string name="revanced_spoof_video_streams_language_SR">Sérvio</string>
   <string name="revanced_spoof_video_streams_language_SV">Sueco</string>
   <string name="revanced_spoof_video_streams_language_SW">Suaíli</string>
-  <string name="revanced_spoof_video_streams_language_TA">Tamil</string>
   <string name="revanced_spoof_video_streams_language_TE">Télugo</string>
   <string name="revanced_spoof_video_streams_language_TH">Tailandês</string>
   <string name="revanced_spoof_video_streams_language_TR">Turco</string>
   <string name="revanced_spoof_video_streams_language_UK">Ucraniano</string>
-  <string name="revanced_spoof_video_streams_language_UR">Urdu</string>
   <string name="revanced_spoof_video_streams_language_VI">Vietnamita</string>
   <string name="revanced_spoof_video_streams_language_ZH">Chinês</string>
   </patch>
@@ -1350,8 +1349,6 @@ AVC tem uma resolução máxima de 1080p, o codec de áudio Opus não está disp
   <string name="revanced_embedded_ads_service_failed">%s retornou um erro, os anúncios podem ser exibidos. Tente alterar o serviço de bloqueio de anúncios nas configurações.</string>
   <string name="revanced_block_embedded_ads_title">Bloquear anúncios de vídeo incorporados</string>
   <string name="revanced_block_embedded_ads_entry_1">Desativado</string>
-  <string name="revanced_block_embedded_ads_entry_2">Luminous proxy</string>
-  <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock proxy</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">
   <string name="revanced_block_video_ads_title">Bloquear anúncios em vídeo</string>

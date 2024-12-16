@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK 版本号已损坏</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_title">\"重制版\"</string>
   <string name="revanced_settings_confirm_user_dialog_title">继续？</string>
   <string name="revanced_settings_reset">重置</string>
   <string name="revanced_settings_restart_title">刷新并重启</string>
@@ -78,6 +79,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_03_feed_title">推荐</string>
   <string name="revanced_settings_screen_04_player_title">播放器</string>
   <string name="revanced_settings_screen_05_general_title">通用布局</string>
+  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">进度条</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">滑动控制</string>
   <string name="revanced_settings_screen_11_misc_title">杂项</string>
@@ -157,9 +159,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_timed_reactions_title">隐藏定时反应</string>
   <string name="revanced_hide_timed_reactions_summary_on">已隐藏计时反应</string>
   <string name="revanced_hide_timed_reactions_summary_off">定时反应显示</string>
-  <string name="revanced_hide_search_result_shelf_header_title">隐藏搜索结果页头</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">隐藏功能架</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">显示功能架</string>
   <string name="revanced_hide_channel_guidelines_title">隐藏频道指南</string>
   <string name="revanced_hide_channel_guidelines_summary_on">隐藏社区指南</string>
   <string name="revanced_hide_channel_guidelines_summary_off">显示社区指南</string>
@@ -513,6 +512,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_navigation_button_labels_title">隐藏导航按钮标签</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">已隐藏标签</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">已显示标签</string>
+  <string name="revanced_disable_translucent_status_bar_title">禁用半透明状态栏</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">状态栏为不透明</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">状态栏为不透明或半透明</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">禁用浅色半透明导航栏</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">浅色模式的导航栏不透明</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">浅色模式导航栏为不透明或半透明</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">禁用深色半透明栏</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">深色模式的导航栏不透明</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">深色模式导航栏为不透明或半透明</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">弹出菜单</string>
@@ -1057,6 +1065,7 @@ Second \"item\" text"</string>
   <string name="revanced_tablet_layout_user_dialog_message">社区帖子不会在平板电脑布局中显示</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
+  <string name="revanced_miniplayer_screen_title">小型播放器</string>
   <string name="revanced_miniplayer_screen_summary">更改应用内最小化播放器的样式</string>
   <string name="revanced_miniplayer_type_title">最小化播放器类型</string>
   <string name="revanced_miniplayer_type_entry_0">已禁用</string>
@@ -1139,6 +1148,7 @@ Second \"item\" text"</string>
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; 原始封面</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; 视频截图</string>
   <string name="revanced_alt_thumbnail_options_entry_4">静止截图</string>
+  <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
   <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow 为 YouTube 视频提供众包缩略图。这些缩略图通常比 YouTube 提供的更相关
 
 如果启用，视频 URL 将发送到 API 服务器，并且不会发送其他数据。如果视频没有 DeArrow 缩略图，则会显示原始或静态截图
@@ -1171,7 +1181,7 @@ Second \"item\" text"</string>
   <string name="revanced_announcements_dialog_dismiss">忽略</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Warning</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">警告</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">您的观看历史记录未保存。&lt;br&gt;&lt;br&gt;这很可能是由 DNS 广告拦截器或网络代理造成的。&lt;br&gt;&lt;br&gt;要解决此问题，请将 &lt;b&gt;s.youtube.com&lt;/b&gt; 添加到白名单或关闭所有 DNS 广告拦截器和代理。</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">不再显示</string>
   </patch>
@@ -1214,6 +1224,11 @@ Second \"item\" text"</string>
   <string name="revanced_disable_zoom_haptics_summary_on">触觉反馈已禁用</string>
   <string name="revanced_disable_zoom_haptics_summary_off">触觉反馈已启用</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">强制使用原始音频</string>
+  <string name="revanced_force_original_audio_summary_on">正在使用原始音频</string>
+  <string name="revanced_force_original_audio_summary_off">正在使用默认音频</string>
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">自动</string>
@@ -1223,6 +1238,7 @@ Second \"item\" text"</string>
   <string name="revanced_video_quality_default_wifi_title">Wi-Fi 网络上的默认视频质量</string>
   <string name="revanced_video_quality_default_mobile_title">移动网络上的默认视频质量</string>
   <string name="revanced_remember_video_quality_mobile">移动</string>
+  <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">已将默认 %1$s 质量更改为：%2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
@@ -1275,7 +1291,6 @@ Second \"item\" text"</string>
 AVC 的最大分辨率为 1080p，Opus 音频编解码器不可用，视频播放将比 VP9 或 AV1 使用更多互联网数据。"</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS 伪装副作用</string>
   <string name="revanced_spoof_video_streams_about_ios_summary">"• 私人儿童视频可能无法播放
-• 直播从头开始
 • 视频提前 1 秒结束"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR 伪装副作用</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• 儿童视频可能无法播放
@@ -1297,7 +1312,7 @@ AVC 的最大分辨率为 1080p，Opus 音频编解码器不可用，视频播�
   <string name="revanced_spoof_video_streams_language_ET">爱沙尼亚语</string>
   <string name="revanced_spoof_video_streams_language_FA">波斯语</string>
   <string name="revanced_spoof_video_streams_language_FI">芬兰语</string>
-  <string name="revanced_spoof_video_streams_language_FR">French</string>
+  <string name="revanced_spoof_video_streams_language_FR">法语</string>
   <string name="revanced_spoof_video_streams_language_GU">古吉拉特语</string>
   <string name="revanced_spoof_video_streams_language_HI">印地语</string>
   <string name="revanced_spoof_video_streams_language_HR">克罗地亚语</string>
@@ -1348,6 +1363,8 @@ AVC 的最大分辨率为 1080p，Opus 音频编解码器不可用，视频播�
   <string name="revanced_embedded_ads_service_failed">%s 返回错误，可能会显示广告。尝试在设置中更改广告拦截服务。</string>
   <string name="revanced_block_embedded_ads_title">屏蔽嵌入式视频广告</string>
   <string name="revanced_block_embedded_ads_entry_1">已禁用</string>
+  <string name="revanced_block_embedded_ads_entry_2">Luminous 代理</string>
+  <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock 代理</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">
   <string name="revanced_block_video_ads_title">屏蔽视频广告</string>

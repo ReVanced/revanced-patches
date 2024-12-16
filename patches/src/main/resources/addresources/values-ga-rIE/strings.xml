@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Tá dáta tógála APK truaillithe</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Ar mhaith leat dul ar aghaidh?</string>
   <string name="revanced_settings_reset">Athshocraigh</string>
   <string name="revanced_settings_restart_title">Athnuachan agus atosaigh</string>
@@ -78,9 +79,10 @@ Brúigh an cnaipe leanúnaí agus ligean athruithe optúimíochta."</string>
   <string name="revanced_settings_screen_03_feed_title">Fotha</string>
   <string name="revanced_settings_screen_04_player_title">Imreoir</string>
   <string name="revanced_settings_screen_05_general_title">Leagan amach ginearálta</string>
+  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Barr Seardaigh</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Rialuithe Swipe</string>
-  <string name="revanced_settings_screen_11_misc_title">Misc</string>
+  <string name="revanced_settings_screen_11_misc_title">Ilghnóthach</string>
   <string name="revanced_settings_screen_12_video_title">Físeán</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
@@ -157,9 +159,6 @@ Ní bheidh a fhios agat faoi aon imeachtaí neamhghnácha."</string>
   <string name="revanced_hide_timed_reactions_title">Folaigh frithghníomhartha ama</string>
   <string name="revanced_hide_timed_reactions_summary_on">Tá frithghníomhartha ama i bhfolach</string>
   <string name="revanced_hide_timed_reactions_summary_off">Taispeántar frithghníomhartha ama</string>
-  <string name="revanced_hide_search_result_shelf_header_title">Ceanntásc seilf torthaí cuardaigh</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">Tá ceanntásc na seilfe i bhfolach</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">Taispeántar ceanntásc na seilfe</string>
   <string name="revanced_hide_channel_guidelines_title">Folaigh treoirlínte cainéal</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Tá treoirlínte cainéal i bhfolach</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Taispeántar treoirlínte cainéal</string>
@@ -438,7 +437,7 @@ Níl an ghné seo ar fáil ach do ghléasanna níos sine"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Cumasaigh gotha uathoibríoch</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Cumasaíonn scioradh síos go dtí an luach is ísle den chomhartha gile uathoibríoch</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Ní chumasaíonn uathoibríoch a tharraingt síos go dtí an luach is ísle</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Auto</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Uathoibríoch</string>
   <string name="revanced_swipe_overlay_timeout_title">Amach forleagtha Swipe</string>
   <string name="revanced_swipe_overlay_timeout_summary">Tá méid na milleasoicind an forleagan le feiceáil</string>
   <string name="revanced_swipe_text_overlay_size_title">Méid téacs forleagtha Swipe</string>
@@ -517,6 +516,10 @@ Nóta: Trí é seo a chumasú, cuirtear fógraí físeáin i bhfolach freisin"</
   <string name="revanced_hide_navigation_button_labels_title">Folaigh lipéid cnaipe nascleanú</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Tá lipéid i bhfolach</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Taispeántar lipéid</string>
+  <string name="revanced_disable_translucent_status_bar_title">Díchumas trasúlacht staidéir a dhíchumas</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Díchumas barra soiléir trasúlachta</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Tá barra nascleanúna mód soiléir dochrach</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Tá barra nascleanúna mód dorcha dochrach</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Roghchlár Flyout</string>
@@ -1057,7 +1060,7 @@ Má dhiúltaítear é níos déanaí, moltar sonraí an aip a ghlanadh chun buga
   <string name="revanced_tablet_layout_user_dialog_message">Ní thaispeánann poist phobail ar leagan amach táibléad</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
-  <string name="revanced_miniplayer_screen_title">Miniplayer</string>
+  <string name="revanced_miniplayer_screen_title">Minipléir</string>
   <string name="revanced_miniplayer_screen_summary">Athraigh stíl an imreora íoslaghdaithe san aip</string>
   <string name="revanced_miniplayer_type_title">Cineál Miniplayer</string>
   <string name="revanced_miniplayer_type_entry_0">Díchumasaithe</string>
@@ -1140,6 +1143,7 @@ Is féidir le seo íomhánna atá blocáilte i roinnt réigiún a dheisiú"</str
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Mionsamhlacha bunaidh</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Gabhálacha fós</string>
   <string name="revanced_alt_thumbnail_options_entry_4">Gabhann fós</string>
+  <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
   <string name="revanced_alt_thumbnail_dearrow_about_summary">"Soláthraíonn DeArrow miontaispeántais foinse-phobail do fhíseáin YouTube. Bíonn na miontaispeántais seo níos ábhartha go minic ná na cinn a sholáthraíonn YouTube
 
 Má tá sé cumasaithe, cuirfear URLanna físeán chuig an bhfreastalaí API agus ní sheolfar aon sonraí eile. Má níl aon mhiontaisspeántais DeArrow ag físeán, ansin taispeántar na miontaispeántais bunaidh nó na gafaí fós
@@ -1215,9 +1219,14 @@ Is féidir le seo caighdeáin físeáin níos airde a dhíghlasáil"</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Tá Haptics díchumasaithe</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Tá Haptics cumasaithe</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Fórsaigh fuaim bunaidh</string>
+  <string name="revanced_force_original_audio_summary_on">Ag úsáid fuaim bunaidh</string>
+  <string name="revanced_force_original_audio_summary_off">Ag úsáid fuaim réamhshocraithe</string>
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_default_entry_1">Auto</string>
+  <string name="revanced_video_quality_default_entry_1">Uathoibríoch</string>
   <string name="revanced_remember_video_quality_last_selected_title">Cuimhnigh athruithe ar cháilíocht</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Baineann athruithe cáilíochta le gach físeán</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Ní bhaineann athruithe cáilíochta ach leis an bhfíseán reatha</string>
@@ -1240,7 +1249,7 @@ Is féidir le seo caighdeáin físeáin níos airde a dhíghlasáil"</string>
   <string name="revanced_custom_playback_speeds_summary">Cuir leis nó athraigh na luasanna athsheinm saincheaptha</string>
   <string name="revanced_custom_playback_speeds_invalid">Ní mór luas saincheaptha a bheith níos lú ná %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Luasanna athsheinm saincheaptha neamhbhailí</string>
-  <string name="revanced_custom_playback_speeds_auto">Auto</string>
+  <string name="revanced_custom_playback_speeds_auto">Uathoibríoch</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Cuimhnigh athruithe ar luas athsheinm</string>
@@ -1276,9 +1285,6 @@ D'fhéadfadh nach n-oibreoidh athsheinm físeáin"</string>
 
 Tá uasmhéid réiteach 1080p ag AVC, níl an cód fuaime Opus ar fáil, agus úsáidfidh athsheinm físeáin níos mó sonraí idirlín ná VP9 nó AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Fo-iarsmaí spoofing iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• D'fhéadfadh nach n-imreoidh físeáin pháistí príobháideacha
-• Tosóidh shruth beo ón tús
-• Críochnóidh físeáin 1 soicind go luath"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Fo-iarsmaí spoofing Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• D'fhéadfadh nach n-imreoidh físeáin pháistí
 • Tosóidh shruth beo ón tús
@@ -1300,7 +1306,7 @@ Tá uasmhéid réiteach 1080p ag AVC, níl an cód fuaime Opus ar fáil, agus ú
   <string name="revanced_spoof_video_streams_language_FA">Peirsis</string>
   <string name="revanced_spoof_video_streams_language_FI">Fionlainnis</string>
   <string name="revanced_spoof_video_streams_language_FR">Fraincis</string>
-  <string name="revanced_spoof_video_streams_language_GU">Gujarati</string>
+  <string name="revanced_spoof_video_streams_language_GU">Gúisearáitis</string>
   <string name="revanced_spoof_video_streams_language_HI">Hiondúis</string>
   <string name="revanced_spoof_video_streams_language_HR">Cróitis</string>
   <string name="revanced_spoof_video_streams_language_HU">Ungáiris</string>
@@ -1313,12 +1319,12 @@ Tá uasmhéid réiteach 1080p ag AVC, níl an cód fuaime Opus ar fáil, agus ú
   <string name="revanced_spoof_video_streams_language_LV">Laotháinis</string>
   <string name="revanced_spoof_video_streams_language_MK">Macadóinis</string>
   <string name="revanced_spoof_video_streams_language_MN">Mongóilis</string>
-  <string name="revanced_spoof_video_streams_language_MR">Marathi</string>
+  <string name="revanced_spoof_video_streams_language_MR">Maraitis</string>
   <string name="revanced_spoof_video_streams_language_MS">Malaíseach</string>
   <string name="revanced_spoof_video_streams_language_MY">Burmais</string>
   <string name="revanced_spoof_video_streams_language_NL">Ollainnis</string>
-  <string name="revanced_spoof_video_streams_language_OR">Odia</string>
-  <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
+  <string name="revanced_spoof_video_streams_language_OR">Odais</string>
+  <string name="revanced_spoof_video_streams_language_PA">Painseáibis</string>
   <string name="revanced_spoof_video_streams_language_PL">Polainnis</string>
   <string name="revanced_spoof_video_streams_language_PT_BR">Portaingéilis (Brasail)</string>
   <string name="revanced_spoof_video_streams_language_PT_PT">Portaingéilis (An Phortaingéal)</string>
@@ -1384,7 +1390,7 @@ Tá uasmhéid réiteach 1080p ag AVC, níl an cód fuaime Opus ar fáil, agus ú
   <string name="revanced_ads_screen_summary">Socruithe blocála fógraí</string>
   <string name="revanced_chat_screen_title">Comhrá</string>
   <string name="revanced_chat_screen_summary">Socruithe comhrá</string>
-  <string name="revanced_misc_screen_title">Misc</string>
+  <string name="revanced_misc_screen_title">Éagsúil</string>
   <string name="revanced_misc_screen_summary">Socruithe ilghnéitheacha</string>
   <string name="revanced_general_category_title">Socruithe ginearálta</string>
   <string name="revanced_other_category_title">Socruithe eile</string>

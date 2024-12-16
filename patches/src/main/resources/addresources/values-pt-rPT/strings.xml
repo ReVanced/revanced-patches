@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Data de compilação do APK está corrompida</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Desejas continuar?</string>
   <string name="revanced_settings_reset">Redefinir</string>
   <string name="revanced_settings_restart_title">Atualizar e reiniciar</string>
@@ -78,6 +79,7 @@ Nhấn nút tiếp tục và cho phép thay đổi tối ưu hóa."</string>
   <string name="revanced_settings_screen_03_feed_title">Recomendações</string>
   <string name="revanced_settings_screen_04_player_title">Leitor</string>
   <string name="revanced_settings_screen_05_general_title">Interface geral</string>
+  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Barra de pesquisa</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Controlos por Gestos</string>
   <string name="revanced_settings_screen_11_misc_title">Outros</string>
@@ -157,9 +159,6 @@ Bạn sẽ không được thông báo về bất kỳ sự kiện bất ngờ n
   <string name="revanced_hide_timed_reactions_title">Esconder reações cronometradas</string>
   <string name="revanced_hide_timed_reactions_summary_on">Reações temporizadas estão escondidas</string>
   <string name="revanced_hide_timed_reactions_summary_off">Reações temporizadas são visíveis</string>
-  <string name="revanced_hide_search_result_shelf_header_title">Esconder cabeçalho do resultado da pesquisa</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">Cabeçalho de Shelf está escondido</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">Cabeçalho de Shelf é visível</string>
   <string name="revanced_hide_channel_guidelines_title">Esconder diretrizes do canal</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Diretrizes do canal estão escondidas</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Diretrizes do canal são visíveis</string>
@@ -517,6 +516,15 @@ Lưu ý: Bật tính năng này cũng buộc ẩn quảng cáo video"</string>
   <string name="revanced_hide_navigation_button_labels_title">Ocultar rótulos dos botões de navegação</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Marcadores estão ocultos</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Marcadores são mostrados</string>
+  <string name="revanced_disable_translucent_status_bar_title">Desativar a barra de status translúcida</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">A barra de status é opaca</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">A barra de status é opaca ou translúcida</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Desativar a barra translúcida clara</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">A barra de navegação no modo claro é opaca</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">A barra de navegação em modo claro é opaca ou translúcida</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Desativar barra translúcida escura</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">A barra de navegação no modo escuro é opaca</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">A barra de navegação em modo escuro é opaca ou translúcida</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Menu suspenso</string>
@@ -954,6 +962,15 @@ Seu ID de usuário é como uma senha e nunca deve ser compartilhado.
   <string name="revanced_sb_new_segment_time_start">Hora do início do segmento em</string>
   <string name="revanced_sb_new_segment_time_end">Tempo que o segmento termina em</string>
   <string name="revanced_sb_new_segment_confirm_title">Os tempos estão corretos?</string>
+  <string name="revanced_sb_new_segment_confirm_content">"O segmento é de
+
+%1$s
+para
+%2$s
+
+(%3$s)
+
+Pronto para enviar?"</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Iniciar deve ser antes do fim</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Marcar dois locais na barra de tempo</string>
   <string name="revanced_sb_new_segment_preview_segment_first">Pré-visualizar o segmento e garantir que pula suavemente</string>
@@ -1048,6 +1065,7 @@ Nếu sau này tắt, bạn nên xóa dữ liệu ứng dụng để tránh lỗ
   <string name="revanced_tablet_layout_user_dialog_message">Postagens da comunidade não aparecem nos layouts do tablet</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
+  <string name="revanced_miniplayer_screen_title">Miniplayer</string>
   <string name="revanced_miniplayer_screen_summary">Alterar o estilo do player minimizado no aplicativo</string>
   <string name="revanced_miniplayer_type_title">Tipo de minijogador</string>
   <string name="revanced_miniplayer_type_entry_0">Desativado</string>
@@ -1205,6 +1223,11 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_disable_zoom_haptics_summary_on">Hápticos estão desativados</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Hábitos estão ativados</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Forçar áudio original</string>
+  <string name="revanced_force_original_audio_summary_on">Usando áudio original</string>
+  <string name="revanced_force_original_audio_summary_off">Usando áudio padrão</string>
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Automático</string>
@@ -1214,6 +1237,7 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_video_quality_default_wifi_title">Qualidade de vídeo padrão na rede Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Qualidade de vídeo padrão na rede móvel</string>
   <string name="revanced_remember_video_quality_mobile">Celular</string>
+  <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Qualidade padrão %1$s alterada para: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
@@ -1265,9 +1289,8 @@ Phát video có thể không hoạt động"</string>
 
 AVC có độ phân giải tối đa là 1080p, bộ giải mã âm thanh Opus không khả dụng và phát video sẽ sử dụng nhiều dữ liệu internet hơn so với VP9 hoặc AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Efeitos colaterais de iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Video dành cho trẻ em có thể không phát
-• Luồng trực tiếp bắt đầu từ đầu
-• Video kết thúc sớm 1 giây"</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Vídeos privados de crianças podem não ser reproduzidos
+• Os vídeos terminam 1 segundo mais cedo"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR efeito de spoofing side</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Video dành cho trẻ em có thể không phát
 • Luồng trực tiếp bắt đầu từ đầu
