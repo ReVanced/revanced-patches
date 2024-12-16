@@ -518,10 +518,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_navigation_button_labels_title">하단바 버튼 라벨 숨기기</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">라벨이 숨겨집니다</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">라벨이 표시됩니다</string>
-  <string name="revanced_disable_translucent_status_bar_title">투명한 상태 표시줄 비활성화</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_title">밝은 반투명 막대 비활성화</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">밝은 모드의 탐색 모음은 불투명함</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">어두운 모드의 탐색 모음은 불투명함</string>
+  <string name="revanced_disable_translucent_status_bar_title">반투명 상태바 비활성화하기</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">상태바가 불투명합니다</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">상태바가 불투명하거나 반투명합니다</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">밝은 반투명 하단바 비활성화하기</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">밝은 테마 하단바가 불투명합니다</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">밝은 테마 하단바가 불투명하거나 반투명합니다</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">어두운 반투명 하단바 비활성화하기</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">어두운 테마 하단바가 불투명합니다</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">어두운 테마 하단바가 불투명하거나 반투명합니다</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">메뉴 구성요소</string>

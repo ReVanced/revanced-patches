@@ -517,9 +517,14 @@ Opmerking: Als u dit inschakelt, worden videoadvertenties ook geforceerd verborg
   <string name="revanced_hide_navigation_button_labels_summary_on">Labels zijn verborgen</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Labels worden weergegeven</string>
   <string name="revanced_disable_translucent_status_bar_title">Transparante statusbalk uitschakelen</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">Statusbalk is ondoorzichtig</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">Statusbalk is ondoorzichtig of doorschijnend</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Transparante lichte navigatiebalk uitschakelen</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">De lichte navigatiebalk is ondoorzichtig</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">De lichtmodus navigatiebalk is ondoorzichtig of doorschijnend</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Schakel de donkere doorschijnende balk uit</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">De donkere navigatiebalk is ondoorzichtig</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">De donkermodus navigatiebalk is ondoorzichtig of doorschijnend</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Uitklapmenu</string>
@@ -1284,6 +1289,8 @@ Video-playback werkt mogelijk niet"</string>
 
 AVC heeft een maximale resolutie van 1080p, Opus audiocodec is niet beschikbaar en video-playback gebruikt meer internetgegevens dan VP9 of AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Neveneffecten van iOS-vervalsing</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Privé-kindervideo's worden mogelijk niet afgespeeld
+• Video's eindigen 1 seconde eerder"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Neveneffecten van Android VR-vervalsing</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Kindervideo's worden mogelijk niet afgespeeld
 • Livestreams beginnen vanaf het begin

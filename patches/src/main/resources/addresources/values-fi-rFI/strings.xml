@@ -517,9 +517,14 @@ Huomaa: Tämä ottaa pakolla pois myös videomainokset"</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Tunnisteet on piilotettu</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Tunnisteet näytetään</string>
   <string name="revanced_disable_translucent_status_bar_title">Poista läpikuultava tilarivi</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">Tilapalkki on peittävä</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">Tilapalkki on peittävä tai läpikuultava</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Poista vaalea läpikuultava palkki</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Vaalea tilan navigaatiopalkki on läpinäkymätön</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Vaalean tilan navigaatiopalkki on peittävä tai läpikuultava</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Poista tumma läpikuultava palkki</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Tumman tilan navigaatiopalkki on läpinäkymätön</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Tumman tilan navigaatiopalkki on peittävä tai läpikuultava</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Flyout-valikko</string>
@@ -1284,6 +1289,8 @@ Videon toisto ei välttämättä toimi"</string>
 
 AVC:llä on enimmäisresoluutio 1080p, Opus-äänikoodekkia ei ole käytettävissä ja videoiden toisto kuluttaa enemmän internet-dataa kuin VP9 tai AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS-naamioinnin haittavaikutukset</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Yksityisiä lasten videoita ei ehkä toisteta
+• Videot päättyvät 1 sekunnin etuajassa"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR -naamioinnin haittavaikutukset</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Lasten videot eivät välttämättä toistu
 • Suoratoistot alkavat alusta

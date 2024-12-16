@@ -516,15 +516,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_navigation_button_labels_title">Приховати підписи кнопок навігації</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Підписи кнопок навігації приховано</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Підписи кнопок навігації показуються</string>
-  <string name="revanced_disable_translucent_status_bar_title">Вимкнути напівпрозорий рядок стану</string>
-  <string name="revanced_disable_translucent_status_bar_summary_on">Статусний рядок є непрозорим</string>
-  <string name="revanced_disable_translucent_status_bar_summary_off">Статусний рядок є непрозорим або напівпрозорим</string>
+  <string name="revanced_disable_translucent_status_bar_title">Вимкнути напівпрозорість рядка стану</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">Рядок стану непрозорий</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">Рядок стану непрозорий або напівпрозорий</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Вимкнути світлу напівпрозору панель</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Навігаційна панель у світлому режимі є непрозорою</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Панель навігації світлого режиму є непрозорою або напівпрозорою</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_title">Вимкнути темний напівпрозорий рядок</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Навігаційна панель у темному режимі є непрозорою</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Панель навігації темного режиму є непрозорою або напівпрозорою</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Панель навігації світлого режиму непрозора</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Панель навігації світлого режиму непрозора або напівпрозора</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Вимкнути темну напівпрозору панель</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Панель навігації темного режиму непрозора</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Панель навігації темного режиму непрозора або напівпрозора</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Висувне меню</string>
@@ -1288,10 +1288,12 @@ Second \"item\" text"</string>
 
 AVC має максимальну роздільну здатність 1080p, відсутній аудіо кодек OPUS, а відтворення відео використовуватиме більше інтернет-даних, ніж на кодеках VP9 або AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Побічні ефекти підробки iOS:</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Побічні ефекти підробки Android VR:</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Дитячі відео можуть не відтворюватися
-• Прямі трансляції починаються з початку
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Відео для дітей можуть не відтворюватися
 • Відео закінчуються на 1 секунду раніше"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_title">Побічні ефекти підробки Android VR:</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Відео для дітей можуть не відтворюватися
+• Меню звукової доріжки відсутнє
+• Стабілізація гучності недоступна"</string>
   <string name="revanced_spoof_video_streams_language_title">Стандартна мова аудіопотоку</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Мова застосунку</string>
   <string name="revanced_spoof_video_streams_language_AR">Арабська</string>

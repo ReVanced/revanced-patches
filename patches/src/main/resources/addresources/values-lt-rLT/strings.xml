@@ -517,9 +517,14 @@ Pastaba: įjungus šį nustatymą, vaizdo įrašų reklamos taip pat yra privers
   <string name="revanced_hide_navigation_button_labels_summary_on">Etiketės yra paslėptos</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Etiketės yra rodomos</string>
   <string name="revanced_disable_translucent_status_bar_title">Išjungti permatomą būsenos juostą</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">Bžas statuso juosta nepermatoma</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">Bžas statuso juosta yra nepermatoma arba permatoma</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Išjungti permatomą šviesią naršymo juostą</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Šviesios spalvos naršymo juosta yra nepermatoma</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Šviesiosios temos narūybos juosta yra nepermatoma arba permatoma</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Išjunkite tamsios temos permatomą narūybos juostą</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Tamsios spalvos naršymo juosta yra nepermatoma</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Tamsios temos narūybos juosta yra nepermatoma arba permatoma</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Išskleidžiamasis meniu</string>
@@ -1061,6 +1066,7 @@ Jei vėliau išjungta, rekomenduojama išvalyti programos duomenis, kad būtų i
   <string name="revanced_tablet_layout_user_dialog_message">Bendruomenės įrašai nerodomi planšetinio kompiuterio išdėstymuose</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
+  <string name="revanced_miniplayer_screen_title">Mažas grotuvas</string>
   <string name="revanced_miniplayer_screen_summary">Pakeisti programėlės sumažinto grotuvo stilių</string>
   <string name="revanced_miniplayer_type_title">Minigrotuvo tipas</string>
   <string name="revanced_miniplayer_type_entry_0">Išjungtas</string>
@@ -1285,6 +1291,8 @@ Vaizdo įrašo atkūrimas gali neveikti"</string>
 
 AVC maksimalus rezoliucija yra 1080p, Opus garso kodekas nėra prieinamas, o vaizdo įrašo atkūrimas naudoja daugiau interneto duomenų nei VP9 arba AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS apgaulės šalutiniai poveikiai</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Privatūs vaikų vaizdo įrašai gali neveikti
+• Vaizdo įrašai baigiasi 1 sekunde anksčiau"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR apgaulės šalutiniai poveikiai</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Vaikų vaizdo įrašai gali neveikti
 • Tiesioginės transliacijos prasideda nuo pradžios
@@ -1356,6 +1364,8 @@ AVC maksimalus rezoliucija yra 1080p, Opus garso kodekas nėra prieinamas, o vai
   <string name="revanced_embedded_ads_service_failed">%s grąžino klaidą, reklamos gali rodytis. Pabandykite pakeisti skelbimų blokavimo paslaugą nustatymuose.</string>
   <string name="revanced_block_embedded_ads_title">Blokuoti įterptas vaizdo reklamas</string>
   <string name="revanced_block_embedded_ads_entry_1">Išjungta</string>
+  <string name="revanced_block_embedded_ads_entry_2">\"Luminous\" tarpinis serveris</string>
+  <string name="revanced_block_embedded_ads_entry_3">\"PurpleAdBlock\" tarpinis serveris</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">
   <string name="revanced_block_video_ads_title">Blokuoti vaizdo reklamas</string>

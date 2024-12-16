@@ -76,11 +76,14 @@ Tocca il pulsante Continua e consenti le modifiche di ottimizzazione."</string>
   <string name="revanced_settings_screen_00_about_title">Informazioni</string>
   <string name="revanced_settings_screen_01_ads_title">Pubblicità</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Miniature alternative</string>
+  <string name="revanced_settings_screen_03_feed_title">Feed</string>
+  <string name="revanced_settings_screen_04_player_title">Lettore</string>
   <string name="revanced_settings_screen_05_general_title">Interfaccia generale</string>
   <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Barra di avanzamento</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Controlli a gesti</string>
   <string name="revanced_settings_screen_11_misc_title">Varie</string>
+  <string name="revanced_settings_screen_12_video_title">Video</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Disattiva riproduzione Shorts in background</string>
@@ -88,6 +91,7 @@ Tocca il pulsante Continua e consenti le modifiche di ottimizzazione."</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">La riproduzione in background degli Shorts è abilitata</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_screen_title">Debug</string>
   <string name="revanced_debug_screen_summary">Abilita o disabilita impostazioni di debug</string>
   <string name="revanced_debug_title">Log di debug</string>
   <string name="revanced_debug_summary_on">I log di debug sono abilitati</string>
@@ -513,9 +517,14 @@ Nota: Abilitare questa opzione nasconde anche le pubblicità video"</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Le etichette sono nascoste</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Le etichette sono visibili</string>
   <string name="revanced_disable_translucent_status_bar_title">Disabilita la barra di stato traslucida</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">La barra di stato è opaca</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">La barra di stato è opaca o translucida</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Disabilita la barra traslucida chiara</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">La barra di navigazione in modalità chiara è opaca</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">La barra di navigazione in modalità chiara è opaca o translucida</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Disabilita la barra scura traslucida</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">La barra di navigazione in modalità scura è opaca</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">La barra di navigazione in modalità scura è opaca o translucida</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Menù a comparsa</string>
@@ -1279,6 +1288,8 @@ La riproduzione video potrebbe non funzionare"</string>
 
 AVC ha una risoluzione massima di 1080p, il codec audio Opus non è disponibile e la riproduzione video utilizzerà più dati rispetto a VP9 o AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Effetti collaterali simulazione iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• I video per bambini privati potrebbero non essere riproducibili
+• I video terminano prima di 1 secondo"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Effetti collaterali simulazione Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• I video per bambini potrebbero non essere riprodotti
 • Le dirette iniziano dall'inizio
