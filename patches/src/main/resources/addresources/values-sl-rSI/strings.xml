@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Datum izgradnje APK je poškodovan</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Želite nadaljevati?</string>
   <string name="revanced_settings_reset">Ponastavi</string>
   <string name="revanced_settings_restart_title">Osveži in znova zaženi</string>
@@ -78,10 +79,11 @@ Tapnite gumb Nadaljuj in dovolite spremembe optimizacije."</string>
   <string name="revanced_settings_screen_03_feed_title">Zbirka</string>
   <string name="revanced_settings_screen_04_player_title">Predvajalnik</string>
   <string name="revanced_settings_screen_05_general_title">Splošna postavitev</string>
+  <string name="revanced_settings_screen_06_shorts_title">Kratki posnetki</string>
   <string name="revanced_settings_screen_07_seekbar_title">Drsnik</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Ukazi s potegom</string>
   <string name="revanced_settings_screen_11_misc_title">Razno</string>
-  <string name="revanced_settings_screen_12_video_title">Video</string>
+  <string name="revanced_settings_screen_12_video_title">Videoposnetki</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Onemogoči predvajanje Shorts v ozadju</string>
@@ -157,9 +159,6 @@ Ne boste obveščeni o nobenih nepričakovanih dogodkih."</string>
   <string name="revanced_hide_timed_reactions_title">Skrij časovno usklajene reakcije</string>
   <string name="revanced_hide_timed_reactions_summary_on">Časovno usklajene reakcije so skrite</string>
   <string name="revanced_hide_timed_reactions_summary_off">Časovno usklajene reakcije so prikazane</string>
-  <string name="revanced_hide_search_result_shelf_header_title">Skrij naslov police z rezultati iskanja</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">Naslov police je skrit</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">Naslov police je prikazan</string>
   <string name="revanced_hide_channel_guidelines_title">Skrij smernice kanala</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Smernice kanala so skrite</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Smernice kanala so prikazane</string>
@@ -256,6 +255,7 @@ Ne boste obveščeni o nobenih nepričakovanih dogodkih."</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Prikazana v povezanih videoposnetkih</string>
   <string name="revanced_comments_screen_title">Komentarji</string>
   <string name="revanced_comments_screen_summary">Skrij ali prikaži komponente oddelka s komentarji</string>
+  <string name="revanced_hide_comments_chat_summary_title">Skrij \'Povzetek klepeta\'</string>
   <string name="revanced_hide_comments_chat_summary_summary_on">\'\' Povzetek klepeta\'\' je skrit</string>
   <string name="revanced_hide_comments_chat_summary_summary_off">\'\' Povzetek klepeta\'\' je prikazan</string>
   <string name="revanced_hide_comments_by_members_header_title">Skrij naslov \"Komentarji članov\"</string>
@@ -516,6 +516,15 @@ Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <string name="revanced_hide_navigation_button_labels_title">Skrij oznake gumbov za navigacijo</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Oznake so skrite</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Oznake so prikazane</string>
+  <string name="revanced_disable_translucent_status_bar_title">Onemogoči prosojno statusno vrstico</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">Statusna vrstica je neprozorna</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">Statusna vrstica je neprozorna ali prosojna</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Onemogoči svetlo prosojno vrstico</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Navigacijska vrstica v svetlem načinu je neprosojna</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Navigacijska vrstica v svetlem načinu je neprozorna ali prosojna</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Onemogoči temno prosojno vrstico</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Navigacijska vrstica v temnem načinu je neprosojna</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Navigacijska vrstica v temnem načinu je neprozorna ali prosojna</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Izbirni meni</string>
@@ -1055,12 +1064,13 @@ To bo spremenilo videz in funkcije aplikacije, vendar se lahko pojavijo neznani 
   <string name="revanced_tablet_layout_user_dialog_message">Objave skupnosti se ne prikazujejo v postavitvah za tablične računalnike</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
+  <string name="revanced_miniplayer_screen_title">\"Miniplayer\"</string>
   <string name="revanced_miniplayer_screen_summary">Spremeni slog zmanjšanega predvajalnika v aplikaciji</string>
   <string name="revanced_miniplayer_type_title">Vrsta mini predvajalnika</string>
   <string name="revanced_miniplayer_type_entry_0">Onemogočeno</string>
   <string name="revanced_miniplayer_type_entry_1">Privzeto</string>
   <string name="revanced_miniplayer_type_entry_2">Minimalno</string>
-  <string name="revanced_miniplayer_type_entry_3">Tablet</string>
+  <string name="revanced_miniplayer_type_entry_3">Tablični računalnik</string>
   <string name="revanced_miniplayer_type_entry_4">Sodobno 1</string>
   <string name="revanced_miniplayer_type_entry_5">Sodobno 2</string>
   <string name="revanced_miniplayer_type_entry_6">Sodobno 3</string>
@@ -1137,6 +1147,7 @@ Omogočanje tega lahko odpravi manjkajoče slike, ki so v nekaterih regijah blok
   <string name="revanced_alt_thumbnail_options_entry_2">DeArrow &amp; Prvotne sličice</string>
   <string name="revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Sličice iz posnetkov</string>
   <string name="revanced_alt_thumbnail_options_entry_4">Sličice iz posnetkov</string>
+  <string name="revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
   <string name="revanced_alt_thumbnail_dearrow_about_summary">"DeArrow omogoča množice pridobljene sličice za videoposnetke v YouTubu. Te sličice so pogosto bolj relevantne od tistih, ki jih zagotavlja YouTube
 
 Če je omogočeno, bodo URL-ji videoposnetkov poslani na strežnik API in ne bodo poslani nobeni drugi podatki. Če videoposnetek nima sličic DeArrow, se prikažejo izvirne ali posnetki zaslona
@@ -1212,6 +1223,11 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Haptika je onemogočena</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Haptika je omogočena</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Izsili izvirni zvok</string>
+  <string name="revanced_force_original_audio_summary_on">Uporaba izvirnega zvoka</string>
+  <string name="revanced_force_original_audio_summary_off">Uporaba privzetega zvoka</string>
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Samodejno</string>
@@ -1221,6 +1237,7 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_video_quality_default_wifi_title">Privzeta kakovost videoposnetka v omrežju Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Privzeta kakovost videoposnetka v mobilnem omrežju</string>
   <string name="revanced_remember_video_quality_mobile">mobilni</string>
+  <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Spremenjena privzeta kakovost %1$s na: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
@@ -1272,9 +1289,6 @@ Predvajanje videa morda ne bo delovalo"</string>
 
 AVC ima največjo ločljivost 1080p, zvočni kodek Opus ni na voljo, predvajanje videa pa bo porabilo več internetnih podatkov kot VP9 ali AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Neželeni učinki iOS pretvarjanja</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Zasebni otroški videoposnetki se morda ne bodo predvajali
-• Livestreami se začnejo od začetka
-• Videoposnetki se končajo 1 sekundo prej"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Neželeni učinki pretvarjanja Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Otroški videoposnetki se morda ne bodo predvajali
 • Livestreami se začnejo od začetka
@@ -1346,6 +1360,8 @@ AVC ima največjo ločljivost 1080p, zvočni kodek Opus ni na voljo, predvajanje
   <string name="revanced_embedded_ads_service_failed">%s je vrnil napako, prikazani so lahko oglasi. Poskusite spremeniti storitev za blokiranje oglasov v nastavitvah.</string>
   <string name="revanced_block_embedded_ads_title">Blokiraj vdelane video oglase</string>
   <string name="revanced_block_embedded_ads_entry_1">Onemogočeno</string>
+  <string name="revanced_block_embedded_ads_entry_2">Luminous proxy</string>
+  <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock proxy</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">
   <string name="revanced_block_video_ads_title">Blokiraj video oglase</string>
@@ -1353,7 +1369,7 @@ AVC ima največjo ločljivost 1080p, zvočni kodek Opus ni na voljo, predvajanje
   <string name="revanced_block_video_ads_summary_off">Video oglasi so odklenjeni</string>
   </patch>
   <patch id="chat.antidelete.showDeletedMessagesPatch">
-  <string name="revanced_deleted_msg">message deleted</string>
+  <string name="revanced_deleted_msg">Sporočilo je bilo izbrisano</string>
   <string name="revanced_show_deleted_messages_title">Prikaži izbrisana sporočila</string>
   <string name="revanced_show_deleted_messages_entry_1">Ne prikazuj izbrisanih sporočil</string>
   <string name="revanced_show_deleted_messages_entry_2">Skrij izbrisana sporočila za spojlerjem</string>

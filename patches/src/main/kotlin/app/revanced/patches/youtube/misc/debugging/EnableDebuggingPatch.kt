@@ -110,22 +110,22 @@ val enableDebuggingPatch = bytecodePatch(
                     """
                 )
             }
-        }
 
-        experimentalStringFeatureFlagFingerprint.match(
-            experimentalFeatureFlagParentFingerprint.originalClassDef
-        ).method.apply {
-            val insertIndex = indexOfFirstInstructionReversedOrThrow(Opcode.MOVE_RESULT_OBJECT)
+            experimentalStringFeatureFlagFingerprint.match(
+                experimentalFeatureFlagParentFingerprint.originalClassDef
+            ).method.apply {
+                val insertIndex = indexOfFirstInstructionReversedOrThrow(Opcode.MOVE_RESULT_OBJECT)
 
-            addInstructions(
-                insertIndex,
-                """
-                    move-result-object v0
-                    invoke-static { v0, p1, p2, p3 }, $EXTENSION_CLASS_DESCRIPTOR->isStringFeatureFlagEnabled(Ljava/lang/String;JLjava/lang/String;)Ljava/lang/String;
-                    move-result-object v0
-                    return-object v0
-                """
-            )
+                addInstructions(
+                    insertIndex,
+                    """
+                        move-result-object v0
+                        invoke-static { v0, p1, p2, p3 }, $EXTENSION_CLASS_DESCRIPTOR->isStringFeatureFlagEnabled(Ljava/lang/String;JLjava/lang/String;)Ljava/lang/String;
+                        move-result-object v0
+                        return-object v0
+                    """
+                )
+            }
         }
 
         // There exists other experimental accessor methods for byte[]

@@ -77,6 +77,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_03_feed_title">피드</string>
   <string name="revanced_settings_screen_04_player_title">플레이어</string>
   <string name="revanced_settings_screen_05_general_title">일반</string>
+  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">재생바</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">스와이프 제스처</string>
   <string name="revanced_settings_screen_11_misc_title">기타</string>
@@ -160,9 +161,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_timed_reactions_title">실시간 이모티콘 리액션 숨기기</string>
   <string name="revanced_hide_timed_reactions_summary_on">실시간 이모티콘 리액션이 숨겨집니다</string>
   <string name="revanced_hide_timed_reactions_summary_off">실시간 이모티콘 리액션이 표시됩니다</string>
-  <string name="revanced_hide_search_result_shelf_header_title">검색 결과에서 선반 헤더 숨기기</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">선반 헤더가 숨겨집니다</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">선반 헤더가 표시됩니다</string>
   <string name="revanced_hide_channel_guidelines_title">채널 가이드라인 숨기기</string>
   <string name="revanced_hide_channel_guidelines_summary_on">채널 가이드라인이 숨겨집니다</string>
   <string name="revanced_hide_channel_guidelines_summary_off">채널 가이드라인이 표시됩니다</string>
@@ -520,6 +518,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_navigation_button_labels_title">하단바 버튼 라벨 숨기기</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">라벨이 숨겨집니다</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">라벨이 표시됩니다</string>
+  <string name="revanced_disable_translucent_status_bar_title">투명한 상태 표시줄 비활성화</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">밝은 반투명 막대 비활성화</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">밝은 모드의 탐색 모음은 불투명함</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">어두운 모드의 탐색 모음은 불투명함</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">메뉴 구성요소</string>
@@ -1174,7 +1176,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_announcements_dialog_dismiss">닫기</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Warning</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">경고</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">시청 기록이 저장되지 않습니다.&lt;br&gt;&lt;br&gt; DNS 광고 차단기 또는 네트워크 프록시로 인해 발생한 문제일 가능성이 높습니다.&lt;br&gt;&lt;br&gt; 이 문제를 해결하려면 &lt;b&gt;s.youtube.com&lt;/b&gt;을 허용 목록에서 제외하거나 모든 DNS 차단기 및 프록시를 해제하세요.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">다시 보지 않기</string>
   </patch>
@@ -1216,6 +1218,11 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_disable_zoom_haptics_title">동영상을 확대할 때, 진동 피드백 비활성화하기</string>
   <string name="revanced_disable_zoom_haptics_summary_on">진동 피드백을 비활성화합니다</string>
   <string name="revanced_disable_zoom_haptics_summary_off">진동 피드백을 활성화합니다</string>
+  </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">원본 오디오 트랙 강제로 활성화하기</string>
+  <string name="revanced_force_original_audio_summary_on">원본 오디오 트랙을 사용 중입니다</string>
+  <string name="revanced_force_original_audio_summary_off">기본 오디오 트랙을 사용 중입니다</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
@@ -1278,7 +1285,6 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
 AVC의 최대 화질 값은 1080p이며, OPUS 오디오 코덱을 사용할 수 없고, 동영상 재생 시 VP9 또는 AV1보다 더 많은 모바일 데이터가 사용되오니 주의하세요"</string>
   <string name="revanced_spoof_video_streams_about_ios_title">\'iOS로 변경\'의 알려진 문제점</string>
   <string name="revanced_spoof_video_streams_about_ios_summary">"• 비공개 Kids 동영상이 재생되지 않을 수 있습니다
-• 일부 라이브 스트림이 처음부터 재생될 수 있습니다
 • 동영상이 1초 일찍 종료될 수 있습니다"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">\'Android VR로 변경\'의 알려진 문제점</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Kids 동영상이 재생되지 않을 수 있습니다

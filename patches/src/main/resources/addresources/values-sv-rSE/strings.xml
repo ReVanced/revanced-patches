@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Byggdatum för APK är skadat</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Vill du fortsätta?</string>
   <string name="revanced_settings_reset">Återställ</string>
   <string name="revanced_settings_restart_title">Uppdatera och starta om</string>
@@ -78,6 +79,7 @@ Tryck på Fortsätt-knappen och tillåt optimeringsändringar."</string>
   <string name="revanced_settings_screen_03_feed_title">Flöde</string>
   <string name="revanced_settings_screen_04_player_title">Spelare</string>
   <string name="revanced_settings_screen_05_general_title">Allmänt utseende</string>
+  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Sökfält</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Dragkontroller</string>
   <string name="revanced_settings_screen_11_misc_title">Övrigt</string>
@@ -157,9 +159,6 @@ Du kommer inte att bli meddelad om oväntade händelser."</string>
   <string name="revanced_hide_timed_reactions_title">Dölj tidsinställda reaktioner</string>
   <string name="revanced_hide_timed_reactions_summary_on">Tidsinställda reaktioner är dolda</string>
   <string name="revanced_hide_timed_reactions_summary_off">Tidsinställda reaktioner är synliga</string>
-  <string name="revanced_hide_search_result_shelf_header_title">Dölj sökresultatshyllans sidhuvud</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">Hyllans sidhuvud är dolt</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">Hyllans sidhuvud är synliga</string>
   <string name="revanced_hide_channel_guidelines_title">Dölj kanalens riktlinjer</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Kanalriktlinjerna är dolda</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Kanalriktlinjer är synliga</string>
@@ -517,6 +516,15 @@ Obs: Genom att aktivera detta döljs även videoannonser"</string>
   <string name="revanced_hide_navigation_button_labels_title">Dölj navigeringsknapp etiketter</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Etiketter är dolda</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Etiketter visas</string>
+  <string name="revanced_disable_translucent_status_bar_title">Inaktivera genomskinlig statusfält</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">Statusraden är ogenomskinlig</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">Statusraden är ogenomskinlig eller genomskinlig</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Inaktivera ljus genomskinlig navigeringsfält</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Ljusläge navigeringsfält är ogenomskinlig</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Ljusläge navigeringsfältet är ogenomskinligt eller genomskinligt</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Inaktivera mörk genomskinlig fält</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Mörkläge navigeringsfält är ogenomskinlig</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Mörkerläge navigeringsfältet är ogenomskinligt eller genomskinligt</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Flyout-meny</string>
@@ -947,7 +955,7 @@ Redan finns"</string>
   <string name="revanced_sb_new_segment_disabled_category">Kategorin är inaktiverad i inställningar. Aktivera kategori för att skicka.</string>
   <string name="revanced_sb_new_segment_title">Nytt Sponsorblock-segment</string>
   <string name="revanced_sb_new_segment_mark_time_as_question">Ange %s som början eller slutet av ett nytt segment?</string>
-  <string name="revanced_sb_new_segment_mark_start">start</string>
+  <string name="revanced_sb_new_segment_mark_start">starta</string>
   <string name="revanced_sb_new_segment_mark_end">slut</string>
   <string name="revanced_sb_new_segment_now">nu</string>
   <string name="revanced_sb_new_segment_time_start">Tid då segmentet börjar på</string>
@@ -1061,11 +1069,7 @@ Om det senare stängs av rekommenderas det att rensa appens data för att förhi
   <string name="revanced_miniplayer_type_title">Miniplayer typ</string>
   <string name="revanced_miniplayer_type_entry_0">Inaktiverad</string>
   <string name="revanced_miniplayer_type_entry_1">Standard</string>
-  <string name="revanced_miniplayer_type_entry_2">Minimal</string>
   <string name="revanced_miniplayer_type_entry_3">Surfplatta</string>
-  <string name="revanced_miniplayer_type_entry_4">Modern 1</string>
-  <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
-  <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
   <string name="revanced_miniplayer_rounded_corners_title">Aktivera rundade hörn</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">Hörnen är rundade</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">Hörnen är kvadratiska</string>
@@ -1214,6 +1218,9 @@ Att aktivera detta kan låsa upp högre videokvalitet"</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Haptikerna är inaktiverade</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Haptikerna är aktiverade</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Forcera originalljud</string>
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Automatiskt</string>
@@ -1275,8 +1282,7 @@ Videouppspelning kanske inte fungerar"</string>
 AVC har en maximal upplösning på 1080p, Opus-ljudcodec är inte tillgänglig och videouppspelning använder mer internetdata än VP9 eller AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS förfalskning biverkningar</string>
   <string name="revanced_spoof_video_streams_about_ios_summary">"• Privata barnvideor kanske inte spelas upp
-• Livestreams startar från början
-• Videor avslutas 1 sekund för tidigt"</string>
+• Videor slutar 1 sekund för tidigt"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR förfalskning biverkningar</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Barnvideor kanske inte spelas upp
 • Livestreams startar från början
@@ -1298,42 +1304,29 @@ AVC har en maximal upplösning på 1080p, Opus-ljudcodec är inte tillgänglig o
   <string name="revanced_spoof_video_streams_language_FA">Persiska</string>
   <string name="revanced_spoof_video_streams_language_FI">Finska</string>
   <string name="revanced_spoof_video_streams_language_FR">Franska</string>
-  <string name="revanced_spoof_video_streams_language_GU">Gujarati</string>
-  <string name="revanced_spoof_video_streams_language_HI">Hindi</string>
   <string name="revanced_spoof_video_streams_language_HR">Kroatiska</string>
   <string name="revanced_spoof_video_streams_language_HU">Ungerska</string>
   <string name="revanced_spoof_video_streams_language_ID">Indonesiska</string>
   <string name="revanced_spoof_video_streams_language_IT">Italienska</string>
   <string name="revanced_spoof_video_streams_language_JA">Japanska</string>
-  <string name="revanced_spoof_video_streams_language_KK">Kazakh</string>
   <string name="revanced_spoof_video_streams_language_KO">Koreanska</string>
   <string name="revanced_spoof_video_streams_language_LT">Litauiska</string>
   <string name="revanced_spoof_video_streams_language_LV">Lettiska</string>
   <string name="revanced_spoof_video_streams_language_MK">Makedonska</string>
   <string name="revanced_spoof_video_streams_language_MN">Mongoliska</string>
-  <string name="revanced_spoof_video_streams_language_MR">Marathi</string>
   <string name="revanced_spoof_video_streams_language_MS">Malajiska</string>
-  <string name="revanced_spoof_video_streams_language_MY">Burmese</string>
   <string name="revanced_spoof_video_streams_language_NL">Holländska</string>
-  <string name="revanced_spoof_video_streams_language_OR">Odia</string>
-  <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
   <string name="revanced_spoof_video_streams_language_PL">Polska</string>
   <string name="revanced_spoof_video_streams_language_PT_BR">Portugisiska (Brasilien)</string>
   <string name="revanced_spoof_video_streams_language_PT_PT">Portugisiska (Portugal)</string>
   <string name="revanced_spoof_video_streams_language_RO">Rumänska</string>
   <string name="revanced_spoof_video_streams_language_RU">Ryska</string>
   <string name="revanced_spoof_video_streams_language_SK">Slovakiska</string>
-  <string name="revanced_spoof_video_streams_language_SL">Slovene</string>
   <string name="revanced_spoof_video_streams_language_SR">Serbiska</string>
   <string name="revanced_spoof_video_streams_language_SV">Svenska</string>
-  <string name="revanced_spoof_video_streams_language_SW">Swahili</string>
-  <string name="revanced_spoof_video_streams_language_TA">Tamil</string>
-  <string name="revanced_spoof_video_streams_language_TE">Telugu</string>
   <string name="revanced_spoof_video_streams_language_TH">Thailändska</string>
   <string name="revanced_spoof_video_streams_language_TR">Turkiska</string>
   <string name="revanced_spoof_video_streams_language_UK">Ukrainska</string>
-  <string name="revanced_spoof_video_streams_language_UR">Urdu</string>
-  <string name="revanced_spoof_video_streams_language_VI">Vietnamese</string>
   <string name="revanced_spoof_video_streams_language_ZH">Kinesiska</string>
   </patch>
   </app>
@@ -1349,7 +1342,6 @@ AVC har en maximal upplösning på 1080p, Opus-ljudcodec är inte tillgänglig o
   <string name="revanced_block_embedded_ads_title">Blockera inbäddade videoannonser</string>
   <string name="revanced_block_embedded_ads_entry_1">Inaktiverad</string>
   <string name="revanced_block_embedded_ads_entry_2">Lysande proxy</string>
-  <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock proxy</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">
   <string name="revanced_block_video_ads_title">Blockera videoannonser</string>

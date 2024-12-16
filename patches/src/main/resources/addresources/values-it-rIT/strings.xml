@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">La data di compilazione dell\'APK è corrotta</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Sei sicuro di voler continuare?</string>
   <string name="revanced_settings_reset">Reimposta</string>
   <string name="revanced_settings_restart_title">Aggiorna e riavvia</string>
@@ -75,13 +76,11 @@ Tocca il pulsante Continua e consenti le modifiche di ottimizzazione."</string>
   <string name="revanced_settings_screen_00_about_title">Informazioni</string>
   <string name="revanced_settings_screen_01_ads_title">Pubblicità</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Miniature alternative</string>
-  <string name="revanced_settings_screen_03_feed_title">Feed</string>
-  <string name="revanced_settings_screen_04_player_title">Player</string>
   <string name="revanced_settings_screen_05_general_title">Interfaccia generale</string>
+  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Barra di avanzamento</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Controlli a gesti</string>
   <string name="revanced_settings_screen_11_misc_title">Varie</string>
-  <string name="revanced_settings_screen_12_video_title">Video</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Disattiva riproduzione Shorts in background</string>
@@ -89,7 +88,6 @@ Tocca il pulsante Continua e consenti le modifiche di ottimizzazione."</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">La riproduzione in background degli Shorts è abilitata</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">Debugging</string>
   <string name="revanced_debug_screen_summary">Abilita o disabilita impostazioni di debug</string>
   <string name="revanced_debug_title">Log di debug</string>
   <string name="revanced_debug_summary_on">I log di debug sono abilitati</string>
@@ -157,9 +155,6 @@ Non sarai notificato di eventi imprevisti."</string>
   <string name="revanced_hide_timed_reactions_title">Nascondi le reazioni a tempo</string>
   <string name="revanced_hide_timed_reactions_summary_on">Le reazioni a tempo sono nascoste</string>
   <string name="revanced_hide_timed_reactions_summary_off">Le reazioni a tempo sono visibili</string>
-  <string name="revanced_hide_search_result_shelf_header_title">Nascondi intestazione dei risultati di ricerca</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">Le intestazioni sono nascoste</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">L\'intestazione è visibile</string>
   <string name="revanced_hide_channel_guidelines_title">Nascondi le linee guida dei canali</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Le linee guida del canale sono nascoste</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Le linee guida del canale sono visibili</string>
@@ -517,6 +512,10 @@ Nota: Abilitare questa opzione nasconde anche le pubblicità video"</string>
   <string name="revanced_hide_navigation_button_labels_title">Nascondi etichette dei pulsanti di navigazione</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Le etichette sono nascoste</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Le etichette sono visibili</string>
+  <string name="revanced_disable_translucent_status_bar_title">Disabilita la barra di stato traslucida</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Disabilita la barra traslucida chiara</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">La barra di navigazione in modalità chiara è opaca</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">La barra di navigazione in modalità scura è opaca</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Menù a comparsa</string>
@@ -1027,7 +1026,7 @@ Se in seguito verrà disattivato, si consiglia di cancellare i dati dell'app per
   <string name="revanced_change_start_page_entry_history">Cronologia</string>
   <string name="revanced_change_start_page_entry_library">Libreria</string>
   <string name="revanced_change_start_page_entry_liked_videos">Video piaciuti</string>
-  <string name="revanced_change_start_page_entry_live">Live</string>
+  <string name="revanced_change_start_page_entry_live">In diretta</string>
   <string name="revanced_change_start_page_entry_movies">Film</string>
   <string name="revanced_change_start_page_entry_music">Musica</string>
   <string name="revanced_change_start_page_entry_search">Cerca</string>
@@ -1056,6 +1055,7 @@ Se in seguito verrà disattivato, si consiglia di cancellare i dati dell'app per
   <string name="revanced_tablet_layout_user_dialog_message">I post della comunità non vengono visualizzati sui layout dei tablet</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
+  <string name="revanced_miniplayer_screen_title">Miniplayer</string>
   <string name="revanced_miniplayer_screen_summary">Cambia lo stile del miniplayer nell\'app</string>
   <string name="revanced_miniplayer_type_title">Tipo di Miniplayer</string>
   <string name="revanced_miniplayer_type_entry_0">Disattivato</string>
@@ -1213,6 +1213,11 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Il feedback aptico è disabilitato</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Il feedback aptico è abilitato</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Forza l\'audio originale</string>
+  <string name="revanced_force_original_audio_summary_on">Utilizzo audio originale</string>
+  <string name="revanced_force_original_audio_summary_off">Utilizzo audio predefinito</string>
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Automatico</string>
@@ -1221,7 +1226,8 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Le modifiche della qualità si applicano solo al video corrente</string>
   <string name="revanced_video_quality_default_wifi_title">Qualità video predefinita sulla rete Wi-Fi</string>
   <string name="revanced_video_quality_default_mobile_title">Qualità video predefinita sulla rete mobile</string>
-  <string name="revanced_remember_video_quality_mobile">mobile</string>
+  <string name="revanced_remember_video_quality_mobile">cellulare</string>
+  <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">Modificato la qualità predefinita %1$s in: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
@@ -1273,9 +1279,6 @@ La riproduzione video potrebbe non funzionare"</string>
 
 AVC ha una risoluzione massima di 1080p, il codec audio Opus non è disponibile e la riproduzione video utilizzerà più dati rispetto a VP9 o AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Effetti collaterali simulazione iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• I video per bambini privati potrebbero non essere riprodotti
-• Le dirette iniziano dall'inizio
-• I video terminano 1 secondo prima"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Effetti collaterali simulazione Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• I video per bambini potrebbero non essere riprodotti
 • Le dirette iniziano dall'inizio
@@ -1347,8 +1350,8 @@ AVC ha una risoluzione massima di 1080p, il codec audio Opus non è disponibile 
   <string name="revanced_embedded_ads_service_failed">%s ha restituito un errore, le pubblicità potrebbero essere visualizzate. Prova a modificare il servizio di blocco delle pubblicità nelle impostazioni.</string>
   <string name="revanced_block_embedded_ads_title">Blocca pubblicità video incorporata</string>
   <string name="revanced_block_embedded_ads_entry_1">Disabilitato</string>
-  <string name="revanced_block_embedded_ads_entry_2">Luminous proxy</string>
-  <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock proxy</string>
+  <string name="revanced_block_embedded_ads_entry_2">Proxy luminoso</string>
+  <string name="revanced_block_embedded_ads_entry_3">Proxy PurpleAdBlock</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">
   <string name="revanced_block_video_ads_title">Blocca pubblicità video</string>

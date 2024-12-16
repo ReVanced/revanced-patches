@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK derleme tarihi yanlış</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_title">ReVanced Ayarları</string>
   <string name="revanced_settings_confirm_user_dialog_title">Devam etmek istiyor musunuz?</string>
   <string name="revanced_settings_reset">Sıfırla</string>
   <string name="revanced_settings_restart_title">Yenile ve yeniden başlat</string>
@@ -78,6 +79,7 @@ Devam düğmesine dokunun ve optimizasyon değişikliklerine izin verin."</strin
   <string name="revanced_settings_screen_03_feed_title">Akış</string>
   <string name="revanced_settings_screen_04_player_title">Oynatıcı</string>
   <string name="revanced_settings_screen_05_general_title">Genel düzen</string>
+  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Zaman çubuğu</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Kaydırma kontrolleri</string>
   <string name="revanced_settings_screen_11_misc_title">Çeşitli</string>
@@ -157,9 +159,6 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_hide_timed_reactions_title">Süreli tepkileri gizle</string>
   <string name="revanced_hide_timed_reactions_summary_on">Süreli tepkiler gizleniyor</string>
   <string name="revanced_hide_timed_reactions_summary_off">Süreli tepkiler gösteriliyor </string>
-  <string name="revanced_hide_search_result_shelf_header_title">Arama sonuçları raf başlığını gizle</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">Raf başlığı gizli</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">Raf başlığı görünür</string>
   <string name="revanced_hide_channel_guidelines_title">Kanal yönergelerini gizle</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Kanal yönergeleri gizli</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Kanal yönergeleri görünür</string>
@@ -517,6 +516,15 @@ Not: Bunu etkinleştirmek aynı zamanda video reklamlarını zorunlu olarak gizl
   <string name="revanced_hide_navigation_button_labels_title">Gezinme düğmeleri etiketlerini gizle</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Etiketler gizli</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Etiketler görünür</string>
+  <string name="revanced_disable_translucent_status_bar_title">Saydam Durum Çubuğunu Devre Dışı Bırak</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">Durum çubuğu opak</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">Durum çubuğu opak veya yarı saydam</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Açık Saydam Çubuğu Devre Dışı Bırak</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Açık Modda Gezinti Çubuğu Opaktır</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Açık temada gezinti çubuğu opak veya yarı saydam</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Koyu renkli yarı saydam çubuğu devre dışı bırak</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Koyu Modda Gezinti Çubuğu Opaktır</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Koyu temada gezinti çubuğu opak veya yarı saydam</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Açılır menü</string>
@@ -954,6 +962,15 @@ Zaten var"</string>
   <string name="revanced_sb_new_segment_time_start">Bölümün başladığı zaman</string>
   <string name="revanced_sb_new_segment_time_end">Bölümün bittiği zaman</string>
   <string name="revanced_sb_new_segment_confirm_title">Süreler doğru mu?</string>
+  <string name="revanced_sb_new_segment_confirm_content">"Segment şuradan:
+
+%1$s
+ile
+%2$s
+
+(%3$s)
+
+Göndermeye hazır mısınız?"</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Başlangıç bitişten önce olmalıdır</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Önce zaman çubuğunda iki yer işaretleyin</string>
   <string name="revanced_sb_new_segment_preview_segment_first">Bölümü önizleyin ve sorunsuz bir şekilde atladığından emin olun</string>
@@ -1206,6 +1223,11 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Titreşim devre dışı</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Titreşim etkin</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Orijinal sesi zorla</string>
+  <string name="revanced_force_original_audio_summary_on">Orijinal sesi kullanma</string>
+  <string name="revanced_force_original_audio_summary_off">Varsayılan sesi kullanma</string>
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Oto</string>
@@ -1268,7 +1290,6 @@ Video oynatma çalışmayabilir"</string>
 AVC'nin maksimum çözünürlüğü 1080p'dir, Opus ses kodeği mevcut değildir ve video oynatma VP9 veya AV1'den daha fazla internet verisi kullanacaktır."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS taklidi yan etkileri</string>
   <string name="revanced_spoof_video_streams_about_ios_summary">"• Özel çocuk videoları oynatılmayabilir
-• Canlı yayınlar baştan başlar
 • Videolar 1 saniye erken biter"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR taklidi yan etkileri</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Çocuk videoları oynatılmayabilir

@@ -33,11 +33,12 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK-ի ստեղծման ամսաթիվը հնացած է</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Դուք ցանկանում եք շարունակել?</string>
   <string name="revanced_settings_reset">Վերականգնել</string>
   <string name="revanced_settings_restart_title">Թարմացնել և վերագործարկել</string>
   <string name="revanced_settings_restart">Վերագործարկում</string>
-  <string name="revanced_settings_import">Import</string>
+  <string name="revanced_settings_import">Ներմուծել</string>
   <string name="revanced_settings_import_copy">Պատճենել</string>
   <string name="revanced_settings_import_reset">ReVanced կարգավորումները վերադրվել են դեֆոլտային</string>
   <string name="revanced_settings_import_success">Import %d կարգավորում</string>
@@ -75,10 +76,11 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_settings_screen_00_about_title">Ծրագրի մասին</string>
   <string name="revanced_settings_screen_01_ads_title">Գովազդներ</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Ալտերնատիվ մանրապատկերներ</string>
-  <string name="revanced_settings_screen_03_feed_title">Feed</string>
-  <string name="revanced_settings_screen_04_player_title">Player</string>
+  <string name="revanced_settings_screen_03_feed_title">Լրակազմ</string>
+  <string name="revanced_settings_screen_04_player_title">Պլեյեր</string>
   <string name="revanced_settings_screen_05_general_title">Ընդհանուր  կառուցվածք</string>
-  <string name="revanced_settings_screen_07_seekbar_title">Seekbar</string>
+  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
+  <string name="revanced_settings_screen_07_seekbar_title">Վազքի գիծ</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Սահելի  վերահսկում</string>
   <string name="revanced_settings_screen_11_misc_title">Միջին</string>
   <string name="revanced_settings_screen_12_video_title">Տեսանյութ</string>
@@ -90,16 +92,16 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Debug</string>
-  <string name="revanced_debug_screen_summary">Enable or disable debugging options</string>
-  <string name="revanced_debug_title">Debug logging</string>
-  <string name="revanced_debug_summary_on">Debug logs are enabled</string>
-  <string name="revanced_debug_summary_off">Debug logs are disabled</string>
-  <string name="revanced_debug_protobuffer_title">Log protocol buffer</string>
-  <string name="revanced_debug_protobuffer_summary_on">Debug logs include proto buffer</string>
-  <string name="revanced_debug_protobuffer_summary_off">Debug logs do not include proto buffer</string>
-  <string name="revanced_debug_stacktrace_title">Log stack traces</string>
-  <string name="revanced_debug_stacktrace_summary_on">Debug logs include stack trace</string>
-  <string name="revanced_debug_stacktrace_summary_off">Debug logs do not include stack trace</string>
+  <string name="revanced_debug_screen_summary">Միացնել կամ անջատել առաջնորդման ռեժիմի ֆունկցիաները</string>
+  <string name="revanced_debug_title">Առաջնորդման մատնանշում</string>
+  <string name="revanced_debug_summary_on">Մարմնացման առաջնորդման մատնանշումները ակտիվացված են</string>
+  <string name="revanced_debug_summary_off">Մարմնացման առաջնորդման մատնանշումները անջատված են</string>
+  <string name="revanced_debug_protobuffer_title">Բուֆերի արձանագրությունը մտնել</string>
+  <string name="revanced_debug_protobuffer_summary_on">Մարմնացման առաջնորդման մատնանշումները պարունակում են բուֆերի տարր</string>
+  <string name="revanced_debug_protobuffer_summary_off">Մարմնացման առաջնորդման մատնանշումները ներառում են բուֆերի տարր</string>
+  <string name="revanced_debug_stacktrace_title">Մուտքագրել կուտակային կետերի հետքեր</string>
+  <string name="revanced_debug_stacktrace_summary_on">Մարմնացման առաջնորդման մատնանշումները պարունակում են կուտակային կետի հետք</string>
+  <string name="revanced_debug_stacktrace_summary_off">Մարմնացման առաջնորդման մատնանշումները չեն պարունակում կուտակային կետի հետք</string>
   <string name="revanced_debug_toast_on_error_title">Ցույց տալ  toast  ReVanced  սխալի  դեպքում</string>
   <string name="revanced_debug_toast_on_error_summary_on">Toast  ցույց  է  տրվում, եթե  սխալ  է  առաջանում</string>
   <string name="revanced_debug_toast_on_error_summary_off">Toast-ը  չի  ցույց  տրվում, եթե  սխալ  է  առաջանում</string>
@@ -157,9 +159,6 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_timed_reactions_title">Թաքցնել  ժամանակավոր  ռեակցիաները</string>
   <string name="revanced_hide_timed_reactions_summary_on">Ժամանակավոր  ռեակցիաները  թաքցված  են</string>
   <string name="revanced_hide_timed_reactions_summary_off">Ժամանակավոր  ռեակցիաները  ցույց  են  տրվում</string>
-  <string name="revanced_hide_search_result_shelf_header_title">Թաքցնել  հետազոտման  արդյունքի  մարզի  վերնագիրը</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">Մարզի  վերնագիրը  թաքցված  է</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">Մարզի  վերնագիրը  ցույց  է  տրվում</string>
   <string name="revanced_hide_channel_guidelines_title">Թաքցնել  ալիքի  ուղեցույցները</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Ալիքի  ուղեցույցները  թաքցված  են</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Ալիքի  ուղեցույցները  ցույց  են  տրվում</string>
@@ -256,6 +255,7 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">Ցույց է տրվում կապված տեսանյութերում</string>
   <string name="revanced_comments_screen_title">Մեկնաբանություններ</string>
   <string name="revanced_comments_screen_summary">Թաքցնել կամ ցույց տալ մեկնաբանությունների բաժնի բաղադրամասերը</string>
+  <string name="revanced_hide_comments_chat_summary_title">«Խմբային զրույցի վերլուծությունը» թաքցրու </string>
   <string name="revanced_hide_comments_chat_summary_summary_on">««Երկխոսության ամփոփումը»» թաքնված է</string>
   <string name="revanced_hide_comments_chat_summary_summary_off">««Երկխոսության ամփոփումը»» ցուցադրված է</string>
   <string name="revanced_hide_comments_by_members_header_title">Թաքցնել \"Մեկնաբանություններ անդամների կողմից\" վերնագիրը</string>
@@ -516,6 +516,10 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_navigation_button_labels_title">Թաքցնել նավիգացիայի կոճակների մակագրությունները</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Մակագրությունները թաքցված են</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Մակագրությունները ցուցադրվում են</string>
+  <string name="revanced_disable_translucent_status_bar_title">Անջատել կիսաթափանց կարգավիճակի տողը</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Անջատել կիսաթափանց լուսավոր շերտը</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Լուսավոր ռեժիմի նավիգացիոն շերտը անթափանց է</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Մութ ռեժիմի նավիգացիոն շերտը անթափանց է</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Flyout մենյու</string>
@@ -880,7 +884,7 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_sb_segments_highlight_sum">Տեսանյութի այն հատվածը, որը շատերն են փնտրում</string>
   <string name="revanced_sb_segments_intro">Ընդմիջում/Ներածության անիմացիա</string>
   <string name="revanced_sb_segments_intro_sum">Ժամանակահատված, որը չունի իրական content: Կարող է լինել դադար, կայուն կադր կամ կրկնվող անիմացիա: Չի ներառում transitions, որոնք պարունակում են տեղեկություն</string>
-  <string name="revanced_sb_segments_outro">Endcards/Credits</string>
+  <string name="revanced_sb_segments_outro">Վերջնաէջեր/Անուններ</string>
   <string name="revanced_sb_segments_outro_sum">Կրեդիտները կամ երբ YouTube-ի վերջնական քարտերը հայտնվում են։ Չի կիրառվում տեղեկատվություն ներառող եզրափակումների համար</string>
   <string name="revanced_sb_segments_preview">Նախադիտում/Համառոտ վերանայում/Կեռ</string>
   <string name="revanced_sb_segments_preview_sum">Կտորների հավաքածու, որոնք ցույց են տալիս, թե ինչ է գալու կամ ինչ է պատահել տեսանյութում կամ սերիայի այլ տեսանյութերում, որտեղ բոլոր տեղեկությունները կրկնվում են այլուր</string>
@@ -1042,7 +1046,7 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts պլեյերը կվերսկսվի կիրառության մեկնարկի ժամանակ</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
-  <string name="revanced_shorts_autoplay_title">Autoplay Shorts</string>
+  <string name="revanced_shorts_autoplay_title">Ավտոմատ կարճ տեսանյութերի միացում</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts-ը կվերարտադրվի ավտոմատ կերպով</string>
   <string name="revanced_shorts_autoplay_summary_off">Shorts-ը կկրկնվի</string>
   <string name="revanced_shorts_autoplay_background_title">Autoplay Shorts ֆոնային վերարտադրում</string>
@@ -1056,6 +1060,7 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_tablet_layout_user_dialog_message">Համայնքի հրապարակումները չեն ցուցադրվում планшетի կառուցվածքներում</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
+  <string name="revanced_miniplayer_screen_title">Մինի նվագարկիչ</string>
   <string name="revanced_miniplayer_screen_summary">Փոխել կիրառության մեջ փոքրացված պլեյերի ոճը</string>
   <string name="revanced_miniplayer_type_title">Miniplayer-ի տեսակ</string>
   <string name="revanced_miniplayer_type_entry_0">Անջատված է</string>
@@ -1213,15 +1218,21 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_disable_zoom_haptics_summary_on">Հպումները  անջատված են</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Հպումները  ակտիվացված են</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Բնօրինակ ձայն օգտագործել</string>
+  <string name="revanced_force_original_audio_summary_on">Բնօրինակ ձայն օգտագործվում է</string>
+  <string name="revanced_force_original_audio_summary_off">Վերջնական ձայն օգտագործվում է</string>
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_default_entry_1">Auto</string>
+  <string name="revanced_video_quality_default_entry_1">Ավտո</string>
   <string name="revanced_remember_video_quality_last_selected_title">Հիշել  տեսանյութի  որակի  փոփոխությունները</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Որակի  փոփոխությունները  կիրառվում են  բոլոր  տեսանյութերի  համար</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Որակի  փոփոխությունները  կիրառվում են  միայն  ներկայիս  տեսանյութի  համար</string>
   <string name="revanced_video_quality_default_wifi_title">Wi-Fi  ցանցի  դեֆոլտ  տեսանյութի  որակը</string>
   <string name="revanced_video_quality_default_mobile_title">Մೊբայլ  ցանցի  դեֆոլտ  տեսանյութի  որակը</string>
-  <string name="revanced_remember_video_quality_mobile">mobile</string>
+  <string name="revanced_remember_video_quality_mobile">վարկանիշ</string>
+  <string name="revanced_remember_video_quality_wifi">ուայ-ֆայ</string>
   <string name="revanced_remember_video_quality_toast">Փոփոխվել է  դեֆոլտ  %1$s  որակը: %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
@@ -1237,7 +1248,7 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_custom_playback_speeds_summary">Ավելացնել  կամ  փոփոխել  տեսանյութի  վերարտադրման  հարմարեցված  արագությունները</string>
   <string name="revanced_custom_playback_speeds_invalid">Պատրաստված արագությունները պետք է լինեն ավելի քիչ քան %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Չի աշխատում պատրաստված վերարտադրման արագությունները։</string>
-  <string name="revanced_custom_playback_speeds_auto">Auto</string>
+  <string name="revanced_custom_playback_speeds_auto">Ավտո</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Հիշել  տեսանյութի  վերարտադրման  արագության  փոփոխությունները</string>
@@ -1273,9 +1284,8 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
 
 AVC-ն ունի առավելագույն 1080p լուծում, Opus ձայնային կոդավորումը հասանելի չէ, և տեսանյութի վերարտադրումը կօգտագործի ավելի շատ ինտերնետ տվյալներ, քան VP9 կամ AV1-ը։"</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS  փոփոխության  կողմնակի  ազդեցություններ</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Մասնավոր երեխաների տեսանյութերը կարող է չվերարտադրվեն
-• Livestream-ները սկսվում են սկզբից
-• Տեսանյութերը ավարտվում են 1 վայրկյան առաջ։"</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Երեխաների համար նախատեսված մասնավոր տեսանյութերը կարող են չհեռարձակվել
+• Տեսանյութերն ավարտվում են 1 վայրկյան շուտ"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR  փոփոխության  կողմնակի  ազդեցություններ</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Երեխաների տեսանյութերը կարող է չվերարտադրվեն
 • Livestream-ները սկսվում են սկզբից
@@ -1347,6 +1357,8 @@ AVC-ն ունի առավելագույն 1080p լուծում, Opus ձայնայ
   <string name="revanced_embedded_ads_service_failed">%s-ը սխալ է վերադարձել, կարող է ցուցադրվել գովազդ։ Փորձեք փոխել գովազդների կասեցման ծառայությունը կարգավորումներում։</string>
   <string name="revanced_block_embedded_ads_title">Բլոկել ներդրված տեսահոլովակների գովազդները</string>
   <string name="revanced_block_embedded_ads_entry_1">Անջատված է</string>
+  <string name="revanced_block_embedded_ads_entry_2">Luminous պրոքսի</string>
+  <string name="revanced_block_embedded_ads_entry_3">PurpleAdBlock պրոքսի</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">
   <string name="revanced_block_video_ads_title">Բլոկել տեսահոլովակների գովազդները</string>
@@ -1385,9 +1397,9 @@ AVC-ն ունի առավելագույն 1080p լուծում, Opus ձայնայ
   <string name="revanced_other_category_title">Այլ կարգավորումներ</string>
   <string name="revanced_client_ads_category_title">Քլայենթի կողմից գովազդներ</string>
   <string name="revanced_surestream_ads_category_title">Սերվերի կողմից surestream գովազդներ</string>
-  <string name="revanced_twitch_debug_title">Debug logging</string>
-  <string name="revanced_twitch_debug_summary_on">Debug logs are enabled</string>
-  <string name="revanced_twitch_debug_summary_off">Debug logs are disabled</string>
+  <string name="revanced_twitch_debug_title">Վրիպման օրագիր</string>
+  <string name="revanced_twitch_debug_summary_on">Վրիպման օրագիրը միացվել է</string>
+  <string name="revanced_twitch_debug_summary_off">Վրիպման օրագիրը անջատվել է</string>
   </patch>
   </app>
 </resources>

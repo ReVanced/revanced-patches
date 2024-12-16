@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK veidošanas datums ir bojāts</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">Vai vēlaties turpināt?</string>
   <string name="revanced_settings_reset">Atiestatīt</string>
   <string name="revanced_settings_restart_title">Atjaunināt un restartēt</string>
@@ -78,6 +79,7 @@ Nospiediet turpināt pogu un atļaujiet optimizācijas izmaiņas."</string>
   <string name="revanced_settings_screen_03_feed_title">Lente</string>
   <string name="revanced_settings_screen_04_player_title">Atskaņotājs</string>
   <string name="revanced_settings_screen_05_general_title">Vispārīga izkārtojums</string>
+  <string name="revanced_settings_screen_06_shorts_title">Šorti</string>
   <string name="revanced_settings_screen_07_seekbar_title">Slīdņu skala</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Pārvelciet vadīklas</string>
   <string name="revanced_settings_screen_11_misc_title">Dažādi</string>
@@ -157,9 +159,6 @@ Jūs netiksit informēts par neparedzētiem notikumiem."</string>
   <string name="revanced_hide_timed_reactions_title">Paslēpt laika reakcijas</string>
   <string name="revanced_hide_timed_reactions_summary_on">Laika reakcijas ir paslēptas</string>
   <string name="revanced_hide_timed_reactions_summary_off">Laika reakcijas ir redzamas</string>
-  <string name="revanced_hide_search_result_shelf_header_title">Slēpt meklēšanas rezultātu plaukta virsrakstu</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">Plaukta virsraksts ir paslēpts</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">Plaukta virsraksts ir redzams</string>
   <string name="revanced_hide_channel_guidelines_title">Slēpt kanāla vadlīnijas</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Kanāla vadlīnijas ir paslēptas</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Kanāla vadlīnijas ir redzamas</string>
@@ -517,6 +516,15 @@ Piezīme: Šī iestatījuma ieslēgšana arī piespiedu kārtā slēpj video rek
   <string name="revanced_hide_navigation_button_labels_title">Paslēpt navigācijas pogu etiķetes</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Etiķetes ir paslēptas</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Etiķetes ir redzamas</string>
+  <string name="revanced_disable_translucent_status_bar_title">Atspējojiet puscaurspīdu statusa joslu</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">Statusa josla ir necaurspīdīga</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">Statusa josla ir necaurspīdīga vai caurspīdīga</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Atspējojiet gaišo caurspīdu joslu</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Gaišais režīma navigācijas josla ir necaurspīdiga</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Gaišā režīma navigācijas josla ir necaurspīdīga vai caurspīdīga</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Atspējot tumšo caurspīdīgo joslu</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Tumšais režīma navigācijas josla ir necaurspīdiga</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Tumšā režīma navigācijas josla ir necaurspīdīga vai caurspīdīga</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Izvelkamo izvēlni</string>
@@ -953,6 +961,15 @@ Jau pastāv"</string>
   <string name="revanced_sb_new_segment_time_start">Laiks, kad segments sākas</string>
   <string name="revanced_sb_new_segment_time_end">Laiks, kad segments beidzas</string>
   <string name="revanced_sb_new_segment_confirm_title">Vai laiki ir pareizi?</string>
+  <string name="revanced_sb_new_segment_confirm_content">"Segments ir no
+
+%1$s
+uz
+%2$s
+
+(%3$s)
+
+Vai esat gatavs iesniegt?"</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Sākums ir jābūt pirms beigām</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Vispirms atzīmējiet divas vietas uz laika joslas</string>
   <string name="revanced_sb_new_segment_preview_segment_first">Priekšskatīt segmentu un pārliecināties, ka tas vienmērīgi izlaiž</string>
@@ -1022,7 +1039,7 @@ Ja vēlāk tiks izslēgts, ieteicams notīrīt lietotnes datus, lai novērstu li
   <string name="revanced_change_start_page_entry_movies">Filmas</string>
   <string name="revanced_change_start_page_entry_music">Mūzika</string>
   <string name="revanced_change_start_page_entry_search">Meklēt</string>
-  <string name="revanced_change_start_page_entry_sports">Sports</string>
+  <string name="revanced_change_start_page_entry_sports">Sporta</string>
   <string name="revanced_change_start_page_entry_subscriptions">Abonementi</string>
   <string name="revanced_change_start_page_entry_trending">Trendējošais</string>
   <string name="revanced_change_start_page_entry_watch_later">Skaties vēlāk</string>
@@ -1033,7 +1050,7 @@ Ja vēlāk tiks izslēgts, ieteicams notīrīt lietotnes datus, lai novērstu li
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts atskaņotājs tiks atsākts lietotnes palaišanas laikā</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
-  <string name="revanced_shorts_autoplay_title">Autoplay Shorts</string>
+  <string name="revanced_shorts_autoplay_title">Automātiskā īso videoklipu atskaņošana</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts tiks atskaņoti automātiski</string>
   <string name="revanced_shorts_autoplay_summary_off">Shorts tiks atkārtoti</string>
   <string name="revanced_shorts_autoplay_background_title">Autoplay Shorts fonā atskaņošana</string>
@@ -1047,6 +1064,7 @@ Ja vēlāk tiks izslēgts, ieteicams notīrīt lietotnes datus, lai novērstu li
   <string name="revanced_tablet_layout_user_dialog_message">Kopienas ziņas neparādās planšetdatora izkārtojumos</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
+  <string name="revanced_miniplayer_screen_title">Minispēlētājs</string>
   <string name="revanced_miniplayer_screen_summary">Mainīt samazināta spēlētāja stilu lietotnē</string>
   <string name="revanced_miniplayer_type_title">Miniplayer tips</string>
   <string name="revanced_miniplayer_type_entry_0">Atspējots</string>
@@ -1204,6 +1222,11 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   <string name="revanced_disable_zoom_haptics_summary_on">Haptiskā atgriezeniskā saite ir atspējota</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Haptiskā atgriezeniskā saite ir iespējota</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Piespiest oriģinālo audio</string>
+  <string name="revanced_force_original_audio_summary_on">Tiek izmantots oriģinālais audio</string>
+  <string name="revanced_force_original_audio_summary_off">Tiek izmantots noklusējuma audio</string>
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
   <string name="revanced_video_quality_default_entry_1">Automātiski</string>
@@ -1264,8 +1287,7 @@ Video atskaņošana var nedarboties"</string>
 
 AVC maksimālā izšķirtspēja ir 1080p, Opus audio kodeks nav pieejams, un video atskaņošana izmantos vairāk interneta datu nekā VP9 vai AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS viltošanas blakusparādības</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Privāti bērnu videoklipi var nedarboties
-• Tiešraides straumes sākas no sākuma
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Privāti bērnu videoklipi, iespējams, netiek atskaņoti
 • Video beidzas 1 sekundi agrāk"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR viltošanas blakusparādības</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Bērnu videoklipi var nedarboties
@@ -1289,7 +1311,6 @@ AVC maksimālā izšķirtspēja ir 1080p, Opus audio kodeks nav pieejams, un vid
   <string name="revanced_spoof_video_streams_language_FI">Somu</string>
   <string name="revanced_spoof_video_streams_language_FR">Franču</string>
   <string name="revanced_spoof_video_streams_language_GU">Gudžarati</string>
-  <string name="revanced_spoof_video_streams_language_HI">Hindi</string>
   <string name="revanced_spoof_video_streams_language_HR">Horvātu</string>
   <string name="revanced_spoof_video_streams_language_HU">Ungāru</string>
   <string name="revanced_spoof_video_streams_language_ID">Indonēziešu</string>
@@ -1300,8 +1321,8 @@ AVC maksimālā izšķirtspēja ir 1080p, Opus audio kodeks nav pieejams, un vid
   <string name="revanced_spoof_video_streams_language_LT">Lietuviešu</string>
   <string name="revanced_spoof_video_streams_language_LV">Latviešu</string>
   <string name="revanced_spoof_video_streams_language_MK">Macedoniešu</string>
-  <string name="revanced_spoof_video_streams_language_MN">Mongolian</string>
-  <string name="revanced_spoof_video_streams_language_MR">Marathi</string>
+  <string name="revanced_spoof_video_streams_language_MN">Mongoļu</string>
+  <string name="revanced_spoof_video_streams_language_MR">Marāthi</string>
   <string name="revanced_spoof_video_streams_language_MS">Malaiziešu</string>
   <string name="revanced_spoof_video_streams_language_MY">Birmas</string>
   <string name="revanced_spoof_video_streams_language_NL">Nīderlandes</string>
@@ -1317,12 +1338,10 @@ AVC maksimālā izšķirtspēja ir 1080p, Opus audio kodeks nav pieejams, un vid
   <string name="revanced_spoof_video_streams_language_SR">Serbu</string>
   <string name="revanced_spoof_video_streams_language_SV">Zviedru</string>
   <string name="revanced_spoof_video_streams_language_SW">Svahili</string>
-  <string name="revanced_spoof_video_streams_language_TA">Tamil</string>
-  <string name="revanced_spoof_video_streams_language_TE">Telugu</string>
+  <string name="revanced_spoof_video_streams_language_TA">Tamilu</string>
   <string name="revanced_spoof_video_streams_language_TH">Taizemes</string>
   <string name="revanced_spoof_video_streams_language_TR">Turku</string>
   <string name="revanced_spoof_video_streams_language_UK">Ukrainas</string>
-  <string name="revanced_spoof_video_streams_language_UR">Urdu</string>
   <string name="revanced_spoof_video_streams_language_VI">Vjetnamas</string>
   <string name="revanced_spoof_video_streams_language_ZH">Ķīniešu</string>
   </patch>

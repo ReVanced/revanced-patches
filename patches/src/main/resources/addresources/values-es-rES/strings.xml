@@ -33,6 +33,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">La fecha de compilación del APK está dañada</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_title">ReVanced</string>
   <string name="revanced_settings_confirm_user_dialog_title">¿Desea continuar?</string>
   <string name="revanced_settings_reset">Restablecer</string>
   <string name="revanced_settings_restart_title">Actualizar y reiniciar</string>
@@ -70,6 +71,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_03_feed_title">Fuente</string>
   <string name="revanced_settings_screen_04_player_title">Reproductor</string>
   <string name="revanced_settings_screen_05_general_title">Diseño general</string>
+  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Barra</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Controles de deslizamiento</string>
   <string name="revanced_settings_screen_11_misc_title">Miscelánea</string>
@@ -147,9 +149,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_timed_reactions_title">Ocultar reacciones temporizadas</string>
   <string name="revanced_hide_timed_reactions_summary_on">Las reacciones temporizadas están ocultas</string>
   <string name="revanced_hide_timed_reactions_summary_off">Se muestran reacciones temporizadas</string>
-  <string name="revanced_hide_search_result_shelf_header_title">Ocultar la cabecera de resultados de búsqueda</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_on">Encabezado de estante oculto</string>
-  <string name="revanced_hide_search_result_shelf_header_summary_off">Encabezado del estante se muestra</string>
   <string name="revanced_hide_channel_guidelines_title">Ocultar pautas de canal</string>
   <string name="revanced_hide_channel_guidelines_summary_on">Las pautas del canal están ocultas</string>
   <string name="revanced_hide_channel_guidelines_summary_off">Se muestran las pautas del canal</string>
@@ -428,7 +427,7 @@ Esta función solo está disponible para dispositivos antiguos"</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_title">Activar gesto de brillo automático</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_on">Deslizar hacia abajo hasta el valor más bajo del gesto de brillo permite el brillo automático</string>
   <string name="revanced_swipe_lowest_value_enable_auto_brightness_summary_off">Deslizar hacia abajo hasta el valor más bajo no habilita el brillo automático</string>
-  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Auto</string>
+  <string name="revanced_swipe_lowest_value_enable_auto_brightness_overlay_text">Automático</string>
   <string name="revanced_swipe_overlay_timeout_title">Tiempo de espera del deslizado</string>
   <string name="revanced_swipe_overlay_timeout_summary">La cantidad de milisegundos que la superposición es visible</string>
   <string name="revanced_swipe_text_overlay_size_title">Deslizar tamaño de texto superpuesto</string>
@@ -507,6 +506,10 @@ Nota: Habilitar esto también oculta a la fuerza los anuncios de vídeo"</string
   <string name="revanced_hide_navigation_button_labels_title">Ocultar etiquetas de botón de navegación</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Las etiquetas están ocultas</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Las etiquetas se muestran</string>
+  <string name="revanced_disable_translucent_status_bar_title">Desactivar la barra de estado translúcida</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Desactivar la barra translúcida clara</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">La barra de navegación en modo claro es opaca</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">La barra de navegación en modo oscuro es opaca</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Menú desplegable</string>
@@ -860,7 +863,7 @@ Esta función funciona mejor con una calidad de vídeo de 720p o inferior y cuan
 Tu ID de usuario es como una contraseña y nunca debe compartirse."</string>
   <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">No mostrar de nuevo</string>
   <string name="revanced_sb_diff_segments">Cambiar comportamiento del segmento</string>
-  <string name="revanced_sb_segments_sponsor">Sponsor</string>
+  <string name="revanced_sb_segments_sponsor">Patrocinador</string>
   <string name="revanced_sb_segments_sponsor_sum">Promoción pagada, referencias pagadas y anuncios directos. No para autopromoción o gritos gratuitos a causas/creadores/sitios web/productos que les gustan</string>
   <string name="revanced_sb_segments_selfpromo">Promoción Propia/No Remunerada</string>
   <string name="revanced_sb_segments_selfpromo_sum">Similar a \'Patrocinador\' excepto por falta de pago o autopromoción. Incluye secciones sobre meritud, donaciones o información sobre con quién colaboraron</string>
@@ -887,7 +890,7 @@ Tu ID de usuario es como una contraseña y nunca debe compartirse."</string>
   <string name="revanced_sb_skip_button_intro_beginning">Saltar intro</string>
   <string name="revanced_sb_skip_button_intro_middle">Omitir intermisión</string>
   <string name="revanced_sb_skip_button_intro_end">Omitir intermisión</string>
-  <string name="revanced_sb_skip_button_outro">Skip outro</string>
+  <string name="revanced_sb_skip_button_outro">Saltar outro</string>
   <string name="revanced_sb_skip_button_preview_beginning">Saltar vista previa</string>
   <string name="revanced_sb_skip_button_preview_middle">Saltar vista previa</string>
   <string name="revanced_sb_skip_button_preview_end">Saltar resumen</string>
@@ -1117,7 +1120,7 @@ Habilitar esto puede solucionar las imágenes que faltan que están bloqueadas e
   <string name="revanced_alt_thumbnail_library_title">Pestaña</string>
   <string name="revanced_alt_thumbnail_player_title">Listas de reproducción, recomendaciones</string>
   <string name="revanced_alt_thumbnail_search_title">Resultados de búsqueda</string>
-  <string name="revanced_alt_thumbnail_options_entry_1">Original thumbnails</string>
+  <string name="revanced_alt_thumbnail_options_entry_1">Miniaturas originales</string>
   <string name="revanced_alt_thumbnail_options_entry_2">Deflecha &amp; miniaturas originales</string>
   <string name="revanced_alt_thumbnail_options_entry_3">Flecha &amp; Todavía capturas</string>
   <string name="revanced_alt_thumbnail_options_entry_4">Sigue capturando</string>
@@ -1129,7 +1132,7 @@ Toca aquí para obtener más información sobre DeArrow"</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_title">Mostrar un brindis si la API no está disponible</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_on">Toast se muestra si DeFlecha no está disponible</string>
   <string name="revanced_alt_thumbnail_dearrow_connection_toast_summary_off">Toast no se muestra si DeFlecha no está disponible</string>
-  <string name="revanced_alt_thumbnail_dearrow_api_url_title">DeArrow API endpoint</string>
+  <string name="revanced_alt_thumbnail_dearrow_api_url_title">Punto final de la API DeArrow</string>
   <string name="revanced_alt_thumbnail_dearrow_api_url_summary">La URL del final de la caché en miniatura de DeArrow</string>
   <string name="revanced_alt_thumbnail_stills_about_title">Capturas estáticas de vídeo</string>
   <string name="revanced_alt_thumbnail_stills_about_summary">Las capturas se toman desde el principio/medio/final de cada vídeo. Estas imágenes están incorporadas en YouTube y no se utiliza ninguna API externa</string>
@@ -1196,9 +1199,14 @@ Habilitar esto puede desbloquear calidades de vídeo más altas"</string>
   <string name="revanced_disable_zoom_haptics_summary_on">Hápticas desactivadas</string>
   <string name="revanced_disable_zoom_haptics_summary_off">Haptics están habilitados</string>
   </patch>
+  <patch id="video.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Forzar audio original</string>
+  <string name="revanced_force_original_audio_summary_on">Utilizando audio original</string>
+  <string name="revanced_force_original_audio_summary_off">Utilizando audio predeterminado</string>
+  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
-  <string name="revanced_video_quality_default_entry_1">Auto</string>
+  <string name="revanced_video_quality_default_entry_1">Automático</string>
   <string name="revanced_remember_video_quality_last_selected_title">Recordar cambios de calidad de vídeo</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Los cambios de calidad se aplican a todos los vídeos</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Los cambios de calidad sólo se aplican al vídeo actual</string>
@@ -1221,7 +1229,7 @@ Habilitar esto puede desbloquear calidades de vídeo más altas"</string>
   <string name="revanced_custom_playback_speeds_summary">Añadir o cambiar las velocidades de reproducción personalizadas</string>
   <string name="revanced_custom_playback_speeds_invalid">Las velocidades personalizadas deben ser menores que %s</string>
   <string name="revanced_custom_playback_speeds_parse_exception">Velocidades de reproducción personalizadas no válidas</string>
-  <string name="revanced_custom_playback_speeds_auto">Auto</string>
+  <string name="revanced_custom_playback_speeds_auto">Automático</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   <string name="revanced_remember_playback_speed_last_selected_title">Recordar cambios de velocidad de reproducción</string>
@@ -1257,9 +1265,8 @@ Es posible que la reproducción de vídeo no funcione"</string>
 
 AVC tiene una resolución máxima de 1080p, el códec de audio Opus no está disponible y la reproducción de vídeo utilizará más datos de internet que VP9 o AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Efectos secundarios para la falsificación de iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Es posible que los vídeos de niños privados no se reproduzcan
-• Las transmisiones en vivo empiezan desde el principio
-• Los vídeos terminan 1 segundo antes"</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Es posible que los videos privados para niños no se reproduzcan
+• Los videos terminan 1 segundo antes"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Efectos secundarios para la falsificación de Android RV</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Es posible que los vídeos para niños no se reproduzcan
 • Las transmisiones en vivo empiezan desde el principio
@@ -1288,7 +1295,7 @@ AVC tiene una resolución máxima de 1080p, el códec de audio Opus no está dis
   <string name="revanced_spoof_video_streams_language_ID">Indonesio/a</string>
   <string name="revanced_spoof_video_streams_language_IT">Italiano</string>
   <string name="revanced_spoof_video_streams_language_JA">Japonés</string>
-  <string name="revanced_spoof_video_streams_language_KK">Kazakh</string>
+  <string name="revanced_spoof_video_streams_language_KK">Kazajo</string>
   <string name="revanced_spoof_video_streams_language_KO">Coreano</string>
   <string name="revanced_spoof_video_streams_language_LT">Lituano</string>
   <string name="revanced_spoof_video_streams_language_LV">Letón</string>
@@ -1296,7 +1303,7 @@ AVC tiene una resolución máxima de 1080p, el códec de audio Opus no está dis
   <string name="revanced_spoof_video_streams_language_MN">Mongol</string>
   <string name="revanced_spoof_video_streams_language_MR">Maratí</string>
   <string name="revanced_spoof_video_streams_language_MS">Malayo</string>
-  <string name="revanced_spoof_video_streams_language_MY">Burmese</string>
+  <string name="revanced_spoof_video_streams_language_MY">Birmano</string>
   <string name="revanced_spoof_video_streams_language_NL">Holandés</string>
   <string name="revanced_spoof_video_streams_language_OR">Odia</string>
   <string name="revanced_spoof_video_streams_language_PA">Punjabi</string>
@@ -1306,7 +1313,7 @@ AVC tiene una resolución máxima de 1080p, el códec de audio Opus no está dis
   <string name="revanced_spoof_video_streams_language_RO">Rumano</string>
   <string name="revanced_spoof_video_streams_language_RU">Ruso</string>
   <string name="revanced_spoof_video_streams_language_SK">Eslovaco</string>
-  <string name="revanced_spoof_video_streams_language_SL">Slovene</string>
+  <string name="revanced_spoof_video_streams_language_SL">Esloveno</string>
   <string name="revanced_spoof_video_streams_language_SR">Serbio</string>
   <string name="revanced_spoof_video_streams_language_SV">Sueco</string>
   <string name="revanced_spoof_video_streams_language_SW">Swahili</string>
@@ -1316,7 +1323,7 @@ AVC tiene una resolución máxima de 1080p, el códec de audio Opus no está dis
   <string name="revanced_spoof_video_streams_language_TR">Turco</string>
   <string name="revanced_spoof_video_streams_language_UK">Ucraniano</string>
   <string name="revanced_spoof_video_streams_language_UR">Urdu</string>
-  <string name="revanced_spoof_video_streams_language_VI">Vietnamese</string>
+  <string name="revanced_spoof_video_streams_language_VI">Vietnamita</string>
   <string name="revanced_spoof_video_streams_language_ZH">Chino</string>
   </patch>
   </app>

@@ -16,19 +16,15 @@ import app.revanced.extension.shared.spoof.requests.StreamingDataRequest;
 @SuppressWarnings("unused")
 public class SpoofVideoStreamsPatch {
     private static final boolean SPOOF_STREAMING_DATA = BaseSettings.SPOOF_VIDEO_STREAMS.get();
+
+    private static final boolean FIX_HLS_CURRENT_TIME = SPOOF_STREAMING_DATA
+            && BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.IOS;
+
     /**
      * Any unreachable ip address.  Used to intentionally fail requests.
      */
     private static final String UNREACHABLE_HOST_URI_STRING = "https://127.0.0.0";
     private static final Uri UNREACHABLE_HOST_URI = Uri.parse(UNREACHABLE_HOST_URI_STRING);
-
-    /**
-     * Injection point. Used by YT Music to disable stable volume.
-     */
-    public static void setClientTypeToAndroidVrNoHl() {
-        Logger.printDebug(() -> "Setting stream spoofing to: " + ClientType.ANDROID_VR_NO_HL);
-        BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.save(ClientType.ANDROID_VR_NO_HL);
-    }
 
     /**
      * Injection point.
@@ -173,10 +169,24 @@ public class SpoofVideoStreamsPatch {
         return postData;
     }
 
-    public static final class ForceiOSAVCAvailability implements Setting.Availability {
+    /**
+     * Injection point.
+     *
+     * Fixes iOS livestreams starting from the beginning.
+     */
+    public static boolean fixHLSCurrentTime(boolean original) {
+        if (FIX_HLS_CURRENT_TIME) {
+            return false;
+        }
+
+        return original;
+    }
+
+    public static final class SpoofiOSAvailability implements Setting.Availability {
         @Override
         public boolean isAvailable() {
-            return BaseSettings.SPOOF_VIDEO_STREAMS.get() && BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.IOS;
+            return BaseSettings.SPOOF_VIDEO_STREAMS.get()
+                    && BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.IOS;
         }
     }
 }
