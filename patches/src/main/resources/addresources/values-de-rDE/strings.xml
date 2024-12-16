@@ -511,9 +511,14 @@ Hinweis: Durch Aktivieren dieser Option wird auch die Videowerbung zwangsweise a
   <string name="revanced_hide_navigation_button_labels_summary_on">Labels sind ausgeblendet</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Labels werden angezeigt</string>
   <string name="revanced_disable_translucent_status_bar_title">Transluzente Statusleiste deaktivieren</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">Statusleiste ist undurchsichtig</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">Die Statusleiste ist undurchsichtig oder durchscheinend</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Hellen, lichtdurchlässigen Balken deaktivieren</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Heller Navigationsbalken ist opak</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Die Navigationsleiste im hellen Modus ist undurchsichtig oder durchscheinend</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Deaktiviere die dunkle, durchscheinende Leiste</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Dunkler Navigationsbalken ist opak</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Die Navigationsleiste im dunklen Modus ist undurchsichtig oder durchscheinend</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Einblendmenü</string>
@@ -1278,6 +1283,8 @@ Die Videowiedergabe funktioniert möglicherweise nicht"</string>
 
 AVC hat eine maximale Auflösung von 1080p, der Opus-Audiocodec ist nicht verfügbar und die Videowiedergabe verbraucht mehr Internetdaten als VP9 oder AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">iOS Spoofing Nebeneffekte</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Private Kindervideos werden möglicherweise nicht abgespielt
+• Videos enden 1 Sekunde früher"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR Spoofing Nebeneffekte</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Kindervideos werden möglicherweise nicht abgespielt
 • Livestreams starten von Anfang an

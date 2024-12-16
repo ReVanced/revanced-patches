@@ -517,9 +517,14 @@ Notă: Activarea acestei opțiuni ascunde, de asemenea, forțat reclamele video"
   <string name="revanced_hide_navigation_button_labels_summary_on">Etichetele sunt ascunse</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Etichetele sunt afișate</string>
   <string name="revanced_disable_translucent_status_bar_title">Dezactivează bara de stare translucidă</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">Bara de stare este opaca</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">Bara de stare este opaca sau translucida</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Dezactivează bara de navigare translucidă deschisă</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Bara de navigare în modul deschis este opacă</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Bara de navigare în modul deschis este opaca sau translucida</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Dezactivați bara translucidă închisă la culoare</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Bara de navigare în modul întunecat este opacă</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Bara de navigare în modul întunecat este opaca sau translucida</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Meniu flyout</string>
@@ -1284,6 +1289,8 @@ Este posibil ca redarea video să nu funcționeze"</string>
 
 AVC are o rezoluție maximă de 1080p, codecul audio Opus nu este disponibil, iar redarea video va utiliza mai multe date de internet decât VP9 sau AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Efecte secundare ale falsificării iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Este posibil ca videoclipurile private pentru copii să nu fie redate
+• Videoclipurile se termină cu 1 secundă mai devreme"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Reacţii adverse de spoofing Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Videoclipurile pentru copii este posibil să nu fie redate
 • Transmisiunile live încep de la început
