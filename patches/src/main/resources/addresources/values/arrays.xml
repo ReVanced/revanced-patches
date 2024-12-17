@@ -221,6 +221,28 @@
                 <item>BROWSE</item>
             </string-array>
         </patch>
+        <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+            <string-array name="revanced_shorts_player_type_legacy_entries">
+                <item>@string/revanced_shorts_player_type_shorts</item>
+                <item>@string/revanced_shorts_player_type_regular_player</item>
+            </string-array>
+            <string-array name="revanced_shorts_player_type_legacy_entry_values">
+                <!-- Enum names from extension -->
+                <item>SHORTS_PLAYER</item>
+                <item>REGULAR_PLAYER</item>
+            </string-array>
+            <string-array name="revanced_shorts_player_type_entries">
+                <item>@string/revanced_shorts_player_type_shorts</item>
+                <item>@string/revanced_shorts_player_type_regular_player</item>
+                <item>@string/revanced_shorts_player_type_regular_player_fullscreen</item>
+            </string-array>
+            <string-array name="revanced_shorts_player_type_entry_values">
+                <!-- Enum names from extension -->
+                <item>SHORTS_PLAYER</item>
+                <item>REGULAR_PLAYER</item>
+                <item>REGULAR_PLAYER_FULLSCREEN</item>
+            </string-array>
+        </patch>
         <patch id="layout.thumbnails.alternativeThumbnailsPatch">
             <string-array name="revanced_alt_thumbnail_options_entries">
                 <item>@string/revanced_alt_thumbnail_options_entry_1</item>

@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.shortsbypass
+package app.revanced.patches.youtube.layout.shortsplayer
 
 import app.revanced.patcher.fingerprint
 import app.revanced.util.literal

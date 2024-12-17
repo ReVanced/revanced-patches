@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.shortsbypass
+package app.revanced.patches.youtube.layout.shortsplayer
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -6,10 +6,12 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.patches.shared.misc.settings.preference.ListPreference
+import app.revanced.patches.youtube.layout.player.fullscreen.openVideosFullscreenHookPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_19_46_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
@@ -21,17 +23,18 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
-    "Lapp/revanced/extension/youtube/patches/OpenShortsInRegularPlayer;"
+    "Lapp/revanced/extension/youtube/patches/ShortsPlayerTypePatch;"
 
 @Suppress("unused")
-val openShortsInRegularPlayerPatch = bytecodePatch(
-    name = "Open Shorts in player",
-    description = "Adds an option to open Shorts in the regular video player.",
+val shortsPlayerTypePatch = bytecodePatch(
+    name = "Shorts player type",
+    description = "Adds options to open Shorts in the regular video player.",
 ) {
     dependsOn(
         sharedExtensionPatch,
         settingsPatch,
         addResourcesPatch,
+        openVideosFullscreenHookPatch,
         navigationBarHookPatch,
         versionCheckPatch
     )
@@ -50,10 +53,22 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
     )
 
     execute {
-        addResources("youtube", "layout.shortsbypass.openShortsInRegularPlayer")
+        addResources("youtube", "layout.shortsplayer.shortsPlayerTypePatch")
 
         PreferenceScreen.SHORTS.addPreferences(
-            SwitchPreference("revanced_open_shorts_in_regular_player"),
+            if (is_19_46_or_greater) {
+                ListPreference(
+                    key = "revanced_shorts_player_type",
+                    summaryKey = null,
+                )
+            } else {
+                ListPreference(
+                    key = "revanced_shorts_player_type",
+                    summaryKey = null,
+                    entriesKey = "revanced_shorts_player_type_legacy_entries",
+                    entryValuesKey = "revanced_shorts_player_type_legacy_entry_values"
+                )
+            }
         )
 
         // Main activity is used to open Shorts links.

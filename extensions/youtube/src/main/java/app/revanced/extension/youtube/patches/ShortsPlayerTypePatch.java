@@ -12,7 +12,22 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
-public class OpenShortsInRegularPlayerPatch {
+public class ShortsPlayerTypePatch {
+
+    public enum ShortsPlayerType {
+        SHORTS_PLAYER,
+        REGULAR_PLAYER,
+        REGULAR_PLAYER_FULLSCREEN
+    }
+
+    static {
+        if (!VersionCheckPatch.IS_19_46_OR_GREATER
+                && Settings.SHORTS_PLAYER_TYPE.get() == ShortsPlayerType.REGULAR_PLAYER_FULLSCREEN) {
+            // User imported newer settings to an older app target.
+            Logger.printInfo(() -> "Resetting " + Settings.SHORTS_PLAYER_TYPE);
+            Settings.SHORTS_PLAYER_TYPE.resetToDefault();
+        }
+    }
 
     private static WeakReference<Activity> mainActivityRef = new WeakReference<>(null);
 
@@ -28,13 +43,17 @@ public class OpenShortsInRegularPlayerPatch {
      */
     public static boolean openShort(String videoID) {
         try {
-            if (!Settings.OPEN_SHORTS_IN_REGULAR_PLAYER.get()) {
-                return false;
+            ShortsPlayerType type = Settings.SHORTS_PLAYER_TYPE.get();
+            if (type == ShortsPlayerType.SHORTS_PLAYER) {
+                return false; // Default unpatched behavior.
             }
             
             if (NavigationButton.getSelectedNavigationButton() == NavigationButton.SHORTS) {
                 return false; // Always use Shorts player for the Shorts nav button.
             }
+
+            final boolean forceFullScreen = (type == ShortsPlayerType.REGULAR_PLAYER_FULLSCREEN);
+            OpenVideosFullscreenHookPatch.setOpenNextShortFullscreen(forceFullScreen);
 
             // Can use the application context and add intent flags of
             // FLAG_ACTIVITY_NEW_TASK and FLAG_ACTIVITY_CLEAR_TOP
@@ -42,7 +61,7 @@ public class OpenShortsInRegularPlayerPatch {
             // if Shorts urls are opened outside the app.
             var context = mainActivityRef.get();
 
-             Intent videoPlayerIntent = new Intent(
+            Intent videoPlayerIntent = new Intent(
                     Intent.ACTION_VIEW,
                     Uri.parse("https://youtube.com/watch?v=" + videoID)
             );
@@ -51,6 +70,7 @@ public class OpenShortsInRegularPlayerPatch {
             context.startActivity(videoPlayerIntent);
             return true;
         } catch (Exception ex) {
+            OpenVideosFullscreenHookPatch.setOpenNextShortFullscreen(null);
             Logger.printException(() -> "openShort failure", ex);
             return false;
         }
