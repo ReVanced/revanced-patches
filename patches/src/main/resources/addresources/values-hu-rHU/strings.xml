@@ -79,7 +79,6 @@ Kattintson a folytatás gombra, és engedélyezze az optimalizálási módosít�
   <string name="revanced_settings_screen_03_feed_title">Hírfolyam</string>
   <string name="revanced_settings_screen_04_player_title">Lejátszó</string>
   <string name="revanced_settings_screen_05_general_title">Általános elrendezés</string>
-  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Keresősáv</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Csúsztatási vezérlők</string>
   <string name="revanced_settings_screen_11_misc_title">Egyéb</string>

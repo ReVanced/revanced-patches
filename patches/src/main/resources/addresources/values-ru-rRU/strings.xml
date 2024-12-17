@@ -1290,8 +1290,8 @@ Second \"item\" text"</string>
 
 AVC имеет максимальное разрешение 1080p, аудио кодек Opus недоступен, и воспроизведение видео будет использовать больше интернет данных в сравнении с VP9 или AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Побочные эффекты подмены на iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"\u2022 Язеное на неявершенные параметры для детей
-\u2022 Видео завершаются 1 секундоа раньше"</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Видео для детей могут не воспроизводиться
+• Видео заканчиваются на 1 секунду раньше"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Побочные эффекты подмены на Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Видео для детей могут не воспроизводиться
 • Меню выбора аудиодорожки отсутствует
