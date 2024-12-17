@@ -86,7 +86,9 @@ public final class MiniplayerPatch {
         // On some ultra low end devices the pixel width and density are the same number,
         // which causes the estimate to always give a value of 1.
         // Fix this by using a fixed size of double the min width.
-        final int WIDTH_DIP_MAX = Math.max(2 * WIDTH_DIP_MIN, estimatedWidthDipMax);
+        final int WIDTH_DIP_MAX = estimatedWidthDipMax <= WIDTH_DIP_MIN
+                ? 2 * WIDTH_DIP_MIN
+                : estimatedWidthDipMax;
         Logger.printDebug(() -> "Screen dip width: " + deviceDipWidth + " maxWidth: " + WIDTH_DIP_MAX);
 
         int dipWidth = Settings.MINIPLAYER_WIDTH_DIP.get();
