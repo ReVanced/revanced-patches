@@ -33,7 +33,7 @@ public class OpenShortsInRegularPlayerPatch {
             }
             
             if (NavigationButton.getSelectedNavigationButton() == NavigationButton.SHORTS) {
-                return false;
+                return false; // Always use Shorts player for the Shorts nav button.
             }
 
             // Can use the application context and add intent flags of
@@ -46,7 +46,6 @@ public class OpenShortsInRegularPlayerPatch {
                     Intent.ACTION_VIEW,
                     Uri.parse("https://youtube.com/watch?v=" + videoID)
             );
-
             videoPlayerIntent.setPackage(context.getPackageName());
 
             context.startActivity(videoPlayerIntent);
