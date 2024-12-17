@@ -18,8 +18,8 @@ public class OpenVideosFullscreenHookPatch {
      * Changed by 'Open videos fullscreen' patch,
      * as this class is also used by 'Open Shorts in regular player' patch.
      */
-    private static boolean fullScreenPatchIncluded() {
-        return false; // Modified by patches
+    private static boolean isFullScreenPatchIncluded() {
+        return false; // Modified by patches.
     }
 
     /**
@@ -32,7 +32,7 @@ public class OpenVideosFullscreenHookPatch {
             return openFullscreen;
         }
 
-        if (!fullScreenPatchIncluded()) {
+        if (!isFullScreenPatchIncluded()) {
             return false;
         }
 

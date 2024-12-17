@@ -23,6 +23,6 @@ internal val openVideosFullscreenHookPatchExtensionFingerprint = fingerprint {
     returns("Z")
     parameters()
     custom { methodDef, classDef ->
-        methodDef.name == "fullScreenPatchIncluded" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
+        methodDef.name == "isFullScreenPatchIncluded" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
     }
 }
