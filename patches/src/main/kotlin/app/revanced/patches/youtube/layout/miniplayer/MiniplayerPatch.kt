@@ -222,9 +222,7 @@ val miniplayerPatch = bytecodePatch(
             )
         }
 
-        if (!is_19_26_or_greater) {
-            preferences += SwitchPreference("revanced_miniplayer_hide_rewind_forward")
-        }
+        preferences += SwitchPreference("revanced_miniplayer_hide_rewind_forward")
 
         if (is_19_26_or_greater) {
             preferences += TextPreference("revanced_miniplayer_width_dip", inputType = InputType.NUMBER)

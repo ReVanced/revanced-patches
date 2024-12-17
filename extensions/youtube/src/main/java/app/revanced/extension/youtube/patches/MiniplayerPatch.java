@@ -308,6 +308,8 @@ public final class MiniplayerPatch {
      * Injection point.
      */
     public static void hideMiniplayerRewindForward(ImageView view) {
+        // 19.25 is last version that has forward/back buttons for phones, but buttons still
+        // show for tablets/foldable devices.
         Utils.hideViewByRemovingFromParentUnderCondition(HIDE_REWIND_FORWARD_ENABLED, view);
     }
 
