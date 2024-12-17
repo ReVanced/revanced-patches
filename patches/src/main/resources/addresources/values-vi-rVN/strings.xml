@@ -1201,7 +1201,7 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">Cài đặt GmsCore</string>
-  <string name="microg_settings_summary">Các cài dặt cho GmsCore</string>
+  <string name="microg_settings_summary">Các cài đặt cho GmsCore</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Vượt chuyển hướng URL</string>

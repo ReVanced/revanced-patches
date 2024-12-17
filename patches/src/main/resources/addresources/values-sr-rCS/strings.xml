@@ -516,15 +516,15 @@ Napomena: Omogućavanje ovoga prisilno sakriva i video oglase"</string>
   <string name="revanced_hide_navigation_button_labels_title">Sakrij oznake dugmadi za navigaciju</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Oznake dugmadi za navigaciju su skrivene</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Oznake dugmadi za navigaciju su prikazane</string>
-  <string name="revanced_disable_translucent_status_bar_title">Onemogući prozirnu traku stanja</string>
+  <string name="revanced_disable_translucent_status_bar_title">Onemogući prozirnu statusnu traku</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Statusna traka je neprozirna</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Statusna traka je neprozirna ili prozirna</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_title">Onemogući prozirnu svetlu traku</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Svetla traka za navigaciju je neprozirna</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Navigacijska traka u svetlom modu je neprozirna ili prozirna</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_title">Onemogući tamnu prozirnu traku</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Tamna traka za navigaciju je neprozirna</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Navigacijska traka u tamnom modu je neprozirna ili prozirna</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Onemogući svetlu prozirnu traku za navigaciju</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Traka za navigaciju u svetlom režimu je neprozirna</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Traka za navigaciju u svetlom režimu je neprozirna ili prozirna</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Onemogući tamnu prozirnu traku za navigaciju</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Traka za navigaciju u tamnom režimu je neprozirna</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Traka za navigaciju u tamnom režimu je neprozirna ili prozirna</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Padajući meni</string>
@@ -1288,6 +1288,8 @@ Reprodukcija videa možda neće raditi"</string>
 
 AVC ima maksimalnu rezoluciju od 1080p, audio kodek Opus nije dostupan, a reprodukcija videa će koristiti više internet podataka nego VP9 ili AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Neželjeni efekti lažiranja na iOS</string>
+  <string name="revanced_spoof_video_streams_about_ios_summary">"• Privatni dečji videi se možda neće puštati
+• Videi će se završiti 1 sekundu ranije"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Neželjeni efekti lažiranja na Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Dečji videi se možda neće puštati
 • Strimovi uživo počinju od početka

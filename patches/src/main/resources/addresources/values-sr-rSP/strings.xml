@@ -79,7 +79,6 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_03_feed_title">Фид</string>
   <string name="revanced_settings_screen_04_player_title">Плејер</string>
   <string name="revanced_settings_screen_05_general_title">Општи изглед</string>
-  <string name="revanced_settings_screen_06_shorts_title">Шорцеви</string>
   <string name="revanced_settings_screen_07_seekbar_title">Трака за премотавање</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Контроле превлачења</string>
   <string name="revanced_settings_screen_11_misc_title">Разно</string>
@@ -516,15 +515,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_navigation_button_labels_title">Сакриј ознаке дугмади за навигацију</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Ознаке дугмади за навигацију су скривене</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Ознаке дугмади за навигацију су приказане</string>
-  <string name="revanced_disable_translucent_status_bar_title">Онемогући провидну статусну траку</string>
-  <string name="revanced_disable_translucent_status_bar_summary_on">Statusna traka je neprozirna</string>
-  <string name="revanced_disable_translucent_status_bar_summary_off">Statusna traka je neprozirna ili providna</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_title">Онемогући светлу провидну траку</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Светли режим траке за навигацију је непрозиран</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Navigaciona traka u svetlom režimu je neprozirna ili providna</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_title">Onemogući providnu tamnu traku</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Тамни режим траке за навигацију је непрозиран</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Navigaciona traka u tamnom režimu je neprozirna ili providna</string>
+  <string name="revanced_disable_translucent_status_bar_title">Онемогући прозирну статусну траку</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">Статусна трака је непрозирна</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">Статусна трака је непрозирна или прозирна</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Онемогући светлу прозирну траку за навигацију</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Трака за навигацију у светлом режиму је непрозирна</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Трака за навигацију у светлом режиму је непрозирна или прозирна</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Онемогући тамну прозирну траку за навигацију</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Трака за навигацију у тамном режиму је непрозирна</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Трака за навигацију у тамном режиму је непрозирна или прозирна</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Падајући мени</string>
