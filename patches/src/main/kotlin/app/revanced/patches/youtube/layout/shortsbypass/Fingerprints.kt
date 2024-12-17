@@ -19,7 +19,7 @@ internal val playbackStartFeatureFlagFingerprint = fingerprint {
 }
 
 // Pre 19.45
-internal val playbackStartDescriptorLegacyFingerprint = fingerprint {
+internal val shortsPlaybackIntentLegacyFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters(
@@ -38,7 +38,7 @@ internal val playbackStartDescriptorLegacyFingerprint = fingerprint {
     )
 }
 
-internal val playbackStartDescriptorFingerprint = fingerprint {
+internal val shortsPlaybackIntentFingerprint = fingerprint {
     returns("V")
     parameters(
         "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;",

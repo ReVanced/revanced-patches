@@ -8,6 +8,7 @@ import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
+import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
@@ -22,7 +23,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/OpenShortsInRegularPlayer;"
 
 @Suppress("unused")
-val openShortsInRegularPlayer = bytecodePatch(
+val openShortsInRegularPlayerPatch = bytecodePatch(
     name = "Open Shorts in player",
     description = "Adds an option to open Shorts in the regular video player.",
 ) {
@@ -30,6 +31,7 @@ val openShortsInRegularPlayer = bytecodePatch(
         sharedExtensionPatch,
         settingsPatch,
         addResourcesPatch,
+        navigationBarHookPatch
     )
 
     compatibleWith(
@@ -84,7 +86,7 @@ val openShortsInRegularPlayer = bytecodePatch(
             """
 
         if (!is_19_25_or_greater) {
-            playbackStartDescriptorLegacyFingerprint.method.apply {
+            shortsPlaybackIntentLegacyFingerprint.method.apply {
                 val index = indexOfFirstInstructionOrThrow {
                     getReference<MethodReference>()?.returnType ==
                             "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;"
@@ -101,7 +103,7 @@ val openShortsInRegularPlayer = bytecodePatch(
             return@execute
         }
 
-        playbackStartDescriptorFingerprint.method.addInstructionsWithLabels(
+        shortsPlaybackIntentFingerprint.method.addInstructionsWithLabels(
             0,
             """
                 move-object/from16 v0, p1

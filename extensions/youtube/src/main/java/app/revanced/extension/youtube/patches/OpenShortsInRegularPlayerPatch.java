@@ -1,5 +1,7 @@
 package app.revanced.extension.youtube.patches;
 
+import static app.revanced.extension.youtube.shared.NavigationBar.NavigationButton;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -10,7 +12,7 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
-public class OpenShortsInRegularPlayer {
+public class OpenShortsInRegularPlayerPatch {
 
     private static WeakReference<Activity> mainActivityRef = new WeakReference<>(null);
 
@@ -27,6 +29,10 @@ public class OpenShortsInRegularPlayer {
     public static boolean openShort(String videoID) {
         try {
             if (!Settings.OPEN_SHORTS_IN_REGULAR_PLAYER.get()) {
+                return false;
+            }
+            
+            if (NavigationButton.getSelectedNavigationButton() == NavigationButton.SHORTS) {
                 return false;
             }
 
