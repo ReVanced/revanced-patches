@@ -1,3 +1,10 @@
+## [5.5.2-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.5.2-dev.1...v5.5.2-dev.2) (2024-12-17)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Hide new kind of community post ([#4155](https://github.com/ReVanced/revanced-patches/issues/4155)) ([08f68cb](https://github.com/ReVanced/revanced-patches/commit/08f68cb5d33f2cfe656d2f93d159c69981f31418))
+
 ## [5.5.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.5.1...v5.5.2-dev.1) (2024-12-17)
 
 
