@@ -1,3 +1,11 @@
+## [5.5.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.5.1...v5.5.2-dev.1) (2024-12-17)
+
+
+### Bug Fixes
+
+* **YouTube - Miniplayer:** Use estimated maximum on screen size for devices with low density screens ([#4150](https://github.com/ReVanced/revanced-patches/issues/4150)) ([2694158](https://github.com/ReVanced/revanced-patches/commit/2694158c3c9935ede21c96832533222f850068df))
+* **YouTube - SponsorBlock:** Show create new segment error messages using a dialog ([#4148](https://github.com/ReVanced/revanced-patches/issues/4148)) ([5870906](https://github.com/ReVanced/revanced-patches/commit/587090636dfff0b358b15026cf7d47c65a4296dc))
+
 ## [5.5.1](https://github.com/ReVanced/revanced-patches/compare/v5.5.0...v5.5.1) (2024-12-16)
 
 
