@@ -131,8 +131,10 @@ public final class MiniplayerPatch {
     private static final boolean HIDE_SUBTEXT_ENABLED =
             (CURRENT_TYPE == MODERN_1 || CURRENT_TYPE == MODERN_3) && Settings.MINIPLAYER_HIDE_SUBTEXT.get();
 
-    private static final boolean HIDE_REWIND_FORWARD_ENABLED =
-            CURRENT_TYPE == MODERN_1 && Settings.MINIPLAYER_HIDE_REWIND_FORWARD.get();
+    // 19.25 is last version that has forward/back buttons for phones,
+    // but buttons still show for tablets/foldable devices and they don't work well so always hide.
+    private static final boolean HIDE_REWIND_FORWARD_ENABLED = CURRENT_TYPE == MODERN_1
+            && (VersionCheckPatch.IS_19_34_OR_GREATER || Settings.MINIPLAYER_HIDE_REWIND_FORWARD.get());
 
     private static final boolean MINIPLAYER_ROUNDED_CORNERS_ENABLED =
             Settings.MINIPLAYER_ROUNDED_CORNERS.get();
@@ -308,8 +310,6 @@ public final class MiniplayerPatch {
      * Injection point.
      */
     public static void hideMiniplayerRewindForward(ImageView view) {
-        // 19.25 is last version that has forward/back buttons for phones, but buttons still
-        // show for tablets/foldable devices.
         Utils.hideViewByRemovingFromParentUnderCondition(HIDE_REWIND_FORWARD_ENABLED, view);
     }
 
