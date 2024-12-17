@@ -76,7 +76,7 @@ public final class LayoutComponentsFilter extends Filter {
                 "post_base_wrapper", // may be obsolete and no longer needed.
                 "text_post_root.eml",
                 "images_post_root.eml",
-                "images_post_slim.eml". // may be obsolete and no longer needed.
+                "images_post_slim.eml", // may be obsolete and no longer needed.
                 "images_post_root_slim.eml",
                 "text_post_root_slim.eml",
                 "post_base_wrapper_slim.eml",
