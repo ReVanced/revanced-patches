@@ -33,7 +33,7 @@ public class OpenShortsInRegularPlayer {
             context.startActivity(videoPlayerIntent);
             return true;
         } catch (Exception ex) {
-            Logger.printException(() -> "openShorts failure", ex);
+            Logger.printException(() -> "openShort failure", ex);
             return false;
         }
     }

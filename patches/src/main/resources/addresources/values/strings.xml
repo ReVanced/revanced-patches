@@ -1060,8 +1060,8 @@ If later turned off, it is recommended to clear the app data to prevent UI bugs.
         </patch>
         <patch id="layout.shortsbypass.openShortsInRegularPlayer">
             <string name="revanced_open_shorts_in_regular_player_title">Open Shorts in regular player</string>
-            <string name="revanced_open_shorts_in_regular_player_summary_on">Shorts will open in the regular video player</string>
-            <string name="revanced_open_shorts_in_regular_player_summary_off">Shorts will open in the Shorts player</string>
+            <string name="revanced_open_shorts_in_regular_player_summary_on">Shorts open in the regular video player</string>
+            <string name="revanced_open_shorts_in_regular_player_summary_off">Shorts open in the Shorts player</string>
         </patch>
         <patch id="layout.shortsautoplay.shortsAutoplayPatch">
             <string name="revanced_shorts_autoplay_title">Autoplay Shorts</string>
