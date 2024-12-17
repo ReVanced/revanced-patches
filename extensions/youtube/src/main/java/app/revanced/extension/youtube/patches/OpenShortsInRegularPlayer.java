@@ -1,14 +1,25 @@
 package app.revanced.extension.youtube.patches;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 
+import java.lang.ref.WeakReference;
+
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
 public class OpenShortsInRegularPlayer {
+
+    private static WeakReference<Activity> mainActivityRef = new WeakReference<>(null);
+
+    /**
+     * Injection point.
+     */
+    public static void setMainActivity(Activity activity) {
+        mainActivityRef = new WeakReference<>(activity);
+    }
 
     /**
      * Injection point.
@@ -19,15 +30,17 @@ public class OpenShortsInRegularPlayer {
                 return false;
             }
 
-            var context = Utils.getContext();
+            // Can use the application context and add intent flags of
+            // FLAG_ACTIVITY_NEW_TASK and FLAG_ACTIVITY_CLEAR_TOP
+            // But the activity context seems to fix random app crashes
+            // if Shorts urls are opened outside the app.
+            var context = mainActivityRef.get();
 
-            Intent videoPlayerIntent = new Intent(
+             Intent videoPlayerIntent = new Intent(
                     Intent.ACTION_VIEW,
-                    Uri.parse("https://www.youtube.com/watch?v=" + videoID)
+                    Uri.parse("https://youtube.com/watch?v=" + videoID)
             );
-            videoPlayerIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            videoPlayerIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            videoPlayerIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
             videoPlayerIntent.setPackage(context.getPackageName());
 
             context.startActivity(videoPlayerIntent);

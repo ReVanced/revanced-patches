@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.shortsbypass
 
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
@@ -10,6 +11,7 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -48,6 +50,13 @@ val openShortsInRegularPlayer = bytecodePatch(
 
         PreferenceScreen.SHORTS.addPreferences(
             SwitchPreference("revanced_open_shorts_in_regular_player"),
+        )
+
+        // Main activity is used to open Shorts links.
+        mainActivityOnCreateFingerprint.method.addInstructions(
+            1,
+            "invoke-static/range { p0 .. p0 }, ${EXTENSION_CLASS_DESCRIPTOR}->" +
+                    "setMainActivity(Landroid/app/Activity;)V",
         )
 
         // Find the obfuscated method name for PlaybackStartDescriptor.videoId()
