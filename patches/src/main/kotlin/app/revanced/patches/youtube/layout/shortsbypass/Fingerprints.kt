@@ -39,6 +39,7 @@ internal val shortsPlaybackIntentLegacyFingerprint = fingerprint {
 }
 
 internal val shortsPlaybackIntentFingerprint = fingerprint {
+    accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
     returns("V")
     parameters(
         "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;",
