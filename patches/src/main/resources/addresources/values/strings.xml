@@ -1059,7 +1059,7 @@ If later turned off, it is recommended to clear the app data to prevent UI bugs.
             <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts player will resume on app startup</string>
         </patch>
         <patch id="layout.shortsplayer.shortsPlayerTypePatch">
-            <string name="revanced_shorts_player_type_title">Shorts player type</string>
+            <string name="revanced_shorts_player_type_title">Open Shorts with</string>
             <string name="revanced_shorts_player_type_shorts">Shorts player</string>
             <string name="revanced_shorts_player_type_regular_player">Regular player</string>
             <string name="revanced_shorts_player_type_regular_player_fullscreen">Regular player fullscreen</string>
