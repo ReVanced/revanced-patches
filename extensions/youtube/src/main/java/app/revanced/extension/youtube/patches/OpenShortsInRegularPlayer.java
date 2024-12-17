@@ -13,7 +13,7 @@ public class OpenShortsInRegularPlayer {
     /**
      * Injection point.
      */
-    public static boolean openShorts(String shortsVideoID) {
+    public static boolean openShort(String videoID) {
         try {
             if (!Settings.OPEN_SHORTS_IN_REGULAR_PLAYER.get()) {
                 return false;
@@ -23,7 +23,7 @@ public class OpenShortsInRegularPlayer {
 
             Intent videoPlayerIntent = new Intent(
                     Intent.ACTION_VIEW,
-                    Uri.parse("https://www.youtube.com/watch?v=" + shortsVideoID)
+                    Uri.parse("https://www.youtube.com/watch?v=" + videoID)
             );
             videoPlayerIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             videoPlayerIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

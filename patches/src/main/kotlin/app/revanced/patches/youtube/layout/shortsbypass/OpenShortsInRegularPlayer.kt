@@ -1,16 +1,19 @@
 package app.revanced.patches.youtube.layout.shortsbypass
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
+import app.revanced.patches.youtube.misc.playservice.is_19_46_or_greater
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
@@ -58,19 +61,42 @@ val openShortsInRegularPlayer = bytecodePatch(
             it.getInstruction<ReferenceInstruction>(stringMethodIndex).getReference<MethodReference>()!!.name
         }
 
-        playbackStartDescriptorFingerprint.method.addInstructions(
+        fun extensionInstructions(descriptorRegister: Int, freeRegister: Int) =
+            """
+                invoke-virtual { v$descriptorRegister }, Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;->$playbackStartVideoIdMethodName()Ljava/lang/String;
+                move-result-object v$freeRegister
+                invoke-static { v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->openShort(Ljava/lang/String;)Z
+                move-result v$freeRegister
+                if-eqz v$freeRegister, :disabled
+                return-void
+                
+                :disabled
+                nop
+            """
+
+        if (!is_19_46_or_greater) {
+            playbackStartDescriptorLegacyFingerprint.method.apply {
+                val index = indexOfFirstInstructionOrThrow {
+                    getReference<MethodReference>()?.returnType ==
+                            "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;"
+                }
+                val freeRegister = getInstruction<FiveRegisterInstruction>(index).registerC
+                val descriptorRegister = getInstruction<OneRegisterInstruction>(index + 1).registerA
+
+                addInstructionsWithLabels(
+                    index + 2,
+                    extensionInstructions(descriptorRegister, freeRegister)
+                )
+            }
+
+            return@execute
+        }
+
+        playbackStartDescriptorFingerprint.method.addInstructionsWithLabels(
             0,
             """
                 move-object/from16 v0, p1
-                invoke-virtual { v0 }, Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;->$playbackStartVideoIdMethodName()Ljava/lang/String;
-                move-result-object v0
-                invoke-static { v0 }, $EXTENSION_CLASS_DESCRIPTOR->openShorts(Ljava/lang/String;)Z
-                move-result v0
-               
-                if-eqz v0, :disabled
-                return-void
-                :disabled
-                nop
+                ${extensionInstructions(0, 0)}
             """
         )
     }

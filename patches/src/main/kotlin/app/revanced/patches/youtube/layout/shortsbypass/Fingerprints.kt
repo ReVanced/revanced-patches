@@ -2,6 +2,7 @@ package app.revanced.patches.youtube.layout.shortsbypass
 
 import app.revanced.patcher.fingerprint
 import app.revanced.util.literal
+import com.android.tools.smali.dexlib2.AccessFlags
 
 /**
  * Purpose of this method is not clear, and it's only used to identify
@@ -17,6 +18,26 @@ internal val playbackStartFeatureFlagFingerprint = fingerprint {
     }
 }
 
+// Pre 19.45
+internal val playbackStartDescriptorLegacyFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("V")
+    parameters(
+        "L",
+        "Ljava/util/Map;",
+        "J",
+        "Ljava/lang/String;",
+        "Z",
+        "Ljava/util/Map;"
+    )
+    strings(
+        // None of these strings are unique.
+        "com.google.android.apps.youtube.app.endpoint.flags",
+        "ReelWatchFragmentArgs",
+        "reels_fragment_descriptor"
+    )
+}
+
 internal val playbackStartDescriptorFingerprint = fingerprint {
     returns("V")
     parameters(
@@ -27,10 +48,8 @@ internal val playbackStartDescriptorFingerprint = fingerprint {
     )
     strings(
         // None of these strings are unique.
-        "com.google.android.apps.youtube.PlaybackStartDescriptor",
-        "PLAYBACK_START_DESCRIPTOR_MUTATOR",
-        "ReelWatchFragmentArgs"
+        "com.google.android.apps.youtube.app.endpoint.flags",
+        "ReelWatchFragmentArgs",
+        "reels_fragment_descriptor"
     )
 }
-
-
