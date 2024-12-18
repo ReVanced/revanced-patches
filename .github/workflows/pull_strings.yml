@@ -23,6 +23,7 @@ jobs:
         uses: crowdin/github-action@v2
         with:
           config: crowdin.yml
+          upload_sources: false
           download_translations: true
           localization_branch_name: feat/translations
           create_pull_request: false
@@ -39,4 +40,3 @@ jobs:
           destination_branch: dev
           pr_title: "chore: Sync translations"
           pr_body: "Sync translations from [crowdin.com/project/revanced](https://crowdin.com/project/revanced)"
-          pr_draft: true
