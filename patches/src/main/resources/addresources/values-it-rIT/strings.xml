@@ -517,13 +517,13 @@ Nota: Abilitare questa opzione nasconde anche le pubblicità video"</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Le etichette sono visibili</string>
   <string name="revanced_disable_translucent_status_bar_title">Disabilita la barra di stato traslucida</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">La barra di stato è opaca</string>
-  <string name="revanced_disable_translucent_status_bar_summary_off">La barra di stato è opaca o translucida</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">La barra di stato è opaca o traslucida</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Disabilita la barra traslucida chiara</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">La barra di navigazione in modalità chiara è opaca</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">La barra di navigazione in modalità chiara è opaca o translucida</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_title">Disabilita la barra scura traslucida</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">La barra di navigazione in modalità chiara è opaca o traslucida</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Disabilita la barra traslucida scura</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">La barra di navigazione in modalità scura è opaca</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">La barra di navigazione in modalità scura è opaca o translucida</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">La barra di navigazione in modalità scura è opaca o traslucida</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Menù a comparsa</string>
@@ -1288,7 +1288,7 @@ La riproduzione video potrebbe non funzionare"</string>
 AVC ha una risoluzione massima di 1080p, il codec audio Opus non è disponibile e la riproduzione video utilizzerà più dati rispetto a VP9 o AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Effetti collaterali simulazione iOS</string>
   <string name="revanced_spoof_video_streams_about_ios_summary">"• I video per bambini privati potrebbero non essere riproducibili
-• I video terminano prima di 1 secondo"</string>
+• I video terminano 1 secondo prima"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Effetti collaterali simulazione Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• I video per bambini potrebbero non essere riprodotti
 • Le dirette iniziano dall'inizio
