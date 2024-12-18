@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.layout.player.fullscreen
 
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.youtube.layout.shortsplayer.shortsPlayerTypePatch
+import app.revanced.patches.youtube.layout.shortsplayer.openShortsInRegularPlayerPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_46_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
@@ -11,7 +11,7 @@ internal const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/OpenVideosFullscreenHookPatch;"
 
 /**
- * Used by both [openVideosFullscreenPatch] and [shortsPlayerTypePatch].
+ * Used by both [openVideosFullscreenPatch] and [openShortsInRegularPlayerPatch].
  */
 internal val openVideosFullscreenHookPatch = bytecodePatch {
     dependsOn(

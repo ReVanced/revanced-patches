@@ -1214,8 +1214,8 @@ public final class app/revanced/patches/youtube/layout/shortsautoplay/ShortsAuto
 	public static final fun getShortsAutoplayPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/shortsplayer/ShortsPlayerTypePatchKt {
-	public static final fun getShortsPlayerTypePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/revanced/patches/youtube/layout/shortsplayer/OpenShortsInRegularPlayerPatchKt {
+	public static final fun getOpenShortsInRegularPlayerPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/layout/sponsorblock/SponsorBlockPatchKt {

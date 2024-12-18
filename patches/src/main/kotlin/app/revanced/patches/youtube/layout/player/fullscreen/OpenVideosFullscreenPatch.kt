@@ -31,16 +31,16 @@ val openVideosFullscreenPatch = bytecodePatch(
 
     execute {
         if (!is_19_46_or_greater) {
-            throw PatchException("Patch requires 19.46.42 or greater")
+            throw PatchException("'Open videos fullscreen' requires 19.46.42 or greater")
         }
-
-        // Enable the logic for the user Setting to open regular videos fullscreen.
-        openVideosFullscreenHookPatchExtensionFingerprint.method.returnEarly(true)
 
         addResources("youtube", "layout.player.fullscreen.openVideosFullscreen")
 
         PreferenceScreen.PLAYER.addPreferences(
             SwitchPreference("revanced_open_videos_fullscreen_portrait")
         )
+
+        // Enable the logic for the user Setting to open regular videos fullscreen.
+        openVideosFullscreenHookPatchExtensionFingerprint.method.returnEarly(true)
     }
 }

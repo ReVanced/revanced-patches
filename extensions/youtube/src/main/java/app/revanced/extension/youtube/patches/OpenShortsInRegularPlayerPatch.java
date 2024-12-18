@@ -12,7 +12,7 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
-public class ShortsPlayerTypePatch {
+public class OpenShortsInRegularPlayerPatch {
 
     public enum ShortsPlayerType {
         SHORTS_PLAYER,

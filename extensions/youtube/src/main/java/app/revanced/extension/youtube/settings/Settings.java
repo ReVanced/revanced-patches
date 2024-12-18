@@ -16,7 +16,7 @@ import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerT
 import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerType.MODERN_2;
 import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerType.MODERN_3;
 import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerType.MODERN_4;
-import static app.revanced.extension.youtube.patches.ShortsPlayerTypePatch.ShortsPlayerType;
+import static app.revanced.extension.youtube.patches.OpenShortsInRegularPlayerPatch.ShortsPlayerType;
 import static app.revanced.extension.youtube.patches.SeekbarThumbnailsPatch.SeekbarThumbnailsHighQualityAvailability;
 import static app.revanced.extension.youtube.patches.VersionCheckPatch.IS_19_17_OR_GREATER;
 import static app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour.IGNORE;

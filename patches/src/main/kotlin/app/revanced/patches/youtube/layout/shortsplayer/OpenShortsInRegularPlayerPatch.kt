@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.shortsplayer
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
@@ -23,11 +23,11 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
-    "Lapp/revanced/extension/youtube/patches/ShortsPlayerTypePatch;"
+    "Lapp/revanced/extension/youtube/patches/OpenShortsInRegularPlayerPatch;"
 
 @Suppress("unused")
-val shortsPlayerTypePatch = bytecodePatch(
-    name = "Shorts player type",
+val openShortsInRegularPlayerPatch = bytecodePatch(
+    name = "Open Shorts in regular player",
     description = "Adds options to open Shorts in the regular video player.",
 ) {
     dependsOn(
@@ -72,7 +72,7 @@ val shortsPlayerTypePatch = bytecodePatch(
         )
 
         // Main activity is used to open Shorts links.
-        mainActivityOnCreateFingerprint.method.addInstructions(
+        mainActivityOnCreateFingerprint.method.addInstruction(
             1,
             "invoke-static/range { p0 .. p0 }, ${EXTENSION_CLASS_DESCRIPTOR}->" +
                     "setMainActivity(Landroid/app/Activity;)V",
