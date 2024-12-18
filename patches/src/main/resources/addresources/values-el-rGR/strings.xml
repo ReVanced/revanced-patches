@@ -65,7 +65,7 @@ Second \"item\" text"</string>
   <string name="gms_core_dialog_open_website_text">Άνοιγμα ιστοσελίδας</string>
   <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Οι βελτιστοποιήσεις μπαταρίας πρέπει να απενεργοποιηθούν για το MicroG GmsCore ώστε να αποφευχθούν προβλήματα.
 
-Η απενεργοποίηση των βελτιστοποιήσεων μπαταρίας για το MicroG δεν θα επηρεάσει αρνητικά τη χρήση της μπαταρίας.
+Η απενεργοποίηση των βελτιστοποιήσεων μπαταρίας για το MicroG δεν θα επηρεάσει αρνητικά την κατανάλωση ενέργειας.
 
 Πατήστε το κουμπί «Συνέχεια» και επιτρέψτε τις αλλαγές βελτιστοποίησης."</string>
   <string name="gms_core_dialog_continue_text">Συνέχεια</string>
@@ -520,13 +520,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Εμφανίζονται</string>
   <string name="revanced_disable_translucent_status_bar_title">Απενεργοποίηση διαφανούς γραμμής κατάστασης</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Η γραμμή κατάστασης δεν είναι διαφανής</string>
-  <string name="revanced_disable_translucent_status_bar_summary_off">Η διαφάνεια της γραμμή κατάστασης ορίζεται αυτόματα</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">Η διαφάνεια της γραμμής κατάστασης ορίζεται αυτόματα</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Απενεργοποίηση διαφανούς γραμμής στο φωτεινό θέμα</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Η γραμμή πλοήγησης στο φωτεινό θέμα δεν είναι διαφανής</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Η διαφάνεια της γραμμή πλοήγησης στο φωτεινό θέμα ορίζεται αυτόματα</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Η διαφάνεια της γραμμής πλοήγησης στο φωτεινό θέμα ορίζεται αυτόματα</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_title">Απενεργοποίηση ημιδιαφανούς γραμμής στο σκούρο θέμα</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Η γραμμή πλοήγησης στο σκούρο θέμα δεν είναι διαφανής</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Η διαφάνεια της γραμμή πλοήγησης στο σκούρο θέμα ορίζεται αυτόματα</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Η διαφάνεια της γραμμής πλοήγησης στο σκούρο θέμα ορίζεται αυτόματα</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Αναδυόμενο μενού ρυθμίσεων</string>
