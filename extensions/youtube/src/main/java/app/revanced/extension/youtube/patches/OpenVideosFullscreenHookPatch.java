@@ -15,11 +15,11 @@ public class OpenVideosFullscreenHookPatch {
     }
 
     /**
-     * Changed by 'Open videos fullscreen' patch,
-     * as this class is also used by 'Open Shorts in regular player' patch.
+     * Changed during patching since this class is also
+     * used by {@link OpenVideosFullscreenHookPatch}.
      */
     private static boolean isFullScreenPatchIncluded() {
-        return false; // Modified by patches.
+        return false;
     }
 
     /**
