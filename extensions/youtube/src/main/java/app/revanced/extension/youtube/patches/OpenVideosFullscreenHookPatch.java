@@ -8,10 +8,10 @@ import app.revanced.extension.youtube.settings.Settings;
 public class OpenVideosFullscreenHookPatch {
 
     @Nullable
-    private static volatile Boolean openNextShortFullscreen;
+    private static volatile Boolean openNextVideoFullscreen;
 
-    public static void setOpenNextShortFullscreen(@Nullable Boolean forceFullScreen) {
-        openNextShortFullscreen = forceFullScreen;
+    public static void setOpenNextVideoFullscreen(@Nullable Boolean forceFullScreen) {
+        openNextVideoFullscreen = forceFullScreen;
     }
 
     /**
@@ -26,9 +26,9 @@ public class OpenVideosFullscreenHookPatch {
      * Injection point.
      */
     public static boolean openVideoFullscreenPortrait(boolean original) {
-        Boolean openFullscreen = openNextShortFullscreen;
+        Boolean openFullscreen = openNextVideoFullscreen;
         if (openFullscreen != null) {
-            openNextShortFullscreen = null;
+            openNextVideoFullscreen = null;
             return openFullscreen;
         }
 

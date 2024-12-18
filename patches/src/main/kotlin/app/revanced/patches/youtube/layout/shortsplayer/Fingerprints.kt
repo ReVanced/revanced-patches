@@ -18,7 +18,7 @@ internal val playbackStartFeatureFlagFingerprint = fingerprint {
     }
 }
 
-// Pre 19.45
+// Pre 19.25
 internal val shortsPlaybackIntentLegacyFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")

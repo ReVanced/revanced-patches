@@ -47,13 +47,19 @@ public class ShortsPlayerTypePatch {
             if (type == ShortsPlayerType.SHORTS_PLAYER) {
                 return false; // Default unpatched behavior.
             }
+
+            if (videoID.isEmpty()) {
+                // Shorts was opened using launcher app shortcut.
+                Logger.printDebug(() -> "Ignoring Short with no videoId");
+                return false;
+            }
             
             if (NavigationButton.getSelectedNavigationButton() == NavigationButton.SHORTS) {
                 return false; // Always use Shorts player for the Shorts nav button.
             }
 
             final boolean forceFullScreen = (type == ShortsPlayerType.REGULAR_PLAYER_FULLSCREEN);
-            OpenVideosFullscreenHookPatch.setOpenNextShortFullscreen(forceFullScreen);
+            OpenVideosFullscreenHookPatch.setOpenNextVideoFullscreen(forceFullScreen);
 
             // Can use the application context and add intent flags of
             // FLAG_ACTIVITY_NEW_TASK and FLAG_ACTIVITY_CLEAR_TOP
@@ -70,7 +76,7 @@ public class ShortsPlayerTypePatch {
             context.startActivity(videoPlayerIntent);
             return true;
         } catch (Exception ex) {
-            OpenVideosFullscreenHookPatch.setOpenNextShortFullscreen(null);
+            OpenVideosFullscreenHookPatch.setOpenNextVideoFullscreen(null);
             Logger.printException(() -> "openShort failure", ex);
             return false;
         }

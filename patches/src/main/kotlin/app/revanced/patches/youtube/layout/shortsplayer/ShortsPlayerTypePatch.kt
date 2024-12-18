@@ -124,7 +124,7 @@ val shortsPlayerTypePatch = bytecodePatch(
             0,
             """
                 move-object/from16 v0, p1
-                ${extensionInstructions(0, 0)}
+                ${extensionInstructions(0, 1)}
             """
         )
     }
