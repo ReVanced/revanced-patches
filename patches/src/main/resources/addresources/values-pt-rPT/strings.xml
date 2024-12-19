@@ -1049,6 +1049,12 @@ Nếu sau này tắt, bạn nên xóa dữ liệu ứng dụng để tránh lỗ
   <string name="revanced_disable_resuming_shorts_player_summary_on">Desativar a retomada do player do Shorts</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts que o reprodutor continuará na inicialização do aplicativo</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Abrir Â Shorts com</string>
+  <string name="revanced_shorts_player_type_shorts">Reprodutor de Shorts</string>
+  <string name="revanced_shorts_player_type_regular_player">Reprodução normal</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Reprodução normal em tela cheia</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Reprodução automática de Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts vão ser reproduzidos automaticamente</string>

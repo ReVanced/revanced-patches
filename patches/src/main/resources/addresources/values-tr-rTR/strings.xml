@@ -1049,6 +1049,12 @@ Daha sonra kapatılırsa, arayüz hatalarını önlemek için uygulama verilerin
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts oynatıcı uygulama açıldığında devam etmeyecek</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts oynatıcı uygulama açıldığında devam edecek</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Shorts\'u şununla aç</string>
+  <string name="revanced_shorts_player_type_shorts">Shorts oynatıcı</string>
+  <string name="revanced_shorts_player_type_regular_player">Normal oynatıcı</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Normal oynatıcı tam ekran</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Shorts\'u otomatik oynat</string>
   <string name="revanced_shorts_autoplay_summary_on">Sıradaki Shorts videosu otomatik olarak oynatılacak</string>

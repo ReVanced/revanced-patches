@@ -1027,7 +1027,7 @@ Ako se kasnije isključi, preporučuje se da izbrišete podatke aplikacije da bi
   <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Vraća staru policu plejliste</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Podešavanje početne stranice</string>
+  <string name="revanced_change_start_page_title">Polazna stranica</string>
   <string name="revanced_change_start_page_entry_default">Podrazumevana</string>
   <string name="revanced_change_start_page_entry_browse">Pretraga kanala</string>
   <string name="revanced_change_start_page_entry_explore">Istraži</string>
@@ -1048,6 +1048,12 @@ Ako se kasnije isključi, preporučuje se da izbrišete podatke aplikacije da bi
   <string name="revanced_disable_resuming_shorts_player_title">Onemogući nastavak reprodukcije Shorts plejera</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts plejer neće nastaviti reprodukciju pri pokretanju aplikacije</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts plejer će nastaviti reprodukciju pri pokretanju aplikacije</string>
+  </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Otvorite Shorts sa</string>
+  <string name="revanced_shorts_player_type_shorts">Shorts plejer</string>
+  <string name="revanced_shorts_player_type_regular_player">Standardni plejer</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Standardni plejer u celom ekranu</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Autoplej Shorts videa</string>
@@ -1107,16 +1113,16 @@ Prevucite za proširenje ili zatvaranje"</string>
   <string name="revanced_miniplayer_hide_rewind_forward_title">Sakrij dugmad za premotavanje unapred i unazad</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Dugmad za premotavanje unapred i unazad su skrivena</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Dugmad za premotavanje unapred i unazad su prikazana</string>
-  <string name="revanced_miniplayer_width_dip_title">Početna veličina</string>
-  <string name="revanced_miniplayer_width_dip_summary">Početna veličina ekrana, u pikselima</string>
+  <string name="revanced_miniplayer_width_dip_title">Polazna veličina</string>
+  <string name="revanced_miniplayer_width_dip_summary">Polazna veličina ekrana, u pikselima</string>
   <string name="revanced_miniplayer_width_dip_invalid_toast">Veličina piksela mora biti između %1$s i %2$s</string>
   <string name="revanced_miniplayer_opacity_title">Neprozirnost preklopa</string>
   <string name="revanced_miniplayer_opacity_summary">Vrednost neprozirnosti između 0 i 100, gde je 0 prozirno</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Neprozirnost preklopa mini-plejera mora biti između 0 i 100</string>
   </patch>
   <patch id="layout.theme.themePatch">
-  <string name="revanced_gradient_loading_screen_title">Omogući ekran učitavanja s gradijentom</string>
-  <string name="revanced_gradient_loading_screen_summary_on">Ekran učitavanja će imati pozadinu s gradijentom</string>
+  <string name="revanced_gradient_loading_screen_title">Omogući gradijentnu pozadinu ekrana učitavanja</string>
+  <string name="revanced_gradient_loading_screen_summary_on">Ekran učitavanja će imati gradijentnu pozadinu</string>
   <string name="revanced_gradient_loading_screen_summary_off">Ekran učitavanja će imati običnu pozadinu</string>
   </patch>
   <patch id="layout.theme.themeResourcePatch">

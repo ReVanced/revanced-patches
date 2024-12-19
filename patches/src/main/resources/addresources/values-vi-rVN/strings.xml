@@ -1049,6 +1049,12 @@ Nếu sau này tắt đi, bạn nên xóa dữ liệu ứng dụng để tránh 
   <string name="revanced_disable_resuming_shorts_player_summary_on">Trinh phát Shorts sẽ không tiếp tục khi ứng dụng khởi chạy</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Trinh phát Shorts sẽ tiếp tục khi ứng dụng khởi chạy</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Mở Shorts bằng</string>
+  <string name="revanced_shorts_player_type_shorts">Trình phát Shorts</string>
+  <string name="revanced_shorts_player_type_regular_player">Trình phát thông thường</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Trình phát thông thường toàn màn hình</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Tự động phát Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts sẽ phát tự động</string>

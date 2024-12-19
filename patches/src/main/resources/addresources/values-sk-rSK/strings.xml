@@ -1040,6 +1040,12 @@ Ak sa neskôr vypne, odporúča sa vymazať údaje aplikácie, aby sa zabránilo
   <string name="revanced_disable_resuming_shorts_player_summary_on">Prehrávač Shorts videí sa pri spustení aplikácie neobnoví</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Prehrávač Shorts videí sa obnoví pri spustení aplikácie</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Otvoriť Shorts s</string>
+  <string name="revanced_shorts_player_type_shorts">Prehrávač Shorts</string>
+  <string name="revanced_shorts_player_type_regular_player">Bežný prehrávač</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Bežný prehrávač na celú obrazovku</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Automaticky prehrávať Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts sa automaticky prehrajú</string>

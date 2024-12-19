@@ -1050,6 +1050,12 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_disable_resuming_shorts_player_summary_on">অ্যাপের শুরুতে Shorts প্লেয়ার আবার চলবে না</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">অ্যাপের শুরুতে Shorts প্লেয়ার আবার চলবে</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Shorts সঙ্গে খুলুন</string>
+  <string name="revanced_shorts_player_type_shorts">Shorts প্লেয়ার</string>
+  <string name="revanced_shorts_player_type_regular_player">নিয়মিত প্লেয়ার</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">নিয়মিত প্লেয়ার পূর্ণ পর্দা</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">অটোপ্লে Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts অটোপ্লে হবে</string>

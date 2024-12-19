@@ -1053,6 +1053,12 @@ MicroG를 배터리 최적화 목록에서 제외하더라도, 배터리 사용�
   <string name="revanced_disable_resuming_shorts_player_summary_on">앱을 시작할 때, Shorts 플레이어를 다시 실행하지 않습니다</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">앱을 시작할 때, Shorts 플레이어를 다시 실행합니다</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Shorts를 사용하여 열기</string>
+  <string name="revanced_shorts_player_type_shorts">Shorts 플레이어</string>
+  <string name="revanced_shorts_player_type_regular_player">일반 플레이어</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">일반 플레이어 전체 화면</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Shorts 자동재생</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts 동영상이 자동넘김됩니다</string>

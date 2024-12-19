@@ -1048,6 +1048,12 @@ Ja vēlāk tiks izslēgts, ieteicams notīrīt lietotnes datus, lai novērstu li
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts atskaņotājs neatjaunosies lietotnes palaišanas laikā</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts atskaņotājs tiks atsākts lietotnes palaišanas laikā</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Atvērt Shorts ar</string>
+  <string name="revanced_shorts_player_type_shorts">Shorts atskaņotājs</string>
+  <string name="revanced_shorts_player_type_regular_player">Parastais atskaņotājs</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Pilnekrāna parastais atskaņotājs</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Automātiskā īso videoklipu atskaņošana</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts tiks atskaņoti automātiski</string>
