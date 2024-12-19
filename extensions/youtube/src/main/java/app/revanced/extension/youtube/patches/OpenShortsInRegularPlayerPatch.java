@@ -50,6 +50,16 @@ public class OpenShortsInRegularPlayerPatch {
 
             if (videoID.isEmpty()) {
                 // Shorts was opened using launcher app shortcut.
+                //
+                // This check will not detect if the Shorts app shortcut is used
+                // while the app is running in the background (instead the regular player is opened).
+                // To detect that the hooked method map parameter can be checked
+                // if integer key 'com.google.android.apps.youtube.app.endpoint.flags'
+                // has bitmask 16 set.
+                //
+                // This use case seems unlikely if the user has the Shorts
+                // set to open in the regular player, so it's ignored as
+                // checking the map makes the patch more complicated.
                 Logger.printDebug(() -> "Ignoring Short with no videoId");
                 return false;
             }
