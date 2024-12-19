@@ -1,3 +1,10 @@
+# [5.6.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.6.0-dev.1...v5.6.0-dev.2) (2024-12-19)
+
+
+### Bug Fixes
+
+* **YouTube - Open Shorts in regular player:** Do not show the miniplayer after opening a Short while a video is playing ([894e366](https://github.com/ReVanced/revanced-patches/commit/894e36665d17d5a3a5728961d424dffc55faa50b))
+
 # [5.6.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.5.2-dev.2...v5.6.0-dev.1) (2024-12-19)
 
 
