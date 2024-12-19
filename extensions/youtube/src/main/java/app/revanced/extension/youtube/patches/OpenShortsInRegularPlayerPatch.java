@@ -81,6 +81,7 @@ public class OpenShortsInRegularPlayerPatch {
                     Intent.ACTION_VIEW,
                     Uri.parse("https://youtube.com/watch?v=" + videoID)
             );
+            videoPlayerIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             videoPlayerIntent.setPackage(context.getPackageName());
 
             context.startActivity(videoPlayerIntent);
