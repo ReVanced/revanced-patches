@@ -1049,6 +1049,12 @@ Second \"item\" text"</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts плейъра при стартиране на приложението е скрит</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts плейъра при стартиране на приложението се показва</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Отворете Shorts с</string>
+  <string name="revanced_shorts_player_type_shorts">Играч на Shorts</string>
+  <string name="revanced_shorts_player_type_regular_player">Обикновен плейър</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Обикновен плейър на цял екран</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Автоматично пускане Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts ще се пускат автоматично</string>

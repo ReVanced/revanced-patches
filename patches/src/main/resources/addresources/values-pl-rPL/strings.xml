@@ -1049,6 +1049,12 @@ Jeśli później zostanie wyłączony, zaleca się wyczyszczenie danych aplikacj
   <string name="revanced_disable_resuming_shorts_player_summary_on">Odtwarzacz Shortsów nie będzie wznawiany przy starcie aplikacji</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Odtwarzacz Shortsów zostanie wznowiony przy starcie aplikacji</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Otwórz Shorts z</string>
+  <string name="revanced_shorts_player_type_shorts">Odtwarzacz Shortsów</string>
+  <string name="revanced_shorts_player_type_regular_player">Odtwarzacz regularny</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Odtwarzacz regularny na pełnym ekranie</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Autoodtwarzanie Shortsów</string>
   <string name="revanced_shorts_autoplay_summary_on">Shortsy będą odtwarzane automatycznie</string>

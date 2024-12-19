@@ -1048,6 +1048,12 @@ Second \"item\" text"</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Плеєр Shorts вимкнуто при запуску додатку</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Плеєр Shorts увімкнуто при запуску додатку</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Відкрити Shorts через</string>
+  <string name="revanced_shorts_player_type_shorts">Плеєр Shorts</string>
+  <string name="revanced_shorts_player_type_regular_player">Звичайний плеєр</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Звичайний плеєр на весь екран</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Автовідтворення Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts будуть автоматично відтворюватися одне за одним</string>

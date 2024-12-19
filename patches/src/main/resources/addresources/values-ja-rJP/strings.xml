@@ -1050,6 +1050,12 @@ MicroG のバッテリー最適化を無効にしても、バッテリーの使�
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts プレイヤーはアプリの起動時に再開しません</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts プレイヤーはアプリの起動時に再開します</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Shortsを開く</string>
+  <string name="revanced_shorts_player_type_shorts">Shortsプレイヤー</string>
+  <string name="revanced_shorts_player_type_regular_player">通常のプレーヤー</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">通常のプレーヤー（全画面）</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Shorts の自動再生</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts は自動再生されます</string>

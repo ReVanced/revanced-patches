@@ -1044,6 +1044,12 @@ Wenn Sie die Funktion später deaktivieren, wird empfohlen, die App-Daten zu lö
   <string name="revanced_disable_resuming_shorts_player_summary_on">Der Shorts Player wird beim Start der App nicht fortgesetzt</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts-Player wird beim Start der App fortgesetzt</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Shorts mit</string>
+  <string name="revanced_shorts_player_type_shorts">Shorts Spieler</string>
+  <string name="revanced_shorts_player_type_regular_player">Normaler Spieler</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Normaler Spieler im Vollbildmodus</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Shorts automatisch abspielen</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts werden autoplay</string>

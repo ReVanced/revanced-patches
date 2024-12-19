@@ -399,6 +399,8 @@ Mלות עם אותיות גדולות באמצע צריכות להיכנס עם
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   </patch>
   <patch id="layout.tablet.enableTabletLayoutPatch">

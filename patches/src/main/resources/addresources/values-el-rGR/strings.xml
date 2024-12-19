@@ -1051,6 +1051,12 @@ Second \"item\" text"</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Η αναπαραγωγή Shorts δε θα συνεχίζεται κατά την εκκίνηση της εφαρμογής</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Η αναπαραγωγή Shorts θα συνεχίζεται κατά την εκκίνηση της εφαρμογής</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Άνοιγμα Shorts με</string>
+  <string name="revanced_shorts_player_type_shorts">Οθόνη αναπαραγωγής Shorts</string>
+  <string name="revanced_shorts_player_type_regular_player">Οθόνη αναπαραγωγής κανονικών βίντεο </string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Πλήρη οθόνη αναπαραγωγής κανονικών βίντεο </string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Αυτόματη αναπαραγωγή Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Τα επόμενα Shorts θα αναπαράγονται αυτόματα</string>

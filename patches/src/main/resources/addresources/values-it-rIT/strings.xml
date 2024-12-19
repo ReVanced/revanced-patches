@@ -1048,6 +1048,12 @@ Se in seguito verrà disattivato, si consiglia di cancellare i dati dell'app per
   <string name="revanced_disable_resuming_shorts_player_summary_on">Il player Shorts non riprenderà all\'avvio dell\'app</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Il player Shorts riprenderà all\'avvio dell\'app</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Apri Shorts con</string>
+  <string name="revanced_shorts_player_type_shorts">Lettore Shorts</string>
+  <string name="revanced_shorts_player_type_regular_player">Lettore normale</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Lettore normale a schermo intero</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Riproduci automaticamente gli Short</string>
   <string name="revanced_shorts_autoplay_summary_on">Gli Short verranno riprodotti automaticamente</string>

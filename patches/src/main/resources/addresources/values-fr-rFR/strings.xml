@@ -1050,6 +1050,12 @@ Si cette option est désactivée par la suite, il est recommandé de vider les d
   <string name="revanced_disable_resuming_shorts_player_summary_on">Le lecteur de Shorts ne se relancera pas au démarrage de l\'application</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Le lecteur court reprendra au démarrage de l\'application</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Ouvrir Shorts avec</string>
+  <string name="revanced_shorts_player_type_shorts">Lecteur Shorts</string>
+  <string name="revanced_shorts_player_type_regular_player">Lecteur classique</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Lecteur classique en plein écran</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Jouer les Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Les Shorts joueront automatiquement</string>
