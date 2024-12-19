@@ -1,3 +1,10 @@
+# [5.6.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.5.2-dev.2...v5.6.0-dev.1) (2024-12-19)
+
+
+### Features
+
+* **YouTube:** Add `Open Shorts in regular player` patch ([#4153](https://github.com/ReVanced/revanced-patches/issues/4153)) ([c7c5e5b](https://github.com/ReVanced/revanced-patches/commit/c7c5e5b2b9cf63d8225bb6bd5e735ddf945b6c29))
+
 ## [5.5.2-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.5.2-dev.1...v5.5.2-dev.2) (2024-12-17)
 
 
