@@ -1049,6 +1049,12 @@ Dacă este dezactivat ulterior, se recomandă să ștergeți datele aplicației 
   <string name="revanced_disable_resuming_shorts_player_summary_on">Playerul Shorts nu va relua la pornirea aplicației</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Scurtătura va fi reluată la pornirea aplicației</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Deschide Shorts cu</string>
+  <string name="revanced_shorts_player_type_shorts">Player Shorts</string>
+  <string name="revanced_shorts_player_type_regular_player">Player obișnuit</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Player Obișnuit pe tot ecranul</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Redare automată Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts-urile se vor reda automat</string>

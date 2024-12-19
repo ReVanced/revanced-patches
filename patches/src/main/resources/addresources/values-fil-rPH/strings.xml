@@ -1050,6 +1050,12 @@ Kung mamaya ay patayin, inirerekumenda na i-clear ang data ng app upang maiwasan
   <string name="revanced_disable_resuming_shorts_player_summary_on">Hindi magpapatuloy ang Shorts player sa pagsisimula ng app</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Magpapatuloy ang manlalaro ng shorts sa pagsisimula ng app</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Buksan ang Shorts gamit ang</string>
+  <string name="revanced_shorts_player_type_shorts">Shorts player</string>
+  <string name="revanced_shorts_player_type_regular_player">Regular player</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Regular player fullscreen</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Awtomatikong pag-play ng Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Awtomatikong magpa-play ang mga Shorts</string>

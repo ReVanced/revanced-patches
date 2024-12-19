@@ -1049,6 +1049,12 @@ Sonradan söndürülərsə, UI səhvlərini qarşısını almaq üçün tətbiqi
   <string name="revanced_disable_resuming_shorts_player_summary_on">Tətbiq açılanda Shorts oynadıcı davam etməyəcək</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Tətbiq açılanda Shorts oynadıcı davam edəcək</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Shorts ilə</string>
+  <string name="revanced_shorts_player_type_shorts">Shorts oynadıcı</string>
+  <string name="revanced_shorts_player_type_regular_player">Adi oynatıcı</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Adi oynatıcı tam ekran</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Shorts-ları avto-oynatma</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts-lar avto-oynadılacaq</string>
