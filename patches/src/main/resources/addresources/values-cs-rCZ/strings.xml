@@ -1049,6 +1049,12 @@ Pokud bude později vypnuta, doporučujeme vymazat data aplikace, aby se zabrán
   <string name="revanced_disable_resuming_shorts_player_summary_on">Přehrávač Shorts nebude obnoven při spuštění aplikace</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Přehrávač Shorts se po spuštění aplikace znovu spustí</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Otevřít Shorts s</string>
+  <string name="revanced_shorts_player_type_shorts">Přehrávač Shorts</string>
+  <string name="revanced_shorts_player_type_regular_player">Běžný přehrávač</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Normální přehrávač (celá obrazovka)</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Automatické přehrávání Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts se budou automaticky přehrávat</string>

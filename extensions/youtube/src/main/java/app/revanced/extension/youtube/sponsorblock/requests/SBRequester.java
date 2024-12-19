@@ -19,6 +19,7 @@ import java.util.concurrent.TimeUnit;
 
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.sponsorblock.SponsorBlockSettings;
+import app.revanced.extension.youtube.sponsorblock.SponsorBlockUtils;
 import app.revanced.extension.youtube.sponsorblock.objects.SegmentCategory;
 import app.revanced.extension.youtube.sponsorblock.objects.SponsorSegment;
 import app.revanced.extension.youtube.sponsorblock.objects.SponsorSegment.SegmentVote;
@@ -142,6 +143,7 @@ public class SBRequester {
     public static void submitSegments(@NonNull String videoId, @NonNull String category,
                                       long startTime, long endTime, long videoLength) {
         Utils.verifyOffMainThread();
+
         try {
             String privateUserId = SponsorBlockSettings.getSBPrivateUserID();
             String start = String.format(Locale.US, TIME_TEMPLATE, startTime / 1000f);
@@ -151,35 +153,29 @@ public class SBRequester {
             HttpURLConnection connection = getConnectionFromRoute(SBRoutes.SUBMIT_SEGMENTS, privateUserId, videoId, category, start, end, duration);
             final int responseCode = connection.getResponseCode();
 
-            final String messageToToast;
-            switch (responseCode) {
-                case HTTP_STATUS_CODE_SUCCESS:
-                    messageToToast = str("revanced_sb_submit_succeeded");
-                    break;
-                case 409:
-                    messageToToast = str("revanced_sb_submit_failed_duplicate");
-                    break;
-                case 403:
-                    messageToToast = str("revanced_sb_submit_failed_forbidden", Requester.parseErrorStringAndDisconnect(connection));
-                    break;
-                case 429:
-                    messageToToast = str("revanced_sb_submit_failed_rate_limit");
-                    break;
-                case 400:
-                    messageToToast = str("revanced_sb_submit_failed_invalid", Requester.parseErrorStringAndDisconnect(connection));
-                    break;
-                default:
-                    messageToToast = str("revanced_sb_submit_failed_unknown_error", responseCode, connection.getResponseMessage());
-                    break;
-            }
-            Utils.showToastLong(messageToToast);
+            String userMessage = switch (responseCode) {
+                case HTTP_STATUS_CODE_SUCCESS -> str("revanced_sb_submit_succeeded");
+                case 409 -> str("revanced_sb_submit_failed_duplicate");
+                case 403 -> str("revanced_sb_submit_failed_forbidden",
+                        Requester.parseErrorStringAndDisconnect(connection));
+                case 429 -> str("revanced_sb_submit_failed_rate_limit");
+                case 400 -> str("revanced_sb_submit_failed_invalid",
+                        Requester.parseErrorStringAndDisconnect(connection));
+                default -> str("revanced_sb_submit_failed_unknown_error",
+                        responseCode, connection.getResponseMessage());
+            };
+
+            // Message might be about the users account or an error too large to show in a toast.
+            // Use a dialog instead.
+            SponsorBlockUtils.showErrorDialog(userMessage);
         } catch (SocketTimeoutException ex) {
-            // Always show, even if show connection toasts is turned off
+            Logger.printDebug(() -> "Timeout", ex);
             Utils.showToastLong(str("revanced_sb_submit_failed_timeout"));
         } catch (IOException ex) {
+            Logger.printDebug(() -> "IOException", ex);
             Utils.showToastLong(str("revanced_sb_submit_failed_unknown_error", 0, ex.getMessage()));
         } catch (Exception ex) {
-            Logger.printException(() -> "failed to submit segments", ex);
+            Logger.printException(() -> "failed to submit segments", ex); // Should never happen.
         }
     }
 
@@ -218,19 +214,22 @@ public class SBRequester {
                         : getConnectionFromRoute(SBRoutes.VOTE_ON_SEGMENT_QUALITY, uuid, segmentUuid, String.valueOf(voteOption.apiVoteType));
                 final int responseCode = connection.getResponseCode();
 
+                String userMessage;
                 switch (responseCode) {
                     case HTTP_STATUS_CODE_SUCCESS:
                         Logger.printDebug(() -> "Vote success for segment: " + segment);
-                        break;
+                        return;
                     case 403:
-                        Utils.showToastLong(
-                                str("revanced_sb_vote_failed_forbidden", Requester.parseErrorStringAndDisconnect(connection)));
+                        userMessage = str("revanced_sb_vote_failed_forbidden",
+                                Requester.parseErrorStringAndDisconnect(connection));
                         break;
                     default:
-                        Utils.showToastLong(
-                                str("revanced_sb_vote_failed_unknown_error", responseCode, connection.getResponseMessage()));
+                        userMessage = str("revanced_sb_vote_failed_unknown_error",
+                                responseCode, connection.getResponseMessage());
                         break;
                 }
+
+                SponsorBlockUtils.showErrorDialog(userMessage);
             } catch (SocketTimeoutException ex) {
                 Utils.showToastShort(str("revanced_sb_vote_failed_timeout"));
             } catch (IOException ex) {

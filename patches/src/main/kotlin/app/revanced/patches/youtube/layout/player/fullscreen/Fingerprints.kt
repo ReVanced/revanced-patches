@@ -14,3 +14,15 @@ internal val openVideosFullscreenPortraitFingerprint = fingerprint {
         OPEN_VIDEOS_FULLSCREEN_PORTRAIT_FEATURE_FLAG
     }
 }
+
+/**
+ * Used to enable opening regular videos fullscreen.
+ */
+internal val openVideosFullscreenHookPatchExtensionFingerprint = fingerprint {
+    accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
+    returns("Z")
+    parameters()
+    custom { methodDef, classDef ->
+        methodDef.name == "isFullScreenPatchIncluded" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
+    }
+}

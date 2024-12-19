@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.misc.announcements
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -41,7 +41,7 @@ val announcementsPatch = bytecodePatch(
             SwitchPreference("revanced_announcements"),
         )
 
-        mainActivityOnCreateFingerprint.method.addInstructions(
+        mainActivityOnCreateFingerprint.method.addInstruction(
             // Insert index must be greater than the insert index used by GmsCoreSupport,
             // as both patch the same method and GmsCore check should be first.
             1,

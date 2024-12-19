@@ -1050,6 +1050,12 @@ Kui see hiljem välja lülitatakse, on soovitatav rakenduse andmed kustutada, et
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shortsi esitaja ei jätka rakenduse käivitamisel</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shortsi esitaja jätkub rakenduse käivitamisel</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Ava Shorts</string>
+  <string name="revanced_shorts_player_type_shorts">Shorts esitusprogramm</string>
+  <string name="revanced_shorts_player_type_regular_player">Tavaline mängija</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Tavaline mängija täisekraanil</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Shortsi automaatne esitus</string>
   <string name="revanced_shorts_autoplay_summary_on">Shortsid esitatakse automaatselt</string>

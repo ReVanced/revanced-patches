@@ -1050,6 +1050,12 @@ Als het later wordt uitgeschakeld, wordt aanbevolen om de app-gegevens te wissen
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts-speler wordt niet hervat bij het opstarten van de app</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts-speler wordt hervat bij het opstarten van de app</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Shorts openen met</string>
+  <string name="revanced_shorts_player_type_shorts">Shorts-speler</string>
+  <string name="revanced_shorts_player_type_regular_player">Normale speler</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Normale speler op volledig scherm</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Shorts automatisch afspelen</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts worden automatisch afgespeeld</string>

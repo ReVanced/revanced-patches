@@ -1049,6 +1049,12 @@ Om det senare stängs av rekommenderas det att rensa appens data för att förhi
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts spelare kommer inte att återupptas vid appstart</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts spelare kommer att återupptas vid appstart</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Öppna Shorts med</string>
+  <string name="revanced_shorts_player_type_shorts">Shorts spelare</string>
+  <string name="revanced_shorts_player_type_regular_player">Vanlig spelare</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Vanlig spelare, helskärm</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Shorts automatisk uppspelning</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts kommer automatiskt spela upp</string>

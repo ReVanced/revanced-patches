@@ -1031,6 +1031,12 @@ Si se desactiva posteriormente, se recomienda borrar los datos de la aplicación
   <string name="revanced_disable_resuming_shorts_player_summary_on">El reproductor de Shorts no se reanudará al iniciar la aplicación</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">El reproductor de Shorts se reanudará al iniciar la aplicación</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Abre Shorts con</string>
+  <string name="revanced_shorts_player_type_shorts">Reproductor de Shorts</string>
+  <string name="revanced_shorts_player_type_regular_player">Reproductor normal</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Reproductor normal en pantalla completa</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Reproducción automática de Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Los Shorts se reproducirán automáticamente</string>

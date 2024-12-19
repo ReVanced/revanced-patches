@@ -2,7 +2,7 @@ package app.revanced.patches.shared.misc.checks
 
 import android.os.Build.*
 import app.revanced.patcher.Fingerprint
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.Patch
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.encodedValue.MutableEncodedValue
@@ -82,7 +82,7 @@ fun checkEnvironmentPatch(
             }
         }
 
-        fun invokeCheck() = mainActivityOnCreateFingerprint.method.addInstructions(
+        fun invokeCheck() = mainActivityOnCreateFingerprint.method.addInstruction(
             0,
             "invoke-static/range { p0 .. p0 },$EXTENSION_CLASS_DESCRIPTOR->check(Landroid/app/Activity;)V",
         )

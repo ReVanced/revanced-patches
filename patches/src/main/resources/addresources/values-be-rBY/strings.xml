@@ -1051,6 +1051,12 @@ Second \"item\" text"</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Прайгравальнік Shorts не аднаўляецца пры запуску праграмы</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Прайгравальнік Shorts адновіцца пры запуску праграмы</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Адкрыць Shorts з</string>
+  <string name="revanced_shorts_player_type_shorts">Прайгравальнік Shorts</string>
+  <string name="revanced_shorts_player_type_regular_player">Звычайны прайгравальнік</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Звычайны прайгравальнік на ўвесь экран</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Автовоспроизведение Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts будут воспроизводиться автоматически</string>

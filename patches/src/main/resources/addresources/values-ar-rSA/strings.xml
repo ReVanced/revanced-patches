@@ -79,7 +79,6 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_03_feed_title">الموجز</string>
   <string name="revanced_settings_screen_04_player_title">المشغل</string>
   <string name="revanced_settings_screen_05_general_title">التصميم العام</string>
-  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">شريط تقدم الفيديو</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">التحكم عن طريق إيماءة التمرير</string>
   <string name="revanced_settings_screen_11_misc_title">إعدادات متنوعة</string>
@@ -1049,6 +1048,12 @@ Second \"item\" text"</string>
   <string name="revanced_disable_resuming_shorts_player_title">تعطيل استئناف مشغل Shorts</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">لن يتم استئناف تشغيل مشغل Shorts عند بدء تشغيل التطبيق</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">سيتم استئناف تشغيل مشغل Shorts عند بدء تشغيل التطبيق</string>
+  </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">فتح مقاطع الـShorts باستخدام</string>
+  <string name="revanced_shorts_player_type_shorts">مشغل Shorts</string>
+  <string name="revanced_shorts_player_type_regular_player">مشغل عادي</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">شاشة كاملة - مشغل عادي</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">التشغيل التلقائي لفيديوهات Shorts</string>

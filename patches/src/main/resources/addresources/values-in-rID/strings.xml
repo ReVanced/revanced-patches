@@ -79,7 +79,6 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan."</string>
   <string name="revanced_settings_screen_03_feed_title">Umpan</string>
   <string name="revanced_settings_screen_04_player_title">Pemutar</string>
   <string name="revanced_settings_screen_05_general_title">Layout umum</string>
-  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Seekbar</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Kontrol geser</string>
   <string name="revanced_settings_screen_11_misc_title">Lain-lain</string>
@@ -1048,6 +1047,12 @@ Jika kemudian dimatikan, disarankan untuk menghapus data aplikasi untuk mencegah
   <string name="revanced_disable_resuming_shorts_player_title">Matikan melanjutkan pemutar video Shorts</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Pemutaran Shorts tidak akan dilanjutkan saat aplikasi dimulai</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Pemutaran Shorts akan dilanjutkan saat aplikasi dimulai</string>
+  </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Buka Shorts dengan</string>
+  <string name="revanced_shorts_player_type_shorts">Pemutar Shorts</string>
+  <string name="revanced_shorts_player_type_regular_player">Pemutar biasa</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Pemutar biasa layar penuh</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Putar otomatis Shorts</string>

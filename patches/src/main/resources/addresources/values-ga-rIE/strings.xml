@@ -1050,6 +1050,12 @@ Má dhiúltaítear é níos déanaí, moltar sonraí an aip a ghlanadh chun buga
   <string name="revanced_disable_resuming_shorts_player_summary_on">Ní thosóidh an t-imreoir Shorts ar thosú an aip</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Athosóidh an t-imreoir Shorts ar thosú an aip</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Oscail Shorts le</string>
+  <string name="revanced_shorts_player_type_shorts">Shorts seinnteoir</string>
+  <string name="revanced_shorts_player_type_regular_player">Imreoir Rialaigh</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Imreoir Rialaigh lán-scáileán</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Shorts Autoplay</string>
   <string name="revanced_shorts_autoplay_summary_on">Seinnfidh Shorts go huathoibríoch</string>

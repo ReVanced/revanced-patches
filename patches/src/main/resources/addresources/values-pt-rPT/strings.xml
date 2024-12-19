@@ -79,7 +79,6 @@ Nhấn nút tiếp tục và cho phép thay đổi tối ưu hóa."</string>
   <string name="revanced_settings_screen_03_feed_title">Recomendações</string>
   <string name="revanced_settings_screen_04_player_title">Leitor</string>
   <string name="revanced_settings_screen_05_general_title">Interface geral</string>
-  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Barra de pesquisa</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Controlos por Gestos</string>
   <string name="revanced_settings_screen_11_misc_title">Outros</string>
@@ -1049,6 +1048,12 @@ Nếu sau này tắt, bạn nên xóa dữ liệu ứng dụng để tránh lỗ
   <string name="revanced_disable_resuming_shorts_player_title">Desativar a retomada do player do Shorts</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Desativar a retomada do player do Shorts</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts que o reprodutor continuará na inicialização do aplicativo</string>
+  </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Abrir Â Shorts com</string>
+  <string name="revanced_shorts_player_type_shorts">Reprodutor de Shorts</string>
+  <string name="revanced_shorts_player_type_regular_player">Reprodução normal</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Reprodução normal em tela cheia</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Reprodução automática de Shorts</string>

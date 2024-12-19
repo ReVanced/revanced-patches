@@ -79,7 +79,6 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_03_feed_title">Стрічка</string>
   <string name="revanced_settings_screen_04_player_title">Плеєр</string>
   <string name="revanced_settings_screen_05_general_title">Загальні налаштування</string>
-  <string name="revanced_settings_screen_06_shorts_title">Шорти</string>
   <string name="revanced_settings_screen_07_seekbar_title">Панель прогресу</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Керування жестами</string>
   <string name="revanced_settings_screen_11_misc_title">Різне</string>
@@ -519,10 +518,10 @@ Second \"item\" text"</string>
   <string name="revanced_disable_translucent_status_bar_title">Вимкнути напівпрозорість рядка стану</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Рядок стану непрозорий</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Рядок стану непрозорий або напівпрозорий</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_title">Вимкнути світлу напівпрозору панель</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Вимкнути напівпрозорість світлої панелі</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Панель навігації світлого режиму непрозора</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Панель навігації світлого режиму непрозора або напівпрозора</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_title">Вимкнути темну напівпрозору панель</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Вимкнути напівпрозорість темної панелі</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Панель навігації темного режиму непрозора</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Панель навігації темного режиму непрозора або напівпрозора</string>
   </patch>
@@ -1048,6 +1047,12 @@ Second \"item\" text"</string>
   <string name="revanced_disable_resuming_shorts_player_title">Вимкнути плеєр Shorts при запуску</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Плеєр Shorts вимкнуто при запуску додатку</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Плеєр Shorts увімкнуто при запуску додатку</string>
+  </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Відкрити Shorts через</string>
+  <string name="revanced_shorts_player_type_shorts">Плеєр Shorts</string>
+  <string name="revanced_shorts_player_type_regular_player">Звичайний плеєр</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Звичайний плеєр на весь екран</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Автовідтворення Shorts</string>

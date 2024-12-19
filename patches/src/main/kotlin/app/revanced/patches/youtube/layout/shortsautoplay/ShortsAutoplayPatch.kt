@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.shortsautoplay
 
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
@@ -56,7 +57,7 @@ val shortsAutoplayPatch = bytecodePatch(
         }
 
         // Main activity is used to check if app is in pip mode.
-        mainActivityOnCreateFingerprint.method.addInstructions(
+        mainActivityOnCreateFingerprint.method.addInstruction(
             1,
             "invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->" +
                 "setMainActivity(Landroid/app/Activity;)V",

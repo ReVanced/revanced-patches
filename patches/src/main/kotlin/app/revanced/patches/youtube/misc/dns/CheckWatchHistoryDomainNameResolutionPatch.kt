@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.misc.dns
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -31,7 +31,7 @@ val checkWatchHistoryDomainNameResolutionPatch = bytecodePatch(
     execute {
         addResources("youtube", "misc.dns.checkWatchHistoryDomainNameResolutionPatch")
 
-        mainActivityOnCreateFingerprint.method.addInstructions(
+        mainActivityOnCreateFingerprint.method.addInstruction(
             // FIXME: Insert index must be greater than the insert index used by GmsCoreSupport,
             //  as both patch the same method and GmsCoreSupport check should be first,
             //  but the patch does not depend on GmsCoreSupport, so it should not be possible to enforce this

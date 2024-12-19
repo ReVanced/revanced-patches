@@ -1050,6 +1050,12 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts պլեյերը չի վերսկսվի կիրառության մեկնարկի ժամանակ</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts պլեյերը կվերսկսվի կիրառության մեկնարկի ժամանակ</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Բացեք Shorts</string>
+  <string name="revanced_shorts_player_type_shorts">Shorts կրող</string>
+  <string name="revanced_shorts_player_type_regular_player">Կանոնավոր նվագարկիչ</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Կանոնավոր նվագարկիչ լիարժեք էկրանով</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Ավտոմատ կարճ տեսանյութերի միացում</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts-ը կվերարտադրվի ավտոմատ կերպով</string>

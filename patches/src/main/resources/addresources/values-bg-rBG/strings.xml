@@ -79,7 +79,6 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_03_feed_title">Поток</string>
   <string name="revanced_settings_screen_04_player_title">Плейър</string>
   <string name="revanced_settings_screen_05_general_title">Общо оформление</string>
-  <string name="revanced_settings_screen_06_shorts_title">Шорти</string>
   <string name="revanced_settings_screen_07_seekbar_title">Лента за прогрес на видеото</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Контроли с плъзгане</string>
   <string name="revanced_settings_screen_11_misc_title">Разни</string>
@@ -1049,6 +1048,12 @@ Second \"item\" text"</string>
   <string name="revanced_disable_resuming_shorts_player_title">Скриване на Shorts плейъра при стартиране</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts плейъра при стартиране на приложението е скрит</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts плейъра при стартиране на приложението се показва</string>
+  </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Отворете Shorts с</string>
+  <string name="revanced_shorts_player_type_shorts">Играч на Shorts</string>
+  <string name="revanced_shorts_player_type_regular_player">Обикновен плейър</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Обикновен плейър на цял екран</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Автоматично пускане Shorts</string>

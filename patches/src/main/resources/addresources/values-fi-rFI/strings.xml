@@ -1050,6 +1050,12 @@ Jos tämä ominaisuus kytketään myöhemmin pois, on suositeltavaa tyhjentää 
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts-soitin ei jatku sovelluksen käynnistyessä</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts-soitin jatkuu sovelluksen käynnistyessä</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Avaa Shorts, kun</string>
+  <string name="revanced_shorts_player_type_shorts">Shorts-soitin</string>
+  <string name="revanced_shorts_player_type_regular_player">Tavallinen toistin</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Tavallinen toistin, koko näyttö</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Shortsien automaattinen toisto</string>
   <string name="revanced_shorts_autoplay_summary_on">Shortsit toistetaan automaattisesti</string>

@@ -1049,6 +1049,12 @@ Si després es desactiva, es recomana esborrar les dades de l'aplicació per evi
   <string name="revanced_disable_resuming_shorts_player_summary_on">El reproductor de Shorts no es reprendrà a l\'inici de l\'aplicació</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">El reproductor de Shorts es reprendrà a l\'inici de l\'aplicació</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Obre Youtube Shorts amb</string>
+  <string name="revanced_shorts_player_type_shorts">Reproductor de Shorts</string>
+  <string name="revanced_shorts_player_type_regular_player">Reproductor normal</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Reproductor normal a pantalla completa</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Reprodueix automàticament els Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Els Shorts es reproduiran automàticament</string>
