@@ -79,7 +79,6 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan."</string>
   <string name="revanced_settings_screen_03_feed_title">Umpan</string>
   <string name="revanced_settings_screen_04_player_title">Pemutar</string>
   <string name="revanced_settings_screen_05_general_title">Layout umum</string>
-  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Seekbar</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Kontrol geser</string>
   <string name="revanced_settings_screen_11_misc_title">Lain-lain</string>
@@ -1049,6 +1048,12 @@ Jika kemudian dimatikan, disarankan untuk menghapus data aplikasi untuk mencegah
   <string name="revanced_disable_resuming_shorts_player_summary_on">Pemutaran Shorts tidak akan dilanjutkan saat aplikasi dimulai</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Pemutaran Shorts akan dilanjutkan saat aplikasi dimulai</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Buka Shorts dengan</string>
+  <string name="revanced_shorts_player_type_shorts">Pemutar Shorts</string>
+  <string name="revanced_shorts_player_type_regular_player">Pemutar biasa</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Pemutar biasa layar penuh</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Putar otomatis Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts akan diputar otomatis</string>
@@ -1280,7 +1285,7 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
 
 Playback video mungkin tidak berfungsi"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Mematikan pengaturan ini dapat menyebabkan masalah pemutaran video.</string>
-  <string name="revanced_spoof_video_streams_client_title">Klien bawaan</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Klien bawaan</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Paksa AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Kodek video dipaksa ke AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodek video ditentukan otomatis</string>
@@ -1291,9 +1296,10 @@ AVC memiliki resolusi maksimum 1080p, codec audio Opus tidak tersedia, dan playb
   <string name="revanced_spoof_video_streams_about_ios_summary">"• Video pribadi anak-anak mungkin tidak diputar
 • Video berakhir 1 detik lebih awal"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Efek samping pemalsuan Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Video anak-anak mungkin tidak dapat diputar
-• Livestream dimulai dari awal
-• Video berakhir 1 detik lebih awal"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Video anak mungkin tidak bisa diputar
+• Menu trek audio tidak ada
+• Volume stabil tidak tersedia
+• Paksa audio asli tidak tersedia"</string>
   <string name="revanced_spoof_video_streams_language_title">Bahasa aliran audio bawaan</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Bahasa aplikasi</string>
   <string name="revanced_spoof_video_streams_language_AR">Arab</string>

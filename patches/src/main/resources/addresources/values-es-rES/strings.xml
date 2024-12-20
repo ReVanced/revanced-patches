@@ -1031,6 +1031,12 @@ Si se desactiva posteriormente, se recomienda borrar los datos de la aplicación
   <string name="revanced_disable_resuming_shorts_player_summary_on">El reproductor de Shorts no se reanudará al iniciar la aplicación</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">El reproductor de Shorts se reanudará al iniciar la aplicación</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Abre Shorts con</string>
+  <string name="revanced_shorts_player_type_shorts">Reproductor de Shorts</string>
+  <string name="revanced_shorts_player_type_regular_player">Reproductor normal</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Reproductor normal en pantalla completa</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Reproducción automática de Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Los Shorts se reproducirán automáticamente</string>
@@ -1262,7 +1268,7 @@ Habilitar esto puede desbloquear calidades de vídeo más altas"</string>
 
 Es posible que la reproducción de vídeo no funcione"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Desactivar esta configuración puede causar problemas de reproducción de vídeo.</string>
-  <string name="revanced_spoof_video_streams_client_title">Cliente por defecto</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Cliente por defecto</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Forzar AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Códec de vídeo se ve obligado a AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">El códec de vídeo se determina automáticamente</string>
@@ -1273,9 +1279,10 @@ AVC tiene una resolución máxima de 1080p, el códec de audio Opus no está dis
   <string name="revanced_spoof_video_streams_about_ios_summary">"• Es posible que los videos privados para niños no se reproduzcan
 • Los videos terminan 1 segundo antes"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Efectos secundarios para la falsificación de Android RV</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Es posible que los vídeos para niños no se reproduzcan
-• Las transmisiones en vivo empiezan desde el principio
-• Los vídeos terminan 1 segundo antes"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"•Los videos para niños pueden no reproducirse
+• Menú de pistas de audio no disponible
+• Volumen estable no disponible
+• Forzar audio original no disponible"</string>
   <string name="revanced_spoof_video_streams_language_title">Idioma de flujo de audio por defecto</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Idioma de la aplicación</string>
   <string name="revanced_spoof_video_streams_language_AR">Árabe</string>

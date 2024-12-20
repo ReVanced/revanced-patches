@@ -1058,6 +1058,12 @@ If later turned off, it is recommended to clear the app data to prevent UI bugs.
             <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts player will not resume on app startup</string>
             <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts player will resume on app startup</string>
         </patch>
+        <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+            <string name="revanced_shorts_player_type_title">Open Shorts with</string>
+            <string name="revanced_shorts_player_type_shorts">Shorts player</string>
+            <string name="revanced_shorts_player_type_regular_player">Regular player</string>
+            <string name="revanced_shorts_player_type_regular_player_fullscreen">Regular player fullscreen</string>
+        </patch>
         <patch id="layout.shortsautoplay.shortsAutoplayPatch">
             <string name="revanced_shorts_autoplay_title">Autoplay Shorts</string>
             <string name="revanced_shorts_autoplay_summary_on">Shorts will autoplay</string>
@@ -1290,7 +1296,7 @@ Enabling this can unlock higher video qualities"</string>
 
 Video playback may not work"</string>
             <string name="revanced_spoof_video_streams_user_dialog_message">Turning off this setting may cause video playback issues.</string>
-            <string name="revanced_spoof_video_streams_client_title">Default client</string>
+            <string name="revanced_spoof_video_streams_client_type_title">Default client</string>
             <string name="revanced_spoof_video_streams_ios_force_avc_title">Force AVC (H.264)</string>
             <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video codec is forced to AVC (H.264)</string>
             <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video codec is determined automatically</string>
@@ -1303,7 +1309,8 @@ AVC has a maximum resolution of 1080p, Opus audio codec is not available, and vi
             <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR spoofing side effects</string>
             <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Kids videos may not play
 • Audio track menu is missing
-• Stable volume is not available"</string>
+• Stable volume is not available
+• Force original audio is not available"</string>
             <string name="revanced_spoof_video_streams_language_title">Default audio stream language</string>
             <string name="revanced_spoof_video_streams_language_DEFAULT">App language</string>
             <string name="revanced_spoof_video_streams_language_AR">Arabic</string>

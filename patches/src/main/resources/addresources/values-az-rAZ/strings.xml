@@ -79,7 +79,6 @@ Davam düyməsinə toxunun və optimallaşdırma dəyişikliklərinə icazə ver
   <string name="revanced_settings_screen_03_feed_title">Axın</string>
   <string name="revanced_settings_screen_04_player_title">Oynadıcı</string>
   <string name="revanced_settings_screen_05_general_title">Ümumi tərtibat</string>
-  <string name="revanced_settings_screen_06_shorts_title">\"Shorts\"</string>
   <string name="revanced_settings_screen_07_seekbar_title">Axtarış çubuğu</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Sürüşdürmə nəzarətçiləri</string>
   <string name="revanced_settings_screen_11_misc_title">Müxtəlif</string>
@@ -1050,6 +1049,12 @@ Sonradan söndürülərsə, UI səhvlərini qarşısını almaq üçün tətbiqi
   <string name="revanced_disable_resuming_shorts_player_summary_on">Tətbiq açılanda Shorts oynadıcı davam etməyəcək</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Tətbiq açılanda Shorts oynadıcı davam edəcək</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Shorts ilə</string>
+  <string name="revanced_shorts_player_type_shorts">Shorts oynadıcı</string>
+  <string name="revanced_shorts_player_type_regular_player">Adi oynatıcı</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Adi oynatıcı tam ekran</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Shorts-ları avto-oynatma</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts-lar avto-oynadılacaq</string>
@@ -1282,7 +1287,7 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
 
 Video oynatma işləməyə bilər"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Bu seçimi bağlamaq, video oynatma problemlərinə səbəb olar.</string>
-  <string name="revanced_spoof_video_streams_client_title">İlkin qəbuledici</string>
+  <string name="revanced_spoof_video_streams_client_type_title">İlkin qəbuledici</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Məcburi AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodlama AVC (H.264) -yə məcbur edilir</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodlama birbaşa yoxlanılır</string>
@@ -1293,9 +1298,10 @@ AVC-nin maksimum dəqiqliyi 1080p-dir, Opus səs kodek əlçatan deyil və video
   <string name="revanced_spoof_video_streams_about_ios_summary">"◦ Xüsusi uşaq videoları bəlkə də oynanılmaya bilər
 ◦ Videolar 1 saniyə tez bitir"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR saxtakarlığı yan təsirləri</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Uşaq videoları oxudulmaya bilər
-• Canlı yayımlar başdan başlayır
-• Videolar 1 saniyə tez bitir"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Uşaq videoları oynanmaya bilər
+• Səs izləri menyusu yoxdur
+• Sabit səs mövcud deyil
+• Orijinal səsi məcbur etmək mümkün deyil"</string>
   <string name="revanced_spoof_video_streams_language_title">İlkin səs yayımı dili</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Tətbiq dili</string>
   <string name="revanced_spoof_video_streams_language_AR">Ərəbcə</string>

@@ -1051,6 +1051,12 @@ Second \"item\" text"</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts 播放器將不會在應用程式啟動後復原</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts 播放器將會在應用程式啟動後復原</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">開啟 YouTube Shorts</string>
+  <string name="revanced_shorts_player_type_shorts">Shorts 播放器</string>
+  <string name="revanced_shorts_player_type_regular_player">一般播放器</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">一般播放器全螢幕</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">自動播放 Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts 將自動播放</string>
@@ -1283,7 +1289,7 @@ Second \"item\" text"</string>
 
 影片播放可能無法正常運作"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">關閉此設定可能會導致影片播放發生問題</string>
-  <string name="revanced_spoof_video_streams_client_title">預設用戶端</string>
+  <string name="revanced_spoof_video_streams_client_type_title">預設用戶端</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">強制 AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">強制以 AVC (H.264) 作為影片解碼器</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">自動選擇影片解碼器</string>
@@ -1295,9 +1301,10 @@ AVC 的最高解析度為 1080p，不支援 Opus 音訊格式，影片播放會�
   <string name="revanced_spoof_video_streams_about_ios_summary">"• 私人兒童影片可能無法播放
 • 影片提前 1 秒結束"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR 欺騙副作用</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• 兒童影片可能無法播放
-• 直播從頭開始
-• 影片提前 1 秒結束"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• 影片可能無法撥放
+• 音訊曲目選單遺失
+• 穩定音量不可用
+• 強迫使用原始音訊不可用"</string>
   <string name="revanced_spoof_video_streams_language_title">預設音訊串流語言</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">應用程式語言</string>
   <string name="revanced_spoof_video_streams_language_AR">阿拉伯語</string>

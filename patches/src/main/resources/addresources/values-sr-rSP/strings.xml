@@ -79,7 +79,6 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_03_feed_title">Фид</string>
   <string name="revanced_settings_screen_04_player_title">Плејер</string>
   <string name="revanced_settings_screen_05_general_title">Општи изглед</string>
-  <string name="revanced_settings_screen_06_shorts_title">Шорцеви</string>
   <string name="revanced_settings_screen_07_seekbar_title">Трака за премотавање</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Контроле превлачења</string>
   <string name="revanced_settings_screen_11_misc_title">Разно</string>
@@ -516,15 +515,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_navigation_button_labels_title">Сакриј ознаке дугмади за навигацију</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Ознаке дугмади за навигацију су скривене</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Ознаке дугмади за навигацију су приказане</string>
-  <string name="revanced_disable_translucent_status_bar_title">Онемогући провидну статусну траку</string>
-  <string name="revanced_disable_translucent_status_bar_summary_on">Statusna traka je neprozirna</string>
-  <string name="revanced_disable_translucent_status_bar_summary_off">Statusna traka je neprozirna ili providna</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_title">Онемогући светлу провидну траку</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Светли режим траке за навигацију је непрозиран</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Navigaciona traka u svetlom režimu je neprozirna ili providna</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_title">Onemogući providnu tamnu traku</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Тамни режим траке за навигацију је непрозиран</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Navigaciona traka u tamnom režimu je neprozirna ili providna</string>
+  <string name="revanced_disable_translucent_status_bar_title">Онемогући прозирну статусну траку</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">Статусна трака је непрозирна</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">Статусна трака је непрозирна или прозирна</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">Онемогући светлу прозирну траку за навигацију</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Трака за навигацију у светлом режиму је непрозирна</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Трака за навигацију у светлом режиму је непрозирна или прозирна</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Онемогући тамну прозирну траку за навигацију</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Трака за навигацију у тамном режиму је непрозирна</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Трака за навигацију у тамном режиму је непрозирна или прозирна</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Падајући мени</string>
@@ -1027,7 +1026,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_app_version_target_legacy_entry_4">17.33.42 - Враћа стару полицу плејлисте</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
-  <string name="revanced_change_start_page_title">Подешавање почетне странице</string>
+  <string name="revanced_change_start_page_title">Полазна страница</string>
   <string name="revanced_change_start_page_entry_default">Подразумевана</string>
   <string name="revanced_change_start_page_entry_browse">Претрага канала</string>
   <string name="revanced_change_start_page_entry_explore">Истражи</string>
@@ -1048,6 +1047,12 @@ Second \"item\" text"</string>
   <string name="revanced_disable_resuming_shorts_player_title">Онемогући наставак репродукције Shorts плејера</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts плејер неће наставити репродукцију при покретању апликације</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts плејер ће наставити репродукцију при покретању апликације</string>
+  </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Отворите Shorts помоћу</string>
+  <string name="revanced_shorts_player_type_shorts">Shorts плејера</string>
+  <string name="revanced_shorts_player_type_regular_player">Обичног плејера</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Обичног плејера у режиму целог екрана</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Аутоплеј Shorts видеа</string>
@@ -1107,16 +1112,16 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_hide_rewind_forward_title">Сакриј дугмад за премотавање унапред и уназад</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_on">Дугмад за премотавање унапред и уназад су скривена</string>
   <string name="revanced_miniplayer_hide_rewind_forward_summary_off">Дугмад за премотавање унапред и уназад су приказана</string>
-  <string name="revanced_miniplayer_width_dip_title">Почетна величина</string>
-  <string name="revanced_miniplayer_width_dip_summary">Почетна величина екрана, у пикселима</string>
+  <string name="revanced_miniplayer_width_dip_title">Полазна величина</string>
+  <string name="revanced_miniplayer_width_dip_summary">Полазна величина екрана, у пикселима</string>
   <string name="revanced_miniplayer_width_dip_invalid_toast">Величина пиксела мора бити између %1$s и %2$s</string>
   <string name="revanced_miniplayer_opacity_title">Непрозирност преклопа</string>
   <string name="revanced_miniplayer_opacity_summary">Вредност непрозирности између 0 и 100, где је 0 прозирно</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Непрозирност преклопа мини-плејера мора бити између 0 и 100</string>
   </patch>
   <patch id="layout.theme.themePatch">
-  <string name="revanced_gradient_loading_screen_title">Омогући екран учитавања с градијентом</string>
-  <string name="revanced_gradient_loading_screen_summary_on">Екран учитавања ће имати позадину с градијентом</string>
+  <string name="revanced_gradient_loading_screen_title">Омогући градијентну позадину екрана учитавања</string>
+  <string name="revanced_gradient_loading_screen_summary_on">Екран учитавања ће имати градијентну позадину</string>
   <string name="revanced_gradient_loading_screen_summary_off">Екран учитавања ће имати обичну позадину</string>
   </patch>
   <patch id="layout.theme.themeResourcePatch">
@@ -1280,7 +1285,7 @@ Second \"item\" text"</string>
 
 Репродукција видеа можда неће радити"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Искључивање ове опције ће можда изазвати проблеме са репродукцијом видеа.</string>
-  <string name="revanced_spoof_video_streams_client_title">Подразумевани клијент</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Подразумевани клијент</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Присили AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Видео кодек је присилно подешен на AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Видео кодек је одређен аутоматски</string>
@@ -1291,9 +1296,10 @@ AVC има максималну резолуцију од 1080p, аудио ко
   <string name="revanced_spoof_video_streams_about_ios_summary">"• Приватни дечји видеи се можда неће пуштати
 • Видеи ће се завршити 1 секунду раније"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Нежељени ефекти лажирања на Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Дечји видеи се можда неће пуштати
-• Стримови уживо почињу од почетка
-• Видеи ће се завршити 1 секунду раније"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Дечији видео снимци се можда неће репродуковати
+• Мени аудио записа недостаје
+• Стабилна јачина звука није доступна
+• Присилни оригинални звук није доступан"</string>
   <string name="revanced_spoof_video_streams_language_title">Подразумевани језик аудио стрима</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Језик апликације</string>
   <string name="revanced_spoof_video_streams_language_AR">Арапски</string>

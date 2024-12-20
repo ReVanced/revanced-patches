@@ -79,7 +79,6 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_03_feed_title">الموجز</string>
   <string name="revanced_settings_screen_04_player_title">المشغل</string>
   <string name="revanced_settings_screen_05_general_title">التصميم العام</string>
-  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">شريط تقدم الفيديو</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">التحكم عن طريق إيماءة التمرير</string>
   <string name="revanced_settings_screen_11_misc_title">إعدادات متنوعة</string>
@@ -1050,6 +1049,12 @@ Second \"item\" text"</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">لن يتم استئناف تشغيل مشغل Shorts عند بدء تشغيل التطبيق</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">سيتم استئناف تشغيل مشغل Shorts عند بدء تشغيل التطبيق</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">فتح مقاطع الـShorts باستخدام</string>
+  <string name="revanced_shorts_player_type_shorts">مشغل Shorts</string>
+  <string name="revanced_shorts_player_type_regular_player">مشغل عادي</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">شاشة كاملة - مشغل عادي</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">التشغيل التلقائي لفيديوهات Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">سيتم تشغيل فيديوهات Shorts تلقائيًا</string>
@@ -1281,7 +1286,7 @@ Second \"item\" text"</string>
 
 قد لا يعمل تشغيل الفيديو"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">إيقاف تشغيل هذا الإعداد قد يسبب مشاكل في تشغيل الفيديو.</string>
-  <string name="revanced_spoof_video_streams_client_title">العميل الافتراضي</string>
+  <string name="revanced_spoof_video_streams_client_type_title">العميل الافتراضي</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">فرض AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">تم فرض ترميز الفيديو على AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">يتم تحديد ترميز الفيديو تلقائيًا</string>
@@ -1292,9 +1297,10 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_about_ios_summary">"• لا يمكن تشغيل مقاطع فيديو الأطفال الخاصة.
 • تنتهي مقاطع الفيديو مبكرًا بمقدار 1 ثانية."</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">التأثيرات الجانبية لمحاكاة Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• قد لا يتم تشغيل فيديوهات الأطفال
-• تبدأ البثوث المباشرة من البداية
-• قد تنتهي الفيديوهات قبل النهاية بثانية واحدة"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• مقطع فيديو الأطفال لتعمل تشغيل
+• قائمة قائمة الصوت مفقودة
+• لا يتوفر بستوي متوفر
+• لا يتوفر بالصوت الأصلي لا يتوفر الأصلي"</string>
   <string name="revanced_spoof_video_streams_language_title">لغة البث الصوتي الافتراضية</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">لغة التطبيق</string>
   <string name="revanced_spoof_video_streams_language_AR">العربية</string>

@@ -79,7 +79,6 @@ Nospiediet turpināt pogu un atļaujiet optimizācijas izmaiņas."</string>
   <string name="revanced_settings_screen_03_feed_title">Lente</string>
   <string name="revanced_settings_screen_04_player_title">Atskaņotājs</string>
   <string name="revanced_settings_screen_05_general_title">Vispārīga izkārtojums</string>
-  <string name="revanced_settings_screen_06_shorts_title">Šorti</string>
   <string name="revanced_settings_screen_07_seekbar_title">Slīdņu skala</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Pārvelciet vadīklas</string>
   <string name="revanced_settings_screen_11_misc_title">Dažādi</string>
@@ -1049,6 +1048,12 @@ Ja vēlāk tiks izslēgts, ieteicams notīrīt lietotnes datus, lai novērstu li
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts atskaņotājs neatjaunosies lietotnes palaišanas laikā</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts atskaņotājs tiks atsākts lietotnes palaišanas laikā</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Atvērt Shorts ar</string>
+  <string name="revanced_shorts_player_type_shorts">Shorts atskaņotājs</string>
+  <string name="revanced_shorts_player_type_regular_player">Parastais atskaņotājs</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Pilnekrāna parastais atskaņotājs</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Automātiskā īso videoklipu atskaņošana</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts tiks atskaņoti automātiski</string>
@@ -1280,7 +1285,7 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
 
 Video atskaņošana var nedarboties"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Šī iestatījuma atspējošana var izraisīt video atskaņošanas problēmas.</string>
-  <string name="revanced_spoof_video_streams_client_title">Noklusētā klients</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Noklusētā klients</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Spiest AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodeks ir piespiests uz AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodeks tiek noteikts automātiski</string>
@@ -1291,9 +1296,10 @@ AVC maksimālā izšķirtspēja ir 1080p, Opus audio kodeks nav pieejams, un vid
   <string name="revanced_spoof_video_streams_about_ios_summary">"• Privāti bērnu videoklipi, iespējams, netiek atskaņoti
 • Video beidzas 1 sekundi agrāk"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR viltošanas blakusparādības</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Bērnu videoklipi var nedarboties
-• Tiešraides straumes sākas no sākuma
-• Video beidzas 1 sekundi agrāk"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Bērnu videoklipi, iespējams, netiek atskaņoti
+• Trūkst audioieraksta izvēlnes
+• Nav pieejama stabila skaļuma
+• Nav pieejams oriģinālā audioieraksta piespiedu iestatījums"</string>
   <string name="revanced_spoof_video_streams_language_title">Noklusētā audio straumes valoda</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Lietotnes valoda</string>
   <string name="revanced_spoof_video_streams_language_AR">Arābu</string>

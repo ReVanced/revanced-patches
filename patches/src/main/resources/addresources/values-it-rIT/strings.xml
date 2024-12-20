@@ -79,7 +79,6 @@ Tocca il pulsante Continua e consenti le modifiche di ottimizzazione."</string>
   <string name="revanced_settings_screen_03_feed_title">Feed</string>
   <string name="revanced_settings_screen_04_player_title">Lettore</string>
   <string name="revanced_settings_screen_05_general_title">Interfaccia generale</string>
-  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Barra di avanzamento</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Controlli a gesti</string>
   <string name="revanced_settings_screen_11_misc_title">Varie</string>
@@ -518,13 +517,13 @@ Nota: Abilitare questa opzione nasconde anche le pubblicità video"</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Le etichette sono visibili</string>
   <string name="revanced_disable_translucent_status_bar_title">Disabilita la barra di stato traslucida</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">La barra di stato è opaca</string>
-  <string name="revanced_disable_translucent_status_bar_summary_off">La barra di stato è opaca o translucida</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">La barra di stato è opaca o traslucida</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Disabilita la barra traslucida chiara</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">La barra di navigazione in modalità chiara è opaca</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">La barra di navigazione in modalità chiara è opaca o translucida</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_title">Disabilita la barra scura traslucida</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">La barra di navigazione in modalità chiara è opaca o traslucida</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Disabilita la barra traslucida scura</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">La barra di navigazione in modalità scura è opaca</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">La barra di navigazione in modalità scura è opaca o translucida</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">La barra di navigazione in modalità scura è opaca o traslucida</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Menù a comparsa</string>
@@ -1049,6 +1048,12 @@ Se in seguito verrà disattivato, si consiglia di cancellare i dati dell'app per
   <string name="revanced_disable_resuming_shorts_player_summary_on">Il player Shorts non riprenderà all\'avvio dell\'app</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Il player Shorts riprenderà all\'avvio dell\'app</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Apri Shorts con</string>
+  <string name="revanced_shorts_player_type_shorts">Lettore Shorts</string>
+  <string name="revanced_shorts_player_type_regular_player">Lettore normale</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Lettore normale a schermo intero</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Riproduci automaticamente gli Short</string>
   <string name="revanced_shorts_autoplay_summary_on">Gli Short verranno riprodotti automaticamente</string>
@@ -1280,7 +1285,7 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
 
 La riproduzione video potrebbe non funzionare"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Disattivando questa impostazione potrebbe causare problemi di riproduzione video.</string>
-  <string name="revanced_spoof_video_streams_client_title">Client predefinito</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Client predefinito</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Forza AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Il codec video è forzato ad AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Il codec video viene determinato automaticamente</string>
@@ -1289,11 +1294,12 @@ La riproduzione video potrebbe non funzionare"</string>
 AVC ha una risoluzione massima di 1080p, il codec audio Opus non è disponibile e la riproduzione video utilizzerà più dati rispetto a VP9 o AV1."</string>
   <string name="revanced_spoof_video_streams_about_ios_title">Effetti collaterali simulazione iOS</string>
   <string name="revanced_spoof_video_streams_about_ios_summary">"• I video per bambini privati potrebbero non essere riproducibili
-• I video terminano prima di 1 secondo"</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Effetti collaterali simulazione Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• I video per bambini potrebbero non essere riprodotti
-• Le dirette iniziano dall'inizio
 • I video terminano 1 secondo prima"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_title">Effetti collaterali simulazione Android VR</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• I video per bambini potrebbero non essere riproducibili
+• Il menu della traccia audio è mancante
+• Il volume stabile non è disponibile
+• Forzare l'audio originale non è disponibile"</string>
   <string name="revanced_spoof_video_streams_language_title">Lingua predefinita del flusso audio</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Lingua app</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabo</string>

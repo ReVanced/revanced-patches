@@ -6,7 +6,7 @@ import app.revanced.extension.youtube.settings.Settings;
 @SuppressWarnings("unused")
 public class ForceOriginalAudioPatch {
 
-    private static final String DEFAULT_AUDIO_TRACKS_IDENTIFIER = "original";
+    private static final String DEFAULT_AUDIO_TRACKS_SUFFIX = ".4";
 
     /**
      * Injection point.
@@ -17,7 +17,7 @@ public class ForceOriginalAudioPatch {
                 return isDefault;
             }
 
-            if (audioTrackDisplayName.isEmpty()) {
+            if (audioTrackId.isEmpty()) {
                 // Older app targets can have empty audio tracks and these might be placeholders.
                 // The real audio tracks are called after these.
                 return isDefault;
@@ -26,7 +26,7 @@ public class ForceOriginalAudioPatch {
             Logger.printDebug(() -> "default: " + String.format("%-5s", isDefault) + " id: "
                     + String.format("%-8s", audioTrackId) + " name:" + audioTrackDisplayName);
 
-            final boolean isOriginal = audioTrackDisplayName.contains(DEFAULT_AUDIO_TRACKS_IDENTIFIER);
+            final boolean isOriginal = audioTrackId.endsWith(DEFAULT_AUDIO_TRACKS_SUFFIX);
             if (isOriginal) {
                 Logger.printDebug(() -> "Using audio: " + audioTrackId);
             }
@@ -34,8 +34,8 @@ public class ForceOriginalAudioPatch {
             return isOriginal;
         } catch (Exception ex) {
             Logger.printException(() -> "isDefaultAudioStream failure", ex);
-        }
 
-        return isDefault;
+            return isDefault;
+        }
     }
 }

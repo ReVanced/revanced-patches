@@ -1050,6 +1050,12 @@ Má dhiúltaítear é níos déanaí, moltar sonraí an aip a ghlanadh chun buga
   <string name="revanced_disable_resuming_shorts_player_summary_on">Ní thosóidh an t-imreoir Shorts ar thosú an aip</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Athosóidh an t-imreoir Shorts ar thosú an aip</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Oscail Shorts le</string>
+  <string name="revanced_shorts_player_type_shorts">Shorts seinnteoir</string>
+  <string name="revanced_shorts_player_type_regular_player">Imreoir Rialaigh</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Imreoir Rialaigh lán-scáileán</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Shorts Autoplay</string>
   <string name="revanced_shorts_autoplay_summary_on">Seinnfidh Shorts go huathoibríoch</string>
@@ -1282,7 +1288,7 @@ Is féidir le seo caighdeáin físeáin níos airde a dhíghlasáil"</string>
 
 D'fhéadfadh nach n-oibreoidh athsheinm físeáin"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Seans go mbeidh fadhbanna athsheinm físe ag baint leis an socrú seo a mhúchadh.</string>
-  <string name="revanced_spoof_video_streams_client_title">Cliant réamhshocraithe</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Cliant réamhshocraithe</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Fórsa AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Tá códú físeáin á fhorchur ar AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Cinneadh go huathoibríoch an códú físeáin</string>
@@ -1293,9 +1299,10 @@ Tá uasmhéid réiteach 1080p ag AVC, níl an cód fuaime Opus ar fáil, agus ú
   <string name="revanced_spoof_video_streams_about_ios_summary">"• Ní fhéadfaidh físeáin phríobháideacha leanaí a imirt
 • Críochnaíonn físeáin 1 soicind go luath"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Fo-iarsmaí spoofing Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• D'fhéadfadh nach n-imreoidh físeáin pháistí
-• Tosóidh shruth beo ón tús
-• Críochnóidh físeáin 1 soicind go luath"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Fuairfí b'fhéidir nach mbeidh físeáin do pháistí ag seinm
+• Tá an fhéilire raca fhuaime ar iarraidh
+• Ní fheictear an toirt in úsáid
+• Níl éisteacht leis an fuaim bhunúsach ar fáil"</string>
   <string name="revanced_spoof_video_streams_language_title">Teanga réamhshocraithe sruth fuaime</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Teanga na feidhmchláir</string>
   <string name="revanced_spoof_video_streams_language_AR">Araibis</string>

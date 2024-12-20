@@ -1050,6 +1050,12 @@ Si cette option est désactivée par la suite, il est recommandé de vider les d
   <string name="revanced_disable_resuming_shorts_player_summary_on">Le lecteur de Shorts ne se relancera pas au démarrage de l\'application</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Le lecteur court reprendra au démarrage de l\'application</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Ouvrir Shorts avec</string>
+  <string name="revanced_shorts_player_type_shorts">Lecteur Shorts</string>
+  <string name="revanced_shorts_player_type_regular_player">Lecteur classique</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Lecteur classique en plein écran</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Jouer les Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Les Shorts joueront automatiquement</string>
@@ -1281,7 +1287,7 @@ L'activation de cette option peut déverrouiller des qualités vidéo plus élev
 
 La lecture vidéo peut ne pas fonctionner"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Désactiver ce paramètre peut causer des problèmes de lecture vidéo.</string>
-  <string name="revanced_spoof_video_streams_client_title">Client par défaut</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Client par défaut</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Forcer AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Le codec vidéo est forcé à AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Le codec vidéo est déterminé automatiquement</string>
@@ -1292,9 +1298,10 @@ AVC a une résolution maximale de 1080p, le codec audio Opus n'est pas disponibl
   <string name="revanced_spoof_video_streams_about_ios_summary">"• Les vidéos privées pour enfants ne peuvent pas être lues
 • Les vidéos se terminent 1 seconde plus tôt"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Effets secondaires de l\'usurpation VR Android</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Les vidéos pour enfants peuvent ne pas être lues
-• Les diffusions en direct commencent depuis le début
-• Les vidéos se terminent 1 seconde plus tôt"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Les vidéos pour enfants risquent de ne pas être lues
+• Le menu de la piste audio est manquant
+• Le volume stable n'est pas disponible
+• Forcer l'audio d'origine n'est pas disponible"</string>
   <string name="revanced_spoof_video_streams_language_title">Langue du flux audio par défaut</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Langue de l\'application</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabe</string>

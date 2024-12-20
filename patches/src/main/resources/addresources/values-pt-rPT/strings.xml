@@ -79,7 +79,6 @@ Nhấn nút tiếp tục và cho phép thay đổi tối ưu hóa."</string>
   <string name="revanced_settings_screen_03_feed_title">Recomendações</string>
   <string name="revanced_settings_screen_04_player_title">Leitor</string>
   <string name="revanced_settings_screen_05_general_title">Interface geral</string>
-  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Barra de pesquisa</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Controlos por Gestos</string>
   <string name="revanced_settings_screen_11_misc_title">Outros</string>
@@ -1050,6 +1049,12 @@ Nếu sau này tắt, bạn nên xóa dữ liệu ứng dụng để tránh lỗ
   <string name="revanced_disable_resuming_shorts_player_summary_on">Desativar a retomada do player do Shorts</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts que o reprodutor continuará na inicialização do aplicativo</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Abrir Â Shorts com</string>
+  <string name="revanced_shorts_player_type_shorts">Reprodutor de Shorts</string>
+  <string name="revanced_shorts_player_type_regular_player">Reprodução normal</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Reprodução normal em tela cheia</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Reprodução automática de Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts vão ser reproduzidos automaticamente</string>
@@ -1281,7 +1286,7 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
 
 Phát video có thể không hoạt động"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Desativar essa configuração pode causar problemas de reprodução de vídeo.</string>
-  <string name="revanced_spoof_video_streams_client_title">Cliente padrão</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Cliente padrão</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Forçar AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Codec de vídeo é forçado a AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Codec de vídeo é determinado automaticamente</string>
@@ -1292,9 +1297,10 @@ AVC có độ phân giải tối đa là 1080p, bộ giải mã âm thanh Opus k
   <string name="revanced_spoof_video_streams_about_ios_summary">"• Vídeos privados de crianças podem não ser reproduzidos
 • Os vídeos terminam 1 segundo mais cedo"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR efeito de spoofing side</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Video dành cho trẻ em có thể không phát
-• Luồng trực tiếp bắt đầu từ đầu
-• Video kết thúc sớm 1 giây"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Os vídeos para crianças podem não ser reproduzidos
+• O menu de faixas de áudio está ausente
+• O volume estável não está disponível
+• Forçar áudio original não está disponível"</string>
   <string name="revanced_spoof_video_streams_language_title">Idioma padrão do fluxo de áudio</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Idioma do aplicativo</string>
   <string name="revanced_spoof_video_streams_language_AR">Arábico</string>

@@ -1051,6 +1051,12 @@ Second \"item\" text"</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Прайгравальнік Shorts не аднаўляецца пры запуску праграмы</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Прайгравальнік Shorts адновіцца пры запуску праграмы</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Адкрыць Shorts з</string>
+  <string name="revanced_shorts_player_type_shorts">Прайгравальнік Shorts</string>
+  <string name="revanced_shorts_player_type_regular_player">Звычайны прайгравальнік</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Звычайны прайгравальнік на ўвесь экран</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Автовоспроизведение Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts будут воспроизводиться автоматически</string>
@@ -1282,7 +1288,7 @@ Second \"item\" text"</string>
 
 Прайграванне відэа можа не працаваць"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Адключэнне гэтай налады можа выклікаць праблемы з прайграваннем відэа.</string>
-  <string name="revanced_spoof_video_streams_client_title">Клиент по умолчанию</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Клиент по умолчанию</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Принудительно AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Видеокодек принудительно установлен в AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Видеокодек определяется автоматически</string>
@@ -1294,8 +1300,9 @@ AVC мае максімальную раздзяляльнасць 1080p, аўд
 • Відэа заканчваюцца на 1 секунду раней"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Побочные эффекты подмены Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Дзіцячыя відэа могуць не прайгравацца
-• Трансляцыі ў прамым эфіры пачынаюцца з пачатку
-• Відэа заканчваюцца на 1 секунду раней"</string>
+• Меню гукавых дарожак адсутнічае
+• Стабільны гук недаступны
+• Прымусовае выкарыстанне арыгінальнага аўдыё недаступна"</string>
   <string name="revanced_spoof_video_streams_language_title">Язык потока аудио по умолчанию</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Язык приложения</string>
   <string name="revanced_spoof_video_streams_language_AR">Арабский</string>

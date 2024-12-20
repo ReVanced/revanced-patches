@@ -1050,6 +1050,12 @@ Als het later wordt uitgeschakeld, wordt aanbevolen om de app-gegevens te wissen
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts-speler wordt niet hervat bij het opstarten van de app</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts-speler wordt hervat bij het opstarten van de app</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Shorts openen met</string>
+  <string name="revanced_shorts_player_type_shorts">Shorts-speler</string>
+  <string name="revanced_shorts_player_type_regular_player">Normale speler</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Normale speler op volledig scherm</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Shorts automatisch afspelen</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts worden automatisch afgespeeld</string>
@@ -1281,7 +1287,7 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
 
 Video-playback werkt mogelijk niet"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Het uitschakelen van deze instelling kan afspeelproblemen veroorzaken.</string>
-  <string name="revanced_spoof_video_streams_client_title">Standaard client</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Standaard client</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Dwing AVC (H.264) af</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Videoc codec is geforceerd naar AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Videoc codec wordt automatisch bepaald</string>
@@ -1293,8 +1299,9 @@ AVC heeft een maximale resolutie van 1080p, Opus audiocodec is niet beschikbaar 
 • Video's eindigen 1 seconde eerder"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Neveneffecten van Android VR-vervalsing</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Kindervideo's worden mogelijk niet afgespeeld
-• Livestreams beginnen vanaf het begin
-• Video's eindigen 1 seconde eerder"</string>
+• Het menu met audiotracks ontbreekt
+• Stabiel volume is niet beschikbaar
+• Originele audio forceren is niet beschikbaar"</string>
   <string name="revanced_spoof_video_streams_language_title">Standaardtaal voor audiostream</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">App-taal</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabisch</string>

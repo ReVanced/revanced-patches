@@ -1177,6 +1177,10 @@ public final class app/revanced/patches/youtube/layout/player/background/PlayerC
 }
 
 public final class app/revanced/patches/youtube/layout/player/fullscreen/OpenVideosFullscreenKt {
+	public static final fun getOpenVideosFullscreen ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/layout/player/fullscreen/OpenVideosFullscreenPatchKt {
 	public static final fun getOpenVideosFullscreenPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
@@ -1208,6 +1212,10 @@ public final class app/revanced/patches/youtube/layout/seekbar/SeekbarColorPatch
 
 public final class app/revanced/patches/youtube/layout/shortsautoplay/ShortsAutoplayPatchKt {
 	public static final fun getShortsAutoplayPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/layout/shortsplayer/OpenShortsInRegularPlayerPatchKt {
+	public static final fun getOpenShortsInRegularPlayerPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/layout/sponsorblock/SponsorBlockPatchKt {

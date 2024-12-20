@@ -1040,6 +1040,12 @@ Ak sa neskôr vypne, odporúča sa vymazať údaje aplikácie, aby sa zabránilo
   <string name="revanced_disable_resuming_shorts_player_summary_on">Prehrávač Shorts videí sa pri spustení aplikácie neobnoví</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Prehrávač Shorts videí sa obnoví pri spustení aplikácie</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Otvoriť Shorts s</string>
+  <string name="revanced_shorts_player_type_shorts">Prehrávač Shorts</string>
+  <string name="revanced_shorts_player_type_regular_player">Bežný prehrávač</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Bežný prehrávač na celú obrazovku</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Automaticky prehrávať Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts sa automaticky prehrajú</string>
@@ -1269,7 +1275,7 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
 
 Prehrávanie videa nemusí fungovať"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Vypnutie tohto nastavenia môže spôsobiť problémy s prehrávaním videa.</string>
-  <string name="revanced_spoof_video_streams_client_title">Predvolený klient</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Predvolený klient</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Vynútiť AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodek je vynútený na AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodek je urçovaný automaticky</string>
@@ -1281,8 +1287,9 @@ AVC má maximálne rozlíšenie 1080p, zvukový kodek Opus nie je dostupný a pr
 • Videa končí o 1 sekundu dříve"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Vedľajťie účinky falošného prehrávača pre VR na Androide</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Detské videá sa nemusia prehrávať
-• Živé prenosy sa spúšťajú od začiatku
-• Videá končia o 1 sekundu skôr"</string>
+• Chýba ponuka zvukových stôp
+• Stabilná hlasitosť nie je k dispozícii
+• Vynútený pôvodný zvuk nie je k dispozícii"</string>
   <string name="revanced_spoof_video_streams_language_title">Predvolený jazyk zvukového streamu</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Jazyk aplikácie</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabčina</string>

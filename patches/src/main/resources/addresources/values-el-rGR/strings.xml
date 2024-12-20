@@ -65,7 +65,7 @@ Second \"item\" text"</string>
   <string name="gms_core_dialog_open_website_text">Άνοιγμα ιστοσελίδας</string>
   <string name="gms_core_dialog_not_whitelisted_using_battery_optimizations_message">"Οι βελτιστοποιήσεις μπαταρίας πρέπει να απενεργοποιηθούν για το MicroG GmsCore ώστε να αποφευχθούν προβλήματα.
 
-Η απενεργοποίηση των βελτιστοποιήσεων μπαταρίας για το MicroG δεν θα επηρεάσει αρνητικά τη χρήση της μπαταρίας.
+Η απενεργοποίηση των βελτιστοποιήσεων μπαταρίας για το MicroG δεν θα επηρεάσει αρνητικά την κατανάλωση ενέργειας.
 
 Πατήστε το κουμπί «Συνέχεια» και επιτρέψτε τις αλλαγές βελτιστοποίησης."</string>
   <string name="gms_core_dialog_continue_text">Συνέχεια</string>
@@ -519,14 +519,14 @@ Second \"item\" text"</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">Εμφανίζονται</string>
   <string name="revanced_disable_translucent_status_bar_title">Απενεργοποίηση διαφανούς γραμμής κατάστασης</string>
-  <string name="revanced_disable_translucent_status_bar_summary_on">Η γραμμή κατάστασης είναι αδιαφανής</string>
-  <string name="revanced_disable_translucent_status_bar_summary_off">Η γραμμή κατάστασης είναι αδιαφανής ή διαφανής</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">Η γραμμή κατάστασης δεν είναι διαφανής</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">Η διαφάνεια της γραμμής κατάστασης ορίζεται αυτόματα</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Απενεργοποίηση διαφανούς γραμμής στο φωτεινό θέμα</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Η γραμμή πλοήγησης στο φωτεινό θέμα είναι αδιαφανής</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Η γραμμή πλοήγησης στο φωτεινό θέμα είναι αδιαφανής ή διαφανής</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Η γραμμή πλοήγησης στο φωτεινό θέμα δεν είναι διαφανής</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Η διαφάνεια της γραμμής πλοήγησης στο φωτεινό θέμα ορίζεται αυτόματα</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_title">Απενεργοποίηση ημιδιαφανούς γραμμής στο σκούρο θέμα</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Η γραμμή πλοήγησης στο σκούρο θέμα είναι αδιαφανής</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Η γραμμή πλοήγησης στο σκούρο θέμα είναι αδιαφανής ή διαφανής</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Η γραμμή πλοήγησης στο σκούρο θέμα δεν είναι διαφανής</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Η διαφάνεια της γραμμής πλοήγησης στο σκούρο θέμα ορίζεται αυτόματα</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">Αναδυόμενο μενού ρυθμίσεων</string>
@@ -1051,6 +1051,12 @@ Second \"item\" text"</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Η αναπαραγωγή Shorts δε θα συνεχίζεται κατά την εκκίνηση της εφαρμογής</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Η αναπαραγωγή Shorts θα συνεχίζεται κατά την εκκίνηση της εφαρμογής</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Άνοιγμα Shorts με</string>
+  <string name="revanced_shorts_player_type_shorts">Οθόνη αναπαραγωγής Shorts</string>
+  <string name="revanced_shorts_player_type_regular_player">Οθόνη αναπαραγωγής κανονικών βίντεο </string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Πλήρη οθόνη αναπαραγωγής κανονικών βίντεο </string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Αυτόματη αναπαραγωγή Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Τα επόμενα Shorts θα αναπαράγονται αυτόματα</string>
@@ -1280,7 +1286,7 @@ Second \"item\" text"</string>
 
 Η αναπαραγωγή βίντεο ενδέχεται να μην λειτουργεί"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Η απενεργοποίηση αυτής της ρύθμισης ενδέχεται να προκαλέσει προβλήματα αναπαραγωγής βίντεο.</string>
-  <string name="revanced_spoof_video_streams_client_title">Προεπιλεγμένο πρόγραμμα πελάτη</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Προεπιλεγμένο πρόγραμμα πελάτη</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Εξαναγκασμός AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Ο κωδικοποιητής βίντεο έχει οριστεί υποχρεωτικά σε AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Ο κωδικοποιητής βίντεο ορίζεται αυτόματα</string>
@@ -1293,7 +1299,8 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Παρενέργειες παραποίησης σε Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Τα βίντεο για παιδιά ενδέχεται να μην αναπαράγονται
 • Το μενού «Κομμάτι ήχου» λείπει
-• Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη"</string>
+• Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη
+• Η λειτουργία εξαναγκασμού αρχικού ήχου δεν είναι διαθέσιμη"</string>
   <string name="revanced_spoof_video_streams_language_title">Προεπιλεγμένη γλώσσα ροής ήχου</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Γλώσσα εφαρμογής</string>
   <string name="revanced_spoof_video_streams_language_AR">Αραβικά</string>

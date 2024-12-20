@@ -1050,6 +1050,12 @@ Kui see hiljem välja lülitatakse, on soovitatav rakenduse andmed kustutada, et
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shortsi esitaja ei jätka rakenduse käivitamisel</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shortsi esitaja jätkub rakenduse käivitamisel</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Ava Shorts</string>
+  <string name="revanced_shorts_player_type_shorts">Shorts esitusprogramm</string>
+  <string name="revanced_shorts_player_type_regular_player">Tavaline mängija</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Tavaline mängija täisekraanil</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Shortsi automaatne esitus</string>
   <string name="revanced_shorts_autoplay_summary_on">Shortsid esitatakse automaatselt</string>
@@ -1282,7 +1288,7 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
 
 Video taasesitus ei pruugi toimida"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Selle seade keelamine võib põhjustada videote taasesituse probleeme.</string>
-  <string name="revanced_spoof_video_streams_client_title">Vaikimisi klient</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Vaikimisi klient</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Sunni AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Videokodek on sunnitud AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Videokodek määratakse automaatselt</string>
@@ -1293,9 +1299,10 @@ AVC-l on maksimaalne resolutsioon 1080p, Opus-heli kodeerijat pole saadaval ja v
   <string name="revanced_spoof_video_streams_about_ios_summary">"• Privaatseid lastevideoid ei pruugita esitada
 • Videod lõpevad 1 sekund varem"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR spoofing-i kõrvalmõjud</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Lastevideod ei pruugi mängida
-• Otseülekanded algavad algusest
-• Videod lõpevad 1 sekundit enne aega"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Laste videod ei pruugi mängida
+• Heliriba menüü pole saadaval
+• Stabiilne helitugevus pole saadaval
+• Originaalheli pole saadaval"</string>
   <string name="revanced_spoof_video_streams_language_title">Vaikimisi helivoolu keel</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Rakenduse keel</string>
   <string name="revanced_spoof_video_streams_language_AR">Araabia keel</string>

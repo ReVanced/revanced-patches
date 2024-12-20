@@ -121,3 +121,12 @@ internal val hlsCurrentTimeFingerprint = fingerprint {
         HLS_CURRENT_TIME_FEATURE_FLAG
     }
 }
+
+internal val patchIncludedExtensionMethodFingerprint = fingerprint {
+    accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
+    returns("Z")
+    parameters()
+    custom { method, classDef ->
+        classDef.type == EXTENSION_CLASS_DESCRIPTOR && method.name == "isPatchIncluded"
+    }
+}

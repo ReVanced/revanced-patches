@@ -1050,6 +1050,12 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts պլեյերը չի վերսկսվի կիրառության մեկնարկի ժամանակ</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts պլեյերը կվերսկսվի կիրառության մեկնարկի ժամանակ</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Բացեք Shorts</string>
+  <string name="revanced_shorts_player_type_shorts">Shorts կրող</string>
+  <string name="revanced_shorts_player_type_regular_player">Կանոնավոր նվագարկիչ</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Կանոնավոր նվագարկիչ լիարժեք էկրանով</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Ավտոմատ կարճ տեսանյութերի միացում</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts-ը կվերարտադրվի ավտոմատ կերպով</string>
@@ -1281,7 +1287,7 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
 
 Տեսանյութի վերարտադրումը կարող է չաշխատել։"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Այս  կարգավորման  անջատումը  կարող է  առաջացնել  տեսանյութի  վերարտադրման  հետ  կապված  պրոբլեմներ</string>
-  <string name="revanced_spoof_video_streams_client_title">Դեֆոլտ  կլիենտ</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Դեֆոլտ  կլիենտ</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Անհրաժեշտ  է  AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Տեսանյութի  կոդեկը  սահմանվում է  AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Տեսանյութի  կոդեկը  սահմանվում է  ավտոմատ</string>
@@ -1292,9 +1298,10 @@ AVC-ն ունի առավելագույն 1080p լուծում, Opus ձայնայ
   <string name="revanced_spoof_video_streams_about_ios_summary">"• Երեխաների համար նախատեսված մասնավոր տեսանյութերը կարող են չհեռարձակվել
 • Տեսանյութերն ավարտվում են 1 վայրկյան շուտ"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR  փոփոխության  կողմնակի  ազդեցություններ</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Երեխաների տեսանյութերը կարող է չվերարտադրվեն
-• Livestream-ները սկսվում են սկզբից
-• Տեսանյութերը ավարտվում են 1 վայրկյան առաջ։"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Մանկական տեսանյութերը չեն կարող լինել
+• Ձայնային ֆայլի ընտրացանկը բացակայում է
+• Ստաբիլ ձայնի մակարդակը հասանելի չէ
+• Իրական ձայնի հնարավորությունը հասանելի չէ"</string>
   <string name="revanced_spoof_video_streams_language_title">Ըստ նախապատվության, հնչյունային հոսքի լեզուն</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Ծրագրի լեզուն</string>
   <string name="revanced_spoof_video_streams_language_AR">Արաբերեն</string>
