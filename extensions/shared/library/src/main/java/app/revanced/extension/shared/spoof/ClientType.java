@@ -16,8 +16,8 @@ public enum ClientType {
             "com.google.android.apps.youtube.vr.oculus/1.56.21 (Linux; U; Android 12; GB) gzip",
             "32", // Android 12.1
             "1.56.21",
-            true,
-            false),
+            true
+    ),
     // Specific for kids videos.
     IOS(5,
             "IOS",
@@ -39,8 +39,7 @@ public enum ClientType {
                     // but 17.40 is the last version that supports iOS 13.
                     ? "17.40.5"
                     : "19.47.7",
-            false,
-            true
+            false
     );
 
     private static boolean forceAVC() {
@@ -87,11 +86,6 @@ public enum ClientType {
      */
     public final boolean canLogin;
 
-    /**
-     * If a language code should be used.
-     */
-    public final boolean useLanguageCode;
-
     ClientType(int id,
                String clientName,
                String deviceModel,
@@ -99,8 +93,7 @@ public enum ClientType {
                String userAgent,
                @Nullable String androidSdkVersion,
                String clientVersion,
-               boolean canLogin,
-               boolean useLanguageCode) {
+               boolean canLogin) {
         this.id = id;
         this.clientName = clientName;
         this.deviceModel = deviceModel;
@@ -109,6 +102,5 @@ public enum ClientType {
         this.androidSdkVersion = androidSdkVersion;
         this.clientVersion = clientVersion;
         this.canLogin = canLogin;
-        this.useLanguageCode = useLanguageCode;
     }
 }
