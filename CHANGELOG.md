@@ -1,3 +1,10 @@
+# [5.6.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.6.0-dev.2...v5.6.0-dev.3) (2024-12-20)
+
+
+### Bug Fixes
+
+* **Twitter - Change link sharing domain:** Use correct extension package ([ad7fab6](https://github.com/ReVanced/revanced-patches/commit/ad7fab67319ba23f267d27da9b74266965fc4be3))
+
 # [5.6.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.6.0-dev.1...v5.6.0-dev.2) (2024-12-19)
 
 
