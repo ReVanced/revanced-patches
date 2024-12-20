@@ -27,6 +27,13 @@ public class SpoofVideoStreamsPatch {
     private static final Uri UNREACHABLE_HOST_URI = Uri.parse(UNREACHABLE_HOST_URI_STRING);
 
     /**
+     * @return If this patch was included during patching.
+     */
+    public static boolean isPatchIncluded() {
+        return false; // Modified during patching.
+    }
+
+    /**
      * Injection point.
      * Blocks /get_watch requests by returning an unreachable URI.
      *
