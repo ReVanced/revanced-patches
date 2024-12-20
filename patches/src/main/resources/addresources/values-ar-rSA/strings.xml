@@ -1286,7 +1286,7 @@ Second \"item\" text"</string>
 
 قد لا يعمل تشغيل الفيديو"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">إيقاف تشغيل هذا الإعداد قد يسبب مشاكل في تشغيل الفيديو.</string>
-  <string name="revanced_spoof_video_streams_client_title">العميل الافتراضي</string>
+  <string name="revanced_spoof_video_streams_client_type_title">العميل الافتراضي</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">فرض AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">تم فرض ترميز الفيديو على AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">يتم تحديد ترميز الفيديو تلقائيًا</string>
@@ -1297,9 +1297,10 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_about_ios_summary">"• لا يمكن تشغيل مقاطع فيديو الأطفال الخاصة.
 • تنتهي مقاطع الفيديو مبكرًا بمقدار 1 ثانية."</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">التأثيرات الجانبية لمحاكاة Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• قد لا يتم تشغيل فيديوهات الأطفال
-• تبدأ البثوث المباشرة من البداية
-• قد تنتهي الفيديوهات قبل النهاية بثانية واحدة"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• مقطع فيديو الأطفال لتعمل تشغيل
+• قائمة قائمة الصوت مفقودة
+• لا يتوفر بستوي متوفر
+• لا يتوفر بالصوت الأصلي لا يتوفر الأصلي"</string>
   <string name="revanced_spoof_video_streams_language_title">لغة البث الصوتي الافتراضية</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">لغة التطبيق</string>
   <string name="revanced_spoof_video_streams_language_AR">العربية</string>

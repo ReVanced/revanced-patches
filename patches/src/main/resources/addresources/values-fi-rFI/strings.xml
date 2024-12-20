@@ -1287,7 +1287,7 @@ Tämä voi avata korkealaatuisemmat videot"</string>
 
 Videon toisto ei välttämättä toimi"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Tämän asetuksen poistaminen käytöstä voi aiheuttaa ongelmia videotoistossa.</string>
-  <string name="revanced_spoof_video_streams_client_title">Oletusasiakasohjelma</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Oletusasiakasohjelma</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Pakota AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Videon koodekki pakotetaan AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Videokoodekki määritetään automaattisesti</string>
@@ -1298,9 +1298,10 @@ AVC:llä on enimmäisresoluutio 1080p, Opus-äänikoodekkia ei ole käytettävis
   <string name="revanced_spoof_video_streams_about_ios_summary">"• Yksityisiä lasten videoita ei ehkä toisteta
 • Videot päättyvät 1 sekunnin etuajassa"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR -naamioinnin haittavaikutukset</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Lasten videot eivät välttämättä toistu
-• Suoratoistot alkavat alusta
-• Videot päättyvät 1 sekuntia aikaisemmin"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Lapsivideoita ei ehkä toisteta
+• Ääniraita-valikko puuttuu
+• Tasainen äänenvoimakkuus ei ole käytettävissä
+• Pakota alkuperäinen ääni ei ole käytettävissä"</string>
   <string name="revanced_spoof_video_streams_language_title">Äänivirran oletuskieli</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Sovelluksen kieli</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabia</string>

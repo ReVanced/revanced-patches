@@ -1285,7 +1285,7 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
 
 Shikimi i videove mund të mos funksionojë"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Çaktivizimi i kësaj cilësimi mund të shkaktojë probleme me luajtjen e videos.</string>
-  <string name="revanced_spoof_video_streams_client_title">Klient i përdoruesit</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Klient i përdoruesit</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Deforco AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Kodeku i videos është deforcuar në AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodeku i videos përcaktohet automatikisht</string>
@@ -1296,9 +1296,7 @@ AVC ka një rezolucion maksimum prej 1080p, kodeku audio Opus nuk është i disp
   <string name="revanced_spoof_video_streams_about_ios_summary">"• Videot private për fëmijë mund të mos luhen
 • Videot përfundojnë 1 sekond më herët"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Efekte anësore të spoofimit të Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Videot për fëmijë mund të mos luhen
-• Transmetimet Live fillojnë nga fillimi
-• Videot përfundojnë 1 sekond më herët"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Video për fëmijë mund të mos luhen\n• Menua e së shkuarit me zë është e humbur\n• Volumi i qëndrueshëm nuk është i disponueshëm\n• Forcimi i zërit origjinal nuk është i disponueshëm"</string>
   <string name="revanced_spoof_video_streams_language_title">Gjuha e rrjedhës së audios standarde</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Gjuha e aplikacionit</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabisht</string>

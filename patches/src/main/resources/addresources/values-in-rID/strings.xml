@@ -1285,7 +1285,7 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
 
 Playback video mungkin tidak berfungsi"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Mematikan pengaturan ini dapat menyebabkan masalah pemutaran video.</string>
-  <string name="revanced_spoof_video_streams_client_title">Klien bawaan</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Klien bawaan</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Paksa AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Kodek video dipaksa ke AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodek video ditentukan otomatis</string>
@@ -1296,9 +1296,10 @@ AVC memiliki resolusi maksimum 1080p, codec audio Opus tidak tersedia, dan playb
   <string name="revanced_spoof_video_streams_about_ios_summary">"• Video pribadi anak-anak mungkin tidak diputar
 • Video berakhir 1 detik lebih awal"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Efek samping pemalsuan Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Video anak-anak mungkin tidak dapat diputar
-• Livestream dimulai dari awal
-• Video berakhir 1 detik lebih awal"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Video anak mungkin tidak bisa diputar
+• Menu trek audio tidak ada
+• Volume stabil tidak tersedia
+• Paksa audio asli tidak tersedia"</string>
   <string name="revanced_spoof_video_streams_language_title">Bahasa aliran audio bawaan</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Bahasa aplikasi</string>
   <string name="revanced_spoof_video_streams_language_AR">Arab</string>

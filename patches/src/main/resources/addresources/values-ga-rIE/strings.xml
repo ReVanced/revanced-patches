@@ -1288,7 +1288,7 @@ Is féidir le seo caighdeáin físeáin níos airde a dhíghlasáil"</string>
 
 D'fhéadfadh nach n-oibreoidh athsheinm físeáin"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Seans go mbeidh fadhbanna athsheinm físe ag baint leis an socrú seo a mhúchadh.</string>
-  <string name="revanced_spoof_video_streams_client_title">Cliant réamhshocraithe</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Cliant réamhshocraithe</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Fórsa AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Tá códú físeáin á fhorchur ar AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Cinneadh go huathoibríoch an códú físeáin</string>
@@ -1299,9 +1299,10 @@ Tá uasmhéid réiteach 1080p ag AVC, níl an cód fuaime Opus ar fáil, agus ú
   <string name="revanced_spoof_video_streams_about_ios_summary">"• Ní fhéadfaidh físeáin phríobháideacha leanaí a imirt
 • Críochnaíonn físeáin 1 soicind go luath"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Fo-iarsmaí spoofing Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• D'fhéadfadh nach n-imreoidh físeáin pháistí
-• Tosóidh shruth beo ón tús
-• Críochnóidh físeáin 1 soicind go luath"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Fuairfí b'fhéidir nach mbeidh físeáin do pháistí ag seinm
+• Tá an fhéilire raca fhuaime ar iarraidh
+• Ní fheictear an toirt in úsáid
+• Níl éisteacht leis an fuaim bhunúsach ar fáil"</string>
   <string name="revanced_spoof_video_streams_language_title">Teanga réamhshocraithe sruth fuaime</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Teanga na feidhmchláir</string>
   <string name="revanced_spoof_video_streams_language_AR">Araibis</string>
