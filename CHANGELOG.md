@@ -1,3 +1,10 @@
+# [5.6.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.6.0-dev.3...v5.6.0-dev.4) (2024-12-20)
+
+
+### Bug Fixes
+
+* **YouTube - Force original audio:** Use correct original audio stream if app language is not English ([0d20171](https://github.com/ReVanced/revanced-patches/commit/0d2017133efac230887b5c2a331d87159df8af11))
+
 # [5.6.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.6.0-dev.2...v5.6.0-dev.3) (2024-12-20)
 
 
