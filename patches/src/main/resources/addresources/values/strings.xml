@@ -1310,7 +1310,7 @@ AVC has a maximum resolution of 1080p, Opus audio codec is not available, and vi
             <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Kids videos may not play
 • Audio track menu is missing
 • Stable volume is not available
-• Force original audio patch does not work"</string>
+• Force original audio is not available"</string>
             <string name="revanced_spoof_video_streams_language_title">Default audio stream language</string>
             <string name="revanced_spoof_video_streams_language_DEFAULT">App language</string>
             <string name="revanced_spoof_video_streams_language_AR">Arabic</string>
