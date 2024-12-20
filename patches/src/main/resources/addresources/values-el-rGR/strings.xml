@@ -1286,7 +1286,7 @@ Second \"item\" text"</string>
 
 Η αναπαραγωγή βίντεο ενδέχεται να μην λειτουργεί"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Η απενεργοποίηση αυτής της ρύθμισης ενδέχεται να προκαλέσει προβλήματα αναπαραγωγής βίντεο.</string>
-  <string name="revanced_spoof_video_streams_client_title">Προεπιλεγμένο πρόγραμμα πελάτη</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Προεπιλεγμένο πρόγραμμα πελάτη</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Εξαναγκασμός AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Ο κωδικοποιητής βίντεο έχει οριστεί υποχρεωτικά σε AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Ο κωδικοποιητής βίντεο ορίζεται αυτόματα</string>
@@ -1299,7 +1299,8 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Παρενέργειες παραποίησης σε Android VR</string>
   <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Τα βίντεο για παιδιά ενδέχεται να μην αναπαράγονται
 • Το μενού «Κομμάτι ήχου» λείπει
-• Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη"</string>
+• Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη
+• Η λειτουργία εξαναγκασμού αρχικού ήχου δεν είναι διαθέσιμη"</string>
   <string name="revanced_spoof_video_streams_language_title">Προεπιλεγμένη γλώσσα ροής ήχου</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Γλώσσα εφαρμογής</string>
   <string name="revanced_spoof_video_streams_language_AR">Αραβικά</string>

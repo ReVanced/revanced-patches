@@ -1287,7 +1287,7 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
 
 Videoafspilning virker muligvis ikke"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">At slå denne indstilling fra kan forårsage problemer med videoafspilning.</string>
-  <string name="revanced_spoof_video_streams_client_title">Standard klient</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Standard klient</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Gennemtving AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video-codec er tvunget til AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video-codec bestemmes automatisk</string>
@@ -1298,9 +1298,10 @@ AVC har en maksimal opløsning på 1080p, Opus lydcodec er ikke tilgængelig, og
   <string name="revanced_spoof_video_streams_about_ios_summary">"• Private børnevideoer kan muligvis ikke afspilles
 • Videoer slutter 1 sekund før"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR spoofing bivirkninger</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Børnevideoer kan ikke afspilles
-• Livestreams starter fra begyndelsen
-• Videoer slutter 1 sekund tidligere"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Børnevideoer afspilles muligvis ikke
+• Lydspormenuen mangler
+• Stabil lydstyrke er ikke tilgængelig
+• Tving original lyd er ikke tilgængelig"</string>
   <string name="revanced_spoof_video_streams_language_title">Standard lyd-stream sprog</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">App sprog</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabisk</string>

@@ -1281,7 +1281,7 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
 
 Die Videowiedergabe funktioniert möglicherweise nicht"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Das Deaktivieren dieser Einstellung kann zu Videowiedergabeproblemen führen.</string>
-  <string name="revanced_spoof_video_streams_client_title">Standard-Client</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Standard-Client</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">AVC erzwingen (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video-Codec ist zu AVC gezwungen (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video-Codec wird automatisch bestimmt</string>
@@ -1292,9 +1292,10 @@ AVC hat eine maximale Auflösung von 1080p, der Opus-Audiocodec ist nicht verfü
   <string name="revanced_spoof_video_streams_about_ios_summary">"• Private Kindervideos werden möglicherweise nicht abgespielt
 • Videos enden 1 Sekunde früher"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR Spoofing Nebeneffekte</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Kindervideos werden möglicherweise nicht abgespielt
-• Livestreams starten von Anfang an
-• Videos enden 1 Sekunde früher"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Kinder-Videos werden möglicherweise nicht abgespielt
+• Audio-Spuren-Menü fehlt
+• Stabile Lautstärke ist nicht verfügbar
+• Erzwingen des Original-Audios ist nicht verfügbar"</string>
   <string name="revanced_spoof_video_streams_language_title">Standard Audio Streamsprache</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">App-Sprache</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabisch</string>

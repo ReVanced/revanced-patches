@@ -1286,7 +1286,7 @@ Second \"item\" text"</string>
 
 Възпроизвеждането на видеоклипове може да не работи"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Деактивирането на тази настройка ще доведе до проблеми с възпроизвеждането на видео.</string>
-  <string name="revanced_spoof_video_streams_client_title">Клиент по подразбиране</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Клиент по подразбиране</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Принудително AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Видео кодек по подразбиране AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Видео кодекът се определя автоматично</string>
@@ -1297,9 +1297,10 @@ AVC има максимална разделителна способност о
   <string name="revanced_spoof_video_streams_about_ios_summary">"• Възможно е частните детски видеоклипове да не се възпроизвеждат
 • Видеоклиповете завършват 1 секунда по-рано"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Странични ефекти от подправяне на Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Детските видеоклипове може да не се възпроизвеждат
-• Предаванията на живо започват от началото
-• Видеоклиповете завършват 1 секунда по-рано"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Може да възникнат проблеми при възпроизвеждане на детски видеоклипове
+• Липсва меню за аудио песни
+• Не е налично стабилно ниво на звука
+• Не е налична опция за оригинално аудио"</string>
   <string name="revanced_spoof_video_streams_language_title">Език по подразбиране на аудио потока</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Език на приложението</string>
   <string name="revanced_spoof_video_streams_language_AR">Арабски</string>

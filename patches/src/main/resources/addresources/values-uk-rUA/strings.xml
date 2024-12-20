@@ -1049,7 +1049,7 @@ Second \"item\" text"</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Плеєр Shorts увімкнуто при запуску додатку</string>
   </patch>
   <patch id="layout.shortsplayer.shortsPlayerTypePatch">
-  <string name="revanced_shorts_player_type_title">Відкрити Shorts через</string>
+  <string name="revanced_shorts_player_type_title">Відкривати Shorts через</string>
   <string name="revanced_shorts_player_type_shorts">Плеєр Shorts</string>
   <string name="revanced_shorts_player_type_regular_player">Звичайний плеєр</string>
   <string name="revanced_shorts_player_type_regular_player_fullscreen">Звичайний плеєр на весь екран</string>
@@ -1285,7 +1285,7 @@ Second \"item\" text"</string>
 
 Відтворення відео може не працювати"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Вимкнення цього параметра може спричинити проблеми відтворення відео.</string>
-  <string name="revanced_spoof_video_streams_client_title">Клієнт за замовчуванням</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Клієнт за замовчуванням</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Примусово AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Примусово увімкнено відеокодек AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Відеокодек визначається автоматично</string>
@@ -1296,9 +1296,10 @@ AVC має максимальну роздільну здатність 1080p, �
   <string name="revanced_spoof_video_streams_about_ios_summary">"• Відео для дітей можуть не відтворюватися
 • Відео закінчуються на 1 секунду раніше"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Побічні ефекти підробки Android VR:</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Відео для дітей можуть не відтворюватися
-• Меню звукової доріжки відсутнє
-• Стабілізація гучності недоступна"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Дитячі відео можуть не відтворюватися
+• Меню звукових доріжок відсутнє
+• Немає можливості стабільного регулювання гучності
+• Немає можливості примусового відтворення оригінального звуку"</string>
   <string name="revanced_spoof_video_streams_language_title">Стандартна мова аудіопотоку</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Мова застосунку</string>
   <string name="revanced_spoof_video_streams_language_AR">Арабська</string>

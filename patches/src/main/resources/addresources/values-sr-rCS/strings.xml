@@ -1050,10 +1050,10 @@ Ako se kasnije isključi, preporučuje se da izbrišete podatke aplikacije da bi
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts plejer će nastaviti reprodukciju pri pokretanju aplikacije</string>
   </patch>
   <patch id="layout.shortsplayer.shortsPlayerTypePatch">
-  <string name="revanced_shorts_player_type_title">Otvorite Shorts sa</string>
-  <string name="revanced_shorts_player_type_shorts">Shorts plejer</string>
-  <string name="revanced_shorts_player_type_regular_player">Standardni plejer</string>
-  <string name="revanced_shorts_player_type_regular_player_fullscreen">Standardni plejer u celom ekranu</string>
+  <string name="revanced_shorts_player_type_title">Otvorite Shorts pomoću</string>
+  <string name="revanced_shorts_player_type_shorts">Shorts plejera</string>
+  <string name="revanced_shorts_player_type_regular_player">Običnog plejera</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Običnog plejera u režimu celog ekranu</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Autoplej Shorts videa</string>
@@ -1286,7 +1286,7 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
 
 Reprodukcija videa možda neće raditi"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Isključivanje ove opcije će možda izazvati probleme sa reprodukcijom videa.</string>
-  <string name="revanced_spoof_video_streams_client_title">Podrazumevani klijent</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Podrazumevani klijent</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Prisili AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodek je prisilno podešen na AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodek je određen automatski</string>
@@ -1297,9 +1297,10 @@ AVC ima maksimalnu rezoluciju od 1080p, audio kodek Opus nije dostupan, a reprod
   <string name="revanced_spoof_video_streams_about_ios_summary">"• Privatni dečji videi se možda neće puštati
 • Videi će se završiti 1 sekundu ranije"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Neželjeni efekti lažiranja na Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Dečji videi se možda neće puštati
-• Strimovi uživo počinju od početka
-• Videi će se završiti 1 sekundu ranije"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Dečiji video možda neće biti pušteni
+• Menija za zvučnu numeru nedostaje
+• Dostupno stabilna jačina zvuka
+• Forsiranje originalnog zvuka nije dostupno"</string>
   <string name="revanced_spoof_video_streams_language_title">Podrazumevani jezik audio strima</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Jezik aplikacije</string>
   <string name="revanced_spoof_video_streams_language_AR">Arapski</string>
