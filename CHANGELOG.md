@@ -1,3 +1,10 @@
+# [5.6.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.6.0-dev.5...v5.6.0-dev.6) (2024-12-20)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Update iOS client version ([df3aeed](https://github.com/ReVanced/revanced-patches/commit/df3aeed3b173e408fad80197a89ec5d003a2b328))
+
 # [5.6.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.6.0-dev.4...v5.6.0-dev.5) (2024-12-20)
 
 
