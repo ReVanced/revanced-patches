@@ -1049,10 +1049,10 @@ Second \"item\" text"</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts плејер ће наставити репродукцију при покретању апликације</string>
   </patch>
   <patch id="layout.shortsplayer.shortsPlayerTypePatch">
-  <string name="revanced_shorts_player_type_title">Отворите Shorts са</string>
-  <string name="revanced_shorts_player_type_shorts">Shorts плејер</string>
-  <string name="revanced_shorts_player_type_regular_player">Редовни прегледач</string>
-  <string name="revanced_shorts_player_type_regular_player_fullscreen">Редовни прегледач у режиму преко целог екрана</string>
+  <string name="revanced_shorts_player_type_title">Отворите Shorts помоћу</string>
+  <string name="revanced_shorts_player_type_shorts">Shorts плејера</string>
+  <string name="revanced_shorts_player_type_regular_player">Обичног плејера</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Обичног плејера у режиму целог екрана</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Аутоплеј Shorts видеа</string>
@@ -1285,7 +1285,7 @@ Second \"item\" text"</string>
 
 Репродукција видеа можда неће радити"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Искључивање ове опције ће можда изазвати проблеме са репродукцијом видеа.</string>
-  <string name="revanced_spoof_video_streams_client_title">Подразумевани клијент</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Подразумевани клијент</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Присили AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Видео кодек је присилно подешен на AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Видео кодек је одређен аутоматски</string>
@@ -1296,9 +1296,10 @@ AVC има максималну резолуцију од 1080p, аудио ко
   <string name="revanced_spoof_video_streams_about_ios_summary">"• Приватни дечји видеи се можда неће пуштати
 • Видеи ће се завршити 1 секунду раније"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Нежељени ефекти лажирања на Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Дечји видеи се можда неће пуштати
-• Стримови уживо почињу од почетка
-• Видеи ће се завршити 1 секунду раније"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Дечији видео снимци се можда неће репродуковати
+• Мени аудио записа недостаје
+• Стабилна јачина звука није доступна
+• Присилни оригинални звук није доступан"</string>
   <string name="revanced_spoof_video_streams_language_title">Подразумевани језик аудио стрима</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Језик апликације</string>
   <string name="revanced_spoof_video_streams_language_AR">Арапски</string>

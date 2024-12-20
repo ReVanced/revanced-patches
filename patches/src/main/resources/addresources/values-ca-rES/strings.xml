@@ -1287,7 +1287,7 @@ Si actives aquesta opció, es poden desbloquejar qualitats de vídeo més altes"
 
 La reproducció de vídeo pot no funcionar"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Desactivar aquesta configuració pot causar problemes de reproducció de vídeo.</string>
-  <string name="revanced_spoof_video_streams_client_title">Client predeterminat</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Client predeterminat</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Força AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">El còdec de vídeo es força a AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">El còdec de vídeo es determina automàticament</string>
@@ -1298,9 +1298,10 @@ AVC té una resolució màxima de 1080p, el còdec d'àudio Opus no està dispon
   <string name="revanced_spoof_video_streams_about_ios_summary">"• Els vídeos privats per a nens potser no es reprodueixen
 • Els vídeos finalitzen 1 segon abans"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Efecte secundaris de la suplantació d\'Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Els vídeos de nens poden no reproduir-se
-• Les emissions en directe comencen des del principi
-• Els vídeos acaben 1 segon abans"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• És possible que els vídeos infantils no es reprodueixin
+• El menú de pistes d'àudio no està disponible
+• El volum estable no està disponible
+• L'opció Forçar àudio original no està disponible"</string>
   <string name="revanced_spoof_video_streams_language_title">Idioma de la transmissió d\'àudio per defecte</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Idioma de l\'aplicació</string>
   <string name="revanced_spoof_video_streams_language_AR">Àrab</string>

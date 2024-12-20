@@ -1288,7 +1288,7 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
 
 Vaizdo įrašo atkūrimas gali neveikti"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Išjungus šį nustatymą, gali kilti vaizdo įrašų atkūrimo problemų.</string>
-  <string name="revanced_spoof_video_streams_client_title">Numatytasis klientas</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Numatytasis klientas</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Priversti AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Vaizdo kodekas priverstinai nustatytas į AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Vaizdo kodekas nustatomas automatiškai</string>
@@ -1299,9 +1299,10 @@ AVC maksimalus rezoliucija yra 1080p, Opus garso kodekas nėra prieinamas, o vai
   <string name="revanced_spoof_video_streams_about_ios_summary">"• Privatūs vaikų vaizdo įrašai gali neveikti
 • Vaizdo įrašai baigiasi 1 sekunde anksčiau"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR apgaulės šalutiniai poveikiai</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Vaikų vaizdo įrašai gali neveikti
-• Tiesioginės transliacijos prasideda nuo pradžios
-• Vaizdo įrašai baigiasi 1 sekundę anksčiau"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Vaikų vaizdo įrašai gali neatsidarys
+• Trūksta garso takelio meniu
+• Stabilaus garso nėra
+• Nėra galimybės priverstinai nustatyti originalaus garso"</string>
   <string name="revanced_spoof_video_streams_language_title">Numatytoji garso srauto kalba</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Programėlės kalba</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabų</string>

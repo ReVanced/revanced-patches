@@ -1054,7 +1054,7 @@ MicroG를 배터리 최적화 목록에서 제외하더라도, 배터리 사용�
   <string name="revanced_disable_resuming_shorts_player_summary_off">앱을 시작할 때, Shorts 플레이어를 다시 실행합니다</string>
   </patch>
   <patch id="layout.shortsplayer.shortsPlayerTypePatch">
-  <string name="revanced_shorts_player_type_title">Shorts를 사용하여 열기</string>
+  <string name="revanced_shorts_player_type_title">Shorts 재생 플레이어 유형</string>
   <string name="revanced_shorts_player_type_shorts">Shorts 플레이어</string>
   <string name="revanced_shorts_player_type_regular_player">일반 플레이어</string>
   <string name="revanced_shorts_player_type_regular_player_fullscreen">일반 플레이어 전체 화면</string>
@@ -1078,7 +1078,7 @@ MicroG를 배터리 최적화 목록에서 제외하더라도, 배터리 사용�
   <string name="revanced_miniplayer_screen_summary">앱 내에서 최소화된 플레이어의 스타일을 변경할 수 있습니다</string>
   <string name="revanced_miniplayer_type_title">미니 플레이어 유형</string>
   <string name="revanced_miniplayer_type_entry_0">비활성화됨</string>
-  <string name="revanced_miniplayer_type_entry_1">홈 (기본값)</string>
+  <string name="revanced_miniplayer_type_entry_1">기본값</string>
   <string name="revanced_miniplayer_type_entry_2">최소화</string>
   <string name="revanced_miniplayer_type_entry_3">태블릿</string>
   <string name="revanced_miniplayer_type_entry_4">모던 스타일 1</string>
@@ -1096,12 +1096,12 @@ MicroG를 배터리 최적화 목록에서 제외하더라도, 배터리 사용�
   <string name="revanced_miniplayer_drag_and_drop_title">드래그 &amp; 드롭 활성화하기</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">"드래그 &amp; 드롭을 활성화합니다
 
-• 미니 플레이어를 화면의 어느 곳이든 드래그할 수 있습니다"</string>
+• 미니 플레이어를 화면 구석으로 드래그 할 수 있습니다"</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">드래그 &amp; 드롭을 비활성화합니다</string>
   <string name="revanced_miniplayer_horizontal_drag_title">수평 드래그 제스처 활성화하기</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_on">"수평 드래그 제스처를 활성화합니다
 
-미니 플레이어 절반 정도를 왼쪽 밖 또는 오른쪽 밖으로 드래그하여 숨길 수 있습니다"</string>
+• 미니 플레이어 절반 정도를 왼쪽 밖 또는 오른쪽 밖으로 드래그하여 숨길 수 있습니다"</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_off">수평 드래그 제스처를 비활성화합니다</string>
   <string name="revanced_miniplayer_hide_expand_close_title">\'닫기\' 버튼 숨기기</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">\'닫기\' 버튼이 숨겨집니다</string>
@@ -1109,7 +1109,7 @@ MicroG를 배터리 최적화 목록에서 제외하더라도, 배터리 사용�
   <string name="revanced_miniplayer_hide_expand_close_legacy_title">\'펼치기\' &amp; \'닫기\' 버튼 숨기기</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_summary_on">"'펼치기' &amp; '닫기' 버튼이 숨겨집니다
 
-• 스와이프하여 미니 플레이어를 펼치거나 닫을 수 있습니다"</string>
+• 미니 플레이어를 스와이프하여 펼치거나 닫을 수 있습니다"</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">\'펼치기\' &amp; \'닫기\' 버튼이 표시됩니다</string>
   <string name="revanced_miniplayer_hide_subtext_title">서브텍스트 숨기기</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">서브텍스트가 숨겨집니다\n\n• 왼쪽 하단에서 표시되는 \'유료 광고 포함\'과 같은 라벨</string>
@@ -1289,7 +1289,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 누르세요"</string>
   <string name="revanced_spoof_video_streams_summary_off">"스트리밍 데이터를 변경하지 않습니다
 동영상 재생 문제가 발생할 수 있습니다"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">이 설정을 비활성화하면 동영상 재생 문제가 발생할 수 있습니다</string>
-  <string name="revanced_spoof_video_streams_client_title">기본 클라이언트</string>
+  <string name="revanced_spoof_video_streams_client_type_title">기본 클라이언트</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">AVC (H.264) 강제로 활성화하기</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">동영상 코덱을 AVC (H.264)로 강제 활성화합니다</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">동영상 코덱을 자동으로 활성화합니다</string>
@@ -1300,9 +1300,10 @@ AVC의 최대 화질 값은 1080p이며, OPUS 오디오 코덱을 사용할 수 
   <string name="revanced_spoof_video_streams_about_ios_summary">"• 비공개 Kids 동영상이 재생되지 않을 수 있습니다
 • 동영상이 1초 일찍 종료될 수 있습니다"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">\'Android VR로 변경\'의 알려진 문제점</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Kids 동영상이 재생되지 않을 수 있습니다
-• 오디오 트랙 메뉴가 표시되지 않습니다
-• 안정적인 볼륨 메뉴가 비활성화된 채로 잠겨있습니다"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• 어린이 동영상은 재생되지 않을 수 있습니다
+• 오디오 트랙 메뉴가 없습니다
+• 안정적인 볼륨을 사용할 수 없습니다
+• 원본 오디오를 강제로 사용할 수 없습니다"</string>
   <string name="revanced_spoof_video_streams_language_title">기본 오디오 트랙 언어</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">앱 언어</string>
   <string name="revanced_spoof_video_streams_language_AR">아랍어</string>

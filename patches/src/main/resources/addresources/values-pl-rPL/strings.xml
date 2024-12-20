@@ -1286,7 +1286,7 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
 
 Odtwarzanie wideo może nie działać"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Wyłączenie tej opcji może spowodować problemy z odtwarzaniem filmów.</string>
-  <string name="revanced_spoof_video_streams_client_title">Domyślny klient</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Domyślny klient</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Wymuś AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Kodek filmu jest wymuszony do AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodek filmu jest ustawiany automatycznie</string>
@@ -1297,9 +1297,10 @@ AVC ma maksymalną rozdzielczość 1080p, kodek audio Opus nie jest dostępny, a
   <string name="revanced_spoof_video_streams_about_ios_summary">"• Prywatne filmy dla dzieci mogą nie być odtwarzane
 • Filmy kończą się 1 sekundę wcześniej"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Efekty uboczne spoofingu Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Filmy dla dzieci mogą się nie odtwarzać
-• Transmisje na żywo rozpoczynają się od początku
-• Filmy kończą się 1 sekundę wcześniej"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Filmy dla dzieci mogą nie być odtwarzane
+• Brak menu ścieżki audio
+• Stabilna głośność nie jest dostępna
+• Opcja wymuszenia oryginalnego dźwięku nie jest dostępna"</string>
   <string name="revanced_spoof_video_streams_language_title">Domyślny język strumienia dźwięku</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Język aplikacji</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabski</string>
