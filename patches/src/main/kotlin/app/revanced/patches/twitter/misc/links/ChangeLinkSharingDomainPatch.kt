@@ -11,8 +11,8 @@ import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.twitter.misc.extension.sharedExtensionPatch
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 
 internal var tweetShareLinkTemplateId = -1L
     private set
@@ -25,15 +25,7 @@ internal val changeLinkSharingDomainResourcePatch = resourcePatch {
     }
 }
 
-// This method is used to build the link that is shared when the "Share via..." button is pressed.
-private const val FORMAT_METHOD_RESOURCE_REFERENCE =
-    "Lapp/revanced/extension/twitter/patches/links/ChangeLinkSharingDomainPatch;->" +
-        "formatResourceLink([Ljava/lang/Object;)Ljava/lang/String;"
-
-// This method is used to build the link that is shared when the "Copy link" button is pressed.
-private const val FORMAT_METHOD_REFERENCE =
-    "Lapp/revanced/extension/twitter/patches/links/ChangeLinkSharingDomainPatch;->" +
-        "formatLink(JLjava/lang/String;)Ljava/lang/String;"
+private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/twitter/patches/links/ChangeLinkSharingDomainPatch;"
 
 @Suppress("unused")
 val changeLinkSharingDomainPatch = bytecodePatch(
@@ -71,7 +63,7 @@ val changeLinkSharingDomainPatch = bytecodePatch(
             addInstructions(
                 0,
                 """
-                    invoke-static { p0, p1, p2 }, $FORMAT_METHOD_REFERENCE
+                    invoke-static { p0, p1, p2 }, $EXTENSION_CLASS_DESCRIPTOR->formatLink(JLjava/lang/String;)Ljava/lang/String;
                     move-result-object p0
                     return-object p0
                 """,
@@ -84,12 +76,12 @@ val changeLinkSharingDomainPatch = bytecodePatch(
 
             // Format the link with the new domain name register (1 instruction below the const).
             val formatLinkCallIndex = templateIdConstIndex + 1
-            val formatLinkCall = getInstruction<Instruction35c>(formatLinkCallIndex)
+            val register = getInstruction<FiveRegisterInstruction>(formatLinkCallIndex).registerE
 
             // Replace the original method call with the new method call.
             replaceInstruction(
                 formatLinkCallIndex,
-                "invoke-static { v${formatLinkCall.registerE} }, $FORMAT_METHOD_RESOURCE_REFERENCE",
+                "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->formatResourceLink([Ljava/lang/Object;)Ljava/lang/String;",
             )
         }
     }
