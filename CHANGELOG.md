@@ -1,3 +1,10 @@
+# [5.6.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.6.0-dev.4...v5.6.0-dev.5) (2024-12-20)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Change default spoofing to iOS, allow setting a default language with Android VR ([#4171](https://github.com/ReVanced/revanced-patches/issues/4171)) ([171b4e7](https://github.com/ReVanced/revanced-patches/commit/171b4e7e40066e38fba773b7a6525e9a038779ef))
+
 # [5.6.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.6.0-dev.3...v5.6.0-dev.4) (2024-12-20)
 
 
