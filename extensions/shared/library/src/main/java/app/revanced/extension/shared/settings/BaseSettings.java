@@ -24,7 +24,7 @@ public class BaseSettings {
     public static final BooleanSetting SPOOF_VIDEO_STREAMS = new BooleanSetting("revanced_spoof_video_streams", TRUE, true, "revanced_spoof_video_streams_user_dialog_message");
     public static final EnumSetting<AudioStreamLanguage> SPOOF_VIDEO_STREAMS_LANGUAGE = new EnumSetting<>("revanced_spoof_video_streams_language", AudioStreamLanguage.DEFAULT, new SpoofiOSAvailability());
     public static final BooleanSetting SPOOF_VIDEO_STREAMS_IOS_FORCE_AVC = new BooleanSetting("revanced_spoof_video_streams_ios_force_avc", FALSE, true,
-            "revanced_spoof_video_streams_ios_force_avc_user_dialog_message", new SpoofiOSAvailability());
+            "revanced_spoof_video_streams_ios_force_avc_user_dialog_message", parent(SPOOF_VIDEO_STREAMS));
     public static final EnumSetting<ClientType> SPOOF_VIDEO_STREAMS_CLIENT_TYPE = new EnumSetting<>("revanced_spoof_video_streams_client", ClientType.ANDROID_VR, true, parent(SPOOF_VIDEO_STREAMS));
 
 }
