@@ -10,6 +10,7 @@ import java.util.Map;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
+import app.revanced.extension.shared.settings.EnumSetting;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.spoof.requests.StreamingDataRequest;
 
@@ -25,6 +26,27 @@ public class SpoofVideoStreamsPatch {
      */
     private static final String UNREACHABLE_HOST_URI_STRING = "https://127.0.0.0";
     private static final Uri UNREACHABLE_HOST_URI = Uri.parse(UNREACHABLE_HOST_URI_STRING);
+
+    /**
+     * @return If this patch was included during patching.
+     */
+    private static boolean isPatchIncluded() {
+        return false; // Modified during patching.
+    }
+
+    public static final class NotSpoofingAndroidVrAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            if (SpoofVideoStreamsPatch.isPatchIncluded()) {
+                EnumSetting<ClientType> clientType = BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE;
+                return clientType.isAvailable() && clientType.get() != ClientType.ANDROID_VR;
+            }
+
+            return true;
+        }
+    }
+
+
 
     /**
      * Injection point.

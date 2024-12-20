@@ -34,8 +34,8 @@ public class ForceOriginalAudioPatch {
             return isOriginal;
         } catch (Exception ex) {
             Logger.printException(() -> "isDefaultAudioStream failure", ex);
-        }
 
-        return isDefault;
+            return isDefault;
+        }
     }
 }
