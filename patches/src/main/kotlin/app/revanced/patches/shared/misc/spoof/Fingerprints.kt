@@ -123,7 +123,7 @@ internal val hlsCurrentTimeFingerprint = fingerprint {
 }
 
 internal val patchIncludedExtensionMethodFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returns("Z")
     parameters()
     custom { method, classDef ->
