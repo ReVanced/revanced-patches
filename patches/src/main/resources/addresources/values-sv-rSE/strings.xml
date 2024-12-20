@@ -1049,6 +1049,12 @@ Om det senare stängs av rekommenderas det att rensa appens data för att förhi
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts spelare kommer inte att återupptas vid appstart</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts spelare kommer att återupptas vid appstart</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Öppna Shorts med</string>
+  <string name="revanced_shorts_player_type_shorts">Shorts spelare</string>
+  <string name="revanced_shorts_player_type_regular_player">Vanlig spelare</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Vanlig spelare, helskärm</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Shorts automatisk uppspelning</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts kommer automatiskt spela upp</string>
@@ -1280,7 +1286,7 @@ Att aktivera detta kan låsa upp högre videokvalitet"</string>
 
 Videouppspelning kanske inte fungerar"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Att stänga av den här inställningen kan orsaka videouppspelningsproblem.</string>
-  <string name="revanced_spoof_video_streams_client_title">Standard klient</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Standard klient</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Tvinga AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video-codec tvingas till AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video-codec bestäms automatiskt</string>
@@ -1291,9 +1297,10 @@ AVC har en maximal upplösning på 1080p, Opus-ljudcodec är inte tillgänglig o
   <string name="revanced_spoof_video_streams_about_ios_summary">"• Privata barnvideor kanske inte spelas upp
 • Videor slutar 1 sekund för tidigt"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR förfalskning biverkningar</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Barnvideor kanske inte spelas upp
-• Livestreams startar från början
-• Videor avslutas 1 sekund för tidigt"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"- Barnvideoklipp kanske inte spelas
+- Ljudspårsmenyn saknas
+- Stabil volym är inte tillgänglig
+- Tvinga originalspråk är inte tillgänglig"</string>
   <string name="revanced_spoof_video_streams_language_title">Standard ljudströmningsspråk</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Appens språk</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabiska</string>

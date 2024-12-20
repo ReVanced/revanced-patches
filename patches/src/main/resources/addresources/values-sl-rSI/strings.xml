@@ -1049,6 +1049,12 @@ To bo spremenilo videz in funkcije aplikacije, vendar se lahko pojavijo neznani 
   <string name="revanced_disable_resuming_shorts_player_summary_on">Predvajalnik Shorts se ne bo nadaljeval ob zagonu aplikacije</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Predvajalnik Shorts se bo nadaljeval ob zagonu aplikacije</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Odpri Shorts z</string>
+  <string name="revanced_shorts_player_type_shorts">Predvajalnik Shorts</string>
+  <string name="revanced_shorts_player_type_regular_player">Redni predvajalnik</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Redni predvajalnik v celozaslonskem načinu</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Samodejno predvajanje Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts se bodo samodejno predvajali</string>
@@ -1281,7 +1287,7 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
 
 Predvajanje videa morda ne bo delovalo"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Izklop te nastavitve lahko povzroči težave s predvajanjem videoposnetkov.</string>
-  <string name="revanced_spoof_video_streams_client_title">Privzeti odjemalec</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Privzeti odjemalec</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Prisili AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodek je prisiljen v AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodek se določi samodejno</string>
@@ -1292,9 +1298,10 @@ AVC ima največjo ločljivost 1080p, zvočni kodek Opus ni na voljo, predvajanje
   <string name="revanced_spoof_video_streams_about_ios_summary">"• Zasebni videoposnetki za otroke morda ne bodo predvajani
 • Videoposnetki se končajo 1 sekundo prej"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Neželeni učinki pretvarjanja Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Otroški videoposnetki se morda ne bodo predvajali
-• Livestreami se začnejo od začetka
-• Videoposnetki se končajo 1 sekundo prej"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Otroški videoposnetki morda ne bodo predvajani
+• Meni zvočnih posnetkov manjka
+• Stabilen zvok ni na voljo
+• Prisilno predvajanje izvornega zvoka ni na voljo"</string>
   <string name="revanced_spoof_video_streams_language_title">Privzeti jezik zvočnega toka</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Jezik aplikacije</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabski</string>

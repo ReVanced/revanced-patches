@@ -1050,6 +1050,12 @@ Kung mamaya ay patayin, inirerekumenda na i-clear ang data ng app upang maiwasan
   <string name="revanced_disable_resuming_shorts_player_summary_on">Hindi magpapatuloy ang Shorts player sa pagsisimula ng app</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Magpapatuloy ang manlalaro ng shorts sa pagsisimula ng app</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Buksan ang Shorts gamit ang</string>
+  <string name="revanced_shorts_player_type_shorts">Shorts player</string>
+  <string name="revanced_shorts_player_type_regular_player">Regular player</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Regular player fullscreen</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Awtomatikong pag-play ng Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Awtomatikong magpa-play ang mga Shorts</string>
@@ -1282,7 +1288,7 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
 
 Ang paglalaro ng video ay maaaring hindi gumana"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Ang pag-off sa setting na ito ay maaaring magdulot ng mga isyu sa pag-playback ng video.</string>
-  <string name="revanced_spoof_video_streams_client_title">Default client</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Default na kliyente</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Pilitin ang AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Ang video codec ay napipilitang maging AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Awtomatikong natutukoy ang video codec</string>
@@ -1294,9 +1300,12 @@ Ang AVC ay may maximum na resolution na 1080p, ang Opus audio codec ay hindi mag
 • Maaaring hindi ma-play ang mga pribadong video ng mga bata
 • Nagtatapos ang mga video ng 1 segundo nang mas maaga"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Mga epekto sa gilid ng pag-spoof ng Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Ang mga video ng mga bata ay maaaring hindi maglaro
-• Ang mga livestream ay magsisimula mula sa simula
-• Ang mga video ay magtatapos ng 1 segundo nang maaga"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Maaaring hindi maipalabas ang mga video para sa mga bata
+• Nawawala ang menu ng audio track
+• Hindi available ang matatag na volume
+• Hindi available ang puwersahang orihinal na audio
+
+"</string>
   <string name="revanced_spoof_video_streams_language_title">Default na wika ng audio stream</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Wika ng app</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabe</string>

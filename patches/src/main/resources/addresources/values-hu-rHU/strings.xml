@@ -79,7 +79,6 @@ Kattintson a folytatás gombra, és engedélyezze az optimalizálási módosít�
   <string name="revanced_settings_screen_03_feed_title">Hírfolyam</string>
   <string name="revanced_settings_screen_04_player_title">Lejátszó</string>
   <string name="revanced_settings_screen_05_general_title">Általános elrendezés</string>
-  <string name="revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="revanced_settings_screen_07_seekbar_title">Keresősáv</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Csúsztatási vezérlők</string>
   <string name="revanced_settings_screen_11_misc_title">Egyéb</string>
@@ -1049,6 +1048,12 @@ Ha később kikapcsolja, akkor ajánlott az alkalmazás adatait törölni, hogy 
   <string name="revanced_disable_resuming_shorts_player_summary_on">A Shorts lejátszás nem indul el az alkalmazás indításakor</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">A Shorts lejátszás folytatódik az alkalmazás indításakor</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Shorts megnyitása ezzel:</string>
+  <string name="revanced_shorts_player_type_shorts">Shorts lejátszó</string>
+  <string name="revanced_shorts_player_type_regular_player">Normál lejátszó</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Teljes képernyős normál lejátszó</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Shorts automatikus lejátszása</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts automatikusan elindul</string>
@@ -1280,7 +1285,7 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
 
 A videólejátszás nem működhet"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">A beállítás kikapcsolása videolejátszási problémákat okozhat.</string>
-  <string name="revanced_spoof_video_streams_client_title">Alapértelmezett kliens</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Alapértelmezett kliens</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">AVC (H.264) kényszerítése</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">A videokodek AVC-re kényszerítve (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">A videokodek meghatározása automatikusan történik</string>
@@ -1291,9 +1296,10 @@ Az AVC maximális felbontása 1080p, az Opus audio kodek nem érhető el, és a 
   <string name="revanced_spoof_video_streams_about_ios_summary">"• A privát gyerekvideók nem játszhatók le
 • A videók 1 másodperccel korábban érnek véget"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR-hamisítási mellékhatások</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• A gyermekeknek szóló videók nem játszódhatnak le
-• Az élő közvetítések a kezdettől kezdődnek
-• A videók 1 másodperccel korábban érnek véget"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• A gyermekvideók nem játszódnak le
+• Hiányzik a hangsáv menü
+• A stabil hangerő nem érhető el
+• Az eredeti hang kényszerítése nem érhető el"</string>
   <string name="revanced_spoof_video_streams_language_title">Alapértelmezett hangfolyam nyelve</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Alkalmazás nyelve</string>
   <string name="revanced_spoof_video_streams_language_AR">Arab</string>

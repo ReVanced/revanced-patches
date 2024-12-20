@@ -79,7 +79,6 @@ Palieskite mygtuką Tęsti ir leiskite optimizavimo pakeitimus."</string>
   <string name="revanced_settings_screen_03_feed_title">Naujienos</string>
   <string name="revanced_settings_screen_04_player_title">Grotuvas</string>
   <string name="revanced_settings_screen_05_general_title">Bendras išdėstymas</string>
-  <string name="revanced_settings_screen_06_shorts_title">Šortai</string>
   <string name="revanced_settings_screen_07_seekbar_title">Paieškos juosta</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Braukimo valdikliai</string>
   <string name="revanced_settings_screen_11_misc_title">Įvairūs</string>
@@ -1051,6 +1050,12 @@ Jei vėliau išjungta, rekomenduojama išvalyti programos duomenis, kad būtų i
   <string name="revanced_disable_resuming_shorts_player_summary_on">\"Shorts\" grotuvas nebus atnaujintas paleidžiant programėlę</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">\"Shorts\" grotuvas bus atnaujintas paleidžiant programėlę</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Atidarykite Šortus su</string>
+  <string name="revanced_shorts_player_type_shorts">Shorts grotuvas</string>
+  <string name="revanced_shorts_player_type_regular_player">Paprastas grotuvas</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Paprastas grotuvo viso ekrano režimas</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">\"Autoplay\" Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">\"Shorts\" bus atliekama \"Autoplay\"</string>
@@ -1283,7 +1288,7 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
 
 Vaizdo įrašo atkūrimas gali neveikti"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Išjungus šį nustatymą, gali kilti vaizdo įrašų atkūrimo problemų.</string>
-  <string name="revanced_spoof_video_streams_client_title">Numatytasis klientas</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Numatytasis klientas</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Priversti AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Vaizdo kodekas priverstinai nustatytas į AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Vaizdo kodekas nustatomas automatiškai</string>
@@ -1294,9 +1299,10 @@ AVC maksimalus rezoliucija yra 1080p, Opus garso kodekas nėra prieinamas, o vai
   <string name="revanced_spoof_video_streams_about_ios_summary">"• Privatūs vaikų vaizdo įrašai gali neveikti
 • Vaizdo įrašai baigiasi 1 sekunde anksčiau"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR apgaulės šalutiniai poveikiai</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Vaikų vaizdo įrašai gali neveikti
-• Tiesioginės transliacijos prasideda nuo pradžios
-• Vaizdo įrašai baigiasi 1 sekundę anksčiau"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Vaikų vaizdo įrašai gali neatsidarys
+• Trūksta garso takelio meniu
+• Stabilaus garso nėra
+• Nėra galimybės priverstinai nustatyti originalaus garso"</string>
   <string name="revanced_spoof_video_streams_language_title">Numatytoji garso srauto kalba</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Programėlės kalba</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabų</string>

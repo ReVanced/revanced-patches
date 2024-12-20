@@ -1,12 +1,12 @@
 <resources>
     <app id="youtube">
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-            <string-array name="revanced_spoof_video_streams_client_entries">
+            <string-array name="revanced_spoof_video_streams_client_type_entries">
                 <!-- Operating system names are not translatable, so no need to use strings.xml -->
                 <item>Android VR</item>
                 <item>iOS</item>
             </string-array>
-            <string-array name="revanced_spoof_video_streams_client_entry_values">
+            <string-array name="revanced_spoof_video_streams_client_type_entry_values">
                 <!-- Enum names from extension -->
                 <item>ANDROID_VR</item>
                 <item>IOS</item>
@@ -219,6 +219,28 @@
                 <item>MOVIE</item>
                 <item>SPORTS</item>
                 <item>BROWSE</item>
+            </string-array>
+        </patch>
+        <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+            <string-array name="revanced_shorts_player_type_legacy_entries">
+                <item>@string/revanced_shorts_player_type_shorts</item>
+                <item>@string/revanced_shorts_player_type_regular_player</item>
+            </string-array>
+            <string-array name="revanced_shorts_player_type_legacy_entry_values">
+                <!-- Enum names from extension -->
+                <item>SHORTS_PLAYER</item>
+                <item>REGULAR_PLAYER</item>
+            </string-array>
+            <string-array name="revanced_shorts_player_type_entries">
+                <item>@string/revanced_shorts_player_type_shorts</item>
+                <item>@string/revanced_shorts_player_type_regular_player</item>
+                <item>@string/revanced_shorts_player_type_regular_player_fullscreen</item>
+            </string-array>
+            <string-array name="revanced_shorts_player_type_entry_values">
+                <!-- Enum names from extension -->
+                <item>SHORTS_PLAYER</item>
+                <item>REGULAR_PLAYER</item>
+                <item>REGULAR_PLAYER_FULLSCREEN</item>
             </string-array>
         </patch>
         <patch id="layout.thumbnails.alternativeThumbnailsPatch">

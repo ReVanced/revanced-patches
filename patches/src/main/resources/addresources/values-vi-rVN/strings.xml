@@ -1049,6 +1049,12 @@ Nếu sau này tắt đi, bạn nên xóa dữ liệu ứng dụng để tránh 
   <string name="revanced_disable_resuming_shorts_player_summary_on">Trinh phát Shorts sẽ không tiếp tục khi ứng dụng khởi chạy</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Trinh phát Shorts sẽ tiếp tục khi ứng dụng khởi chạy</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Mở Shorts bằng</string>
+  <string name="revanced_shorts_player_type_shorts">Trình phát Shorts</string>
+  <string name="revanced_shorts_player_type_regular_player">Trình phát thông thường</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Trình phát thông thường toàn màn hình</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Tự động phát Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts sẽ phát tự động</string>
@@ -1201,7 +1207,7 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">Cài đặt GmsCore</string>
-  <string name="microg_settings_summary">Các cài dặt cho GmsCore</string>
+  <string name="microg_settings_summary">Các cài đặt cho GmsCore</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
   <string name="revanced_bypass_url_redirects_title">Vượt chuyển hướng URL</string>
@@ -1281,7 +1287,7 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
 
 Phát lại video có thể không hoạt động"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Việc tắt cài đặt này có thể gây ra sự cố phát nền video.</string>
-  <string name="revanced_spoof_video_streams_client_title">Máy khách mặc định</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Máy khách mặc định</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">AVC (H.264) ép buộc</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Bộ giải mã video bị ép về AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Bộ giải mã video được tự động xác định</string>
@@ -1292,9 +1298,10 @@ AVC có độ phân giải tối đa là 1080p, bộ giải mã âm thanh Opus k
   <string name="revanced_spoof_video_streams_about_ios_summary">"• Video riêng tư của trẻ em có thể không phát
 • Video kết thúc sớm 1 giây"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Tác dụng phụ của giả mạo Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Video thiếu nhi có thể không phát
-• Luồng trực tiếp bắt đầu từ đầu
-• Video kết thúc sớm 1 giây"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Video trẻ em có thể không phát được
+• Thiếu menu âm thanh
+• Không có âm lượng ổn định
+• Không có tùy chọn Âm thanh gốc"</string>
   <string name="revanced_spoof_video_streams_language_title">Ngôn ngữ âm thanh mặc định</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Ngôn ngữ ứng dụng</string>
   <string name="revanced_spoof_video_streams_language_AR">Tiếng Ả Rập</string>

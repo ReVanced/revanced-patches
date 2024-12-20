@@ -79,7 +79,6 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_03_feed_title">Поток</string>
   <string name="revanced_settings_screen_04_player_title">Плейър</string>
   <string name="revanced_settings_screen_05_general_title">Общо оформление</string>
-  <string name="revanced_settings_screen_06_shorts_title">Шорти</string>
   <string name="revanced_settings_screen_07_seekbar_title">Лента за прогрес на видеото</string>
   <string name="revanced_settings_screen_08_swipe_controls_title">Контроли с плъзгане</string>
   <string name="revanced_settings_screen_11_misc_title">Разни</string>
@@ -1050,6 +1049,12 @@ Second \"item\" text"</string>
   <string name="revanced_disable_resuming_shorts_player_summary_on">Shorts плейъра при стартиране на приложението е скрит</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts плейъра при стартиране на приложението се показва</string>
   </patch>
+  <patch id="layout.shortsplayer.shortsPlayerTypePatch">
+  <string name="revanced_shorts_player_type_title">Отворете Shorts с</string>
+  <string name="revanced_shorts_player_type_shorts">Играч на Shorts</string>
+  <string name="revanced_shorts_player_type_regular_player">Обикновен плейър</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">Обикновен плейър на цял екран</string>
+  </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">Автоматично пускане Shorts</string>
   <string name="revanced_shorts_autoplay_summary_on">Shorts ще се пускат автоматично</string>
@@ -1281,7 +1286,7 @@ Second \"item\" text"</string>
 
 Възпроизвеждането на видеоклипове може да не работи"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Деактивирането на тази настройка ще доведе до проблеми с възпроизвеждането на видео.</string>
-  <string name="revanced_spoof_video_streams_client_title">Клиент по подразбиране</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Клиент по подразбиране</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_title">Принудително AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Видео кодек по подразбиране AVC (H.264)</string>
   <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Видео кодекът се определя автоматично</string>
@@ -1292,9 +1297,10 @@ AVC има максимална разделителна способност о
   <string name="revanced_spoof_video_streams_about_ios_summary">"• Възможно е частните детски видеоклипове да не се възпроизвеждат
 • Видеоклиповете завършват 1 секунда по-рано"</string>
   <string name="revanced_spoof_video_streams_about_android_vr_title">Странични ефекти от подправяне на Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Детските видеоклипове може да не се възпроизвеждат
-• Предаванията на живо започват от началото
-• Видеоклиповете завършват 1 секунда по-рано"</string>
+  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Може да възникнат проблеми при възпроизвеждане на детски видеоклипове
+• Липсва меню за аудио песни
+• Не е налично стабилно ниво на звука
+• Не е налична опция за оригинално аудио"</string>
   <string name="revanced_spoof_video_streams_language_title">Език по подразбиране на аудио потока</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Език на приложението</string>
   <string name="revanced_spoof_video_streams_language_AR">Арабски</string>
