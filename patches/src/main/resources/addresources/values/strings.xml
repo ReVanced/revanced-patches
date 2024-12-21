@@ -1296,7 +1296,7 @@ Enabling this can unlock higher video qualities"</string>
 
 Video playback may not work"</string>
             <string name="revanced_spoof_video_streams_user_dialog_message">Turning off this setting may cause video playback issues.</string>
-            <string name="revanced_spoof_video_streams_client_type_title">Default client</string>
+            <string name="revanced_spoof_video_streams_type_title">Default client</string>
             <string name="revanced_spoof_video_streams_ios_force_avc_title">Force AVC (H.264)</string>
             <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video codec is forced to AVC (H.264)</string>
             <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video codec is determined automatically</string>
@@ -1304,7 +1304,8 @@ Video playback may not work"</string>
 
 AVC has a maximum resolution of 1080p, Opus audio codec is not available, and video playback will use more internet data than VP9 or AV1."</string>
             <string name="revanced_spoof_video_streams_about_ios_title">iOS spoofing side effects</string>
-            <string name="revanced_spoof_video_streams_about_ios_summary">"• Private kids videos may not play
+            <string name="revanced_spoof_video_streams_about_ios_summary">"• Video playback may not work
+• Private kids videos may not play
 • Videos end 1 second early"</string>
             <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR spoofing side effects</string>
             <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Kids videos may not play
