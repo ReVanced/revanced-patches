@@ -1,3 +1,10 @@
+## [5.6.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.6.1-dev.2...v5.6.1-dev.3) (2024-12-21)
+
+
+### Bug Fixes
+
+* **YouTube - Force original audio:** Use correct availability for settings UI ([a7eedcb](https://github.com/ReVanced/revanced-patches/commit/a7eedcb4cca6b7b12629c478c24c0899c80e3615))
+
 ## [5.6.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.6.1-dev.1...v5.6.1-dev.2) (2024-12-21)
 
 
