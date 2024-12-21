@@ -37,7 +37,7 @@ val spoofVideoStreamsPatch = spoofVideoStreamsPatch({
             preferences = setOf(
                 SwitchPreference("revanced_spoof_video_streams"),
                 ListPreference(
-                    "revanced_spoof_video_streams_type",
+                    "revanced_spoof_video_streams_client_type",
                     summaryKey = null,
                 ),
                 ListPreference(
