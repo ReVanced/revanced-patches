@@ -6,7 +6,8 @@ import androidx.annotation.Nullable;
 
 public enum ClientType {
     // https://dumps.tadiphone.dev/dumps/oculus/eureka
-    ANDROID_VR(28,
+    ANDROID_VR(
+            28,
             "Quest 3",
             "12",
             "com.google.android.apps.youtube.vr.oculus/1.56.21 (Linux; U; Android 12; GB) gzip",
@@ -14,7 +15,8 @@ public enum ClientType {
             "1.56.21",
             true
     ),
-    ANDROID_UNPLUGGED(29,
+    ANDROID_UNPLUGGED(
+            29,
             "Google TV Streamer",
             "14",
             "com.google.android.apps.youtube.unplugged/8.49.0 (Linux; U; Android 14; GB) gzip",
