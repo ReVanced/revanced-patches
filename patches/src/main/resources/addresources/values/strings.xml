@@ -1296,7 +1296,7 @@ Enabling this can unlock higher video qualities"</string>
 
 Video playback may not work"</string>
             <string name="revanced_spoof_video_streams_user_dialog_message">Turning off this setting may cause video playback issues.</string>
-            <string name="revanced_spoof_video_streams_type_title">Default client</string>
+            <string name="revanced_spoof_video_streams_client_type_title">Default client</string>
             <string name="revanced_spoof_video_streams_about_android_title">Android spoofing side effects</string>
             <string name="revanced_spoof_video_streams_about_android_summary">"• Kids videos may not play
 • Audio track menu is missing
