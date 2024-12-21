@@ -15,7 +15,8 @@ public enum ClientType {
             "32", // Android 12.1
             "1.56.21",
             false),
-    ANDROID_VR( // Fall back to authenticated (default language cannot be set)
+    // Fall over to authenticated ('hl' is ignored and audio is same as language set in users Google account).
+    ANDROID_VR(
             ANDROID_VR_NO_AUTH.id,
             ANDROID_VR_NO_AUTH.clientName,
             ANDROID_VR_NO_AUTH.deviceModel,
