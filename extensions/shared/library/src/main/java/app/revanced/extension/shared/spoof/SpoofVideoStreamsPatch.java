@@ -34,7 +34,7 @@ public class SpoofVideoStreamsPatch {
         @Override
         public boolean isAvailable() {
             if (SpoofVideoStreamsPatch.isPatchIncluded()) {
-                return BaseSettings.SPOOF_VIDEO_STREAMS.get();
+                return !BaseSettings.SPOOF_VIDEO_STREAMS.get();
             }
 
             return true;
