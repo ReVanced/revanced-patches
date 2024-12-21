@@ -10,7 +10,6 @@ import java.util.Map;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
-import app.revanced.extension.shared.settings.EnumSetting;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.spoof.requests.StreamingDataRequest;
 
@@ -35,8 +34,7 @@ public class SpoofVideoStreamsPatch {
         @Override
         public boolean isAvailable() {
             if (SpoofVideoStreamsPatch.isPatchIncluded()) {
-                EnumSetting<ClientType> setting = BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE;
-                return !setting.isAvailable() || setting.get().androidSdkVersion == null;
+                return !BaseSettings.SPOOF_VIDEO_STREAMS.get();
             }
 
             return true;
