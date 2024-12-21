@@ -36,8 +36,7 @@ public class SpoofVideoStreamsPatch {
         public boolean isAvailable() {
             if (SpoofVideoStreamsPatch.isPatchIncluded()) {
                 EnumSetting<ClientType> setting = BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE;
-                ClientType type = setting.get();
-                return setting.isAvailable() && type.androidSdkVersion == null;
+                return !setting.isAvailable() || setting.get().androidSdkVersion == null;
             }
 
             return true;
