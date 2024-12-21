@@ -15,22 +15,16 @@ internal val onBackPressedFingerprint = fingerprint {
     }
 }
 
-internal val recyclerViewScrollingFingerprint = fingerprint {
-    accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
+internal val scrollPositionFingerprint = fingerprint {
+    accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
     returns("V")
-    parameters()
+    parameters("L")
     opcodes(
-        Opcode.IGET_OBJECT,
-        Opcode.IGET_OBJECT,
-        Opcode.IF_EQZ,
-        Opcode.IGET_OBJECT,
-        Opcode.CHECK_CAST,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT,
-        Opcode.IF_LEZ,
-        Opcode.IGET_OBJECT,
-        Opcode.CONST_4,
+        Opcode.IF_NEZ,
+        Opcode.INVOKE_DIRECT,
+        Opcode.RETURN_VOID
     )
+    strings("scroll_position")
 }
 
 internal val recyclerViewTopScrollingFingerprint = fingerprint {
