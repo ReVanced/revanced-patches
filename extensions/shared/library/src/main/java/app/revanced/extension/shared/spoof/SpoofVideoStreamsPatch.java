@@ -37,8 +37,7 @@ public class SpoofVideoStreamsPatch {
             if (SpoofVideoStreamsPatch.isPatchIncluded()) {
                 EnumSetting<ClientType> setting = BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE;
                 ClientType type = setting.get();
-                return setting.isAvailable() && type != ClientType.ANDROID_VR
-                        && type != ClientType.ANDROID_UNPLUGGED;
+                return setting.isAvailable() && type.androidSdkVersion == null;
             }
 
             return true;
