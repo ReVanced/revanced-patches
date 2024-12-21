@@ -1,3 +1,10 @@
+## [5.6.1-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.6.1-dev.3...v5.6.1-dev.4) (2024-12-21)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video stream:** Remove UI client type setting.  Allow setting default audio language. ([#4184](https://github.com/ReVanced/revanced-patches/issues/4184)) ([99f3f29](https://github.com/ReVanced/revanced-patches/commit/99f3f29c649bf7693c05bbce2bb49bd53e05f050))
+
 ## [5.6.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.6.1-dev.2...v5.6.1-dev.3) (2024-12-21)
 
 
