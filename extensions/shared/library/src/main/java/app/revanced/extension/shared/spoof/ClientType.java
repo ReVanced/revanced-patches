@@ -7,7 +7,6 @@ import androidx.annotation.Nullable;
 public enum ClientType {
     // https://dumps.tadiphone.dev/dumps/oculus/eureka
     ANDROID_VR(28,
-            "ANDROID_VR",
             "Quest 3",
             "12",
             "com.google.android.apps.youtube.vr.oculus/1.56.21 (Linux; U; Android 12; GB) gzip",
@@ -16,14 +15,22 @@ public enum ClientType {
             true
     ),
     ANDROID_UNPLUGGED(29,
-            "ANDROID_UNPLUGGED",
             "Google TV Streamer",
             "14",
             "com.google.android.apps.youtube.unplugged/8.49.0 (Linux; U; Android 14; GB) gzip",
             "34",
             "8.49.0",
             true
-    );
+    ),
+    ANDROID_CREATOR(
+        14,
+        "Android",
+        "11",
+        "com.google.android.apps.youtube.creator/24.45.100 (Linux; U; Android 11) gzip",
+        "30",
+        "24.45.100",
+        true
+);
 
     /**
      * YouTube
@@ -66,7 +73,6 @@ public enum ClientType {
     public final boolean canLogin;
 
     ClientType(int id,
-               String clientName,
                String deviceModel,
                String osVersion,
                String userAgent,
@@ -74,7 +80,7 @@ public enum ClientType {
                String clientVersion,
                boolean canLogin) {
         this.id = id;
-        this.clientName = clientName;
+        this.clientName = name();
         this.deviceModel = deviceModel;
         this.osVersion = osVersion;
         this.userAgent = userAgent;
