@@ -24,7 +24,7 @@ public enum ClientType {
             ANDROID_VR_NO_AUTH.userAgent,
             ANDROID_VR_NO_AUTH.androidSdkVersion,
             ANDROID_VR_NO_AUTH.clientVersion,
-            false),
+            true),
     ANDROID_UNPLUGGED(
             29,
             "ANDROID_UNPLUGGED",
