@@ -5,7 +5,7 @@
                 <!-- Operating system names are not translatable, so no need to use strings.xml -->
                 <item>Android VR</item>
                 <item>Android TV</item>
-                <item>@string/revanced_spoof_video_streams_type_android_creator</item>
+                <item>Android Creator</item>
             </string-array>
             <string-array name="revanced_spoof_video_streams_type_entry_values">
                 <!-- Enum names from extension -->
