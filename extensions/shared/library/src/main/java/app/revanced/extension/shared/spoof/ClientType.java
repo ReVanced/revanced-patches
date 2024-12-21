@@ -6,33 +6,42 @@ import androidx.annotation.Nullable;
 
 public enum ClientType {
     // https://dumps.tadiphone.dev/dumps/oculus/eureka
-    ANDROID_VR(
+    ANDROID_VR_NO_AUTH( // Must be first so a default audio language can be set.
             28,
+            "ANDROID_VR",
             "Quest 3",
             "12",
             "com.google.android.apps.youtube.vr.oculus/1.56.21 (Linux; U; Android 12; GB) gzip",
             "32", // Android 12.1
             "1.56.21",
-            true
-    ),
+            false),
+    ANDROID_VR( // Fall back to authenticated (default language cannot be set)
+            ANDROID_VR_NO_AUTH.id,
+            ANDROID_VR_NO_AUTH.clientName,
+            ANDROID_VR_NO_AUTH.deviceModel,
+            ANDROID_VR_NO_AUTH.osVersion,
+            ANDROID_VR_NO_AUTH.userAgent,
+            ANDROID_VR_NO_AUTH.androidSdkVersion,
+            ANDROID_VR_NO_AUTH.clientVersion,
+            false),
     ANDROID_UNPLUGGED(
             29,
+            "ANDROID_UNPLUGGED",
             "Google TV Streamer",
             "14",
             "com.google.android.apps.youtube.unplugged/8.49.0 (Linux; U; Android 14; GB) gzip",
             "34",
             "8.49.0",
-            true
-    ),
+            true), // Requires login.
     ANDROID_CREATOR(
         14,
-        "Android",
-        "11",
-        "com.google.android.apps.youtube.creator/24.45.100 (Linux; U; Android 11) gzip",
-        "30",
-        "24.45.100",
-        true
-);
+            "ANDROID_CREATOR",
+            "Android",
+            "11",
+            "com.google.android.apps.youtube.creator/24.45.100 (Linux; U; Android 11) gzip",
+            "30",
+            "24.45.100",
+            true); // Requires login.
 
     /**
      * YouTube
@@ -75,6 +84,7 @@ public enum ClientType {
     public final boolean canLogin;
 
     ClientType(int id,
+               String clientName,
                String deviceModel,
                String osVersion,
                String userAgent,
@@ -82,7 +92,7 @@ public enum ClientType {
                String clientVersion,
                boolean canLogin) {
         this.id = id;
-        this.clientName = name();
+        this.clientName = clientName;
         this.deviceModel = deviceModel;
         this.osVersion = osVersion;
         this.userAgent = userAgent;

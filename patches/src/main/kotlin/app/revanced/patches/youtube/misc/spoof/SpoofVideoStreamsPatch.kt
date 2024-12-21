@@ -37,14 +37,10 @@ val spoofVideoStreamsPatch = spoofVideoStreamsPatch({
             preferences = setOf(
                 SwitchPreference("revanced_spoof_video_streams"),
                 ListPreference(
-                    "revanced_spoof_video_streams_client_type",
-                    summaryKey = null,
-                ),
-                ListPreference(
                     "revanced_spoof_video_streams_language",
                     summaryKey = null
                 ),
-                NonInteractivePreference("revanced_spoof_video_streams_about_android")
+                NonInteractivePreference("revanced_spoof_video_streams_about")
             ),
         ),
     )
