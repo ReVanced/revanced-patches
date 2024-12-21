@@ -1,3 +1,10 @@
+## [5.6.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.6.0...v5.6.1-dev.1) (2024-12-21)
+
+
+### Bug Fixes
+
+* **YouTube:** Change fingerprints to support a wider range of target versions ([8a09174](https://github.com/ReVanced/revanced-patches/commit/8a09174def205a26ce49cb7815097e235069526a))
+
 # [5.6.0](https://github.com/ReVanced/revanced-patches/compare/v5.5.1...v5.6.0) (2024-12-20)
 
 
