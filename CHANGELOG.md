@@ -1,3 +1,10 @@
+## [5.6.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.6.1-dev.1...v5.6.1-dev.2) (2024-12-21)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Remove iOS, add clients Android TV and Android Creator ([#4180](https://github.com/ReVanced/revanced-patches/issues/4180)) ([86abfb2](https://github.com/ReVanced/revanced-patches/commit/86abfb2b0d4675f0a1cb9ab244783075bfe89281))
+
 ## [5.6.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.6.0...v5.6.1-dev.1) (2024-12-21)
 
 
