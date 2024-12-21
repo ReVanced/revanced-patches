@@ -1287,20 +1287,11 @@ Second \"item\" text"</string>
 قد لا يعمل تشغيل الفيديو"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">إيقاف تشغيل هذا الإعداد قد يسبب مشاكل في تشغيل الفيديو.</string>
   <string name="revanced_spoof_video_streams_client_type_title">العميل الافتراضي</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">فرض AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">تم فرض ترميز الفيديو على AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">يتم تحديد ترميز الفيديو تلقائيًا</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"قد يؤدي تمكين هذا إلى تحسين عمر البطارية وإصلاح مشكلة تقطيع التشغيل.
-
-يتمتع تنسيق AVC بدقة قصوى تبلغ 1080P، برنامج ترميز الصوت Opus غير متوفر، وسيستخدم تشغيل الفيديو المزيد من بيانات الإنترنت مقارنةً بتنسيق VP9 أو AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_title">التأثيرات الجانبية لمحاكاة iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• لا يمكن تشغيل مقاطع فيديو الأطفال الخاصة.
-• تنتهي مقاطع الفيديو مبكرًا بمقدار 1 ثانية."</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">التأثيرات الجانبية لمحاكاة Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• مقطع فيديو الأطفال لتعمل تشغيل
-• قائمة قائمة الصوت مفقودة
-• لا يتوفر بستوي متوفر
-• لا يتوفر بالصوت الأصلي لا يتوفر الأصلي"</string>
+  <string name="revanced_spoof_video_streams_about_title">آثار جانبية وهمية</string>
+  <string name="revanced_spoof_video_streams_about_summary">"- قد لا يتم تشغيل مقاطع فيديو للأطفال
+- القائمة صوت المسار مفقودة
+- مستوى الصوت الثابت غير متاح
+- خيار فرض الصوت الأصلي غير متاح"</string>
   <string name="revanced_spoof_video_streams_language_title">لغة البث الصوتي الافتراضية</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">لغة التطبيق</string>
   <string name="revanced_spoof_video_streams_language_AR">العربية</string>

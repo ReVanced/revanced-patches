@@ -1286,17 +1286,8 @@ Habilitar isso pode desbloquear qualidades de vídeo mais altas"</string>
 A reprodução de vídeo pode não funcionar"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Desativar esta configuração pode causar problemas de reprodução de vídeo.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Cliente padrão</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Forçar AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">O codec de vídeo é forçado para AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">O codec de vídeo é determinado automaticamente</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Habilitar isso pode melhorar a duração da bateria e corrigir a reprodução intermitente. 
-
-AVC tem uma resolução máxima de 1080p, o codec de áudio Opus não está disponível e a reprodução de vídeo usará mais dados da Internet do que VP9 ou AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_title">Efeitos colaterais do spoofing de iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Vídeos privados para crianças podem não ser reproduzidos
-• Os vídeos terminam 1 segundo mais cedo"</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Efeitos colaterais do spoofing de Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Vídeos infantis podem não ser reproduzidos
+  <string name="revanced_spoof_video_streams_about_title">Simulando efeitos colaterais</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Vídeos infantis podem não ser reproduzidos
 • O menu da trilha de áudio está ausente
 • O volume estável não está disponível
 • Forçar áudio original não está disponível"</string>

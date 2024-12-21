@@ -1288,17 +1288,8 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
 Este posibil ca redarea video să nu funcționeze"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Dezactivarea acestei setări poate cauza probleme de redare video.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Client implicit</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Forțează AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Codecul video este forţat să facă AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Codecul video este determinat automat</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Activarea acestei opțiuni ar putea îmbunătăți durata de viață a bateriei și remedia problemele de redare.
-
-AVC are o rezoluție maximă de 1080p, codecul audio Opus nu este disponibil, iar redarea video va utiliza mai multe date de internet decât VP9 sau AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_title">Efecte secundare ale falsificării iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Este posibil ca videoclipurile private pentru copii să nu fie redate
-• Videoclipurile se termină cu 1 secundă mai devreme"</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Reacţii adverse de spoofing Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Este posibil ca videoclipurile pentru copii să nu fie redate
+  <string name="revanced_spoof_video_streams_about_title">Efecte secundare de falsificare</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Este posibil ca videoclipurile pentru copii să nu fie redate
 • Lipsește meniul piesei audio
 • Volumul stabil nu este disponibil
 • Forțare sunetul original nu este disponibil"</string>

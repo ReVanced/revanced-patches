@@ -1286,17 +1286,8 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
 Playback video mungkin tidak berfungsi"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Mematikan pengaturan ini dapat menyebabkan masalah pemutaran video.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Klien bawaan</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Paksa AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Kodek video dipaksa ke AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodek video ditentukan otomatis</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Mengaktifkan ini dapat meningkatkan masa pakai baterai dan memperbaiki masalah playback.
-
-AVC memiliki resolusi maksimum 1080p, codec audio Opus tidak tersedia, dan playback video akan menggunakan lebih banyak data internet daripada VP9 atau AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_title">Efek samping pemalsuan iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Video pribadi anak-anak mungkin tidak diputar
-• Video berakhir 1 detik lebih awal"</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Efek samping pemalsuan Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Video anak mungkin tidak bisa diputar
+  <string name="revanced_spoof_video_streams_about_title">Efek Samping Spoofing</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Video anak-anak mungkin tidak dapat diputar
 • Menu trek audio tidak ada
 • Volume stabil tidak tersedia
 • Paksa audio asli tidak tersedia"</string>

@@ -1286,17 +1286,11 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
 Shikimi i videove mund të mos funksionojë"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Çaktivizimi i kësaj cilësimi mund të shkaktojë probleme me luajtjen e videos.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Klient i përdoruesit</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Deforco AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Kodeku i videos është deforcuar në AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodeku i videos përcaktohet automatikisht</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Aktivizimi i kësaj mund të përmirësojë jetëgjatësinë e baterisë dhe të rregullojë ngecjen e riprodhimit.
-
-AVC ka një rezolucion maksimum prej 1080p, kodeku audio Opus nuk është i disponueshëm dhe shikimi i videove do të përdorë më shumë të dhëna interneti sesa VP9 ose AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_title">Efekte anësore të spoofimit të iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Videot private për fëmijë mund të mos luhen
-• Videot përfundojnë 1 sekond më herët"</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Efekte anësore të spoofimit të Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Video për fëmijë mund të mos luhen\n• Menua e së shkuarit me zë është e humbur\n• Volumi i qëndrueshëm nuk është i disponueshëm\n• Forcimi i zërit origjinal nuk është i disponueshëm"</string>
+  <string name="revanced_spoof_video_streams_about_title">Efekte anësore të spoofing</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Videot e fëmijëve mund të mos luhen
+• Mungon menyja e pjesës audio
+• Vëllimi i qëndrueshëm nuk disponohet
+• Forco audio origjinale nuk disponohet"</string>
   <string name="revanced_spoof_video_streams_language_title">Gjuha e rrjedhës së audios standarde</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Gjuha e aplikacionit</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabisht</string>

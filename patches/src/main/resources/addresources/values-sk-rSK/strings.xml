@@ -1276,20 +1276,11 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
 Prehrávanie videa nemusí fungovať"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Vypnutie tohto nastavenia môže spôsobiť problémy s prehrávaním videa.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Predvolený klient</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Vynútiť AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodek je vynútený na AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodek je urçovaný automaticky</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Povolením tejto možnosti sa môže zlepšiť výdrž batérie a opraviť zadrhávanie prehrávania.
-
-AVC má maximálne rozlíšenie 1080p, zvukový kodek Opus nie je dostupný a prehrávanie videa bude používať viac internetových dát ako VP9 alebo AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_title">Vedľajšie účinky falošného prehrávača pre iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Soukromá videa pro děti se nemusí přehrát
-• Videa končí o 1 sekundu dříve"</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Vedľajťie účinky falošného prehrávača pre VR na Androide</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Detské videá sa nemusia prehrávať
+  <string name="revanced_spoof_video_streams_about_title">Spoofing vedľajšie účinky</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Videá pre deti sa nemusia prehrávať
 • Chýba ponuka zvukových stôp
-• Stabilná hlasitosť nie je k dispozícii
-• Vynútený pôvodný zvuk nie je k dispozícii"</string>
+• Dostupná nie je stabilná hlasitosť
+• Nie je k dispozícii vynútený pôvodný zvuk"</string>
   <string name="revanced_spoof_video_streams_language_title">Predvolený jazyk zvukového streamu</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Jazyk aplikácie</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabčina</string>

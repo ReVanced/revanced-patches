@@ -1288,20 +1288,11 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
 Predvajanje videa morda ne bo delovalo"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Izklop te nastavitve lahko povzroči težave s predvajanjem videoposnetkov.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Privzeti odjemalec</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Prisili AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodek je prisiljen v AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodek se določi samodejno</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Omogočanje tega lahko podaljša življenjsko dobo baterije in odpravi trzanje pri predvajanju.
-
-AVC ima največjo ločljivost 1080p, zvočni kodek Opus ni na voljo, predvajanje videa pa bo porabilo več internetnih podatkov kot VP9 ali AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_title">Neželeni učinki iOS pretvarjanja</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Zasebni videoposnetki za otroke morda ne bodo predvajani
-• Videoposnetki se končajo 1 sekundo prej"</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Neželeni učinki pretvarjanja Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Otroški videoposnetki morda ne bodo predvajani
+  <string name="revanced_spoof_video_streams_about_title">Stranski učinki zavajanja</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Videoposnetki za otroke se morda ne bodo predvajali
 • Meni zvočnih posnetkov manjka
 • Stabilen zvok ni na voljo
-• Prisilno predvajanje izvornega zvoka ni na voljo"</string>
+• Prisilno izvirno zvočno posnetek ni na voljo"</string>
   <string name="revanced_spoof_video_streams_language_title">Privzeti jezik zvočnega toka</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Jezik aplikacije</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabski</string>

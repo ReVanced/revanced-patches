@@ -1286,20 +1286,11 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
 Video atskaņošana var nedarboties"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Šī iestatījuma atspējošana var izraisīt video atskaņošanas problēmas.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Noklusētā klients</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Spiest AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodeks ir piespiests uz AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodeks tiek noteikts automātiski</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Šī iestatījuma ieslēgšana var uzlabot akumulatora darbības laiku un novērst video atskaņošanas stostīšanos.
-
-AVC maksimālā izšķirtspēja ir 1080p, Opus audio kodeks nav pieejams, un video atskaņošana izmantos vairāk interneta datu nekā VP9 vai AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_title">iOS viltošanas blakusparādības</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Privāti bērnu videoklipi, iespējams, netiek atskaņoti
-• Video beidzas 1 sekundi agrāk"</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR viltošanas blakusparādības</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Bērnu videoklipi, iespējams, netiek atskaņoti
-• Trūkst audioieraksta izvēlnes
-• Nav pieejama stabila skaļuma
-• Nav pieejams oriģinālā audioieraksta piespiedu iestatījums"</string>
+  <string name="revanced_spoof_video_streams_about_title">Maldināšanas blakusparādības</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Bērnu videoklipi var netikt atskaņoti
+• Trūkst audio ierakstu izvēlnes
+• Stabils skaļums nav pieejams
+• Force oriģinālais audio nav pieejams"</string>
   <string name="revanced_spoof_video_streams_language_title">Noklusētā audio straumes valoda</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Lietotnes valoda</string>
   <string name="revanced_spoof_video_streams_language_AR">Arābu</string>

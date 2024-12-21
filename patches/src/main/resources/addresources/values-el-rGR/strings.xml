@@ -197,7 +197,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_info_panels_title">Πάνελ πληροφοριών</string>
   <string name="revanced_hide_info_panels_summary_on">Κρυμμένα</string>
   <string name="revanced_hide_info_panels_summary_off">Εμφανίζονται</string>
-  <string name="revanced_hide_medical_panels_title">Πάνελ Ιατρικών Πληροφοριών</string>
+  <string name="revanced_hide_medical_panels_title">Πάνελ ιατρικών πληροφοριών</string>
   <string name="revanced_hide_medical_panels_summary_on">Κρυμμένα</string>
   <string name="revanced_hide_medical_panels_summary_off">Εμφανίζονται</string>
   <string name="revanced_hide_channel_bar_title">Γραμμή καναλιού</string>
@@ -524,7 +524,7 @@ Second \"item\" text"</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Απενεργοποίηση διαφανούς γραμμής στο φωτεινό θέμα</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Η γραμμή πλοήγησης στο φωτεινό θέμα δεν είναι διαφανής</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Η διαφάνεια της γραμμής πλοήγησης στο φωτεινό θέμα ορίζεται αυτόματα</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_title">Απενεργοποίηση ημιδιαφανούς γραμμής στο σκούρο θέμα</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">Απενεργοποίηση διαφανούς γραμμής στο σκούρο θέμα</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Η γραμμή πλοήγησης στο σκούρο θέμα δεν είναι διαφανής</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Η διαφάνεια της γραμμής πλοήγησης στο σκούρο θέμα ορίζεται αυτόματα</string>
   </patch>
@@ -812,7 +812,7 @@ Second \"item\" text"</string>
 
 Οι μικρογραφίες γραμμής αναζήτησης θα χρησιμοποιούν την ίδια ποιότητα με το τρέχον βίντεο.
 
-Αυτή η δυνατότητα λειτουργεί καλύτερα με ποιότητα βίντεο 720p ή χαμηλότερη και όταν χρησιμοποιείται πολύ γρήγορη σύνδεση στο διαδίκτυο."</string>
+Αυτή η δυνατότητα λειτουργεί καλύτερα με ποιότητα βίντεο 720p ή χαμηλότερη και όταν χρησιμοποιείται μια πολύ γρήγορη σύνδεση στο διαδίκτυο."</string>
   <string name="revanced_restore_old_seekbar_thumbnails_title">Παλιές μικρογραφίες γραμμής προόδου</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Οι μικρογραφίες προεπισκόπησης θα εμφανίζονται πάνω από τη γραμμή προόδου</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Οι μικρογραφίες προεπισκόπησης θα εμφανίζονται σε πλήρη οθόνη</string>
@@ -1096,11 +1096,11 @@ Second \"item\" text"</string>
 
 Η ελαχιστοποιημένη οθόνη αναπαραγωγής μπορεί να μετακινηθεί σε οποιαδήποτε γωνία της οθόνης"</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_off">Η λειτουργία μεταφοράς και απόθεσης είναι απενεργοποιημένη</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Ενεργοποίηση οριζόντιας χειρονομίας απόρριψης</string>
+  <string name="revanced_miniplayer_horizontal_drag_title">Χειρονομία οριζόντιας σύρσης</string>
   <string name="revanced_miniplayer_horizontal_drag_summary_on">"Η χειρονομία οριζόντιας σύρσης είναι ενεργοποιημένη
 
 Η ελαχιστοποιημένη οθόνη μπορεί να συρθεί εκτός οθόνης προς τα αριστερά ή δεξιά"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Η οριζόντια χειρονομία είναι ανενεργή</string>
+  <string name="revanced_miniplayer_horizontal_drag_summary_off">Η χειρονομία οριζόντιας σύρσης είναι απενεργοποιημένη</string>
   <string name="revanced_miniplayer_hide_expand_close_title">Κουμπί κλεισίματος</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_on">Κρυμμένο</string>
   <string name="revanced_miniplayer_hide_expand_close_summary_off">Εμφανίζεται</string>
@@ -1109,7 +1109,7 @@ Second \"item\" text"</string>
 
 Σύρετε την ελαχιστοποιημένη οθόνη αναπαραγωγής για επέκταση ή κλείσιμο του βίντεο"</string>
   <string name="revanced_miniplayer_hide_expand_close_legacy_summary_off">Εμφανίζονται</string>
-  <string name="revanced_miniplayer_hide_subtext_title">Κείμενα στην οθόνη αναπαραγωγής</string>
+  <string name="revanced_miniplayer_hide_subtext_title">Κείμενα οθόνης αναπαραγωγής</string>
   <string name="revanced_miniplayer_hide_subtext_summary_on">Κρυμμένα</string>
   <string name="revanced_miniplayer_hide_subtext_summary_off">Εμφανίζονται</string>
   <string name="revanced_miniplayer_hide_rewind_forward_title">Κουμπιά παράλειψης και επιστροφής</string>
@@ -1118,7 +1118,7 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_width_dip_title">Αρχικό μέγεθος</string>
   <string name="revanced_miniplayer_width_dip_summary">Αρχικό μέγεθος οθόνης, σε pixel</string>
   <string name="revanced_miniplayer_width_dip_invalid_toast">Τα pixel πρέπει να είναι μεταξύ %1$s και %2$s</string>
-  <string name="revanced_miniplayer_opacity_title">Αδιαφάνεια επικάλυψης</string>
+  <string name="revanced_miniplayer_opacity_title">Αδιαφάνεια φόντου παρασκηνίου</string>
   <string name="revanced_miniplayer_opacity_summary">Τιμή αδιαφάνειας μεταξύ 0-100, όπου το 0 είναι διαφανές</string>
   <string name="revanced_miniplayer_opacity_invalid_toast">Η αδιαφάνεια φόντου οθόνης αναπαραγωγής πρέπει να είναι μεταξύ 0-100</string>
   </patch>
@@ -1287,17 +1287,8 @@ Second \"item\" text"</string>
 Η αναπαραγωγή βίντεο ενδέχεται να μην λειτουργεί"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Η απενεργοποίηση αυτής της ρύθμισης ενδέχεται να προκαλέσει προβλήματα αναπαραγωγής βίντεο.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Προεπιλεγμένο πρόγραμμα πελάτη</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Εξαναγκασμός AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Ο κωδικοποιητής βίντεο έχει οριστεί υποχρεωτικά σε AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Ο κωδικοποιητής βίντεο ορίζεται αυτόματα</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Η ενεργοποίηση αυτής της λειτουργίας μπορεί να βελτιώσει τη διάρκεια ζωής της μπαταρίας και να διορθώσει κολλήματα αναπαραγωγής.
-
-Ο AVC ωστόσο έχει μέγιστη ανάλυση 1080p, ο κωδικοποιητής ήχου Opus δεν είναι διαθέσιμος και η αναπαραγωγή βίντεο θα χρησιμοποιεί περισσότερα δεδομένα internet από τον κωδικοποιητή VP9 ή τον AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_title">Παρενέργειες παραποίησης σε iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Τα ιδιωτικά βίντεο για παιδιά ενδέχεται να μην αναπαράγονται
-• Τα βίντεο τελειώνουν 1 δευτερόλεπτο νωρίτερα"</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Παρενέργειες παραποίησης σε Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Τα βίντεο για παιδιά ενδέχεται να μην αναπαράγονται
+  <string name="revanced_spoof_video_streams_about_title">Παρενέργειες παραποίησης</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Τα βίντεο για παιδιά ενδέχεται να μην αναπαράγονται
 • Το μενού «Κομμάτι ήχου» λείπει
 • Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη
 • Η λειτουργία εξαναγκασμού αρχικού ήχου δεν είναι διαθέσιμη"</string>
