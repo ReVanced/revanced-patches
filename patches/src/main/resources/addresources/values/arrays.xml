@@ -4,12 +4,14 @@
             <string-array name="revanced_spoof_video_streams_client_type_entries">
                 <!-- Operating system names are not translatable, so no need to use strings.xml -->
                 <item>Android VR</item>
-                <item>iOS</item>
+                <item>Android TV</item>
+                <item>Android Creator</item>
             </string-array>
             <string-array name="revanced_spoof_video_streams_client_type_entry_values">
                 <!-- Enum names from extension -->
                 <item>ANDROID_VR</item>
-                <item>IOS</item>
+                <item>ANDROID_UNPLUGGED</item>
+                <item>ANDROID_CREATOR</item>
             </string-array>
             <string-array name="revanced_spoof_video_streams_language_entries">
                 <item>@string/revanced_spoof_video_streams_language_DEFAULT</item>
