@@ -35,7 +35,7 @@ import app.revanced.extension.shared.spoof.ClientType;
  */
 public class StreamingDataRequest {
 
-    private static final ClientType[] CLIENT_ORDER_TO_USE;
+    private static final ClientType[] CLIENT_ORDER_TO_USE = ClientType.values();
     private static final String AUTHORIZATION_HEADER = "Authorization";
     private static final String[] REQUEST_HEADER_KEYS = {
             AUTHORIZATION_HEADER, // Available only to logged-in users.
@@ -66,21 +66,6 @@ public class StreamingDataRequest {
                     return size() > CACHE_LIMIT; // Evict the oldest entry if over the cache limit.
                 }
             });
-
-    static {
-        ClientType[] allClientTypes = ClientType.values();
-        ClientType preferredClient = BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get();
-
-        CLIENT_ORDER_TO_USE = new ClientType[allClientTypes.length];
-        CLIENT_ORDER_TO_USE[0] = preferredClient;
-
-        int i = 1;
-        for (ClientType c : allClientTypes) {
-            if (c != preferredClient) {
-                CLIENT_ORDER_TO_USE[i++] = c;
-            }
-        }
-    }
 
     private final String videoId;
     private final Future<ByteBuffer> future;
@@ -178,7 +163,7 @@ public class StreamingDataRequest {
                     // gzip encoding doesn't response with content length (-1),
                     // but empty response body does.
                     if (connection.getContentLength() == 0) {
-                        Logger.printDebug(() -> "Received empty response for video: " + videoId);
+                        Logger.printDebug(() -> "Received empty response for client: " + clientType);
                     } else {
                         try (InputStream inputStream = new BufferedInputStream(connection.getInputStream());
                              ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
