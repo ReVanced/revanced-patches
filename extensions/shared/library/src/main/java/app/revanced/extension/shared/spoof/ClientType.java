@@ -4,47 +4,45 @@ import android.os.Build;
 
 import androidx.annotation.Nullable;
 
-import app.revanced.extension.shared.settings.BaseSettings;
-
 public enum ClientType {
-    // Specific purpose for age restricted, or private videos, because the iOS client is not logged in.
     // https://dumps.tadiphone.dev/dumps/oculus/eureka
-    ANDROID_VR(28,
+    ANDROID_VR_NO_AUTH( // Must be first so a default audio language can be set.
+            28,
             "ANDROID_VR",
             "Quest 3",
             "12",
             "com.google.android.apps.youtube.vr.oculus/1.56.21 (Linux; U; Android 12; GB) gzip",
             "32", // Android 12.1
             "1.56.21",
-            true
-    ),
-    // Specific for kids videos.
-    IOS(5,
-            "IOS",
-            forceAVC()
-                    ? "iPhone12,5"  // 11 Pro Max (last device with iOS 13)
-                    : "iPhone17,2", // 16 Pro Max
-            // iOS 13 and earlier uses only AVC.  14+ adds VP9 and AV1.
-            forceAVC()
-                    ? "13.7.17H35" // Last release of iOS 13.
-                    : "18.1.1.22B91",
-            forceAVC()
-                    ? "com.google.ios.youtube/17.40.5 (iPhone; U; CPU iOS 13_7 like Mac OS X)"
-                    : "com.google.ios.youtube/19.49.5 (iPhone; U; CPU iOS 18_1_1 like Mac OS X)",
-            null,
-            // Version number should be a valid iOS release.
-            // https://www.ipa4fun.com/history/185230
-            forceAVC()
-                    // Some newer versions can also force AVC,
-                    // but 17.40 is the last version that supports iOS 13.
-                    ? "17.40.5"
-                    : "19.49.5",
-            false
-    );
-
-    private static boolean forceAVC() {
-        return BaseSettings.SPOOF_VIDEO_STREAMS_IOS_FORCE_AVC.get();
-    }
+            false),
+    // Fall over to authenticated ('hl' is ignored and audio is same as language set in users Google account).
+    ANDROID_VR(
+            ANDROID_VR_NO_AUTH.id,
+            ANDROID_VR_NO_AUTH.clientName,
+            ANDROID_VR_NO_AUTH.deviceModel,
+            ANDROID_VR_NO_AUTH.osVersion,
+            ANDROID_VR_NO_AUTH.userAgent,
+            ANDROID_VR_NO_AUTH.androidSdkVersion,
+            ANDROID_VR_NO_AUTH.clientVersion,
+            true),
+    ANDROID_UNPLUGGED(
+            29,
+            "ANDROID_UNPLUGGED",
+            "Google TV Streamer",
+            "14",
+            "com.google.android.apps.youtube.unplugged/8.49.0 (Linux; U; Android 14; GB) gzip",
+            "34",
+            "8.49.0",
+            true), // Requires login.
+    ANDROID_CREATOR(
+        14,
+            "ANDROID_CREATOR",
+            "Android",
+            "11",
+            "com.google.android.apps.youtube.creator/24.45.100 (Linux; U; Android 11) gzip",
+            "30",
+            "24.45.100",
+            true); // Requires login.
 
     /**
      * YouTube

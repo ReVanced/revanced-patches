@@ -12,7 +12,6 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMu
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.insertFeatureFlagBooleanOverride
 import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -207,15 +206,6 @@ fun spoofVideoStreamsPatch(
                     """,
             )
         }
-        // endregion
-
-        // region Fix iOS livestream current time.
-
-        hlsCurrentTimeFingerprint.method.insertFeatureFlagBooleanOverride(
-            HLS_CURRENT_TIME_FEATURE_FLAG,
-            "$EXTENSION_CLASS_DESCRIPTOR->fixHLSCurrentTime(Z)Z"
-        )
-
         // endregion
 
         executeBlock()
