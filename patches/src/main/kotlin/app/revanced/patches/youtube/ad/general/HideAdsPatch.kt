@@ -77,6 +77,7 @@ val hideAdsPatch = bytecodePatch(
             "19.43.41",
             "19.45.38",
             "19.46.42",
+            "19.47.53",
         ),
     )
 
