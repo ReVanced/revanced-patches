@@ -1288,12 +1288,11 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Η απενεργοποίηση αυτής της ρύθμισης ενδέχεται να προκαλέσει προβλήματα αναπαραγωγής βίντεο.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Προεπιλεγμένο πρόγραμμα πελάτη</string>
   <string name="revanced_spoof_video_streams_about_title">Παρενέργειες παραποίησης</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Τα βίντεο για παιδιά ενδέχεται να μην αναπαράγονται
-• Το μενού «Κομμάτι ήχου» λείπει
+  <string name="revanced_spoof_video_streams_about_summary">"• Το μενού «Κομμάτι ήχου» λείπει
 • Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη
 • Η λειτουργία εξαναγκασμού αρχικού ήχου δεν είναι διαθέσιμη"</string>
   <string name="revanced_spoof_video_streams_language_title">Προεπιλεγμένη γλώσσα ροής ήχου</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Γλώσσα εφαρμογής</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">Γλώσσα λογαριασμού</string>
   <string name="revanced_spoof_video_streams_language_AR">Αραβικά</string>
   <string name="revanced_spoof_video_streams_language_AZ">Αζερμπαϊτζανικά</string>
   <string name="revanced_spoof_video_streams_language_BG">Βουλγαρικά</string>

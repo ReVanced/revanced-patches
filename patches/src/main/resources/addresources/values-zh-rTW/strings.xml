@@ -1291,8 +1291,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">關閉此設定可能會導致影片播放發生問題</string>
   <string name="revanced_spoof_video_streams_client_type_title">預設客戶端</string>
   <string name="revanced_spoof_video_streams_about_title">模擬副作用</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• 影片可能無法播放
-• 音訊曲目選單遺失
+  <string name="revanced_spoof_video_streams_about_summary">"• 音訊曲目選單遺失
 • 穩定音量不可用
 • 強制使用原始音訊不可用"</string>
   <string name="revanced_spoof_video_streams_language_title">預設音訊串流語言</string>

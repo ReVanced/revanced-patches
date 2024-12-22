@@ -1287,12 +1287,11 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Вимкнення цього параметра може спричинити проблеми відтворення відео.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Клієнт за замовчуванням</string>
   <string name="revanced_spoof_video_streams_about_title">Побічні ефекти підробки</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Відео для дітей можуть не відтворюватися
-• Меню звукової доріжки відсутнє
+  <string name="revanced_spoof_video_streams_about_summary">"• Меню звукової доріжки відсутнє
 • Стабілізація гучності недоступна
 • Примусове відтворення оригінальної аудіо доріжки недоступне"</string>
   <string name="revanced_spoof_video_streams_language_title">Стандартна мова аудіопотоку</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Мова застосунку</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">Мова облікового запису</string>
   <string name="revanced_spoof_video_streams_language_AR">Арабська</string>
   <string name="revanced_spoof_video_streams_language_AZ">Азербайджанська</string>
   <string name="revanced_spoof_video_streams_language_BG">Болгарська</string>

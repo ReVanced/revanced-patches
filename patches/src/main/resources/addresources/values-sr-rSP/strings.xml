@@ -1287,8 +1287,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Искључивање ове опције ће можда изазвати проблеме са репродукцијом видеа.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Подразумевани клијент</string>
   <string name="revanced_spoof_video_streams_about_title">Нежељени ефекти лажирања</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Видеи за децу се можда неће пуштати
-• Мени „Аудио снимак” недостаје
+  <string name="revanced_spoof_video_streams_about_summary">"• Мени „Аудио снимак” недостаје
 • Уједначена јачина звука није доступна
 • Опција „Присили оригинални звук” није доступна"</string>
   <string name="revanced_spoof_video_streams_language_title">Подразумевани језик аудио стрима</string>

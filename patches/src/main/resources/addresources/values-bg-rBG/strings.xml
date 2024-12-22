@@ -1288,8 +1288,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Деактивирането на тази настройка ще доведе до проблеми с възпроизвеждането на видео.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Клиент по подразбиране</string>
   <string name="revanced_spoof_video_streams_about_title">Фалшиви странични ефекти</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Детските видеоклипове може да не се възпроизвеждат
-• Липсва менюто за аудио запис
+  <string name="revanced_spoof_video_streams_about_summary">"• Липсва менюто за аудио запис
 • Не е наличен стабилен звук
 • Принудително оригинално аудио не е налично"</string>
   <string name="revanced_spoof_video_streams_language_title">Език по подразбиране на аудио потока</string>

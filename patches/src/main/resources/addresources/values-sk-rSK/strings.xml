@@ -1277,12 +1277,11 @@ Prehrávanie videa nemusí fungovať"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Vypnutie tohto nastavenia môže spôsobiť problémy s prehrávaním videa.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Predvolený klient</string>
   <string name="revanced_spoof_video_streams_about_title">Spoofing vedľajšie účinky</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Videá pre deti sa nemusia prehrávať
-• Chýba ponuka zvukových stôp
-• Dostupná nie je stabilná hlasitosť
-• Nie je k dispozícii vynútený pôvodný zvuk"</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Chýba ponuka zvukových stôp
+• Stabilná hlasitosť nie je k dispozícii
+• Vynútenie pôvodného zvuku nie je k dispozícii"</string>
   <string name="revanced_spoof_video_streams_language_title">Predvolený jazyk zvukového streamu</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Jazyk aplikácie</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">Jazyk účtu</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabčina</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbajdžančina</string>
   <string name="revanced_spoof_video_streams_language_BG">Bulharčina</string>

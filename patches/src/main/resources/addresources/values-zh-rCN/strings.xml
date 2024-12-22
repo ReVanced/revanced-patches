@@ -68,7 +68,7 @@ Second \"item\" text"</string>
 禁用 MicroG 的电池优化不会对电池使用造成负面影响。
 
 点击继续按钮并允许优化更改。"</string>
-  <string name="gms_core_dialog_continue_text">繼續</string>
+  <string name="gms_core_dialog_continue_text">继续</string>
   </patch>
   </app>
   <app id="youtube">
@@ -113,10 +113,10 @@ Second \"item\" text"</string>
   <string name="revanced_disable_like_subscribe_glow_title">禁用点赞 / 订阅按钮动效</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">点赞和订阅按钮点击时无动效</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">点赞和订阅按钮点击时有动效</string>
-  <string name="revanced_hide_album_cards_title">隱藏專輯卡</string>
-  <string name="revanced_hide_album_cards_summary_on">已隱藏專輯卡</string>
+  <string name="revanced_hide_album_cards_title">隐藏专辑卡片</string>
+  <string name="revanced_hide_album_cards_summary_on">专辑卡片已隐藏</string>
   <string name="revanced_hide_album_cards_summary_off">已顯示專輯卡</string>
-  <string name="revanced_hide_crowdfunding_box_title">隱藏群眾募資</string>
+  <string name="revanced_hide_crowdfunding_box_title">隐藏众筹框</string>
   <string name="revanced_hide_crowdfunding_box_summary_on">众筹框已隐藏</string>
   <string name="revanced_hide_crowdfunding_box_summary_off">众筹框已显示</string>
   <string name="revanced_hide_floating_microphone_button_title">隐藏悬浮麦克风按钮</string>
@@ -172,8 +172,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_community_posts_summary_on">隐藏社区帖子</string>
   <string name="revanced_hide_community_posts_summary_off">显示社区帖子</string>
   <string name="revanced_hide_compact_banner_title">隐藏紧凑横幅</string>
-  <string name="revanced_hide_compact_banner_summary_on">隐藏简洁横幅</string>
-  <string name="revanced_hide_compact_banner_summary_off">显示简洁横幅</string>
+  <string name="revanced_hide_compact_banner_summary_on">已隐藏紧凑横幅</string>
+  <string name="revanced_hide_compact_banner_summary_off">已显示简洁横幅</string>
   <string name="revanced_hide_movies_section_title">隐藏影片章节</string>
   <string name="revanced_hide_movies_section_summary_on">隐藏电影部分</string>
   <string name="revanced_hide_movies_section_summary_off">显示电影部分</string>
@@ -344,7 +344,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">已顯示自我贊助資訊卡</string>
   <string name="revanced_hide_products_banner_title">隐藏产品横幅</string>
   <string name="revanced_hide_products_banner_summary_on">已隱藏橫幅</string>
-  <string name="revanced_hide_products_banner_summary_off">已顯示橫幅</string>
+  <string name="revanced_hide_products_banner_summary_off">已显示橫幅</string>
   <string name="revanced_hide_player_store_shelf_title">隱藏播放器 [購物匣]</string>
   <string name="revanced_hide_player_store_shelf_summary_on">已隱藏 [購物匣]</string>
   <string name="revanced_hide_player_store_shelf_summary_off">显示购物货架</string>
@@ -358,16 +358,16 @@ Second \"item\" text"</string>
   <string name="revanced_hide_web_search_results_title">隐藏网页搜索结果</string>
   <string name="revanced_hide_web_search_results_summary_on">网页搜索结果已隐藏</string>
   <string name="revanced_hide_web_search_results_summary_off">网页搜索结果已显示</string>
-  <string name="revanced_hide_merchandise_banners_title">作放商家优惠五示缈乐</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">商家优惠五示缈乐已作放</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">商家优惠五示缈乐已点击查看</string>
+  <string name="revanced_hide_merchandise_banners_title">隐藏商品广告横幅</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">已隐藏商品横幅</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">已显示商品横幅</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">下载全蜯广告只在旧版用户上使用</string>
+  <string name="revanced_hide_fullscreen_ads_feature_not_available_toast">隐藏全屏广告只适用于旧设备</string>
   </patch>
   <patch id="ad.getpremium.hideGetPremiumPatch">
-  <string name="revanced_hide_get_premium_title">隐藏 YouTube Premium 会员保障</string>
-  <string name="revanced_hide_get_premium_summary_on">低肫指令下的 YouTube Premium 会员保障已作放</string>
-  <string name="revanced_hide_get_premium_summary_off">YouTube Premium 推廣已显示在影片播放器下方</string>
+  <string name="revanced_hide_get_premium_title">隐藏YouTube Premium 推广</string>
+  <string name="revanced_hide_get_premium_summary_on">隐藏视频播放器下的YouTube 高级促销</string>
+  <string name="revanced_hide_get_premium_summary_off">在视频播放器下显示YouTube Premium促销推广</string>
   </patch>
   <patch id="ad.video.videoAdsPatch">
   <string name="revanced_hide_video_ads_title">隐藏视频广告</string>
@@ -385,19 +385,19 @@ Second \"item\" text"</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">“複製帶時間戳記的影片網址”按鈕未顯示。</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
-  <string name="revanced_remove_viewer_discretion_dialog_title">移除“觀看須知”對話方塊。</string>
-  <string name="revanced_remove_viewer_discretion_dialog_summary_on">“觀看須知”對話方塊將會移除。</string>
-  <string name="revanced_remove_viewer_discretion_dialog_summary_off">將顯示對話框</string>
-  <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">此功能無法繞過年齡限制。它只是自動按下確認。</string>
+  <string name="revanced_remove_viewer_discretion_dialog_title">移除「观看须知」对话框</string>
+  <string name="revanced_remove_viewer_discretion_dialog_summary_on">将移除「观看须知」对话框</string>
+  <string name="revanced_remove_viewer_discretion_dialog_summary_off">将显示「观看须知」对话框</string>
+  <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">这并不会绕过年龄限制，只是自动按下接受按钮。</string>
   </patch>
   <patch id="interaction.downloads.downloadsResourcePatch">
   <string name="revanced_external_downloader_screen_title">外部下载</string>
-  <string name="revanced_external_downloader_screen_summary">使用外部下載器的設定</string>
-  <string name="revanced_external_downloader_title">顯示外部下載按鈕</string>
-  <string name="revanced_external_downloader_summary_on">在播放器中顯示下載按鈕</string>
-  <string name="revanced_external_downloader_summary_off">下载按钮在播放器中不表示</string>
+  <string name="revanced_external_downloader_screen_summary">使用外部下载器的设置</string>
+  <string name="revanced_external_downloader_title">显示外部下载按钮</string>
+  <string name="revanced_external_downloader_summary_on">在播放器中显示下载按钮</string>
+  <string name="revanced_external_downloader_summary_off">不在播放器中显示下载按钮</string>
   <!-- 'download action button' should be translated using the same wording as the translation of 'revanced_hide_download_button_title' -->
-  <string name="revanced_external_downloader_action_button_title">覆盖下载调起按钮</string>
+  <string name="revanced_external_downloader_action_button_title">覆盖「下载」按钮</string>
   <string name="revanced_external_downloader_action_button_summary_on">下载按钮打开你的外部下载工具</string>
   <string name="revanced_external_downloader_action_button_summary_off">下载按钮打开主要的在服务程序下载工具</string>
   <string name="revanced_external_downloader_name_title">下载器监名</string>
@@ -468,7 +468,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_remix_button_summary_on">按钮 \'混音\' 隐藏</string>
   <string name="revanced_hide_remix_button_summary_off">按钮 \'混音\' 显示</string>
   <!-- 'Download' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_download_button_title">隐藏“下载”</string>
+  <string name="revanced_hide_download_button_title">隐藏「下载」按钮</string>
   <string name="revanced_hide_download_button_summary_on">下载按钮隐藏</string>
   <string name="revanced_hide_download_button_summary_off">下载按钮显示</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
@@ -1198,13 +1198,13 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">伪装设备尺寸</string>
-  <string name="revanced_spoof_device_dimensions_summary_on">"设备尺寸已欺骗
+  <string name="revanced_spoof_device_dimensions_summary_on">"已伪装设备尺寸
 
-可能会解锁更高质量的视频，但你可能会遇到视频播放卡顿、电池续航时间更短以及未知副作用"</string>
-  <string name="revanced_spoof_device_dimensions_summary_off">"设备尺寸未被欺骗
+可能会解锁更高质量的视频，但你可能会遇到视频播放卡顿、电池续航时间减少以及其他未知的副作用"</string>
+  <string name="revanced_spoof_device_dimensions_summary_off">"未伪装设备尺寸
 
-启用此功能可以解锁更高质量的视频"</string>
-  <string name="revanced_spoof_device_dimensions_user_dialog_message">启用此选项可能会导致视频播放卡顿、电池寿命更短等未知副作用。</string>
+启用此功能可以解锁更高的视频质量"</string>
+  <string name="revanced_spoof_device_dimensions_user_dialog_message">启用此选项可能会导致视频播放卡顿、电池续航时间减少以及其他未知的副作用</string>
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
   <string name="microg_settings_title">GmsCore 设置</string>
@@ -1222,8 +1222,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   <string name="revanced_remove_tracking_query_parameter_title">删除跟踪查询参数</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">从链接中删除跟踪查询参数</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">不从链接中删除跟踪查询参数</string>
+  <string name="revanced_remove_tracking_query_parameter_summary_on">已从链接中删除跟踪参数</string>
+  <string name="revanced_remove_tracking_query_parameter_summary_off">不从链接中删除跟踪参数</string>
   </patch>
   <patch id="misc.zoomhaptics.zoomHapticsPatch">
   <string name="revanced_disable_zoom_haptics_title">禁用缩放触觉反馈</string>
@@ -1243,13 +1243,13 @@ Second \"item\" text"</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">质量更改仅适用于当前视频</string>
   <string name="revanced_video_quality_default_wifi_title">Wi-Fi 网络上的默认视频质量</string>
   <string name="revanced_video_quality_default_mobile_title">移动网络上的默认视频质量</string>
-  <string name="revanced_remember_video_quality_mobile">移动</string>
+  <string name="revanced_remember_video_quality_mobile">移动网络</string>
   <string name="revanced_remember_video_quality_wifi">wifi</string>
   <string name="revanced_remember_video_quality_toast">已将默认 %1$s 质量更改为：%2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
-  <string name="revanced_playback_speed_dialog_button_title">显示速度对话框按钮</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">按钮已显示</string>
+  <string name="revanced_playback_speed_dialog_button_title">显示播放速度对话框按钮</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">已显示按钮</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">不显示按钮</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
@@ -1290,10 +1290,9 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">关闭此选项可能会导致视频不能正常播放。</string>
   <string name="revanced_spoof_video_streams_client_type_title">默认客户端</string>
   <string name="revanced_spoof_video_streams_about_title">模拟视频播放效果</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• 儿童视频可能无法播放
-• 音轨菜单缺失
+  <string name="revanced_spoof_video_streams_about_summary">"• 缺少音轨菜单
 • 音量稳定不可用
-• 强制使用原始音频不可用"</string>
+• 强制播放原始音轨不可用"</string>
   <string name="revanced_spoof_video_streams_language_title">默认音频流语言</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">应用语言</string>
   <string name="revanced_spoof_video_streams_language_AR">阿拉伯语</string>

@@ -1290,10 +1290,9 @@ Video taasesitus ei pruugi toimida"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Selle seade keelamine võib põhjustada videote taasesituse probleeme.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Vaikimisi klient</string>
   <string name="revanced_spoof_video_streams_about_title">Võltsitud kõrvalmõjud</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Lastevideod ei pruugi esitada
-• Heliriba menüü puudub
-• Stabiilset helitugevust ei ole saadaval
-• Sunnitud originaalheli ei ole saadaval"</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Heliriba menüü puudub
+• Stabiilset helitugevust pole saadaval
+• Sundoriginaalheli ei ole saadaval"</string>
   <string name="revanced_spoof_video_streams_language_title">Vaikimisi helivoolu keel</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Rakenduse keel</string>
   <string name="revanced_spoof_video_streams_language_AR">Araabia keel</string>

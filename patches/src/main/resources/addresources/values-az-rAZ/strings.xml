@@ -24,7 +24,7 @@ Second \"item\" text"</string>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Yoxlamalar uğursuz oldu</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Xidməti veb saytı aç</string>
-  <string name="revanced_check_environment_dialog_ignore_button">Yan keç</string>
+  <string name="revanced_check_environment_dialog_ignore_button">Məhəl qoyma</string>
   <string name="revanced_check_environment_failed_message">&lt;h5&gt;Bu tətbiq sizin tərəfinizdən yamaqlanmayıb.&lt;/h5&gt;&lt;br&gt;Bu tətbiq düzgün işləməyə bilər, &lt;b&gt;istifadə etmək zərərli və ya hətta təhlükəli ola bilər&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Bu yoxlamalar bu tətbiqin əvvəldən yamaqlandığını və ya başqasından əldə edildiyini göstərir:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt; &lt;br&gt;onu silməyiniz və özünüz yamaqlamağınız tövsiyə olunur. &lt;/b&gt;təsdiqlənmiş və təhlükəsiz tətbiq istifadə etdiyinizə əmin olmaq üçün. &lt;p&gt;&lt;br&gt; İnkar edilməzsə, bu xəbərdarlıq yalnız iki dəfə göstəriləcək.</string>
   <string name="revanced_check_environment_not_same_patching_device">Fərqli cihazda yamaqlanıb</string>
   <string name="revanced_check_environment_manager_not_expected_installer">ReVanced Manager tərəfindən quraşdırılmayıb</string>
@@ -1289,10 +1289,9 @@ Video oynatma işləməyə bilər"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Bu seçimi bağlamaq, video oynatma problemlərinə səbəb olar.</string>
   <string name="revanced_spoof_video_streams_client_type_title">İlkin qəbuledici</string>
   <string name="revanced_spoof_video_streams_about_title">Yan effektlərin spoof edilməsi</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Uşaq videoları işlənməyə bilər
-• Səs izləri menyusunu itkindir
-• Sabit səs mövcud deyil
-• Orijinal səs məcburi olaraq mövcud deyil"</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Səs parçası menyusunda səhvlər var
+• Sabit səs səviyyəsi mövcud deyil
+• Məcburi orijinal səs mövcud deyil"</string>
   <string name="revanced_spoof_video_streams_language_title">İlkin səs yayımı dili</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Tətbiq dili</string>
   <string name="revanced_spoof_video_streams_language_AR">Ərəbcə</string>

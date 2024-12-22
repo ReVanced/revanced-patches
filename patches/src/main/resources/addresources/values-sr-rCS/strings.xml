@@ -1288,8 +1288,7 @@ Reprodukcija videa možda neće raditi"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Isključivanje ove opcije će možda izazvati probleme sa reprodukcijom videa.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Podrazumevani klijent</string>
   <string name="revanced_spoof_video_streams_about_title">Neželjeni efekti lažiranja</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Videi za decu se možda neće puštati
-• Meni „Audio snimak” nedostaje
+  <string name="revanced_spoof_video_streams_about_summary">"• Meni „Audio snimak” nedostaje
 • Ujednačena jačina zvuka nije dostupna
 • Opcija „Prisili originalni zvuk” nije dostupna"</string>
   <string name="revanced_spoof_video_streams_language_title">Podrazumevani jezik audio strima</string>

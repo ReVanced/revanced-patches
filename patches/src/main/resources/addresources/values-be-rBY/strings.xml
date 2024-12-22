@@ -1290,12 +1290,10 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Адключэнне гэтай налады можа выклікаць праблемы з прайграваннем відэа.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Клиент по умолчанию</string>
   <string name="revanced_spoof_video_streams_about_title">Падробка пабочных эфектаў</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Дзіцячыя відэа могуць не прайгравацца
-• Панэль гукавых дарожак адсутнічае
-• Стабільная гучнасць недаступная
-• Прымусова арыгінальная аўдыёдарожка недаступная"</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Аўдыёдарожкі, пазначаныя як арыгінальныя, могуць быць зменены на іншыя
+• Функцыя \"Стабільная гучнасць\" недаступная"</string>
   <string name="revanced_spoof_video_streams_language_title">Язык потока аудио по умолчанию</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Язык приложения</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">Мова акаўнта</string>
   <string name="revanced_spoof_video_streams_language_AR">Арабский</string>
   <string name="revanced_spoof_video_streams_language_AZ">Азербайджанский</string>
   <string name="revanced_spoof_video_streams_language_BG">Болгарский</string>
