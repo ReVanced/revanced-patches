@@ -1,3 +1,10 @@
+## [5.7.1-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.7.1-dev.4...v5.7.1-dev.5) (2024-12-22)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Use 2 letter device language code ([33ff997](https://github.com/ReVanced/revanced-patches/commit/33ff9972000581aca92262f984efb114eeeb9537))
+
 ## [5.7.1-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.7.1-dev.3...v5.7.1-dev.4) (2024-12-22)
 
 
