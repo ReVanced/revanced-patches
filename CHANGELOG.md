@@ -1,3 +1,10 @@
+## [5.7.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.7.1-dev.1...v5.7.1-dev.2) (2024-12-22)
+
+
+### Bug Fixes
+
+* **YouTube - Theme:** Use dark theme color for status and navigation bar ([0240efe](https://github.com/ReVanced/revanced-patches/commit/0240efe33e5444625ca2b760c861c9046d3dc836))
+
 ## [5.7.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.7.0...v5.7.1-dev.1) (2024-12-22)
 
 
