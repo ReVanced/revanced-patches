@@ -1,3 +1,10 @@
+## [5.7.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.7.1-dev.2...v5.7.1-dev.3) (2024-12-22)
+
+
+### Bug Fixes
+
+* **YouTube - SponsorBlock:** Show a toast and not a dialog if segment submitted successfully ([134b189](https://github.com/ReVanced/revanced-patches/commit/134b189791113dcf1a1cb7c87b8a0954f432730c))
+
 ## [5.7.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.7.1-dev.1...v5.7.1-dev.2) (2024-12-22)
 
 
