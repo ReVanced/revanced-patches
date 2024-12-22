@@ -1288,20 +1288,11 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
 Video oynatma işləməyə bilər"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Bu seçimi bağlamaq, video oynatma problemlərinə səbəb olar.</string>
   <string name="revanced_spoof_video_streams_client_type_title">İlkin qəbuledici</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Məcburi AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodlama AVC (H.264) -yə məcbur edilir</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodlama birbaşa yoxlanılır</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Bunu fəallaşdırma, batareya ömrünü yaxşılaşdıra və oxutma ilişmələrini düzəldə bilər.
-
-AVC-nin maksimum dəqiqliyi 1080p-dir, Opus səs kodek əlçatan deyil və video oxutma, VP9 və ya AV1-dən daha çox internet datası istifadə edəcək."</string>
-  <string name="revanced_spoof_video_streams_about_ios_title">iOS saxtakarlığı yan təsirləri</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"◦ Xüsusi uşaq videoları bəlkə də oynanılmaya bilər
-◦ Videolar 1 saniyə tez bitir"</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR saxtakarlığı yan təsirləri</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Uşaq videoları oynanmaya bilər
-• Səs izləri menyusu yoxdur
+  <string name="revanced_spoof_video_streams_about_title">Yan effektlərin spoof edilməsi</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Uşaq videoları işlənməyə bilər
+• Səs izləri menyusunu itkindir
 • Sabit səs mövcud deyil
-• Orijinal səsi məcbur etmək mümkün deyil"</string>
+• Orijinal səs məcburi olaraq mövcud deyil"</string>
   <string name="revanced_spoof_video_streams_language_title">İlkin səs yayımı dili</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Tətbiq dili</string>
   <string name="revanced_spoof_video_streams_language_AR">Ərəbcə</string>

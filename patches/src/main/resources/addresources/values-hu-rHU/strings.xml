@@ -1286,20 +1286,11 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
 A videólejátszás nem működhet"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">A beállítás kikapcsolása videolejátszási problémákat okozhat.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Alapértelmezett kliens</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">AVC (H.264) kényszerítése</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">A videokodek AVC-re kényszerítve (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">A videokodek meghatározása automatikusan történik</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Ennek engedélyezése javíthatja az akkumulátor üzemidejét, és megoldhatja a lejátszás dadogását.
-
-Az AVC maximális felbontása 1080p, az Opus audio kodek nem érhető el, és a videólejátszás több internetes adatot fog használni, mint a VP9 vagy az AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_title">iOS hamisítási mellékhatások</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• A privát gyerekvideók nem játszhatók le
-• A videók 1 másodperccel korábban érnek véget"</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR-hamisítási mellékhatások</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• A gyermekvideók nem játszódnak le
+  <string name="revanced_spoof_video_streams_about_title">Hamisítás mellékhatásai</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Gyermekvideók előfordulhat, hogy nem játszódnak le
 • Hiányzik a hangsáv menü
-• A stabil hangerő nem érhető el
-• Az eredeti hang kényszerítése nem érhető el"</string>
+• A stabil hangerő nem elérhető
+• Az eredeti hang kényszerítése nem elérhető"</string>
   <string name="revanced_spoof_video_streams_language_title">Alapértelmezett hangfolyam nyelve</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Alkalmazás nyelve</string>
   <string name="revanced_spoof_video_streams_language_AR">Arab</string>

@@ -1288,20 +1288,11 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
 Phát lại video có thể không hoạt động"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Việc tắt cài đặt này có thể gây ra sự cố phát nền video.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Máy khách mặc định</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">AVC (H.264) ép buộc</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Bộ giải mã video bị ép về AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Bộ giải mã video được tự động xác định</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Bật tính năng này có thể cải thiện thời lượng pin và khắc phục hiện tượng giật khi phát lại.
-
-AVC có độ phân giải tối đa là 1080p, bộ giải mã âm thanh Opus không khả dụng và phát lại video sẽ sử dụng nhiều dữ liệu internet hơn VP9 hoặc AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_title">Tác dụng phụ của giả mạo iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Video riêng tư của trẻ em có thể không phát
-• Video kết thúc sớm 1 giây"</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Tác dụng phụ của giả mạo Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Video trẻ em có thể không phát được
-• Thiếu menu âm thanh
-• Không có âm lượng ổn định
-• Không có tùy chọn Âm thanh gốc"</string>
+  <string name="revanced_spoof_video_streams_about_title">Tác dụng phụ của Spoofing</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Video dành cho trẻ em có thể không phát được
+• Thiếu menu bản nhạc
+• Âm lượng ổn định không khả dụng
+• Tùy chọn Bắt buộc âm thanh gốc không khả dụng"</string>
   <string name="revanced_spoof_video_streams_language_title">Ngôn ngữ âm thanh mặc định</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Ngôn ngữ ứng dụng</string>
   <string name="revanced_spoof_video_streams_language_AR">Tiếng Ả Rập</string>
@@ -1319,12 +1310,12 @@ AVC có độ phân giải tối đa là 1080p, bộ giải mã âm thanh Opus k
   <string name="revanced_spoof_video_streams_language_FA">Tiếng Ba Tư</string>
   <string name="revanced_spoof_video_streams_language_FI">Phện Lan Đà</string>
   <string name="revanced_spoof_video_streams_language_FR">Tiếng Pháp</string>
-  <string name="revanced_spoof_video_streams_language_GU">Tiếng Hindi</string>
+  <string name="revanced_spoof_video_streams_language_GU">Tiếng Gujarati</string>
   <string name="revanced_spoof_video_streams_language_HI">Tiếng Hindi</string>
   <string name="revanced_spoof_video_streams_language_HR">Ngôn ngữ Ngôn</string>
   <string name="revanced_spoof_video_streams_language_HU">Tiếng Hungary</string>
   <string name="revanced_spoof_video_streams_language_ID">Tiếng Indonesia</string>
-  <string name="revanced_spoof_video_streams_language_IT">Tiếng Y</string>
+  <string name="revanced_spoof_video_streams_language_IT">Tiếng Ý</string>
   <string name="revanced_spoof_video_streams_language_JA">Tiếng Nhật Bản</string>
   <string name="revanced_spoof_video_streams_language_KK">Tiếng Kazakhstan</string>
   <string name="revanced_spoof_video_streams_language_KO">Tiếng Hàn Quốc</string>
@@ -1334,15 +1325,15 @@ AVC có độ phân giải tối đa là 1080p, bộ giải mã âm thanh Opus k
   <string name="revanced_spoof_video_streams_language_MN">Tiếng Mông Cố</string>
   <string name="revanced_spoof_video_streams_language_MR">Tiếng Marathi</string>
   <string name="revanced_spoof_video_streams_language_MS">Tiếng Malaysia</string>
-  <string name="revanced_spoof_video_streams_language_MY">Tiếng Miến Điặn</string>
-  <string name="revanced_spoof_video_streams_language_NL">Tiếng Hôa Lan</string>
-  <string name="revanced_spoof_video_streams_language_OR">Tiếng Oriya</string>
+  <string name="revanced_spoof_video_streams_language_MY">Tiếng Miến Điện</string>
+  <string name="revanced_spoof_video_streams_language_NL">Tiếng Hà Lan</string>
+  <string name="revanced_spoof_video_streams_language_OR">Tiếng Odia</string>
   <string name="revanced_spoof_video_streams_language_PA">Tiếng Punjab</string>
   <string name="revanced_spoof_video_streams_language_PL">Tiếng Ba Lan</string>
   <string name="revanced_spoof_video_streams_language_PT_BR">Bồ Đào Nha (Brazil)</string>
-  <string name="revanced_spoof_video_streams_language_PT_PT">Tiếng Bắt Đà (Châu Ãu)</string>
+  <string name="revanced_spoof_video_streams_language_PT_PT">Tiếng Bồ (Bồ Đào Nha)</string>
   <string name="revanced_spoof_video_streams_language_RO">Tiếng Rumani</string>
-  <string name="revanced_spoof_video_streams_language_RU">Tiếng Ngà</string>
+  <string name="revanced_spoof_video_streams_language_RU">Tiếng Nga</string>
   <string name="revanced_spoof_video_streams_language_SK">Tiếng Slovak</string>
   <string name="revanced_spoof_video_streams_language_SL">Tiếng Slovenia</string>
   <string name="revanced_spoof_video_streams_language_SR">Tiếng Serbia</string>
@@ -1403,8 +1394,8 @@ AVC có độ phân giải tối đa là 1080p, bộ giải mã âm thanh Opus k
   <string name="revanced_ads_screen_summary">Cài đặt chặn quảng cáo</string>
   <string name="revanced_chat_screen_title">Trò chuyện</string>
   <string name="revanced_chat_screen_summary">Cài đặt trò chuyện</string>
-  <string name="revanced_misc_screen_title">Cài đặt khác</string>
-  <string name="revanced_misc_screen_summary">Cài đặt khác</string>
+  <string name="revanced_misc_screen_title">Linh tinh</string>
+  <string name="revanced_misc_screen_summary">Cài đặt linh tinh</string>
   <string name="revanced_general_category_title">Cài đặt chung</string>
   <string name="revanced_other_category_title">Cài đặt khác</string>
   <string name="revanced_client_ads_category_title">Quảng cáo phía máy khách</string>

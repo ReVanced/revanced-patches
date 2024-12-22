@@ -1289,20 +1289,11 @@ Second \"item\" text"</string>
 视频播放可能无法正常工作"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">关闭此选项可能会导致视频不能正常播放。</string>
   <string name="revanced_spoof_video_streams_client_type_title">默认客户端</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">强制使用 AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">视频编解码器已强制使用 AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">视频编解码器会自动确定</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"启用此功能可能会延长电池续航时间并解决播放卡顿问题。
-
-AVC 的最大分辨率为 1080p，Opus 音频编解码器不可用，视频播放将比 VP9 或 AV1 使用更多互联网数据。"</string>
-  <string name="revanced_spoof_video_streams_about_ios_title">iOS 伪装副作用</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• 私人儿童视频可能无法播放
-• 视频提前 1 秒结束"</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR 伪装副作用</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• 儿童视频可能无法播放
-• 缺少音轨菜单
-• 稳定音量不可用
-• 强制原始音频不可用"</string>
+  <string name="revanced_spoof_video_streams_about_title">模拟视频播放效果</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• 儿童视频可能无法播放
+• 音轨菜单缺失
+• 音量稳定不可用
+• 强制使用原始音频不可用"</string>
   <string name="revanced_spoof_video_streams_language_title">默认音频流语言</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">应用语言</string>
   <string name="revanced_spoof_video_streams_language_AR">阿拉伯语</string>

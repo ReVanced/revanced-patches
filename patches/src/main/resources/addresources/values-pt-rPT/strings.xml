@@ -1287,18 +1287,9 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
 Phát video có thể không hoạt động"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Desativar essa configuração pode causar problemas de reprodução de vídeo.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Cliente padrão</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Forçar AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Codec de vídeo é forçado a AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Codec de vídeo é determinado automaticamente</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Bật tính năng này có thể cải thiện thời lượng pin và khắc phục hiện tượng giật hình khi phát lại.
-
-AVC có độ phân giải tối đa là 1080p, bộ giải mã âm thanh Opus không khả dụng và phát video sẽ sử dụng nhiều dữ liệu internet hơn so với VP9 hoặc AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_title">Efeitos colaterais de iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Vídeos privados de crianças podem não ser reproduzidos
-• Os vídeos terminam 1 segundo mais cedo"</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR efeito de spoofing side</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Os vídeos para crianças podem não ser reproduzidos
-• O menu de faixas de áudio está ausente
+  <string name="revanced_spoof_video_streams_about_title">Efeito colateral de falsificação</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Os vídeos infantis podem não ser reproduzidos
+• O menu da faixa de áudio está ausente
 • O volume estável não está disponível
 • Forçar áudio original não está disponível"</string>
   <string name="revanced_spoof_video_streams_language_title">Idioma padrão do fluxo de áudio</string>

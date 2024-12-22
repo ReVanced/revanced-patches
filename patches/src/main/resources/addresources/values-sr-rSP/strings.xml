@@ -125,7 +125,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_channel_watermark_summary_on">Водени жиг канала је скривен</string>
   <string name="revanced_hide_channel_watermark_summary_off">Водени жиг канала је приказан</string>
   <string name="revanced_hide_horizontal_shelves_title">Сакриј хоризонталне полице</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"Полице су скривене, као што су:
+  <string name="revanced_hide_horizontal_shelves_summary_on">"Хоризонталне полице су скривене:
 • Најновије вести
 • Наставите да гледате
 • Истражите више канала
@@ -277,8 +277,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_timestamp_and_emoji_buttons_summary_off">Дугмад за временску ознаку и емоџије су приказана</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Сакриј YouTube Doodles</string>
-  <string name="revanced_hide_doodles_summary_on">YouTube Doodles у траци за претрагу је скривен</string>
-  <string name="revanced_hide_doodles_summary_off">YouTube Doodles у траци за претрагу је приказан</string>
+  <string name="revanced_hide_doodles_summary_on">Doodles на траци за претрагу је скривен</string>
+  <string name="revanced_hide_doodles_summary_off">Doodles на траци за претрагу је приказан</string>
   <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodles се приказује неколико дана сваке године.
 
 Ако се Doodle тренутно приказује у вашем региону и ова опција скривања је укључена, трака филтера испод траке за претрагу такође ће бити скривена."</string>
@@ -801,16 +801,16 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
   <string name="revanced_seekbar_thumbnails_high_quality_title">Омогући висококвалитетне сличице</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Сличице на траци за премотавање су високог квалитета</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Сличице на траци за премотавање су средњег квалитета</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Сличице на траци за премотавање у режиму целог екрана су високог квалитета</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Сличице на траци за премотавање у режиму целог екрана су средњег квалитета</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Ово ће такође вратити сличице на стримовима уживо који немају сличице на траци за премотавање.
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Сличице траке за премотавање су високог квалитета</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Сличице траке за премотавање су средњег квалитета</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Сличице траке за премотавање у режиму целог екрана су високог квалитета</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Сличице траке за премотавање у режиму целог екрана су средњег квалитета</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Ово ће такође вратити сличице на стримовима уживо који немају сличице траке за премотавање.
 
-Сличице на траци за премотавање ће користити исти квалитет као тренутни видео.
+Сличице траке за премотавање ће користити исти квалитет као тренутни видео.
 
 Ова функција најбоље ради са квалитетом видеа од 720p или нижим и када користите веома брзу интернет везу."</string>
-  <string name="revanced_restore_old_seekbar_thumbnails_title">Врати старе сличице на траци за премотавање</string>
+  <string name="revanced_restore_old_seekbar_thumbnails_title">Врати старе сличице траке за премотавање</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">Сличице траке за премотавање ће се појавити изнад ње</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">Сличице траке за премотавање ће се појавити у режиму целог екрана</string>
   </patch>
@@ -929,7 +929,7 @@ Second \"item\" text"</string>
   <string name="revanced_sb_skip_automatically">Прескочи аутоматски</string>
   <string name="revanced_sb_skip_automatically_once">Прескочи аутоматски једанпут</string>
   <string name="revanced_sb_skip_showbutton">Прикажи дугме за прескакање</string>
-  <string name="revanced_sb_skip_seekbaronly">Прикажи у траци за премотавање</string>
+  <string name="revanced_sb_skip_seekbaronly">Прикажи на траци за премотавање</string>
   <string name="revanced_sb_skip_ignore">Онемогући</string>
   <string name="revanced_sb_submit_failed_invalid">Није могуће поднети сегмент: %s</string>
   <string name="revanced_sb_submit_failed_timeout">SponsorBlock привремено не ради</string>
@@ -1286,20 +1286,11 @@ Second \"item\" text"</string>
 Репродукција видеа можда неће радити"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Искључивање ове опције ће можда изазвати проблеме са репродукцијом видеа.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Подразумевани клијент</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Присили AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Видео кодек је присилно подешен на AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Видео кодек је одређен аутоматски</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Ако ово омогућите, можда ће се продужити трајање батерије и поправити застој при репродукцији.
-
-AVC има максималну резолуцију од 1080p, аудио кодек Opus није доступан, а репродукција видеа ће користити више интернет података него VP9 или AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_title">Нежељени ефекти лажирања на iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Приватни дечји видеи се можда неће пуштати
-• Видеи ће се завршити 1 секунду раније"</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Нежељени ефекти лажирања на Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Дечији видео снимци се можда неће репродуковати
-• Мени аудио записа недостаје
-• Стабилна јачина звука није доступна
-• Присилни оригинални звук није доступан"</string>
+  <string name="revanced_spoof_video_streams_about_title">Нежељени ефекти лажирања</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Видеи за децу се можда неће пуштати
+• Мени „Аудио снимак” недостаје
+• Уједначена јачина звука није доступна
+• Опција „Присили оригинални звук” није доступна"</string>
   <string name="revanced_spoof_video_streams_language_title">Подразумевани језик аудио стрима</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Језик апликације</string>
   <string name="revanced_spoof_video_streams_language_AR">Арапски</string>

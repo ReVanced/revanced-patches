@@ -1289,20 +1289,11 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
 Video taasesitus ei pruugi toimida"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Selle seade keelamine võib põhjustada videote taasesituse probleeme.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Vaikimisi klient</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Sunni AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Videokodek on sunnitud AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Videokodek määratakse automaatselt</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Selle lubamine võib parandada aku kestvust ja parandada video taasesituse peatumise probleemi.
-
-AVC-l on maksimaalne resolutsioon 1080p, Opus-heli kodeerijat pole saadaval ja video taasesitus kasutab rohkem interneti andmeid kui VP9 või AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_title">iOS-i võltsimise kõrvalmõjud</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Privaatseid lastevideoid ei pruugita esitada
-• Videod lõpevad 1 sekund varem"</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR spoofing-i kõrvalmõjud</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Laste videod ei pruugi mängida
-• Heliriba menüü pole saadaval
-• Stabiilne helitugevus pole saadaval
-• Originaalheli pole saadaval"</string>
+  <string name="revanced_spoof_video_streams_about_title">Võltsitud kõrvalmõjud</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Lastevideod ei pruugi esitada
+• Heliriba menüü puudub
+• Stabiilset helitugevust ei ole saadaval
+• Sunnitud originaalheli ei ole saadaval"</string>
   <string name="revanced_spoof_video_streams_language_title">Vaikimisi helivoolu keel</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Rakenduse keel</string>
   <string name="revanced_spoof_video_streams_language_AR">Araabia keel</string>
