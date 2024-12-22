@@ -1270,10 +1270,7 @@ Es posible que la reproducción de vídeo no funcione"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Desactivar esta configuración puede causar problemas de reproducción de vídeo.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Cliente por defecto</string>
   <string name="revanced_spoof_video_streams_about_title">Simulación de efectos secundarios</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Es posible que los vídeos para niños no se reproduzcan
-• Falta el menú de pistas de audio
-• El volumen estable no está disponible
-• Forzar audio original no está disponible"</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Es posible que los vídeos para niños no se reproduzcan"</string>
   <string name="revanced_spoof_video_streams_language_title">Idioma de flujo de audio por defecto</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Idioma de la aplicación</string>
   <string name="revanced_spoof_video_streams_language_AR">Árabe</string>

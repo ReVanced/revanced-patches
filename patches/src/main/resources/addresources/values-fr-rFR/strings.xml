@@ -1289,10 +1289,9 @@ La lecture vidéo peut ne pas fonctionner"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Désactiver ce paramètre peut causer des problèmes de lecture vidéo.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Client par défaut</string>
   <string name="revanced_spoof_video_streams_about_title">Effets inconnus de la falsification</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Les vidéos pour enfants risquent de ne pas être lues
-• Le menu de la piste audio est manquant
+  <string name="revanced_spoof_video_streams_about_summary">"• Le menu de la piste audio est manquant
 • Le volume stable n'est pas disponible
-• Forcer l'audio d'origine n'est pas disponible"</string>
+• Forcer l'audio d'origine n'est pas disponible"</string>
   <string name="revanced_spoof_video_streams_language_title">Langue du flux audio par défaut</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Langue de l\'application</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabe</string>

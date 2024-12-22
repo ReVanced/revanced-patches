@@ -1288,12 +1288,11 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">إيقاف تشغيل هذا الإعداد قد يسبب مشاكل في تشغيل الفيديو.</string>
   <string name="revanced_spoof_video_streams_client_type_title">العميل الافتراضي</string>
   <string name="revanced_spoof_video_streams_about_title">آثار جانبية وهمية</string>
-  <string name="revanced_spoof_video_streams_about_summary">"- قد لا يتم تشغيل مقاطع فيديو للأطفال
-- القائمة صوت المسار مفقودة
-- مستوى الصوت الثابت غير متاح
-- خيار فرض الصوت الأصلي غير متاح"</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• القائمة الصوتية مفقودة
+• الصوت الثابت غير متوفر
+• فرض الصوت الأصلي غير متوفر"</string>
   <string name="revanced_spoof_video_streams_language_title">لغة البث الصوتي الافتراضية</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">لغة التطبيق</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">لغة الحساب</string>
   <string name="revanced_spoof_video_streams_language_AR">العربية</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbaijani</string>
   <string name="revanced_spoof_video_streams_language_BG">Bulgarian</string>

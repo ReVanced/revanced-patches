@@ -1290,8 +1290,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Отключение этой настройки может вызвать проблемы с воспроизведением видео.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Клиент по умолчанию</string>
   <string name="revanced_spoof_video_streams_about_title">Побочные эффекты подмены</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Видео для детей могут не воспроизводиться
-• Меню звуковой дорожки отсутствует
+  <string name="revanced_spoof_video_streams_about_summary">"• Меню звуковой дорожки отсутствует
 • Постоянный уровень громкости недоступен
 • Принудительное использование оригинальной звуковой дорожки недоступно"</string>
   <string name="revanced_spoof_video_streams_language_title">Язык аудио потока по умолчанию</string>
