@@ -1,3 +1,10 @@
+## [5.7.1-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.7.1-dev.3...v5.7.1-dev.4) (2024-12-22)
+
+
+### Bug Fixes
+
+* **YouTube:** Do not reset playback speed to 1.0x after closing comment thread (Fixes stock YouTube bug) ([#4195](https://github.com/ReVanced/revanced-patches/issues/4195)) ([dda788c](https://github.com/ReVanced/revanced-patches/commit/dda788c58c789d4f91646ea8e8a8077f590ab6b3))
+
 ## [5.7.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.7.1-dev.2...v5.7.1-dev.3) (2024-12-22)
 
 
