@@ -1287,20 +1287,11 @@ Att aktivera detta kan låsa upp högre videokvalitet"</string>
 Videouppspelning kanske inte fungerar"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Att stänga av den här inställningen kan orsaka videouppspelningsproblem.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Standard klient</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Tvinga AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video-codec tvingas till AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video-codec bestäms automatiskt</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Att aktivera detta kan förbättra batteritiden och åtgärda hackig uppspelning.
-
-AVC har en maximal upplösning på 1080p, Opus-ljudcodec är inte tillgänglig och videouppspelning använder mer internetdata än VP9 eller AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_title">iOS förfalskning biverkningar</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Privata barnvideor kanske inte spelas upp
-• Videor slutar 1 sekund för tidigt"</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR förfalskning biverkningar</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"- Barnvideoklipp kanske inte spelas
-- Ljudspårsmenyn saknas
-- Stabil volym är inte tillgänglig
-- Tvinga originalspråk är inte tillgänglig"</string>
+  <string name="revanced_spoof_video_streams_about_title">Spoofing biverkningar</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Barnvideor kanske inte spelas upp
+• Ljudspårsmenyn saknas
+• Stabil volym är inte tillgänglig
+• Tvinga original ljud är inte tillgängligt"</string>
   <string name="revanced_spoof_video_streams_language_title">Standard ljudströmningsspråk</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Appens språk</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabiska</string>

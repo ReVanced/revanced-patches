@@ -1288,20 +1288,11 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
 Տեսանյութի վերարտադրումը կարող է չաշխատել։"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Այս  կարգավորման  անջատումը  կարող է  առաջացնել  տեսանյութի  վերարտադրման  հետ  կապված  պրոբլեմներ</string>
   <string name="revanced_spoof_video_streams_client_type_title">Դեֆոլտ  կլիենտ</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Անհրաժեշտ  է  AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Տեսանյութի  կոդեկը  սահմանվում է  AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Տեսանյութի  կոդեկը  սահմանվում է  ավտոմատ</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Այս կարգավորման միացումը կարող է բարելավել մարտկոցի կյանքը և լուծել վերարտադրության կտրուկ մեծացման խնդիրը։
-
-AVC-ն ունի առավելագույն 1080p լուծում, Opus ձայնային կոդավորումը հասանելի չէ, և տեսանյութի վերարտադրումը կօգտագործի ավելի շատ ինտերնետ տվյալներ, քան VP9 կամ AV1-ը։"</string>
-  <string name="revanced_spoof_video_streams_about_ios_title">iOS  փոփոխության  կողմնակի  ազդեցություններ</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Երեխաների համար նախատեսված մասնավոր տեսանյութերը կարող են չհեռարձակվել
-• Տեսանյութերն ավարտվում են 1 վայրկյան շուտ"</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR  փոփոխության  կողմնակի  ազդեցություններ</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Մանկական տեսանյութերը չեն կարող լինել
-• Ձայնային ֆայլի ընտրացանկը բացակայում է
-• Ստաբիլ ձայնի մակարդակը հասանելի չէ
-• Իրական ձայնի հնարավորությունը հասանելի չէ"</string>
+  <string name="revanced_spoof_video_streams_about_title">Խաբեության կողմնակի ազդեցություններ</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Մանկական տեսանյութերը կարող են չնվագարկվել
+• Աուդիո ուղու ընտրացանկը բացակայում է
+• Կայուն ծավալը հասանելի չէ
+• Պարտադրել բնօրինակ ձայնը հասանելի չէ"</string>
   <string name="revanced_spoof_video_streams_language_title">Ըստ նախապատվության, հնչյունային հոսքի լեզուն</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Ծրագրի լեզուն</string>
   <string name="revanced_spoof_video_streams_language_AR">Արաբերեն</string>

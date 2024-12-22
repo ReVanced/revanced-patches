@@ -1289,23 +1289,11 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
 Ang paglalaro ng video ay maaaring hindi gumana"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Ang pag-off sa setting na ito ay maaaring magdulot ng mga isyu sa pag-playback ng video.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Default na kliyente</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Pilitin ang AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Ang video codec ay napipilitang maging AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Awtomatikong natutukoy ang video codec</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Ang pagpapagana nito ay maaaring mapabuti ang buhay ng baterya at ayusin ang pag-stutter ng paglalaro.
-
-Ang AVC ay may maximum na resolution na 1080p, ang Opus audio codec ay hindi magagamit, at ang paglalaro ng video ay gagamit ng mas maraming data sa internet kaysa sa VP9 o AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_title">Mga Epekto sa Gilid ng Pag-spoof ng iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"
-• Maaaring hindi ma-play ang mga pribadong video ng mga bata
-• Nagtatapos ang mga video ng 1 segundo nang mas maaga"</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Mga epekto sa gilid ng pag-spoof ng Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Maaaring hindi maipalabas ang mga video para sa mga bata
-• Nawawala ang menu ng audio track
-• Hindi available ang matatag na volume
-• Hindi available ang puwersahang orihinal na audio
-
-"</string>
+  <string name="revanced_spoof_video_streams_about_title">**Spoofing** ng mga side effect</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Ang mga video sa Bata ay maaaring hindi magpatugtog
+• Nawawala ang menu ng track ng audio
+• Hindi magagamit ang matatag na volume
+• Hindi magagamit ang pilitin ang orihinal na audio"</string>
   <string name="revanced_spoof_video_streams_language_title">Default na wika ng audio stream</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Wika ng app</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabe</string>

@@ -1286,20 +1286,11 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
 La riproduzione video potrebbe non funzionare"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Disattivando questa impostazione potrebbe causare problemi di riproduzione video.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Client predefinito</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Forza AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Il codec video è forzato ad AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Il codec video viene determinato automaticamente</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Abilitare questa opzione potrebbe migliorare la durata della batteria e risolvere i rallentamenti nella riproduzione.
-
-AVC ha una risoluzione massima di 1080p, il codec audio Opus non è disponibile e la riproduzione video utilizzerà più dati rispetto a VP9 o AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_title">Effetti collaterali simulazione iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• I video per bambini privati potrebbero non essere riproducibili
-• I video terminano 1 secondo prima"</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Effetti collaterali simulazione Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• I video per bambini potrebbero non essere riproducibili
-• Il menu della traccia audio è mancante
+  <string name="revanced_spoof_video_streams_about_title">Effetti collaterali della simulazione</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• I video per bambini potrebbero non essere riprodotti
+• Manca il menu della traccia audio
 • Il volume stabile non è disponibile
-• Forzare l'audio originale non è disponibile"</string>
+• Forza l'audio originale non è disponibile"</string>
   <string name="revanced_spoof_video_streams_language_title">Lingua predefinita del flusso audio</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Lingua app</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabo</string>

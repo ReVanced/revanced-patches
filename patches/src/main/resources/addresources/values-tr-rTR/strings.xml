@@ -1287,17 +1287,8 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
 Video oynatma çalışmayabilir"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Bu ayarı devre dışı bırakmak video oynatma sorunlarına yol açabilir.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Varsayılan istemci</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">AVC\'yi (H.264) zorla</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodeği AVC\'ye zorlanıyor (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodeği otomatik olarak ayarlanır</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Bunu etkinleştirmek pil ömrünü artırabilir ve oynatma takılmasını düzeltebilir.
-
-AVC'nin maksimum çözünürlüğü 1080p'dir, Opus ses kodeği mevcut değildir ve video oynatma VP9 veya AV1'den daha fazla internet verisi kullanacaktır."</string>
-  <string name="revanced_spoof_video_streams_about_ios_title">iOS taklidi yan etkileri</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Çocuklara özel gizli videolar oynatılmayabilir
-• Videolar 1 saniye erken biter"</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR taklidi yan etkileri</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Çocuklara özel gizli videoları oynatılmayabilir
+  <string name="revanced_spoof_video_streams_about_title">Taklit yan etkileri</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Çocuklara özel videolar oynatılmayabilir
 • Ses parçası menüsü eksik
 • Sabit ses özelliği kullanılamaz
 • Orijinal sesi zorlama kullanılamaz"</string>
