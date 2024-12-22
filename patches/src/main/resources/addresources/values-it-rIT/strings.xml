@@ -1287,12 +1287,11 @@ La riproduzione video potrebbe non funzionare"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Disattivando questa impostazione potrebbe causare problemi di riproduzione video.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Client predefinito</string>
   <string name="revanced_spoof_video_streams_about_title">Effetti collaterali della simulazione</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• I video per bambini potrebbero non essere riprodotti
-• Manca il menu della traccia audio
+  <string name="revanced_spoof_video_streams_about_summary">"• Il menu traccia audio è mancante
 • Il volume stabile non è disponibile
 • Forza l'audio originale non è disponibile"</string>
   <string name="revanced_spoof_video_streams_language_title">Lingua predefinita del flusso audio</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Lingua app</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">Lingua dell\'account</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabo</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbaigiano</string>
   <string name="revanced_spoof_video_streams_language_BG">Bulgaro</string>

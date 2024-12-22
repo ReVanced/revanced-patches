@@ -1290,12 +1290,11 @@ Ang paglalaro ng video ay maaaring hindi gumana"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Ang pag-off sa setting na ito ay maaaring magdulot ng mga isyu sa pag-playback ng video.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Default na kliyente</string>
   <string name="revanced_spoof_video_streams_about_title">**Spoofing** ng mga side effect</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Ang mga video sa Bata ay maaaring hindi magpatugtog
-• Nawawala ang menu ng track ng audio
-• Hindi magagamit ang matatag na volume
-• Hindi magagamit ang pilitin ang orihinal na audio"</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Kulang ang menu ng audio track
+• Hindi available ang matatag na volume
+• Hindi available ang piliting i-play ang orihinal na audio"</string>
   <string name="revanced_spoof_video_streams_language_title">Default na wika ng audio stream</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Wika ng app</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">Wika ng account</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabe</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerbaijani</string>
   <string name="revanced_spoof_video_streams_language_BG">Bulgarian</string>

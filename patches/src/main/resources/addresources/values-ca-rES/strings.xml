@@ -1289,8 +1289,7 @@ La reproducció de vídeo pot no funcionar"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Desactivar aquesta configuració pot causar problemes de reproducció de vídeo.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Client predeterminat</string>
   <string name="revanced_spoof_video_streams_about_title">Efectes secundaris de suplantació</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• És possible que els vídeos infantils no es reprodueixin
-• Falta el menú de pista d'àudio
+  <string name="revanced_spoof_video_streams_about_summary">"• Falta el menú de pista d'àudio
 • El volum estable no està disponible
 • Força l'àudio original no està disponible"</string>
   <string name="revanced_spoof_video_streams_language_title">Idioma de la transmissió d\'àudio per defecte</string>

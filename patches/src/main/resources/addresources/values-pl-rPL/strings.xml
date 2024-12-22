@@ -1288,12 +1288,11 @@ Odtwarzanie wideo może nie działać"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Wyłączenie tej opcji może spowodować problemy z odtwarzaniem filmów.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Domyślny klient</string>
   <string name="revanced_spoof_video_streams_about_title">Fałszywe skutki uboczne</string>
-  <string name="revanced_spoof_video_streams_about_summary">"• Filmy dla dzieci mogą być niedostępne
-• Brakuje menu ścieżek audio
-• Głośność stabilna jest niedostępna
-• Narzucanie oryginalnego dźwięku jest niedostępne"</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Brak menu ścieżki dźwiękowej
+• Stabilna głośność jest niedostępna
+• Wymuś oryginalny dźwięk jest niedostępny"</string>
   <string name="revanced_spoof_video_streams_language_title">Domyślny język strumienia dźwięku</string>
-  <string name="revanced_spoof_video_streams_language_DEFAULT">Język aplikacji</string>
+  <string name="revanced_spoof_video_streams_language_DEFAULT">Język konta</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabski</string>
   <string name="revanced_spoof_video_streams_language_AZ">Azerski</string>
   <string name="revanced_spoof_video_streams_language_BG">Bułgarski</string>
