@@ -33,15 +33,6 @@ public enum ClientType {
             "com.google.android.apps.youtube.unplugged/8.49.0 (Linux; U; Android 14; GB) gzip",
             "34",
             "8.49.0",
-            true), // Requires login.
-    ANDROID_CREATOR(
-        14,
-            "ANDROID_CREATOR",
-            "Android",
-            "11",
-            "com.google.android.apps.youtube.creator/24.45.100 (Linux; U; Android 11) gzip",
-            "30",
-            "24.45.100",
             true); // Requires login.
 
     /**

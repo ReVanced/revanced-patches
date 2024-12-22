@@ -22,6 +22,7 @@ import java.util.concurrent.TimeoutException;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
+import app.revanced.extension.shared.spoof.AudioStreamLanguage;
 import app.revanced.extension.shared.spoof.ClientType;
 
 /**
@@ -36,20 +37,25 @@ import app.revanced.extension.shared.spoof.ClientType;
 public class StreamingDataRequest {
 
     private static final ClientType[] CLIENT_ORDER_TO_USE = ClientType.values();
+
     private static final String AUTHORIZATION_HEADER = "Authorization";
+
     private static final String[] REQUEST_HEADER_KEYS = {
             AUTHORIZATION_HEADER, // Available only to logged-in users.
             "X-GOOG-API-FORMAT-VERSION",
             "X-Goog-Visitor-Id"
     };
+
     /**
      * TCP connection and HTTP read timeout.
      */
     private static final int HTTP_TIMEOUT_MILLISECONDS = 10 * 1000;
+
     /**
      * Any arbitrarily large value, but must be at least twice {@link #HTTP_TIMEOUT_MILLISECONDS}
      */
     private static final int MAX_MILLISECONDS_TO_WAIT_FOR_FETCH = 20 * 1000;
+
     private static final Map<String, StreamingDataRequest> cache = Collections.synchronizedMap(
             new LinkedHashMap<>(100) {
                 /**
@@ -68,6 +74,7 @@ public class StreamingDataRequest {
             });
 
     private final String videoId;
+
     private final Future<ByteBuffer> future;
 
     private StreamingDataRequest(String videoId, Map<String, String> playerHeaders) {
@@ -157,13 +164,21 @@ public class StreamingDataRequest {
             // Show an error if the last client type fails, or if the debug is enabled then show for all attempts.
             final boolean showErrorToast = (++i == CLIENT_ORDER_TO_USE.length) || debugEnabled;
 
+            if (clientType == ClientType.ANDROID_VR_NO_AUTH
+                    && BaseSettings.SPOOF_VIDEO_STREAMS_LANGUAGE.get() == AudioStreamLanguage.DEFAULT) {
+                // Only use no auth Android VR if a non default audio language is selected.
+                continue;
+            }
+
             HttpURLConnection connection = send(clientType, videoId, playerHeaders, showErrorToast);
             if (connection != null) {
                 try {
                     // gzip encoding doesn't response with content length (-1),
                     // but empty response body does.
                     if (connection.getContentLength() == 0) {
-                        Logger.printDebug(() -> "Received empty response for client: " + clientType);
+                        if (BaseSettings.DEBUG.get()) {
+                            Logger.printException(() -> "Ignoring empty client response: " + clientType);
+                        }
                     } else {
                         try (InputStream inputStream = new BufferedInputStream(connection.getInputStream());
                              ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
