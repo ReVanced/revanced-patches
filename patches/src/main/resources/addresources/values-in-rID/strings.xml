@@ -519,10 +519,10 @@ Catatan: Mengaktifkan ini juga akan memaksa menyembunyikan iklan video"</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">Bilah status buram</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">Bilah status buram atau tembus pandang</string>
   <string name="revanced_disable_translucent_navigation_bar_light_title">Nonaktifkan bilah tembus cahaya terang</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Bilah navigasi mode terang tidak tembus cahaya</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">Bilah navigasi mode terang adalah buram</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">Bilah navigasi mode terang buram atau tembus pandang</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_title">Nonaktifkan bilah tembus pandang gelap</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Bilah navigasi mode gelap tidak tembus cahaya</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">Bilah navigasi mode gelap adalah buram</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">Bilah navigasi mode gelap buram atau tembus pandang</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
@@ -1230,7 +1230,7 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Paksa audio asli</string>
   <string name="revanced_force_original_audio_summary_on">Menggunakan audio asli</string>
-  <string name="revanced_force_original_audio_summary_off">Menggunakan audio default</string>
+  <string name="revanced_force_original_audio_summary_off">Menggunakan audio bawaan</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as revanced_custom_playback_speeds_auto -->
@@ -1286,17 +1286,8 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
 Playback video mungkin tidak berfungsi"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Mematikan pengaturan ini dapat menyebabkan masalah pemutaran video.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Klien bawaan</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Paksa AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Kodek video dipaksa ke AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodek video ditentukan otomatis</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Mengaktifkan ini dapat meningkatkan masa pakai baterai dan memperbaiki masalah playback.
-
-AVC memiliki resolusi maksimum 1080p, codec audio Opus tidak tersedia, dan playback video akan menggunakan lebih banyak data internet daripada VP9 atau AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_title">Efek samping pemalsuan iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Video pribadi anak-anak mungkin tidak diputar
-• Video berakhir 1 detik lebih awal"</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Efek samping pemalsuan Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Video anak mungkin tidak bisa diputar
+  <string name="revanced_spoof_video_streams_about_title">Efek Samping Pemalsuan</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Video anak-anak mungkin tidak dapat diputar
 • Menu trek audio tidak ada
 • Volume stabil tidak tersedia
 • Paksa audio asli tidak tersedia"</string>
@@ -1342,7 +1333,7 @@ AVC memiliki resolusi maksimum 1080p, codec audio Opus tidak tersedia, dan playb
   <string name="revanced_spoof_video_streams_language_RO">Rumania</string>
   <string name="revanced_spoof_video_streams_language_RU">Rusia</string>
   <string name="revanced_spoof_video_streams_language_SK">Slovakia</string>
-  <string name="revanced_spoof_video_streams_language_SL">Bahasa Slovenia</string>
+  <string name="revanced_spoof_video_streams_language_SL">Slovenia</string>
   <string name="revanced_spoof_video_streams_language_SR">Serbia</string>
   <string name="revanced_spoof_video_streams_language_SV">Swedia</string>
   <string name="revanced_spoof_video_streams_language_SW">Swahili</string>

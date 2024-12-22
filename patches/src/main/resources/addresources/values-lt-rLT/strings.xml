@@ -1289,20 +1289,11 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
 Vaizdo įrašo atkūrimas gali neveikti"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Išjungus šį nustatymą, gali kilti vaizdo įrašų atkūrimo problemų.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Numatytasis klientas</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Priversti AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Vaizdo kodekas priverstinai nustatytas į AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Vaizdo kodekas nustatomas automatiškai</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Įjungus šį nustatymą, gali pagerėti baterijos veikimo laikas ir būti ištaisytas vaizdo įrašo atkūrimo strigimas.
-
-AVC maksimalus rezoliucija yra 1080p, Opus garso kodekas nėra prieinamas, o vaizdo įrašo atkūrimas naudoja daugiau interneto duomenų nei VP9 arba AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_title">iOS apgaulės šalutiniai poveikiai</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Privatūs vaikų vaizdo įrašai gali neveikti
-• Vaizdo įrašai baigiasi 1 sekunde anksčiau"</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR apgaulės šalutiniai poveikiai</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Vaikų vaizdo įrašai gali neatsidarys
-• Trūksta garso takelio meniu
-• Stabilaus garso nėra
-• Nėra galimybės priverstinai nustatyti originalaus garso"</string>
+  <string name="revanced_spoof_video_streams_about_title">Apsimetimo šalutinis poveikis</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Vaikų vaizdo įrašai gali būti nepaleidžiami
+• Nėra garso takelio meniu
+• Stabilus garsumas nepasiekiamas
+• Priverstinis originalus garsas nepasiekiamas"</string>
   <string name="revanced_spoof_video_streams_language_title">Numatytoji garso srauto kalba</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Programėlės kalba</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabų</string>

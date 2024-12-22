@@ -27,7 +27,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_dialog_ignore_button">忽略</string>
   <string name="revanced_check_environment_failed_message">&lt;h5&gt;這個應用程式似乎並非由您修補。&lt;/h5&gt;&lt;br&gt;這個應用程式可能無法正常運作，&lt;b&gt;可能有害甚至存在危險。&lt;/b&gt;&lt;br&gt;&lt;br&gt;這些檢查表明該應用程式是預先修補的或來自其他來源：&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;強烈建議&lt;b&gt;解除安裝此應用程式並自行修補&lt;/b&gt;，以確保您使用的是經過驗證且安全的應用程式。&lt;p&gt;&lt;br&gt;如果忽略，此警告僅會顯示兩次。</string>
   <string name="revanced_check_environment_not_same_patching_device">在其他裝置上修補</string>
-  <string name="revanced_check_environment_manager_not_expected_installer">未由 ReVanced Manager 安裝</string>
+  <string name="revanced_check_environment_manager_not_expected_installer">不是由 ReVanced Manager 安裝</string>
   <string name="revanced_check_environment_not_near_patch_time">修補時間超過 10 分鐘</string>
   <string name="revanced_check_environment_not_near_patch_time_days">修補於 %s 天前</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK 構建日期已損壞</string>
@@ -524,7 +524,7 @@ Second \"item\" text"</string>
   <string name="revanced_disable_translucent_navigation_bar_light_summary_off">淺色模式導航列為不透明或半透明</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_title">停用深色半透明欄</string>
   <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">深色模式導覽列為不透明</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">深色模式導航列為不透明或半透明</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">深色模式導覽列為不透明或半透明</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">介面選單</string>
@@ -1052,7 +1052,7 @@ Second \"item\" text"</string>
   <string name="revanced_disable_resuming_shorts_player_summary_off">Shorts 播放器將會在應用程式啟動後復原</string>
   </patch>
   <patch id="layout.shortsplayer.shortsPlayerTypePatch">
-  <string name="revanced_shorts_player_type_title">開啟 YouTube Shorts</string>
+  <string name="revanced_shorts_player_type_title">以 YouTube Shorts 開啟</string>
   <string name="revanced_shorts_player_type_shorts">Shorts 播放器</string>
   <string name="revanced_shorts_player_type_regular_player">一般播放器</string>
   <string name="revanced_shorts_player_type_regular_player_fullscreen">一般播放器全螢幕</string>
@@ -1289,22 +1289,12 @@ Second \"item\" text"</string>
 
 影片播放可能無法正常運作"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">關閉此設定可能會導致影片播放發生問題</string>
-  <string name="revanced_spoof_video_streams_client_type_title">預設用戶端</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">強制 AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">強制以 AVC (H.264) 作為影片解碼器</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">自動選擇影片解碼器</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"啟用此設定可能會延長電池續航時間並解決播放不流暢等問題。
-
-AVC 的最高解析度為 1080p，不支援 Opus 音訊格式，影片播放會比 VP9 或 AV1 消耗更多網路流量。
-"</string>
-  <string name="revanced_spoof_video_streams_about_ios_title">iOS 欺騙副作用</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• 私人兒童影片可能無法播放
-• 影片提前 1 秒結束"</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Android VR 欺騙副作用</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• 影片可能無法撥放
+  <string name="revanced_spoof_video_streams_client_type_title">預設客戶端</string>
+  <string name="revanced_spoof_video_streams_about_title">模擬副作用</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• 影片可能無法播放
 • 音訊曲目選單遺失
 • 穩定音量不可用
-• 強迫使用原始音訊不可用"</string>
+• 強制使用原始音訊不可用"</string>
   <string name="revanced_spoof_video_streams_language_title">預設音訊串流語言</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">應用程式語言</string>
   <string name="revanced_spoof_video_streams_language_AR">阿拉伯語</string>
@@ -1388,9 +1378,9 @@ AVC 的最高解析度為 1080p，不支援 Opus 音訊格式，影片播放會�
   <string name="revanced_show_deleted_messages_entry_3">將已刪除的訊息顯示為劃掉的文字</string>
   </patch>
   <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
-  <string name="revanced_auto_claim_channel_points_title">自動領取頻道忠誠點數</string>
-  <string name="revanced_auto_claim_channel_points_summary_on">已自動地領取頻道忠誠點數</string>
-  <string name="revanced_auto_claim_channel_points_summary_off">未自動地領取頻道忠誠點數</string>
+  <string name="revanced_auto_claim_channel_points_title">自動化領取頻道忠誠點數</string>
+  <string name="revanced_auto_claim_channel_points_summary_on">已開啟自動化領取頻道忠誠點數</string>
+  <string name="revanced_auto_claim_channel_points_summary_off">已關閉自動化領取頻道忠誠點數</string>
   </patch>
   <patch id="debug.debugModePatch">
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title' -->
@@ -1410,7 +1400,7 @@ AVC 的最高解析度為 1080p，不支援 Opus 音訊格式，影片播放會�
   <string name="revanced_misc_screen_summary">其他設定</string>
   <string name="revanced_general_category_title">一般設定</string>
   <string name="revanced_other_category_title">其他設定</string>
-  <string name="revanced_client_ads_category_title">用戶端廣告</string>
+  <string name="revanced_client_ads_category_title">客戶端廣告</string>
   <string name="revanced_surestream_ads_category_title">伺服端 Surestream 廣告</string>
   <string name="revanced_twitch_debug_title">偵錯記錄檔</string>
   <string name="revanced_twitch_debug_summary_on">已啟用偵錯記錄檔</string>

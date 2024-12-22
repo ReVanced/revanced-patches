@@ -1288,20 +1288,11 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
 Video-playback werkt mogelijk niet"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Het uitschakelen van deze instelling kan afspeelproblemen veroorzaken.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Standaard client</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Dwing AVC (H.264) af</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Videoc codec is geforceerd naar AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Videoc codec wordt automatisch bepaald</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Het inschakelen hiervan kan de batterijduur verbeteren en video-playback haperen oplossen.
-
-AVC heeft een maximale resolutie van 1080p, Opus audiocodec is niet beschikbaar en video-playback gebruikt meer internetgegevens dan VP9 of AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_title">Neveneffecten van iOS-vervalsing</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Privé-kindervideo's worden mogelijk niet afgespeeld
-• Video's eindigen 1 seconde eerder"</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Neveneffecten van Android VR-vervalsing</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Kindervideo's worden mogelijk niet afgespeeld
-• Het menu met audiotracks ontbreekt
+  <string name="revanced_spoof_video_streams_about_title">Bijkomende effecten vervalsen</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Kinderfilmpjes worden mogelijk niet afgespeeld
+• Menu voor audiotracks ontbreekt
 • Stabiel volume is niet beschikbaar
-• Originele audio forceren is niet beschikbaar"</string>
+• Forceren van originele audio is niet beschikbaar"</string>
   <string name="revanced_spoof_video_streams_language_title">Standaardtaal voor audiostream</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">App-taal</string>
   <string name="revanced_spoof_video_streams_language_AR">Arabisch</string>
