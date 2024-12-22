@@ -163,22 +163,31 @@ val themePatch = bytecodePatch(
                     }
 
                     // Fix the splash screen dark mode background color.
-                    // In earlier versions of the app this is white and makes no sense for dark mode.
-                    // This is only required for 19.32 and greater, but is applied to all targets.
-                    // Only dark mode needs this fix as light mode correctly uses the custom color.
+                    // In 19.32+ the dark mode splash screen is white and fades to black.
+                    // Maybe it's a bug in YT, or maybe it intentionally. Who knows.
                     document("res/values-night/styles.xml").use { document ->
-                        // Create a night mode specific override for the splash screen background.
-                        val style = document.createElement("style")
-                        style.setAttribute("name", "Theme.YouTube.Home")
-                        style.setAttribute("parent", "@style/Base.V23.Theme.YouTube.Home")
-
-                        val windowItem = document.createElement("item")
-                        windowItem.setAttribute("name", "android:windowBackground")
-                        windowItem.textContent = "@color/$splashBackgroundColor"
-                        style.appendChild(windowItem)
-
                         val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
-                        resourcesNode.appendChild(style)
+                        val childNodes = resourcesNode.childNodes
+
+                        for (i in 0 until childNodes.length) {
+                            val node = childNodes.item(i) as? Element ?: continue
+                            val nodeAttributeName = node.getAttribute("name")
+                            if (nodeAttributeName.startsWith("Theme.YouTube.Launcher")) {
+                                val nodeAttributeParent = node.getAttribute("parent")
+
+                                val style = document.createElement("style")
+                                style.setAttribute("name", "Theme.YouTube.Home")
+                                style.setAttribute("parent", nodeAttributeParent)
+
+                                val windowItem = document.createElement("item")
+                                windowItem.setAttribute("name", "android:windowBackground")
+                                windowItem.textContent = "@color/$splashBackgroundColor"
+                                style.appendChild(windowItem)
+
+                                resourcesNode.removeChild(node)
+                                resourcesNode.appendChild(style)
+                            }
+                        }
                     }
                 }
             }
