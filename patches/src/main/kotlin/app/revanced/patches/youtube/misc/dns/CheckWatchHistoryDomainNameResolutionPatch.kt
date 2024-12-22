@@ -4,6 +4,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
@@ -13,7 +14,10 @@ val checkWatchHistoryDomainNameResolutionPatch = bytecodePatch(
     name = "Check watch history domain name resolution",
     description = "Checks if the device DNS server is preventing user watch history from being saved.",
 ) {
-    dependsOn(addResourcesPatch)
+    dependsOn(
+        sharedExtensionPatch,
+        addResourcesPatch
+    )
 
     compatibleWith(
         "com.google.android.youtube"(
