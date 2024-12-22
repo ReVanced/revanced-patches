@@ -1,3 +1,10 @@
+## [5.7.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.7.0...v5.7.1-dev.1) (2024-12-22)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Use Android VR authentication if using default audio language ([#4191](https://github.com/ReVanced/revanced-patches/issues/4191)) ([98773cc](https://github.com/ReVanced/revanced-patches/commit/98773cc7d46e5c9c7715b82c8006f1ccbcc5443c))
+
 # [5.7.0](https://github.com/ReVanced/revanced-patches/compare/v5.6.0...v5.7.0) (2024-12-22)
 
 
