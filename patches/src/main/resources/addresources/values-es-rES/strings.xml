@@ -1269,20 +1269,11 @@ Habilitar esto puede desbloquear calidades de vídeo más altas"</string>
 Es posible que la reproducción de vídeo no funcione"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Desactivar esta configuración puede causar problemas de reproducción de vídeo.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Cliente por defecto</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Forzar AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Códec de vídeo se ve obligado a AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">El códec de vídeo se determina automáticamente</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Habilitar esto podría mejorar la duración de la batería y solucionar los tartamudeos de la reproducción.
-
-AVC tiene una resolución máxima de 1080p, el códec de audio Opus no está disponible y la reproducción de vídeo utilizará más datos de internet que VP9 o AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_title">Efectos secundarios para la falsificación de iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Es posible que los videos privados para niños no se reproduzcan
-• Los videos terminan 1 segundo antes"</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Efectos secundarios para la falsificación de Android RV</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"•Los videos para niños pueden no reproducirse
-• Menú de pistas de audio no disponible
-• Volumen estable no disponible
-• Forzar audio original no disponible"</string>
+  <string name="revanced_spoof_video_streams_about_title">Simulación de efectos secundarios</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Es posible que los vídeos para niños no se reproduzcan
+• Falta el menú de pistas de audio
+• El volumen estable no está disponible
+• Forzar audio original no está disponible"</string>
   <string name="revanced_spoof_video_streams_language_title">Idioma de flujo de audio por defecto</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Idioma de la aplicación</string>
   <string name="revanced_spoof_video_streams_language_AR">Árabe</string>

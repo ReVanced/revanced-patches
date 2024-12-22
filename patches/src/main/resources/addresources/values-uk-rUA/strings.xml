@@ -1286,20 +1286,11 @@ Second \"item\" text"</string>
 Відтворення відео може не працювати"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Вимкнення цього параметра може спричинити проблеми відтворення відео.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Клієнт за замовчуванням</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Примусово AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Примусово увімкнено відеокодек AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Відеокодек визначається автоматично</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Ввімкнення цієї опції може збільшити час автономної роботи та виправити затримки відтворення.
-
-AVC має максимальну роздільну здатність 1080p, відсутній аудіо кодек OPUS, а відтворення відео використовуватиме більше інтернет-даних, ніж на кодеках VP9 або AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_title">Побічні ефекти підробки iOS:</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Відео для дітей можуть не відтворюватися
-• Відео закінчуються на 1 секунду раніше"</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Побічні ефекти підробки Android VR:</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Дитячі відео можуть не відтворюватися
-• Меню звукових доріжок відсутнє
-• Немає можливості стабільного регулювання гучності
-• Немає можливості примусового відтворення оригінального звуку"</string>
+  <string name="revanced_spoof_video_streams_about_title">Побічні ефекти підробки</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Відео для дітей можуть не відтворюватися
+• Меню звукової доріжки відсутнє
+• Стабілізація гучності недоступна
+• Примусове відтворення оригінальної аудіо доріжки недоступне"</string>
   <string name="revanced_spoof_video_streams_language_title">Стандартна мова аудіопотоку</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Мова застосунку</string>
   <string name="revanced_spoof_video_streams_language_AR">Арабська</string>
