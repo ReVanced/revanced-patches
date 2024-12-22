@@ -668,8 +668,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_use_template_button_summary_on">Кнопка выкарыстання шаблону схавана</string>
   <string name="revanced_hide_shorts_use_template_button_summary_off">Кнопка выкарыстання шаблону паказана</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Схаваць кнопку будучых</string>
-  <string name="revanced_hide_shorts_upcoming_button_summary_on">Кнопка ⬆️Будущие ролики⬆️ скрыта</string>
-  <string name="revanced_hide_shorts_upcoming_button_summary_off">Кнопка ⬆️Будущие ролики⬆️ отображается</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">Кнопка Будущие ролики скрыта</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">Кнопка Будущие ролики отображается</string>
   <string name="revanced_hide_shorts_green_screen_button_title">Скрыть кнопку с зелёным экраном Shorts</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Кнопка с зелёным экраном Shorts скрыта</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Кнопка с зелёным экраном Shorts отображается</string>
@@ -1289,20 +1289,11 @@ Second \"item\" text"</string>
 Прайграванне відэа можа не працаваць"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Адключэнне гэтай налады можа выклікаць праблемы з прайграваннем відэа.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Клиент по умолчанию</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Принудительно AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Видеокодек принудительно установлен в AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Видеокодек определяется автоматически</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Уключэнне гэтага можа палепшыць тэрмін службы батарэі і выправіць заіканне відэа.
-
-AVC мае максімальную раздзяляльнасць 1080p, аўдыякадэкар Opus недаступны, і відэа будзе выкарыстоўваць больш Інтэрнэт-даных, чым VP9 або AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_title">Пабочныя эфекты падмены iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_summary">"• Прыватныя дзіцячыя відэа могуць не прайгравацца
-• Відэа заканчваюцца на 1 секунду раней"</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_title">Побочные эффекты подмены Android VR</string>
-  <string name="revanced_spoof_video_streams_about_android_vr_summary">"• Дзіцячыя відэа могуць не прайгравацца
-• Меню гукавых дарожак адсутнічае
-• Стабільны гук недаступны
-• Прымусовае выкарыстанне арыгінальнага аўдыё недаступна"</string>
+  <string name="revanced_spoof_video_streams_about_title">Падробка пабочных эфектаў</string>
+  <string name="revanced_spoof_video_streams_about_summary">"• Дзіцячыя відэа могуць не прайгравацца
+• Панэль гукавых дарожак адсутнічае
+• Стабільная гучнасць недаступная
+• Прымусова арыгінальная аўдыёдарожка недаступная"</string>
   <string name="revanced_spoof_video_streams_language_title">Язык потока аудио по умолчанию</string>
   <string name="revanced_spoof_video_streams_language_DEFAULT">Язык приложения</string>
   <string name="revanced_spoof_video_streams_language_AR">Арабский</string>

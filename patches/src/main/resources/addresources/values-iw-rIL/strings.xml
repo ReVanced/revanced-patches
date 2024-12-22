@@ -491,9 +491,6 @@ Mלות עם אותיות גדולות באמצע צריכות להיכנס עם
   <string name="revanced_spoof_video_streams_summary_off">"זרמי וידאו לא מזויפים
 
 ייתכן שהשמעת וידאו לא תעבוד"</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"הפעלת אפשרות זו עשויה לשפר את חיי הסוללה ולתקן קרטוע בהשמעת וידאו.
-
-AVC בעל רזולוציה מקסימלית של 1080p, קודק הסאונד Opus אינו זמין, והשמעת וידאו תשתמש בנתוני אינטרנט רבים יותר מ-VP9 או AV1."</string>
   <string name="revanced_spoof_video_streams_language_EN">אנגלית</string>
   <string name="revanced_spoof_video_streams_language_FR">צרפתית</string>
   </patch>
