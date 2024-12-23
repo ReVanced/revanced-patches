@@ -10,6 +10,7 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.requests.Requester;
 import app.revanced.extension.shared.requests.Route;
 import app.revanced.extension.shared.settings.BaseSettings;
+import app.revanced.extension.shared.spoof.AudioStreamLanguage;
 import app.revanced.extension.shared.spoof.ClientType;
 
 final class PlayerRoutes {
@@ -36,8 +37,17 @@ final class PlayerRoutes {
         try {
             JSONObject context = new JSONObject();
 
+            // Can override default language only if no login is used.
+            // Could use preferred audio for all clients that do not login,
+            // but if this is a fall over client it will set the language even though
+            // the audio language is not selectable in the UI.
+            ClientType userSelectedClient = BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get();
+            AudioStreamLanguage language = userSelectedClient == ClientType.ANDROID_VR_NO_AUTH
+                    ? BaseSettings.SPOOF_VIDEO_STREAMS_LANGUAGE.get()
+                    : AudioStreamLanguage.DEFAULT;
+
             JSONObject client = new JSONObject();
-            client.put("hl", BaseSettings.SPOOF_VIDEO_STREAMS_LANGUAGE.get().getLanguage());
+            client.put("hl", language.getLanguage());
             client.put("clientName", clientType.clientName);
             client.put("clientVersion", clientType.clientVersion);
             client.put("deviceModel", clientType.deviceModel);
