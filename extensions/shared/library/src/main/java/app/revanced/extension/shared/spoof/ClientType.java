@@ -4,6 +4,8 @@ import android.os.Build;
 
 import androidx.annotation.Nullable;
 
+import app.revanced.extension.shared.settings.BaseSettings;
+
 public enum ClientType {
     // https://dumps.tadiphone.dev/dumps/oculus/eureka
     ANDROID_VR_NO_AUTH( // Use as first fallback.
@@ -42,11 +44,24 @@ public enum ClientType {
     ),
     IOS_UNPLUGGED(33,
             "IOS_UNPLUGGED",
-            "iPhone16,2",
-            "17.7.2.21H221",
-            "com.google.ios.youtubeunplugged/8.33 (iPhone16,2; U; CPU iOS 17_7_2 like Mac OS X)",
+            forceAVC()
+                    ? "iPhone12,5"  // 11 Pro Max (last device with iOS 13)
+                    : "iPhone16,2", // 15 Pro Max
+            // iOS 13 and earlier uses only AVC.  14+ adds VP9 and AV1.
+            forceAVC()
+                    ? "13.7.17H35" // Last release of iOS 13.
+                    : "18.1.1.22B91",
+            forceAVC()
+                    ? "com.google.ios.youtubeunplugged/6.45 (iPhone; U; CPU iOS 13_7 like Mac OS X)"
+                    : "com.google.ios.youtubeunplugged/8.33 (iPhone; U; CPU iOS 18_1_1 like Mac OS X)",
             null,
-            "8.33",
+            // Version number should be a valid iOS release.
+            // https://www.ipa4fun.com/history/152043/
+            // Some newer versions can also force AVC,
+            // but 6.45 is the last version that supports iOS 13.
+            forceAVC()
+                    ? "6.45"
+                    : "8.33",
             true,
             "iOS TV"
     );
@@ -114,5 +129,9 @@ public enum ClientType {
         this.clientVersion = clientVersion;
         this.canLogin = canLogin;
         this.friendlyName = friendlyName;
+    }
+
+    private static boolean forceAVC() {
+        return BaseSettings.SPOOF_VIDEO_STREAMS_IOS_FORCE_AVC.get();
     }
 }

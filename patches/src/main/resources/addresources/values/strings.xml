@@ -1299,6 +1299,12 @@ Video playback may not work"</string>
             <string name="revanced_spoof_video_streams_client_type_title">Default client</string>
             <!-- 'no auth' means no authentication -->
             <string name="revanced_spoof_video_streams_client_type_android_vr_no_auth">Android VR (no auth)</string>
+            <string name="revanced_spoof_video_streams_ios_force_avc_title">Force iOS AVC (H.264)</string>
+            <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video codec is forced to AVC (H.264)</string>
+            <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video codec is determined automatically</string>
+            <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Enabling this might improve battery life and fix playback stuttering.
+
+AVC has a maximum resolution of 1080p, Opus audio codec is not available, and video playback will use more internet data than VP9 or AV1."</string>
             <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS TV spoofing side effects</string>
             <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Movies or paid videos may not play
 • Videos end 1 second early"</string>
@@ -1309,7 +1315,7 @@ Video playback may not work"</string>
             <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Show in Stats for nerds</string>
             <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Client type is shown in Stats for nerds</string>
             <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client is hidden in Stats for nerds</string>
-            <string name="revanced_spoof_video_streams_language_title">Default audio stream language</string>
+            <string name="revanced_spoof_video_streams_language_title">VR default audio stream language</string>
             <string name="revanced_spoof_video_streams_language_DEFAULT">Account language</string>
             <string name="revanced_spoof_video_streams_language_AR">Arabic</string>
             <string name="revanced_spoof_video_streams_language_AZ">Azerbaijani</string>

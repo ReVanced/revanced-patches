@@ -34,26 +34,6 @@ public class SpoofVideoStreamsPatch {
         return false; // Modified during patching.
     }
 
-    public static final class NotSpoofingAndroidAvailability implements Setting.Availability {
-        @Override
-        public boolean isAvailable() {
-            if (SpoofVideoStreamsPatch.isPatchIncluded()) {
-                return !BaseSettings.SPOOF_VIDEO_STREAMS.get()
-                        || BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.IOS_UNPLUGGED;
-            }
-
-            return true;
-        }
-    }
-
-    public static final class AudioStreamLanguageOverrideAvailability implements Setting.Availability {
-        @Override
-        public boolean isAvailable() {
-            return !BaseSettings.SPOOF_VIDEO_STREAMS.get()
-                    || BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.ANDROID_VR_NO_AUTH;
-        }
-    }
-
     /**
      * Injection point.
      * Blocks /get_watch requests by returning an unreachable URI.
@@ -224,5 +204,33 @@ public class SpoofVideoStreamsPatch {
         }
 
         return videoFormat;
+    }
+
+    public static final class NotSpoofingAndroidAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            if (SpoofVideoStreamsPatch.isPatchIncluded()) {
+                return !BaseSettings.SPOOF_VIDEO_STREAMS.get()
+                        || BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.IOS_UNPLUGGED;
+            }
+
+            return true;
+        }
+    }
+
+    public static final class AudioStreamLanguageOverrideAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            return !BaseSettings.SPOOF_VIDEO_STREAMS.get()
+                    || BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.ANDROID_VR_NO_AUTH;
+        }
+    }
+
+    public static final class SpoofiOSAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            return BaseSettings.SPOOF_VIDEO_STREAMS.get()
+                    && BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.IOS_UNPLUGGED;
+        }
     }
 }
